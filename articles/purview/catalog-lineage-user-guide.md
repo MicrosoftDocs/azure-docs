@@ -25,7 +25,7 @@ Data integration and ETL tools can push lineage in to Azure Purview at execution
 
 | Data processing system | Supported scope |
 | ---------------------- | ------------|
-| Azure Data Factory | [Copy activity](how-to-link-azure-data-factory.md#data-factory-copy-data-support) <br> [Data flow activity](how-to-link-azure-data-factory.md#data-factory-data-flow-support) <br> [Execute SSIS package activity](how-to-link-azure-data-factory.md#data-factory-execute-ssis-package-support) |
+| Azure Data Factory | [Copy activity](how-to-link-azure-data-factory.md#data-factory-copy-activity-support) <br> [Data flow activity](how-to-link-azure-data-factory.md#data-factory-data-flow-support) <br> [Execute SSIS package activity](how-to-link-azure-data-factory.md#data-factory-execute-ssis-package-support) |
 | Azure Data Share | [Share snapshot](how-to-link-azure-data-share.md) |
  
 ### Data storage systems
@@ -43,6 +43,8 @@ Data systems like Azure ML and Power BI report lineage into Azure Purview. These
 | Power BI | [Datasets, Dataflows, Reports & Dashboards](register-scan-power-bi-tenant.md)
 
 ## Get started with lineage
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE1XVQS]
 
 Lineage in Purview includes datasets and processes. Datasets are also referred to as nodes while processes can be also called edges:
 
@@ -68,39 +70,47 @@ Azure Purview supports asset level lineage for the datasets and processes. To se
 
    :::image type="content" source="./media/catalog-lineage-user-guide/view-columns-from-lineage.png" alt-text="Screenshot showing how to select View columns in the lineage page" border="true":::
 
-## Column-level lineage
+## Dataset column lineage
 
-Azure Purview supports column-level lineage for the datasets. To see column-level lineage, go to the **Lineage** tab of the current asset in the catalog and follow below steps:
+To see column-level lineage of a dataset, go to the **Lineage** tab of the current asset in the catalog and follow below steps:
 
 1. Once you are in the lineage tab, in the left pane, select the check box next to each column you want to display in the data lineage.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/select-columns-to-show-in-lineage.png" alt-text="Screenshot showing how to select columns to display in the lineage page." lightbox="./media/catalog-lineage-user-guide/select-columns-to-show-in-lineage.png":::
 
-1. Hover over a selected column on the left pane or in the dataset of the lineage canvas to see the column mapping. All the column instances are highlighted.
+2. Hover over a selected column on the left pane or in the dataset of the lineage canvas to see the column mapping. All the column instances are highlighted.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/show-column-flow-in-lineage.png" alt-text="Screenshot showing how to hover over a column name to highlight the column flow in a data lineage path." lightbox="./media/catalog-lineage-user-guide/show-column-flow-in-lineage.png":::
 
-1. If the number of columns is larger than what can be displayed in the left pane, use the filter option to select a specific column by name. Alternatively, you can use your mouse to scroll through the list.
+3. If the number of columns is larger than what can be displayed in the left pane, use the filter option to select a specific column by name. Alternatively, you can use your mouse to scroll through the list.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/filter-columns-by-name.png" alt-text="Screenshot showing how to filter columns by column name on the lineage page." lightbox="./media/catalog-lineage-user-guide/filter-columns-by-name.png":::
 
-1. If the lineage canvas contains more nodes and edges, use the filter to select data asset or process nodes by name. Alternatively, you can use your mouse to pan around the lineage window.
+4. If the lineage canvas contains more nodes and edges, use the filter to select data asset or process nodes by name. Alternatively, you can use your mouse to pan around the lineage window.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/filter-assets-by-name.png" alt-text="Screenshot showing data asset nodes by name on the lineage page." lightbox="./media/catalog-lineage-user-guide/filter-assets-by-name.png":::
 
-1. Use the toggle in the left pane to highlight the list of datasets in the lineage canvas. If you turn off the toggle, any asset that contains at least one of the selected columns is displayed. If you turn on the toggle, only datasets that contain all of the columns are displayed.
+5. Use the toggle in the left pane to highlight the list of datasets in the lineage canvas. If you turn off the toggle, any asset that contains at least one of the selected columns is displayed. If you turn on the toggle, only datasets that contain all of the columns are displayed.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/use-toggle-to-filter-nodes.png" alt-text="Screenshot showing how to use the toggle to filter the list of nodes on the lineage page." lightbox="./media/catalog-lineage-user-guide/use-toggle-to-filter-nodes.png":::
 
+## Process column lineage
+Data process can take one or more input datasets to produce one or more outputs. In Purview, column level lineage is available for process nodes. 
+1. Switch between input and output datasets from a drop down in the columns panel.
+2. Select columns from one or more tables to see the lineage flowing from input dataset to corresponding output dataset.
+
+   :::image type="content" source="./media/catalog-lineage-user-guide/process-column-lineage.png" alt-text="Screenshot showing columns lineage of a process node." lightbox="./media/catalog-lineage-user-guide/process-column-lineage.png":::
+
+## Browse assets in lineage
 1. Select **Switch to asset** on any asset to view its corresponding metadata from the lineage view. Doing so is an effective way to browse to another asset in the catalog from the lineage view.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/select-switch-to-asset.png" alt-text="Screenshot how to select Switch to asset in a lineage data asset." lightbox="./media/catalog-lineage-user-guide/select-switch-to-asset.png":::
 
-1. The lineage canvas could become complex for popular datasets. To avoid clutter, the default view will only show five levels of lineage for the asset in focus. The rest of the lineage can be expanded by clicking the bubbles in the lineage canvas. Data consumers can also hide the assets in the canvas that are of no interest. To further reduce the clutter, turn off the toggle **More Lineage** at the top of lineage canvas. This action will hide all the bubbles in lineage canvas.
+2. The lineage canvas could become complex for popular datasets. To avoid clutter, the default view will only show five levels of lineage for the asset in focus. The rest of the lineage can be expanded by clicking the bubbles in the lineage canvas. Data consumers can also hide the assets in the canvas that are of no interest. To further reduce the clutter, turn off the toggle **More Lineage** at the top of lineage canvas. This action will hide all the bubbles in lineage canvas.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/use-toggle-to-hide-bubbles.png" alt-text="Screenshot showing how to toggle More lineage." lightbox="./media/catalog-lineage-user-guide/use-toggle-to-hide-bubbles.png":::
 
-1. Use the smart buttons in the lineage canvas to get an optimal view of the lineage. Auto layout, Zoom to fit, Zoom in/out, Full screen, and navigation map are available for an immersive lineage experience in the catalog.
+3. Use the smart buttons in the lineage canvas to get an optimal view of the lineage. Auto layout, Zoom to fit, Zoom in/out, Full screen, and navigation map are available for an immersive lineage experience in the catalog.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/use-lineage-smart-buttons.png" alt-text="Screenshot showing how to select the lineage smart buttons." lightbox="./media/catalog-lineage-user-guide/use-lineage-smart-buttons.png":::
 

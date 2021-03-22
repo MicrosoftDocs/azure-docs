@@ -216,6 +216,15 @@ For details on how to modify tracked telemetry before it's sent to Azure Monitor
 
 ### Metrics
 
+OpenCensus.stats supports 4 aggregation methods but provides partial support for Azure Monitor:
+
+- **Count:** The count of the number of measurement points. The value is cumulative, can only increase and resets to 0 on restart. 
+- **Sum:** A sum up of the measurement points. The value is cumulative, can only increase and resets to 0 on restart. 
+- **LastValue:** Keeps the last recorded value, drops everything else.
+- **Distribution:** Histogram distribution of the measurement points. This method is **NOT supported by the Azure Exporter**.
+
+### Count Aggregation example
+
 1. First, let's generate some local metric data. We'll create a simple metric to track the number of times the user selects the **Enter** key.
 
     ```python
@@ -315,7 +324,7 @@ For details on how to modify tracked telemetry before it's sent to Azure Monitor
         main()
     ```
 
-1. The exporter sends metric data to Azure Monitor at a fixed interval. The default is every 15 seconds. We're tracking a single metric, so this metric data, with whatever value and time stamp it contains, is sent every interval. You can find the data under `customMetrics`.
+1. The exporter sends metric data to Azure Monitor at a fixed interval. The default is every 15 seconds. We're tracking a single metric, so this metric data, with whatever value and time stamp it contains, is sent every interval. The value is cumulative, can only increase and resets to 0 on restart. You can find the data under `customMetrics`, but `customMetrics` properties valueCount, valueSum, valueMin, valueMax, and valueStdDev are not effectively used.
 
 #### Performance counters
 

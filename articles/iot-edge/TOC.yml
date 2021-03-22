@@ -115,8 +115,6 @@
     href: support.md
   - name: Production deployment checklist
     href: production-checklist.md
-  - name: IoT Edge glossary
-    href: iot-edge-glossary.md
 - name: How-to guides
   items:
   - name: Create an IoT Edge device
@@ -133,6 +131,8 @@
       href: how-to-update-iot-edge.md
     - name: Manage device certificates
       href: how-to-manage-device-certificates.md
+    - name: Configure nested virtualization for Windows VMs
+      href: nested-virtualization.md
   - name: Alternative device scenarios
     items:
     - name: Run IoT Edge with Windows containers
@@ -251,12 +251,16 @@
     href: how-to-create-test-certificates.md
   - name: Windows device management scripts
     href: reference-windows-scripts.md
+  - name: IoT Edge for Linux on Windows scripts
+    href: reference-iot-edge-for-linux-on-windows-scripts.md
   - name: Azure CLI
     href: /cli/azure/azure-cli-reference-for-IoT
 - name: Resources
   items:
   - name: Support and help options
-    href: ../iot-fundamentals/iot-support-help.md
+    href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
+  - name: IoT Glossary
+    href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
   - name: Azure IoT services
     items:
     - name: IoT Hub

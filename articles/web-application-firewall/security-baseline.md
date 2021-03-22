@@ -80,9 +80,9 @@ Configure the Azure WAF to run in Prevention mode after baselining the network t
 
 Apply rules and rule groups to Azure Web Application Firewall (WAF) policies based on the applied tag metadata.
 
-- [WAF policy on Application Gateway](/cli/azure/network/application-gateway/waf-policy?view=azure-cli-latest) 
+- [WAF policy on Application Gateway](/cli/azure/network/application-gateway/waf-policy) 
 
-- [WAF policy on Front Door](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest)
+- [WAF policy on Front Door](/cli/azure/ext/front-door/network/front-door/waf-policy)
 
 **Azure Security Center monitoring**: Not applicable
 

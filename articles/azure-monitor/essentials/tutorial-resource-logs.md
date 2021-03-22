@@ -1,7 +1,6 @@
 ---
 title: Collect resource logs from an Azure Resource and analyze with Azure Monitor
 description: Tutorial to configure diagnostic settings to collect resource logs from an Azure resource into a Log Analytics workspace where they can be analyzed with a log query.
-ms.subservice: 
 ms.topic: tutorial
 author: bwren
 ms.author: bwren

@@ -76,12 +76,18 @@ landingContent:
             url: core/howto-create-analytics.md
           - text: Export data to cloud destinations
             url: core/howto-export-data.md
+          - text: Move devices from IoT Hub
+            url: core/how-to-move-device-to-iot.md
       - linkListType: reference
         links:
           - text: REST API
             url: /rest/api/iotcentral/
   - title: Manage your devices
     linkLists:
+      - linkListType: overview
+        links:
+          - text: Overview for operators
+            url: core/overview-iot-central-operator.md
       - linkListType: tutorial
         links:
           - text: Use device groups

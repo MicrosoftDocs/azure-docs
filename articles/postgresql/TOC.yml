@@ -27,6 +27,8 @@
       - name: Minimal-downtime migration with DMS
         href: howto-migrate-online.md
         displayName: dms, data migration service
+      - name: Migrate from Oracle
+        href: howto-migrate-from-oracle.md
   - name: Versioning policy
     href: concepts-version-policy.md
     displayName: version, postgresql
@@ -113,6 +115,9 @@
     items:
     - name: Azure CLI
       href: sample-scripts-azure-cli.md
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./policy-reference.md
   - name: Concepts
     items:
     - name: Servers
@@ -421,6 +426,8 @@
         href: flexible-server/quickstart-create-server-arm-template.md
     - name: Connect and query
       items:
+        - name: Azure CLI
+          href: flexible-server/connect-azure-cli.md
         - name: Python
           href: flexible-server/connect-python.md
         - name: Java
@@ -572,14 +579,6 @@
       - name: Design a real-time dashboard
         href: tutorial-design-database-hyperscale-realtime.md
         displayName: hyperscale, tutorial, real-time
-  - name: Samples
-    items:
-    - name: Azure CLI
-      href: sample-scripts-azure-cli.md
-      displayName: samples, azure cli
-    - name: Azure Policy built-ins
-      displayName: samples, policies, definitions
-      href: ./policy-reference.md
   - name: Concepts
     items:
     - name: Distributed data

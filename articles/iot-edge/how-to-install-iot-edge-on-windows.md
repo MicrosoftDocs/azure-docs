@@ -14,6 +14,8 @@ monikerRange: "=iotedge-2018-06"
 
 # Install and provision Azure IoT Edge for Linux on a Windows device (Preview)
 
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+
 The Azure IoT Edge runtime is what turns a device into an IoT Edge device. The runtime can be deployed on devices from PC class to industrial servers. Once a device is configured with the IoT Edge runtime, you can start deploying business logic to it from the cloud. To learn more, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
 
 Azure IoT Edge for Linux on Windows allows you to use Azure IoT Edge on Windows devices by using Linux virtual machines. The Linux version of Azure IoT Edge and any Linux modules deployed with it run on the virtual machine. From there, Windows applications and code and the IoT Edge runtime and modules can freely interact with each other.
@@ -37,20 +39,15 @@ This article lists the steps to set up IoT Edge on a Windows device. These steps
   * Professional, Enterprise, or Server editions
   * Minimum RAM: 4 GB (8 GB recommended)
   * Minimum Storage: 10 GB
+  * If you're creating a new deployment using Windows 10, make sure you enable Hyper-V. For more information, see how to [Install Hyper-V on Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v.md).
+  * If you're creating a new deployment using Windows Server, make sure you install Hyper-V role. For more information, see how to [Install the Hyper-V role on Windows Server](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server.md).
+  * If you're creating a new deployment using a VM, make sure you configure nested virtualization correctly. For more information, see the [nested virtualization](nested-virtualization.md) guide.
 
-* Access to Windows Admin Center insider build with the Azure IoT Edge extension for Windows Admin Center installed:
-   <!-- The link below needs the language localization to work; otherwise broken -->
-   1. Visit the [Windows Insider Preview](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewserver).
+* Access to Windows Admin Center with the Azure IoT Edge extension for Windows Admin Center installed:
 
-   1. In the previews dropdown, select **Windows Admin Center Preview - Build 2012**, and choose **Confirm**.
+   1. Download the [Windows Admin Center installer](https://aka.ms/wacdownload).
 
-      ![Choose the Windows Admin Center Preview - Build 2012 from the dropdown menu of available previews.](./media/how-to-install-iot-edge-on-windows/select-windows-admin-center-preview-build.png)
-
-   1. In the **Select Language** dropdown, choose **English**, and choose **Confirm**.
-
-   1. Choose **Download Now** to download the *WindowsAdminCenterPreview2012.msi*.
-
-   1. Run the *WindowsAdminCenterPreview2012.msi* and follow the install wizard prompts to install Windows Admin Center. Once installed, open Windows Admin Center.
+   1. Run the downloaded installer and follow the install wizard prompts to install Windows Admin Center. Once installed, open Windows Admin Center.
 
    1. On the first use of Windows Admin Center, you will be prompted to select a certificate to use. Select **Windows Admin Center Client** as your certificate.
 
@@ -139,7 +136,7 @@ Install IoT Edge for Linux on Windows onto your target device if you have not al
    ```azurepowershell-interactive
    $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
    $ProgressPreference = 'SilentlyContinue'
-   ​Invoke-WebRequest "https://aka.ms/AzureEdgeForLinuxOnWindowsMSI" -OutFile $msiPath
+   ​Invoke-WebRequest "https://aka.ms/AzEflowMSI" -OutFile $msiPath
    ```
 
 1. Install IoT Edge for Linux on Windows on your device.
@@ -169,9 +166,8 @@ Install IoT Edge for Linux on Windows onto your target device if you have not al
    Deploy-Eflow
    ```
 
-   <!-- Most likely temporary until cmdlet is fully documented -->
    > [!NOTE]
-   > You can run this command without parameters or optionally customize deployment with parameters. Inspect the PowerShell module AzureEFLOW.psm1 to see the parameters and their meaning (see under C:\Program Files\WindowsPowerShell\Modules\AzureEFLOW)​.
+   > You can run this command without parameters or optionally customize deployment with parameters. You can refer to [the IoT Edge for Linux on Windows PowerShell script reference](reference-iot-edge-for-linux-on-windows-scripts.md#deploy-eflow) to see their meaning​s.
 
 1. Enter 'Y' to accept the license terms.
 
@@ -315,7 +311,10 @@ This section covers provisioning your device automatically using DPS and X.509 c
 
 Verify that IoT Edge for Linux on Windows was successfully installed and configured on your IoT Edge device.
 
+# [Windows Admin Center](#tab/windowsadmincenter)
+
 1. Select your IoT Edge device from the list of connected devices in Windows Admin Center to connect to it.
+
 1. The device overview page displays some information about the device:
 
     1. The **IoT Edge Module List** section shows running modules on the device. When the IoT Edge service starts for the first time, you should only see the **edgeAgent** module running. The edgeAgent module runs by default and helps to install and start any additional modules that you deploy to your device.
@@ -334,6 +333,36 @@ Verify that IoT Edge for Linux on Windows was successfully installed and configu
        ```bash
        sudo iotedge check
        ```
+
+# [PowerShell](#tab/powershell)
+
+1. Log in to your IoT Edge for Linux on Windows virtual machine using the following command in your PowerShell session:
+
+   ```azurepowershell-interactive
+   Ssh-EflowVm
+   ```
+
+1. Once you are logged in, you can check the list of running IoT Edge modules using the following Linux command:
+
+   ```bash
+   iotedge list
+   ```
+
+1. If you need to troubleshoot the IoT Edge service, use the following Linux commands.
+
+    1. If you need to troubleshoot the service, retrieve the service logs.
+
+       ```bash
+       journalctl -u iotedge
+       ```
+
+    2. Use the `check` tool to verify configuration and connection status of the device.
+
+       ```bash
+       sudo iotedge check
+       ```
+
+---
 
 ## Next steps
 

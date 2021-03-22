@@ -1,6 +1,6 @@
 ---
-title: Copy Hive tables across Storage Accounts
-description: Hive workload migration across Storage Accounts
+title: Hive workload migration to new account in Azure Storage
+description: Hive workload migration to new account in Azure Storage
 author: kevxmsft
 ms.author: kevx
 ms.reviewer: 
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 12/11/2020
 ---
 
-# Copy Hive tables across Storage Accounts
+# Hive workload migration to new account in Azure Storage
 
 Learn how to use script actions to copy Hive tables across storage accounts in HDInsight. This may be useful when migrating to [`Azure Data Lake Storage Gen2`](../hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
@@ -24,9 +24,9 @@ To manually copy an individual Hive table on HDInsight 4.0, see [Hive export/imp
 * A storage account that is accessible to both original and new clusters. See [Add additional storage accounts to HDInsight](../hdinsight-hadoop-add-storage.md) and [Storage types and features](../hdinsight-hadoop-compare-storage-options.md#storage-types-and-features) for allowed secondary storage types.
 
     Here are some options:
-  1. Add the target storage account to the original cluster.
-  2. Add the original storage account to the new cluster.
-  3. Add an intermediary storage account to both the original and new clusters.
+  * Add the target storage account to the original cluster.
+  * Add the original storage account to the new cluster.
+  * Add an intermediary storage account to both the original and new clusters.
 
 ## How it works
 

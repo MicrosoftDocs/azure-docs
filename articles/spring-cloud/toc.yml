@@ -147,6 +147,8 @@
       items:
         - name: Self diagnose and solve problems
           href: spring-cloud-howto-self-diagnose-solve.md
+        - name: Self diagnose running in VNET
+          href: spring-cloud-howto-self-diagnose-running-in-vnet.md
         - name: Troubleshooting guide
           href: spring-cloud-troubleshoot.md
     - name: Migrate
@@ -188,3 +190,6 @@
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
+  - name: What's New
+    displayName: What's New
+    href: https://azure.microsoft.com/updates/?query=spring

@@ -6,7 +6,7 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/08/2020
+ms.date: 03/17/2021
 ---
 
 # Copy and transform data in Azure Blob storage by using Azure Data Factory
@@ -224,7 +224,7 @@ These properties are supported for an Azure Blob storage linked service:
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **AzureBlobStorage**. | Yes |
 | serviceEndpoint | Specify the Azure Blob storage service endpoint with the pattern of `https://<accountName>.blob.core.windows.net/`. | Yes |
-| accountKind | Specify the kind of your storage account. Allowed values are: **Storage** (general purpose v1), **StorageV2** (general purpose v2), **BlobStorage**, or **BlockBlobStorage**. <br/> When using Azure Blob linked service in data flow, managed identity or service principal authentication is not supported when account kind as empty or "Storage". Specify the proper account kind, choose a different authentication, or upgrade your storage account to general purpose v2. | No |
+| accountKind | Specify the kind of your storage account. Allowed values are: **Storage** (general purpose v1), **StorageV2** (general purpose v2), **BlobStorage**, or **BlockBlobStorage**. <br/><br/>When using Azure Blob linked service in data flow, managed identity or service principal authentication is not supported when account kind as empty or "Storage". Specify the proper account kind, choose a different authentication, or upgrade your storage account to general purpose v2. | No |
 | servicePrincipalId | Specify the application's client ID. | Yes |
 | servicePrincipalKey | Specify the application's key. Mark this field as **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering over the upper-right corner of the Azure portal. | Yes |
@@ -232,7 +232,9 @@ These properties are supported for an Azure Blob storage linked service:
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. | No |
 
 >[!NOTE]
->If your blob account enables [soft delete](../storage/blobs/soft-delete-blob-overview.md), service principal authentication is not supported in Data Flow.
+>
+>- If your blob account enables [soft delete](../storage/blobs/soft-delete-blob-overview.md), service principal authentication is not supported in Data Flow.
+>- If you access the blob storage through private endpoint using Data Flow, note when service principal authentication is used Data Flow connects to the ADLS Gen2 endpoint instead of Blob endpoint. Make sure you create the corresponding private endpoint in ADF to enable access.
 
 >[!NOTE]
 >Service principal authentication is supported only by the "AzureBlobStorage" type linked service, not the previous "AzureStorage" type linked service.
@@ -284,11 +286,13 @@ These properties are supported for an Azure Blob storage linked service:
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **AzureBlobStorage**. | Yes |
 | serviceEndpoint | Specify the Azure Blob storage service endpoint with the pattern of `https://<accountName>.blob.core.windows.net/`. | Yes |
-| accountKind | Specify the kind of your storage account. Allowed values are: **Storage** (general purpose v1), **StorageV2** (general purpose v2), **BlobStorage**, or **BlockBlobStorage**. <br/> When using Azure Blob linked service in data flow, managed identity or service principal authentication is not supported when account kind as empty or "Storage". Specify the proper account kind, choose a different authentication, or upgrade your storage account to general purpose v2. | No |
+| accountKind | Specify the kind of your storage account. Allowed values are: **Storage** (general purpose v1), **StorageV2** (general purpose v2), **BlobStorage**, or **BlockBlobStorage**. <br/><br/>When using Azure Blob linked service in data flow, managed identity or service principal authentication is not supported when account kind as empty or "Storage". Specify the proper account kind, choose a different authentication, or upgrade your storage account to general purpose v2. | No |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. | No |
 
 > [!NOTE]
-> If your blob account enables [soft delete](../storage/blobs/soft-delete-blob-overview.md), managed identity authentication is not supported in Data Flow.
+>
+> - If your blob account enables [soft delete](../storage/blobs/soft-delete-blob-overview.md), managed identity authentication is not supported in Data Flow.
+> - If you access the blob storage through private endpoint using Data Flow, note when managed identity authentication is used Data Flow connects to the ADLS Gen2 endpoint instead of Blob endpoint . Make sure you create the corresponding private endpoint in ADF to enable access.
 
 > [!NOTE]
 > Managed identities for Azure resource authentication are supported only by the "AzureBlobStorage" type linked service, not the previous "AzureStorage" type linked service.
@@ -380,7 +384,7 @@ The following properties are supported for Azure Blob storage under `storeSettin
 | modifiedDatetimeEnd      | Same as above.                                               | No                                            |
 | enablePartitionDiscovery | For files that are partitioned, specify whether to parse the partitions from the file path and add them as additional source columns.<br/>Allowed values are **false** (default) and **true**. | No                                            |
 | partitionRootPath | When partition discovery is enabled, specify the absolute root path in order to read partitioned folders as data columns.<br/><br/>If it is not specified, by default,<br/>- When you use file path in dataset or list of files on source, partition root path is the path configured in dataset.<br/>- When you use wildcard folder filter, partition root path is the sub-path before the first wildcard.<br/>- When you use prefix, partition root path is sub-path before the last "/". <br/><br/>For example, assuming you configure the path in dataset as "root/folder/year=2020/month=08/day=27":<br/>- If you specify partition root path as "root/folder/year=2020", copy activity will generate two more columns `month` and `day` with value "08" and "27" respectively, in addition to the columns inside the files.<br/>- If partition root path is not specified, no extra column will be generated. | No                                            |
-| maxConcurrentConnections | The number of concurrent connections to storage. Specify only when you want to limit concurrent connections to the data store. | No                                            |
+| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No                                            |
 
 > [!NOTE]
 > For Parquet/delimited text format, the **BlobSource** type for the Copy activity source mentioned in the next section is still supported as is for backward compatibility. We suggest that you use the new model until the Data Factory authoring UI has switched to generating these new types.
@@ -440,7 +444,7 @@ The following properties are supported for Azure Blob storage under `storeSettin
 | type                     | The `type` property under `storeSettings` must be set to `AzureBlobStorageWriteSettings`. | Yes      |
 | copyBehavior             | Defines the copy behavior when the source is files from a file-based data store.<br/><br/>Allowed values are:<br/><b>- PreserveHierarchy (default)</b>: Preserves the file hierarchy in the target folder. The relative path of the source file to the source folder is identical to the relative path of the target file to the target folder.<br/><b>- FlattenHierarchy</b>: All files from the source folder are in the first level of the target folder. The target files have autogenerated names. <br/><b>- MergeFiles</b>: Merges all files from the source folder to one file. If the file or blob name is specified, the merged file name is the specified name. Otherwise, it's an autogenerated file name. | No       |
 | blockSizeInMB | Specify the block size, in megabytes, used to write data to block blobs. Learn more [about Block Blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs). <br/>Allowed value is *between 4 MB and 100 MB*. <br/>By default, Data Factory automatically determines the block size based on your source store type and data. For nonbinary copy into Blob storage, the default block size is 100 MB so it can fit in (at most) 4.95 TB of data. It might be not optimal when your data is not large, especially when you use the self-hosted integration runtime with poor network connections that result in operation timeout or performance issues. You can explicitly specify a block size, while ensuring that `blockSizeInMB*50000` is big enough to store the data. Otherwise, the Copy activity run will fail. | No |
-| maxConcurrentConnections | The number of concurrent connections to storage. Specify only when you want to limit concurrent connections to the data store. | No       |
+| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No       |
 
 **Example:**
 
@@ -672,7 +676,7 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 |:--- |:--- |:--- |
 | type | The `type` property of the Copy activity source must be set to `BlobSource`. | Yes |
 | recursive | Indicates whether the data is read recursively from the subfolders or only from the specified folder. Note that when `recursive` is set to `true` and the sink is a file-based store, an empty folder or subfolder isn't copied or created at the sink.<br/>Allowed values are `true` (default) and `false`. | No |
-| maxConcurrentConnections | The number of concurrent connections to storage. Specify only when you want to limit concurrent connections to the data store. | No |
+| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
 
 **Example:**
 
@@ -712,7 +716,7 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 |:--- |:--- |:--- |
 | type | The `type` property of the Copy activity sink must be set to `BlobSink`. | Yes |
 | copyBehavior | Defines the copy behavior when the source is files from a file-based data store.<br/><br/>Allowed values are:<br/><b>- PreserveHierarchy (default)</b>: Preserves the file hierarchy in the target folder. The relative path of source file to source folder is identical to the relative path of target file to target folder.<br/><b>- FlattenHierarchy</b>: All files from the source folder are in the first level of the target folder. The target files have autogenerated names. <br/><b>- MergeFiles</b>: Merges all files from the source folder to one file. If the file or blob name is specified, the merged file name is the specified name. Otherwise, it's an autogenerated file name. | No |
-| maxConcurrentConnections | The number of concurrent connections to storage. Specify only when you want to limit concurrent connections to the data store. | No |
+| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
 
 **Example:**
 

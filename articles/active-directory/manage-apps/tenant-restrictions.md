@@ -24,7 +24,7 @@ With tenant restrictions, organizations can specify the list of tenants that the
 
 This article focuses on tenant restrictions for Microsoft 365, but the feature protects all apps that send the user to Azure AD for single sign-on. If you use SaaS apps with a different Azure AD tenant from the tenant used by your Microsoft 365, make sure that all required tenants are permitted (e.g. in B2B collaboration scenarios). For more information about SaaS cloud apps, see the [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps).
 
-Additionally, the tenant restrictions feature now supports [blocking the use of all Microsoft consumer applications](#blocking-consumer-applications) (MSA apps) such as OneDrive, Hotmail, and Xbox.com.  This uses a separate header to the `login.live.com` endpoint, and is detailed at the end of the document.
+Additionally, the tenant restrictions feature now supports [blocking the use of all Microsoft consumer applications](#blocking-consumer-applications-public-preview) (MSA apps) such as OneDrive, Hotmail, and Xbox.com.  This uses a separate header to the `login.live.com` endpoint, and is detailed at the end of the document.
 
 ## How it works
 
@@ -104,19 +104,18 @@ While configuration of tenant restrictions is done on the corporate proxy infras
 
 The admin for the tenant specified as the Restricted-Access-Context tenant can use this report to see sign-ins blocked because of the tenant restrictions policy, including the identity used and the target directory ID. Sign-ins are included if the tenant setting the restriction is either the user tenant or resource tenant for the sign-in.
 
-> [!NOTE]
-> The report may contain limited information, such as target directory ID, when a user who is in a tenant other than the Restricted-Access-Context tenant signs in. In this case, user identifiable information, such as name and user principal name, is masked to protect user data in other tenants ("00000000-0000-0000-0000-00000000@domain.com") 
+The report may contain limited information, such as target directory ID, when a user who is in a tenant other than the Restricted-Access-Context tenant signs in. In this case, user identifiable information, such as name and user principal name, is masked to protect user data in other tenants ("{PII Removed}@domain.com" or 00000000-0000-0000-0000-000000000000 in place of usernames and object IDs as appropriate). 
 
 Like other reports in the Azure portal, you can use filters to specify the scope of your report. You can filter on a specific time interval, user, application, client, or status. If you select the **Columns** button, you can choose to display data with any combination of the following fields:
 
-- **User**
+- **User** - this field can have personally identifiable information removed, where it will be set to `00000000-0000-0000-0000-000000000000`. 
 - **Application**
 - **Status**
 - **Date**
-- **Date (UTC)** (where UTC is Coordinated Universal Time)
+- **Date (UTC)** - where UTC is Coordinated Universal Time
 - **IP Address**
 - **Client**
-- **Username**
+- **Username** - this field can have personally identifiable information removed, where it will be set to `{PII Removed}@domain.com`
 - **Location**
 - **Target tenant ID**
 
@@ -174,9 +173,9 @@ Fiddler is a free web debugging proxy that can be used to capture and modify HTT
       }
    ```
 
-If you need to allow multiple tenants, use a comma to separate the tenant names. For example:
+   If you need to allow multiple tenants, use a comma to separate the tenant names. For example:
 
-      `oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";`
+   `oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";`
 
 4. Save and close the CustomRules file.
 
@@ -191,19 +190,19 @@ Depending on the capabilities of your proxy infrastructure, you may be able to s
 
 For specific details, refer to your proxy server documentation.
 
-## Blocking consumer applications
+## Blocking consumer applications (public preview)
 
-Applications from Microsoft that support both consumer accounts and organizational accounts, like [OneDrive](https://onedrive.live.com/) or [Microsoft Learn](https://docs.microsoft.com/learn/), can sometimes be hosted on a the same URL.  This means that users that must access that URL for work purposes also have access to it for personal use, which may not be permitted under your operating guidelines.
+Applications from Microsoft that support both consumer accounts and organizational accounts, like [OneDrive](https://onedrive.live.com/) or [Microsoft Learn](/learn/), can sometimes be hosted on the same URL.  This means that users that must access that URL for work purposes also have access to it for personal use, which may not be permitted under your operating guidelines.
 
 Some organizations attempt to fix this by blocking `login.live.com` in order to block personal accounts from authenticating.  This has several downsides:
 
 1. Blocking `login.live.com` blocks the use of personal accounts in B2B guest scenarios, which can intrude on visitors and collaboration.
-1. [Autopilot requires the use of `login.live.com`](https://docs.microsoft.com/mem/autopilot/networking-requirements) in order to deploy. Intune and Autopilot scenarios can fail when `login.live.com` is blocked.
-1. Organizational telemetry and Windows updates that rely on the MSA service for device IDs [will cease to work](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#feature-updates-are-not-being-offered-while-other-updates-are).
+1. [Autopilot requires the use of `login.live.com`](/mem/autopilot/networking-requirements) in order to deploy. Intune and Autopilot scenarios can fail when `login.live.com` is blocked.
+1. Organizational telemetry and Windows updates that rely on the login.live.com service for device IDs [will cease to work](/windows/deployment/update/windows-update-troubleshooting#feature-updates-are-not-being-offered-while-other-updates-are).
 
 ### Configuration for consumer apps
 
-While the `Restrict-Access-To-Tenants` header functions as an allow-list, the MSA block works as a deny signal, telling the Microsoft account platform to not allow users to sign in to consumer applications. To send this signal, a `sec-Restrict-Tenant-Access-Policy` header is injected to traffic visiting `login.live.com` using the same corporate proxy or firewall as [above](#proxy-configuration-and-requirements). The value of the header must be `restrict-msa`. When the header is present and a consumer app is attempting to sign in a user directly, that sign in will be blocked.
+While the `Restrict-Access-To-Tenants` header functions as an allow-list, the Microsoft account (MSA) block works as a deny signal, telling the Microsoft account platform to not allow users to sign in to consumer applications. To send this signal, the `sec-Restrict-Tenant-Access-Policy` header is injected to traffic visiting `login.live.com` using the same corporate proxy or firewall as [above](#proxy-configuration-and-requirements). The value of the header must be `restrict-msa`. When the header is present and a consumer app is attempting to sign in a user directly, that sign in will be blocked.
 
 At this time, authentication to consumer applications does not appear in the [admin logs](#admin-experience), as login.live.com is hosted separately from Azure AD.
 
@@ -212,7 +211,7 @@ At this time, authentication to consumer applications does not appear in the [ad
 The `restrict-msa` policy blocks the use of consumer applications, but allows through several other types of traffic and authentication:
 
 1. User-less traffic for devices.  This includes traffic for Autopilot, Windows Update, and organizational telemetry.
-1. B2B authentication of consumer accounts. Users with Microsoft accounts that are [invited to collaborate with a tenant](https://docs.microsoft.com/azure/active-directory/external-identities/redemption-experience#invitation-redemption-flow) authenticate to login.live.com in order to access a resource tenant.
+1. B2B authentication of consumer accounts. Users with Microsoft accounts that are [invited to collaborate with a tenant](../external-identities/redemption-experience.md#invitation-redemption-flow) authenticate to login.live.com in order to access a resource tenant.
     1. This access is controlled using the `Restrict-Access-To-Tenants` header to allow or deny access to that resource tenant.
 1. "Passthrough" authentication, used by many Azure apps as well as Office.com, where apps use Azure AD to sign in consumer users in a consumer context.
     1. This access is also controlled using the `Restrict-Access-To-Tenants` header to allow or deny access to the special "passthrough" tenant (`f8cdef31-a31e-4b4a-93e4-5f571e91255a`).  If this tenant does not appear in your `Restrict-Access-To-Tenants` list of allowed domains, consumer accounts will be blocked by Azure AD from signing into these apps.

@@ -23,12 +23,14 @@ Azure Active Directory allows [FIDO2 security keys](./concept-authentication-pas
 
 This table shows support for authenticating Azure Active Directory (Azure AD) and Microsoft Accounts (MSA). Microsoft accounts are created by consumers for services such as Xbox, Skype, or Outlook.com. Supported device types include **USB**, near-field communication (**NFC**), and bluetooth low energy (**BLE**).
 
-|  | Chrome |  |  | Edge |  |  | Firefox |  |  |
+| OS | Chrome | Chrome  | Chrome | Edge | Edge | Edge | Firefox | Firefox | Firefox |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | | USB | NFC | BLE | USB | NFC | BLE | USB | NFC | BLE |
 | **Windows**  | ![Chrome supports USB on Windows for AAD accounts.][y] | ![Chrome supports NFC on Windows for AAD accounts.][y] | ![Chrome supports BLE on Windows for AAD accounts.][y] | ![Edge supports USB on Windows for AAD accounts.][y] | ![Edge supports NFC on Windows for AAD accounts.][y] | ![Edge supports BLE on Windows for AAD accounts.][y] | ![Firefox supports USB on Windows for AAD accounts.][y] | ![Firefox supports NFC on Windows for AAD accounts.][y] | ![Firefox supports BLE on Windows for AAD accounts.][y] |
 | **macOS**  | ![Chrome supports USB on macOS for AAD accounts.][y] | ![Chrome does not support NFC on macOS for AAD accounts.][n] | ![Chrome does not support BLE on macOS for AAD accounts.][n] | ![Edge supports USB on macOS for AAD accounts.][y] | ![Edge does not support NFC on macOS for AAD accounts.][n] | ![Edge does not support BLE on macOS for AAD accounts.][n] | ![Firefox does not support USB on macOS for AAD accounts.][n] | ![Firefox does not support NFC on macOS for AAD accounts.][n] | ![Firefox does not support BLE on macOS for AAD accounts.][n] |
 | **Linux**  | ![Chrome supports USB on Linux for AAD accounts.][y] | ![Chrome does not support NFC on Linux for AAD accounts.][n] | ![Chrome does not support BLE on Linux for AAD accounts.][n] | ![Edge does not support USB on Linux for AAD accounts.][n] | ![Edge does not support NFC on Linux for AAD accounts.][n] | ![Edge does not support BLE on Linux for AAD accounts.][n] | ![Firefox does not support USB on Linux for AAD accounts.][n] | ![Firefox does not support NFC on Linux for AAD accounts.][n] | ![Firefox does not support BLE on Linux for AAD accounts.][n] |
+
+
 
 ## Unsupported browsers
 
@@ -49,8 +51,7 @@ The following are the minimum browser version requirements.
 | ---- | ---- |
 | Chrome | 76 |
 | Edge | Windows 10 version 1903<sup>1</sup> |
-| Firefox | Chrome |
-| ChromeOS | 66 |
+| Firefox | 66 |
 
 <sup>1</sup>All versions of the new Chromium-based Microsoft Edge support Fido2. Support on Microsoft Edge legacy was added in 1903.
 

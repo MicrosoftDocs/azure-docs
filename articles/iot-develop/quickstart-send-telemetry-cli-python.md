@@ -64,7 +64,7 @@ In this section, you will use the Python SDK to send messages from your simulate
     export IOTHUB_DEVICE_CONNECTION_STRING="<your connection string here>"
     ```
 
-1. In your open CLI shell, run the [az iot hub monitor-events](/cli/azure/ext/azure-iot/iot/hub?preserve-view=true&view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events) command to begin monitoring for events on your simulated IoT device.  Event messages will be printed in the terminal as they arrive.
+1. In your open CLI shell, run the [az iot hub monitor-events](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-monitor-events) command to begin monitoring for events on your simulated IoT device.  Event messages will be printed in the terminal as they arrive.
 
     ```azurecli
     az iot hub monitor-events --output table --hub-name {YourIoTHubName}
@@ -125,12 +125,12 @@ If you no longer need the Azure resources created in this quickstart, you can us
 > Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources.
 
 To delete a resource group by name:
-1. Run the [az group delete](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-delete) command. This removes the resource group, the IoT Hub, and the device registration you created.
+1. Run the [az group delete](/cli/azure/group#az-group-delete) command. This removes the resource group, the IoT Hub, and the device registration you created.
 
     ```azurecli
     az group delete --name MyResourceGroup
     ```
-1. Run the [az group list](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-list) command to confirm the resource group is deleted.  
+1. Run the [az group list](/cli/azure/group#az-group-list) command to confirm the resource group is deleted.  
 
     ```azurecli
     az group list

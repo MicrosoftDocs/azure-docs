@@ -3,6 +3,7 @@ title: Overview of Windows VMs in Azure
 description: Overview of Windows virtual machines in Azure.
 author: cynthn
 ms.service: virtual-machines
+ms.collection: windows
 ms.workload: infrastructure-services
 ms.topic: overview
 ms.date: 11/14/2019

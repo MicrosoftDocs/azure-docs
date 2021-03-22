@@ -130,7 +130,7 @@ FROM c
 WHERE c.description LIKE "%fruit%"
 ```
 
-If you only used a `%` character at the beginning of the pattern, you’d only return items with a description that started with `fruit`:
+If you only used a `%` character at the end of the pattern, you’d only return items with a description that started with `fruit`:
 
 ```sql
 SELECT *

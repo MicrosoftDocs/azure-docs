@@ -1,7 +1,6 @@
 ---
 title: Send Azure Activity log to Log Analytics workspace using Azure portal
 description: Use the Azure portal to create a Log Analytics workspace and a diagnostic setting to send the Activity log to Azure Monitor Logs.
-ms.subservice: logs
 ms.topic: quickstart
 author: bwren
 ms.author: bwren

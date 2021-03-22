@@ -153,18 +153,20 @@
         href: ../common/network-routing-preference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Data protection
       items:
+      - name: Overview
+        href: data-protection-overview.md
+      - name: Soft delete for containers
+        href: soft-delete-container-overview.md
       - name: Versioning
         href: versioning-overview.md
       - name: Soft delete for blobs
         href: soft-delete-blob-overview.md
-      - name: Soft delete for containers
-        href: soft-delete-container-overview.md
+      - name: Point-in-time restore
+        href: point-in-time-restore-overview.md
       - name: Snapshots
         href: snapshots-overview.md
       - name: Change feed
-        href: storage-blob-change-feed.md
-      - name: Point-in-time restore
-        href: point-in-time-restore-overview.md
+        href: storage-blob-change-feed.md        
       - name: Immutable blobs
         href: storage-blob-immutable-storage.md
     - name: Redundancy and disaster recovery
@@ -258,7 +260,6 @@
       href: storage-blob-pageblob-overview.md
     - name: Static websites
       href: storage-blob-static-website.md
-
   - name: How to
     items:
     - name: Create and manage storage accounts
@@ -296,6 +297,8 @@
         href: storage-blob-copy.md
       - name: Use blob index tags
         href: storage-blob-index-how-to.md
+      - name: Calculate blobs count and total size
+        href: calculate-blob-count-size.md
     - name: Authorize access to blob data
       items:
       - name: Authorization options for users
@@ -402,18 +405,20 @@
         href: ../common/azure-defender-storage-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Protect blob data
       items:
+      - name: Lock a storage account
+        href: ../common/lock-account-resource.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Enable soft delete for containers
+        href: soft-delete-container-enable.md
       - name: Enable blob versioning
         href: versioning-enable.md
       - name: Enable soft delete for blobs
         href: soft-delete-blob-enable.md
-      - name: Enable soft delete for containers
-        href: soft-delete-container-enable.md
+      - name: Enable point-in-time restore
+        href: point-in-time-restore-manage.md
       - name: Create snapshots (.NET)
         href: snapshots-manage-dotnet.md
       - name: Process change feed logs
-        href: storage-blob-change-feed-how-to.md
-      - name: Enable point-in-time restore
-        href: point-in-time-restore-manage.md
+        href: storage-blob-change-feed-how-to.md        
       - name: Set and manage immutability policies
         href: storage-blob-immutability-policies-manage.md
     - name: Manage redundancy and failover
@@ -466,6 +471,8 @@
           href: ../common/storage-use-azcopy-blobs-copy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Examples: Amazon S3 buckets'
           href: ../common/storage-use-azcopy-s3.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 'Examples: Google Cloud Storage buckets'
+          href: ../common/storage-use-azcopy-google-cloud.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Configure, optimize, troubleshoot
           href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Azure Data Factory
@@ -564,6 +571,8 @@
         href: https://github.com/microsoft/AzureStorageExplorer/releases
       - name: Troubleshoot Storage Explorer
         href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Storage Explorer command line options
+        href: ../common/storage-explorer-command-line-options.md
       - name: Storage Explorer security
         href: ../common/storage-explorer-security.md
       - name: Storage Explorer blob versioning
@@ -890,3 +899,5 @@
       href: https://stackoverflow.com/questions/tagged/windows-azure-storage
     - name: Videos
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
+    - name: Partners
+      href: ../solution-integration/

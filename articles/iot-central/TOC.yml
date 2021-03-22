@@ -8,6 +8,8 @@
     href: core/overview-iot-central-tour.md
   - name: Recent updates
     items:
+    - name: February 2021 new and updated features
+      href: https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-february-2021/
     - name: January 2021 new and updated features
       href: https://azure.microsoft.com/updates/azure-iot-central-feature-updates-january-2021/
     - name: November 2020 new and updated features
@@ -132,6 +134,8 @@
       href: core/overview-iot-central-developer.md
     - name: Solution builder guide
       href: core/overview-iot-central-solution-builder.md
+    - name: Operator guide
+      href: core/overview-iot-central-operator.md
     - name: What are application templates?
       href: core/concepts-app-templates.md
     - name: Industry specific application templates
@@ -185,6 +189,8 @@
       href: core/concepts-telemetry-properties-commands.md
     - name: Connect IoT Edge devices
       href: core/concepts-iot-edge.md
+    - name: Best practices
+      href: core/concepts-best-practices.md
 
 - name: How-to guides
   items:
@@ -202,6 +208,8 @@
           href: core/how-to-connect-devices-x509.md
         - name: Monitor device connectivity using Azure CLI
           href: core/howto-monitor-devices-azure-cli.md
+        - name: Connect devices through an IoT Edge transparent gateway
+          href: core/how-to-connect-iot-edge-transparent-gateway.md
         - name: Prepare and connect an Azure Sphere DevKit
           href: core/howto-connect-sphere.md
         - name: Prepare and connect a RuuviTag device
@@ -242,6 +250,8 @@
           href: core/howto-manage-devices.md
         - name: Run a job
           href: core/howto-run-a-job.md
+        - name: Move devices from IoT Hub  
+          href: core/how-to-move-device-to-iot.md
     - name: Administer your solution
       items:
         - name: Change application settings
@@ -288,6 +298,7 @@
         href: core/troubleshoot-connection.md
     - name: FAQ
       href: core/howto-faq.md
+
 - name: Reference
   items:
   - name: Azure CLI
@@ -299,7 +310,9 @@
   - name: Code samples
     href: /samples/browse/?expanded=azure&products=azure-iot-central
   - name: Support and help options
-    href: ../iot-fundamentals/iot-support-help.md
+    href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json
+  - name: IoT Glossary
+    href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json
 
   - name: Azure IoT services
     items:

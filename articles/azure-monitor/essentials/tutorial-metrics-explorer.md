@@ -3,7 +3,6 @@ title: Tutorial - Create a metrics chart in Azure Monitor
 description: Learn how to create a metric chart with Azure metrics explorer.
 author: bwren
 ms.author: bwren
-ms.subservice: metrics
 ms.topic: tutorial
 ms.date: 03/09/2020
 ---

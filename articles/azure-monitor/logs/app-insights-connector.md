@@ -1,7 +1,6 @@
 ---
 title: View Azure Application Insights app data | Microsoft Docs
 description: You can use the Application Insights Connector solution to diagnose performance issues and understand what users do with your app when monitored with Application Insights.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren

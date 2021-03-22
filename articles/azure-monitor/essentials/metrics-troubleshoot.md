@@ -7,7 +7,6 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
-ms.subservice: metrics
 ---
 
 # Troubleshooting metrics charts

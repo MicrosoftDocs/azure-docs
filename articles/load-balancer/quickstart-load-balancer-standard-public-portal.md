@@ -62,7 +62,7 @@ When you create a public load balancer, you create a new public IP address that 
     | Public IP address name | Type **myPublicIP** in the text box.|
     | Availability zone | Select **Zone-redundant** to create a resilient load balancer. To create a zonal load balancer, select a specific zone from 1, 2, or 3 |
     | Add a public IPv6 address | Select **No**. </br> For more information on IPv6 addresses and load balancer, see [What is IPv6 for Azure Virtual Network?](../virtual-network/ipv6-overview.md)  |
-    | Routing preference | Leave the default of **Microsoft network**. </br> For more information on routing preference, see [What is routing preference (preview)?](./routing-preference-overview.md). |
+    | Routing preference | Leave the default of **Microsoft network**. </br> For more information on routing preference, see [What is routing preference (preview)?](../virtual-network/routing-preference-overview.md). |
 
 5. Accept the defaults for the remaining settings, and then select **Review + create**.
 

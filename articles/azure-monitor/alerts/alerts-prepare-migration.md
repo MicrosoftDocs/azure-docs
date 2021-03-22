@@ -4,16 +4,15 @@ description: Learn how to modify your webhooks, logic apps, and runbooks to prep
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 03/19/2018
-ms.subservice: alerts
+ms.date: 02/14/2021
 ---
 # Prepare your logic apps and runbooks for migration of classic alert rules
 
 > [!NOTE]
-> As [previously announced](./monitoring-classic-retirement.md), classic alerts in Azure Monitor are retired for public cloud users, though still in limited use for resources that do not yet support the new alerts. The retirement date for those alerts has been further extended. A new date will be announced soon.
+> As [previously announced](monitoring-classic-retirement.md), classic alerts in Azure Monitor are retired for public cloud users, though still in limited use until **31 May 2021**. Classic alerts for Azure Government cloud and Azure China 21Vianet will retire on **29 February 2024**.
 >
 
-If you choose to voluntarily migrate your classic alert rules to new alert rules, be aware that there are some differences between the two systems. This article explains those differences and how you can prepare for the change.
+If you choose to voluntarily migrate your classic alert rules to new alert rules, there are some differences between the two systems. This article explains those differences and how you can prepare for the change.
 
 ## API changes
 
@@ -30,7 +29,7 @@ The following table is a reference to the programmatic interfaces for both class
 
 ## Notification payload changes
 
-The notification payload format is slightly different between [classic alert rules](./alerts-webhooks.md) and [new metric alerts](alerts-metric-near-real-time.md#payload-schema). If you have any webhook, logic app, or runbook actions that are triggered by classic alert rules, you must update those notification endpoints to accept the payload format of new metric alerts.
+The notification payload format is slightly different between [classic alert rules](alerts-webhooks.md) and [new metric alerts](alerts-metric-near-real-time.md#payload-schema). If you have classic alert rules with webhook, logic app, or runbook actions, you must update the targets to accept the new payload format.
 
 Use the following table to map the webhook payload fields from the classic format to the new format:
 
@@ -153,7 +152,7 @@ Most of [our partners that integrate with classic alerts](../partners.md) alread
 - [OpsGenie](https://docs.opsgenie.com/docs/microsoft-azure-integration)
 - [Signl4](https://www.signl4.com/blog/mobile-alert-notifications-azure-monitor/)
 
-If you're using a partner integration that's not listed here, confirm with the integration provider that the integration works with new metric alerts.
+If you're using a partner integration that's not listed here, confirm with the provider that they work with new metric alerts.
 
 ## Next steps
 

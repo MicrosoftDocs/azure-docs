@@ -222,7 +222,7 @@ The [LocalizedResources](localization.md#localizedresources) of the `Localizatio
 You configure localized resources elements for the content definition and any language you want to support. To customize the unified sign-up or sign-in pages for English and Spanish, you add the following `LocalizedResources` elements after the close of the `</SupportedLanguages>` element.
 
 > [!NOTE]
-> In the following sample we added the pound `#` symbol at the begging of each line, so you can easly find the localized labels on the screen.
+> In the following sample we added the pound `#` symbol at the beginning of each line, so you can easily find the localized labels on the screen.
 
 ```xml
 <!--Local account sign-up or sign-in page English-->

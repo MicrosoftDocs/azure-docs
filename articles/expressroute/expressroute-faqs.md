@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/13/2019
+ms.date: 03/12/2021
 ms.author: duau
 
 ---
@@ -36,9 +36,9 @@ Check [pricing details](https://azure.microsoft.com/pricing/details/expressroute
 
 Yes, the ExpressRoute circuit bandwidth is duplex. For example, if you purchase a 200 mbps ExpressRoute circuit, you are procuring 200 mbps for ingress traffic and 200 mbps for egress traffic.
 
-### If I pay for an ExpressRoute circuit of a given bandwidth, does the VPN connection I purchase from my network service provider have to be the same speed?
+### If I pay for an ExpressRoute circuit of a given bandwidth, does the private connection I purchase from my network service provider have to be the same speed?
 
-No. You can purchase a VPN connection of any speed from your service provider. However, your connection to Azure is limited to the ExpressRoute circuit bandwidth that you purchase.
+No. You can purchase a private connection of any speed from your service provider. However, your connection to Azure is limited to the ExpressRoute circuit bandwidth that you purchase.
 
 ### If I pay for an ExpressRoute circuit of a given bandwidth, do I have the ability to use more than my procured bandwidth?
 
@@ -56,7 +56,7 @@ The ExpressRoute gateway will advertise the *Address Space(s)* of the Azure VNet
 
 ### How many prefixes can be advertised from a VNet to on-premises on ExpressRoute Private Peering?
 
-There is a maximum of 200 prefixes advertised on a single ExpressRoute connection, or through VNet peering using gateway transit. For example, if you have 199 address spaces on a single VNet connected to an ExpressRoute circuit, all 199 of those prefixes will be advertised to on-premises. Alternatively, if you have a VNet enabled to allow gateway transit with 1 address space and 150 spoke VNets enabled using the "Allow Remote Gateway" option, the VNet deployed with the gateway will advertise 151 prefixes to on-premises.
+There is a maximum of 1000 prefixes advertised on a single ExpressRoute connection, or through VNet peering using gateway transit. For example, if you have 999 address spaces on a single VNet connected to an ExpressRoute circuit, all 999 of those prefixes will be advertised to on-premises. Alternatively, if you have a VNet enabled to allow gateway transit with 1 address space and 500 spoke VNets enabled using the "Allow Remote Gateway" option, the VNet deployed with the gateway will advertise 501 prefixes to on-premises.
 
 ### What happens if I exceed the prefix limit on an ExpressRoute connection?
 
@@ -100,6 +100,7 @@ If your ExpressRoute circuit is enabled for Azure Microsoft peering, you can acc
 * [Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/)
 * Multi-factor Authentication Server (legacy)
 * Traffic Manager
+* Logic Apps
 
 ### Public peering
 
@@ -199,7 +200,7 @@ If your service provider offers ExpressRoute at both sites, you can work with yo
 
 Yes. You can have multiple ExpressRoute circuits with the same or different service providers. If the metro has multiple ExpressRoute peering locations and the circuits are created at different peering locations, you can link them to the same virtual network. If the circuits are created at the same peering location, you can link up to four circuits to the same virtual network.
 
-### How do I connect my virtual networks to an ExpressRoute circuit
+### How do I connect my virtual networks to an ExpressRoute circuit?
 
 The basic steps are:
 
@@ -254,9 +255,13 @@ If you advertise default routes, we force traffic to services offered over Micro
 
 Yes. Virtual machines deployed in virtual networks connected to the same ExpressRoute circuit can communicate with each other. We recommend setting up [virtual network peering](../virtual-network/virtual-network-peering-overview.md) to facilitate this communication.
 
-### Can I use site-to-site connectivity for virtual networks in conjunction with ExpressRoute?
+### Can I set up a site-to-site VPN connection to my virtual network in conjunction with ExpressRoute?
 
 Yes. ExpressRoute can coexist with site-to-site VPNs. See [Configure ExpressRoute and site-to-site coexisting connections](expressroute-howto-coexist-resource-manager.md).
+
+### How do I enable routing between my site-to-site VPN connection and my ExpressRoute?
+
+If you want to enable routing between your branch connected to Expressoute and your branch connected to a site-to-site VPN connection, you'll need to set up [Azure Route Server](../route-server/expressroute-vpn-support.md).
 
 ### Why is there a public IP address associated with the ExpressRoute gateway on a virtual network?
 
@@ -289,6 +294,15 @@ You will also have to follow up with your connectivity provider to ensure that t
 ### How do I change the bandwidth of an ExpressRoute circuit?
 
 You can update the bandwidth of the ExpressRoute circuit using the REST API or PowerShell cmdlet.
+
+### I received a notification about maintenance on my ExpressRoute circuit. What is the technical impact of this maintenance?
+
+You should experience minimal to no impact during maintenance if you operate your circuit in [active-active mode](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute#active-active-connections). We perform maintenance on the primary and secondary connections of your circuit separately. Scheduled maintenance will usually be performed outside of business hours in the time zone of the peering location, and you cannot select a maintenance time.
+
+### I received a notification about a software upgrade or maintenance on my ExpressRoute gateway. What is the technical impact of this maintenance?
+
+You should experience minimal to no impact during a software upgrade or maintenance on your gateway. The ExpressRoute gateway is comprised of multiple instance and during upgrades, instances are taken offline one at a time. While this may cause your gateway to temporarily support lower network throughput to the virtual network, the gateway itself will not experience any downtime.
+
 
 ## ExpressRoute premium
 

@@ -2,7 +2,7 @@
 title: Backup and restore - snapshots, geo-redundant 
 description: Learn how backup and restore works in Azure Synapse Analytics dedicated SQL pool. Use backups to restore your data warehouse to a restore point in the primary region. Use geo-redundant backups to restore to a different geographical region.
 services: synapse-analytics
-author: kevinvngo
+author: joannapea
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
@@ -40,10 +40,10 @@ order by run_id desc
 
 ## User-Defined Restore Points
 
-This feature enables you to manually trigger snapshots to create restore points of your data warehouse before and after large modifications. This capability ensures that restore points are logically consistent, which provides additional data protection in case of any workload interruptions or user errors for quick recovery time. User-defined restore points are available for seven days and are automatically deleted on your behalf. You cannot change the retention period of user-defined restore points. **42 user-defined restore points** are guaranteed at any point in time so they must be [deleted](/powershell/module/azurerm.sql/remove-azurermsqldatabaserestorepoint?viewFallbackFrom=azurermps-6.2.0) before creating another restore point. You can trigger snapshots to create user-defined restore points through [PowerShell](/powershell/module/az.sql/new-azsqldatabaserestorepoint?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsont#examples) or the Azure portal.
+This feature enables you to manually trigger snapshots to create restore points of your data warehouse before and after large modifications. This capability ensures that restore points are logically consistent, which provides additional data protection in case of any workload interruptions or user errors for quick recovery time. User-defined restore points are available for seven days and are automatically deleted on your behalf. You cannot change the retention period of user-defined restore points. **42 user-defined restore points** are guaranteed at any point in time so they must be [deleted](/powershell/module/azurerm.sql/remove-azurermsqldatabaserestorepoint) before creating another restore point. You can trigger snapshots to create user-defined restore points through [PowerShell](/powershell/module/az.sql/new-azsqldatabaserestorepoint?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsont#examples) or the Azure portal.
 
 > [!NOTE]
-> If you require restore points longer than 7 days, please vote for this capability [here](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). You can also create a user-defined restore point and restore from the newly created restore point to a new data warehouse. Once you have restored, you have the dedicated SQL pool online and can pause it indefinitely to save compute costs. The paused database incurs storage charges at the Azure Premium Storage rate. If you need an active copy of the restored data warehouse, you can resume which should take only a few minutes.
+> If you require restore points longer than 7 days, please vote for this capability [here](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). You can also create a user-defined restore point and restore from the newly created restore point to a new data warehouse. Once you have restored, you have the dedicated SQL pool online and can pause it indefinitely to save compute costs. The paused database incurs storage charges at the Azure Synapse storage rate. If you need an active copy of the restored data warehouse, you can resume which should take only a few minutes.
 
 ### Restore point retention
 

@@ -8,16 +8,13 @@ manager: celestedg
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 03/02/2021
 ms.author: mimart
 ms.custom: "it-pro"
 ms.collection: M365-identity-device-management
 ---
 
-# Define custom attributes for user flows (Preview)
-
-> [!NOTE]
-> The custom user attributes feature is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Define custom attributes for user flows
 
 For each application, you might have different requirements for the information you want to collect during sign-up. Azure AD comes with a built-in set of information stored in attributes, such as Given Name, Surname, City, and Postal Code. With Azure AD, you can extend the set of attributes stored on a guest account when the external user signs up through a user flow.
 
@@ -34,7 +31,7 @@ The `<extensions-app-id>` is specific to your tenant. To find this identifier, n
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
 2. Under **Azure services**, select **Azure Active Directory**.
 3. In the left menu, select **External Identities**.
-4. Select **Custom user attributes (Preview)**. The available user attributes are listed.
+4. Select **Custom user attributes**. The available user attributes are listed.
 
    ![Select user attributes for sign-up](media/user-flow-add-custom-attributes/user-attributes.png)
 

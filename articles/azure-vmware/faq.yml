@@ -3,7 +3,8 @@ metadata:
   title: Microsoft Azure VMware Solution FAQ
   description: "Get answers to common questions about Azure VMware Solution."
   ms.topic: conceptual
-  ms.date:  02/09/2021
+  ms.date:  03/22/2021
+
     
 title: Common questions about Azure VMware Solution
 summary: This article answers commonly asked questions about Azure VMware Solution.
@@ -15,8 +16,6 @@ sections:
       - question: What is Azure VMware Solution?
         answer: As enterprises pursue IT modernization strategies to improve business agility, reduce costs, and accelerate innovation, hybrid cloud platforms have emerged as key enablers of customers' digital transformation. Azure VMware Solution combines VMware's Software-Defined Data Center (SDDC) software with Microsoft's Azure global cloud service ecosystem. Azure VMware Solution is managed to meet performance, availability, security, and compliance requirements.
 
-  - name: Azure VMware Solution Service
-    questions:
       - question: Where is Azure VMware Solution available today?
         answer: |
           The service is continuously being added to new regions, so view the [latest service availability information](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware) for more details. 
@@ -107,6 +106,21 @@ sections:
       - question: Are the SNMP infrastructure logs shared?
         answer: No.
 
+      - question: Does ExpressRoute support packets exceeding MTU of 1500?
+        answer: No. 
+
+      - question: Why is thick provisioning the default vSAN policy in Azure VMware Solution?
+        answer: |
+          Thick provisioning is reserved or pre-allocated storage space.  Thick provisioning protects systems by allowing them to function even if the vSAN datastore is full because space is already reserved. For example, suppose you create a 10GB virtual disk with thick provisioning. In that case, the full amount of virtual disk storage capacity is pre-allocated on the physical storage where the virtual disk is created and consumes all the space allocated to it in the datastore.  It won’t allow other VMs to share the space from the datastore. A thin-provisioned virtual disk consumes the space that it needs initially and grows to the data space demand used in the datastore.
+
+      - question: Can I create a new VM in Azure VMware Solution with thin provisioning even if the default vSAN policy is thick provisioning?
+        answer: |
+          Yes. Only the default cluster (first three nodes) is set up with thick provisioning for reliability reasons. Outside of the default (thick_provision), you can create VMs with FTT1 thin provisioning. 
+
+      - question: If we migrate a VM created with thin provisioning on the on-premises side to Azure VMware Solution, will the VM remain thin?
+        answer: |
+          No. However, if the VM is migrated as thick, you can change policies on the individual VMs and individual vmdks through a combination of UI and PowerCLI.       
+
   - name: Hosts, clusters, and private clouds
     questions:
       - question: Is the underlying infrastructure shared?
@@ -130,21 +144,28 @@ sections:
         answer: |
           [!INCLUDE [vmware-software-versions](includes/vmware-software-versions.md)]
           
-          
-      - question: Do private clouds use VMware NSX?
-        answer: Yes, NSX-T 2.5 is used for the software-defined networking in Azure VMware Solution private clouds.
+      - question: How often is the VMware software (ESXi, vCenter, PSC, and NXS) patched, updated, or upgraded in Azure VMware Solution?
+        answer: |
+          [!INCLUDE [vmware-software-update-frequency](includes/vmware-software-update-frequency.md)]
 
-      - question: Can I use VMware NSX-V in a private cloud?
-        answer: No. NSX-T is the only supported version of NSX.
+      - question: Do private clouds use VMware NSX? If so, which version is supported?
+        answer: Yes, NSX-T 2.5 is used for the software-defined networking in Azure VMware Solution private clouds.
+          |
+          NSX-T is the only supported version of NSX.
 
       - question: Is NSX required in on-premises environments or networks that connect to a private cloud?
         answer: No, you aren't required to use NSX on-premises.
+
+      - question: Is VMware Horizon 8 2012 compatible with Azure VMware Solution?
+        answer: Yes.
 
       - question: What is the upgrade and update schedule for VMware software in a private cloud?
         answer: The private cloud software bundle upgrades keep the software within one version of the most recent software bundle release from VMware. The private cloud software versions may differ from the most recent versions of the individual software components (ESXi, NSX-T, vCenter, vSAN).
 
       - question: How often will the private cloud software stack be updated?
         answer: The private cloud software is upgraded on a schedule that tracks the software bundle's release from VMware. Your private cloud doesn't require downtime for upgrades.
+      - question: Can I change the default vSphere Web Client timeout value?
+        answer: Yes. For information on changing the timeout value, see [Configure the vSphere Web Client Timeout Value](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vcenterhost.doc/GUID-975412DE-CDCB-49A1-8E2A-0965325D33A5.html).
 
   - name: Connectivity
     questions:
@@ -168,7 +189,9 @@ sections:
       - question: Do I need to restrict internet access from VMs on logical networks to the internet?
         answer: |
           Yes. You'll need to use NSX-T manager to create a firewall to restrict VM access to the internet.
-          
+
+      - question: Which IP range can be used for DNS service IP and DHCP server IP?
+        answer: The address range shouldn't overlap with the IP range used in other virtual networks that are in your subscription and on-premises networks.
           
       - question: Can Azure VMware Solution use Azure Virtual WAN hosted ExpressRoute Gateways?
         answer: Yes.
@@ -198,6 +221,10 @@ sections:
           
           > [!NOTE]
           > A T0 router is created and configured as part of a private cloud deployment. Any modification to that logical router or the NSX-T edge node VMs could affect connectivity to your private cloud.
+
+      - question: How can I change my credentials?
+        answer: |
+          For information on resetting your credentials, see [Reset vSphere credentials for Azure VMware Solution](reset-vsphere-credentials.md).
           
   - name: Billing and Support
     questions:

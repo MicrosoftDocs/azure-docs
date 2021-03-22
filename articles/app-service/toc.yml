@@ -187,10 +187,6 @@
         href: deploy-ci-cd-custom-container.md
       - name: Deploy from local Git
         href: deploy-local-git.md
-      - name: GitHub Action
-        href: deploy-github-actions.md
-      - name: GitHub Action for Containers
-        href: deploy-container-github-action.md
       - name: Deploy with template
         href: deploy-complex-application-predictably.md
     - name: Set deployment credentials
@@ -322,6 +318,8 @@
     href: ../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits
   - name: Service Updates
     href: https://azure.microsoft.com/updates/?product=app-service
+  - name: Kudu service
+    href: resources-kudu.md
   - name: Migration Assistant guides
     href: https://github.com/Azure/App-Service-Migration-Assistant/tree/master/MigrationDocs
   - name: Best practices

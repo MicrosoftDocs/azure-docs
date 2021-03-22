@@ -84,4 +84,4 @@ You get a response similar to this:
 
 ## Next steps
 
-[az ams job (CLI)](/cli/azure/ams/job?view=azure-cli-latest)
+[az ams job (CLI)](/cli/azure/ams/job)

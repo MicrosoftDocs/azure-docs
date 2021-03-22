@@ -14,7 +14,7 @@ ms.date: 04/27/2020
 
 ## Overview
 
-Continuous video recording (CVR) refers to the process of continuously recording the video from a video source. Live Video Analytics on IoT Edge supports recording video continuously, on a 24x7 basis, from a CCTV camera via a [media graph](media-graph-concept.md) consisting of an RTSP source node and an asset sink node. The diagram below shows a graphical representation of such a media graph. The JSON representation of the [graph topology](media-graph-concept.md?branch=release-preview-media-services-lva#media-graph-topologies-and-instances) of such a media graph can be found [here](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset).
+Continuous video recording (CVR) refers to the process of continuously recording the video from a video source. Live Video Analytics on IoT Edge supports recording video continuously, on a 24x7 basis, from a CCTV camera via a [media graph](media-graph-concept.md) consisting of an RTSP source node and an asset sink node. The diagram below shows a graphical representation of such a media graph. The JSON representation of the [graph topology](media-graph-concept.md#media-graph-topologies-and-instances) of such a media graph can be found [here](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset).
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/continuous-video-recording/continuous-video-recording-overview.svg" alt-text="Continuous video recording":::
