@@ -4,7 +4,7 @@ description: To create highly available and resilient applications in Azure, Ava
 author: prsandhu
 ms.service: azure
 ms.topic: conceptual
-ms.date: 01/26/2021
+ms.date: 03/16/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
@@ -45,12 +45,13 @@ To achieve comprehensive business continuity on Azure, build your application ar
 | Americas           | Europe               | Africa              | Asia Pacific   |
 |--------------------|----------------------|---------------------|----------------|
 |                    |                      |                     |                |
-| Canada Central     | France Central       | South Africa North* | Japan East     |
-| Central US         | Germany West Central |                     | Southeast Asia |
-| East US            | North Europe         |                     | Australia East |
-| East US 2          | UK South             |                     |                |
-| South   Central US | West Europe          |                     |                |
-| US Gov Virginia    |                      |                     |                |
+| Brazil South       | France Central       | South Africa North* | Japan East     |
+| Canada Central     | Germany West Central |                     | Southeast Asia |
+| Central US         | North Europe         |                     | Australia East |
+| East US            | UK South             |                     |                |
+| East US 2          | West Europe          |                     |                |
+| South   Central US |                      |                     |                |
+| US Gov Virginia     |                      |                     |                |
 | West   US 2        |                      |                     |                |
 
 
@@ -120,6 +121,7 @@ To achieve comprehensive business continuity on Azure, build your application ar
 | Azure Database for MySQL – Flexible Server      |      :large_blue_diamond:  |
 | Azure Database for PostgreSQL – Flexible Server |      :large_blue_diamond:  |
 | Azure DDoS Protection                           |      :large_blue_diamond:  |
+| Azure Disk Encryption                           |      :large_blue_diamond:  |
 | Azure Firewall                                  |      :large_blue_diamond:  |
 | Azure Firewall Manager                          |      :large_blue_diamond:  |
 | Azure Kubernetes Service (AKS)                  |      :large_blue_diamond:  |
@@ -129,7 +131,6 @@ To achieve comprehensive business continuity on Azure, build your application ar
 | Azure SQL: Virtual Machine                      |      :large_blue_diamond:  |
 | Azure Search                                    |      :large_blue_diamond:  |
 | Azure Web Application Firewall                  |      :large_blue_diamond:  |
-| Cognitive Services: Text Analytics              |      :large_blue_diamond:  |
 | Container Registry                              |      :large_blue_diamond:  |
 | Event Grid                                      |      :large_blue_diamond:  |
 | Network Watcher                                 |      :large_blue_diamond:  |
@@ -164,6 +165,7 @@ To achieve comprehensive business continuity on Azure, build your application ar
 |     Azure Advisor                             |     :globe_with_meridians:             |
 |     Azure Blueprints                          |     :globe_with_meridians:             |
 |     Azure Bot Services                        |     :globe_with_meridians:             |
+|     Azure Front Door                          |     :globe_with_meridians:             |
 |     Azure   Defender for IoT                  |     :globe_with_meridians:             |
 |     Azure Front Door                           |     :globe_with_meridians:             |
 |     Azure   Information Protection            |     :globe_with_meridians:             |

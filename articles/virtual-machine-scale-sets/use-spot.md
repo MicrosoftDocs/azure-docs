@@ -40,9 +40,9 @@ Azure Spot Virtual Machine can be deployed to any region, except Microsoft Azure
 The following [offer types](https://azure.microsoft.com/support/legal/offer-details/) are currently supported:
 
 -	Enterprise Agreement
--	Pay-as-you-go offer code 003P
--	Sponsored
-- For Cloud Service Provider (CSP), see the [Partner Center](https://docs.microsoft.com/partner-center/azure-plan-get-started) or contact your partner directly.
+-	Pay-as-you-go offer code (003P)
+-	Sponsored (0036P and 0136P)
+- For Cloud Service Provider (CSP), see the [Partner Center](/partner-center/azure-plan-get-started) or contact your partner directly.
 
 ## Eviction policy
 
@@ -166,7 +166,7 @@ $vmssConfig = New-AzVmssConfig `
     -SkuName "Standard_DS2" `
     -UpgradePolicyMode Automatic `
     -Priority "Spot" `
-    --max-price -1
+    -max-price -1
 ```
 
 ## Resource Manager templates
@@ -200,7 +200,7 @@ To delete the instance after it has been evicted, change the `evictionPolicy` pa
 
 ## Simulate an eviction
 
-You can [simulate an eviction](https://docs.microsoft.com/rest/api/compute/virtualmachines/simulateeviction) of an Azure Spot Virtual Machine to test how well your application will respond to a sudden eviction. 
+You can [simulate an eviction](/rest/api/compute/virtualmachines/simulateeviction) of an Azure Spot Virtual Machine to test how well your application will respond to a sudden eviction. 
 
 Replace the following with your information: 
 
