@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/19/2021
+ms.date: 03/22/2021
 ms.author: alkohli
 
 # Customer intent: As an IT admin, I want to expedite deployment of Azure Stack devices by checking network settings in advance.
@@ -15,19 +15,19 @@ ms.author: alkohli
 
 # Check network readiness for Azure Stack Edge devices
 
-This article describes how to check your network readiness for deploying Azure Stack Edge devices. Use the Azure Stack Network Readiness Checker tool to make sure your network meets all requirements before you deploy an Azure Stack Edge device.<!--Add a bit more detail about what's checked?--> This can reduce deployment time and avoid Support calls.<!--Marketing or friendly advice?--><!--SYNC: ORDER OF PRESENTATION: 1) What does this article do? 2) What is the tool?-->
+This article describes how to check network readiness for Azure Stack Edge using the Network Readiness Tool before you deploy devices. Qualifying your network in advance can help you reduce deployment time and avoid Support calls.
 
-The Network Readiness Tool is a PowerShell module that checks XX, XX, on the network. You can run the tool on a Windows or Linux computer on the network where you'll deploy your Azure Stack Edge devices.<!--Oversimplified? OS requirements? Check PowerShell requirements. SYNC: 1) Confirm whether this has been tested in Linux. 2) Check ASE SKUs.-->
+The Azure Stack Network Readiness Checker is a PowerShell tool that runs a series of tests to check mandatory and optional settings on the network where an Azure Stack Edge device will be deployed. You can run the tool from any computer on the network.<!--OS requirements will be PowerShell 7.0 requirements?--> The tool checks returns Pass/Fail status for each setting, and also saves a log and a report file.
 
-The Network Readiness Tool runs a series of mandatory and optional tests to find out whether the network is ready for Azure Stack Edge deployments. You can run a full set of tests or skip the tests you don't need.<!--It's not clear whether the settings or the tests are "Mandatory." Format line includes all tests for both -RunTests and -SkipTests. Get detail from config tutorials for network and device; tool spec; some notes from Vibha.-->
+The Network Readiness Checker tool includes the following tests. You can choose which tests to run.
 
-|Test               |Checks for   |Required setting?| 
+|Test               |Checks for   |Required setting? | 
 |-------------------|-------------|------------------|
-|LinkLayer          |             |Required         |
-|IPConfig           |             |Required         |
-|DnsServer          |One or more. |Required         |
-|TimeServer         |             |Required         |
-|DuplicateIP        |             |Required         |
+|LinkLayer          |             |Required          |
+|IPConfig           |             |Required          |
+|DnsServer          |One or more. |Required          |
+|TimeServer         |             |Required          |
+|DuplicateIP        |             |Required          |
 |Proxy              |If using a proxy server.  |Optional         |
 |AzureEndpoint      |             |Required         |
 |WindowsUpdateServer|Mandatory for the purpose of this test?  |Required         |
@@ -37,18 +37,10 @@ The Network Readiness Tool runs a series of mandatory and optional tests to find
 
 Before you begin, make sure you have:
 
-- A computer running on the network where you'll deploy the Azure Stack device<!--No section needed? Make sure you have access to a client that is running on the network. SYNC: They will have this information. 1) Link to the checklist at "0-Get Checklist" in Azure Stack Edge Pro tutorials. 2) This article becomes a prerequisite for "Connect" tutorial. 3) Also mention this article in the "Get checklist" tutorial.-->
-- Network and device settings<!--Short list, with full discussion in "Parameters"-->
-- PowerShell 7.0
-- Azure Stack Network Readiness Checker tool (Microsoft.AzureStack.ReadinessChecker module)
-
-### Connect Windows client to network
-
-You will test the network settings on a Windows client on the network that you will use for the Azure Stack Edge device.
-
-### Get network, device settings
-
-When you run the tool, you'll need to provide the following network and device settings:<!--Short list. Details in parameter definitions for the tool.-->
+- Prepare your network using [Deployment checklist for your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-deploy-checklist.md). 
+- Make sure you have access to a client computer that is running on the network where you'll deploy your devices.<!--WHERE'S THE WORK ITEM? This article becomes a prerequisite for "Connect" tutorial. Also mention this article in the "Get checklist" tutorial.-->
+- Install PowerShell 7.0 on the client computer. For guidance, see [What's new in PowerShell 7.0](/powershell/scripting/whats-new/what-s-new-in-powershell-70.md?view=powershell-7.1&preserve-view=true).
+- Install the Azure Stack Network Readiness Checker tool [Microsoft.AzureStack.ReadinessChecker](https://github.com/Azure-Samples/azure-stack-edge-order) from the PowerShell Gallery. 
 
 ### Install PowerShell
 

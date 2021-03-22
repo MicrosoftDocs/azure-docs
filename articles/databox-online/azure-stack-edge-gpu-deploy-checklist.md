@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/24/2021
+ms.date: 03/22/2021
 ms.author: alkohli 
 ---
 # Deployment checklist for your Azure Stack Edge Pro GPU device  
@@ -42,4 +42,5 @@ Use the following checklist to ensure you have this information after you have p
 
 ## Next steps
 
-Prepare to deploy your [Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-prep.md).
+- Prepare to deploy your [Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-prep.md).
+- Use the [Azure Stack Edge Network Readiness Tool](azure-stack-edge-deploy-check-network-readiness.md) to verify your network settings.
