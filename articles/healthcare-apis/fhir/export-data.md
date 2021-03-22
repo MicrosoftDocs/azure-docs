@@ -21,7 +21,11 @@ After configuring the Azure API for FHIR for export, you can use the $export com
 
 > [!Note]
 > If the initial connection job fails to connect to the storage account, 
-you'll receive an error message and the export job will hang; thus, never reaching terminal state. To ensure a connection to the storage account, go back and validate that you are pointing to a valid storage account. 
+you'll receive an error message and the export job will hang; thus, never reaching terminal state. To ensure a connection to the storage account, go back and validate that you are pointing to a valid storage account.
+
+**Jobs stuck in a bad state**
+
+If a job gets into a bad state, you will see that it will remaining in a “running” state for 10 minutes. After 10 minutes, the work will stop and try a different job and will eventually return to that job. You will need to cancel the job to prevent it from being picked up and retried indefinitely.  
 
 The Azure API For FHIR supports $export at the following levels:
 * [System](https://hl7.org/Fhir/uv/bulkdata/export/index.html#endpoint---system-level-export): `GET https://<<FHIR service base URL>>/$export>>`
