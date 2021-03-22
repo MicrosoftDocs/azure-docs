@@ -175,6 +175,14 @@
     href: /cli/azure/ext/azure-iot/dt
   - name: DTDL v2 spec
     href: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md
+  - name: Query language reference
+    items:
+      - name: Functions
+        href: reference-query-functions.md
+      - name: Operators
+        href: reference-query-operators.md
+      - name: Limitations
+        href: reference-query-limitations.md
 - name: Resources
   items:
   - name: Digital Twins service limits
