@@ -23,7 +23,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * A Salesforce.com tenant
 
 > [!Note]
-> Roles should not be manually edited in AAD when doing role imports.
+> Roles should not be manually edited in Azure Active Directory when doing role imports.
 
 > [!IMPORTANT]
 > If you are using a Salesforce.com trial account, then you will be unable to configure automated user provisioning. Trial accounts do not have the necessary API access enabled until they are purchased. You can get around this limitation by using a free [developer account](https://developer.salesforce.com/signup) to complete this tutorial.
