@@ -25,7 +25,7 @@ This article describes several methods that managed security service providers (
 
 ## Cloud Solutions Providers (CSP)
 
-If you're reselling Azure as a Cloud Solutions Provider (CSP), you're managing the customer's Azure subscription. Specified users from your MSSP tenant are granted with **Owner** access to the customer's Azure subscription, and the customer has no access by default.
+If you're reselling Azure as a Cloud Solutions Provider (CSP), you're managing the customer's Azure subscription. Thanks to [Admin-On-Behalf-Of (AOBO)](/partner-center/azure-plan-manage), users in the Admin Agents group from your MSSP tenant are granted with Owner access to the customer's Azure subscription, and the customer has no access by default.
 
 If you need to provide customer users with access to the Azure environment, we recommend that you grant them access at the level of the *resource group* so that you can show / hide parts of the environment as needed.
 
@@ -33,26 +33,32 @@ For example:
 
 - You might grant the customer with access to several resource groups where their applications are located, but still keep the Azure Sentinel environment in a separate resource group, where the customer has no access.
 
-- Use this method to enable customers to view *Workbooks* and *Playbooks*, which are separate resources that can reside in their own resource group.
+- Use this method to enable customers to view selected workbooks and playbooks, which are separate resources that can reside in their own resource group.
 
-In such cases, we recommend that you use [Azure Lighthouse](multiple-tenants-service-providers.md) to provide customer access, which enables you to grant users or groups with access to a specific scope, such as a resource group or subscription, using one of the built-in roles.
+If other users from the MSSP tenant, outside of the Admin Agents group, need to access the customer environment, we recommend that you use [Azure Lighthouse](multiple-tenants-service-providers.md). This enables you to grant users or groups with access to a specific scope, such as a resource group or subscription, using one of the built-in roles.
 
 > [!TIP]
 > Alternately, if you need to provide your customers with access to the entire subscription, see [Enterprise Agreements (EA) / Pay-as-you-go (PAYG)](#enterprise-agreements-ea--pay-as-you-go-payg).
-> 
+>
 
-### Sample CSP architecture 
+### Sample CSP architecture
 
 The following image describes how permissions might work when providing access to CSP customers:
 
 :::image type="content" source="media/mssp-protect-intellectual-property/csp-customers.png" alt-text="Protect your Azure Sentinel intellectual property with CSP customers.":::
 
-In this image, the users granted with **Owner** access are the users in the Admin Agents group, in the MSSP Azure AD tenant attached to the CSP contract. Typically, **Owner** access is provided to MSSP tenant users using the [Admin-On-Behalf-Of (AOBO)](/partner-center/azure-plan-manage) mechanism.
+In this image:
+
+- The users granted with **Owner** access are the users in the Admin Agents group, in the MSSP Azure AD tenant attached to the CSP contract.
+- Other groups from the MSSP get access to the customer environment via Azure Lighthouse.
+- Customer access is managed by Azure RBAC.
+
+With this setup, MSSPs can hide protect their analytics rules, hunting queries and selected workbooks and playbooks.
 
 > [!NOTE]
 > - Sometimes, the MSSP Azure AD tenant attached to the CSP contract is separate from the MSSP's main tenant.
 >
-> - Even with granting access at the level of the resource group, customers will still have access to log data for the resources they can access, such as logs from a VM, even without access to Azure Sentinel. For more information, see [Manage access to Azure Sentinel data by resource](resource-context-rbac.md).
+> - Even with granting access at the resource group level, customers will still have access to log data for the resources they can access, such as logs from a VM, even without access to Azure Sentinel. For more information, see [Manage access to Azure Sentinel data by resource](resource-context-rbac.md).
 >
 
 For more information, also see the [Azure Lighthouse documentation](/azure/lighthouse/concepts/cloud-solution-provider).
@@ -67,9 +73,9 @@ Instead, protect your intellectual property that you've developed in Azure Senti
 
 Analytics rules and hunting queries are both contained within Azure Sentinel, and therefore cannot be separated from the Azure Sentinel resource or workspace.
 
-Even if a user has Azure Sentinel Reader permissions, they'll still be able to view the query. In this case, we recommend hosting your Analytics rules and hunting queries in your own MSSP tenant, instead of the customer tenant.
+Even if a user only has Azure Sentinel Reader permissions, they'll still be able to view the query. In this case, we recommend hosting your Analytics rules and hunting queries in your own MSSP tenant, instead of the customer tenant.
 
-To do this, you'll need a workspace in your own tenant with Azure Sentinel, and you'll also need to see the customer workspace via [Azure Lighthouse](multiple-tenants-service-providers.md).
+To do this, you'll need a workspace in your own tenant with Azure Sentinel enabled, and you'll also need to see the customer workspace via [Azure Lighthouse](multiple-tenants-service-providers.md).
 
 To ensure that the rule or query can be run in the customer workspace, make sure to specify the workspace where the query is run against. For example, use a workspace statement in your rule as follows:
 
@@ -80,9 +86,9 @@ workspace('<customer-workspace>').SecurityEvent
 
 When adding a workspace statement to your analytics rules, consider the following:
 
-- **No alerts in the customer workspace**. Using this method means that there are no alerts in the customer's workspace, and therefore no incidents either. Both alerts and incidents will exist in your, MSSP workspace only.
+- **No alerts in the customer workspace**. Rules created in this manner, won’t create alerts or incidents. Both alerts and incidents will exist in your MSSP workspace only.
 
-- **Create separate alerts for each customer**. This method also requires that you use a separate alert for each customer and detection, as the workspace statement will be different in each case. 
+- **Create separate alerts for each customer**. This method also requires that you use separate alerts for each customer and detection, as the workspace statement will be different in each case.
 
     You can add the customer name to the alert rule name to easily identify the customer when the alert is triggered. Separate alerts may result in a large number of rules, which you might want to manage using scripting, or [Azure Sentinel as Code](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928).
 
@@ -90,7 +96,7 @@ When adding a workspace statement to your analytics rules, consider the followin
 
     :::image type="content" source="media/mssp-protect-intellectual-property/mssp-rules-per-customer.png" alt-text="Create separate rules in your MSSP workspace for each customer.":::
 
-- **Create separate MSSP workspaces for each customer**. Creating separate rules for each customer and detection may cause you to reach the maximum number of analytics rules for your workspace. If you have many customers and expect to reach this limit, you may want to create a separate MSSP workspace for each customer.
+- **Create separate MSSP workspaces for each customer**. Creating separate rules for each customer and detection may cause you to reach the maximum number of analytics rules for your workspace (512). If you have many customers and expect to reach this limit, you may want to create a separate MSSP workspace for each customer.
 
     For example:
 
@@ -136,6 +142,7 @@ You can protect your playbooks as follows, depending on where the playbook's ana
 
 For more information, see:
 
+- [Azure Sentinel Technical Playbook for MSSPs](https://cloudpartners.transform.microsoft.com/download?assetname=assets/Azure-Sentinel-Technical-Playbook-for-MSSPs.pdf&download=1)
 - [Manage multiple tenants in Azure Sentinel as an MSSP](multiple-tenants-service-providers.md)
 - [Extend Azure Sentinel across workspaces and tenants](extend-sentinel-across-workspaces-tenants.md)
 - [Tutorial: Visualize and monitor your data](tutorial-monitor-your-data.md)
