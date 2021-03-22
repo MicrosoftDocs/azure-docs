@@ -958,3 +958,6 @@
   - name: Purview
     tocHref: /azure/purview/
     topicHref: /azure/purview/
+  - name: Azure Video Analyzer 
+    tocHref: /azure/azure-video-analyzer/video-analyzer-docs/
+    topicHref: /azure/azure-video-analyzer/video-analyzer-docs/
