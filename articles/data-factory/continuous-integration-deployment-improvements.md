@@ -4,7 +4,7 @@ description: Learn how to publish for continuous integration and delivery automa
 ms.service: data-factory
 author: nabhishek
 ms.author: abnarain
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 02/02/2021
 ---
