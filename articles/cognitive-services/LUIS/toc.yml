@@ -375,6 +375,8 @@
     href: luis-reference-prebuilt-sentiment.md
 - name: Resources
   items:
+  - name: LUIS portal
+    href: https://www.luis.ai
   - name: Support & help options
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/luis/context/context
   - name: Regional availability
@@ -413,5 +415,3 @@
       href: https://github.com/Microsoft/Recognizers-Text
     - name: Intelligent Kiosk
       href: https://github.com/Microsoft/Cognitive-Samples-IntelligentKiosk
-- name: LUIS portal
-  href: https://www.luis.ai
