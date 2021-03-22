@@ -18,7 +18,7 @@ Generally, when looking to improve performance of the map, look for ways to redu
 
 ## Security basics
 
-The single most important part of your application is its security. If your applications isn’t secure a hacker can ruin any application, no matter how good the user experience might be. The following are some tips to keep your Azure Maps application secure. When using Azure, be sure to familiarize yourself with the security tools available to you. See this document for an [introduction to Azure security](https://docs.microsoft.com/azure/security/fundamentals/overview).
+The single most important part of your application is its security. If your application isn’t secure a hacker can ruin any application, no matter how good the user experience might be. The following are some tips to keep your Azure Maps application secure. When using Azure, be sure to familiarize yourself with the security tools available to you. See this document for an [introduction to Azure security](https://docs.microsoft.com/azure/security/fundamentals/overview).
 
 > [!IMPORTANT]
 > Azure Maps provides two methods of authentication.
@@ -57,7 +57,7 @@ Similarly, when the map initially loads often it is desired to load data on it a
 ### Lazy load the Azure Maps Web SDK
 
 If the map isn’t needed right away, lazy load the Azure Maps Web SDK until it is needed. This will delay the loading of the JavaScript and CSS files used by the Azure Maps Web SDK until needed. A common scenario where this occurs is when the map is loaded in a tab or flyout panel that isn’t displayed on page load.
-The following code sample shows how delay the loading the Azure Maps Web SDK until a button is pressed.
+The following code sample shows how to delay the loading the Azure Maps Web SDK until a button is pressed.
 
 <br/>
 
@@ -83,12 +83,12 @@ The Web SDK has two data sources,
 
 ### Use tile-based solutions for large datasets
 
-If working with larger datasets containing millions of features, the recommended way to achieve optimal performance is to expose the data using a server side solution such as vector or raster image tile service.  
+If working with larger datasets containing millions of features, the recommended way to achieve optimal performance is to expose the data using a server-side solution such as vector or raster image tile service.  
 Vector tiles are optimized to load only the data that is in view with the geometries clipped to the focus area of the tile and generalized to match the resolution of the map for the zoom level of the tile.
 
 The [Azure Maps Creator platform](creator-indoor-maps.md) provides the ability to retrieve data in vector tile format. Other data formats can be using tools such as [Tippecanoe](https://github.com/mapbox/tippecanoe) or one of the many [resources list on this page](https://github.com/mapbox/awesome-vector-tiles).
 
-It is also possible to create a custom service that renders datasets as raster image tiles on the server side and load the data using the TileLayer class in the map SDK. This provides exceptional performance as the map only needs to load and manage a few dozen images at most. However, there are some limitations with using raster tiles since the raw data is not available locally . A secondary service is usually required to power any type of interaction experience, for example, find out what shape a user clicked on. Additionally, the file size of a raster tile is often larger than a compressed vector tile that contains generalized and zoom level optimized geometries.
+It is also possible to create a custom service that renders datasets as raster image tiles on the server-side and load the data using the TileLayer class in the map SDK. This provides exceptional performance as the map only needs to load and manage a few dozen images at most. However, there are some limitations with using raster tiles since the raw data is not available locally. A secondary service is usually required to power any type of interaction experience, for example, find out what shape a user clicked on. Additionally, the file size of a raster tile is often larger than a compressed vector tile that contains generalized and zoom level optimized geometries.
 
 Learn more about data sources in the [Create a data source](create-data-source-web-sdk.md) document.
 
@@ -122,11 +122,11 @@ If your dataset contains features that aren’t going to be used in your app, re
 
 * Reduces the amount of data that has to be downloaded.
 * Reduces the number of features that need to be looped through when rendering the data.
-* Can sometimes help simplify or remove data-driven expressions and filters which means less processing required at render time.
+* Can sometimes help simplify or remove data-driven expressions and filters which mean less processing required at render time.
 
-When features have a lot of properties or content it is much more performant to limit what gets added to the data source to just those needed for rendering and to have a separate method or service for retrieving the additional property or content when needed. For example, if you have a simple map displaying locations on a map when clicked a bunch of detailed content is displayed. If you want to use data driven styling to customize how the locations are rendered on the map, only load the properties needed into the data source. When you want to display the detailed content, use the ID of the feature to retrieve the additional content separately. If the content is stored on the server side, a service can be used to retrieve it asynchronously which would drastically reduce the amount of data that needs to be downloaded when the map is initially loaded.
+When features have a lot of properties or content it is much more performant to limit what gets added to the data source to just those needed for rendering and to have a separate method or service for retrieving the additional property or content when needed. For example, if you have a simple map displaying locations on a map when clicked a bunch of detailed content is displayed. If you want to use data driven styling to customize how the locations are rendered on the map, only load the properties needed into the data source. When you want to display the detailed content, use the ID of the feature to retrieve the additional content separately. If the content is stored on the server-side, a service can be used to retrieve it asynchronously which would drastically reduce the amount of data that needs to be downloaded when the map is initially loaded.
 
-Additionally, reducing the number of significant digits in the coordinates of features can also significantly reduce the data size. It is not uncommon for coordinates to contain 12 or more decimal places; however, six decimal places has an accuracy of about 0.1 meters which is often more precise than the location the coordinate represents (six place is recommended when working with very small location data such as indoor building layouts). Having any more than six decimal places will likely make no difference in how the data is rendered and will only require the user to download more data for no added benefit.
+Additionally, reducing the number of significant digits in the coordinates of features can also significantly reduce the data size. It is not uncommon for coordinates to contain 12 or more decimal places; however, six decimal places have an accuracy of about 0.1 meters which is often more precise than the location the coordinate represents (six decimal places is recommended when working with very small location data such as indoor building layouts). Having any more than six decimal places will likely make no difference in how the data is rendered and will only require the user to download more data for no added benefit.
 
 Here is a list of [useful tools for working with GeoJSON data](https://github.com/tmcw/awesome-geojson).
 
@@ -226,7 +226,7 @@ The following code sample a simple way to animate a symbol layer.
 
 If your data meets one of the following criteria, be sure to specify the min and max zoom level of the layer so that the rendering engine can skip it when outside of the zoom level range.
 
-* If the data is coming from a vector tile source. Often source layers for different data types are only available through a range of zoom levels.
+* If the data is coming from a vector tile source, often source layers for different data types are only available through a range of zoom levels.
 * If using a tile layer that doesn’t have tiles for all zoom levels 0 through 24 and you want it to only rendering at the levels it has tiles, and not try and fill in missing tiles with tiles from other zoom levels.
 * If you only want to render a layer at certain zoom levels.
 All layers have a `minZoom` and `maxZoom` option where the layer will be rendered when between these zoom levels based on this logic ` maxZoom > zoom >= minZoom`.
@@ -334,7 +334,7 @@ var layer = new atlas.layer.BubbleLayer(source, null, {
 });
 ```
 
-### Order boolean expressions from most specific to leas specific
+### Order boolean expressions from most specific to least specific
 
 When using boolean expressions that contain multiple conditional tests, order the conditional tests from most specific to least specific. By doing this, the first condition should reduce the amount of data the second condition has to be tested against, thus reducing the total number of conditional tests that need to be performed.
 
@@ -378,7 +378,7 @@ Things to check:
 * Check the console in the browser’s developer tools for errors.
 * Ensure that a data source has been created and added to the map, and that the data source has been connected to a rendering layer which has also been added to the map.
 * Add break points in your code and step through it to ensure data is being added to the data source and the data source and layers are being added to the map without any errors occurring.
-* Try removing data-driven expressions from your rendering layer. Its possible that one of them may have an error in it which is causing the issue.
+* Try removing data-driven expressions from your rendering layer. It's possible that one of them may have an error in it which is causing the issue.
 
 **Can I use the Azure Maps Web SDK in a sandboxed iframe?**
 
