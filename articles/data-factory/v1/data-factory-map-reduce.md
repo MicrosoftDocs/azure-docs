@@ -3,7 +3,7 @@ title: Invoke MapReduce Program from Azure Data Factory
 description: Learn how to process data by running MapReduce programs on an Azure HDInsight cluster from an Azure data factory.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018

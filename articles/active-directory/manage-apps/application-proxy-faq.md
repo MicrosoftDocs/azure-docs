@@ -40,7 +40,7 @@ This may be due to either the updater service not working correctly or if there 
 The updater service is healthy if it’s running and there are no errors recorded in the event log (Applications and Services logs -> Microsoft -> AadApplicationProxy -> Updater -> Admin). 
 
 > [!IMPORTANT]
-> Only major versions are released for auto-upgrade. We recommend updating your connector manually on a regular schedule. For more information on new releases, the type of the release (download, auto-upgrade), bug fixes and new features see, [Azure AD Application Proxy: Version release history](application-proxy-release-version-history.md).
+> Only major versions are released for auto-upgrade. We recommend updating your connector manually only if it's necessary. For example, you cannot wait for a major release, because you must fix a known problem or you want to use a new feature. For more information on new releases, the type of the release (download, auto-upgrade), bug fixes and new features see, [Azure AD Application Proxy: Version release history](application-proxy-release-version-history.md).
 
 To manually upgrade a connector:
 

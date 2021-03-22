@@ -1,20 +1,8 @@
 ---
 title: Defender-IoT-micro-agent for Azure RTOS built-in & customizable alerts and recommendations 
 description: Learn about security alerts and recommended remediation using the Azure IoT Defender-IoT-micro-agent -RTOS.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-
-
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/07/2020
-ms.author: mlottner
 ---
 
 # Defender-IoT-micro-agent for Azure RTOS security alerts and recommendations (preview)
