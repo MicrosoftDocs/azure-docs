@@ -168,7 +168,10 @@ In this example, we match all POST requests where a `customerName` argument is p
 
 ## <a name="QueryString"></a> Query string
 
-Use the **query string** match condition to identify requests that contain a specific query string. The entire query string is matched as a single string, without the leading `?`. You can specify multiple values to match, which will be combined using OR logic.
+Use the **query string** match condition to identify requests that contain a specific query string. You can specify multiple values to match, which will be combined using OR logic.
+
+> [!NOTE]
+> The entire query string is matched as a single string, without the leading `?`.
 
 ### Properties
 
@@ -408,12 +411,15 @@ In this example, we match all requests where the request file name is `media.mp4
 
 The **request file extension** match condition identifies requests that include the specified file extension in the file name in the request URL.
 
+> [!NOTE]
+> Don't include a leading period. For example, use `html` instead of `.html`.
+
 ### Properties
 
 | Property | Supported values |
 |-|-|
 | Operator | Any operator from the [standard operator list](#operator-list). |
-| Value | One or more string or integer values representing the value of the request file extension to match. Don't include a leading period; for example, use `html` instead of `.html`. If multiple values are specified, they're evaluated using OR logic. |
+| Value | One or more string or integer values representing the value of the request file extension to match. Don't include a leading period. If multiple values are specified, they're evaluated using OR logic. |
 | Case transform | `Lowercase`, `Uppercase` |
 
 ### Example
@@ -578,7 +584,10 @@ In this example, we match all requests where the request uses the `DELETE` metho
 
 ## <a name="UrlPath"></a> Request path
 
-The **request path** match condition identifies requests that include the specified path in the request URL. The path is the part of the URL after the hostname and a slash. For example, in the URL `https://www.contoso.com/files/secure/file1.pdf`, the path is `files/secure/file1.pdf`.
+The **request path** match condition identifies requests that include the specified path in the request URL.
+
+> [!NOTE]
+> The path is the part of the URL after the hostname and a slash. For example, in the URL `https://www.contoso.com/files/secure/file1.pdf`, the path is `files/secure/file1.pdf`.
 
 ### Properties
 
@@ -789,19 +798,23 @@ For rules that accept values from the standard operator list, the following oper
 
 Regular expressions don't support the following operations:
 
-* Backreferences and capturing subexpressions
-* Arbitrary zero-width assertions
-* Subroutine references and recursive patterns
-* Conditional patterns
-* Backtracking control verbs
-* The \C single-byte directive
-* The \R newline match directive
-* The \K start of match reset directive
-* Callouts and embedded code
-* Atomic grouping and possessive quantifiers
+* Backreferences and capturing subexpressions.
+* Arbitrary zero-width assertions.
+* Subroutine references and recursive patterns.
+* Conditional patterns.
+* Backtracking control verbs.
+* The `\C` single-byte directive.
+* The `\R` newline match directive.
+* The `\K` start of match reset directive.
+* Callouts and embedded code.
+* Atomic grouping and possessive quantifiers.
+
+## ARM template support
+
+Rule sets can be configured using Azure Resource Manager templates. [See an example template](TODO). You can add match conditions by using the JSON or Bicep snippets included in the examples above.
 
 ## Next steps
 
 * Learn more about [Rule Set](concept-rule-set.md).
-* Learn how to [configure your first Rules Set](how-to-configure-rule-set.md).
+* Learn how to [configure your first Rule Set](how-to-configure-rule-set.md).
 * Learn more about [Rule Set actions](concept-rule-set-actions.md).
