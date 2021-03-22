@@ -108,7 +108,7 @@ You'll need to enable diagnostic settings on all objects within the Windows Virt
 
  1. Under **Workspace**, check to see whether Windows Virtual Desktop diagnostics are enabled for the Windows Virtual Desktop workspace (this is different from your Log Analytics workspace). If they aren't, an error message will appear that says "No existing diagnostic configuration was found for the selected workspace." 
  
-    The following diagnostic tables are supported in the workspace today and should be enabled:
+    You'll also need to enable the following supported diagnostics tables:
 
     - Checkpoint
     - Error
