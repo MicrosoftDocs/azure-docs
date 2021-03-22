@@ -121,7 +121,7 @@ Follow these steps on the on-premises server where you are running Azure AD Conn
 
    After completing the wizard, Seamless SSO will be disabled on your tenant. However, you will see a message on screen that reads as follows:
 
-   "Single sign-on is now disabled, but there are additional manual steps to perform in order to complete clean-up. Learn more"
+   "Single sign-on is now disabled, but there are additional manual steps to perform in order to complete clean-up. [Learn more](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sso#step-3-disable-seamless-sso-for-each-active-directory-forest-where-youve-set-up-the-feature)"
 
    To complete the clean-up process, follow steps 2 and 3 on the on-premises server where you are running Azure AD Connect.
 
