@@ -759,30 +759,35 @@ In this example, we match all requests where the request URL begins with `https:
 
 For rules that accept values from the standard operator list, the following operators are valid:
 
-* Any
-* Equals
-* Contains
-* Begins with
-* Ends with
-* Less than
-* Less than or equals
-* Greater than
-* Greater than or equals
-* Not any
-* Not contains
-* Not begins with
-* Not ends with
-* Not less than
-* Not less than or equals
-* Not greater than
-* Not greater than or equals
-* Regular Expression
+| Operator                   | Description                                                                                                                    | ARM template support                                            |
+|----------------------------|--------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
+| Any                        | Matches when there is any value, regardless of what it is.                                                                     | `operator`: `Any`                                               |
+| Equal                      | Matches when the value exactly matches the specified string.                                                                   | `operator`: `Equal`                                             |
+| Contains                   | Matches when the value contains the specified string.                                                                          | `operator`: `Contains`                                          |
+| Less Than                  | Matches when the length of the value is less than the specified integer.                                                       | `operator`: `LessThan`                                          |
+| Greater Than               | Matches when the length of the value is greater than the specified integer.                                                    | `operator`: `GreaterThan`                                       |
+| Less Than or Equal         | Matches when the length of the value is less than or equal to the specified integer.                                           | `operator`: `LessThanOrEqual`                                   |
+| Greater Than or Equal      | Matches when the length of the value is greater than or equal to the specified integer.                                        | `operator`: `GreaterThanOrEqual`                                |
+| Begins With                | Matches when the value begins with the specified string.                                                                       | `operator`: `BeginsWith`                                        |
+| Ends With                  | Matches when the value ends with the specified string.                                                                         | `operator`: `EndsWith`                                          |
+| RegEx                      | Matches when the value matches the specified regular expression. [See below for further details.](#regular-expressions)        | `operator`: `RegEx`                                             |
+| Not Any                    | Matches when there is no value.                                                                                                | `operator`: `Any` and `negateCondition` : `true`                |
+| Not Equal                  | Matches when the value does not match the specified string.                                                                    | `operator`: `Equal` and `negateCondition` : `true`              |
+| Not Contains               | Matches when the value does not contain the specified string.                                                                  | `operator`: `Contains` and `negateCondition` : `true`           |
+| Not Less Than              | Matches when the length of the value is not less than the specified integer.                                                   | `operator`: `LessThan` and `negateCondition` : `true`           |
+| Not Greater Than           | Matches when the length of the value is not greater than the specified integer.                                                | `operator`: `GreaterThan` and `negateCondition` : `true`        |
+| Not Less Than or Equal     | Matches when the length of the value is not less than or equal to the specified integer.                                       | `operator`: `LessThanOrEqual` and `negateCondition` : `true`    |
+| Not Greater Than or Equals | Matches when the length of the value is not greater than or equal to the specified integer.                                    | `operator`: `GreaterThanOrEqual` and `negateCondition` : `true` |
+| Not Begins With            | Matches when the value does not begin with the specified string.                                                               | `operator`: `BeginsWith` and `negateCondition` : `true`         |
+| Not Ends With              | Matches when the value does not end with the specified string.                                                                 | `operator`: `EndsWith` and `negateCondition` : `true`           |
+| Not RegEx                  | Matches when the value does not match the specified regular expression. [See below for further details.](#regular-expressions) | `operator`: `RegEx` and `negateCondition` : `true`              |
 
-For numeric operators like *Less than* and *Greater than or equals*, the comparison used is based on length. The value in the match condition should be an integer that equals the length you want to compare.
+> [!TIP]
+> For numeric operators like *Less than* and *Greater than or equals*, the comparison used is based on length. The value in the match condition should be an integer that specifies the length you want to compare.
 
-## Regular Expression
+### <a name="regular-expressions"></a> Regular expressions
 
-Regex doesn't support the following operations:
+Regular expressions don't support the following operations:
 
 * Backreferences and capturing subexpressions
 * Arbitrary zero-width assertions
