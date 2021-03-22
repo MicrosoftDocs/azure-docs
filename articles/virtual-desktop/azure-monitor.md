@@ -146,7 +146,7 @@ You'll need to install the Log Analytics agent on all session hosts in the host 
 3. Refresh the Configuration Workbook.
 
 >[!NOTE]
->The host machine needs to be running to install the Log Analytics extension. If automatic deployment fails on a host, you can always install the extension on a host manually. To learn how to install the extension manually, see [Log Analytics virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md).
+>The host machine needs to be running to install the Log Analytics extension. If automatic deployment doesn't work, you can install the extension on a host manually instead. To learn how to install the extension manually, see [Log Analytics virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md).
 
 
 ### Workspace Performance counters
