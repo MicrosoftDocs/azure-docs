@@ -120,6 +120,7 @@ To connect the STM DevKit to Azure, you'll modify a configuration file for Wi-Fi
     > *getting-started\MXChip\AZ3166\app\azure_config.h*
 
 1. Set the Wi-Fi constants to the following values from your local environment.
+
     |Constant name|Value|
     |-------------|-----|
     |`WIFI_SSID` |{*Your Wi-Fi ssid*}|
