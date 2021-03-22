@@ -16,8 +16,8 @@ This article demonstrates how to deploy an [Azure Static Web App](articles\stati
 
 In this tutorial, you will learn how to:
 
-- Create a task in your Azure DevOps Pipeline
 - Setup an an Azure Static Web Apps website
+- Create a task in your Azure DevOps Pipeline
 
 ## Prerequisites
 
