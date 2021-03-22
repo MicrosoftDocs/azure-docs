@@ -86,7 +86,7 @@ You'll need to enable diagnostic settings on all objects within the Windows Virt
 
 1. Under **Host pool**, check to see whether Windows Virtual Desktop diagnostics are enabled. If they aren't, an error message will appear that says "No existing diagnostic configuration was found for the selected host pool." 
    
-   The following diagnostic tables are supported today and should be enabled:
+   You'll also need to enable the following supported diagnostic tables:
 
     - Checkpoint
     - Error
