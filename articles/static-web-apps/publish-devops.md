@@ -27,10 +27,13 @@ In this tutorial, you learn to:
   - If you don't have one, you can [create an account for free](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/).
 - An understanding of how to set up an Azure DevOps Pipeline.
   - If you need help getting started, see [Create your first pipeline](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops).
+- An HTML file to create a web app.
+  - Azure Static Web Apps requires at least one HTML file to create a web app. You can reference the **vanilla-api** repository for a starting template, navigate to [https://github.com/staticwebdev/vanilla-api/generate](https://github.com/staticwebdev/vanilla-api/generate), or bring an existing HTML file/repository.
+
+ 
 
 
 ## Create a static web app
-
 1. Navigate to the [Azure portal](https://portal.azure.com).
 1. Select **Create a Resource**.
 1. Search for **Static Web Apps**.
