@@ -315,8 +315,6 @@ To make it easier to digest the data, managed identities for Azure resources sig
 
 - Status
 
-- IP address
-
 - Resource name or ID
 
 Select an item in the list view to display all sign-ins that are grouped under a node.
