@@ -44,7 +44,7 @@ The following new features are available in the Azure Stack Edge 2102 release.
 
 - **Proactive logging by default** - Starting this release, proactive log collection is enabled by default on your device. This features allows Microsoft to collect logs proactively based on the system health indicators to help efficiently troubleshoot any device issues. For more information, see [Proactive log collection on your device](azure-stack-edge-gpu-proactive-log-collection.md).
 
-## Issue fixed in 2102 release
+## Issues fixed in 2102 release
 
 The following table lists the issues that were release noted in previous releases and fixed in the current release.
 
