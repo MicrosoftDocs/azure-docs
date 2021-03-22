@@ -50,7 +50,7 @@ To create an Enterprise Security Package cluster with HDInsight ID Broker enable
 
 The HDInsight ID Broker feature adds one extra VM to the cluster. This VM is the HDInsight ID Broker node, and it includes server components to support authentication. The HDInsight ID Broker node is domain joined to the Azure AD DS domain.
 
-![Diagram that shows option to enable HDInsight ID Broker.](./media/identity-broker/identity-broker-enable.png)
+:::image type="content" source="./media/identity-broker/identity-broker-enable.png" alt-text="Diagram that shows option to enable HDInsight ID Broker." border="false":::
 
 ### Use Azure Resource Manager templates
 

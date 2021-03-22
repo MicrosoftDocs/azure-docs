@@ -25,7 +25,7 @@ An Apache HBase cluster on HDInsight. See [Get started with Apache HBase](./apac
 
 1. From the Zeppelin page, select **Create new note**.
 
-    ![HDInsight Interactive Query zeppelin](./media/apache-hbase-phoenix-zeppelin/hbase-zeppelin-create-note.png)
+    :::image type="content" source="./media/apache-hbase-phoenix-zeppelin/hbase-zeppelin-create-note.png" alt-text="HDInsight Interactive Query zeppelin" border="true":::
 
 1. From the **Create new note** dialog, type or select the following values:
 
@@ -36,7 +36,7 @@ An Apache HBase cluster on HDInsight. See [Get started with Apache HBase](./apac
 
 1. Ensure the notebook header shows a connected status. It's denoted by a green dot in the top-right corner.
 
-    ![Zeppelin notebook status](./media/apache-hbase-phoenix-zeppelin/hbase-zeppelin-connected.png "Zeppelin notebook status")
+    :::image type="content" source="./media/apache-hbase-phoenix-zeppelin/hbase-zeppelin-connected.png "Zeppelin notebook status"" alt-text="Zeppelin notebook status" border="true":::
 
 1. Create an HBase table. Enter the following command and then press **Shift + Enter**:
 
