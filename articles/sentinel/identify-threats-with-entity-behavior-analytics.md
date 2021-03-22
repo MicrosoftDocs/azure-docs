@@ -182,10 +182,10 @@ A common example of a false positive is when impossible travel activity is detec
 For example, in an **Impossible travel** incident, the incident description includes details about the impossible activity detected. 
 
 1. Select **Investigate** to find out more.
-1. In the **Investigation** page:
+1. In the **Investigation** page, select an user entity to view the full entity details page for that user. 
 
     - Use the [Timeline](#the-timeline) to view the chronological succession of events.
-    - Select the [user entity](#entity-pages) to view more details about the user
+    - Select the [user entity](#entity-pages) to view the full entity details page. 
     - Select **Insights** on the right to help you determine whether the locations captured are included in the user's commonly known locations.
 
 > [!TIP]
