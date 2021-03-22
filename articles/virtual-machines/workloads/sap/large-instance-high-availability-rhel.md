@@ -33,17 +33,11 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
 	10.60.0.35 sollabdsm35.azlinux.com sollabdsm35 node1
 	10.60.0.36 sollabdsm36.azlinux.com sollabdsm36 node2
 	10.20.251.150 sollabdsm36-st
-
 	10.20.251.151 sollabdsm35-st
-
 	10.20.252.151 sollabdsm36-back
-
 	10.20.252.150 sollabdsm35-back
-
 	10.20.253.151 sollabdsm36-node
-
 	10.20.253.150 sollabdsm35-node
-
 	```
 
 2. 	Create and exchange the SSH keys.
@@ -309,7 +303,8 @@ In this section, you learn how to configure Watchdog. This section uses the same
 ## SBD configuration
 In this section, you learn how to configure SBD. This section uses the same two hosts, `sollabdsm35` and `sollabdsm36`, referenced at the beginning of this article.
 
-1.  Make sure the iSCSI or FC disk is visible on both nodes. This example uses an FC-based SBD device. For more information about SBD fencing, see the [reference documentation](http://www.linux-ha.org/wiki/SBD_Fencing).
+1.  Make sure the iSCSI or FC disk is visible on both nodes. This example uses an FC-based SBD device. For more information about SBD fencing, see the [reference documentation](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Faccess.redhat.com%2Farticles%2F2941601&data=04%7C01%7Cralf.klahr%40microsoft.com%7Cd49d7a3e3871449cdecc08d8c77341f1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637478645171139432%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=c%2BUAC5gmgpFNWZCQFfiqcik8CH%2BmhH2ly5DsOV1%2FE5M%3D&reserved=0).
+Also see [this reference](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Faccess.redhat.com%2Farticles%2F2941601&data=04%7C01%7Cralf.klahr%40microsoft.com%7Cd49d7a3e3871449cdecc08d8c77341f1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637478645171139432%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=c%2BUAC5gmgpFNWZCQFfiqcik8CH%2BmhH2ly5DsOV1%2FE5M%3D&reserved=0)
 2.  The LUN-ID must be identically on all nodes.
   
 3.  Check multipath status for the sbd device.
