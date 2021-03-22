@@ -2,16 +2,11 @@
 title: Scale Media Reserved Units (MRUs) CLI
 description: This topic shows how to use CLI to scale media processing with Azure Media Services.
 services: media-services
-documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
-editor: ''
 ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 03/22/2021
 ms.author: inhenkel
 ---
 # How to scale media reserved units
@@ -19,6 +14,9 @@ ms.author: inhenkel
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 This article shows you how to scale Media Reserved Units (MRSs) for faster encoding.
+
+> [!WARNING]
+> This command will no longer work for Media Services accounts that are created with the 2020-05-01 version of the API or later. For these accounts media reserved units are no longer needed as the system will automatically scale up and down based on load. If you don’t see the option to manage MRUs in the Azure Portal, you’re using an account that was created with the 2020-05-01 API or later.
 
 ## Prerequisites
 

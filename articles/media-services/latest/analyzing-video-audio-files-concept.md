@@ -1,17 +1,12 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Analyze video and audio files
 description: Learn how to analyze audio and video content using AudioAnalyzerPreset and VideoAnalyzerPreset in Azure Media Services.
 services: media-services
-documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
-editor: ''
-
 ms.service: media-services
-ms.workload: 
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 03/22/2021
 ms.author: inhenkel
 ---
 
@@ -26,9 +21,6 @@ Azure Media Services v3 lets you extract insights from your video and audio file
 There are two modes for the Audio Analyzer preset, basic and standard. See the description of the differences in the table below.
 
 To analyze your content using Media Services v3 presets, you create a **Transform** and submit a **Job** that uses one of these presets: [VideoAnalyzerPreset](/rest/api/media/transforms/createorupdate#videoanalyzerpreset) or **AudioAnalyzerPreset**. For a tutorial demonstrating how to use **VideoAnalyzerPreset**, see [Analyze videos with Azure Media Services](analyze-videos-tutorial-with-api.md).
-
-> [!NOTE]
-> When using a Video or Audio Analyzer presets, use the Azure portal to set your account to have 10 S3 Media Reserved Units, although this is not required. You can use either S1 or S2 for audio presets. For more information, see [Scale media processing](media-reserved-units-cli-how-to.md).
 
 ## Compliance, Privacy and Security
 
