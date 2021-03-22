@@ -224,7 +224,7 @@ To manage roles, go to the **Ambari management page**, then select the **Roles**
 
 To see the list of permissions given to each role, click on the blue question mark next to the **Roles** table header on the Roles page.
 
-:::image type="content" source="./media/hdinsight-authorize-users-to-ambari/roles-menu-permissions.png "Apache Ambari roles menu link permissions"" alt-text="Apache Ambari roles menu link permissions":::
+:::image type="content" source="./media/hdinsight-authorize-users-to-ambari/roles-menu-permissions.png" alt-text="Apache Ambari roles menu link permissions":::
 
 On this page, there are two different views you can use to manage roles for users and groups: Block and List.
 
