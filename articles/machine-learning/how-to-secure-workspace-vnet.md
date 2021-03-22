@@ -187,6 +187,9 @@ To use Azure Container Registry inside a virtual network, you must meet the foll
 
     When ACR is behind a virtual network, Azure Machine Learning cannot use it to directly build Docker images. Instead, the compute cluster is used to build the images.
 
+    > [!IMPORTANT]
+    > The compute cluster used to build Docker images needs to be able to access the package repositories that are used to train and deploy your models. You may need to add network security rules that allow access to public repos, [use private Python packages](how-to-use-private-python-packages.md), or use [custom Docker images](how-to-train-with-custom-image.md) that already include the packages.
+
 Once those requirements are fulfilled, use the following steps to enable Azure Container Registry.
 
 > [!TIP]
@@ -222,6 +225,8 @@ Once those requirements are fulfilled, use the following steps to enable Azure C
     ws = Workspace.from_config()
     # Update the workspace to use an existing compute cluster
     ws.update(image_build_compute = 'mycomputecluster')
+    # To switch back to using ACR to build (if ACR is not in the VNet):
+    # ws.update(image_build_compute = None)
     ```
 
     > [!IMPORTANT]

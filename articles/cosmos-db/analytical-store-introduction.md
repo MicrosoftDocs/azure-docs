@@ -80,14 +80,14 @@ The following constraints are applicable on the operational data in Azure Cosmos
 
 * While JSON documents (and Cosmos DB collections/containers) are case sensitive from the uniqueness perspective, analytical store is not.
 
-  * **In the same document:** Properties names in the same level should be unique when compared case insensitively. For example, the following JSON document has "Name" and "name" in the same level. While it's a valid JSON document, it doesn't satisfy analytical store constraints and hence will not be fully represented in the analytical store. In this case, "Name" and "name" are the same when compared in a case insensitive manner. Only "Name" will be represented in analytical store, because it is the first occurrence. And `"name": "john"` won't be represented at all.
+  * **In the same document:** Properties names in the same level should be unique when compared case insensitively. For example, the following JSON document has "Name" and "name" in the same level. While it's a valid JSON document, it doesn't satisfy the uniqueness constraint and hence will not be fully represented in the analytical store. In this example, "Name" and "name" are the same when compared in a case insensitive manner. Only `"Name": "fred"` will be represented in analytical store, because it is the first occurrence. And `"name": "john"` won't be represented at all.
   
   
   ```json
   {"id": 1, "Name": "fred", "name": "john"}
   ```
   
-  * **In different documents:** Properties in the same level and with the same name, but in different cases, will be represented with the first occurrence. For example, the following documents have "Name" and "name" in the same level. Since the first document has "Name", this format will be used to represent the property in analytical store. In other words, the column name in analytical store will be "Name". Both `"fred"` and `"john"` will be represented, in the "Name" column.
+  * **In different documents:** Properties in the same level and with the same name, but in different cases, will be represented within the same column, using the name format of the first occurrence. For example, the following JSON documents have `"Name"` and `"name"` in the same level. Since the first document format is `"Name"`, this is what will be used to represent the property name in analytical store. In other words, the column name in analytical store will be `"Name"`. Both `"fred"` and `"john"` will be represented, in the `"Name"` column.
 
 
   ```json
