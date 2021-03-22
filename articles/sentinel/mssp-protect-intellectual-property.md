@@ -104,6 +104,9 @@ When adding a workspace statement to your analytics rules, consider the followin
 
 > [!IMPORTANT]
 > The key to using this method successfully is using automation to manage a large set of rules across your workspaces.
+>
+> For more information, see [Cross-workspace analytics rules](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-cross-workspace-analytics-rules/ba-p/1664211)
+>
 
 ### Workbooks
 
