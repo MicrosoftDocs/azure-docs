@@ -58,7 +58,7 @@ $snapshotName=mySnapshot
 #Know more about SAS here: https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1
 $sasExpiryDuration=3600
 
-#Provide storage account name where you want to copy the underlying VHD file. Storage (general purpose v1) currently is supported.
+#Provide storage account name where you want to copy the underlying VHD file. Currently, only general purpose v1 storage is supported.
 $storageAccountName=mystorageaccountname
 
 #Name of the storage container where the downloaded VHD will be stored.
