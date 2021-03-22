@@ -73,13 +73,14 @@ In this area, you will  provide customer-ready marketing information for your de
 1. Write a short description of your device that will be displayed on the product description page of the catalog.
 1. Indicate geographic availability of your device.
 1. Provide a link to the manufacturer's marketing page for this device. This should be a link to a site that provides additional information about the device.
-  
-     (*Note: Please ensure all supplied URLs are valid or will be active at the time of publication following approval.*)
+    > [!Note]
+    > Please ensure all supplied URLs are valid or will be active at the time of publication following approval.*)
 
 1. Indicate up to 3 target industries that your device is optimized for.
 1. Provide information for up to 5 distributors of your device. This may include the manufacturer's own site.
 
-     (*Note: If no distributor product page URL is supplied, then the `Shop` button on the catalog will default to the link supplied for `Distributor page`, which may not be specific to the device. Ideally, the distributor URL should lead to a specific page where a customer can purchase a device, but is not mandatory. If the distributor is the same as the manufacturer, this URL may be the same as the manufacturer's marketing page.*)
+    > [!Note]
+    > If no distributor product page URL is supplied, then the `Shop` button on the catalog will default to the link supplied for `Distributor page`, which may not be specific to the device. Ideally, the distributor URL should lead to a specific page where a customer can purchase a device, but is not mandatory. If the distributor is the same as the manufacturer, this URL may be the same as the manufacturer's marketing page.*)
 
 1. Click `Save` to confirm your information.
 1. Click `Project summary` at the top of the page to return to your summary page.

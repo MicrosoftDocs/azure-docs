@@ -62,7 +62,7 @@ Once you have successfully connected your device to AICS, you are now ready to r
 
 7. If you have additional questions or need troubleshooting assistance with AICS, visit our troubleshooting guide.
 
-[!NOTE]
+> [!NOTE]
 > While you will be able to complete the online certification process for IoT Plug and Play and Edge Managed without having to submit your device for manual review, you may be contacted by a Azure Certified Device team member for further device validation beyond what is tested through our automation service.
 
 ## Submitting your device for review

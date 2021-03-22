@@ -77,8 +77,9 @@ Below are examples of how an OEM called Contoso would use the components feature
     1. No. of components: 2
     1. Component device type: Customer Ready Product, Peripheral
     1. Attachment type: Discrete, Integrated
-
-       - **Note**: The peripheral component is considered integrated because it is not removable.
+    
+    > [!Note]
+    > The peripheral component is considered integrated because it is not removable.
 
      ![Image of peripheral example component](./media/images/peripheral.png)
 
@@ -87,7 +88,8 @@ Below are examples of how an OEM called Contoso would use the components feature
     1. Component device type: Customer Ready Product, System on Module
     1. Attachment type: Discrete, Integrated
 
-       - **Note**: The peripheral component is considered integrated because it is not removable. The SoM component would also include processor information.
+    > [!Note]
+    > The peripheral component is considered integrated because it is not removable. The SoM component would also include processor information.
 
      ![Image of system on module example component ](./media/images/system-on-module.png)
 

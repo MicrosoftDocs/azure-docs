@@ -26,7 +26,8 @@ On the project summary, you should notice that your project is in read-only mode
     ![Request metadata update](./media/images/request_metadata_edit.png)
 
 1. Acknowledge the notification on the page that you will be required to submit your product for review after editing.
-    * **Note**: By confirming this edit, you are **not** removing your device from the Azure Certified Device catalog if it has already been published. Your previous version of the product will remain on the catalog until you have republished your device.
+    > [!NOTE]
+    > By confirming this edit, you are **not** removing your device from the Azure Certified Device catalog if it has already been published. Your previous version of the product will remain on the catalog until you have republished your device.
 
 1. Once acknowledging this warning, you can edit your device details. Make sure to leave a note in the `Comments for Reviewer` section of `Device Details` of what has been changed.
 
