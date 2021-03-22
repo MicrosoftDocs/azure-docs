@@ -1,10 +1,10 @@
 ---
-title: View alerts and their descriptions
+title: Alert types and descriptions
 description: Review Defender for IoT Alert descriptions.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 03/17/2021
+ms.date: 03/22/2021
 ms.topic: how-to
 ms.service: azure
 ---
@@ -248,4 +248,5 @@ Policy engine alerts describe deviations from learned baseline network behavior.
 
 ## Next steps
 
-[Gain insight into global, regional, and local threats](how-to-gain-insight-into-global-regional-and-local-threats.md).
+You can [Manage alert events](how-to-manage-the-alert-event.md).
+Learn how to [Forward alert information](how-to-forward-alert-information-to-partners.md).

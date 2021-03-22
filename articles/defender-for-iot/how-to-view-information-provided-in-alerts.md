@@ -1,5 +1,5 @@
 ---
-title: View information in alerts
+title: About alert messages
 description: Select an alert from the Alerts window to review details.
 author: shhazam-ms
 manager: rkarlin
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.service: azure
 ---
 
-# View information in alerts
+# About alert messages
 
 Select an alert from the **Alerts** window to review alert details. Details include the following information:
 
