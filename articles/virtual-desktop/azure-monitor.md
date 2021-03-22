@@ -186,7 +186,7 @@ To set up Windows Event logs:
 
 4. Refresh the Configuration Workbook.
 
-5. Verify that all the required event logs are enabled by checking the **Missing event logs** list. 
+5. Make sure all the required event logs are enabled by checking the **Missing event logs** list. 
 
 ## Optional: configure alerts
 
