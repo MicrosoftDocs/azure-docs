@@ -35,7 +35,7 @@ Anyone monitoring Azure Monitor for Windows Virtual Desktop for your environment
 
 - Read access to the resource group where the environment's resources are located.
 
-- Read access to the resource group(s) where the environment’s session hosts are located
+- Read access to the resource group or groups where the environment’s session hosts are located
 
 - Read access to the Log Analytics workspace or workspaces
 
