@@ -47,7 +47,7 @@ Inputs to summarization are the long string from the preparation phase. From tha
 
 Output is a [semantic caption](semantic-how-to-query-request.md), in plain text and with highlights. The caption is smaller than the long string, usually fewer than 200 words per document, and it's considered the most representative of the document. 
 
-A [semantic answer](semantic-answers.md) will also be returned if you specified the "answers" parameter, if the query was posed as a question, and if a passage can be found in the long string that looks like a plausible answer to the question.
+A [semantic answer](semantic-answers.md) will also be returned if you specified the "answers" parameter, if the query was posed as a question, and if a passage can be found in the long string that is likely to provide an answer to the question.
 
 ## Scoring and ranking
 
