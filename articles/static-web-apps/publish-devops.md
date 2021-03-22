@@ -12,7 +12,7 @@ ms.author: apedward
 
 # Tutorial: Publish Azure Static Web Apps with Azure DevOps
 
-This article demonstrates how to deploy an [Azure Static Web App](articles\static-web-apps\overview.md) using [Azure DevOps](https://dev.azure.com/). The aim to is to deploy a new Azure Static Web App from your Azure DevOps pipeline. 
+This article demonstrates how to deploy an [Azure Static Web Apps](./overview.md) site using [Azure DevOps](https://dev.azure.com/).
 
 In this tutorial, you learn to:
 
