@@ -1,12 +1,8 @@
 ---
 title: View information in alerts
 description: Select an alert from the Alerts window to review details.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
-ms.date: 03/21/2021
+ms.date: 3/21/2021
 ms.topic: how-to
-ms.service: azure
 ---
 
 # View information in alerts
