@@ -209,6 +209,7 @@ Use the general guidelines when implementing a SCIM endpoint to ensure compatibi
   * Schema discovery is not currently supported on the custom application, but it is being used on certain gallery applications. Going forward, schema discovery will be used as the primary method to add additional attributes to a connector. 
   * If a value is not present, do not send null values.
   * Property values should be camel cased (e.g. readWrite).
+  * Must return a list response.
   
 ### User provisioning and deprovisioning
 
@@ -757,10 +758,17 @@ This section provides example SCIM requests emitted by the AAD SCIM client and e
 
 ##### <a name="request-15"></a>Request
 *GET /Schemas* 
-##### <a name="request-15"></a>Response
+##### <a name="response-15"></a>Response
 *HTTP/1.1 200 OK*
 ```json
-[
+{
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+    ],
+    "itemsPerPage": 50,
+    "startIndex": 1,
+    "totalResults": 3,
+    "Resources": [
   {
     "id" : "urn:ietf:params:scim:schemas:core:2.0:User",
     "name" : "User",
@@ -838,6 +846,7 @@ organization.",
     }
   }
 ]
+}
 ```
 
 ### Security requirements
