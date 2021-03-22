@@ -5,7 +5,7 @@ keywords: Azure, artificial intelligence, ai, natural language processing, nlp, 
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 11/23/2020
+ms.date: 03/22/2021
 ms.custom: cog-serv-seo-aug-2020
 ---
 
@@ -18,6 +18,13 @@ Language Understanding (LUIS) is a cloud-based conversational AI service that ap
 A client application for LUIS is any conversational application that communicates with a user in natural language to complete a task. Examples of client applications include social media apps, AI chatbots, and speech-enabled desktop applications.
 
 ![Conceptual image of 3 client applications working with Cognitive Services Language Understanding (LUIS)](./media/luis-overview/luis-entry-point.png "Conceptual image of 3 client applications working with Cognitive Services Language Understanding (LUIS)")
+
+This documentation contains the following article types:  
+
+* [**Quickstarts**](luis-get-started-create-app.md) are getting-started instructions to guide you through making requests to the service.  
+* [**How-to guides**](luis-how-to-start-new-app.md) contain instructions for using the service in more specific or customized ways.  
+* [**Concepts**](artificial-intelligence.md) provide in-depth explanations of the service functionality and features.  
+* [**Tutorials**](tutorial-intents-only.md) are longer guides that show you how to use the service as a component in broader business solutions.  
 
 ## Use LUIS in a chat bot
 
