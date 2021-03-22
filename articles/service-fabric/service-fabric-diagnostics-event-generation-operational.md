@@ -52,6 +52,13 @@ More details on cluster upgrades can be found [here](service-fabric-cluster-upgr
 | 25624 | NodeClosed | StateTransition |  A node shut down successfully | FabricNode | Informational | 
 | 25626 | NodeAborted | StateTransition |  A node has ungracefully shut down | FabricNode | Error | 
 
+**Ktl Logger Node events** 
+
+| EventId | Name | Category | Description |Source (Task) | Level |
+| --- | --- | --- | --- | --- | --- | 
+| 50187 | SharedLogWriteThrottled | Health | Writes to Shared log are throttling | KtlLoggerNode | Informational | 
+| 50188 | SharedLogWriteUnthrottled | Health | Writes to Shared log have unthrottled | KtlLoggerNode | Informational | 
+
 ## Application events
 
 **Application lifecycle events**
