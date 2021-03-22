@@ -5,7 +5,7 @@ author: jehona-m
 ms.author: jemorina
 ms.service: industrial-iot
 ms.topic: reference
-ms.date: 12/08/2020
+ms.date: 3/22/2021
 ---
 
 # Command-line Arguments

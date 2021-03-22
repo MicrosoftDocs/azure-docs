@@ -5,7 +5,7 @@ author: jehona-m
 ms.author: jemorina
 ms.service: industrial-iot
 ms.topic: overview
-ms.date: 12/01/2020
+ms.date: 3/22/2021
 ---
 
 # What is Industrial IoT (IIoT)?
