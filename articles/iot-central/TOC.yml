@@ -8,6 +8,8 @@
     href: core/overview-iot-central-tour.md
   - name: Recent updates
     items:
+    - name: February 2021 new and updated features
+      href: https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-february-2021/
     - name: January 2021 new and updated features
       href: https://azure.microsoft.com/updates/azure-iot-central-feature-updates-january-2021/
     - name: November 2020 new and updated features
@@ -132,6 +134,8 @@
       href: core/overview-iot-central-developer.md
     - name: Solution builder guide
       href: core/overview-iot-central-solution-builder.md
+    - name: Operator guide
+      href: core/overview-iot-central-operator.md
     - name: What are application templates?
       href: core/concepts-app-templates.md
     - name: Industry specific application templates
@@ -214,8 +218,6 @@
           href: core/howto-connect-rigado-cascade-500.md
         - name: Connect other IoT clouds
           href: core/howto-build-iotc-device-bridge.md
-        - name: Manage your devices
-          href: core/how-to-move-device-to-iot.md
     - name: Build integrated solutions
       items:
         - name: Add tiles to your dashboard
@@ -248,6 +250,8 @@
           href: core/howto-manage-devices.md
         - name: Run a job
           href: core/howto-run-a-job.md
+        - name: Move devices from IoT Hub  
+          href: core/how-to-move-device-to-iot.md
     - name: Administer your solution
       items:
         - name: Change application settings
@@ -294,6 +298,7 @@
         href: core/troubleshoot-connection.md
     - name: FAQ
       href: core/howto-faq.md
+
 - name: Reference
   items:
   - name: Azure CLI
@@ -306,6 +311,9 @@
     href: /samples/browse/?expanded=azure&products=azure-iot-central
   - name: Support and help options
     href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json
+  - name: IoT Glossary
+    href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json
+
   - name: Azure IoT services
     items:
     - name: IoT Hub

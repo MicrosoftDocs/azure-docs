@@ -1,7 +1,9 @@
 {
   "build_entry_point": "docs",
   "redirection_files": [
-    ".openpublishing.redirection.json"
+    ".openpublishing.redirection.json",
+    ".openpublishing.redirection.healthcare-apis.json",
+    ".openpublishing.redirection.media-services.json"
   ],
   "docsets_to_publish": [
     {
@@ -211,6 +213,11 @@
       "path_to_root": "azure-functions-templates-v3",
       "url": "https://github.com/Azure/azure-functions-templates",
       "branch": "v3.x"
+    },
+    {
+      "path_to_root": "azure-search-javascript-samples",
+      "url": "https://github.com/Azure-Samples/azure-search-javascript-samples",
+      "branch": "master"
     },
     {
       "path_to_root": "samples-personalizer",

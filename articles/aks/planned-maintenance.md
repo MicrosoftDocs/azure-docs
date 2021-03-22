@@ -12,7 +12,7 @@ author: qpetraroia
 
 # Use Planned Maintenance to schedule maintenance windows for your Azure Kubernetes Service (AKS) cluster (preview)
 
-Your AKS cluster has regular maintenance performed on it automatically. By default, this work can happen at any time. Planned Maintenance allows you to schedule weekly maintenance windows that will update your control plane and minimize workload impact. Once scheduled, all your maintenance will occur during the window you selected. You can schedule one or more weekly windows on your cluster by specifying a day or time range on a specific day. Maintenance Windows are configured using the Azure CLI.
+Your AKS cluster has regular maintenance performed on it automatically. By default, this work can happen at any time. Planned Maintenance allows you to schedule weekly maintenance windows that will update your control plane as well as your kube-system Pods on a VMSS instance and minimize workload impact. Once scheduled, all your maintenance will occur during the window you selected. You can schedule one or more weekly windows on your cluster by specifying a day or time range on a specific day. Maintenance Windows are configured using the Azure CLI.
 
 ## Before you begin
 
@@ -24,8 +24,8 @@ This article assumes that you have an existing AKS cluster. If you need an AKS c
 
 When using Planned Maintenance, the following restrictions apply:
 
-- AKS reserves the right to break these windows for fixes and patches that are urgent or critical.
-- Performing maintenance operations are considered *best-effort only* and are not guaranteed to occur within a specified window.
+- AKS reserves the right to break these windows for unplanned/reactive maintenance operations that are urgent or critical.
+- Currently, performing maintenance operations are considered *best-effort only* and are not guaranteed to occur within a specified window.
 - Updates cannot be blocked for more than seven days.
 
 ### Install aks-preview CLI extension
@@ -103,7 +103,7 @@ You can also use a JSON file create a maintenance window instead of using parame
         "notAllowedTime": [
           {
             "start": "2021-05-26T03:00:00Z",
-            "end": "2021-05-30T012:00:00Z"
+            "end": "2021-05-30T12:00:00Z"
           }
         ]
 }
