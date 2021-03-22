@@ -51,8 +51,10 @@ The following table lists the base URLs for the Azure AD endpoints used to acqui
 |----------------|-------------------------|
 | Azure AD for US Government | `https://login.microsoftonline.us` |
 | Azure AD Germany| `https://login.microsoftonline.de` |
-| Azure AD China operated by 21Vianet | `https://login.chinacloudapi.cn` |
+| Azure AD China operated by 21Vianet | `https://login.partner.microsoftonline.cn/common` |
 | Azure AD (global service)| `https://login.microsoftonline.com` |
+
+*Note: For Azure AD China, the above mentioned endpoint is the recommended Azure AD authentication endpoint. `https://login.chinacloudapi.cn` authentication endpoint for China is also supported. 
 
 You can form requests to the Azure AD authorization or token endpoints by using the appropriate region-specific base URL. For example, for Azure Germany:
 
