@@ -19,11 +19,7 @@ Notifications provide information about network activity that might require your
 
 Responding to notifications improves the information provided in the device map, device inventory, and data-mining queries and reports. It also provides insight into legitimate network changes and potential network misconfigurations.
 
-To access notifications:
-
-- Select **System Settings** and then select **Data Enhancement**.
-
-## Notifications vs. alerts
+**Notifications vs. alerts**
 
 In addition to receiving notifications on network activity, you might receive *alerts*. Notifications provide information about network changes or unresolved device properties that don't present a threat. Alerts provide information about network deviations and changes that might present a threat to the network.
 
@@ -80,18 +76,6 @@ To display notifications and handle notifications:
 2. Instruct the sensor to apply newly detected information to selected devices by selecting **LEARN**. Or, instruct the sensor to ignore newly detected information by selecting **DISMISS**. The number of notifications that you can simultaneously learn and dismiss, along with the number of notifications you must handle individually, is shown.
 
 **New IPs** and **No Subnets** configured events can't be handled simultaneously. They require manual confirmation.
-
-## Improve device OS classification: data enhancement 
-
-The sensor continuously autodiscovers new OT devices. It also autodiscovers changes to previously discovered devices, including operating system types.
-
-Under certain circumstances, conflicts might be detected in discovered operating systems. This can happen because you have an OS version that refers to either desktop or server systems. If it happens, you'll receive a notification with optional OS classifications.
-
-:::image type="content" source="media/how-to-enrich-asset-information/enhance-data-screen.png" alt-text="Enhance data.":::
-
-Investigate the recommendations in order to enrich OS classification. This information appears in the device inventory, data-mining reports, and other displays. It can also improve the accuracy of alerts, threats, and risk analysis.
-
-When you accept a recommendation, the OS type information will be updated in the sensor.
 
 ## See also
 
