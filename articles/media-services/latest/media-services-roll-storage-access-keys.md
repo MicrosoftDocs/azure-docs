@@ -1,5 +1,5 @@
 ---
-title: Update Media Services after rolling storage access keys | Microsoft Docs
+title: Update Media Services v3 after rolling storage access keys | Microsoft Docs
 description: This articles give you guidance on how to update Media Services v3 after rolling storage access keys.
 services: media-services
 author: IngridAtMicrosoft
@@ -12,9 +12,9 @@ ms.topic: article
 ms.date: 03/22/2021
 ms.author: inhenkel
 ---
-# Update Media Services after rolling storage access keys
+# Update Media Services v3 after rolling storage access keys
 
-[!INCLUDE [media services api v2 logo](./includes/v3-hr.md)]
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 When you create a new Azure Media Services (AMS) account, you are also asked to select an Azure Storage account that is used to store your media content. You can add more than one storage account to your Media Services account. This article shows how to rotate storage keys. It also shows how to add storage accounts to a media account.
 
