@@ -41,7 +41,7 @@ For the full code sample, see [Publish events with custom metadata](https://gith
 
 ```python
 event_data = EventData('Message with properties')
-event_data.properties = {'priority': 1, "score": 9.0}
+event_data.properties = {'event-type': 'com.microsoft.samples.hello-event', 'priority': 1, "score": 9.0}
 ```
 
 For the full code sample, see [Send Event Data batch with properties](https://github.com/Azure/azure-sdk-for-python/blob/azure-eventhub_5.3.1/sdk/eventhub/azure-eventhub/samples/async_samples/send_async.py).
@@ -49,7 +49,7 @@ For the full code sample, see [Send Event Data batch with properties](https://gi
 ## JavaScript
 
 ```javascript
-let eventData = { body: "First event", properties: { "priority": 1, "score": 9.0  } };
+let eventData = { body: "First event", properties: { "event-type": "com.microsoft.samples.hello-event", "priority": 1, "score": 9.0  } };
 ```
 
 
