@@ -106,6 +106,9 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMB3
 
     * Specify the **Security Style** to use: NTFS (default) or UNIX.
 
+    * If you want to enable SMB3 protocol encryption for the dual-protocol volume, select **Enable SMB3 Protocol Encryption**.   
+    This feature enables encryption for only in-flight SMB3 data. It does not encrypt NFSv3 in-flight data. SMB clients not using SMB3 encryption will not be able to access this volume. Data at rest is encrypted regardless of this setting. See [SMB Encryption FAQs](azure-netapp-files-faqs.md#smb-encryption-faqs) for additional information. 
+
     * Optionally, [configure export policy for the volume](azure-netapp-files-configure-export-policy.md).
 
     ![Specify dual-protocol](../media/azure-netapp-files/create-volume-protocol-dual.png)
