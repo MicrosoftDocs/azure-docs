@@ -153,7 +153,7 @@ You'll need to install the Log Analytics agent on all session hosts in the host 
 
 Enable specific performance counters for collection at the corresponding sample interval in the Log Analytics workspace.
 
-If you already have performance counters enabled and want to remove them, follow the instructions in [Configuring performance counters](../azure-monitor/agents/data-sources-performance-counters.md).  While the article describes how to add counters, you can also remove them in the same location.
+If you already have performance counters enabled and want to remove them, follow the instructions in [Configuring performance counters](../azure-monitor/agents/data-sources-performance-counters.md). While this article describes how to add counters, you can also remove them in the same location.
 
 To set up Performance counters: 
 
