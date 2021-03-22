@@ -13,6 +13,14 @@
     href: quickstarts/client-library.md
   - name: Use the sample labeling tool
     href: quickstarts/label-tool.md
+- name: Samples
+  items:
+  - name: C#/.NET:\Form Recognizer client library SDK
+    href: /samples/azure/azure-sdk-for-net/azure-form-recognizer-client-sdk-samples
+  - name: Java:\Form Recognizer client library SDK 
+    href: /samples/azure/azure-sdk-for-java/formrecognizer-java-samples
+  - name: Python:\Form Recognizer client library SDK
+    href: /samples/azure/azure-sdk-for-python/formrecognizer-samples
 - name: How-to guides
   items:
   - name: Build a training data set
