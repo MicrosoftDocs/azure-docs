@@ -192,6 +192,7 @@ Within the [SCIM 2.0 protocol specification](http://www.simplecloud.info/#Specif
 |The filter [excludedAttributes=members](#get-group) when querying the group resource|section 3.4.2.5|
 |Accept a single bearer token for authentication and authorization of AAD to your application.||
 |Soft-deleting a user `active=false` and restoring the user `active=true`|The user object should be returned in a request whether or not the user is active. The only time the user should not be returned is when it is hard deleted from the application.|
+|Support the /Schemas endpoint|[section 8.7.1](https://tools.ietf.org/html/rfc7643#section-8.7.1) The schema discovery endpoint will be used to discover additional attributes.|
 
 Use the general guidelines when implementing a SCIM endpoint to ensure compatibility with AAD:
 
@@ -204,7 +205,11 @@ Use the general guidelines when implementing a SCIM endpoint to ensure compatibi
 * Microsoft AAD makes requests to fetch a random user and group to ensure that the endpoint and the credentials are valid. It's also done as a part of the **Test Connection** flow in the [Azure portal](https://portal.azure.com). 
 * The attribute that the resources can be queried on should be set as a matching attribute on the application in the [Azure portal](https://portal.azure.com), see [Customizing User Provisioning Attribute Mappings](customize-application-attributes.md).
 * Support HTTPS on your SCIM endpoint
-
+* [Schema discovery](#schema-discovery)
+  * Schema discovery is not currently supported on the custom application, but it is being used on certain gallery applications. Going forward, schema discovery will be used as the primary method to add additional attributes to a connector. 
+  * If a value is not present, do not send null values.
+  * Property values should be camel cased (e.g. readWrite).
+  
 ### User provisioning and deprovisioning
 
 The following illustration shows the messages that AAD sends to a SCIM service to manage the lifecycle of a user in your application's identity store.  
@@ -248,7 +253,7 @@ This section provides example SCIM requests emitted by the AAD SCIM client and e
   - [Delete Group](#delete-group) ([Request](#request-13) / [Response](#response-13))
 
 [Schema discovery](#schema-discovery)
-  - [Discover schema](#discover-schema) ([Request](#request) / [Response](#response))
+  - [Discover schema](#discover-schema) ([Request](#request-14) / [Response](#response-14))
 
 ### User Operations
 
@@ -750,9 +755,9 @@ This section provides example SCIM requests emitted by the AAD SCIM client and e
 ### Schema discovery
 #### Discover schema
 
-##### Request
+##### <a name="request-14"></a>Request
 *GET /Schemas* 
-##### Response
+##### <a name="request-14"></a>Response
 *HTTP/1.1 200 OK*
 ```json
 [
