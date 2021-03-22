@@ -13235,6 +13235,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-vmware/concepts-role-based-access-control.md",
+      "redirect_url": "/azure/azure-vmware/concepts-identity",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-vmware/deploy-traffic-manager-to-balance-avs-workloads.md",
       "redirect_url": "/azure/azure-vmware/deploy-traffic-manager-balance-workloads",
       "redirect_document_id": false
@@ -31593,6 +31598,11 @@
       "source_path_from_root": "/articles/scheduler/get-started-portal.md",
       "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
       "redirect_document_id": ""
+    },
+    {
+      "source_path_from_root": "/articles/search/search-filters-language.md",
+      "redirect_url": "/azure/search/search-language-support",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/search/semantic-how-to-query-response.md",
