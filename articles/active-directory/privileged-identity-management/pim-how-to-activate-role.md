@@ -105,7 +105,7 @@ If you do not require activation of a role that requires approval, you can cance
 
 ### Permissions are not granted after activating a role
 
-When you activate a role in Privileged Identity Management, your activation might be delayed in admin portals other than the Azure portal, such as the Office 365 portal. If your activation is delayed, sign out of the portal you're in and then sign back in. Then, use Privileged Identity Management to verify that you are listed as the member of the role.
+When you activate a role in Privileged Identity Management, the activation may not instantly propagate to all portals that require the privileged role. Sometimes, even if the change is propagated, web caching in a portal may result in the change not taking effect immediately. If your activation is delayed, sign out of the portal you are trying to perform the action and then sign back in. In the Azure portal, PIM signs you out and back in automatically.
 
 # [Previous version](#tab/previous)
 
