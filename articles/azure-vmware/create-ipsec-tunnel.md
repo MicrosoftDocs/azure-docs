@@ -7,35 +7,42 @@ ms.date: 10/02/2020
 
 # Create an IPSec tunnel into Azure VMware Solution
 
-In this article, we'll go through the steps to establish a VPN (IPsec IKEv1 and IKEv2) site-to-site tunnel terminating in the Microsoft Azure Virtual WAN hub. We'll create an Azure Virtual WAN hub and a VPN gateway with a public IP address attached to it. Then we'll create an Azure ExpressRoute gateway and establish an Azure VMware Solution endpoint. We'll also go over the details of enabling a policy-based VPN on-premises setup. 
+In this article, we'll go through the steps to establish a VPN (IPsec IKEv1 and IKEv2) site-to-site tunnel terminating in the Microsoft Azure Virtual WAN hub. 
+
+In this how to, you'll:
+- Create an Azure Virtual WAN hub and a VPN gateway with a public IP address attached to it. 
+- Create an Azure ExpressRoute gateway and establish an Azure VMware Solution endpoint. 
+- Enable a policy-based VPN on-premises setup. 
 
 ## Topology
 
-![Diagram showing VPN site-to-site tunnel architecture.](media/create-ipsec-tunnel/vpn-s2s-tunnel-architecture.png)
-
 The Azure Virtual hub contains the Azure VMware Solution ExpressRoute gateway and the site-to-site VPN gateway. It connects an on-premise VPN device with an Azure VMware Solution endpoint.
 
-## Before you begin
+![Diagram showing VPN site-to-site tunnel architecture.](media/create-ipsec-tunnel/vpn-s2s-tunnel-architecture.png)
 
-To create the site-to-site VPN tunnel, you'll need to create a public-facing IP address terminating on an on-premises VPN device.
+## Prerequisite
+
+You must have a public-facing IP address terminating on an on-premises VPN device.
 
 ## Create a Virtual WAN hub
 
-1. In the Azure portal, search on **Virtual WANS**. Select **+Add**. The Create WAN page opens.  
+1. In the Azure portal, select **Create a resource**. Type **Virtual WAN** in the search and select it from the results. 
 
-2. Enter the required fields on the **Create WAN** page and then select **Review + Create**.
+   The Create WAN page opens.  
+
+2. Select **Create** and then enter the required fields on the **Create WAN** page. Select **Review + Create**.
    
    | Field | Value |
    | --- | --- |
    | **Subscription** | Value is pre-populated with the subscription belonging to the resource group. |
    | **Resource group** | The Virtual WAN is a global resource and isn't confined to a specific region.  |
-   | **Resource group location** | To create the Virtual WAN hub, you need to set a location for the resource group.  |
+   | **Resource group location** | Set a location for the resource group.  |
    | **Name** |   |
-   | **Type** | Select **Standard**, which will allow more than just the VPN gateway traffic.  |
+   | **Type** | Select **Standard**. It allows more than just the VPN gateway traffic.  |
 
    :::image type="content" source="media/create-ipsec-tunnel/create-wan.png" alt-text="Screenshot showing the Create WAN page in the Azure portal.":::
 
-3. In the Azure portal, select the Virtual WAN you created in the previous step, select **Create virtual hub**, enter the required fields, and then select **Next: Site to site**. 
+3. Select the Virtual WAN you created in the previous step, select **Create virtual hub**, enter the required fields, and then select **Next: Site to site**. 
 
    | Field | Value |
    | --- | --- |
