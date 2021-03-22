@@ -29,7 +29,7 @@ Before you start using Azure Monitor for Windows Virtual Desktop, you'll need to
     
     - Recommended Windows event logs from your Windows Virtual Desktop session hosts
 
- Data set up in this document is the only set of data you'll need to monitor Windows Virtual Desktop. You can disable all other data sending to your Log Analytics workspace to save costs.
+ The data setup process described in this article is the only one you'll need to monitor Windows Virtual Desktop. You can disable all other items sending data to your Log Analytics workspace to save costs.
 
 Anyone monitoring Azure Monitor for Windows Virtual Desktop for your environment will also need the following read-access permissions:
 
