@@ -958,3 +958,13 @@
   - name: Purview
     tocHref: /azure/purview/
     topicHref: /azure/purview/
+  - name: Azure Video Analyzer 
+    tocHref: /azure/azure-video-analyzer/
+    topicHref: /azure/azure-video-analyzer/
+    items:
+      - name: Azure Video Analyzer docs
+        tocHref: /azure/azure-video-analyzer/video-analyzer-docs/
+        topicHref: /azure/azure-video-analyzer/video-analyzer-docs/
+      - name: Azure Video Analyzer for media docs
+        tocHref: /azure/media-services/video-indexer/
+        topicHref: /azure/media-services/video-indexer/
