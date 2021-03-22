@@ -13290,7 +13290,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/baremetal-infrastructure/baremetal-overview-architecture.md",
+      "source_path_from_root": "/articles/baremetal-infrastructure/workloads/sap/baremetal-overview-architecture.md", 
       "redirect_url": "/azure/baremetal-infrastructure/concepts-baremetal-infrastructure-overview",
       "redirect_document_id": false
     },

@@ -3,7 +3,7 @@ title: Expression and functions in Azure Data Factory
 description: This article provides information about expressions and functions that you can use in creating data factory entities.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/25/2019

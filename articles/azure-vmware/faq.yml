@@ -3,7 +3,7 @@ metadata:
   title: Microsoft Azure VMware Solution FAQ
   description: "Get answers to common questions about Azure VMware Solution."
   ms.topic: conceptual
-  ms.date:  03/17/2021
+  ms.date:  03/22/2021
 
     
 title: Common questions about Azure VMware Solution
@@ -145,16 +145,15 @@ sections:
         answer: |
           [!INCLUDE [vmware-software-update-frequency](includes/vmware-software-update-frequency.md)]
 
-      - question: Do private clouds use VMware NSX?
+      - question: Do private clouds use VMware NSX? If so, which version is supported?
         answer: Yes, NSX-T 2.5 is used for the software-defined networking in Azure VMware Solution private clouds.
-
-      - question: Can I use VMware NSX-V in a private cloud?
-        answer: No. NSX-T is the only supported version of NSX.
+          |
+          NSX-T is the only supported version of NSX.
 
       - question: Is NSX required in on-premises environments or networks that connect to a private cloud?
         answer: No, you aren't required to use NSX on-premises.
 
-      - question: Is VMware Horizon version 2012 compatible with Azure VMware Solution?
+      - question: Is VMware Horizon 8 2012 compatible with Azure VMware Solution?
         answer: Yes.
 
       - question: What is the upgrade and update schedule for VMware software in a private cloud?
@@ -187,7 +186,9 @@ sections:
       - question: Do I need to restrict internet access from VMs on logical networks to the internet?
         answer: |
           Yes. You'll need to use NSX-T manager to create a firewall to restrict VM access to the internet.
-          
+
+      - question: Which IP range can be used for DNS service IP and DHCP server IP?
+        answer: The address range shouldn't overlap with the IP range used in other virtual networks that are in your subscription and on-premises networks.
           
       - question: Can Azure VMware Solution use Azure Virtual WAN hosted ExpressRoute Gateways?
         answer: Yes.
