@@ -205,7 +205,7 @@ For more information about data collection and usage, see the [Microsoft Online 
 
 ## Next steps
 
-Now that you’ve configured Azure Monitor for your Windows Virtual Desktop environment, here are some resources that might help you monitor:
+Now that you’ve configured Azure Monitor for your Windows Virtual Desktop environment, here are some resources that might help you start monitoring your environment:
 
 - Check out our [glossary](azure-monitor-glossary.md) to learn more about terms and concepts related to Azure Monitor for Windows Virtual Desktop.
 - If you encounter a problem, check out our [troubleshooting guide](troubleshoot-azure-monitor.md) for help and known issues.
