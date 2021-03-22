@@ -200,6 +200,8 @@
       items:
       - name: Enable Azure to Azure replication
         href: azure-to-azure-how-to-enable-replication.md
+      - name: Enable Azure to Azure replication using Policy
+        href: azure-to-azure-how-to-enable-policy.md
       - name: Enable Azure to Azure replication for encrypted VMs
         href: azure-to-azure-how-to-enable-replication-ade-vms.md
       - name: Enable Azure to Azure replication for VMs with CMK enabled disks
