@@ -79,6 +79,8 @@ Following the [MQTT spec](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3
 
 For example, a device using the Java SDK sends the keep-alive ping, then loses network connectivity. 230 seconds later, the device misses the keep-alive ping because it's offline. However, IoT Hub doesn't close the connection immediately - it waits another `(230 * 1.5) - 230 = 115` seconds before disconnecting the device with the error [404104 DeviceConnectionClosedRemotely](iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md). 
 
+If you use IoT Hub device SDKs, the SDKs will make sure to send packet before the configured timeout to keep the connection alive. However, if you don't use IoT Hub device SDKs, you need send PINGREQ packet following MQTT spec to servers in order to keep the connection alive. If no PINGREQ packet is received, servers will disconnect the client after the timeout. 
+
 The maximum client keep-alive value you can set is `1767 / 1.5 = 1177` seconds. Any traffic will reset the keep-alive. For example, a successful SAS token refresh resets the keep-alive.
 
 ### Migrating a device app from AMQP to MQTT
