@@ -40,7 +40,7 @@ This how-to outlines how to send messages from IoT Hub to Azure Digital Twins, u
 
 Whenever a temperature telemetry event is sent by the thermostat device, a function processes the telemetry and the *temperature* property of the digital twin should update. This scenario is outlined in a diagram below:
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="A diagram showing a flow chart. In the chart, an IoT Hub device sends Temperature telemetry through IoT Hub to a function in Azure, which updates a temperature property on a twin in Azure Digital Twins." border="false":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="Diagram of IoT Hub device sending Temperature telemetry through IoT Hub to a function in Azure, which updates a temperature property on a twin in Azure Digital Twins." border="false":::
 
 ## Add a model and twin
 
