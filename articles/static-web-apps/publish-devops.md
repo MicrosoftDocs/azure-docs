@@ -1,5 +1,5 @@
 ---
-title: Publish Azure Static Web Apps with Azure DevOps
+title: Tutorial: Publish Azure Static Web Apps with Azure DevOps
 description: Learn to use Auzure DevOps to publish Azure Static Web Apps
 services: static-web-apps
 author: scubaninja
@@ -87,4 +87,3 @@ steps:​
 
 > [!div class="nextstepaction"]
 > [Review and Publish Pull Requests](articles\static-web-apps\review-publish-pull-requests.md)
-
