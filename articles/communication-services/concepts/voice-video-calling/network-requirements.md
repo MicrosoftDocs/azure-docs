@@ -52,7 +52,7 @@ The Azure Communication Services connection requires internet connectivity to sp
 | Category | IP ranges or FQDN | Ports | 
 | :-- | :-- | :-- |
 | Media traffic | [Range of Azure Public Cloud IP Addresses](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) | UDP 3478 through 3481, TCP ports 443 |
-| Signalling, telemetry, registration| *.skype.com, *.microsoft.com. *.azure.net, *.azureedge.net, *.office.com, *.trouter.io | TCP 443, 80 |
+| Signalling, telemetry, registration| *.skype.com, *.microsoft.com, *.azure.net, *.azureedge.net, *.office.com, *.trouter.io | TCP 443, 80 |
 
 ### Network optimization
 
@@ -66,7 +66,7 @@ You might want to do additional network optimization if:
 | Network optimization task | Details |
 | :-- | :-- |
 | Plan your network | In this documentation you can find minimal requirements to your network for calls. You can consult [Teams example for planning your network](https://docs.microsoft.com/en-us/microsoftteams/tutorial-network-planner-example) |
-| External name resolution | Be sure that all computers running the Azure Communications Services SDKs can resolve external DNS queries to discover the services provided by Azure Communication Servicers and that your firewalls are not preventing access. Please ensure that the SDKs can resove addresses *.skype.com, *.microsoft.com. *.azure.net, *.azureedge.net  |
+| External name resolution | Be sure that all computers running the Azure Communications Services SDKs can resolve external DNS queries to discover the services provided by Azure Communication Servicers and that your firewalls are not preventing access. Please ensure that the SDKs can resove addresses *.skype.com, *.microsoft.com,*.azure.net, *.azureedge.net, *.office.com, *.trouter.io  |
 | Maintain session persistence | Make sure your firewall doesn't change the mapped Network Address Translation (NAT) addresses or ports for UDP
 Validate NAT pool size | Validate the network address translation (NAT) pool size required for user connectivity. When multiple users and devices access Azure Communication Services  using [Network Address Translation (NAT) or Port Address Translation (PAT)](https://docs.microsoft.com/en-us/office365/enterprise/nat-support-with-office-365), you need to ensure that the devices hidden behind each publicly routable IP address do not exceed the supported number. Ensure that adequate public IP addresses are assigned to the NAT pools to prevent port exhaustion. Port exhaustion will contribute to internal users and devices being unable to connect to the Azure Communication Services |
 | Intrusion Detection and Prevention Guidance | If your environment has an [Intrusion Detection](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-intrusion-detection-open-source-tools) or Prevention System (IDS/IPS) deployed for an extra layer of security for outbound connections, be sure to allow all Azure Communication Services URLs |
