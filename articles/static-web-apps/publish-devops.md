@@ -88,6 +88,7 @@ steps:​
   :::image type="content" source="media/publish-devops/variable-token.png" alt-text="Deployment token":::
 
 1. Select **OK**
+
 1. Select **Save and run** the pipeline
 
   :::image type="content" source="media/publish-devops/save-and-run.png" alt-text="Pipeline":::
