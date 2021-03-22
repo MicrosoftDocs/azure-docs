@@ -264,27 +264,6 @@ After you purchase the appliance, go to **Defender for IoT** > **Network Sensors
 
 :::image type="content" source="media/how-to-prepare-your-network/azure-defender-for-iot-sensor-download-software-screen.png" alt-text="Network sensors ISO.":::
 
-## Enterprise deployment: Dell PowerEdge R340 XL
-
-| Component | Technical specifications |
-|--|--|
-| Chassis | 1U rack server
-| Dimensions | 42.8 x 434.0 x 596 (mm) /1.67" x 17.09" x 23.5" (in) |
-| Weight | Max 29.98 lb/13.6 kg |
-| Processor | Intel Xeon E-2144G 3.6 GHz, 8M cache, 4C/8T, turbo (71 W) |
-| Chipset | Intel C246 |
-| Memory | 32 GB = 2 x 16-GB 2666MT/s DDR4 ECC UDIMM |
-| Storage | 3 x 2-TB 7.2 K RPM SATA 6-Gbps 512n 3.5-in Hot-Plug Hard Drive - RAID 5 |
-| Network controller | On-board: 2 x 1-Gb Broadcom BCM5720<br>On-board LOM: iDRAC Port Card 1-Gb Broadcom BCM5720 <br><br>External: 1 x Intel Ethernet i350 QP 1-Gb Server Adapter, Low Profile |
-| Management | iDRAC nine Enterprise |
-| Device access | Two rear USB 3.0 <br> One front USB 3.0 |
-| Power | Dual Hot Plug Power Supplies 350 W |
-| Rack support | ReadyRails II sliding rails for tool-less mounting in 4-post racks with square or unthreaded round holes or tooled mounting in 4-post threaded hole racks, with support for optional tool-less cable management arm. |
-
-## Dell R340 BOM
-
-:::image type="content" source="media/how-to-prepare-your-network/enterprise-deployment-for-azure-defender-for-iot-dell-r340-bom.png" alt-text="Dell R340 BOM.":::
-
 ## Next steps
 
 [About Azure Defender for IoT installation](how-to-install-software.md)
