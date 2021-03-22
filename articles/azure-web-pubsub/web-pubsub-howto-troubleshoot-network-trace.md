@@ -35,6 +35,10 @@ tcpdump -i [interface] -w trace.pcap
 
 Replace `[interface]` with the network interface you wish to capture on. Usually, this is something like `/dev/eth0` (for your standard Ethernet interface) or `/dev/lo0` (for localhost traffic). For more information, see the `tcpdump` man page on your host system.
 
+```console
+man tcpdump
+```
+
 ## Collect a network trace in the browser (Browser-based apps only)
 
 Most browser Developer Tools have a "Network" tab that allows you to capture network activity between the browser and the server. 
