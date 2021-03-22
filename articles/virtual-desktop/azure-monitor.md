@@ -50,7 +50,7 @@ You can open Azure Monitor for Windows Virtual Desktop with one of the following
 
 - Search for and select **Windows Virtual Desktop** from the Azure portal, then select **Insights**.
 
-- Search for and select **Azure Monitor** from the Azure portal. Select **Insights Hub** under **Insights**, and select **Windows Virtual Desktop**.
+- Search for and select **Azure Monitor** from the Azure portal. Select **Insights Hub** under **Insights**, then select **Windows Virtual Desktop**.
 
 Once you have the page open, enter the **Subscription**, **Resource group**, **Host pool**, and **Time range** of the environment you want to monitor.
 
