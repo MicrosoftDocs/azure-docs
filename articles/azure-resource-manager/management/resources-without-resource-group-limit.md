@@ -75,7 +75,6 @@ For some resource types, you need to contact support to have the 800 instance li
 
 ## Microsoft.DevTestLab
 
-* labs/virtualMachines - By default, limited to 800 instances. 
 * schedules
 
 ## Microsoft.EnterpriseKnowledgeGraph

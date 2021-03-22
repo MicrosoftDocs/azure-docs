@@ -304,6 +304,18 @@ This article answers common questions about Azure Files features and functionali
 
     Yes, we support REST APIs that get, set, or copy NTFS ACLs for directories or files when using the [2019-07-07](/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (or later) REST API. We also support persisting Windows ACLs in REST based tools: [AzCopy v10.4+](https://github.com/Azure/azure-storage-azcopy/releases).
 
+* <a id="ad-support-rest-apis"></a>
+**How to remove cached credentials with storage account key and delete existing SMB connections before initializing new connection with Azure AD or AD credentials?**
+
+    You can follow the two step process below to remove the saved credential associated with the storage account key and remove the SMB connection： 
+    1. Run the cmdlet below in Windows Cmd.exe to remove the credential. If you cannot find one, it means that you have not persisted the credential and can skip this step.
+    
+       cmdkey /delete:Domain:target=storage-account-name.file.core.windows.net
+    
+    2. Delete the existing connection to the file share. You can specify the mount path as either the mounted drive letter or the storage-account-name.file.core.windows.net path.
+    
+       net use <drive-letter/share-path> /delete
+
 ## Network File System
 
 * <a id="when-to-use-nfs"></a>

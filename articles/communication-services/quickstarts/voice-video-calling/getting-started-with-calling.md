@@ -2,9 +2,9 @@
 title: Quickstart - Add voice calling to your app
 titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you'll learn how to add calling capabilities to your app using Azure Communication Services.
-author: GrantMeStrength
-ms.author: jken
-ms.date: 07/24/2020
+author: mikben
+ms.author: mikben
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 

@@ -163,6 +163,8 @@
       href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Initiate an account failover
       href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Move resources to other resource groups, subscriptions and AAD tenants
+      href: storage-sync-resource-move.md
     - name: How to manage tiered files
       href: storage-sync-how-to-manage-tiered-files.md
   - name: Data protection
@@ -334,6 +336,8 @@
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=storage
+  - name: Azure Files and Azure NetApp Files Comparison
+    href: storage-files-netapp-comparison.md
   - name: NuGet packages (.NET)
     items:
     - name: Microsoft.Azure.Storage.Common (version 11.x)

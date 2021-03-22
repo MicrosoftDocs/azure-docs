@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: cpercy737
 ms.author: camper
-ms.date: 03/09/2021
+ms.date: 03/19/2021
 ms.custom: devx-track-terraform
 ---
 
@@ -25,7 +25,7 @@ There are secondary use cases for customer usage attribution outside of the comm
 >[!IMPORTANT]
 >- Customer usage attribution is not intended to track the work of systems integrators, managed service providers, or tools designed primarily to deploy and manage Azure resources.
 >- Customer usage attribution is for new deployments and does not support tracking resources that have already been deployed.
->- Not all Azure services are compatible with customer usage attribution. Azure Kubernetes Services (AKS) and VM Scale Sets have known issues that cause under-reporting of usage.
+>- Not all Azure services are compatible with customer usage attribution. Azure Kubernetes Services (AKS), VM Scale Sets, and Azure Batch have known issues that cause under-reporting of usage.
 
 ## Commercial marketplace Azure apps
 

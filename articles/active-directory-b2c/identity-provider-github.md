@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -39,7 +39,7 @@ To enable sign-in with a GitHub account in Azure Active Directory B2C (Azure AD 
 1. Sign in to the [GitHub Developer](https://github.com/settings/developers) with your GitHub credentials.
 1. Select **OAuth Apps** and then select **New OAuth App**.
 1. Enter an **Application name** and your **Homepage URL**.
-1. Enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` in **Authorization callback URL**. Replace `your-tenant-name` with the name of your Azure AD B2C tenant. Use all lowercase letters when entering your tenant name even if the tenant is defined with uppercase letters in Azure AD B2C.
+1. For the **Authorization callback URL**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. If you use a [custom domain](custom-domain.md), enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace `your-domain-name` with your custom domain, and `your-tenant-name` with the name of your tenant. Use all lowercase letters when entering your tenant name even if the tenant is defined with uppercase letters in Azure AD B2C.
 1. Click **Register application**.
 1. Copy the values of **Client ID** and **Client Secret**. You need both to add the identity provider to your tenant.
 
@@ -57,6 +57,9 @@ To enable sign-in with a GitHub account in Azure Active Directory B2C (Azure AD 
 1. Select **Save**.
 
 ## Add GitHub identity provider to a user flow 
+
+At this point, the GitHub identity provider has been set up, but it's not yet available in any of the sign-in pages. To add the GitHub identity provider to a user flow:
+
 
 1. In your Azure AD B2C tenant, select **User flows**.
 1. Click the user flow that you want to add the GitHub identity provider.

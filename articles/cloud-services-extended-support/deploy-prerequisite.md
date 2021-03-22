@@ -74,8 +74,16 @@ Remove old remote desktop settings from the Service Configuration (.cscfg) file.
 <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2021-12-17T23:59:59.0000000+05:30" /> 
 <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" /> 
 ```
+Remove old diagnostics settings for each role in the Service Configuration (.cscfg) file.
+
+```xml
+<Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+```
 
 ## Required Service Definition file (.csdef) updates
+
+> [!NOTE]
+> Changes in service definition file (.csdef) requires the package file (.cspkg) to be generated again. Please build and repackage your .cspkg post making the following changes in the .csdef file to get the latest settings for your cloud service
 
 ### 1) Virtual Machine sizes
 The following sizes are deprecated in Azure Resource Manager. However, if you want to continue to use them update the `vmsize` name with the associated Azure Resource Manager naming convention.  
@@ -113,10 +121,15 @@ Deployments that utilized the old remote desktop plugins need to have the module
 <Import moduleName="RemoteForwarder" /> 
 </Imports> 
 ```
+Deployments that utilized the old diagnostics plugins need the settings removed for each role from the Service Definition (.csdef) file
+
+```xml
+<Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
+```
 
 ## Key Vault creation 
 
-Key Vault is used to store certificates that are associated to Cloud Services (extended support). Add the certificates to Key Vault, then reference the certificate thumbprints in Service Configuration file. You also need to enable Key Vault for appropriate permissions so that Cloud Services (extended support) resource can retrieve certificate stored as secrets from Key Vault. Key Vault can be created through [Azure portal](../key-vault/general/quick-create-portal.md)and  [PowerShell](../key-vault/general/quick-create-powershell.md). The Key Vault must be created in the same region and subscription as cloud service. For more information see [Use certificates with Azure Cloud Services (extended support)](certificates-and-key-vault.md).
+Key Vault is used to store certificates that are associated to Cloud Services (extended support). Add the certificates to Key Vault, then reference the certificate thumbprints in Service Configuration file. You also need to enable Key Vault 'Access policies' (in portal) for access to 'Azure Virtual Machines for deployment' and 'Azure Resource Manager for template deployment' so that Cloud Services (extended support) resource can retrieve certificate stored as secrets from Key Vault. You can create a key vault in the [Azure portal](../key-vault/general/quick-create-portal.md) or by using [PowerShell](../key-vault/general/quick-create-powershell.md). The key vault must be created in the same region and subscription as the cloud service. For more information, see [Use certificates with Azure Cloud Services (extended support)](certificates-and-key-vault.md).
 
 ## Next steps 
 - Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support).

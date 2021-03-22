@@ -59,7 +59,7 @@
         href: adoddle-csaas-platform-tutorial.md
       - name: ADP
         href: adpfederatedsso-tutorial.md
-      - name: ADP Globalview
+      - name: ADP Globalview (Deprecated)
         href: adglobalview-tutorial.md
       - name: Agiloft
         href: agiloft-tutorial.md
@@ -711,7 +711,7 @@
       - name: Fuse
         href: fuse-tutorial.md
       - name: Fuze
-        href: fuze-tutorial.md
+        href: fuze-tutorial.md  
       - name: G Suite
         href: google-apps-tutorial.md
       - name: GaggleAMP
@@ -728,6 +728,8 @@
         href: github-ae-tutorial.md
       - name: GitHub Enterprise Cloud - Enterprise Account
         href: github-enterprise-cloud-enterprise-account-tutorial.md  
+      - name: GitHub Enterprise Managed User
+        href: github-enterprise-managed-user-tutorial.md
       - name: GlassFrog
         href: glassfrog-tutorial.md
       - name: GlobalOne
@@ -768,6 +770,8 @@
         href: harmony-tutorial.md
       - name: Harness
         href: harness-tutorial.md
+      - name: hCaptcha Enterprise
+        href: hcaptcha-enterprise-tutorial.md
       - name: Helper Helper
         href: helper-helper-tutorial.md
       - name: Help Scout
@@ -1068,6 +1072,8 @@
         href: lensesio-tutorial.md
       - name: Lesson.ly
         href: lessonly-tutorial.md
+      - name: Lexonis TalentScape
+        href: lexonis-talentscape-tutorial.md
       - name: Lifesize Cloud
         href: lifesize-cloud-tutorial.md
       - name: LIFT
@@ -1180,6 +1186,8 @@
         href: mongodb-cloud-tutorial.md
       - name: Montage Online
         href: montageonline-tutorial.md
+      - name: Moqups
+        href: moqups-tutorial.md
       - name: Motus
         href: motus-tutorial.md
       - name: MOVEit Transfer - Azure AD integration
@@ -1408,7 +1416,7 @@
         href: presspage-tutorial.md
       - name: Prezi
         href: prezi-tutorial.md
-      - name: PrinterLogic SaaS
+      - name: PrinterLogic
         href: printerlogic-saas-tutorial.md
       - name: Printix
         href: printix-tutorial.md
@@ -1580,6 +1588,8 @@
         href: sap-fiori-tutorial.md
       - name: SAP HANA
         href: saphana-tutorial.md
+      - name: Sapient
+        href: sapient-tutorial.md
       - name: SAP NetWeaver
         href: sap-netweaver-tutorial.md
       - name: SAP Qualtrics
@@ -1624,7 +1634,7 @@
         href: sendsafely-tutorial.md
       - name: SensoScientific Wireless Temperature Monitoring System
         href: sensoscientific-tutorial.md
-      - name: Sequr
+      - name: Genea Access Control
         href: sequr-tutorial.md
       - name: Serraview Space Utilization Software Solutions
         href: serraview-space-utilization-software-solutions-tutorial.md
@@ -1838,6 +1848,8 @@
         href: thoughtworks-mingle-tutorial.md
       - name: ThousandEyes
         href: thousandeyes-tutorial.md
+      - name: Thrive LXP
+        href: thrive-lxp-tutorial.md
       - name: TicketManager
         href: ticketmanager-tutorial.md
       - name: TickitLMS Learn
@@ -1876,6 +1888,8 @@
         href: trakopolis-tutorial.md
       - name: Trakstar
         href: trakstar-tutorial.md
+      - name: TransPerfect GlobalLink Dashboard
+        href: transperfect-globallink-dashboard-tutorial.md
       - name: Trelica
         href: trelica-tutorial.md
       - name: Trello
@@ -1890,6 +1904,8 @@
         href: tripactions-tutorial.md
       - name: Trisotech Digital Enterprise Server
         href: trisotechdigitalenterpriseserver-tutorial.md
+      - name: TrueChoice
+        href: truechoice-tutorial.md
       - name: Torii
         href: torii-tutorial.md
       - name: TruNarrative
@@ -2130,7 +2146,9 @@
       - name: Bpanda
         href: bpanda-provisioning-tutorial.md
       - name: Brivo Onair Identity Connector
-        href: brivo-onair-identity-connector-provisioning-tutorial.md       
+        href: brivo-onair-identity-connector-provisioning-tutorial.md
+      - name: Britive
+        href: britive-provisioning-tutorial.md       
       - name: Cerner Central
         href: cernercentral-provisioning-tutorial.md
       - name: Cisco Webex
@@ -2189,6 +2207,8 @@
         href: github-enterprise-managed-user-provisioning-tutorial.md
       - name: GoToMeeting
         href: citrixgotomeeting-provisioning-tutorial.md
+      - name: Grammarly
+        href: grammarly-provisioning-tutorial.md        
       - name: GroupTalk
         href: grouptalk-provisioning-tutorial.md
       - name: Gtmhub

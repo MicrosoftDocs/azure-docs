@@ -102,7 +102,7 @@ The following manual steps to install and configure the device are equivalent to
 
 Device Update for Azure IoT Hub software packages are subject to the following license terms:
   * [Device update for IoT Hub license](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
-  * [Delivery optimization client license](https://github.com/microsoft/do-client/blob/main/LICENSE.md)
+  * [Delivery optimization client license](https://github.com/microsoft/do-client/blob/main/LICENSE)
 
 Read the license terms prior to using a package. Your installation and use of a package constitutes your acceptance of these terms. If you do not agree with the license terms, do not use that package.
 
@@ -124,9 +124,11 @@ Read the license terms prior to using a package. Your installation and use of a 
 
 ## Import update
 
-1. Download the following [apt manifest file](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/libcurl4-doc-apt-manifest.json) and [import manifest file](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/sample-package-update-1.0.1-importManifest.json). This apt manifest will install the latest available version of `libcurl4-doc package` to your device.
+1. Go to [Device Update releases](https://github.com/Azure/iot-hub-device-update/releases) in Github and click the "Assets" drop-down.
 
-   Alternatively, you can download this [apt manifest file](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/libcurl4-doc-7.58-apt-manifest.json) and [import manifest file](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/sample-package-update-2-2.0.1-importManifest.json). This will install specific version v7.58.0 of the `libcurl4-doc package` to your device.
+3. Download the `apt-update-import-samples.zip` by clicking on it.
+
+5. Extract the contents of the folder to discover various update samples and their corresponding import manifests. 
 
 2. In Azure portal, select the Device Updates option under Automatic Device Management from the left-hand navigation bar in your IoT Hub.
 
@@ -134,7 +136,10 @@ Read the license terms prior to using a package. Your installation and use of a 
 
 4. Select "+ Import New Update".
 
-5. Select the folder icon or text box under "Select an Import Manifest File". You will see a file picker dialog. Select the Import Manifest you downloaded previously. Next, select the folder icon or text box under "Select one or more update files". You will see a file picker dialog. Select the apt manifest update file you downloaded previously.
+5. Select the folder icon or text box under "Select an Import Manifest File". You will see a file picker dialog. Select the `sample-package-update-1.0.1-importManifest.json` import manifest from the folder you downloaded previously. Next, select the folder icon or text box under "Select one or more update files". You will see a file picker dialog. Select the `sample-1.0.1-libcurl4-doc-apt-manifest.json` apt manifest update file from the folder you downloaded previously.
+This update will install the latest available version of `libcurl4-doc package` to your device.
+
+   Alternatively, you can select the `sample-package-update-2-2.0.1-importManifest.json` import manifest file and `sample-2.0.1-libcurl4-doc-7.58-apt-manifest.json` apt manifest update file from the folder you downloaded previously. This will install specific version v7.58.0 of the `libcurl4-doc package` to your device.
 
    :::image type="content" source="media/import-update/select-update-files.png" alt-text="Screenshot showing update file selection." lightbox="media/import-update/select-update-files.png":::
 
@@ -209,9 +214,9 @@ You have now completed a successful end-to-end package update using Device Updat
 
 ## Bonus steps
 
-1. Download the following [apt manifest file](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/libcurl4-doc-remove-apt-manifest.json) and [import manifest file](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/sample-package-update-1.0.2-importManifest.json). This apt manifest will remove the installed `libcurl4-doc package` from your device.
-
 1. Repeat the "Import update" and "Deploy update" sections
+
+3. During the "Import update" step, select the `sample-package-update-1.0.2-importManifest.json` import manifest file and `sample-1.0.2-libcurl4-doc-remove-apt-manifest.json` apt manifest update file from the folder you downloaded previously. This update will remove the installed `libcurl4-doc package` from your device.
 
 ## Clean up resources
 

@@ -13,7 +13,15 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 Azure Percept DK is an edge AI and IoT development kit designed for developing vision and audio AI proof of concepts. When combined with [Azure Percept Studio](./overview-azure-percept-studio.md) and [Azure Percept Audio](./overview-azure-percept-audio.md), it becomes a powerful yet simple-to-use platform for building edge AI solutions for a wide range of vision or audio AI applications. It is available for purchase at the [Microsoft online store](https://go.microsoft.com/fwlink/p/?LinkId=2155270).
 
+> [!div class="nextstepaction"]
+> [Buy now](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
+
+<!---
 :::image type="content" source="./media/overview-azure-percept-dk/dk-image.png" alt-text="Azure Percept DK device.":::
+--->
+</br>
+
+> [!VIDEO https://www.youtube.com/embed/Qj8NGn-7s5A]
 
 ## Key Features
 
@@ -47,4 +55,5 @@ Azure Percept DK is an edge AI and IoT development kit designed for developing v
 
 ## Next steps
 
-Order an Azure Percept DK at the [Microsoft online store](https://go.microsoft.com/fwlink/p/?LinkId=2155270).
+> [!div class="nextstepaction"]
+> [Buy an Azure Percept DK from the Microsoft online store](https://go.microsoft.com/fwlink/p/?LinkId=2155270)

@@ -27,6 +27,8 @@ This sample requires the [AzureAD V2 PowerShell for Graph module](/powershell/az
 
 ## Script explanation
 
+The script can be used directly without any modifications. The admin will be asked about the expiration date and whether they would like to see already expired secrets or certificates or not.
+
 The "Add-Member" command is responsible for creating the columns in the CSV file.
 The "New-Object" command creates an object to be used for the columns in the CSV file export.
 You can modify the "$Path" variable directly in PowerShell, with a CSV file path, in case you'd prefer the export to be non-interactive.
