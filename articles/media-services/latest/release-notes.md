@@ -81,7 +81,7 @@ Version 3 provides:
  
 - 24x7 live event support
 - ARM REST APIs, client SDKs for .NET core, Node.js, Python, Java, Go and Ruby.
-- Customer managed keys, trusted storage integration, private link support, and [more](https://review.docs.microsoft.com/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
+- Customer managed keys, trusted storage integration, private link support, and [more](https://docs.microsoft.com/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
 
 #### Action Required
 
@@ -120,7 +120,6 @@ Please update to the latest client SDKs in your code bases using your package ma
 - **[Trusted Storage](concept-trusted-storage.md)**: Media Services can be configured to access Azure Storage using a Managed Identity associated with the Media Services account. When storage accounts are accessed using a Managed Identity, customers can configure more restrictive network ACLs on the storage account without blocking Media Services scenarios.
 
 - **[Managed Identities](concept-managed-identities.md)**: Customers may enable a System Assigned Managed Identity for a Media Services account to provide access to Key Vaults (for Customer Managed Keys) and storage accounts (for Trusted Storage).
-
 
 ### Updated Typescript Node.js Samples using isomorphic SDK for JavaScript
 
