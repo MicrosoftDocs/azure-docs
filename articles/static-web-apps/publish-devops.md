@@ -68,15 +68,19 @@ steps:​
     env:​
       azure_static_web_apps_api_token: $(deployment_token)
    ```
-1. Select **Variables**.
-1. Create a new variable.
-1. Paste in the deployment token.
+1. Paste the YAML into your pipeline
+1. Select **Variables**
+1. Create a new variable
+1. Name the variable **deployment_token**
+1. Copy the deployment token that you previously pasted into a text editor
+1. Paste in the deployment token in the _Value_ box
 
-:::image type="content" source="media/publish-devops/variable-token.png" alt-text="Deployment token":::
-   
-1. **Save and run** the pipeline.
+  :::image type="content" source="media/publish-devops/variable-token.png" alt-text="Deployment token":::
 
-:::image type="content" source="media/publish-devops/save-and-run.png" alt-text="Pipeline":::
+1. Select **OK**
+1. Select **Save and run** the pipeline
+
+  :::image type="content" source="media/publish-devops/save-and-run.png" alt-text="Pipeline":::
    
 Once the deployment is successful, navigate to the Azure Static Web Apps **Overview** which includes links to the deployment configuration. The _Source_ link now points to the branch and location of the Azure DevOps repository.
    
