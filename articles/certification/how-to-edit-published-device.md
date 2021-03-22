@@ -23,7 +23,7 @@ On the project summary, you should notice that your project is in read-only mode
 
 1. Click the `Request Metadata Edit` button on the top of the page  
 
-    ![Request metadata update](./media/images/request_metadata_edit.png)
+    ![Request metadata update](./media/images/request-metadata-edit.png)
 
 1. Acknowledge the notification on the page that you will be required to submit your product for review after editing.
     > [!NOTE]
