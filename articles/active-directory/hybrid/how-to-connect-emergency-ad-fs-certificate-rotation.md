@@ -8,7 +8,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/22/2020
+ms.date: 03/22/2021
 ms.subservice: hybrid
 ms.author: billmath
 ---
