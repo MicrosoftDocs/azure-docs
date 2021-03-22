@@ -85,7 +85,7 @@ Before creating an SMB volume, you need to create an Active Directory connection
     * Select your **Active Directory** connection from the drop-down list.
     * Specify the name of the shared volume in  **Share name**.
     * If you want to enable encryption for SMB3, select **Enable SMB3 Protocol Encryption**.   
-        This functionality enables encryption for in-flight SMB3 data. SMB clients not using SMB3 encryption will not be able to access this volume.  Data at rest is encrypted regardless of this setting.  
+        This feature enables encryption for in-flight SMB3 data. SMB clients not using SMB3 encryption will not be able to access this volume.  Data at rest is encrypted regardless of this setting.  
         See [SMB Encryption FAQs](azure-netapp-files-faqs.md#smb-encryption-faqs) for additional information. 
 
         The **SMB3 Protocol Encryption** feature is currently in preview. If this is your first time using this feature, register the feature before using it: 
