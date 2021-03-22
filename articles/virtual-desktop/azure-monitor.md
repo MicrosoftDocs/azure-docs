@@ -155,7 +155,7 @@ You can also enable specific performance counters to collect information at spec
 
 If you already have performance counters enabled and want to remove them, follow the instructions in [Configuring performance counters](../azure-monitor/agents/data-sources-performance-counters.md). While this article describes how to add counters, you can also remove them in the same location.
 
-To set up Performance counters: 
+To set up performance counters: 
 
 1. Under **Workspace performance counters**, you'll see **Configured counters**, all the counters currently sending to your selected workspace, and **Missing counters**, all the counters used in Azure Monitor for Windows Virtual Desktop that are missing from your configuration.
 
