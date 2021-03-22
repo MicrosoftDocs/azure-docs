@@ -41,7 +41,6 @@ CRS 3.2 includes 15 rule groups, as shown in the following table. Each group con
 |Rule group|Description|
 |---|---|
 |**[General](#general-32)**|General group|
-|**[REQUEST-910-IP-REPUTATION](#crs910-32)**|Protect against IP reputation attacks|
 |**[REQUEST-911-METHOD-ENFORCEMENT](#crs911-32)**|Lock-down methods (PUT, PATCH)|
 |**[REQUEST-912-DOS-PROTECTION](#crs912-32)**|DOS protection|
 |**[REQUEST-913-SCANNER-DETECTION](#crs913-32)**|Protect against port and environment scanners|
@@ -127,74 +126,14 @@ The following rule groups and rules are available when using Web Application Fir
 |---|---|
 |200004|Possible Multipart Unmatched Boundary.|
 
-### <a name="crs910-32"></a> <p x-ms-format-detection="none">REQUEST-910-IP-REPUTATION</p>
-|RuleId|Description|
-|---|---|
-|910000|Request from Known Malicious Client (Based on previous traffic violations).|
-|910011|Rule 910011|
-|910012|Rule 910012|
-|910013|Rule 910013|
-|910014|Rule 910014|
-|910015|Rule 910015|
-|910016|Rule 910016|
-|910017|Rule 910017|
-|910018|Rule 910018|
-|910100|Client IP is from a HIGH Risk Country Location.|
-|910120|Rule 910120|
-|910130|Rule 910130|
-|910140|Rule 910140|
-|910150|HTTP Blacklist match for search engine IP|
-|910160|HTTP Blacklist match for spammer IP|
-|910170|HTTP Blacklist match for suspicious IP|
-|910180|HTTP Blacklist match for harvester IP|
-
 ### <a name="crs911-32"></a> <p x-ms-format-detection="none">REQUEST-911-METHOD-ENFORCEMENT</p>
 |RuleId|Description|
 |---|---|
-|911011|Rule 911011|
-|911012|Rule 911012|
-|911013|Rule 911013|
-|911014|Rule 911014|
-|911015|Rule 911015|
-|911016|Rule 911016|
-|911017|Rule 911017|
-|911018|Rule 911018|
 |911100|Method is not allowed by policy|
-
-### <a name="crs912-32"></a> <p x-ms-format-detection="none">REQUEST-912-DOS-PROTECTION</p>
-|RuleId|Description|
-|---|---|
-|912011|Rule 912011|
-|912012|Rule 912012|
-|912013|Rule 912013|
-|912014|Rule 912014|
-|912015|Rule 912015|
-|912016|Rule 912016|
-|912017|Rule 912017|
-|912018|Rule 912018|
-|912019|Rule 912019|
-|912100|Rule 912100|
-|912110|Rule 912110|
-|912120|Denial of Service (DoS) attack identified from %{tx.real_ip} (%{tx.dos_block_counter} hits since last alert)|
-|912130|Rule 912130|
-|912140|Rule 912140|
-|912150|Rule 912150|
-|912160|Rule 912160|
-|912161|Detects potential Denial of Service (DoS) attack|
-|912170|Potential Denial of Service (DoS) Attack from %{tx.real_ip} - # of Request Bursts: %{ip.dos_burst_counter}|
-|912171|Potential Denial of Service (DoS) Attack from %{tx.real_ip} - # of Request Bursts: %{ip.dos_burst_counter}|
 
 ### <a name="crs913-32"></a> <p x-ms-format-detection="none">REQUEST-913-SCANNER-DETECTION</p>
 |RuleId|Description|
 |---|---|
-|913011|Rule 913011|
-|913012|Rule 913012|
-|913013|Rule 913013|
-|913014|Rule 913014|
-|913015|Rule 913015|
-|913016|Rule 913016|
-|913017|Rule 913017|
-|913018|Rule 913018|
 |913100|Found User-Agent associated with security scanner|
 |913101|Found User-Agent associated with scripting/generic HTTP client|
 |913102|Found User-Agent associated with web crawler/bot|
@@ -204,14 +143,6 @@ The following rule groups and rules are available when using Web Application Fir
 ### <a name="crs920-32"></a> <p x-ms-format-detection="none">REQUEST-920-PROTOCOL-ENFORCEMENT</p>
 |RuleId|Description|
 |---|---|
-|920011|Rule 920011|
-|920012|Rule 920012|
-|920013|Rule 920013|
-|920014|Rule 920014|
-|920015|Rule 920015|
-|920016|Rule 920016|
-|920017|Rule 920017|
-|920018|Rule 920018|
 |920100|Invalid HTTP Request Line|
 |920120|Attempted multipart/form-data bypass|
 |920121|Attempted multipart/form-data bypass|
@@ -243,12 +174,6 @@ The following rule groups and rules are available when using Web Application Fir
 |920340|Request Containing Content, but Missing Content-Type header|
 |920341|Request containing content requires Content-Type header|
 |920350|Host header is a numeric IP address|
-|920360|Argument name too long|
-|920370|Argument value too long|
-|920380|Too many arguments in request|
-|920390|Total arguments size exceeded|
-|920400|Uploaded file size too large|
-|920410|Total uploaded files size too large|
 |920420|Request content type is not allowed by policy|
 |920430|HTTP protocol version is not allowed by policy|
 |920440|URL file extension is restricted by policy|
@@ -261,14 +186,6 @@ The following rule groups and rules are available when using Web Application Fir
 
 |RuleId|Description|
 |---|---|
-|921011|Rule 921011|
-|921012|Rule 921012|
-|921013|Rule 921013|
-|921014|Rule 921014|
-|921015|Rule 921015|
-|921016|Rule 921016|
-|921017|Rule 921017|
-|921018|Rule 921018|
 |921110|HTTP Request Smuggling Attack|
 |921120|HTTP Response Splitting Attack|
 |921130|HTTP Response Splitting Attack|
@@ -282,15 +199,6 @@ The following rule groups and rules are available when using Web Application Fir
 ### <a name="crs930-32"></a> <p x-ms-format-detection="none">REQUEST-930-APPLICATION-ATTACK-LFI</p>
 |RuleId|Description|
 |---|---|
-|930011|Rule 930011|
-|930012|Rule 930012|
-|930013|Rule 930013|
-|930014|Rule 930014|
-|930015|Rule 930015|
-|930016|Rule 930016|
-|930017|Rule 930017|
-|930018|Rule 930018|
-|930018|Rule 930018|
 |930100|Path Traversal Attack (/../)|
 |930110|Path Traversal Attack (/../)|
 |930120|OS File Access Attempt|
@@ -299,15 +207,6 @@ The following rule groups and rules are available when using Web Application Fir
 ### <a name="crs931-32"></a> <p x-ms-format-detection="none">REQUEST-931-APPLICATION-ATTACK-RFI</p>
 |RuleId|Description|
 |---|---|
-|931011|Rule 931011|
-|931012|Rule 931012|
-|931013|Rule 931013|
-|931014|Rule 931014|
-|931015|Rule 931015|
-|931016|Rule 931016|
-|931017|Rule 931017|
-|931018|Rule 931018|
-|931018|Rule 931018|
 |931100|Possible Remote File Inclusion (RFI) Attack: URL Parameter using IP Address|
 |931110|Possible Remote File Inclusion (RFI) Attack: Common RFI Vulnerable Parameter Name used w/URL Payload|
 |931120|Possible Remote File Inclusion (RFI) Attack: URL Payload Used w/Trailing Question Mark Character (?)|
@@ -316,15 +215,6 @@ The following rule groups and rules are available when using Web Application Fir
 ### <a name="crs932-32"></a> <p x-ms-format-detection="none">REQUEST-932-APPLICATION-ATTACK-RCE</p>
 |RuleId|Description|
 |---|---|
-|932011|Rule 932011|
-|932012|Rule 932012|
-|932013|Rule 932013|
-|932014|Rule 932014|
-|932015|Rule 932015|
-|932016|Rule 932016|
-|932017|Rule 932017|
-|932018|Rule 932018|
-|932018|Rule 932018|
 |932100|Remote Command Execution: Unix Command Injection|
 |932105|Remote Command Execution: Unix Command Injection|
 |932106|Remote Command Execution: Unix Command Injection|
@@ -343,15 +233,6 @@ The following rule groups and rules are available when using Web Application Fir
 ### <a name="crs933-32"></a> <p x-ms-format-detection="none">REQUEST-933-APPLICATION-ATTACK-PHP</p>
 |RuleId|Description|
 |---|---|
-|933011|Rule 933011|
-|933012|Rule 933012|
-|933013|Rule 933013|
-|933014|Rule 933014|
-|933015|Rule 933015|
-|933016|Rule 933016|
-|933017|Rule 933017|
-|933018|Rule 933018|
-|933018|Rule 933018|
 |933100|PHP Injection Attack: Opening/Closing Tag Found|
 |933110|PHP Injection Attack: PHP Script File Upload Found|
 |933111|PHP Injection Attack: PHP Script File Upload Found|
@@ -372,15 +253,6 @@ The following rule groups and rules are available when using Web Application Fir
 ### <a name="crs941-32"></a> <p x-ms-format-detection="none">REQUEST-941-APPLICATION-ATTACK-XSS</p>
 |RuleId|Description|
 |---|---|
-|941011|Rule 941011|
-|941012|Rule 941012|
-|941013|Rule 941013|
-|941014|Rule 941014|
-|941015|Rule 941015|
-|941016|Rule 941016|
-|941017|Rule 941017|
-|941018|Rule 941018|
-|941018|Rule 941018|
 |941100|XSS Attack Detected via libinjection|
 |941101|XSS Attack Detected via libinjection.|
 |941110|XSS Filter - Category 1: Script Tag Vector|
@@ -413,15 +285,6 @@ The following rule groups and rules are available when using Web Application Fir
 ### <a name="crs942-32"></a> <p x-ms-format-detection="none">REQUEST-942-APPLICATION-ATTACK-SQLI</p>
 |RuleId|Description|
 |---|---|
-|942011|Rule 942011|
-|942012|Rule 942012|
-|942013|Rule 942013|
-|942014|Rule 942014|
-|942015|Rule 942015|
-|942016|Rule 942016|
-|942017|Rule 942017|
-|942018|Rule 942018|
-|942018|Rule 942018|
 |942100|SQL Injection Attack Detected via libinjection|
 |942110|SQL Injection Attack: Common Injection Testing Detected|
 |942120|SQL Injection Attack: SQL Operator Detected|
@@ -472,15 +335,6 @@ The following rule groups and rules are available when using Web Application Fir
 ### <a name="crs943-32"></a> <p x-ms-format-detection="none">REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION</p>
 |RuleId|Description|
 |---|---|
-|943011|Rule 943011|
-|943012|Rule 943012|
-|943013|Rule 943013|
-|943014|Rule 943014|
-|943015|Rule 943015|
-|943016|Rule 943016|
-|943017|Rule 943017|
-|943018|Rule 943018|
-|943018|Rule 943018|
 |943100|Possible Session Fixation Attack: Setting Cookie Values in HTML|
 |943110|Possible Session Fixation Attack: SessionID Parameter Name with Off-Domain Referer|
 |943120|Possible Session Fixation Attack: SessionID Parameter Name with No Referer|
