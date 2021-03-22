@@ -40,7 +40,7 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
 ## Deploy a Cloud Service (extended support)
 
 > [!NOTE]
-> An alternative way of deploying your cloud service (extended support) is via [Azure portal](https://portal.azure.com). You can download the generated ARM template via the portal for your future deployments
+> An easier and faster way of generating your ARM template and parameter file is via the [Azure portal](https://portal.azure.com). You can [download the generated ARM template](generate-template-portal.md) via the portal to create your Cloud Service via Powershell
  
 1. Create virtual network. The name of the virtual network must match the references in the Service Configuration (.cscfg) file. If using an existing virtual network, omit this section from the ARM template.
 
@@ -186,7 +186,9 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
     ```
 
 6. (Optional) Create an extension profile to add extensions to your cloud service. For this example, we are adding the remote desktop and Windows Azure diagnostics extension.
-    
+   > [!Note] 
+   > The password for remote desktop must be between 8-123 characters long and must satisfy at least 3 of password complexity requirements from the following: 1) Contains an uppercase character 2) Contains a lowercase character 3) Contains a numeric digit 4) Contains a special character 5) Control characters are not allowed
+
     ```json
         "extensionProfile": {
           "extensions": [

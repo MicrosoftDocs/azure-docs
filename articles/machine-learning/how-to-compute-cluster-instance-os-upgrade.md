@@ -16,7 +16,7 @@ ms.custom: how-to
 
 # Upgrade compute instance and compute cluster host OS
 
-Azure Machine Learning _compute cluster__ and __compute instance__ are managed compute infrastructure. As a managed service, Microsoft manages the host OS and the packages and software versions that are installed.
+Azure Machine Learning __compute cluster__ and __compute instance__ are managed compute infrastructure. As a managed service, Microsoft manages the host OS and the packages and software versions that are installed.
 
 The host OS for compute cluster and compute instance has been Ubuntu 16.04 LTS. On **April 30, 2021**, Ubuntu is ending support for 16.04. Starting on __March 15, 2021__, Microsoft will automatically update the host OS to Ubuntu 18.04 LTS. Updating to 18.04 will ensure continued security updates and support from the Ubuntu community. For more information on Ubuntu ending support for 16.04, see the [Ubuntu release blog](https://wiki.ubuntu.com/Releases).
 

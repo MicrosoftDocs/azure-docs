@@ -865,6 +865,117 @@ Only one background audio file is allowed per SSML document. However, you can in
 </speak>
 ```
 
+## Bookmark element
+
+The `bookmark` element allows you insert bookmarks in the SSML and get the audio offset of each bookmark of audio stream for asynchronous notification.
+
+**Syntax**
+
+```xml
+<bookmark mark="string"/>
+```
+
+**Attributes**
+
+| Attribute | Description                                   | Required / Optional                                        |
+|-----------|-----------------------------------------------|------------------------------------------------------------|
+| `mark`     | Specifies the bookmark text of the `bookmark` element. | Required. |
+
+**Example**
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice name="en-US-GuyNeural">
+        <bookmark mark='bookmark_one'/> one.
+        <bookmark mark='bookmark_two'/> two. three. four.
+    </voice>
+</speak>
+```
+
+### Get bookmark using Speech SDK
+
+You can subscribe to the `BookmarkReached` event in Speech SDK to get the bookmark offsets.
+
+> [!NOTE]
+> `BookmarkReached` event is only available since Speech SDK version 1.16.0.
+
+
+# [C#](#tab/csharp)
+
+For more information, see <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer.bookmarkreached" target="_blank"> `BookmarkReached` </a>.
+
+```csharp
+synthesizer.BookmarkReached += (s, e) =>
+{
+    // The unit of e.AudioOffset is tick (1 tick = 100 nanoseconds), divide by 10,000 to convert to milliseconds.
+    Console.WriteLine($"Bookmark reached. Audio offset: " +
+        $"{e.AudioOffset / 10000}ms, bookmark text: {e.Text}.");
+};
+```
+
+# [C++](#tab/cpp)
+
+For more information, see <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesizer#bookmarkreached" target="_blank"> `BookmarkReached` </a>.
+
+```cpp
+synthesizer->BookmarkReached += [](const SpeechSynthesisBookmarkEventArgs& e)
+{
+    cout << "bookmark reached. "
+        // The unit of e.AudioOffset is tick (1 tick = 100 nanoseconds), divide by 10,000 to convert to milliseconds.
+        << "Audio offset: " << e.AudioOffset / 10000 << "ms, "
+        << "Bookmark text: " << e.Text << "." << endl;
+};
+```
+
+# [Java](#tab/java)
+
+For more information, see <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer.bookmarkReached#com_microsoft_cognitiveservices_speech_SpeechSynthesizer_BookmarkReached" target="_blank"> `BookmarkReached` </a>.
+
+```java
+synthesizer.BookmarkReached.addEventListener((o, e) -> {
+    // The unit of e.AudioOffset is tick (1 tick = 100 nanoseconds), divide by 10,000 to convert to milliseconds.
+    System.out.print("Bookmark reached. Audio offset: " + e.getAudioOffset() / 10000 + "ms, ");
+    System.out.println("bookmark text: " + e.getText() + ".");
+});
+```
+
+# [Python](#tab/python)
+
+For more information, see <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer#bookmark-reached" target="_blank"> `bookmark_reached` </a>.
+
+```python
+# The unit of evt.audio_offset is tick (1 tick = 100 nanoseconds), divide it by 10,000 to convert to milliseconds.
+speech_synthesizer.bookmark_reached.connect(lambda evt: print(
+    "Bookmark reached: {}, audio offset: {}ms, bookmark text: {}.".format(evt, evt.audio_offset / 10000, evt.text)))
+```
+
+# [JavaScript](#tab/javascript)
+
+For more information, see <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer#bookmarkReached" target="_blank"> `bookmarkReached`</a>.
+
+```javascript
+synthesizer.bookmarkReached = function (s, e) {
+    window.console.log("(Bookmark reached), Audio offset: " + e.audioOffset / 10000 + "ms. Bookmark text: " + e.text);
+}
+```
+
+# [Objective-C](#tab/objectivec)
+
+For more information, see <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechsynthesizer#addbookmarkreachedeventhandler" target="_blank"> `addBookmarkReachedEventHandler` </a>.
+
+```objectivec
+[synthesizer addBookmarkReachedEventHandler: ^ (SPXSpeechSynthesizer *synthesizer, SPXSpeechSynthesisBookmarkEventArgs *eventArgs) {
+    // The unit of AudioOffset is tick (1 tick = 100 nanoseconds), divide by 10,000 to converted to milliseconds.
+    NSLog(@"Bookmark reached. Audio offset: %fms, bookmark text: %@.", eventArgs.audioOffset/10000., eventArgs.text);
+}];
+```
+
+# [Swift](#tab/swift)
+
+For more information, see <a href="https://docs.microsoft.com/swift/cognitive-services/speech/spxspeechsynthesizer#addbookmarkreachedeventhandler" target="_blank"> `addBookmarkReachedEventHandler` </a>.
+
+---
+
 ## Next steps
 
 * [Language support: voices, locales, languages](language-support.md)

@@ -8,17 +8,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/12/2021
+ms.date: 03/18/2021
 ms.custom: references_regions
 ---
 # Semantic search in Azure Cognitive Search
 
 > [!IMPORTANT]
-> Semantic search features are in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), and are not guaranteed to have the same implementation at general availability. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
+> Semantic search is in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), and are not guaranteed to have the same implementation at general availability. These features are billable. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
-Semantic search is a collection of query-related features that support a higher-quality, more natural query experience. 
+Semantic search is a collection of query-related capabilities that add semantic relevance and language understanding to search results. *Semantic ranking* looks for context and relatedness among terms, elevating matches that make more sense given the query. Language understanding finds *captions* and *answers* within your content that summarize the matching document or answer a question, which can then be rendered on a search results page for a more productive search experience.
 
-These capabilities include a semantic reranking of search results, as well as caption and answer extraction, with semantic highlighting over relevant terms and phrases. State-of-the-art pretrained models are used for extraction and ranking. To maintain the fast performance that users expect from search, semantic summarization and ranking are applied to just the top 50 results, as scored by the [default similarity scoring algorithm](index-similarity-and-scoring.md#similarity-ranking-algorithms). Using those results as the document corpus, semantic ranking re-scores those results based on the semantic strength of the match.
+State-of-the-art pretrained models are used for summarization and ranking. To maintain the fast performance that users expect from search, semantic summarization and ranking are applied to just the top 50 results, as scored by the [default similarity scoring algorithm](index-similarity-and-scoring.md#similarity-ranking-algorithms). Using those results as the document corpus, semantic ranking re-scores those results based on the semantic strength of the match.
 
 The underlying technology is from Bing and Microsoft Research, and integrated into the Cognitive Search infrastructure as an add-on feature. For more information about the research and AI investments backing semantic search, see [How AI from Bing is powering Azure Cognitive Search (Microsoft Research Blog)](https://www.microsoft.com/research/blog/the-science-behind-semantic-search-how-ai-from-bing-is-powering-azure-cognitive-search/).
 
@@ -45,7 +45,9 @@ Components of semantic search extend the existing query execution pipeline in bo
 
 Query execution proceeds as usual, with term parsing, analysis, and scans over the inverted indexes. The engine retrieves documents using token matching, and scores the results using the [default similarity scoring algorithm](index-similarity-and-scoring.md#similarity-ranking-algorithms). Scores are calculated based on the degree of linguistic similarity between query terms and matching terms in the index. If you defined them, scoring profiles are also applied at this stage. Results are then passed to the semantic search subsystem.
 
-In the preparation step, the document corpus returned from the initial result set is analyzed at the sentence and paragraph level to find passages that summarize each document. In contrast with keyword search, this step uses machine reading and comprehension to evaluate the content. As part of result composition, a semantic query returns captions and answers. To formulate them, semantic search uses language representation to extract and highlight key passages that best summarize a result. If the search query is a question - and answers are requested - the response will also include a text passage that best answers the question, as expressed by the search query. For both captions and answers, existing text is used in the formulation. The semantic models do not compose new sentences or phrases from the available content, nor does it apply logic to arrive at new conclusions. In short, the system will never return content that doesn't already exist.
+In the preparation step, the document corpus returned from the initial result set is analyzed at the sentence and paragraph level to find passages that summarize each document. In contrast with keyword search, this step uses machine reading and comprehension to evaluate the content. Through this stage of content processing, a semantic query returns [captions](semantic-how-to-query-request.md) and [answers](semantic-answers.md). To formulate them, semantic search uses language representation to extract and highlight key passages that best summarize a result. If the search query is a question - and answers are requested - the response will also include a text passage that best answers the question, as expressed by the search query. 
+
+For both captions and answers, existing text is used in the formulation. The semantic models do not compose new sentences or phrases from the available content, nor does it apply logic to arrive at new conclusions. In short, the system will never return content that doesn't already exist.
 
 Results are then re-scored based on the [conceptual similarity](semantic-ranking.md) of query terms.
 
@@ -68,3 +70,5 @@ A new query type enables the relevance ranking and response structures of semant
 + [Add spell check to query terms](speller-how-to-add.md)
 + [Return a semantic answer](semantic-answers.md)
 + [Semantic ranking](semantic-ranking.md)
++ [Introducing semantic search (blog post)](https://techcommunity.microsoft.com/t5/azure-ai/introducing-semantic-search-bringing-more-meaningful-results-to/ba-p/2175636)
++ [Find meaningful insights using semantic capabilities (AI Show video)](https://channel9.msdn.com/Shows/AI-Show/Find-meaningful-insights-using-semantic-capabilities-in-Azure-Cognitive-Search)

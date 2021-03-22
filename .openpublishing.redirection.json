@@ -314,7 +314,7 @@
     },
     {
       "source_path": "articles/virtual-machines/windows/nested-virtualization.md",
-      "redirect_url": "/previous-versions/azure/virtual-machines/windows/nested-virtualization",
+      "redirect_url": "https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization",
       "redirect_document_id": false
     },
     {
@@ -13532,6 +13532,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-vmware/concepts-role-based-access-control.md",
+      "redirect_url": "/azure/azure-vmware/concepts-identity",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-vmware/deploy-traffic-manager-to-balance-avs-workloads.md",
       "redirect_url": "/azure/azure-vmware/deploy-traffic-manager-balance-workloads",
       "redirect_document_id": false
@@ -13583,7 +13588,12 @@
     },
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/baremetal-infrastructure-portal.md",
-      "redirect_url": "/azure/baremetal-infrastructure/workloads/sap/baremetal-infrastructure-portal",
+      "redirect_url": "/azure/baremetal-infrastructure/connect-baremetal-infrastructure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/baremetal-infrastructure/workloads/sap/baremetal-overview-architecture.md", 
+      "redirect_url": "/azure/baremetal-infrastructure/concepts-baremetal-infrastructure-overview",
       "redirect_document_id": false
     },
     {
@@ -16282,6 +16292,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cost-management-billing/manage/create-subscription-template.md",
+      "redirect_url": "/azure/cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/billing/billing-set-up-alerts.md",
       "redirect_url": "/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending",
       "redirect_document_id": false
@@ -17244,6 +17259,11 @@
     {
       "source_path_from_root": "/articles/databox-online/data-box-edge-limits.md",
       "redirect_url": "/azure/databox-online/azure-stack-edge-limits",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-k-series-overview.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-mini-r-overview",
       "redirect_document_id": false
     },
     {
@@ -28643,7 +28663,17 @@
     },
     {
       "source_path_from_root": "/articles/marketplace/partner-center-portal/commercial-marketplace-co-sell.md",
-      "redirect_url": "/azure/marketplace/commercial-marketplace-co-sell",
+      "redirect_url": "/azure/marketplace/co-sell-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/marketplace-co-sell.md",
+      "redirect_url": "/azure/marketplace/co-sell-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/commercial-marketplace-co-sell.md",
+      "redirect_url": "/azure/marketplace/co-sell-configure",
       "redirect_document_id": false
     },
     {
@@ -31865,6 +31895,11 @@
       "source_path_from_root": "/articles/scheduler/get-started-portal.md",
       "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
       "redirect_document_id": ""
+    },
+    {
+      "source_path_from_root": "/articles/search/search-filters-language.md",
+      "redirect_url": "/azure/search/search-language-support",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/search/semantic-how-to-query-response.md",
@@ -36964,6 +36999,22 @@
     {
       "source_path_from_root": "/articles/stream-analytics/vs-code-how-to.md",
       "redirect_url": "/azure/stream-analytics/vscode-explore-jobs",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/synapse-analytics/sql/best-practices-sql-pool.md",
+      "redirect_url": "/azure/synapse-analytics/sql/best-practices-dedicated-sql-pool",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices.md",
+      "redirect_url": "/azure/synapse-analytics/sql/best-practices-dedicated-sql-pool",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/synapse-analytics/sql/best-practices-sql-on-demand.md",
+      "redirect_url": "/azure/synapse-analytics/sql/best-practices-serverless-sql-pool",
       "redirect_document_id": false
     },
     {
@@ -46402,6 +46453,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/migrate/tutorial-containerize-aspnet-kubernetes.md",
+      "redirect_url": "tutorial-app-containerization-aspnet-kubernetes",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/storage/common/storage-access-blobs-queues-portal.md",
       "redirect_url": "articles/storage/blobs/authorize-blob-access-portal",
       "redirect_document_id": false
@@ -53799,6 +53855,11 @@
     {
       "source_path_from_root": "/articles/active-directory/manage-apps/add-non-gallery-app.md",
       "redirect_url": "/azure/active-directory/manage-apps/add-application-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/non-gallery-apps.md",
+      "redirect_url": "/azure/active-directory/manage-apps/plan-an-application-integration",
       "redirect_document_id": false
     },
     {
@@ -63662,6 +63723,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/communication-services/concepts/event-handling.md",
+      "redirect_url": "/azure/event-grid/event-schema-communication-services",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-monitor/app/change-analysis.md#visualizations-for-application-change-analysis",
       "redirect_url": "/articles/azure-monitor/app/change-analysis-visualizations",
       "redirect_document_id": false
@@ -64754,6 +64820,11 @@
     "source_path": "articles/azure-monitor/app/visual-studio-trends.md",
     "redirect_url": "/azure/azure-monitor/app/visual-studio",
     "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/translator/custom-translator/glossary.md",
+      "redirect_url": "/azure/cognitive-services/translator/custom-translator/terminology",
+      "redirect_document_id": false
     }
   ]
 }

@@ -27,7 +27,7 @@ In this quickstart, you create and manage an Azure Cosmos DB Gremlin (graph) API
 
 ## Prerequisites
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Or [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription.
-- [Python 3.5+](https://www.python.org/downloads/) including [pip](https://pip.pypa.io/en/stable/installing/) package installer.
+- [Python 3.6+](https://www.python.org/downloads/) including [pip](https://pip.pypa.io/en/stable/installing/) package installer.
 - [Python Driver for Gremlin](https://github.com/apache/tinkerpop/tree/master/gremlin-python).
 - [Git](https://git-scm.com/downloads).
 
