@@ -33,7 +33,7 @@ Increasing the number of worker nodes in an HDInsight cluster allows the work to
 
 * After creation, you can also edit the number of worker nodes to scale out a cluster further without recreating one:
 
-    :::image type="content" source="./media/hdinsight-hadoop-optimize-hive-query/azure-portal-settings-nodes.png "scaleout_2"" alt-text="Azure portal scale cluster size":::
+    :::image type="content" source="./media/hdinsight-hadoop-optimize-hive-query/azure-portal-settings-nodes.png " alt-text="Azure portal scale cluster size":::
 
 For more information about scaling HDInsight, see [Scale HDInsight clusters](hdinsight-scaling-best-practices.md)
 
