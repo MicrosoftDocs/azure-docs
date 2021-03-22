@@ -178,7 +178,7 @@
         href: how-to-view-alerts.md
       - name: About alert messages
         href: how-to-view-information-provided-in-alerts.md
-        displayName: PCAP
+        displayName: PCAP, metadata, alerts, link, device map, 
       - name: Alert types and descriptions
         href: alert-engine-messages.md
         displayName: alert, alerts, description, engine, anomaly, protocol, policy, malware, violation, operational
