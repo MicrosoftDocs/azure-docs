@@ -40,7 +40,7 @@ _Bandwidth requirements for Azure Communication Services _
 
 The Azure Communication Services connection requires internet connectivity to specific ports to transmit traffic with high-quality. Azure Communication Services can work if access to all the necessary IP addresses, ports are not open. However, the optimal experience is provided when recommended ports and IP ranges are open.
 
-| Category | Ip ranges or FQDN | Ports | 
+| Category | IP ranges or FQDN | Ports | 
 | :-- | :-- | :-- |
 | Media traffic | [Range of Azure Public Cloud IP Addresses](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) | UDP 3478 through 3481, TCP ports <strong>443</strong> |
 | Signalling, telemetry, registration| *.skype.com, *.microsoft.com. *.azure.net, *.azureedge.net | TCP 443, 80 |
