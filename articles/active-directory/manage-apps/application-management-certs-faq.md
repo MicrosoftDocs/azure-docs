@@ -27,11 +27,11 @@ You can find the steps [here](manage-certificates-for-federated-single-sign-on.m
 
 ## How can I customize the expiration date for the certificates issued by Azure AD?
 
-A. By default, Azure AD configures a certificate to expire after three years when it is created automatically during SAML single sign-on configuration. Because you can't change the date of a certificate after you save it, you need to create a new certificate. For steps on how to do so, please refer [Customize the expiration date for your federation certificate and roll it over to a new certificate](manage-certificates-for-federated-single-sign-on.md#customize-the-expiration-date-for-your-federation-certificate-and-roll-it-over-to-a-new-certificate).
+By default, Azure AD configures a certificate to expire after three years when it is created automatically during SAML single sign-on configuration. Because you can't change the date of a certificate after you save it, you need to create a new certificate. For steps on how to do so, please refer [Customize the expiration date for your federation certificate and roll it over to a new certificate](manage-certificates-for-federated-single-sign-on.md#customize-the-expiration-date-for-your-federation-certificate-and-roll-it-over-to-a-new-certificate).
 
 ## How can I automate the certificates expiration notifications?
 
-A. Azure AD will send an email notification 60, 30, and 7 days before the SAML certificate expires. You may add more than one email address to receive notifications. 
+Azure AD will send an email notification 60, 30, and 7 days before the SAML certificate expires. You may add more than one email address to receive notifications. 
 
 > [!NOTE]
 > You can add up to 5 email addresses to the Notification list (including the email address of the admin who added the application). If you need more people to be notified, use the distribution list emails. 
@@ -50,7 +50,7 @@ In Azure AD, you can set up certificate signing options and the certificate sign
 
 ## I need to replace the certificate for Azure AD Application Proxy applications and need more instructions.
 
-To replace certificates for Application Proxy apps, see [PowerShell sample - Replace certificate in Application Proxy apps](scripts/powershell-get-custom-domain-replace-cert.md).
+To replace certificates for Azure AD Application Proxy applications, see [PowerShell sample - Replace certificate in Application Proxy apps](scripts/powershell-get-custom-domain-replace-cert.md).
 
 ## How do I manage certificates for custom domains in Azure AD Application Proxy?
 
