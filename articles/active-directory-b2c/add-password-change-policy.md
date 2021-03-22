@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 03/22/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -19,6 +19,18 @@ zone_pivot_groups: b2c-policy-type
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
+In Azure Active Directory B2C (Azure AD B2C), you can enable users who are signed in with a local account to change their password without having to prove their authenticity by email verification. 
+
+> [!TIP]
+> The password change flow allows users to change their password, only when the user knows the password, and want to change it. We recommend you to  enable [self-service password reset](add-password-reset-policy.md), to support a case when the user forgot the password.
+
+The password change flow involves following steps:
+
+1. Sign-in with a local account. If the session is still active, Azure AD B2C authorizes the user, and skips to the next step.
+1. Users must verify the **old password**, create, and confirm the **new password**.
+
+![Password change flow](./media/add-password-change-policy/password-change-flow.png)  
+
 ::: zone pivot="b2c-user-flow"
 
 [!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-limited-to-custom-policy.md)]
@@ -26,15 +38,6 @@ zone_pivot_groups: b2c-policy-type
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
-
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
-
-In Azure Active Directory B2C (Azure AD B2C), you can enable users who are signed in with a local account to change their password without having to prove their authenticity by email verification. The password change flow involves following steps:
-
-1. Sign-in with a local account. If the session is still active, Azure AD B2C authorizes the user, and skips to the next step.
-1. Users must verify the **old password**, create, and confirm the **new password**.
-
-![Password change flow](./media/add-password-change-policy/password-change-flow.png)
 
 ## Prerequisites
 
