@@ -20,9 +20,17 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About Azure Video Analyzer (preview)
+  - title: Azure Video Analyzer documentation
     linkLists:
       - linkListType: overview
         links:
           - text: About Azure Video Analyzer
             url: overview.md
+
+  # Card
+  - title: About Azure Video Analyzer for media documentation
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: About Azure Video Analyzer for media
+            url: ../media-services/video-indexer/video-indexer-overview.md
