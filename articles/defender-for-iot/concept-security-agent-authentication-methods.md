@@ -1,19 +1,8 @@
 ---
 title: Security agent authentication methods
 description: Learn about the different authentication methods available when using the Defender for IoT service.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/24/2021
-ms.author: shhazam
 ---
 
 # Security agent authentication methods
