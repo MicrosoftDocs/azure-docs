@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: Azure Digital Twins query language reference - Syntax
+title: Azure Digital Twins query language reference - Clauses
 titleSuffix: Azure Digital Twins
-description: Reference documentation for the Azure Digital Twins query language core syntax
+description: Reference documentation for the Azure Digital Twins query language clauses
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 03/22/2021
@@ -15,9 +15,9 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Azure Digital Twins query language reference: Core syntax
+# Azure Digital Twins query language reference: Clauses
 
-This document contains reference information on the **core syntax** for the [Azure Digital Twins query language](concepts-query-language.md).
+This document contains reference information on the **clauses** for the [Azure Digital Twins query language](concepts-query-language.md).
 
 The basic components of an Azure Digital Twins query are:
 * [SELECT](#select) clause
