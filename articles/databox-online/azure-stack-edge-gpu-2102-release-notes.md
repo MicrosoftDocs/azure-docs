@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/19/2021
+ms.date: 03/22/2021
 ms.author: alkohli
 ---
 
@@ -26,9 +26,19 @@ This article applies to the **Azure Stack Edge 2102** release, which maps to sof
 The following new features are available in the Azure Stack Edge 2102 release. 
  
 - **New features for Virtual Machines** - Beginning this release, you can create and manage the virtual machines on your device via the Azure portal. For more information, see [Deploy VMs via the Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md).
+
 - **Kubernetes cloud management** - Beginning this release, you can manage the Kubernetes cluster on your Azure Stack Edge Pro GPU device via the Azure portal. For more information, see [Manage Kubernetes on your Azure Stack Edge Pro GPU via the Azure portal]().
+
+- **Improvements for Compute** - Several enhancements and improvements were made including those for:
+
+    - **Overall compute platform quality**. Some bugs were fixed to improve the overall quality. See the [Issues fixed in 2102 release](#issues-fixed-in-2102-release). 
+	- **Compute platform components**. Security updates were applied to Compute VM image. IoT Edge and Azure Arc for Kubernetes versions were also updated.
+	- **Diagnostics**. A new API is released to check resource and network conditions. You can connect to the PowerShell interface of the device and use the `Test-HcsKubernetesStatus` command to verify the network readiness of the device.
+	- **Log collection** which would lead to improved debugging. 
+	- **Alerting infrastructure** that will allow you to detect IP address conflicts for compute IP addresses. 
+	- **Mix workload** of Kubernetes and local Azure Resource Manager. 
+
 - **Proactive logging by default** - Starting this release, proactive log collection is enabled by default on your device. This features allows Microsoft to collect logs proactively based on the system health indicators to help efficiently troubleshoot any device issues. For more information, see [Proactive log collection on your device](azure-stack-edge-gpu-proactive-log-collection.md).
-- **Edge container registry** - In this release, an Edge container registry is available that provides a repository at the edge on your device. You can use this registry to store and manage container images. For more information, see [Enable Edge container registry](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md). 
 
 ## Issue fixed in 2102 release
 
