@@ -452,6 +452,8 @@
           href: recover-python-functions.md
         - name: Scale and performance for Python functions
           href: python-scale-performance-reference.md
+        - name: Memory profiling for Python functions
+          href: python-memory-profiler-reference.md
 - name: Reference
   items:
     - name: API references

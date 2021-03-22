@@ -6,7 +6,7 @@ author: Hazhzeng
 ms.topic: article
 ms.date: 07/29/2020
 ms.author: hazeng
-ms.custom: devx-track-python 
+ms.custom: devx-track-python
 ---
 
 # Troubleshoot Python errors in Azure Functions
@@ -15,6 +15,7 @@ Following is a list of troubleshooting guides for common issues in Python functi
 
 * [ModuleNotFoundError and ImportError](#troubleshoot-modulenotfounderror)
 * [Cannot import 'cygrpc'](#troubleshoot-cannot-import-cygrpc)
+* [Python exited with code 139](#troubleshoot-python-exited-with-code-139)
 
 ## Troubleshoot ModuleNotFoundError
 
@@ -22,7 +23,7 @@ This section helps you troubleshoot module-related errors in your Python functio
 
 > `Exception: ModuleNotFoundError: No module named 'module_name'.`
 
-This error issue occurs when a Python function app fails to load a Python module. The root cause for this error is one of the following issues:
+This error occurs when a Python function app fails to load a Python module. The root cause for this error is one of the following issues:
 
 - [The package can't be found](#the-package-cant-be-found)
 - [The package isn't resolved with proper Linux wheel](#the-package-isnt-resolved-with-proper-linux-wheel)
@@ -146,7 +147,7 @@ This section helps you troubleshoot 'cygrpc' related errors in your Python funct
 
 > `Cannot import name 'cygrpc' from 'grpc._cython'`
 
-This error issue occurs when a Python function app fails to start with a proper Python interpreter. The root cause for this error is one of the following issues:
+This error occurs when a Python function app fails to start with a proper Python interpreter. The root cause for this error is one of the following issues:
 
 - [The Python interpreter mismatches OS architecture](#the-python-interpreter-mismatches-os-architecture)
 - [The Python interpreter is not supported by Azure Functions Python Worker](#the-python-interpreter-is-not-supported-by-azure-functions-python-worker)
@@ -173,6 +174,18 @@ The Azure Functions Python Worker only supports Python 3.6, 3.7, and 3.8.
 Please check if your Python interpreter matches our expected version by `py --version` in Windows or `python3 --version` in Unix-like systems. Ensure the return result is Python 3.6.x, Python 3.7.x, or Python 3.8.x.
 
 If your Python interpreter version does not meet our expectation, please download the Python 3.6, 3.7, or 3.8 interpreter from [Python Software Foundation](https://python.org/downloads/release).
+
+---
+
+## Troubleshoot Python Exited With Code 139
+
+This section helps you troubleshoot out-of-memory errors in your Python function app. These errors typically result in the following Azure Functions error message:
+
+> `Microsoft.Azure.WebJobs.Script.Workers.WorkerProcessExitException : python exited with code 139`
+
+This error occurs when a Python function app is force fully terminated by operating system with a SIGSEGV signal. This signal indicates a memory segmentation violation which usually means your function app is running out of [memory limitation](functions-scale.md#service-limits). Please visit the tutorial section in [memory profiling on Python functions](python-memory-profiler-reference.md.memory-profiling-tutorial) for more information.
+
+---
 
 ## Next steps
 
