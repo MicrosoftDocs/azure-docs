@@ -170,7 +170,7 @@ To set up Performance counters:
 >[!NOTE]
 >Input delay performance counters are only compatible with Windows 10 RS5 and later or Windows Server 2019 and later.
 
-### Windows event logs configuration
+### Configure Windows Event Logs
 
 Enable specific Windows event logs for collection in the Log Analytics workspace.
 
