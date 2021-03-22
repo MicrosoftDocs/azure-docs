@@ -1,33 +1,29 @@
 ---
-title: Encryption scopes for Blob storage (preview)
+title: Encryption scopes for Blob storage
 description: Encryption scopes provide the ability to manage encryption at the level of the container or an individual blob. You can use encryption scopes to create secure boundaries between data that resides in the same storage account but belongs to different customers.
 services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 03/05/2021
+ms.date: 03/22/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ---
 
-# Encryption scopes for Blob storage (preview)
+# Encryption scopes for Blob storage
 
-Encryption scopes provide the ability to manage encryption at the level of the container or an individual blob. You can use encryption scopes to create secure boundaries between data that resides in the same storage account but belongs to different customers.
+Encryption scopes enable you to manage encryption at the level of the container or an individual blob. You can use encryption scopes to create secure boundaries between data that resides in the same storage account but belongs to different customers.
 
 By default, a storage account is encrypted with a key that is scoped to the entire storage account. With an encryption scope, you can specify that one or more containers are encrypted with a key that is scoped only to those containers.
 
 You can choose to use either Microsoft-managed keys or customer-managed keys stored in Azure Key Vault to protect and control access to the key that encrypts your data. Different encryption scopes on the same storage account can use either Microsoft-managed or customer-managed keys.
 
-After you have created an encryption scope, you can specify that encryption scope on a request to create a container or a blob. For more information about how to create an encryption scope, see [Create and manage encryption scopes (preview)](encryption-scope-manage.md).
+After you have created an encryption scope, you can specify that encryption scope on a request to create a container or a blob. For more information about how to create an encryption scope, see [Create and manage encryption scopes](encryption-scope-manage.md).
 
 > [!IMPORTANT]
-> Encryption scopes are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 > To avoid unexpected costs, be sure to disable any encryption scopes that you do not currently need.
->
-> Encryption scopes are not supported with read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS) accounts during preview.
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
@@ -56,6 +52,6 @@ If your encryption scope is protected with customer-managed keys, then you can a
 ## Next steps
 
 - [Azure Storage encryption for data at rest](../common/storage-service-encryption.md)
-- [Create and manage encryption scopes (preview)](encryption-scope-manage.md)
+- [Create and manage encryption scopes](encryption-scope-manage.md)
 - [Customer-managed keys for Azure Storage encryption](../common/customer-managed-keys-overview.md)
 - [What is Azure Key Vault?](../../key-vault/general/overview.md)
