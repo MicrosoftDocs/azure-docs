@@ -1,0 +1,43 @@
+
+- name: Azure Industrial IoT documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Industrial IoT?
+    href: overview-what-is-industrial-iot.md
+  - name: What is the OPC Publisher?
+    href: overview-what-is-opc-publisher.md
+  - name: What is the Industrial IoT Platform?
+    href: overview-what-is-industrial-iot-platform.md
+- name: Tutorials
+  items:
+  - name: OPC Publisher standalone tutorials
+    items:
+    - name: Deploy OPC publisher standalone mode
+      href: tutorial-publisher-deploy-opc-publisher-standalone.md
+    - name: Configure OPC Publisher
+      href: tutorial-publisher-configure-opc-publisher.md
+    - name: Performance and Memory Tuning of the OPC Publisher
+      href: tutorial-publisher-performance-memory-tuning-opc-publisher.md
+  - name: IIoT Platform tutorials (orchestrated mode)
+    items:
+    - name: Deploy IIoT Platform
+      href: tutorial-deploy-industrial-iot-platform.md
+    - name: Configure IIoT components
+      href: tutorial-configure-industrial-iot-components.md
+    - name: Pull IIoT data into ADX
+      href: tutorial-industrial-iot-azure-data-explorer.md
+    - name: Visualize and analyze the data using Time Series Insights
+      href: tutorial-visualize-data-time-series-insights.md
+- name: Reference
+  items:
+    - name: Command-line Arguments
+      href: reference-command-line-arguments.md
+    - name: OPC Publisher Telemetry Configuration File Format
+      href: reference-opc-publisher-telemetry-format.md
+- name: Resources 
+  items:
+  - name: OPC Publisher GitHub repository
+    href: https://github.com/Azure/Industrial-IoT
+  - name: IIoT Platform GitHub repository
+    href: https://github.com/Azure/iot-edge-opc-publisher

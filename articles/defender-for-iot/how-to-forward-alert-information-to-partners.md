@@ -1,12 +1,8 @@
 ---
 title: Forward alert information
 description: You can send alert information to partner systems by working with forwarding rules.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/02/2020
 ms.topic: how-to
-ms.service: azure
 ---
 
 # Forward alert information
