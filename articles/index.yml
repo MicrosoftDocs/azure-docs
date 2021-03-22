@@ -576,12 +576,19 @@ productDirectory:
         - compute
       url: batch/index.yml
     # Card
-    - title: Cloud Services
+    - title: Cloud Services (classic)
       summary: Create highly-available, infinitely-scalable cloud applications and APIs
       imageSrc: https://static.docs.com/ui/media/product/azure/cloud-services.svg
       azureCategories:
         - compute
       url: cloud-services/index.yml
+    # Card
+    - title: Cloud Services (extended support)
+      summary: Host and run highly available, scalable cloud applications and APIs
+      imageSrc: https://static.docs.com/ui/media/product/azure/cloud-services.svg
+      azureCategories:
+        - compute
+      url: cloud-services-extended-support/index.yml
     # Card
     - title: Container Instances
       summary: Easily run containers on Azure without managing servers
