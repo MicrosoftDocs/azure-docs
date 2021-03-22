@@ -6,45 +6,132 @@ ms.date: 03/26/2021
 ---
 # Manage Service Fabric cluster upgrades
 
-You can set your Service Fabric cluster to receive automatic upgrades as they are released by Microsoft, or you can choose to install them manually.
+An Azure Service Fabric cluster is a resource you own, but it's partly managed by Microsoft. Here's how to manage when and how Microsoft updates your Azure Service Fabric cluster.
 
-You do this by setting the "upgradeMode" cluster configuration on the portal or using Resource Manager at the time of creation or later on a live cluster.
+For further background on cluster upgrade concepts and processes, see [Upgrading and updating Azure Service Fabric clusters](service-fabric-cluster-upgrade.md)
+
+## Set upgrade mode
+
+You can set your cluster to receive automatic Service Fabric upgrades as they are released by Microsoft, or you can manually choose from a list of currently supported versions by setting the upgrade mode for your cluster. This can be done either through the *Fabric upgrade mode* control in Azure portal or the `upgradeMode` setting in your cluster deployment template.
+
+### Azure portal
+
+Using Azure portal, you'll choose between automatic or manual upgrades when creating a new Service Fabric cluster.
+
+:::image type="content" source="media/service-fabric-cluster-upgrade/portal-new-cluster-upgrade-mode.png" alt-text="Choose between automatic or manual upgrades when creating a new cluster in Azure portal from the 'Advanced' options":::
+
+You can also toggle between automatic or manual upgrades from the **Fabric upgrades** blade of an existing cluster resource.
+
+:::image type="content" source="./media/service-fabric-cluster-upgrade/fabric-upgrade-mode.png" alt-text="Select Automatic or Manual upgrades in the 'Fabric upgrades' section of your cluster resource in Azure portal":::
+
+### Manual upgrades with Azure portal
+
+When you select the manual upgrade option, all that's needed to initiate an upgrade is to select from the available versions  dropdown and then *Save*. From there the cluster upgrade gets kicked off immediately.
+
+The [cluster health policies](#custom-upgrade-policies-for-manual-upgrades) (a combination of node health and the health all the applications running in the cluster) are adhered to during the upgrade. If cluster health policies are not met, the upgrade is rolled back.
+
+Once you have fixed the issues that resulted in the rollback, you'll need to initiate the upgrade again, by following the same steps as before.
+
+### Resource Manager template
+
+To change your cluster upgrade mode using a Resource Manager template, specify either *Automatic* or *Manual* for the  `upgradeMode` property of the *Microsoft.ServiceFabric/clusters* resource definition. If you choose manual upgrades, also set the `clusterCodeVersion` to a currently [supported fabric version](#query-your-subscription-for-version-status).
+
+:::image type="content" source="./media/service-fabric-cluster-upgrade/ARMUpgradeMode.PNG" alt-text="Screenshot shows a template, which is plaintext indented to reflect structure. The 'clusterCodeVersion' and 'upgradeMode' properties are highlighted.":::
+
+Upon successful deployment of the template, changes to the cluster upgrade mode will be applied. If your cluster is in manual mode, the cluster upgrade will kick off automatically.
+
+The [cluster health policies](#custom-upgrade-policies-for-manual-upgrades) (a combination of node health and the health all the applications running in the cluster) are adhered to during the upgrade. If cluster health policies are not met, the upgrade is rolled back.
+
+Once you have fixed the issues that resulted in the rollback, you'll need to initiate the upgrade again, by following the same steps as before.
+
+## Wave deployment for automatic upgrades
+
+With automatic upgrade mode, you have the option to enable your cluster for wave deployment. With wave deployment, you can create a pipeline for upgrading your test, stage, and production clusters in sequence, separated by built-in 'bake time' to validate upcoming Service Fabric versions before your production clusters are updated.
+
+### Enable wave deployment
 
 > [!NOTE]
-> Make sure to keep your Service Fabric cluster is always running a supported version. As and when we announce the release of a new version of service fabric, the previous version is marked for end of support after a minimum of 60 days from that date. The new releases are announced [on the service fabric team blog](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric). The new release is available to choose then.
+> Wave deployment requires the `2020-12-01-preview` (or later) API version for your *Microsoft.ServiceFabric/clusters* resource.
 
-14 days prior to the expiry of the release your cluster is running, a health event is generated that puts your cluster into a warning health state. The cluster remains in a warning state until you upgrade to a supported fabric version.
+To enable wave deployment for automatic upgrade, first determine which wave to assign your cluster:
 
-## Set the upgrade mode in the Azure portal
-You can set the cluster to automatic or manual when you are creating the cluster.
+* **Wave 0** (`Wave0`): Clusters are updated as soon as a new Service Fabric build is released. Intended for test/dev clusters.
+* **Wave 1** (`Wave1`): Clusters are updated one week (7 days) after a new build is released. Intended for pre-prod/staging clusters.
+* **Wave 2** (`Wave2`): Clusters are updated two weeks (14 days) after a new build is released. Intended for production clusters.
 
-![Screenshot shows the Create Service Fabric cluster pane with option 2 Cluster configuration selected and the Cluster configuration pane open.][Create_Manualmode]
+Then, simply add an `upgradeWave` property to your cluster resource template with one of the wave values listed above. Ensure your cluster resource API version is `2020-12-01-preview` or later.
 
-You can set the cluster to automatic or manual when on a live cluster, using the manage experience.
+```json
+{
+    "apiVersion": "2020-12-01-preview",
+    "type": "Microsoft.ServiceFabric/clusters",
+     ...
+        "fabricSettings": [...],
+        "managementEndpoint": ...,
+        "nodeTypes": [...],
+        "provisioningState": ...,
+        "reliabilityLevel": ...,
+        "upgradeMode": "Automatic",
+        "upgradeWave": "Wave1",
+       ...
+```
 
-### Upgrading to a new version on a cluster that is set to Manual mode via portal.
-To upgrade to a new version, all you need to do is select the available version from the dropdown and save. The Fabric upgrade gets kicked off automatically. The cluster health policies (a combination of node health and the health all the applications running in the cluster) are adhered to during the upgrade.
+Once you deploy the updated template, your cluster will be enrolled in the specified wave for the next upgrade period and thereafter.
 
-If the cluster health policies are not met, the upgrade is rolled back. Scroll down this document to read more on how to set those custom health policies.
+You can [register for email notifications](#register-for-notifications) if a cluster upgrade fails, and also have the option to [pause or resume upgrades](#pause-and-resume-upgrades) on your cluster.
 
-Once you have fixed the issues that resulted in the rollback, you need to initiate the upgrade again, by following the same steps as before.
+### Register for notifications
 
-![Screenshot shows the Service Fabric clusters window with the Fabric upgrades pane open and the upgrade options highlighted, including Automatic and Manual.][Manage_Automaticmode]
+You can register for notifications when a cluster upgrade fails. An email will be sent to your designated email address(es) with further details on the upgrade failure and links to further help.
 
-## Set the upgrade mode using a Resource Manager template
-Add the "upgradeMode" configuration to the Microsoft.ServiceFabric/clusters resource definition and set the "clusterCodeVersion" to one of the supported fabric versions as shown below and then deploy the template. The valid values for "upgradeMode" are "Manual" or "Automatic"
+> [!NOTE]
+> Enrollment in wave deployment is not required to receive notifications for upgrade failures.
 
-![Screenshot shows a template, which is plaintext indented to reflect structure and the clusterCodeVersion and upgradeMode are highlighted.][ARMUpgradeMode]
+To enroll in notifications, add a `notifications` section to your cluster resource template, and designate one or more email addresses (*receivers*) to receive notifications:
 
-### Upgrading to a new version on a cluster that is set to Manual mode via a Resource Manager template.
-When the cluster is in Manual mode, to upgrade to a new version, change the "clusterCodeVersion" to a supported version and deploy it. 
-The deployment of the template, kicks of the Fabric upgrade gets kicked off automatically. The cluster health policies (a combination of node health and the health all the applications running in the cluster) are adhered to during the upgrade.
+```json
+    "apiVersion": "2020-12-01-preview",
+    "type": "Microsoft.ServiceFabric/clusters",
+     ...
+        "upgradeMode": "Automatic",
+        "upgradeWave": "Wave1",
+        "notifications": [
+        {
+            "isEnabled": true,
+            "notificationCategory": "WaveProgress",
+            "notificationLevel": "Critical",
+            "notificationTargets": [
+            {
+                "notificationChannel": "EmailUser",
+                "receivers": [
+                    "devops@contoso.com"
+                ]
+            }]
+        }]
+```
 
-If the cluster health policies are not met, the upgrade is rolled back.  
+Once you deploy your updated template, you'll be enrolled for upgrade failure notifications. Upon failure of a cluster in an earlier deployment wave (or for any other reason), you can choose to [pause upgrades](#pause-and-resume-upgrades) for a cluster.
 
-Once you have fixed the issues that resulted in the rollback, you need to initiate the upgrade again, by following the same steps as before.
+### Pause and resume upgrades
 
-## Set custom polices for manual upgrades
+If clusters hosting your test or staging environments fail during Service Fabric upgrade, you may wish to pause upgrades in subsequent waves. In other cases, you may wish to postpone upgrading your cluster until after a business-critical event is over.
+
+> [!NOTE]
+> Enrollment in wave deployment is not required to pause or resume upgrades.
+
+To pause upgrades on a cluster, run the following command, substituting your own subscription id (#), resource group (*myresourcegroup*), and cluster name (*mycluster*):
+
+```powershell
+Invoke-AzureRmResourceAction -Action pause -ResourceId /subscriptions/########-####-####-####-############/resourcegroups/myresourcegroup/providers/Microsoft.ServiceFabric/clusters/mycluster/upgrade -ApiVersion "2020-12-01-preview" -Force 
+```
+
+To resume automatic upgrades, run the following command, substituting your own subscription id (*), resource group (*myresourcegroup*), and cluster name (*mycluster*):
+
+```powershell
+Invoke-AzureRmResourceAction -Action resume -ResourceId /subscriptions/########-####-####-####-############/resourcegroups/myresourcegroup/providers/Microsoft.ServiceFabric/clusters/mycluster/upgrade -ApiVersion "2020-12-01-preview" -Force 
+```
+
+## Custom upgrade policies for manual upgrades
 
 You can specify custom health polices for manual cluster upgrades. These policies get applied each time you select a new runtime version, which triggers the system to kick off the upgrade of your cluster. If you do not override the policies, the defaults are used.
 
@@ -52,57 +139,60 @@ You can specify the custom health policies or review the current settings under 
 
 :::image type="content" source="./media/service-fabric-cluster-upgrade/custom-upgrade-policy.png" alt-text="Select the 'Custom' upgrade policy option in the 'Fabric upgrades' section of your cluster resource in Azure portal in order to set custom health policies during upgrade":::
 
-## List all available versions for all environments for a given subscription
-Run the following command, and you should get an output similar to this.
+## Query for supported cluster versions
 
-"supportExpiryUtc" tells your when a given release is expiring or has expired. The latest release does not have a valid date - it has a value of "9999-12-31T23:59:59.9999999", which just means that the expiry date is not yet set.
+You can use [Azure REST API](/rest/api/azure/) to list all available Service Fabric runtime versions ([clusterVersions](/rest/api/servicefabric/sfrp-api-clusterversions_list)) available for the specified location and your subscription.
+
+You can also reference [Service Fabric versions](service-fabric-versions.md) for further details on supported versions and operating systems.
 
 ```REST
-GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.ServiceFabric/locations/{{location}}/clusterVersions?api-version=2016-09-01
+GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.ServiceFabric/locations/{{location}}/clusterVersions?api-version=2018-02-01
 
-Example: https://management.azure.com/subscriptions/1857f442-3bce-4b96-ad95-627f76437a67/providers/Microsoft.ServiceFabric/locations/eastus/clusterVersions?api-version=2016-09-01
-
-Output:
-{
-                  "value": [
-                    {
-                      "id": "subscriptions/35349203-a0b3-405e-8a23-9f1450984307/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/5.0.1427.9490",
-                      "name": "5.0.1427.9490",
-                      "type": "Microsoft.ServiceFabric/environments/clusterVersions",
-                      "properties": {
-                        "codeVersion": "5.0.1427.9490",
-                        "supportExpiryUtc": "2016-11-26T23:59:59.9999999",
-                        "environment": "Windows"
-                      }
-                    },
-                    {
-                      "id": "subscriptions/35349203-a0b3-405e-8a23-9f1450984307/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/4.0.1427.9490",
-                      "name": "5.1.1427.9490",
-                      "type": " Microsoft.ServiceFabric/environments/clusterVersions",
-                      "properties": {
-                        "codeVersion": "5.1.1427.9490",
-                        "supportExpiryUtc": "9999-12-31T23:59:59.9999999",
-                        "environment": "Windows"
-                      }
-                    },
-                    {
-                      "id": "subscriptions/35349203-a0b3-405e-8a23-9f1450984307/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/4.4.1427.9490",
-                      "name": "4.4.1427.9490",
-                      "type": " Microsoft.ServiceFabric/environments/clusterVersions",
-                      "properties": {
-                        "codeVersion": "4.4.1427.9490",
-                        "supportExpiryUtc": "9999-12-31T23:59:59.9999999",
-                        "environment": "Linux"
-                      }
-                    }
-                  ]
-                }
+"value": [
+  {
+    "id": "subscriptions/########-####-####-####-############/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/5.0.1427.9490",
+    "name": "5.0.1427.9490",
+    "type": "Microsoft.ServiceFabric/environments/clusterVersions",
+    "properties": {
+      "codeVersion": "5.0.1427.9490",
+      "supportExpiryUtc": "2016-11-26T23:59:59.9999999",
+      "environment": "Windows"
+    }
+  },
+  {
+    "id": "subscriptions/########-####-####-####-############/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/4.0.1427.9490",
+    "name": "5.1.1427.9490",
+    "type": " Microsoft.ServiceFabric/environments/clusterVersions",
+    "properties": {
+      "codeVersion": "5.1.1427.9490",
+      "supportExpiryUtc": "9999-12-31T23:59:59.9999999",
+      "environment": "Windows"
+    }
+  },
+  {
+    "id": "subscriptions/########-####-####-####-############/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/4.4.1427.9490",
+    "name": "4.4.1427.9490",
+    "type": " Microsoft.ServiceFabric/environments/clusterVersions",
+    "properties": {
+      "codeVersion": "4.4.1427.9490",
+      "supportExpiryUtc": "9999-12-31T23:59:59.9999999",
+      "environment": "Linux"
+    }
+  }
+]
+}
 ```
 
+The `supportExpiryUtc` in the output reports when a given release is expiring or has expired. Latest releases will not have a valid date, but rather a value of *9999-12-31T23:59:59.9999999*, which just means that the expiry date is not yet set.
+
+
 ## Next steps
-* Learn how to customize some of the [service fabric cluster fabric settings](service-fabric-cluster-fabric-settings.md)
-* Learn how to [scale your cluster in and out](service-fabric-cluster-scale-in-out.md)
+
+* [Manage Service Fabric upgrades](service-fabric-cluster-upgrade-version-azure.md)
+* Customize your [Service Fabric cluster settings](service-fabric-cluster-fabric-settings.md)
+* [Scale your cluster in and out](service-fabric-cluster-scale-in-out.md)
 * Learn about [application upgrades](service-fabric-application-upgrade.md)
+
 
 <!--Image references-->
 [CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade2.png
