@@ -42,6 +42,7 @@ The geos in Microsoft 365 available for Multi-Geo are:
 | Canada | CAN |
 | European Union | EUR |
 | France | FRA |
+| Germany | DEU |
 | India | IND |
 | Japan | JPN |
 | Korea | KOR |
