@@ -19,21 +19,21 @@ A script action is Bash script that runs on the nodes in an HDInsight cluster. C
 
 - Must be stored on a URI that's accessible from the HDInsight cluster. The following are possible storage locations:
 
-    - For regular (non-ESP) clusters:
-      - Data Lake Storage Gen1/Gen2: The service principal HDInsight uses to access Data Lake Storage must have read access to the script. The URI format for scripts stored in Data Lake Storage Gen1 is `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`. 
-      - A blob in an Azure Storage account that's either the primary or additional storage account for the HDInsight cluster. HDInsight is granted access to both of these types of storage accounts during cluster creation.
+  - For regular (non-ESP) clusters:
+    - Data Lake Storage Gen1/Gen2: The service principal HDInsight uses to access Data Lake Storage must have read access to the script. The URI format for scripts stored in Data Lake Storage Gen1 is `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
+    - A blob in an Azure Storage account that's either the primary or additional storage account for the HDInsight cluster. HDInsight is granted access to both of these types of storage accounts during cluster creation.
 
-        > [!IMPORTANT]  
-        > Do not rotate the storage key on this Azure Storage account, as it will cause subsequent script actions with scripts stored there to fail.
+    > [!IMPORTANT]  
+    > Do not rotate the storage key on this Azure Storage account, as it will cause subsequent script actions with scripts stored there to fail.
 
-      - A public file-sharing service accessible through `http://` paths. Examples are Azure Blob, GitHub, or OneDrive. For example URIs, see [Example script action scripts](#example-script-action-scripts).
-    - For clusters with ESP, the `wasb://` or `wasbs://` or `http[s]://` URIs are supported.
+    - A public file-sharing service accessible through `http://` paths. Examples are Azure Blob, GitHub, or OneDrive. For example URIs, see [Example script action scripts](#example-script-action-scripts).
+  - For clusters with ESP, the `wasb://` or `wasbs://` or `http[s]://` URIs are supported.
 
 - Can be restricted to run on only certain node types. Examples are head nodes or worker nodes.
 - Can be persisted or *ad hoc*.
 
-    - Persisted script actions must have a unique name. Persisted scripts are used to customize new worker nodes added to the cluster through scaling operations. A persisted script might also apply changes to another node type when scaling operations occur. An example is a head node.
-    - *Ad hoc* scripts aren't persisted. Script actions used during cluster creation are automatically persisted. They aren't applied to worker nodes added to the cluster after the script has run. Then you can promote an *ad hoc* script to a persisted script or demote a persisted script to an *ad hoc* script. Scripts that fail aren't persisted, even if you specifically indicate that they should be.
+  - Persisted script actions must have a unique name. Persisted scripts are used to customize new worker nodes added to the cluster through scaling operations. A persisted script might also apply changes to another node type when scaling operations occur. An example is a head node.
+  - *Ad hoc* scripts aren't persisted. Script actions used during cluster creation are automatically persisted. They aren't applied to worker nodes added to the cluster after the script has run. Then you can promote an *ad hoc* script to a persisted script or demote a persisted script to an *ad hoc* script. Scripts that fail aren't persisted, even if you specifically indicate that they should be.
 
 - Can accept parameters that are used by the script during execution.
 - Run with root-level privileges on the cluster nodes.
@@ -207,23 +207,23 @@ This section explains how to apply script actions on a running cluster.
 
 1. From the top of the **Script actions** page, select **+ Submit new**.
 
-    :::image type="content" source="./media/hdinsight-hadoop-customize-cluster-linux/add-script-running-cluster.png" alt-text="Add a script to a running cluster":::
+   :::image type="content" source="./media/hdinsight-hadoop-customize-cluster-linux/add-script-running-cluster.png" alt-text="Add a script to a running cluster":::
 
 1. Use the __Select a script__ entry to select a premade script. To use a custom script, select __Custom__. Then provide the __Name__ and __Bash script URI__ for your script.
 
-    :::image type="content" source="./media/hdinsight-hadoop-customize-cluster-linux/hdinsight-select-script.png" alt-text="Add a script in the select script form":::
+   :::image type="content" source="./media/hdinsight-hadoop-customize-cluster-linux/hdinsight-select-script.png" alt-text="Add a script in the select script form":::
 
-    The following table describes the elements on the form:
+   The following table describes the elements on the form:
 
-    | Property | Value |
-    | --- | --- |
-    | Select a script | To use your own script, select __custom__. Otherwise, select a provided script. |
-    | Name |Specify a name for the script action. |
-    | Bash script URI |Specify the URI of the script. |
-    | Head/Worker/Zookeeper |Specify the nodes on which the script is run: **Head**, **Worker**, or **ZooKeeper**. |
-    | Parameters |Specify the parameters, if required by the script. |
+   | Property | Value |
+   | --- | --- |
+   | Select a script | To use your own script, select __custom__. Otherwise, select a provided script. |
+   | Name |Specify a name for the script action. |
+   | Bash script URI |Specify the URI of the script. |
+   | Head/Worker/Zookeeper |Specify the nodes on which the script is run: **Head**, **Worker**, or **ZooKeeper**. |
+   | Parameters |Specify the parameters, if required by the script. |
 
-    Use the __Persist this script action__ entry to make sure the script is applied during scaling operations.
+   Use the __Persist this script action__ entry to make sure the script is applied during scaling operations.
 
 1. Finally, select the **Create** button to apply the script to the cluster.
 
@@ -250,19 +250,19 @@ Before you start, make sure you install and configure the Azure CLI. Ensure you 
 
 1. Authenticate to your Azure subscription:
 
-    ```azurecli
-    az login
-    ```
+   ```azurecli
+   az login
+   ```
 
 1. Apply a script action to a running cluster:
 
-    ```azurecli
-    az hdinsight script-action execute --cluster-name CLUSTERNAME --name SCRIPTNAME --resource-group RESOURCEGROUP --roles ROLES
-    ```
+   ```azurecli
+   az hdinsight script-action execute --cluster-name CLUSTERNAME --name SCRIPTNAME --resource-group RESOURCEGROUP --roles ROLES
+   ```
 
-    Valid roles are `headnode`, `workernode`, `zookeepernode`, `edgenode`. If the script should be applied to several node types, separate the roles by a space. For example, `--roles headnode workernode`.
+   Valid roles are `headnode`, `workernode`, `zookeepernode`, `edgenode`. If the script should be applied to several node types, separate the roles by a space. For example, `--roles headnode workernode`.
 
-    To persist the script, add `--persist-on-success`. You can also persist the script later by using `az hdinsight script-action promote`.
+   To persist the script, add `--persist-on-success`. You can also persist the script later by using `az hdinsight script-action promote`.
 
 ### Apply a script action to a running cluster by using REST API
 
@@ -282,15 +282,15 @@ For an example of using the .NET SDK to apply scripts to a cluster, see [Apply a
 
 1. A history of scripts for this cluster displays on the script actions section. This information includes a list of persisted scripts. The following screenshot shows that the Solr script has been run on this cluster. The screenshot doesn't show any persisted scripts.
 
-    :::image type="content" source="./media/hdinsight-hadoop-customize-cluster-linux/script-action-history.png" alt-text="Portal script actions submit history":::
+   :::image type="content" source="./media/hdinsight-hadoop-customize-cluster-linux/script-action-history.png" alt-text="Portal script actions submit history":::
 
 1. Select a script from the history to display the **Properties** section for this script. From the top of the screen, you can rerun the script or promote it.
 
-    :::image type="content" source="./media/hdinsight-hadoop-customize-cluster-linux/promote-script-actions.png" alt-text="Script actions properties promote":::
+   :::image type="content" source="./media/hdinsight-hadoop-customize-cluster-linux/promote-script-actions.png" alt-text="Script actions properties promote":::
 
 1. You can also select the ellipsis, **...**, to the right of entries on the script actions section to do actions.
 
-    :::image type="content" source="./media/hdinsight-hadoop-customize-cluster-linux/hdi-delete-promoted-sa.png" alt-text="Persisted script actions delete":::
+   :::image type="content" source="./media/hdinsight-hadoop-customize-cluster-linux/hdi-delete-promoted-sa.png" alt-text="Persisted script actions delete":::
 
 ### Azure PowerShell
 

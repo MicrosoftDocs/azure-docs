@@ -206,10 +206,10 @@ Each cluster type has its own number of nodes, terminology for nodes, and defaul
 
 | Type | Nodes | Diagram |
 | --- | --- | --- |
-| Hadoop |Head node (2), Worker node (1+) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png" alt-text="HDInsight Hadoop cluster nodes"::: |
-| HBase |Head server (2), region server (1+), master/ZooKeeper node (3) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png" alt-text="HDInsight HBase cluster type setup"::: |
-| Storm |Nimbus node (2), supervisor server (1+), ZooKeeper node (3) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png" alt-text="HDInsight storm cluster type setup"::: |
-| Spark |Head node (2), Worker node (1+), ZooKeeper node (3) (free for A1 ZooKeeper VM size) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png" alt-text="HDInsight spark cluster type setup"::: |
+| Hadoop |Head node (2), Worker node (1+) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png" alt-text="HDInsight Hadoop cluster nodes" border="false"::: |
+| HBase |Head server (2), region server (1+), master/ZooKeeper node (3) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png" alt-text="HDInsight HBase cluster type setup" border="false"::: |
+| Storm |Nimbus node (2), supervisor server (1+), ZooKeeper node (3) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png" alt-text="HDInsight storm cluster type setup" border="false"::: |
+| Spark |Head node (2), Worker node (1+), ZooKeeper node (3) (free for A1 ZooKeeper VM size) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png" alt-text="HDInsight spark cluster type setup" border="false"::: |
 
 For more information, see [Default node configuration and virtual machine sizes for clusters](hdinsight-supported-node-configuration.md) in "What are the Hadoop components and versions in HDInsight?"
 
@@ -217,7 +217,7 @@ The cost of HDInsight clusters is determined by the number of nodes and the virt
 
 Different cluster types have different node types, numbers of nodes, and node sizes:
 * Hadoop cluster type default:
-    * Two *head nodes*  
+    * Two *head nodes*
     * Four *Worker nodes*
 * Storm cluster type default:
     * Two *Nimbus nodes*

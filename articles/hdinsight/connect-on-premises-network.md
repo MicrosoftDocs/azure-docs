@@ -32,7 +32,7 @@ These configurations enable the following behavior:
 
 In the following diagram, green lines are requests for resources that end in the DNS suffix of the virtual network. Blue lines are requests for resources in the on-premises network or on the public internet.
 
-:::image type="content" source="./media/connect-on-premises-network/on-premises-to-cloud-dns.png" alt-text="Diagram of how DNS requests are resolved in the configuration":::
+:::image type="content" source="./media/connect-on-premises-network/on-premises-to-cloud-dns.png" alt-text="Diagram of how DNS requests are resolved in the configuration" border="false":::
 
 ## Prerequisites
 

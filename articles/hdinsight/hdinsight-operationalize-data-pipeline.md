@@ -25,7 +25,7 @@ The example pipeline waits until a new time period's flight data arrives, then s
 
 The following diagram illustrates the example pipeline.
 
-:::image type="content" source="./media/hdinsight-operationalize-data-pipeline/flight-pipeline-overview.png" alt-text="HDI flight example data pipeline overview":::
+:::image type="content" source="./media/hdinsight-operationalize-data-pipeline/flight-pipeline-overview.png" alt-text="HDI flight example data pipeline overview" border="false":::
 
 ## Apache Oozie solution overview
 
@@ -35,7 +35,7 @@ Oozie describes its pipelines in terms of *actions*, *workflows*, and *coordinat
 
 The following diagram shows the high-level design of this example Oozie pipeline.
 
-:::image type="content" source="./media/hdinsight-operationalize-data-pipeline/pipeline-overview-oozie.png" alt-text="Oozie Flight example Data Pipeline":::
+:::image type="content" source="./media/hdinsight-operationalize-data-pipeline/pipeline-overview-oozie.png" alt-text="Oozie Flight example Data Pipeline" border="false":::
 
 ## Provision Azure resources
 
@@ -248,18 +248,18 @@ Then update the values for your specific environment. The table below the text s
     INSERT OVERWRITE TABLE flights
     PARTITION (YEAR, MONTH, DAY_OF_MONTH)
     SELECT 
-      	FL_DATE,
-      	CARRIER,
-      	FL_NUM,
-      	ORIGIN,
-      	DEST,
-      	DEP_DELAY,
-      	ARR_DELAY,
-      	ACTUAL_ELAPSED_TIME,
-      	DISTANCE,
-    	YEAR,
-      	MONTH,
-      	DAY_OF_MONTH
+          FL_DATE,
+          CARRIER,
+          FL_NUM,
+          ORIGIN,
+          DEST,
+          DEP_DELAY,
+          ARR_DELAY,
+          ACTUAL_ELAPSED_TIME,
+          DISTANCE,
+        YEAR,
+          MONTH,
+          DAY_OF_MONTH
     FROM rawflights
     WHERE year = ${year} AND month = ${month} AND day_of_month = ${day};
     ```
@@ -273,18 +273,18 @@ Then update the values for your specific environment. The table below the text s
     CREATE EXTERNAL TABLE ${hiveTableName}
     (
         YEAR INT,
-      	MONTH INT,
-      	DAY_OF_MONTH INT,
-      	CARRIER STRING,
-      	AVG_DEP_DELAY FLOAT,
-      	AVG_ARR_DELAY FLOAT,
-      	TOTAL_DISTANCE FLOAT
+          MONTH INT,
+          DAY_OF_MONTH INT,
+          CARRIER STRING,
+          AVG_DEP_DELAY FLOAT,
+          AVG_ARR_DELAY FLOAT,
+          TOTAL_DISTANCE FLOAT
     )
     ROW FORMAT DELIMITED
     FIELDS TERMINATED BY '\t' STORED AS TEXTFILE LOCATION '${hiveDataFolder}';
     INSERT OVERWRITE TABLE ${hiveTableName}
-    SELECT 	year, month, day_of_month, carrier, avg(dep_delay) avg_dep_delay, 
-    		avg(arr_delay) avg_arr_delay, sum(distance) total_distance 
+    SELECT     year, month, day_of_month, carrier, avg(dep_delay) avg_dep_delay, 
+            avg(arr_delay) avg_arr_delay, sum(distance) total_distance 
     FROM flights
     GROUP BY year, month, day_of_month, carrier 
     HAVING year = ${year} AND month = ${month} AND day_of_month = ${day};
