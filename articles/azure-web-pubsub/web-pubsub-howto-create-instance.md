@@ -4,7 +4,7 @@ description: An overview on options to create Azure Web PubSub instance and how 
 author: yjin81
 ms.author: yajin1
 ms.service: azure-web-pubsub
-ms.topic: overview 
+ms.topic: how-to 
 ms.date: 03/17/2021
 ---
 
