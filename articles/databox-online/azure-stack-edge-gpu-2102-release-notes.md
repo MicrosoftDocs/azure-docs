@@ -30,7 +30,7 @@ The following new features are available in the Azure Stack Edge 2102 release.
     - Add or remove multiple disks to an existing VM.
     - Resize the VM.
     - Add custom data while deploying a Windows or a Linux VM.
-    - [Connect to the VM console on your device](azure-stack-edge-device-gpu-connect-virtual-machine-console.md).
+    - [Connect to the VM console on your device](azure-stack-edge-gpu-connect-virtual-machine-console.md).
 
 - **Kubernetes cloud management** - Beginning this release, you can manage the Kubernetes cluster on your Azure Stack Edge Pro GPU device via the Azure portal. For more information, see [Manage Kubernetes on your Azure Stack Edge Pro GPU via the Azure portal]().
 
