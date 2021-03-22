@@ -74,7 +74,7 @@ built-in content, Guest Configuration handles loading these tools automatically.
 ### Validation frequency
 
 The Guest Configuration client checks for new or changed guest assignments every 5 minutes. Once a guest assignment is
-recieved, the settings for that configuration are rechecked on a 15-minute interval. Results are
+received, the settings for that configuration are rechecked on a 15-minute interval. Results are
 sent to the Guest Configuration resource provider when the audit completes. When a policy
 [evaluation trigger](../how-to/get-compliance-data.md#evaluation-triggers) occurs, the state of the
 machine is written to the Guest Configuration resource provider. This update causes Azure Policy to
