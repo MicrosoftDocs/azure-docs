@@ -209,8 +209,8 @@ Create an event hub as shown the screenshot below:
 
 #### Create SAS policy for your event hub
 
-Next, you'll need to create a [shared access policy(SAS)](../azure/event-hubs/authorize-access-shared-access-signature) to configure the event hub with your function app.
-To do this, 
+Next, you'll need to create a [shared access policy(SAS)](../event-hubs/authorize-access-shared-access-signature.md) to configure the event hub with your function app.
+To do this,
 1. Navigate to the event hub you just created in the Azure portal and select **shared access policies(SAS)** in the menu options on the left.
 2. Select **Add**. In the *Add SAS Policy* window that opens, enter a policy name of your choice and select the *Listen* checkbox.
 3. Select **Create**.
