@@ -20,7 +20,7 @@ Before you start using Azure Monitor for Windows Virtual Desktop, you'll need to
 
 - All Windows Virtual Desktop environments you monitor must be based on the latest release of Windows Virtual Desktop that’s compatible with Azure Resource Manager.
 
-- At least one configured Log Analytics Workspace. Use a designated Log Analytics workspace for your Windows Virtual Desktop session hosts to ensure that performance counters and events are only collected from session hosts in your Windows Virtual Desktop deployment .
+- At least one configured Log Analytics Workspace. Use a designated Log Analytics workspace for your Windows Virtual Desktop session hosts to ensure that performance counters and events are only collected from session hosts in your Windows Virtual Desktop deployment.
 
 - Enable data collection for the following things in your Log Analytics workspace:
     - Diagnostics from your Windows Virtual Desktop environment
