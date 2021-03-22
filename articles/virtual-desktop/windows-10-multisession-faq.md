@@ -33,7 +33,7 @@ No. It's not currently possible to upgrade an existing virtual machine (VM) that
 
 ## How do I customize the Windows 10 Enterprise multi-session image for my organization?
 
-You can start a virtual machine (VM) in Azure with Windows 10 Windows 10 Enterprise multi-session and customize it by installing LOB applications, sysprep/generalize, and then create an image using the Azure portal.
+You can start a VM in Azure with Windows 10 Windows 10 Enterprise multi-session and customize it by installing LOB applications, sysprep/generalize, and then create an image using the Azure portal.
 
 To get started, create a VM in Azure with Windows 10 Enterprise multi-session. Instead of starting the VM in Azure, you can download the VHD directly. After that, you'll be able to use the VHD you downloaded to create a new Generation 1 VM on a Windows 10 PC with Hyper-V enabled.
 
