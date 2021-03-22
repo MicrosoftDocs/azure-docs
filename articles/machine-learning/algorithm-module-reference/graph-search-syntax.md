@@ -25,6 +25,7 @@ Graph search supports full-text keyword search on node name and comments. You ca
 
 You can use either Lucene query or filter query. To use both, use the **|** separator. The syntax of the filter query is more strict than Lucene query. So if customer input can be parsed as both, the filter query will be applied.
 
+For example, `data OR model | compute in {cpucluster}`, this is to search nodes of which name or comment contains `data` or `model`, and compute is cpucluster.
  
 
 ## Lucene query
