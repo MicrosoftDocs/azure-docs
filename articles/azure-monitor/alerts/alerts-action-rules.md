@@ -8,7 +8,7 @@ ms.date: 03/15/2021
 
 # Action rules (preview)
 
-Action rules let you add or suppress the action groups on your fired alerts. A single rule can cover differernt scopes of target resources, for example - any alert on a specific resource (like a specific virtual machine) or any alert fired on any resource in a subscription. You can optionally add various filters to control which alerts are covered by a rule and define a schedule for it, for example for it to be in effect only outside business hours or during a planned maintanence window.
+Action rules let you add or suppress the action groups on your fired alerts. A single rule can cover different scopes of target resources, for example - any alert on a specific resource (like a specific virtual machine) or any alert fired on any resource in a subscription. You can optionally add various filters to control which alerts are covered by a rule and define a schedule for it, for example for it to be in effect only outside business hours or during a planned maintenance window.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4rBZ2]
 
@@ -304,7 +304,7 @@ In the [alerts list page](./alerts-managing-alert-instances.md), you can choose 
 
 Suppression always takes precedence on the same scope.
 
-### What happens if I have a resource that's monitored in two separate action rules? Do I get one or two notifications? For example, **VM2** in the following scenario:
+### What happens if I have a resource that is covered by two action rules? Do I get one or two notifications? For example, **VM2** in the following scenario:
 
    `action rule AR1 defined for VM1 and VM2 with action group AG1`
 
