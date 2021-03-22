@@ -32,43 +32,21 @@ You can use the [azcopy make](storage-ref-azcopy-make.md) command to create a co
 > [!TIP]
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
-:::row:::
-   :::column span="":::
-      **Syntax**
-   :::column-end:::
-   :::column span="":::
-     `azcopy make 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>'`
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-      **Example**
-   :::column-end:::
-   :::column span="":::
-     `azcopy make 'https://mystorageaccount.blob.core.windows.net/mycontainer'`
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-      **Example**
-   :::column-end:::
-   :::column span="":::
-      `azcopy make 'https://mystorageaccount.dfs.core.windows.net/mycontainer'` 
-   :::column-end:::
-:::row-end:::
-
 This is a table example:
 
 **Syntax**: `azcopy make 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>'`
 
-**Example** (flat namespace): `azcopy make 'https://mystorageaccount.blob.core.windows.net/mycontainer'`
+**Example (flat namespace)**
 
-**Example** (hierarchical namespace): `azcopy make 'https://mystorageaccount.dfs.core.windows.net/mycontainer'`
+```azcopy
+https://mystorageaccount.blob.core.windows.net/mycontainer
+```
 
-|   |    |
-|--------|-----------|
-| Flat | `azcopy make 'https://mystorageaccount.blob.core.windows.net/mycontainer'` |
-| Hierarchical | `azcopy make 'https://mystorageaccount.dfs.core.windows.net/mycontainer'` |
+**Example (hierarchical namespace)**
+
+```azcopy
+https://mystorageaccount.dfs.core.windows.net/mycontainer
+```
 
 For detailed reference docs, see [azcopy make](storage-ref-azcopy-make.md).
 
