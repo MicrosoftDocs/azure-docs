@@ -48,25 +48,25 @@ Extract, transform, and load (ETL) is a process where unstructured or structured
 
 You can use HDInsight to perform interactive queries at petabyte scales over structured or unstructured data in any format. You can also build models connecting them to BI tools.
 
-![HDInsight architecture: Data warehousing](./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-data-warehouse.png "HDInsight Data warehousing architecture")
+:::image type="content" source="./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-data-warehouse.png "HDInsight Data warehousing architecture"" alt-text="HDInsight architecture: Data warehousing":::
 
 ### Internet of Things (IoT)
 
 You can use HDInsight to process streaming data that's received in real time from different kinds of devices. For more information, [read this blog post from Azure that announces the public preview of Apache Kafka on HDInsight with Azure Managed disks](https://azure.microsoft.com/blog/announcing-public-preview-of-apache-kafka-on-hdinsight-with-azure-managed-disks/).
 
-![HDInsight architecture: Internet of Things](./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-iot.png "HDInsight IoT architecture")
+:::image type="content" source="./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-iot.png "HDInsight IoT architecture"" alt-text="HDInsight architecture: Internet of Things":::
 
 ### Data science
 
 You can use HDInsight to build applications that extract critical insights from data. You can also use Azure Machine Learning on top of that to predict future trends for your business. For more information, [read this customer story](https://customers.microsoft.com/story/pros).
 
-![HDInsight architecture: Data science](./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-data-science.png "HDInsight data science architecture")
+:::image type="content" source="./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-data-science.png "HDInsight data science architecture"" alt-text="HDInsight architecture: Data science":::
 
 ### Hybrid
 
 You can use HDInsight to extend your existing on-premises big data infrastructure to Azure to leverage the advanced analytics capabilities of the cloud.
 
-![HDInsight architecture: Hybrid](./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-hybrid.png "HDInsight hybrid architecture")
+:::image type="content" source="./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-hybrid.png "HDInsight hybrid architecture"" alt-text="HDInsight architecture: Hybrid":::
 
 ## Cluster types in HDInsight
 

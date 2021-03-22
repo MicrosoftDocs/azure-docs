@@ -53,7 +53,7 @@ In this section, you configure an existing HDInsight Hadoop cluster to use an Az
 
 1. Select **Save**.  It takes a few moments to save the setting.
 
-    ![Enable monitoring for HDInsight clusters](./media/hdinsight-hadoop-oms-log-analytics-tutorial/azure-portal-monitoring.png "Enable monitoring for HDInsight clusters")
+    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/azure-portal-monitoring.png "Enable monitoring for HDInsight clusters"" alt-text="Enable monitoring for HDInsight clusters":::
 
 ## Enable Azure Monitor using Azure PowerShell
 
@@ -133,7 +133,7 @@ Available HDInsight solutions:
 
 For management solution instructions, see [Management solutions in Azure](../azure-monitor/insights/solutions.md#install-a-monitoring-solution). To experiment, install a HDInsight Hadoop Monitoring solution. When it's done, you see an **HDInsightHadoop** tile listed under **Summary**. Select the **HDInsightHadoop** tile. The HDInsightHadoop solution looks like:
 
-![HDInsight monitoring solution view](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
+:::image type="content" source="media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png" alt-text="HDInsight monitoring solution view":::
 
 Because the cluster is a brand new cluster, the report doesn't show any activities.
 

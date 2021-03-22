@@ -25,7 +25,7 @@ The example pipeline waits until a new time period's flight data arrives, then s
 
 The following diagram illustrates the example pipeline.
 
-![HDI flight example data pipeline overview](./media/hdinsight-operationalize-data-pipeline/flight-pipeline-overview.png)
+:::image type="content" source="./media/hdinsight-operationalize-data-pipeline/flight-pipeline-overview.png" alt-text="HDI flight example data pipeline overview":::
 
 ## Apache Oozie solution overview
 
@@ -35,7 +35,7 @@ Oozie describes its pipelines in terms of *actions*, *workflows*, and *coordinat
 
 The following diagram shows the high-level design of this example Oozie pipeline.
 
-![Oozie Flight example Data Pipeline](./media/hdinsight-operationalize-data-pipeline/pipeline-overview-oozie.png)
+:::image type="content" source="./media/hdinsight-operationalize-data-pipeline/pipeline-overview-oozie.png" alt-text="Oozie Flight example Data Pipeline":::
 
 ## Provision Azure resources
 
@@ -126,11 +126,11 @@ The sample data is now available. However, the pipeline requires two Hive tables
 
 2. From the list of services, select **Hive**.
 
-    ![Apache Ambari services list selecting Hive](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png)
+    :::image type="content" source="./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png" alt-text="Apache Ambari services list selecting Hive":::
 
 3. Select **Go To View** next to the Hive View 2.0 label.
 
-    ![Ambari Apache Hive summary list](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-summary.png)
+    :::image type="content" source="./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-summary.png" alt-text="Ambari Apache Hive summary list":::
 
 4. In the query text area, paste the following statements to create the `rawFlights` table. The `rawFlights` table provides a schema-on-read for the CSV files within the `/example/data/flights` folder in Azure Storage.
 
@@ -159,7 +159,7 @@ The sample data is now available. However, the pipeline requires two Hive tables
 
 5. Select **Execute** to create the table.
 
-    ![hdi ambari services hive query](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-query.png)
+    :::image type="content" source="./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-query.png" alt-text="hdi ambari services hive query":::
 
 6. To create the `flights` table, replace the text in the query text area with the following statements. The `flights` table is a Hive-managed table that partitions data loaded into it by year, month, and day of month. This table will contain all historical flight data, with the lowest granularity present in the source data of one row per flight.
 
@@ -410,7 +410,7 @@ Use SCP from your bash session to deploy your Oozie workflow (`workflow.xml`), t
 
 1. Observe the status using the Oozie Web Console. From within Ambari, select **Oozie**, **Quick Links**, and then **Oozie Web Console**. Under the **Workflow Jobs** tab, select **All Jobs**.
 
-    ![hdi oozie web console workflows](./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-workflows.png)
+    :::image type="content" source="./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-workflows.png" alt-text="hdi oozie web console workflows":::
 
 1. When the status is SUCCEEDED, query the SQL Database table to view the inserted rows. Using the Azure portal, navigate to the pane for your SQL Database, select **Tools**, and open the **Query Editor**.
 
@@ -588,11 +588,11 @@ To run the pipeline with a coordinator, proceed in a similar fashion as for the 
 
 5. Verify the status using the Oozie Web Console, this time selecting the **Coordinator Jobs** tab, and then  **All jobs**.
 
-    ![Oozie Web Console Coordinator Jobs](./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-coordinator-jobs.png)
+    :::image type="content" source="./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-coordinator-jobs.png" alt-text="Oozie Web Console Coordinator Jobs":::
 
 6. Select a coordinator instance to display the list of scheduled actions. In this case, you should see four actions with nominal times in the range from 1/1/2017 to 1/4/2017.
 
-    ![Oozie Web Console Coordinator Job](./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-coordinator-instance.png)
+    :::image type="content" source="./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-coordinator-instance.png" alt-text="Oozie Web Console Coordinator Job":::
 
     Each action in this list corresponds to an instance of the workflow that processes one day's worth of data, where the start of that day is indicated by the nominal time.
 

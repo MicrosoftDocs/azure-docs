@@ -23,7 +23,7 @@ Learn how to use [Apache Spark](https://spark.apache.org/) to stream data into o
 
 Apache Kafka on HDInsight doesn't provide access to the Kafka brokers over the public internet. Anything that talks to Kafka must be in the same Azure virtual network as the nodes in the Kafka cluster. For this example, both the Kafka and Spark clusters are located in an Azure virtual network. The following diagram shows how communication flows between the clusters:
 
-![Diagram of Spark and Kafka clusters in an Azure virtual network](./media/hdinsight-apache-spark-with-kafka/apache-spark-kafka-vnet.png)
+:::image type="content" source="./media/hdinsight-apache-spark-with-kafka/apache-spark-kafka-vnet.png" alt-text="Diagram of Spark and Kafka clusters in an Azure virtual network":::
 
 > [!NOTE]  
 > Though Kafka itself is limited to communication within the virtual network, other services on the cluster such as SSH and Ambari can be accessed over the internet. For more information on the public ports available with HDInsight, see [Ports and URIs used by HDInsight](hdinsight-hadoop-port-settings-for-services.md).
@@ -53,7 +53,7 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
     |SSH User Name|The SSH user to create for the Spark and Kafka clusters.|
     |SSH Password|The password for the SSH user for the Spark and Kafka clusters.|
 
-    ![HDInsight custom deployment parameters](./media/hdinsight-apache-spark-with-kafka/hdinsight-parameters.png)
+    :::image type="content" source="./media/hdinsight-apache-spark-with-kafka/hdinsight-parameters.png" alt-text="HDInsight custom deployment parameters":::
 
 1. Read the **Terms and Conditions**, and then select **I agree to the terms and conditions stated above**.
 
@@ -61,7 +61,7 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
 
 Once the resources have been created, a summary page appears.
 
-![Resource group summary for the vnet and clusters](./media/hdinsight-apache-spark-with-kafka/hdinsight-group-blade.png)
+:::image type="content" source="./media/hdinsight-apache-spark-with-kafka/hdinsight-group-blade.png" alt-text="Resource group summary for the vnet and clusters":::
 
 > [!IMPORTANT]  
 > Notice that the names of the HDInsight clusters are **spark-BASENAME** and **kafka-BASENAME**, where BASENAME is the name you provided to the template. You use these names in later steps when connecting to the clusters.
