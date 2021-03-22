@@ -503,7 +503,7 @@
         "articles/baremetal-infrastructure/**/*.md": "gwallace",
         "articles/batch/**/*.md": "evansma",
         "articles/cognitive-services/**/*.md": "nitinme",
-        "articles/defender-for-iot/*.md": "rkarlin",
+        "articles/defender-for-iot/*.md": "raynew",
         "articles/devtest-labs/**/*.md": "femila",
         "articles/lab-services/**/*.md": "femila",
         "articles/migrate/**/*.md": "evansma",
