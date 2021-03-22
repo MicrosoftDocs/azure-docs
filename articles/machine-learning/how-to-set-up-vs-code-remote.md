@@ -37,13 +37,13 @@ To connect to your remote compute instance:
 
 # [VS Code](#tab/extension)
 
-## Azure Machine Learning Extension
+**Azure Machine Learning Extension**
 
 1. In VS Code, launch the Azure Machine Learning extension.
 1. Expand the **Compute instances** node in your extension.
 1. Right-click the compute instance you want to connect to and select **Connect to Compute Instance**.
 
-## Command Palette
+**Command Palette**
 
 1. In VS Code, open the command palette by selecting **View > Command Palette**.
 1. Enter into the text box **Azure ML: Connect to Compute Instance**.
