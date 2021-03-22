@@ -13,7 +13,9 @@ manager: cpendle
 # Azure Maps Web SDK Best Practices
 
 This document focuses on best practices for the Azure Maps Web SDK, however, many of the best practices and optimizations outlined can be applied to all other Azure Maps SDKs.
-The Azure Maps Web SDK provides a powerful canvas for rendering large spatial data sets in many different ways. In some cases, there are multiple ways to render data the same way, but depending on the size of the data set and the desired functionality, one method may perform better than others. This article highlights best practices as well as tips and tricks to maximize performance and create a smooth user experience.
+
+The Azure Maps Web SDK provides a powerful canvas for rendering large spatial data sets in many different ways. In some cases, there are multiple ways to render data the same way, but depending on the size of the data set and the desired functionality, one method may perform better than others. This article highlights best practices and tips and tricks to maximize performance and create a smooth user experience.
+
 Generally, when looking to improve performance of the map, look for ways to reduce the number of layers and sources, and the complexity of the data sets and rendering styles being used.
 
 ## Security basics
@@ -25,20 +27,23 @@ The single most important part of your application is its security. If your appl
 > * Subscription key-based authentication
 > * Azure Active Directory authentication
 > Use Azure Active Directory in all production applications.
-> Subscription key-based authentication is simple and what most mapping platforms use as a light way method to measure your usage of the platform for billing purposes. However, this is not a secure form of authentication and should only be used locally when developing apps.   Some platforms provide the ability to restrict which IP addresses and/or HTTP referrer is in requests, however, this information can easily be spoofed. If you do use subscription keys, be sure to [rotate them regularly](how-to-manage-authentication.md#manage-and-rotate-shared-keys).
+> Subscription key-based authentication is simple and what most mapping platforms use as a light way method to measure your usage of the platform for billing purposes. However, this is not a secure form of authentication and should only be used locally when developing apps. Some platforms provide the ability to restrict which IP addresses and/or HTTP referrer is in requests, however, this information can easily be spoofed. If you do use subscription keys, be sure to [rotate them regularly](how-to-manage-authentication.md#manage-and-rotate-shared-keys).
 > Azure Active Directory is an enterprise identity service that has a large selection of security features and settings for all sorts of application scenarios. Microsoft recommends that all production applications using Azure Maps use Azure Active Directory for authentication.
 > Learn more about [managing authentication in Azure Maps](how-to-manage-authentication.md) in this document.
 
 ### Secure your private data
 
-When data is added to the Azure Maps interactive map SDK’s it is rendered locally on the end user’s device and is never sent back out to the internet for any reason.
-If your application is loading data that should not be publicly accessible  , make sure that the data is stored in a secure location, is accessed in a secure manner, and that the application itself is locked down     and only available to your desired users. If any of these steps are skipped an unauthorized person has the potential to access this data. Azure Active Directory can assist you with locking this down.
+When data is added to the Azure Maps interactive map SDKs, it is rendered locally on the end user’s device and is never sent back out to the internet for any reason.
+
+If your application is loading data that should not be publicly accessible, make sure that the data is stored in a secure location, is accessed in a secure manner, and that the application itself is locked down and only available to your desired users. If any of these steps are skipped, an unauthorized person has the potential to access this data. Azure Active Directory can assist you with locking this down.
+
 See this tutorial on [adding authentication to your web app running on Azure App Service](https://docs.microsoft.com/azure/app-service/scenario-secure-app-authentication-app-service)
 
 ### Use the latest versions of Azure Maps
 
-The Azure Maps SDKs go through regular security testing along with any external dependency libraries that may be used by the SDKs. Any known security issue is fixed in a timely manner and released to production. If your application points to the latest major version of the hosted version of the Azure Maps Web SDK, it will automatically receive all minor version updates which will include security related fixes.
-If self-hosting the Azure Maps Web SDK via the NPM module be sure to add use the caret (^) symbol to in combination with the Azure Maps NPM package version number in your `package.json` file so that it will always point to the latest minor version.
+The Azure Maps SDKs go through regular security testing along with any external dependency libraries that may be used by the SDKs. Any known security issue is fixed in a timely manner and released to production. If your application points to the latest major version of the hosted version of the Azure Maps Web SDK, it will automatically receive all minor version updates that will include security related fixes.
+
+If self-hosting the Azure Maps Web SDK via the NPM module, be sure to use the caret (^) symbol to in combination with the Azure Maps NPM package version number in your `package.json` file so that it will always point to the latest minor version.
 
 ```json
 "dependencies": {
@@ -61,7 +66,7 @@ The following code sample shows how to delay the loading the Azure Maps Web SDK 
 
 <br/>
 
-<iframe height="265" style="width: 100%;" scrolling="no" title="Lazy load the map" src="https://codepen.io/azuremaps/embed/vYEeyOv?height=265&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Lazy load the map" src="https://codepen.io/azuremaps/embed/vYEeyOv?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/vYEeyOv'>Lazy load the map</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -72,7 +77,7 @@ If the map takes a while to load due to network limitations or other priorities 
 
 ### Set initial map style and camera options on initialization
 
-Often apps want to load the map to a specific location or style. Sometimes developers will wait until the map has loaded (or wait for the `ready` event), and then use the `setCemer` or `setStyle` functions of the map. This will often take longer to get to the desired initial map view since a lot of additional resources end up being loaded by default before the resources needed for the desired map view are loaded. A better approach is to pass in the desired map camera and style options into the map when initializing it.
+Often apps want to load the map to a specific location or style. Sometimes developers will wait until the map has loaded (or wait for the `ready` event), and then use the `setCemer` or `setStyle` functions of the map. This will often take longer to get to the desired initial map view since many resources end up being loaded by default before the resources needed for the desired map view are loaded. A better approach is to pass in the desired map camera and style options into the map when initializing it.
 
 ## Optimize data sources
 
@@ -88,7 +93,7 @@ Vector tiles are optimized to load only the data that is in view with the geomet
 
 The [Azure Maps Creator platform](creator-indoor-maps.md) provides the ability to retrieve data in vector tile format. Other data formats can be using tools such as [Tippecanoe](https://github.com/mapbox/tippecanoe) or one of the many [resources list on this page](https://github.com/mapbox/awesome-vector-tiles).
 
-It is also possible to create a custom service that renders datasets as raster image tiles on the server-side and load the data using the TileLayer class in the map SDK. This provides exceptional performance as the map only needs to load and manage a few dozen images at most. However, there are some limitations with using raster tiles since the raw data is not available locally. A secondary service is usually required to power any type of interaction experience, for example, find out what shape a user clicked on. Additionally, the file size of a raster tile is often larger than a compressed vector tile that contains generalized and zoom level optimized geometries.
+It is also possible to create a custom service that renders datasets as raster image tiles on the server-side and load the data using the TileLayer class in the map SDK. This provides exceptional performance as the map only needs to load and manage a few dozen images at most. However, there are some limitations with using raster tiles since the raw data is not available locally. A secondary service is often required to power any type of interaction experience, for example, find out what shape a user clicked on. Additionally, the file size of a raster tile is often larger than a compressed vector tile that contains generalized and zoom level optimized geometries.
 
 Learn more about data sources in the [Create a data source](create-data-source-web-sdk.md) document.
 
@@ -102,16 +107,16 @@ Combining multiple data sets in a single vector tile source can be achieved usin
 
 There are several ways data in a `DataSource` class can be added or updated. Listed below are the different methods and some considerations to ensure good performance.
 
-* The data sources `add` function can be used to add one or more features to a data source. Each time this function is called it will trigger a map canvas refresh. If adding a lot of features, combine them into an array or feature collection and passing them into this function once, rather than looping over a data set and calling this function for each feature.
-* The data sources `setShapes` function can be used to overwrite all shapes in a data source. Under the hood it combines the data sources `clear` and `add` functions together and does a single map canvas refresh instead of two, which is much faster. Be sure to use this when you want to update all data in a data source.
-* The data sources `importDataFromUrl` function can be used to load a GeoJSON file via a URL into a data source. Once the data has been downloaded it is passed into the data sources `add` function. If the GeoJSON file is hosted on a different domain, be sure that the other domain supports cross domain requests (CORs). If it doesn’t consider copying the data to a local file on your domain or creating a proxy service which has CORs enabled. If the file is large, consider converting it into a vector tile source.
-* If features are wrapped with the `Shape` class, the `addProperty`, `setCoordinates`, and `setProperties` functions of the shape will all trigger an update in the data source and a map canvas refresh. Note that all features returned by the data sources `getShapes` and `getShapeById` functions are automatically wrapped with the `Shape` class. If you want to update several shapes, it is faster to convert them to JSON using the data sources `toJson` function, editing the GeoJSON, then passing this data into the data sources `setShapes` function.
+* The data sources `add` function can be used to add one or more features to a data source. Each time this function is called it will trigger a map canvas refresh. If adding many features, combine them into an array or feature collection and passing them into this function once, rather than looping over a data set and calling this function for each feature.
+* The data sources `setShapes` function can be used to overwrite all shapes in a data source. Under the hood, it combines the data sources `clear` and `add` functions together and does a single map canvas refresh instead of two, which is much faster. Be sure to use this when you want to update all data in a data source.
+* The data sources `importDataFromUrl` function can be used to load a GeoJSON file via a URL into a data source. Once the data has been downloaded, it is passed into the data sources `add` function. If the GeoJSON file is hosted on a different domain, be sure that the other domain supports cross domain requests (CORs). If it doesn’t consider copying the data to a local file on your domain or creating a proxy service that has CORs enabled. If the file is large, consider converting it into a vector tile source.
+* If features are wrapped with the `Shape` class, the `addProperty`, `setCoordinates`, and `setProperties` functions of the shape will all trigger an update in the data source and a map canvas refresh. All features returned by the data sources `getShapes` and `getShapeById` functions are automatically wrapped with the `Shape` class. If you want to update several shapes, it is faster to convert them to JSON using the data sources `toJson` function, editing the GeoJSON, then passing this data into the data sources `setShapes` function.
 
 ### Avoid calling the data sources clear function unnecessarily
 
 Calling the clear function of the `DataSource` class causes a map canvas refresh. If the `clear` function is called multiple times in a row, a delay can occur while the map waits for each refresh to occur.
 
-A common scenario where this often appears in applications is when an app clears the data source, downloads new data, clears the data source again then adds the new data to the data source. Depending on the desired user experience the following alternatives would be better.
+A common scenario where this often appears in applications is when an app clears the data source, downloads new data, clears the data source again then adds the new data to the data source. Depending on the desired user experience, the following alternatives would be better.
 
 * Clear the data before downloading the new data, then pass the new data into the data sources `add` or `setShapes` function. If this is the only data set on the map, the map will be empty while the new data is downloading.
 * Download the new data, then pass it into the data sources `setShapes` function. This will replace all the data on the map.
@@ -122,17 +127,17 @@ If your dataset contains features that aren’t going to be used in your app, re
 
 * Reduces the amount of data that has to be downloaded.
 * Reduces the number of features that need to be looped through when rendering the data.
-* Can sometimes help simplify or remove data-driven expressions and filters which mean less processing required at render time.
+* Can sometimes help simplify or remove data-driven expressions and filters, which mean less processing required at render time.
 
-When features have a lot of properties or content it is much more performant to limit what gets added to the data source to just those needed for rendering and to have a separate method or service for retrieving the additional property or content when needed. For example, if you have a simple map displaying locations on a map when clicked a bunch of detailed content is displayed. If you want to use data driven styling to customize how the locations are rendered on the map, only load the properties needed into the data source. When you want to display the detailed content, use the ID of the feature to retrieve the additional content separately. If the content is stored on the server-side, a service can be used to retrieve it asynchronously which would drastically reduce the amount of data that needs to be downloaded when the map is initially loaded.
+When features have a lot of properties or content, it is much more performant to limit what gets added to the data source to just those needed for rendering and to have a separate method or service for retrieving the additional property or content when needed. For example, if you have a simple map displaying locations on a map when clicked a bunch of detailed content is displayed. If you want to use data driven styling to customize how the locations are rendered on the map, only load the properties needed into the data source. When you want to display the detailed content, use the ID of the feature to retrieve the additional content separately. If the content is stored on the server-side, a service can be used to retrieve it asynchronously, which would drastically reduce the amount of data that needs to be downloaded when the map is initially loaded.
 
-Additionally, reducing the number of significant digits in the coordinates of features can also significantly reduce the data size. It is not uncommon for coordinates to contain 12 or more decimal places; however, six decimal places have an accuracy of about 0.1 meters which is often more precise than the location the coordinate represents (six decimal places is recommended when working with very small location data such as indoor building layouts). Having any more than six decimal places will likely make no difference in how the data is rendered and will only require the user to download more data for no added benefit.
+Additionally, reducing the number of significant digits in the coordinates of features can also significantly reduce the data size. It is not uncommon for coordinates to contain 12 or more decimal places; however, six decimal places have an accuracy of about 0.1 meter, which is often more precise than the location the coordinate represents (six decimal places is recommended when working with small location data such as indoor building layouts). Having any more than six decimal places will likely make no difference in how the data is rendered and will only require the user to download more data for no added benefit.
 
 Here is a list of [useful tools for working with GeoJSON data](https://github.com/tmcw/awesome-geojson).
 
 ### Use a separate data source for rapidly changing data
 
-Sometimes there is a need to rapidly update data on the map for things such as showing live updates of streaming data or animating features. When a data source is updated the rendering engine will loop through and render all features in the data source. Separating static data from rapidly changing data into different data sources can significantly reduce the number of features that are re-rendered on each update to the data source and improve overall performance.
+Sometimes there is a need to rapidly update data on the map for things such as showing live updates of streaming data or animating features. When a data source is updated, the rendering engine will loop through and render all features in the data source. Separating static data from rapidly changing data into different data sources can significantly reduce the number of features that are re-rendered on each update to the data source and improve overall performance.
 
 If using vector tiles with live data, an easy way to support updates is to use the `expires` response header. By default, any vector tile source or raster tile layer will automatically reload tiles when the `expires` date. The traffic flow and incident tiles in the map use this feature to ensure fresh real-time traffic data is displayed on the map. This feature can be disabled by setting the maps `refreshExpiredTiles` service option to `false`.
 
@@ -140,7 +145,7 @@ If using vector tiles with live data, an easy way to support updates is to use t
 
 The `DataSource` class converts raw location data into vector tiles local for on-the-fly rendering. These local vector tiles clip the raw data to the bounds of the tile area with a bit of buffer to ensure smooth rendering between tiles. The smaller the `buffer` option is, the fewer overlapping data is stored in the local vector tiles and the better performance, however, the greater the change of rendering artifacts occurring. Try tweaking this option to get the right mix of performance with minimal rendering artifacts.
 
-The `DataSource` class also has a `tolerance` option which is used with the Douglas-Peucker simplification algorithm when reducing the resolution of geometries for rendering purposes. Increasing this tolerance value will reduce the resolution of geometries and in turn improve performance. Tweak this option to get the right mix of geometry resolution and performance for your data set.
+The `DataSource` class also has a `tolerance` option that is used with the Douglas-Peucker simplification algorithm when reducing the resolution of geometries for rendering purposes. Increasing this tolerance value will reduce the resolution of geometries and in turn improve performance. Tweak this option to get the right mix of geometry resolution and performance for your data set.
 
 ### Set the max zoom option of GeoJSON data sources
 
@@ -152,7 +157,7 @@ When loading GeoJSON data from a server either through a service or by loading a
 
 ### Access raw GeoJSON using a URL
 
-It is possible to store GeoJSON objects inline inside of JavaScript, however this will use up a lot of memory as copies of it will be stored across the variable you created for this object and the data source instance which manages it within a separate web worker. Expose the GeoJSON to your app using a URL instead and the data source will load a single copy of data directly into the data sources web worker.  
+It is possible to store GeoJSON objects inline inside of JavaScript, however this will use a lot of memory as copies of it will be stored across the variable you created for this object and the data source instance, which manages it within a separate web worker. Expose the GeoJSON to your app using a URL instead and the data source will load a single copy of data directly into the data sources web worker.  
 
 ## Optimize rendering layers
 
@@ -164,15 +169,15 @@ The Azure Maps Web SDK is decided to be data driven. Data goes into data sources
 
 ### Consider bubble layer over symbol layer
 
-The bubble layer renders points as circles on the map and can easily have their radius and color styled using a data-driven expression. Since the circle is a simple shape for WebGL to draw, the rendering engine will be able to render these much faster than a symbol layer which has to load and render an image. The performance difference of these two rendering layers is noticeable when rendering tens of thousands of points.
+The bubble layer renders points as circles on the map and can easily have their radius and color styled using a data-driven expression. Since the circle is a simple shape for WebGL to draw, the rendering engine will be able to render these much faster than a symbol layer, which has to load and render an image. The performance difference of these two rendering layers is noticeable when rendering tens of thousands of points.
 
 ### Use HTML markers and Popups sparingly
 
-Unlike most layers in the Azure Maps Web control which use WebGL for rendering, HTML Markers and Popups use traditional DOM elements for rendering. As such, the more HTML markers and Popups added a page, the more DOM elements there are. Performance can degrade after adding a few hundred HTML markers or popups. For larger data sets consider either clustering your data or using a symbol or bubble layer. For popups, a common strategy is to create a single popup and reuse it by updating its content and position as shown in the below example:
+Unlike most layers in the Azure Maps Web control that use WebGL for rendering, HTML Markers and Popups use traditional DOM elements for rendering. As such, the more HTML markers and Popups added a page, the more DOM elements there are. Performance can degrade after adding a few hundred HTML markers or popups. For larger data sets, consider either clustering your data or using a symbol or bubble layer. For popups, a common strategy is to create a single popup and reuse it by updating its content and position as shown in the below example:
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Reusing Popup with Multiple Pins' src='//codepen.io/azuremaps/embed/rQbjvK/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/rQbjvK/'>Reusing Popup with Multiple Pins</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Reusing Popup with Multiple Pins' src='//codepen.io/azuremaps/embed/rQbjvK/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/rQbjvK/'>Reusing Popup with Multiple Pins</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 That said, if you only have a few points to render on the map, the simplicity of HTML markers may be preferred. Additionally, HTML markers can easily be made draggable if needed.
@@ -195,7 +200,7 @@ var layer = new atlas.layer.BubbleLayer(source, null, {
         //Get the 'isHealthy' property from the feature.
         ['get', 'isHealthy'],
 
-   //If true, make the color 'green'. 
+        //If true, make the color 'green'. 
         'green',
 
         //If false, make the color red.
@@ -211,13 +216,13 @@ Symbol layers have collision detection enabled by default. This collision detect
 * `allowOverlap` - specifies if the symbol will be visible if it collides with other symbols.
 * `ignorePlacement` - specifies if the other symbols are allowed to collide with the symbol.
 
-Both of these options are set to `false` by default. When animating a symbol, the collision detection calculations will run on each frame of the animation which can slow the animation down and make it look less fluid. To smooth the animation out, set these options to `true`.
+Both of these options are set to `false` by default. When animating a symbol, the collision detection calculations will run on each frame of the animation, which can slow down the animation and make it look less fluid. To smooth the animation out, set these options to `true`.
 
 The following code sample a simple way to animate a symbol layer.
 
 <br/>
 
-<iframe height="265" style="width: 100%;" scrolling="no" title="Symbol layer animation" src="https://codepen.io/azuremaps/embed/oNgGzRd?height=265&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Symbol layer animation" src="https://codepen.io/azuremaps/embed/oNgGzRd?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/oNgGzRd'>Symbol layer animation</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -227,7 +232,7 @@ The following code sample a simple way to animate a symbol layer.
 If your data meets one of the following criteria, be sure to specify the min and max zoom level of the layer so that the rendering engine can skip it when outside of the zoom level range.
 
 * If the data is coming from a vector tile source, often source layers for different data types are only available through a range of zoom levels.
-* If using a tile layer that doesn’t have tiles for all zoom levels 0 through 24 and you want it to only rendering at the levels it has tiles, and not try and fill in missing tiles with tiles from other zoom levels.
+* If using a tile layer that doesn’t have tiles for all zoom levels 0 through 24 and you want it to only rendering at the levels it has tiles, and not try to fill in missing tiles with tiles from other zoom levels.
 * If you only want to render a layer at certain zoom levels.
 All layers have a `minZoom` and `maxZoom` option where the layer will be rendered when between these zoom levels based on this logic ` maxZoom > zoom >= minZoom`.
 
@@ -243,7 +248,7 @@ var layer = new atlas.layer.BubbleLayer(dataSource, null, {
 
 ### Specify tile layer bounds and source zoom range
 
-By default, tile layers will load tiles try and load tiles across the whole globe. However, if the tile service only has tiles for a certain area the map will try and load tiles when outside of this area. When this happens a request for each tile will be made and wait for a response which can block other requests being made by the map and thus slow down the rendering of other layers. Specifying the bounds of a tile layer will result in the map only requesting tiles that are within that bounding box. Also, if the tile layer is only available between certain zoom levels, specify the min and max source zoom for the same reason.
+By default, tile layers will load tiles across the whole globe. However, if the tile service only has tiles for a certain area the map will try to load tiles when outside of this area. When this happens, a request for each tile will be made and wait for a response that can block other requests being made by the map and thus slow down the rendering of other layers. Specifying the bounds of a tile layer will result in the map only requesting tiles that are within that bounding box. Also, if the tile layer is only available between certain zoom levels, specify the min and max source zoom for the same reason.
 
 **Example**
 
@@ -262,7 +267,7 @@ If a layer is being overlaid on the map that will completely cover the base map,
 
 ### Smoothly animate image or tile layers
 
-If you want to animate through a series of image or tile layers on the map. It is often faster to create a layer for each image or tile layer and to change the opacity than to update the source of a single layer on each animation frame. Hiding a layer by setting the opacity to zero and showing a new layer by setting its opacity to a value greater than zero is much faster than updating the source in the layer. Alternatively, the visibility of the layers can be toggled, but be sure to set the fade duration of the layer to zero, otherwise it will animate the layer when displaying it which will cause a flicker effect since the previous layer would have been hidden before the new layer is visible.
+If you want to animate through a series of image or tile layers on the map. It is often faster to create a layer for each image or tile layer and to change the opacity than to update the source of a single layer on each animation frame. Hiding a layer by setting the opacity to zero and showing a new layer by setting its opacity to a value greater than zero is much faster than updating the source in the layer. Alternatively, the visibility of the layers can be toggled, but be sure to set the fade duration of the layer to zero, otherwise it will animate the layer when displaying it, which will cause a flicker effect since the previous layer would have been hidden before the new layer is visible.
 
 ### Tweak Symbol layer collision detection logic
 
@@ -270,7 +275,7 @@ The symbol layer has two options that exist for both icon and text called `allow
 
 ### Cluster large point data sets
 
-When working with large sets of data points you may find that when rendered at certain zoom levels, many of the points overlap and are only partial visible, if at all. Clustering is process of grouping points that are close together and representing them as a single clustered point. As the user zooms the map in clusters will break apart into their individual points. This can significantly reduce the amount of data that needs to be rendered, make the map feel less cluttered, and improve performance. The `DataSource` class has options for clustering data locally. Additionally, many tools that generate vector tiles also have clustering options.
+When working with large sets of data points you may find that when rendered at certain zoom levels, many of the points overlap and are only partial visible, if at all. Clustering is process of grouping points that are close together and representing them as a single clustered point. As the user zooms the map in, clusters will break apart into their individual points. This can significantly reduce the amount of data that needs to be rendered, make the map feel less cluttered, and improve performance. The `DataSource` class has options for clustering data locally. Additionally, many tools that generate vector tiles also have clustering options.
 
 Additionally, increase the size of the cluster radius to improve performance. The larger the cluster radius, the less clustered points there is to keep track of and render.
 Learn more in the [Clustering point data document](clustering-point-data-web-sdk.md)
@@ -299,13 +304,13 @@ Images can be added to the maps image sprite for rendering icons in a symbol lay
 
 Filters loop over all data in a data source and check to see if each filter matches the logic in the filter. If filters become complex, this can cause performance issues. Some possible strategies to address this include the following.
 
-* If using vector tiles, break the data up into different source layers.
-* If using the `DataSource` class, break that data up into separate data sources. Try and balance the number of data sources with the complexity of the filter. Too many data sources can cause performance issues too, so you might need to do some testing to find out what works best for your scenario.
+* If using vector tiles, break up the data into different source layers.
+* If using the `DataSource` class, break that data up into separate data sources. Try to balance the number of data sources with the complexity of the filter. Too many data sources can cause performance issues too, so you might need to do some testing to find out what works best for your scenario.
 * When using a complex filter on a layer, consider using multiple layers with style expressions to reduce the complexity of the filter. Avoid creating a bunch of layers with hardcoded styles when style expressions can be used as a large number of layers can also cause performance issues.
 
 ### Make sure expressions don’t produce errors
 
-Expressions are often used to generate code to perform calculations or logical operations at render time. Just like the code in the rest of your application, be sure the calculations and logical make sense and are not error prone. Errors in expressions will cause issues in evaluating the expression which can result in reduced performance and rendering issues.
+Expressions are often used to generate code to perform calculations or logical operations at render time. Just like the code in the rest of your application, be sure the calculations and logical make sense and are not error prone. Errors in expressions will cause issues in evaluating the expression, which can result in reduced performance and rendering issues.
 
 One common error to be mindful of is having an expression that relies on a feature property that might not exist on all features. For example, the following code uses an expression to set the color property of a bubble layer to the `myColor` property of a feature.
 
@@ -315,7 +320,7 @@ var layer = new atlas.layer.BubbleLayer(source, null, {
 });
 ```
 
-The above code will function fine if all features in the data source have a `myColor` property, and the value of that property is a color. This may not be an issue if you have complete control of the data in the data source and know for certain all features will have a valid color in a `myColor` property. That said, to make this code safe from errors, a `case` expression can be used with the `has` expression to check that the feature has the `myColor` property. If it does, the `to-color` type expression can then be used to try and convert the value of that property to a color. If the color is invalid, a fallback color can be used. The following code demonstrates how to do this and sets the fallback color to green.
+The above code will function fine if all features in the data source have a `myColor` property, and the value of that property is a color. This may not be an issue if you have complete control of the data in the data source and know for certain all features will have a valid color in a `myColor` property. That said, to make this code safe from errors, a `case` expression can be used with the `has` expression to check that the feature has the `myColor` property. If it does, the `to-color` type expression can then be used to try to convert the value of that property to a color. If the color is invalid, a fallback color can be used. The following code demonstrates how to do this and sets the fallback color to green.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(source, null, {
@@ -325,7 +330,7 @@ var layer = new atlas.layer.BubbleLayer(source, null, {
         //Check to see if the feature has a 'myColor' property.
         ['has', 'myColor'],
 
-   //If true, try validating that 'myColor' value is a color, or fallback to 'green'. 
+        //If true, try validating that 'myColor' value is a color, or fallback to 'green'. 
         ['to-color', ['get', 'myColor'], 'green'],
 
         //If false, return a fallback value.
@@ -340,7 +345,7 @@ When using boolean expressions that contain multiple conditional tests, order th
 
 ### Simplify expressions
 
-Expressions can be very powerful and sometimes complex. The simpler an expression is, the faster it will be evaluated. For example, if a simple comparison is needed, an expression like `['==', ['get', 'category'], 'restaurant']` would be better than using a match expression like `['match', ['get', 'category'], 'restaurant', true, false]`. In this case, if the property being checked is a boolean value, a `get` expression would be even simpler `['get','isRestaurant']`.
+Expressions can be powerful and sometimes complex. The simpler an expression is, the faster it will be evaluated. For example, if a simple comparison is needed, an expression like `['==', ['get', 'category'], 'restaurant']` would be better than using a match expression like `['match', ['get', 'category'], 'restaurant', true, false]`. In this case, if the property being checked is a boolean value, a `get` expression would be even simpler `['get','isRestaurant']`.
 
 ## Web SDK troubleshooting
 
@@ -376,13 +381,13 @@ If the symbol is only out of place when the map is pitched/tilted, check the `pi
 Things to check:
 
 * Check the console in the browser’s developer tools for errors.
-* Ensure that a data source has been created and added to the map, and that the data source has been connected to a rendering layer which has also been added to the map.
+* Ensure that a data source has been created and added to the map, and that the data source has been connected to a rendering layer that has also been added to the map.
 * Add break points in your code and step through it to ensure data is being added to the data source and the data source and layers are being added to the map without any errors occurring.
-* Try removing data-driven expressions from your rendering layer. It's possible that one of them may have an error in it which is causing the issue.
+* Try removing data-driven expressions from your rendering layer. It's possible that one of them may have an error in it that is causing the issue.
 
 **Can I use the Azure Maps Web SDK in a sandboxed iframe?**
 
-Yes, however, note that [Safari has a bug](https://bugs.webkit.org/show_bug.cgi?id=170075) which prevents sandboxed iframes from running web workers which is requirement of the Azure Maps Web SDK. The solution is to add the `"allow-same-origin"` tag to the sandbox property of the iframe.
+Yes. Note that [Safari has a bug](https://bugs.webkit.org/show_bug.cgi?id=170075) that prevents sandboxed iframes from running web workers, which is requirement of the Azure Maps Web SDK. The solution is to add the `"allow-same-origin"` tag to the sandbox property of the iframe.
 
 ## Get support
 
