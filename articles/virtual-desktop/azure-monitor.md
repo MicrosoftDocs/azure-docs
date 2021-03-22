@@ -80,7 +80,7 @@ You'll need to enable diagnostic settings on all objects within the Windows Virt
 
 1. Select the **Resource diagnostic settings** tab. 
 
-2. Select a **Log Analytics workspace** to send Windows Virtual Desktop diagnostics. 
+2. Select **Log Analytics workspace** to send Windows Virtual Desktop diagnostics. 
 
 ### Host pool diagnostic settings
 
