@@ -116,7 +116,7 @@ You'll need to enable diagnostic settings on all objects within the Windows Virt
     - Feed
 
     >[!NOTE]
-    > If you don't see the error message, you don't need to do step 2-4.
+    > If you don't see the error message, you don't need to do steps 2-4.
 
 2. Select **Configure workspace**.
 
