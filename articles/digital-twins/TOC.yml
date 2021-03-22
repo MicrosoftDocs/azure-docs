@@ -177,6 +177,8 @@
     href: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md
   - name: Query language reference
     items:
+      - name: Core syntax
+        href: reference-query-syntax.md
       - name: Functions
         href: reference-query-functions.md
       - name: Operators
