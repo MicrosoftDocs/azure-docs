@@ -459,28 +459,26 @@
           href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Authorize with Azure AD
           href: ../common/storage-use-azcopy-authorize-azure-active-directory.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Configure AzCopy settings
+        - name: Configure settings
           href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Optimize performance
           href: ../common/storage-use-azcopy-optimize.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Find and fix issues using logs
+        - name: Use logs to find and fix issues
           href: ../common/storage-use-azcopy-logs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: FAQ
+        - name: Frequently asked questions (FAQ)
           href: ../common/storage-use-azcopy-faq.yml?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: AzCopy scenarios and examples
-          items:
-          - name: 'Upload'
-            href: ../common/storage-use-azcopy-blobs-upload.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: 'Download'
-            href: ../common/storage-use-azcopy-blobs-download.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: 'Synchronize'
-            href: ../common/storage-use-azcopy-blobs-synchronize.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: 'Copy between accounts'
-            href: ../common/storage-use-azcopy-blobs-copy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: 'Amazon S3 buckets'
-            href: ../common/storage-use-azcopy-s3.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: 'Google Cloud Storage buckets'
-            href: ../common/storage-use-azcopy-google-cloud.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 'Examples: Upload'
+          href: ../common/storage-use-azcopy-blobs-upload.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 'Examples: Download'
+          href: ../common/storage-use-azcopy-blobs-download.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 'Examples: Synchronize'
+          href: ../common/storage-use-azcopy-blobs-synchronize.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 'Examples: Copy between accounts'
+          href: ../common/storage-use-azcopy-blobs-copy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 'Examples: Amazon S3 buckets'
+          href: ../common/storage-use-azcopy-s3.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 'Examples: Google Cloud Storage buckets'
+          href: ../common/storage-use-azcopy-google-cloud.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Azure Data Factory
         href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Mount storage by using NFS
