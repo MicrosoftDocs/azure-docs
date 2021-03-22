@@ -16,7 +16,7 @@ ms.author: inhenkel
 This article shows you how to scale Media Reserved Units (MRSs) for faster encoding.
 
 > [!WARNING]
-> This command will no longer work for Media Services accounts that are created with the 2020-05-01 version of the API or later. For these accounts media reserved units are no longer needed as the system will automatically scale up and down based on load. If you don’t see the option to manage MRUs in the Azure Portal, you’re using an account that was created with the 2020-05-01 API or later.
+> This command will no longer work for Media Services accounts that are created with the 2020-05-01 version of the API or later. For these accounts media reserved units are no longer needed as the system will automatically scale up and down based on load. If you don’t see the option to manage MRUs in the Azure portal, you’re using an account that was created with the 2020-05-01 API or later.
 
 ## Prerequisites
 
