@@ -8,7 +8,7 @@ ms.date: 03/15/2021
 
 # Action rules (preview)
 
-Action rules help you define or suppress actions at any Azure Resource Manager scope (Azure subscription, resource group, or target resource). They have various filters that help you narrow down the specific subset of alert instances that you want to act on.
+Action rules let you add or suppress the action groups on your fired alerts. A single rule can cover differernt scopes of target resources, for example - any alert on a specific resource (like a specific virtual machine) or any alert fired on any resource in a subscription. You can optionally add various filters to control which alerts are covered by a rule and define a schedule for it, for example for it to be in effect only outside business hours or during a planned maintanence window.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4rBZ2]
 
@@ -27,7 +27,7 @@ Although alert rules help you define the action group that triggers when the ale
 Action rules help you simplify this process. By defining actions at scale, an action group can be triggered for any alert that's generated on the configured scope. In the previous example, the team can define one action rule on **ContosoRG** that will trigger the same action group for all alerts generated within it.
 
 > [!NOTE]
-> Action rules currently don't apply to Azure Service Health alerts.
+> Action rules do not apply to Azure Service Health alerts.
 
 ## Configuring an action rule
 
