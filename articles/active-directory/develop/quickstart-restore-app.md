@@ -1,4 +1,22 @@
-# Restore or remove a recently deleted application using Azure Active Directory
+---
+title: "How to: Restore or remove a recently deleted application with the Microsoft identity platform | Azure"
+titleSuffix: Microsoft identity platform
+description: In this how-to, you learn how to restore or permanently delete a recently deleted application registered with the Microsoft identity platform.
+services: active-directory
+author: arcrowe
+manager: dastrock
+
+ms.service: active-directory
+ms.subservice: develop
+ms.topic: how-to
+ms.workload: identity
+ms.date: 3/22/2021
+ms.author: arcrowe
+ms.custom: aaddev
+#Customer intent: As an application developer, I want to know how to restore or permanently delete my recently deleted application from the Microsoft identity platform.
+---
+
+# Restore or remove a recently deleted application with the Microsoft identity platform
 After you delete an app registration, the app remains in a suspended state for 30 days. During that 30-day window, the app registration can be restored, along with all its properties. After that 30-day window passes, app registrations cannot be restored and the permanent deletion process may be automatically started.
 
 You can view your deleted applications, restore a deleted application, or permanently delete an application using the App Registrations experience under Azure Active Directory (Azure AD) in the Azure portal.
