@@ -250,7 +250,7 @@ Explore this reference architecture through the ARM, Terraform, and Azure CLI de
 [7]: ../web-application-firewall/index.yml
 [8]: ./spring-cloud-tutorial-config-server.md
 [9]: https://steeltoe.io/
-[10]: https://github.com/Azure/azure-spring-cloud-reference-architecture.md
+[10]: https://github.com/Azure/azure-spring-cloud-reference-architecture
 [11]: ./spring-cloud-tutorial-deploy-in-azure-virtual-network.md#virtual-network-requirements
 [12]: ./spring-cloud-vnet-customer-responsibilities.md
 [13]: ./vnet-customer-responsibilities.md#azure-spring-cloud-fqdn-requirements--application-rules
