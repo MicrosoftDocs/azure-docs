@@ -55,7 +55,7 @@ In this tutorial, you learn to:
   </html>
   ```
 
-1. Save your HTML code, then continue below to build and deploy your web app.
+1. Save the file, and continue to build and deploy your web app.
 
 ## Create a static web app
 
