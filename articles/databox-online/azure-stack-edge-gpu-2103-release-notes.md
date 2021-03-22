@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge Pro 2102 release notes
-description: Describes critical open issues and resolutions for the Azure Stack Edge Pro running 2102 release.
+title: Azure Stack Edge Pro 2103 release notes
+description: Describes critical open issues and resolutions for the Azure Stack Edge Pro running 2103 release.
 services: databox
 author: alkohli
  
@@ -11,19 +11,19 @@ ms.date: 03/22/2021
 ms.author: alkohli
 ---
 
-# Azure Stack Edge 2102 release notes
+# Azure Stack Edge 2103 release notes
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-The following release notes identify the critical open issues and the resolved issues for the 2102 release for your Azure Stack Edge devices. These release notes are applicable for Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices. Features and issues that correspond to a specific model are called out wherever applicable.
+The following release notes identify the critical open issues and the resolved issues for the 2103 release for your Azure Stack Edge devices. These release notes are applicable for Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices. Features and issues that correspond to a specific model are called out wherever applicable.
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your device, carefully review the information contained in the release notes.
 
-This article applies to the **Azure Stack Edge 2102** release, which maps to software version number **2.2.XXXX.XXXX**.
+This article applies to the **Azure Stack Edge 2103** release, which maps to software version number **2.2.XXXX.XXXX**.
 
 ## What's new
 
-The following new features are available in the Azure Stack Edge 2102 release. 
+The following new features are available in the Azure Stack Edge 2103 release. 
  
 - **New features for Virtual Machines** - Beginning this release, you can perform the following operations on the virtual machines that you [deployed on your device via the Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md):
     - Add or remove multiple network interfaces to an existing VM.
@@ -36,7 +36,7 @@ The following new features are available in the Azure Stack Edge 2102 release.
 
 - **Improvements for Compute** - Several enhancements and improvements were made including those for:
 
-    - **Overall compute platform quality**. Some bugs were fixed to improve the overall quality. See the [Issues fixed in 2102 release](#issues-fixed-in-2102-release). 
+    - **Overall compute platform quality**. Some bugs were fixed to improve the overall quality. See the [Issues fixed in 2103 release](#issues-fixed-in-2103-release). 
 	- **Compute platform components**. Security updates were applied to Compute VM image. IoT Edge and Azure Arc for Kubernetes versions were also updated.
 	- **Diagnostics**. A new API is released to check resource and network conditions. You can connect to the PowerShell interface of the device and use the `Test-HcsKubernetesStatus` command to verify the network readiness of the device.
 	- **Log collection that would lead to improved debugging. 
@@ -45,7 +45,7 @@ The following new features are available in the Azure Stack Edge 2102 release.
 
 - **Proactive logging by default** - Starting this release, proactive log collection is enabled by default on your device. This feature allows Microsoft to collect logs proactively based on the system health indicators to help efficiently troubleshoot any device issues. For more information, see [Proactive log collection on your device](azure-stack-edge-gpu-proactive-log-collection.md).
 
-## Issues fixed in 2102 release
+## Issues fixed in 2103 release
 
 The following table lists the issues that were release noted in previous releases and fixed in the current release.
 
@@ -54,14 +54,14 @@ The following table lists the issues that were release noted in previous release
 |**1.**|Kubernetes |Edge container registry does not work when web proxy is enabled.|
 |**2.**|Kubernetes |Edge container registry does not work with IoT Edge modules.| 
 
-## Known issues in 2102 release
+## Known issues in 2103 release
 
-The following table provides a summary of known issues in the 2102 release.
+The following table provides a summary of known issues in the 2103 release.
 
 | No. | Feature | Issue | Workaround/comments |
 | --- | --- | --- | --- |
 |**1.**|Preview features |For this release, the following features: Local Azure Resource Manager, VMs, Cloud management of VMs, Kubernetes cloud management, Azure Arc enabled Kubernetes, VPN for Azure Stack Edge Pro R and Azure Stack Edge Mini R, Multi-process service (MPS) for Azure Stack Edge Pro GPU  - are all available in preview.  |These features will be generally available in later releases. |
-|**2.**|GPU VMs |Prior to this release, GPU VM lifecycle was not managed in the update flow. Hence, when updating to 2102 release, GPU VMs are not stopped automatically during the update. You will need to manually stop the GPU VMs using a `stop-stayProvisioned` flag before you update your device. For more information, see [Suspend or shut down the VM](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#suspend-or-shut-down-the-vm).<br> All the GPU VMs that are kept running before the update, are started after the update. In these instances, the workloads running on the VMs aren't terminated gracefully. And the VMs could potentially end up in an undesirable state after the update. <br>All the GPU VMs that are stopped via the `stop-stayProvisioned` before the update, are automatically started after the update. <br>If you stop the GPU VMs via the Azure portal, you'll need to manually start the VM after the device update.| If running GPU VMs with Kubernetes, stop the GPU VMs right before the update. <br>When the GPU VMs are stopped, Kubernetes will take over the GPUs that were used originally by VMs. <br>The longer the GPU VMs are in stopped state, higher the chances that Kubernetes will take over the GPUs. |
+|**2.**|GPU VMs |Prior to this release, GPU VM lifecycle was not managed in the update flow. Hence, when updating to 2103 release, GPU VMs are not stopped automatically during the update. You will need to manually stop the GPU VMs using a `stop-stayProvisioned` flag before you update your device. For more information, see [Suspend or shut down the VM](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#suspend-or-shut-down-the-vm).<br> All the GPU VMs that are kept running before the update, are started after the update. In these instances, the workloads running on the VMs aren't terminated gracefully. And the VMs could potentially end up in an undesirable state after the update. <br>All the GPU VMs that are stopped via the `stop-stayProvisioned` before the update, are automatically started after the update. <br>If you stop the GPU VMs via the Azure portal, you'll need to manually start the VM after the device update.| If running GPU VMs with Kubernetes, stop the GPU VMs right before the update. <br>When the GPU VMs are stopped, Kubernetes will take over the GPUs that were used originally by VMs. <br>The longer the GPU VMs are in stopped state, higher the chances that Kubernetes will take over the GPUs. |
 
 
 ## Known issues from previous releases

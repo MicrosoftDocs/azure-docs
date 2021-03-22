@@ -319,7 +319,7 @@
   - name: Shared release notes
     items:
     - name: 2103 - Current
-      href: azure-stack-edge-gpu-2102-release-notes.md
+      href: azure-stack-edge-gpu-2103-release-notes.md
     - name: 2101 
       href: azure-stack-edge-gpu-2101-release-notes.md
     - name: 2010 
