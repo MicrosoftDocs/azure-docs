@@ -55,6 +55,7 @@ To help configure your VPN device, refer to the links that correspond to the app
 | Juniper |SSG |ScreenOS 6.2 |Supported |[Configuration script](vpn-gateway-download-vpndevicescript.md) |
 | Juniper |MX |JunOS 12.x|Supported |[Configuration script](vpn-gateway-download-vpndevicescript.md) |
 | Microsoft |Routing and Remote Access Service |Windows Server 2012 |Not compatible |Supported |
+| Netgate | pfSense Plus | pfSense Plus 21.02 | [Configuration guide](https://docs.netgate.com/pfsense/en/latest/solutions/azure-appliance/index.html) | [Configuration guide](https://docs.netgate.com/pfsense/en/latest/solutions/azure-appliance/index.html) |
 | Open Systems AG |Mission Control Security Gateway |N/A |[Configuration guide](https://open-systems.com/wp-content/uploads/2019/12/OpenSystems-AzureVPNSetup-Installation-Guide.pdf) |Not compatible |
 | Palo Alto Networks |All devices running PAN-OS |PAN-OS<br>PolicyBased: 6.1.5 or later<br>RouteBased: 7.1.4 |Supported |[Configuration guide](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000Cm6WCAS) |
 | Sentrium (Developer) | VyOS | VyOS 1.2.2 | (not tested) | [Configuration guide ](https://docs.vyos.io/en/latest/configexamples/azure-vpn-bgp.html)|
