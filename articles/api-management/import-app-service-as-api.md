@@ -7,35 +7,35 @@ author: vladvino
 
 ms.service: api-management
 ms.topic: article
-ms.date: 03/18/2021
+ms.date: 03/22/2021
 ms.author: apimpm
 
 ---
-# Import an App Service as an API
+# Import an App Service API
 
 This article shows how to import an API hosted in Azure App Service to Azure API Management and test the imported API.
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
-> * Import an App Service app as an API
+> * Import an API hosted in App Service
 > * Test the API in the Azure portal
 
-## Integrate App Service and API Management
+## Expose App Service API with API Management
 
 [Azure App Service](../app-service/overview.md) is an HTTP-based service for hosting web applications, REST APIs, and mobile backends. API developers can use their preferred technology stacks and pipelines to develop APIs and host their API backends in App Service's isolated, secure environment. Then, use API Management to expose the backends, manage and protect the APIs throughout their lifecycle, and publish them to consumers.
 
 API Management supports import of APIs hosted in App Service that include an OpenAPI specification and those without an OpenAPI specification.
 
-* If the API includes an OpenAPI specification, API Management creates API operations that map exactly to the backend API.
-* If the app doesn't provide an OpenAPI specification, API Management generates wildcard operations for the common HTTP verbs (GET, PUT, and so on). Wildcard operations can be used to pass API requests through to the backend API. You can also edit the wildcard operations or [add API operations](add-api-manually.md) to map to the backend API.
+* If the API includes an OpenAPI specification, API Management creates API operations that map directly to the backend API.
+* If an OpenAPI specification isn't provided, API Management generates wildcard operations for the common HTTP verbs (GET, PUT, and so on). You can append a path or parameters to a wildcard operation to pass an API request through to the backend API. You can also edit the wildcard operations or [add API operations](add-api-manually.md) to the imported API.
 
 ## Prerequisites
 
-+ Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md)
++ Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 + Make sure there is an App Service in your subscription. For more information, see [App Service documentation](../app-service/index.yml).
 
-  For sample steps to create a web API app and publish to App Service, see:
+  For sample steps to create a web API and publish to App Service, see:
 
     * [Tutorial: Create a web API with ASP.NET Core](/aspnet/core/tutorials/first-web-api)
     * [Publish an ASP.NET Core app to Azure with Visual Studio Code](/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode)
@@ -83,11 +83,11 @@ Operations can be called directly from the Azure portal, which provides a conven
 
 ### Test wildcard operation in the portal
 
-When wildcard operations are imported, the operations might not map directly to the backend API. For example, the wildcard GET operation imported in API Management uses the path `/` by default. However, your backend API might support a GET operation at the following path:
+When wildcard operations are generated, the operations might not map directly to the backend API. For example, the wildcard GET operation imported in API Management uses the path `/` by default. However, your backend API might support a GET operation at the following path:
 
 `/api/TodoItems`
 
-If you want to test the operation in API Management, you can edit the operation to match the backend path `/api/TodoItems`.
+If you want to test the operation in API Management, you can edit the operation to match the backend path `/api/TodoItems`. 
 
 1. Select the API you created, and select the operation.
 1. Select the **Design** tab.
@@ -100,12 +100,7 @@ If you want to test the operation in API Management, you can edit the operation 
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 
-## Test a wildcard operation
-
-
-
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Transform and protect a published API](transform-api.md)
-https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-3.1&tabs=visual-studio
