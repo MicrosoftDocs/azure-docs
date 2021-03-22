@@ -247,6 +247,9 @@ This section provides example SCIM requests emitted by the AAD SCIM client and e
   - [Update Group [Remove Members]](#update-group-remove-members) ([Request](#request-12) / [Response](#response-12))
   - [Delete Group](#delete-group) ([Request](#request-13) / [Response](#response-13))
 
+[Schema discovery](#schema-discovery)
+  - [Discover schema](#discover-schema) ([Request](#request) / [Response](#response))
+
 ### User Operations
 
 * Users can be queried by `userName` or `email[type eq "work"]` attributes.  
@@ -743,6 +746,38 @@ This section provides example SCIM requests emitted by the AAD SCIM client and e
 ##### <a name="response-13"></a>Response
 
 *HTTP/1.1 204 No Content*
+
+### Schema discovery
+#### Discover schema
+
+##### Request
+*GET /Schemas* 
+##### Response
+*HTTP/1.1 200 OK*
+```json
+[
+  {
+    "id" : "urn:ietf:params:scim:schemas:core:2.0:User",
+    "name" : "User",
+    "description" : "User Account",
+    "attributes" : [
+      {
+        "name" : "userName",
+        "type" : "string",
+        "multiValued" : false,
+        "description" : "Unique identifier for the User, typically
+used by the user to directly authenticate to the service provider.
+Each User MUST include a non-empty userName value.  This identifier
+MUST be unique across the service provider's entire set of Users.
+REQUIRED.",
+        "required" : true,
+        "caseExact" : false,
+        "mutability" : "readWrite",
+        "returned" : "default",
+        "uniqueness" : "server"
+      },
+      ...
+```
 
 ### Security requirements
 **TLS Protocol Versions**
