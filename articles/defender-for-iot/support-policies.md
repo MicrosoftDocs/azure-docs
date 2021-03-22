@@ -1,13 +1,8 @@
 ---
 title: Support policies for Azure Defender for IoT
-titleSuffix: Azure Defender for IoT
 description: This article describes the support, breaking change policies for Defender for IoT, and the versions of Azure Defender for IoT that are currently available. 
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 2/8/2021
 ms.topic: article
-ms.service: azure
 ---
 
 # Versioning and support for Azure Defender for IoT 

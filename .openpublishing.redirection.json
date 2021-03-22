@@ -13286,7 +13286,12 @@
     },
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/baremetal-infrastructure-portal.md",
-      "redirect_url": "/azure/baremetal-infrastructure/workloads/sap/baremetal-infrastructure-portal",
+      "redirect_url": "/azure/baremetal-infrastructure/connect-baremetal-infrastructure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/baremetal-infrastructure/workloads/sap/baremetal-overview-architecture.md", 
+      "redirect_url": "/azure/baremetal-infrastructure/concepts-baremetal-infrastructure-overview",
       "redirect_document_id": false
     },
     {
@@ -53543,6 +53548,11 @@
     {
       "source_path_from_root": "/articles/active-directory/manage-apps/add-non-gallery-app.md",
       "redirect_url": "/azure/active-directory/manage-apps/add-application-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/non-gallery-apps.md",
+      "redirect_url": "/azure/active-directory/manage-apps/plan-an-application-integration",
       "redirect_document_id": false
     },
     {
