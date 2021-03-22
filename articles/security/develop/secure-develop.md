@@ -4,7 +4,7 @@ description: This article discusses best practices to consider during the implem
 author: TerryLanfear
 manager: barbkess
 ms.author: terrylan
-ms.date: 06/12/2019
+ms.date: 03/21/2021
 ms.topic: article
 ms.service: security
 ms.subservice: security-develop
@@ -129,10 +129,8 @@ implement a strong password policy to ensure that users create a complex
 password (for example, 12 characters minimum length and requiring
 alphanumeric and special characters).
 
-You can use an identity framework to create and enforce password
-policies. Azure AD B2C helps you with password management by providing
-[built-in policies](../../active-directory-b2c/tutorial-create-user-flows.md#create-a-password-reset-user-flow),
-[self-service password reset](../../active-directory-b2c/user-flow-self-service-password-reset.md), and more.
+Azure Active Directory B2C helps you with password management, by providing
+[self-service password reset](../../active-directory-b2c/add-password-reset-policy.md), [force password reset](../../active-directory-b2c/force-password-reset.md), and more.
 
 To defend against attacks on default accounts, verify that all keys and
 passwords are replaceable and that they're generated or replaced after

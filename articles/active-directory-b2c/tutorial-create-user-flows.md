@@ -95,7 +95,9 @@ To enable [self-service password reset](add-password-reset-policy.md) for the si
 
 1. Select the user flow you created to open its overview page, then select **Run user flow**.
 1. For **Application**, select the web application named *webapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
-1. Click **Run user flow**, verify the email address of the account that you previously created, and select **Continue**.
+1. Select **Run user flow**.
+1. From the sign-up or sign-in page, select **Forgot your password?**.
+1. Verify the email address of the account that you previously created, and then select **Continue**.
 1. You now have the opportunity to change the password for the user. Change the password and select **Continue**. The token is returned to `https://jwt.ms` and should be displayed to you.
 
 ## Create a profile editing user flow
