@@ -209,9 +209,9 @@ Viewing changes in the Azure portal can be helpful, but being able to be alerted
 
     :::image type="content" source="./media/automation-tutorial-troubleshoot-changes/add-action-group.png" alt-text="Usage and estimated costs." lightbox="./media/automation-tutorial-troubleshoot-changes/add-action-group.png":::
 
-17. In the Email/SMS message/Push/Voice pane, enter a name, select the **Email** checkbox, and then enter a valid email address. When finished, click **OK** on the pane, then click **OK** on the Add action group page.
+17. In the **Email/SMS message/Push/Voice** pane, enter a name, select the **Email** checkbox, and then enter a valid email address. When finished, click **OK** on the pane, then click **OK** on the **Add action group** page.
 
-18. To customize the subject of the alert email, select **Customize Actions**. 
+18. To customize the subject of the alert email, select **Customize Actions**.
 
 19. For **Create rule**, select **Email subject**, then choose **Create alert rule**. The alert tells you when an update deployment succeeds, and which machines were part of that update deployment run. The following image is an example email received when the W3SVC service stops.
 
