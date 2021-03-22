@@ -63,6 +63,8 @@
         href: solutions-benefits-azure-netapp-files-electronic-design-automation.md
       - name: Benefits of using Azure NetApp Files with Windows Virtual Desktop
         href: solutions-windows-virtual-desktop.md
+      - name: Benefits of using Azure NetApp Files for SQL Server deployment
+        href: solutions-benefits-azure-netapp-files-sql-server.md
   - name: FAQs about Azure NetApp Files
     href: azure-netapp-files-faqs.md
   - name: What is Azure Application Consistent Snapshot Tool
