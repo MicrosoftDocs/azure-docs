@@ -86,4 +86,4 @@ steps:​
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Review and Publish Pull Requests](articles\static-web-apps\review-publish-pull-requests.md)
+> [Configure Azure Static Web Apps](./configuration.md)
