@@ -47,7 +47,7 @@ Analyze anomalies detected on multi-dimensional metrics, and generate [smart dia
 
 The workflow is simple: after onboarding your data, you can fine-tune the anomaly detection, and create configurations to fit your scenario.
 
-1. [Create an Azure resource](../cognitive-services-apis-create-account.md) for Metrics Advisor. 
+1. [Create an Azure resource](https://go.microsoft.com/fwlink/?linkid=2142156) for Metrics Advisor. 
 2. Build your first monitor using the web portal.
     1. Onboard your data
     2. Fine-tune anomaly detection
