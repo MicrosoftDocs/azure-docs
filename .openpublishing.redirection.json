@@ -54046,23 +54046,28 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/manage-apps/troubleshoot-adding-apps.md",
+      "redirect_url": "/troubleshoot/azure/active-directory/troubleshoot-adding-apps",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/application-config-add-app-problem-problem-adding-gallery-app.md",
-      "redirect_url": "/azure/active-directory/manage-apps/troubleshoot-adding-apps",
+      "redirect_url": "/troubleshoot/azure/active-directory/troubleshoot-adding-apps",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-config-add-app-problem-problem-adding-non-gallery-app.md",
-      "redirect_url": "/azure/active-directory/manage-apps/troubleshoot-adding-apps",
+      "redirect_url": "/troubleshoot/azure/active-directory/troubleshoot-adding-apps",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/manage-apps/adding-gallery-app-common-problems.md",
-      "redirect_url": "/azure/active-directory/manage-apps/troubleshoot-adding-apps",
+      "redirect_url": "/troubleshoot/azure/active-directory/troubleshoot-adding-apps",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/manage-apps/adding-non-gallery-app-common-problems.md",
-      "redirect_url": "/azure/active-directory/manage-apps/troubleshoot-adding-apps",
+      "redirect_url": "/troubleshoot/azure/active-directory/troubleshoot-adding-apps",
       "redirect_document_id": false
     },
     {
