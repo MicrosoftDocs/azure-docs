@@ -64,12 +64,14 @@ In this tutorial, you learn to:
 1. Select **Static Web Apps (Preview)**.
 1. Select **Create**.
 1. Configure the resource with the required configuration details. Under _Deployment details_ ensure that you select **Other**. This enables you to use the code in your DevOps repo.
+  > [!NOTE]
+  > The functionality to select _other_ is currently rolling out.
 
   :::image type="content" source="media/publish-devops/create-resource.png" alt-text="Deployment details - other":::
 
-1. Once the deployment is successful, select **Manage deployment token**.
+2. Once the deployment is successful, select **Manage deployment token**.
 
-1. Copy the **deployment token** and paste it into a text editor for use in another screen
+3. Copy the **deployment token** and paste it into a text editor for use in another screen
 
 > [!NOTE]
 > This value is set aside for now because you'll copy and paste more values in coming steps.
