@@ -15,7 +15,7 @@
     href: quickstarts/label-tool.md
 - name: Samples
   items:
-  - name: "test: Form Recognizer client library SDK"
+  - name: "C#/.NET: Form Recognizer client library SDK"
     href: /samples/azure/azure-sdk-for-net/azure-form-recognizer-client-sdk-samples
   - name: "Java: Form Recognizer client library SDK" 
     href: /samples/azure/azure-sdk-for-java/formrecognizer-java-samples
