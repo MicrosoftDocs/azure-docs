@@ -32,7 +32,8 @@ In this tutorial, you learn to:
 
 1. Navigate to you Azure DevOps repository
 
-1. Create a new file for your front end web app. Copy and paste the following HTML code to get started:
+1. Create a new file for your front end web app.
+1. Copy and paste the following HTML markup into your new file:
 
   ```HTML
   <!DOCTYPE html>
