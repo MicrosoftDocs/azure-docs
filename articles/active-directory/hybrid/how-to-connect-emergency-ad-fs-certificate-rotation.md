@@ -106,13 +106,6 @@ To update the certificate information in Azure AD, run the following command: `U
 >[!Note]
 > If you see an error when running this command, run the following command: Update-MsolFederatedDomain –SupportMultipleDomain, and then enter the domain name when prompted.
 
-
-## Updating federation partners who can consume Federation Metadata
-If you have renewed and configure a new token signing or token decryption certificate, you must make sure that the all your federation partners (resource organization or account organization partners that are represented in your AD FS by relying party trusts and claims provider trusts) have picked up the new certificates.
-
-## Updating federation partners who can NOT consume Federation Metadata
-If your federation partners cannot consume your federation metadata, you must manually send them the public key of your new token-signing / token-decrypting certificate. Send your new certificate public key (.cer file or .p7b if you wish to include the entire chain) to all of your resource organization or account organization partners (represented in your AD FS by relying party trusts and claims provider trusts). Have the partners implement changes on their side to trust the new certificates.
-
 ## Replace SSL certificates
 For information on updating and replaceing the SSL certificates, see [Replacing the SSL certificate for AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap#replacing-the-ssl-certificate-for-ad-fs)
 
@@ -122,6 +115,14 @@ Once you use `Update-ADFSCertificate –CertificateType <type> -Urgent` the new 
 1. Ensure that you are logged on to the primary AD FS server.
 2. Open Windows PowerShell as an administrator. 
 4. To remove the old token signing certificate: `Remove-ADFSCertificate –CertificateType token-signing -thumbprint <thumbprint>`.
+
+## Updating federation partners who can consume Federation Metadata
+If you have renewed and configure a new token signing or token decryption certificate, you must make sure that the all your federation partners (resource organization or account organization partners that are represented in your AD FS by relying party trusts and claims provider trusts) have picked up the new certificates.
+
+## Updating federation partners who can NOT consume Federation Metadata
+If your federation partners cannot consume your federation metadata, you must manually send them the public key of your new token-signing / token-decrypting certificate. Send your new certificate public key (.cer file or .p7b if you wish to include the entire chain) to all of your resource organization or account organization partners (represented in your AD FS by relying party trusts and claims provider trusts). Have the partners implement changes on their side to trust the new certificates.
+
+
 
 ## Revoke refresh tokens via PowerShell
 Now we want to revoke refresh tokens for users who may have them and force them to re-logon and get new tokens.  This will log users out of their phone, current webmail sessions, along with other items that are using Tokens and Refresh Tokens.  Information can be found [here](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0&preserve-view=true) and you can also reference how to [Revoke user access in Azure Active Directory](../../active-directory/enterprise-users/users-revoke-access.md).
