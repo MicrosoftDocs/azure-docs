@@ -21,7 +21,7 @@ An [Azure Machine Learning Compute Instance](concept-compute-instance.md) is a f
 
 There are two ways you can connect to a compute instance from Visual Studio Code:
 
-* Remote compute instance. This option provides you with a full-featured development environment.
+* Remote compute instance. This option provides you with a full-featured development environment for building your machine learning projects.
 * Remote Jupyter Notebook server. This option allows you to set a compute instance as a remote Jupyter Notebook server.
 <!-- * [Visual Studio Code remote development](https://code.visualstudio.com/docs/remote/remote-overview). Visual Studio Code remote development allows you to use a container, remote machine, or the Windows Subsystem for Linux (WSL) as a full-featured development environment. -->
 
@@ -43,6 +43,8 @@ To connect to your remote compute instance:
 1. Expand the **Compute instances** node in your extension.
 1. Right-click the compute instance you want to connect to and select **Connect to Compute Instance**.
 
+:::image type="content" source="media/how-to-set-up-vs-code-remote/vs-code-compute-instance-launch.png" alt-text="Connect to compute instance Visual Studio Code Azure ML Extension" lightbox="media/how-to-set-up-vs-code-remote/vs-code-compute-instance-launch.png":::
+
 **Command Palette**
 
 1. In VS Code, open the command palette by selecting **View > Command Palette**.
@@ -57,7 +59,7 @@ To connect to your remote compute instance:
 1. Select the **Compute Tab**
 1. In the *Application URI* column, select **VS Code** for the compute instance you want to connect to.
 
-:::image type="content" source="media/how-to-set-up-vs-code-remote/studio-compute-instance-vs-code-launch.png" alt-text="Launch Compute Instance VS Code" lightbox="media/how-to-set-up-vs-code-remote/studio-compute-instance-vs-code-launch.png":::
+:::image type="content" source="media/how-to-set-up-vs-code-remote/studio-compute-instance-vs-code-launch.png" alt-text="Connect to Compute Instance VS Code Azure ML studio" lightbox="media/how-to-set-up-vs-code-remote/studio-compute-instance-vs-code-launch.png":::
 
 ---
 
