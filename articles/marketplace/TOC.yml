@@ -176,7 +176,7 @@
           href: azure-vm-create-faq.md
         - name: VM certification troubleshooting
           href: azure-vm-create-certification-faq.md
-  - name: Consulting services
+  - name: Consulting service offers
     items: 
     - name: Plan a consulting service offer
       href: plan-consulting-service-offer.md
@@ -192,18 +192,28 @@
     items: 
     - name: Plan a Dynamics 365 offer
       href: appsource-offer-publishing-guide.md
-    - name: Create and publish a Dynamics 365 offer
-      items:
-      - name: Create a Dynamics 365 Customer Engagement & Power Apps offer
-        href: partner-center-portal/create-new-customer-engagement-offer.md
-      - name: Create a Dynamics 365 for Operations offer
-        items: 
-        - name: Create a Dynamics 365 for Operations offer
+      - name: Create an Operations offer
           href: partner-center-portal/create-new-operations-offer.md
-        - name: Functional validation
+      - name: Functional validation
           href: dynamics-365-finance-operations-functional-validation.md
-      - name: Create a Dynamics 365 Business Central offer
+    - name: Create and publish a Business Central offer
         href: partner-center-portal/create-new-business-central-offer.md
+    - name: Create and publish a Customer Engagement & PowerApps offer
+        items: 
+      - name: Create the offer
+          href: d365-customer-engage-offer-setup.md
+      - name: Properties
+          href: d365-customer-engage-properties.md
+      - name: Offer listing
+          href: d365-customer-engage-offer-listing.md
+      - name: Availability
+          href: d365-customer-engage-availability.md
+      - name: Technical configuration
+          href: d365-customer-engage-technical-configuration.md
+      - name: Supplemental content
+          href: d365-customer-engage-supplemental-content.md
+      - name: Functional validation
+          href: d365-customer-engage-validation.md
   - name: IoT Edge module offers
     items:
     - name: Plan an IoT Edge module offer
