@@ -23,7 +23,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is BareMetal Infrastructure in Azure?
-            url: baremetal-overview-architecture.md
+            url: concepts-baremetal-infrastructure-overview.md
           - text: Know the terms
             url: know-baremetal-terms.md
           - text: BareMetal workload types
