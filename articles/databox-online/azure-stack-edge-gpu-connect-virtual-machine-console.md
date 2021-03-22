@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/19/2021
+ms.date: 03/22/2021
 ms.author: alkohli
 ---
 # Connect to a virtual machine console on an Azure Stack Edge Pro GPU device
@@ -30,7 +30,7 @@ The high-level workflow has the following steps:
 
 ## Prerequisites
 
-Before you being, make sure that you have completed the following prerequisites:
+Before you begin, make sure that you have completed the following prerequisites:
 
 #### For your device
 
@@ -41,10 +41,8 @@ You should have access to an Azure Stack Edge Pro GPU device that is activated. 
 Make sure that you have access to a client system that:
 
 1. Can access the PowerShell interface of the device. The client is running a [Supported operating system](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device).
-1. The client is running PowerShell 7.0 or later. This version of PowerShell will work for Windows, Mac, and Linux clients. See instructions to [install PowerShell 7.0](/powershell/scripting/whats-new/what-s-new-in-powershell-70?view=powershell-7.1&preserve-view=true#where-can-i-install-powershell).
+1. The client is running PowerShell 7.0 or later. This version of PowerShell works for Windows, Mac, and Linux clients. See instructions to [install PowerShell 7.0](/powershell/scripting/whats-new/what-s-new-in-powershell-70?view=powershell-7.1&preserve-view=true#where-can-i-install-powershell).
 1. Has remote desktop capabilities. Depending on whether you are using Windows, MacOS, or Linux, you should install one of these [Remote desktop clients](/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients). This article provides instructions with [Windows Remote Desktop](/windows-server/remote/remote-desktop-services/clients/windowsdesktop#install-the-client) and [FreeRDP](https://www.freerdp.com/). <!--Which version of FreeRDP to use?-->
-
-
 
 
 ## Connect to a virtual machine console
@@ -93,8 +91,8 @@ You can now use a Remote Desktop client to connect to the virtual machine consol
 1. Save the file as **.rdp* on your client system. You'll use this profile to connect to the VM.
 1. Double-click the profile to connect to the VM. Provide the following credentials:
 
-    - **Username**: EdgeARMUser
-    - **Password**: ARM password for your device. If you have forgotten the password, [Reset Azure Resource Manager password via the Azure portal](azure-stack-edge-gpu-set-azure-resource-manager-password.md#reset-password-via-the-azure-portal). 
+    - **Username**: Sign in as EdgeARMUser.
+    - **Password**: Provide the local Azure Resource Manager password for your device. If you have forgotten the password, [Reset Azure Resource Manager password via the Azure portal](azure-stack-edge-gpu-set-azure-resource-manager-password.md#reset-password-via-the-azure-portal). 
 
 #### To use FreeRDP
 
