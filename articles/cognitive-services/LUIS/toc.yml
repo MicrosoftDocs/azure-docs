@@ -315,60 +315,63 @@
     href: luis-limits.md
   - name: App and version settings
     href: luis-reference-application-settings.md
-  - name: Prebuilt entity reference
+
+  - name: Entity reference
     items:
-    - name: Entities per culture
-      href: luis-reference-prebuilt-entities.md
-    - name: Age entity
-      href: luis-reference-prebuilt-age.md
-    - name: Currency entity
-      href: luis-reference-prebuilt-currency.md
-    - name: DatetimeV2 entity
-      href: luis-reference-prebuilt-datetimev2.md
-      displayName: timex
-    - name: Dimension entity
-      href: luis-reference-prebuilt-dimension.md
-    - name: Deprecated entities
-      href: luis-reference-prebuilt-deprecated.md
-    - name: Email entity
-      href: luis-reference-prebuilt-email.md
-    - name: GeographyV2 entity
-      href: luis-reference-prebuilt-geographyV2.md
-    - name: KeyPhrase entity
-      href: luis-reference-prebuilt-keyphrase.md
-    - name: Number entity
-      href: luis-reference-prebuilt-number.md
-    - name: Ordinal entity
-      href: luis-reference-prebuilt-ordinal.md
-    - name: Ordinal V2 entity
-      href: luis-reference-prebuilt-ordinal-v2.md
-    - name: Percentage entity
-      href: luis-reference-prebuilt-percentage.md
-    - name: PersonName entity
-      href: luis-reference-prebuilt-person.md
-    - name: Phonenumber entity
-      href: luis-reference-prebuilt-phonenumber.md
-    - name: Temperature entity
-      href: luis-reference-prebuilt-temperature.md
-    - name: URL entity
-      href: luis-reference-prebuilt-url.md
-  - name: Prebuilt domain reference
-    href: luis-reference-prebuilt-domains.md
-    displayName: Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web
-  - name: Custom entity reference
-    items:
-    - name: Machine-learning entity
-      href: reference-entity-machine-learned-entity.md
-    - name: Composite entity
-      href: reference-entity-composite.md
-    - name: List entity
-      href: reference-entity-list.md
-    - name: Pattern.any entity
-      href: reference-entity-pattern-any.md
-    - name: Regular expression entity
-      href: reference-entity-regular-expression.md
-    - name: Simple entity
-      href: reference-entity-simple.md
+    - name: Prebuilt
+      items:
+      - name: Prebuilt domain reference
+        href: luis-reference-prebuilt-domains.md
+      - name: Entities per culture
+        href: luis-reference-prebuilt-entities.md
+      - name: Age entity
+        href: luis-reference-prebuilt-age.md
+      - name: Currency entity
+        href: luis-reference-prebuilt-currency.md
+      - name: DatetimeV2 entity
+        href: luis-reference-prebuilt-datetimev2.md
+        displayName: timex
+      - name: Dimension entity
+        href: luis-reference-prebuilt-dimension.md
+      - name: Deprecated entities
+        href: luis-reference-prebuilt-deprecated.md
+      - name: Email entity
+        href: luis-reference-prebuilt-email.md
+      - name: GeographyV2 entity
+        href: luis-reference-prebuilt-geographyV2.md
+      - name: KeyPhrase entity
+        href: luis-reference-prebuilt-keyphrase.md
+      - name: Number entity
+        href: luis-reference-prebuilt-number.md
+      - name: Ordinal entity
+        href: luis-reference-prebuilt-ordinal.md
+      - name: Ordinal V2 entity
+        href: luis-reference-prebuilt-ordinal-v2.md
+      - name: Percentage entity
+        href: luis-reference-prebuilt-percentage.md
+      - name: PersonName entity
+        href: luis-reference-prebuilt-person.md
+      - name: Phonenumber entity
+        href: luis-reference-prebuilt-phonenumber.md
+      - name: Temperature entity
+        href: luis-reference-prebuilt-temperature.md
+      - name: URL entity
+        href: luis-reference-prebuilt-url.md
+      displayName: Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web
+    - name: Custom
+      items:
+      - name: Machine-learning entity
+        href: reference-entity-machine-learned-entity.md
+      - name: Composite entity
+        href: reference-entity-composite.md
+      - name: List entity
+        href: reference-entity-list.md
+      - name: Pattern.any entity
+        href: reference-entity-pattern-any.md
+      - name: Regular expression entity
+        href: reference-entity-regular-expression.md
+      - name: Simple entity
+        href: reference-entity-simple.md
   - name: Pattern syntax
     href: reference-pattern-syntax.md
   - name: Sentiment reference
