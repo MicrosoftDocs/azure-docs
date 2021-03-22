@@ -30,9 +30,9 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
 	```
 	root@sollabdsm35 ~]# cat /etc/hosts
 	27.0.0.1 localhost localhost.azlinux.com
-	0.60.0.35 sollabdsm35.azlinux.com sollabdsm35 node1
-	0.60.0.36 sollabdsm36.azlinux.com sollabdsm36 node2
-	0.20.251.150 sollabdsm36-st
+	10.60.0.35 sollabdsm35.azlinux.com sollabdsm35 node1
+	10.60.0.36 sollabdsm36.azlinux.com sollabdsm36 node2
+	10.20.251.150 sollabdsm36-st
 
 	10.20.251.151 sollabdsm35-st
 
@@ -245,8 +245,6 @@ In this section, you learn how to configure Watchdog. This section uses the same
 3. By default the required device is /dev/watchdog will not be created.
 
 	```
-	No watchdog device was created
-
 	sollabdsm35:~ # ls -l /dev/watchdog
 
 	ls: cannot access /dev/watchdog: No such file or directory
@@ -381,18 +379,15 @@ In this section, you learn how to configure SBD. This section uses the same two 
 7.  Add the SBD device in the SBD config file.
 
 	```
-	\# SBD_DEVICE specifies the devices to use for exchanging sbd messages
-
-	\# and to monitor. If specifying more than one path, use ";" as
-
-	\# separator.
-
-	\#
+	# SBD_DEVICE specifies the devices to use for exchanging sbd messages
+	# and to monitor. If specifying more than one path, use ";" as
+	# separator.
+	#
 
 	SBD_DEVICE="/dev/mapper/3600a098038304179392b4d6c6e2f4b62"
-	\## Type: yesno
+	## Type: yesno
 	 Default: yes
-	 \# Whether to enable the pacemaker integration.
+	 # Whether to enable the pacemaker integration.
 	SBD_PACEMAKER=yes
 	```
 
@@ -600,7 +595,7 @@ In this section, you initialize the cluster. This section uses the same two host
 
 	Present Countdown: 19 sec
 
-	[root@sollabdsm351 ~] lsof /dev/watchdog
+	[root@sollabdsm35 ~] lsof /dev/watchdog
 
 	COMMAND PID USER FD TYPE DEVICE SIZE/OFF NODE NAME
 
@@ -925,7 +920,7 @@ There are two options for integrating HANA. The first option is a cost optimized
 
 #### Log Replication Mode Description
 
-For more information about log replication mode, see the [official SAP documentation](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/c039a1a5b8824ecfa754b55e0caffc01.html).
+For more information about log replication mode, see the [official SAP documentation](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/627bd11e86c84ec2b9fcdf585d24011c.html).
   
 
 #### Network Setup for HANA System Replication
@@ -948,7 +943,7 @@ In the following example, the `[system_replication_communication]listeninterface
 
   
 
-### Source SAP AG SAP HANA HRS Networking
+Further documentation is available [here](https://www.sap.com/documents/2016/06/18079a1c-767c-0010-82c7-eda71af511fa.html)
 
   
 
@@ -990,9 +985,8 @@ Ensure you have met the following prerequisites:
 	[root@node1 ~]# pcs resource defaults migration-threshold=5000
 	```
 2.  Configure corosync.
+	[More info on configuring corosync](https://access.redhat.com/solutions/1293523)
 	```
-	https://access.redhat.com/solutions/1293523 --> quorum information RHEL7
-
 	cat /etc/corosync/corosync.conf
 
 	totem {
@@ -1056,59 +1050,56 @@ Ensure you have met the following prerequisites:
 	```
   
 
-1.  Create cloned SAPHanaTopology resource.
-	```
-	pcs resource create SAPHanaTopology_HR2_00 SAPHanaTopology SID=HR2 InstanceNumber=00 --clone clone-max=2 clone-node-max=1 interleave=true
+3.  Create cloned SAPHanaTopology resource.
 	SAPHanaTopology resource is gathering status and configuration of SAP
 	HANA System Replication on each node. SAPHanaTopology requires
 	following attributes to be configured.
+	   ```
+	   pcs resource create SAPHanaTopology_HR2_00 SAPHanaTopology SID=HR2 InstanceNumber=00 --clone clone-max=2 clone-node-max=1    interleave=true
+	   ```
 
+		| Attribute Name | Description                                                                       |
+		|----------------|-----------------------------------------------------------------------------------|
+		| SID            | SAP System Identifier (SID) of SAP HANA installation. Must be same for all nodes. |
+		| InstanceNumber | 2-digit SAP Instance identifier.                                                  |
 
+	* Resource status
+	   ```
+	   pcs resource show SAPHanaTopology_HR2_00
+   
+	   InstanceNumber 2-digit SAP Instance identifier.
+	   pcs resource show SAPHanaTopology_HR2_00-clone
+   
+	   Clone: SAPHanaTopology_HR2_00-clone
+   
+	   	Meta Attrs: clone-max=2 clone-node-max=1 interleave=true
+   
+	   	Resource: SAPHanaTopology_HR2_00 (class=ocf provider=heartbeat
+	   type=SAPHanaTopology)
+   
+	   	Attributes: InstanceNumber=00 SID=HR2
+   
+	   	Operations: monitor interval=60 timeout=60
+	   (SAPHanaTopology_HR2_00-monitor-interval-60)
+   
+	   	start interval=0s timeout=180
+	   (SAPHanaTopology_HR2_00-start-interval-0s)
+   
+	   	stop interval=0s timeout=60 (SAPHanaTopology_HR2_00-stop-interval-0s)
+   
+	   ```
 
-		Attribute Name Description
-
-		SID SAP System Identifier (SID) of SAP HANA installation. Must be
-	same for all nodes.
-
-	InstanceNumber 2-digit SAP Instance identifier.
-	pcs resource show SAPHanaTopology_HR2_00-clone
-
-	Clone: SAPHanaTopology_HR2_00-clone
-
-		Meta Attrs: clone-max=2 clone-node-max=1 interleave=true
-
-		Resource: SAPHanaTopology_HR2_00 (class=ocf provider=heartbeat
-	type=SAPHanaTopology)
-
-		Attributes: InstanceNumber=00 SID=HR2
-
-		Operations: monitor interval=60 timeout=60
-	(SAPHanaTopology_HR2_00-monitor-interval-60)
-
-		start interval=0s timeout=180
-	(SAPHanaTopology_HR2_00-start-interval-0s)
-
-		stop interval=0s timeout=60 (SAPHanaTopology_HR2_00-stop-interval-0s)
-
-	```
-
-3.  Create Primary/Secondary SAPHana resource.
-
-	
+4.  Create Primary/Secondary SAPHana resource.
 	* SAPHana resource is responsible for starting, stopping and relocating the SAP HANA database. This resource must be run as a Primary/	Secondary cluster resource. The resource has the following attributes.
-	* Attribute Name Required? Default value Description
 
-	* SID Yes None SAP System Identifier (SID) of SAP HANA installation. Must be same for all nodes.
-
-	* InstanceNumber :  2-digit SAP Instance identifier.
-
-	* PREFER_SITE_TAKEOVER : Should cluster prefer to switchover to secondary instance instead of restarting primary locally? ("no": Do prefer restart locally; 	"yes": Do prefer takeover to remote site)
-
-	* AUTOMATED_REGISTER : Should the former SAP HANA primary be registered as secondary after takeover and DUPLICATE_PRIMARY_TIMEOUT? 	("false": no, manual intervention will be needed; "true": yes, the former primary will be registered by resource agent as secondary)
-
-	* DUPLICATE_PRIMARY_TIMEOUT no 7200 Time difference (in seconds) needed between primary time stamps, if a dual-primary situation occurs. If 	the time difference is less than the time gap, then the cluster holds one or both instances in a "WAITING" status. This is to give an 	admin a chance to react on a failover. A failed former primary will be registered after the time difference is passed. After this 	registration to the new primary all data will be overwritten by the system replication.
-	
-  
+| Attribute Name            | Required? | Default value | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+|---------------------------|-----------|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SID                       | Yes       | None          | SAP System Identifier (SID) of SAP HANA installation. Must be same for all nodes.                                                                                                                                                                                                                                                                                                                                                                                       |
+| InstanceNumber            | Yes       | none          | 2-digit SAP Instance identifier.                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| PREFER_SITE_TAKEOVER      | no        | yes           | Should cluster prefer to switchover to secondary instance instead of restarting primary locally? ("no": Do prefer restart locally; "yes": Do prefer takeover to remote site)                                                                                                                                                                                                                                                                                            |
+|                           |           |               |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| AUTOMATED_REGISTER        | no        | FALSE         | Should the former SAP HANA primary be registered as secondary after takeover and DUPLICATE_PRIMARY_TIMEOUT? ("false": no, manual intervention will be needed; "true": yes, the former primary will be registered by resource agent as secondary)                                                                                                                                                                                                                        |
+| DUPLICATE_PRIMARY_TIMEOUT | no        | 7200          | Time difference (in seconds) needed between primary time stamps, if a dual-primary situation occurs. If the time difference is less than the time gap, then the cluster holds one or both instances in a "WAITING" status. This is to give an admin a chance to react on a failover. A failed former primary will be registered after the time difference is passed. After this registration to the new primary all data will be overwritten by the system replication. |
 
 5.  Create the HANA resource.
 	```
@@ -1212,10 +1203,8 @@ Ensure you have met the following prerequisites:
 	```
 
 6.  Create Virtual IP address resource.
-
+	Cluster will contain Virtual IP address in order to reach the Primary instance of SAP HANA. Below is example command to create IPaddr2 	resource with IP 10.7.0.84/24.
 	```
-	Cluster will contain Virtual IP address in order to reach the Primary instance of SAP HANA. Below is example command to create IPaddr2 	resource with IP 10.7.0.84/24
-
 	pcs resource create vip_HR2_00 IPaddr2 ip="10.7.0.84"
 	pcs resource show vip_HR2_00
 
