@@ -39,11 +39,11 @@ The following new features are available in the Azure Stack Edge 2102 release.
     - **Overall compute platform quality**. Some bugs were fixed to improve the overall quality. See the [Issues fixed in 2102 release](#issues-fixed-in-2102-release). 
 	- **Compute platform components**. Security updates were applied to Compute VM image. IoT Edge and Azure Arc for Kubernetes versions were also updated.
 	- **Diagnostics**. A new API is released to check resource and network conditions. You can connect to the PowerShell interface of the device and use the `Test-HcsKubernetesStatus` command to verify the network readiness of the device.
-	- **Log collection** which would lead to improved debugging. 
+	- **Log collection that would lead to improved debugging. 
 	- **Alerting infrastructure** that will allow you to detect IP address conflicts for compute IP addresses. 
 	- **Mix workload** of Kubernetes and local Azure Resource Manager. 
 
-- **Proactive logging by default** - Starting this release, proactive log collection is enabled by default on your device. This features allows Microsoft to collect logs proactively based on the system health indicators to help efficiently troubleshoot any device issues. For more information, see [Proactive log collection on your device](azure-stack-edge-gpu-proactive-log-collection.md).
+- **Proactive logging by default** - Starting this release, proactive log collection is enabled by default on your device. This feature allows Microsoft to collect logs proactively based on the system health indicators to help efficiently troubleshoot any device issues. For more information, see [Proactive log collection on your device](azure-stack-edge-gpu-proactive-log-collection.md).
 
 ## Issues fixed in 2102 release
 

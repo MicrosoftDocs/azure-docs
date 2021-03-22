@@ -34,7 +34,7 @@ Before you begin, make sure that you have completed the following prerequisites:
 
 #### For your device
 
-You should have access to an Azure Stack Edge Pro GPU device that is activated. The device must have one or more VM delpoyed on it. You can deploy VMs via Azure PowerShell, via the templates, or via the Azure portal.
+You should have access to an Azure Stack Edge Pro GPU device that is activated. The device must have one or more VMs deployed on it. You can deploy VMs via Azure PowerShell, via the templates, or via the Azure portal.
 
 #### For client accessing the device
 
