@@ -122,7 +122,7 @@ You'll need to enable diagnostic settings on all objects within the Windows Virt
 
 3. Select **Deploy**.
 
-4. Refresh the Configuration Workbook.
+4. Refresh the configuration workbook.
 
 You can learn more about how to enable diagnostics in the Windows Virtual Desktop environment or access the Log Analytics workspace at [Send Windows Virtual Desktop diagnostics to Log Analytics](diagnostics-log-analytics.md).
 
