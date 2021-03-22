@@ -80,7 +80,7 @@ If the cluster health policies are met, the upgrade is considered successful and
 
 ## Custom polices for manual upgrades
 
-You can specify custom polices for manual cluster upgrades. These policies get applied each time you select a new runtime version, which triggers the system to kick off the upgrade of your cluster. If you do not override the policies, the defaults are used. For more, see [Set custom polices for manual upgrades](service-fabric-cluster-upgrade-version-azure.md#custom-polices-for-manual-upgrades).
+You can specify custom polices for manual cluster upgrades. These policies get applied each time you select a new runtime version, which triggers the system to kick off the upgrade of your cluster. If you do not override the policies, the defaults are used. For more, see [Set custom polices for manual upgrades](service-fabric-cluster-upgrade-version-azure.md#custom-policies-for-manual-upgrades).
 
 ## Other cluster updates
 
