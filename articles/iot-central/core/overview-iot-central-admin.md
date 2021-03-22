@@ -3,7 +3,7 @@ title: Azure IoT Central administrator guide
 description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. This article provides an overview of the administrator role in IoT Central. 
 author: TheJasonAndrew
 ms.author: v-anjaso
-ms.date: 03/17/2021
+ms.date: 03/22/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -24,35 +24,35 @@ As an _administrator_, you are  responsible for administrative tasks such as:
 * Uploading image
 * Deleting an application in your Azure IoT Central application.
 
-## IoT Central homepage
+## Manage application settings
+You have the ability to [manage application settings](howto-administer.md).
 
-The [IoT Central homepage](https://aka.ms/iotcentral-get-started) page is the place where you can learn more about the latest news and features available on IoT Central, create new applications, and see and launch your existing application.
+## Manage billing
+You can [manage your Azure IoT Central billing](howto-view-bill.md). You can move your application from the free pricing plan to a standard pricing plan, and also upgrade or downgrade your pricing plan.
 
-:::image type="content" source="media/overview-iot-central-admin/iot-central-homepage.png" alt-text="Screenshot of IoT Central homepage":::
+## Export applications
+You can [export your Azure IoT application](howto-use-app-templates.md) so that you may reuse it.
 
-To access and use the **Administration** section, you must be in the **Administrator** role for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically assigned to the **Administrator** role for that application.
+## Manage migration between versions
+When you create a new IoT Central application, it's a V3 application. If you previously created an application, then depending on when you created it, it may be V2. You can [migrate a V2 to a V3 application](howto-migrate.md).
 
-## Change application name and URL
+## Monitor application health
+You can set of metrics provided by IoT Central to [assess the health of devices](howto-monitor-application-health.md) connected to your IoT Central application and the health of your running data exports.
 
-In the **Application Settings** page, you can change the name and URL of your application, then select **Save**.
+## Manage security (X.509, SAS keys, API tokens)
+As an _Administrator_ you can do the following:
+* Manage [X.509 certificates](how-to-roll-x509-certificates.md)
+* Curate [SaS keys](concepts-get-connected.md)
+* Review [API tokens](manage-iot-central-apps-with-rest-api.md)
 
-![Screenshot of Application settings page](media/overview-iot-central-admin/image-0-a.png)
+## Configure file uploads
 
-If your administrator creates a custom theme for your application, this page includes an option to hide the **Application Name** in the UI. This option is useful if the application logo in the custom theme includes the application name. For more information, see [Customize the Azure IoT Central UI](./howto-customize-ui.md).
+## Tools - Azure CLI, Azure PowerShell, Azure Portal
 
-> [!Note]
-> If you change your URL, your old URL can be taken by another Azure IoT Central customer. If that happens, it is no longer available for you to use. When you change your URL, the old URL no longer works, and you need to notify your users about the new URL to use.
-
-## Delete an application
-
-Use the **Delete** button to permanently delete your IoT Central application. This action permanently deletes all data that's associated with the application.
-
-> [!Note]
-> To delete an application, you must also have permissions to delete resources in the Azure subscription you chose when you created the application. To learn more, see [Assign Azure roles to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
-
-## Manage programmatically
-
-IoT Central Azure Resource Manager SDK packages are available for Node, Python, C#, Ruby, Java, and Go. You can use these packages to create, list, update, or delete IoT Central applications. The packages include helpers to manage authentication and error handling.
+Here are some tools you have access to as _administrator_.
+* (Azure CLI)[howto-manage-iot-central-from-cli.md]
+* (Azure PowerShell)[howto-manage-iot-central-from-powershell.md]
+* (Azure Portal)[howto-manage-iot-central-from-portal.md]
 
 ## Next steps
 
