@@ -171,13 +171,22 @@ Use the Azure Sentinel [User and Entity Behavior Analytics workbook](#hunting-qu
 
 Use the **User and Entity Behavior Analytics** workbook to capture non-routine actions and find anomalous activities and potentially non-compliance practices. For example, a user who connects to a VPN when they never have before would be an anomalous activity.
 
+In this case, search for the user 
+
 ### Use UEBA data to analyze false positives
 
 Sometimes, an incident captured in an investigation is a false positive.
 
 A common example of a false positive is when impossible travel activity is detected, such as a user who signed into an application or portal from both New York and London within the same hour. While Azure Sentinel notes the impossible travel as an anomaly, an investigation with the user might clarify that a VPN was used with an alternative location to where the user actually was.
 
-In such cases, use the *user* [entity page](#entity-pages) and [timeline](#the-timeline) to drill down to a specific user with anomalous activity, and determine whether the locations capture are included in their commonly known locations.
+For example, in an **Impossible travel** incident, the incident description includes details about the impossible activity detected. 
+
+1. Select **Investigate** to find out more.
+1. In the **Investigation** page:
+
+    - Use the [Timeline](#the-timeline) to view the chronological succession of events.
+    - Select the [user entity](#entity-pages) to view more details about the user
+    - Select **Insights** on the right to help you determine whether the locations captured are included in the user's commonly known locations.
 
 > [!TIP]
 > - When dealing with an impossible travel detection, you can also use the **Anomalous Geo Location** UEBA hunting query, which picks up any critical information such as user insights, device insights, and activity insights for defined users.
