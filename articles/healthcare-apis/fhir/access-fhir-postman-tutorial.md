@@ -19,7 +19,7 @@ A client application can access the Azure API for FHIR through a [REST API](http
 
 - A FHIR endpoint in Azure. 
 
-    There are two options to choose from when setting up a FHIR endpoint in Azure. You can use the managed Azure API for FHIR or the Open Source FHIR server for Azure. To deploy the managed Azure API for FHIR, you can use the [Azure portal](fhir-paas-portal-quickstart.md), [PowerShell](fhir-paas-powershell-quickstart.md), or [Azure CLI](fhir-paas-cli-quickstart.md).
+   To deploy the Azure API for FHIR (a managed service), you can use the [Azure portal](fhir-paas-portal-quickstart.md), [PowerShell](fhir-paas-powershell-quickstart.md), or [Azure CLI](fhir-paas-cli-quickstart.md).
 - A registered [confidential client application](register-confidential-azure-ad-client-app.md) to access the FHIR service.
 - You have granted permissions to the confidential client application, for example, "FHIR Data Contributor", to access the FHIR service. For more information, see [Configure Azure RBAC for FHIR](./configure-azure-rbac.md).
 - Postman installed. 
@@ -77,7 +77,7 @@ In the **Get New Access Token** dialog box, enter the following details:
 | Client ID             | `XXXXXXXX-XXX-XXXX-XXXX-XXXXXXXXXXXX`                                                                            | Application ID             |
 | Client Secret         | `XXXXXXXX`                                                                                                        | Secret client key          |
 | Scope | `<Leave Blank>` |
-|                 |                                                                                                             |                            |
+| State                |  `1234`                                                                                                           |                            |
 | Client Authentication | Send client credentials in body                                                                                 |                 
 
 Select **Request Token** to be guided through the Azure Active Directory Authentication flow, and a token will be returned to Postman. If an authentication failure occurs, refer to the Postman Console for more details. **Note**: On the ribbon, select **View**, and then select **Show Postman Console**. The keyboard shortcut to the Postman Console is **Alt-Ctrl+C**.
@@ -134,7 +134,7 @@ If you repeat the patient search, you should now see the patient record:
 
 ## Next steps
 
-In this tutorial, you've accessed the Azure API for FHIR using Postman. For more information about the FHIR API features, see:
+In this tutorial, you've accessed the Azure API for FHIR using Postman. For more information about the Azure API for FHIR features, see
  
 >[!div class="nextstepaction"]
 >[Supported features](fhir-features-supported.md)
