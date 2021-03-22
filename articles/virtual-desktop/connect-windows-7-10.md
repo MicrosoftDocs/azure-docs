@@ -14,11 +14,11 @@ ms.custom: template-how-to
 You can access Windows Virtual Desktop resources on devices with Windows 10, Windows 10 IoT Enterprise, and  Windows 7 using the Windows Desktop client. 
 
 > [!IMPORTANT]
-> The client does not support Window 8 or Windows 8.1.
+> This does not support Window 8 or Windows 8.1.
 > 
-> The client only supports Azure Resource Manager objects. To support objects without Azure Resource Manager, see [Connect with Windows Desktop (classic) client](./virtual-desktop-fall-2019/connect-windows-7-10-2019.md).
+> This only supports Azure Resource Manager objects, to support objects without Azure Resource Manager, see [Connect with Windows Desktop (classic) client](./virtual-desktop-fall-2019/connect-windows-7-10-2019.md).
 > 
-> The Windows Virtual Desktop does not support the RemoteApp and Desktop Connections (RADC) client or the Remote Desktop Connection (MSTSC) client.
+> This does not support the RemoteApp and Desktop Connections (RADC) client or the Remote Desktop Connection (MSTSC) client.
 
 ## Install the Windows Desktop client
 
@@ -28,7 +28,7 @@ Download the client based on your Windows version:
 - [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2098960)
 - [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2098961)
 
-For installation to determine access, select either:
+During installation to determine access, select either:
 
 - **Install just for you**
 - **Install for all users of this machine** (requires admin rights)
@@ -37,15 +37,15 @@ To launch the client after installation, use the **Start** menu and search for *
 
 ## Subscribe to a Workspace
 
-There are two ways you can subscribe to a Workspace:
+To subscribe to a Workspace, choose to either:
 
-- Use a work or school account, to have the client automatically discover the resources available to you
-- Use a specific URL of the resource
+- Use a work or school account and have the client discover the resources available for you
+- Use the specific URL of the resource
 
-To launch a resource once subscribed to a Workspace, go to the **Connection Center** and double-click the resource.
+To launch the resource once subscribed, go to the **Connection Center** and double-click the resource.
 
 > [!TIP]
-> To launch resources from the **Start** menu, either find the folder with the Workspace name, or enter the resource name in the search bar.
+> To launch a resource from the **Start** menu, you can find the folder with the Workspace name or enter the resource name in the search bar.
 
 ### Use a user account
 
@@ -55,24 +55,26 @@ To launch a resource once subscribed to a Workspace, go to the **Connection Cent
 The resources grouped by workspace will appear in the **Connection Center**.
 
    > [!NOTE]
-   > The Windows client automatically defaults to Windows Virtual Desktop (classic). However, if the client detects that the user also has Azure Resource Manager resources, it automatically adds the resources or notifies the user that they are available.
+   > The Windows client automatically defaults to Windows Virtual Desktop (classic). 
+   > 
+   > However, if the client detects additional Azure Resource Manager resources, it adds them automatically or notifies the user that they're available.
 
 ### Use a specific URL
 
 1. Select **Subscribe with URL** from the main page.
-1. Enter either the *Workspace URL* or your email address:
+1. Enter either the *Workspace URL* or an *email address*:
    - For **Workspace URL**, use the URL provided by your admin.
-   - For **Email**, use your email address. The client will find the URL associated with your email, provided your admin has enabled [email discovery](/windows-server/remote/remote-desktop-services/rds-email-discovery).
+      |Available Resources|URL|
+      |-|-|
+      |Windows Virtual Desktop (classic)|`https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`|
+      |Windows Virtual Desktop|`https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`|
+      |Windows Virtual Desktop (US Gov)|`https://rdweb.wvd.azure.us/api/arm/feeddiscovery`|
+   - For **Email**, use your email address. 
+      The client will find the URL associated with your email, provided your admin has enabled [email discovery](/windows-server/remote/remote-desktop-services/rds-email-discovery).
 1. Select **Next**.
 1. Sign in with your user account when prompted.
 
 The resources grouped by workspace will appear in the **Connection Center**.
-
-> [!NOTE]
-> To access resources from Windows Virtual Desktop, use the following URLs:
-> - Windows Virtual Desktop (classic), `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
-> - Windows Virtual Desktop, `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
-> - Windows Virtual Desktop (US Gov), `https://rdweb.wvd.azure.us/api/arm/feeddiscovery`
 
 ## Next steps
 
