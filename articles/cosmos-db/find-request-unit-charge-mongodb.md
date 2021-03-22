@@ -37,7 +37,9 @@ The RU charge is exposed by a custom [database command](https://docs.mongodb.com
 
    :::image type="content" source="./media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Screenshot of a MongoDB query request charge in the Azure portal":::
 
-1. To get request charges for data manipulation commands, use a shell based UI such as Mongo shell, [Robo 3T](mongodb-robomongo.md), [MongoDB Compass](mongodb-compass.md), or a VS Code extension with shell scripting.
+1. To get request charges for data manipulation commands, run the `getLastRequestStatistics` command from a shell based UI such as Mongo shell, [Robo 3T](mongodb-robomongo.md), [MongoDB Compass](mongodb-compass.md), or a VS Code extension with shell scripting.
+
+   `db.runCommand({getLastRequestStatistics: 1})`
 
 ## Use the MongoDB .NET driver
 
