@@ -29,7 +29,7 @@ Increasing the number of worker nodes in an HDInsight cluster allows the work to
 
 * When you create a cluster, you can specify the number of worker nodes using the Azure portal, Azure PowerShell, or command-line interface.  For more information, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). The following screenshot shows the worker node configuration on the Azure portal:
   
-    :::image type="content" source="./media/hdinsight-hadoop-optimize-hive-query/azure-portal-cluster-configuration.png "scaleout_1"" alt-text="Azure portal cluster size nodes":::
+    :::image type="content" source="./media/hdinsight-hadoop-optimize-hive-query/azure-portal-cluster-configuration.png" alt-text="Azure portal cluster size nodes":::
 
 * After creation, you can also edit the number of worker nodes to scale out a cluster further without recreating one:
 

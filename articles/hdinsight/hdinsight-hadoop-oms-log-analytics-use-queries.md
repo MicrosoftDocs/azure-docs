@@ -32,13 +32,13 @@ Learn how to look for specific metrics for your HDInsight cluster.
     search *
     ```
 
-    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics.png "Search all metrics"" alt-text="Apache Ambari analytics search all metrics":::
+    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics.png" alt-text="Apache Ambari analytics search all metrics":::
 
 1. From the left menu, select the **Filter** tab.
 
 1. Under **Type**, select **Heartbeat**. Then select **Apply & Run**.
 
-    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-metrics.png "Search for specific metrics"" alt-text="log analytics search specific metrics":::
+    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-metrics.png" alt-text="log analytics search specific metrics":::
 
 1. Notice that the query in the text box changes to:
 
@@ -49,13 +49,13 @@ Learn how to look for specific metrics for your HDInsight cluster.
 
 1. You can dig deeper by using the options available in the left menu. For example:
 
-    - To see logs from a specific node:
+   - To see logs from a specific node:
 
-        :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/log-analytics-specific-node.png "Search for specific errors output1"" alt-text="Search for specific errors output1":::
+     :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/log-analytics-specific-node.png" alt-text="Search for specific errors output1":::
 
-    - To see logs at certain times:
+   - To see logs at certain times:
 
-        :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/log-analytics-specific-time.png "Search for specific errors output2"" alt-text="Search for specific errors output2":::
+     :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/log-analytics-specific-time.png" alt-text="Search for specific errors output2":::
 
 1. Select **Apply & Run** and review the results. Also note that the query was updated to:
 
@@ -97,11 +97,11 @@ The first step to create an alert is to arrive at a query based on which the ale
 
 1. Select **New alert rule** on the top of the page.
 
-    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert-query.png "Enter query to create an alert1"" alt-text="Enter query to create an alert1":::
+    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert-query.png" alt-text="New alert rule":::
 
 1. In the **Create rule** window, enter the query and other details to create an alert, and then select **Create alert rule**.
 
-    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert.png "Enter query to create an alert2"" alt-text="Enter query to create an alert2":::
+    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert.png" alt-text="Define alert condition.":::
 
 ### Edit or delete an existing alert
 

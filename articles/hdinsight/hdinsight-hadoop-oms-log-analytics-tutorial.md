@@ -53,7 +53,7 @@ In this section, you configure an existing HDInsight Hadoop cluster to use an Az
 
 1. Select **Save**.  It takes a few moments to save the setting.
 
-    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/azure-portal-monitoring.png "Enable monitoring for HDInsight clusters"" alt-text="Enable monitoring for HDInsight clusters":::
+    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/azure-portal-monitoring.png" alt-text="Enable monitoring for HDInsight clusters":::
 
 ## Enable Azure Monitor using Azure PowerShell
 
