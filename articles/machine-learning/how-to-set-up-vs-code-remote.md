@@ -9,8 +9,8 @@ ms.topic: conceptual
 ms.custom: how-to
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 11/16/2020
-#Customer intent: As a data scientist, I want to connect to an Azure Machine Learning compute instance in Visual Studio Code to access my resources and run my code..
+ms.date: 03/22/2021
+# As a data scientist, I want to connect to an Azure Machine Learning compute instance in Visual Studio Code to access my resources and run my code.
 ---
 
 # Connect to an Azure Machine Learning compute instance in Visual Studio Code (preview)
@@ -21,8 +21,49 @@ An [Azure Machine Learning Compute Instance](concept-compute-instance.md) is a f
 
 There are two ways you can connect to a compute instance from Visual Studio Code:
 
+* Remote compute instance. This option provides you with a full-featured development environment.
 * Remote Jupyter Notebook server. This option allows you to set a compute instance as a remote Jupyter Notebook server.
-* [Visual Studio Code remote development](https://code.visualstudio.com/docs/remote/remote-overview). Visual Studio Code remote development allows you to use a container, remote machine, or the Windows Subsystem for Linux (WSL) as a full-featured development environment.
+<!-- * [Visual Studio Code remote development](https://code.visualstudio.com/docs/remote/remote-overview). Visual Studio Code remote development allows you to use a container, remote machine, or the Windows Subsystem for Linux (WSL) as a full-featured development environment. -->
+
+## Configure a remote compute instance
+
+To configure a remote compute instance for development, you'll need a few prerequisites.
+
+* Azure Machine Learning Visual Studio Code extension. For more information, see the [Azure Machine Learning Visual Studio Code Extension setup guide](tutorial-setup-vscode-extension.md).
+* Azure Machine Learning workspace. [Use the Azure Machine Learning Visual Studio Code extension to create a new workspace](how-to-manage-resources-vscode.md#create-a-workspace) if you don't already have one.
+* Azure Machine Learning compute instance. [Use the Azure Machine Learning Visual Studio Code extension to create a new compute instance](how-to-manage-resources-vscode.md#create-compute-instance) if you don't have one.
+
+To connect to your remote compute instance:
+
+# Extension (#tab/extension)
+
+1. In VS Code, launch the Azure Machine Learning extension.
+1. Expand the **Compute instances** node in your extension.
+1. Right-click the compute instance you want to connect to and select **Connect to Compute Instance**.
+
+# Command Palette (#tab/extension)
+
+1. Open the command pallette by selecting **View > Command Palette**.
+1. Enter into the text box **Azure ML: Connect to Compute Instance**.
+1. Select your subscription.
+1. Select your workspace.
+1. Select your compute instance.
+
+# Studio (#tab/studio)
+
+1. Navivate to [ml.azure.com](https://ml.azure.com)
+1. Select the **Compute Tab**
+1. In the *Application URI* column, select **VS Code** for the compute instance you want to connect to.
+
+---
+
+A new window launches to connect to When attempting to make a connection to a remote compute instance, the following taks are taking place:
+
+1. Authorization. Some checks are performed to make sure the user attempting to make a connection is authorized to use the compute instance.
+1. VS Code Remote Server is installed on the compute instance.
+1. A WebSocket connection is established for real-time interaction.
+
+Once the connection is established, it's persisted. A token is issued at the start of the session which gets refreshed automatically to maintain the connection with your compute instance. 
 
 ## Configure compute instance as remote notebook server
 
@@ -59,7 +100,7 @@ At this point, you can continue to run cells in your Jupyter Notebook.
 > [!TIP]
 > You can also work with Python script files (.py) containing Jupyter-like code cells. For more information, see the [Visual Studio Code Python interactive documentation](https://code.visualstudio.com/docs/python/jupyter-support-py).
 
-## Configure compute instance remote development
+<!-- ## Configure compute instance remote development
 
 For a full-featured remote development experience, you'll need a few prerequisites:
 
@@ -144,7 +185,7 @@ Now, you should be able to ssh to your compute instance using the shorthand you 
 
 1. Select **Connect to Host in Current Window**. 
 
-From here on, you are entirely working on the compute instance and you can now edit, debug, use git, use extensions, etc. -- just like you can with your local Visual Studio Code.
+From here on, you are entirely working on the compute instance and you can now edit, debug, use git, use extensions, etc. -- just like you can with your local Visual Studio Code. -->
 
 ## Next steps
 
