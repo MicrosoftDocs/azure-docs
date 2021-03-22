@@ -24,10 +24,37 @@ In this tutorial, you learn to:
 - **Active Azure account:** If you don't have one, you can [create an account for free](https://azure.microsoft.com/free/).
 - **Azure DevOps Project:** If you don't have one, you can [create an account for free](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/).
 - **Azure DevOps Pipeline:** If you need help getting started, see [Create your first pipeline](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops).
-- **Static web app:** If you don't have an existing app, generate one from this [starter template](https://github.com/login?return_to=/staticwebdev/vanilla-basic/generate).
 
- 
 
+## Create a new Web App in a DevOps repository
+> [!NOTE]
+> If you have an existing app in your repository, you may skip to the next section
+
+1. Navigate to you Azure DevOps repository
+
+1. Create a new file for your front end web app. Copy and paste the following HTML code to get started:
+
+  ```HTML
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Hello World!</title>
+  </head>
+
+  <body>
+    <main>
+      <h1>Hello World!</h1>
+    </main>
+  </body>
+
+  </html>
+  ```
+
+1. Save your HTML code, then continue below to build and deploy your web app.
 
 ## Create a static web app
 
