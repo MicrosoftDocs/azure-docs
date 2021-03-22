@@ -263,7 +263,12 @@ Leverage the frequency, `freq`, parameter to help avoid failures caused by irreg
 
 For highly irregular data or for varying business needs, users can optionally set their desired forecast frequency, `freq`, and specify the `target_aggregation_function` to aggregate the target column of the time series. Leverage these two settings in your `AutoMLConfig` object can help save some time on data preparation. 
 
-When the `target_aggregation_function` parameter is used, <li> The target column values are aggregated based on the specified operation. Typically, `sum` is appropriate for most scenarios<li> Numerical predictor columns in your data are aggregated by sum, mean, minimum value, and maximum value. As a result, automated ML generates new columns suffixed with the aggregation function name and applies the selected aggregate operation. <li> For categorical predictor columns, the data is aggregated by mode, the most prominent category in the window.
+When the `target_aggregation_function` parameter is used,
+* The target column values are aggregated based on the specified operation. Typically, `sum` is appropriate for most scenarios.
+
+* Numerical predictor columns in your data are aggregated by sum, mean, minimum value, and maximum value. As a result, automated ML generates new columns suffixed with the aggregation function name and applies the selected aggregate operation. 
+
+* For categorical predictor columns, the data is aggregated by mode, the most prominent category in the window.
 
 Supported aggregation operations for target column values include:
 
