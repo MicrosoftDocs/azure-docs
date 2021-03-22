@@ -181,5 +181,5 @@
     href: https://azure.microsoft.com/support/legal/sla/netapp/
   - name: Videos
     href: azure-netapp-files-videos.md
-  - name: Azure Files and Azure NetApp Files Comparison
+  - name: Azure Files and Azure NetApp Files comparison
     href: ../storage/files/storage-files-netapp-comparison.md
