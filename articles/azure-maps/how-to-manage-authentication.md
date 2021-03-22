@@ -96,7 +96,7 @@ To rotate your Azure Maps subscription keys in the Azure portal:
 5. Update your application code to reference the new primary key and deploy.
 6. Regenerate the secondary key in the same manner.
 
-> [!NOTE]
+> [!WARNING]
 > Microsoft recommends using only one of the keys in all of your applications at the same time. If you use Key 1 in some places and Key 2 in others, you will not be able to rotate your keys without some applications losing access.
 
 ## Next steps
