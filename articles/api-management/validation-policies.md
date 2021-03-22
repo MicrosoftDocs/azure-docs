@@ -141,6 +141,7 @@ In this example, all query and path parameters are validated in the prevention m
         <parameter name="User-Agent" action="ignore" />
         <parameter name="Host" action="ignore" />
         <parameter name="Referrer" action="ignore" />
+    </headers>   
 </validate-parameters>
 ```
 
