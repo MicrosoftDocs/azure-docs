@@ -78,9 +78,9 @@ steps:​
 
 :::image type="content" source="media/publish-devops/save-and-run.png" alt-text="Pipeline":::
    
-1. Once the build and deployment is complete, the Azure Static Web Apps will be up to date. Once the deployment is successful, navigate to the page with the Azure Static Web Apps configuration. The **Source** will now display the branch and location of the repository (Azure DevOps).
+Once the deployment is successful, navigate to the Azure Static Web Apps **Overview** which includes links to the deployment configuration. The _Source_ link now points to the branch and location of the Azure DevOps repository.
    
-   :::image type="content" source="media/publish-devops/deployment-location.png" alt-text="Deployment location":::
+:::image type="content" source="media/publish-devops/deployment-location.png" alt-text="Deployment location":::
 
 
 ## Next steps
