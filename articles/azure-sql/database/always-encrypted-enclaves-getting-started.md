@@ -171,9 +171,10 @@ In this step, You'll create and configure an attestation provider in Microsoft A
   ```powershell
   $attestationProviderName = "<your attestation provider name>" 
   New-AzAttestation -Name $attestationProviderName -ResourceGroupName $resourceGroupName -Location $location
-  ```
+ ```
+4. Grant the account you are using owner on the attestation provider you just created - in the portal go to the attestation provider you just created, select access control (IAM), add role assingments, select a role - owner, assign access to user, group or service principal, enter the name or email address you wish to grant access to, select the user from teh list and click save.
 
-4. Configure your attestation policy.
+5. Configure your attestation policy.
   
   ```powershell
   $policyFile = "<the pathname of the file from step 1 in this section>"
@@ -187,7 +188,7 @@ In this step, You'll create and configure an attestation provider in Microsoft A
     -PolicyFormat  $policyFormat
   ```
 
-5. Grant your Azure SQL logical server access to your attestation provider. In this step, you're using the object ID of the managed service identity that you assigned to your server earlier.
+6. Grant your Azure SQL logical server access to your attestation provider. In this step, you're using the object ID of the managed service identity that you assigned to your server earlier.
 
   ```powershell
   New-AzRoleAssignment -ObjectId $serverObjectId `
@@ -197,7 +198,7 @@ In this step, You'll create and configure an attestation provider in Microsoft A
     -ResourceGroupName $resourceGroupName  
   ```
 
-6. Retrieve the attestation URL that points to an attestation policy you configured for the SGX enclave. Save the URL, as you will need it later.
+7. Retrieve the attestation URL that points to an attestation policy you configured for the SGX enclave. Save the URL, as you will need it later.
 
   ```powershell
   $attestationProvider = Get-AzAttestation -Name $attestationProviderName -ResourceGroupName $resourceGroupName 
