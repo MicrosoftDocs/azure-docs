@@ -245,11 +245,11 @@
       - name: Create VM image
         href: azure-stack-edge-gpu-create-virtual-machine-image.md
       - name: Use Windows generalized image
-        href: azure-stack-edge-prepare-windows-vhd-generalized-image.md
+        href: azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md
       - name: Supported VM sizes, types
         href: azure-stack-edge-gpu-virtual-machine-sizes.md 
       - name: Connect to VM console
-        href: azure-stack-edge-connect-virtual-machine-console.md
+        href: azure-stack-edge-gpu-connect-virtual-machine-console.md
     - name: Manage certificates
       items:
       - name: Requirements
