@@ -38,7 +38,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Sign in to Azure portal
 
-[Sign in](https://preview.portal.azure.com) to the Azure preview portal.
+[Sign in](https://portal.azure.com) to the Azure portal.
 
 ## Create cross-region load balancer
 

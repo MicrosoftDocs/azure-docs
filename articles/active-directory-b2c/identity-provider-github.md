@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -57,6 +57,9 @@ To enable sign-in with a GitHub account in Azure Active Directory B2C (Azure AD 
 1. Select **Save**.
 
 ## Add GitHub identity provider to a user flow 
+
+At this point, the GitHub identity provider has been set up, but it's not yet available in any of the sign-in pages. To add the GitHub identity provider to a user flow:
+
 
 1. In your Azure AD B2C tenant, select **User flows**.
 1. Click the user flow that you want to add the GitHub identity provider.

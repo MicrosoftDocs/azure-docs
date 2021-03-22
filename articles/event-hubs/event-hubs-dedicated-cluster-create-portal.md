@@ -104,6 +104,6 @@ In this article, you created an Event Hubs cluster. For step-by-step instruction
     - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
     - [Java](event-hubs-java-get-started-send.md)
     - [Python](event-hubs-python-get-started-send.md)
-    - [JavaScript](event-hubs-java-get-started-send.md)
+    - [JavaScript](event-hubs-node-get-started-send.md)
 - [Use Azure portal to enable Event Hubs Capture](event-hubs-capture-enable-through-portal.md)
 - [Use Azure Event Hubs for Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)

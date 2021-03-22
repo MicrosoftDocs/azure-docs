@@ -2,7 +2,7 @@
 title: Manage Azure portal settings and preferences
 description: You can change Azure portal default settings to meet your own preferences. Settings include inactive session timeout, default view, menu mode, contrast, theme, notifications, and language and regional formats
 keywords: settings, timeout, language, regional
-ms.date: 08/05/2020
+ms.date: 03/15/2021
 ms.topic: how-to
 ---
 
