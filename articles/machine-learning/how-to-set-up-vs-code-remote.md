@@ -35,7 +35,7 @@ To configure a remote compute instance for development, you'll need a few prereq
 
 To connect to your remote compute instance:
 
-# VS Code (#tab/extension)
+# [VS Code](#tab/extension)
 
 ## Azure Machine Learning Extension
 
@@ -51,7 +51,7 @@ To connect to your remote compute instance:
 1. Select your workspace.
 1. Select your compute instance.
 
-# Studio (#tab/studio)
+# [Studio](#tab/studio)
 
 1. Navigate to [ml.azure.com](https://ml.azure.com)
 1. Select the **Compute Tab**
