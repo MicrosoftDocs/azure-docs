@@ -41,9 +41,9 @@ To connect to your remote compute instance:
 1. Expand the **Compute instances** node in your extension.
 1. Right-click the compute instance you want to connect to and select **Connect to Compute Instance**.
 
-# Command Palette (#tab/extension)
+# Command Palette (#tab/command-palette)
 
-1. Open the command pallette by selecting **View > Command Palette**.
+1. In VS Code, open the command pallette by selecting **View > Command Palette**.
 1. Enter into the text box **Azure ML: Connect to Compute Instance**.
 1. Select your subscription.
 1. Select your workspace.
