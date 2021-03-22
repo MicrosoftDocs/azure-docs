@@ -27,7 +27,20 @@ You may also find the VM sizes programmatically. To learn how to retrieve them p
 
 ## Prerequisites
 
-In order to be able to use encryption at host for your VMs or virtual machine scale sets, you must get the feature enabled on your subscription. Send an email to encryptionAtHost@microsoft.com with your subscription Ids to get the feature enabled for your subscriptions.
+You must enable the feature for your subscription before you use the EncryptionAtHost property for your VM/VMSS. Please follow the steps below to enable the feature for your subscription:
+
+1.	Execute the following command to register the feature for your subscription
+
+    ```powershell
+     Register-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute" 
+    ```
+
+2.	Please check that the registration state is Registered (takes a few minutes) using the command below before trying out the feature.
+
+    ```powershell
+     Get-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"  
+    ```
+
 
 ### Create an Azure Key Vault and DiskEncryptionSet
 
