@@ -1,13 +1,13 @@
 ---
-title: How to plan for an at-scale deployment of Azure Arc enabled servers
+title: How to plan and deploy Azure Arc enabled servers
 description: Learn how to enable a large number of machines to Azure Arc enabled servers to simplify configuration of essential security, management, and monitoring capabilities in Azure.
-ms.date: 03/12/2021
+ms.date: 03/18/2021
 ms.topic: conceptual
 ---
 
-# Plan and deploy Arc enabled servers at-scale
+# Plan and deploy Arc enabled servers
 
-Deployment of an IT infrastructure service or business application is a challenge for any company. In order to execute it well and avoid any unwelcome surprises and unplanned costs, you need to thoroughly plan for it to ensure that you're as ready as possible. To plan for deploying Azure Arc enabled servers at-scale, it should cover the design and deployment criteria that needs to be met in order to successfully complete the tasks to support an at-scale deployment.
+Deployment of an IT infrastructure service or business application is a challenge for any company. In order to execute it well and avoid any unwelcome surprises and unplanned costs, you need to thoroughly plan for it to ensure that you're as ready as possible. To plan for deploying Azure Arc enabled servers at any scale, it should cover the design and deployment criteria that needs to be met in order to successfully complete the tasks.
 
 For the deployment to proceed smoothly, your plan should establish a clear understanding of:
 
@@ -66,7 +66,7 @@ Next, we add to the foundation laid in phase 1 by preparing for and deploying th
 
 |Task |Detail |Duration |
 |-----|-------|---------|
-| Download the pre-defined installation script | Review and customize the pre-defined installation script for at-scale deployment of the Connected Machine agent to support your automated deployment requirements.<br><br> Sample at-scale onboarding resources:<br><br> <ul><li> [At-scale basic deployment script](onboard-service-principal.md)</ul></li> <ul><li>[At-scale onboarding VMware vSphere Windows Server VMs](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_win.md)</ul></li> <ul><li>[At-scale onboarding VMware vSphere Linux VMs](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_linux.md)</ul></li> <ul><li>[At-scale onboarding AWS EC2 instances using Ansible](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/aws_scale_ansible.md)</ul></li> <ul><li>[At-scale deployment using PowerShell remoting](https://docs.microsoft.com/azure/azure-arc/servers/onboard-powershell) (Windows only)</ul></li>| One or more days depending on requirements, organizational processes (for example, Change and Release Management), and automation method used. |
+| Download the pre-defined installation script | Review and customize the pre-defined installation script for at-scale deployment of the Connected Machine agent to support your automated deployment requirements.<br><br> Sample at scale onboarding resources:<br><br> <ul><li> [At scale basic deployment script](onboard-service-principal.md)</ul></li> <ul><li>[At scale onboarding VMware vSphere Windows Server VMs](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_win.md)</ul></li> <ul><li>[At scale onboarding VMware vSphere Linux VMs](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_linux.md)</ul></li> <ul><li>[At scale onboarding AWS EC2 instances using Ansible](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/aws_scale_ansible.md)</ul></li> <ul><li>[At scale deployment using PowerShell remoting](https://docs.microsoft.com/azure/azure-arc/servers/onboard-powershell) (Windows only)</ul></li>| One or more days depending on requirements, organizational processes (for example, Change and Release Management), and automation method used. |
 | [Create service principal](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) |Create a service principal to connect machines non-interactively using Azure PowerShell or from the portal.| One hour |
 | Deploy the Connected Machine agent to your target servers and machines |Use your automation tool to deploy the scripts to your servers and connect them to Azure.| One or more days depending on your release plan and if following a phased rollout. |
 
