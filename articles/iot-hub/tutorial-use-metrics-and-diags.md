@@ -211,7 +211,7 @@ To set up metric alerts:
 
 1. First configure the condition that the alert will trigger on.
 
-    1. Under **Condition**, select **Select condition**. On the **Configure signal logic** pane, type "telemetry" in the search box and select **Telemetry messages sent**.
+    1. Under **Condition**, select **Add condition**. On the **Configure signal logic** pane, type "telemetry" in the search box and select **Telemetry messages sent**.
 
        :::image type="content" source="media/tutorial-use-metrics-and-diags/configure-signal-logic-telemetry-messages-sent.png" alt-text="Screenshot showing selecting the metric.":::
 
