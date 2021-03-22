@@ -99,7 +99,7 @@ A 409 Conflict error message will occur if the task tries to remove or overwrite
 
 **Why am I getting the "_crypto.default.randomFillSync is not a function" error when running the task?**
 
- The error occurs when the Azure Pipeline agent does not have the minimum required version of Node installed. Update the agent to the [latest version](https://github.com/microsoft/azure-pipelines-agent/releases) or install Node version 6.13.0 or above in the step before running the task
+ The error occurs when the Azure Pipeline agent does not have the minimum required version of Node installed. Update the agent to the [latest version](https://github.com/microsoft/azure-pipelines-agent/releases) or install Node version 6.13.0 or above in the step before running the task.
  
 ## FAQ
 
