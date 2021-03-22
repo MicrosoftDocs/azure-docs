@@ -12,7 +12,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 03/22/2021
 ms.author: apimpm
 ---
 
@@ -43,13 +43,12 @@ This article shows you how to enable access to the developer portal for users fr
     Controls that enable you to enter other necessary information appear in the pane. The controls include **Client ID** and **Client secret**. (You get information about these controls later in the article.)
 9. Make a note of the content of **Redirect URL**.
     
-   ![Steps for adding an identity provider in the Azure portal]
-    <img width="928" alt="APIM_doc_how_to_add_aad" src="https://user-images.githubusercontent.com/58024193/110591054-9932ef00-819e-11eb-8634-70444ba4948e.png">
 
+    :::image type="content" source="media/api-management-howto-aad/api-management-with-aad001.png" alt-text="Add identity provider in Azure portal":::
     > [!NOTE]
-    > There are two redirect URLs.
-    > Redirect URL - points to the latest developer portal of the API Management.
-    > Redirect URL (deprecated portal) - points to the deprecated developer portal of API Management.
+    > There are two redirect URLs:<br/>
+    > **Redirect URL** - points to the latest developer portal of the API Management.<br/>
+    > **Redirect URL (deprecated portal)** - points to the deprecated developer portal of API Management.
     >
     > It is recommended to use the latest developer portal Redirect URL.
    
