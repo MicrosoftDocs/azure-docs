@@ -61,7 +61,7 @@
   - name: Save costs with a reserved instance
     href: reserved-instance.md
   - name: Migration assessment
-    href: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
+    href: /azure/migrate/how-to-create-azure-vmware-solution-assessment?context=/azure/azure-vmware/context/context
   - name: Manage DHCP
     href: manage-dhcp.md
   - name: Configure NSX network components
