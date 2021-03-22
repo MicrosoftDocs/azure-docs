@@ -10,7 +10,7 @@ ms.author: apedward
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
-# Publish Azure Static Web Apps with Azure DevOps
+# Tutorial: Publish Azure Static Web Apps with Azure DevOps
 
 This article demonstrates how to deploy an [Azure Static Web App](articles\static-web-apps\overview.md) using [Azure DevOps](https://dev.azure.com/). The aim to is to deploy a new Azure Static Web App from your Azure DevOps pipeline. 
 
@@ -87,5 +87,4 @@ steps:​
 
 > [!div class="nextstepaction"]
 > [Review and Publish Pull Requests](articles\static-web-apps\review-publish-pull-requests.md)
-
 
