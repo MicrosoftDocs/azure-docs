@@ -140,9 +140,6 @@ sections:
       - question: What versions of VMware software is used in private clouds?
         answer: |
           [!INCLUDE [vmware-software-versions](includes/vmware-software-versions.md)]
-
-      - question: Can we upgrade to VMware Horizon 8 2012?   
-        answer: Yes, this version is supported.
           
       - question: How often is the VMware software (ESXi, vCenter, PSC, and NXS) patched, updated, or upgraded in Azure VMware Solution?
         answer: |
@@ -157,7 +154,7 @@ sections:
       - question: Is NSX required in on-premises environments or networks that connect to a private cloud?
         answer: No, you aren't required to use NSX on-premises.
 
-      - question: Is VMware Horizon version 2012 compatible with Azure VMware Solution?
+      - question: Is VMware Horizon 8 2012 compatible with Azure VMware Solution?
         answer: Yes.
 
       - question: What is the upgrade and update schedule for VMware software in a private cloud?
