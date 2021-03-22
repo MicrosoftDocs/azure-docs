@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 03/22/2021
 ms.author: cynthn
 ms.collection: linux
 ms.custom: contperf-fy21q3
@@ -14,7 +14,7 @@ ms.custom: contperf-fy21q3
 
 This topic describes how to use the Azure CLI to find VM images in the Azure Marketplace. Use this information to specify a Marketplace image when you create a VM programmatically with the CLI, Resource Manager templates, or other tools.
 
-Also browse available images and offers using the [Azure Marketplace](https://azuremarketplace.microsoft.com/) or  [Azure PowerShell](ps-findimage.md). 
+You can also browse available images and offers using the [Azure Marketplace](https://azuremarketplace.microsoft.com/) or  [Azure PowerShell](ps-findimage.md). 
 
 ## Terminology
 
@@ -30,43 +30,6 @@ These values can be passed individually or as an image *URN*, combining the valu
 If the image publisher provides additional license and purchase terms, then you must accept those before you can use the image.  For more information, see [Deploy an image with Marketplace terms](#deploy-an-image-with-marketplace-terms).
 
 
-## Create a new VM from a VHD with plan information
-
-If you have an existing VHD that was created using a paid Azure Marketplace image, you might need to supply the purchase plan information when you create a new VM from that VHD. 
-
-If you still have the original VM, or another VM created using the same marketplace image, you can get the plan name, publisher, and product information from it using [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view). This example gets a VM named *myVM* in the *myResourceGroup* resource group and then displays the purchase plan information.
-
-```azurepowershell-interactive
-az vm get-instance-view -g myResourceGroup -n myVM --query plan
-```
-
-If you didn't get the plan information before the original VM was deleted, you can file a [support request](https://ms.portal.azure.com/#create/Microsoft.Support). They will need the VM name, subscription ID and the time stamp of the delete operation.
-
-Once you have the plan information, you can create the new VM using the `--attach-os-disk` parameter to specify the VHD.
-
-```azurecli-interactive
-az vm create \
-   --resource-group myResourceGroup \
-  --name myNewVM \
-  --nics myNic \
-  --size Standard_DS1_v2 --os-type Linux \
-  --attach-os-disk myVHD \
-  --plan-name planName \
-  --plan-publisher planPublisher \
-  --plan-product planProduct 
-```
-
-## Deploy a new VM using purchase plan parameters
-
-If you already have information about the image, you can deploy it using the `az vm create` command. In this example, we deploy a VM with the RabbitMQ Certified by Bitnami image:
-
-```azurecli
-az group create --name myResourceGroupVM --location westus
-
-az vm create --resource-group myResourceGroupVM --name myVM --image bitnami:rabbitmq:rabbitmq:latest --plan-name rabbitmq --plan-product rabbitmq --plan-publisher bitnami
-```
-
-If you get a message about accepting the terms of the image, see the section [Accept the terms](#accept-the-terms) later in this article.
 
 ## List popular images
 
@@ -103,7 +66,6 @@ For example, the following command displays all Debian offers (remember that wit
 
 ```azurecli
 az vm image list --offer Debian --all --output table 
-
 ```
 
 Partial output: 
@@ -130,32 +92,8 @@ Debian                                   credativ                          8    
 ...
 ```
 
-Apply similar filters with the `--location`, `--publisher`, and `--sku` options. You can perform partial matches on a filter, such as searching for `--offer Deb` to find all Debian images.
 
-If you don't specify a particular location with the `--location` option, the values for the default location are returned. You can set a different default location by running `az configure --defaults location=<location>`.
-
-For example, the following command lists all Debian 8 SKUs in the West Europe location:
-
-```azurecli
-az vm image list --location westeurope --offer Deb --publisher credativ --sku 8 --all --output table
-```
-
-Partial output:
-
-```output
-Offer    Publisher    Sku          Urn                                        Version
--------  -----------  -----------  -----------------------------------------  -------------
-Debian   credativ     8            credativ:Debian:8:8.0.201602010            8.0.201602010
-Debian   credativ     8            credativ:Debian:8:8.0.201603020            8.0.201603020
-Debian   credativ     8            credativ:Debian:8:8.0.201604050            8.0.201604050
-Debian   credativ     8            credativ:Debian:8:8.0.201604200            8.0.201604200
-Debian   credativ     8            credativ:Debian:8:8.0.201606280            8.0.201606280
-Debian   credativ     8            credativ:Debian:8:8.0.201609120            8.0.201609120
-Debian   credativ     8            credativ:Debian:8:8.0.201611020            8.0.201611020
-...
-```
-
-## Navigate the images
+## Look at all available images
  
 Another way to find an image in a location is to run the [az vm image list-publishers](/cli/azure/vm/image), [az vm image list-offers](/cli/azure/vm/image), and [az vm image list-skus](/cli/azure/vm/image) commands in sequence. With these commands, you determine these values:
 
@@ -178,29 +116,27 @@ Another way to find an image in a location is to run the [az vm image list-publi
 
 1. For a given publisher, offer, and SKU, show all of the versions of the image. In this example, we add *18.04-LTS* as the SKU.
 
- ```azurecli
-    az vm image list --location westus --publisher Canonical --offer UbuntuServer --sku 18.04-LTS --all --output table
-    ```
+  ```azurecli
+    az vm image list \
+        --location westus \
+        --publisher Canonical \  
+        --offer UbuntuServer \    
+        --sku 18.04-LTS \
+        --all --output table
+  ```
 
 Pass this value of the URN column with the `--image` parameter when you create a VM with the [az vm create](/cli/azure/vm) command. You can also replace the version number in the URN with "latest", to simply use the latest version of the image. 
 
 If you deploy a VM with a Resource Manager template, you set the image parameters individually in the `imageReference` properties. See the [template reference](/azure/templates/microsoft.compute/virtualmachines).
 
-## Deploy an image with Marketplace terms
+
+## Check the purchase plan 
 
 Some VM images in the Azure Marketplace have additional license and purchase terms that you must accept before you can deploy them programmatically.  
 
-To deploy a VM from such an image, you'll need to both accept the image's terms and enable programmatic deployment. You'll only need to do this once per subscription. Afterward, each time you deploy a VM from the image you'll also need to specify *purchase plan* parameters.
+To deploy a VM from such an image, you'll need to accept the image's terms the first time you use it, once per subscription. You'll also need to specify *purchase plan* parameters to deploy a VM from that image
 
-The following sections show how to:
-
-* Find out whether a Marketplace image has additional license terms 
-* Accept the terms programmatically
-* Provide purchase plan parameters when you deploy a VM
-
-### View plan properties
-
-To view an image's purchase plan information, run the [az vm image show](/cli/azure/image) command. If the `plan` property in the output is not `null`, the image has terms you need to accept before programmatic deployment.
+To view an image's purchase plan information, run the [az vm image show](/cli/azure/image) command with the URN of the image. If the `plan` property in the output is not `null`, the image has terms you need to accept before programmatic deployment.
 
 For example, the Canonical Ubuntu Server 18.04 LTS image doesn't have additional terms, because the `plan` information is `null`:
 
@@ -224,7 +160,7 @@ Output:
 }
 ```
 
-Running a similar command for the RabbitMQ Certified by Bitnami image shows the following `plan` properties: `name`, `product`, and `publisher`. (Some images also have a `promotion code` property.) To deploy this image, see the following sections to accept the terms and enable programmatic deployment.
+Running a similar command for the RabbitMQ Certified by Bitnami image shows the following `plan` properties: `name`, `product`, and `publisher`. (Some images also have a `promotion code` property.) 
 
 ```azurecli
 az vm image show --location westus --urn bitnami:rabbitmq:rabbitmq:latest
@@ -249,12 +185,14 @@ Output:
 }
 ```
 
+To deploy this image, you need to accept the terms and provide the purchase plan parameters when you deploy a VM using that image.
+
 ## Accept the terms
 
-To view and accept the license terms, use the [az vm image accept-terms](/cli/azure/vm/image?) command. When you accept the terms, you enable programmatic deployment in your subscription. You only need to accept terms once per subscription for the image. For example:
+To view and accept the license terms, use the [az vm image accept-terms](/cli/azure/vm/image/terms) command. When you accept the terms, you enable programmatic deployment in your subscription. You only need to accept terms once per subscription for the image. For example:
 
 ```azurecli
-az vm image accept-terms --urn bitnami:rabbitmq:rabbitmq:latest
+az vm image terms show --urn bitnami:rabbitmq:rabbitmq:latest
 ``` 
 
 The output includes a `licenseTextLink` to the license terms, and indicates that the value of `accepted` is `true`:
@@ -275,6 +213,75 @@ The output includes a `licenseTextLink` to the license terms, and indicates that
   "type": "Microsoft.MarketplaceOrdering/offertypes"
 }
 ```
+
+To accept the terms, type:
+
+```azurecli
+az vm image terms accept --urn bitnami:rabbitmq:rabbitmq:latest
+``` 
+
+## Deploy a new VM using the image parameters
+
+With information about the image, you can deploy it using the `az vm create` command. 
+
+To deploy an image that does not have plan information, like the latest Ubuntu Server 18.04 image from Canonical, pass the URN for `--image`:
+
+```azurecli-interactive
+az group create --name myURNVM --location westus
+az vm create \
+   --resource-group myURNVM \
+   --name myVM \
+   --admin-username azureuser \
+   --generate-ssh-keys \
+   --image Canonical:UbuntuServer:18.04-LTS:latest 
+```
+
+
+For an image with purchase plan parameters, like the RabbitMQ Certified by Bitnami image, you pass the URN for `--image` and also provide the purchase plan parameters:
+
+```azurecli
+az group create --name myPurchasePlanRG --location westus
+
+az vm create \
+   --resource-group myPurchasePlanRG \
+   --name myVM \
+   --admin-username azureuser \
+   --generate-ssh-keys \
+   --image bitnami:rabbitmq:rabbitmq:latest \
+   --plan-name rabbitmq \
+   --plan-product rabbitmq \
+   --plan-publisher bitnami
+```
+
+If you get a message about accepting the terms of the image, review section [Accept the terms](#accept-the-terms). Make sure the output of `az vm image accept-terms` returns the value `"accepted": true,` showing that you have accepted the terms of the image.
+
+
+## Using an existing VHD with purchase plan information
+
+If you have an existing VHD from a VM that was created using a paid Azure Marketplace image, you might need to supply the purchase plan information when you create a new VM from that VHD. 
+
+If you still have the original VM, or another VM created using the same marketplace image, you can get the plan name, publisher, and product information from it using [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view). This example gets a VM named *myVM* in the *myResourceGroup* resource group and then displays the purchase plan information.
+
+```azurepowershell-interactive
+az vm get-instance-view -g myResourceGroup -n myVM --query plan
+```
+
+If you didn't get the plan information before the original VM was deleted, you can file a [support request](https://ms.portal.azure.com/#create/Microsoft.Support). They will need the VM name, subscription ID and the time stamp of the delete operation.
+
+Once you have the plan information, you can create the new VM using the `--attach-os-disk` parameter to specify the VHD.
+
+```azurecli-interactive
+az vm create \
+  --resource-group myResourceGroup \
+  --name myNewVM \
+  --nics myNic \
+  --size Standard_DS1_v2 --os-type Linux \
+  --attach-os-disk myVHD \
+  --plan-name planName \
+  --plan-publisher planPublisher \
+  --plan-product planProduct 
+```
+
 
 ## Next steps
 To create a virtual machine quickly by using the image information, see [Create and Manage Linux VMs with the Azure CLI](tutorial-manage-vm.md).
