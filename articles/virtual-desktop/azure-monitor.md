@@ -130,7 +130,7 @@ You can learn more about how to enable diagnostics in the Windows Virtual Deskto
 
 1. Select the **Session host data settings** tab. 
 
-2. Select a **Log Analytics workspace** to send session host data. This can be the same workspace you send diagnostics to, or different. If you have Azure session hosts outside of your Windows Virtual Desktop environment, we recommend having a designated Log Analytics workspace for the Windows Virtual Desktop session hosts.
+2. Select the **Log Analytics workspace** you want to send session host data to. The workspace you send the data to doesn't have to be the same one you send diagnostic data to. If you have Azure session hosts outside of your Windows Virtual Desktop environment, we recommend having a designated Log Analytics workspace for the Windows Virtual Desktop session hosts.
 
 ### Session hosts
 
