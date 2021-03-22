@@ -85,7 +85,6 @@ Then you must configure one certificate as the secondary AD FS token signing or 
 1. Once you have imported the certificate. Open the **AD FS Management** console.
 2. Expand **Service** and then select **Certificates**.
 3. In the Actions pane, click **Add Token-Signing Certificate**.
-![Get-ADFSCertificate](media/configure-TS-TD-certs-ad-fs/ts4.png)</br>
 4. Select the new certificate from the list of displayed certificates, and then click OK.
 
 ### To promote the new certificate from secondary to primary
@@ -123,7 +122,7 @@ Once you use `Update-ADFSCertificate –CertificateType <type> -Urgent` the new 
 4. To remove the old token signing certificate: `Remove-ADFSCertificate –CertificateType token-signing -thumbprint <thumbprint>`.
 
 ## Revoke refresh tokens via PowerShell
-Now we want to revoke refresh tokens for users who may have them and force them to re-logon and get new tokens.  This will log users out of their phone, current webmail sessions, along with other items that are using Tokens and Refresh Tokens.  Information can be found [here](https://docs.microsoft.com/en-us/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) and you can also reference how to [Revoke user access in Azure Active Directory](../../enterprise-users/users-revoke-access.md).
+Now we want to revoke refresh tokens for users who may have them and force them to re-logon and get new tokens.  This will log users out of their phone, current webmail sessions, along with other items that are using Tokens and Refresh Tokens.  Information can be found [here](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0&preserve-view=true) and you can also reference how to [Revoke user access in Azure Active Directory](../../active-directory/enterprise-users/users-revoke-access.md).
 
 ## Next steps
 
