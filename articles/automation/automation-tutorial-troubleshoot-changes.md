@@ -4,7 +4,7 @@ description: This article tells how to troubleshoot changes on an Azure VM.
 services: automation
 ms.subservice: change-inventory-management
 keywords: change, tracking, change tracking, inventory, automation
-ms.date: 12/05/2018
+ms.date: 03/21/2021
 ms.topic: tutorial
 ms.custom: mvc
 ---
@@ -203,13 +203,13 @@ Viewing changes in the Azure portal can be helpful, but being able to be alerted
 
 14. For **Actions**, enter a name for the action, such as **Email Administrators**. 
 
-15. For **ACTION TYPE**, select **Email/SMS/Push/Voice**. 
+15. For **ACTION TYPE**, select **Email/SMS message/Push/Voice**. 
 
 16. For **DETAILS**, select **Edit details**.
 
-    ![Add action group](./media/automation-tutorial-troubleshoot-changes/add-action-group.png)
+    :::image type="content" source="./media/automation-tutorial-troubleshoot-changes/add-action-group.png" alt-text="Usage and estimated costs." lightbox="./media/automation-tutorial-troubleshoot-changes/add-action-group.png":::
 
-17. In the Email/SMS/Push/Voice pane, enter a name, select the **Email** checkbox, and then enter a valid email address. When finished, click **OK** on the pane, then click **OK** on the Add action group page.
+17. In the Email/SMS message/Push/Voice pane, enter a name, select the **Email** checkbox, and then enter a valid email address. When finished, click **OK** on the pane, then click **OK** on the Add action group page.
 
 18. To customize the subject of the alert email, select **Customize Actions**. 
 
