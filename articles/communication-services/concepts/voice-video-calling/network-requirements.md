@@ -40,6 +40,11 @@ _Bandwidth requirements for Azure Communication Services _
 
 The Azure Communication Services connection requires internet connectivity to specific ports to transmit traffic with high-quality. Azure Communication Services can work if access to all the necessary IP addresses, ports are not open. However, the optimal experience is provided when recommended ports and IP ranges are open.
 
+ | |  |
+ |---------|---------|
+ |Ports     |UDP ports <strong>3478</strong> through <strong>3481</strong>, TCP ports <strong>443</strong> |
+ |IP addresses | [Range of Azure Public Cloud IP Addresses](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519)     |
+
 ### Network optimization
 
 The following tasks are optional and aren't required for rolling out Azure Communication Services. Use this guidance to optimize your network and Azure Communication Services performance or if you know you've got some network limitations.
@@ -49,10 +54,7 @@ You might want to do additional network optimization if:
 * Calls have static and cut out, or voices sound like robots (could be jitter or packet loss)
 
 
- | |  |
- |---------|---------|
- |Ports     |UDP ports <strong>3478</strong> through <strong>3481</strong>, TCP ports <strong>443</strong> |
- |IP addresses | [Range of Azure Public Cloud IP Addresses](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519)     |
+
 
 
 
