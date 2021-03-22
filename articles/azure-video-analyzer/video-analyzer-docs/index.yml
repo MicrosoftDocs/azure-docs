@@ -33,4 +33,4 @@ landingContent:
       - linkListType: overview
         links:
           - text: About Azure Video Analyzer for media
-            url: ../media-services/video-indexer/video-indexer-overview.md
+            url: ../../media-services/video-indexer/video-indexer-overview.md
