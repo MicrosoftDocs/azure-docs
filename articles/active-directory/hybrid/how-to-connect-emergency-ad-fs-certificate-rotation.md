@@ -58,20 +58,6 @@ In this section, you will be creating **two** token-signing certificates.  The f
 >[!IMPORTANT]
 >You need to allow enough time for your federation partners to consume your new certificate (either they pull your federation metadata or you send them the public key of your new certificate) prior to promoting it to the primary certificate.
 
-## Update Azure AD with the new token-signing certificate
-Open the Microsoft Azure Active Directory Module for Windows PowerShell. Alternatively, open Windows PowerShell and then run the command `Import-Module msonline`
-
-Connect to Azure AD by run the following command: `Connect-MsolService`, and then, enter your global administrator credentials.
-
->[!Note]
-> If you are running these commands on a computer that is not the primary federation server, enter the following command first: `Set-MsolADFSContext –Computer <servername>`. Replace <servername> with the name of the AD FS server. Then enter the administrator credentials for the AD FS server when prompted.
-
-Optionally, verify whether an update is required by checking the current certificate information in Azure AD. To do so, run the following command: `Get-MsolFederationProperty`. Enter the name of the Federated domain when prompted.
-
-To update the certificate information in Azure AD, run the following command: `Update-MsolFederatedDomain` and then enter the domain name when prompted.
-
->[!Note]
-> If you see an error when running this command, run the following command: Update-MsolFederatedDomain –SupportMultipleDomain, and then enter the domain name when prompted.
 
 
 ## Generating new certificates manually if AutoCertificateRollover is set to FALSE
@@ -104,6 +90,22 @@ Now that you have added the first certificate and made it primary and removed th
 2. Expand **Service** and then select **Certificates**.
 3. In the Actions pane, click **Add Token-Signing Certificate**.
 4. Select the new certificate from the list of displayed certificates, and then click OK.
+
+## Update Azure AD with the new token-signing certificate
+Open the Microsoft Azure Active Directory Module for Windows PowerShell. Alternatively, open Windows PowerShell and then run the command `Import-Module msonline`
+
+Connect to Azure AD by run the following command: `Connect-MsolService`, and then, enter your global administrator credentials.
+
+>[!Note]
+> If you are running these commands on a computer that is not the primary federation server, enter the following command first: `Set-MsolADFSContext –Computer <servername>`. Replace <servername> with the name of the AD FS server. Then enter the administrator credentials for the AD FS server when prompted.
+
+Optionally, verify whether an update is required by checking the current certificate information in Azure AD. To do so, run the following command: `Get-MsolFederationProperty`. Enter the name of the Federated domain when prompted.
+
+To update the certificate information in Azure AD, run the following command: `Update-MsolFederatedDomain` and then enter the domain name when prompted.
+
+>[!Note]
+> If you see an error when running this command, run the following command: Update-MsolFederatedDomain –SupportMultipleDomain, and then enter the domain name when prompted.
+
 
 ## Updating federation partners who can consume Federation Metadata
 If you have renewed and configure a new token signing or token decryption certificate, you must make sure that the all your federation partners (resource organization or account organization partners that are represented in your AD FS by relying party trusts and claims provider trusts) have picked up the new certificates.
