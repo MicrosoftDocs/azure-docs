@@ -64,13 +64,17 @@ The resources grouped by workspace will appear in the **Connection Center**.
 1. Select **Subscribe with URL** from the main page.
 1. Enter either the *Workspace URL* or an *email address*:
    - For **Workspace URL**, use the URL provided by your admin.
-      |Available Resources|URL|
-      |-|-|
-      |Windows Virtual Desktop (classic)|`https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`|
-      |Windows Virtual Desktop|`https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`|
-      |Windows Virtual Desktop (US Gov)|`https://rdweb.wvd.azure.us/api/arm/feeddiscovery`|
+
+   |Available Resources|URL|
+   |-|-|
+   |Windows Virtual Desktop (classic)|`https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`|
+   |Windows Virtual Desktop|`https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`|
+   |Windows Virtual Desktop (US Gov)|`https://rdweb.wvd.azure.us/api/arm/feeddiscovery`|
+   
    - For **Email**, use your email address. 
-      The client will find the URL associated with your email, provided your admin has enabled [email discovery](/windows-server/remote/remote-desktop-services/rds-email-discovery).
+      
+   The client will find the URL associated with your email, provided your admin has enabled [email discovery](/windows-server/remote/remote-desktop-services/rds-email-discovery).
+
 1. Select **Next**.
 1. Sign in with your user account when prompted.
 
