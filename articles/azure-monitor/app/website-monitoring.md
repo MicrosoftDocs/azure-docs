@@ -2,7 +2,7 @@
 title: 'Quickstart: Monitor websites with Azure Monitor Application Insights'
 description: In this quickstart, learn how to set up client/browser-side website monitoring with Azure Monitor Application Insights.
 ms.topic: quickstart
-ms.date: 08/19/2020
+ms.date: 03/19/2021
 
 ms.custom: mvc
 ---
@@ -56,9 +56,9 @@ Application Insights can gather telemetry data from any internet-connected appli
 
 ## Configure Application Insights SDK
 
-1. Select **Overview** > **Essentials**, and then copy your application's **Instrumentation Key**.
+1. Select **Overview** and then copy your application's **Connection String**. For this example, we only need the Instrumentation key part of the connection string `InstrumentationKey=00000000-0000-0000-0000-000000000000;`.
 
-   ![New Application Insights resource form](media/website-monitoring/instrumentation-key-001.png)
+    :::image type="content" source="media/website-monitoring/keys.png" alt-text="Screenshot of overview page with instrumentation key and connection string.":::
 
 1. Add the following script to your ``hello_world.html`` file before the closing ``</head>`` tag:
 
@@ -72,7 +72,7 @@ Application Insights can gather telemetry data from any internet-connected appli
     crossOrigin: "anonymous", // When supplied this will add the provided value as the cross origin attribute on the script tag
     // onInit: null, // Once the application insights instance has loaded and initialized this callback function will be called with 1 argument -- the sdk instance (DO NOT ADD anything to the sdk.queue -- As they won't get called)
     cfg: { // Application Insights Configuration
-        instrumentationKey: "YOUR_INSTRUMENTATION_KEY_GOES_HERE"
+        connectionString:"InstrumentationKey=YOUR_INSTRUMENTATION_KEY_GOES_HERE;" 
         /* ...Other Configuration Options... */
     }});
     </script>
@@ -80,7 +80,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 
     > [!NOTE]
     > The current Snippet (listed above) is version "5", the version is encoded in the snippet as sv:"#" and the [current version and configuration details are available on GitHub](https://go.microsoft.com/fwlink/?linkid=2156318).
-   
+
 1. Edit ``hello_world.html`` and add your instrumentation key.
 
 1. Open ``hello_world.html`` in a local browser session. This action creates a single page view. You can refresh your browser to generate multiple test-page views.
@@ -91,7 +91,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 
    The four default charts on the overview page are scoped to server-side application data. Because we're instrumenting the client/browser-side interactions with the JavaScript SDK, this particular view doesn't apply unless we also have a server-side SDK installed.
 
-1. Select **Analytics** ![Application Map icon](media/website-monitoring/006.png).  This action opens **Analytics**, which provides a rich query language for analyzing all data collected by Application Insights. To view data related to the client-side browser requests, run the following query:
+1. Select **Logs**.  This action opens **Logs**, which provides a rich query language for analyzing all data collected by Application Insights. To view data related to the client-side browser requests, run the following query:
 
     ```kusto
     // average pageView duration by name
@@ -108,19 +108,15 @@ Application Insights can gather telemetry data from any internet-connected appli
     | render timechart
     ```
 
-   ![Analytics graph of user requests over a period of time](./media/website-monitoring/analytics-query.png)
+   :::image type="content" source="media/website-monitoring/log-query.png" alt-text="Screenshot of log analytics graph of user requests over a period of time.":::
 
-1. Go back to the **Overview** page. Under the **Investigate** header, select **Browser**, and then select **Performance**.  Metrics related to the performance of your website appear. There's a corresponding view for analyzing failures and exceptions in your website. You can select **Samples** to access the [end-to-end transaction details](./transaction-diagnostics.md).
+1. Go back to the **Overview** page. Under the **Investigate** header, select **Performance** then select the **Browser** tab.  Metrics related to the performance of your website appear. There's a corresponding view for analyzing failures and exceptions in your website. You can select **Samples** to access the [end-to-end transaction details](./transaction-diagnostics.md).
 
-   ![Server metrics graph](./media/website-monitoring/browser-performance.png)
+     :::image type="content" source="media/website-monitoring/performance.png" alt-text="Screenshot of performance tab with browser metrics graph.":::
 
-1. On the main Application Insights menu, under the **Usage** header, select [**Users**](./usage-segmentation.md) to begin exploring the [user behavior analytics tools](./usage-overview.md). Because we're testing from a single machine, we'll only see data for one user. For a live website, the distribution of users might look like this:
-
-     ![User graph](./media/website-monitoring/usage-users.png)
+1. On the main Application Insights menu, under the **Usage** header, select [**Users**](./usage-segmentation.md) to begin exploring the [user behavior analytics tools](./usage-overview.md). Because we're testing from a single machine, we'll only see data for one user.
 
 1. For a more complex website with multiple pages, you can use the [**User Flows**](./usage-flows.md) tool to track the pathway that visitors take through the various parts of your website.
-
-   ![User Flows visualization](./media/website-monitoring/user-flows.png)
 
 To learn more advanced configurations for monitoring websites, see the [JavaScript SDK API reference](./javascript.md).
 

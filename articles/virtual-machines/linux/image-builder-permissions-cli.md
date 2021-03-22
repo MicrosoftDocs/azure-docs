@@ -235,7 +235,7 @@ Replace the following placeholder settings:
 | \<Storage account container\> | Storage account container name |
 | \<Subscription ID\> | Azure subscription |
 
-For more information using a user-assigned managed identity, see the [Create a Custom Image that will use an Azure User-Assigned Managed Identity to seemlessly access files Azure Storage](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-user-assigned-identity). The quickstart walks through how to create and configure the user-assigned managed identity to access a storage account.
+For more information using a user-assigned managed identity, see the [Create a Custom Image that will use an Azure User-Assigned Managed Identity to seemlessly access files Azure Storage](./image-builder-user-assigned-identity.md). The quickstart walks through how to create and configure the user-assigned managed identity to access a storage account.
 
 ## Next steps
 
