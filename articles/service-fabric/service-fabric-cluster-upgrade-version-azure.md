@@ -28,7 +28,7 @@ You can also toggle between automatic or manual upgrades from the **Fabric upgra
 
 When you select the manual upgrade option, all that's needed to initiate an upgrade is to select from the available versions  dropdown and then *Save*. From there the cluster upgrade gets kicked off immediately.
 
-The [cluster health policies](#custom-upgrade-policies-for-manual-upgrades) (a combination of node health and the health all the applications running in the cluster) are adhered to during the upgrade. If cluster health policies are not met, the upgrade is rolled back.
+The [cluster health policies](#custom-policies-for-manual-upgrades) (a combination of node health and the health all the applications running in the cluster) are adhered to during the upgrade. If cluster health policies are not met, the upgrade is rolled back.
 
 Once you have fixed the issues that resulted in the rollback, you'll need to initiate the upgrade again, by following the same steps as before.
 
