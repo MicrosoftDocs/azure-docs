@@ -40,7 +40,9 @@ If your data isn't displaying properly, check the following common solutions:
     - Read-access to the subscription's resource groups that hold your Windows Virtual Desktop session hosts 
     - Read-access to the Log Analytics workspace(s)
 
-- You may need to open outgoing ports in your server's firewall to allow Azure Monitor and Log Analytics to send data to the portal; see [Azure Monitor Outgoing ports](../azure-monitor/app/ip-addresses.md), and [Log Analytics Firewall Requirements](https://docs.microsoft.com/azure/azure-monitor/agents/log-analytics-agent#firewall-requirements). 
+- You may need to open outgoing ports in your server's firewall to allow Azure Monitor and Log Analytics to send data to the portal. To learn how to do this, see the following articles:
+      - [Azure Monitor Outgoing ports](../azure-monitor/app/ip-addresses.md)
+      - [Log Analytics Firewall Requirements](../azure-monitor/agents/log-analytics-agent.md#firewall-requirements). 
 
 - Not seeing data from recent activity? You may want to wait for 15 minutes and refresh the feed. Azure Monitor has a 15-minute latency period for populating log data. To learn more, see [Log data ingestion time in Azure Monitor](../azure-monitor/logs/data-ingestion-time.md).
 
