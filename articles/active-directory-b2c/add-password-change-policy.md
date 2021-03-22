@@ -19,15 +19,15 @@ zone_pivot_groups: b2c-policy-type
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-In Azure Active Directory B2C (Azure AD B2C), you can enable users who are signed in with a local account to change their password without having to prove their authenticity by email verification. The password change flow involves following steps:
+In Azure Active Directory B2C (Azure AD B2C), you can enable users who are signed in with a local account to change their password without having to prove their identity through email verification. The password change flow involves following steps:
 
-1. Sign-in with a local account. If the session is still active, Azure AD B2C authorizes the user, and skips to the next step.
-1. Users must verify the **old password**, create, and confirm the **new password**.
+1. The user signs in to their local account. If the session is still active, Azure AD B2C authorizes the user and skips to the next step.
+1. The user verifies the **Old password**, and then creates and confirms the **New password**.
 
 ![Password change flow](./media/add-password-change-policy/password-change-flow.png)  
 
 > [!TIP]
-> The password change flow allows users to change their password, only when the user knows the password, and wants to change it. We recommend you to also enable [self-service password reset](add-password-reset-policy.md), to support a case when the user forgot the password.
+> The password change flow allows users to change their password only when the user knows their password and wants to change it. We recommend you to also enable [self-service password reset](add-password-reset-policy.md) to support cases where the user forgets their password.
 
 ::: zone pivot="b2c-user-flow"
 
