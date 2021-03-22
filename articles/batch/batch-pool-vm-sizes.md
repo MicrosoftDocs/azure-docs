@@ -99,7 +99,7 @@ Use one of the following APIs to return a list of Windows and Linux VM images cu
 - PowerShell: [Get-AzBatchSupportedImage](/powershell/module/az.batch/get-azbatchsupportedimage)
 - Azure CLI: [az batch pool supported-images](/cli/azure/batch/pool/supported-images)
 
-It is strongly recommended to avoid images with impending Batch support end of life (EOL) dates. These dates can be discovered via the [`ListSupportedImages` API](https://docs.microsoft.com/rest/api/batchservice/account/listsupportedimages), [PowerShell](https://docs.microsoft.com/powershell/module/az.batch/get-azbatchsupportedimage), or [Azure CLI](https://docs.microsoft.com/cli/azure/batch/pool/supported-images). Please see the [Batch best practices guide](https://docs.microsoft.com/azure/batch/best-practices) for more information regarding Batch pool VM image selection.
+It is strongly recommended to avoid images with impending Batch support end of life (EOL) dates. These dates can be discovered via the [`ListSupportedImages` API](https://docs.microsoft.com/rest/api/batchservice/account/listsupportedimages), [PowerShell](https://docs.microsoft.com/powershell/module/az.batch/get-azbatchsupportedimage), or [Azure CLI](https://docs.microsoft.com/cli/azure/batch/pool/supported-images). Please see the [Batch best practices guide](best-practices.md) for more information regarding Batch pool VM image selection.
 
 ## Next steps
 
