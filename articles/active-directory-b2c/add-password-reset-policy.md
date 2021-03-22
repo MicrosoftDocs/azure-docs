@@ -33,7 +33,7 @@ The [sign-up and sign-in journey](add-sign-up-and-sign-in-policy.md) allows user
 The password reset flow applies to local accounts in Azure AD B2C that use an [email address](identity-provider-local.md#email-sign-in) or [username](identity-provider-local.md#username-sign-in) with a password for sign-in.
 
 > [!TIP]
-> The Self-service password reset flow allows users to change their password, when the user forgot the password, and wants to reset it. Consider [configure password change](add-password-change-policy.md) flow, to support a case when a user knows the password, and wants to change it.
+> The self-service password reset flow allows users to change their password when the user forgets their password and wants to reset it. Consider configuring a [password change flow](add-password-change-policy.md) to support cases where a user knows their password and wants to change it.
 
 A common practice after migrating users to Azure AD B2C with random passwords is to have the users verify their email addresses and reset their passwords during their first sign-in. It's also common to force the user to reset their password after an administrator changes their password; see [force password reset](force-password-reset.md) to enable this feature.
 
