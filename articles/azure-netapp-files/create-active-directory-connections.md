@@ -212,7 +212,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
 
         For more information about `SeSecurityPrivilege` and SQL Server, see [SQL Server installation fails if the Setup account doesn't have certain user rights](/troubleshoot/sql/install/installation-fails-if-remove-user-right).
 
-        ![Screenshot showing the Security privilege users box of Active Directory connections window](../media/azure-netapp-files/security-privilege-users.png) 
+        ![Screenshot showing the Security privilege users box of Active Directory connections window.](../media/azure-netapp-files/security-privilege-users.png) 
 
      * **Backup policy users**  
         You can include additional accounts that require elevated privileges to the computer account created for use with Azure NetApp Files. The specified accounts will be allowed to change the NTFS permissions at the file or folder level. For example, you can specify a non-privileged service account used for migrating data to an SMB file share in Azure NetApp Files.  
