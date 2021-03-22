@@ -4,7 +4,7 @@ description: Learn to use Auzure DevOps to publish Azure Static Web Apps
 services: static-web-apps
 author: scubaninja
 ms.service: static-web-apps
-ms.topic:  conceptual
+ms.topic:  tutorial
 ms.date: 02/08/2021
 ms.author: apedward
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
