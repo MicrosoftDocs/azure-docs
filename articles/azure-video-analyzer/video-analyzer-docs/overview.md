@@ -1,6 +1,6 @@
 ---
 title: What is Azure Video Analyzer 
-description: This topic provides an overview of Azure Video Analyzer. 
+description: This topic provides an overview of Azure Video Analyzer overview. 
 author: Juliako
 ms.author: juliako
 ms.service: azure-video-analyzer 
