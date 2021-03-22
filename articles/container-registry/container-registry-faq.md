@@ -264,12 +264,13 @@ To enable anonymous pull access, create or update a registry using the Azure CLI
 az acr update --name myregistry --anonymous-pull-enabled
 ``` 
 
-If you have any [scope map (user) or token resources](./container-registry-repository-scoped-permissions.md) in your registry, delete them before enabling anonymous pull access.
-
 > [!NOTE]
 > * Before attempting an anonymous pull operation, run `docker logout` to ensure that you clear any existing Docker credentials.
 > * Only data-plane operations are available to unauthenticated clients.
 > * The registry may throttle a high rate of unauthenticated requests.
+
+> [!WARNING]
+> Anonymous pull access currently applies to all repositories in the registry. If you manage repository access using [repository-scoped tokens](container-registry-repository-scoped-permissions.md), be aware that all users may pull from those repositories in a registry enabled for anonymous pull. We recommend deleting tokens when anonymous pull access is enabled.
 
 ### How do I push non-distributable layers to a registry?
 
