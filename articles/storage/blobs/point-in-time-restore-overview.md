@@ -49,9 +49,11 @@ The **Restore Blob Ranges** operation returns a restore ID that uniquely identif
 
 Point-in-time restore requires that the following Azure Storage features be enabled before you can enable point-in-time restore:
 
-- [Soft delete](./soft-delete-blob-overview.md)
+- [Soft delete](soft-delete-blob-overview.md)
 - [Change feed](storage-blob-change-feed.md)
 - [Blob versioning](versioning-overview.md)
+
+Enabling these features may result in additional charges. Make sure that you understand the billing implications before enabling point-in-time restore and the prerequisite features.
 
 ### Retention period for point-in-time restore
 

@@ -6,7 +6,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 03/18/2021
+ms.date: 03/22/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: prishet
@@ -91,12 +91,12 @@ The following table summarizes the cost considerations for the various data prot
 
 | Data protection option | Cost considerations |
 |-|-|
-| Azure Resource Manager lock for a storage account | No charge to enable. |
-| Immutability policy on a container | No charge to enable. |
-| Container soft delete | No charge to enable. Data in a soft-deleted container is billed at same rate as active data until the soft-deleted container is permanently deleted. |
-| Blob versioning | No charge to enable; however, after blob versioning is enabled, every write or delete operation on a blob in the account creates a new version. A blob version is billed based on unique blocks or pages. Costs therefore increase as the base blob diverges from a particular version. Changing a blob or blob version's tier may have a billing impact. For more information, see [Pricing and billing](versioning-overview.md#pricing-and-billing).<br /><br />Use lifecycle management to delete older versions as needed to control costs. For more information, see [Optimize costs by automating Azure Blob Storage access tiers](storage-lifecycle-management-concepts.md). |
-| Blob soft delete | No charge to enable. Data in a soft-deleted blob is billed at same rate as active data until the soft-deleted blob is permanently deleted. |
-| Point-in-time restore | No charge to enable; however, enabling point-in-time restore also enables blob versioning, soft delete, and change feed, each of which may result in additional charges.<br /><br />You are billed for point-in-time restore when you perform a restore operation. The cost of a restore operation depends on the amount of data being restored. For more information, see [Pricing and billing](point-in-time-restore-overview.md#pricing-and-billing). |
+| Azure Resource Manager lock for a storage account | No charge to configure a lock on a storage account. |
+| Immutability policy on a container | No charge to configure an immutability policy on a container. |
+| Container soft delete | No charge to enable container soft delete for a storage account. Data in a soft-deleted container is billed at same rate as active data until the soft-deleted container is permanently deleted. |
+| Blob versioning | No charge to enable blob versioning for a storage account. After blob versioning is enabled, every write or delete operation on a blob in the account creates a new version, which may lead to increased capacity costs.<br /><br />A blob version is billed based on unique blocks or pages. Costs therefore increase as the base blob diverges from a particular version. Changing a blob or blob version's tier may have a billing impact. For more information, see [Pricing and billing](versioning-overview.md#pricing-and-billing).<br /><br />Use lifecycle management to delete older versions as needed to control costs. For more information, see [Optimize costs by automating Azure Blob Storage access tiers](storage-lifecycle-management-concepts.md). |
+| Blob soft delete | No charge to enable blob soft delete for a storage account. Data in a soft-deleted blob is billed at same rate as active data until the soft-deleted blob is permanently deleted. |
+| Point-in-time restore | No charge to enable point-in-time restore for a storage account; however, enabling point-in-time restore also enables blob versioning, soft delete, and change feed, each of which may result in additional charges.<br /><br />You are billed for point-in-time restore when you perform a restore operation. The cost of a restore operation depends on the amount of data being restored. For more information, see [Pricing and billing](point-in-time-restore-overview.md#pricing-and-billing). |
 | Blob snapshots | Data in a snapshot is billed based on unique blocks or pages. Costs therefore increase as the base blob diverges from the snapshot. Changing a blob or snapshot's tier may have a billing impact. For more information, see [Pricing and billing](snapshots-overview.md#pricing-and-billing).<br /><br />Use lifecycle management to delete older snapshots as needed to control costs. For more information, see [Optimize costs by automating Azure Blob Storage access tiers](storage-lifecycle-management-concepts.md). |
 | Copy data to a second storage account | Maintaining data in a second storage account will incur capacity and transaction costs. If the second storage account is located in a different region than the source account, then copying data to that second account will additionally incur egress charges. |
 
@@ -105,6 +105,8 @@ The following table summarizes the cost considerations for the various data prot
 Azure Storage always maintains multiple copies of your data so that it is protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. Redundancy ensures that your storage account meets its availability and durability targets even in the face of failures. For more information about how to configure your storage account for high availability, see [Azure Storage redundancy](../common/storage-redundancy.md).
 
 In the event that a failure occurs in a data center, if your storage account is redundant across two geographical regions (geo-redundant), then you have the option to fail over your account from the primary region to the secondary region. For more information, see [Disaster recovery and storage account failover](../common/storage-disaster-recovery-guidance.md).
+
+Customer-managed failover is not currently supported for storage accounts with a hierarchical namespace enabled. For more information, see [Blob storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md).
 
 ## Next steps
 
