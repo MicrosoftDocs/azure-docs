@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/01/2021
+ms.date: 03/22/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
@@ -253,7 +253,7 @@ This section provides example SCIM requests emitted by the AAD SCIM client and e
   - [Delete Group](#delete-group) ([Request](#request-13) / [Response](#response-13))
 
 [Schema discovery](#schema-discovery)
-  - [Discover schema](#discover-schema) ([Request](#request-14) / [Response](#response-14))
+  - [Discover schema](#discover-schema) ([Request](#request-15) / [Response](#response-15))
 
 ### User Operations
 
@@ -755,9 +755,9 @@ This section provides example SCIM requests emitted by the AAD SCIM client and e
 ### Schema discovery
 #### Discover schema
 
-##### <a name="request-14"></a>Request
+##### <a name="request-15"></a>Request
 *GET /Schemas* 
-##### <a name="request-14"></a>Response
+##### <a name="request-15"></a>Response
 *HTTP/1.1 200 OK*
 ```json
 [
