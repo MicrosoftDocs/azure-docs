@@ -462,6 +462,21 @@ When you create a new PowerShell functions project, dependency management is ena
 
 When you update the requirements.psd1 file, updated modules are installed after a restart.
 
+If you want to use a specific version of a module, ie an older version of Az.Accounts then the one included in the included Az module, you need to add an import statement to the top of your profile.ps1 file like this:
+
+requirements.psd1
+```powershell
+@{
+	Az.Accounts = '1.9.5'
+}
+```
+profile.ps1
+```
+Import-Module Az.Accounts -RequiredVersion '1.9.5'
+```
+
+This ensures, that the older version of the Az.Account module is loaded first once the function starts up.
+
 > [!NOTE]
 > Managed dependencies requires access to www.powershellgallery.com to download modules. When running locally, make sure that the runtime can access this URL by adding any required firewall rules.
 
