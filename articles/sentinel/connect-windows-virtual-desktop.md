@@ -27,7 +27,7 @@ For example, monitoring your Windows Virtual Desktop environments can enable you
 
 The following image shows how data is streamed into Azure Sentinel via Log Analytics:
 
-:::image type="content" source="media/windows-virtual-desktop-integration/windows-virtual-desktop-sentinel-architecture.png" alt-text="Windows Virtual Desktop data streaming into Azure Sentinel via Log Analytics.":::
+:::image type="content" source="media/connect-windows-virtual-desktop/windows-virtual-desktop-sentinel-architecture.png" alt-text="Windows Virtual Desktop data streaming into Azure Sentinel via Log Analytics":::
 
 Windows Virtual Desktop data in Azure Sentinel includes the following types:
 
@@ -35,7 +35,9 @@ Windows Virtual Desktop data in Azure Sentinel includes the following types:
 
     Windows event logs from the WVD environment are streamed into Azure Sentinel in the same manner as Windows event logs from other Windows machines outside of the WVD environment.
 
-    Install the Log Analytics agent onto your Windows machine and configure the Windows event logs to be sent to the Log Analytics workspace. For more information, see:
+    Install the Log Analytics agent onto your Windows machine and configure the Windows event logs to be sent to the Log Analytics workspace. 
+
+    For more information, see:
 
     - [Install Log Analytics agent on Windows computers](/azure/azure-monitor/agents/agent-windows)
     - [Collect Windows event log data sources with Log Analytics agent](/azure/azure-monitor/agents/data-sources-windows-events)
@@ -43,7 +45,9 @@ Windows Virtual Desktop data in Azure Sentinel includes the following types:
 
 - **Microsoft Defender for Endpoint (MDE) alerts**.
 
-    To configure MDE for Windows Virtual Desktop, use the same procedure as you would for any other Windows endpoint. For more information, see:
+    To configure MDE for Windows Virtual Desktop, use the same procedure as you would for any other Windows endpoint.
+
+    For more information, see:
 
     - [Set up Microsoft Defender for Endpoint deployment](/windows/security/threat-protection/microsoft-defender-atp/production-deployment)
     - [Connect alerts from Microsoft Defender for Endpoint](/azure/sentinel/connect-microsoft-defender-advanced-threat-protection)
