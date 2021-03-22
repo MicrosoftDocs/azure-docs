@@ -131,7 +131,7 @@ To resume automatic upgrades, run the following command, substituting your own s
 Invoke-AzureRmResourceAction -Action resume -ResourceId /subscriptions/########-####-####-####-############/resourcegroups/myresourcegroup/providers/Microsoft.ServiceFabric/clusters/mycluster/upgrade -ApiVersion "2020-12-01-preview" -Force 
 ```
 
-## Custom upgrade policies for manual upgrades
+## Custom policies for manual upgrades
 
 You can specify custom health polices for manual cluster upgrades. These policies get applied each time you select a new runtime version, which triggers the system to kick off the upgrade of your cluster. If you do not override the policies, the defaults are used.
 
