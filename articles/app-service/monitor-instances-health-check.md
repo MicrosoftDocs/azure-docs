@@ -53,7 +53,7 @@ In addition to configuring the Health check options, you can also configure the 
 
 Health check integrates with App Service's authentication and authorization features. No additional settings are required if these security features are enabled. However, if you're using your own authentication system, the Health check path must allow anonymous access. If the site is HTTP**S**-Only  enabled, the Health check request will be sent via HTTP**S**.
 
-Large enterprise development teams often need to adhere to security requirements for exposed APIs. To secure the Health check endpoint, you should first use features such as [IP restrictions](app-service-ip-restrictions.md#set-an-ip-address-based-rule), [client certificates](app-service-ip-restrictions.md#set-an-ip-address-based-rule), or a Virtual Network to restrict application access. You can secure the Health check endpoint by requiring the `User-Agent` of the incoming request matches `ReadyForRequest/1.0`. The User-Agent can't be spoofed since the request would already secured by prior security features.
+Large enterprise development teams often need to adhere to security requirements for exposed APIs. To secure the Health check endpoint, you should first use features such as [IP restrictions](app-service-ip-restrictions.md#set-an-ip-address-based-rule), [client certificates](app-service-ip-restrictions.md#set-an-ip-address-based-rule), or a Virtual Network to restrict application access. You can secure the Health check endpoint by requiring the `User-Agent` of the incoming request matches `HealthCheck/1.0`. The User-Agent can't be spoofed since the request would already be secured by prior security features.
 
 ## Monitoring
 
