@@ -37,7 +37,7 @@ Anyone monitoring Azure Monitor for Windows Virtual Desktop for your environment
 
 - Read access to the resource group(s) where the environment’s session hosts are located
 
-- Read access to the Log Analytics workspace(s)
+- Read access to the Log Analytics workspace or workspaces
 
 >[!NOTE]
 > Read access only lets admins view data. They'll need different permissions to manage resources in the Windows Virtual Desktop portal.
