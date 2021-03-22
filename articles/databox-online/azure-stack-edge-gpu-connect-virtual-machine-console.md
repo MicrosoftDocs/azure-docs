@@ -45,11 +45,11 @@ Make sure that you have access to a client system that:
 1. Has remote desktop capabilities. Depending on whether you are using Windows, MacOS, or Linux, you should install one of these [Remote desktop clients](/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients). This article provides instructions with [Windows Remote Desktop](/windows-server/remote/remote-desktop-services/clients/windowsdesktop#install-the-client) and [FreeRDP](https://www.freerdp.com/). <!--Which version of FreeRDP to use?-->
 
 
-## Connect to a virtual machine console
+## Connect to VM console
 
 Follow these steps to connect to the virtual machine console on your device.
 
-### Connect to the PowerShell interface on your appliance
+### Connect to the PowerShell interface on your device
 
 The first step is to [Connect to the PowerShell interface](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface) of your device. 
 
@@ -77,7 +77,7 @@ The first step is to [Connect to the PowerShell interface](azure-stack-edge-gpu-
 
 You can now use a Remote Desktop client to connect to the virtual machine console.
 
-#### To use Windows Remote Desktop
+#### Use Windows Remote Desktop
 
 1. Create a new text file and input the following text.
 
@@ -94,7 +94,7 @@ You can now use a Remote Desktop client to connect to the virtual machine consol
     - **Username**: Sign in as EdgeARMUser.
     - **Password**: Provide the local Azure Resource Manager password for your device. If you have forgotten the password, [Reset Azure Resource Manager password via the Azure portal](azure-stack-edge-gpu-set-azure-resource-manager-password.md#reset-password-via-the-azure-portal). 
 
-#### To use FreeRDP
+#### Use FreeRDP
 
 If using FreeRDP on your Linux client, run the following command: 
 
@@ -102,7 +102,7 @@ If using FreeRDP on your Linux client, run the following command:
 ./wfreerdp /u:EdgeARMUser /vmconnect:<VM ID from PowerShell> /v:<IP address of the device>
 ```
 
-## Revoke console access to the VM
+## Revoke VM console access
 
 To revoke access to the VM console, return to the PowerShell interface of your device. Run the following command:
 
