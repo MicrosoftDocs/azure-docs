@@ -75,6 +75,7 @@ Most of the Security agent errors are displayed in the following format:
 Defender for IoT agent encountered an error! Error in: {Error Code}, reason: {Error sub code}, extra details: {error specific details}
 ```
 
+
 | Error Code | Error sub code | Error details | Remediate C | Remediate C# |
 |--|--|--|--|--|
 | Local Configuration | Missing configuration | A configuration is missing in the local configuration file. The error message should state which key is missing. | Add the missing key to the /var/LocalConfiguration.json file, see the [cs-localconfig-reference](azure-iot-security-local-configuration-c.md) for details. | Add the missing key to the General.config file, see the [c#-localconfig-reference](azure-iot-security-local-configuration-csharp.md) for details. |
@@ -88,6 +89,7 @@ Defender for IoT agent encountered an error! Error in: {Error Code}, reason: {Er
 | Authentication | Not Found | The device / module was found. | Validate authentication configuration - make sure the hostname is correct, the device exists in IoT Hub and has an azureiotsecurity twin module. | Validate authentication configuration - make sure the hostname is correct, the device exists in IoT Hub and has an azureiotsecurity twin module. |
 | Authentication | Missing Configuration | A configuration is missing in the *Authentication.config* file. The error message should state which key is missing. | Add the missing key to the *LocalConfiguration.json* file. | Add the missing key to the *Authentication.config* file, see the [c#-localconfig-reference](azure-iot-security-local-configuration-csharp.md) for details. |
 | Authentication | Cant Parse Configuration | A configuration value can't be parsed. The error message should state which key can't be parsed. A configuration value can not be parsed because either the value is not of the expected type, or the value is out of range. | Fix the value of the key in the **LocalConfiguration.json** file. | Fix the value of the key in **Authentication.config** file to match the schema, see the [cs-localconfig-reference](azure-iot-security-local-configuration-c.md) for details.|
+
 
 ## Next steps
 
