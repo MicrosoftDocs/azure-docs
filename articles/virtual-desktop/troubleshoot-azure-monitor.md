@@ -72,7 +72,7 @@ Can't find a data point to help diagnose an issue? Send us feedback!
 
 ## Known issues and limitations
 
-These are issues and limitations we are aware of and working to fix:
+These are issues and limitations we're currently aware of and working to fix:
 
 - You can only monitor one host pool at a time. 
 
