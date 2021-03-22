@@ -127,8 +127,8 @@ Policy engine alerts describe deviations from learned baseline network behavior.
 | Abnormal Traffic Bandwidth | Abnormal bandwidth was detected on a channel. Bandwidth appears to be significantly lower/higher than previously detected. For details, work with the Total Bandwidth widget. | Warning |
 | Abnormal Traffic Bandwidth Between Devices | Abnormal bandwidth was detected on a channel. Bandwidth appears to be significantly lower/higher than previously detected. For details, work with the Total Bandwidth widget. | Warning |
 | Address Scan Detected | A source device was detected scanning network devices. This device has not been authorized as a network scanning device. | Critical |
-| ARP Address Scan Detected | A source device was detected scanning network devices using Address Resolution Protocol (ARP). This device address has not been authorized as valid ARP scanning address. | Critical |
-| ARP Address Scan Detected | A source device was detected scanning network devices using Address Resolution Protocol (ARP). This device address has not been authorized as valid ARP scanning address. | Critical |
+| ARP Address Scan Detected | A source device was detected scanning network devices using Address Resolution Protocol (ARP). This device address has not been authorized as valid ARP scanning address. | Critical |
+| ARP Address Scan Detected | A source device was detected scanning network devices using Address Resolution Protocol (ARP). This device address has not been authorized as valid ARP scanning address. | Critical |
 | ARP Spoofing | An abnormal quantity of packets was detected in the network. This could indicate an attack, for example, an ARP spoofing or ICMP flooding attack. | Warning |
 | Excessive Login Attempts | A source device was seen performing excessive login attempts to a destination server. This may be a brute force attack. The server may be compromised by a malicious actor. | Critical |
 | Excessive Number of Sessions | A source device was seen performing excessive login attempts to a destination server. This may be a brute force attack. The server may be compromised by a malicious actor. | Critical |
