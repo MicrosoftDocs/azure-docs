@@ -21,27 +21,24 @@ In this tutorial, you learn to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription.
-  - If you don't have one, you can [create an account for free](https://azure.microsoft.com/free/).
-- An Azure DevOps Project.
-  - If you don't have one, you can [create an account for free](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/).
-- An understanding of how to set up an Azure DevOps Pipeline.
-  - If you need help getting started, see [Create your first pipeline](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops).
-- An HTML file to create a web app.
-  - Azure Static Web Apps requires at least one HTML file to create a web app. You can reference the **vanilla-api** repository for a starting template, navigate to [https://github.com/staticwebdev/vanilla-api/generate](https://github.com/staticwebdev/vanilla-api/generate), or bring an existing HTML file/repository.
+- **Active Azure account:** If you don't have one, you can [create an account for free](https://azure.microsoft.com/free/).
+- **Azure DevOps Project:** If you don't have one, you can [create an account for free](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/).
+- **Azure DevOps Pipeline:** If you need help getting started, see [Create your first pipeline](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops).
+- **Static web app:** If you don't have an existing app, generate one from this [starter template](https://github.com/login?return_to=/staticwebdev/vanilla-basic/generate).
 
  
 
 
 ## Create a static web app
+
 1. Navigate to the [Azure portal](https://portal.azure.com).
 1. Select **Create a Resource**.
 1. Search for **Static Web Apps**.
 1. Select **Static Web Apps (Preview)**.
 1. Select **Create**.
-1. Configure the resource with the required configuration details. Under 'Deployment details' ensure that you select **Other**. This enables you to use the code in your Azure DevOps repo (or another source control repo other than GitHub).
+1. Configure the resource with the required configuration details. Under _Deployment details_ ensure that you select **Other**. This enables you to use the code in your DevOps repo.
 
-:::image type="content" source="media/publish-devops/create-resource.png" alt-text="Deployment details - other":::
+  :::image type="content" source="media/publish-devops/create-resource.png" alt-text="Deployment details - other":::
 
 1. Once the deployment is successful, select **Manage deployment token**.
 1. Copy the **deployment token** and paste it into a text editor for use in another screen
@@ -92,7 +89,7 @@ steps:​
    
 Once the deployment is successful, navigate to the Azure Static Web Apps **Overview** which includes links to the deployment configuration. The _Source_ link now points to the branch and location of the Azure DevOps repository.
    
-:::image type="content" source="media/publish-devops/deployment-location.png" alt-text="Deployment location":::
+  :::image type="content" source="media/publish-devops/deployment-location.png" alt-text="Deployment location":::
 
 
 ## Next steps
