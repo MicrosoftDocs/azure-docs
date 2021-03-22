@@ -1,12 +1,8 @@
 ---
 title: About alert messages
 description: Select an alert from the Alerts window to review details.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
-ms.date: 12/03/2020
+ms.date: 3/21/2021
 ms.topic: how-to
-ms.service: azure
 ---
 
 # About alert messages

@@ -7,7 +7,7 @@ manager: femila
 ms.service: media-services
 ms.topic: conceptual
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/17/2021
 ms.author: inhenkel
 ---
 
@@ -71,7 +71,7 @@ Click on the image below to see a larger version.
         - Output asset(s)
         - A resource group
         - AMS account name  
-1. Use [Event Grid](monitor-events-portal-how-to.md) for monitoring your job.
+1. Use [Event Grid](monitoring/monitor-events-portal-how-to.md) for monitoring your job.
 1. Submit the job.
 
 ## Custom presets from V2 to V3 encoding

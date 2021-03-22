@@ -6,7 +6,7 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 03/19/2021
 ms.author: banders
 ---
 
@@ -40,7 +40,7 @@ First, get the reservation order and price for the provisioned HANA large instan
 The following example uses [armclient](https://github.com/projectkudu/ARMClient) to make REST API calls with PowerShell. Here's what the reservation order and Calculate Price API request and request body should resemble:
 
 ```azurepowershell-interactive
-armclient post /providers/Microsoft.Capacity/calculatePrice?api-version=2018-06-01 "{
+armclient post /providers/Microsoft.Capacity/calculatePrice?api-version=2019-04-01  "{
     'sku': {
         'name': 'SAP_HANA_On_Azure_S224om'
     },
@@ -50,6 +50,7 @@ armclient post /providers/Microsoft.Capacity/calculatePrice?api-version=2018-06-
         'billingScopeId': '/subscriptions/11111111-1111-1111-111111111111',
         'term': 'P1Y',
         'quantity': '1',
+        'billingplan': 'Monthly'
         'displayName': 'testreservation_S224om',
         'appliedScopes': ['/subscriptions/11111111-1111-1111-111111111111'],
         'appliedScopeType': 'Single',
@@ -109,16 +110,18 @@ Make your purchase using the returned `quoteId` and the `reservationOrderId` tha
 Here's an example request:
 
 ```azurepowershell-interactive
-armclient put /providers/Microsoft.Capacity/reservationOrders/22222222-2222-2222-2222-222222222222?api-version=2018-06-01 "{
+armclient put /providers/Microsoft.Capacity/reservationOrders/22222222-2222-2222-2222-222222222222?api-version=2019-04-01  "{
     'sku': {
         'name': 'SAP_HANA_On_Azure_S224om'
     },
     'location': 'eastus',
     'properties': {
-        'reservedResourceType': 'SapHana',
+       'reservedResourceType': 'SapHana',
         'billingScopeId': '/subscriptions/11111111-1111-1111-111111111111',
         'term': 'P1Y',
         'quantity': '1',
+               'billingplan': 'Monthly'
+
         'displayName': ' testreservation_S224om',
         'appliedScopes': ['/subscriptions/11111111-1111-1111-111111111111/resourcegroups/123'],
         'appliedScopeType': 'Single',

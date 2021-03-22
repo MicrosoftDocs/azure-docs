@@ -6,7 +6,6 @@ manager: rkarlin
 ms.author: shhazam
 ms.date: 3/22/2021
 ms.topic: how-to
-ms.service: azure
 ---
 
 # Filter and manage alerts from the Alerts page 

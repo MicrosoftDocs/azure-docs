@@ -1,12 +1,8 @@
 ---
 title: About sensor alerts
 description: Work with alerts to help you enhance the security and operation of your network.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 11/30/2020
 ms.topic: how-to
-ms.service: azure
 ---
 
 # About sensor alerts
