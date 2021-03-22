@@ -1,12 +1,7 @@
 ---
 title: Feature support and retirement
-titleSuffix: Azure Defender for IoT
 description: Defender for IoT will continue to support C, C#, and Edge until March 1, 2022. 
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/21/2021
-ms.service: azure
 ms.topic: how-to
 ---
 

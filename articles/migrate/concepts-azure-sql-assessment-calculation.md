@@ -8,12 +8,9 @@ ms.date: 02/07/2021
 
 ---
 
-# Assessment overview (migrate to Azure SQL)
+# Assessment Overview (migrate to Azure SQL)
 
 This article provides an overview of assessments for migrating on-premises SQL Server instances from a VMware environment to Azure SQL databases or Managed Instances using the [Azure Migrate: Discovery and assessment tool](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-server-assessment-tool).
-
-> [!Note]
-> Discovery and assessment of SQL Server instances and databases running in your VMware environment is now in preview. To try out this feature, use [**this link**](https://aka.ms/AzureMigrate/SQL) to create a project in **Australia East** region. If you already have a project in Australia East and want to try out this feature, please ensure that you have completed these [**prerequisites**](how-to-discover-sql-existing-project.md) on the portal.
 
 ## What's an assessment?
 An assessment with the Discovery and assessment tool is a point in time snapshot of data and measures the readiness and estimates the effect of migrating on-premises servers to Azure.
@@ -24,9 +21,9 @@ There are three types of assessments you can create using the Azure Migrate: Dis
 
 **Assessment Type** | **Details**
 --- | --- 
-**Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines. You can assess your on-premises servers in [VMware](how-to-set-up-appliance-vmware.md) and [Hyper-V](how-to-set-up-appliance-hyper-v.md) environment, and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure VMs using this assessment type.
+**Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines. <br/><br/> You can assess your on-premises servers in [VMware](how-to-set-up-appliance-vmware.md) and [Hyper-V](how-to-set-up-appliance-hyper-v.md) environment, and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure VMs using this assessment type.
 **Azure SQL** | Assessments to migrate your on-premises SQL servers from your VMware environment to Azure SQL Database or Azure SQL Managed Instance.
-**Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution (AVS) using this assessment type. [Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
+**Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution (AVS) using this assessment type. [Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
 
 An Azure SQL assessment provides one sizing criteria:
 
@@ -72,34 +69,34 @@ Here's what's included in Azure SQL assessment properties:
 **Property** | **Details**
 --- | ---
 **Target location** | The Azure region to which you want to migrate. Azure SQL configuration and cost recommendations are based on the location that you specify.
-**Target deployment type** | The target deployment type you want to run the assessment on: Select **Recommended**, if you want Azure Migrate to assess the readiness of your SQL servers for migrating to Azure SQL MI and Azure SQL DB, and recommend the best suited target deployment option, target tier, Azure SQL configuration and monthly estimates. Select **Azure SQL DB**, if you want to assess your SQL servers for migrating to Azure SQL Databases only and review the target tier, Azure SQL DB configuration and monthly estimates. Select **Azure SQL MI**, if you want to assess your SQL servers for migrating to Azure SQL Databases only and review the target tier, Azure SQL MI configuration and monthly estimates.
-**Reserved capacity** | Specifies reserved capacity so that cost estimations in the assessment take them into account. If you select a reserved capacity option, you can't specify “Discount (%)”.
-**Sizing criteria** | This property is used to right-size the Azure SQL configuration. It is defaulted to **Performance-based** which means the assessment will collect the SQL Server instances and databases performance metrics to recommend an optimal-sized Azure SQL Managed Instance and/or Azure SQL  Database tier/configuration recommendation.
+**Target deployment type** | The target deployment type you want to run the assessment on: <br/><br/> Select **Recommended**, if you want Azure Migrate to assess the readiness of your SQL servers for migrating to Azure SQL MI and Azure SQL DB, and recommend the best suited target deployment option, target tier, Azure SQL configuration and monthly estimates.<br/><br/>Select **Azure SQL DB**, if you want to assess your SQL servers for migrating to Azure SQL Databases only and review the target tier, Azure SQL DB configuration and monthly estimates.<br/><br/>Select **Azure SQL MI**, if you want to assess your SQL servers for migrating to Azure SQL Databases only and review the target tier, Azure SQL MI configuration and monthly estimates.
+**Reserved capacity** | Specifies reserved capacity so that cost estimations in the assessment take them into account.<br/><br/> If you select a reserved capacity option, you can't specify “Discount (%)”.
+**Sizing criteria** | This property is used to right-size the Azure SQL configuration. <br/><br/> It is defaulted to **Performance-based** which means the assessment will collect the SQL Server instances and databases performance metrics to recommend an optimal-sized Azure SQL Managed Instance and/or Azure SQL  Database tier/configuration recommendation.
 **Performance history** | Performance history specifies the duration used when performance data is evaluated.
 **Percentile utilization** | Percentile utilization specifies the percentile value of the performance sample used for rightsizing.
-**Comfort factor** | The buffer used during assessment. It accounts for issues like seasonal usage, short performance history, and likely increases in future usage. For example, a 10-core instance with 20% utilization normally results in a two-core instance. With a comfort factor of 2.0, the result is a four-core instance instead.
+**Comfort factor** | The buffer used during assessment. It accounts for issues like seasonal usage, short performance history, and likely increases in future usage.<br/><br/> For example, a 10-core instance with 20% utilization normally results in a two-core instance. With a comfort factor of 2.0, the result is a four-core instance instead.
 **Offer/Licensing program** | The [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) in which you're enrolled. Currently you can only choose from Pay-as-you-go and Pay-as-you-go Dev/Test. Note that you can avail additional discount by applying reserved capacity and Azure Hybrid Benefit on top of Pay-as-you-go offer.
-**Service tier** | The most appropriate service tier option to accommodate your business needs for migration to Azure SQL Database and/or Azure SQL Managed Instance: Select **Recommended** if you want Azure Migrate to recommend the best suited service tier for your servers. This can be General purpose or Business critical. Select **General Purpose** If you want an Azure SQL configuration designed for budget-oriented workloads. [Learn More](https://docs.microsoft.com/azure/azure-sql/database/service-tier-general-purpose) Select **Business Critical** If you want an Azure SQL configuration designed for low-latency workloads with high resiliency to failures and fast failovers. [Learn More](https://docs.microsoft.com/azure/azure-sql/database/service-tier-business-critical)
+**Service tier** | The most appropriate service tier option to accommodate your business needs for migration to Azure SQL Database and/or Azure SQL Managed Instance:<br/><br/>**Recommended** if you want Azure Migrate to recommend the best suited service tier for your servers. This can be General purpose or Business critical. <br/><br/> **General Purpose** If you want an Azure SQL configuration designed for budget-oriented workloads. [Learn More](https://docs.microsoft.com/azure/azure-sql/database/service-tier-general-purpose) <br/><br/> **Business Critical** If you want an Azure SQL configuration designed for low-latency workloads with high resiliency to failures and fast failovers. [Learn More](https://docs.microsoft.com/azure/azure-sql/database/service-tier-business-critical)
 **Currency** | The billing currency for your account.
 **Discount (%)** | Any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
-**Azure Hybrid Benefit** | Specifies whether you already have a SQL Server license. If you do and they're covered with active Software Assurance of SQL Server subscriptions, you can apply for the Azure Hybrid Benefit when you bring licenses to Azure.
+**Azure Hybrid Benefit** | Specifies whether you already have a SQL Server license. <br/><br/> If you do and they're covered with active Software Assurance of SQL Server Subscriptions, you can apply for the Azure Hybrid Benefit when you bring licenses to Azure.
 
 [Review the best practices](best-practices-assessment.md) for creating an assessment with Azure Migrate.
 
 ## Calculate readiness
 
 > [!NOTE]
-> The assessment only includes databases that are in online status. In case the database is in any other status, the assessment ignores the readiness, sizing and cost calculation for such databases. In case you wish you assess such databases, please change the status of the database and recalculate the assessment in some time.
+The assessment only includes databases that are in online status. In case the database is in any other status, the assessment ignores the readiness, sizing and cost calculation for such databases. In case you wish you assess such databases, please change the status of the database and recalculate the assessment in some time.
 
 ### Azure SQL readiness
 
 Azure SQL readiness for SQL instances and databases is based on a feature compatibility check with Azure SQL Database and Azure SQL Managed Instance:
-- The Azure SQL assessment considers the SQL Server instance features that are currently used by the source SQL Server workloads (SQL Agent jobs, linked servers, etc.) and the user databases schemas (tables, views, triggers, stored procedures etc.) to identify compatibility issues.
-- If there are no compatibility issues found, the readiness is marked as **Ready** for the target deployment type (Azure SQL Database or Azure SQL Managed Instance)
-- If there are non-critical compatibility issues, such as degraded or unsupported features that do not block the migration to a specific target deployment type, the readiness is marked as **Ready** (hyperlinked and blue information icon) with **warning** details and recommended remediation guidance.
-- If there are any compatibility issues that may block the migration to a specific target deployment type, the readiness is marked as **Not ready** with **issue** details and recommended remediation guidance.
+1. The Azure SQL assessment considers the SQL Server instance features that are currently used by the source SQL Server workloads (SQL Agent jobs, linked servers, etc.) and the user databases schemas (tables, views, triggers, stored procedures etc.) to identify compatibility issues.
+1. If there are no compatibility issues found, the readiness is marked as **Ready** for the target deployment type (Azure SQL Database or Azure SQL Managed Instance)
+1. If there are non-critical compatibility issues, such as degraded or unsupported features that do not block the migration to a specific target deployment type, the readiness is marked as **Ready** (hyperlinked and blue information icon) with **warning** details and recommended remediation guidance.
+1. If there are any compatibility issues that may block the migration to a specific target deployment type, the readiness is marked as **Not ready** with **issue** details and recommended remediation guidance.
     - If there is even one database in a SQL instance which is not ready for a particular target deployment type, the instance is marked as **Not ready** for that deployment type.
-- If the discovery is still in progress or there are any discovery issues for a SQL instance or database, the readiness is marked as **Unknown** as the assessment could not compute the readiness for that SQL instance.
+1. If the discovery is still in progress or there are any discovery issues for a SQL instance or database, the readiness is marked as **Unknown** as the assessment could not compute the readiness for that SQL instance.
 
 ### Recommended deployment type
 
@@ -109,11 +106,11 @@ If you select the target deployment type as **Recommended** in the Azure SQL ass
 
  **Azure SQL DB readiness** | **Azure SQL MI readiness** | **Recommended deployment type** | **Azure SQL configuration and cost estimates calculated?**
  --- | --- | --- | --- |
- Ready | Ready | Azure SQL DB or Azure SQL MI | Yes
- Ready | Not ready or Unknown | Azure SQL DB | Yes
- Not ready or Unknown | Ready | Azure SQL MI | Yes
+ Ready | Ready | Azure SQL DB or <br/>Azure SQL MI | Yes
+ Ready | Not ready or<br/> Unknown | Azure SQL DB | Yes
+ Not ready or<br/>Unknown | Ready | Azure SQL MI | Yes
  Not ready | Not ready | Potentially ready for Azure VM | No
- Not ready or Unknown | Not ready or Unknown | Unknown | No
+ Not ready or<br/>Unknown | Not ready or<br/>Unknown | Unknown | No
 
 > [!NOTE]
 > If the recommended deployment type is selected as **Recommended** in assessment properties and if the source SQL Server is good fit for both Azure SQL DB single database and Azure SQL Managed Instance, the assessment recommends a specific option that optimizes your cost and fits within the size and performance boundaries.
