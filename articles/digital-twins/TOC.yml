@@ -178,7 +178,15 @@
   - name: Query language reference
     items:
       - name: Clauses
-        href: reference-query-clauses.md
+        items:
+        - name: SELECT
+          href: reference-query-clause-select.md
+        - name: FROM
+          href: reference-query-clause-from.md
+        - name: JOIN
+          href: reference-query-clause-join.md
+        - name: WHERE
+          href: reference-query-clause-where.md
       - name: Functions
         href: reference-query-functions.md
       - name: Operators

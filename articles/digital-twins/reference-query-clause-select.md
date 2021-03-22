@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: Azure Digital Twins query language reference - Clauses
+title: Azure Digital Twins query language reference - SELECT clauses
 titleSuffix: Azure Digital Twins
-description: Reference documentation for the Azure Digital Twins query language clauses
+description: Reference documentation for the Azure Digital Twins query language SELECT clause
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 03/22/2021
@@ -15,19 +15,13 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Azure Digital Twins query language reference: Clauses
+# Azure Digital Twins query language reference: SELECT clause
 
-This document contains reference information on the **clauses** for the [Azure Digital Twins query language](concepts-query-language.md).
+This document contains reference information on the **SELECT clause** for the [Azure Digital Twins query language](concepts-query-language.md).
 
-The basic components of an Azure Digital Twins query are:
-* [SELECT](#select) clause
-* [FROM](#from) clause
-* [JOIN](#join) clause (optional)
-* [WHERE](#where) clause
+This clause is required for all queries.
 
-See the sections below for more details.
-
-## SELECT
+## SELECT core syntax
 
 ### Example
 
@@ -37,7 +31,7 @@ The following example...
 <example>
 ```
 
-## FROM
+## SELECT COUNT
 
 ### Example
 
@@ -47,7 +41,7 @@ The following example...
 <example>
 ```
 
-## JOIN
+## SELECT TOP
 
 ### Example
 
@@ -57,7 +51,7 @@ The following example...
 <example>
 ```
 
-## WHERE
+## SELECT with projections
 
 ### Example
 
