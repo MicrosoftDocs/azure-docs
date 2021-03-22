@@ -54,7 +54,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * A user account in SolarWinds Service Desk with admin permissions.
 
 > [!Note]
-> Roles should not be manually edited in AAD when doing role imports.
+> Roles should not be manually edited in Azure Active Directory when doing role imports.
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
