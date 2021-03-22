@@ -23,6 +23,22 @@ In the event that you need to rotate the AD FS certificates immediately, you can
 > Microsoft highly recommends using a Hardware Security Module (HSM) to protect and secure certificates.
 > For more information see [Hardware Security Module](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#hardware-security-module-hsm) under best practices for securing AD FS.
 
+## Summary of emergency rotation of AD FS certificates steps
+The following table summarized the steps that are outlined below.
+
+|Step|Name|Description|
+|-----|-----|-----|
+|1| [Determine your Token Signing Certificate thumbprint](#determine-your-token-signing-certificate-thumbprint)| Determine the thumbprint of your old token-signing certificate.|
+|2|[Determine whether AD FS renews the certificates automatically](#determine-whether-ad-fs-renews-the-certificates-automatically)|Determine whether the AutoCertificateRollover property is set to TRUE or FALSE|
+|3 a|[Generating new self-signed certificate if AutoCertificateRollover is set to TRUE](#generating-new-self-signed-certificate-if-autocertificaterollover-is-set-to-true)|Create new certificates if you have AutoCertificateRollover property set to TRUE|
+|3 b|[Generating new certificates manually if AutoCertificateRollover is set to FALSE](#generating-new-certificates-manually-if-autocertificaterollover-is-set-to-false)|Import new certifcates for users who use manually imported certificates and have the AutoCertificateRollover property set to FALSE|
+|4|[Update Azure AD with the new token-signing certificate](#update-azure-ad-with-the-new-token-signing-certificate)|Send an update to Azure AD to use the new certificate|
+|5|[Replace SSL certificates](#replace-ssl-certificates)|Update the SSL certificates used by AD FS and WAP servers|
+|6|[Remove your old certificates](#remove-your-old-certificates)|Remove the old token-signing certificate.|
+|7| [Updating federation partners who can consume Federation Metadata](#updating-federation-partners-who-can-consume-federation-metadata)|Information on federation partners|
+|8|[Updating federation partners who can NOT consume Federation Metadata](#updating-federation-partners-who-can-not-consume-federation-metadata)|Information on federation partners|
+|9|[Revoke refresh tokens via PowerShell](#revoke-refresh-tokens-via-powershell)|Revoke users refresh tokens and force them to re-logon|
+
 ## Determine your Token Signing Certificate thumbprint
 In order to revoke the old Token Signing Certificate which AD FS is currently using, you need to determine the thumbprint of the token-sigining certificate.  To do this, use the following steps below:
 
@@ -80,8 +96,12 @@ Now that the new certificate has been imported and configured in AD FS, you need
 3. Click the secondary token signing certificate.
 4. In the **Actions** pane, click **Set As Primary**. Click Yes at the confirmation prompt.
 
-### Revoke the old certificate
+### Remove your old certificates
 Once you use `Update-ADFSCertificate –CertificateType <type> -Urgent` the new certificate will become the primary certificate.  However, we still want to remove the old certificate because it can still be used.  To do this, follow the steps below:
+
+1. Ensure that you are logged on to the primary AD FS server.
+2. Open Windows PowerShell as an administrator. 
+4. To remove the old token signing certificate: `Remove-ADFSCertificate –CertificateType token-signing -thumbprint <thumbprint>`.
 
 ### To configure the second certificate as a secondary certificate
 Now that you have added the first certificate and made it primary and removed the old one, import the second certificate.  Then you must configure the certificate as the secondary AD FS token signing certificate
