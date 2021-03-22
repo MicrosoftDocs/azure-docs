@@ -99,7 +99,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 3. Run the installation script using the command
 
    ```powershell
-   .\App ContainerizationInstaller.ps1
+   .\AppContainerizationInstaller.ps1
    ```
 
 ## Launch the App Containerization tool
