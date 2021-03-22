@@ -63,7 +63,7 @@ To start using Azure Monitor for Windows Virtual Desktop, you'll need at least o
 >[!NOTE]
 >Standard data storage charges for Log Analytics will apply. To start, we recommend you choose the pay-as-you-go model and adjust as you scale your deployment and take in more data. To learn more, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
-## Set up with the Configuration Workbook
+## Set up using the configuration workbook
 
 If it's your first time opening Azure Monitor for Windows Virtual Desktop, you'll need set up Azure Monitor for your Windows Virtual Desktop environment. To configure your resources:
 
