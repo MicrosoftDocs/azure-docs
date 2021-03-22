@@ -69,7 +69,10 @@ Register an application called 'VC Wallet App' in Azure Active Directory (AAD) a
 
 Now let's create a new Ninja credential using your Azure Active Directory. 
 
-1. Copy the rules file below and save it to **modified_ninjaRules.json**.
+1. Copy the rules file below and save it to **modified_ninjaRules.json**. 
+
+> [!note]
+> **"scope": "openid profile"** is included in this Rules file and was not included in the Sample App's Rules file. The next section will explain how to enable the optional claims in your Azure Active Directory tenant. 
     
     ```json
     {
@@ -82,7 +85,8 @@ Now let's create a new Ninja credential using your Azure Active Directory.
             },
             "configuration": "https://dIdPlayground.b2clogin.com/dIdPlayground.onmicrosoft.com/B2C_1_sisu/v2.0/.well-known/openid-configuration",
             "client_id": "8d5b446e-22b2-4e01-bb2e-9070f6b20c90",
-            "redirect_uri": "vcclient://openid"
+            "redirect_uri": "vcclient://openid/",
+             "scope": "openid profile"
           }
         ]
       },
@@ -98,6 +102,21 @@ Now let's create a new Ninja credential using your Azure Active Directory.
 ![highlighting the two values that need to be modified as part of this step](media/tutorial-sample-app-your-IdP/rules-file.png)
 
 The value **Configuration** is the OpenID Connect metadata document URI.
+
+3. Since the Sample Code is using Azure Active Directory B2C and we are using Azure Active Directory, we need to add optional claims via scopes in order for these claims to be included in the ID Token to be written into the Verifiable Credential. 
+
+- Open Azure Active Directory in the portal
+- Open App Registrations
+- Open the VC Wallet App we created earlier
+- Open token configuration 
+- Add optional claim
+- Select ID
+- Select given_name and family_name
+- Press add
+
+![Add optional claim in the ID token](media/tutorial-sample-app-your-IdP/optional_claim.png)
+
+Now when a user is presented with the "sign in" to get issued your Verifiable Credential, the VC Wallet App knows to include the specific claims to be written in to the Verifiable Credential. 
 
 ## Create new VC with this rules file and old display file
 
