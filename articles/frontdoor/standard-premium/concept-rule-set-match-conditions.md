@@ -34,7 +34,7 @@ You can use a match condition to:
 ## Match conditions
 
 - [Device type](#IsDevice) - Identifies requests that have been made from a mobile device or desktop device.
-- [Post args](#PostArgs) - Identifies requests based on the arguments provided within a POST body.
+- [Post args](#PostArgs) - Identifies requests based on the arguments provided within a POST request's body.
 - [Query string](#QueryString) - Identifies requests that contain a specific query string.
 - [Remote address](#RemoteAddress) - Identifies requests based on the requester's location or IP address.
 - [Request body](#RequestBody) - Identifies requests based on specific text that appears in the body of the request.
@@ -101,9 +101,12 @@ In this example, we match all requests that have been detected as coming from a 
 
 ## <a name="PostArgs"></a> Post args
 
-Use the **post args** match condition to identify requests based on the arguments provided within a POST body. A single match condition matches a single argument from the POST body. You can specify multiple values to match, which will be combined using OR logic.
+Use the **post args** match condition to identify requests based on the arguments provided within a POST request's body. A single match condition matches a single argument from the POST request's body. You can specify multiple values to match, which will be combined using OR logic.
 
-<!-- TODO Does this only work with certain content types? -->
+> [!NOTE]
+> The **post args** match condition works with the `application/x-www-form-urlencoded` content type.
+
+<!-- TODO Checking with PG - any other content types? -->
 
 ### Properties
 
