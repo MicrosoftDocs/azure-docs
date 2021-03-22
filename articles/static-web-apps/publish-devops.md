@@ -16,7 +16,7 @@ This article demonstrates how to deploy to [Azure Static Web Apps](./overview.md
 
 In this tutorial, you learn to:
 
-- Set up an Azure Static Web App
+- Set up an Azure Static Web Apps site
 - Create an Azure DevOps Pipeline to build and publish a static web app 
 
 ## Prerequisites
