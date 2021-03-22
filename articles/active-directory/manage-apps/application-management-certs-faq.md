@@ -36,13 +36,13 @@ Azure AD will send an email notification 60, 30, and 7 days before the SAML cert
 > [!NOTE]
 > You can add up to 5 email addresses to the Notification list (including the email address of the admin who added the application). If you need more people to be notified, use the distribution list emails. 
 
-To specify the emails you want the notifications to be sent to, see[Add email notification addresses for certificate expiration](manage-certificates-for-federated-single-sign-on.md#add-email-notification-addresses-for-certificate-expiration).
+To specify the emails you want the notifications to be sent to, see [Add email notification addresses for certificate expiration](manage-certificates-for-federated-single-sign-on.md#add-email-notification-addresses-for-certificate-expiration).
 
 There is no option to edit or customize these email notifications received from `aadnotification@microsoft.com`. However, you can export app registrations with expiring secrets and certificates through [PowerShell scripts](app-management-powershell-samples.md).
 
 ## Who can update the certificates?
 
-The owner of the application or Global Administrator or Application Administrator can update the certificates through Azure Portal UI, PowerShell or Microsoft Graph.
+The owner of the application or Global Administrator or Application Administrator can update the certificates through Azure portal UI, PowerShell or Microsoft Graph.
 
 ## I need more details about certificate signing options.
 
