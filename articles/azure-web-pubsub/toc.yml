@@ -18,6 +18,10 @@
     items:
     - name: Create instance
       href: web-pubsub-howto-create-instance.md
+  - name: Troubleshooting
+    items:
+    - name: Collect network trace
+      href: web-pubsub-howto-troubleshoot-network-trace.md
 
 - name: Resources
   items:
