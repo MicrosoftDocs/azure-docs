@@ -1,7 +1,7 @@
 ---
 title: "Graph search query syntax"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the search query syntax in Azure Machine Learning designer to search for nodes in in pipeline graph.
+description: Learn how to use the search query syntax in Azure Machine Learning designer to search for nodes in pipeline graph.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -21,7 +21,7 @@ Graph search lets you fast navigate a node when you are debugging or building a 
 
 Graph search supports full-text keyword search on node name and comments. You can also filter on node property like runStatus, duration, computeTarget. The keyword search is based on Lucene query. A complete search query looks like this:  
 
-**[ lucene query | [filter query] ]** 
+**[[lucene query] | [filter query]]** 
 
 You can use either Lucene query or filter query. To use both, use the **|** separator. The syntax of the filter query is more strict than Lucene query. So if customer input can be parsed as both, the filter query will be applied.
 
