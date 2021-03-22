@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.service: azure
 ---
 
-# Defender for IoT Engine Alerts
+# Defender for IoT Engine alerts
 
 This article describes alerts that may be generated from the Defender for IoT engines. Alerts appear in the Alerts window, where you can manage the alert event. 
 
