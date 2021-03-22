@@ -4,7 +4,7 @@ description: Learn how to use continuous integration and delivery to move Data F
 ms.service: data-factory
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 03/11/2021
 ---
