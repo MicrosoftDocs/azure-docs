@@ -273,6 +273,7 @@ The details of each step are given below.
     ```
 
     1. Sign in to the client machine (standby head node) and navigate to ssl directory.
+<<<<<<< HEAD
 
     ```bash
     ssh sshuser@HeadNode1_Name
@@ -282,6 +283,17 @@ The details of each step are given below.
 1. Create client store with signed cert, and import ca cert into the keystore and truststore on client machine (hn1):
 
     ```bash
+=======
+
+    ```bash
+    ssh sshuser@HeadNode1_Name
+    cd ssl
+    ```
+
+1. Create client store with signed cert, and import ca cert into the keystore and truststore on client machine (hn1):
+
+    ```bash
+>>>>>>> 3fa980e9aab49454bfdbdfbcb2947130e8ab6624
     keytool -keystore kafka.client.truststore.jks -alias CARoot -import -file ca-cert -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
     
     keytool -keystore kafka.client.keystore.jks -alias CARoot -import -file ca-cert -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
