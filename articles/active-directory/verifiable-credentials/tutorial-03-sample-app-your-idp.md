@@ -93,7 +93,7 @@ Now let's create a new Ninja credential using your Azure Active Directory.
     }
     ```
 
-2. Open the file in your editor and replace the **client_id** and **configuration** values with the two objects we copied in the previous section.
+2. Open the file and replace the **client_id** and **configuration** values with the two values we copied in the previous section.
 
 ![highlighting the two values that need to be modified as part of this step](media/tutorial-sample-app-your-IdP/rules-file.png)
 
@@ -104,13 +104,11 @@ The value **Configuration** is the OpenID Connect metadata document URI.
 Follow the steps we followed earlier. Once that you have a new vv get the contract URL.
 
 1. Upload the new rules file to our container
-1. At the verifiable credentials page create a new credential called **ninjaCatModified** using the old display file and the new rules file (**modified_ninjaRules.json**).
-1.
-
-Save the contract URL, we will need it in the next section. 
+1. From the verifiable credentials page create a new credential called **ninjaCatModified** using the old display file and the new rules file (**modified_ninjaRules.json**).
+1. Save the contract URL, we will need it in the next section. 
 
 ```
-https://portableidentitycards.azure-api.net/v1.0/96e93203-0285-41ef-88e5-a8c9b7a33457/portableIdentities/contracts/MyIdPNinja
+goo/96e93203-0285-41ef-88e5-a8c9b7a33457/portableIdentities/contracts/MyIdPNinja
 ```
 
 ## Set up your node app with access to Key Vault
