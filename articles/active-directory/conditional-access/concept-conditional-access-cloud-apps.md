@@ -20,7 +20,8 @@ ms.collection: M365-identity-device-management
 Cloud apps, actions, and authentication context are key signals in a Conditional Access policy. Conditional Access policies allow administrators to assign controls to specific applications, actions, or authentication context.
 
 - Administrators can choose from the list of applications that include built-in Microsoft applications and any [Azure AD integrated applications](../manage-apps/what-is-application-management.md) including gallery, non-gallery, and applications published through [Application Proxy](../manage-apps/what-is-application-proxy.md).
-- Administrators may choose to define policy not based on a cloud application but on a user action. The only supported action is Register security information (preview), allowing Conditional Access to enforce controls around the [combined security information registration experience](../authentication/howto-registration-mfa-sspr-combined.md).
+- Administrators may choose to define policy not based on a cloud application but on a user action like **Register security information** or **Register or join devices (Preview)**, allowing Conditional Access to enforce controls around those actions.
+- Administrators can use authentication context to provide an additional layer of security inside of applications. 
 
 ![Define a Conditional Access policy and specify cloud apps](./media/concept-conditional-access-cloud-apps/conditional-access-cloud-apps-or-actions.png)
 
@@ -126,11 +127,13 @@ User actions are tasks that can be performed by a user. The only currently suppo
 
 ## Authentication context (Preview)
 
-Authentication context can be used to further secure data and actions in applications. These applications can be your own custom applications, applications like SharePoint, features like Privileged Identity Management, or applications protected by Microsoft Cloud App Security (MCAS). 
+Authentication context can be used to further secure data and actions in applications. These applications can be your own custom applications, custom line of business (LOB) applications, applications like SharePoint, features like Privileged Identity Management, or applications protected by Microsoft Cloud App Security (MCAS). 
 
 For example, an organization may keep different files in SharePoint like the lunch menu or their secret BBQ sauce recipe. Everyone may have access to the lunch menu, but users who have access to the secret BBQ sauce recipe may need to access from a managed device and agree to specific terms of use.
 
-These authentication contexts are managed in the Azure portal under **Azure Active Directory** > **Security** > **Conditional Access** > **Authentication context**.
+### Configure authentication contexts
+
+Authentication contexts are managed in the Azure portal under **Azure Active Directory** > **Security** > **Conditional Access** > **Authentication context**.
 
 ![Manage authentication context in the Azure portal](./media/concept-conditional-access-cloud-apps/conditional-access-authentication-context-get-started.png)
 
@@ -138,9 +141,20 @@ These authentication contexts are managed in the Azure portal under **Azure Acti
 > * Deleting authentication context definitions is not possible during the preview. 
 > * The preview is limited to a total of 25 authentication context definitions in the Azure portal.
 
-Create new authentication context definitions by selecting **New authentication context** in the Azure portal. Provide a meaningful name and description, then choose **Save**. Authentication context definitions with the checkbox **Publish to apps** checked will appear to applications that can consume them.
+Create new authentication context definitions by selecting **New authentication context** in the Azure portal. Configure the following attributes:
 
-For more information about authentication context use, see the following articles.
+- **Display name** is the name that is used to identify the authentication context in Azure AD and across applications that consume authentication contexts. We recommend names that can be used across resources, like “trusted devices”, to reduce the number of authentication contexts needed. Having a reduced set limits the number of redirects and provides a better end to end user experience.
+- **Description** provides more information about the policies it is used by Azure AD administrators and those applying authentication contexts to resources.
+- **Publish to apps** checkbox when checked, advertises the authentication context to apps and makes them available to be assigned. If not checked the authentication context will be unavailable to downstream resources. 
+- **ID** is read-only and used in tokesn and apps for request specific authentication context definitions. It is listed here for troubleshooting and development use cases. 
+
+### Add to Conditional Access policy
+
+Administrators can add configured authentication contexts to a Conditional Access policy by selecting it under **Assignments** > **Cloud apps or actions** > **Authentication context**.
+
+### Tag resources with authentication contexts 
+
+For more information about authentication context use in applications, see the following articles.
 
 - Privileged Identity Management
 - SharePoint Online
