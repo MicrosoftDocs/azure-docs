@@ -40,31 +40,31 @@ Open your web browser, and go to the [Microsoft Azure portal](https://portal.azu
 
 1. Select **Streaming endpoints** in the Media Services listing.
 
-   ![Streaming endpoints menu item](media/live-events-obs-quickstart/streaming-endpoints.png)
+   ![Streaming endpoints menu item.](media/live-events-obs-quickstart/streaming-endpoints.png)
 1. If the default streaming endpoint status is stopped, select it. This step takes you to the page for that endpoint.
 1. Select **Start**.
 
-   ![Start button for the streaming endpoint](media/live-events-obs-quickstart/start.png)
+   ![Start button for the streaming endpoint.](media/live-events-obs-quickstart/start.png)
 
 ## Set up an Azure Media Services live stream
 
 1. Go to the Azure Media Services account within the portal, and then select **Live streaming** from the **Media Services** listing.
 
-   ![Live streaming link](media/live-events-obs-quickstart/select-live-streaming.png)
+   ![Live streaming link.](media/live-events-obs-quickstart/select-live-streaming.png)
 1. Select **Add live event** to create a new live streaming event.
 
-   ![Add live event icon](media/live-events-obs-quickstart/add-live-event.png)
+   ![Add live event icon.](media/live-events-obs-quickstart/add-live-event.png)
 1. Enter a name for your new event, such as *TestLiveEvent*, in the **Live event name** box.
 
-   ![Live event name box](media/live-events-obs-quickstart/live-event-name.png)
+   ![Live event name box.](media/live-events-obs-quickstart/live-event-name.png)
 1. Enter an optional description of the event in the **Description** box.
 1. Select the **Pass-through – no cloud encoding** option.
 
-   ![Cloud encoding option](media/live-events-obs-quickstart/cloud-encoding.png)
+   ![Cloud encoding option.](media/live-events-obs-quickstart/cloud-encoding.png)
 1. Select the **RTMP** option.
 1. Make sure that the **No** option is selected for **Start live event**, to avoid being billed for the live event before it's ready. (Billing will begin when the live event is started.)
 
-   ![Start live event option](media/live-events-obs-quickstart/start-live-event-no.png)
+   ![Start live event option.](media/live-events-obs-quickstart/start-live-event-no.png)
 1. Select the **Review + create** button to review the settings.
 1. Select the **Create** button to create the live event. You're then returned to the live event listing.
 1. Select the link to the live event that you created. Notice that your event is stopped.
@@ -82,11 +82,11 @@ OBS starts with a default scene but with no inputs selected.
 
 1. Select **Video Capture Device** from the source device menu. The **Create/Select Source** menu will open.
 
-   ![OBS sources menu with video device selected](media/live-events-obs-quickstart/live-event-obs-video-device-menu.png)
+   ![OBS sources menu with video device selected.](media/live-events-obs-quickstart/live-event-obs-video-device-menu.png)
 
 1. Select the **Add Existing** radio button, then select **OK**. The **Properties for Video Device** menu will open.
 
-   ![OBS new video source menu with add existing selected](media/live-events-obs-quickstart/live-event-obs-new-video-source.png)
+   ![OBS new video source menu with add existing selected.](media/live-events-obs-quickstart/live-event-obs-new-video-source.png)
 
 1. From the **Device** dropdown list, select the video input you want to use for your broadcast. Leave the rest of the settings alone for now, and select **OK**. The input source will be added to the **Sources** panel, and the video input view will show up in the **Preview** area.
 
@@ -98,11 +98,11 @@ OBS starts with a default scene but with no inputs selected.
 
 1. Select **Audio Input Capture** from the source device menu. The **Create/Select Source** menu will open.
 
-   ![OBS sources menu with audio device selected](media/live-events-obs-quickstart/live-event-obs-audio-device-menu.png)
+   ![OBS sources menu with audio device selected.](media/live-events-obs-quickstart/live-event-obs-audio-device-menu.png)
 
 1. Select the **Add Existing** radio button, then select **OK**. The **Properties for Audio Input Capture** menu will open.
 
-   ![OBS audio source with add existing selected ](media/live-events-obs-quickstart/live-event-obs-new-audio-source.png)
+   ![OBS audio source with add existing selected.](media/live-events-obs-quickstart/live-event-obs-new-audio-source.png)
 
 1. From the **Device** dropdown list, select the audio capture device you want to use for your broadcast. Leave the rest of the settings alone for now, and select OK. The audio capture device will be added to the audio mixer panel.
 
@@ -114,17 +114,17 @@ In the next procedure, you'll go back to Azure Media Services in your browser to
 
 1. On the Azure Media Services page of the portal, select **Start** to start the live stream event. (Billing starts now.)
 
-   ![Start icon](media/live-events-obs-quickstart/start.png)
+   ![Start icon.](media/live-events-obs-quickstart/start.png)
 1. Set the **RTMP** toggle to **RTMPS**.
 1. In the **Input URL** box, copy the URL to your clipboard.
 
-   ![Input URL](media/live-events-obs-quickstart/input-url.png)
+   ![Input URL.](media/live-events-obs-quickstart/input-url.png)
 
 1. Switch to the OBS application.
 
 1. Select the **Settings** button in the **Controls** panel. The Settings options will open.
 
-   ![OBS Controls panel with settings selected](media/live-events-obs-quickstart/live-event-obs-settings.png)
+   ![OBS Controls panel with settings selected.](media/live-events-obs-quickstart/live-event-obs-settings.png)
 
 1. Select **Stream** from the **Settings** menu.
 
@@ -134,7 +134,7 @@ In the next procedure, you'll go back to Azure Media Services in your browser to
 
 1. Enter something into the **Stream key** field.  It doesn't really matter what it is, but it needs to have a value.
 
-    ![OBS stream settings](media/live-events-obs-quickstart/live-event-obs-stream-settings.png)
+    ![OBS stream settings.](media/live-events-obs-quickstart/live-event-obs-stream-settings.png)
 
 1. Select **Output** from the **Settings** menu.
 
@@ -180,7 +180,7 @@ In the next procedure, you'll go back to Azure Media Services in your browser to
 
 1. Set the **Max B-frames** to 2
 
-   ![OBS NVidia NVENC GPU encoder settings](media/live-events-obs-quickstart/live-event-obs-NVENC-settings.png)
+   ![OBS NVidia NVidia NVENC GPU encoder settings.](media/live-events-obs-quickstart/live-event-obs-nvidia-settings.png)
 
 #### Intel QuickSync Encoder settings
 
@@ -202,7 +202,7 @@ In the next procedure, you'll go back to Azure Media Services in your browser to
 
 1. Leave the **Subjective Video Enhancements** unchecked.
 
-   ![OBS Intel QuickSync GPU encoder settings](media/live-events-obs-quickstart/live-event-obs-QuickSync-settings.png)
+   ![OBS Intel QuickSync GPU encoder settings.](media/live-events-obs-quickstart/live-event-obs-intel-settings.png)
 
 ### Set Audio settings
 
@@ -212,19 +212,19 @@ In the next procedure, you will adjust the audio encoding settings.
 
 1. Set the Track 1 **Audio Bitrate** to 128 Kbps.
 
-   ![OBS Audio Bitrate settings](media/live-events-obs-quickstart/live-event-obs-Audio-settings.png)
+   ![OBS Audio Bitrate settings.](media/live-events-obs-quickstart/live-event-obs-audio-settings.png)
 
 1. Select the Audio tab in Settings.
 
 1. Set the **Sample Rate** to 44.1 kHz.
 
-   ![OBS Audio Sample Rate settings](media/live-events-obs-quickstart/live-event-obs-Audio-samplerate-settings.png)
+   ![OBS Audio Sample Rate settings.](media/live-events-obs-quickstart/live-event-obs-audio-sample-rate-settings.png)
 
 ### Start streaming
 
 1. In the **Controls** panel, click **Start Streaming**.
 
-    ![OBS start streaming button](media/live-events-obs-quickstart/live-event-obs-start-streaming.png)
+    ![OBS start streaming button.](media/live-events-obs-quickstart/live-event-obs-start-streaming.png)
 
 2. Switch to the Azure Media Services Live event screen in your browser and click the **Reload Player** link. You should now see your stream in the Preview player.
 
@@ -238,12 +238,12 @@ This part will set up your outputs and enable you to save a recording of your li
 1. Select the **Create outputs** link below the **Outputs** video viewer.
 1. If you like, edit the name of the output in the **Name** box to something more user-friendly so it's easy to find later.
 
-   ![Output name box](media/live-events-wirecast-quickstart/output-name.png)
+   ![Output name box.](media/live-events-wirecast-quickstart/output-name.png)
 1. Leave all the rest of the boxes alone for now.
 1. Select **Next** to add a streaming locator.
 1. Change the name of the locator to something more user-friendly, if you want.
 
-   ![Locator name box](media/live-events-wirecast-quickstart/live-event-locator.png)
+   ![Locator name box.](media/live-events-wirecast-quickstart/live-event-locator.png)
 1. Leave everything else on this screen alone for now.
 1. Select **Create**.
 
