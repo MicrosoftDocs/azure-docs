@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to set up an automated process to provision and retire IoT devices in Azure Digital Twins using Device Provisioning Service (DPS).
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 3/11/2021
+ms.date: 3/21/2021
 ms.topic: how-to
 ms.service: digital-twins
 
