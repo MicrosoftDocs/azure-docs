@@ -9,7 +9,7 @@ ms.date: 12/29/2019
 ms.custom: devx-track-java
 ---
 
-# Tutorial: How to monitor Spring Cloud resources using alerts and action groups
+# Tutorial: Monitor Spring Cloud resources using alerts and action groups
 
 **This article applies to:** ✔️ Java ✔️ C#
 

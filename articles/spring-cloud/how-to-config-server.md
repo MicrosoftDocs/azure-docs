@@ -245,4 +245,4 @@ After you've saved a configuration file, the **Delete app configuration** button
 
 ## Next steps
 
-In this article, you learned how to enable and configure your Spring Cloud Config Server instance. To learn more about managing your application, see [Scale an application in Azure Spring Cloud](spring-cloud-tutorial-scale-manual.md).
+In this article, you learned how to enable and configure your Spring Cloud Config Server instance. To learn more about managing your application, see [Scale an application in Azure Spring Cloud](spring-cloud-howto-scale-manual.md).
