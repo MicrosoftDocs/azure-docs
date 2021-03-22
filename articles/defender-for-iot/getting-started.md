@@ -1,18 +1,8 @@
 ---
 title: "Quickstart: Getting started"
 description: In this quickstart you will learn how to get started with understanding the basic workflow for Defender for IoT deployment.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 2/18/2021
-ms.author: shhazam
 ---
 
 # Quickstart: Get started with Defender for IoT
