@@ -80,7 +80,7 @@ sent to the Guest Configuration resource provider when the audit completes. When
 machine is written to the Guest Configuration resource provider. This update causes Azure Policy to
 evaluate the Azure Resource Manager properties. An on-demand Azure Policy evaluation retrieves the
 latest value from the Guest Configuration resource provider. However, it doesn't trigger a new audit
-of the configuration within the machine. The status is simulataneously written to Azure Resource Graph.
+of the configuration within the machine. The status is simultaneously written to Azure Resource Graph.
 
 ## Supported client types
 
