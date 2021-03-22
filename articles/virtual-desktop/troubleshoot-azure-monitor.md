@@ -38,7 +38,7 @@ If your data isn't displaying properly, check the following common solutions:
 
     - Read-access to the Azure subscriptions that hold your Windows Virtual Desktop resources
     - Read-access to the subscription's resource groups that hold your Windows Virtual Desktop session hosts 
-    - Read-access to the Log Analytics workspace(s)
+    - Read-access to whichever Log Analytics workspaces you're using
 
 - You may need to open outgoing ports in your server's firewall to allow Azure Monitor and Log Analytics to send data to the portal. To learn how to do this, see the following articles:
       - [Azure Monitor Outgoing ports](../azure-monitor/app/ip-addresses.md)
