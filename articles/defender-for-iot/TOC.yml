@@ -93,7 +93,7 @@
         displayName: custom, setting, properties
         href: concept-baseline.md
       - name: Azure security baseline for Azure Defender for IoT
-        displayName: identity management, active directory, privileged access, data protection, asset management, incident response, posture, vulnerability, governance
+        displayName: identity management, active directory, privileged access, data protection, incident response, posture, vulnerability, governance
         href: security-baseline.md
       - name: Defender-IoT-micro-agent classic event aggregation                                          
         displayName: twin, default, configuration, alerts
@@ -114,10 +114,10 @@
           href: how-to-identify-required-appliances.md
           displayName: virtual, Dell, HPE, SMB, certified, hardware, deployment, DL20, EL300, R340, enterprise, SMB, corporate
         - name: Set up your network
-          displayName: passive, browsers, network access, TAP, switch, mirroring, firewall, SPAN, monitoring, tuning
+          displayName: passive, browsers, setup, deployment, network access, TAP, switch, mirroring, firewall, SPAN, monitoring, tuning
           href: how-to-set-up-your-network.md
         - name: Install software
-          displayName: virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, DL20, EL300, R340,enterprise, SMB, corporate
+          displayName: setup, deployment, virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, DL20, EL300, R340,enterprise, SMB, corporate
           href: how-to-install-software.md
     - name: Prepare your sensors
       items:
@@ -125,12 +125,12 @@
         displayName: onboard, cloud, register, activate, offboard, subscription, subscriptions
         href: how-to-manage-sensors-on-the-cloud.md
       - name: Activate and set up your sensor
-        displayName: onboard, register, activation, SSL, TLS, certificate, cloud connected, sign in, login, setup, learning mode, initial
+        displayName: deployment, onboard, register, activation, SSL, TLS, certificate, cloud connected, sign in, login, setup, learning mode, initial
         href: how-to-activate-and-set-up-your-sensor.md
     - name: Prepare your on-premises management console
       items:
       - name: Activate and set up your on-premises management console
-        displayName: activate, certificate, sign in, SSL, TLS, login, setup, initial, committed activation file
+        displayName: deployment, activate, certificate, sign in, SSL, TLS, login, setup, initial, committed activation file
         href: how-to-activate-and-set-up-your-on-premises-management-console.md
       - name: Set up high availability
         displayName: primary, secondary, failover, failback fail, recovery 
@@ -166,7 +166,7 @@
         displayName: classification
       - name: Investigate sensor detections in a device inventory
         href: how-to-investigate-sensor-detections-in-a-device-inventory.md
-        displayName: classification, Windows registry, asset, device, firmware, import
+        displayName: classification, Windows registry, device, firmware, import
     - name: Work with the sensor device map
       href: how-to-work-with-the-sensor-device-map.md
       displayName: connections, Purdue, zoom, delete device 
@@ -191,6 +191,9 @@
     - name: Gain insight into global, regional, and local threats
       href: how-to-gain-insight-into-global-regional-and-local-threats.md
       displayName: site, business unit, region, map
+    - name: Few information devices, alerts and sensors per zone
+      href: how-to-view-information-per-zone.md
+      displayName: zones
     - name: Work with alerts on the on-premises management console
       href: how-to-work-with-alerts-on-premises-management-console.md
     - name: Create reports
