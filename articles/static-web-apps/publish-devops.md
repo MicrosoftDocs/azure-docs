@@ -25,7 +25,6 @@ In this tutorial, you will learn how to:
 - An Azure DevOps Project. If you don't have one, you can [create an account for free](https://azure.microsoft.com/en-gb/pricing/details/devops/azure-devops-services/).
 - An understanding of how to set up an Azure DevOps Pipeline. If you are not familiar with how to do so, [instructions are available here.](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops)
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Create an Azure Static Web Apps
 
