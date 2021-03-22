@@ -34,13 +34,13 @@ Once you have fixed the issues that resulted in the rollback, you'll need to ini
 
 ### Resource Manager template
 
-To change your cluster upgrade mode using a Resource Manager template, specify either *Automatic* or *Manual* for the  `upgradeMode` property of the *Microsoft.ServiceFabric/clusters* resource definition. If you choose manual upgrades, also set the `clusterCodeVersion` to a currently [supported fabric version](#query-your-subscription-for-version-status).
+To change your cluster upgrade mode using a Resource Manager template, specify either *Automatic* or *Manual* for the  `upgradeMode` property of the *Microsoft.ServiceFabric/clusters* resource definition. If you choose manual upgrades, also set the `clusterCodeVersion` to a currently [supported fabric version](#query-for-supported-cluster-versions).
 
 :::image type="content" source="./media/service-fabric-cluster-upgrade/ARMUpgradeMode.PNG" alt-text="Screenshot shows a template, which is plaintext indented to reflect structure. The 'clusterCodeVersion' and 'upgradeMode' properties are highlighted.":::
 
 Upon successful deployment of the template, changes to the cluster upgrade mode will be applied. If your cluster is in manual mode, the cluster upgrade will kick off automatically.
 
-The [cluster health policies](#custom-upgrade-policies-for-manual-upgrades) (a combination of node health and the health all the applications running in the cluster) are adhered to during the upgrade. If cluster health policies are not met, the upgrade is rolled back.
+The [cluster health policies](#custom-policies-for-manual-upgrades) (a combination of node health and the health all the applications running in the cluster) are adhered to during the upgrade. If cluster health policies are not met, the upgrade is rolled back.
 
 Once you have fixed the issues that resulted in the rollback, you'll need to initiate the upgrade again, by following the same steps as before.
 

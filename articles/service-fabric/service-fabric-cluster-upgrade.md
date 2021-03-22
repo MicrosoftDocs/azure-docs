@@ -18,7 +18,7 @@ You can set your cluster to receive automatic Service Fabric upgrades as they ar
 
 :::image type="content" source="./media/service-fabric-cluster-upgrade/fabric-upgrade-mode.png" alt-text="Select Automatic or Manual upgrades in the 'Fabric upgrades' section of your cluster resource in Azure portal.":::
 
-You can also set your cluster upgrade mode and select a runtime version [using a Resource Manager template](service-fabric-cluster-upgrade-version-azure.md#upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-a-resource-manager-template).
+You can also set your cluster upgrade mode and select a runtime version [using a Resource Manager template](service-fabric-cluster-upgrade-version-azure.md#resource-manager-template).
 
 Automatic upgrades are the recommended upgrade mode, as this option ensures your cluster stays in a supported state and benefits from the latest fixes and features while also allowing you to schedule updates in a manner that is least disruptive to your workloads using a [wave deployment](#wave-deployment-for-automatic-upgrades) strategy.
 
@@ -32,7 +32,7 @@ To opt in to wave deployment, specify one of the following wave values for your 
 * **Wave 1**: Clusters are updated one week (7 days) after a new build is released. Intended for pre-prod/staging clusters.
 * **Wave 2**: Clusters are updated two weeks (14 days) after a new build is released. Intended for production clusters.
 
-You can register for email notifications if a cluster upgrade fails, and also have the option to pause / resume upgrades on your cluster. See [Enable and manage wave deployment](service-fabric-cluster-upgrade-version-azure.md#enable-and-manage-wave-deployment) to get started.
+You can register for email notifications if a cluster upgrade fails, and also have the option to pause / resume upgrades on your cluster. See [Wave deployment for automatic upgrades](service-fabric-cluster-upgrade-version-azure.md#wave-deployment-for-automatic-upgrades) to get started.
 
 ## Phases of automatic upgrade
 
