@@ -74,10 +74,15 @@ steps:​
       azure_static_web_apps_api_token: $(deployment_token)
    ```
 1. Paste the YAML into your pipeline
+
 1. Select **Variables**
+
 1. Create a new variable
+
 1. Name the variable **deployment_token**
+
 1. Copy the deployment token that you previously pasted into a text editor
+
 1. Paste in the deployment token in the _Value_ box
 
   :::image type="content" source="media/publish-devops/variable-token.png" alt-text="Deployment token":::
