@@ -1,13 +1,13 @@
 ---
-title: Work with alerts on your sensor
+title: About sensor alerts
 description: Work with alerts to help you enhance the security and operation of your network.
 ms.date: 11/30/2020
 ms.topic: how-to
 ---
 
-# Work with alerts on your sensor
+# About sensor alerts
 
-Work with alerts to help you enhance the security and operation of your network. Alerts provide you with information about:
+Alerts help you enhance the security and operation of your network. Alerts provide you with information about:
 
 - Deviations from authorized network activity
 
