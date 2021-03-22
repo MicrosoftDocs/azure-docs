@@ -44,6 +44,16 @@
     href: search-get-started-arm.md
 - name: Tutorials
   items:
+  - name: Add Search to website
+    items: 
+    - name: 1 - Website overview
+      href: tutorial-javascript-overview.md
+    - name: 2 - Create a search index
+      href: tutorial-javascript-create-load-index.md
+    - name: 3 - Deploy static web app
+      href: tutorial-javascript-deploy-static-web-app.md
+    - name: 4 - Understand search integration
+      href: tutorial-javascript-search-query-integration.md    
   - name: Create a C# app
     items:
     - name: 1 - Basic search page
@@ -356,8 +366,6 @@
       href: search-query-troubleshoot-collection-filters.md
     - name: Understand collection filters
       href: search-query-understand-collection-filters.md
-    - name: Filter by language
-      href: search-filters-language.md
     - name: Normalize text
       href: search-normalizers.md
   - name: Relevance
