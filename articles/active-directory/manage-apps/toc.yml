@@ -236,8 +236,6 @@
           href: application-proxy-qlik.md
     - name: Troubleshoot
       items:
-      - name: Troubleshoot adding apps
-        href: troubleshoot-adding-apps.md
       - name: Troubleshoot password-based single sign-on
         href: troubleshoot-password-based-sso.md
       - name: Troubleshoot SAML-based single sign-on

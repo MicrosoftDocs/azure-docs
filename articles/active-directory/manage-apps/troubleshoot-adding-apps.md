@@ -9,7 +9,7 @@ ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/11/2018
-ms.author: kenwith
+ms.author: kenwith 
 ---
 
 # Troubleshoot common problem adding or removing an application to Azure Active Directory
