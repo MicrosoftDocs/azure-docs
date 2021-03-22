@@ -16,8 +16,10 @@ ms.date: 03/05/2021
 
 The following table includes links to Azure Resource Manager templates for Azure Front Door, with reference architectures including other Azure services.
 
-| App Service | Description |
+| Sample | Description |
 |-|-|
+| [Rule set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-rule-set/) | Creates a Front Door profile and rule set.  |
+|**App Service**| **Description** |
 | [App Service](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-app-service-public) | Creates an App Service app with a public endpoint, and a Front Door profile.  |
 | [App Service with Private Link](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-app-service-private-link) | Creates an App Service app with a private endpoint, and a Front Door profile.  |
 | [App Service environment with Private Link](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-app-service-environment-internal-private-link) | Creates an App Service environment, an app with a private endpoint, and a Front Door profile.  |

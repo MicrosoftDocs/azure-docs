@@ -9,6 +9,8 @@ ms.date: 02/18/2021
 ms.author: yuajia
 ---
 
+<!-- TODO check image size -->
+
 # Azure Front Door Standard/Premium (Preview) Rule Set match conditions
 
 > [!Note]
@@ -814,7 +816,7 @@ Regular expressions don't support the following operations:
 
 ## ARM template support
 
-Rule sets can be configured using Azure Resource Manager templates. [See an example template](TODO). You can add match conditions by using the JSON or Bicep snippets included in the examples above.
+Rule sets can be configured using Azure Resource Manager templates. [See an example template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-rule-set). You can add match conditions by using the JSON or Bicep snippets included in the examples above.
 
 ## Next steps
 
