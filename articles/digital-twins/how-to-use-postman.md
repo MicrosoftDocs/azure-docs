@@ -57,7 +57,7 @@ Otherwise, you can open an [Azure Cloud Shell](https://shell.azure.com) window i
 
 1. Copy the value of `accessToken` in the result, and save it to use in the next section. This is your **token value** that you will provide to Postman to authorize your requests.
 
-    :::image type="content" source="media/how-to-use-postman/console-access-token.png" alt-text="Screenshot of a local console window showing the result of the az account get-access-token command. One of the fields in the result is called accessToken and its sample value--beginning with ey--is highlighted.":::
+    :::image type="content" source="media/how-to-use-postman/console-access-token.png" alt-text="Screenshot of console showing the result of the az account get-access-token command. The accessToken field and its sample value is highlighted.":::
 
 >[!TIP]
 >This token is valid for at least five minutes and a maximum of 60 minutes. If you run out of time allotted for the current token, you can repeat the steps in this section to get a new one.
@@ -105,7 +105,7 @@ Next, import the collection into Postman.
 1. In the Import window that follows, select **Upload Files** and navigate to the collection file on your machine that you created earlier. Select Open.
 1. Select the **Import** button to confirm.
 
-    :::image type="content" source="media/how-to-use-postman/postman-import-collection-2.png" alt-text="Screenshot of Postman's 'Import' window. The Azure Digital Twins API file is showing as a file to import as a collection. The 'Import' button is highlighted.":::
+    :::image type="content" source="media/how-to-use-postman/postman-import-collection-2.png" alt-text="Screenshot of Postman's 'Import' window, showing the file to import as a collection and the Import button.":::
 
 The newly imported collection can now be seen from your main Postman view, in the Collections tab.
 
@@ -117,7 +117,7 @@ Next, continue on to the next section to add a bearer token to the collection fo
 
 Next, edit the collection you've created to configure some access details. Highlight the collection you've created and select the **View more actions** icon to pull up a menu. Select **Edit**.
 
-:::image type="content" source="media/how-to-use-postman/postman-edit-collection.png" alt-text="Screenshot of the main Postman window. The 'View more actions' icon for the imported collection is highlighted, and 'Edit' is highlighted in the 'View more actions' menu." lightbox="media/how-to-use-postman/postman-edit-collection.png":::
+:::image type="content" source="media/how-to-use-postman/postman-edit-collection.png" alt-text="Screenshot of Postman. The 'View more actions' icon for the imported collection is highlighted, and 'Edit' is highlighted in the options." lightbox="media/how-to-use-postman/postman-edit-collection.png":::
 
 Follow these steps to add a bearer token to the collection for authorization. This is where you'll use the **token value** you gathered in the [Get bearer token](#get-bearer-token) section in order to use it for all API requests in your collection.
 
@@ -127,7 +127,7 @@ Follow these steps to add a bearer token to the collection for authorization. Th
 
 1. Set the Type to **OAuth 2.0**, paste your access token into the Access Token box, and select **Save**.
 
-    :::image type="content" source="media/how-to-use-postman/postman-paste-token-imported.png" alt-text="Screenshot of the imported collection's edit dialog in Postman, showing the 'Authorization' tab. A Type of 'OAuth 2.0' is selected, and Access Token box where the access token value can be pasted is highlighted." lightbox="media/how-to-use-postman/postman-paste-token-imported.png":::
+    :::image type="content" source="media/how-to-use-postman/postman-paste-token-imported.png" alt-text="Screenshot of Postman edit dialog for the imported collection, on the 'Authorization' tab. Type is 'OAuth 2.0', and Access Token box is highlighted." lightbox="media/how-to-use-postman/postman-paste-token-imported.png":::
 
 ### Configure collection variables
 
@@ -155,7 +155,7 @@ You can edit the details of a request in the Postman collection using these step
 
 1. Fill in values for the variables listed in the **Params** tab under **Path Variables**.
 
-    :::image type="content" source="media/how-to-use-postman/postman-request-details-imported.png" alt-text="Screenshot of the main Postman window. The Azure Digital Twins API collection is expanded to the 'Digital Twins Get Relationship By Id' request. Details of the request are shown in the center of the page, where the 'Path Variables' section is highlighted." lightbox="media/how-to-use-postman/postman-request-details-imported.png":::
+    :::image type="content" source="media/how-to-use-postman/postman-request-details-imported.png" alt-text="Screenshot of Postman. The collection is expanded to show a request. The 'Path Variables' section is highlighted in the request details." lightbox="media/how-to-use-postman/postman-request-details-imported.png":::
 
 1. Provide any necessary **Headers** or **Body** details in the respective tabs.
 
@@ -193,7 +193,7 @@ Follow these steps to add a bearer token to the collection for authorization. Th
 
 1. Set the Type to **OAuth 2.0**, paste your access token into the Access Token box, and select **Save**.
 
-    :::image type="content" source="media/how-to-use-postman/postman-paste-token-custom.png" alt-text="Screenshot of the new collection's edit dialog in Postman, showing the 'Authorization' tab. A Type of 'OAuth 2.0' is selected, and Access Token box where the access token value can be pasted is highlighted." lightbox="media/how-to-use-postman/postman-paste-token-custom.png":::
+    :::image type="content" source="media/how-to-use-postman/postman-paste-token-custom.png" alt-text="Screenshot of the Postman edit dialog for the new collection, on the 'Authorization' tab. Type is 'OAuth 2.0', and Access Token box is highlighted." lightbox="media/how-to-use-postman/postman-paste-token-custom.png":::
 
 When you're finished with the above steps, you're done configuring the collection. You can close the edit tab for the new collection if you want.
 
@@ -217,7 +217,7 @@ Now that your collection is set up, you can add your own requests to the Azure D
 
     :::row:::
         :::column:::
-            :::image type="content" source="media/how-to-use-postman/postman-save-request.png" alt-text="Screenshot of the 'Save request' window in Postman, where you can fill out the fields described. The 'Save to Azure Digital Twins collection' button is highlighted.":::
+            :::image type="content" source="media/how-to-use-postman/postman-save-request.png" alt-text="Screenshot of 'Save request' window in Postman showing the fields described. The 'Save to Azure Digital Twins collection' button is highlighted.":::
         :::column-end:::
         :::column:::
         :::column-end:::
@@ -225,7 +225,7 @@ Now that your collection is set up, you can add your own requests to the Azure D
 
 You can now view your request under the collection, and select it to pull up its editable details.
 
-:::image type="content" source="media/how-to-use-postman/postman-request-details-custom.png" alt-text="Screenshot of the main Postman window. The Azure Digital Twins collection is expanded, and the 'Query twins' request is highlighted. Details of the request are shown in the center of the page." lightbox="media/how-to-use-postman/postman-request-details-custom.png":::
+:::image type="content" source="media/how-to-use-postman/postman-request-details-custom.png" alt-text="Screenshot of Postman. The Azure Digital Twins collection is expanded to show the request's details." lightbox="media/how-to-use-postman/postman-request-details-custom.png":::
 
 ### Set request details
 
@@ -243,7 +243,7 @@ To proceed with an example query, this article will use the Query API (and its [
 1. Check that the headers shown for the request in the **Headers** tab match those described in the reference documentation. For this request, several headers have been automatically filled. For the Query API, none of the header options are required, so this step is done.
 1. Check that the body shown for the request in the **Body** tab matches the needs described in the reference documentation. For the Query API, a JSON body is required to provide the query text. Here is an example body for this request that queries for all the digital twins in the instance:
 
-   :::image type="content" source="media/how-to-use-postman/postman-request-body.png" alt-text="Screenshot of the new request's details in Postman. The Body tab is shown, and it contains a raw JSON body with a query of 'SELECT * FROM DIGITALTWINS'." lightbox="media/how-to-use-postman/postman-request-body.png":::
+   :::image type="content" source="media/how-to-use-postman/postman-request-body.png" alt-text="Screenshot of the new request's details in Postman, on the Body tab. It contains a raw JSON body with a query of 'SELECT * FROM DIGITALTWINS'." lightbox="media/how-to-use-postman/postman-request-body.png":::
 
    For more information about crafting Azure Digital Twins queries, see [*How-to: Query the twin graph*](how-to-query-graph.md).
 
@@ -253,7 +253,7 @@ To proceed with an example query, this article will use the Query API (and its [
 
 After sending the request, the response details will appear in the Postman window below the request. You can view the response's status code and any body text.
 
-:::image type="content" source="media/how-to-use-postman/postman-request-response.png" alt-text="Screenshot of Postman showing the sent request. Below the editable details, the details of the response are highlighted. There is a Status of 200 OK and body text describing digital twins that were returned by the query." lightbox="media/how-to-use-postman/postman-request-response.png":::
+:::image type="content" source="media/how-to-use-postman/postman-request-response.png" alt-text="Screenshot of the sent request in Postman. Below the request details, the response is shown. Status is 200 OK and body shows query results." lightbox="media/how-to-use-postman/postman-request-response.png":::
 
 You can also compare the response to the expected response data given in the reference documentation, to verify the result or learn more about any errors that arise.
 
