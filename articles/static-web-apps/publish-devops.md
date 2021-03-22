@@ -26,7 +26,7 @@ In this tutorial, you will learn how to:
 - An understanding of how to set up an Azure DevOps Pipeline. If you are not familiar with how to do so, [instructions are available here.](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops)
 
 
-## Create an Azure Static Web Apps
+## Create a static web app
 
 1. Navigate to the [Azure portal](https://portal.azure.com).
 1. Select **Create a Resource**.
