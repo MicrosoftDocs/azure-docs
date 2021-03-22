@@ -21,9 +21,12 @@ In this tutorial, you will learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't have one, you can [create an account for free](https://azure.microsoft.com/free/).
-- An Azure DevOps Project. If you don't have one, you can [create an account for free](https://azure.microsoft.com/en-gb/pricing/details/devops/azure-devops-services/).
-- An understanding of how to set up an Azure DevOps Pipeline. If you are not familiar with how to do so, [instructions are available here.](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops)
+- An Azure account with an active subscription.
+  - If you don't have one, you can [create an account for free](https://azure.microsoft.com/free/).
+- An Azure DevOps Project.
+  - If you don't have one, you can [create an account for free](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/).
+- An understanding of how to set up an Azure DevOps Pipeline.
+  - If you need help getting started, see [Create your first pipeline](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops).
 
 
 ## Create a static web app
