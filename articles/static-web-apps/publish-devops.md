@@ -1,6 +1,6 @@
 ---
 title: Tutorial: Publish Azure Static Web Apps with Azure DevOps
-description: Learn to use Auzure DevOps to publish Azure Static Web Apps
+description: Learn to use Azure DevOps to publish Azure Static Web Apps
 services: static-web-apps
 author: scubaninja
 ms.service: static-web-apps
@@ -16,8 +16,8 @@ This article demonstrates how to deploy to [Azure Static Web Apps](./overview.md
 
 In this tutorial, you learn to:
 
-- Setup an an Azure Static Web Apps website
-- Create a task in your Azure DevOps Pipeline
+- Set up an Azure Static Web App
+- Create an Azure DevOps Pipeline to build and publish a static web app 
 
 ## Prerequisites
 
@@ -59,24 +59,29 @@ In this tutorial, you learn to:
 ## Create a static web app
 
 1. Navigate to the [Azure portal](https://portal.azure.com).
-1. Select **Create a Resource**.
-1. Search for **Static Web Apps**.
-1. Select **Static Web Apps (Preview)**.
-1. Select **Create**.
-1. Configure the resource with the required configuration details. Under _Deployment details_ ensure that you select **Other**. This enables you to use the code in your DevOps repo.
+   
+2. Select **Create a Resource**.
+   
+3. Search for **Static Web Apps**.
+   
+4. Select **Static Web Apps (Preview)**.
+   
+5. Select **Create**.
+   
+6. Configure the resource with the required configuration details. Under _Deployment details_ ensure that you select **Other**. This enables you to use the code in your DevOps repo.
   > [!NOTE]
   > The functionality to select _other_ is currently rolling out.
 
   :::image type="content" source="media/publish-devops/create-resource.png" alt-text="Deployment details - other":::
 
-2. Once the deployment is successful, select **Manage deployment token**.
+7. Once the deployment is successful, select **Manage deployment token**.
 
-3. Copy the **deployment token** and paste it into a text editor for use in another screen
+8. Copy the **deployment token** and paste it into a text editor for use in another screen
 
 > [!NOTE]
 > This value is set aside for now because you'll copy and paste more values in coming steps.
 
-:::image type="content" source="media/publish-devops/deployment-token.png" alt-text="Deployment token"::: 
+  :::image type="content" source="media/publish-devops/deployment-token.png" alt-text="Deployment token"::: 
 
 ## Create the Pipeline Task in Azure DevOps
 
@@ -86,7 +91,9 @@ In this tutorial, you learn to:
 
   :::image type="content" source="media/publish-devops/azdo-build.png" alt-text="Build pipeline"::: 
 
-1. Copy and the following YAML to your clipboard
+1. Copy and the following YAML to your clipboard 
+> [!NOTE]
+> The values entered for _app_location_, _api_location_, and _output_location_ will need to be modified for your app.  
 
 ```YAML
 trigger:​
@@ -106,15 +113,15 @@ steps:​
    ```
 1. Paste the YAML into your pipeline
 
-1. Select **Variables**
+2. Select **Variables**
 
-1. Create a new variable
+3. Create a new variable
 
-1. Name the variable **deployment_token**
+4. Name the variable **deployment_token** (matching the name in the workflow)
 
-1. Copy the deployment token that you previously pasted into a text editor
+5. Copy the deployment token that you previously pasted into a text editor
 
-1. Paste in the deployment token in the _Value_ box
+6. Paste in the deployment token in the _Value_ box
 
   :::image type="content" source="media/publish-devops/variable-token.png" alt-text="Deployment token":::
 
