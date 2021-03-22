@@ -81,7 +81,7 @@ Open a terminal to the root folder of your existing Azure Static Web Apps site.
 |--- | --- |
 | Serve a specific folder | `swa start ./output-folder` |
 | Use a framework development server | `swa start http://localhost:3000` |
-| Start Functions app in a folder | `swa start ./output-folder --api ./api` |
+| Start a Functions app in a folder | `swa start ./output-folder --api ./api` |
 | Use a running Functions app | `swa start ./output-folder --api http://localhost:7071` |
 
 ## Authorization and authentication emulation
