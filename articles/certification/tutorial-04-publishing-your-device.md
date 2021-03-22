@@ -28,11 +28,11 @@ Publishing your device is a simple process that will help bring customers to you
 
 1. To publish your device, click `Publish to Device Catalog` on the project summary page.
 
-    ![Publish to Catalog](./media/images/publish_to_catalog.png)
+    ![Publish to Catalog](./media/images/publish-to-catalog.png)
 
 1. Confirm the publication in the pop-up window
 
-    ![Publish to Catalog confirmation](./media/images/publish_to_catalog_confirm.png)
+    ![Publish to Catalog confirmation](./media/images/publish-to-catalog-confirm.png)
 
 1. You will receive notification to the email address in your company profile once the device has been processed the Azure Certified Device catalog.
 

@@ -31,7 +31,7 @@ To get started, you must sign in to the portal, where you'll be providing your d
 
 1. Go to the [Azure Certified Device portal](https://certify.azure.com).
 1. Select `Company profile` on the left-hand side and update your manufacturer information.
-   ![Company profile section](./media/images/company_profile.png)
+   ![Company profile section](./media/images/company-profile.png)
 1. Accept the program agreement to begin your project.
 
 ## Creating your project on the portal
@@ -40,7 +40,7 @@ Now that you're all set up in the portal, you can begin the certification proces
 
 1. On the home screen, select `Create new project`. This will open a window to add basic device information in the next section.
 
- ![Image of the Create new project button](./media/images/create_new_project.png)
+ ![Image of the Create new project button](./media/images/create-new-project.png)
 
 ## Identifying basic device information
 
@@ -57,16 +57,16 @@ Then, you must supply basic device information. You can to edit this information
     | Device source code URL | Required if you are certifying a Solution-Ready Dev Kit, optional otherwise. URL must be to a GitHub location for your device code. |
 1. Select the `Next` button to continue to the `Certifications` tab.
 
-    ![Image of the Create new project form, Certifications tab](./media/images/create_new_project_certificationswindow.png)
+    ![Image of the Create new project form, Certifications tab](./media/images/create-new-project-certificationswindow.png)
 
 1. Specify which certification(s) you wish to achieve for your device.
 1. Select `Create` and the new project will be saved and visible in the home page of the portal.
 
-    ![Image of project table](./media/images/project_table.png)
+    ![Image of project table](./media/images/project-table.png)
 
 1. Select on the Project name in the table. This will launch the project summary page where you can add and view other details about your device.
 
-    ![Image of the project details page](./media/images/Device_details_section.png)
+    ![Image of the project details page](./media/images/device-details-section.png)
 
 ## Next steps
 

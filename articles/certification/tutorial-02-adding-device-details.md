@@ -32,7 +32,7 @@ The first section of your project page, called 'Input device details', allows yo
 
 1. Click `Add` in the 'Input device details' section on your project summary page to open the device details section. You will see five sections for you to complete.
 
-![Image of the project details page](./media/images/device_details_menu.png)
+![Image of the project details page](./media/images/device-details-menu.png)
 
 2. Review the information you previously provided when you created the project under the `Basics` tab.
 1. Review the certifications you are applying for with your device under the `Certifications` tab.

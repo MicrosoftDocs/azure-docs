@@ -23,23 +23,23 @@ Every project submitted for certification will include one **Customer Ready Prod
 
 1. Select `Add a component` on the Product details tab.
 
-    ![Add a component link](./media/images/Add_a_component_link.png)
+    ![Add a component link](./media/images/add-a-component-link.png)
 
 1. Complete relevant form fields for the component.
 
-    ![Component details section](./media/images/Component_details_section.png)
+    ![Component details section](./media/images/component-details-section.png)
 
 1. Save your information using the `Save Product Details` button at the bottom of the page:  
 
-    ![Save Product Details button](./media/images/Save_Product_Details_button.png)
+    ![Save Product Details button](./media/images/save-product-details-button.png)
 
 1. Once you have saved your component, you can further tailor the hardware capabilities it supports. Select the `Edit` link by the component name.  
 
-    ![Edit Component button](./media/images/component_edit.png)
+    ![Edit Component button](./media/images/component-edit.png)
 
 1. Provide relevant hardware capability information where appropriate.  
 
-    ![Image of editable component sections](./media/images/component_selection_area.png)  
+    ![Image of editable component sections](./media/images/component-selection-area.png)  
 
     The editable component fields (shown above) include:
 
@@ -71,7 +71,7 @@ Below are examples of how an OEM called Contoso would use the components feature
     1. Component device type: Customer Ready Product
     1. Attachment type: Discrete
 
-     ![Image of customer ready product](./media/images/Customer_Ready_Product.png)
+     ![Image of customer ready product](./media/images/customer-ready-product.png)
 
 1. Falcon is a device that includes an integrated peripheral camera module manufactured by INC Electronics that connects via USB to Falcon.
     1. No. of components: 2
@@ -80,7 +80,7 @@ Below are examples of how an OEM called Contoso would use the components feature
 
        - **Note**: The peripheral component is considered integrated because it is not removable.
 
-     ![Image of peripheral example component](./media/images/Peripheral.png)
+     ![Image of peripheral example component](./media/images/peripheral.png)
 
 1. Falcon is a device that includes an integrated System on Module from INC Electronics that uses a built-in processor Apollo52 from company Espressif and has an ARM64 architecture.
     1. No. of components: 2
@@ -89,7 +89,7 @@ Below are examples of how an OEM called Contoso would use the components feature
 
        - **Note**: The peripheral component is considered integrated because it is not removable. The SoM component would also include processor information.
 
-     ![Image of system on module example component ](./media/images/System_On_Module.png)
+     ![Image of system on module example component ](./media/images/system-on-module.png)
 
 ## Additional tips
 

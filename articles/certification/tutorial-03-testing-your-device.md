@@ -31,11 +31,11 @@ All certified devices are required to demonstrate the ability to connect to IoT 
 
 1. To begin the testing phase, select the `Connect & test` link on the project summary page:  
 
-    ![Connect and test link](./media/images/connect_and_test_link.png)
+    ![Connect and test link](./media/images/connect-and-test-link.png)
 
 1. Depending on the certification(s) selected, you'll see the required tests on the 'Connect & test' page. Review these to ensure that you're applying for the correct certification program.  
 
-    ![Connect and test page](./media/images/connect_and_test.png)
+    ![Connect and test page](./media/images/connect-and-test.png)
 
 1. Connect your device to IoT Hub using the Device Provisioning Service (DPS). DPS supports connectivity options of Symmetric keys, X.509 certification, and a Trusted Platform Module (TPM). This is required for all certifications.
 
@@ -62,8 +62,8 @@ Once you have successfully connected your device to AICS, you are now ready to r
 
 7. If you have additional questions or need troubleshooting assistance with AICS, visit our troubleshooting guide.
 
-    > [!NOTE]
-    > While you will be able to complete the online certification process for IoT Plug and Play and Edge Managed without having to submit your device for manual review, you may be contacted by a Azure Certified Device team member for further device validation beyond what is tested through our automation service.
+[!NOTE]
+> While you will be able to complete the online certification process for IoT Plug and Play and Edge Managed without having to submit your device for manual review, you may be contacted by a Azure Certified Device team member for further device validation beyond what is tested through our automation service.
 
 ## Submitting your device for review
 
@@ -71,15 +71,15 @@ Once you have completed all of the mandatory fields in the 'Device details' sect
 
 1. select `Submit for review` on the project summary page:  
 
-    ![Review and Certify link](./media/images/review_and_certify.png)
+    ![Review and Certify link](./media/images/review-and-certify.png)
 
 1. Confirm your submission in the pop-up window. Once a device has been submitted, all device details will be read-only until editing is requested. (See [How to edit your device information after publishing](./how-to-edit-published-device.md).)  
 
-    ![Start Certification review dialog](./media/images/start_certification_review.png)
+    ![Start Certification review dialog](./media/images/start-certification-review.png)
 
 1. Once the project is submitted, the project summary page will indicate the project is `Under Certification Review` by the Azure Certification team:  
 
-    ![Under Review](./media/images/review_and_certify_under_review.png)
+    ![Under Review](./media/images/review-and-certify-under-review.png)
 
 1. Within 5-7 business days, expect an email response from the Azure Certification team to the address provided in your company profile regarding the status of your device submission.
 
