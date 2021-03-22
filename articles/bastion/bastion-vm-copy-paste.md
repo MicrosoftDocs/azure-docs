@@ -24,7 +24,7 @@ For browsers that support the advanced Clipboard API access, you can copy and pa
 
    ![Allow clipboard](./media/bastion-vm-manage/allow.png)
 
-Only text copy/paste is supported. For direct copy and paste, your browser may prompt you for clipboard access when the Bastion session is being initialized. **Allow** the web page to access the clipboard.
+Only text copy/paste is supported. For direct copy and paste, your browser may prompt you for clipboard access when the Bastion session is being initialized. **Allow** the web page to access the clipboard. If you are working from a Mac, the keyboard shortcut to paste is **SHIFT-CTRL-V**.
 
 ## <a name="to"></a>Copy to a remote session
 
