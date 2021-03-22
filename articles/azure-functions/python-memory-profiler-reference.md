@@ -1,7 +1,6 @@
 ---
 title: Memory profiling on Python apps in Azure Functions
-description: Learn how to profile Python apps memory usage and identify memory
-bottleneck.
+description: Learn how to profile Python apps memory usage and identify memory bottleneck.
 ms.topic: article
 ms.date: 3/22/2021
 ms.custom: devx-track-python
@@ -12,7 +11,7 @@ During your development or after deploying your local function app project into 
 
 ## Tools and Services
 
-Please ensure you have install [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools) if you want to do memory profiling on your local development environment. To enable memory profiling on your Azure Functions instances, you need to enable [Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) for these function apps.
+Please ensure you have install [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools) if you want to do memory profiling on your local development environment. To enable memory profiling on your Azure Functions instances, you need to enable Application Insights for these function apps.
 
 In the following tutorial, we will use the well known Python memory profiling package [memory-profiler](https://pypi.org/project/memory-profiler) which monitors Python process memory consumption line-by-line.
 

@@ -183,7 +183,7 @@ This section helps you troubleshoot out-of-memory errors in your Python function
 
 > `Microsoft.Azure.WebJobs.Script.Workers.WorkerProcessExitException : python exited with code 139`
 
-This error occurs when a Python function app is force fully terminated by operating system with a SIGSEGV signal. This signal indicates a memory segmentation violation which usually means your function app is running out of [memory limitation](functions-scale.md#service-limits). Please visit the tutorial section in [memory profiling on Python functions](python-memory-profiler-reference.md.memory-profiling-tutorial) for more information.
+This error occurs when a Python function app is force fully terminated by operating system with a SIGSEGV signal. This signal indicates a memory segmentation violation which usually means your function app is running out of [memory limitation](functions-scale.md#service-limits). Please visit the tutorial section in [memory profiling on Python functions](python-memory-profiler-reference.md#memory-profiling-tutorial) for more information.
 
 ---
 
