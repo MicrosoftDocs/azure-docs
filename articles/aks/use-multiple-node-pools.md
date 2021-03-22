@@ -734,6 +734,30 @@ For existing AKS clusters, you can also add a new node pool, and attach a public
 az aks nodepool add -g MyResourceGroup2 --cluster-name MyManagedCluster -n nodepool2 --enable-node-public-ip
 ```
 
+### Use a public IP prefix (preview)
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+#### Install the `aks-preview` Azure CLI
+
+You will need the *aks-preview* Azure CLI extension. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
+There are a number of [benefits to using a public IP prefix][public-ip-prefix-benefits]. AKS supports using addresses from an existing public IP prefix for your nodes by passing the resource ID with the flag `--node-public-ip-prefix` when creating a new cluster or adding a node pool. For example:
+
+```azurecli-interactive
+az aks create -g MyResourceGroup3 -n MyManagedCluster -l eastus --enable-node-public-ip --node-public-ip-prefix /subscriptions/<subscription-id>/resourcegroups/MyResourceGroup3/providers/Microsoft.Network/publicipprefixes/my-public-ip-prefix
+```
+
+### Locate public IPs for nodes
+
 You can locate the public IPs for your nodes in various ways:
 
 * Use the Azure CLI command [az vmss list-instance-public-ips][az-list-ips].
@@ -817,3 +841,4 @@ Use [proximity placement groups][reduce-latency-ppg] to reduce latency for your 
 [vmss-commands]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine
 [az-list-ips]: /cli/azure/vmss?view=azure-cli-latest&preserve-view=true#az_vmss_list_instance_public_ips
 [reduce-latency-ppg]: reduce-latency-ppg.md
+[public-ip-prefix-benefits]: ../virtual-network/public-ip-address-prefix.md#why-create-a-public-ip-address-prefix
