@@ -13,6 +13,8 @@ ms.author: alkohli
 
 # Kubernetes workload management on your Azure Stack Edge Pro device
 
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
+
 On your Azure Stack Edge Pro device, a Kubernetes cluster is created when you configure compute role. Once the Kubernetes cluster is created, then containerized applications can be deployed on the Kubernetes cluster in Pods. There are distinct ways to deploy workloads in your Kubernetes cluster. 
 
 This article describes the various methods that can be used to deploy workloads on your Azure Stack Edge Pro device.

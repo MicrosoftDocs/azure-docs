@@ -30,7 +30,7 @@ Understand [Media Reserved Units](concept-media-reserved-units.md).
 
 Run the `mru` command.
 
-The following [az ams account mru](/cli/azure/ams/account/mru?view=azure-cli-latest) command sets Media Reserved Units on the "amsaccount" account using the **count** and **type** parameters.
+The following [az ams account mru](/cli/azure/ams/account/mru) command sets Media Reserved Units on the "amsaccount" account using the **count** and **type** parameters.
 
 ```azurecli
 az ams account mru set -n amsaccount -g amsResourceGroup --count 10 --type S3

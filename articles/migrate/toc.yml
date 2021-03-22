@@ -73,7 +73,7 @@
   - name: Containerize
     items:
     - name: Containerize ASP.NET apps and migrate to AKS
-      href: tutorial-containerize-aspnet-kubernetes.md
+      href: tutorial-app-containerization-aspnet-kubernetes.md
     - name: Containerize Java web apps and migrate to AKS
       href: tutorial-containerize-java-kubernetes.md
 - name: Concepts
@@ -167,7 +167,7 @@
     - name: Create an Azure VM assessment
       href: how-to-create-assessment.md
     - name: Create an Azure SQL assessment
-      href: how-to-create-azure-sql-assessment.md 
+      href: how-to-create-azure-sql-assessment.md
     - name: Create an AVS assessment
       href: how-to-create-azure-vmware-solution-assessment.md
     - name: Assess a SQL Server database
@@ -236,6 +236,9 @@
   items:
   - name: Azure PowerShell
     href: /powershell/module/az.migrate/
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Migration in the Cloud Adoption Framework

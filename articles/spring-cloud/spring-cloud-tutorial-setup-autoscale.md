@@ -66,4 +66,4 @@ If you are on the Basic tier and constrained by one or more of these limits, you
 ## Next steps
 
 * [Overview of autoscale in Microsoft Azure](../azure-monitor/autoscale/autoscale-overview.md)
-* [Azure CLI Monitoring autoscale](/cli/azure/monitor/autoscale?preserve-view=true&view=azure-cli-latest)
+* [Azure CLI Monitoring autoscale](/cli/azure/monitor/autoscale)

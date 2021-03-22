@@ -6,7 +6,7 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 03/08/2021
 ---
 # How to connect Azure Data Factory and Azure Purview
 
@@ -117,12 +117,12 @@ The integration between Data Factory and Purview supports only a subset of the d
 | Azure SQL Database \* | Yes | 
 | Azure SQL Managed Instance \* | Yes | 
 | Azure Synapse Analytics \* | Yes | 
-| Azure Table Storage \* | Yes |
-| SQL Server \* | Yes | 
+| Azure Table Storage | Yes |
 | Amazon S3 | Yes | 
 | Hive \* | Yes | 
 | SAP ECC \* | Yes |
-| SAP Table \* | Yes |
+| SAP Table | Yes |
+| SQL Server \* | Yes | 
 | Teradata \* | Yes |
 
 *\* Azure Purview currently doesn't support query or stored procedure for lineage or scanning. Lineage is limited to table and view sources only.*
@@ -138,6 +138,7 @@ Currently, if you use the following copy activity features, the lineage is not y
 - Copy data into Azure Synapse Analytics using PolyBase or COPY statement.
 - Compression setting for Binary, delimited text, Excel, JSON, and XML files.
 - Source partition options for Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, SQL Server, and SAP Table.
+- Source partition discovery option for file-based stores.
 - Copy data to file-based sink with setting of max rows per file.
 - Add additional columns during copy.
 

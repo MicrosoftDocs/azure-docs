@@ -53,6 +53,7 @@ ms.custom: "include file"
 | Maximum request rate | 200 requests per 30 seconds per Azure AD user or client IP address | See [Rate limits](https://dev.loganalytics.io/documentation/Using-the-API/Limits) for details. |
 
 **Azure Monitor Logs connector**
+
 | Category | Limit | Comments |
 |:---|:---|:---|
 | Max number of records | 500,000 | |

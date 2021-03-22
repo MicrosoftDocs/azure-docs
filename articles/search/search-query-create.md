@@ -17,18 +17,21 @@ If you are building a query for the first time, this article describes approache
 
 ## What's a query request?
 
-A query is a read-only request against the docs collection of a single search index. It specifies a 'queryType' and a query expression though the 'search' parameter. The query expression could have search terms, a quote-enclosed phrase, and operators.
+A query is a read-only request against the docs collection of a single search index. It specifies a 'search' parameter contains the query expression, consisting of terms, quote-enclosed phrases, and operators.
 
-A query can also have 'count' to return the number of matches found in the index, 'select' to choose which fields are returned in search result, and 'orderby' to sort results. The following example gives you a general idea of a query request by showing a subset of the available parameters. For more information about query composition, see [Query types and compositions](search-query-overview.md) and [Search Documents (REST)](/rest/api/searchservice/search-documents).
+Additional parameters provide more definition to the query and response. For example, 'searchFields' scopes query execution to specific fields, 'select' specifies which fields are returned in results, and 'count' returns the number of matches found in the index.
+
+The following example gives you a general idea of a query request by showing a subset of the available parameters. For more information about query composition, see [Query types and compositions](search-query-overview.md) and [Search Documents (REST)](/rest/api/searchservice/search-documents).
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 {
-    "queryType": "simple"
-    "search": "`New York` +restaurant",
-    "select": "HotelId, HotelName, Description, Rating, Address/City, Tags",
-    "count": "true",
-    "orderby": "Rating desc"
+    "search": "NY +view",
+    "queryType": "simple",
+    "searchMode": "all",
+    "searchFields": "HotelName, Description, Address/City, Address/StateProvince, Tags",
+    "select": "HotelName, Description, Address/City, Address/StateProvince, Tags",
+    "count": "true"
 }
 ```
 

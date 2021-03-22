@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 12/11/2020
+ms.date: 03/05/2021
 ms.author: pafarley
 ---
 

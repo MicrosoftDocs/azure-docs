@@ -1,7 +1,6 @@
 ---
 title: Create custom security policies in Azure Security Center | Microsoft Docs
 description: Azure custom policy definitions monitored by Azure Security Center.
-services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -18,6 +17,9 @@ To help secure your systems and environment, Azure Security Center generates sec
 With this feature, you can add your own *custom* initiatives. You'll then receive recommendations if your environment doesn't follow the policies you create. Any custom initiatives you create will appear alongside the built-in initiatives in the regulatory compliance dashboard, as described in the tutorial [Improve your regulatory compliance](security-center-compliance-dashboard.md).
 
 As discussed in [the Azure Policy documentation](../governance/policy/concepts/definition-structure.md#definition-location), when you specify a location for your custom initiative, it must be a management group or a subscription. 
+
+> [!TIP]
+> For an overview of the key concepts on this page, see [What are security policies, initiatives, and recommendations?](security-policy-concept.md).
 
 ::: zone pivot="azure-portal"
 

@@ -136,8 +136,10 @@
     items:
     - name: Scale an AKS cluster
       href: scale-cluster.md
-    - name: Stop an AKS cluster (preview)
+    - name: Stop an AKS cluster
       href: start-stop-cluster.md
+    - name: Use planned maintenance (preview)
+      href: planned-maintenance.md  
     - name: Upgrade an AKS cluster
       href: upgrade-cluster.md
     - name: Use Uptime SLA

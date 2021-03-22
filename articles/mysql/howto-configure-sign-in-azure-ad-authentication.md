@@ -31,8 +31,6 @@ Only an Azure AD Admin user can create/enable users for Azure AD-based authentic
 
 Only one Azure AD admin can be created per MySQL server and selection of another one will overwrite the existing Azure AD admin configured for the server.
 
-In a future release we will support specifying an Azure AD group instead of an individual user to have multiple administrators, however this is currently not supported yet.
-
 After configuring the administrator, you can now sign in:
 
 ## Connecting to Azure Database for MySQL using Azure AD

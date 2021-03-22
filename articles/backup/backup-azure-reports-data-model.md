@@ -6,6 +6,10 @@ ms.date: 10/30/2019
 ---
 # Data Model for Azure Backup Diagnostics Events
 
+> [!NOTE]
+>
+> For creating custom reporting views, it is recommended to use [system functions on Azure Monitor logs](backup-reports-system-functions.md) instead of working with the raw tables listed below.
+
 ## CoreAzureBackup
 
 This table provides information about core backup entities, such as vaults and backup items.

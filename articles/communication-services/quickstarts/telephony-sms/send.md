@@ -7,7 +7,7 @@ manager: jken
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 09/30/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ms.custom: tracking-python, devx-track-js
@@ -16,8 +16,9 @@ zone_pivot_groups: acs-js-csharp-java-python
 # Quickstart: Send an SMS message
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
+
+[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 > [!IMPORTANT]
 > SMS messages can be sent to and received from United States phone numbers. Phone numbers located in other geographies are not yet supported by Communication Services SMS.

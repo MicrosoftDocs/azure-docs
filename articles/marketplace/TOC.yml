@@ -13,6 +13,8 @@
     href: partner-center-portal/company-work-accounts.md  
   - name: Account migration from CPP to Partner Center
     href: partner-center-portal/account-migration-from-cpp-to-pc.md 
+  - name: Notifying Microsoft
+    href: submit-legal-notice.md 
 - name: Concepts
   items: 
   - name: Listing options
@@ -41,7 +43,7 @@
         href: test-drive-hosted-detailed-config.md
       - name: Set up Azure subscription for hosted test drives
         href: test-drive-azure-subscription-setup.md
-  - name: Azure partner customer usage attribution
+  - name: Azure customer usage attribution
     href: azure-partner-customer-usage-attribution.md
   - name: Go-to-market options
     items:
@@ -51,11 +53,11 @@
     - name: Co-sell with Microsoft
       items:
       - name: Co-sell overview
-        href: marketplace-co-sell.md
+        href: co-sell-overview.md
       - name: Co-sell requirements
         href: co-sell-requirements.md 
       - name: Configure co-sell
-        href: commercial-marketplace-co-sell.md
+        href: co-sell-configure.md
       - name: Verify co-sell status
         href: co-sell-status.md   
       - name: Migrate co-sell solutions from OCP GTM
@@ -308,6 +310,48 @@
     href: partner-center-portal/downloads-dashboard.md
   - name: Ratings and reviews dashboard
     href: partner-center-portal/ratings-reviews.md
+  - name: Programmatic access to analytics
+    items:
+    - name: Get started
+      href: analytics-get-started.md
+    - name: Programmatic access prerequisites
+      href: analytics-prerequisites.md 
+    - name: Programmatic access paradigm
+      href: analytics-programmatic-access.md
+    - name: Make your first API call
+      href: analytics-make-your-first-api-call.md
+    - name: List of system queries
+      href: analytics-system-queries.md
+    - name: Sample queries
+      href: analytics-sample-queries.md
+    - name: Sample application
+      href: analytics-sample-application.md
+    - name: Custom query specification
+      href: analytics-custom-query-specification.md
+    - name: Programmatic analytics FAQ
+      href: analytics-programmatic-faq.md  
+    - name: Analytics API reference
+      items:
+      - name: List of APIs 
+        href: analytics-available-apis.md
+      - name: Get all datasets
+        href: analytics-api-get-all-datasets.md
+      - name: Get report queries API
+        href: analytics-api-get-report-queries.md
+      - name: Delete report queries API
+        href: analytics-api-delete-report-queries.md
+      - name: Try report queries API
+        href: analytics-api-try-report-queries.md
+      - name: Get report API
+        href: analytics-api-get-report.md
+      - name: Update report API
+        href: analytics-api-update-report.md
+      - name: Delete report API
+        href: analytics-api-delete-report.md        
+      - name: Pause report executions API
+        href: analytics-api-pause-report-executions.md
+      - name: Resume report executions API
+        href: analytics-api-resume-report-executions.md
   - name: Manage metered billing anomalies 
     href: anomaly-detection.md
   - name: Analytics common questions 

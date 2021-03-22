@@ -2,10 +2,12 @@
 title: Select Linux VM images with the Azure CLI    
 description: Learn how to use the Azure CLI to determine the publisher, offer, SKU, and version for Marketplace VM images.
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: imaging
 ms.topic: how-to
 ms.date: 01/25/2019
 ms.author: cynthn
+ms.collection: linux
 
 ---
 # Find Linux VM images in the Azure Marketplace with the Azure CLI

@@ -22,14 +22,9 @@ You can migrate VMware VMs in a couple of ways:
 
 Review [this article](server-migrate-overview.md) to figure out which method you want to use.
 
-## Migration limitations
-
-- You can select up to 10 VMs at once for replication through the Azure portal. If you want to migrate more machines, then replicate in groups of 10. There's no limit on the number of VMs that can be replicated through PowerShell cmdlets. Our recommendation is to replicate not more than 500 VMs at a time from a single vCenter through PowerShell to ensure optimal performance.
-- For VMware agentless migration, you can run up to 500 replications simultaneously from each vCenter Server.
-
 ## Agentless migration 
 
-This section summarizes requirements for agentless migration.
+This section summarizes requirements for agentless VMware VM migration to Azure.
 
 ### VMware requirements (agentless)
 
@@ -67,8 +62,11 @@ The table summarizes agentless migration requirements for VMware VMs.
 **Teamed NICs** | Not supported.
 **IPv6** | Not supported.
 **Target disk** | VMs can only be migrated to managed disks (standard HDD, standard SSD, premium SSD) in Azure.
-**Simultaneous replication** | 500 VMs per vCenter Server. If you have more, migrate them in batches of 500.
-**Automatic installation of Azure VM agent (Windows Agent)** | Supported for Windows Server 2008 R2 onwards.
+**Simultaneous replication** | Up to 300 simultaneously replicating VMs per vCenter Server with 1 appliance. Up to 500 simultaneously replicating VMs per vCenter Server when an additional [scale-out appliance](./how-to-scale-out-for-migration.md) is deployed. 
+**Automatic installation of Azure VM agent (Windows and Linux Agent)** | Supported for Windows Server 2008 R2 onwards. <br/> Supported for RHEL6, RHEL7, CentOS7, Ubuntu 14.04, Ubuntu 16.04, Ubuntu18.04. Review the list of [required packages](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#requirements)) for these Linux operating systems.
+
+> [!TIP]
+>  Using the Azure portal you'll  be able to select up to 10 VMs at a time to configure replication. To replicate more VMs you can use the portal and add the VMs to be replicated in multiple batches of 10 VMs, or use the Azure Migrate PowerShell interface to configure replication. Ensure that you don't configure simultaneous replication on more than the maximum supported number of VMs for simultaneous replications.
 
 ### Appliance requirements (agentless)
 

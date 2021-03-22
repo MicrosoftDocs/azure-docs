@@ -123,7 +123,7 @@ Use the [Train API](/rest/api/cognitiveservices/qnamaker4.0/runtime/train) to se
 
 # [QnA Maker GA (stable release)](#tab/v1)
 
-Active Learning is supported in runtime version 4.4.0 and above. If your knowledge base was created on an earlier version, [upgrade your runtime](set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates) to use this feature.
+Active Learning is supported in runtime version 4.4.0 and above. If your knowledge base was created on an earlier version, [upgrade your runtime](configure-QnA-Maker-resources.md#get-the-latest-runtime-updates) to use this feature.
 
 # [QnA Maker managed (preview release)](#tab/v2)
 
