@@ -51,6 +51,7 @@ In this tutorial, you learn to:
 ## Create the Pipeline Task in Azure DevOps
 
 1. Navigate to your Azure DevOps project
+
 1. Create a new **Build Pipeline**
 
   :::image type="content" source="media/publish-devops/azdo-build.png" alt-text="Build pipeline"::: 
