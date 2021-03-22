@@ -33,7 +33,7 @@ If you receive the error "The provided manifest file is invalid: Invalid OVF man
 This can happen if the appliance server is behind a proxy.
 
 - Make sure you provide the authorization credentials if the proxy needs them.
-- If you're using a URL-based firewall proxy to control outbound connectivity, add [these URLs](migrate-appliance.md#url-access) to an allow list.
+- If you're using a URL-based firewall proxy to control outbound connectivity, add [these URLs](migrate-appliance.md#url-access) to an allowlist.
 - If you're using an intercepting proxy to connect to the internet, import the proxy certificate onto the appliance using [these steps](./migrate-appliance.md).
 
 ## Can't sign into Azure from the appliance web app
