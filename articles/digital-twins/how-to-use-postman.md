@@ -111,7 +111,9 @@ There are currently two Azure Digital Twins data plane collections available for
 # [Control plane](#tab/control-plane)
 
 The collection currently available for control plane is the [**Azure Digital Twins control plane Swagger**](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins). This repo contains the complete Swagger file for the Azure Digital Twins API set, which can be downloaded and imported to Postman as a collection. This will provide a comprehensive set of every API request.
-    - To find the collection, navigate to the repo link and choose the folder for the latest spec version. From here, open the file called *digitaltwins.json*.
+
+To find the collection, navigate to the repo link and choose the folder for the latest spec version. From here, open the file called *digitaltwins.json*.
+
 ---
 
 Here's how to download your chosen collection to your machine so that you can import it into Postman.
@@ -156,9 +158,6 @@ Follow these steps to add a bearer token to the collection for authorization. Th
     :::image type="content" source="media/how-to-use-postman/postman-paste-token-imported.png" alt-text="Screenshot of the imported collection's edit dialog in Postman, showing the 'Authorization' tab. A Type of 'OAuth 2.0' is selected, and Access Token box where the access token value can be pasted is highlighted." lightbox="media/how-to-use-postman/postman-paste-token-imported.png":::
 
 ### Additional configuration
-# [Control plane](#tab/control-plane)
-
-If you're making a [control plane](how-to-use-apis-sdks.md#overview-control-plane-apis) collection, you've done everything that you need to configure the collection. You can close the editing tab for the collection if you want, and proceed to the next section.
 
 # [Data plane](#tab/data-plane)
 
@@ -173,6 +172,10 @@ If you're making a [data plane](how-to-use-apis-sdks.md#overview-data-plane-apis
 1. If your collection has additional variables, fill and save those values as well.
 
 When you're finished with the above steps, you're done configuring the collection. You can close the editing tab for the collection if you want.
+
+# [Control plane](#tab/control-plane)
+
+If you're making a [control plane](how-to-use-apis-sdks.md#overview-control-plane-apis) collection, you've done everything that you need to configure the collection. You can close the editing tab for the collection if you want, and proceed to the next section.
 
 --- 
 
