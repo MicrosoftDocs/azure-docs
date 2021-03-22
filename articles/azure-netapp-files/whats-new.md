@@ -13,17 +13,27 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 12/04/2020
+ms.date: 03/11/2021
 ms.author: b-juche
 ---
 
 # What's new in Azure NetApp Files
 
-Azure NetApp Files is updated on a regular basis. This article provides a summary about the latest new features and enhancements. 
+Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
+
+## March 2021
+
+* SMB Continuous Availability (CA) shares (Preview)  
+
+    SMB Transparent Failover enables maintenance operations on the Azure NetApp Files service without interrupting connectivity to server applications storing and accessing data on SMB volumes. To support SMB Transparent Failover, Azure NetApp Files now supports the SMB Continuous Availability shares option for use with SQL Server applications over SMB running on Azure VMs. This feature is currently supported on Windows SQL Server. Linux SQL Server is not currently supported. Enabling this feature provides significant SQL Server performance improvements and scale and cost benefits for [Single Instance, Always-On Failover Cluster Instance and Always-On Availability Group deployments](azure-netapp-files-solution-architectures.md#sql-server). See [Benefits of using Azure NetApp Files for SQL Server deployment](solutions-benefits-azure-netapp-files-sql-server.md).
+
+* [Automatic resizing of a cross-region replication destination volume](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
+
+    In a cross-region replication relationship, a destination volume is automatically resized based on the size of the source volume. As such, you don’t need to resize the destination volume separately. This automatic resizing behavior is applicable when the volumes are in an active replication relationship, or when replication peering is broken with the resync operation. For this feature to work, you need to ensure sufficient headroom in the capacity pools for both the source and the destination volumes.
 
 ## December 2020
 
-* [Azure Application Consistent Snapshot Tool](azacsnap-introduction.md) (Public Preview)    
+* [Azure Application Consistent Snapshot Tool](azacsnap-introduction.md) (Preview)    
 
     Azure Application Consistent Snapshot Tool (AzAcSnap) is a command-line tool that enables you to simplify data protection for third-party databases (SAP HANA) in Linux environments (for example, SUSE and RHEL).   
 
@@ -43,7 +53,7 @@ Azure NetApp Files is updated on a regular basis. This article provides a summar
 
 ## September 2020
 
-* [Azure NetApp Files cross-region replication](cross-region-replication-introduction.md) (Public Preview)
+* [Azure NetApp Files cross-region replication](cross-region-replication-introduction.md) (Preview)
 
   Azure NetApp Files now supports cross-region replication. With this new disaster recovery capability, you can replicate your Azure NetApp Files volumes from one Azure region to another in a fast and cost-effective way, protecting your data from unforeseeable regional failures. Azure NetApp Files cross region replication leverages NetApp SnapMirror® technology; only changed blocks are sent over the network in a compressed, efficient format. This proprietary technology minimizes the amount of data required to replicate across the regions, therefore saving data transfer costs. It also shortens the replication time, so you can achieve a smaller Restore Point Objective (RPO).
 
