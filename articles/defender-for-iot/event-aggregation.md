@@ -2,7 +2,7 @@
 title: Defender-IoT-micro-agent classic event aggregation
 description: Learn about Defender for IoT event aggregation.
 ms.topic: conceptual
-ms.date: 1/20/2021
+ms.date: 3/23/2021
 ---
 
 # Defender-IoT-micro-agent classic event aggregation
