@@ -112,6 +112,8 @@
     items:
     - name: Backup solutions for VMs
       href: ecosystem-back-up-vms.md
+    - name: Migration solutions for VMs
+      href: ecosystem-migration-vms.md
 - name: Resources
   items:
   - name: Troubleshooting
