@@ -28,20 +28,15 @@ For more information, see  [Key Benefits of Private Link](../../private-link/pri
 
 ## How it works
 
-Azure Arc enabled servers Private Link Scope connects private endpoints (and the virtual networks they're contained in) to one Azure resource. When you enable one or more VM extensions, such as Azure Automation Update Management or Azure Monitor, those resources 
-
- resources - Log Analytics workspaces and Application Insights components.
+Azure Arc enabled servers Private Link Scope connects private endpoints (and the virtual networks they're contained in) to one Azure resource. When you enable one or more VM extensions, such as Azure Automation Update Management or Azure Monitor, those resources connect to one or more resources - Log Analytics workspace, Azure Automation, etc. 
 
 ![Diagram of basic resource topology](./media/private-link-security/private-link-basic-topology.png)
 
-* The Private Endpoint on your VNet allows it to reach Azure Monitor endpoints through private IPs from your network's pool, instead of using to the public IPs of these endpoints. That allows you to keep using your Azure Monitor resources without opening your VNet to unrequired outbound traffic.
+* The Private Endpoint on your VNet allows it to reach Azure Arc enabled servers endpoints through private IPs from your network's pool, instead of using to the public IPs of these endpoints. That allows you to keep using your Azure Arc enabled servers resource without opening your VNet to unrequired outbound traffic.
 
-* Traffic from the Private Endpoint to your Azure Monitor resources will go over the Microsoft Azure backbone, and not routed to public networks.
+* Traffic from the Private Endpoint to your resources will go over the Microsoft Azure backbone, and not routed to public networks.
 
 * You can configure each of your components to allow or deny ingestion and queries from public networks. That provides a resource-level protection, so that you can control traffic to specific resources.
-
-> [!NOTE]
-> A single Azure Monitor resource can belong to multiple AMPLSs, but you cannot connect a single VNet to more than one AMPLS. 
 
 ## Planning your Private Link setup
 
@@ -124,7 +119,8 @@ Once your Azure Arc Private Link Scope is created, you need to connect it with o
    c. From the **resource** drop-down, choose your Private Link scope you created earlier.
 
    d. Select **Next: Configuration >**.
-      ![Screenshot of select Create Private Endpoint](./media/private-link-security/ampls-select-private-endpoint-create-4.png)
+   
+      ![Screenshot of select Create Private Endpoint](./media/private-link-security/create-private-endpoint-configuration.png)
 
 1. On the **Configuration** page,
 
@@ -133,13 +129,13 @@ Once your Azure Arc Private Link Scope is created, you need to connect it with o
    b. Choose **Yes** for **Integrate with private DNS zone**, and let it automatically create a new Private DNS Zone. The actual DNS zones may be different from what is shown in the screenshot below.
 
      > [!NOTE]
-     > If you choose **No** and prefer to manage DNS records manually, first complete setting up your Private Link - including this Private Endpoint and the AMPLS configuration. Then, configure your DNS according to the instructions in [Azure Private Endpoint DNS configuration](../../private-link/private-endpoint-dns.md). Make sure not to create empty records as preparation for your Private Link setup. The DNS records you create can override existing settings and impact your connectivity with Azure Monitor.
+     > If you choose **No** and prefer to manage DNS records manually, first complete setting up your Private Link - including this Private Endpoint and the Private Scope configuration. Then, configure your DNS according to the instructions in [Azure Private Endpoint DNS configuration](../../private-link/private-endpoint-dns.md). Make sure not to create empty records as preparation for your Private Link setup. The DNS records you create can override existing settings and impact your connectivity with Arc enabled servers.
 
    c.    Select **Review + create**.
 
-   d.    Let validation pass. 
+   d.    Let validation pass.
 
-   e.    Select **Create**. 
+   e.    Select **Create**.
 
     ![Screenshot of select Private Endpoint details.](./media/private-link-security/ampls-select-private-endpoint-create-5.png)
 
@@ -214,6 +210,9 @@ When connecting a server with Azure Arc for the first time, you can optionally c
     1. In the **Region** drop-down list, select the Azure region to store the servers metadata.
     1. In the **Operating system** drop-down list, select the operating system that the script is configured to run on.
     1. Under **Network Connectivity**, select **Private endpoint** and select the Azure Arc Private Link Scope created in Part 1 from the list.
+
+    ![Screenshot of selecting private endpoint connectivity option](./media/private-link-security/arc-enabled-servers-create-script.png)
+
     1. Select **Next: Tags**.
 
 1. On the **Tags** page, review the default **Physical location tags** suggested and enter a value, or specify one or more **Custom tags** to support your standards.
