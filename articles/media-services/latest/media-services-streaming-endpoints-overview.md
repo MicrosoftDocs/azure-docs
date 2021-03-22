@@ -1,33 +1,29 @@
 ---
-title: Azure Media Services Streaming Endpoint overview | Microsoft Docs
-description: This article gives an overview of Azure Media Services streaming endpoints.
+title: Azure Media Services v3 Streaming Endpoint overview | Microsoft Docs
+description: This article gives an overview of Azure Media Services v3 streaming endpoints.
 services: media-services
-documentationcenter: ''
 author: IngridAtMicrosoft
-writer: juliako
 manager: femila
-editor: ''
 ms.service: media-services
-ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 3/10/2021
+ms.topic: overview
+ms.date: 03/22/2021
 ms.author: inhenkel
 ---
-# Streaming endpoints overview  
+# Media Services v3 streaming endpoints overview  
 
-[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 > [!NOTE]
 > No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 In Microsoft Azure Media Services (AMS), a **Streaming Endpoint** represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution. Media Services also provides seamless Azure CDN integration. The outbound stream from a StreamingEndpoint service can be a live stream, a video on demand, or progressive download of your asset in your Media Services account. Each Azure Media Services account includes a default StreamingEndpoint. Additional StreamingEndpoints can be created under the account. There are two versions of StreamingEndpoints, 1.0 and 2.0. Starting with January 10th 2017, any newly created AMS accounts will include version 2.0 **default** StreamingEndpoint. Additional streaming endpoints that you add to this account will also be version 2.0. This change will not impact the existing accounts; existing StreamingEndpoints will be version 1.0 and can be upgraded to version 2.0. With this change there will be behavior, billing and feature changes (for more information, see the **Streaming types and versions** section documented below).
 
-Azure Media Services added the following properties to the Streaming Endpoint entity: **CdnProvider**, **CdnProfile**, **StreamingEndpointVersion**. For detailed overview of these properties, see [this](/rest/api/media/operations/streamingendpoint). 
+Azure Media Services added the following properties to the Streaming Endpoint entity: **CdnProvider**, **CdnProfile**, **StreamingEndpointVersion**. For detailed overview of these properties, see [this](/rest/api/media/operations/streamingendpoint).
 
-When you create an Azure Media Services account a default standard streaming endpoint is created for you in the **Stopped** state. You cannot delete the default streaming endpoint. Depending on the Azure CDN availability in the targeted region, by default newly created default streaming endpoint also includes "StandardVerizon" CDN provider integration. 
-                
+When you create an Azure Media Services account a default standard streaming endpoint is created for you in the **Stopped** state. You cannot delete the default streaming endpoint. Depending on the Azure CDN availability in the targeted region, by default newly created default streaming endpoint also includes "StandardVerizon" CDN provider integration.
+
 > [!NOTE]
 > Azure CDN integration can be disabled before starting the streaming endpoint. The `hostname` and the streaming URL remains the same whether or not you enable CDN.
 
@@ -44,7 +40,6 @@ For any additional endpoints: `{EndpointName}-{AccountName}.streaming.mediaservi
 ### Standard/Premium types (version 2.0)
 
 Starting with the January 2017 release of Media Services, you have two streaming types: **Standard** (preview) and **Premium**. These types are part of the Streaming endpoint version "2.0".
-
 
 |Type|Description|
 |--------|--------|  
@@ -64,7 +59,7 @@ If your **version "1.0"** streaming endpoint has >=1 premium streaming units (SU
 >[!NOTE]
 >**Classic** streaming endpoints (version "1.0" and 0 SU), provides limited features and doesn't include a SLA. It is recommended to migrate to **Standard** type to get a better experience and to use features like dynamic packaging or encryption and other features that come with the **Standard** type. To migrate to the **Standard** type, go to the [Azure portal](https://portal.azure.com/) and select **Opt-in to Standard**. For more information about migration, see the [migration](#migration-between-types) section.
 >
->Beware that this operation cannot be rolled back and has a pricing impact.
+>Be aware that this operation cannot be rolled back and has a pricing impact.
 >
  
 ## Comparing streaming types
@@ -110,11 +105,3 @@ Premium (with/without CDN)|Standard with different config|Allowed in the **stopp
 Version 1.0 with SU >= 1 with CDN|Standard/Premium with no CDN|Allowed in the **stopped** state. Not allowed in the **started** state.
 Version 1.0 with SU >= 1 with CDN|Standard with/without CDN|Allowed in the **stopped** state. Not allowed in the **started** state. Version 1.0 CDN will be deleted and new one created and started.
 Version 1.0 with SU >= 1 with CDN|Premium with/without CDN|Allowed in the **stopped** state. Not allowed in the **started** state. Classic CDN will be deleted and new one created and started.
-
-## Next steps
-Review Media Services learning paths.
-
-[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
-
-## Provide feedback
-[!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

@@ -24,7 +24,7 @@ If you want to explore and deploy existing Azure Functions that use Azure Media 
 ## Prerequisites
 
 - Before you can create your first function, you need to have an active Azure account. If you don't already have an Azure account, [free accounts are available](https://azure.microsoft.com/free/).
-- If you are going to create Azure Functions that perform actions on your Azure Media Services (AMS) account or listen to events sent by Media Services, you should create an AMS account, as described [here](create-account-how-to.md).
+- If you are going to create Azure Functions that perform actions on your Azure Media Services (AMS) account or listen to events sent by Media Services, you should create an AMS account, as described [here](create-account-howto.md).
 	
 ## Create a function app
 
