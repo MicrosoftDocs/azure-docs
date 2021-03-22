@@ -16,7 +16,7 @@ ms.service: iot-pnp
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Device Bundles and Indirectly connected devices
+# Device bundles and indirectly connected devices
 
 To support devices that interact with Azure through a device, SaaS or PaaS offerings, our submission portal (https://www.certify.azure.com), and device catalog (https://devicecatalog.azure.com) enable concepts of bundling and dependencies to promote and enable these device combinations access to our Azure Certified Device program.
 
@@ -24,7 +24,7 @@ Depending on your product line and services offered, your situation may require 
 
 
 ![Create project dependencies](./media/indirect-connected-device/picture-1.png )
-## Sensors and Indirect devices
+## Sensors and indirect devices
 Many sensors require a device to connect to Azure. In addition, you may have multiple compatible devices that will work with the sensor device. **To accommodate these scenarios, you must first certify the device(s) before certifying the sensor that will pass information through them.**
 
 Example matrix of submission combinations
