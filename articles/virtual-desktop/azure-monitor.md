@@ -174,7 +174,7 @@ To set up Performance counters:
 
 Enable specific Windows event logs for collection in the Log Analytics workspace.
 
-If you already have Windows Event logs enabled and want to remove them, follow the instructions in [Configuring Windows Event logs](https://docs.microsoft.com/azure/azure-monitor/agents/data-sources-windows-events#configuring-windows-event-logs).  While the article describes how to add Windows Event logs, you can also remove them in the same location.
+If you've already enabled Windows Event Logs and want to remove them, follow the instructions in [Configuring Windows Event logs](../azure-monitor/agents/data-sources-windows-events.md#configuring-windows-event-logs).  You can add and remove Windows Event logs in the same location.
 
 To set up Windows Event logs:
 
