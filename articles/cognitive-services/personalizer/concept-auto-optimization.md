@@ -67,7 +67,7 @@ Personalizer Auto-Optimize relies on an analysis of a past period to estimate pe
 
 ## Read More
 
-* [Offline evaluations](https://docs.microsoft.com/en-us/azure/cognitive-services/personalizer/concepts-offline-evaluation)
-* [Learning Policy and Settings](https://docs.microsoft.com/en-us/azure/cognitive-services/personalizer/concept-active-learning)
-* [How To Analyze Personalizer with an Offline Evaluation](https://docs.microsoft.com/en-us/azure/cognitive-services/personalizer/how-to-offline-evaluation) 
+* [Offline evaluations](https://docs.microsoft.com/azure/cognitive-services/personalizer/concepts-offline-evaluation)
+* [Learning Policy and Settings](https://docs.microsoft.com/azure/cognitive-services/personalizer/concept-active-learning)
+* [How To Analyze Personalizer with an Offline Evaluation](https://docs.microsoft.com/azure/cognitive-services/personalizer/how-to-offline-evaluation) 
 * [Research in AI Safety](https://aisafety.cs.umass.edu/overview.html) 
