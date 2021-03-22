@@ -255,6 +255,8 @@
         href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_endpoint_servicebus
   - name: Tools and sample projects
     items:
+      - name: Azure Digital Twins Postman Collection
+        href: https://github.com/microsoft/azure-digital-twins-postman-samples
       - name: Device simulator service
         href: https://github.com/Azure/device-simulation-dotnet/tree/master
       - name: Azure Digital Twins end-to-end samples
