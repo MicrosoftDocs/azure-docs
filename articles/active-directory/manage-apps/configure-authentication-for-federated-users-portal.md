@@ -86,7 +86,7 @@ Some applications do not provide a way to configure the authentication request t
 
 ### Home Realm Discovery policy to prevent auto-acceleration
 
-Some Microsoft and SaaS applications automatically include domain_hints (for example, `https://outlook.com/contoso.com` results in a login request with `&domain_hint=contoso.com` appended), which can disrupt rollout of managed credentials like FIDO.  You can use [Home Realm Discovery Policy](https://docs.microsoft.com/graph/api/resources/homeRealmDiscoveryPolicy) to ignore domain hints from certain apps or for certain domains, during rollout of managed credentials.  
+Some Microsoft and SaaS applications automatically include domain_hints (for example, `https://outlook.com/contoso.com` results in a login request with `&domain_hint=contoso.com` appended), which can disrupt rollout of managed credentials like FIDO.  You can use [Home Realm Discovery Policy](/graph/api/resources/homeRealmDiscoveryPolicy) to ignore domain hints from certain apps or for certain domains, during rollout of managed credentials.  
 
 ## Enable direct ROPC authentication of federated users for legacy applications
 
@@ -124,7 +124,7 @@ Following is an example HRD policy definition:
    }
 ```
 
-The policy type is "[HomeRealmDiscoveryPolicy](https://docs.microsoft.com/graph/api/resources/homeRealmDiscoveryPolicy)".
+The policy type is "[HomeRealmDiscoveryPolicy](/graph/api/resources/homeRealmDiscoveryPolicy)".
 
 **AccelerateToFederatedDomain** is optional. If **AccelerateToFederatedDomain** is false, the policy has no effect on auto-acceleration. If **AccelerateToFederatedDomain** is true and there is only one verified and federated domain in the tenant, then users will be taken straight to the federated IdP for sign in. If it is true and there is more than one verified domain in the tenant, **PreferredDomain** must be specified.
 
