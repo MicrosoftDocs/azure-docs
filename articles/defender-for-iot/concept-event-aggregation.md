@@ -7,7 +7,7 @@ manager: rkarlin
 ms.author: shhazam
 ms.date: 1/20/2021
 ms.topic: conceptual
-ms.service: azure
+ms.service: defender-for-iot
 ---
 
 # Event aggregation (Preview)

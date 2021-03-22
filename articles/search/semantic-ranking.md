@@ -1,44 +1,57 @@
 ---
 title: Semantic ranking
 titleSuffix: Azure Cognitive Search
-description: Describes the semantic ranking algorithm in Cognitive Search.
+description: Learn how the semantic ranking algorithm works in Azure Cognitive Search.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/12/2021
+ms.date: 03/18/2021
 ---
 
 # Semantic ranking in Azure Cognitive Search
 
 > [!IMPORTANT]
-> Semantic search features are in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), and are not guaranteed to have the same implementation at general availability. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
+> Semantic search features are in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), and are not guaranteed to have the same implementation at general availability. These features are billable. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
-Semantic ranking is an extension of the query execution pipeline that improves the precision and recall by reranking the top matches of an initial result set. Semantic ranking is backed by state-of-the-art deep machine reading comprehension models, trained for queries expressed in natural language as opposed to linguistic matching on keywords. In contrast with the [default similarity ranking algorithm](index-ranking-similarity.md), the semantic ranker uses the context and meaning of words to determine relevance.
+Semantic ranking is an extension of the query execution pipeline that improves the precision and recall by reranking the top matches of an initial result set. Semantic ranking is backed by state-of-the-art machine reading comprehension models, trained for queries expressed in natural language as opposed to linguistic matching on keywords. In contrast with the [default similarity ranking algorithm](index-ranking-similarity.md), the semantic ranker uses the context and meaning of words to determine relevance.
 
-## How semantic ranking works
+Semantic ranking is both resource and time intensive. In order to complete processing within the expected latency of a query operation, inputs are consolidated and simplified so that summarization and analysis can be completed as quickly as possible.
 
-The semantic ranking is both resource and time intensive. In order to complete processing within the expected latency of a query operation, the model takes as an input just the top 50 documents returned from the default [similarity ranking algorithm](index-ranking-similarity.md). Results from the initial ranking can include more than 50 matches, but only the first 50 will be reranked semantically. 
+## Preparation for semantic ranking
 
-For semantic ranking, the model uses both machine reading comprehension and transfer learning to re-score the documents based on how well each one matches the intent of the query.
+Before scoring for relevance, content must be reduced to a quantity of parameters that can be handled efficiently by the semantic ranker. Content reduction includes the following sequence of steps.
 
-### Preparation (passage extraction) phase
+1. Content reduction starts by using the initial results returned by the default [similarity ranking algorithm](index-ranking-similarity.md) used for keyword search. Search results can include up to 1,000 matches, but semantic ranking will only process the top 50. 
 
-For each document in the initial results, there is a passage extraction exercise that identifies key passages. This is a downsizing exercise that reduces content to an amount that can be processed swiftly.
+   Given the query, initial results could be much less than 50, depending on how many matches were found. Whatever the document count, the initial result set is the document corpus for semantic ranking.
 
-1. For each of the 50 documents, each field in the searchFields parameter is evaluated in consecutive order. Contents from each field are consolidated into one long string. 
+1. Across the document corpus, the contents of each field in "searchFields" is extracted and combined into a long string.
 
-1. The long string is then trimmed to ensure the overall length is not more than 8,000 tokens. For this reason, it's recommended that you position concise fields first so that they are included in the string. If you have very large documents with text-heavy fields, anything after the token limit is ignored.
+1. Any strings that are excessively long are trimmed to ensure the overall length meets the input requirements of the summarization model. This trimming exercise is why it's important to position concise fields first in "searchFields", to ensure they are included in the string. If you have very large documents with text-heavy fields, anything after the maximum limit is ignored.
 
-1. Each document is now represented by a single long string that is up to 8,000 tokens. These strings are sent to the summarization model, which will reduce the string further. The summarization model evaluates the long string for key sentences or passages that best summarize the document or answer the question.
+Each document is now represented by a single long string.
 
-1. The output of this phase is a caption (and optionally, an answer). The caption is at most 128 tokens per document, and it is considered the most representative of the document.
+> [!NOTE]
+> Parameter inputs to the models are tokens not characters or words. Tokenization is determined in part by the analyzer assignment on searchable fields. For insights into how strings are tokenized, you can review the token output of an analyzer using the [Test Analyzer REST API](/rest/api/searchservice/test-analyzer).
+>
+> Currently in this preview, long strings can be a maximum of 8,000 tokens in size. If search fails to deliver an expected answer from deep within a document, knowing about content trimming helps you understand why. 
 
-### Scoring and ranking phases
+## Summarization
 
-In this phase, all 50 captions are evaluated to assess relevance.
+After string reduction, it's now possible to pass the parameters through machine reading comprehension and language representation to determine which sentences and phrases best summarize the model, relative to the query.
+
+Inputs to summarization are the long string from the preparation phase. From that input, the summarization model evaluates the content to find passages that are most representative.
+
+Output is a [semantic caption](semantic-how-to-query-request.md), in plain text and with highlights. The caption is smaller than the long string, usually fewer than 200 words per document, and it's considered the most representative of the document. 
+
+A [semantic answer](semantic-answers.md) will also be returned if you specified the "answers" parameter, if the query was posed as a question, and if a passage can be found in the long string that is likely to provide an answer to the question.
+
+## Scoring and ranking
+
+At this point, you now have captions for each document. The captions are evaluated for relevance to the query.
 
 1. Scoring is determined by evaluating each caption for conceptual and semantic relevance, relative to the query provided.
 
@@ -46,13 +59,14 @@ In this phase, all 50 captions are evaluated to assess relevance.
 
    :::image type="content" source="media/semantic-search-overview/semantic-vector-representation.png" alt-text="Vector representation for context" border="true":::
 
-1. The output of this phase is an @search.rerankerScore assigned to each document. Once all documents are scored, they are listed in descending order and included in the query response payload.
+1. The output of this phase is a @search.rerankerScore assigned to each document. Once all documents are scored, they are listed in descending order and included in the query response payload. The payload includes answers, plain text and highlighted captions, and any fields that you marked as retrievable or specified in a select clause.
 
 ## Next steps
 
-Semantic ranking is offered on Standard tiers, in specific regions. For more information and to sign up, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing). A new query type enables the relevance ranking and response structures of semantic search. To get started, [Create a semantic query](semantic-how-to-query-request.md).
+Semantic ranking is offered on Standard tiers, in specific regions. For more information about available and sign up, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing). A new query type enables the relevance ranking and response structures of semantic search. To get started, [Create a semantic query](semantic-how-to-query-request.md).
 
-Alternatively, review either of the following articles for related information.
+Alternatively, review the following articles about default ranking. Semantic ranking depends on the similarity ranker to return the initial results. Knowing about query execution and ranking will give you a broad understanding of how the entire process works.
 
-+ [Semantic search overview](semantic-search-overview.md)
-+ [Return a semantic answer](semantic-answers.md)
++ [Full text search in Azure Cognitive Search](search-lucene-query-architecture.md)
++ [Similarity and scoring in Azure Cognitive Search](index-similarity-and-scoring.md)
++ [Analyzers for text processing in Azure Cognitive Search](search-analyzers.md)
