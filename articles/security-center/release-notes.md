@@ -22,7 +22,6 @@ To learn about *planned* changes that are coming soon to Security Center, see [I
 > If you're looking for items older than six months, you'll find them in the [Archive for What's new in Azure Security Center](release-notes-archive.md).
 
 
-
 ## March 2021
 
 Updates in March include:
@@ -34,7 +33,6 @@ Updates in March include:
 - [Recommendation data can be viewed in Azure Resource Graph with "Explore in ARG"](#recommendation-data-can-be-viewed-in-azure-resource-graph-with-explore-in-arg)
 - [Updates to the policies for deploying workflow automation](#updates-to-the-policies-for-deploying-workflow-automation)
 - [Two legacy recommendations no longer write data directly to Azure activity log](#two-legacy-recommendations-no-longer-write-data-directly-to-azure-activity-log)
-- [New guest configuration recommendation (preview)](#new-guest-configuration-recommendation-preview)
 - [Recommendations page enhancements](#recommendations-page-enhancements)
 
 
@@ -137,22 +135,6 @@ The two legacy recommendations are:
 - Vulnerabilities in security configuration on your machines should be remediated
 
 If you've been accessing information for these two recommendations in activity log's "Recommendation of type TaskDiscovery" category, this is no longer available.
-
-
-### New guest configuration recommendation (preview)
-
-Azure offers a machine extension to help ensure your machines' in-guest settings are hardened. The **Guest Configuration extension** can be installed on Azure machines and Arc enabled machines and it reports to Security Center.
-
-Security Center's new recommendation, **Guest Configuration extension should be installed on your machines**, will prompt you to install this extension to harden settings such as:
-
-- The configuration of the operating system
-- Application configuration or presence
-- Environment settings
-
-Once installed, in-guest policies will be available such as 'Windows Exploit guard should be enabled'.
-
-Learn more in [Understand Azure Policy's Guest Configuration](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration).
-
 
 
 ### Recommendations page enhancements 
