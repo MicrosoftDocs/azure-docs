@@ -1,0 +1,21 @@
+### YamlMime:FAQ
+metadata:
+  title: AzCopy V10 FAQ
+  description: Description goes here.
+  author: normesta
+  ms.author: normesta
+  ms.topic: conceptual
+  ms.date: 03/22/2021
+  ms.service: storage
+  ms.subservice: common
+    
+title: AzCopy V10 FAQ
+
+sections:
+  - name: Ignored
+    questions:
+      - question: Question 1?
+        answer: Answer goes here.
+          
+      - question: Question 2?
+        answer: Answer goes here.
