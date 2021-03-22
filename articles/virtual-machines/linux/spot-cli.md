@@ -93,7 +93,7 @@ az vm simulate-eviction --resource-group mySpotRG --name mySpot
 
 The response output will have `Status: Succeeded` if the request was successfully made.
 
-Quickly go back to your remote connection to your Spot Virtual Machine and query the Sheduled Events endpoint again. Repeat the following command until you get an output that contains more information:
+Quickly go back to your remote connection to your Spot Virtual Machine and query the Scheduled Events endpoint again. Repeat the following command until you get an output that contains more information:
 
 ```
 curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01
@@ -107,7 +107,7 @@ When the Scheduled Event Service gets the eviction notification, you will get a 
 
 You can see that `"EventType":"Preempt"`, and the resource is the VM resource `"Resources":["myspotvm"]`. 
 
-You can also see when the VM will be evicted by checking the `"NotBefore" - the VM will not be evicted before the time given, so that is your window for your application to gracefully close out.
+You can also see when the VM will be evicted by checking the `"NotBefore"` - the VM will not be evicted before the time given, so that is your window for your application to gracefully close out.
 
 
 ## Next steps
