@@ -27,9 +27,13 @@ Windows 10 Enterprise multi-session is a virtual edition of Windows 10 Enterpris
 
 Windows 10 Enterprise multi-session can't run in on-premises production environments because it's optimized for the Windows Virtual Desktop service for Azure. It's against the licensing agreement to run Windows 10 Enterprise multi-session outside of Azure for production purposes. Windows 10 Enterprise multi-session won't activate against on-premises Key Management Services (KMS).
 
+## Can I upgrade a Windows 10 VM to Windows 10 Enterprise multi-session?
+
+No. It's not currently possible to upgrade an existing virtual machine (VM) that's running Windows 10 Professional or Enterprise to Windows 10 Enterprise multi-session. Also, if you deploy a Windows 10 Enterprise multi-session VM and then update the product key to another edition, you won't be able to switch the VM back to Windows 10 Enterprise multi-session and will need to redeploy the VM.
+
 ## How do I customize the Windows 10 Enterprise multi-session image for my organization?
 
-You can start a virtual machine (VM) in Azure with Windows 10 Windows 10 Enterprise multi-session and customize it by installing LOB applications, sysprep/generalize, and then create an image using the Azure portal.
+You can start a VM in Azure with Windows 10 Windows 10 Enterprise multi-session and customize it by installing LOB applications, sysprep/generalize, and then create an image using the Azure portal.
 
 To get started, create a VM in Azure with Windows 10 Enterprise multi-session. Instead of starting the VM in Azure, you can download the VHD directly. After that, you'll be able to use the VHD you downloaded to create a new Generation 1 VM on a Windows 10 PC with Hyper-V enabled.
 

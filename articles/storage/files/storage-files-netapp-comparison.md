@@ -10,7 +10,7 @@ ms.date: 3/19/2021
 ms.author: jeffpatt
 ---
 
-# Azure Files and Azure NetApp Files Comparison
+# Azure Files and Azure NetApp Files comparison
 
 This article provides a comparison of Azure Files and Azure NetApp Files. 
 
