@@ -16,7 +16,7 @@ ms.reviewer: paulgarn
 
 # Single Sign-Out SAML Protocol
 
-Azure Active Directory (Azure AD) supports the SAML 2.0 web browser single sign-out profile. For single sign-out to work correctly, the **LogoutURL** for the application must be explicitly registered with Azure AD during application registration. If the app is added to the Azure App Gallery [Azure App Gallery](v2-howto-app-gallery-listing.md) then this value can be set by default. Otherwise, the value must be determined and set by the person adding the app to their Azure AD tenant. Azure AD uses the LogoutURL to redirect users after they're signed out. 
+Azure Active Directory (Azure AD) supports the SAML 2.0 web browser single sign-out profile. For single sign-out to work correctly, the **LogoutURL** for the application must be explicitly registered with Azure AD during application registration. If the app is [added to the Azure App Gallery](v2-howto-app-gallery-listing.md) then this value can be set by default. Otherwise, the value must be determined and set by the person adding the app to their Azure AD tenant. Azure AD uses the LogoutURL to redirect users after they're signed out. 
 
 Azure AD supports redirect binding (HTTP GET), and not HTTP POST binding.
 
