@@ -25,18 +25,19 @@ This article applies to the **Azure Stack Edge 2103** release, which maps to sof
 
 The following new features are available in the Azure Stack Edge 2103 release. 
  
-- **New features for Virtual Machines** - Beginning this release, you can perform the following operations on the virtual machines that you [deployed on your device via the Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md):
+- **New features for Virtual Machines** - Beginning this release, you can perform the following management operations on the virtual machines via the Azure portal:
     - Add or remove multiple network interfaces to an existing VM.
     - Add or remove multiple disks to an existing VM.
     - Resize the VM.
     - Add custom data while deploying a Windows or a Linux VM.
-    - [Connect to the VM console on your device](azure-stack-edge-gpu-connect-virtual-machine-console.md).
+
+  You can also [Connect to the VM console on your device](azure-stack-edge-gpu-connect-virtual-machine-console.md) and troubleshoot any VM issues.
 
 - **Kubernetes cloud management** - Beginning this release, you can manage the Kubernetes cluster on your Azure Stack Edge Pro GPU device via the Azure portal. For more information, see [Manage Kubernetes on your Azure Stack Edge Pro GPU via the Azure portal]().
 
 - **Improvements for Compute** - Several enhancements and improvements were made including those for:
 
-    - **Overall compute platform quality**. Some bugs were fixed to improve the overall quality. See the [Issues fixed in 2103 release](#issues-fixed-in-2103-release). 
+    - **Overall compute platform quality**. This release has bug fixes to improve the overall compute platform quality. See the [Issues fixed in 2103 release](#issues-fixed-in-2103-release). 
 	- **Compute platform components**. Security updates were applied to Compute VM image. IoT Edge and Azure Arc for Kubernetes versions were also updated.
 	- **Diagnostics**. A new API is released to check resource and network conditions. You can connect to the PowerShell interface of the device and use the `Test-HcsKubernetesStatus` command to verify the network readiness of the device.
 	- **Log collection** that would lead to improved debugging. 
