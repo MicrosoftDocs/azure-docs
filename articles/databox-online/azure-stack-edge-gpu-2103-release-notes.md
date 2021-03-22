@@ -39,7 +39,7 @@ The following new features are available in the Azure Stack Edge 2103 release.
     - **Overall compute platform quality**. Some bugs were fixed to improve the overall quality. See the [Issues fixed in 2103 release](#issues-fixed-in-2103-release). 
 	- **Compute platform components**. Security updates were applied to Compute VM image. IoT Edge and Azure Arc for Kubernetes versions were also updated.
 	- **Diagnostics**. A new API is released to check resource and network conditions. You can connect to the PowerShell interface of the device and use the `Test-HcsKubernetesStatus` command to verify the network readiness of the device.
-	- **Log collection that would lead to improved debugging. 
+	- **Log collection** that would lead to improved debugging. 
 	- **Alerting infrastructure** that will allow you to detect IP address conflicts for compute IP addresses. 
 	- **Mix workload** of Kubernetes and local Azure Resource Manager. 
 
