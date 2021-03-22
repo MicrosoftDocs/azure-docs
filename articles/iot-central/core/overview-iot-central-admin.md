@@ -43,7 +43,7 @@ You can set of metrics provided by IoT Central to [assess the health of devices]
 As an _Administrator_ you can do the following:
 * Manage [X.509 certificates](how-to-roll-x509-certificates.md)
 * Curate [SaS keys](concepts-get-connected.md)
-* Review [API tokens](https://docs.microsoft.com/en-us/rest/api/iotcentral/)
+* Review [API tokens](https://docs.microsoft.com/rest/api/iotcentral/)
 
 ## Configure file uploads
 You can configure how to [file uploads](howto-configure-file-uploads.md)
