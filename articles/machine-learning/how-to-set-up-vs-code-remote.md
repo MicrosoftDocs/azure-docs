@@ -45,7 +45,7 @@ To connect to your remote compute instance:
 
 ## Command Palette
 
-1. In VS Code, open the command pallette by selecting **View > Command Palette**.
+1. In VS Code, open the command palette by selecting **View > Command Palette**.
 1. Enter into the text box **Azure ML: Connect to Compute Instance**.
 1. Select your subscription.
 1. Select your workspace.
@@ -61,7 +61,7 @@ To connect to your remote compute instance:
 
 ---
 
-A new window launches to connect to When attempting to make a connection to a remote compute instance, the following taks are taking place:
+A new window launches for your remote compute instance. When attempting to make a connection to a remote compute instance, the following tasks are taking place:
 
 1. Authorization. Some checks are performed to make sure the user attempting to make a connection is authorized to use the compute instance.
 1. VS Code Remote Server is installed on the compute instance.
