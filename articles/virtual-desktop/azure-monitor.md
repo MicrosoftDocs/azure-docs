@@ -136,7 +136,7 @@ You can learn more about how to enable diagnostics in the Windows Virtual Deskto
 
 You'll need to install the Log Analytics agent on all session hosts in the host pool to send data from those hosts to the selected Log Analytics workspace.
 
-1. If Log Analytics isn't configured for all the session hosts in the host pool, you'll see a **Session hosts** section at the top of **Session host data settings** with the message "Some hosts in the host pool are not sending data to the selected Log Analytics workspace.".
+1. If Log Analytics isn't configured for all the session hosts in the host pool, you'll see a **Session hosts** section at the top of **Session host data settings** with the message "Some hosts in the host pool are not sending data to the selected Log Analytics workspace."
  
     >[!NOTE]
     > If you don't see the **Session hosts** section or error message, you don't need to do step 2-3.
