@@ -74,7 +74,7 @@ HDInsight only supports Azure Key Vault. If you have your own key vault, you can
 
 1. Provide a name, then select **Create**. Maintain the default **Key Type** of **RSA**.
 
-    :::image type="content" source="./media/disk-encryption/create-key.png alt-text="generates key name":::
+    :::image type="content" source="./media/disk-encryption/create-key.png" alt-text="generates key name":::
 
 1. When you return to the **Keys** page, select the key you created.
 
