@@ -10,7 +10,7 @@ ms.date: 03/10/2021
 ms.author: inhenkel
 ---
 
-# Learn how clients pass tokens to the Azure Media Services key delivery service
+# Pass tokens to the Azure Media Services v3 key delivery service
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 

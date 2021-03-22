@@ -13,7 +13,7 @@ ms.author: inhenkel
 ms.custom: devx-track-csharp
 ---
 
-# Develop Azure Functions with Media Services
+# Develop Azure Functions with Media Services v3
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
