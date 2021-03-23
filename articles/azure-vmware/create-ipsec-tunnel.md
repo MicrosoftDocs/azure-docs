@@ -128,7 +128,7 @@ Policy-based VPN setups require on-premise and Azure VMware Solution networks to
 3. Patch the Azure VMware Solution ExpressRoute in the Virtual WAN hub. 
 
    >[!IMPORTANT]
-   >You must first have created a private cloud before you can patch the platform. 
+   >You must first have a private cloud created before you can patch the platform. 
 
    [!INCLUDE [request-authorization-key](includes/request-authorization-key.md)]
 
