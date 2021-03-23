@@ -136,7 +136,7 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
     ```
  
 
-4. Add your key vault reference in the `OsProfile` section of the ARM template. Key Vault is used to store certificates that are associated to Cloud Services (extended support). Add the certificates to Key Vault, then reference the certificate thumbprints in Service Configuration (.cscfg) file. You also need to enable Key Vault for appropriate permissions so that Cloud Services (extended support) resource can retrieve certificate stored as secrets from Key Vault. The key vault must be located in the same region and subscription as cloud service and have a unique name. For more information, see [using certificates with Cloud Services (extended support)](certificates-and-key-vault.md).
+4. Add your key vault reference in the `OsProfile` section of the ARM template. Key Vault is used to store certificates that are associated to Cloud Services (extended support). Add the certificates to Key Vault, then reference the certificate thumbprints in Service Configuration (.cscfg) file. You also need to enable Key Vault 'Access policies' for 'Azure Virtual Machines for deployment'(on portal) so that Cloud Services (extended support) resource can retrieve certificate stored as secrets from Key Vault. The key vault must be located in the same region and subscription as cloud service and have a unique name. For more information, see [using certificates with Cloud Services (extended support)](certificates-and-key-vault.md).
      
     ```json
     "osProfile": { 
