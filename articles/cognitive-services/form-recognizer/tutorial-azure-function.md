@@ -2,14 +2,14 @@
 title: "Tutorial: Use an Azure Function to process stored documents"
 titleSuffix: Azure Cognitive Services
 description: This guide shows you how to use an Azure function to trigger the processing of documents that are uploaded to an Azure blob storage container. 
-author: PatrickFarley
+author: laujan
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 10/28/2020
-ms.author: pafarley
+ms.date: 03/19/2021
+ms.author: lajanuar
 ---
 
 # Tutorial: Use an Azure Function to process stored documents
@@ -146,7 +146,7 @@ The following code block calls the Form Recognizer [Analyze Layout](https://west
 # This is the call to the Form Recognizer endpoint
     endpoint = r"Your Form Recognizer Endpoint"
     apim_key = "Your Form Recognizer Key"
-    post_url = endpoint + "/formrecognizer/v2.1-preview.2/Layout/analyze"
+    post_url = endpoint + "/formrecognizer/v2.1-preview.3/Layout/analyze"
     source = myblob.read()
 
     headers = {

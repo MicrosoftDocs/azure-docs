@@ -80,14 +80,14 @@ The following constraints are applicable on the operational data in Azure Cosmos
 
 * While JSON documents (and Cosmos DB collections/containers) are case sensitive from the uniqueness perspective, analytical store is not.
 
-  * In the same document: Properties names in the same level should be unique when compared case insensitively. For example, the following JSON document has "Name" and "name" in the same level of the document. While it's a valid JSON document, it doesn't satisfy analytical store constraint and hence will not be fully represented in the analytical store. In this case, "Name" and "name" are the same when compared in a case insensitive manner. Only "Name" will be represented in analytical store, because it is the first occurrence. And  `"name": "john"` won't be represented at all.
+  * **In the same document:** Properties names in the same level should be unique when compared case insensitively. For example, the following JSON document has "Name" and "name" in the same level. While it's a valid JSON document, it doesn't satisfy the uniqueness constraint and hence will not be fully represented in the analytical store. In this example, "Name" and "name" are the same when compared in a case insensitive manner. Only `"Name": "fred"` will be represented in analytical store, because it is the first occurrence. And `"name": "john"` won't be represented at all.
   
   
   ```json
   {"id": 1, "Name": "fred", "name": "john"}
   ```
   
-  * In different documents: Properties in the same level and with the same name, but in different cases, will be represented with the first occurrence. For example, the following documents have "Name" and "name" in the same level. Since the first document has "Name", this format will be used to represent this property in analytical store. In other words, the column name in analytical store will be "Name". Both `"fred"` and `"john"` will be represented, in the "Name" column.
+  * **In different documents:** Properties in the same level and with the same name, but in different cases, will be represented within the same column, using the name format of the first occurrence. For example, the following JSON documents have `"Name"` and `"name"` in the same level. Since the first document format is `"Name"`, this is what will be used to represent the property name in analytical store. In other words, the column name in analytical store will be `"Name"`. Both `"fred"` and `"john"` will be represented, in the `"Name"` column.
 
 
   ```json
@@ -105,9 +105,10 @@ The following constraints are applicable on the operational data in Azure Cosmos
 
 * Currently we do not support Azure Synapse Spark reading column names that contain blanks (white spaces).
 
-* Expect different behavior in regard to `NULL` values:
-  * Spark pools in Azure Synapse will read these value as a 0 (zero).
-  * SQL serverless pools in Azure Synapse will read these values as `NULL`.
+* Expect different behavior in regard to explicit `null` values:
+  * Spark pools in Azure Synapse will read these values as `0` (zero).
+  * SQL serverless pools in Azure Synapse will read these values as `NULL` if the first document of the collection has, for the same property, a value with a datatype different of `integer`.
+  * SQL serverless pools in Azure Synapse will read these values as `0` (zero) if the first document of the collection has, for the same property, a value that is an integer.
 
 * Expect different behavior in regard to missing columns:
   * Spark pools in Azure Synapse will represent these columns as `undefined`.
@@ -129,7 +130,7 @@ The well-defined schema representation creates a simple tabular representation o
 
 * A property always has the same type across multiple items.
 
-  * For example, `{"a":123} {"a": "str"}` does not have a well-defined schema because `"a"` is sometimes a string and sometimes a number. In this case, the analytical store registers the data type of `“a”` as the data type of `“a”` in the first-occurring item in the lifetime of the container. Items where the data type of `“a”` differs will not be included in the analytical store.
+  * For example, `{"a":123} {"a": "str"}` does not have a well-defined schema because `"a"` is sometimes a string and sometimes a number. In this case, the analytical store registers the data type of `"a"` as the data type of `“a”` in the first-occurring item in the lifetime of the container. The document will still be included in analytical store, but items where the data type of `"a"` differs will not.
   
     This condition does not apply for null properties. For example, `{"a":123} {"a":null}` is still well defined.
 
@@ -139,6 +140,11 @@ The well-defined schema representation creates a simple tabular representation o
 
 > [!NOTE]
 > If the Azure Cosmos DB analytical store follows the well-defined schema representation and the specification above is violated by certain items, those items will not be included in the analytical store.
+
+* Expect different behavior in regard to different types in well defined schema:
+  * Spark pools in Azure Synapse will represent these values as `undefined`.
+  * SQL serverless pools in Azure Synapse will represent these values as `NULL`.
+
 
 **Full fidelity schema representation**
 

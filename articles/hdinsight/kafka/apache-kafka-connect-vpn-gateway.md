@@ -240,15 +240,15 @@ By default, Apache Zookeeper returns the domain name of the Kafka brokers to cli
 
 2. To view information on Kafka, select __Kafka__ from the list on the left.
 
-    ![Service list with Kafka highlighted](./media/apache-kafka-connect-vpn-gateway/select-kafka-service.png)
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/select-kafka-service.png" alt-text="Service list with Kafka highlighted" border="true":::
 
 3. To view Kafka configuration, select __Configs__ from the top middle.
 
-    ![Apache Ambari services configuration](./media/apache-kafka-connect-vpn-gateway/select-kafka-config1.png)
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/select-kafka-config1.png" alt-text="Apache Ambari services configuration" border="true":::
 
 4. To find the __kafka-env__ configuration, enter `kafka-env` in the __Filter__ field on the upper right.
 
-    ![Kafka configuration, for kafka-env](./media/apache-kafka-connect-vpn-gateway/search-for-kafka-env.png)
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/search-for-kafka-env.png" alt-text="Kafka configuration, for kafka-env" border="true":::
 
 5. To configure Kafka to advertise IP addresses, add the following text to the bottom of the __kafka-env-template__ field:
 
@@ -266,15 +266,15 @@ By default, Apache Zookeeper returns the domain name of the Kafka brokers to cli
 
 8. To save the configuration changes, use the __Save__ button. Enter a text message describing the changes. Select __OK__ once the changes have been saved.
 
-    ![Apache Ambari save configuration](./media/apache-kafka-connect-vpn-gateway/save-configuration-button.png)
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/save-configuration-button.png" alt-text="Apache Ambari save configuration" border="true":::
 
 9. To prevent errors when restarting Kafka, use the __Service Actions__ button and select __Turn On Maintenance Mode__. Select OK to complete this operation.
 
-    ![Service actions, with turn on maintenance highlighted](./media/apache-kafka-connect-vpn-gateway/turn-on-maintenance-mode.png)
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/turn-on-maintenance-mode.png" alt-text="Service actions, with turn on maintenance highlighted" border="true":::
 
 10. To restart Kafka, use the __Restart__ button and select __Restart All Affected__. Confirm the restart, and then use the __OK__ button after the operation has completed.
 
-    ![Restart button with restart all affected highlighted](./media/apache-kafka-connect-vpn-gateway/restart-required-button.png)
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/restart-required-button.png" alt-text="Restart button with restart all affected highlighted" border="true":::
 
 11. To disable maintenance mode, use the __Service Actions__ button and select __Turn Off Maintenance Mode__. Select **OK** to complete this operation.
 

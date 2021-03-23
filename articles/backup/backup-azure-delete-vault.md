@@ -42,6 +42,7 @@ To properly delete a vault, you must follow the steps in this order:
   - **MABS or DPM management servers**: Go to the vault dashboard menu > **Backup Infrastructure** > **Backup Management Servers**. If you have DPM or Azure Backup Server (MABS), then all items listed here must be deleted or unregistered along with their backup data. [Follow these steps](#delete-protected-items-on-premises) to delete the management servers.
 
 - **Step 4**: You must ensure all registered storage accounts are deleted. Go to the vault dashboard menu > **Backup Infrastructure** > **Storage Accounts**. If you have storage accounts listed here, then you must unregister all of them. To learn how to unregister the account, see [Unregister a storage account](manage-afs-backup.md#unregister-a-storage-account).
+- **Step 5**: Ensure there are no Private endpoints created for the vault. Go to Vault dashboard menu > **Private endpoint Connections** under 'Settings' > if the vault has any Private endpoint connections created or attempted to be created, ensure they are removed before proceeding with vault delete. 
 
 After you've completed these steps, you can continue to [delete the vault](#delete-the-recovery-services-vault).
 
@@ -67,6 +68,7 @@ To stop protection and delete the backup data, perform the following steps:
 
          ![The Delete Backup Data pane.](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
+   This option deletes scheduled backups, also deletes on-demand backups.
 3. Check the **Notification** icon: ![The Notification icon.](./media/backup-azure-delete-vault/messages.png) After the process finishes, the service displays the following message: *Stopping backup and deleting backup data for "*Backup Item*"*. *Successfully completed the operation*.
 4. Select **Refresh** on the **Backup Items** menu, to make sure the backup item was deleted.
 
