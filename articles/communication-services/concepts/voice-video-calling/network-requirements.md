@@ -57,7 +57,7 @@ Below are the bandwidth requirements for the native Android and iOS client libra
 
 ### Firewall(s) configuration
 
-The Azure Communication Services connection requires internet connectivity to specific ports to transmit traffic with high-quality. Azure Communication Services can work if access to all the necessary IP addresses, ports are not open. However, the optimal experience is provided when recommended ports and IP ranges are open.
+Azure Communication Services connections require internet connectivity to specific ports and IP addresses in order to deliver high-quality multimedia experiences. Without access to these ports and IP addresses, Azure Communication Services can still work. However, the optimal experience is provided when the recommended ports and IP ranges are open.
 
 | Category | IP ranges or FQDN | Ports | 
 | :-- | :-- | :-- |
