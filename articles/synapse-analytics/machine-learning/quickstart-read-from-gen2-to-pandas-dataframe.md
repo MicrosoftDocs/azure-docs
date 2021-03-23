@@ -15,13 +15,19 @@ ms.author: garye
 
 # Quickstart: Read data from Gen2 into Pandas dataframe
 
-In this quickstart, you'll learn how to use Python to read data from an Azure Data Lake Storage Gen2 data source into a Pandas dataframe.
-You'll connect to a container in an ADLS Gen2 storage account, read the data in Python using `spark.read.load`, then convert it to a Pandas dataframe using `.toPandas()`.
+In this quickstart, you'll learn how to use Python to read data from an Azure Data Lake Storage (ADLS) Gen2 data source into a Pandas dataframe.
+
+From a Synapse Studio notebook, you'll:
+
+- connect to a container in an ADLS Gen2 storage account
+- read the data in Python using `spark.read.load`
+- then convert it to a Pandas dataframe using `.toPandas()`
 
 ## Prerequisites
 
 - Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
-- [Synapse Analytics workspace](../get-started-create-workspace.md) with an ADLS Gen2 storage account configured as the default storage. You need to be the **Storage Blob Data Contributor** of the ADLS Gen2 filesystem that you work with.
+- Synapse Analytics workspace with an ADLS Gen2 storage account configured as the default storage. You need to be the **Storage Blob Data Contributor** of the ADLS Gen2 filesystem that you work with. For details on how to create a workspace, see [Creating a Synapse workspace](../get-started-create-workspace.md).
+- Apache Spark pool in your workspace. See [Create a serverless Apache Spark pool](../get-started-analyze-spark.md#create-a-serverless-apache-spark-pool).
 
 ## Sign in to the Azure portal
 
@@ -45,9 +51,9 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Specify a name, select your Azure subscription and storage account name, and click **Create**.
 
-1. In the **Data** pane, click the elipsis (...) next to **Azure Data Lake Storage Gen2** and select "Refresh" to display the storage account you created.
+1. In the **Data** pane, click the elipsis (...) next to **Azure Data Lake Storage Gen2** and select "Refresh" to display the storage account you just created.
 
-1. Expand the storage account you created, select your container, select RetailSales.csv on the right, and click **Properties** above.
+1. Expand **Azure Data Lake Storage Gen2**, expand the storage account you created, select your container, select "RetailSales.csv", and click **Properties**.
 
 1. In the **Properties** pane, copy the **ABFSS Path** value.
 
@@ -59,7 +65,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. In **Attach to**, select your Apache Spark Pool.
 
-1. In the code cell, paste the following Python code using the ABFSS path you copied earlier:
+1. In the code cell, paste the following Python code, inserting the ABFSS path you copied earlier:
 
    ```python
    %%pyspark
@@ -94,5 +100,7 @@ Job execution SucceededSpark 2 executors 8 cores
 
 ## Next steps
 
-- [Tutorial: Machine learning model scoring wizard - dedicated SQL pool](tutorial-sql-pool-model-scoring-wizard.md)
-- [Machine Learning capabilities in Azure Synapse Analytics](what-is-machine-learning.md)
+- [What is Azure Synapse Analytics?](../overview-what-is.md)
+- [Get Started with Azure Synapse Analytics](../get-started.md)
+- [Create a blob with the Azure portal](/azure/storage/blobs/storage-quickstart-blobs-portal)
+- [Create a serverless Apache Spark pool](../get-started-analyze-spark.md#create-a-serverless-apache-spark-pool)
