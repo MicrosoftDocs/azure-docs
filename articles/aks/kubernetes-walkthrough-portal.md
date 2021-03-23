@@ -6,7 +6,7 @@ services: container-service
 ms.topic: quickstart
 ms.date: 03/15/2021
 
-ms.custom: mvc, seo-javascript-october2019, contperfq3
+ms.custom: mvc, seo-javascript-october2019, contperf-fy21q3
 
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run and monitor applications using the managed Kubernetes service in Azure.
 ---
