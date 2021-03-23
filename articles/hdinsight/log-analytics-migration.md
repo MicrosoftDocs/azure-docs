@@ -79,9 +79,11 @@ The second way to access the new tables is through Cluster portal access.
 For comparison, the following screenshots show the legacy integration workspace view and the new integration workspace view:
 
 **Legacy integration workspace view**
+
 :::image type="content" source="./media/log-analytics-migration/legacy-integration-workspace-view.png" alt-text="Screenshot that shows the legacy integration workspace view." border="true":::
 
 **New integration workspace view**
+
 :::image type="content" source="./media/log-analytics-migration/new-integration-workspace-view.png" alt-text="Screenshot that shows the new integration workspace view." border="true":::
 
 ### Using the new tables
