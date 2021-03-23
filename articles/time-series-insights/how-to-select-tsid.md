@@ -20,7 +20,7 @@ This article summarizes the importance of the Time Series ID for your Azure Time
 
 Selecting an appropriate Time Series ID is critical. Choosing a Time Series ID is like choosing a partition key for a database. It's required when you create an Azure Time Series Insights Gen2 environment.
 
-Watch the environment provisioning tutorial for a detailed explanation of the Time Series ID. You'll view two different JSON telemetry payload examples and the  correct Time Series ID selection for each.    
+Watch the environment provisioning tutorial for a detailed explanation of the Time Series ID. You'll view two different JSON telemetry payload examples and the  correct Time Series ID selection for each.</br>
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWzk3P]
 
