@@ -35,9 +35,9 @@ Previous versions also currently supported include: `3.0.2`
 | history                        | Yes       | Yes       | Yes       |                                                     |
 | create                         | Yes       | Yes       | Yes       | Support both POST/PUT                               |
 | create (conditional)           | Yes       | Yes       | Yes       | Issue [#1382](https://github.com/microsoft/fhir-server/issues/1382) |
-| search                         | Partial   | Partial   | Partial   | See supported search parameter types below.                                           |
-| chained search                 | Yes       | Yes       | Yes       | See Note 2 below.                                                    |
-| reverse chained search         | Yes       | Yes       | Yes       | See Note 2 below.                                                    |
+| search                         | Partial   | Partial   | Partial   | See supported search parameter types below.         |
+| chained search                 | Yes       | Yes       | Partial      | See Note 2 below.                                   |
+| reverse chained search         | Yes       | Yes       | Partial      | See Note 2 below.                                   |
 | capabilities                   | Yes       | Yes       | Yes       |                                                     |
 | batch                          | Yes       | Yes       | Yes       |                                                     |
 | transaction                    | No        | Yes       | No        |                                                     |
@@ -51,13 +51,8 @@ Previous versions also currently supported include: `3.0.2`
  **Note 2**
 * Adds MVP support for Chained and Reverse Chained FHIR Search in CosmosDB. 
 
-  Due to not being able to join to other documents, this implementation walks down the search expression and issues sub-queries to resolve the matched resources. This is done for each level of the expression. If any query returns more than 100 results, an error will be thrown.
+  In the Azure API for FHIR and the open-source FHIR server backed by Cosmos, the chained search and reverse chained search is an MVP implementation. To accomplish chained search on Cosmos DB, the implementation walks down the search expression and issues sub-queries to resolve the matched resources. This is done for each level of the expression. If any query returns more than 100 results, an error will be thrown. By default, chained search is behind a feature flag. To use the chained searching on Cosmos DB, use the header `x-ms-enable-chained-search: true`. For more details, see [PR 1695](https://github.com/microsoft/fhir-server/pull/1695).
 
-* Adds a feature flag to enable the feature selectively for more feedback.
-
-  Use the header x-ms-enable-chained-search: true to try chained search.
-
-* For more details, see [PR 1695](https://github.com/microsoft/fhir-server/pull/1695).
 ## Search
 
 All search parameter types are supported. 

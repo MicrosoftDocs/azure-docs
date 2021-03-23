@@ -25,7 +25,7 @@ you'll receive an error message and the export job will hang; thus, never reachi
 
 **Jobs stuck in a bad state**
 
-If a job gets into a bad state, you'll see that it will remain in a “running” state for 10 minutes. After 10 minutes, the work will stop and try a different job and will eventually return to that job. You'll need to cancel the job to prevent it from being picked up and retried indefinitely.  
+In some situations, there is a potential for a job to be stuck in a bad state. This can occur especially if the storage account permissions have not been setup properly. One way to validate if your export is successful is to check your storage account to see if the corresponding container (that is, ndjson) files are present. If they are not present, and there are no other export jobs running, then there is a possibility the current job is stuck in a bad state. You should cancel the export job by sending a cancellation request and try re-queuing the job again. Our default run time for an export in bad state is 10 minutes before it will stop and move to a new job or retry the export. 
 
 The Azure API For FHIR supports $export at the following levels:
 * [System](https://hl7.org/Fhir/uv/bulkdata/export/index.html#endpoint---system-level-export): `GET https://<<FHIR service base URL>>/$export>>`
