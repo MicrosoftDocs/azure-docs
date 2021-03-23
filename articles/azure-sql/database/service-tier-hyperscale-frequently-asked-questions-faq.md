@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer:
-ms.date: 02/03/2021
+ms.date: 03/31/2021
 ---
 # Azure SQL Database Hyperscale FAQ
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
