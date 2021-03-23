@@ -103,7 +103,7 @@ On the [Azure IoT Central application manager](https://aka.ms/iotcentral) websit
 
 The window will look like below.  
 
-:::image type="content" source="media/howto-create-custom-analytics/dataexport-2.png" alt-text="image of Data export destination configuration.":::
+:::image type="content" source="media/howto-create-custom-analytics/data-export-2.png" alt-text="image of Data export destination configuration.":::
 
 3. Enter the following values:
 
@@ -125,7 +125,7 @@ The window will look like below.
     | Data| Select telemetry | 
     | Destinations| Create a destination, as shown below, for your export and then select it in the destination dropdown menu. |
 
-:::image type="content" source="media/howto-create-custom-analytics/dataexport-1.png" alt-text="Screenshot of Data export destination configuration.":::
+:::image type="content" source="media/howto-create-custom-analytics/data-export-1.png" alt-text="Screenshot of Data export destination configuration.":::
 
 6. When finished, select **Save**.
 
