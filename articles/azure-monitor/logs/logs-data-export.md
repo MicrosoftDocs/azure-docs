@@ -113,7 +113,7 @@ If you have configured your Storage Account to allow access from selected networ
 ### Create or update data export rule
 A data export rule defines the tables for which data is exported and the destination. You can create a single rule for each destination currently.
 
-If you need a list of tables in your workapce for export rules configuration, run this query in your workspace.
+Export rule should include tables that you have in your workspace. Run this query for a list of available tables in your workspace.
 
 ```kusto
 find where TimeGenerated > ago(24h) | distinct Type

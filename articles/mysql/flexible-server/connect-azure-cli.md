@@ -31,7 +31,7 @@ The first thing we'll create is a managed MySQL server. In [Azure Cloud Shell](h
 az mysql flexible-server create --public-access <your-ip-address>
 ```
 
-You can provide additional arguments for this command to customize it. See all arguments for [az mysql flexible-server create](/cli/azure/mysql/flexible-server?view=azure-cli-latest#az_mysql_flexible_server_create).
+You can provide additional arguments for this command to customize it. See all arguments for [az mysql flexible-server create](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_create).
 
 ## Create a database
 Run the following command to create a database, **newdatabase** if you have not already created one.

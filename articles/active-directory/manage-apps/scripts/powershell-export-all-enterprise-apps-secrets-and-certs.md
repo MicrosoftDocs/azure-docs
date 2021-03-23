@@ -14,7 +14,7 @@ ms.reviewer: mifarca
 ---
 
 # Export secrets and certificates for enterprise apps
-This PowerShell script example exports all secrets and certificates for the specified enterprise apps from your directory into a CSV file.
+This PowerShell script example exports all secrets, certificates and owners for the specified enterprise apps from your directory into a CSV file.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -31,8 +31,9 @@ You can modify the "$Path" variable directly in PowerShell, with a CSV file path
 
 | Command | Notes |
 |---|---|
-| [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication?view=azureadps-2.0&preserve-view=true) | Retrieves an application from your directory. |
-| [Get-AzureADApplicationOwner](/powershell/module/azuread/Get-AzureADApplicationOwner?view=azureadps-2.0&preserve-view=true) | Retrieves the owners of an application from your directory. |
+| [Get-AzureADServicePrincipal](/powershell/module/azuread/Get-azureADServicePrincipal?view=azureadps-2.0&preserve-view=true) | Retrieves an enterprise application from your directory. |
+| [Get-AzureADServicePrincipalOwner](/powershell/module/azuread/Get-AzureADServicePrincipalOwner?view=azureadps-2.0&preserve-view=true) | Retrieves the owners of an enterprise application from your directory. |
+
 
 ## Next steps
 

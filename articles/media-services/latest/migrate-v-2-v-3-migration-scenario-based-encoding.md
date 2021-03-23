@@ -7,7 +7,7 @@ manager: femila
 ms.service: media-services
 ms.topic: conceptual
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/17/2021
 ms.author: inhenkel
 ---
 
@@ -53,7 +53,7 @@ Click on the image below to see a larger version.
 
 ### V3 encoding workflow
 
-[![Encoding workflow for V3](./media/migration-guide/V3-pretty.svg) ](./media/migration-guide/V3-pretty.svg#lightbox)
+[![Encoding workflow for V3](./media/migration-guide/V3-pretty.svg)](./media/migration-guide/V3-pretty.svg#lightbox)
 
 1. Set up
     1. Create an asset or use an existing asset. If using a new asset, upload content to that asset. If using an existing asset, you should be encoding files that already exist in the asset. You *shouldn't upload more content to that asset.*
@@ -71,7 +71,7 @@ Click on the image below to see a larger version.
         - Output asset(s)
         - A resource group
         - AMS account name  
-1. Use [Event Grid](monitor-events-portal-how-to.md) for monitoring your job.
+1. Use [Event Grid](monitoring/monitor-events-portal-how-to.md) for monitoring your job.
 1. Submit the job.
 
 ## Custom presets from V2 to V3 encoding

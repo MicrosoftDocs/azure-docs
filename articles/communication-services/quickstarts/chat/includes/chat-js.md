@@ -6,7 +6,7 @@ author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 9/1/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
@@ -61,6 +61,27 @@ This quickstart uses webpack to bundle the application assets. Run the following
 npm install webpack webpack-cli webpack-dev-server --save-dev
 ```
 
+Create a `webpack.config.js` file in the root directory. Copy the following configuration into this file:
+
+```
+module.exports = {
+  entry: "./client.js",
+  output: {
+    filename: "bundle.js"
+  },
+  devtool: "inline-source-map",
+  mode: "development"
+}
+```
+
+Add a `start` script to your `package.json`, we will use this for running the app. Inside the `scripts` section of `package.json` add the following:
+
+```
+"scripts": {
+  "start": "webpack serve --config ./webpack.config.js"
+}
+```
+
 Create an **index.html** file in the root directory of your project. We'll use this file as a template to add chat capability using the Azure Communication Chat client library for JavaScript.
 
 ```html
@@ -106,9 +127,9 @@ console.log('Azure Communication Chat client created!');
 
 ### Run the code
 
-Use the `webpack-dev-server` to build and run your app. Run the following command to bundle application host in on a local webserver:
+Run the following command to bundle application host in on a local webserver:
 ```console
-npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
+npm run start
 ```
 Open your browser and navigate to http://localhost:8080/.
 In the developer tools console within your browser you should see following:

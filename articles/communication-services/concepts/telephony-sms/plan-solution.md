@@ -7,7 +7,7 @@ manager: nmurav
 services: azure-communication-services
 
 ms.author: prakulka
-ms.date: 10/05/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services

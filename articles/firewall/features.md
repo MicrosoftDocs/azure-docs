@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 02/25/2021
+ms.date: 03/10/2021
 ms.author: victorh
 ---
 
@@ -143,4 +143,4 @@ Azure Firewall is Payment Card Industry (PCI), Service Organization Controls (SO
 
 ## Next steps
 
-- [Azure Firewall rule processing logic](rule-processing.md)
+- [Azure Firewall Premium Preview features](premium-features.md)

@@ -27,7 +27,7 @@ To complete the steps in this article, you need:
 * The bcp command-line utility installed
 * The sqlcmd command-line utility installed
 
-You can download the bcp and sqlcmd utilities from the [Microsoft Download Center][Microsoft Download Center].
+You can download the bcp and sqlcmd utilities from the [Microsoft sqlcmd Documentation][https://docs.microsoft.com/sql/tools/sqlcmd-utility?view=sql-server-ver15].
 
 ### Data in ASCII or UTF-16 format
 

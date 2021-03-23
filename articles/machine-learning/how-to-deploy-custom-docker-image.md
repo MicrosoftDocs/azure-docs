@@ -67,7 +67,7 @@ The information in this section assumes that you are using an Azure Container Re
 Azure Machine Learning only supports Docker images that provide the following software:
 * Ubuntu 16.04 or greater.
 * Conda 4.5.# or greater.
-* Python 3.5+.
+* Python 3.6+.
 
 To use Datasets, please install the libfuse-dev package. Also make sure to install any user space packages you may need.
 
@@ -349,4 +349,4 @@ For more information on deploying a model using the ML CLI, see the "model regis
 ## Next steps
 
 * Learn more about [Where to deploy and how](how-to-deploy-and-where.md).
-* Learn how to [Train and deploy machine learning models using Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops&preserve-view=true).
+* Learn how to [Train and deploy machine learning models using Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning).
