@@ -189,7 +189,7 @@ After you create the service, locate it within the Azure portal, and open it. Th
 
     Azure Database Migration Service automatically selects all the collections that exist on the source MongoDB instance that don't exist on the target Azure Cosmos DB account. If you want to remigrate collections that already include data, you need to explicitly select the collections on this pane.
 
-    You can specify the amount of RUs that you want the collections to use. Azure Database Migration Service suggests smart defaults based on the collection size.
+    You can specify the number of RUs that you want the collections to use. Azure Database Migration Service suggests smart defaults based on the collection size.
 
     > [!NOTE]
     > Perform the database migration and collection in parallel. If necessary, you can use multiple instances of Azure Database Migration Service to speed up the run.

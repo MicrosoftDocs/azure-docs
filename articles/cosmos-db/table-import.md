@@ -1,6 +1,6 @@
 ---
 title: Migrate existing data to a Table API account in Azure Cosmos DB 
-description: Learn how migrate or import on-premises or cloud data to an Azure Table API account in Azure Cosmos DB.
+description: Learn how to migrate or import on-premises or cloud data to an Azure Table API account in Azure Cosmos DB.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
