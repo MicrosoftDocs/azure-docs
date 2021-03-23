@@ -73,7 +73,7 @@ sections:
   - name: Compute, network, storage, and backup
     questions:
       - question: Is there more than one type of host available?
-        answer: There's only one type of host available.
+        answer: No. There's only one type available.
 
       - question: What are the CPU specifications in each type of host?
         answer: The servers have dual 18 core 2.3 GHz Intel CPUs.
@@ -119,6 +119,25 @@ sections:
       - question: If we migrate a VM created with thin provisioning on the on-premises side to Azure VMware Solution, will the VM remain thin?
         answer: |
           No. However, if the VM is migrated as thick, you can change policies on the individual VMs and individual vmdks through a combination of UI and PowerCLI.       
+
+      - question: How many disks can fail on the vSAN before data loss occurs? 
+        answer: It depends on how you plan your application workloads to run inside the SDDC (private cloud). Microsoft governs these failures regularly and replaces the hardware when such events are detected from an infrastructure perspective. As a default, a setting of FFT-1 is used, which accommodates a single host's failure.
+
+      - question: Is there an SLA on disk replacement when failures occur? 
+        answer: Any host with disk issues will be replaced. It rolls up to 99.9 SLA availability of the Azure VMware Solution service.
+
+      - question: What kind of alerts can I expect to see for vSAN? 
+        answer: Microsoft provides alerts when capacity consumption exceeds 75%. Alternatively, you can also monitor capacity consumption metrics that are integrated into Azure Monitor.
+
+      - question: How many 1.6-TB NVMe Drives make up the disk groups to provide the 15.4 TB of raw SSD storage per host? 
+        answer: The [AVS36 SKU](https://azure.microsoft.com/pricing/details/azure-vmware/) includes 2 1.6 TB NVMe Cache and 8 1.9TB raw storage capacity. These are then split into two disk groups.
+
+      - question: What is the RAID configuration of the disk groups?
+        answer: The disk groups are not RAID configured. Instead, they are JBOD and [directly controlled by vSAN](https://core.vmware.com/vsan-learn-and-evaluate).
+
+      - question: If a cluster is scaled up and then workload demand falls, can it be scaled back down? 
+        answer: Yes, as long as you have the quota allocated against your private cloud, you can scale out your clusters. When workload demand falls, you can delete nodes from the cluster to scale it down. You can do this through the Azure VMware Solution portal.
+
 
   - name: Hosts, clusters, and private clouds
     questions:
