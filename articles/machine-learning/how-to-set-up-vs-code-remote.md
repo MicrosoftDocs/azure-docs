@@ -67,8 +67,8 @@ Navigate to [ml.azure.com](https://ml.azure.com)
 **Notebook**
 
 1. Select the **Notebook** tab
-1. In the *Notebook* tab, select the notebook you want to work on.
-1. Select **Editors > Edit in VS Code (preview)**
+1. In the *Notebook* tab, select the file you want to edit.
+1. Select **Editors > Edit in VS Code (preview)**.
 
 :::image type="content" source="media/how-to-set-up-vs-code-remote/studio-notebook-compute-instance-vs-code-launch.png" alt-text="Connect to Compute Instance VS Code Azure ML Notebook" lightbox="media/how-to-set-up-vs-code-remote/studio-notebook-compute-instance-vs-code-launch.png":::
 
