@@ -73,7 +73,7 @@ When an app registration is deleted from the organization, the app is in a suspe
     ![App registrations - Deleted applications tab, with Restore app registration option highlighted](media/quickstart-restore-app/app-reg-restore-app.png)
 
 ### Permanently delete an application
-You can manually permanently delete an application from your organization. A permanently deleted application can't be restored by you, another administrator, nor by Microsoft customer support.
+You can manually permanently delete an application from your organization. A permanently deleted application can't be restored by you, another administrator, or by Microsoft customer support.
 
 #### To permanently delete an application
 
