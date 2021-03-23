@@ -100,7 +100,7 @@ To run a network readiness check, do these steps:
     |`-OutPath`|Tells where to store the log file and report from the tests. (Optional)<br>If you don't use this path, the files are stored in the following path: C:\Users\<username>\AppData\Local\Temp\1\AzsReadinessChecker\AzsReadinessChecker.logs <br>Each run of the Network Readiness Checker overwrites the log and report from the previous run.| 
  
 
-## Sample tool output: Success
+## Sample output: Success
 
 The following sample is the output from a successful run of the Azure Stack Network Readiness Check tool. The script completed, but the WindowsUpdateServer test and DnsRegistration test turned up issues in the network configuration.
 
@@ -152,7 +152,7 @@ SNIPPET TO COME
 
 The Readiness Checker report, at C:\ase-network-tests\AzsReadinessCheckerReport.json, offers additional detail.<!--Vibha: What type of additional info would they look for in the report?Thanks.-->  
 
-## Sample tool output: Failed
+## Sample output: Failure
 
 The following sample is output from a Network Readiness Checker run that failed at the initial LinkLayer test. No network connection could be made, so all other tests did not run. The test status, on the final line, is `Failed`.
 
