@@ -29,5 +29,5 @@ ms.author: glenga
 <sup>5</sup> The storage limit is the total content size in temporary storage across all apps in the same App Service plan. Consumption plan uses Azure Files for temporary storage.  
 <sup>6</sup> When your function app is hosted in a [Consumption plan](../articles/azure-functions/consumption-plan.md), only the CNAME option is supported. For function apps in a [Premium plan](../articles/azure-functions/functions-premium-plan.md) or an [App Service plan](../articles/azure-functions/dedicated-plan.md), you can map a custom domain using either a CNAME or an A record.  
 <sup>7</sup> Guaranteed for up to 60 minutes.  
-<sup>8</sup> Workers are roles that host customer apps. Workers are available in three fixed sizes: One vCPU/3.5 GB RAM; Two vCPU/7 GB RAM; Four vCPU/14 GB RAM.
+<sup>8</sup> Workers are roles that host customer apps. Workers are available in three fixed sizes: One vCPU/3.5 GB RAM; Two vCPU/7 GB RAM; Four vCPU/14 GB RAM.  
 <sup>9</sup> See [App Service plan limits](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits) for details.
