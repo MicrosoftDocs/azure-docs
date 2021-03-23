@@ -45,7 +45,7 @@ If you're not running Samba on your Linux server and rather want to migrate fold
 
   The amount of storage that you provision can be smaller than what you're currently using on your Linux Samba server, if you use the Azure File Sync [cloud tiering](../filesync/storage-sync-cloud-tiering-overview.md) feature. 
 
-The amount of storage you provision can be smaller than what you are currently using on your Linux Samba server. This configuration choice requires that you also make use of Azure File Syncs [cloud tiering](storage-sync-cloud-tiering-overview.md) feature. However, when you copy your files from the larger Linux Samba server space to the smaller Windows Server volume in a later phase, you'll need to work in batches:
+The amount of storage you provision can be smaller than what you are currently using on your Linux Samba server. This configuration choice requires that you also make use of Azure File Syncs [cloud tiering](../filesync/storage-sync-cloud-tiering-overview.md) feature. However, when you copy your files from the larger Linux Samba server space to the smaller Windows Server volume in a later phase, you'll need to work in batches:
 
   1. Move a set of files that fits onto the disk.
   2. Let file sync and cloud tiering engage.

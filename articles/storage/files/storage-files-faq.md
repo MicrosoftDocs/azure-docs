@@ -114,28 +114,28 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="sizeondisk-versus-size"></a>
   **Why doesn't the *Size on disk* property for a file match the *Size* property after using Azure File Sync?**  
-  See [Understand Azure File Sync cloud tiering](../filesync/file-sync-cloud-tiering.md#sizeondisk-versus-size).
+  See [Understand Azure File Sync cloud tiering](../filesync/storage-sync-cloud-tiering-overview.md#tiered-vs-locally-cached-file-behavior).
 
 * <a id="is-my-file-tiered"></a>
   **How can I tell whether a file has been tiered?**  
-  See [Understanding Cloud Tiering](../filesync/file-sync-cloud-tiering.md#is-my-file-tiered).
+  See [Understanding Cloud Tiering](../filesync/storage-sync-how-to-manage-tiered-files.md#how-to-check-if-your-files-are-being-tiered).
 
 * <a id="afs-recall-file"></a>**A file I want to use has been tiered. How can I recall the file to disk to use it locally?**  
-  See [Understanding Cloud Tiering](../filesync/file-sync-cloud-tiering.md#afs-recall-file).
+  See [Understanding Cloud Tiering](../filesync/storage-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk).
 
 * <a id="afs-force-tiering"></a>
   **How do I force a file or directory to be tiered?**  
-  See [Understanding Cloud Tiering](../filesync/file-sync-cloud-tiering.md#afs-force-tiering).
+  See [Understanding Cloud Tiering](../filesync/storage-sync-how-to-manage-tiered-files.md#how-to-force-a-file-or-directory-to-be-tiered).
 
 * <a id="afs-effective-vfs"></a>
   **How is *volume free space* interpreted when I have multiple server endpoints on a volume?**  
-  See [Understanding Cloud Tiering](../filesync/file-sync-cloud-tiering.md#afs-effective-vfs).
+  See [Understanding Cloud Tiering](../filesync/storage-sync-cloud-tiering-policy.md#multiple-server-endpoints-on-a-local-volume).
   
 * <a id="afs-tiered-files-tiering-disabled"></a>
   **I have cloud tiering disabled, why are there tiered files in the server endpoint location?**  
     There are two reasons why tiered files may exist in the server endpoint location:
 
-    - When adding a new server endpoint to an existing sync group, if you choose either the recall namespace first option or recall namespace only option for initial download mode, files will show up as tiered until they're downloaded locally. To avoid this, select the avoid tiered files option for initial download mode. To manually recall files, use the [Invoke-StorageSyncFileRecall](storage-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk) cmdlet.
+    - When adding a new server endpoint to an existing sync group, if you choose either the recall namespace first option or recall namespace only option for initial download mode, files will show up as tiered until they're downloaded locally. To avoid this, select the avoid tiered files option for initial download mode. To manually recall files, use the [Invoke-StorageSyncFileRecall](../filesync/storage-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk) cmdlet.
 
     - If cloud tiering was enabled on the server endpoint and then disabled, files will remain tiered until they're accessed.
 
@@ -145,7 +145,7 @@ This article answers common questions about Azure Files features and functionali
 
     This behavior is not specific to Azure File Sync, Windows Explorer displays a "grey X" for any files that have the offline attribute set. You will see the X icon when accessing files over SMB. For a detailed explanation of this behavior, refer to [https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105)
 
-    For questions on how to manage tiered files, please see [How to manage tiered files](storage-sync-how-to-manage-tiered-files.md).
+    For questions on how to manage tiered files, please see [How to manage tiered files](../filesync/storage-sync-how-to-manage-tiered-files.md).
 
 * <a id="afs-files-excluded"></a>
   **Which files or folders are automatically excluded by Azure File Sync?**  
