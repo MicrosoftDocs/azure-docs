@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/08/2021
+ms.date: 03/22/2021
 ms.author: jeedes
 
 ---
@@ -82,11 +82,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    In the **Sign-on URL** text box, type a URL using the following pattern:
+    a. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<CUSTOMER_NAME>.sabacloud.com`
 
+    b. In the **Relay State** text box, type the value: `IDP_INIT---SAML_SSO_SITE=dqtnt003site `or in case SAML is configured for a microsite, type a URL using the following pattern:
+`IDP_INIT---SAML_SSO_SITE=dqtnt003site---SAML_SSO_MICRO_SITE=<MicroSiteId>`
+
+    > [!NOTE]
+    > For more information on configuring the RelayState, please refer [this](https://help.sabacloud.com/sabacloud/help-system/topics/help-system-idp-and-sp-initiated-sso-for-a-microsite.html) link.
+
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Saba Cloud Client support team](mailto:support@saba.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL, Sign-on URL and Relay State. Contact [Saba Cloud Client support team](mailto:support@saba.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -151,6 +157,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 In this section, a user called Britta Simon is created in Saba Cloud. Saba Cloud supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Saba Cloud, a new one is created after authentication.
 
+> [!NOTE]
+> For enabling SAML just in time user provisioning with Saba cloud, please refer [this](https://help.sabacloud.com/sabacloud/help-system/topics/help-system-user-provisioning-with-saml.html) documentation.
+
 ## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
@@ -166,6 +175,9 @@ In this section, you test your Azure AD single sign-on configuration with follow
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Saba Cloud for which you set up the SSO 
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the Saba Cloud tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Saba Cloud for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+> [!NOTE]
+> If the sign-on URL is not populated in Azure AD then the application is treated as IDP initiated mode and if the sign-on URL is populated then Azure AD will always redirect the user to the Saba Cloud application for service provider initiated flow.
 
 ## Next steps
 
