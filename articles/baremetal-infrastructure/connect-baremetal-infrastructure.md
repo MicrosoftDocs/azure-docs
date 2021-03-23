@@ -2,7 +2,6 @@
 title: Connect BareMetal Instance units in Azure
 description: Learn how to identify and interact with BareMetal Instance units the Azure portal or Azure CLI.
 ms.topic: how-to
-ms.subservice: baremetal-infrastructure
 ms.date: 03/19/2021
 ---
 

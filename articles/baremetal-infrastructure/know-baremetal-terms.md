@@ -3,7 +3,6 @@ title: Know the terms of Azure BareMetal Infrastructure
 description: Know the terms of Azure BareMetal Infrastructure.
 ms.topic: conceptual
 ms.date: 1/4/2021
-ms.subservice: baremetal-infrastructure
 ---
 
 # Know the terms for BareMetal Infrastructure
