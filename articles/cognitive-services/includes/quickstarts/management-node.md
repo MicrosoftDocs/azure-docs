@@ -6,7 +6,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/05/2020
+ms.date: 3/22/2021
 ms.author: pafarley
 ---
 
@@ -111,7 +111,9 @@ node index.js
 
 ## See also
 
-* [Azure Management SDK reference documentation](/javascript/api/@azure/arm-cognitiveservices/)
-* [What are Azure Cognitive Services?](../../what-are-cognitive-services.md)
-* [Authenticate requests to Azure Cognitive Services](../../authentication.md)
-* [Create a new resource using the Azure portal](../../cognitive-services-apis-create-account.md)
+* See **[Authenticate requests to Azure Cognitive Services](authentication.md)** on how to securely work with Cognitive Services.
+* See **[What are Azure Cognitive Services?](./what-are-cognitive-services.md)** to get a list of different categories within Cognitive Services.
+* See **[Natural language support](language-support.md)** to see the list of natural languages that Cognitive Services supports.
+* See **[Use Cognitive Services as containers](cognitive-services-container-support.md)** to understand how to use Cognitive Services on-prem.
+* See **[Plan and manage costs for Cognitive Services](plan-manage-costs.md)** to estimate cost of using Cognitive Services.
+* See **[Azure Management SDK reference documentation](/javascript/api/@azure/arm-cognitiveservices/)** for more details on the management SDK.
