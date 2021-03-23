@@ -31,7 +31,7 @@ Other limits for the template are:
 When using copy loops to deploy resource, do not use the loop name as a dependency:
 
 ```json
-dependsOn: [ "nicLoop" ] //don't do this
+dependsOn: [ "nicLoop" ]
 ```
 
 Instead, use the instance of the resource from the loop that you need to depend on. For example:
