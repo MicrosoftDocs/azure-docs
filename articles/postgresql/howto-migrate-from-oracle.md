@@ -80,14 +80,11 @@ For heterogenous migrations such as Oracle to Azure Database for PostgreSQL, thi
 
 The goal of the discovery phase is to identify existing data sources and details about the features that are being used. This phase helps you better understand and plan for the migration. The process involves scanning the network to identify all your organization's Oracle instances together with the version and features in use.
 
-Microsoft preassessment scripts for Oracle run against the Oracle database. The preassessment scripts are a set of queries against the Oracle metadata. The scripts provide:
+Microsoft preassessment scripts for Oracle run against the Oracle database. The preassessment scripts query the Oracle metadata. The scripts provide:
 
 - A database inventory, including counts of objects by schema, type, and status.
-
 - A rough estimate of the raw data in each schema, based on statistics.
-
 - The size of tables in each schema.
-
 - The number of code lines per package, function, procedure, and so on.
 
 Download the related scripts from the [ora2pg website](https://ora2pg.darold.net/).
@@ -96,29 +93,35 @@ Download the related scripts from the [ora2pg website](https://ora2pg.darold.ne
 
 After you inventory the Oracle databases, you'll have an idea of the database size and potential challenges. The next step is to run the assessment.
 
-Estimating the cost of a migration from Oracle to PostgreSQL isn't easy. To assess the migration cost, ora2pg inspects all database objects, functions, and stored procedures to check for objects and PL or SQL code that it can't automatically convert.
+Estimating the cost of a migration from Oracle to PostgreSQL isn't easy. To assess the migration cost, ora2pg inspects all database objects, functions, and stored procedures to check for objects and PL/SQL code that it can't automatically convert.
 
-ora2pg has a content analysis mode that inspects the Oracle database to generate a text report on what the Oracle database contains and what cannot be exported.
+The ora2pg tool has a content analysis mode that inspects the Oracle database to generate a text report. The report describes what the Oracle database contains and what can't be exported.
 
-To activate the **analysis and report** mode, use the exported type `SHOW_REPORT` as shown in the following command:
+To activate the *analysis and report* mode, use the exported type `SHOW_REPORT` as shown in the following command:
 
 ```
 ora2pg -t SHOW_REPORT
 ```
 
-After the database is analyzed, ora2pg, with its ability to convert SQL and PL/SQL code from Oracle syntax to PostgreSQL, can go further by estimating the code difficulties and the time necessary to perform a full database migration.
+The ora2pg tool can convert SQL and PL/SQL code from Oracle syntax to PostgreSQL. So after the database is analyzed, ora2pg can estimate the code difficulties and the time necessary to perform a full database migration.
 
-To estimate the migration cost in man-days, ora2pg allows you to use a configuration directive called ESTIMATE_COST, which can also be enabled at command line:
+To estimate the migration cost in human-days, ora2pg allows you to use a configuration directive called `ESTIMATE_COST`. You can also enable this directive at a command prompt:
 
 ```
 ora2pg -t SHOW_REPORT --estimate_cost
 ```
 
-The default migration unit represent around five minutes for a PostgreSQL expert. If this is your first migration, you can get it higher with the configuration directive COST_UNIT_VALUE or the --cost_unit_value command-line option.
+The default migration unit represents around five minutes for a PostgreSQL expert. If this is your first migration, you can increase the default migration unit by using the configuration directive `COST_UNIT_VALUE` or the `--cost_unit_value` command-line option.
 
-The last line of the report shows the total estimated migration code in man-days following the number of migration units estimated for each object.
+The last line of the report shows the total estimated migration code in human-days. The estimate follows the number of migration units estimated for each object.
 
-This migration unit represents about five minutes for a PostgreSQL expert. If this is your first migration, you can increase the default with the configuration directive COST_UNIT_VALUE or the --cost_unit_value command-line option. Find below some variations of assessment a) tables assessment; b) columns assessment c) schema assessment using default cost_unit (5 min) d) schema assessment using 10 min as cost unit.
+This migration unit represents about five minutes for a PostgreSQL expert. If this migration is your first, you can increase the default by using the configuration directive `COST_UNIT_VALUE` or the command-line option `--cost_unit_value`. 
+
+In the following code example, you see some assessment variations: 
+* Tables assessment
+* Columns assessment
+* Schema assessment that uses a default cost unit of 5 minutes
+* Schema assessment that uses 10 minutes as a cost unit
 
 ```
 ora2pg -t SHOW_TABLE -c c:\ora2pg\ora2pg_hr.conf > c:\ts303\hr_migration\reports\tables.txt ora2pg -t SHOW_COLUMN -c c:\ora2pg\ora2pg_hr.conf > c:\ts303\hr_migration\reports\columns.txt
@@ -127,37 +130,40 @@ _migration\reports\report.html
 ora2pg -t SHOW_REPORT -c c:\ora2pg\ora2pg_hr.conf –-cost_unit_value 10 --dump_as_html --estimate_cost > c:\ts303\hr_migration\reports\report2.html
 ```
 
-The output of the schema assessment is illustrated as below:
+Here's the output of the schema assessment migration level B-5:
 
-**Migration level: B-5**
+* Migration levels:
 
-Migration levels:
+  * A - Migration that can be run automatically
+    
+  * B - Migration with code rewrite and a human-days cost up to 5 days
+    
+  * C - Migration with code rewrite and a human-days cost over 5 days
+    
+* Technical levels:
 
-A - Migration that might be run automatically
+   * 1 = Trivial: No stored functions and no triggers
 
-B - Migration with code rewrite and a human-days cost up to 5 days
+   * 2 = Easy: No stored functions but triggers; no manual rewriting
 
-C - Migration with code rewrite and a human-days cost above 5 days
+   * 3 = Simple: Stored functions and/or triggers; no manual rewriting
 
-Technical levels:
+   * 4 = Manual: No stored functions but triggers or views with code rewriting
 
-1 = trivial: no stored functions and no triggers
+   * 5 = Difficult: Stored functions and/or triggers with code rewriting
 
-2 = easy: no stored functions but with triggers, no manual rewriting
+The assessment consists of: 
+* A letter (A or B) to specify whether the migration needs manual rewriting.
 
-3 = simple: stored functions and/or triggers, no manual rewriting
+* A number from 1 to 5 to indicate the technical difficulty. 
 
-4 = manual: no stored functions but with triggers or views with code rewriting
+An additional option `-human_days_limit` specifies the limit of human-days. Here, set the migration level to C to indicate that the migration needs a large amount of work, full project management, and migration support. The default is 10 human-days. You can use the configuration directive `HUMAN_DAYS_LIMIT` to change this default value permanently.
 
-5 = difficult: stored functions and/or triggers with code rewriting
-
-The assessment consists in a letter (A or B) to specify whether the migration needs manual rewriting or not, and a number from 1 to 5 to indicate the technical difficulty level. You have an additional option -human_days_limit to specify the number of human-days limit where the migration level should be set to C to indicate that it needs a huge amount of work and a full project management with migration support. Default is 10 human-days. You can use the configuration directive HUMAN_DAYS_LIMIT to change this default value permanently.
-
-This feature has been developed to help deciding which database could be migrated first and what is the team that need be mobilized.
+This schema assessment was developed to help users decide which database to migrate first and which teams to mobilize.
 
 ### Convert
 
-With minimal-downtime migrations, the source you are migrating continues to change, drifting from the target in terms of data and schema, after the one-time migration occurs. During the **Data sync** phase, you need to ensure that all changes in the source are captured and applied to the target in near real time. After you verify that all changes in source have been applied to the target, you can cutover from the source to the target environment.
+In minimal-downtime migrations, your migration source changes, drifting from the target in terms of data and schema, after the one-time migration occurs. During the *Data sync* phase, you need to ensure that all changes in the source are captured and applied to the target in near real time. After you verify that all changes in source have been applied to the target, you can *cutover* from the source to the target environment.
 
 In this step of the migration, the conversion or translation of the Oracle Code + DDLS to PostgreSQL occurs. The ora2pg tool exports the Oracle objects in a PostgreSQL format automatically. For those objects generated, some won't compile in the PostgreSQL database without manual changes.  
 The process of understanding which elements need manual intervention consists in compiling the files generated by ora2pg against the PostgreSQL database, checking the log and making the necessary changes until all the schema structure is compatible with PostgreSQL syntax.
