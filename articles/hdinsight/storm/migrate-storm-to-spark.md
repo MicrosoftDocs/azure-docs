@@ -73,7 +73,7 @@ The following steps summarize how components work together in Spark Streaming (D
 * Blocks of data are replicated to other executors.
 * The processed data is then stored in the target data store.
 
-:::image type="content" source="./media/migrate-storm-to-spark/spark-streaming-to-output.png" alt-text="spark streaming path to output":::
+:::image type="content" source="./media/migrate-storm-to-spark/spark-streaming-to-output.png" alt-text="spark streaming path to output" border="false":::
 
 ## Spark Streaming (DStream) workflow
 

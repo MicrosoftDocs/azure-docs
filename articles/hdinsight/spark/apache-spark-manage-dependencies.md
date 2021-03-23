@@ -67,7 +67,7 @@ import com.microsoft.azure.cosmosdb.spark._
 ### Use Azure Toolkit for IntelliJ
 [Azure Toolkit for IntelliJ plug-in](./apache-spark-intellij-tool-plugin.md) provides UI experience to submit Spark Scala application to an HDInsight cluster. It provides `Referenced Jars` and `Referenced Files` properties to configure jar libs paths when submitting the Spark application. See more details about [How to use Azure Toolkit for IntelliJ plug-in for HDInsight](./apache-spark-intellij-tool-plugin.md#run-a-spark-scala-application-on-an-hdinsight-spark-cluster).
 
-![The Spark Submission dialog box](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-02.png)
+:::image type="content" source="./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-02.png" alt-text="The Spark Submission dialog box" border="true":::
 
 ## Jar libs for cluster
 In some cases, you may want to configure the jar dependencies at cluster level so that every application can be set up with same dependencies by default. The approach is to add your jar paths to Spark driver and executor class path.
