@@ -32,7 +32,7 @@ Before you enable connectivity between two ExpressRoute circuits using ExpressRo
 >[!IMPORTANT]
 >In the context of these prerequisites, your on-premises ExpressRoute circuit is _circuit 1_, and your private cloud ExpressRoute circuit is in a different subscription and labeled _circuit 2_.
 
-## Create an ExpressRoute authorization key in the on-premises circuit
+## Create an ExpressRoute authorization key in the private cloud ExpressRoute circuit
 
 [!INCLUDE [request-authorization-key](includes/request-authorization-key.md)]
  
