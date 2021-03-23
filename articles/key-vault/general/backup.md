@@ -10,6 +10,7 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 3/18/2021
 ms.author: sudbalas
+ms.custom: "devx-track-azurepowershell"
 #Customer intent: As an Azure Key Vault administrator, I want to back up a secret, key, or certificate in my key vault.
 ---
 # Azure Key Vault backup
@@ -115,9 +116,9 @@ az keyvault key restore --file {File Path} --vault-name {Key Vault Name} --subsc
 ## Restore a secret in Key Vault
 az keyvault secret restore --file {File Path} --vault-name {Key Vault Name} --subscription {SUBSCRIPTION ID}
 ```
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/powershell)
 
-```powershell
+```azurepowershell
 ## Log in to Azure
 Connect-AzAccount
 

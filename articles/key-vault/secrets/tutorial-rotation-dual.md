@@ -5,13 +5,12 @@ services: key-vault
 author: msmbaldwin
 manager: rkarlin
 tags: 'rotation'
-
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-
+ms.custom: "devx-track-azurepowershell"
 ---
 # Automate the rotation of a secret for resources that have two sets of authentication credentials
 
@@ -54,10 +53,10 @@ You'll now have a key vault and two storage accounts. You can verify this setup 
 ```azurecli
 az resource list -o table -g vaultrotation
 ```
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azurepowershell)
 
-```powershell-interactive
-Get-AzResource | where Name -Like 'vaultrotation*' | ft
+```azurepowershell
+Get-AzResource -Name 'vaultrotation*' | Format-Table
 ```
 ---
 
@@ -114,12 +113,12 @@ You can find deployment templates and code for the rotation function in [Azure S
 
 First, set your access policy to grant **manage secrets** permissions to your user principal:
 # [Azure CLI](#tab/azure-cli)
-```azurecli-interactive
+```azurecli
 az keyvault set-policy --upn <email-address-of-user> --name vaultrotation-kv --secret-permissions set delete get list
 ```
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azurepowershell)
 
-```powershell-interactive
+```azurepowershell
 Set-AzKeyVaultAccessPolicy -UserPrincipalName <email-address-of-user> --name vaultrotation-kv -PermissionsToSecrets set,delete,get,list
 ```
 ---
@@ -129,13 +128,13 @@ You can now create a new secret with a storage account access key as its value. 
 Determine the storage account resource ID. You can find this value in the `id` property.
 
 # [Azure CLI](#tab/azure-cli)
-```azurecli-interactive
+```azurecli
 az storage account show -n vaultrotationstorage
 ```
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azurepowershell)
 
-```powershell-interactive
-Get-AzStorageAccount -Name vaultrotationstorage -ResourceGroupName vaultrotation | select *
+```azurepowershell
+Get-AzStorageAccount -Name vaultrotationstorage -ResourceGroupName vaultrotation | Select-Object -Property *
 ```
 ---
 
@@ -144,9 +143,9 @@ List the storage account access keys so you can get the key values:
 ```azurecli
 az storage account keys list -n vaultrotationstorage
 ```
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azurepowershell)
 
-```powershell
+```azurepowershell
 Get-AzStorageAccountKey -Name vaultrotationstorage -ResourceGroupName vaultrotation
 ```
 ---
@@ -158,14 +157,14 @@ Add secret to key vault with expiration date set to tomorrow, validity period fo
 $tomorrowDate = (get-date).AddDays(+1).ToString("yyy-MM-ddTHH:mm:ssZ")
 az keyvault secret set --name storageKey --vault-name vaultrotation-kv --value <key1Value> --tags "CredentialId=key1" "ProviderAddress=<storageAccountResourceId>" "ValidityPeriodDays=60" --expires $tomorrowDate
 ```
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azurepowershell)
 
-```powershell
-$tomorrowDate = (get-date).AddDays(+1).ToString("yyy-MM-ddTHH:mm:ssZ")
+```azurepowershell
+$tomorrowDate = (Get-Date).AddDays(+1).ToString('yyy-MM-ddTHH:mm:ssZ')
 $secretVaule = ConvertTo-SecureString -String '<key1Value>' -AsPlainText -Force
 $tags = @{
-    CredentialId='key1';
-    ProviderAddress='<storageAccountResourceId>';
+    CredentialId='key1'
+    ProviderAddress='<storageAccountResourceId>'
     ValidityPeriodDays='60'
 }
 Set-AzKeyVaultSecret -Name storageKey -VaultName vaultrotation-kv -SecretValue $secretVaule -Tag $tags -Expires $tomorrowDate
@@ -181,9 +180,9 @@ Use this command to get the secret information:
 ```azurecli
 az keyvault secret show --vault-name vaultrotation-kv --name storageKey
 ```
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azurepowershell)
 
-```powershell
+```azurepowershell
 Get-AzKeyVaultSecret -VaultName vaultrotation-kv -Name storageKey -AsPlainText
 ```
 ---
@@ -197,9 +196,9 @@ Retrieve the access keys to compare the values:
 ```azurecli
 az storage account keys list -n vaultrotationstorage 
 ```
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azurepowershell)
 
-```powershell
+```azurepowershell
 Get-AzStorageAccountKey -Name vaultrotationstorage -ResourceGroupName vaultrotation
 ```
 ---
@@ -236,13 +235,13 @@ To add storage account keys to an existing function for rotation, you need:
 
 Determine the storage account resource ID. You can find this value in the `id` property.
 # [Azure CLI](#tab/azure-cli)
-```azurecli-interactive
+```azurecli
 az storage account show -n vaultrotationstorage2
 ```
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azurepowershell)
 
-```powershell-interactive
-Get-AzStorageAccount -Name vaultrotationstorage2 -ResourceGroupName vaultrotation | select *
+```azurepowershell
+Get-AzStorageAccount -Name vaultrotationstorage -ResourceGroupName vaultrotation | Select-Object -Property *
 ```
 ---
 
@@ -251,9 +250,9 @@ List the storage account access keys so you can get the key2 value:
 ```azurecli
 az storage account keys list -n vaultrotationstorage2
 ```
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azurepowershell)
 
-```powershell
+```azurepowershell
 Get-AzStorageAccountKey -Name vaultrotationstorage2 -ResourceGroupName vaultrotation
 ```
 ---
@@ -262,12 +261,12 @@ Add secret to key vault with expiration date set to tomorrow, validity period fo
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
-$tomorrowDate = (get-date).AddDays(+1).ToString("yyy-MM-ddTHH:mm:ssZ")
+$tomorrowDate = (Get-Date).AddDays(+1).ToString('yyy-MM-ddTHH:mm:ssZ')
 az keyvault secret set --name storageKey2 --vault-name vaultrotation-kv --value <key2Value> --tags "CredentialId=key2" "ProviderAddress=<storageAccountResourceId>" "ValidityPeriodDays=60" --expires $tomorrowDate
 ```
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azurepowershell)
 
-```powershell
+```azurepowershell
 $tomorrowDate = (get-date).AddDays(+1).ToString("yyy-MM-ddTHH:mm:ssZ")
 $secretVaule = ConvertTo-SecureString -String '<key1Value>' -AsPlainText -Force
 $tags = @{
@@ -284,9 +283,9 @@ Use this command to get the secret information:
 ```azurecli
 az keyvault secret show --vault-name vaultrotation-kv --name storageKey2
 ```
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azurepowershell)
 
-```powershell
+```azurepowershell
 Get-AzKeyVaultSecret -VaultName vaultrotation-kv -Name storageKey2 -AsPlainText
 ```
 ---
@@ -300,9 +299,9 @@ Retrieve the access keys to compare the values:
 ```azurecli
 az storage account keys list -n vaultrotationstorage 
 ```
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azurepowershell)
 
-```powershell
+```azurepowershell
 Get-AzStorageAccountKey -Name vaultrotationstorage -ResourceGroupName vaultrotation
 ```
 ---

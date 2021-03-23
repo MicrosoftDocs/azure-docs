@@ -9,7 +9,7 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 03/17/2021
 ms.author: mbaldwin
-ms.custom: "mvc, devx-track-csharp, devx-track-azurecli"
+ms.custom: "mvc, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell"
 
 #Customer intent: As a developer I want to use Azure Key Vault to store secrets for my app, so that they are kept secure.
 ---
@@ -53,9 +53,9 @@ To sign in to Azure by using the Azure CLI, enter:
 ```azurecli
 az login
 ```
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azurepowershell)
 
-```powershell
+```azurepowershell
 Connect-AzAccount
 ```
 ---
@@ -94,9 +94,9 @@ Note the system-assigned identity that's displayed in the following code. The ou
 }
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azurepowershell)
 
-```powershell
+```azurepowershell
 $vm = Get-AzVM -Name <NameOfYourVirtualMachine>
 Update-AzVM -ResourceGroupName <YourResourceGroupName> -VM $vm -IdentityType SystemAssigned
 ```
@@ -118,9 +118,9 @@ Assign the previously created identity permissions to your key vault with the [a
 ```azurecli
 az keyvault set-policy --name '<your-unique-key-vault-name>' --object-id <VMSystemAssignedIdentity> --secret-permissions  get list set delete
 ```
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azurepowershell)
 
-```powershell
+```azurepowershell
 Set-AzKeyVaultAccessPolicy -ResourceGroupName <YourResourceGroupName> -VaultName '<your-unique-key-vault-name>' -ObjectId '<VMSystemAssignedIdentity>' -PermissionsToSecrets  get,list,set,delete
 ```
 ---

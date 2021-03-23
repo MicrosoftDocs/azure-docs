@@ -9,6 +9,7 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
+ms.custom: "devx-track-azurepowershell"
 
 ---
 # Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control
@@ -99,9 +100,9 @@ Azure CLI command to create a role assignment:
 ```azurecli
 az role assignment create --role <role_name_or_id> --assignee <assignee> --scope <scope>
 ```
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azurepowershell)
 
-```powershell
+```azurepowershell
 #Assign by User Principal Name
 New-AzRoleAssignment -RoleDefinitionName <role_name> -SignInName <assignee_upn> -Scope <scope>
 
@@ -129,9 +130,9 @@ In the Azure portal, the Azure role assignments screen is available for all reso
 ```azurecli
 az role assignment create --role "Key Vault Reader" --assignee {i.e user@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}
 ```
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azurepowershell)
 
-```powershell
+```azurepowershell
 #Assign by User Principal Name
 New-AzRoleAssignment -RoleDefinitionName 'Key Vault Reader' -SignInName {i.e user@microsoft.com} -Scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}
 
@@ -162,9 +163,9 @@ az role assignment create --role "Key Vault Secrets Officer" --assignee {i.e jal
 ```azurecli
 az role assignment create --role "Key Vault Secrets Officer" --assignee {i.e jalichwa@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}
 ```
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azurepowershell)
 
-```powershell
+```azurepowershell
 #Assign by User Principal Name
 New-AzRoleAssignment -RoleDefinitionName 'Key Vault Secrets Officer' -SignInName {i.e user@microsoft.com} -Scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}
 
@@ -191,17 +192,13 @@ After creating above role assignment you can create/update/delete secrets.
 
 Azure CLI:
 
-```azurecli
-
-```
-
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
 az role assignment create --role "Key Vault Secrets Officer" --assignee {i.e user@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}/secrets/RBACSecret
 ```
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azurepowershell)
 
-```powershell
+```azurepowershell
 #Assign by User Principal Name
 New-AzRoleAssignment -RoleDefinitionName 'Key Vault Secrets Officer' -SignInName {i.e user@microsoft.com} -Scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}/secrets/RBACSecret
 
@@ -253,9 +250,6 @@ Create new secret ( Secrets \> +Generate/Import) should show below error:
 [az role definition create command](/cli/azure/role/definition#az-role-definition-create)
 
 **(CLI bash script)</br>**
-```azurecli
-
-```
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
@@ -274,9 +268,9 @@ az role definition create --role-definition '{ \
     "AssignableScopes": ["/subscriptions/{subscriptionId}"] \
 }'
 ```
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azurepowershell)
 
-```powershell
+```azurepowershell
 $roleDefinition = @"
 { 
    "Name": "Backup Keys Operator", 

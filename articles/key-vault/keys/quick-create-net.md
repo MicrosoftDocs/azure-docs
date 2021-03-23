@@ -7,7 +7,7 @@ ms.date: 09/23/2020
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.custom: devx-track-csharp
+ms.custom: "devx-track-csharp, devx-track-azurepowershell"
 ---
 
 # Quickstart: Azure Key Vault key client library for .NET (SDK v4)
@@ -43,14 +43,14 @@ This quickstart is using Azure Identity library with Azure CLI to authenticate u
     ```azurecli-interactive
     az login
     ```
-    # [PowerShell](#tab/powershell)
+    # [Azure PowerShell](#tab/azurepowershell)
     
-    ```powershell-interactive
+    ```azurepowershell-interactive
     Connect-AzAccount
     ```
     ---
 
-    If AzCLI or AzPowerShell can open your default browser, it will do so and load an Azure sign-in page.
+    If Azure CLI or Azure PowerShell can open your default browser, it will do so and load an Azure sign-in page.
 
     Otherwise, open a browser page at [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and enter the
     authorization code displayed in your terminal.
@@ -65,9 +65,9 @@ Create an access policy for your key vault that grants key permissions to your u
 ```azurecli-interactive
 az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --key-permissions delete get list create purge
 ```
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azurepowershell)
 
-```powershell-interactive
+```azurepowershell-interactive
 Set-AzKeyVaultAccessPolicy -VaultName <your-key-vault-name> -UserPrincipalName user@domain.com -PermissionsToSecrets delete,get,list,set,purge
 ```
 ---
@@ -117,7 +117,7 @@ Windows
 set KEY_VAULT_NAME=<your-key-vault-name>
 ````
 Windows PowerShell
-```powershell
+```azurepowershell
 $Env:KEY_VAULT_NAME="<your-key-vault-name>"
 ```
 

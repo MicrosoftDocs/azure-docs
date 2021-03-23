@@ -22,11 +22,11 @@ az group create --name "myResourceGroup" -l "EastUS"
 
 az keyvault create --name "<your-unique-keyvault-name>" -g "myResourceGroup"
 ```
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azurepowershell)
 
-```powershell
-New-AzResourceGroup -Name myResourceGroup -Location EastUS
+```azurepowershell
+New-AzResourceGroup -Name myResourceGroup -Location eastus
 
-New-AzKeyVault -Name "<your-unique-keyvault-name>" -ResourceGroupName "myResourceGroup" -Location "EastUS"
+New-AzKeyVault -Name <your-unique-keyvault-name> -ResourceGroupName myResourceGroup -Location eastus
 ```
 ---
