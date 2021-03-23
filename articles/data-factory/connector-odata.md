@@ -325,7 +325,7 @@ When you copy data from OData, the following mappings are used between OData dat
 
 You can use the OData connector and the access token obtained from Postman to copy data from Project Online. You can follow the next steps:
 
-1.Use **Postman** to get the access token
+1.Use **Postman** to get the access token:
 
 You need to navigate to **Authorization** tab on the Postman Website.
 
@@ -334,7 +334,7 @@ You need to navigate to **Authorization** tab on the Postman Website.
     - **Grant type**: Select **Authorization Code**.
     - **Callback URL**: Enter `https://www.localhost.com/`. 
     - **Auth URL**: Enter `https://login.microsoftonline.com/common/oauth2/authorize?resource=https://<your tenant name>.sharepoint.com`. Replace `<your tenant name>` with your own tenant name. 
-    - **Access token URL**: Enter `https://login.microsoftonline.com/common/oauth2/token`.
+    - **Access Token URL**: Enter `https://login.microsoftonline.com/common/oauth2/token`.
     - **Client ID**: Enter your AAD service principal ID.
     - **Client Secret**: Enter your service principal secret.
     - **Client Authentication**: Select **Send as Basic Auth header**.
@@ -345,7 +345,7 @@ You need to navigate to **Authorization** tab on the Postman Website.
 ./media/connector-odata/odata-project-online-postman-accesstoken-inline.png
 ) ](./media/connector-odata/odata-project-online-postman-accesstoken-expanded.png#lightbox)
 
-2. Create the OData linked service 
+2. Create the OData linked service:
 - **Service URL**: Enter `https://<your tenant name>.sharepoint.com/sites/pwa/_api/Projectdata`. Replace `<your tenant name>` with your own tenant name. 
 - **Authentication type**: Select **Anonymous**.
 - **Auth headers**:
@@ -355,7 +355,7 @@ You need to navigate to **Authorization** tab on the Postman Website.
 
 ![Create OData linked service](./media/connector-odata/odata-project-online-linked-service.png)
 
-3. Create the OData dataset
+3. Create the OData dataset:
 - Create the dataset with the OData linked service created in step2.
 - Preview data.
 
