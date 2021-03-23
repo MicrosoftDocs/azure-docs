@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 03/22/2021
+ms.date: 03/23/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
@@ -16,16 +16,19 @@ ms.subservice: common
 
 Encryption scopes enable you to manage encryption at the level of the container or an individual blob. You can use encryption scopes to create secure boundaries between data that resides in the same storage account but belongs to different customers.
 
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
+
+## How encryption scopes work
+
 By default, a storage account is encrypted with a key that is scoped to the entire storage account. With an encryption scope, you can specify that one or more containers are encrypted with a key that is scoped only to those containers.
 
-You can choose to use either Microsoft-managed keys or customer-managed keys stored in Azure Key Vault to protect and control access to the key that encrypts your data. Different encryption scopes on the same storage account can use either Microsoft-managed or customer-managed keys.
+You can choose to use either Microsoft-managed keys or customer-managed keys stored in Azure Key Vault to protect and control access to the key that encrypts your data. Different encryption scopes on the same storage account can use either Microsoft-managed or customer-managed keys. You can switch between customer-managed keys and Microsoft-managed keys at any time. For more information about customer-managed keys, see [Customer-managed keys for Azure Storage encryption](../common/customer-managed-keys-overview.md). For more information about Microsoft-managed keys, see [About encryption key management](storage-service-encryption.md#about-encryption-key-management).
+
+If you create an encryption scope with a customer-managed key, then you can choose to update the key version either automatically or manually. If you choose to automatically update the key version, then Azure Storage checks the key vault or managed HSM daily for a new version of the customer-managed key and automatically updates the key to the latest version. For more information about updating the key version for a customer-managed key, see [Update the key version](../common/customer-managed-keys-overview.md#update-the-key-version).
+
+A storage account may have up to 10,000 encryption scopes protected with customer-managed keys for which the key version is automatically updated. If your storage account already has 10,000 encryption scopes that are protected with customer-managed keys, then the key version must be updated manually for any additional encryption scopes that are protected with customer-managed keys.  
 
 After you have created an encryption scope, you can specify that encryption scope on a request to create a container or a blob. For more information about how to create an encryption scope, see [Create and manage encryption scopes](encryption-scope-manage.md).
-
-> [!IMPORTANT]
-> To avoid unexpected costs, be sure to disable any encryption scopes that you do not currently need.
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## Create a container or blob with an encryption scope
 
@@ -46,8 +49,8 @@ If your encryption scope is protected with customer-managed keys, then you can a
 - [How to use soft-delete with PowerShell](../../key-vault/general/key-vault-recovery.md)
 - [How to use soft-delete with CLI](../../key-vault/general/key-vault-recovery.md)
 
-> [!NOTE]
-> It is not possible to delete an encryption scope.
+> [!IMPORTANT]
+> It is not possible to delete an encryption scope. To avoid unexpected costs, be sure to disable any encryption scopes that you do not currently need.
 
 ## Next steps
 

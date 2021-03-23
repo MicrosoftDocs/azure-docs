@@ -92,7 +92,9 @@ Set-AzKeyVaultAccessPolicy `
     -PermissionsToKeys wrapkey,unwrapkey,get
 ```
 
-Next, call the **New-AzStorageEncryptionScope** command with the `-KeyvaultEncryption` parameter, and specify the key URI. Including the key version on the key URI is optional. Remember to replace the placeholder values in the example with your own values:
+Next, call the **New-AzStorageEncryptionScope** command with the `-KeyvaultEncryption` parameter, and specify the key URI. Including the key version on the key URI is optional. If you omit the key version, then the encryption scope will automatically use the most recent key version. If you include the key version, then you must update the key version manually to use a different version.
+
+Remember to replace the placeholder values in the example with your own values:
 
 ```powershell
 New-AzStorageEncryptionScope -ResourceGroupName $rgName `
@@ -150,7 +152,9 @@ az keyvault set-policy \
     --key-permissions get unwrapKey wrapKey
 ```
 
-Next, call the **az storage account encryption-scope create** command with the `--key-uri` parameter, and specify the key URI. Including the key version on the key URI is optional. Remember to replace the placeholder values in the example with your own values:
+Next, call the **az storage account encryption-scope create** command with the `--key-uri` parameter, and specify the key URI. Including the key version on the key URI is optional. If you omit the key version, then the encryption scope will automatically use the most recent key version. If you include the key version, then you must update the key version manually to use a different version.
+
+Remember to replace the placeholder values in the example with your own values:
 
 ```azurecli-interactive
 az storage account encryption-scope create \
