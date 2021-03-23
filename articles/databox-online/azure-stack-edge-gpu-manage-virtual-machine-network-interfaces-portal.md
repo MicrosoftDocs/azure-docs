@@ -36,30 +36,83 @@ Your device supports only one virtual switch but multiple virtual network interf
 
 Before you begin to manage VMs on your device via the Azure portal, make sure that:
 
-1. You have enabled a network interface for compute on your device. This action creates a virtual switch on that network interface on your VM. In the local UI of your device, go to **Compute**. Select the network interface that you will use to create a virtual switch.
+1. You have enabled a network interface for compute on your device. This action creates a virtual switch on that network interface on your VM. 
+    1. In the local UI of your device, go to **Compute**. Select the network interface that you will use to create a virtual switch.
 
-    > [!IMPORTANT] 
-    > You can only configure one port for compute.
+        > [!IMPORTANT] 
+        > You can only configure one port for compute.
 
-    1. Enable compute on the network interface. Azure Stack Edge Pro creates and manages a virtual switch corresponding to that network interface.
+    1. Enable compute on the network interface. Azure Stack Edge Pro GPU creates and manages a virtual switch corresponding to that network interface.
 
 1. You have atleast one VM deployed on your device. To create this VM, see the instructions in [Deploy VM on your Azure Stack Edge Pro via the Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md).
 
-1. You VM should be in **Stopped** state. To stop your VM, go to **Virtual machines > Overview** and select the VM you want to stop. In the VM properties blade, select **Stop**. Before you add, edit, or delete network interfaces, you must stop
+1. Your VM should be in **Stopped** state. To stop your VM, go to **Virtual machines > Overview** and select the VM you want to stop. In the VM properties page, select **Stop**. Before you add, edit, or delete network interfaces, you must stop the VM.
 
 
 
 ## Add a network interface
 
+Follow these steps to add a network interface to a virtual machine deployed on your device. 
+
+1. Go to the virtual machine that you have stopped and go to the **VM Properties** page. Select **Networking**.
+    
+    ![Add a network interface](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-1.png)
+
+2. In the **Networking** blade, from the command bar, select **+ Add network interface**.
+
+    ![Add a network interface](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-2.png)
+
+3. In the **Add network interface** blade, enter the following parameters:
+
+    
+    |Column1  |Column2  |
+    |---------|---------|
+    |Name     | A unique name within the resource group. The name cannot be changed after the network interface is created. To manage multiple network interfaces easily, use the suggestions provided in the [Naming conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming).     |
+    |Virtual network| The virtual network associated with the virtual switch created on your device when you enabled compute on the network interface. There is only one virtual network associated with your device.         |         
+    |Subnet     | A subnet within the selected virtual network. This field is automatically populated with the subnet associated with the network interface on which you enabled compute.         |       
+    |IP assignment   | A static or a dynamic IP for your network interface. The static IP should be an available, free IP from the specified subnet range. Choose dynamic if a DHCP server exists in the environment.        | 
+
+    ![Add a network interface](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-3.png)
+
+4. You'll see a notification that the network interface creation is in progress.
+
+    ![Add a network interface](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-4.png)
+
+5.  After the network interface is successfully created, the list of network interfaces refreshes to display the newly created interface.
+
+    ![Add a network interface](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-5.png)
 
 
 ## Edit a network interface
 
+Follow these steps to edit a network interface associated with a virtual machine deployed on your device.
+
+1. Go to the virtual machine that you have stopped and go to the **VM Properties** page. Select **Networking**.
+
+1. In the list of network interfaces, select the interface that you wish to edit. In the far right of the network interface selected, select the edit icon (pencil).  
+
+    ![Add a network interface](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/edit-nic-1.png)
+
+1. In the **Edit network interface** blade, you can only change the IP assignment of the network interface. The name, virtual network, and subnet associated with the network interface can't be changed once it is created. Change the **IP assignment** to static and save the changes.
+
+    ![Add a network interface](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/edit-nic-2.png)
+
+1. The list of network interface refreshes to display the updated network interface.
 
 
 ## Detach a network interface
 
+Follow these steps to detach or remove a network interface associated with a virtual machine deployed on your device.
 
+1. Go to the virtual machine that you have stopped and go to the **VM Properties** page. Select **Networking**.
+
+1. In the list of network interfaces, select the interface that you wish to edit. In the far right of the network interface selected, select the delete icon (trash can).  
+
+1. After the deletion is complete, the list of network interfaces is refreshed to display the remaining interfaces.
+
+![Add a network interface](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/change-vm-size-1.png)
+![Add a network interface](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/change-vm-size-2.png)
+![Add a network interface](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/change-vm-size-3.png)
 
 
 
