@@ -555,6 +555,8 @@
       href: ./extensions/troubleshoot.md
     - name: Issues with Python 3-enabled Linux systems
       href: ./extensions/issues-using-vm-extensions-python-3.md
+  - name: Nested virtualization
+    href: https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization
   - name: Migrate to Azure Resource Manager
     items:
     - name: Retirement starting March 1, 2023
@@ -1256,7 +1258,7 @@
       - name: Create a managed disk from a snapshot
         href: https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-snapshot.md
       - name: Copy a managed disk to the same or different subscription
-        href: https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md
+        href: https://github.com/Azure-Samples/azure-cli-samples/blob/master/virtual-machine/copy-managed-disks-to-same-or-different-subscription/copy-managed-disks-to-same-or-different-subscription.sh
       - name: Copy a snapshot to the same or different subscription
         href: https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-snapshot-to-same-or-different-subscription.md
       - name: Export a snapshot as a VHD to a storage account

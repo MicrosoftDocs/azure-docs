@@ -172,6 +172,9 @@
     - name: Steps to deploy
       displayName: standards, Media
       href: ./samples/media/deploy.md
+  - name: New Zealand ISM Restricted
+    displayName: standards, NZISM
+    href: ./samples/new-zealand-ism.md
   - name: NIST SP 800-53 R4
     displayName: standards, nist, 800-53, rev 4
     href: ./samples/nist-sp-800-53-r4.md

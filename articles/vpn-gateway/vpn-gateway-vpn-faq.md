@@ -6,7 +6,7 @@ author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 03/22/2021
 ms.author: yushwang
 ---
 # VPN Gateway FAQ
@@ -20,6 +20,10 @@ Yes. In fact, there is no region constraint. One virtual network can connect to 
 ### Can I connect virtual networks in different subscriptions?
 
 Yes.
+
+### Can I specify private DNS servers in my VNet when configuring VPN Gateway?
+
+If you specified a DNS server when you created your VNet, VPN Gateway will use the DNS server settings that you specified. If you specify a DNS server, verify that your DNS servers can resolve the following list of domain names:
 
 ### Can I connect to multiple sites from a single virtual network?
 
@@ -117,10 +121,6 @@ We are limited to using pre-shared keys (PSK) for authentication.
 #### Classic deployment model
 
 * Azure portal: navigate to the classic virtual network > VPN connections > Site-to-site VPN connections > Local site name > Local site > Client address space. 
-
-### Can I configure Force Tunneling?
-
-Yes. See [Configure force tunneling](vpn-gateway-about-forced-tunneling.md).
 
 ### Can I use NAT-T on my VPN connections?
 
@@ -220,10 +220,13 @@ Yes, this is supported. For more information, see [Configure ExpressRoute and Si
 
 [!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-faq-ipsecikepolicy-include.md)]
 
-
-## <a name="bgp"></a>BGP
+## <a name="bgp"></a>BGP and routing
 
 [!INCLUDE [vpn-gateway-faq-bgp-include](../../includes/vpn-gateway-faq-bgp-include.md)]
+
+### Can I configure Forced Tunneling?
+
+Yes. See [Configure forced tunneling](vpn-gateway-about-forced-tunneling.md).
 
 ## <a name="vms"></a>Cross-premises connectivity and VMs
 
