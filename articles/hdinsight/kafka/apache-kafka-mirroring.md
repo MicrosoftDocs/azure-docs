@@ -29,7 +29,7 @@ The most useful mirroring setup for disaster recovery utilizes Kafka clusters in
 
 The following diagram illustrates the mirroring process and how the communication flows between clusters:
 
-![Diagram of the mirroring process](./media/apache-kafka-mirroring/kafka-mirroring-vnets2.png)
+:::image type="content" source="./media/apache-kafka-mirroring/kafka-mirroring-vnets2.png" alt-text="Diagram of the mirroring process" border="false":::
 
 The primary and secondary clusters can be different in the number of nodes and partitions, and offsets within the topics are different also. Mirroring maintains the key value that is used for partitioning, so record order is preserved on a per-key basis.
 

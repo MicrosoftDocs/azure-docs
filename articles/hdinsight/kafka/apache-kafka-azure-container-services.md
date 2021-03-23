@@ -37,7 +37,7 @@ Both HDInsight and AKS use an Azure Virtual Network as a container for compute r
 
 The following diagram illustrates the network topology used in this document:
 
-![HDInsight in one virtual network, AKS in another, using peering](./media/apache-kafka-azure-container-services/kafka-aks-architecture.png)
+:::image type="content" source="./media/apache-kafka-azure-container-services/kafka-aks-architecture.png" alt-text="HDInsight in one virtual network, AKS in another, using peering" border="false":::
 
 > [!IMPORTANT]  
 > Name resolution is not enabled between the peered networks, so IP addressing is used. By default, Kafka on HDInsight is configured to return host names instead of IP addresses when clients connect. The steps in this document modify Kafka to use IP advertising instead.
