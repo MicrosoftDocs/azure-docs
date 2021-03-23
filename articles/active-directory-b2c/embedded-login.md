@@ -9,13 +9,24 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/16/2021
+ms.date: 03/21/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
+zone_pivot_groups: b2c-policy-type
 ---
 
 # Embedded sign-in experience
+
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+::: zone pivot="b2c-user-flow"
+
+[!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-limited-to-custom-policy.md)]
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
 
 For a simpler sign-in experience, you can avoid redirecting users to a separate sign-in page or generating a pop-up window. By using the inline frame element `<iframe>`, you can embed the Azure AD B2C sign-in user interface directly into your web application.
 
@@ -154,3 +165,5 @@ See the following related articles:
 - [RelyingParty](relyingparty.md) element reference
 - [Enable your policy for JavaScript](./javascript-and-page-layout.md)
 - [Code samples](code-samples.md)
+
+::: zone-end

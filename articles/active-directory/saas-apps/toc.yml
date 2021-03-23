@@ -1186,6 +1186,8 @@
         href: mongodb-cloud-tutorial.md
       - name: Montage Online
         href: montageonline-tutorial.md
+      - name: Moqups
+        href: moqups-tutorial.md
       - name: Motus
         href: motus-tutorial.md
       - name: MOVEit Transfer - Azure AD integration
@@ -1632,7 +1634,7 @@
         href: sendsafely-tutorial.md
       - name: SensoScientific Wireless Temperature Monitoring System
         href: sensoscientific-tutorial.md
-      - name: Sequr
+      - name: Genea Access Control
         href: sequr-tutorial.md
       - name: Serraview Space Utilization Software Solutions
         href: serraview-space-utilization-software-solutions-tutorial.md
@@ -2245,6 +2247,8 @@
         href: lucidchart-provisioning-tutorial.md
       - name: Leapsome
         href: leapsome-provisioning-tutorial.md
+      - name: LogicGate
+        href: logicgate-provisioning-tutorial.md
       - name: Looop
         href: looop-provisioning-tutorial.md
       - name: MediusFlow

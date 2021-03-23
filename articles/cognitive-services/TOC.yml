@@ -32,7 +32,7 @@
     items:
     - name: Containers
       items:
-      - name: Container support
+      - name: Cognitive Services containers
         href: cognitive-services-container-support.md
       - name: Container image tags and releases notes
         href: ./containers/container-image-tags.md
@@ -100,6 +100,22 @@
     href: cognitive-services-custom-subdomains.md
 - name: Reference
   items:
+  - name: REST API
+    href: /rest/api/cognitiveservices/accountmanagement/accounts
+  - name: .NET
+    href: /dotnet/api/overview/azure/cognitiveservices/management?view=azure-dotnet
+  - name: Node.js
+    href: /javascript/api/@azure/arm-cognitiveservices/?view=azure-node-latest
+  - name: Python
+    href: /python/api/overview/azure/cognitiveservices/management?view=azure-python
+  - name: Java
+    href: /java/api/overview/azure/cognitiveservices/resourcemanagement?view=azure-java-stable
+  - name: Go
+    href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go@v52.5.0+incompatible/services/cognitiveservices/mgmt/2017-04-18/cognitiveservices
+  - name: Azure CLI
+    href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+  - name: Azure PowerShell
+    href: /powershell/module/azurerm.cognitiveservices/
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
