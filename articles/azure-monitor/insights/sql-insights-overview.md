@@ -8,9 +8,9 @@ ms.date: 03/15/2021
 ---
 
 # Monitor your SQL deployments with SQL insights (preview)
-SQL insights monitors the performance and health of your SQL deployments.  It can help deliver predictable performance and availability of vital workloads you have built around a SQL backend by identifying performance bottlenecks and issues. SQL insights stores its data in [Azure Monitor Logs](../logs/data-platform-logs.md), which allows it to deliver powerful aggregation and filtering and to analyze data trends over time. You can view this data from Azure Monitor workbooks, or you can delve directly into the log data to run queries and analyze trends.
+SQL insights is a comprehensive solution for monitoring any product in the [Azure SQL family](../../azure-sql/index.yml). SQL insights uses [dynamic management views](../../azure-sql/database/monitoring-with-dmvs.md) to expose the data you need to monitor health, diagnose problems, and tune performance.  
 
-SQL insights does not install anything on your SQL IaaS deployments. Instead, it uses dedicated monitoring virtual machines to remotely collect data for both SQL PaaS and SQL IaaS deployments.  The SQL insights monitoring profile allows you to manage the data sets to be collected based upon the type of SQL, including Azure SQL DB, Azure SQL Managed Instance, and SQL server running on an Azure virtual machine.
+SQL insights performs all monitoring remotely. Monitoring agents on dedicated virtual machines connect to your SQL systems and remotely gather data. The gathered data is stored in [Azure Monitor Logs](../logs/data-platform-logs.md), enabling easy aggregation, filtering, and trend analysis. You can view the collected data from the SQL insights [workbook template](../visualize/workbooks-overview.md), or you can delve directly into the data using [log queries](../logs/get-started-queries.md).
 
 ## Pricing
 There is no direct cost for SQL insights. All costs are incurred by the Log Analytics workspaces that store the data and the virtual machines that gather the data. 
@@ -25,23 +25,20 @@ For Log Analytics, you're charged for activity in the Log Analytics workspace. T
 
 ## Supported versions 
 SQL insights supports the following versions of SQL Server:
-
 - SQL Server 2012 and newer
 
 SQL insights supports SQL Server running in the following environments:
-
 - Azure SQL Database
 - Azure SQL Managed Instance
 - Azure SQL VMs
 - Azure VMs
 
 SQL insights has no support or limited support for the following:
-
-- SQL Server running on virtual machines outside of Azure are currently not supported.
-- Azure SQL Database Elastic Pools: Limited support during the Public Preview. Will be fully supported at general availability.  
-- Azure SQL Serverless Deployments: Like Active Geo-DR, the current monitoring agents will prevent serverless deployment from going to sleep. This could cause higher than expected costs from serverless deployments.  
-- Readable Secondaries: Currently only deployment types with a single readable secondary endpoint (Business Critical or Hyperscale) will be supported. When Hyperscale deployments support named replicas, we will be capable of supporting multiple readable secondary endpoints for a single logical database.  
-- Azure Active Directories: Currently we only support SQL Logins for the Monitoring Agent. We plan to support Azure Active Directories in an upcoming release and have no current support for SQL VM authentication using Active Directories on a bespoke domain controller.  
+- **Non-Azure instances**: SQL Server running on virtual machines outside of Azure are not supported
+- **Azure SQL Database elastic pools**: Metrics cannot be gathered for elastic pools. However, metrics can be gathered for individual databases within elastic pools
+- **Azure SQL Database serverless compute tier**: Metrics can be gathered for databases using the serverless compute tier. However, the process of gathering metrics will reset the auto-pause delay timer, preventing the database from entering an auto-paused state
+- **Readable secondary replicas**: Metrics can only be gathered for a single secondary replica per-database. If a database has more than 1 secondary replica, only 1 can be monitored.
+- **Authentication with Azure Active Directory**: The only supported method of [authentication](../../azure-sql/database/logins-create-manage.md#authentication-and-authorization) for monitoring is SQL authentication. For SQL Server on Azure VM, authentication using Active Directory on a custom domain controller is not supported.  
 
 ## Open SQL insights
 Open SQL insights by selecting **SQL (preview)** from the **Insights** section of the **Azure Monitor** menu in the Azure portal. Click on a tile to load the experience for the type of SQL you are monitoring.
@@ -61,12 +58,12 @@ The tables below have the following columns:
 - **Friendly Name**: Name of the query as shown on the Azure portal when creating a monitoring profile
 - **Configuration Name**: Name of the query as shown on the Azure portal when editing a monitoring profile
 - **Namespace**: Name of the query as found in a Log Analytics workspace. This identifier appears in the **InsighstMetrics** table on the `Namespace` property in the `Tags` column
-- **DMV**: The Dynamic Managed Views used to produce the data set
+- **DMVs**: The dynamic managed views used to produce the data set
 - **Enabled by Default**: Whether the data is collected by default
 - **Default Collection Frequency**: How often the data is collected by default
 
 ### Data for Azure SQL Database 
-| Friendly Name | Configuration Name | Namespace | DMV | Enabled by Default | Default Collection Frequency |
+| Friendly Name | Configuration Name | Namespace | DMVs | Enabled by Default | Default Collection Frequency |
 |:---|:---|:---|:---|:---|:---|
 | DB wait stats | AzureSQLDBWaitStats | sqlserver_azuredb_waitstats | sys.dm_db_wait_stats | No | NA |
 | DBO wait stats | AzureSQLDBOsWaitstats | sqlserver_waitstats |sys.dm_os_wait_stats | Yes | 60 seconds |
@@ -81,7 +78,7 @@ The tables below have the following columns:
 
 ### Data for Azure SQL Managed Instance 
 
-| Friendly Name | Configuration Name | Namespace | DMV | Enabled by Default | Default Collection Frequency |
+| Friendly Name | Configuration Name | Namespace | DMVs | Enabled by Default | Default Collection Frequency |
 |:---|:---|:---|:---|:---|:---|
 | Wait stats | AzureSQLMIOsWaitstats | sqlserver_waitstats | sys.dm_os_wait_stats | Yes | 60 seconds |
 | Memory clerks | AzureSQLMIMemoryClerks | sqlserver_memory_clerks | sys.dm_os_memory_clerks | Yes | 60 seconds |
@@ -95,7 +92,7 @@ The tables below have the following columns:
 
 ### Data for SQL Server
 
-| Friendly Name | Configuration Name | Namespace | DMV | Enabled by Default | Default Collection Frequency |
+| Friendly Name | Configuration Name | Namespace | DMVs | Enabled by Default | Default Collection Frequency |
 |:---|:---|:---|:---|:---|:---|
 | Wait stats | SQLServerWaitStatsCategorized | sqlserver_waitstats | sys.dm_os_wait_stats | Yes | 60 seconds | 
 | Memory clerks | SQLServerMemoryClerks | sqlserver_memory_clerks | sys.dm_os_memory_clerks | Yes | 60 seconds |
