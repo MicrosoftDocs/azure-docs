@@ -341,7 +341,7 @@ You need to navigate to **Authorization** tab on the Postman Website.
 - You will be asked to login with your username and password.
 - Once you get your access token, please copy and save it for the next step.
 
-[ ![Use Postman to get access token](
+[ ![Use Postman to get the access token](
 ./media/connector-odata/odata-project-online-postman-accesstoken-inline.png
 ) ](./media/connector-odata/odata-project-online-postman-accesstoken-expanded.png#lightbox)
 
