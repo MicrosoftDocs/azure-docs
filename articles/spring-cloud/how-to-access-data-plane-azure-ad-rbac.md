@@ -55,4 +55,4 @@ If the response is *401 Unauthorized*, check to see if the role is successfully 
 * [Production ready endpoints](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints)
 
 ## See also
-* [Create roles and permissions](howto-permissions.md)
+* [Create roles and permissions](how-to-permissions.md)
