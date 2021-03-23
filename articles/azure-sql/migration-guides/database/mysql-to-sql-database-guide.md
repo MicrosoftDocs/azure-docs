@@ -1,6 +1,6 @@
 ---
 title: "MySQL to Azure SQL Database:  Migration guide"
-description: This guide teaches you to migrate your MySQL databases to Azure SQL Database using SQL Server Migration Assistant for MySQL (SSMA for MySQL). 
+description: In this guide you learn how to migrate your MySQL databases to Azure SQL Database by using SQL Server Migration Assistant for MySQL (SSMA for MySQL). 
 ms.service: sql-database
 ms.subservice: migration-guide
 ms.custom:
@@ -11,121 +11,120 @@ ms.author: mathoma
 ms.date: 03/19/2021
 ---
 
-# Migration guide:  MySQL to Azure SQL Database
+# Migration guide: MySQL to Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
-This guide teaches you to migrate your MySQL database to Azure SQL Database using SQL Server Migration Assistant for MySQL (SSMA for MySQL). 
+In this guide, you learn how to migrate your MySQL database to Azure SQL Database by using SQL Server Migration Assistant for MySQL (SSMA for MySQL). 
 
-For other migration guides, see [Database Migration](https://datamigration.microsoft.com/). 
+For other migration guides, see [Azure Database Migration Guide](https://datamigration.microsoft.com/). 
 
 ## Prerequisites
 
-To migrate your MySQL database to Azure SQL Database, you need:
+Before you begin migrating your MySQL database to Azure SQL Database, do the following:
 
-- to verify your source environment is supported. Currently, MySQL 5.6 and 5.7 is supported. 
-- [SQL Server Migration Assistant for MySQL](https://www.microsoft.com/download/confirmation.aspx?id=54257)
+- Verify that your source environment is supported. Currently, MySQL 5.6 and 5.7 are supported. 
+- Download and install [SQL Server Migration Assistant for MySQL](https://www.microsoft.com/download/confirmation.aspx?id=54257).
 
 
 ## Pre-migration 
 
-After you have met the prerequisites, you are ready to discover the topology of your environment and assess the feasibility of your migration.
+After you've met the prerequisites, you're ready to discover the topology of your environment and assess the feasibility of your migration.
 
 ### Assess 
 
 By using [SQL Server Migration Assistant for MySQL](https://www.microsoft.com/download/confirmation.aspx?id=54257), you can review database objects and data, and assess databases for migration.
 
-To create an assessment, perform the following steps.
+To create an assessment, do the following:
 
-1. Open SQL Server Migration Assistant for MySQL. 
-1. Select **File** from the menu and then choose **New Project**. Provide the project name, a location to save your project. Choose **Azure SQL Database** as the migration target. 
+1. Open SSMA for MySQL. 
+1. Select **File**, and then select **New Project**. 
+1. In the **New Project** pane, enter a name and location for your project and then, in the **Migrate To** drop-down list, select **Azure SQL Database**. 
 
-   ![New Project](./media/mysql-to-sql-database-guide/new-project.png)
+   ![Screenshot of the "New Project" pane for entering your migration project name, location, and target.](./media/mysql-to-sql-database-guide/new-project.png)
 
-1. Choose **Connect to MySQL** and provide connection details to connect your MySQL server. 
+1. Select the **Connect to MySQL** tab, and then provide details for connecting your MySQL server. 
 
-   ![Connect to MySQL](./media/mysql-to-sql-database-guide/connect-to-mysql.png)
+   ![Screenshot of the "Connect to MySQL" pane for specifying connections to the source.](./media/mysql-to-sql-database-guide/connect-to-mysql.png)
 
-1. Right-click the MySQL schema in **MySQL Metadata Explorer** and choose **Create report**. Alternatively, you can select **Create report** from the top-line navigation bar. 
+1. On the **MySQL Metadata Explorer** pane, right-click the MySQL schema, and then select **Create Report**. Alternatively, you can select the **Create Report** tab at the upper right.
 
-   ![Create Report](./media/mysql-to-sql-database-guide/create-report.png)
+   ![Screenshot of the "Create Report" links in SSMA for MySQL.](./media/mysql-to-sql-database-guide/create-report.png)
 
-1. Review the HTML report for conversion statistics, as well as errors and warnings. Analyze it to understand conversion issues and resolutions. 
+1. Review the HTML report for conversion statistics, errors, and warnings. Analyze it to understand the conversion issues and resolutions. 
 
-   This report can also be accessed from the SSMA projects folder as selected in the first screen. From the example above locate the report.xml file from:
+   You can also access this report from the SSMA projects folder as selected in the first screen. From the preceding example, look for the *report.xml* file from:
  
    `drive:\Users\<username>\Documents\SSMAProjects\MySQLMigration\report\report_2016_11_12T02_47_55\`
  
-   and open it in Excel to get an inventory of MySQL objects and the effort required to perform schema conversions.
+   . Open the file in Excel to get an inventory of MySQL objects and the effort that's required to perform schema conversions.
 
-    ![Conversion Report](./media/mysql-to-sql-database-guide/conversion-report.png)
+    ![Screenshot of an example conversion report in SSMA.](./media/mysql-to-sql-database-guide/conversion-report.png)
 
-### Validate data types
+### Validate the data types
 
-Validate the default data type mappings and change them based on requirements if necessary. To do so, follow these steps: 
+Validate the default data type mappings and change them based on requirements, if necessary. To do so: 
 
-1. Select **Tools** from the menu. 
-1. Select **Project Settings**. 
-1. Select the **Type mappings** tab. 
+1. Select **Tools**, and then select **Project Settings**.  
+1. Select the **Type mapping** tab. 
 
-   ![Type Mappings](./media/mysql-to-sql-database-guide/type-mappings.png)
+   ![Screenshot of the "Type Mapping" pane in SSMA for MySQL.](./media/mysql-to-sql-database-guide/type-mappings.png)
 
-1. You can change the type mapping for each table by selecting the table in the **MySQL Metadata explorer**. 
+1. You can change the type mapping for each table by selecting the table name on the **MySQL Metadata Explorer** pane. 
 
-### Convert schema 
+### Convert the schema 
 
-To convert the schema, follow these steps: 
+To convert the schema, do the following: 
 
-1. (Optional) To convert dynamic or ad-hoc queries, right-click the node and choose **Add statement**. 
-1. Choose **Connect to Azure SQL Database** from the top-line navigation bar and provide connection details. You can choose to connect to an existing database or provide a new name, in which case a database will be created on the target server.
+1. (Optional) To convert dynamic or ad hoc queries, right-click the node, and then select **Add statement**. 
 
-   ![Connect to SQL](./media/mysql-to-sql-database-guide/connect-to-sqldb.png)
+1. Select the **Connect to Azure SQL Database** tab, and then enter the connection details. You can select to connect to an existing database or provide a new name, in which case a database will be created on the target server.
+
+   ![Screenshot of the "Connect to Azure SQL Database" pane in SSMA for MySQL.](./media/mysql-to-sql-database-guide/connect-to-sqldb.png)
  
-1. Right-click the schema and choose **Convert schema**. 
+1. Right-click the schema you're working with, and then select **Convert Schema**. 
 
-   ![Convert Schema](./media/mysql-to-sql-database-guide/convert-schema.png)
+   ![Screenshot of the "Convert Schema" command on the "MySQL Metadata Explorer" pane.](./media/mysql-to-sql-database-guide/convert-schema.png)
 
-1. After the schema is finished converting, compare the converted code to the original code to identify potential problems. 
+1. After the schema has been converted, compare the converted code to the original code to identify potential problems. 
 
-   Compare converted objects to original objects: 
+   Compare the converted objects to the original objects, as shown here: 
 
-   ![ Compare And Review object ](./media/mysql-to-sql-database-guide/table-comparison.png)
+   ![Screenshot showing a comparison of the converted objects to the original objects.](./media/mysql-to-sql-database-guide/table-comparison.png)
 
-   Compare converted procedures to original procedures: 
+   Compare the converted procedures to the original procedures, as shown here: 
 
-   ![Compare And Review object code](./media/mysql-to-sql-database-guide/procedure-comparison.png)
-
-
-## Migrate 
-
-After you have completed assessing your databases and addressing any discrepancies, the next step is to execute the migration process. Migration involves two steps – publishing the schema and migrating the data. 
-
-To publish the schema and migrate the data, follow these steps: 
-
-1. Right-click the database from the **Azure SQL Database Metadata Explorer** and choose **Synchronize with Database**. This action publishes the MySQL schema to Azure SQL Database.
-
-   ![Synchronize with Database](./media/mysql-to-sql-database-guide/synchronize-database.png)
-
-   Review the mapping between your source project and your target:
-
-   ![Synchronize with Database Review](./media/mysql-to-sql-database-guide/synchronize-database-review.png)
-
-1. Right-click the MySQL schema from the **MySQL Metadata Explorer** and choose **Migrate Data**. Alternatively, you can select **Migrate Data** from the top-line navigation. 
-
-   ![Migrate data](./media/mysql-to-sql-database-guide/migrate-data.png)
-
-1. After migration completes, view the **Data Migration** report: 
-
-   ![Data Migration Report](./media/mysql-to-sql-database-guide/data-migration-report.png)
-
-1.  Validate the migration by reviewing the data and schema on Azure SQL Database by using SQL Server Management Studio (SSMS).
-
-    ![Validate in SSMA](./media/mysql-to-sql-database-guide/validate-in-ssms.png)
+   ![Screenshot showing a comparison of the converted procedures to the original procedures.](./media/mysql-to-sql-database-guide/procedure-comparison.png)
 
 
+## Migrate the databases 
+
+After you've assessed your databases and addressed any discrepancies, you can run the migration process. Migration involves two steps: publishing the schema and migrating the data. 
+
+To publish the schema and migrate the data, do the following: 
+
+1. On the **Azure SQL Database Metadata Explorer** pane, right-click the database, and then select **Synchronize with Database**. This action publishes the MySQL schema to the Azure SQL Database instance.
+
+   ![Screenshot of the "Synchronize with Database" command on the Azure SQL Database Metadata Explorer pane.](./media/mysql-to-sql-database-guide/synchronize-database.png)
+
+   Review the mapping between your source project and your target, as shown here:
+
+   ![Screenshot of the "Synchronize with the Database" pane for reviewing database mapping.](./media/mysql-to-sql-database-guide/synchronize-database-review.png)
+
+1. On the **MySQL Metadata Explorer** pane, right-click the MySQL schema, and then select **Migrate Data**. Alternatively, you can select the **Migrate Data** tab at the upper right. 
+
+   ![Screenshot of the "Migrate Data" command on the "MySQL Metadata Explorer" pane.](./media/mysql-to-sql-database-guide/migrate-data.png)
+
+1. After the migration is completed, view the **Data Migration Report**. 
+
+   ![Screenshot of the Data Migration Report.](./media/mysql-to-sql-database-guide/data-migration-report.png)
+
+1. Validate the migration by reviewing the data and schema on the Azure SQL Database instance in SQL Server Management Studio.
+
+    ![Screenshot of SQL Server Management Server.](./media/mysql-to-sql-database-guide/validate-in-ssms.png)
 
 ## Post-migration 
 
-After you have successfully completed the **Migration** stage, you need to go through a series of post-migration tasks to ensure that everything is functioning as smoothly and efficiently as possible.
+After you've successfully completed the *migration* stage, you need to complete a series of post-migration tasks to ensure that everything is functioning as smoothly and efficiently as possible.
 
 ### Remediate applications
 
@@ -133,39 +132,38 @@ After the data is migrated to the target environment, all the applications that 
 
 ### Perform tests
 
-The test approach for database migration consists of performing the following activities:
+The test approach to database migration consists of the following activities:
 
-1. **Develop validation tests**. To test database migration, you need to use SQL queries. You must create the validation queries to run against both the source and the target databases. Your validation queries should cover the scope you have defined.
+1. **Develop validation tests**: To test the database migration, you need to use SQL queries. You must create the validation queries to run against both the source and target databases. Your validation queries should cover the scope you've defined.
 
-2. **Set up test environment**. The test environment should contain a copy of the source database and the target database. Be sure to isolate the test environment.
+1. **Set up a test environment**: The test environment should contain a copy of the source database and the target database. Be sure to isolate the test environment.
 
-3. **Run validation tests**. Run the validation tests against the source and the target, and then analyze the results.
+1. **Run validation tests**: Run validation tests against the source and the target, and then analyze the results.
 
-4. **Run performance tests**. Run performance test against the source and the target, and then analyze and compare the results.
+1. **Run performance tests**: Run performance tests against the source and the target, and then analyze and compare the results.
 
 ### Optimize
 
-The post-migration phase is crucial for reconciling any data accuracy issues and verifying completeness, as well as addressing performance issues with the workload.
+The post-migration phase is crucial for reconciling any data accuracy issues, verifying completeness, and addressing performance issues with the workload.
 
-For additional detail about these issues and specific steps to mitigate them, see the [Post-migration Validation and Optimization Guide](/sql/relational-databases/post-migration-validation-and-optimization-guide).
+For more information about these issues and the steps to mitigate them, see the [Post-migration validation and optimization guide](/sql/relational-databases/post-migration-validation-and-optimization-guide).
 
 ## Migration assets
 
-For additional assistance with completing this migration scenario, please see the following resources, which were developed in support of a real-world migration project engagement.
+For more assistance with completing this migration scenario, see the following resource. It was developed in support of a real-world migration project engagement.
 
-| Title/link     | Description    |
-| ---------------------------------------------- | ---------------------------------------------------- |
-| [Data Workload Assessment Model and Tool](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | This tool provides suggested "best fit" target platforms, cloud readiness, and application/database remediation level for a given workload. It offers simple, one-click calculation and report generation that greatly helps to accelerate large estate assessments by providing and automated and uniform target platform decision process. |
+| Title | Description |
+| --- | --- |
+| [Data workload assessment model and tool](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | Provides suggested “best fit” target platforms, cloud readiness, and application/database remediation levels for specified workloads. It offers simple, one-click calculation and report generation that helps to accelerate large estate assessments by providing an automated, uniform target-platform decision process. |
 
-These resources were developed as part of the Data SQL Ninja Program, which is sponsored by the Azure Data Group engineering team. The core charter of the Data SQL Ninja program is to unblock and accelerate complex modernization and compete data platform migration opportunities to Microsoft's Azure Data platform. If you think your organization would be interested in participating in the Data SQL Ninja program, please contact your account team and ask them to submit a nomination.
+This resource was developed as part of the Data SQL Ninja Program, which is sponsored by the Azure Data Group engineering team. The core charter of the Data SQL Ninja program is to unblock and accelerate complex modernization and compete data platform migration opportunities to the Microsoft Azure Data platform. If you think your organization would be interested in participating in the Data SQL Ninja program, contact your account team and ask them to submit a nomination.
 
 ## Next steps 
 
-- Be sure to check out the [Azure Total Cost of Ownership (TCO) Calculator](https://aka.ms/azure-tco) to help estimate the cost savings you can realize by migrating your workloads to Azure.
+- To help estimate the cost savings you can realize by migrating your workloads to Azure, see the [Azure total cost of ownership calculator](https://aka.ms/azure-tco).
 
-- For a matrix of the Microsoft and third-party services and tools that are available to assist you with various database and data migration scenarios as well as specialty tasks, see the article [Service and tools for data migration](https://docs.microsoft.com/azure/dms/dms-tools-matrix).
+- For a matrix of Microsoft and third-party services and tools that are available to assist you with various database and data migration scenarios and specialty tasks, see [Service and tools for data migration](../../../dms/dms-tools-matrix.md).
 
-- For other migration guides, see [Database Migration](https://datamigration.microsoft.com/). 
+- For other migration guides, see [Azure Database Migration Guide](https://datamigration.microsoft.com/). 
 
-For videos, see: 
-- [Overview of the migration journey and the tools/services recommended for performing assessment and migration](https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/)
+- For migration videos, see [Overview of the migration journey and recommended migration and assessment tools and services](https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/).
