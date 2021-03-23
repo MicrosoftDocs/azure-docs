@@ -122,7 +122,7 @@ In this step, you connect your VPN site to the hub.
 
    :::image type="content" source="../../includes/media/virtual-wan-tutorial-connect-vpn-site-include/status.png" alt-text="Screenshot that shows a site-to-site connection and connectivity status.":::
 
-1. [Download the VPN configuration file](../virtual-wan-site-to-site-portal#device) for the on-premises endpoint.  
+1. [Download the VPN configuration file](../virtual-wan-site-to-site-portal.md#device) for the on-premises endpoint.  
 
 3. Patch the Azure VMware Solution ExpressRoute in the Virtual WAN hub. 
 
