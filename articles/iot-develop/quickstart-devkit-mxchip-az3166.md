@@ -11,7 +11,7 @@ ms.date: 03/17/2021
 
 # Quickstart: Connect an MXCHIP AZ3166 devkit to IoT Central
 
-**Applies to**: [Embedded device development](about-iot-develop.md#embedded-device-development)
+**Applies to**: [Embedded device development](about-iot-develop.md#embedded-device-development)<br>
 **Total completion time**:  30 minutes
 
 In this tutorial you use Azure RTOS to connect the MXCHIP AZ3166 IoT DevKit (hereafter, the MXChip DevKit) to Azure IoT. The article is part of the series [Getting started with Azure IoT embedded device development](quickstart-device-development.md). The series introduces device developers to Azure RTOS, and shows how to connect several device evaluation kits to Azure IoT.
