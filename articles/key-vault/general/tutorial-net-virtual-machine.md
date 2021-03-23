@@ -78,7 +78,7 @@ Create a Windows or Linux virtual machine using one of the following methods:
 | [Azure portal](../../virtual-machines/windows/quick-create-portal.md) | [Azure portal](../../virtual-machines/linux/quick-create-portal.md) |
 
 ## Assign an identity to the VM
-Create a system-assigned identity for the virtual machine the command:
+Create a system-assigned identity for the virtual machine with the following example:
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
