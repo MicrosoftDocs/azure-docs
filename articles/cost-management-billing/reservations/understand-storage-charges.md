@@ -12,7 +12,7 @@ ms.author: tamram
 # Understand how reservation discounts are applied to Azure storage services 
 Azure storage services enable you to save money on storage costs by reserving capacity. Azure Blob storage, Azure Files, and Azure Data Lake storage Gen 2 support reserve instances. After you purchase reserved capacity, the reservation discount is automatically applied to the storage resources that match the terms of the reservation. The reservation discount applies to storage capacity only. Bandwidth and request rate are charged at pay-as-you-go rates.
 
-For more information about Azure Blob storage and Azure Data Lake storage Gen 2 reserved capacity, see [Optimize costs for Blob storage with reserved capacity](../../storage/blobs/storage-blob-reserved-capacity.md). For more information about Azure Files reserved capacity, see [Optimize costs for Azure Files with reserved capacity](../../storage/files/reserve-capacity.md).
+For more information about Azure Blob storage and Azure Data Lake storage Gen 2 reserved capacity, see [Optimize costs for Blob storage with reserved capacity](../../storage/blobs/storage-blob-reserved-capacity.md). For more information about Azure Files reserved capacity, see [Optimize costs for Azure Files with reserved capacity](../../storage/files/files-reserve-capacity.md).
 
 For information about Azure Blob storage reservation pricing, see [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) and [Azure Data Lake Storage Gen 2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/). For information about Azure Files storage reservation pricing, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files).
 
@@ -43,5 +43,5 @@ If you have questions or need help, [create a support request](https://go.micros
 
 ## Next steps
 - [Optimize costs for Blob storage with reserved capacity](../../storage/blobs/storage-blob-reserved-capacity.md)
-- [Optimize costs for Azure Files with reserved capacity](../../storage/files/reserve-capacity.md)
+- [Optimize costs for Azure Files with reserved capacity](../../storage/files/files-reserve-capacity.md)
 - [What are Azure Reservations?](save-compute-costs-reservations.md)
