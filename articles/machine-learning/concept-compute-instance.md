@@ -164,7 +164,7 @@ The data scientist can start, stop, and restart the compute instance. They can u
 * RStudio
 * Integrated notebooks
 
-## Compute target
+## <a name="compute-target"></a>Compute target
 
 Compute instances can be used as a [training compute target](concept-compute-target.md#train) similar to Azure Machine Learning compute training clusters. 
 
