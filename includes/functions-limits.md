@@ -15,6 +15,7 @@ ms.author: glenga
 | Max request URL length<sup>3</sup> | 8192 | 8192 | 8192 | 8192 | Depends on cluster |
 |[ACU](../articles/virtual-machines/acu.md) per instance | 100 | 210-840 | 100-840 | 210-250<sup>8</sup> | [AKS pricing](https://azure.microsoft.com/pricing/details/container-service/) |
 | Max memory (GB per instance) | 1.5 | 3.5-14 | 1.75-14 | 3.5 - 14 | Any node is supported |
+| Max instance count | 200 | 100 | varies by SKU<sup>9</sup> | 100<sup>9</sup> | Depends on cluster |   
 | Function apps per plan |100 |100 |unbounded<sup>4</sup> | unbounded | unbounded |
 | [App Service plans](../articles/app-service/overview-hosting-plans.md) | 100 per [region](https://azure.microsoft.com/global-infrastructure/regions/) |100 per resource group |100 per resource group | - | - |
 | Storage<sup>5</sup> |5 TB |250 GB |50-1000 GB | 1 TB | n/a |
@@ -29,3 +30,4 @@ ms.author: glenga
 <sup>6</sup> When your function app is hosted in a [Consumption plan](../articles/azure-functions/consumption-plan.md), only the CNAME option is supported. For function apps in a [Premium plan](../articles/azure-functions/functions-premium-plan.md) or an [App Service plan](../articles/azure-functions/dedicated-plan.md), you can map a custom domain using either a CNAME or an A record.  
 <sup>7</sup> Guaranteed for up to 60 minutes.  
 <sup>8</sup> Workers are roles that host customer apps. Workers are available in three fixed sizes: One vCPU/3.5 GB RAM; Two vCPU/7 GB RAM; Four vCPU/14 GB RAM.
+<sup>9</sup> See [App Service plan limits](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits) for details.
