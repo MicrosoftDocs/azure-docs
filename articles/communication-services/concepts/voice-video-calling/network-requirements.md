@@ -19,7 +19,7 @@ This document provides an overview of the factors and best practices that should
 
 ## Factors that affect media quality and reliability
 
-There are many different factors that contribute to Azure Communication Services  Real-Time media (audio, video, and application sharing) quality that include the devices that are used, the environment, and the network connectivity.
+There are many different factors that contribute to Azure Communication Services real-time media (audio, video, and application sharing) quality. These include network quality, bandwidth, firewall, host, and device configurations.
 
 
 ### Network quality
