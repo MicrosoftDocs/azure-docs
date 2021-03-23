@@ -953,8 +953,6 @@ curl -H 'Host: bookbuyer.contoso.com' http://EXTERNAL-IP/
 
 Open Service Mesh (OSM) is a lightweight, extensible, Cloud Native service mesh that allows users to uniformly manage, secure, and get out-of-the-box observability features for highly dynamic microservice environments.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
 In this tutorial, you will:
 
 > [!div class="checklist"]
