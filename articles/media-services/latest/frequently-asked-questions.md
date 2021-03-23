@@ -45,12 +45,6 @@ See [Azure role-based access control (Azure RBAC) for Media Services accounts](r
 
 Make sure you have **(format=m3u8-aapl)** at the end of your path (after the **/manifest** portion of the URL) to tell the streaming origin server to return HTTP Live Streaming (HLS) content for consumption on Apple iOS native devices. For details, see [Delivering content](dynamic-packaging-overview.md).
 
-### How do I configure Media Reserved Units?
-
-For the Audio Analysis and Video Analysis jobs that are triggered by Media Services v3 or Video Indexer, we recommend that you provision your account with 10 S3 Media Reserved Units (MRUs). If you need more than 10 S3 MRUs, open a support ticket by using the [Azure portal](https://portal.azure.com/).
-
-For details, see [Scale media processing](media-reserved-units-cli-how-to.md).
-
 ### What is the recommended method to process videos?
 
 Use [Transforms](/rest/api/media/transforms) to configure common tasks for encoding or analyzing videos. Each Transform describes a recipe, or a workflow of tasks for processing your video or audio files. A [Job](/rest/api/media/jobs) is the actual request to Media Services to apply the Transform to an input video or audio content. After the Transform has been created, you can submit Jobs by using Media Services APIs or any of the published SDKs. For more information, see [Transforms and Jobs](transforms-jobs-concept.md).
