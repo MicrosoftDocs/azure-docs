@@ -22,7 +22,7 @@ You can use LDAP over TLS to secure communication between an Azure NetApp Files 
 
 ## Considerations
 
-The LDAP over TLS feature is supported with Active Directory Lightweight Directory Services (AD LDS) only. LDAP over TLS must not be enabled if you are using Azure Active Directory Domain Services (AADDS). AADDS uses LDAPS (port 636) to secure LDAP traffic instead of LDAP over TLS (port 389).
+LDAP over TLS must not be enabled if you are using Azure Active Directory Domain Services (AADDS). AADDS uses LDAPS (port 636) to secure LDAP traffic instead of LDAP over TLS (port 389).
 
 ## Register the LDAP over TLS feature 
 
