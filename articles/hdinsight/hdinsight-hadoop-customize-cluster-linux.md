@@ -78,7 +78,8 @@ Script actions used during cluster creation are slightly different from script a
 
 The following diagram illustrates when script action runs during the creation process:
 
-![HDInsight cluster customization and stages during cluster creation][img-hdi-cluster-states]
+
+:::image type="content" source="./media/hdinsight-hadoop-customize-cluster-linux/cluster-provisioning-states.png" alt-text="Stages during cluster creation" border="false":::
 
 The script runs while HDInsight is being configured. The script runs in parallel on all the specified nodes in the cluster. It runs with root privileges on the nodes.
 
@@ -134,29 +135,29 @@ This section explains the different ways you can use script actions when you cre
 
 1. Start to create a cluster as described in [Create Linux-based clusters in HDInsight by using the Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md). From the **Configuration + pricing** tab, select **+ Add script action**.
 
-    :::image type="content" source="./media/hdinsight-hadoop-customize-cluster-linux/azure-portal-cluster-configuration-scriptaction.png" alt-text="Azure portal cluster script action":::
+   :::image type="content" source="./media/hdinsight-hadoop-customize-cluster-linux/azure-portal-cluster-configuration-scriptaction.png" alt-text="Azure portal cluster script action":::
 
 1. Use the __Select a script__ entry to select a premade script. To use a custom script, select __Custom__. Then provide the __Name__ and __Bash script URI__ for your script.
 
-    :::image type="content" source="./media/hdinsight-hadoop-customize-cluster-linux/hdinsight-select-script.png" alt-text="Add a script in the select script form":::
+   :::image type="content" source="./media/hdinsight-hadoop-customize-cluster-linux/hdinsight-select-script.png" alt-text="Add a script in the select script form":::
 
-    The following table describes the elements on the form:
+   The following table describes the elements on the form:
 
-    | Property | Value |
-    | --- | --- |
-    | Select a script | To use your own script, select __Custom__. Otherwise, select one of the provided scripts. |
-    | Name |Specify a name for the script action. |
-    | Bash script URI |Specify the URI of the script. |
-    | Head/Worker/ZooKeeper |Specify the nodes on which the script is run: **Head**, **Worker**, or **ZooKeeper**. |
-    | Parameters |Specify the parameters, if required by the script. |
+   | Property | Value |
+   | --- | --- |
+   | Select a script | To use your own script, select __Custom__. Otherwise, select one of the provided scripts. |
+   | Name |Specify a name for the script action. |
+   | Bash script URI |Specify the URI of the script. |
+   | Head/Worker/ZooKeeper |Specify the nodes on which the script is run: **Head**, **Worker**, or **ZooKeeper**. |
+   | Parameters |Specify the parameters, if required by the script. |
 
-    Use the __Persist this script action__ entry to make sure that the script is applied during scaling operations.
+   Use the __Persist this script action__ entry to make sure that the script is applied during scaling operations.
 
 1. Select __Create__ to save the script. Then you can use __+ Submit new__ to add another script.
 
-    :::image type="content" source="./media/hdinsight-hadoop-customize-cluster-linux/multiple-scripts-actions.png" alt-text="HDInsight multiple script actions":::
+   :::image type="content" source="./media/hdinsight-hadoop-customize-cluster-linux/multiple-scripts-actions.png" alt-text="HDInsight multiple script actions":::
 
-    When you're done adding scripts, you return to the **Configuration + pricing** tab.
+   When you're done adding scripts, you return to the **Configuration + pricing** tab.
 
 1. Complete the remaining cluster creation steps as usual.
 
@@ -329,5 +330,3 @@ Apply a Script Action against a running Linux-based HDInsight cluster](https://g
 * [Develop script action scripts for HDInsight](hdinsight-hadoop-script-actions-linux.md)
 * [Add additional storage to an HDInsight cluster](hdinsight-hadoop-add-storage.md)
 * [Troubleshoot script actions](troubleshoot-script-action.md)
-
-[img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/cluster-provisioning-states.png "Stages during cluster creation"
