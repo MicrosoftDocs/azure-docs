@@ -4,7 +4,7 @@ description: Learn about managed identity for Azure Data Factory.
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 03/23/2021
 ms.author: jingwang
 ---
 
