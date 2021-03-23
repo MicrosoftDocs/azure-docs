@@ -28,7 +28,7 @@ landingContent:
             url: overview.md
 
   # Card
-  - title: About Azure Video Analyzer for media documentation
+  - title: Azure Video Analyzer for media documentation
     linkLists:
       - linkListType: overview
         links:
