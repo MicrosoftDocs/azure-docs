@@ -23,7 +23,7 @@ How secure is your Azure AD tenant? If you don't know how to answer this questio
 
 ## What is an identity secure score?
 
-The identity secure score is number between 1 and 223 that functions as an indicator for how aligned you are with Microsoft's best practice recommendations for security. Each improvement action in identity secure score is tailored to your specific configuration.  
+The identity secure score is percentage that functions as an indicator for how aligned you are with Microsoft's best practice recommendations for security. Each improvement action in identity secure score is tailored to your specific configuration.  
 
 ![Secure score](./media/identity-secure-score/identity-secure-score-overview.png)
 
@@ -77,7 +77,7 @@ The identity secure score can be used by the following roles:
 
 ### How are controls scored?
 
-Controls can be scored in two ways. Some are scored in a binary fashion - you get 100% of the score if you have the feature or setting configured based on our recommendation. Other scores are calculated as a percentage of the total configuration. For example, if the improvement recommendation states you’ll get 30 points if you protect all your users with MFA and you only have 5 of 100 total users protected, you would be given a partial score around 2 points (5 protected / 100 total * 30 max pts = 2 pts partial score).
+Controls can be scored in two ways. Some are scored in a binary fashion - you get 100% of the score if you have the feature or setting configured based on our recommendation. Other scores are calculated as a percentage of the total configuration. For example, if the improvement recommendation states you’ll get a maximum of 10.71% if you protect all your users with MFA and you only have 5 of 100 total users protected, you would be given a partial score around 0.53% (5 protected / 100 total * 10.71% maximum = 0.53% partial score).
 
 ### What does [Not Scored] mean?
 
@@ -97,7 +97,7 @@ In short, no. The secure score does not express an absolute measure of how likel
 
 ### How should I interpret my score?
 
-You're given points for configuring recommended security features or performing security-related tasks (like reading reports). Some actions are scored for partial completion, like enabling multi-factor authentication (MFA) for your users. Your secure score is directly representative of the Microsoft security services you use. Remember that security must be balanced with usability. All security controls have a user impact component. Controls with low user impact should have little to no effect on your users' day-to-day operations.
+Your score improves for configuring recommended security features or performing security-related tasks (like reading reports). Some actions are scored for partial completion, like enabling multi-factor authentication (MFA) for your users. Your secure score is directly representative of the Microsoft security services you use. Remember that security must be balanced with usability. All security controls have a user impact component. Controls with low user impact should have little to no effect on your users' day-to-day operations.
 
 To see your score history, head over to the [Microsoft 365 security center](https://security.microsoft.com/) and review your overall Microsoft secure score. You can review changes to your overall secure score be clicking on View History. Choose a specific date to see which controls were enabled for that day and what points you earned for each one.
 
