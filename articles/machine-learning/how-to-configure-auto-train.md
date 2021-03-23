@@ -1,7 +1,7 @@
 ---
 title: Create automated ML experiments
 titleSuffix: Azure Machine Learning
-description: Learn how to define data sources, computes and configuration settings for your automated machine learning experiments.
+description: Learn how to define data sources, computes, and configuration settings for your automated machine learning experiments.
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
@@ -212,7 +212,7 @@ Learn about the specific definitions of these metrics in [Understand automated m
 
 ### Primary metrics for classification scenarios 
 
-Post thresholded metrics, like `accuracy`, `average_precision_score_weighted`, `norm_macro_recall`, and `precision_score_weighted` may not optimize as well for datasets which are very small, have very large class skew (class imbalance), or when the expected metric value is very close to 0.0 or 1.0. In those cases, `AUC_weighted` can be a better choice for the primary metric. After automated machine learning completes, you can choose the winning model based on the metric best suited to your business needs.
+Post thresholded metrics, like `accuracy`, `average_precision_score_weighted`, `norm_macro_recall`, and `precision_score_weighted` may not optimize as well for datasets which are small, have very large class skew (class imbalance), or when the expected metric value is very close to 0.0 or 1.0. In those cases, `AUC_weighted` can be a better choice for the primary metric. After automated machine learning completes, you can choose the winning model based on the metric best suited to your business needs.
 
 | Metric | Example use case(s) |
 | ------ | ------- |
@@ -419,7 +419,7 @@ def print_model(model, prefix=""):
             print()   
 ```
 
-For a local or remote run that was submitted and trained from within the same experiment notebook, you can pass in the best model using the `get_output()` method. 
+For a local or remote run that was just submitted and trained from within the same experiment notebook, you can pass in the best model using the `get_output()` method. 
 
 ```python
 best_run, fitted_model = run.get_output()
