@@ -419,15 +419,15 @@ def print_model(model, prefix=""):
             print()   
 ```
 
-For a local or remote run that you trained within the same notebook, you can pass in the best model using the get_output() method. 
-
+For a local or remote run that was submitted and trained from within the same experiment notebook, you can pass in the best model using the `get_output()` method. 
 
 ```python
-best_run, fitted_model = local_run.get_output()
+best_run, fitted_model = run.get_output()
 print(best_run)
          
 print_model(fitted_model)
 ```
+
 The following output indicates that:
  
 * The StandardScalerWrapper technique was used to scale and normalize the data prior to training.
@@ -472,7 +472,7 @@ XGBoostClassifier
  'verbosity': 1}
 ```
 
-For an existing run in your workspace, obtain the specific run ID you want to explore and pass that into the `print_model()` method. 
+For an existing run from a different experiment in your workspace, obtain the specific run ID you want to explore and pass that into the `print_model()` method. 
 
 ```python
 from azureml.train.automl.run import AutoMLRun
