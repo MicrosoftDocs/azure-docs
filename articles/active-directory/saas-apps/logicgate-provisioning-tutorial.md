@@ -87,11 +87,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Provision tab](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Automatic tab](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, input your LogicGate Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to LogicGate. If the connection fails, ensure your LogicGate account has Admin permissions and try again.
 
