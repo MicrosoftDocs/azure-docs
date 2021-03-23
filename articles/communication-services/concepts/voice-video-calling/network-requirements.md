@@ -41,7 +41,7 @@ Below are the bandwidth requirements for the JavaScript client libraries:
 | 500 kbps  | Peer-to-peer audio calling and screen sharing |
 | 500 kbps  | Peer-to-peer quality video calling 360p at 30fps        |
 |1.2 Mbps   |	Peer-to-peer HD quality video calling with resolution of HD 720p at 30fps |
-|500 kbps   | Group Video calling 360p at 30fps   |
+|500 kbps   | Group video calling 360p at 30fps   |
 |1.2 Mbps   | HD Group video calling with resolution of HD 720p at 30fps  | 
 
 Below are the bandwith requirements for the Native Android and iOS SDKs
