@@ -25,7 +25,7 @@ A Marketplace image in Azure has the following attributes:
 * **SKU**: An instance of an offer, such as a major release of a distribution. Examples: 18.04-LTS, 2019-Datacenter
 * **Version**: The version number of an image SKU. 
 
-These values can be passed individually or as an image *URN*, combining the values separated by the colon (:). For example: *Publisher*:*Offer*:*Sku*:*Version*. You can replace the version number in the URN with `latest`,to use the latest version of the image. 
+These values can be passed individually or as an image *URN*, combining the values separated by the colon (:). For example: *Publisher*:*Offer*:*Sku*:*Version*. You can replace the version number in the URN with `latest` to use the latest version of the image. 
 
 If the image publisher provides additional license and purchase terms, then you must accept those before you can use the image.  For more information, see [Check the purchase plan information](#check-the-purchase-plan-information).
 
@@ -116,14 +116,14 @@ Another way to find an image in a location is to run the [az vm image list-publi
 
 1. For a given publisher, offer, and SKU, show all of the versions of the image. In this example, we add *18.04-LTS* as the SKU.
 
-  ```azurecli
+    ```azurecli
     az vm image list \
         --location westus \
         --publisher Canonical \  
         --offer UbuntuServer \    
         --sku 18.04-LTS \
         --all --output table
-  ```
+    ```
 
 Pass this value of the URN column with the `--image` parameter when you create a VM with the [az vm create](/cli/azure/vm) command. You can also replace the version number in the URN with "latest", to simply use the latest version of the image. 
 
