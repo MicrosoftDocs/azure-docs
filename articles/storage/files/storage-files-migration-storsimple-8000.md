@@ -56,15 +56,7 @@ This article focuses on the migration steps. If you want to learn more about Azu
 
 ### StorSimple service data encryption key
 
-When you first set up your StorSimple appliance, it generated a "service data encryption key" and instructed you to securely store the key. This key is used to encrypt all data in the associated Azure storage account where the StorSimple appliance stores your files.
-
-The "service data encryption key" is necessary for a successful migration. Now is a good time to retrieve this key from your records, one for each of the appliances in your inventory.
-
-If you can't find the keys in your records, you can retrieve the key from the appliance. Each appliance has a unique encryption key. To retrieve the key:
-
-* File a support request with Microsoft Azure through the Azure portal. The request should contain your StorSimple device serial number(s) and a request to retrieve the "service data encryption key."
-* A StorSimple support engineer will contact you with a request for a virtual meeting.
-* Ensure that before the meeting begins, you connect to your StorSimple appliance [via a serial console](../../storsimple/storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console) or through a [remote PowerShell session](../../storsimple/storsimple-8000-windows-powershell-administration.md#connect-remotely-to-storsimple-using-windows-powershell-for-storsimple).
+Follow the steps described here: https://docs.microsoft.com/en-us/azure/storsimple/storsimple-8000-manage-service#change-the-service-data-encryption-key
 
 > [!CAUTION]
 > When you're deciding how to connect to your StorSimple appliance, consider the following:
