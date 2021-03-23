@@ -24,7 +24,7 @@ Azure Application Consistent Snapshot tool (AzAcSnap) is a command-line tool tha
 ## Supported Platforms and OS
 
 - **Databases**
-  - SAP HANA (refer to [support matrix](azacsnap-get-started#snapshot-support-matrix-from-sap) for details)
+  - SAP HANA (refer to [support matrix](azacsnap-get-started.md#snapshot-support-matrix-from-sap) for details)
 
 - **Operating Systems**
   - SUSE Linux Enterprise Server 12+
