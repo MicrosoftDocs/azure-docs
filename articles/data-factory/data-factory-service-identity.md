@@ -4,7 +4,7 @@ description: Learn about managed identity for Azure Data Factory.
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 03/23/2021
 ms.author: jingwang
 ---
 
@@ -12,7 +12,7 @@ ms.author: jingwang
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-This article helps you understand what is managed identity for Data Factory (formerly known as Managed Service Identity/MSI) and how it works.
+This article helps you understand what a managed identity is for Data Factory (formerly known as Managed Service Identity/MSI) and how it works.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
