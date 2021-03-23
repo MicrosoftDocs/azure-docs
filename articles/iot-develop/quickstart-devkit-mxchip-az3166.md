@@ -23,7 +23,7 @@ You will complete the following tasks:
 * Use Azure IoT Central to create cloud components, view properties, view device telemetry, and call direct commands
 
 > [!NOTE]
-> If you prefer to only view the code and not complete this article, see the sample at [Connect to the MXCHIP AZ3166 to Azure IoT](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166). If you plan to complete this article, you'll clone the GitHub repo in a later step.
+> If you prefer to only view the code and not complete this article, see the sample at [Connect an MXCHIP AZ3166 to Azure IoT](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166). If you plan to complete this article, you'll clone the GitHub repo in a later step.
 
 ## Prerequisites
 
