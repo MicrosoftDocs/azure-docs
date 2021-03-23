@@ -14,7 +14,7 @@ ms.date: 03/17/2021
 **Applies to**: [Embedded device development](about-iot-develop.md#embedded-device-development)<br>
 **Total completion time**:  30 minutes
 
-In this tutorial you use Azure RTOS to connect the MXCHIP AZ3166 IoT DevKit (hereafter, the MXChip DevKit) to Azure IoT. The article is part of the series [Get started with Azure IoT embedded device development](quickstart-device-development.md). The series introduces device developers to Azure RTOS, and shows how to connect several device evaluation kits to Azure IoT.
+In this tutorial you use Azure RTOS to connect the MXCHIP AZ3166 IoT DevKit (hereafter, the MXCHIP DevKit) to Azure IoT. The article is part of the series [Get started with Azure IoT embedded device development](quickstart-device-development.md). The series introduces device developers to Azure RTOS, and shows how to connect several device evaluation kits to Azure IoT.
 
 You will complete the following tasks:
 
@@ -84,6 +84,7 @@ To create a new application:
 1. Select **Custom apps**.
 1. Add Application Name and a URL.
 1. Choose the **Free** Pricing plan to activate a 7-day trial.
+
     :::image type="content" source="media/quickstart-devkit-mxchip-az3166/iot-central-create-custom.png" alt-text="Create a custom app in Azure IoT Central":::
 
 1. Select **Create**.
@@ -116,7 +117,7 @@ To create a device:
 
 ## Prepare the device
 
-To connect the STM DevKit to Azure, you'll modify a configuration file for Wi-Fi and Azure IoT settings, rebuild the image, and flash the image to the device.
+To connect the MXCHIP DevKit to Azure, you'll modify a configuration file for Wi-Fi and Azure IoT settings, rebuild the image, and flash the image to the device.
 
 ### Add configuration
 
@@ -178,7 +179,7 @@ You can use the **Termite** utility to monitor communication and confirm that yo
 1. Select **Settings**.
 1. In the **Serial port settings** dialog, check the following settings and update if needed:
     * **Baud rate**: 115,200
-    * **Port**: The port that your STM DevKit is connected to. If there are multiple port options in the dropdown, you can find the correct port to use. Open Windows **Device Manager**, and view **Ports** to identify which port to use.
+    * **Port**: The port that your MXCHIP DevKit is connected to. If there are multiple port options in the dropdown, you can find the correct port to use. Open Windows **Device Manager**, and view **Ports** to identify which port to use.
 
     :::image type="content" source="media/quickstart-devkit-mxchip-az3166/termite-settings.png" alt-text="Confirm settings in the Termite utility":::
 
