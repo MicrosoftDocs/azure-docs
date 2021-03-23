@@ -60,5 +60,4 @@ Or in ASP.NET server code:
     - [Funnels](usage-funnels.md)
     - [User Flows](usage-flows.md)
     - [Workbooks](../visualize/workbooks-overview.md)
-    - [Add user context](usage-send-user-context.md)
-
+    - [Add user context](./usage-overview.md)
