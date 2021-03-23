@@ -9,7 +9,7 @@ ms.date: 02/05/2021
 ---
 # Save costs for resources with reserved capacity - Azure Data Factory data flows
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Save money with Azure Data Factory data flow costs by committing to a reservation for compute resources compared to pay-as-you-go prices. With reserved capacity, you make a commitment for ADF data flow usage for a period of one or three years to get a significant discount on the compute costs. To purchase reserved capacity, you need to specify the Azure region, compute type, core count quantity, and term.
 

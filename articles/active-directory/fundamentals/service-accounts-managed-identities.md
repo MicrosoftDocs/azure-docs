@@ -45,11 +45,11 @@ Azure has a control plane and a data plane. In the control plane, you create res
 
 Once the target system accepts the token for authentication, it can support different mechanisms for authorization for its control plane and data plane.
 
-All of Azure’s control plane operations are managed by [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) and use [Azure Role Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/overview). In the data plane,, each target system has its own authorization mechanism. Azure Storage supports Azure RBAC on the data plane. For example, applications using Azure App Services can read data from Azure Storage, and applications using Azure Kubernetes Service can read secrets stored in Azure Key Vault.
+All of Azure’s control plane operations are managed by [Azure Resource Manager](../../azure-resource-manager/management/overview.md) and use [Azure Role Based Access Control](../../role-based-access-control/overview.md). In the data plane,, each target system has its own authorization mechanism. Azure Storage supports Azure RBAC on the data plane. For example, applications using Azure App Services can read data from Azure Storage, and applications using Azure Kubernetes Service can read secrets stored in Azure Key Vault.
 
-For more information about control and data planes, see [Control plane and data plane operations - Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/control-plane-and-data-plane).
+For more information about control and data planes, see [Control plane and data plane operations - Azure Resource Manager](../../azure-resource-manager/management/control-plane-and-data-plane.md).
 
-All Azure services will eventually support managed identities. For more information, see [Services that support managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities).
+All Azure services will eventually support managed identities. For more information, see [Services that support managed identities for Azure resources](../managed-identities-azure-resources/services-support-managed-identities.md).
 
 ##  
 
@@ -111,7 +111,7 @@ You can assess the security of managed identities in the following ways:
 
    `Get-AzureADGroupMember -ObjectId <String> [-All <Boolean>] [-Top <Int32>] [<CommonParameters>]`
 
-* [Ensure you know what resources the managed identity is accessing](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-powershell).
+* [Ensure you know what resources the managed identity is accessing](../../role-based-access-control/role-assignments-list-powershell.md).
 
 ## Move to managed identities
 
@@ -121,11 +121,11 @@ If you are using a  service principal or an Azure AD user account, evaluate if y
 
 **For information on creating managed identities, see:** 
 
-[Create a user assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal). 
+[Create a user assigned managed identity](../managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). 
 
-[Enable a system assigned managed identity during resource creation](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+[Enable a system assigned managed identity during resource creation](../managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
-[Enable system assigned managed identity on an existing resource](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+[Enable system assigned managed identity on an existing resource](../managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
 **For more information on service accounts see:**
 
@@ -141,4 +141,3 @@ If you are using a  service principal or an Azure AD user account, evaluate if y
 
  
 
- 
