@@ -513,7 +513,7 @@
       href: ../blobs/reference.md
     - name: AzCopy v10
       items:
-      - name: AzCopy v10 configuration settings
+      - name: Configuration settings
         href: ../common/storage-ref-azcopy-configuration-settings.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy
         href: ../common/storage-ref-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
