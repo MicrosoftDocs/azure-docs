@@ -16,7 +16,7 @@ keywords: document processing
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
-# Train a Form Recognizer model with labels using the sample labeling tool
+# Train a custom model using the sample labeling tool
 
 In this quickstart, you'll use the Form Recognizer REST API with the sample labeling tool to train a custom document processing model with manually labeled data. See the [Train with labels](../overview.md#train-with-labels) section of the overview to learn more about supervised learning with Form Recognizer.
 
