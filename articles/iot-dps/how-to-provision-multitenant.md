@@ -22,11 +22,12 @@ It is common to combine these two scenarios. For example, a multitenant IoT solu
 
 This article uses a simulated device sample from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) to demonstrate how to provision devices in a multitenant scenario across regions. You will perform the following steps in this article:
 
-* Use the Azure CLI to create two regional IoT hubs (**West US** and **East US**)
-* Create a multitenant enrollment
-* Use the Azure CLI to create two regional Linux VMs to act as devices in the same regions (**West US** and **East US**)
-* Set up the development environment for the Azure IoT C SDK on both Linux VMs
-* Simulate the devices to see that they are provisioned for the same tenant in the closest region.
+> [!div class="checklist"]
+> * Use the Azure CLI to create two regional IoT hubs (**West US** and **East US**)
+> * Create a multitenant enrollment
+> * Use the Azure CLI to create two regional Linux VMs to act as devices in the same regions (**West US** and **East US**)
+> * Set up the development environment for the Azure IoT C SDK on both Linux VMs
+> * Simulate the devices to see that they are provisioned for the same tenant in the closest region.
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -413,8 +414,11 @@ To delete the resource group by name:
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> To learn more about reprovisioning, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md)
+* To learn more about reprovisioning, see
 
 > [!div class="nextstepaction"]
-> To learn more about deprovisioning, see [How to deprovision devices that were previously auto-provisioned](how-to-unprovision-devices.md)
+> [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md)
+
+* To learn more about deprovisioning, see
+> [!div class="nextstepaction"]
+> [How to deprovision devices that were previously auto-provisioned](how-to-unprovision-devices.md)
