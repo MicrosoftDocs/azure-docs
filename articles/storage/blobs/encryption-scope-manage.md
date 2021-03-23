@@ -14,12 +14,9 @@ ms.subservice: common
 
 # Create and manage encryption scopes
 
-Encryption scopes enable you to manage encryption at the level of an individual blob or container. An encryption scope isolates blob data in a secure enclave within a storage account. You can use encryption scopes to create secure boundaries between data that resides in the same storage account but belongs to different customers. For more information about encryption scopes, see [Encryption scopes for Blob storage](encryption-scope-overview.md).
+Encryption scopes enable you to manage encryption at the level of an individual blob or container. You can use encryption scopes to create secure boundaries between data that resides in the same storage account but belongs to different customers. For more information about encryption scopes, see [Encryption scopes for Blob storage](encryption-scope-overview.md).
 
 This article shows how to create an encryption scope. It also shows how to specify an encryption scope when you create a blob or container.
-
-> [!IMPORTANT]
-> To avoid unexpected costs, be sure to disable any encryption scopes that you do not currently need.
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
@@ -403,6 +400,9 @@ az storage account encryption-scope update \
     --name <scope> \
     --state Disabled
 ```
+
+> [!IMPORTANT]
+> It is not possible to delete an encryption scope. To avoid unexpected costs, be sure to disable any encryption scopes that you do not currently need.
 
 ---
 
