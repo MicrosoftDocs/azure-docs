@@ -192,7 +192,7 @@ Within the [SCIM 2.0 protocol specification](http://www.simplecloud.info/#Specif
 |The filter [excludedAttributes=members](#get-group) when querying the group resource|section 3.4.2.5|
 |Accept a single bearer token for authentication and authorization of AAD to your application.||
 |Soft-deleting a user `active=false` and restoring the user `active=true`|The user object should be returned in a request whether or not the user is active. The only time the user should not be returned is when it is hard deleted from the application.|
-|Support the /Schemas endpoint|[section 8.7.1](https://tools.ietf.org/html/rfc7643#section-8.7.1) The schema discovery endpoint will be used to discover additional attributes.|
+|Support the /Schemas endpoint|[section 7](https://tools.ietf.org/html/rfc7643#page-30) The schema discovery endpoint will be used to discover additional attributes.|
 
 Use the general guidelines when implementing a SCIM endpoint to ensure compatibility with AAD:
 
@@ -770,8 +770,8 @@ This section provides example SCIM requests emitted by the AAD SCIM client and e
     "totalResults": 3,
     "Resources": [
   {
-   "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Schema"],
-   "id" : "urn:ietf:params:scim:schemas:core:2.0:User",
+    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Schema"],
+    "id" : "urn:ietf:params:scim:schemas:core:2.0:User",
     "name" : "User",
     "description" : "User Account",
     "attributes" : [
