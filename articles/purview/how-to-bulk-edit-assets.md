@@ -1,5 +1,5 @@
 ---
-title: How to tag multiple glossary terms to a list of selected assets 
+title: How to bulk edit assets to tag classifications, glossary terms and modify contacts
 description: Learn bulk edit assets in Azure Purview.
 author: nayenama
 ms.author: nayenama

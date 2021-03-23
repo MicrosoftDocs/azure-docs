@@ -80,7 +80,7 @@ The deployment can take a few minutes to complete. When it finishes, you see a m
 ## Deploy remote template
 
 > [!NOTE]
-> Currently, Azure CLI doesn't support deploying remote Bicep files. To deploy a remote Bicep file, use CLI Bicep to compile the Bicep file to a JSON template first.
+> Currently, Azure CLI doesn't support deploying remote Bicep files. Use [Bicep CLI](./bicep-install.md#development-environment) to compile the Bicep file to a JSON template, and then load the JSON file to the remote location.
 
 Instead of storing ARM templates on your local machine, you may prefer to store them in an external location. You can store templates in a source control repository (such as GitHub). Or, you can store them in an Azure storage account for shared access in your organization.
 
