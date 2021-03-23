@@ -162,7 +162,7 @@ sections:
       - question: Is VMware Horizon 8 2012 compatible with Azure VMware Solution?
         answer: Yes.
 
-        - question: Can I change the default vSphere Web Client timeout value?
+      - question: Can I change the default vSphere Web Client timeout value?
         answer: Yes. For information on changing the timeout value, see [Configure the vSphere Web Client Timeout Value](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vcenterhost.doc/GUID-975412DE-CDCB-49A1-8E2A-0965325D33A5.html).
 
   - name: Connectivity

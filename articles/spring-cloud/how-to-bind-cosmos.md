@@ -1,5 +1,5 @@
 ---
-title: Bind an Azure Cosmos DB to your Azure Spring Cloud application
+title: Tutorial - Bind an Azure Cosmos DB to your Azure Spring Cloud application
 description: Learn how to bind Azure Cosmos DB to your Azure Spring Cloud application
 author: bmitchell287
 ms.service: spring-cloud
@@ -9,7 +9,7 @@ ms.author: brendm
 ms.custom: devx-track-java
 ---
 
-# Bind an Azure Cosmos DB database to your Azure Spring Cloud application
+# Tutorial: Bind an Azure Cosmos DB database to your Azure Spring Cloud application
 
 **This article applies to:** ✔️ Java
 
@@ -103,4 +103,4 @@ Azure Cosmos DB has five different API types that support binding. The following
 
 ## Next steps
 
-In this article, you learned how to bind your Azure Spring Cloud application to an Azure Cosmos DB database. To learn more about binding services to your application, see [Bind to an Azure Cache for Redis cache](spring-cloud-tutorial-bind-redis.md).
+In this article, you learned how to bind your Azure Spring Cloud application to an Azure Cosmos DB database. To learn more about binding services to your application, see [Bind to an Azure Cache for Redis cache](spring-cloud-howto-bind-redis.md).

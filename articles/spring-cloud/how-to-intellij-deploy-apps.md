@@ -97,5 +97,5 @@ To get the logs:
     ![Streaming log output](media/spring-cloud-intellij-howto/streaming-log-output.png)
 
 ## Next steps
-* [Prepare Spring application for Azure Spring Cloud](./spring-cloud-tutorial-prepare-app-deployment.md)
+* [Prepare Spring application for Azure Spring Cloud](how-to-prepare-app-deployment.md)
 * [Learn more about Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/)

@@ -2,25 +2,20 @@
 title: Create an IPSec tunnel into Azure VMware Solution
 description: Learn how to create a Virtual WAN hub to establish an IPSec tunnel into Azure VMware Solutions.
 ms.topic: how-to
-ms.date: 03/22/2021
+ms.date: 03/26/2021
 ---
 
 # Create an IPSec tunnel into Azure VMware Solution
 
-In this article, we'll go through the steps to establish a VPN (IPsec IKEv1 and IKEv2) site-to-site tunnel terminating in the Microsoft Azure Virtual WAN hub. 
+In this article, we'll go through the steps to establish a VPN (IPsec IKEv1 and IKEv2) site-to-site tunnel terminating in the Microsoft Azure Virtual WAN hub. The hub contains the Azure VMware Solution ExpressRoute gateway and the site-to-site VPN gateway. It connects an on-premise VPN device with an Azure VMware Solution endpoint.
+
+:::image type="content" source="media/create-ipsec-tunnel/vpn-s2s-tunnel-architecture.png" alt-text="Diagram showing VPN site-to-site tunnel architecture." border="false":::
+
 
 In this how to, you'll:
 - Create an Azure Virtual WAN hub and a VPN gateway with a public IP address attached to it. 
 - Create an Azure ExpressRoute gateway and establish an Azure VMware Solution endpoint. 
 - Enable a policy-based VPN on-premises setup. 
-
-## Topology
-
-The Azure Virtual hub contains the Azure VMware Solution ExpressRoute gateway and the site-to-site VPN gateway. It connects an on-premise VPN device with an Azure VMware Solution endpoint.
-
-:::image type="content" source="media/create-ipsec-tunnel/vpn-s2s-tunnel-architecture.png" alt-text="Diagram showing VPN site-to-site tunnel architecture." border="false":::
-
-## Prerequisite
 
 You must have a public-facing IP address terminating on an on-premises VPN device.
 

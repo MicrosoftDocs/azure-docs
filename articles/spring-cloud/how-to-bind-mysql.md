@@ -59,4 +59,4 @@ If you don't have a deployed Azure Spring Cloud instance, follow the instruction
 
 ## Next steps
 
-In this article, you learned how to bind an Azure Spring Cloud application to an Azure Database for MySQL instance. To learn more about binding services to an application, see [Bind an Azure Cosmos DB database to an Azure Spring Cloud application](spring-cloud-tutorial-bind-cosmos.md).
+In this article, you learned how to bind an Azure Spring Cloud application to an Azure Database for MySQL instance. To learn more about binding services to an application, see [Bind an Azure Cosmos DB database to an Azure Spring Cloud application](spring-cloud-howto-bind-cosmos.md).
