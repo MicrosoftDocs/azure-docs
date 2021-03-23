@@ -1,5 +1,5 @@
 ---
-title: Payment information for Russia
+title: Payment information for Russia - Azure
 author: bandersmsft
 ms.date: 03/23/2021
 ms.author: banders
@@ -7,7 +7,7 @@ ms.reviewer: baolcsva
 ms.topic: reference
 ms.service: cost-management-billing
 ms.subservice: billing
-description: Learn where to send the payment for your subscription.
+description: Learn where to send the payment for your Russia subscription.
 ROBOTS: NOINDEX, NOFOLLOW
 ---
 

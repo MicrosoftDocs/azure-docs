@@ -1,5 +1,5 @@
 ---
-title: Payment information for Nicaragua
+title: Payment information for Nicaragua - Azure
 author: bandersmsft
 ms.date: 03/23/2021
 ms.author: banders
@@ -7,7 +7,7 @@ ms.reviewer: baolcsva
 ms.topic: reference
 ms.service: cost-management-billing
 ms.subservice: billing
-description: Learn where to send the payment for your subscription.
+description: Learn where to send the payment for your Nicaragua subscription.
 ROBOTS: NOINDEX, NOFOLLOW
 ---
 

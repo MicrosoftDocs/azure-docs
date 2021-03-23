@@ -1,18 +1,16 @@
 ---
 title: Payment information for Côte d'Ivoire - Azure
-author: cmcatee-MSFT
-f1.keywords:
-- NOCSH
-ms.author: cmcatee
-manager: scotv
-audience: Admin
+author: bandersmsft
+ms.date: 03/23/2021
+ms.author: banders
+ms.reviewer: baolcsva
 ms.topic: reference
-ms.service: o365-administration
-localization_priority: Normal
-ms.collection: Adm_Commerce_Pay
+ms.service: cost-management-billing
+ms.subservice: billing
 description: Learn where to send the payment for your Côte d'Ivoire subscription.
 ROBOTS: NOINDEX, NOFOLLOW
----                                
+---
+
 
 # Payment information for Côte d'Ivoire
 
