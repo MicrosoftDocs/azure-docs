@@ -18,7 +18,11 @@
       - name: Send telemetry to IoT Hub (Node)
         href: quickstart-send-telemetry-cli-node.md
     - name: Get started with embedded development
-      href: quickstart-device-development.md
+      items:
+      - name: Embedded device development quickstarts
+        href: quickstart-device-development.md
+      - name: Connect an MXCHIP AZ3166 to IoT Central
+        href: quickstart-devkit-mxchip-az3166.md
 - name: Tutorials
   items:
     - name: Securely connect IoT devices to the cloud
