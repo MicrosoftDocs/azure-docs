@@ -15,7 +15,7 @@ This article shows the Azure Cosmos DB Emulator release notes with a list of fea
 
 ## Download
 
-| Emulator | Link |
+| | Link |
 |---------|---------|
 |**MSI download**|[Microsoft Download Center](https://aka.ms/cosmosdb-emulator)|
 |**Get started**|[Develop locally with Azure Cosmos DB Emulator](local-emulator.md)|

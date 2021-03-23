@@ -42,7 +42,7 @@ For more information, see [Dv2 and DSv2-series](../articles/virtual-machines/dv2
 These sizes are supported for GPU VMs on your device and are optimized for compute-intensive GPU-accelerated applications. This series is focused on inference workloads featuring Nvidia's Tesla T4 GPU. 
 
 |Size     |vCPU     |Memory (GiB) | Resource disk size (GiB)  |OS disk size (GiB)| GPU | GPU memory (GiB) | Max NICs |
-|---------------------|----|----|-----|-----|-------|--------------|
+|---------------------|----|----|-----|-----|-------|--------------|---|
 |**Standard_NC4as_T4_v3** |4   |28  |180   |1000|1 |16   |4 |
 |**Standard_NC8as_T4_v3** |8   |56  |360   |1000|1 |16  |8 |
 
@@ -53,7 +53,7 @@ For more information, see [NCasT4_v3-series](../articles/virtual-machines/nct4-v
 These series are optimized for computational workloads and run on Intel Xeon processors. 
 
 | Size | vCPU's | Memory: GiB |Resource disk size (GiB) |OS disk size (GiB)|  Max data disks | Max NICs |
-|---|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|
 | Standard_F1  | 1  | 2   |16      |1000| 4  |  2 |
 | Standard_F2 | 2  | 4 |32      |1000| 8  |  4 |
 | Standard_F4  | 4  | 8 |64   |1000| 16 |  4 |

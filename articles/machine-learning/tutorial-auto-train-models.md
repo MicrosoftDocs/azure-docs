@@ -69,7 +69,7 @@ green_taxi_df.head(10)
 ```
 
 |vendorID| lpepPickupDatetime|	lpepDropoffDatetime|	passengerCount|	tripDistance|	puLocationId|	doLocationId|	pickupLongitude|	pickupLatitude|	dropoffLongitude	|...|	paymentType	|fareAmount	|extra|	mtaTax|	improvementSurcharge|	tipAmount|	tollsAmount|	ehailFee|	totalAmount|	tripType|
-|----|----|----|----|----|----|---|--|---|---|---|----|----|----|--|---|----|-----|----|----|----|----|---|
+|----|----|----|----|----|----|---|--|---|---|---|----|----|----|--|---|----|-----|----|----|----|
 |131969|2|2015-01-11 05:34:44|2015-01-11 05:45:03|3|4.84|None|None|-73.88|40.84|-73.94|...|2|15.00|0.50|0.50|0.3|0.00|0.00|nan|16.30|1.00
 |1129817|2|2015-01-20 16:26:29|2015-01-20 16:30:26|1|0.69|None|None|-73.96|40.81|-73.96|...|2|4.50|1.00|0.50|0.3|0.00|0.00|nan|6.30|1.00
 |1278620|2|2015-01-01 05:58:10|2015-01-01 06:00:55|1|0.45|None|None|-73.92|40.76|-73.91|...|2|4.00|0.00|0.50|0.3|0.00|0.00|nan|4.80|1.00
@@ -98,7 +98,7 @@ green_taxi_df.head(10)
 ```
 
 |vendorID| lpepPickupDatetime|	lpepDropoffDatetime|	passengerCount|	tripDistance|	puLocationId|	doLocationId|	pickupLongitude|	pickupLatitude|	dropoffLongitude	|...|	paymentType|fareAmount	|extra|	mtaTax|	improvementSurcharge|	tipAmount|	tollsAmount|	ehailFee|	totalAmount|tripType|month_num|day_of_month|day_of_week|hour_of_day
-|----|----|----|----|----|----|---|--|---|---|---|----|----|----|--|---|----|-----|----|----|----|----|---|----|----|----
+|----|----|----|----|----|----|---|--|---|---|---|----|----|----|--|---|----|-----|----|----|----|----|---|----|----|
 |131969|2|2015-01-11 05:34:44|2015-01-11 05:45:03|3|4.84|None|None|-73.88|40.84|-73.94|...|2|15.00|0.50|0.50|0.3|0.00|0.00|nan|16.30|1.00|1|11|6|5
 |1129817|2|2015-01-20 16:26:29|2015-01-20 16:30:26|1|0.69|None|None|-73.96|40.81|-73.96|...|2|4.50|1.00|0.50|0.3|0.00|0.00|nan|6.30|1.00|1|20|1|16
 |1278620|2|2015-01-01 05:58:10|2015-01-01 06:00:55|1|0.45|None|None|-73.92|40.76|-73.91|...|2|4.00|0.00|0.50|0.3|0.00|0.00|nan|4.80|1.00|1|1|3|5
@@ -132,7 +132,7 @@ green_taxi_df.describe()
 ```
 
 |vendorID|passengerCount|tripDistance|pickupLongitude|pickupLatitude|dropoffLongitude|dropoffLatitude|	totalAmount|month_num	day_of_month|day_of_week|hour_of_day
-|----|----|---|---|----|---|---|---|---|---|---|---
+|----|----|---|---|----|---|---|---|---|---|---|
 |count|48000.00|48000.00|48000.00|48000.00|48000.00|48000.00|48000.00|48000.00|48000.00|48000.00|48000.00|48000.00
 |mean|1.78|1.37|2.87|-73.83|40.69|-73.84|40.70|14.75|6.50|15.13|3.27|13.52
 |std|0.41|1.04|2.93|2.76|1.52|2.61|1.44|12.08|3.45|8.45|1.95|6.83
