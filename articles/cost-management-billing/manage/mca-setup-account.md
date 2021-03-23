@@ -62,6 +62,8 @@ If you don't have the enterprise administrator role for the enterprise agreement
 
 You see the following page in the Azure portal if you have a billing account or billing profile owner role but you're not an enterprise administrator.
 
+If you believe that you have billing profile owner access to the correct Microsoft Customer Agreement and you see the following message, make sure that you are in the correct tenant for your organization. You might need to change directories.
+
 :::image type="content" source="./media/mca-setup-account/setup-billing-account-page-not-ea-administrator.png" alt-text="Screenshot showing the Set up your billing account page - Prepare your Enterprise Agreement enrollments for transition." lightbox="./media/mca-setup-account/setup-billing-account-page-not-ea-administrator.png" :::
 
 You have two options:
