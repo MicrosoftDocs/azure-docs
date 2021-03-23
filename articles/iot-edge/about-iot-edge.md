@@ -15,6 +15,8 @@ ms.custom: mvc
 
 # What is Azure IoT Edge
 
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
 Azure IoT Edge moves cloud analytics and custom business logic to devices so that your organization can focus on business insights instead of data management. Scale out your IoT solution by packaging your business logic into standard containers, then you can deploy those containers to any of your devices and monitor it all from the cloud.
 
 Analytics drives business value in IoT solutions, but not all analytics needs to be in the cloud. If you want to respond to emergencies as quickly as possible, you can run anomaly detection workloads at the edge. If you want to reduce bandwidth costs and avoid transferring terabytes of raw data, you can clean and aggregate the data locally then only send the insights to the cloud for analysis.
@@ -70,4 +72,19 @@ Azure IoT Edge integrates seamlessly with Azure IoT solution accelerators to pro
 
 ## Next steps
 
-Try out these concepts by [deploying IoT Edge on a simulated device](quickstart.md).
+Try out these concepts by deploying your first IoT Edge module to a device:
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
+* [Deploy modules to a Linux IoT Edge device](quickstart-linux.md)
+* [Deploy modules to a Windows IoT Edge device](quickstart.md)
+
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+[Deploy modules to an IoT Edge device](quickstart-linux.md)
+
+:::moniker-end

@@ -37,9 +37,6 @@ The following diagram shows the main steps you need to take to use Media Service
 
 ![Protect with PlayReady](./media/media-services-deliver-keys-and-licenses/media-services-diagram1.png)
 
-## Download sample
-To download the sample described in this article, see [Use Azure Media Services to deliver PlayReady and/or Widevine licenses with .NET](https://github.com/Azure/media-services-dotnet-deliver-drm-licenses).
-
 ## Create and configure a Visual Studio project
 
 1. Set up your development environment, and populate the app.config file with connection information, as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md).

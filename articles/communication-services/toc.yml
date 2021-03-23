@@ -105,7 +105,8 @@
   - name: Data and Operations
     items:
       - name: Service Events (EventGrid)
-        href: concepts/event-handling.md
+        href: ../event-grid/event-schema-communication-services.md
+        maintainContext: true
       - name: Logging and diagnostics
         href: concepts/logging-and-diagnostics.md
       - name: Metrics
@@ -132,6 +133,8 @@
     href: concepts/known-issues.md
 - name: Samples
   items:
+  - name: Overview
+    href: samples/overview.md
   - name: Group calling hero sample
     href: samples/calling-hero-sample.md
   - name: Group chat hero sample

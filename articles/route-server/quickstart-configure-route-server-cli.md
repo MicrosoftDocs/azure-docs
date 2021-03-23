@@ -66,7 +66,7 @@ az network vnet create -g "RouteServerRG" -n "myVirtualNetwork" --address-prefix
 1. Obtain the RouteServerSubnet ID. To view the resource ID of all subnets in the virtual network, use this command: 
 
     ```azurecli-interactive 
-    subnet_id = $(az network vnet subnet show -n "RouteServerSubnet" --vnet-name "myVirtualNetwork" -g "RouteServerRG" --query id -o tsv) 
+    $subnet_id = $(az network vnet subnet show -n "RouteServerSubnet" --vnet-name "myVirtualNetwork" -g "RouteServerRG" --query id -o tsv) 
     ``` 
 
 The RouteServerSubnet ID looks like the following one: 

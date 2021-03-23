@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 03/15/2021
 
 ms.author: justinha
 author: justinha
@@ -117,6 +117,8 @@ Azure AD supports the use of OATH-TOTP SHA-1 tokens that refresh codes every 30 
 OATH TOTP hardware tokens typically come with a secret key, or seed, pre-programmed in the token. These keys must be input into Azure AD as described in the following steps. Secret keys are limited to 128 characters, which may not be compatible with all tokens. The secret key can only contain the characters *a-z* or *A-Z* and digits *1-7*, and must be encoded in *Base32*.
 
 Programmable OATH TOTP hardware tokens that can be reseeded can also be set up with Azure AD in the software token setup flow.
+
+OATH hardware tokens are supported as part of a public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 ![Uploading OATH tokens to the MFA OATH tokens blade](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
 

@@ -4,7 +4,7 @@ description: Learn how to create a trigger in Azure Data Factory that runs a pip
 ms.service: data-factory
 author: chez-charlie
 ms.author: chez
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 03/11/2021
 ---
@@ -38,18 +38,18 @@ This section shows you how to create a storage event trigger within the Azure Da
 
     :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image1.png" alt-text="Screenshot of Author page to create a new storage event trigger in Data Factory UI.":::
 
-1. Select your storage account from the Azure subscription dropdown or manually using its Storage account resource ID. Choose which container you wish the events to occur on. Container selection is optional, but be mindful that selecting all containers can lead to a large number of events.
+1. Select your storage account from the Azure subscription dropdown or manually using its Storage account resource ID. Choose which container you wish the events to occur on. Container selection is required, but be mindful that selecting all containers can lead to a large number of events.
 
    > [!NOTE]
-   > The Storage Event Trigger currently supports only Azure Data Lake Storage Gen2 and General-purpose version 2 storage accounts. Due to an Azure Event Grid limitation, Azure Data Factory only supports a maximum of 500 storage event triggers per storage account.
+   > The Storage Event Trigger currently supports only Azure Data Lake Storage Gen2 and General-purpose version 2 storage accounts. Due to an Azure Event Grid limitation, Azure Data Factory only supports a maximum of 500 storage event triggers per storage account. If you hit the limit, please contact support for recommendations and increasing the limit upon evaluation by Event Grid team. 
 
    > [!NOTE]
-   > To create and modify a new Storage Event Trigger, the Azure account used to log into Data Factory and publish the storage event trigger must have appropriate role based access control (Azure RBAC) permission on the storage account. No additional permission is required: Service Principal for the Azure Data Factory does _not_ need special permission to either the Storage account or Event Grid. For more information about access control, see [Role based access control](#role-based-access-control) section.
+   > To create a new or modify an existing Storage Event Trigger, the Azure account used to log into Data Factory and publish the storage event trigger must have appropriate role based access control (Azure RBAC) permission on the storage account. No additional permission is required: Service Principal for the Azure Data Factory does _not_ need special permission to either the Storage account or Event Grid. For more information about access control, see [Role based access control](#role-based-access-control) section.
 
 1. The **Blob path begins with** and **Blob path ends with** properties allow you to specify the containers, folders, and blob names for which you want to receive events. Your storage event trigger requires at least one of these properties to be defined. You can use variety of patterns for both **Blob path begins with** and **Blob path ends with** properties, as shown in the examples later in this article.
 
     * **Blob path begins with:** The blob path must start with a folder path. Valid values include `2018/` and `2018/april/shoes.csv`. This field can't be selected if a container isn't selected.
-    * **Blob path ends with:** The blob path must end with a file name or extension. Valid values include `shoes.csv` and `.csv`. Container and folder name are optional but, when specified, they must be separated by a `/blobs/` segment. For example, a container named 'orders' can have a value of `/orders/blobs/2018/april/shoes.csv`. To specify a folder in any container, omit the leading '/' character. For example, `april/shoes.csv` will trigger an event on any file named `shoes.csv` in folder a called 'april' in any container.
+    * **Blob path ends with:** The blob path must end with a file name or extension. Valid values include `shoes.csv` and `.csv`. Container and folder names, when specified, they must be separated by a `/blobs/` segment. For example, a container named 'orders' can have a value of `/orders/blobs/2018/april/shoes.csv`. To specify a folder in any container, omit the leading '/' character. For example, `april/shoes.csv` will trigger an event on any file named `shoes.csv` in folder a called 'april' in any container.
     * Note that Blob path **begins with** and **ends with** are the only pattern matching allowed in Storage Event Trigger. Other types of wildcard matching aren't supported for the trigger type.
 
 1. Select whether your trigger will respond to a **Blob created** event, **Blob deleted** event, or both. In your specified storage location, each event will trigger the Data Factory pipelines associated with the trigger.
@@ -62,12 +62,12 @@ This section shows you how to create a storage event trigger within the Azure Da
 
     :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image3.png" alt-text="Screenshot of storage event trigger preview page.":::
 
-1. To attach a pipeline to this trigger, go to the pipeline canvas and click **Add trigger** and select **New/Edit**. When the side nav appears, click on the **Choose trigger...** dropdown and select the trigger you created. Click **Next: Data preview** to confirm the configuration is correct and then **Next** to validate the Data preview is correct.
+1. To attach a pipeline to this trigger, go to the pipeline canvas and click **Trigger** and select **New/Edit**. When the side nav appears, click on the **Choose trigger...** dropdown and select the trigger you created. Click **Next: Data preview** to confirm the configuration is correct and then **Next** to validate the Data preview is correct.
 
 1. If your pipeline has parameters, you can specify them on the trigger runs parameter side nav. The storage event trigger captures the folder path and file name of the blob into the properties `@triggerBody().folderPath` and `@triggerBody().fileName`. To use the values of these properties in a pipeline, you must map the properties to pipeline parameters. After mapping the properties to parameters, you can access the values captured by the trigger through the `@pipeline().parameters.parameterName` expression throughout the pipeline. For detailed explanation, see [Reference Trigger Metadata in Pipelines](how-to-use-trigger-parameterization.md)
 
     :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image4.png" alt-text="Screenshot of storage event trigger mapping properties to pipeline parameters.":::
-    
+
     In the preceding example, the trigger is configured to fire when a blob path ending in .csv is created in the folder _event-testing_ in the container _sample-data_. The **folderPath** and **fileName** properties capture the location of the new blob. For example, when MoviesDB.csv is added to the path sample-data/event-testing, `@triggerBody().folderPath` has a value of `sample-data/event-testing` and `@triggerBody().fileName` has a value of `moviesDB.csv`. These values are mapped, in the example, to the pipeline parameters `sourceFolder` and `sourceFile`, which can be used throughout the pipeline as `@pipeline().parameters.sourceFolder` and `@pipeline().parameters.sourceFile` respectively.
 
 1. Click **Finish** once you are done.

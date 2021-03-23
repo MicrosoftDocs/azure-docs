@@ -6,7 +6,7 @@ ms.author: sumuth
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 09/22/2020
+ms.date: 03/18/2021
 ms.custom: mvc, devx-track-azurecli
 ---
 
@@ -17,9 +17,10 @@ ms.custom: mvc, devx-track-azurecli
 
 This tutorial shows you how create a Azure App Service Web app with Azure Database for PostgreSQL - Flexible Server (Preview) inside a [Virtual network](../../virtual-network/virtual-networks-overview.md).
 
-In this tutorial you will
+In this tutorial you will learn how to:
 >[!div class="checklist"]
 > * Create a PostgreSQL flexible server in a virtual network
+> * Create a subnet to delegate to App Service
 > * Create a web app
 > * Add the web app to the virtual network
 > * Connect to Postgres from the web app 
@@ -39,7 +40,7 @@ az login
 If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. Select the specific subscription ID under your account using [az account set](/cli/azure/account) command. Substitute the **subscription ID** property from the **az login** output for your subscription into the subscription ID placeholder.
 
 ```azurecli
-az account set --subscription <subscription id>
+az account set --subscription <subscription ID>
 ```
 
 ## Create a PostgreSQL Flexible Server in a new virtual network
@@ -63,14 +64,21 @@ This command performs the following actions, which may take a few minutes:
 >  az postgres flexible-server firewall-rule list --resource-group myresourcegroup --server-name mydemoserver --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 >  ```
 
+## Create Subnet for App Service Endpoint
+We now need to have subnet that is delegated to App Service Web App endpoint. Run the following command to create a new subnet in the same virtual network as the database server was created. 
+
+```azurecli
+az network vnet subnet create -g myresourcegroup --vnet-name VNETName --name webappsubnetName  --address-prefixes 10.0.1.0/24  --delegations Microsoft.Web/serverFarms --service-endpoints Microsoft.Web
+```
+Make a note of the virtual network name and subnet name after this command as would need it to add VNET integration rule for the web app after it is created. 
 
 ## Create a Web App
-In this section, you create app host in App Service app, connect this app to the Postgres database, then deploy your code to that host. Make sure you're in the repository root of your application code in the terminal.
+In this section, you create app host in App Service app, connect this app to the Postgres database, then deploy your code to that host. Make sure you're in the repository root of your application code in the terminal. Note Basic Plan does not support VNET integration. Please use Standard or Premium. 
 
 Create an App Service app (the host process) with the az webapp up command
 
 ```azurecli
-az webapp up --resource-group myresourcegroup --location westus2 --plan testappserviceplan --sku B1 --name mywebapp
+az webapp up --resource-group myresourcegroup --location westus2 --plan testappserviceplan --sku P2V2 --name mywebapp
 ```
 
 > [!NOTE]
@@ -80,7 +88,6 @@ az webapp up --resource-group myresourcegroup --location westus2 --plan testapps
 This command performs the following actions, which may take a few minutes:
 
 - Create the resource group if it doesn't already exist. (In this command you use the same resource group in which you created the database earlier.)
-- Create the App Service plan ```testappserviceplan``` in the Basic pricing tier (B1), if it doesn't exist. --plan and --sku are optional.
 - Create the App Service app if it doesn't exist.
 - Enable default logging for the app, if not already enabled.
 - Upload the repository using ZIP deployment with build automation enabled.
@@ -89,7 +96,7 @@ This command performs the following actions, which may take a few minutes:
 Use **az webapp vnet-integration** command to add a regional virtual network integration to a webapp. Replace <vnet-name> and <subnet-name> with the virtual network and subnet name that the flexible server is using.
 
 ```azurecli
-az webapp vnet-integration add -g myresourcegroup -n  mywebapp --vnet <vnet-name> --subnet <subnet-name>
+az webapp vnet-integration add -g myresourcegroup -n  mywebapp --vnet VNETName --subnet webappsubnetName
 ```
 
 ## Configure environment variables to connect the database
