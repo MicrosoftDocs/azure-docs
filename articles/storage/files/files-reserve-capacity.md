@@ -1,23 +1,23 @@
 ---
 title: Optimize costs for Azure Files with reserved capacity
 titleSuffix: Azure Files 
-description: Learn about purchasing Azure Files reserved capacity to save costs on Azure file share deployments.
+description: Learn how to save costs on Azure file share deployments by using Azure Files reserved capacity.
 services: storage
 author: roygara
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/08/2020
-ms.author: tamram
-ms.subservice: blobs
+ms.date: 03/23/2021
+ms.author: rogarana
+ms.subservice: files
 ---
 
 # Optimize costs for Azure Files with reserved capacity
 You can save money on the storage costs for Azure file shares with capacity reservations. Azure Files reserved capacity offers you a discount on capacity for storage costs when you commit to a reservation for either one year or three years. A reservation provides a fixed amount of storage capacity for the term of the reservation.
 
-Azure Files reserved capacity can significantly reduce your capacity costs for storing data in your Azure file shares. The cost savings achieved depend on the duration of your reservation, the total capacity you choose to reserve, and the tier and redundancy settings that you've chosen for you Azure file shares. Reserved capacity provides a billing discount and doesn't affect the state of your Azure file shares.
+Azure Files reserved capacity can significantly reduce your capacity costs for storing data in your Azure file shares. How much you save will depend on the duration of your reservation, the total capacity you choose to reserve, and the tier and redundancy settings that you've chosen for you Azure file shares. Reserved capacity provides a billing discount and doesn't affect the state of your Azure file shares.
 
-For information about Azure Files reservation pricing, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/).
+For pricing information about reservation capacity for Azure Files, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## Reservation terms for Azure Files
 The following sections describe the terms of an Azure Files capacity reservation.
@@ -26,17 +26,14 @@ The following sections describe the terms of an Azure Files capacity reservation
 You can purchase Azure Files reserved capacity in units of 10 TiB and 100 TiB per month for a one-year or three-year term.
 
 ### Reservation scope
-Azure Files reserved capacity is available for a single subscription or for multiple subscriptions (shared scope). When scoped to a single subscription, the reservation discount is applied to the selected subscription only. When scoped to multiple subscriptions, the reservation discount is shared across those subscriptions within the customer's billing context. A reservation is applied to your usage within the purchased scope and cannot be limited to a specific storage account, container, or object within the subscription.
+Azure Files reserved capacity is available for a single subscription or for multiple subscriptions (shared scope). When scoped to a single subscription, the reservation discount is applied to the selected subscription only. When scoped to multiple subscriptions, the reservation discount is shared across those subscriptions within the customer's billing context. A reservation applies to your usage within the purchased scope and cannot be limited to a specific storage account, container, or object within the subscription.
 
-An Azure Files reservation covers only the amount of data that is stored in a subscription or shared resource group. Transaction, bandwidth, and data transfer charges are not included in the reservation. As soon as you buy a reservation, the capacity charges that match the reservation attributes are charged at the discount rates instead of at the pay-as-you go rates. For more information on Azure reservations, see [What are Azure Reservations?](../../cost-management-billing/reservations/save-compute-costs-reservations.md).
+An capacity reservation for Azure Files covers only the amount of data that is stored in a subscription or shared resource group. Transaction, bandwidth, and data transfer charges are not included in the reservation. As soon as you buy a reservation, the capacity charges that match the reservation attributes are charged at the discount rates instead of the pay-as-you go rates. For more information on Azure reservations, see [What are Azure Reservations?](../../cost-management-billing/reservations/save-compute-costs-reservations.md).
 
 ### Supported tiers and redundancy options
-Azure Files reserved capacity is available for standard file shares deployed in general purpose version 2 storage accounts (GPv2). 
+Azure Files reserved capacity is only available for standard file shares deployed in general purpose version 2 storage accounts (GPv2). Reserved capacity is not available for Azure file shares in the premium or transaction optimized tiers.
 
-Currently, only Azure file shares in the hot and cool tiers are supported for reservations. All types of redundancy are supported for reservations. For more information about redundancy options, see [Azure Files redundancy](storage-files-planning.md#redundancy).
-
-> [!NOTE]
-> Azure Files reserved capacity is not available for Azure file shares in the premium or transaction optimized tiers.  
+Currently, only Azure file shares in the hot and cool tiers support reservations. All storage redundancies support for reservations. For more information about redundancy options, see [Azure Files redundancy](storage-files-planning.md#redundancy).
 
 ### Security requirements for purchase
 To purchase reserved capacity:
@@ -46,18 +43,18 @@ To purchase reserved capacity:
 - For the Cloud Solution Provider (CSP) program, only admin agents or sales agents can buy Azure Files reserved capacity.
 
 ## Determine required capacity before purchase
-When you purchase an Azure Files reservation, you must choose the region, tier, and redundancy option for the reservation. Your reservation is valid only for data stored in that region, tier, and redundancy level. For example, suppose you purchase a reservation for data in US West for the hot tier using zone-redundant storage (ZRS). You cannot use the same reservation for data in US East, data in the cool tier, or data in geo-redundant storage (GRS). However, you can purchase another reservation for your additional needs.  
+When you purchase an Azure Files reservation, you must choose the region, tier, and redundancy option for the reservation. Your reservation is valid only for data stored in that region, tier, and redundancy level. For example, suppose you purchase a reservation for data in US West for the hot tier using zone-redundant storage (ZRS). That reservation will not apply to data in US East, data in the cool tier, or data in geo-redundant storage (GRS). However, you can purchase another reservation for your additional needs.  
 
-Reservations are available today for 10 TiB or 100 TiB blocks, with higher discounts for 100 TiB blocks. When you purchase a reservation in the Azure portal, Microsoft may provide you with recommendations based on your previous usage to help determine which reservation you should purchase.
+Reservations are available for 10 TiB or 100 TiB blocks, with higher discounts for 100 TiB blocks. When you purchase a reservation in the Azure portal, Microsoft may provide you with recommendations based on your previous usage to help determine which reservation you should purchase.
 
 ## Purchase Azure Files reserved capacity
 You can purchase Azure Files reserved capacity through the [Azure portal](https://portal.azure.com). Pay for the reservation up front or with monthly payments. For more information about purchasing with monthly payments, see [Purchase Azure reservations with up front or monthly payments](../../cost-management-billing/reservations/prepare-buy-reservation.md).
 
-For help with identifying the reservation terms that are right for your scenario, see [Understand the Azure Storage reserved capacity discount](../../cost-management-billing/reservations/understand-storage-charges.md).
+For help identifying the reservation terms that are right for your scenario, see [Understand the Azure Storage reserved capacity discount](../../cost-management-billing/reservations/understand-storage-charges.md).
 
 Follow these steps to purchase reserved capacity:
 
-1. Navigate to the [Purchase reservations](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Browse_AddCommand) pane in the Azure portal.  
+1. Navigate to the [Purchase reservations](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Browse_AddCommand) blade in the Azure portal.  
 1. Select **Azure Files** to buy a new reservation.  
 1. Fill in the required fields as described in the following table:
 
@@ -76,7 +73,7 @@ Follow these steps to purchase reserved capacity:
 
 1. After you select the parameters for your reservation, the Azure portal displays the cost. The portal also shows the discount percentage over pay-as-you-go billing.
 
-1. In the **Purchase reservations** pane, review the total cost of the reservation. You can also provide a name for the reservation.
+1. In the **Purchase reservations** blade, review the total cost of the reservation. You can also provide a name for the reservation.
 
     ![Screenshot showing how to purchase a reservation](../blobs/media/storage-blob-reserved-capacity/purchase-reservations.png)
 
