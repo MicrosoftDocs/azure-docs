@@ -8,7 +8,7 @@ tags: billing, past due, pay now, bill, invoice, pay
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/13/2021
+ms.date: 03/23/2021
 ms.author: banders
 ---
 
@@ -43,10 +43,11 @@ If the default payment method of your billing profile is check or wire transfer,
 Alternatively, if your invoice is under the threshold amount for your currency, you can make a one-time payment in the Azure portal with a credit or debit card using **Pay now**. If your invoice amount exceeds the threshold, you can't pay your invoice with a credit or debit card. You'll find the threshold amount for your currency in the Azure portal after selecting **Pay now**.
 
 #### Bank details used to send wire transfer payments
+<a name="wire-bank-details"></a>
 
 If your default payment method is wire transfer, check your invoice for payment instructions. You can also use the drop-down below to find payment instructions for your country or region.
  
-Choose your "bill-to" country or region from the drop-down menu below.
+Choose your *bill-to* country or region from the drop-down menu below.
 
 > [!div class="op_single_selector"]
 > - **Choose your country or region**

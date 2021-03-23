@@ -25,10 +25,12 @@ landingContent:
       links:
       - text: What is a Microsoft Customer Agreement?
         url: ../understand/mca-overview.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - linkListType: concept
+      links:
+      - text: Get started with your agreement
+        url: microsoft-customer-agreement-get-started.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
     - linkListType: how-to-guide
       links:
-#      - text: Get started with your agreement (placeholder)
-#        url: ../manage/create-subscription.md
 #      - text: Access subscriptions (placeholder)
 #        url: ../manage/create-subscription.md
       - text: Move from credit card to invoice

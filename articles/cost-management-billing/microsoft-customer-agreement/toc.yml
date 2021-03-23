@@ -7,6 +7,8 @@
     href: ../understand/mca-overview.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
 - name: Concepts
   items:
+  - name: Get started with your agreement
+    href: microsoft-customer-agreement-get-started?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
   - name: Understand your usage and billing cycle
     href: ../understand/mca-understand-your-invoice.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
   - name: Usage and charges file terms
