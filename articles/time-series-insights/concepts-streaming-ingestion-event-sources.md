@@ -48,6 +48,9 @@ When you connect an event source, your Azure Time Series Insights Gen2 environme
 
 - Follow the principle of least privilege when providing event source connection strings. For Event Hubs, configure a shared access policy with the *send* claim only, and for IoT Hub use the *service connect* permission only.
 
+> [!CAUTION] 
+> If you delete your IoT Hub or Event Hub and re-create a new resource with the same name, you need to create a new event source and attach the new IoT Hub or Event Hub. Data will not be ingested until you complete this step.
+
 ## Production workloads
 
 In addition to the best practices above, we recommend that you implement the following for business critical workloads.
