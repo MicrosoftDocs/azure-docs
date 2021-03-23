@@ -133,7 +133,7 @@ To delete a rule, on the **Access Restrictions** page, select the ellipsis (**..
 ## Access restriction advanced scenarios
 The following sections describe some advanced scenarios using access restrictions.
 
-### Filter by http headers
+### Filter by http header
 
 As part of any rule, you can add additional http header filters. The following http header names are supported:
 * X-Forwarded-For
@@ -141,7 +141,7 @@ As part of any rule, you can add additional http header filters. The following h
 * X-Azure-FDID
 * X-FD-HealthProbe
 
-For each header name you can add up to 8 values separated by comma. The http header filters are in addition to the rule itself, so the condition of the rule itself must also be met.
+For each header name you can add up to 8 values separated by comma. The http header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
 
 ### Multi-source rules
 
@@ -204,7 +204,7 @@ You can add access restrictions programmatically by doing either of the followin
       -Name "Ip example rule" -Priority 100 -Action Allow -IpAddress 122.133.144.0/24
   ```
    > [!NOTE]
-   > Working with service tags, http headers or multi-source rules requires at least version 5.6.0. You can verify the version of the installed module with: **Get-InstalledModule -Name Az**
+   > Working with service tags, http headers or multi-source rules requires at least version 5.7.0. You can verify the version of the installed module with: **Get-InstalledModule -Name Az**
 
 You can also set values manually by doing either of the following:
 
