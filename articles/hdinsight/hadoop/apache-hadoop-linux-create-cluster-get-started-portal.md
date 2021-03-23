@@ -45,6 +45,7 @@ In this section, you create a Hadoop cluster in HDInsight using the Azure portal
    |Cluster login username and password    | The default login name is **admin**. The password must be at least 10 characters in length and must contain at least one digit, one uppercase, and one lower case letter, one non-alphanumeric character (except characters ' " ` \). Make sure you **do not provide** common passwords such as "Pass@word1".|
    |Secure Shell (SSH) username | The default username is **sshuser**.  You can provide another name for the SSH username. |
    |Use cluster login password for SSH| Select this check box to use the same password for SSH user as the one you provided for the cluster login user.|
+
    :::image type="content" source="./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-cluster-basics.png" alt-text="HDInsight Linux get started provide cluster basic values" border="true":::
 
    Select the **Next: Storage >>** to advance to the storage settings.
@@ -57,8 +58,11 @@ In this section, you create a Hadoop cluster in HDInsight using the Azure portal
    |Selection method|Use the default value **Select from list**.|
    |Primary storage account|Use the drop-down list to select an existing storage account, or select **Create new**. If you create a new account, the name must be between 3 and 24 characters in length, and can include numbers and lowercase letters only|
    |Container|Use the autopopulated value.|
-   :::image type="content" source="./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-cluster-storage.png "Provide storage values for creating an HDInsight cluster"" alt-text="HDInsight Linux get started provide cluster storage values" border="true":::
-   Each cluster has an [Azure Storage account](../hdinsight-hadoop-use-blob-storage.md), an [Azure Data Lake Gen1](../hdinsight-hadoop-use-data-lake-storage-gen1.md), or an [`Azure Data Lake Storage Gen2`](../hdinsight-hadoop-use-data-lake-storage-gen2.md)  dependency. It's referred as the default storage account. HDInsight cluster and its default storage account must be colocated in the same Azure region. Deleting clusters doesn't delete the storage account.
+
+   :::image type="content" source="./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-cluster-storage.png" alt-text="HDInsight Linux get started provide cluster storage values" border="true":::
+
+   Each cluster has an [Azure Storage account](../hdinsight-hadoop-use-blob-storage.md), an [Azure Data Lake Gen1](../hdinsight-hadoop-use-data-lake-storage-gen1.md), or an [`Azure Data Lake Storage Gen2`](../hdinsight-hadoop-use-data-lake-storage-gen2.md) dependency. It's referred as the default storage account. HDInsight cluster and its default storage account must be colocated in the same Azure region. Deleting clusters doesn't delete the storage account.
+
    Select the **Review + create** tab.
 
 1. From the **Review + create** tab, verify the values you selected in the earlier steps.
