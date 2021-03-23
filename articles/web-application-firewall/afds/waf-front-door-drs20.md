@@ -11,7 +11,7 @@ ms.topic: conceptual
 
 # Web Application Firewall DRS rule groups and rules
 
-Azure Front Door web application firewall (WAF) protects web applications from common vulnerabilities and exploits. Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Since such rulesets are managed by Azure, the rules are updated as needed to protect against new attack signatures. Azure-managed Default Rule Set includes rules against the following threat categories:
+Azure Front Door web application firewall (WAF) protects web applications from common vulnerabilities and exploits. Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Since such rulesets are managed by Azure, the rules are updated as needed to protect against new attack signatures.
 
 
 ## Default rule sets
@@ -312,6 +312,7 @@ Front Door.
 |---|---|
 |99001001|Attempted F5 tmui (CVE-2020-5902) REST API Exploitation with known credentials|
 
+---
 
 
 ## Next steps
