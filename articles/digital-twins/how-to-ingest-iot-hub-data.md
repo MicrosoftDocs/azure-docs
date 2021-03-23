@@ -56,10 +56,13 @@ You'll then need to **create one twin using this model**. Use the following comm
 az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0,}' --dt-name {digital_twins_instance_name}
 ```
 
-Create twin:
-```azurecli-interactive
-az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{\"Temperature\": 0.0,}' --dt-name {digital_twins_instance_name}
-```
+> [!Note]
+If you are using Cloud Shell in the PowerShell environment, you may need to escape the quotation mark characters on the inline JSON fields for their values to be parsed correctly. Here is the command to create the twin with this modification:
+>
+> Create twin:
+> ```azurecli-interactive
+> az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{\"Temperature\": 0.0,}' --dt-name {digital_twins_instance_name}
+> ```
 
 When the twin is created successfully, the CLI output from the command should look something like this:
 ```json

@@ -68,7 +68,7 @@ When a new device is provisioned using Device Provisioning Service, a new twin f
 Create a Device Provisioning Service instance, which will be used to provision IoT devices. You can either use the Azure CLI instructions below, or use the Azure portal: [*Quickstart: Set up the IoT Hub Device Provisioning Service with the Azure portal*](../iot-dps/quick-setup-auto-provision.md).
 
 The following Azure CLI command will create a Device Provisioning Service. You'll need to specify a Device Provisioning Service name, resource group, and region. To see what regions support Device Provisioning Service, visit [*Azure products available by region*](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
-The command can be run in [Cloud Shell](https://shell.azure.com), or locally if you have the Azure CLI [installed on your machine](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+The command can be run in [Cloud Shell](https://shell.azure.com), or locally if you have the Azure CLI [installed on your machine](/cli/azure/install-azure-cli).
 
 ```azurecli-interactive
 az iot dps create --name <Device Provisioning Service name> --resource-group <resource group name> --location <region>
@@ -78,7 +78,7 @@ az iot dps create --name <Device Provisioning Service name> --resource-group <re
 
 Inside your function app project that you created in the [prerequisites](#prerequisites) section, you'll create a new function to use with the Device Provisioning Service. This function will be used by the Device Provisioning Service in a [Custom Allocation Policy](../iot-dps/how-to-use-custom-allocation-policies.md) to provision a new device.
 
-Start by opening the function app project in Visual Studio on your machine and follow the steps below:
+Start by opening the function app project in Visual Studio on your machine and follow the steps below.
 
 #### Step 1: Add a new function 
 
@@ -107,9 +107,9 @@ Next, you'll need to create an enrollment in Device Provisioning Service using a
 While going through that flow, make sure you select the following options to link the enrollment to the function you just created.
 
 * **Select how you want to assign devices to hubs**: Custom (Use Azure Function).
-* **Select the IoT hubs this group can be assigned to:** Choose your IoT hub name or select *Link a new IoT hub* button, and choose your IoT hub from the dropdown.
+* **Select the IoT hubs this group can be assigned to:** Choose your IoT hub name or select the *Link a new IoT hub* button, and choose your IoT hub from the dropdown.
 
-Next, choose *Select a new function* button to link your function app to the enrollment group. Then, fill in the following values:
+Next, choose the *Select a new function* button to link your function app to the enrollment group. Then, fill in the following values:
 
 * **Subscription**: Your Azure subscription is auto-populated. Make sure it is the right subscription.
 * **Function App**: Choose your function app name.
@@ -202,16 +202,18 @@ The following sections walk through the steps to set up this auto-retire device 
 
 ### Create an event hub
 
-You'll create an Azure [event hub](../event-hubs/event-hubs-about.md) to receive IoT Hub lifecycle events by following the steps described in the [*Create an event hub*](../event-hubs/event-hubs-create.md) quickstart. Name your event hub *lifecycleevents*. You'll use this event hub name when you set up IoT Hub route and an Azure function in the next sections.
+Next, you'll create an Azure [event hub](../event-hubs/event-hubs-about.md) to receive IoT Hub lifecycle events. 
 
-Create an event hub as shown the screenshot below:
+Follow the steps described in the [*Create an event hub*](../event-hubs/event-hubs-create.md) quickstart. Name your event hub *lifecycleevents*. You'll use this event hub name when you set up IoT Hub route and an Azure function in the next sections.
+
+The screenshot below illustrates the creation of the event hub.
 :::image type="content" source="media/how-to-provision-using-dps/create-event-hub-lifecycle-events.png" alt-text="Screenshot of the Azure portal window to create an event hub with the name lifecycleevents." lightbox="media/how-to-provision-using-dps/create-event-hub-lifecycle-events.png":::
 
 #### Create SAS policy for your event hub
 
-Next, you'll need to create a [shared access policy(SAS)](../event-hubs/authorize-access-shared-access-signature.md) to configure the event hub with your function app.
+Next, you'll need to create a [shared access signature (SAS) policy](../event-hubs/authorize-access-shared-access-signature.md) to configure the event hub with your function app.
 To do this,
-1. Navigate to the event hub you just created in the Azure portal and select **shared access policies(SAS)** in the menu options on the left.
+1. Navigate to the event hub you just created in the Azure portal and select **Shared access policies** in the menu options on the left.
 2. Select **Add**. In the *Add SAS Policy* window that opens, enter a policy name of your choice and select the *Listen* checkbox.
 3. Select **Create**.
     
@@ -223,21 +225,21 @@ Next, configure the Azure function app that you set up in the [prerequisites](#p
 
 1. Open the policy that you just created and copy the **Connection string-primary key** value.
 
-:::image type="content" source="media/how-to-provision-using-dps/event-hub-sas-policy-connection-string.png" alt-text="Screenshot of the Azure portal to copy the connection string-primary key." lightbox="media/how-to-provision-using-dps/event-hub-sas-policy-connection-string.png":::
+    :::image type="content" source="media/how-to-provision-using-dps/event-hub-sas-policy-connection-string.png" alt-text="Screenshot of the Azure portal to copy the connection string-primary key." lightbox="media/how-to-provision-using-dps/event-hub-sas-policy-connection-string.png":::
 
 2. Add the connection string as a variable in the function app settings with the following Azure CLI command. The command can be run in [Cloud Shell](https://shell.azure.com), or locally if you have the Azure CLI [installed on your machine](/cli/azure/install-azure-cli).
 
-```azurecli-interactive
-az functionapp config appsettings set --settings "EVENTHUB_CONNECTIONSTRING=<Event Hubs SAS connection string Listen>" -g <resource group> -n <your App Service (function app) name>
-```
+    ```azurecli-interactive
+    az functionapp config appsettings set --settings "EVENTHUB_CONNECTIONSTRING=<Event Hubs SAS connection string Listen>" -g <resource group> -n <your App Service (function app) name>
+    ```
 
 ### Add a function to retire with IoT Hub lifecycle events
 
-Inside your function app project that you created in the [prerequisites](#prerequisites) section, you'll create a new function to retire device using IoT Hub lifecycle events. This function will use the IoT Hub device lifecycle event to retire an existing device.
+Inside your function app project that you created in the [prerequisites](#prerequisites) section, you'll create a new function to retire an existing device using IoT Hub lifecycle events.
 
 For more about lifecycle events, see [*IoT Hub Non-telemetry events*](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events). For more information about using Event Hubs with Azure functions, see [*Azure Event Hubs trigger for Azure Functions*](../azure-functions/functions-bindings-event-hubs-trigger.md).
 
-Start by opening the function app project in Visual Studio on your machine and follow the steps below:
+Start by opening the function app project in Visual Studio on your machine and follow the steps below.
 
 #### Step 1: Add a new function
      
@@ -278,22 +280,22 @@ Follow these steps to create an event hub endpoint:
 
     :::image type="content" source="media/how-to-provision-using-dps/add-event-hub-endpoint.png" alt-text="Screenshot of the Visual Studio window to add an event hub endpoint." lightbox="media/how-to-provision-using-dps/add-event-hub-endpoint.png":::
 
-Next, you'll add a route with the endpoint you created in the above step with a routing query to send the delete events. Follow these steps to create a route:
+Next, you'll add a route that connects to the endpoint you created in the above step, with a routing query that sends the delete events. Follow these steps to create a route:
 
 1. Navigate to the *Routes* tab and select **Add** to add a route.
 
-:::image type="content" source="media/how-to-provision-using-dps/add-message-route.png" alt-text="Screenshot of the Visual Studio window to add a route to send events." lightbox="media/how-to-provision-using-dps/add-message-route.png":::
+    :::image type="content" source="media/how-to-provision-using-dps/add-message-route.png" alt-text="Screenshot of the Visual Studio window to add a route to send events." lightbox="media/how-to-provision-using-dps/add-message-route.png":::
 
 2. In the *Add a route* page that opens, choose the following values:
 
    * **Name**: Choose a name for your route. 
-   * **Endpoint**: Choose the event hubs endpoint you created in the above step from the dropdown.
+   * **Endpoint**: Choose the event hubs endpoint you created earlier from the dropdown.
    * **Data source**: Choose *Device Lifecycle Events*.
    * **Routing query**: Enter `opType='deleteDeviceIdentity'`. This query limits the device lifecycle events to only send the delete events.
 
 3. Select **Save**.
 
-:::image type="content" source="media/how-to-provision-using-dps/lifecycle-route.png" alt-text="Screenshot of the Azure portal window to add a route to send lifecycle events." lightbox="media/how-to-provision-using-dps/lifecycle-route.png":::
+    :::image type="content" source="media/how-to-provision-using-dps/lifecycle-route.png" alt-text="Screenshot of the Azure portal window to add a route to send lifecycle events." lightbox="media/how-to-provision-using-dps/lifecycle-route.png":::
 
 Once you have gone through this flow, everything is set to retire devices end-to-end.
 
@@ -304,13 +306,13 @@ To trigger the process of retirement, you need to manually delete the device fro
 You can do this with an [Azure CLI command](/cli/azure/ext/azure-iot/iot/hub/module-identity#ext_azure_iot_az_iot_hub_module_identity_delete) or in the Azure portal. 
 Follow the steps below to delete the device in the Azure portal:
 
-1. Navigate to your IoT hub created in the [prerequisites](#prerequisites) section and choose **IoT devices** in the menu options on the left. 
-2. You'll see a device with the device registration ID you chose in the [first half of this article](#auto-provision-device-using-device-provisioning-service). 
+1. Navigate to your IoT hub, and choose **IoT devices** in the menu options on the left. 
+2. You'll see a device with the device registration ID you chose in the [first half of this article](#auto-provision-device-using-device-provisioning-service). Alternatively, you can choose any other device to delete, as long as it has a twin in Azure Digital Twins so you can verify that the twin is automatically deleted after the device is deleted.
 3. Select the device and choose **Delete**.
 
 :::image type="content" source="media/how-to-provision-using-dps/delete-device-twin.png" alt-text="Screenshot of the Azure portal to delete device twin from the IoT devices." lightbox="media/how-to-provision-using-dps/delete-device-twin.png":::
 
-It might take a few minutes to see the changes reflected in the Azure Digital Twins.
+It might take a few minutes to see the changes reflected in Azure Digital Twins.
 
 Use the following [Azure Digital Twins CLI](how-to-use-cli.md) command to verify the twin of the device in the Azure Digital Twins instance was deleted.
 
@@ -345,7 +347,7 @@ The digital twins created for the devices are stored as a flat hierarchy in Azur
 
 For more information about using HTTP requests with Azure functions, see:
 
-* [*Azure Http request trigger for Azure Functions*](../azure-functions/functions-bindings-http-webhook-trigger.md).
+* [*Azure Http request trigger for Azure Functions*](../azure-functions/functions-bindings-http-webhook-trigger.md)
 
 You can write custom logic to automatically provide this information using the model and graph data already stored in Azure Digital Twins. To read more about managing, upgrading, and retrieving information from the twins graph, see the following:
 
