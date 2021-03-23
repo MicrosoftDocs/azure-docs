@@ -1,6 +1,6 @@
 ---
-title: Migrate an HBase cluster to a new version - Azure HDInsight 
-description: How to migrate Apache HBase clusters to a newer version in Azure HDInsight.
+title: Migrate an HBase cluster to a new version - Azure HDInsight
+description: How to migrate Apache HBase clusters to a newer version in the same Storage account in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
@@ -53,22 +53,21 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
    
 1. Stop ingestion to the source HBase cluster.
 
-
-
+   
 1. To ensure you flush any recent memstore data, run the preceding script again.
-
+   
 1. Sign in to [Apache Ambari](https://ambari.apache.org/) on the source cluster with `https://<OLDCLUSTERNAME>.azurehdinsight.net`, and stop the HBase services.
    
-   :::image type="content" source="./media/apache-hbase-migrate-new-version/stop-hbase-services1.png" alt-text="In Ambari, select Services > HBase > Stop under Service Actions" border="false":::
+   :::image type="content" source="./media/apache-hbase-migrate-new-version/stop-hbase-services.png" alt-text="In Ambari, select Services > HBase > Stop under Service Actions" border="false":::
    
    At the confirmation prompt, select the box to turn on maintenance mode for HBase.
    
    :::image type="content" source="./media/apache-hbase-migrate-new-version/turn-on-maintenance-mode.png" alt-text="Select the Turn On Maintenance Mode for HBase checkbox, then confirm." border="false":::
-
+   
    
    For more information on connecting to and using Ambari, see [Manage HDInsight clusters by using the Ambari Web UI](../hdinsight-hadoop-manage-ambari.md).
    
-1. If your source HBase cluster doesn't have the Enhanced Writes feature, skip this step. For source HBase clusters with Enhanced Writes, back up the WAL dir under HDFS by running the following commands from an SSH session on any of the Zookeeper nodes or worker nodes of the source cluster.
+1. If your source HBase cluster doesn't have the [Accelerated Writes](apache-hbase-accelerated-writes.md) feature, skip this step. For source HBase clusters with Accelerated Writes, back up the WAL dir under HDFS by running the following commands from an SSH session on any of the Zookeeper nodes or worker nodes of the source cluster.
    
    ```bash
    hdfs dfs -mkdir /hbase-wal-backup**
@@ -82,7 +81,6 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
    :::image type="content" source="./media/apache-hbase-migrate-new-version/hdfs-advanced-settings.png" alt-text="In Ambari, select Services > HDFS > Configs > Advanced > Advanced core-site and change the container name." border="false":::
    
 1. Clean the Zookeeper data on the destination cluster by running the following commands in any of the Zookeeper nodes or worker nodes:
-
    
    ```bash
    hbase zkcli
@@ -90,12 +88,12 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
    quit
    ```
    
-1. If neither the source cluster nor the destination cluster has the Enhanced Writes feature, skip this step. Otherwise, do the following steps depending on whether the source, destination, or both clusters have the Enhanced Writes feature.
+1. If neither the source cluster nor the destination cluster has the Accelerated Writes feature, skip this step. Otherwise, do the following steps depending on whether the source, destination, or both clusters have the Accelerated Writes feature.
    
    - The sample \<source-container-fullpath> for storage type WASB is `wasb://<sourcecontainername>@hbaseupgrade.blob.core.windows.net`
    - The sample \<source-container-fullpath> for storage type ADLS Gen2 is `abfs://<sourcecontainername>@hbaseupgrade.dfs.core.windows.net`
 
-   If **source and destination clusters** both have the Enhanced Writes feature:
+   If **source and destination clusters** both have the Accelerated Writes feature:
    
    Clean WAL FS data for the destination cluster, and restore the source cluster WAL directory that you backed up in an earlier step to the destination cluster's HDFS. To restore the backup, run the following commands in any of the Zookeeper nodes or worker nodes on the destination cluster:
    
@@ -110,7 +108,7 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
       hdfs dfs -cp <source-container-fullpath>/hbase-wal-backup/hbasewal hdfs://mycluster/**
       ```
    
-   If only the **destination cluster** has Enhanced Writes:
+   If only the **destination cluster** has Accelerated Writes:
    
    Clean the WAL FS data for the destination cluster, and copy the WAL directory from the source cluster into the destination cluster's HDFS. Copy the directory by running the following commands in any of the Zookeeper nodes or worker nodes:
    
@@ -135,7 +133,7 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
         hdfs dfs -cp <source-container-fullpath>/hbase-wals/WALs hdfs://mycluster/hbasewal
         ```
    
-   If only the **source cluster** has Enhanced Writes:
+   If only the **source cluster** has Accelerated Writes:
    
    On the destination cluster, restore the source cluster WAL directory that you backed up in an earlier step. To restore the backup, run the following commands in any of the Zookeeper nodes or worker nodes, depending on the destination cluster version:
    
@@ -162,14 +160,14 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
    ```
    
 1. On the destination cluster, save your changes and restart all required services as Ambari indicates.
-
+   
 1. Point your application to the destination cluster.
-
+   
    > [!NOTE]  
    > The static DNS name for your application changes when you upgrade. Rather than hard-coding this DNS, you can configure a CNAME in your domain name's DNS settings that points to the cluster's name. Another option is to use a configuration file for your application that you can update without redeploying.
-
+   
 1. Start the ingestion to see if everything is functioning as expected.
-
+   
 1. If the destination cluster is satisfactory, delete the source cluster.
     
 ## Next steps
