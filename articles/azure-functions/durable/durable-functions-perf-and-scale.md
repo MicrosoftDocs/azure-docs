@@ -138,7 +138,7 @@ Finally, as more orchestrations are started, they will continue to be load-balan
 
 ![Second scaled-out orchestrations diagram](./media/durable-functions-perf-and-scale/scale-progression-3.png)
 
-During scale-out, each functions host instance (typically on different VMs) acquires a lock on one of the control queues. These locks are internally implemented as blob storage leases and ensure that an orchestration instance or entity only runs on a single host instance at a time. If a task hub is configured with three control queues, orchestration instances and entities can be load-balanced across as many as three VMs. Additional VMs can be added to increase capacity for activity function execution.
+During scale-out, control queue locks may be redistributed across Functions host instances to ensure that partitions are evenly distributed. These locks are internally implemented as blob storage leases and ensure that any individual orchestration instance or entity only runs on a single host instance at a time. If a task hub is configured with three partitions (and therefore three control queues), orchestration instances and entities can be load-balanced across all three lease-holding host instances. Additional VMs can be added to increase capacity for activity function execution.
 
 The following diagram illustrates how the Azure Functions host interacts with the storage entities in a scaled out environment.
 
