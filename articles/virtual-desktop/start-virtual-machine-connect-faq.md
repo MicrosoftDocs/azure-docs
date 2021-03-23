@@ -3,7 +3,7 @@ title: Windows Virtual Desktop Start VM Connect FAQ - Azure
 description: Frequently asked questions and best practices for using the Start VM on Connect feature.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 03/29/2021
+ms.date: 03/30/2021
 ms.author: helohr
 manager: lizross
 ---
@@ -36,6 +36,6 @@ Yes. Users can shut down the VM by using the Start menu within their session, ju
 
 ## Next steps
 
-To learn how to configure Start VM on Connect, see [Start virtual machine on connect (preview)](vm-start-connect.md).
+To learn how to configure Start VM on Connect, see [Start virtual machine on connect (preview)](start-virtual-machine-connect.md).
 
 If you have more general questions about Windows Virtual Desktop, check out our general [FAQ](faq.md).

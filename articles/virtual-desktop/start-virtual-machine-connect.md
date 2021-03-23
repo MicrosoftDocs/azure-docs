@@ -3,7 +3,7 @@ title: Start virtual machine connect - Azure
 description: How to configure the start virtual machine on connect feature.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/29/2021
+ms.date: 03/30/2021
 ms.author: helohr
 manager: lizross
 ---
@@ -164,7 +164,7 @@ Follow the instructions in [Create or update a host pool](/rest/api/desktopvirtu
 
 ## User experience
 
-In typical sessions, the time it takes for a user to connect to a deallocated VM increases because the VM needs time to turn on again, much like turning on a physical computer. The Start VM on Connect feature has an indicator that lets you know when the remote PC running the VM you want to connect to is fully powered on. When the remote PC is fully powered on, the user can connect to it much more quickly.
+In typical sessions, the time it takes for a user to connect to a deallocated VM increases because the VM needs time to turn on again, much like turning on a physical computer. The Remote Desktop client has an indicator that lets the user know the PC is being powered on while they're connecting.
 
 ## Troubleshooting
 
@@ -174,4 +174,4 @@ You can also use [Azure Monitor for Windows Virtual Desktop](azure-monitor.md) t
 
 ## Next steps
 
-If you run into any issues that the troubleshooting documentation or the diagnostics feature couldn't solve, check out the [Start VM on Connect FAQ](vm-start-faq.md).
+If you run into any issues that the troubleshooting documentation or the diagnostics feature couldn't solve, check out the [Start VM on Connect FAQ](start-virtual-machine-connect-faq.md).
