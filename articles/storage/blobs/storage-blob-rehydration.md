@@ -5,7 +5,7 @@ services: storage
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 01/08/2021
+ms.date: 03/11/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
@@ -25,6 +25,10 @@ While a blob is in the archive access tier, it's considered offline and can't be
 
 [!INCLUDE [storage-blob-rehydration](../../../includes/storage-blob-rehydrate-include.md)]
 
+### Lifecycle management
+
+Rehydrating a blob doesn't change it's `Last-Modified` time. Using the [lifecycle management](storage-lifecycle-management-concepts.md) feature can create a scenario where a blob is rehydrated, then a lifecycle management policy moves the blob back to archive because the `Last-Modified` time is beyond the threshold set for the policy. To avoid this scenario, use the *[Copy an archived blob to an online tier](#copy-an-archived-blob-to-an-online-tier)* method. The copy method creates a new instance of the blob with an updated `Last-Modified` time and won't trigger the lifecycle management policy.
+
 ## Monitor rehydration progress
 
 During rehydration, use the get blob properties operation to check the **Archive Status** attribute and confirm when the tier change is complete. The status reads "rehydrate-pending-to-hot" or "rehydrate-pending-to-cool" depending on the destination tier. Upon completion, the archive status property is removed, and the **Access Tier** blob property reflects the new hot or cool tier.
@@ -38,7 +42,7 @@ Copying a blob from archive can take hours to complete depending on the rehydrat
 > [!IMPORTANT]
 > Do not delete the the source blob until the copy is completed successfully at the destination. If the source blob is deleted then the destination blob may not complete copying and will be empty. You may check the *x-ms-copy-status* to determine the state of the copy operation.
 
-Archive blobs can only be copied to online destination tiers within the same storage account. Copying an archive blob to another archive blob is not supported. The following table indicates CopyBlob's capabilities.
+Archive blobs can only be copied to online destination tiers within the same storage account. Copying an archive blob to another archive blob is not supported. The following table shows the capabilities of a **Copy Blob** operation.
 
 |                                           | **Hot tier source**   | **Cool tier source** | **Archive tier source**    |
 | ----------------------------------------- | --------------------- | -------------------- | ------------------- |

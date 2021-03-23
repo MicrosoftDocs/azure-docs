@@ -145,7 +145,7 @@ See below on how these actions can be rectified.
 
 ### Q: I cannot add more than 3 Azure AD user accounts under the same user session on a Windows 10 device, why?
 
-**A**: Azure AD added support for multiple Azure AD accounts in Windows 10 1803 release. However, Windows 10 restricts the number of Azure AD accounts on a device to 3 to limit the size of token requests and enable reliable single sign on (SSO). Once 3 accounts have been added, users will see an error for subsequent accounts. The Additional problem information on the error screen provides the following message indicating the reason - "Add account operation is blocked because accout limit is reached". 
+**A**: Azure AD added support for multiple Azure AD accounts in Windows 10 1803 release. However, Windows 10 restricts the number of Azure AD accounts on a device to 3 to limit the size of token requests and enable reliable single sign on (SSO). Once 3 accounts have been added, users will see an error for subsequent accounts. The Additional problem information on the error screen provides the following message indicating the reason - "Add account operation is blocked because account limit is reached". 
 
 ---
 ## Azure AD join FAQ
@@ -267,7 +267,7 @@ Create a different local account before you use Azure Active Directory join to f
 
 **A:** When your users add their accounts to apps on a domain-joined device, they might be prompted with **Add account to Windows?** If they enter **Yes** on the prompt, the device registers with Azure AD. The trust type is marked as Azure AD registered. After you enable hybrid Azure AD join in your organization, the device also gets hybrid Azure AD joined. Then two device states show up for the same device. 
 
-Hybrid Azure AD join takes precedence over the Azure AD registered state. So your device is considered hybrid Azure AD joined for any authentication and Conditional Access evaluation. You can safely delete the Azure AD registered device record from the Azure AD portal. Learn to [avoid or clean up this dual state on the Windows 10 machine](hybrid-azuread-join-plan.md#review-things-you-should-know). 
+In most cases, Hybrid Azure AD join takes precedence over the Azure AD registered state, resulting in your device being considered hybrid Azure AD joined for any authentication and Conditional Access evaluation. However, sometimes, this dual state can result in a non-deterministic evaluation of the device and cause access issues. We strongly recommend upgrading to Windows 10 version 1803 and above where we automatically clean up the Azure AD registered state. Learn how to [avoid or clean up this dual state on the Windows 10 machine](hybrid-azuread-join-plan.md#review-things-you-should-know). 
 
 ---
 

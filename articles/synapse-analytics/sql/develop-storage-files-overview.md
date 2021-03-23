@@ -12,7 +12,7 @@ ms.reviewer: jrasnick
 ---
 # Access external storage using serverless SQL pool in Azure Synapse Analytics
 
-This document describes how can users can read data from the files stored on Azure Storage in serverless SQL pool. Users have the following options to access storage:
+This article describes how users can read data from the files stored on Azure Storage in serverless SQL pool. Users have the following options to access storage:
 
 - [OPENROWSET](develop-openrowset.md) function that enables ad-hoc queries over the files in Azure Storage.
 - [External table](develop-tables-external-tables.md) that is a predefined data structure built on top of set of external files.

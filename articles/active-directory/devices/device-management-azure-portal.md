@@ -168,7 +168,11 @@ This option is a premium edition capability available through products such as A
 > [!NOTE]
 > **Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication** setting applies to devices that are either Azure AD joined (with some exceptions) or Azure AD registered. This setting does not apply to hybrid Azure AD joined devices, [Azure AD joined VMs in Azure](./howto-vm-sign-in-azure-ad-windows.md#enabling-azure-ad-login-in-for-windows-vm-in-azure) and Azure AD joined devices using [Windows Autopilot self-deployment mode](/mem/autopilot/self-deploying).
 
-- **Maximum number of devices** - This setting enables you to select the maximum number of Azure AD joined or Azure AD registered devices that a user can have in Azure AD. If a user reaches this quota, they are not be able to add additional devices until one or more of the existing devices are removed. The default value is **50**.
+> [!IMPORTANT]
+> - We recommend using ["Register or join devices" user action](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions) in Conditional Access for enforcing multi-factor authentication for joining or registering a device. 
+> - You must set this setting to **No** if you are using Conditional Access policy to require multi-factor authencation. 
+
+- **Maximum number of devices** - This setting enables you to select the maximum number of Azure AD joined or Azure AD registered devices that a user can have in Azure AD. If a user reaches this quota, they are not be able to add additional devices until one or more of the existing devices are removed. The default value is **50**. You can increase the value up to 100 and if you enter a value above 100, Azure AD will set it to 100. You can also use Unlimited value to enforce no limit other than existing quota limits.
 
 > [!NOTE]
 > **Maximum number of devices** setting applies to devices that are either Azure AD joined or Azure AD registered. This setting does not apply to hybrid Azure AD joined devices.
