@@ -42,6 +42,10 @@ Before you complete the steps in this article, you should already have:
 - Decided that the distributed network name is the appropriate [connectivity option for your HADR solution](hadr-cluster-best-practices.md#connectivity).
 - Configured your [Always On availability group](availability-group-overview.md). 
 - Installed the latest version of [PowerShell](/powershell/azure/install-az-ps). 
+- Identified the unique port that you will use for the DNN listener.
+
+>[!NOTE]
+>The port used for a DNN listener must be unique across all replicas of the Availability Group or Failover Cluster Instance.  No other connection can share the same port.
 
 
 ## Create script
@@ -166,6 +170,7 @@ Test the connectivity to your DNN listener with these steps:
 ## Limitations
 
 - Currently, a DNN listener for an availability group is only supported for SQL Server 2019 CU8 and later on Windows Server 2016 and later. 
+- DNN Listeners **MUST** be configured with a unique port.  The port cannot be shared with any other connection on any replica.
 - There might be additional considerations when you're working with other SQL Server features and an availability group with a DNN. For more information, see [AG with DNN interoperability](availability-group-dnn-interoperability.md). 
 
 ## Next steps
