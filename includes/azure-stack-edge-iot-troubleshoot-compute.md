@@ -64,7 +64,7 @@ For more information, see [Change external service IPs for containers](../articl
 
 ### Configure static IPs for IoT Edge modules
 
-#### Error description
+#### Problem description
 
 Kubernetes assigns dynamic IPs to each IoT Edge module on your Azure Stack Edge Pro GPU device. A method is needed to configure static IPs for the modules.
 
@@ -78,6 +78,25 @@ You can specify fixed IP addresses for your IoT Edge modules via the K8s-experim
     "serviceOptions" : {
       "loadBalancerIP" : "100.23.201.78",
       "type" : "LoadBalancer"
+    }
+  }
+}
+```
+### Configure static IPs for IoT Edge modules
+
+#### Problem description
+
+You may not want an external-facing IP address for your application and just want the IoT Edge modules within the Kubernetes cluster to access the application.
+
+#### Suggested solution
+
+You can use the folloing create options via the K8s-experimental section:
+
+```yaml
+{
+"k8s-experimental": {
+  "serviceOptions" : {
+    "type" : "ClusterIP"
     }
   }
 }
