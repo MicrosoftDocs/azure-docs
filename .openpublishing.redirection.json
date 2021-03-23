@@ -33967,11 +33967,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/spring-cloud/spring-cloud-howto-access-data-plane-azure-ad-rbac.md",
-      "redirect_url": "/azure/spring-cloud/overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/spring-cloud/policy-samples.md",
       "redirect_url": "/azure/spring-cloud/policy-reference",
       "redirect_document_id": false
