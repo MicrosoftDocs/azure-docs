@@ -131,9 +131,9 @@
   - name: Start VM on Connect
     items:
     - name: Set up Start VM on Connect
-      href: vm-start-connect.md
+      href: start-virtual-machine-connect.md
     - name: Start VM on Connect FAQ
-      href: vm-start-faq.md
+      href: start-virtual-machine-connect-faq.md
 - name: Concepts
   items:
   - name: Built-in roles
