@@ -20,54 +20,30 @@ In this how to, you'll:
 You must have a public-facing IP address terminating on an on-premises VPN device.
 
 
-## Establish an IPSec tunnel
+## Create an Azure Virtual WAN
 
-[we need a description or summary here]
+[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-create-vwan-include.md)]
 
-1. Create an Azure Virtual WAN.
+## Create a Virtual WAN hub and gateway
 
-   [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-create-vwan-include.md)]
+You can also [create a gateway in an existing hub](https://docs.microsoft.com/en-us/azure/virtual-wan/virtual-wan-expressroute-portal#existinghub).
 
-1. Create a 
+1. Select the Virtual WAN you created in the previous step, select **Create virtual hub**, enter the required fields, and then select **Next: Site to site**. 
 
-
-
-
-
-## Create a Virtual WAN hub
-
-1. In the Azure portal, select **Create a resource**. Type **Virtual WAN** in the search and select it from the results. 
-
-   The Create WAN page opens.  
-
-2. Select **Create** and then enter the required fields on the **Create WAN** page. Select **Review + Create**.
-   
-   | Field | Value |
-   | --- | --- |
-   | **Subscription** | Value is pre-populated with the subscription belonging to the resource group. |
-   | **Resource group** | The Virtual WAN is a global resource and isn't confined to a specific region.  |
-   | **Resource group location** | Set a location for the resource group.  |
-   | **Name** |   |
-   | **Type** | Select **Standard**. It allows more than just the VPN gateway traffic.  |
-
-   :::image type="content" source="media/create-ipsec-tunnel/create-wan.png" alt-text="Screenshot showing the Create WAN page in the Azure portal.":::
-
-3. Select the Virtual WAN you created in the previous step, select **Create virtual hub**, enter the required fields, and then select **Next: Site to site**. 
-
-   | Field | Value |
-   | --- | --- |
-   | **Region** | Selecting a region is required from a management perspective.  |
-   | **Name** |    |
-   | **Hub private address space** | Enter the subnet using a `/24` (minimum).  |
+   Enter the subnet using a `/24` (minimum).
 
    :::image type="content" source="media/create-ipsec-tunnel/create-virtual-hub.png" alt-text="Screenshot showing the Create virtual hub page.":::
 
-4. On the **Site-to-site** tab, define the site-to-site gateway by setting the aggregate throughput from the **Gateway scale units** drop-down. 
+4. Select the **Site-to-site** tab, define the site-to-site gateway by setting the aggregate throughput from the **Gateway scale units** drop-down. 
 
    >[!TIP]
-   >One scale unit = 500 Mbps. The scale units are in pairs for redundancy, each supporting 500 Mbps.
+   >The scale units are in pairs for redundancy, each supporting 500 Mbps. One scale unit = 500 Mbps. 
   
-5. On the **ExpressRoute** tab, create an ExpressRoute gateway. 
+   :::image type="content" source="../../includes/media/virtual-wan-tutorial-hub-include/site-to-site.png" alt-text="Screenshot showing the Site-to-site details.":::
+
+5. Select the **ExpressRoute** tab, create an ExpressRoute gateway. 
+
+   :::image type="content" source="../../includes/media/virtual-wan-tutorial-er-hub-include/hub2.png" alt-text="Screenshot of the ExpressRoute settings.":::
 
    >[!TIP]
    >A scale unit value is 2 Gbps. 
