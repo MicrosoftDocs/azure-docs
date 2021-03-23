@@ -258,11 +258,13 @@ Image quarantine is currently a preview feature of ACR. You can enable the quara
 
 Setting up an Azure container registry for anonymous (unauthenticated) pull access is currently a preview feature, available in the Standard and Premium [service tiers](container-registry-skus.md). 
 
-To enable anonymous pull access, create or update a registry using the Azure CLI (version 2.20.1 or later) and pass the `--anonymous-pull-enabled` parameter. For example, update a registry with the [az acr update](/cli/azure/acr#az_acr_update) command:
+To enable anonymous pull access, create or update a registry using the Azure CLI (version 2.21.0 or later) and pass the `--anonymous-pull-enabled` parameter. For example, update a registry with the [az acr update](/cli/azure/acr#az_acr_update) command:
 
 ```azurecli
 az acr update --name myregistry --anonymous-pull-enabled
 ``` 
+
+You many disable anonymous pull access at any time by setting `--anonymous-pull-enabled` to `false`.
 
 > [!NOTE]
 > * Before attempting an anonymous pull operation, run `docker logout` to ensure that you clear any existing Docker credentials.
