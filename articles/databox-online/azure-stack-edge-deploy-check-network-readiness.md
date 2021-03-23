@@ -44,7 +44,7 @@ Before you begin, complete the following tasks:
 
 ## Install Network Readiness Checker
 
-To install the Azure Stack Network Readiness Checker (NRC) on the client computer, do these steps:
+To install the Azure Stack Network Readiness Checker (NRC) on the client computer, do these steps: 
 
 1. Open PowerShell 7.0 on the client computer.<!--Do they need to open as Administrator?-->
 
