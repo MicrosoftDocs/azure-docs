@@ -66,7 +66,7 @@ As a best practice, we recommend that you assign this role to fewer than five pe
 > | [Groups Administrator](#groups-administrator) | Members of this role can create/manage groups, create/manage groups settings like naming and expiration policies, and view groups activity and audit reports. | fdd7a751-b60b-444a-984c-02652fe8fa1c |
 > | [Guest Inviter](#guest-inviter) | Can invite guest users independent of the 'members can invite guests' setting. | 95e79109-95c0-4d8e-aee3-d01accf2d47b |
 > | [Helpdesk Administrator](#helpdesk-administrator) | Can reset passwords for non-administrators and Helpdesk Administrators. | 729827e3-9c14-49f7-bb1b-9608f156bbb8 |
-> | [Hybrid Identity Administrator](#hybrid-identity-administrator) | Can manage AD to Azure AD cloud provisioning and federation settings. | 8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2 |
+> | [Hybrid Identity Administrator](#hybrid-identity-administrator) | Can manage AD to Azure AD cloud provisioning, Azure AD Connect and federation settings. | 8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2 |
 > | [Insights Administrator](#insights-administrator) | Has administrative access in the Microsoft 365 Insights app. | eb1f4a8d-243a-41f0-9fbd-c7cdf6c5ef7c |
 > | [Insights Business Leader](#insights-business-leader) | Can view and share dashboards and insights via the M365 Insights app. | 31e939ad-9672-4796-9c2e-873181342d2d |
 > | [Intune Administrator](#intune-administrator) | Can manage all aspects of the Intune product. | 3a2c62db-5318-420d-8d74-23affee5d9d5 |
@@ -992,7 +992,7 @@ This role was previously called "Password Administrator" in the [Azure portal](h
 
 ## Hybrid Identity Administrator
 
-Users in this role can create, manage and deploy provisioning configuration setup from AD to Azure AD using Cloud Provisioning as well as manage federation settings. Users can also troubleshoot and monitor logs using this role.
+Users in this role can create, manage and deploy provisioning configuration setup from AD to Azure AD using Cloud Provisioning as well as manage Azure AD Connect and federation settings. Users can also troubleshoot and monitor logs using this role.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
