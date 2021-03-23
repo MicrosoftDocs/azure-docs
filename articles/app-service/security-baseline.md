@@ -371,9 +371,9 @@ Monitor attacks against your App Service apps by using a real-time Web Applicati
 
 **Guidance**: Azure Active Directory (Azure AD) has built-in roles that must be explicitly assigned and query-able. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups.
 
-- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
-- [How to use managed identities for App Service and Azure Functions](./overview-managed-identity.md?amp;tabs=dotnet&context=azure%2factive-directory%2fmanaged-identities-azure-resources%2fcontext%2fmsi-context)
+- [How to use managed identities for App Service and Azure Functions](./overview-managed-identity.md?tabs=dotnet&context=azure%2factive-directory%2fmanaged-identities-azure-resources%2fcontext%2fmsi-context)
 
 - [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
 
@@ -688,7 +688,7 @@ Note that while locally attached disks can be used optionally by websites as tem
 
 Review and follow recommendations from Security Center for securing your App Service apps.
 
-- [How to add continuous security validation to your CI/CD pipeline](/azure/devops/migrate/security-validation-cicd-pipeline?amp;view=azure-devops&preserve-view=true)
+- [How to add continuous security validation to your CI/CD pipeline](/azure/devops/migrate/security-validation-cicd-pipeline?view=azure-devops&preserve-view=true)
 
 - [How to implement Azure Security Center vulnerability assessment recommendations](../security-center/deploy-vulnerability-assessment-vm.md)
 
@@ -718,7 +718,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 - [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?amp;view=azps-4.8.0&preserve-view=true)
+- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&preserve-view=true)
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -926,7 +926,7 @@ Apply built-in policy definitions such as:
 
 It is recommended that you document the process to apply the built-in policy definitions for standardized usage.   
 
-- [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?amp;view=azps-4.8.0&preserve-view=true)
+- [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&preserve-view=true)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -952,9 +952,9 @@ It is recommended that you document the process to apply the built-in policy def
 
 Use your existing Continuous Integration (CI) and Continuous Delivery (CD) pipeline to deploy a known-secure configuration.
 
-- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;view=azure-devops&preserve-view=true)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
 
-- [Azure Repos Documentation](/azure/devops/repos/?amp;view=azure-devops&preserve-view=true)
+- [Azure Repos Documentation](/azure/devops/repos/?view=azure-devops&preserve-view=true)
 
 **Responsibility**: Customer
 

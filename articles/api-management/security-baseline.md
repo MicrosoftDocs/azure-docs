@@ -216,7 +216,7 @@ You may also use Azure Blueprints to simplify large-scale Azure deployments by p
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes to network resources associated with your Azure API Management deployments. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
-- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-logview-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 - [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
@@ -308,7 +308,7 @@ Optionally, you may enable and on-board data to Azure Sentinel or a third-party 
 
 - [How to enable diagnostic settings for Azure API Management](./api-management-howto-use-azure-monitor.md#resource-logs)
 
-- [How to configure an alert rule for Azure API Management](./api-management-howto-use-azure-monitor.md#set-up-an-alert-rule-for-unauthorized-request)
+- [How to configure an alert rule for Azure API Management](./api-management-howto-use-azure-monitor.md#set-up-an-alert-rule)
 
 - [How to view capacity metrics of an Azure API management instance](api-management-capacity.md)
 
@@ -679,7 +679,6 @@ Underlying platform scanned and patched by Microsoft. Review security controls a
 
 Underlying platform scanned and patched by Microsoft. Customer to review security controls available to them to reduce service configuration related vulnerabilities.
 
-- [Understanding security controls available to Azure API Management]()
 
 **Responsibility**: Customer
 
@@ -697,7 +696,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 - [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
+- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -839,7 +838,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: Define and implement standard security configurations for your Azure API Management service with Azure Policy. Use Azure Policy aliases in the "Microsoft.ApiManagement" namespace to create custom policies to audit or enforce the configuration of your Azure API Management services.
 
-- [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
+- [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -1023,7 +1022,7 @@ Managed identities can be used to obtain certificates from Azure Key Vault for A
 
 - [How to implement disaster recovery using service backup and restore in Azure API Management](./api-management-howto-disaster-recovery-backup-restore.md#calling-the-backup-and-restore-operations)
 
-- [How to backup Azure Key Vault certificates](/powershell/module/az.keyvault/backup-azkeyvaultcertificate?amp;preserve-view=true&view=azps-4.8.0)
+- [How to backup Azure Key Vault certificates](/powershell/module/az.keyvault/backup-azkeyvaultcertificate?preserve-view=true&view=azps-4.8.0)
 
 **Responsibility**: Customer
 

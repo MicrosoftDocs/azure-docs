@@ -338,9 +338,9 @@ Configure diagnostic settings for your Azure Application Gateway deployments. di
 
 **Guidance**: Azure Active Directory (Azure AD) has built-in roles that must be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups.
 
-- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?amp;preserve-view=true&view=azureadps-2.0)
+- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?preserve-view=true&view=azureadps-2.0)
 
-- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
 **Responsibility**: Customer
 
@@ -608,7 +608,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 - [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
+- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -713,7 +713,7 @@ For additional information, see the references below.
 
 **Guidance**: Define and implement standard security configurations for network settings related to your Azure Application Gateway deployments. Use Azure Policy aliases in the "Microsoft.Network" namespace to create custom policies to audit or enforce the network configuration of your Azure Application Gateways, Azure Virtual Networks, and network security groups. You may also make use of built-in policy definition.
 
-- [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
+- [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -737,9 +737,9 @@ For additional information, see the references below.
 
 **Guidance**: If using custom Azure policy definitions, use Azure DevOps or Azure Repos to securely store and manage your code.
 
-- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-- [Azure Repos Documentation](/azure/devops/repos/?amp;preserve-view=true&view=azure-devops)
+- [Azure Repos Documentation](/azure/devops/repos/?preserve-view=true&view=azure-devops)
 
 **Responsibility**: Customer
 
@@ -837,11 +837,11 @@ Configure diagnostic settings for your Azure Application Gateway deployments. di
 
 Azure DevOps Services leverages many of the Azure storage features to ensure data availability in the case of hardware failure, service disruption, or region disaster. Additionally, the Azure DevOps team follows procedures to protect data from accidental or malicious deletion.
 
-- [Understand data availability in Azure DevOps](/azure/devops/organizations/security/data-protection?amp;preserve-view=true&view=azure-devops#data-availability)
+- [Understand data availability in Azure DevOps](/azure/devops/organizations/security/data-protection?preserve-view=true&view=azure-devops#data-availability)
 
-- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-- [Azure Repos Documentation](/azure/devops/repos/?amp;preserve-view=true&view=azure-devops)
+- [Azure Repos Documentation](/azure/devops/repos/?preserve-view=true&view=azure-devops)
 
 **Responsibility**: Customer
 
