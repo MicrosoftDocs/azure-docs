@@ -43,7 +43,7 @@ Before you begin, complete the following tasks:
 
 - Install PowerShell 7.0 on the client computer. For guidance, see [What's new in PowerShell 7.0](/powershell/scripting/whats-new/what-s-new-in-powershell-70.md?view=powershell-7.1&preserve-view=true).<!--Vibha to verify whether tool has been tested in PowerShell 7.0. PowerShell 7.0 enables multi-platform testing in a Windows/Linux environment.-->
 
-- Install the Azure Stack Network Readiness Checker tool in PowerShell by following the steps in [Install Network Readiness Checker](azure-stack-edge-check-network-readiness.md#install-network-readiness-checker), below.
+- Install the Azure Stack Network Readiness Checker tool in PowerShell by following the steps in [Install Network Readiness Checker](#install-network-readiness-checker), below.
 
 
 ## Install Network Readiness Checker
