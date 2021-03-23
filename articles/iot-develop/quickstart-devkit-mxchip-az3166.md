@@ -103,10 +103,13 @@ To create a device:
 1. Select **+ New** to open the **Create a new device** window.
 1. Leave Device template as **Unassigned**.
 1. Fill in the desired Device name and Device ID.
+
     :::image type="content" source="media/quickstart-devkit-mxchip-az3166/iot-central-create-device.png" alt-text="Create a device in Azure IoT Central":::
+
 1. Select the **Create** button.
 1. The newly created device will appear in the **All devices** list.  Select on the device name to show details.
 1. Select **Connect** in the top right menu bar to display the connection information used to configure the device in the next section.
+
     :::image type="content" source="media/quickstart-devkit-mxchip-az3166/iot-central-device-connection-info.png" alt-text="View device connection details":::
 
 1. Note the connection values for the following connection string parameters displayed in **Connect** dialog. You'll add these values to a configuration file in the next step:
@@ -129,7 +132,7 @@ To connect the MXCHIP DevKit to Azure, you'll modify a configuration file for Wi
 
     |Constant name|Value|
     |-------------|-----|
-    |`WIFI_SSID` |{*Your Wi-Fi ssid*}|
+    |`WIFI_SSID` |{*Your Wi-Fi SSID*}|
     |`WIFI_PASSWORD` |{*Your Wi-Fi password*}|
     |`WIFI_MODE` |{*One of the enumerated Wi-Fi mode values in the file*}|
 
@@ -156,22 +159,20 @@ After the build completes, confirm that the binary file was created in the follo
 ### Flash the image
 
 1. On the MXCHIP DevKit, locate the **Reset** button, and the Micro USB port. You use these components in the following steps. Both are highlighted in the following picture:
+
     :::image type="content" source="media/quickstart-devkit-mxchip-az3166/mxchip-iot-devkit.png" alt-text="Locate key components on the MXChip devkit board":::
 
 1. Connect the Micro USB cable to the Micro USB port on the MXCHIP DevKit, and then connect it to your computer.
 1. In File Explorer, find the binary file that you created in the previous section.
-
 1. Copy the binary file *mxchip_azure_iot.bin*.
-
 1. In File Explorer, find the MXCHIP DevKit device connected to your computer. The device appears as a drive on your system with the drive label **AZ3166**.
-
 1. Paste the binary file into the root folder of the MXCHIP Devkit. Flashing starts automatically and completes in a few seconds.
 
     > Note: During the flashing process, a green LED toggles on MXCHIP DevKit.
 
 ### Confirm device connection details
 
-You can use the **Termite** utility to monitor communication and confirm that your device is set up correctly.
+You can use the **Termite** app to monitor communication and confirm that your device is set up correctly.
 
 1. Start **Termite**.
     > [!TIP]
@@ -181,11 +182,11 @@ You can use the **Termite** utility to monitor communication and confirm that yo
     * **Baud rate**: 115,200
     * **Port**: The port that your MXCHIP DevKit is connected to. If there are multiple port options in the dropdown, you can find the correct port to use. Open Windows **Device Manager**, and view **Ports** to identify which port to use.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166/termite-settings.png" alt-text="Confirm settings in the Termite utility":::
+    :::image type="content" source="media/quickstart-devkit-mxchip-az3166/termite-settings.png" alt-text="Confirm settings in the Termite app":::
 
 1. Select OK.
 1. Press the **Reset** button on the device. The button is labeled on the device and located near the Micro USB connector.
-1. In the **Termite** console, check the following checkpoint values to confirm that the device is initialized and connected to Azure IoT.
+1. In the **Termite** app, check the following checkpoint values to confirm that the device is initialized and connected to Azure IoT.
 
     ```output
     Starting Azure thread
@@ -234,6 +235,7 @@ To view the device status in IoT Central portal:
 1. From the application dashboard, select **Devices** on the side navigation menu.
 1. Confirm that the **Device status** is updated to **Provisioned**.
 1. Confirm that the **Device template** is updated to **Getting Started Guide**.
+
     :::image type="content" source="media/quickstart-devkit-mxchip-az3166/iot-central-device-view-status.png" alt-text="View device status in IoT Central":::
 
 ## View telemetry
@@ -245,10 +247,11 @@ To view telemetry in IoT Central portal:
 1. From the application dashboard, select **Devices** on the side navigation menu.
 1. Select the device from the device list.
 1. View the telemetry as the device sends messages to the cloud in the **Overview** tab.
+
     :::image type="content" source="media/quickstart-devkit-mxchip-az3166/iot-central-device-telemetry.png" alt-text="View device telemetry in IoT Central":::
 
     > [!NOTE]
-    > You can also monitor telemetry from the device by using the Termite terminal.
+    > You can also monitor telemetry from the device by using the Termite app.
 
 ## Call a direct method on the device
 
@@ -258,6 +261,7 @@ To call a method in IoT Central portal:
 
 1. Select the **Command** tab from the device page.
 1. Select **State** and select **Run**.  The LED light should turn on.
+
     :::image type="content" source="media/quickstart-devkit-mxchip-az3166/iot-central-invoke-method.png" alt-text="Call a direct method on a device":::
 
 1. Unselect **State** and select **Run**. The LED light should turn off.
@@ -267,6 +271,7 @@ To call a method in IoT Central portal:
 You can view the device information from IoT Central.
 
 Select **About** tab from the device page.
+
 :::image type="content" source="media/quickstart-devkit-mxchip-az3166/iot-central-device-about.png" alt-text="View information about the device in IoT Central":::
 
 ## Debugging
