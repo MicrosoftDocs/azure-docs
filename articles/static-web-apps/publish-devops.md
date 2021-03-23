@@ -1,13 +1,13 @@
 ---
-title: Tutorial: Publish Azure Static Web Apps with Azure DevOps
-description: Learn to use Azure DevOps to publish Azure Static Web Apps
+title: "Tutorial: Publish Azure Static Web Apps with Azure DevOps"
+description: Learn to use Azure DevOps to publish Azure Static Web Apps.
 services: static-web-apps
 author: scubaninja
 ms.service: static-web-apps
 ms.topic:  tutorial
-ms.date: 02/08/2021
+ms.date: 03/23/2021
 ms.author: apedward
-#Customer intent: As a < type of user >, I want < what? > so that < why? >.
+
 ---
 
 # Tutorial: Publish Azure Static Web Apps with Azure DevOps
@@ -137,7 +137,7 @@ The `azure_static_web_apps_api_token` value is self managed and is manually conf
 
 8. Paste in the deployment token in the _Value_ box.
 
-  :::image type="content" source="media/publish-devops/variable-token.png" alt-text="Deployment token":::
+  :::image type="content" source="media/publish-devops/variable-token.png" alt-text="Variable token":::
 
 9. Select **OK**.
 
