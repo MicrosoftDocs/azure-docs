@@ -127,7 +127,7 @@ This sample uses a device simulator that includes provisioning using the Device 
 
 #### Upload the model
 
-The device simulator is a thermostat-type device that uses the model: *ThermostatModel.json*. You'll need to upload this model to Azure Digital Twins before you can create a twin of this type for the device.
+The device simulator is a thermostat-type device that uses the model with this ID: `dtmi:contosocom:DigitalTwins:Thermostat;1`. You'll need to upload this model to Azure Digital Twins before you can create a twin of this type for the device.
 
 [!INCLUDE [digital-twins-thermostat-model-upload.md](../../includes/digital-twins-thermostat-model-upload.md)]
 
