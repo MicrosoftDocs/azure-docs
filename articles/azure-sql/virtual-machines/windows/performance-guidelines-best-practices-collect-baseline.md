@@ -21,7 +21,7 @@ ms.reviewer: jroth
 
 This article provides information to collect a performance baseline as aa series of best practices and guidelines to optimize performance for your SQL Server on Azure Virtual Machines (VMs).
 
-To learn more, see the other articles in this series: [Quick checklist](performance-guidelines-best-practices-checklist.md), [VM size](performance-guidelines-best-practices-vm-size.md), [Storage](performance-guidelines-best-practices-storage.md), [Disks](performance-guidelines-best-practices-disks.md), [Azure & SQL feature specific](performance-guidelines-best-practices-feature-specific.md)
+There is typically a trade-off between optimizing for costs and optimizing for performance. This performance best practices series is focused on getting the *best* performance for SQL Server on Azure Virtual Machines. If your workload is less demanding, you might not require every recommended optimization. Consider your performance needs, costs, and workload patterns as you evaluate these recommendations.
 
 ## Overview
 
@@ -82,8 +82,8 @@ The following PerfMon counters can help validate the compute health of a SQL Ser
 To learn more, see the other articles in this series:
 - [Quick checklist](performance-guidelines-best-practices-checklist.md)
 - [VM size](performance-guidelines-best-practices-vm-size.md)
-- [Storage, disks & IO](performance-guidelines-best-practices-storage-disks-io.md)
-- [Azure & SQL feature specific](performance-guidelines-best-practices-feature-specific.md)
+- [Storage](performance-guidelines-best-practices-storage.md)
+
 
 For security best practices, see [Security considerations for SQL Server on Azure Virtual Machines](security-considerations-best-practices.md).
 

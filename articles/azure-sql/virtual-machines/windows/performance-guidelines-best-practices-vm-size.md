@@ -20,43 +20,33 @@ ms.reviewer: jroth
 
 This article provides VM size guidance a series of best practices and guidelines to optimize performance for your SQL Server on Azure Virtual Machines (VMs).
 
-To learn more, see the other articles in this series: [Quick checklist](performance-guidelines-best-practices-checklist.md), [Storage](performance-guidelines-best-practices-storage.md), [Disks](performance-guidelines-best-practices-disks.md), [Azure & SQL feature specific](performance-guidelines-best-practices-feature-specific.md), [Collect baseline](performance-guidelines-best-practices-collect-baseline.md)
+There is typically a trade-off between optimizing for costs and optimizing for performance. This performance best practices series is focused on getting the *best* performance for SQL Server on Azure Virtual Machines. If your workload is less demanding, you might not require every recommended optimization. Consider your performance needs, costs, and workload patterns as you evaluate these recommendations.
 
 
-## Getting started
+## Checklist
+
+- Use VM sizes with 4 or more vCPU like the [Standard_M8-4ms](/../../virtual-machines/m-series), the [E4ds_v4](../../../virtual-machines/edv4-edsv4-series.md#edv4-series), or the [DS12_v2](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) or higher. 
+- Use [memory optimized](../../../virtual-machines/sizes-memory.md) virtual machine sizes for the best performance of SQL Server workloads. <br/><br/> - The [DSv2 11-15](../../../virtual-machines/dv2-dsv2-series-memory.md), [Edsv4](../../../virtual-machines/edv4-edsv4-series.md) series, the [M-](../../../virtual-machines/m-series.md), and the [Mv2-](../../../virtual-machines/mv2-series.md) series offer the optimal memory-to-vCore ratio required for OLTP workloads. Both M series VMs offer the highest memory-to-vCore ratio required for mission critical workloads and is also ideal for data warehouse workloads. 
+- Use a higher memory-to-vCore ratio mission critical and data warehouse workloads. 
+- Leverage the Azure Virtual Machine marketplace images as the SQL Server settings and storage options are configured for optimal SQL Server performance. 
+- Collect the target workload's performance characteristics and use them to determine the appropriate VM size for your business.|
+
+## Overview
 
 If you are creating a new SQL Server on Azure VM and are not migrating a current source system, create your new SQL Server VM based on your vendor requirements.  The vendor requirements for a SQL Server VM are the same as what you would deploy on-premises. 
 
 If you are creating a new SQL Server VM with a new application built for the cloud, you can easily size your SQL Server VM as your data and usage requirements evolve.
 Start the development environments with the lower-tier D-Series, B-Series, or Av2-series and grow your environment over time. 
 
-The recommended minimum for a production OLTP environment is 4 vCore, 32 GB of memory, and a memory-to-vCore ratio of 8. For new environments, start with 4 vCore machines and scale to 8, 16, 32 vCores or more when your data and compute requirements change. For OLTP throughput, target SQL Server VMs that have 5000 IOPS for every vCore. 
+Use the SQL Server VM marketplace images with the storage configuration in the portal. This will make it easier to properly create the storage pools necessary to get the size, IOPS, and throughput necessary for your workloads. It is important to choose SQL Server VMs that support premium storage and premium storage caching. See the [storage](performance-guidelines-best-practices-storage.md) article to learn more. 
 
-Use the SQL Server VM marketplace images with the storage configuration in the portal. This will make it easier to properly create the storage pools necessary to get the size, IOPS, and throughput necessary for your workloads. It is important to choose SQL Server VMs that support premium storage and premium storage caching. See the [storage](#storage-guidance) section to learn more. 
+The recommended minimum for a production OLTP environment is 4 vCore, 32 GB of memory, and a memory-to-vCore ratio of 8. For new environments, start with 4 vCore machines and scale to 8, 16, 32 vCores or more when your data and compute requirements change. For OLTP throughput, target SQL Server VMs that have 5000 IOPS for every vCore. 
 
 SQL Server data warehouse and mission critical environments will often need to scale beyond the 8 memory-to-vCore ratio. For medium environments, you may want to choose a 16 core-to-memory ratio, and a 32 core-to-memory ratio for larger data warehouse environments. 
 
 SQL Server data warehouse environments often benefit from the parallel processing of larger machines. For this reason, the M-series and the Mv2-series are strong options for larger data warehouse environments.
 
 Use the vCPU and memory configuration from your source machine as a baseline for migrating a current on-premises SQL Server database to SQL Server on Azure VMs. Bring your core license to Azure to take advantage of the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) and save on SQL Server licensing costs.
-
-## Compare VMs
-
-Choose a [memory optimized](../../../virtual-machines/sizes-memory.md), [general purpose](../../../virtual-machines/sizes-general.md), [storage optimized](../../../virtual-machines/sizes-storage.md), or [constrained vCore](../../../virtual-machines/constrained-vcpu.md) virtual machine size that is most optimal for SQL Server performance based on your workload (OLTP or data warehouse). 
-
-**Microsoft recommends a memory-to-vCore ratio of 8 as a starting point for production SQL Server workloads.** Smaller ratios are acceptable for non-production workloads. 
-
-The following table provides a quick comparison of VM size options: 
-
-
-|Column1  | Series  |Workload  |Suitable for production?  | | 
-|---------|---------|---------|---------|
-|Row1     |         |         |         |
-|Row2     |         |         |         |
-|Row3     |         |         |         |
-|Row4     |         |         |         |
-
-
 
 
 
@@ -188,8 +178,7 @@ For example, the [M64-32ms](../../../virtual-machines/constrained-vcpu.md) requi
 
 To learn more, see the other articles in this series:
 - [Quick checklist](performance-guidelines-best-practices-checklist.md)
-- [Storage, disks & IO](performance-guidelines-best-practices-storage-disks-io.md)
-- [Azure & SQL feature specific](performance-guidelines-best-practices-feature-specific.md)
+- [Storage](performance-guidelines-best-practices-storage.md)
 - [Collect baseline](performance-guidelines-best-practices-collect-baseline.md)
 
 For security best practices, see [Security considerations for SQL Server on Azure Virtual Machines](security-considerations-best-practices.md).
