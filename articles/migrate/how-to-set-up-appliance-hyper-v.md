@@ -11,7 +11,7 @@ ms.date: 03/13/2021
 
 # Set up an appliance for servers on Hyper-V
 
-Follow this article to set up the Azure Migrate appliance for discovery and assessment of servers on Hyper-V with the [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool.
+Follow this article to set up the Azure Migrate appliance for discovery and assessment of servers on Hyper-V with the [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool.
 
 The [Azure Migrate appliance](migrate-appliance.md)  is a lightweight appliance used by Azure Migrate: Discovery and assessment/ Migration to discover on-premises servers on Hyper-V, and send server metadata/performance data to Azure.
 

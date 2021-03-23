@@ -20,7 +20,7 @@ If you want to migrate VMware servers to Azure, review the [migration support ma
 
 **Requirement** | **Details**
 --- | ---
-**Project limits** | You can create multiple projects in an Azure subscription.<br/><br/> You can discover and assess up to 50,000 servers from VMware environment in a single [project](migrate-support-matrix.md#azure-migrate-projects). A project can also include physical servers, and servers from Hyper-V environment, up to the assessment limits.
+**Project limits** | You can create multiple projects in an Azure subscription.<br/><br/> You can discover and assess up to 50,000 servers from VMware environment in a single [project](migrate-support-matrix.md#project). A project can also include physical servers, and servers from Hyper-V environment, up to the assessment limits.
 **Discovery** | The Azure Migrate appliance can discover up to 10,000 servers on a vCenter Server.
 **Assessment** | You can add up to 35,000 servers in a single group.<br/><br/> You can assess up to 35,000 servers in a single assessment.
 
