@@ -35,11 +35,11 @@ After you have met the prerequisites, you are ready to discover the topology of 
 
 ### Assess and convert
 
-Create an assessment using SQL Server Migration Assistant (SSMA). 
+Use SQL Server Migration Assistant (SSMA) for DB2 to review database objects and data, and assess databases for migration. 
 
 To create an assessment, follow these steps:
 
-1. Open SQL Server Migration Assistant (SSMA) for Db2. 
+1. Open [SQL Server Migration Assistant (SSMA) for Db2](https://www.microsoft.com/download/details.aspx?id=54254). 
 1. Select **File** and then choose **New Project**. 
 1. Provide a project name, a location to save your project, and then select Azure SQL Database as the migration target from the drop-down. Select **OK**:
 
@@ -119,7 +119,7 @@ To publish your schema and migrate your data, follow these steps:
 
    :::image type="content" source="media/db2-to-sql-database-guide/data-migration-report.png" alt-text="Review the data migration report":::
 
-1. Connect to your Azure SQL Database by using [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) and validate the migration by reviewing the data and schema:
+1. Connect to your database in Azure SQL Database by using [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) and validate the migration by reviewing the data and schema:
 
    :::image type="content" source="media/db2-to-sql-database-guide/compare-schema-in-ssms.png" alt-text="Compare the schema in SSMS":::
 

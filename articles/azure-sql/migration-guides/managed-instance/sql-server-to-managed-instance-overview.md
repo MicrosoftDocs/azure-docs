@@ -94,9 +94,9 @@ The following table lists the recommended migration tools:
 
 The following table lists alternative migration tools: 
 
-|Technology |Description  |
+|**Technology** |**Description**  |
 |---------|---------|
-|[Transactional replication](../../managed-instance/replication-transactional-overview.md) | Replicate data from source SQL Server database table(s) to SQL Managed Instance by providing a publisher-subscriber type migration option while maintaining transactional consistency. |  |
+|[Transactional replication](../../managed-instance/replication-transactional-overview.md) | Replicate data from source SQL Server database table(s) to SQL Managed Instance by providing a publisher-subscriber type migration option while maintaining transactional consistency. | 
 |[Bulk copy](/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server)| The [bulk copy program (bcp) utility](/sql/tools/bcp-utility) copies data from an instance of SQL Server into a data file. Use the BCP utility to export the data from your source and import the data file into the target SQL Managed Instance.</br></br> For high-speed bulk copy operations to move data to Azure SQL Database, [Smart Bulk Copy tool](/samples/azure-samples/smartbulkcopy/smart-bulk-copy/) can be used to maximize transfer speeds by leveraging parallel copy tasks. | 
 |[Import Export Wizard / BACPAC](../../database/database-import.md?tabs=azure-powershell)| [BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) is a Windows file with a `.bacpac` extension that encapsulates a database's schema and data. BACPAC can be used to both export data from a source SQL Server and to import the file back into Azure SQL Managed Instance.  |  
 |[Azure Data Factory (ADF)](../../../data-factory/connector-azure-sql-managed-instance.md)| The [Copy activity](../../../data-factory/copy-activity-overview.md) in Azure Data Factory migrates data from source SQL Server database(s) to SQL Managed Instance using built-in connectors and an [Integration Runtime](../../../data-factory/concepts-integration-runtime.md).</br> </br> ADF supports a wide range of [connectors](../../../data-factory/connector-overview.md) to move data from SQL Server sources to SQL Managed Instance. |

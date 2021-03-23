@@ -35,6 +35,8 @@ After you have met the prerequisites, you are ready to discover the topology of 
 
 ### Assess and convert
 
+
+
 Create an assessment using SQL Server Migration Assistant (SSMA). 
 
 To create an assessment, follow these steps:

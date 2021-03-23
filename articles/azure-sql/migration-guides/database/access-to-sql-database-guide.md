@@ -33,11 +33,11 @@ After you have met the prerequisites, you are ready to discover the topology of 
 
 ### Assess 
 
-Create an assessment using [SQL Server Migration Assistant for Access](https://www.microsoft.com/download/details.aspx?id=54255). 
+Use SQL Server Migration Assistant (SSMA) for Access to review database objects and data, and assess databases for migration. 
 
 To create an assessment, follow these steps: 
 
-1. Open SQL Server Migration Assistant for Access. 
+1. Open [SQL Server Migration Assistant for Access](https://www.microsoft.com/download/details.aspx?id=54255). 
 1. Select **File** and then choose **New Project**. 
 1. Provide a project name, a location to save your project, and then select Azure SQL Database as the migration target from the drop-down. Select **OK**:
 

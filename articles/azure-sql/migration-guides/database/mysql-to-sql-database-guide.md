@@ -33,11 +33,11 @@ After you have met the prerequisites, you are ready to discover the topology of 
 
 ### Assess 
 
-By using [SQL Server Migration Assistant for MySQL](https://www.microsoft.com/download/details.aspx?id=54257), you can review database objects and data, and assess databases for migration.
+Use SQL Server Migration Assistant (SSMA) for mySQL to review database objects and data, and assess databases for migration. 
 
-To create an assessment, perform the following steps.
+To create an assessment, perform the following steps: 
 
-1. Open SQL Server Migration Assistant for MySQL. 
+1. Open [SQL Server Migration Assistant for MySQL](https://www.microsoft.com/download/details.aspx?id=54257). 
 1. Select **File** from the menu and then choose **New Project**. 
 1. Provide the project name, a location to save your project. Choose **Azure SQL Database** as the migration target. Select **OK**:
 

@@ -34,13 +34,14 @@ To migrate your Db2 database to SQL Server, you need:
 
 After you have met the prerequisites, you are ready to discover the topology of your environment and assess the feasibility of your migration. 
 
+
 ### Assess 
 
-Create an assessment using SQL Server Migration Assistant (SSMA). 
+Use SQL Server Migration Assistant (SSMA) for DB2 to review database objects and data, and assess databases for migration. 
 
 To create an assessment, follow these steps:
 
-1. Open SQL Server Migration Assistant (SSMA) for Db2. 
+1. Open [SQL Server Migration Assistant (SSMA) for Db2](https://www.microsoft.com/download/details.aspx?id=54254). 
 1. Select **File** and then choose **New Project**. 
 1. Provide a project name, a location to save your project, and then select a SQL Server migration target from the drop-down. Select **OK**:
 

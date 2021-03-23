@@ -39,9 +39,7 @@ After you have met the prerequisites, you are ready to discover the topology of 
 
 Use the SQL Server Migration Assistant (SSMA) for Oracle to review database objects and data, assess databases for migration, migrate database objects to Azure SQL Database, and then finally migrate data to the database. 
 
-
 To create an assessment, follow these steps: 
-
 
 1. Open [SQL Server Migration Assistant for Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258). 
 1. Select **File** and then choose **New Project**. 
