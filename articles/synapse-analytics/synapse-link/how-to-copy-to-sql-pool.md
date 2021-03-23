@@ -9,6 +9,7 @@ ms.subservice: synapse-link
 ms.date: 08/10/2020
 ms.author: acomet
 ms.reviewer: jrasnick
+ms.custom: cosmos-db
 ---
 
 # Copy data from Azure Cosmos DB into a dedicated SQL pool using Apache Spark

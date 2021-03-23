@@ -69,6 +69,9 @@ To get started, you need the following items:
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * An AWS single sign-on (SSO) enabled subscription.
 
+> [!Note]
+> Roles should not be manually edited in Azure AD when doing role imports.
+
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
