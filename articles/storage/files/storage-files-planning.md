@@ -21,7 +21,7 @@ This article primarily addresses deployment considerations for deploying an Azur
 
 ## Available protocols
 
-Azure Files offers two protocols which may be used when mounting your file shares, SMB and Network File System (NFS). For details on these protocols, see [Azure file share protocols](storage-files-compare-protocols.md).
+Azure Files offers two protocols that may be used when mounting your file shares, SMB and Network File System (NFS). For details on these protocols, see [Azure file share protocols](storage-files-compare-protocols.md).
 
 > [!IMPORTANT]
 > Most of the content of this article only applies to SMB shares. Anything that applies to NFS shares will specifically state it is applicable.
@@ -60,7 +60,7 @@ Although from a technical perspective it's considerably easier to mount your Azu
 
 - **Network tunneling using ExpressRoute, Site-to-Site, or Point-to-Site VPN**: Tunneling into a virtual network allows accessing Azure file shares from on-premises, even if port 445 is blocked.
 - **Private endpoints**: Private endpoints give your storage account a dedicated IP address from within the address space of the virtual network. This enables network tunneling without needing to open on-premises networks up to all the of the IP address ranges owned by the Azure storage clusters. 
-- **DNS forwarding**: Configure your on-premises DNS to resolve the name of your storage account (i.e. `storageaccount.file.core.windows.net` for the public cloud regions) to resolve to the IP address of your private endpoints.
+- **DNS forwarding**: Configure your on-premises DNS to resolve the name of your storage account (`storageaccount.file.core.windows.net` for the public cloud regions) to resolve to the IP address of your private endpoints.
 
 To plan for the networking associated with deploying an Azure file share, see [Azure Files networking considerations](storage-files-networking-overview.md).
 
@@ -89,12 +89,12 @@ Azure Files has a multi-layered approach to ensuring your data is backed up, rec
 ### Soft delete
 Soft delete for file shares (preview) is a storage-account level setting that allows you to recover your file share when it is accidentally deleted. When a file share is deleted, it transitions to a soft deleted state instead of being permanently erased. You can configure the amount of time soft deleted data is recoverable before it's permanently deleted, and undelete the share anytime during this retention period. 
 
-We recommend turning on soft delete for most file shares. If you have a workflow where share deletion is common and expected, you may decide to have a very short retention period or not have soft delete enabled at all.
+We recommend turning on soft delete for most file shares. If you have a workflow where share deletion is common and expected, you may decide to have a short retention period or not have soft delete enabled at all.
 
 For more information about soft delete, see [Prevent accidental data deletion](./storage-files-prevent-file-share-deletion.md).
 
 ### Backup
-You can back up your Azure file share via [share snapshots](./storage-snapshots-files.md), which are read-only, point-in-time copies of your share. Snapshots are incremental, meaning they they only contain as much data as has changed since the previous snapshot. You can have up to 200 snapshots per file share and retain them for up to 10 years. You can either manually take these snapshots in the Azure portal, via PowerShell, or command-line interface (CLI), or you can use [Azure Backup](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Snapshots are stored within your file share, meaning that if you delete your file share, your snapshots will also be deleted. To protect your snapshot backups from accidental deletion, ensure soft delete is enabled for your share.
+You can back up your Azure file share via [share snapshots](./storage-snapshots-files.md), which are read-only, point-in-time copies of your share. Snapshots are incremental, meaning they only contain as much data as has changed since the previous snapshot. You can have up to 200 snapshots per file share and retain them for up to 10 years. You can either manually take these snapshots in the Azure portal, via PowerShell, or command-line interface (CLI), or you can use [Azure Backup](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Snapshots are stored within your file share, meaning that if you delete your file share, your snapshots will also be deleted. To protect your snapshot backups from accidental deletion, ensure soft delete is enabled for your share.
 
 [Azure Backup for Azure file shares](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) handles the scheduling and retention of snapshots. Its grandfather-father-son (GFS) capabilities mean that you can take daily, weekly, monthly, and yearly snapshots, each with their own distinct retention period. Azure Backup also orchestrates the enablement of soft delete and takes a delete lock on a storage account as soon as any file share within it is configured for backup. Lastly, Azure Backup provides certain key monitoring and alerting capabilities that allow customers to have a consolidated view of their backup estate.
 
@@ -103,7 +103,7 @@ You can perform both item-level and share-level restores in the Azure portal usi
 For more information about backup, see [About Azure file share backup](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 ### Azure Defender for Azure Files 
-Azure Defender for Azure Storage (formerly Advanced Threat Protection for Azure Storage) provides an additional layer of security intelligence that provides alerts when it detects anomalous activity on your storage account, for example unusual access attemps. It also runs malware hash reputation analysis and will alert on known malware. You can configure Azure Defender on a subscription or storage account level via Azure Security Center. 
+Azure Defender for Azure Storage (formerly Advanced Threat Protection for Azure Storage) provides an additional layer of security intelligence that provides alerts when it detects anomalous activity on your storage account, for example unusual access attempts. It also runs malware hash reputation analysis and will alert on known malware. You can configure Azure Defender on a subscription or storage account level via Azure Security Center. 
 
 For more information, see [Introduction to Azure Defender for Storage](../../security-center/defender-for-storage-introduction.md).
 
