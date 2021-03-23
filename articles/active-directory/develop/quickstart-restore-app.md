@@ -77,7 +77,7 @@ You can manually permanently delete an application from your organization. A per
 
 #### To permanently delete an application
 
-1. On the **Deleted applications** tab, search for and select one of the available applications. For example, _Fabrikam_.
+1. On the **Deleted applications (Preview)** tab, search for and select one of the available applications. For example, `Fabrikam`.
 
 2. Select **Delete permanently**.
 
