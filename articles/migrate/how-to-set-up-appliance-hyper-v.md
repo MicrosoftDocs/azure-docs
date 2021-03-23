@@ -11,7 +11,7 @@ ms.date: 03/13/2021
 
 # Set up an appliance for servers on Hyper-V
 
-Follow this article to set up the Azure Migrate appliance for discovery and assessment of servers on Hyper-V with the [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool.
+Follow this article to set up the Azure Migrate appliance for discovery and assessment of servers on Hyper-V with the [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool.
 
 The [Azure Migrate appliance](migrate-appliance.md)  is a lightweight appliance used by Azure Migrate: Discovery and assessment/ Migration to discover on-premises servers on Hyper-V, and send server metadata/performance data to Azure.
 
@@ -20,31 +20,31 @@ You can deploy the appliance using a couple of methods:
 - Set up on a server on Hyper-V using a downloaded VHD. This method described in this article.
 - Set up on a server on Hyper-V or physical server with a PowerShell installer script. [This method](deploy-appliance-script.md) should be used if you can't set up a server using a VHD, or if you're in Azure Government.
 
-After creating the appliance, you check that it can connect to Azure Migrate: Discovery and assessment, configure it for the first time, and register it with the Azure Migrate project.
+After creating the appliance, you check that it can connect to Azure Migrate: Discovery and assessment, configure it for the first time, and register it with the project.
 
 ## Appliance deployment (VHD)
 
 To set up the appliance using a VHD template:
 
-- Provide an appliance name and generate an Azure Migrate project key in the portal.
+- Provide an appliance name and generate a project key in the portal.
 - Download a compressed Hyper-V VHD from the Azure portal.
 - Create the appliance, and check that it can connect to Azure Migrate: Discovery and assessment.
-- Configure the appliance for the first time, and register it with the Azure Migrate project using the Azure Migrate project key.
+- Configure the appliance for the first time, and register it with the project using the project key.
 
-### Generate the Azure Migrate project key
+### Generate the project key
 
 1. In **Migration Goals** > **Windows, Linux and SQL Servers** > **Azure Migrate: Discovery and assessment**, select **Discover**.
 2. In **Discover servers** > **Are your servers virtualized?**, select **Yes, with Hyper-V**.
 3. In **1:Generate project key**, provide a name for the Azure Migrate appliance that you will set up for discovery of servers on Hyper-V.The name should be alphanumeric with 14 characters or fewer.
 1. Click on **Generate key** to start the creation of the required Azure resources. Do not close the Discover servers page during the creation of resources.
-1. After the successful creation of the Azure resources, an **Azure Migrate project key** is generated.
+1. After the successful creation of the Azure resources, an **project key** is generated.
 1. Copy the key as you will need it to complete the registration of the appliance during its configuration.
 
 ### Download the VHD
 
 In **2: Download Azure Migrate appliance**, select the .VHD file and click on **Download**.
 
-   ![Selections for Discover machines](./media/tutorial-assess-hyper-v/servers-discover.png)
+   ![Selections for Discover servers](./media/tutorial-assess-hyper-v/servers-discover.png)
 
 
    ![Selections for Generate Key](./media/tutorial-assess-hyper-v/generate-key-hyperv.png)

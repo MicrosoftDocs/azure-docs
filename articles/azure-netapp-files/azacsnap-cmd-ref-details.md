@@ -92,6 +92,46 @@ List snapshot details called with snapshotFilter ''
 > [!NOTE]
 > This example shows output for snapshots run using the previous version (v4.3) as well as snapshots taken with the latest version (5.0).
 
+The following example has output for **Azure NetApp Files**, note the reduced information with this command as the information is not exposed by the service.
+
+```bash
+azacsnap -c details --details snapshots
+```
+
+```output
+List snapshot details called with snapshotFilter ''
+#, Volume, SnapshotName
+#1, HANADATA_P, snapmirror.dd59bda4-d507-11ea-99fc-00a098f31b77_2155201518.2021-03-22_020000
+#2, HANADATA_P, quarter_hourly__2021-03-22T020002-3678211Z
+#3, HANADATA_P, quarter_hourly__2021-03-22T014502-0716526Z
+#4, HANADATA_P, quarter_hourly__2021-03-22T013002-4080651Z
+#5, HANADATA_P, quarter_hourly__2021-03-22T011502-8376045Z
+#6, HANADATA_P, quarter_hourly__2021-03-22T010002-8810203Z
+#7, HANADATA_P, quarter_hourly__2021-03-22T004502-5983306Z
+#8, HANADATA_P, quarter_hourly__2021-03-22T003002-1168834Z
+#9, HANADATA_P, quarter_hourly__2021-03-22T001501-9781108Z
+#10, HANADATA_P, quarter_hourly__2021-03-22T000002-0865483Z
+#1, HANASHARED_P, quarter_hourly__2021-03-22T020002-3678211Z
+#2, HANASHARED_P, quarter_hourly__2021-03-22T014502-0716526Z
+#3, HANASHARED_P, quarter_hourly__2021-03-22T013002-4080651Z
+#4, HANASHARED_P, quarter_hourly__2021-03-22T011502-8376045Z
+#5, HANASHARED_P, quarter_hourly__2021-03-22T010002-8810203Z
+#6, HANASHARED_P, quarter_hourly__2021-03-22T004502-5983306Z
+#7, HANASHARED_P, quarter_hourly__2021-03-22T003002-1168834Z
+#8, HANASHARED_P, quarter_hourly__2021-03-22T001501-9781108Z
+#9, HANASHARED_P, quarter_hourly__2021-03-22T000002-0865483Z
+#10, HANASHARED_P, quarter_hourly__2021-03-21T234502-3935816Z
+#1, HANALOGBACKUP_P, logs_5mins__2021-03-22T021002-5462356Z
+#2, HANALOGBACKUP_P, logs_5mins__2021-03-22T020502-2390356Z
+#3, HANALOGBACKUP_P, logs_5mins__2021-03-22T015502-3928726Z
+#4, HANALOGBACKUP_P, logs_5mins__2021-03-22T015001-9228768Z
+#5, HANALOGBACKUP_P, logs_5mins__2021-03-22T014002-5554548Z
+#6, HANALOGBACKUP_P, logs_5mins__2021-03-22T013502-1781392Z
+#7, HANALOGBACKUP_P, logs_5mins__2021-03-22T012502-6686004Z
+#8, HANALOGBACKUP_P, logs_5mins__2021-03-22T012002-7348198Z
+#9, HANALOGBACKUP_P, logs_5mins__2021-03-22T011002-2234413Z
+```
+
 ### Output of the `azacsnap -c details --details replication` command
 
 This command checks the storage replication status from the primary site to DR location and *must*
