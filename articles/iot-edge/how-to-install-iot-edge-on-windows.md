@@ -47,7 +47,9 @@ This article lists the steps to set up IoT Edge on a Windows device. These steps
 
    1. Download the [Windows Admin Center installer](https://aka.ms/wacdownload).
 
-   1. Run the downloaded installer and follow the install wizard prompts to install Windows Admin Center. Once installed, open Windows Admin Center.
+   1. Run the downloaded installer and follow the install wizard prompts to install Windows Admin Center. 
+
+   1. Once installed, use a supported browser to open Windows Admin Center. Supported browsers include Microsoft Edge (Windows 10, version 1709 or later), Google Chrome, and Microsoft Edge Insider.
 
    1. On the first use of Windows Admin Center, you will be prompted to select a certificate to use. Select **Windows Admin Center Client** as your certificate.
 
@@ -56,12 +58,6 @@ This article lists the steps to set up IoT Edge on a Windows device. These steps
       ![Select the gear icon in the top right of the dashboard to access the settings.](./media/how-to-install-iot-edge-on-windows/select-gear-icon.png)
 
    1. On the **Settings** menu, under **Gateway**, select **Extensions**.
-
-   1. Select the **Feeds** tab and select **Add**.
-
-   1. Enter https://aka.ms/wac-insiders-feed into the text box and select **Add**.
-
-   1. After the feed has been added, navigate to the **Available extensions** tab. It may take a moment to update the extensions list.
 
    1. On the **Available extensions** tab, find **Azure IoT Edge** in the list of extensions. Choose it, and select the **Install** prompt above the list of extensions.
 
