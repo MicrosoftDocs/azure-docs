@@ -52,7 +52,7 @@ Below are the bandwidth requirements for the native Android and iOS client libra
 | 500 kbps  |	Peer-to-peer quality video calling 360p at 30fps  |
 | 1.2 Mbps  |	Peer-to-peer HD quality video calling with resolution of HD 720p at 30fps |
 | 1.5 Mbps  |	Peer-to-peer HD quality video calling with resolution of HD 1080p at 30fps  |
-| 500kbps/1Mbps |	Group Video calling |
+| 500kbps/1Mbps |	Group video calling |
 | 1Mbps/2Mbps |	HD Group video calling (540p videos on 1080p screen)|
 
 ### Firewall (s) configuration.
