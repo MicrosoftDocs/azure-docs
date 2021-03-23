@@ -3,7 +3,7 @@ title: Azure AD B2C (MSAL Android) | Azure
 titleSuffix: Microsoft identity platform
 description: Learn about specific considerations when using Azure AD B2C with the Microsoft Authentication Library for Android (MSAL.Android)
 services: active-directory
-author: brianmel
+author: iambmelt
 manager: CelesteDG
 
 ms.service: active-directory
@@ -20,6 +20,9 @@ ms.custom: aaddev
 # Use MSAL for Android with B2C
 
 The Microsoft Authentication Library (MSAL) enables application developers to authenticate users with social and local identities by using [Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/index.yml). Azure AD B2C is an identity management service. Use it to customize and control how customers sign up, sign in, and manage their profiles when they use your applications.
+
+## Choosing a compatible authorization_user_agent
+The B2C identity management system supports authentication with a number of social account providers such as Google, Facebook, Twitter, and Amazon. If you plan to support such account types in your app, it is recommended that you configure your MSAL public client application to use either the `DEFAULT` or `BROWSER` value when specifying your manifest's [`authorization_user_agent`](msal-configuration.md#authorization_user_agent) due to restrictions prohibiting use of WebView-based authentication with some external identity providers.
 
 ## Configure known authorities and redirect URI
 
@@ -42,6 +45,7 @@ The configuration file for the app would declare two `authorities`. One for each
   "client_id": "<your_client_id_here>",
   "redirect_uri": "<your_redirect_uri_here>",
   "account_mode" : "MULTIPLE",
+  "authorization_user_agent" : "DEFAULT",
   "authorities": [
     {
       "type": "B2C",

@@ -136,8 +136,10 @@
     items:
     - name: Scale an AKS cluster
       href: scale-cluster.md
-    - name: Stop an AKS cluster (preview)
+    - name: Stop an AKS cluster
       href: start-stop-cluster.md
+    - name: Use planned maintenance (preview)
+      href: planned-maintenance.md  
     - name: Upgrade an AKS cluster
       href: upgrade-cluster.md
     - name: Use Uptime SLA
@@ -262,13 +264,13 @@
       href: control-kubeconfig-access.md
     - name: Secure pod traffic with network policies
       href: use-network-policies.md
-    - name: Secure pods with Azure Policy
-      href: use-pod-security-on-azure-policy.md
+    - name: Use Azure Policy
+      href: use-azure-policy.md
     - name: Use pod security policies (preview)
       href: use-pod-security-policies.md
     - name: Define API server authorized IP ranges
       href: api-server-authorized-ip-ranges.md
-    - name: Control deployments with Azure Policy (preview)
+    - name: Control deployments with Azure Policy
       href: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/aks/toc.json
     - name: Update cluster credentials
       href: update-credentials.md

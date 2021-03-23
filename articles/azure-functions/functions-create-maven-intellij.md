@@ -51,7 +51,7 @@ To create and publish Java functions to Azure using IntelliJ, install the follow
 
    ![The device login browser][intellij-azure-link-ms-account]
 
-6. In the **Select Subscriptions** dialog box, select the subscriptions that you want to use, and then click **OK**.
+6. In the **Select Subscriptions** dialog box, select the subscriptions that you want to use, and then click **Select**.
 
    ![The Select Subscriptions dialog box][intellij-azure-login-select-subs]
    

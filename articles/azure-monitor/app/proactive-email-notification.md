@@ -4,7 +4,7 @@ description: Change to the default notification recipients from Smart Detection.
 ms.topic: conceptual
 author: harelbr
 ms.author: harelbr
-ms.date: 03/13/2019
+ms.date: 02/14/2021
 
 ms.reviewer: mbullwin
 ---
@@ -23,7 +23,7 @@ This change will affect all Smart Detection rules, excluding the following ones:
 
 * Smart Detection rules marked as preview. These Smart Detection rules don’t support email notifications today.
 
-* Failure Anomalies rule. This rule will start targeting the new default roles once it’s migrated from a classic alert to the unified alerts platform (more information is available [here](../alerts/monitoring-classic-retirement.md).)
+* Failure Anomalies rule.
 
 ## How to prepare for this change?
 

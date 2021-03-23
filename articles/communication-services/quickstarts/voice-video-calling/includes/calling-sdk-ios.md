@@ -2,7 +2,7 @@
 author: mikben
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 9/1/2020
+ms.date: 03/10/2021
 ms.author: mikben
 ---
 
@@ -16,6 +16,9 @@ ms.author: mikben
 ## Setting up
 
 ### Creating the Xcode project
+
+> [!NOTE]
+> This document uses version 1.0.0-beta.8 of the calling client library.
 
 In Xcode, create a new iOS project and select the **Single View App** template. This quickstart uses the [SwiftUI framework](https://developer.apple.com/xcode/swiftui/), so you should set the the **Language** to **Swift** and the **User Interface** to **SwiftUI**. You're not going to create unit tests or UI tests during this quickstart. Feel free to uncheck **Include Unit Tests** and also uncheck **Include UI Tests**.
 

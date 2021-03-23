@@ -2,7 +2,8 @@
 title: Convert managed disks storage between different disk types using Azure CLI
 description: How to convert Azure managed disks between the different disks types by using the Azure CLI.
 author: roygara
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 02/13/2021
 ms.author: albecker

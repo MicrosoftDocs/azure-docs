@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/22/2021
+ms.date: 03/15/2021
 
 ms.author: justinha
 author: justinha
@@ -41,7 +41,7 @@ The following table outlines the security considerations for the available authe
 |--------------------------------|:--------:|:---------:|:------------:|
 | Windows Hello for Business     | High     | High      | High         |
 | Microsoft Authenticator app    | High     | High      | High         |
-| FIDO2 security key (preview)   | High     | High      | High         |
+| FIDO2 security key             | High     | High      | High         |
 | OATH hardware tokens (preview) | Medium   | Medium    | High         |
 | OATH software tokens           | Medium   | Medium    | High         |
 | SMS                            | Medium   | High      | Medium       |
@@ -65,8 +65,8 @@ The following table outlines when an authentication method can be used during a 
 | Method                         | Primary authentication | Secondary authentication  |
 |--------------------------------|:----------------------:|:-------------------------:|
 | Windows Hello for Business     | Yes                    | MFA                       |
-| Microsoft Authenticator app    | Yes (preview)          | MFA and SSPR              |
-| FIDO2 security key (preview)   | Yes                    | MFA                       |
+| Microsoft Authenticator app    | Yes                    | MFA and SSPR              |
+| FIDO2 security key             | Yes                    | MFA                       |
 | OATH hardware tokens (preview) | No                     | MFA                       |
 | OATH software tokens           | No                     | MFA                       |
 | SMS                            | Yes                    | MFA and SSPR              |
@@ -79,7 +79,7 @@ To learn more about how each authentication method works, see the following sepa
 
 * [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview)
 * [Microsoft Authenticator app](concept-authentication-authenticator-app.md)
-* [FIDO2 security key (preview)](concept-authentication-passwordless.md#fido2-security-keys)
+* [FIDO2 security key](concept-authentication-passwordless.md#fido2-security-keys)
 * [OATH hardware tokens (preview)](concept-authentication-oath-tokens.md#oath-hardware-tokens-preview)
 * [OATH software tokens](concept-authentication-oath-tokens.md#oath-software-tokens)
 * [SMS sign-in](howto-authentication-sms-signin.md) and [verification](concept-authentication-phone-options.md#mobile-phone-verification)

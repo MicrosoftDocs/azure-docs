@@ -7,14 +7,15 @@ manager: chpalm
 services: azure-communication-services
 
 ms.author: chpalm
-ms.date: 10/10/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
 
 # Teams interoperability
 
-[!INCLUDE [Private Preview Notice](../includes/private-preview-include.md)]
+> [!IMPORTANT]
+> To enable/disable [Teams tenant interoperability](../concepts/teams-interop.md), complete [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u).
 
 Azure Communication Services can be used to build custom meeting experiences that interact with Microsoft Teams. Users of your Communication Services solution(s) can interact with Teams participants over voice, video, chat, and screen sharing.
 

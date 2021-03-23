@@ -4,7 +4,7 @@ description: Learn how to use blob index tags to categorize, manage, and query f
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 10/19/2020
+ms.date: 03/18/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
@@ -25,6 +25,9 @@ Blob index tags let you:
 
 Consider a scenario where you have millions of blobs in your storage account, accessed by many different applications. You want to find all related data from a single project. You aren't sure what's in scope as the data can be spread across multiple containers with different naming conventions. However, your applications upload all data with tags based on their project. Instead of searching through millions of blobs and comparing names and properties, you can use `Project = Contoso` as your discovery criteria. Blob index will filter all containers across your entire storage account to quickly find and return just the set of 50 blobs from `Project = Contoso`.
 
+> [!IMPORTANT]
+> Blob index tags are currently in **PREVIEW** and available in all public regions. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 To get started with examples on how to use blob index, see [Use blob index tags to manage and find data](storage-blob-index-how-to.md).
 
 ## Blob index tags and data management
@@ -38,7 +41,6 @@ Consider the following five blobs in your storage account:
 - *photos/bannerphoto.png*
 - *archives/completed/2019review.pdf*
 - *logs/2020/01/01/logfile.txt*
-
 
 These blobs are separated using a prefix of *container/virtual folder/blob name*. You can set an index tag attribute of `Project = Contoso` on these five blobs to categorize them together while maintaining their current prefix organization. Adding index tags eliminates the need to move data by exposing the ability to filter and find data using the index.
 
@@ -283,12 +285,7 @@ Blob index tags are only available on General Purpose v2 (GPv2) accounts with hi
 
 Index tags aren't supported on Premium storage accounts. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).
 
-In public preview, blob index tags are only available in the following regions:
-
-- Canada Central
-- Canada East
-- France Central
-- France South
+Blob index tags are currently available in all public regions.
 
 To get started, see [Use blob index tags to manage and find data](storage-blob-index-how-to.md).
 

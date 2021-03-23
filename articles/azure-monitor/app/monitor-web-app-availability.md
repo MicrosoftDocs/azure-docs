@@ -2,7 +2,7 @@
 title: Monitor availability and responsiveness of any web site | Microsoft Docs
 description: Set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly.
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 03/10/2021
 
 ms.reviewer: sdash
 ---
@@ -68,7 +68,6 @@ To create your first availability request, open the Availability pane and select
 |Setting| Explanation
 |----|----|----|
 |**Near-realtime (Preview)** | We recommend using Near-realtime alerts. Configuring this type of alert is done after your availability test is created.  |
-|**Classic** | We no longer recommended using classic alerts for new availability tests.|
 |**Alert location threshold**|We recommend a minimum of 3/5 locations. The optimal relationship between alert location threshold and the number of test locations is **alert location threshold** = **number of test locations - 2, with a minimum of five test locations.**|
 
 ### Location population tags

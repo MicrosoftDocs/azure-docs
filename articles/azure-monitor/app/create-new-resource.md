@@ -11,7 +11,7 @@ ms.date: 02/10/2021
 Azure Application Insights displays data about your application in a Microsoft Azure *resource*. Creating a new resource is therefore part of [setting up Application Insights to monitor a new application][start]. After you have created your new resource, you can get its instrumentation key and use that to configure the Application Insights SDK. The instrumentation key links your telemetry to the resource.
 
 > [!IMPORTANT]
-> Classic Application Insights has been deprecated. Please follow these [instructions on how upgrade to workspace-based Application Insights](convert-classic-resource.md).
+> [Classic Application Insights has been deprecated](https://azure.microsoft.com/updates/we-re-retiring-classic-application-insights-on-29-february-2024/). Please follow these [instructions on how upgrade to workspace-based Application Insights](convert-classic-resource.md).
 
 ## Sign in to Microsoft Azure
 

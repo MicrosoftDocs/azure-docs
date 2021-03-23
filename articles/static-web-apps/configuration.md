@@ -4,8 +4,8 @@ description: Learn to configure routes, enforce security rules, and global setti
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
-ms.topic:  quickstart
-ms.date: 12/08/2020
+ms.topic:  conceptual
+ms.date: 02/18/2021
 ms.author: cshoe
 ---
 

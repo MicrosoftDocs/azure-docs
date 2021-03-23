@@ -57,31 +57,39 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Dutch (Netherlands)                | `nl-NL` | Audio (20201015)<br>Text                                   |    Yes                       |
 | English (Australia)                | `en-AU` | Audio (20201019)<br>Text                 | Yes                          |
 | English (Canada)                   | `en-CA` | Audio (20201019)<br>Text                 | Yes                          |
+| English (Ghana)                    | `en-GH` | Text                                   |                           |
 | English (Hong Kong)                | `en-HK` | Text                                   |                           |
 | English (India)                    | `en-IN` | Audio (20200923)<br>Text                 | Yes                          |
 | English (Ireland)                  | `en-IE` | Text                                   |                           |
+| English (Kenya)                    | `en-KE` | Text                                   |                           |
 | English (New Zealand)              | `en-NZ` | Audio (20201019)<br>Text                 |  Yes                         |
 | English (Nigeria)                  | `en-NG` | Text                                   |                           |
 | English (Philippines)              | `en-PH` | Text                                   |                           |
 | English (Singapore)                | `en-SG` | Text                                   |                           |
 | English (South Africa)             | `en-ZA` | Text                                   |                           |
+| English (Tanzania)                 | `en-TZ` | Text                                   |                           |
 | English (United Kingdom)           | `en-GB` | Audio (20201019)<br>Text<br>Pronunciation| Yes                          |
 | English (United States)            | `en-US` | Audio (20201019)<br>Text<br>Pronunciation| Yes                          |
 | Estonian(Estonia)                  | `et-EE` | Text                                   |                           |
+| Filipino (Philippines)             | `fil-PH`| Text                                   |                           |
 | Finnish (Finland)                  | `fi-FI` | Text                                   |     Yes                      |
 | French (Canada)                    | `fr-CA` | Audio (20201015)<br>Text                 |     Yes                      |
 | French (France)                    | `fr-FR` | Audio (20201015)<br>Text<br>Pronunciation|      Yes                     |
+| French (Switzerland)               | `fr-CH` | Text                                   |                           |
+| German (Austria)                   | `de-AT` | Text                                   |                           |
 | German (Germany)                   | `de-DE` | Audio (20190701, 20200619, 20201127)<br>Text<br>Pronunciation|  Yes                         |
 | Greek (Greece)                     | `el-GR` | Text                                   |                           |
 | Gujarati (Indian)                  | `gu-IN` | Text                                   |                           |
 | Hindi (India)                      | `hi-IN` | Audio (20200701)<br>Text                 |     Yes                      |
 | Hungarian (Hungary)                | `hu-HU` | Text                                   |                           |
+| Indonesian (Indonesia)             | `id-ID` | Text                                   |                           |
 | Irish(Ireland)                     | `ga-IE` | Text                                   |                           |
 | Italian (Italy)                    | `it-IT` | Audio (20201016)<br>Text<br>Pronunciation|      Yes                     |
 | Japanese (Japan)                   | `ja-JP` | Text                                   |      Yes                     |
 | Korean (Korea)                     | `ko-KR` | Audio (20201015)<br>Text                 |      Yes                     |
 | Latvian (Latvia)                   | `lv-LV` | Text                                   |                           |
 | Lithuanian (Lithuania)             | `lt-LT` | Text                                   |                           |
+| Malay(Malaysia)                    | `ms-MY` | Text                                   |                           |
 | Maltese(Malta)                     | `mt-MT` | Text                                   |                           |
 | Marathi (India)                    | `mr-IN` | Text                                   |                           |
 | Norwegian (Bokmål, Norway)         | `nb-NO` | Text                                   |     Yes                      |
@@ -119,6 +127,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Telugu (India)                     | `te-IN` | Text                                   |                           |
 | Thai (Thailand)                    | `th-TH` | Text                                   |      Yes                     |
 | Turkish (Turkey)                   | `tr-TR` | Text                                   |                           |
+| Vietnamese (Vietnam)               | `vi-VN` | Text                                   |                           |
 
 ## Text-to-speech
 
@@ -180,8 +189,8 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 | English (United Kingdom) | `en-GB` | Female | `en-GB-MiaNeural` | General |
 | English (United Kingdom) | `en-GB` | Male | `en-GB-RyanNeural` | General |
 | English (United States) | `en-US` | Female | `en-US-AriaNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
-| English (United States) | `en-US` | Female | `en-US-JennyNeural` | General |
-| English (United States) | `en-US` | Male | `en-US-GuyNeural` | General |
+| English (United States) | `en-US` | Female | `en-US-JennyNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
+| English (United States) | `en-US` | Male | `en-US-GuyNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
 | Finnish (Finland) | `fi-FI` | Female | `fi-FI-NooraNeural` | General |
 | Finnish (Finland) | `fi-FI` | Female | `fi-FI-SelmaNeural` <sup>New</sup> | General |
 | Finnish (Finland) | `fi-FI` | Male | `fi-FI-HarriNeural` <sup>New</sup> | General |

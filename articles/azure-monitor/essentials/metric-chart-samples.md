@@ -7,7 +7,6 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: vitalyg
-ms.subservice: metrics
 ---
 
 # Metric chart examples 

@@ -44,6 +44,16 @@
     href: search-get-started-arm.md
 - name: Tutorials
   items:
+  - name: Add Search to website
+    items: 
+    - name: 1 - Website overview
+      href: tutorial-javascript-overview.md
+    - name: 2 - Create a search index
+      href: tutorial-javascript-create-load-index.md
+    - name: 3 - Deploy static web app
+      href: tutorial-javascript-deploy-static-web-app.md
+    - name: 4 - Understand search integration
+      href: tutorial-javascript-search-query-integration.md    
   - name: Create a C# app
     items:
     - name: 1 - Basic search page
@@ -96,6 +106,8 @@
   items:
   - name: Full-text search
     href: search-lucene-query-architecture.md
+  - name: Semantic search
+    href: semantic-search-overview.md
   - name: Relevance scoring
     href: index-similarity-and-scoring.md
   - name: Indexers
@@ -218,6 +230,8 @@
       href: search-howto-schedule-indexers.md
     - name: Define field mappings
       href: search-indexer-field-mappings.md
+    - name: Content metadata properties
+      href: search-blob-metadata-properties.md
     - name: Connect with managed identities
       items:
       - name: Managed identities overview
@@ -228,6 +242,8 @@
         href: search-howto-managed-identities-cosmos-db.md
       - name: SQL Database
         href: search-howto-managed-identities-sql.md
+    - name: SharePoint Online
+      href: search-howto-index-sharepoint-online.md
     - name: Azure Blobs
       items:      
       - name: Search over blobs
@@ -248,8 +264,6 @@
         href: search-howto-index-json-blobs.md
       - name: Index encrypted blobs
         href: search-howto-index-encrypted-blobs.md
-      - name: Metadata properties for blob content
-        href: search-blob-metadata-properties.md
     - name: Azure Tables
       href: search-howto-indexing-azure-tables.md
     - name: Azure Cosmos DB
@@ -282,6 +296,8 @@
       items:
       - name: Integrate custom skills
         href: cognitive-search-custom-skill-interface.md
+      - name: Scale out custom skills
+        href: cognitive-search-custom-skill-scale.md
       - name: Example - Azure Functions (Python)
         href: cognitive-search-custom-skill-python.md
       - name: Example - Azure Functions
@@ -306,6 +322,12 @@
     items:
     - name: Create a basic query
       href: search-query-create.md
+    - name: Create a semantic query
+      href: semantic-how-to-query-request.md
+    - name: Return a semantic answer
+      href: semantic-answers.md
+    - name: Add spell check to queries
+      href: speller-how-to-add.md
     - name: Query types and composition
       href: search-query-overview.md
     - name: Use simple syntax (examples)
@@ -322,6 +344,8 @@
         href: index-add-suggesters.md
       - name: Add autocomplete and suggestions
         href: search-autocomplete-tutorial.md
+    - name: Paging and counts
+      href: search-pagination-page-layout.md
     - name: Syntax reference
       items:
       - name: Simple query syntax
@@ -342,16 +366,16 @@
       href: search-query-troubleshoot-collection-filters.md
     - name: Understand collection filters
       href: search-query-understand-collection-filters.md
-    - name: Filter by language
-      href: search-filters-language.md
-  - name: Results
+    - name: Normalize text
+      href: search-normalizers.md
+  - name: Relevance
     items:
-    - name: Work with results
-      href: search-pagination-page-layout.md
+    - name: Similarity ranking
+      href: index-ranking-similarity.md
+    - name: Semantic ranking
+      href: semantic-ranking.md
     - name: Scoring profiles 
       href: index-add-scoring-profiles.md
-    - name: Similarity algorithm
-      href: index-ranking-similarity.md
   - name: Security
     items:
     - name: Data encryption

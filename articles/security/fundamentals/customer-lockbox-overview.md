@@ -19,15 +19,16 @@ Customer Lockbox for Microsoft Azure provides an interface for customers to revi
 
 This article covers how to enable Customer Lockbox and how Lockbox requests are initiated, tracked, and stored for later reviews and audits.
 
+<a name='supported-services-and-scenarios-in-general-availability'></a><a name='supported-services-and-scenarios-in-preview'></a>
 ## Supported services and scenarios (General Availability)
 
 The following services are now generally available for Customer Lockbox:
 
 - Azure API Management
-​- Azure App Service​​
+- Azure App Service
 - Azure Cognitive Services
 - Azure Container Registry
-- Azure Database for MySQL​
+- Azure Database for MySQL
 - Azure Databricks
 - Azure Data Box
 - Azure Data Explorer

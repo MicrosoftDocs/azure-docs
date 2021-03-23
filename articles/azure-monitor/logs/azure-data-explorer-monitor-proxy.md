@@ -4,7 +4,6 @@ description: Use Azure Data Explorer to perform cross product queries between Az
 author: osalzberg
 ms.author: bwren
 ms.reviewer: bwren
-ms.subservice: logs
 ms.topic: conceptual
 ms.date: 10/13/2020
 

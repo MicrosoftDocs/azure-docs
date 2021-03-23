@@ -31,7 +31,7 @@ When you are using auto-failover groups with automatic failover policy, any outa
 - [Azure portal](geo-distributed-application-configure-tutorial.md)
 - [Azure CLI: Failover Group](scripts/add-database-to-failover-group-cli.md)
 - [PowerShell: Failover Group](scripts/add-database-to-failover-group-powershell.md)
-- [REST API: Failover group](/rest/api/sql/failovergroups).
+- [REST API: Failover group](/rest/api/sql/failovergroups)
 
 After failover, ensure the authentication requirements for your database and server, or instance are configured on the new primary. For details, see [SQL Database security after disaster recovery](active-geo-replication-security-configure.md).
 
@@ -110,7 +110,7 @@ To achieve real business continuity, adding database redundancy between datacent
 
   - Perform disaster recovery (DR) drills in production when the data loss is not acceptable
   - Relocate the databases to a different region
-  - Return the databases to the primary region after the outage has been mitigated (failback).
+  - Return the databases to the primary region after the outage has been mitigated (failback)
 
 - **Unplanned failover**
 
@@ -122,7 +122,7 @@ To achieve real business continuity, adding database redundancy between datacent
 
 - **Grace period with data loss**
 
-  Because the primary and secondary databases are synchronized using asynchronous replication, the failover may result in data loss. You can customize the automatic failover policy to reflect your application’s tolerance to data loss. By configuring `GracePeriodWithDataLossHours`, you can control how long the system waits before initiating the failover that is likely to result data loss.
+  Because the primary and secondary databases are synchronized using asynchronous replication, the failover may result in data loss. You can customize the automatic failover policy to reflect your application’s tolerance to data loss. By configuring `GracePeriodWithDataLossHours`, you can control how long the system waits before initiating the failover that is likely to result in data loss.
 
 - **Multiple failover groups**
 
@@ -171,7 +171,7 @@ When performing OLTP operations, use `<fog-name>.database.windows.net` as the se
 
 ### Using read-only listener for read-only workload
 
-If you have a logically isolated read-only workload that is tolerant to certain staleness of data, you can use the secondary database in the application. For read-only sessions, use `<fog-name>.secondary.database.windows.net` as the server URL and the connection is automatically directed to the secondary. It is also recommended that you indicate in connection string read intent by using `ApplicationIntent=ReadOnly`.
+If you have a logically isolated read-only workload that is tolerant to certain staleness of data, you can use the secondary database in the application. For read-only sessions, use `<fog-name>.secondary.database.windows.net` as the server URL and the connection is automatically directed to the secondary. It is also recommended that you indicate read intent in the connection string by using `ApplicationIntent=ReadOnly`.
 
 ### Preparing for performance degradation
 

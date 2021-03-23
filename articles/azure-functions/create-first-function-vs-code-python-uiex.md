@@ -85,12 +85,12 @@ The most common issues to resolve when creating a local Functions project are:
 
 1. In the **Terminal** panel, see the URL endpoint of your function running locally.
 
-    ![Local function VS Code output](./media/functions-run-function-test-local-vs-code/functions-vscode-f5.png)
+    ![Local function VS Code output](../../includes/media/functions-run-function-test-local-vs-code/functions-vscode-f5.png)
 
 
 1. With Core Tools running, go to the **Azure: Functions** area. Under **Functions**, expand **Local Project** > **Functions**. Right-click (Windows) or <kbd>Ctrl -</kbd> click (macOS) the `HttpExample` function and choose **Execute Function Now...**.
 
-    :::image type="content" source="media/functions-run-function-test-local-vs-code/execute-function-now.png" alt-text="Execute function now from Visual Studio Code":::
+    :::image type="content" source="../../includes/media/functions-run-function-test-local-vs-code/execute-function-now.png" alt-text="Execute function now from Visual Studio Code":::
 
 1. In **Enter request body** you see the request message body value of `{ "name": "Azure" }`. Press Enter to send this request message to your function.  
 

@@ -1,7 +1,6 @@
 ---
 title: Deletion of ITSM connector and the action that are associated to it
 description: This article provides an explanation of how to delete ITSM connector and the action groups that are associated to it.
-ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur

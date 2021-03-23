@@ -1,7 +1,6 @@
 ---
-title: Create interactive reports Azure Monitor for VMs with workbooks
-description: Simplify complex reporting with predefined and custom parameterized workbooks for Azure Monitor for VMs.
-ms.subservice: 
+title: Create interactive reports VM insights with workbooks
+description: Simplify complex reporting with predefined and custom parameterized workbooks for VM insights.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -9,7 +8,7 @@ ms.date: 03/12/2020
 
 ---
 
-# Create interactive reports Azure Monitor for VMs with workbooks
+# Create interactive reports VM insights with workbooks
 
 Workbooks combine text, [log queries](/azure/data-explorer/kusto/query/), metrics, and parameters into rich interactive reports. Workbooks are editable by any other team members who have access to the same Azure resources.
 
@@ -20,19 +19,19 @@ Workbooks are helpful for scenarios such as:
 * Sharing the results of a resizing experiment of your VM with other members of your team. You can explain the goals for the experiment with text, then show each usage metric and analytics queries used to evaluate the experiment, along with clear call-outs for whether each metric was above- or below-target.
 * Reporting the impact of an outage on the usage of your VM, combining data, text explanation, and a discussion of next steps to prevent outages in the future.
 
-The following table summarizes the workbooks that Azure Monitor for VMs includes to get you started.
+The following table summarizes the workbooks that VM insights includes to get you started.
 
 | Workbook | Description | Scope |
 |----------|-------------|-------|
-| Performance | Provides a customizable version of our Top N List and Charts view in a single workbook that leverages all of the Log Analytics performance counters that you have enabled.| At scale |
-| Performance counters | A Top N chart view across a wide set of performance counters. | At scale |
-| Connections | Connections provides an in-depth view of the inbound and outbound connections from your monitored VMs. | At scale |
-| Active Ports | Provides a list of the processes that have bound to the ports on the monitored VMs and their activity in the chosen timeframe. | At scale |
-| Open Ports | Provides the number of ports open on your monitored VMs and the details on those open ports. | At scale |
-| Failed Connections | Display the count of failed connections on your monitored VMs, the failure trend, and if the percentage of failures is increasing over time. | At scale |
-| Security and Audit | An analysis of your TCP/IP traffic that reports on overall connections, malicious connections, where the IP endpoints reside globally.  To enable all features, you will need to enable Security Detection. | At scale |
-| TCP Traffic | A ranked report for your monitored VMs and their sent, received, and total network traffic in a grid and displayed as a trend line. | At scale |
-| Traffic Comparison | This workbooks lets you compare network traffic trends for a single machine or a group of machines. | At scale |
+| Performance | Provides a customizable version of our Top N List and Charts view in a single workbook that leverages all of the Log Analytics performance counters that you have enabled.| Multiple VMs |
+| Performance counters | A Top N chart view across a wide set of performance counters. | Multiple VMs |
+| Connections | Connections provides an in-depth view of the inbound and outbound connections from your monitored VMs. | Multiple VMs |
+| Active Ports | Provides a list of the processes that have bound to the ports on the monitored VMs and their activity in the chosen timeframe. | Multiple VMs |
+| Open Ports | Provides the number of ports open on your monitored VMs and the details on those open ports. | Multiple VMs |
+| Failed Connections | Display the count of failed connections on your monitored VMs, the failure trend, and if the percentage of failures is increasing over time. | Multiple VMs |
+| Security and Audit | An analysis of your TCP/IP traffic that reports on overall connections, malicious connections, where the IP endpoints reside globally.  To enable all features, you will need to enable Security Detection. | Multiple VMs |
+| TCP Traffic | A ranked report for your monitored VMs and their sent, received, and total network traffic in a grid and displayed as a trend line. | Multiple VMs |
+| Traffic Comparison | This workbooks lets you compare network traffic trends for a single machine or a group of machines. | Multiple VMs |
 | Performance | Provides a customizable version of our Performance view that leverages all of the Log Analytics performance counters that you have enabled. | Single VM | 
 | Connections | Connections provides an in-depth view of the inbound and outbound connections from your VM. | Single VM |
  
@@ -92,7 +91,7 @@ Query sections are highly flexible and can be used to answer questions like:
 
 You also aren't only limited to querying from the context of the virtual machine you launched the workbook from. You can query across multiple virtual machines, as well as Log Analytics workspaces, as long as you have access permission to those resources.
 
-To include data from other Log Analytics workspaces or from a specific Application Insights app using the **workspace** identifier. To learn more about cross-resource queries, refer to the [official guidance](../log-query/cross-workspace-query.md).
+To include data from other Log Analytics workspaces or from a specific Application Insights app using the **workspace** identifier. To learn more about cross-resource queries, refer to the [official guidance](../logs/cross-workspace-query.md).
 
 ### Advanced analytic query settings
 
@@ -133,7 +132,7 @@ VMConnection
 
 ## Adding metrics sections
 
-Metrics sections give you full access to incorporate Azure Monitor metrics data into your interactive reports. In Azure Monitor for VMs, the prebuilt workbooks will typically contain analytic query data rather than metric data.  You may choose to create workbooks with metric data, allowing you to take full advantage of the best of both features all in one place. You also have the ability to pull in metric data from resources in any of the subscriptions you have access to.
+Metrics sections give you full access to incorporate Azure Monitor metrics data into your interactive reports. In VM insights, the prebuilt workbooks will typically contain analytic query data rather than metric data.  You may choose to create workbooks with metric data, allowing you to take full advantage of the best of both features all in one place. You also have the ability to pull in metric data from resources in any of the subscriptions you have access to.
 
 Here is an example of virtual machine data being pulled into a workbook to provide a grid visualization of CPU performance:
 
@@ -240,4 +239,4 @@ To pin a link to a workbook to an Azure Dashboard:
 
 - To identify limitations and overall VM performance, see [View Azure VM Performance](vminsights-performance.md).
 
-- To learn about discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md).
+- To learn about discovered application dependencies, see [View VM insights Map](vminsights-maps.md).

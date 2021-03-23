@@ -137,10 +137,10 @@ Importing an Az module into your Automation account doesn't automatically import
 
 * When a runbook invokes a cmdlet from a module.
 * When a runbook imports the module explicitly with the [Import-Module](/powershell/module/microsoft.powershell.core/import-module) cmdlet.
-* When a runbook imports the module explicitly with the [using module](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_using?view=powershell-7.1#module-syntax) statement. The using statement is supported starting with Windows PowerShell 5.0 and supports classes and enum type import.
+* When a runbook imports the module explicitly with the [using module](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_using#module-syntax) statement. The using statement is supported starting with Windows PowerShell 5.0 and supports classes and enum type import.
 * When a runbook imports another dependent module.
 
-You can import the Az modules in the Azure portal. Remember to import only the Az modules that you need, not the entire Az.Automation module. Because [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0) is a dependency for the other Az modules, be sure to import this module before any others.
+You can import the Az modules into the Automation account from the Azure portal. Remember to import only the Az modules that you need, not every Az module that's available. Because [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0) is a dependency for the other Az modules, be sure to import this module before any others.
 
 1. From your Automation account, under **Shared Resources**, select **Modules**.
 2. Select **Browse Gallery**.  

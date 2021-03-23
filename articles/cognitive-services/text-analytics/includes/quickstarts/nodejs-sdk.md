@@ -21,7 +21,7 @@ ms.custom: devx-track-js
 
 # [Version 3.0](#tab/version-3)
 
-[v3 Reference documentation](/javascript/api/overview/azure/ai-text-analytics-readme?preserve-view=true&view=azure-node-latest) | [v3 Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [v3 Package (NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics) | [v3 Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples)
+[v3 Reference documentation](/javascript/api/overview/azure/ai-text-analytics-readme) | [v3 Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [v3 Package (NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics) | [v3 Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples)
 
 
 ---
@@ -30,7 +30,7 @@ ms.custom: devx-track-js
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The current version of [Node.js](https://nodejs.org/).
-* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Text Analytics resource"  target="_blank">create a Text Analytics resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Text Analytics resource"  target="_blank">create a Text Analytics resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the Text Analytics API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 * To use the Analyze feature, you will need a Text Analytics resource with the standard (S) pricing tier.
@@ -59,7 +59,7 @@ npm init
 Install the `@azure/ai-text-analytics` NPM packages:
 
 ```console
-npm install --save @azure/ai-text-analytics@5.1.0-beta.3
+npm install --save @azure/ai-text-analytics@5.1.0-beta.5
 ```
 
 > [!TIP]
@@ -203,39 +203,42 @@ In order to do sentiment analysis with opinion mining, create an array of string
 ```javascript
 async function sentimentAnalysisWithOpinionMining(client){
 
-    const sentimentInput = [
-        {
-            text: "The food and service were unacceptable, but the concierge were nice",
-            id: "0",
-            language: "en"
-        }
-    ];
-    const sentimentResult = await client.analyzeSentiment(sentimentInput, { includeOpinionMining: true });
+  const sentimentInput = [
+    {
+      text: "The food and service were unacceptable, but the concierge were nice",
+      id: "0",
+      language: "en"
+    }
+  ];
+  const results = await client.analyzeSentiment(sentimentInput, { includeOpinionMining: true });
 
-    sentimentResult.forEach(document => {
-        console.log(`ID: ${document.id}`);
-        console.log(`\tDocument Sentiment: ${document.sentiment}`);
-        console.log(`\tDocument Scores:`);
-        console.log(`\t\tPositive: ${document.confidenceScores.positive.toFixed(2)} \tNegative: ${document.confidenceScores.negative.toFixed(2)} \tNeutral: ${document.confidenceScores.neutral.toFixed(2)}`);
-        console.log(`\tSentences Sentiment(${document.sentences.length}):`);
-        document.sentences.forEach(sentence => {
-            console.log(`\t\tSentence sentiment: ${sentence.sentiment}`)
-            console.log(`\t\tSentences Scores:`);
-            console.log(`\t\tPositive: ${sentence.confidenceScores.positive.toFixed(2)} \tNegative: ${sentence.confidenceScores.negative.toFixed(2)} \tNeutral: ${sentence.confidenceScores.neutral.toFixed(2)}`);
-            console.log("\tMined opinions");
-            for (const { aspect, opinions } of sentence.minedOpinions) {
-                console.log(`\t\tAspect text: ${aspect.text}`);
-                console.log(`\t\tAspect sentiment: ${aspect.sentiment}`);
-                console.log(`\t\tAspect Positive: ${aspect.confidenceScores.positive.toFixed(2)} \tNegative: ${aspect.confidenceScores.negative.toFixed(2)}`);
-                console.log("\t\tAspect opinions:");
-                for (const { text, sentiment, confidenceScores } of opinions) {
-                    console.log(`\t\tOpinion text: ${text}`);
-                    console.log(`\t\tOpinion sentiment: ${sentiment}`);
-                    console.log(`\t\tOpinion Positive: ${confidenceScores.positive.toFixed(2)} \tNegative: ${confidenceScores.negative.toFixed(2)}`);
-                }
-            }
-        });
-    });
+  for (let i = 0; i < results.length; i++) {
+    const result = results[i];
+    console.log(`- Document ${result.id}`);
+    if (!result.error) {
+      console.log(`\tDocument text: ${sentimentInput[i].text}`);
+      console.log(`\tOverall Sentiment: ${result.sentiment}`);
+      console.log("\tSentiment confidence scores:", result.confidenceScores);
+      console.log("\tSentences");
+      for (const { sentiment, confidenceScores, opinions } of result.sentences) {
+        console.log(`\t- Sentence sentiment: ${sentiment}`);
+        console.log("\t  Confidence scores:", confidenceScores);
+        console.log("\t  Mined opinions");
+        for (const { target, assessments } of opinions) {
+          console.log(`\t\t- Target text: ${target.text}`);
+          console.log(`\t\t  Target sentiment: ${target.sentiment}`);
+          console.log("\t\t  Target confidence scores:", target.confidenceScores);
+          console.log("\t\t  Target assessments");
+          for (const { text, sentiment } of assessments) {
+            console.log(`\t\t\t- Text: ${text}`);
+            console.log(`\t\t\t  Sentiment: ${sentiment}`);
+          }
+        }
+      }
+    } else {
+      console.error(`\tError: ${result.error}`);
+    }
+  }
 }
 sentimentAnalysisWithOpinionMining(textAnalyticsClient)
 ```
@@ -245,36 +248,32 @@ Run your code with `node index.js` in your console window.
 ### Output
 
 ```console
-ID: 0
-        Document Sentiment: positive
-        Document Scores:
-                Positive: 0.84  Negative: 0.16  Neutral: 0.00
-        Sentences Sentiment(1):
-                Sentence sentiment: positive
-                Sentences Scores:
-                Positive: 0.84  Negative: 0.16  Neutral: 0.00
-        Mined opinions
-                Aspect text: food
-                Aspect sentiment: negative
-                Aspect Positive: 0.01   Negative: 0.99
-                Aspect opinions:
-                Opinion text: unacceptable
-                Opinion sentiment: negative
-                Opinion Positive: 0.01  Negative: 0.99
-                Aspect text: service
-                Aspect sentiment: negative
-                Aspect Positive: 0.01   Negative: 0.99
-                Aspect opinions:
-                Opinion text: unacceptable
-                Opinion sentiment: negative
-                Opinion Positive: 0.01  Negative: 0.99
-                Aspect text: concierge
-                Aspect sentiment: positive
-                Aspect Positive: 1.00   Negative: 0.00
-                Aspect opinions:
-                Opinion text: nice
-                Opinion sentiment: positive
-                Opinion Positive: 1.00  Negative: 0.00
+- Document 0
+        Document text: The food and service were unacceptable, but the concierge were nice
+        Overall Sentiment: positive
+        Sentiment confidence scores: { positive: 0.84, neutral: 0, negative: 0.16 }
+        Sentences
+        - Sentence sentiment: positive
+          Confidence scores: { positive: 0.84, neutral: 0, negative: 0.16 }
+          Mined opinions
+                - Target text: food
+                  Target sentiment: negative
+                  Target confidence scores: { positive: 0.01, negative: 0.99 }
+                  Target assessments
+                        - Text: unacceptable
+                          Sentiment: negative
+                - Target text: service
+                  Target sentiment: negative
+                  Target confidence scores: { positive: 0.01, negative: 0.99 }
+                  Target assessments
+                        - Text: unacceptable
+                          Sentiment: negative
+                - Target text: concierge
+                  Target sentiment: positive
+                  Target confidence scores: { positive: 1, negative: 0 }
+                  Target assessments
+                        - Text: nice
+                          Sentiment: positive
 ```
 
 # [Version 3.0](#tab/version-3)
@@ -712,30 +711,38 @@ ID: 0
 Create a new function called `analyze_example()`, which calls the `beginAnalyze()` function. The result will be a long running operation which will be polled for results.
 
 ```javascript
-const documents = [
-  "Microsoft was founded by Bill Gates and Paul Allen.",
-];
-
 async function analyze_example(client) {
-  console.log("== Analyze Sample ==");
+  const documents = [
+    "Microsoft was founded by Bill Gates and Paul Allen.",
+  ];
 
-  const tasks = {
-    entityRecognitionTasks: [{ modelVersion: "latest" }]
+  const actions = {
+    recognizeEntitiesActions: [{ modelVersion: "latest" }],
   };
-  const poller = await client.beginAnalyze(documents, tasks);
-  const resultPages = await poller.pollUntilDone();
+  const poller = await client.beginAnalyzeBatchActions(documents, actions, "en");
 
+  console.log(
+    `The analyze batch actions operation was created on ${poller.getOperationState().createdOn}`
+  );
+  console.log(
+    `The analyze batch actions operation results will expire on ${
+      poller.getOperationState().expiresOn
+    }`
+  );
+  const resultPages = await poller.pollUntilDone();
   for await (const page of resultPages) {
-    const entitiesResults = page.entitiesRecognitionResults![0];
-    for (const doc of entitiesResults) {
-      console.log(`- Document ${doc.id}`);
-      if (!doc.error) {
-        console.log("\tEntities:");
-        for (const entity of doc.entities) {
-          console.log(`\t- Entity ${entity.text} of type ${entity.category}`);
+    const entitiesAction = page.recognizeEntitiesResults[0];
+    if (!entitiesAction.error) {
+      for (const doc of entitiesAction.results) {
+        console.log(`- Document ${doc.id}`);
+        if (!doc.error) {
+          console.log("\tEntities:");
+          for (const entity of doc.entities) {
+            console.log(`\t- Entity ${entity.text} of type ${entity.category}`);
+          }
+        } else {
+          console.error("\tError:", doc.error);
         }
-      } else {
-        console.error("  Error:", doc.error);
       }
     }
   }
@@ -747,7 +754,8 @@ analyze_example(textAnalyticsClient);
 ### Output
 
 ```console
-== Analyze Sample ==
+The analyze batch actions operation was created on Fri Mar 12 2021 09:53:49 GMT-0800 (Pacific Standard Time)
+The analyze batch actions operation results will expire on Sat Mar 13 2021 09:53:49 GMT-0800 (Pacific Standard Time)
 - Document 0
         Entities:
         - Entity Microsoft of type Organization
@@ -755,7 +763,7 @@ analyze_example(textAnalyticsClient);
         - Entity Paul Allen of type Person
 ```
 
-You can also use the Analyze operation to detect PII and key phrase extraction. See the Analyze samples for [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/javascript) and [TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/typescript/src) on GitHub.
+You can also use the Analyze operation to detect PII, recognize linked entities and key phrase extraction. See the Analyze samples for [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/javascript) and [TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/typescript/src) on GitHub.
 
 # [Version 3.0](#tab/version-3)
 

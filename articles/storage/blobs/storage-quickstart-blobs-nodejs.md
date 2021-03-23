@@ -93,7 +93,7 @@ From the project directory:
 
     ```javascript
     const { BlobServiceClient } = require('@azure/storage-blob');
-    const { v1: uuid} = require('uuid');
+    const { v1: uuidv1} = require('uuid');
 
     async function main() {
         console.log('Azure Blob storage v12 - JavaScript quickstart sample');

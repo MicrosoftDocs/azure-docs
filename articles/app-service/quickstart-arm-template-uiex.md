@@ -128,7 +128,7 @@ az deployment group create --resource-group myResourceGroup --parameters webAppN
 <ul>
 <li>Create a default <abbr title="A logical container for related Azure resources that you can manage as a unit.">resource group</abbr>.</li>
 <li>Create a default <abbr title="The plan that specifies the location, size, and features of the web server farm that hosts your app.">App Service plan</abbr>.</li>
-<li><a href="/cli/azure/webapp?view=azure-cli-latest#az-webapp-create">Create an <abbr title="The representation of your web app, which contains your app code, DNS hostnames, certificates, and related resources.">App Service app</abbr></a> with the specified name.</li>
+<li><a href="/cli/azure/webapp#az-webapp-create">Create an <abbr title="The representation of your web app, which contains your app code, DNS hostnames, certificates, and related resources.">App Service app</abbr></a> with the specified name.</li>
 </ul>
 </details>
 

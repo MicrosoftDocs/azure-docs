@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/14/2020
+ms.date: 03/11/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -45,7 +45,7 @@ The seamless migration flow thus has two phases: *pre migration* and *set creden
 ### Phase 1: Pre migration
 
 1. Your migration application reads the user accounts from the old identity provider.
-1. The migration application creates corresponding user accounts in your Azure AD B2C directory, but *does not set passwords*.
+1. The migration application creates corresponding user accounts in your Azure AD B2C directory, but *set random passwords* you generate.
 
 ### Phase 2: Set credentials
 

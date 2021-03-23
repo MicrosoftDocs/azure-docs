@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 02/12/2021
+ms.date: 03/02/2021
 
 ms.author: mimart
 author: msmimart
@@ -76,11 +76,11 @@ By default, all users, including guests, can invite guest users.
    >
    >![Enable Email one-time passcode opted in](media/delegate-invitations/enable-email-otp-opted-in.png)
 
-7. Under **Enable guest self-service sign up via user flows (Preview)**, select **Yes** if you want to be able to create user flows that let users sign up for apps. For more information about this setting, see [Add a self-service sign-up user flow to an app (Preview)](self-service-sign-up-user-flow.md).
+7. Under **Enable guest self-service sign up via user flows**, select **Yes** if you want to be able to create user flows that let users sign up for apps. For more information about this setting, see [Add a self-service sign-up user flow to an app](self-service-sign-up-user-flow.md).
 
     ![Self-service sign up via user flows setting](./media/delegate-invitations/self-service-sign-up-setting.png)
 
-7. Under **Collaboration restrictions**, choose whether to allow or deny invitations to the domains you specify. For more information, see [Allow or block invitations to B2B users from specific organizations](allow-deny-list.md).
+7. Under **Collaboration restrictions**, you can choose whether to allow or deny invitations to the domains you specify and enter specific domain names in the text boxes. For multiple domains, enter each domain on a new line. For more information, see [Allow or block invitations to B2B users from specific organizations](allow-deny-list.md).
 
     ![Collaboration restrictions settings](./media/delegate-invitations/collaboration-restrictions.png)
 ## Assign the Guest Inviter role to a user

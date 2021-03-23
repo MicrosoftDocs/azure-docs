@@ -5,7 +5,7 @@ author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 03/17/2021
 ---
 
 # PostgreSQL extensions in Azure Database for PostgreSQL - Flexible Server
@@ -121,10 +121,9 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 
 
 ## dblink and postgres_fdw
-[dblink](https://www.postgresql.org/docs/current/contrib-dblink-function.html) and [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) allow you to connect from one PostgreSQL server to another, or to another database in the same server. The sending server needs to allow outbound connections to the receiving server. The receiving server needs to allow connections from the sending server.
+[dblink](https://www.postgresql.org/docs/current/contrib-dblink-function.html) and [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) allow you to connect from one PostgreSQL server to another, or to another database in the same server. Flexible server supports both incoming and outgoing connections to any PostgreSQL server. The sending server needs to allow outbound connections to the receiving server. Similarly, the receiving server needs to allow connections from the sending server. 
 
 We recommend deploying your servers with [VNet integration](concepts-networking.md) if you plan to use these two extensions. By default VNet integration allows connections between servers in the VNET. You can also choose to use [VNet network security groups](../../virtual-network/manage-network-security-group.md) to customize access.
-
 
 ## pg_prewarm
 

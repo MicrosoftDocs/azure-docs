@@ -45,7 +45,7 @@ landingContent:
           - text: Compute and storage options
             url: concepts-compute-storage.md
           - text: MySQL versions
-            url: concepts-supported-versions.md
+            url: ./../concepts-supported-versions.md
           - text: Networking
             url: concepts-networking.md
           - text: Monitor

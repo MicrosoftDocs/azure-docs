@@ -114,26 +114,38 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="sizeondisk-versus-size"></a>
   **Why doesn't the *Size on disk* property for a file match the *Size* property after using Azure File Sync?**  
-  See [Understanding Cloud Tiering](storage-sync-cloud-tiering.md#sizeondisk-versus-size).
+  See [Understand Azure File Sync cloud tiering](storage-sync-cloud-tiering-overview.md#tiered-vs-locally-cached-file-behavior).
 
 * <a id="is-my-file-tiered"></a>
   **How can I tell whether a file has been tiered?**  
-  See [Understanding Cloud Tiering](storage-sync-cloud-tiering.md#is-my-file-tiered).
+  See [How to manage Azure File Sync tiered files](storage-sync-how-to-manage-tiered-files.md#how-to-check-if-your-files-are-being-tiered).
 
 * <a id="afs-recall-file"></a>**A file I want to use has been tiered. How can I recall the file to disk to use it locally?**  
-  See [Understanding Cloud Tiering](storage-sync-cloud-tiering.md#afs-recall-file).
+  See [How to manage Azure File Sync tiered files](storage-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk).
 
 * <a id="afs-force-tiering"></a>
   **How do I force a file or directory to be tiered?**  
-  See [Understanding Cloud Tiering](storage-sync-cloud-tiering.md#afs-force-tiering).
+  See [How to manage Azure File Sync tiered files](storage-sync-how-to-manage-tiered-files.md#how-to-force-a-file-or-directory-to-be-tiered).
 
 * <a id="afs-effective-vfs"></a>
   **How is *volume free space* interpreted when I have multiple server endpoints on a volume?**  
-  See [Understanding Cloud Tiering](storage-sync-cloud-tiering.md#afs-effective-vfs).
+  See [Choose Azure File Sync cloud tiering policies](storage-sync-cloud-tiering-policy.md#multiple-server-endpoints-on-a-local-volume).
   
 * <a id="afs-tiered-files-tiering-disabled"></a>
   **I have cloud tiering disabled, why are there tiered files in the server endpoint location?**  
-  See [Understanding Cloud Tiering](storage-sync-cloud-tiering.md#afs-tiering-disabled).
+    There are two reasons why tiered files may exist in the server endpoint location:
+
+    - When adding a new server endpoint to an existing sync group, if you choose either the recall namespace first option or recall namespace only option for initial download mode, files will show up as tiered until they're downloaded locally. To avoid this, select the avoid tiered files option for initial download mode. To manually recall files, use the [Invoke-StorageSyncFileRecall](storage-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk) cmdlet.
+
+    - If cloud tiering was enabled on the server endpoint and then disabled, files will remain tiered until they're accessed.
+
+* <a id="afs-tiered-files-not-showing-thumbnails"></a>
+  **Why are my tiered files not showing thumbnails or previews in Windows Explorer?**  
+    For tiered files, thumbnails and previews won't be visible at your server endpoint. This behavior is expected since the thumbnail cache feature in Windows intentionally skips reading files with the offline attribute. With Cloud Tiering enabled, reading through tiered files would cause them to be downloaded (recalled).
+
+    This behavior is not specific to Azure File Sync, Windows Explorer displays a "grey X" for any files that have the offline attribute set. You will see the X icon when accessing files over SMB. For a detailed explanation of this behavior, refer to [https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105)
+
+    For questions on how to manage tiered files, please see [How to manage tiered files](storage-sync-how-to-manage-tiered-files.md).
 
 * <a id="afs-files-excluded"></a>
   **Which files or folders are automatically excluded by Azure File Sync?**  
@@ -269,7 +281,7 @@ This article answers common questions about Azure Files features and functionali
     2.	Open up "Active Directory Domains and Trusts" console
     3.	Right-click on the domain that you want to access the file share, then click on the "Trusts" tab and select forest B domain from outgoing trusts. If you haven't configure trust between the two forests, you need to setup the trust first
     4.	Click on "Properties…" then "Name Suffix Routing"
-    5.	Check if the "*.file.core.windows.net" surffix shows up. If not, click on 'Refresh'
+    5.	Check if the "*.file.core.windows.net" suffix shows up. If not, click on 'Refresh'
     6.	Select "*.file.core.windows.net", then click on "Enable" and "Apply"
 
 * <a id=""></a>
@@ -291,6 +303,18 @@ This article answers common questions about Azure Files features and functionali
 **Are there REST APIs to support Get/Set/Copy directory/file Windows ACLs?**
 
     Yes, we support REST APIs that get, set, or copy NTFS ACLs for directories or files when using the [2019-07-07](/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (or later) REST API. We also support persisting Windows ACLs in REST based tools: [AzCopy v10.4+](https://github.com/Azure/azure-storage-azcopy/releases).
+
+* <a id="ad-support-rest-apis"></a>
+**How to remove cached credentials with storage account key and delete existing SMB connections before initializing new connection with Azure AD or AD credentials?**
+
+    You can follow the two step process below to remove the saved credential associated with the storage account key and remove the SMB connection： 
+    1. Run the cmdlet below in Windows Cmd.exe to remove the credential. If you cannot find one, it means that you have not persisted the credential and can skip this step.
+    
+       cmdkey /delete:Domain:target=storage-account-name.file.core.windows.net
+    
+    2. Delete the existing connection to the file share. You can specify the mount path as either the mounted drive letter or the storage-account-name.file.core.windows.net path.
+    
+       net use <drive-letter/share-path> /delete
 
 ## Network File System
 

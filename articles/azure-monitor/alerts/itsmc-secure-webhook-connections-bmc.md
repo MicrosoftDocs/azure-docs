@@ -1,7 +1,6 @@
 ---
 title: IT Service Management Connector - Secure Export in Azure Monitor - Configuration with BMC
 description: This article shows you how to connect your ITSM products/services with BMC on Secure Export in Azure Monitor.
-ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur

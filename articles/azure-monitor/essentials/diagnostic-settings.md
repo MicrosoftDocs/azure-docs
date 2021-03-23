@@ -6,7 +6,6 @@ ms.author: bwren
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.subservice: logs
 ---
 
 # Create diagnostic settings to send platform logs and metrics to different destinations

@@ -1,7 +1,6 @@
 ---
 title: Respond to events with Azure Log Analytics Alerts | Microsoft Docs
 description: This tutorial helps you understand alerting with Log Analytics to identify important information in your workspace and proactively notify you of issues or invoke actions to attempt to correct them.
-ms.subservice: logs
 ms.topic: tutorial
 author: bwren
 ms.author: bwren

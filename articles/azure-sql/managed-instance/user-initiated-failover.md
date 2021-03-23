@@ -9,7 +9,7 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
-ms.date: 02/23/2021
+ms.date: 02/27/2021
 ---
 
 # User-initiated manual failover on SQL Managed Instance
@@ -147,6 +147,7 @@ The short loss of connectivity from your client during the failover, typically l
 > - For BC instances there must exist quorum of replicas for the failover request to be accepted.
 > - For BC instances it is not possible to specify which readable secondary replica to initiate the failover on.
 > - Failover will not be allowed until the first full backup for a new database is completed by automated backup systems.
+> - Failover will not be allowed if there exists a database restore in progress.
 
 ## Next steps
 - Learn more about testing your applications for cloud readiness with [Testing App Cloud Readiness for Failover Resiliency with SQL Managed Instance](https://youtu.be/FACWYLgYDL8) video recoding.

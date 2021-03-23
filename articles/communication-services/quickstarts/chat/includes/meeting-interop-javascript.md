@@ -2,7 +2,7 @@
 title: Quickstart - Join a Teams meeting
 author: askaur
 ms.author: askaur
-ms.date: 02/17/2020
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ---
@@ -18,7 +18,7 @@ Use the `npm install` command to install the necessary Communication Services cl
 ```console
 npm install @azure/communication-common --save
 
-npm install @azure/communication-administration --save
+npm install @azure/communication-identity --save
 
 npm install @azure/communication-signaling --save
 
@@ -148,7 +148,7 @@ Within the snippet, replace
 // npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
 import { CallClient, CallAgent } from "@azure/communication-calling";
 import { AzureCommunicationUserCredential } from "@azure/communication-common";
-import { CommunicationIdentityClient } from "@azure/communication-administration";
+import { CommunicationIdentityClient } from "@azure/communication-identity";
 import { ChatClient } from "@azure/communication-chat";
 
 let call;
@@ -281,7 +281,7 @@ sendMessageButton.addEventListener("click", async () =>
 
 ## Get a Teams meeting chat thread for a Communication Services user
 
-The Teams meeting link and chat  can be retrieved using Graph APIs, detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta). The Communication Services Calling SDK accepts a full Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta)
+The Teams meeting link and chat can be retrieved using Graph APIs, detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta). The Communication Services Calling SDK accepts a full Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta)
 With the [Graph APIs](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta), you can also obtain the `threadId`. The response will have a `chatInfo` object that contains the `threadID`. 
 
 You can also get the required meeting information and thread ID from the **Join Meeting** URL in the Teams meeting invite itself.
@@ -300,6 +300,7 @@ Open your browser and navigate to http://localhost:8080/. You should see the fol
 
 :::image type="content" source="../acs-join-teams-meeting-chat-quickstart.png" alt-text="Screenshot of the completed JavaScript Application.":::
 
-Insert the Teams meeting link and thread ID into the text boxes. Press *Join Teams Meeting* to join the Teams meeting and chat from within your Communication Services application. Navigate to the bottom of the page to start chatting.
+Insert the Teams meeting link and thread ID into the text boxes. Press *Join Teams Meeting* to join the Teams meeting. After the ACS user has been admitted into the meeting, you can chat from within your Communication Services application. Navigate to the box at the bottom of the page to start chatting.
 
-**Note** - Currently only sending, receiving, and editing messages is supported for interoperability scenarios with Teams. Other features like typing indicators and Communication Services users adding or removing other users from the Teams meeting are not yet supported.  
+> [!NOTE] 
+> Currently only sending, receiving, and editing messages is supported for interoperability scenarios with Teams. Other features like typing indicators and Communication Services users adding or removing other users from the Teams meeting are not yet supported.  

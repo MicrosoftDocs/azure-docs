@@ -8,20 +8,23 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 01/22/2021
+ms.date: 03/09/2021
 ms.custom: contperf-fy21q1
 ---
 # What is Azure Cognitive Search?
 
 Azure Cognitive Search ([formerly known as "Azure Search"](whats-new.md#new-service-name)) is a cloud search service that gives developers APIs and tools for building a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications. 
 
+Search is foundational to any app that surfaces content to users, with common scenarios including catalog or document search, e-commerce site search, or knowledge mining for data science. The APIs and architecture of Cognitive Search simplify the task of adding sophisticated information retrieval to any solution.
+
 A search service has the following components:
 
 + Search engine for full text search
 + Persistent storage of user-owned indexed content
-+ APIs for indexing and querying
-+ Optional [AI-based enrichments](cognitive-search-concept-intro.md), creating searchable content out of images, raw text, application files
-+ Optional integration with other Azure services for data, machine learning/AI, and security
++ APIs for indexing and querying content
++ Optional [AI-based enrichments](cognitive-search-concept-intro.md), creating searchable content out of images, raw unstructured text, application files
++ Optional integration with other Azure services for data, machine learning/AI, monitoring, and security
++ Optional implementation of [semantic search (preview)](semantic-search-overview.md) for improved relevance
 
 Architecturally, a search service sits in between the external data stores that contain your un-indexed data, and your client app that sends query requests to a search index and handles the response.
 
@@ -69,8 +72,9 @@ An end-to-end exploration of core search features can be achieved in four steps:
 
 1. [**Query an index**](search-query-overview.md) using [Search explorer](search-explorer.md) in the portal, [REST API](search-get-started-rest.md), [.NET SDK](/dotnet/api/azure.search.documents.searchclient.search), or another SDK.
 
-> [!TIP]
-> Minimize steps by starting with the [**Import data wizard**](search-get-started-portal.md) and an Azure data source to create, load, and query an index in minutes.
+For initial exploration, start with the [**Import data wizard**](search-get-started-portal.md) and a built-in Azure data source to create, load, and query an index in minutes.
+
+For help with complex or custom solutions, [**contact a partner**](resource-partners-knowledge-mining.md) with deep expertise in Cognitive Search technology.
 
 ## Compare search options
 

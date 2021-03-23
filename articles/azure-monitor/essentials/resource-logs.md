@@ -7,7 +7,6 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
-ms.subservice: logs
 ---
 
 # Azure resource logs
@@ -25,11 +24,11 @@ See [Create diagnostic settings to send platform logs and metrics to different d
 
 [Create a diagnostic setting](../essentials/diagnostic-settings.md) to send resource logs to a Log Analytics workspace. This data is stored in tables as described in [Structure of Azure Monitor Logs](../logs/data-platform-logs.md). The tables used by resource logs depend on what type of collection the resource is using:
 
-- Azure diagnostics - All data written is to the _AzureDiagnostics_ table.
+- Azure diagnostics - All data written is to the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table.
 - Resource-specific - Data is written to individual table for each category of the resource.
 
 ### Azure diagnostics mode 
-In this mode, all data from any diagnostic setting will be collected in the _AzureDiagnostics_ table. This is the legacy method used today by most Azure services. Since multiple resource types send data to the same table, its schema is the superset of the schemas of all the different data types being collected.
+In this mode, all data from any diagnostic setting will be collected in the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table. This is the legacy method used today by most Azure services. Since multiple resource types send data to the same table, its schema is the superset of the schemas of all the different data types being collected. See [AzureDiagnostics reference](/azure/azure-monitor/reference/tables/azurediagnostics) for details on the structure of this table and how it works with this potentially large number of columns.
 
 Consider the following example where diagnostic settings are being collected in the same workspace for the following data types:
 
@@ -92,16 +91,6 @@ Most Azure resources will write data to the workspace in either **Azure Diagnost
 You can modify an existing diagnostic setting to resource-specific mode. In this case, data that was already collected will remain in the _AzureDiagnostics_ table until it's removed according to your retention setting for the workspace. New data will be collected in  the dedicated table. Use the [union](/azure/kusto/query/unionoperator) operator to query data across both tables.
 
 Continue to watch [Azure Updates](https://azure.microsoft.com/updates/) blog for announcements about Azure services supporting Resource-Specific mode.
-
-### Column limit in AzureDiagnostics
-There is a 500 property limit for any table in Azure Monitor Logs. Once this limit is reached, any rows containing data with any property outside of the first 500 will be dropped at ingestion time. The *AzureDiagnostics* table is in particular susceptible to this limit since it includes properties for all Azure services writing to it.
-
-If you're collecting resource logs from multiple services, _AzureDiagnostics_ may exceed this limit, and data will be missed. Until all Azure services support resource-specific mode, you should configure resources to write to multiple workspaces to reduce the possibility of reaching the 500 column limit.
-
-### Azure Data Factory
-Azure Data Factory, because of a detailed set of logs, is a service that is known to write a large number of columns and potentially cause _AzureDiagnostics_ to exceed its limit. For any diagnostic settings configured before the resource-specific mode was enabled, there will be a new column created for every uniquely named user parameter against any activity. More columns will be created because of the verbose nature of activity inputs and outputs.
- 
-You should migrate your logs to use the resource-specific mode as soon as possible. If you are unable to do so immediately, an interim alternative is to isolate Azure Data Factory logs into their own workspace to minimize the chance of these logs impacting other log types being collected in your workspaces.
 
 
 ## Send to Azure Event Hubs

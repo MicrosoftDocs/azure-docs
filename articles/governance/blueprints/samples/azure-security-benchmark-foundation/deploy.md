@@ -1,7 +1,7 @@
 ---
 title: Deploy Azure Security Benchmark Foundation blueprint sample
 description: Deploy steps for the Azure Security Benchmark Foundation blueprint sample including blueprint artifact parameter details.
-ms.date: 02/18/2020
+ms.date: 03/12/2021
 ms.topic: sample
 ---
 # Deploy the Azure Security Benchmark Foundation blueprint sample

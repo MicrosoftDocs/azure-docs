@@ -1,5 +1,5 @@
 ---
-title: Azure CLI scripts using az search module
+title: Azure CLI scripts using the az search module
 titleSuffix: Azure Cognitive Search
 description: Create and configure an Azure Cognitive Search service with the Azure CLI. You can scale a service up or down, manage admin and query api-keys, and query for system information.
 
@@ -37,48 +37,7 @@ Occasionally, questions are asked about tasks *not* on the above list. Currently
 
 Within a service, content creation and management are through [Search Service REST API](/rest/api/searchservice/) or [.NET SDK](/dotnet/api/overview/azure/search.documents-readme). While there are no dedicated PowerShell commands for content, you can write scripts that call REST or .NET APIs to create and load indexes.
 
-<a name="check-versions-and-load"></a>
-
-## Check versions and upgrade
-
-The examples in this article are interactive and require elevated permissions. The Azure CLI must be installed. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli).
-
-You can now run the Azure CLI with the `az` command from either Windows Command Prompt, PowerShell, or [Azure Cloud Shell](../cloud-shell/overview). PowerShell offers some tab completion features not available from Windows Command Prompt. 
-
-### Check the Azure CLI version
-
-If you aren't sure whether the Azure CLI is installed, run the following command as a verification step. 
-
-```azurecli-interactive
-az --version
-```
-If this command does not work, see [Install the Azure CLI](/cli/azure/install-azure-cli) to get the Azure CLI installed.
-
-If you have version 2.11.0 or newer, you can run the `az upgrade` command to update the CLI to the latest version.
-
-```azurecli-interactive
-az upgrade
-```
-
-### Connect to Azure with a browser sign-in token
-
-You can use your portal sign-in credentials to connect to a subscription in the Azure CLI. Alternatively you can [authenticate non-interactively with a service principal](/cli/azure/authenticate-azure-cli#sign-in-with-a-service-principal).
-
-```azurecli-interactive
-az login
-```
-
-If you hold multiple Azure subscriptions, set your Azure subscription. To see a list of your current subscriptions, run this command.
-
-```azurecli-interactive
-az account list --output table
-```
-
-To specify the subscription, run the following command. In the following example, the subscription name is `ContosoSubscription`.
-
-```azurecli-interactive
-az account set --subscription "ContosoSubscription"
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 <a name="list-search-services"></a>
 
@@ -148,7 +107,7 @@ az search service show --name <service-name> --resource-group <resource-group-na
 
 ## Create or delete a service
 
-To [create a new search service](search-create-service-portal), use the [**az search service create**](/cli/azure/search/service#az_search_service_show) command.
+To [create a new search service](search-create-service-portal.md), use the [**az search service create**](/cli/azure/search/service#az_search_service_show) command.
 
 ```azurecli-interactive
 az search service create \
@@ -259,7 +218,7 @@ az network vnet subnet update \
 id=$(az search service show \
     --resource-group <resource-group-name> \
     --name <service-name> \
-    --query [id]' \
+    --query [id] \
     --output tsv)
 
 # Create the private endpoint

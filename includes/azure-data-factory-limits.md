@@ -51,9 +51,9 @@ Azure Data Factory is a multitenant service that has the following default limit
 
 | Region group | Regions |
 | -------- | ------ |
-| Region group 1 | Central US, East US, East US2, North Europe, West Europe, West US, West US 2 |
-| Region group 2 | Australia East, Australia Southeast, Brazil South, Central India, Japan East, Northcentral US, Southcentral US, Southeast Asia, West Central US |
-| Region group 3 | Canada Central, East Asia, France Central, Korea Central, UK South |
+| Region group 1 | Central US, East US, East US 2, North Europe, West Europe, West US, West US 2 |
+| Region group 2 | Australia East, Australia Southeast, Brazil South, Central India, Japan East, North Central US, South Central US, Southeast Asia, West Central US |
+| Region group 3 | Other regions |
 
 <sup>3</sup> Pipeline, data set, and linked service objects represent a logical grouping of your workload. Limits for these objects don't relate to the amount of data you can move and process with Azure Data Factory. Data Factory is designed to scale to handle petabytes of data.
 
