@@ -89,4 +89,4 @@ Validate NAT pool size | Validate the network address translation (NAT) pool siz
 ### Operation system and Browsers (for Java Script SDKs)
 
 Azure Communication Services Voice/Video SDKs supports the selected versions of the Operation Systems and Browsers (for JavaScript SDK). The limitations are caused by the operating systems and/or browser architecture. E.g., Safari on IOS before version 14.5 cannot switch Bluetooth devices. Ensuring that users are on the supported version of OS and browsers guarantees the optimal quality of experience. 
-[Lean about supported versions of the OS and Browsers for Azure Communication Services SDKs](https://docs.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/calling-sdk-features)
+Learn about the operating systems and browsers that the calling client libraries support in the [calling conceptual documentation](https://docs.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/calling-sdk-features).
