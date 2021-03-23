@@ -116,7 +116,7 @@ The users will be synchronized with Azure AD.
 1. Under **Initial domain name**, enter `HDIFabrikamoutlook`.
 1. Select **Create**.
 
-    :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-new-directory.png" alt-text="Create an Azure AD directory" border="true":::
+   :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-new-directory.png" alt-text="Create an Azure AD directory" border="true":::
 
 ### Create a custom domain
 
@@ -125,7 +125,7 @@ The users will be synchronized with Azure AD.
 1. Under **Custom domain name**, enter `HDIFabrikam.com`, and then select **Add domain**.
 1. Then complete [Add your DNS information to the domain registrar](../../active-directory/fundamentals/add-custom-domain.md#add-your-dns-information-to-the-domain-registrar).
 
-:::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-custom-domain.png" alt-text="Create a custom domain" border="true":::
+   :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-custom-domain.png" alt-text="Create a custom domain" border="true":::
 
 ### Create a group
 
@@ -146,27 +146,27 @@ Create an Active Directory tenant administrator.
 
 1. Enter the following details for the new user:
 
-    **Identity**
+   **Identity**
 
-    |Property |Description |
-    |---|---|
-    |User name|Enter `fabrikamazureadmin` in the text box. From the domain name drop-down list, select `hdifabrikam.com`|
-    |Name| Enter `fabrikamazureadmin`.|
+   |Property |Description |
+   |---|---|
+   |User name|Enter `fabrikamazureadmin` in the text box. From the domain name drop-down list, select `hdifabrikam.com`|
+   |Name| Enter `fabrikamazureadmin`.|
 
-    **Password**
-    1. Select **Let me create the password**.
-    1. Enter a secure password of your choice.
+   **Password**
+   1. Select **Let me create the password**.
+   1. Enter a secure password of your choice.
 
-    **Groups and roles**
-    1. Select **0 groups selected**.
-    1. Select **AAD DC Administrators**, and then **Select**.
+   **Groups and roles**
+   1. Select **0 groups selected**.
+   1. Select **AAD DC Administrators**, and then **Select**.
 
-    :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/azure-ad-add-group-member.png" alt-text="The Azure AD Groups dialog box" border="true":::
+      :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/azure-ad-add-group-member.png" alt-text="The Azure AD Groups dialog box" border="true":::
 
-    1. Select **User**.
-    1. Select **Global administrator**, and then **Select**.
+   1. Select **User**.
+   1. Select **Global administrator**, and then **Select**.
 
-    :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/azure-ad-add-role-member.png" alt-text="The Azure AD role dialog box" border="true":::
+      :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/azure-ad-add-role-member.png" alt-text="The Azure AD role dialog box" border="true":::
 
 1. Select **Create**.
 
