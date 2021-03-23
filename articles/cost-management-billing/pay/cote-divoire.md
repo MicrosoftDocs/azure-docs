@@ -16,7 +16,7 @@ ROBOTS: NOINDEX, NOFOLLOW
 
 # Payment information for Côte d'Ivoire
 
-[Find another country or region](../billing-and-payments/pay-for-your-subscription.md).
+[Find another country or region](../understand/pay-bill.md#wire-bank-details).
 
 Please pay in USD only and reference your invoice number(s) on your payment remittance.
 

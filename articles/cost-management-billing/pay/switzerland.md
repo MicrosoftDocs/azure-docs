@@ -16,7 +16,7 @@ ROBOTS: NOINDEX, NOFOLLOW
 
 # Payment information for Switzerland
 
-[Find another country or region](../billing-and-payments/pay-for-your-subscription.md).
+[Find another country or region](../understand/pay-bill.md#wire-bank-details).
 
 ## Electronic Funds Transfer
 
