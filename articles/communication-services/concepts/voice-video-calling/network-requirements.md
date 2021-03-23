@@ -55,7 +55,7 @@ Below are the bandwidth requirements for the native Android and iOS client libra
 | 500kbps/1Mbps |	Group video calling |
 | 1Mbps/2Mbps |	HD Group video calling (540p videos on 1080p screen)|
 
-### Firewall (s) configuration.
+### Firewall(s) configuration
 
 The Azure Communication Services connection requires internet connectivity to specific ports to transmit traffic with high-quality. Azure Communication Services can work if access to all the necessary IP addresses, ports are not open. However, the optimal experience is provided when recommended ports and IP ranges are open.
 
