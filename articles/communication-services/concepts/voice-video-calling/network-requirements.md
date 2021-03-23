@@ -62,7 +62,7 @@ Azure Communication Services connections require internet connectivity to specif
 | Category | IP ranges or FQDN | Ports | 
 | :-- | :-- | :-- |
 | Media traffic | [Range of Azure Public Cloud IP Addresses](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) | UDP 3478 through 3481, TCP ports 443 |
-| Signalling, telemetry, registration| *.skype.com, *.microsoft.com, *.azure.net, *.azureedge.net, *.office.com, *.trouter.io | TCP 443, 80 |
+| Signaling, telemetry, registration| *.skype.com, *.microsoft.com, *.azure.net, *.azureedge.net, *.office.com, *.trouter.io | TCP 443, 80 |
 
 ### Network optimization
 
