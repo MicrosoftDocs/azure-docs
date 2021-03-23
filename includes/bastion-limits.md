@@ -16,5 +16,5 @@
 | Medium |50 |
 | Heavy |5 |
 
-*These workload types are defined here: [Remote Desktop workloads](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/remote-desktop-workloads)
-**These limits are based on RDP performance tests for Azure Bastion. The numbers may vary due to other on-going RDP sessions or other on-going SSH sessions. <br>
+*These workload types are defined here: [Remote Desktop workloads](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/remote-desktop-workloads)<br>
+**These limits are based on RDP performance tests for Azure Bastion. The numbers may vary due to other on-going RDP sessions or other on-going SSH sessions. 
