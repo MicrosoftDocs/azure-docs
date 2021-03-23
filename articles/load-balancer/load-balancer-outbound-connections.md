@@ -42,10 +42,10 @@ If a port is used for inbound connections, it has a **listener** for inbound con
 
 By definition, every IP address has 65,535 ports. Each port can either be used for inbound or outbound connections for TCP(Transmission Control Protocol) and UDP(User Datagram Protocol). 
 
-When a public IP address is added as a frontend IP to a load balancer, Azure gives 64,000 ports that are eligible for NAT.
+When a public IP address is added as a frontend IP to a load balancer, Azure gives 64,000 ports that are eligible for SNAT.
 
 >[!NOTE]
-> Each port used for a load-balancing or inbound NAT rule will consume a range of eight ports from these 64,000 ports, reducing the number of ports eligible for SNAT. If a load-> balancing or nat rule is in the same range of eight as another it will consume no additional ports. 
+> Each port used for a load-balancing or inbound NAT rule will consume a range of eight ports from these 64,000 ports, reducing the number of ports eligible for SNAT. If a load-balancing or nat rule is in the same range of eight as another it will consume no additional ports. 
 
 Through [outbound rules](./outbound-rules.md) and load-balancing rules, these SNAT ports can be distributed to backend instances to enable them to share the public IPs of the load balancer for outbound connections.
 
@@ -102,9 +102,9 @@ To maintain unique flows, the host rewrites the source port of each outbound pac
  
 When using a Standard internal load balancer, there isn't use of ephemeral IP addresses for SNAT. This feature supports security by default. This feature ensures all IP addresses used by resources are configurable and can be reserved. 
 
-To achieve outbound connectivity to the internet when using a Standard internal load balancer, configure an instance level public IP address to follow the behavior in (scenario 1)[#scenario1]. 
+To achieve outbound connectivity to the internet when using a Standard internal load balancer, configure an instance level public IP address to follow the behavior in [scenario 1](#scenario1). 
 
-Another option is to add the backend instances to a Standard public load balancer with an outbound rule configured. The backend instances are added to an internal load balancer for internal load balancing. This deployment follows the behavior in (scenario 2)[#scenario2]. 
+Another option is to add the backend instances to a Standard public load balancer with an outbound rule configured. The backend instances are added to an internal load balancer for internal load balancing. This deployment follows the behavior in [scenario 2](#scenario2). 
 
  ### <a name="scenario4"></a>Scenario 4: Virtual machine without public IP and behind Basic Load Balancer
 
