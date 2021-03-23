@@ -568,7 +568,7 @@ You can guide your users on how to discover their apps:
 
 Users can download an **Intune-managed browser**:
 
-- **For Android devices**, from the [Google play store](/azure/active-directory/authentication/howto-mfa-userstates)
+- **For Android devices**, from the [Google play store](https://play.google.com/store/apps/details?id=com.microsoft.intune)
 
 - **For Apple devices**, from the [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) or they can download the [My Apps mobile app for iOS ](https://apps.apple.com/us/app/my-apps-azure-active-directory/id824048653)
 
