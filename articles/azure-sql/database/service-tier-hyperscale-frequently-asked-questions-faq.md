@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer:
-ms.date: 02/03/2021
+ms.date: 03/31/2021
 ---
 # Azure SQL Database Hyperscale FAQ
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -273,9 +273,9 @@ No. Backups are managed by the storage subsystem, and leverage storage snapshots
 
 Yes. Geo-restore is fully supported. Unlike point-in-time restore, geo-restore requires a size-of-data operation. Data files are copied in parallel, so the duration of this operation depends primarily on the size of the largest file in the database, rather than on total database size. Geo-restore time will be significantly shorter if the database is restored in the Azure region that is [paired](../../best-practices-availability-paired-regions.md) with the region of the source database.
 
-### Can I set up geo-replication with Hyperscale database
+### Can I set up geo-replication with a Hyperscale database
 
-Not at this time.
+[Geo-replication](active-geo-replication-overview.md) for Hyperscale databases is in public preview.
 
 ### Can I take a Hyperscale database backup and restore it to my on-premises server, or on SQL Server in a VM
 
