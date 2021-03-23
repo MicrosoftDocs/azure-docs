@@ -131,7 +131,7 @@ During low traffic scenarios, your application will be scaled-in, so partitions 
 
 ![Scale-in orchestrations diagram](./media/durable-functions-perf-and-scale/scale-progression-1.png)
 
-In it, we see orchestrators 1 through 6 are load balanced across partitions but all partitions are within one worker, due to low-traffic. Activity Functions, on the other hand, make full use of all two allocated workers.
+In the previous diagram, we see that orchestrators 1 through 6 are load balanced across partitions. Similarly, partitions, like activities, are load balanced across workers.
 
 As traffic increases, more workers will get allocated and partitions will eventually load balance across all workers. If we continue to scale out, eventually each partition will be managed by a single worker. Activities, on the other hand, will continue to be load-balanced across all workers. This is shown in the image below.
 
