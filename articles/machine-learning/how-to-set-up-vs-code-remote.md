@@ -27,13 +27,6 @@ There are two ways you can connect to a compute instance from Visual Studio Code
 
 ## Configure a remote compute instance
 
-Using VS Code as a full-featured development environment for your remote compute instance allows you to:
-
-* [Author and manage files on your remote compute instance or file share](https://code.visualstudio.com/docs/editor/codebasics).
-* Use the [VS Code integrated terminal](https://code.visualstudio.com/docs/editor/integrated-terminal) to [run commands and applications on your remote compute instance](how-to-access-terminal.md).
-* [Debug your scripts and applications](https://code.visualstudio.com/Docs/editor/debugging)
-* [Use VS Code to manage your Git repositories](concept-train-model-git-integration.md)
-
 To configure a remote compute instance for development, you'll need a few prerequisites.
 
 * Azure Machine Learning Visual Studio Code extension. For more information, see the [Azure Machine Learning Visual Studio Code Extension setup guide](tutorial-setup-vscode-extension.md).
@@ -87,7 +80,14 @@ A new window launches for your remote compute instance. When attempting to make 
 1. VS Code Remote Server is installed on the compute instance.
 1. A WebSocket connection is established for real-time interaction.
 
-Once the connection is established, it's persisted. A token is issued at the start of the session which gets refreshed automatically to maintain the connection with your compute instance. 
+Once the connection is established, it's persisted. A token is issued at the start of the session which gets refreshed automatically to maintain the connection with your compute instance.
+
+After you connect to your remote compute instance, use the editor to:
+
+* [Author and manage files on your remote compute instance or file share](https://code.visualstudio.com/docs/editor/codebasics).
+* Use the [VS Code integrated terminal](https://code.visualstudio.com/docs/editor/integrated-terminal) to [run commands and applications on your remote compute instance](how-to-access-terminal.md).
+* [Debug your scripts and applications](https://code.visualstudio.com/Docs/editor/debugging)
+* [Use VS Code to manage your Git repositories](concept-train-model-git-integration.md)
 
 ## Configure compute instance as remote notebook server
 
