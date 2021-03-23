@@ -3,7 +3,7 @@ title: Extend Azure IoT Central with custom analytics | Microsoft Docs
 description: As a solution developer, configure an IoT Central application to do custom analytics and visualizations. This solution uses Azure Databricks.
 author: TheRealJasonAndrew
 ms.author: v-anjaso
-ms.date: 02/18/2020
+ms.date: 03/15/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -77,14 +77,14 @@ Use the [Azure portal to create an Azure Databricks Service](https://portal.azur
 
 When you've created the required resources, your **IoTCentralAnalysis** resource group looks like the following screenshot:
 
-![IoT Central analysis resource group](media/howto-create-custom-analytics/resource-group.png)
+:::image type="content" source="media/howto-create-custom-analytics/resource-group.png" alt-text="image of IoT Central analysis resource group.":::
 
 ## Create an event hub
 
 You can configure an IoT Central application to continuously export telemetry to an event hub. In this section, you create an event hub to receive telemetry from your IoT Central application. The event hub delivers the telemetry to your Stream Analytics job for processing.
 
 1. In the Azure portal, navigate to your Event Hubs namespace and select **+ Event Hub**.
-1. Name your event hub **centralexport**, and select **Create**.
+1. Name your event hub **centralexport**.
 1. In the list of event hubs in your namespace, select **centralexport**. Then choose **Shared access policies**.
 1. Select **+ Add**. Create a policy named **Listen** with the **Listen** claim.
 1. When the policy is ready, select it in the list, and then copy the **Connection string-primary key** value.
@@ -92,26 +92,42 @@ You can configure an IoT Central application to continuously export telemetry to
 
 Your Event Hubs namespace looks like the following screenshot:
 
-![Event Hubs namespace](media/howto-create-custom-analytics/event-hubs-namespace.png)
+:::image type="content" source="media/howto-create-custom-analytics/event-hubs-namespace.png" alt-text="image of Event Hubs namespace.":::
 
-## Configure export in IoT Central
+## Configure export in IoT Central and create a new destination
 
 On the [Azure IoT Central application manager](https://aka.ms/iotcentral) website, navigate to the IoT Central application you created from the Contoso template. In this section, you configure the application to stream the telemetry from its simulated devices to your event hub. To configure the export:
 
-1. Navigate to the **Data Export** page, select **+ New**, and then **Azure Event Hubs**.
-1. Use the following settings to configure the export, then select **Save**:
+1. Navigate to the **Data Export** page, select **+ New Export**.
+1. Before finishing the first window, Select **Create a destination**.
+
+The window will look like below.  
+
+:::image type="content" source="media/howto-create-custom-analytics/data-export-2.png" alt-text="image of Data export destination configuration.":::
+
+3. Enter the following values:
+
+| Setting | Value |
+| ------- | ----- |
+| Destination Name | Your Destination Name |
+| Destination Type | Azure Event Hubs |
+| Connection String| The event hub connection string you made a note of previously. | 
+| Event Hub| Your Event Hub Name|
+
+4. Click **Create** to finish.
+
+5. Use the following settings to configure the export:
 
     | Setting | Value |
     | ------- | ----- |
-    | Display Name | Export to Event Hubs |
+    | Enter an export name | eventhubexport |
     | Enabled | On |
-    | Event Hubs namespace | Your Event Hubs namespace name |
-    | Event hub | centralexport |
-    | Measurements | On |
-    | Devices | Off |
-    | Device Templates | Off |
+    | Data| Select telemetry | 
+    | Destinations| Create a destination, as shown below, for your export and then select it in the destination dropdown menu. |
 
-![Data export configuration](media/howto-create-custom-analytics/cde-configuration.png)
+:::image type="content" source="media/howto-create-custom-analytics/data-export-1.png" alt-text="Screenshot of Data export destination configuration.":::
+
+6. When finished, select **Save**.
 
 Wait until the export status is **Running** before you continue.
 
@@ -159,7 +175,7 @@ The following steps show you how to import the library your sample needs into th
 
 1. The library status is now **Installed**:
 
-    ![Library installed](media/howto-create-custom-analytics/cluster-libraries.png)
+:::image type="content" source="media/howto-create-custom-analytics/cluster-libraries.png" alt-text="Screenshot of Library installed.":::
 
 ### Import a Databricks notebook
 
@@ -173,9 +189,9 @@ Use the following steps to import a Databricks notebook that contains the Python
 
 1. Select the **Workspace** to view the imported notebook:
 
-    ![Imported notebook](media/howto-create-custom-analytics/import-notebook.png)
+:::image type="content" source="media/howto-create-custom-analytics/import-notebook.png" alt-text="Screenshot of Imported notebook.":::
 
-1. Edit the code in the first Python cell to add the Event Hubs connection string you saved previously:
+5. Edit the code in the first Python cell to add the Event Hubs connection string you saved previously:
 
     ```python
     from pyspark.sql.functions import *
@@ -201,7 +217,7 @@ You may see an error in the last cell. If so, check the previous cells are runni
 
 In the notebook, scroll down to cell 14 to see a plot of the rolling average humidity by device type. This plot continuously updates as streaming telemetry arrives:
 
-![Smoothed telemetry plot](media/howto-create-custom-analytics/telemetry-plot.png)
+:::image type="content" source="media/howto-create-custom-analytics/telemetry-plot.png" alt-text="Screenshot of Smoothed telemetry plot.":::
 
 You can resize the chart in the notebook.
 
@@ -209,7 +225,7 @@ You can resize the chart in the notebook.
 
 In the notebook, scroll down to cell 20 to see the [box plots](https://en.wikipedia.org/wiki/Box_plot). The box plots are based on static data so to update them you must rerun the cell:
 
-![Box plots](media/howto-create-custom-analytics/box-plots.png)
+:::image type="content" source="media/howto-create-custom-analytics/box-plots.png" alt-text="Screenshot of box plots.":::
 
 You can resize the plots in the notebook.
 

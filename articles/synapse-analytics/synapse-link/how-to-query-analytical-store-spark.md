@@ -10,6 +10,7 @@ ms.subservice: synapse-link
 ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
+ms.custom: cosmos-db
 ---
 
 # Interact with Azure Cosmos DB using Apache Spark in Azure Synapse Link
