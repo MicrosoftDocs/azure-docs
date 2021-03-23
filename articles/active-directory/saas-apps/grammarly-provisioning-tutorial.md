@@ -81,7 +81,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot that shows Provisioning Mode set to Automatic.](common/provisioning-automatic.png)
 
-1. In the **Admin Credentials** section, enter your Grammarly **Tenant URL** and **Secret token** information. Select **Test Connection** to ensure that Azure AD can connect to Grammarly. If the connection fails, ensure that your Grammarly account has admin permissions and try again.
+1. Under the **Admin Credentials** section, in the enter **Tenant URL** field enter `https://sso.grammarly.com/scim/v2`, and in the **Secret Token** field enter the token provided by Grammarly (see Step 2 above). Click **Test Connection** to ensure Azure AD can connect to Grammarly. If the connection fails, ensure your Grammarly account has Admin permissions and try again.
 
  	![Screenshot that shows the Tenant URL and Secret Token boxes.](common/provisioning-testconnection-tenanturltoken.png)
 
