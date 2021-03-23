@@ -118,4 +118,7 @@ If you intend to try the other quickstarts, then you should keep the resources y
 
 ## Next steps
 
-Run the other quickstarts, such as detecting an object in a live video feed.        
+Run the other quickstarts, such as detecting an object in a live video feed.
+
+<!-- TODO -->      
+
