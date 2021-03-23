@@ -243,10 +243,10 @@ Front Door.
 |942240|Detects MySQL charset switch and MSSQL DoS attempts|
 |942250|Detects MATCH AGAINST, MERGE and EXECUTE IMMEDIATE injections|
 |942260|Detects basic SQL authentication bypass attempts 2/3|
-|942270|Looking for basic sql injection. Common attack string for mysql, oracle and others.|
+|942270|Looking for basic sql injection. Common attack string for mysql, oracle, and others.|
 |942280|Detects Postgres pg_sleep injection, waitfor delay attacks and database shutdown attempts|
 |942290|Finds basic MongoDB SQL injection attempts|
-|942300|Detects MySQL comments, conditions and ch(a)r injections|
+|942300|Detects MySQL comments, conditions, and ch(a)r injections|
 |942310|Detects chained SQL injection attempts 2/2|
 |942320|Detects MySQL and PostgreSQL stored procedure/function injections|
 |942330|Detects classic SQL injection probings 1/2|
@@ -273,8 +273,8 @@ Front Door.
 |RuleId|Description|
 |---|---|
 |943100|Possible Session Fixation Attack: Setting Cookie Values in HTML|
-|943110|Possible Session Fixation Attack: SessionID Parameter Name with Off-Domain Referer|
-|943120|Possible Session Fixation Attack: SessionID Parameter Name with No Referer|
+|943110|Possible Session Fixation Attack: SessionID Parameter Name with Off-Domain Referrer|
+|943120|Possible Session Fixation Attack: SessionID Parameter Name with No Referrer|
 
 ### <a name="drs944-20"></a> <p x-ms-format-detection="none">JAVA Attacks</p>
 |RuleId|Description|
