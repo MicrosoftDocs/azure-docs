@@ -35,7 +35,7 @@ Azure Arc enabled servers Private Link Scope connects private endpoints (and the
 - Azure Key Vault
 - Azure Blob storage, required for Custom Script Extension.
 
-![Diagram of basic resource topology](./media/private-link-security/private-link-basic-topology.png)
+:::image type="content" source="./media/private-link-security/private-link-basic-topology.png" alt-text="Diagram of basic resource topology" border="true":::
 
 * The Private Endpoint on your VNet allows it to reach Azure Arc enabled servers endpoints through private IPs from your network's pool, instead of using to the public IPs of these endpoints. That allows you to keep using your Azure Arc enabled servers resource without opening your VNet to outbound traffic not requested.
 
@@ -66,7 +66,7 @@ To connect your server to Azure Arc over a private link, you need to configure y
 
 This article assumes you have already set up your Express Route circuit or site-to-site VPN connection.
 
-![Diagram of basic resource topology](./media/private-link-security/private-link-basic-topology.png)
+:::image type="content" source="./media/private-link-security/private-link-basic-topology.png" alt-text="Diagram of basic resource topology" border="true":::
 
 ## Network configuration
 
@@ -96,7 +96,7 @@ See the visual diagram under the section [How it works](#how-it-works) for the n
 
 1. Go to **Create a resource** in the Azure portal and search for **Azure Arc Private Link Scope**.
 
-   ![Find Private Link Scope](./media/private-link-security/ampls-find-1c.png)
+    :::image type="content" source="./media/private-link-security/find-scope.png" alt-text="Find Private Link Scope" border="true":::
 
 1. Select **create**.
 1. Pick a Subscription and Resource Group. During the preview, your virtual network and Azure Arc enabled servers must be in the same subscription as the Private Link Scope.
@@ -106,7 +106,7 @@ See the visual diagram under the section [How it works](#how-it-works) for the n
 
 1. Select **Review + Create**.
 
-   ![Create Private Link Scope](./media/private-link-security/ampls-create-1d.png)
+    :::image type="content" source="./media/private-link-security/create-private-link-scope.png" alt-text="Create Private Link Scope" border="true":::
 
 1. Let the validation pass, and then select **Create**.
 
@@ -114,7 +114,9 @@ See the visual diagram under the section [How it works](#how-it-works) for the n
 
 Once your Azure Arc Private Link Scope is created, you need to connect it with one or more virtual networks using a private endpoint. The private endpoint exposes access to the Azure Arc services on a private IP in your virtual network address space.
 
-1. In your scope resource, select **Private Endpoint connections** in the left-hand resource menu. Select **Private Endpoint** to start the endpoint create process. You can also approve connections that were started in the Private Link center here by selecting them and selecting **Approve**.
+1. In your scope resource, select **Private Endpoint connections** in the left-hand resource menu. Select **Add** to start the endpoint create process. You can also approve connections that were started in the Private Link center here by selecting them and selecting **Approve**.
+
+    :::image type="content" source="./media/private-link-security/create-private-endpoint.png" alt-text="Create Private Endpoint" border="true":::
 
 1. Pick the subscription, resource group, and name of the endpoint, and the region it should live in. The region needs to be the same region as the VNet you connect it to.
 
@@ -124,13 +126,13 @@ Once your Azure Arc Private Link Scope is created, you need to connect it with o
 
    a. Pick the **Subscription** that contains your Azure Arc Private Link Scope resource.
 
-   b. For **resource type**, choose **Microsoft.HybridCompute/privateLinkScopes**.
+   b. For **Resource type**, choose **Microsoft.HybridCompute/privateLinkScopes**.
 
-   c. From the **resource** drop-down, choose your Private Link scope you created earlier.
+   c. From the **Resource** drop-down, choose your Private Link scope you created earlier.
 
    d. Select **Next: Configuration >**.
-   
-      ![Screenshot of select Create Private Endpoint](./media/private-link-security/create-private-endpoint-configuration.png)
+
+    :::image type="content" source="./media/private-link-security/create-private-endpoint-configuration.png" alt-text="Complete creation of Private Endpoint" border="true":::
 
 1. On the **Configuration** page,
 
@@ -146,8 +148,6 @@ Once your Azure Arc Private Link Scope is created, you need to connect it with o
    d.    Let validation pass.
 
    e.    Select **Create**.
-
-    ![Screenshot of select Private Endpoint details.](./media/private-link-security/ampls-select-private-endpoint-create-5.png)
 
 ## Configure on-premises DNS forwarding
 
@@ -169,7 +169,7 @@ If you opted out of using Azure private DNS zones during private endpoint creati
 
 1. From the left-hand pane, select **DNS configuration** to see a list of the DNS records and corresponding IP addresses you’ll need to set up on your DNS server. The FQDNs and IP addresses will change based on the region you selected for your private endpoint and the available IP addresses in your subnet.
 
-    ![Screenshot of DNS configuration details.](./media/private-link-security/dns-configuration.png)
+    :::image type="content" source="./media/private-link-security/dns-configuration.png" alt-text="DNS configuration details" border="true":::
 
 1. Follow the guidance from your DNS server vendor to add the necessary DNS zones and A records to match the table in the portal. Ensure that you select a DNS server that is appropriately scoped for your network. Every machine or server that uses this DNS server now resolves the private endpoint IP addresses and must be associated with the Private Link Scope, or the connection will be refused.
 
@@ -221,7 +221,7 @@ When connecting a machine or server with Azure Arc enabled servers for the first
     1. In the **Operating system** drop-down list, select the operating system that the script is configured to run on.
     1. Under **Network Connectivity**, select **Private endpoint** and select the Azure Arc Private Link Scope created in Part 1 from the list.
 
-    ![Screenshot of selecting private endpoint connectivity option](./media/private-link-security/arc-enabled-servers-create-script.png)
+       :::image type="content" source="./media/private-link-security/arc-enabled-servers-create-script.png" alt-text="Selecting Private Endpoint connectivity option" border="true":::
 
     1. Select **Next: Tags**.
 
@@ -251,7 +251,7 @@ For Arc enabled servers that were set up prior to your private link scope, you c
     > [!NOTE]
     > Only Azure Arc enabled servers in the same subscription and region as your Private Link Scope is shown.
 
-    ![Screenshot of selecting Azure Arc resources](./media/private-link-security/select-servers-private-link-scope.png)
+    :::image type="content" source="./media/private-link-security/select-servers-private-link-scope.png" alt-text="Selecting Azure Arc resources" border="true":::
 
 It may take up to 15 minutes for the Private Link Scope to accept connections from the recently associated server(s).
 
