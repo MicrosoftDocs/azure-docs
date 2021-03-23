@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/22/2021
+ms.date: 03/23/2021
 ms.author: alkohli
 ---
 
@@ -19,7 +19,7 @@ The following release notes identify the critical open issues and the resolved i
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your device, carefully review the information contained in the release notes.
 
-This article applies to the **Azure Stack Edge 2103** release, which maps to software version number **2.2.1539.2889**.
+This article applies to the **Azure Stack Edge 2103** release, which maps to software version number **2.2.1540.2890**. This software can be applied to your device if you are running at least Azure Stack Edge 2010 (2.1.1377.2170) software.
 
 ## What's new
 
@@ -32,8 +32,6 @@ The following new features are available in the Azure Stack Edge 2103 release.
     - Add custom data while deploying a Windows or a Linux VM.
 
   You can also [Connect to the VM console on your device](azure-stack-edge-gpu-connect-virtual-machine-console.md) and troubleshoot any VM issues.
-
-- **Kubernetes cloud management** - From this release onwards, you can manage the Kubernetes cluster on your Azure Stack Edge Pro GPU device via the Azure portal. For more information, see [Manage Kubernetes on your Azure Stack Edge Pro GPU via the Azure portal](https://aka.ms/ase-cloud-mgmt-k8s-doc).
 
 - **Connect to PowerShell interface via https** - Starting this release, you will no longer be able to open a remote PowerShell session into a device over *http*. By default, *https* will be used for all the sessions. For more information, see how to [Connect to the PowerShell interface](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface) of your device.
 
