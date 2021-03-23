@@ -66,9 +66,9 @@ You must have a public-facing IP address terminating on an on-premises VPN devic
 
    1. Set the **Border Gateway Protocol** to **Enable**.  When enabled, it ensures that both Azure VMware Solution and the on-premises servers advertise their routes across the tunnel. If disabled, the subnets that need to be advertised must be manually maintained. If subnets are missed, HCX will fail to form the service mesh. For more information, see  [About BGP with Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-overview.md).
    
-   1. For the **Private address space**, enter the on-premises CIDR block. It's used to route all traffic bound for on-premises across the tunnel.  The CIDR block is only required if you don't enable BGP.
+   1. For the **Private address space**, enter the on-premises CIDR block. It's used to route all traffic bound for on-premises across the tunnel. The CIDR block is only required if you don't enable BGP.
 
-1. Select **Next : Links** and fill in the required fields. Specifying link and provider names allow you to distinguish between any number of gateways that may eventually be created as part of the hub. BGP and autonomous system number (ASN) must be unique inside your organization.
+1. Select **Next : Links** and complete the required fields. Specifying link and provider names allow you to distinguish between any number of gateways that may eventually be created as part of the hub. BGP and autonomous system number (ASN) must be unique inside your organization.
 
    :::image type="content" source="media/create-ipsec-tunnel/create-vpn-site-links.png" alt-text="Screenshot that shows link details.":::
 
