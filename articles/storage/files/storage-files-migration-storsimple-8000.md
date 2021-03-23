@@ -632,6 +632,6 @@ Your migration is complete.
 ## Next steps
 
 * Get more familiar with [Azure File Sync: aka.ms/AFS](../filesync/file-sync-planning.md).
-* Understand the flexibility of [cloud tiering](../filesync/file-sync-cloud-tiering.md) policies.
+* Understand the flexibility of [cloud tiering](../filesync/storage-sync-cloud-tiering-overview.md) policies.
 * [Enable Azure Backup](../../backup/backup-afs.md#configure-backup-from-the-file-share-pane) on your Azure file shares to schedule snapshots and define backup retention schedules.
 * If you see in the Azure portal that some files are permanently not syncing, review the [Troubleshooting guide](../filesync/file-sync-troubleshoot.md) for steps to resolve these issues.

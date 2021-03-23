@@ -76,7 +76,7 @@ A scenario without a link doesn't yet have a published migration guide. Check th
 | Source | Target: </br>Hybrid deployment | Target: </br>Cloud-only deployment |
 |:---|:--|:--|
 | | Tool combination:| Tool combination: |
-| Windows Server 2012 R2 and later | <ul><li>[Azure File Sync](storage-sync-files-deployment-guide.md)</li><li>[Azure File Sync and Azure DataBox](storage-sync-offline-data-transfer.md)</li></ul> | <ul><li>Via RoboCopy to a mounted Azure file share</li><li>Via Azure File Sync</li></ul> |
+| Windows Server 2012 R2 and later | <ul><li>[Azure File Sync](../filesync/file-sync-deployment-guide.md)</li><li>[Azure File Sync and Azure DataBox](../filesync/file-sync-offline-data-transfer.md)</li></ul> | <ul><li>Via RoboCopy to a mounted Azure file share</li><li>Via Azure File Sync</li></ul> |
 | Windows Server 2012 and earlier | <ul><li>Via DataBox and Azure File Sync to recent server OS</li><li>Via Storage Migration Service to recent server with Azure File Sync, then upload</li></ul> | <ul><li>Via Storage Migration Service to recent server with Azure File Sync</li><li>Via RoboCopy to a mounted Azure file share</li></ul> |
 | Network-attached storage (NAS) | <ul><li>[Via Azure File Sync upload](storage-files-migration-nas-hybrid.md)</li><li>[Via DataBox + Azure File Sync](storage-files-migration-nas-hybrid-databox.md)</li></ul> | <ul><li>Via RoboCopy to a mounted Azure file share</li></ul> |
 | Linux / Samba | <ul><li>[Azure File Sync and RoboCopy](storage-files-migration-linux-hybrid.md)</li></ul> | <ul><li>Via RoboCopy to a mounted Azure file share</li></ul> |
@@ -147,4 +147,4 @@ More information about the Azure Files technologies mentioned in this article:
 
 * [Azure file share overview](storage-files-introduction.md)
 * [Planning for an Azure File Sync deployment](../filesync/file-sync-planning.md)
-* [Azure File Sync: Cloud tiering](../filesync/file-sync-cloud-tiering.md)
+* [Azure File Sync: Cloud tiering](../filesync/storage-sync-cloud-tiering-overview.md)

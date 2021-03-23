@@ -4,7 +4,7 @@ description: Learn how to move sync resources across resource groups, subscripti
 author: fauhse
 ms.service: storage
 ms.topic: how-to
-ms.date: 3/10/2021
+ms.date: 03/23/2021
 ms.author: fauhse
 ms.subservice: files
 ---
@@ -139,5 +139,5 @@ A regional fail-over can be started by Microsoft in a catastrophic event that wi
 ## See also
 
 - [Overview of Azure file share and sync migration guides](storage-files-migration-overview.md)
-- [Troubleshoot Azure File Sync](storage-sync-files-troubleshoot.md)
-- [Plan for an Azure File Sync deployment](storage-sync-files-planning.md)
+- [Troubleshoot Azure File Sync](file-sync-troubleshoot.md)
+- [Planning for an Azure File Sync deployment](file-sync-planning.md)

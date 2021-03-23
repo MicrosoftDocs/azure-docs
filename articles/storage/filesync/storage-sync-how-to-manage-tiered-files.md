@@ -4,14 +4,14 @@ description: Tips and PowerShell commandlets to help you manage tiered files
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 1/4/2021
+ms.date: 03/23/2021
 ms.author: rogarana
 ms.subservice: files
 ---
 
 # How to manage tiered files
 
-This article provides guidance for users who have questions related to managing tiered files. For conceptual questions regarding cloud tiering, please see [Azure Files FAQ](storage-files-faq.md).
+This article provides guidance for users who have questions related to managing tiered files. For conceptual questions regarding cloud tiering, please see [Azure Files FAQ](../files/storage-files-faq.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json).
 
 ## How to check if your files are being tiered
 
@@ -134,4 +134,5 @@ Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -ThreadCoun
 > To recall files that have been tiered, the network bandwidth should be at least 1 Mbps. If network bandwidth is less than 1 Mbps, files may fail to recall with a timeout error.
 
 ## Next steps
-* [Azure Files FAQ](storage-files-faq.md)
+
+* [Frequently asked questions (FAQ) about Azure Files](../files/storage-files-faq.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json)

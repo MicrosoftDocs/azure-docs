@@ -197,7 +197,7 @@
   - name: Samples
     href: https://azure.microsoft.com/documentation/samples/?service=storage&term=file
   - name: Azure Files and Azure NetApp Files comparison
-    href: storage-files-netapp-comparison.md
+    href: ../files/storage-files-netapp-comparison.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
 - name: Resources
   items:
   - name: Azure updates

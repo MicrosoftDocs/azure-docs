@@ -4,7 +4,7 @@ description: Details on what to keep in mind when choosing Azure File Sync cloud
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 1/24/2021
+ms.date: 03/23/2021
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -78,4 +78,5 @@ When adjusting your volume free space policy, the amount of data you should keep
 - If tiering occurs before a heatmap is formed, files will be tiered by last modified timestamp
 
 ## Next steps
-* [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
+
+* [Planning for an Azure File Sync deployment](file-sync-planning.md)
