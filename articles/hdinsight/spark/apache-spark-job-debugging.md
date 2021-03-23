@@ -52,11 +52,11 @@ In the Spark UI, you can drill down into the Spark jobs that are spawned by the 
 
 3. Select the **Stages** tab to see the stages associated with the application.
 
-    ![Spark history server stages tab](./media/apache-spark-job-debugging/view-apache-spark-stages.png "View Spark stages")
+    :::image type="content" source="./media/apache-spark-job-debugging/view-apache-spark-stages.png " alt-text="Spark history server stages tab" border="true":::
 
     Each stage can have multiple tasks for which you can view execution statistics, like shown below.
 
-    ![Spark history server stages tab details](./media/apache-spark-job-debugging/view-spark-stages-details.png "View Spark stages details")
+    :::image type="content" source="./media/apache-spark-job-debugging/view-spark-stages-details.png " alt-text="Spark history server stages tab details" border="true":::
 
 4. From the stage details page, you can launch DAG Visualization. Expand the **DAG Visualization** link at the top of the page, as shown below.
 
@@ -87,14 +87,14 @@ Once a job is completed, the information about the job is persisted in the Spark
 
 1. To launch the Spark History Server, from the **Overview** page, select **Spark history server** under **Cluster dashboards**.
 
-    ![Azure portal launch Spark history server](./media/apache-spark-job-debugging/launch-spark-history-server.png "Launch Spark History Server1")
+    :::image type="content" source="./media/apache-spark-job-debugging/launch-spark-history-server.png " alt-text="Azure portal launch Spark history server" border="true":::
 
    > [!TIP]  
    > Alternatively, you can also launch the Spark History Server UI from the Ambari UI. To launch the Ambari UI, from the Overview blade, select **Ambari home** under **Cluster dashboards**. From the Ambari UI, navigate to **Spark2** > **Quick Links** > **Spark2 History Server UI**.
 
 2. You see all the completed applications listed. Select an application ID to drill down into an application for more info.
 
-    ![Spark history server completed applications](./media/apache-spark-job-debugging/view-completed-applications.png "Launch Spark History Server2")
+    :::image type="content" source="./media/apache-spark-job-debugging/view-completed-applications.png " alt-text="Spark history server completed applications" border="true":::
 
 ## See also
 

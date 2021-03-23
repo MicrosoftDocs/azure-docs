@@ -20,7 +20,7 @@ The Spark History Server is the web UI for completed and running Spark applicati
 1. From the [Azure portal](https://portal.azure.com/), open the Spark cluster. For more information, see [List and show clusters](../hdinsight-administer-use-portal-linux.md#showClusters).
 2. From **Cluster dashboards**, select  **Spark history server**. When prompted, enter the admin credentials for the Spark cluster.
 
-    ![Launch the Spark History Server from the Azure portal.](./media/apache-azure-spark-history-server/azure-portal-dashboard-spark-history.png "Spark History Server")
+    :::image type="content" source="./media/apache-azure-spark-history-server/azure-portal-dashboard-spark-history.png " alt-text="Launch the Spark History Server from the Azure portal." border="true":::the Azure portal." border="true":::
 
 ### Open the Spark History Server web UI by URL
 

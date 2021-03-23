@@ -468,7 +468,7 @@ If you're not going to continue to use this application, delete the cluster that
 
 1. Select **Delete**. Select **Yes**.
 
-![Azure portal deletes HDInsight cluster](./media/apache-spark-intellij-tool-plugin/hdinsight-azure-portal-delete-cluster.png "Delete HDInsight cluster")
+:::image type="content" source="./media/apache-spark-intellij-tool-plugin/hdinsight-azure-portal-delete-cluster.png " alt-text="Azure portal deletes HDInsight cluster" border="true":::
 
 ## Next steps
 

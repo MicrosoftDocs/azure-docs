@@ -223,7 +223,7 @@ If you're not going to continue to use this application, delete the cluster that
 
 1. Select **Delete**. Select **Yes**.
 
-![`HDInsight azure portal delete cluster`](./media/apache-spark-create-standalone-application/hdinsight-azure-portal-delete-cluster.png "Delete HDInsight cluster")
+:::image type="content" source="./media/apache-spark-create-standalone-application/hdinsight-azure-portal-delete-cluster.png " alt-text="`HDInsight azure portal delete cluster`" border="true":::lete cluster`" border="true":::
 
 ## Next step
 
