@@ -43,8 +43,8 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
 
 1. [Set up a new destination HDInsight cluster](../hdinsight-hadoop-provision-linux-clusters.md) using the same storage account, but with a different container name:
 
-   ![Use the same Storage account, but create a different container](./media/apache-hbase-migrate-new-version/same-storage-different-container.png)
-
+   :::image type="content" source="./media/apache-hbase-migrate-new-version/same-storage-different-container.png" alt-text="Use the same Storage account, but create a different container." border="false":::
+   
 1. Flush the source HBase cluster you're upgrading.
    
    HBase writes incoming data to an in-memory store called a *memstore*. After the memstore reaches a certain size, HBase flushes it to disk for long-term storage in the cluster's storage account. When you delete the source cluster after upgrading, you lose any memstore data. Before upgrading, manually flush each table's memstore to disk by running the [script to flush all HBase tables](https://raw.githubusercontent.com/Azure/hbase-utils/master/scripts/flush_all_tables.sh).
@@ -53,15 +53,18 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
    
 1. Stop ingestion to the source HBase cluster.
 
+
+
 1. To ensure you flush any recent memstore data, run the preceding script again.
 
 1. Sign in to [Apache Ambari](https://ambari.apache.org/) on the source cluster with `https://<OLDCLUSTERNAME>.azurehdinsight.net`, and stop the HBase services.
    
-   ![In Ambari, select Services > HBase > Stop under Service Actions](./media/apache-hbase-migrate-new-version/stop-hbase-services.png)
+   :::image type="content" source="./media/apache-hbase-migrate-new-version/stop-hbase-services1.png" alt-text="In Ambari, select Services > HBase > Stop under Service Actions" border="false":::
    
    At the confirmation prompt, select the box to turn on maintenance mode for HBase.
    
-   ![Check the Turn On Maintenance Mode for HBase checkbox, then confirm](./media/apache-hbase-migrate-new-version/turn-on-maintenance-mode.png)
+   :::image type="content" source="./media/apache-hbase-migrate-new-version/turn-on-maintenance-mode.png" alt-text="Select the Turn On Maintenance Mode for HBase checkbox, then confirm." border="false":::
+
    
    For more information on connecting to and using Ambari, see [Manage HDInsight clusters by using the Ambari Web UI](../hdinsight-hadoop-manage-ambari.md).
    
@@ -76,10 +79,11 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
    
 1. Under **Services** > **HDFS** > **Configs** > **Advanced** > **Advanced core-site**, change the `fs.defaultFS` HDFS setting to point to the source cluster's container name.
    
-   ![In Ambari, select Services > HDFS > Configs > Advanced > Advanced core-site and change the container name.](./media/apache-hbase-migrate-new-version/hdfs-advanced-settings.png)
+   :::image type="content" source="./media/apache-hbase-migrate-new-version/hdfs-advanced-settings.png" alt-text="In Ambari, select Services > HDFS > Configs > Advanced > Advanced core-site and change the container name." border="false":::
    
 1. Clean the Zookeeper data on the destination cluster by running the following commands in any of the Zookeeper nodes or worker nodes:
 
+   
    ```bash
    hbase zkcli
    rmr /hbase-unsecure

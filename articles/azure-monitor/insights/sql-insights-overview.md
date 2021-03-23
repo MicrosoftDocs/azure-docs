@@ -54,7 +54,7 @@ See [Enable SQL insights](sql-insights-enable.md) for the detailed procedure to 
 
 
 ## Data collected by SQL insights
-In the public preview, SQL insights only supports the remote method of monitoring. The Telegraf agent is not installed on the SQL Server. It uses the SQL Server input plugin for Telegraf and use the three groups of queries for the different types of SQL it monitors: Azure SQL DB, Azure SQL Managed Instance, SQL server running on an Azure VM. 
+In the public preview, SQL insights only supports the remote method of monitoring. The [telegraf agent](https://www.influxdata.com/time-series-platform/telegraf/) is not installed on the SQL Server. It uses the [SQL Server input plugin for telegraf](https://www.influxdata.com/integration/microsoft-sql-server/) and use the three groups of queries for the different types of SQL it monitors: Azure SQL DB, Azure SQL Managed Instance, SQL server running on an Azure VM. 
 
 The following tables summarize the following:
 

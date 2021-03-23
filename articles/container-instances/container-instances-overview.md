@@ -2,7 +2,7 @@
 title: Serverless containers in Azure
 description: The Azure Container Instances service offers the fastest and simplest way to run isolated containers in Azure, without having to manage virtual machines and without having to adopt a higher-level orchestrator.
 ms.topic: overview
-ms.date: 08/10/2020
+ms.date: 03/22/2021
 ms.custom: "seodec18, mvc"
 ---
 
