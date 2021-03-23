@@ -14,7 +14,8 @@ ROBOTS: NOINDEX, NOFOLLOW
 
 # Payment information for Cape Verde
 
-[Find another country or region](../understand/pay-bill.md#wire-bank-details).
+
+[Find another country or region](../understand/pay-bill.md#wire-bank-details?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json).
 
 Please pay in USD only and reference your invoice number(s) on your invoice remittance.
 

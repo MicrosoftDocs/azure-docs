@@ -13,7 +13,8 @@ ROBOTS: NOINDEX, NOFOLLOW
 
 # Payment information for France
 
-[Find another country or region](../understand/pay-bill.md#wire-bank-details).
+
+[Find another country or region](../understand/pay-bill.md#wire-bank-details?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json).
 
 ## Electronic Funds Transfer
 

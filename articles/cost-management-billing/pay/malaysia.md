@@ -14,7 +14,8 @@ ROBOTS: NOINDEX, NOFOLLOW
 
 # Payment information for Malaysia
 
-[Find another country or region](../understand/pay-bill.md#wire-bank-details).
+
+[Find another country or region](../understand/pay-bill.md#wire-bank-details?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json).
 
 Please pay in MYR only and reference invoice number(s) on your payment remittance.
 

@@ -14,7 +14,8 @@ ROBOTS: NOINDEX, NOFOLLOW
 
 # Payment information for Mexico
 
-[Find another country or region](../understand/pay-bill.md#wire-bank-details).
+
+[Find another country or region](../understand/pay-bill.md#wire-bank-details?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json).
 
 Please pay in Mexican Pesos only. For your payment to be processed, your company name and invoice(s) number must be provided on remittance payment.
 

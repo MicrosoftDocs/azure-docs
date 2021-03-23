@@ -14,6 +14,7 @@ ROBOTS: NOINDEX, NOFOLLOW
 
 # Payment information for India
 
-[Find another country or region](../understand/pay-bill.md#wire-bank-details).
+
+[Find another country or region](../understand/pay-bill.md#wire-bank-details?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json).
 
 Please follow payment instructions on your invoice and reference invoice number(s) on your payment remittance.  

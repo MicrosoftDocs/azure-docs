@@ -14,7 +14,8 @@ ROBOTS: NOINDEX, NOFOLLOW
 
 # Payment information for Colombia
 
-[Find another country or region](../understand/pay-bill.md#wire-bank-details).
+
+[Find another country or region](../understand/pay-bill.md#wire-bank-details?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json).
 
 Please pay in Colombian Pesos only. For payment to be processed, your company name and invoice number(s) must be provided on remittance advice.
 
