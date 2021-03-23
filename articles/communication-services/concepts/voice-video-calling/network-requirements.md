@@ -27,7 +27,7 @@ There are many different factors that contribute to Azure Communication Services
 The quality of real-time media over IP is significantly impacted by the quality of the underlying network connectivity, but especially by the amount of:
 * **Latency**. This is the time it takes to get an IP packet from point A to point B on the network. This network propagation delay is determined by the physical distance between the two points and any additional overhead incurred by the devices that your traffic flows through. Latency is measured as one-way or Round-trip Time (RTT).
 * **Packet Loss**. A percentage of packets that are lost in a given window of time. Packet loss directly affects audio quality—from small, individual lost packets having almost no impact, to back-to-back burst losses that cause complete audio cut-out.
-* **Inter-packet arrival jitter or simply jitter**. This is the average change in delay between successive packets. Azure Communication Services  can adapt to some levels of jitter through buffering. It's only when the jitter exceeds the buffering that a participant will notice the effects of jitter.
+* **Inter-packet arrival jitter or simply jitter**. This is the average change in delay between successive packets. Azure Communication Services can adapt to some levels of jitter through buffering. It's only when the jitter exceeds the buffering that a participant will notice its effects.
 
 ### Network bandwidth
 
