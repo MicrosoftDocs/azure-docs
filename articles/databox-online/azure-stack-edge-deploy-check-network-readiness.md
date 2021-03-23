@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/22/2021
+ms.date: 03/23/2021
 ms.author: alkohli
 
 # Customer intent: As an IT admin, I want to expedite deployment of Azure Stack devices by checking network settings in advance.
@@ -38,9 +38,13 @@ The Network Readiness Checker includes the following tests. You can choose which
 Before you begin, complete the following tasks:
 
 - Prepare your network using [Deployment checklist for your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-deploy-checklist.md). 
+
 - Make sure you have access to a client computer that is running on the network where you'll deploy your devices.
+
 - Install PowerShell 7.0 on the client computer. For guidance, see [What's new in PowerShell 7.0](/powershell/scripting/whats-new/what-s-new-in-powershell-70.md?view=powershell-7.1&preserve-view=true).<!--Vibha to verify whether tool has been tested in PowerShell 7.0. PowerShell 7.0 enables multi-platform testing in a Windows/Linux environment.-->
+
 - Install the Azure Stack Network Readiness Checker tool in PowerShell by following the steps in [Install Network Readiness Checker](azure-stack-edge-check-network=readiness.md#install-network-readiness-checker), below.
+
 
 ## Install Network Readiness Checker
 
@@ -64,85 +68,45 @@ To install the Azure Stack Network Readiness Checker (NRC) on the client compute
    [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"):
    ```
 
-## Run a Network Readiness Check
+
+## Run a network readiness check
+
+When you run the Azure Stack Network Readiness Tool, you'll need to provide network and device information from the [Deployment checklist for your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-deploy-checklist.md).
+
+To run a network readiness check, do the following steps:
 
 1. Open PowerShell 7.0 on a client computer running on the network where you will deploy the Azure Stack Edge device.
 
-1.  Run a network readiness check by entering the following command:<!--Would the full set of parameters not be described in a PowerShell module reference? This article should document the parameters to run to meet pre-qualification needs before deployment?-->
+1.  Run a network readiness check by entering the following command:<!--1) I switched the order of -WindowsUpdateServer and -SkipTests so that all computer specs preceded the choice of tests. Shouldn't affect output. Test, and then update the sample command. 2) Revisit Required vs. Optional. In this context, should the time server be required? Windows Update servers are recommended but not required? Proxy server is needed if they are using one? Format line will need to be updated based on this.-->
 
     ```powershell
-    Invoke-AzsNetworkValidation [-RunTests {LinkLayer | IPConfig | DnsServer | TimeServer |
-    DuplicateIP | Proxy | AzureEndpoint | WindowsUpdateServer | DnsRegistration}] [-SkipTests
-    {LinkLayer | IPConfig | DnsServer | TimeServer | DuplicateIP | AzureEndpoint |
-    WindowsUpdateServer | DnsRegistration}] [-DnsServer <string[]>] [-DnsName <string>]  [-DeviceFqdn
-    <string>] [-TimeServer <string[]>] [-ComputeIPs <string[]>] [-AzureEnvironment {AzureCloud |
-    AzureChinaCloud | AzureGermanCloud | AzureUSGovernment | CustomCloud}] [-CustomCloudArmEndpoint
-    <uri>] [-Proxy <uri>] [-ProxyCredential <pscredential>] [-ExternalUri <uri>]
-    [-WindowsUpdateServer <uri[]>] [-OutputPath <string>] [-CleanReport] [<CommonParameters>]
+    Invoke-AzsNetworkValidation -DnsServer <string[]> -DeviceFqdn <string> [-TimeServer <string[]>] [-Proxy <uri>] [-WindowsUpdateServer <uri[]>] [-SkipTests {LinkLayer | IPConfig | DnsServer | TimeServer | DuplicateIP | AzureEndpoint] |
+    WindowsUpdateServer | DnsRegistration}] -OutputPath <string>
     ```
+    
+    where:
 
-#### Usage notes
+    - `-DnsServer`: Provides the IP addresses of one or more DNS servers.
  
-To test the network settings, customer needs to provide contextual info such as XXX. 
+    - `-DeviceFqdn`: Provides the fully qualified domain name (FQDN) of the Azure Stack Edge or Azure Stack Hub device.<!--Is this the FQDN of the device they're running the test on or the Azure Stack Edge/Hub device? Do we assume they have installed the device, but not yet connected it? If so, add "Install the device" to the prerequisites?--> 
+    
+    - `-TimeServer`: Provides the FQDN of one or more Network Time Protocol (NTP) server(s). (Recommended)
 
-TWO SCENARIOS? Tool can be used to pre-qualify the network before deploying an Azure Stack device, or for diagnostics after deploying the device.
-
-Do some parameters apply to Azure Stack Edge only and some to Azure Stack Hub only?
-
-What's the baseline set of parameters needed to verify network settings pre-deployment? in Edge? in Hub?
-
-#### Parameters
-
-<!--1) Verify what is required and what is not. Format string suggests no parameter is required from the tool's perspective. 2) Strongly recommended parameters that are not required? 3) Some parameters are only available after the device is deployed (but before it's connected)? 4) Some parameters are dependent on others? Example: No need for proxy credentials if you don't specify a proxy server?-->
-
-The Network Readiness Checker accepts the following parameters:
-
-   - `-RunTests`: Is used to specify which tests to run. All tests run if you don't include the parameter. Separate test names with a comma. (Optional)
+    -  `-Proxy`: If you're using a proxy server, provides the URI for the proxy server. (Optional)
+    
+    - `-WindowsUpdateServer`: Provides the URIs for one or more Windows Update Server(s) or Windows Update for Business Server(s). (Optional)
+  
+    - `-SkipTests`: Can be used to exclude tests. Separate test names with a comma. (Optional)
    
-   - `-SkipTests`: Is used to specify tests to exclude. Separate test names with a comma. (Optional)
-   
-   - `-DnsServer`>: Provides the IP addresses of one or more DNS servers.
-   
-   -  `-DnsName`: Provides the name of the DNS server(s). (Optional)<!--Is this the friendly name of the DNS server? Sample output only includes the IP addresses of the DNS server? How is this used?--)
-   
-   -  `-DeviceFqdn`: Specifies the  the fully qualified domain name(s) (FQDNs) of the Stack Edge device.<!--Will they have deployed the device?--> 
-   
-   - `-TimeServer`: Specifies the FQDNs of the Network Time Protocol (NTP) server(s). This is a recommended option.
-   
-   - `-ComputeIps`: Specifies the IP addresses of the compute resources.<!--If they have deployed the device, where can they find this?-->
-   
-   - `-AzureEnvironment`: Specifies the Azure environment in which the Azure Stack Edge or Azure Stack Hub device will be deployed.<!--If they don't include this parameter, will the test run in the Azure Cloud? Only needed if they are in another environment?--> Enter one of the following values:<!--Where are these explained?-->
-      |Value            |Environment |
-      |-----------------|------------|
-      |AzureCloud       |            |
-      |AzureChinaCloud  |            |
-      |AzureGermanCloud |            |
-      |AzureUSGovernment|            |
-      |CustomCloud      |            |
-  
-  - `-CustomCloudArmEndpoint`: Specifies the URI for XXX.
-  
-  - `-Proxy`: If you're using a proxy server, specifies the URI for the proxy server.
-  
-  - `-ProxyCredential`: Specifies credentials used for the proxy server.
-  
-  - `-ExternalUri`: Specifies the external URI for XXX.
-  
-  - `-WindowsUpdateServer`: (Optional) Specifies the URIs for one or more Windows Update Server(s) or Windows Update for Business Server(s).
-  
-  - `-OutPath`: Specifies where to store the log file and report from the tests. DEFAULT PATH?
-  
-  - `-CleanReport`: DOES WHAT?
-  
-  - `-<CommonParameters>`: WHAT COMMON PARAMETERS ARE AVAILABLE, AND WHAT DOES THIS GROUPING DO?
+    - `-OutPath`: Tells where to store the log file and report from the tests. DEFAULT PATH?
+ 
 
 ## Sample tool output
 
-The following is sample output from the Azure Stack Network Readiness Check (NRC) tool.<!--Discuss what failed. Anything else to note?-->
+The following sample is the output from the Azure Stack Network Readiness Check (NRC) tool.<!--Discuss what failed. Anything else to note?-->
 
 ```powershell
 PS C:\Users\Administrator> Invoke-AzsNetworkValidation -DnsServer '10.50.10.50', '10.50.50.50' -DeviceFqdn 'gusp-dtp.northamerica.corp.contoso.com' -TimeServer 'pool.ntp.org' -Proxy 'http://10.57.48.80:8080' -SkipTests DuplicateIP -WindowsUpdateServer "http://storsimpleprod.frontendprodmt.selfhost.corp.contoso.com" -OutputPath C:\gusp
-
 
 Invoke-AzsNetworkValidation v1.2100.1396.426 started.
 The following tests will be executed: LinkLayer, IPConfig, DnsServer, TimeServer, AzureEndpoint, WindowsUpdateServer, DnsRegistration, Proxy
@@ -170,6 +134,10 @@ Log location (contains PII): C:\gusp\AzsReadinessChecker.log
 Report location (contains PII): C:\gusp\AzsReadinessCheckerReport.json
 Invoke-AzsNetworkValidation Completed
 ```
+ 
+## Next steps
+
+- Learn how to [Connect to an Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-connect.md).
 
 
 
