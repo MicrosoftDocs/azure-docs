@@ -1,7 +1,7 @@
 ---
 title: Multi-language indexing for non-English search queries
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search supports 56 languages, leveraging language analyzers from Lucene and Natural Language Processing technology from Microsoft.
+description: Create an index that supports multi-language content and then create queries scoped to that content.
 
 manager: nitinme
 author: HeidiSteen
