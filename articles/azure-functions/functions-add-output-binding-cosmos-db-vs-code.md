@@ -67,6 +67,8 @@ In the [previous quickstart article](./create-first-function-vs-code-csharp.md),
 
 1. In Visual Studio Code, locate the Azure Cosmos DB account you have just created. Right-click on its name, and select **Copy Connection String**.
 
+    :::image type="content" source="./media/functions-add-output-binding-cosmos-db-vs-code/copy-connection-string.png" alt-text="Copying the Azure Cosmos DB connection string" border="true":::
+
 1. Press <kbd>F1</kbd> to open the command palette, then search for and run the command `Azure Functions: Add New Setting...`.
 
 1. Choose the function app you created in the previous article. Provide the following information at the prompts:
