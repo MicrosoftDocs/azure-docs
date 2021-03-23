@@ -28,21 +28,19 @@ Other limits for the template are:
 * 64 output values
 * 24,576 characters in a template expression
 
-When using copy loops to deploy resource, do not use the loop name as a dependency. Instead, use the instance of the resource from the loop that you need to depend on. For example:
+When using copy loops to deploy resource, do not use the loop name as a dependency:
 
-* Don't do this:
+```json
+dependsOn: [ "nicLoop" ] //don't do this
+```
 
-  ```json
-  dependsOn: [ "nicLoop" ] //don't do this
-  ```
+Instead, use the instance of the resource from the loop that you need to depend on. For example:
 
-* Do this:
-
-  ```json
-  dependsOn: [
-      "[resourceId('Microsoft.Network/networkInterfaces', concat('nic-', copyIndex()))]"
-  ]
-  ```
+```json
+dependsOn: [
+    "[resourceId('Microsoft.Network/networkInterfaces', concat('nic-', copyIndex()))]"
+]
+```
 
 ## Solution 1 - Simplify template
 
