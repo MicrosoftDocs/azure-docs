@@ -53,7 +53,7 @@ Two Azure resources are defined in the template:
     |Ssh User Name|Provide the username, default is sshuser|
     |Ssh Password|Provide the password.|
 
-    ![Deploy Resource Manager template HBase](./media/quickstart-resource-manager-template/resource-manager-template-hbase.png)
+    :::image type="content" source="./media/quickstart-resource-manager-template/resource-manager-template-hbase.png" alt-text="Deploy Resource Manager template HBase" border="true":::
 
 1. Review the **TERMS AND CONDITIONS**. Then select **I agree to the terms and conditions stated above**, then **Purchase**. You'll receive a notification that your deployment is in progress. It takes about 20 minutes to create a cluster.
 
