@@ -5,7 +5,8 @@ author: njray
 ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
-ms.service: storage
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
 ---
 # Move mainframe storage to Azure
 
