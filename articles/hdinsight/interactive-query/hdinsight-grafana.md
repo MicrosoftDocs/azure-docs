@@ -26,7 +26,7 @@ See [Create Apache Hadoop clusters using the Azure portal](../hdinsight-hadoop-c
 
 1. The Grafana dashboard appears and looks like this example:
 
-    ![HDInsight Grafana web dashboard](./media/hdinsight-grafana/hdinsight-grafana-dashboard.png "HDInsight Grafana dashboard")
+    :::image type="content" source="./media/hdinsight-grafana/hdinsight-grafana-dashboard.png " alt-text="HDInsight Grafana web dashboard" border="true":::
 
 ## Clean up resources
 
