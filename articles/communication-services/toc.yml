@@ -84,6 +84,8 @@
         href: concepts/voice-video-calling/calling-sdk-features.md
       - name: Voice and video concepts
         href: concepts/voice-video-calling/about-call-types.md
+      - name: Network requirements
+        href: concepts/voice-video-calling/network-requirements.md
   - name: UI Framework
     items:
       - name: UI Framework overview
