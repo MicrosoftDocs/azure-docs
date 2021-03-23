@@ -56,7 +56,7 @@ To create an assessment, do the following:
  
    `drive:\Users\<username>\Documents\SSMAProjects\MySQLMigration\report\report_2016_11_12T02_47_55\`
  
-   . Open the file in Excel to get an inventory of MySQL objects and the effort that's required to perform schema conversions.
+   Open the file in Excel to get an inventory of MySQL objects and the effort that's required to perform schema conversions.
 
     ![Screenshot of an example conversion report in SSMA.](./media/mysql-to-sql-database-guide/conversion-report.png)
 
@@ -75,7 +75,7 @@ Validate the default data type mappings and change them based on requirements, i
 
 To convert the schema, do the following: 
 
-1. (Optional) To convert dynamic or ad hoc queries, right-click the node, and then select **Add statement**. 
+1. (Optional) To convert dynamic or specialized queries, right-click the node, and then select **Add statement**. 
 
 1. Select the **Connect to Azure SQL Database** tab, and then enter the connection details. You can select to connect to an existing database or provide a new name, in which case a database will be created on the target server.
 
