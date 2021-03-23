@@ -14,7 +14,7 @@ ms.custom: subject-security-benchmark
 
 # Azure security baseline for Azure Active Directory
 
-This security baseline applies guidance from the [Azure Security Benchmark version 2.0](../../security/benchmarks/overview.md) to Azure Active Directory. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure Active Directory. **Controls** not applicable to Azure Active Directory have been excluded.
+This security baseline applies guidance from the [Azure Security Benchmark version 2.0](../../security/benchmarks/overview.md) to Azure Active Directory. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure Active Directory. **Controls** not applicable to Azure Active Directory, or for which the responsibility is Microsoft's, have been excluded.
 
 To see how Azure Active Directory completely maps to the Azure Security Benchmark, see the [full Azure Active Directory security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
