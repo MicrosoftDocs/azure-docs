@@ -22,6 +22,10 @@ In this article, you'll learn how Front Door Standard/Premium (Preview) Routes a
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+## Caching and request methods
+
+Only the GET request method can generate cached content in Azure Front Door. All other request methods are always proxied through the network.
+
 ## Delivery of large files
 
 Front Door Standard/Premium (Preview) delivers large files without a cap on file size. Front Door uses a technique called object chunking. When a large file is requested, Front Door retrieves smaller pieces of the file from the origin. After receiving a full or byte-range file request, the Front Door environment requests the file from the originS in chunks of 8 MB.

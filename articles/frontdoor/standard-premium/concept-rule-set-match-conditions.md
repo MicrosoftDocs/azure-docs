@@ -5,11 +5,9 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 03/24/2021
 ms.author: yuajia
 ---
-
-<!-- TODO check image size -->
 
 # Azure Front Door Standard/Premium (Preview) Rule Set match conditions
 
@@ -108,8 +106,6 @@ Use the **post args** match condition to identify requests based on the argument
 > [!NOTE]
 > The **post args** match condition works with the `application/x-www-form-urlencoded` content type.
 
-<!-- TODO Checking with PG - any other content types? -->
-
 ### Properties
 
 | Property | Supported values |
@@ -170,7 +166,6 @@ In this example, we match all POST requests where a `customerName` argument is p
 
 ---
 
-
 ## <a name="QueryString"></a> Query string
 
 Use the **query string** match condition to identify requests that contain a specific query string. You can specify multiple values to match, which will be combined using OR logic.
@@ -229,8 +224,6 @@ In this example, we match all requests where the query string contains the strin
 ---
 
 ## <a name="RemoteAddress"></a> Remote address
-
-<!-- TODO how are unknown addresses handled? -->
 
 The **remote address** match condition identifies requests based on the requester's location or IP address.
 
@@ -293,8 +286,6 @@ In this example, we match all requests where the request has not originated from
 ## <a name="RequestBody"></a> Request body
 
 The **request body** match condition identifies requests based on specific text that appears in the body of the request.
-
-<!-- TODO any requirements for body max length, encoding, etc? -->
 
 ### Properties
 
@@ -530,13 +521,6 @@ In this example, we match all requests where the request contains a header named
 ## <a name="RequestMethod"></a> Request method
 
 The **request method** match condition identifies requests that use the specified HTTP request method.
-
-<!-- TODO check rules about combining this match condition with actions - I got this error when I tried to use it with the 'URL redirect' action: "Error: The delivery policy rule is not valid because the rule has a RequestMethod Condition and UrlRedirect Action, which would cause infinite redirects." -->
-
-> [!NOTE]
-> Only the GET request method can generate cached content in Azure Front Door. All other request methods are proxied through the network.
-
-<!-- TODO check why the above is here - it's useful info but I'm not sure it belongs here; maybe on the caching page instead -->
 
 ### Properties
 
