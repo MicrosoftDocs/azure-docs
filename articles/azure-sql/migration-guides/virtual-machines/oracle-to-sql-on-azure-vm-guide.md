@@ -26,7 +26,7 @@ To migrate your Oracle schema to SQL Server on Azure VM, you need:
 - To download [SQL Server Migration Assistant (SSMA) for Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258).
 - A target [SQL Server VM](../../virtual-machines/windows/sql-vm-create-portal-quickstart.md).
 - The [necessary permissions for SSMA for Oracle](/sql/ssma/oracle/connecting-to-oracle-database-oracletosql) and [provider](/sql/ssma/oracle/connect-to-oracle-oracletosql).
-- Connectivity and proper permissions to access both source and target. 
+- Connectivity and sufficient permissions to access both source and target. 
 
 
 ## Pre-migration

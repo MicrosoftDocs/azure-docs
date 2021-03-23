@@ -25,7 +25,7 @@ To migrate your Db2 database to SQL Managed Instance, you need:
 - to verify your [source environment is supported](/sql/ssma/db2/installing-ssma-for-db2-client-db2tosql#prerequisites).
 - to download [SQL Server Migration Assistant (SSMA) for Db2](https://www.microsoft.com/download/details.aspx?id=54254).
 - a target [Azure SQL Managed Instance](../../managed-instance/instance-create-quickstart.md).
-- Connectivity and proper permissions to access both source and target. 
+- Connectivity and sufficient permissions to access both source and target. 
 
 
 

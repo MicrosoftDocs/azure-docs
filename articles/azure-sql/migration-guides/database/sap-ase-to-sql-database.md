@@ -24,7 +24,7 @@ To migrate your SAP SE database to Azure SQL Database, you need:
 
 - to verify your source environment is supported. 
 - [SQL Server Migration Assistant for SAP Adaptive Server Enterprise (formerly SAP Sybase ASE)](https://www.microsoft.com/en-us/download/details.aspx?id=54256). 
-- Connectivity and proper permissions to access both source and target. 
+- Connectivity and sufficient permissions to access both source and target. 
 
 
 ## Pre-migration

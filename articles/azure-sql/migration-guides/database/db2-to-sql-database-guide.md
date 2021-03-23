@@ -25,7 +25,7 @@ To migrate your Db2 database to SQL Database, you need:
 - To verify your [source environment is supported](/sql/ssma/db2/installing-ssma-for-db2-client-db2tosql#prerequisites).
 - To download [SQL Server Migration Assistant (SSMA) for Db2](https://www.microsoft.com/download/details.aspx?id=54254).
 - A target [Azure SQL Database](../../database/single-database-create-quickstart.md).
-- Connectivity and proper permissions to access both source and target. 
+- Connectivity and sufficient permissions to access both source and target. 
 
 
 

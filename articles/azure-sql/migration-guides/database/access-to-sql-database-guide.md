@@ -23,7 +23,7 @@ To migrate your Access database to Azure SQL Database, you need:
 
 - To verify your source environment is supported. 
 - [SQL Server Migration Assistant for Access](https://www.microsoft.com/download/details.aspx?id=54255). 
-- Connectivity and proper permissions to access both source and target. 
+- Connectivity and sufficient permissions to access both source and target. 
 
 
 ## Pre-migration

@@ -24,7 +24,7 @@ To migrate your MySQL database to Azure SQL Database, you need:
 
 - To verify your source environment is supported. Currently, MySQL 5.6 and 5.7 is supported. 
 - [SQL Server Migration Assistant for MySQL](https://www.microsoft.com/download/details.aspx?id=54257)
-- Connectivity and proper permissions to access both source and target. 
+- Connectivity and sufficient permissions to access both source and target. 
 
 
 ## Pre-migration 
