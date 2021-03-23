@@ -89,6 +89,9 @@ If not specified, the default `AzureWebJobsStorage` storage account is used. For
 
 ## Orchestrator scale-out
 
+> [!NOTE]
+> Scale-out refers to the increase of available Azure Functions workers in response to changing traffic patterns. Since App Service plan customers make use of a fixed number of workers, this section is not directly applicable to them; this section is aimed at Consumption and Elastic Premium customer. That said, this section can still provide broad insights into the inner workings of Durable Functions.
+
 While activity functions can be scaled out infinitely by adding more VMs elastically, orchestrators and entities are constrained to inhabit a single partition and the maximum number of partitions is bounded by the `partitionCount` setting in your `host.json`. 
 
 > [!NOTE]
@@ -128,13 +131,13 @@ During low traffic scenarios, your application will be scaled-in, so partitions 
 
 ![Scale-in orchestrations diagram](./media/durable-functions-perf-and-scale/scale-progression-1.png)
 
-In it, we see orchestrators 1 through 6 are load balanced across partitions but all partitions are within one worker, due to low-traffic. Activity functions, on the other hand, make full use of all two allocated workers.
+In it, we see orchestrators 1 through 6 are load balanced across partitions but all partitions are within one worker, due to low-traffic. Activity Functions, on the other hand, make full use of all two allocated workers.
 
 As traffic increases, more workers will get allocated and partitions will eventually load balance across all workers. If we continue to scale out, eventually each partition will be managed by a single worker. Activities, on the other hand, will continue to be load-balanced across all workers. This is shown in the image below.
 
 ![First scaled-out orchestrations diagram](./media/durable-functions-perf-and-scale/scale-progression-2.png)
 
-Finally, as more orchestrations are started, they will continue to be load-balanced across partitions. Since orchestrators defer most of their computation to activities, it's unlikely many of them will need to execute at the same time. Since each worker will have only a single functions host instance when fully scaled-out, the maximum number of orchestrator instances _executing code_ concurrently (this doesn't include suspended orchestrators) is equal to your number of partitions _times_ your value for `maxConcurrentOrchestratorFunctions`. Our image below illustrates a fully scaled-out scenario where more orchestrators are added but some are inactive, shown in grey.
+If more orchestrations are started, their partitions will be load balanced across workers. The upper-bound of the maximum number of concurrent _active_ orchestrations at *any given time* is equal to the number of workers allocated to your application _times_ your value for `maxConcurrentOrchestratorFunctions`. This upper-bound can be made more precise when your partitions are fully scaled-out across workers. When fully scaled-out, and since each worker will have only a single Functions host instance, the maximum number of _active_ concurrent orchestrator instances will be equal to your number of partitions _times_ your value for `maxConcurrentOrchestratorFunctions`. Our image below illustrates a fully scaled-out scenario where more orchestrators are added but some are inactive, shown in grey.
 
 ![Second scaled-out orchestrations diagram](./media/durable-functions-perf-and-scale/scale-progression-3.png)
 
@@ -149,9 +152,6 @@ As shown in the previous diagram, all VMs compete for messages on the work-item 
 Orchestration instances and entities are distributed across all control queue instances. The distribution is done by hashing the instance ID of the orchestration or the entity name and key pair. Orchestration instance IDs by default are random GUIDs, ensuring that instances are equally distributed across all control queues.
 
 Generally speaking, orchestrator functions are intended to be lightweight and should not require large amounts of computing power. It is therefore not necessary to create a large number of control queue partitions to get great throughput for orchestrations. Most of the heavy work should be done in stateless activity functions, which can be scaled out infinitely.
-
-> [!NOTE]
-> Some of these diagrams were community contributions from a [thread](https://github.com/Azure/azure-functions-durable-extension/issues/1686) in our GitHub repository.
 
 ## Auto-scale
 
