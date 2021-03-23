@@ -1,6 +1,6 @@
 ---
-title: Configure AzCopy with Azure Storage | Microsoft Docs
-description: Configure AzCopy with Azure Storage.
+title: Troubleshoot AzCopy V10 issues in Azure Storage by using log files | Microsoft Docs
+description: Learn how to use logs to find and fix issues with AzCopy v10 in Azure Storage.
 author: normesta
 ms.service: storage
 ms.topic: how-to
@@ -10,70 +10,77 @@ ms.subservice: common
 ms.reviewer: dineshm
 ---
 
-# Configure AzCopy
+# Troubleshoot AzCopy V10 issues in Azure Storage by using log files
 
-AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. This article helps you to perform advanced configuration tasks.
+AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. This article helps you to troubleshoot issues that can arise as you use AzCopy by using log files
 
 > [!NOTE]
-> If you're looking for content to help you get started with AzCopy, see any of the following articles:
-> - [Get started with AzCopy](storage-use-azcopy-v10.md)
-> - [Transfer data with AzCopy and blob storage](./storage-use-azcopy-v10.md#transfer-data)
-> - [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
-> - [Transfer data with AzCopy and Amazon S3 buckets](storage-use-azcopy-s3.md)
+> If you're looking for content to help you get started with AzCopy, see [Get started with AzCopy](storage-use-azcopy-v10.md).
 
-## Configure proxy settings
+## Log and plan files
 
-To configure the proxy settings for AzCopy, set the `HTTPS_PROXY` environment variable. If you run AzCopy on Windows, AzCopy automatically detects proxy settings, so you don't have to use this setting in Windows. If you choose to use this setting in Windows, it will override automatic detection.
+AzCopy creates *log* and *plan* files for every job. You can use these logs to investigate and troubleshoot any potential problems. 
 
-| Operating system | Command  |
-|--------|-----------|
-| **Windows** | In a command prompt use: `set HTTPS_PROXY=<proxy IP>:<proxy port>`<br> In PowerShell use: `$env:HTTPS_PROXY="<proxy IP>:<proxy port>"`|
-| **Linux** | `export HTTPS_PROXY=<proxy IP>:<proxy port>` |
-| **macOS** | `export HTTPS_PROXY=<proxy IP>:<proxy port>` |
+The logs will contain the status of failure (`UPLOADFAILED`, `COPYFAILED`, and `DOWNLOADFAILED`), the full path, and the reason of the failure.
 
-Currently, AzCopy doesn't support proxies that require authentication with NTLM or Kerberos.
+By default, the log and plan files are located in the `%USERPROFILE%\.azcopy` directory on Windows or `$HOME$\.azcopy` directory on Mac and Linux, but you can change that location if you want. See [Configure logging](storage-ref-azcopy-configuration-settings.md#configure-logging).
 
-### Bypassing a proxy
+The relevant error isn't necessarily the first error that appears in the file. For errors such as network errors, timeouts and Server Busy errors, AzCopy will retry up to 20 times and usually the retry process succeeds.  The first error that you see might be something harmless that was successfully retried.  So instead of looking at the first error in the file, look for the errors that are near `UPLOADFAILED`, `COPYFAILED`, or `DOWNLOADFAILED`. 
 
-If you are running AzCopy on Windows, and you want to tell it to use _no_ proxy at all (instead of auto-detecting the settings) use these commands. With these settings, AzCopy will not look up or attempt to use any proxy.
+> [!IMPORTANT]
+> When submitting a request to Microsoft Support (or troubleshooting the issue involving any third party), share the redacted version of the command you want to execute. This ensures the SAS isn't accidentally shared with anybody. You can find the redacted version at the start of the log file.
 
-| Operating system | Environment | Commands  |
-|--------|-----------|----------|
-| **Windows** | Command prompt (CMD) | `set HTTPS_PROXY=dummy.invalid` <br>`set NO_PROXY=*`|
-| **Windows** | PowerShell | `$env:HTTPS_PROXY="dummy.invalid"` <br>`$env:NO_PROXY="*"`<br>|
+## Review the logs for errors
 
-On other operating systems, simply leave the HTTPS_PROXY variable unset if you want to use no proxy.
+The following command will get all errors with `UPLOADFAILED` status from the `04dc9ca9-158f-7945-5933-564021086c79` log:
 
-## Configure logging
+**Windows (PowerShell)**
 
-By default, plan and log files are located in the `%USERPROFILE%\.azcopy` directory on Windows, or in the `$HOME/.azcopy` directory on Mac and Linux. You can change this location.
+```
+Select-String UPLOADFAILED .\04dc9ca9-158f-7945-5933-564021086c79.log
+```
 
-### Change the location of plan files
+**Linux**
 
-Use any of these commands.
+```
+grep UPLOADFAILED .\04dc9ca9-158f-7945-5933-564021086c79.log
+```
 
-| Operating system | Command  |
-|--------|-----------|
-| **Windows** | PowerShell:`$env:AZCOPY_JOB_PLAN_LOCATION="<value>"` <br> In a command prompt use:: `set AZCOPY_JOB_PLAN_LOCATION=<value>` |
-| **Linux** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
-| **macOS** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
+## View and resume jobs
 
-Use the `azcopy env` to check the current value of this variable. If the value is blank, then plan files are written to the default location.
+Each transfer operation will create an AzCopy job. Use the following command to view the history of jobs:
 
-### Change the location of log files
+```
+azcopy jobs list
+```
 
-Use any of these commands.
+To view the job statistics, use the following command:
 
-| Operating system | Command  |
-|--------|-----------|
-| **Windows** | PowerShell:`$env:AZCOPY_LOG_LOCATION="<value>"` <br> In a command prompt use:: `set AZCOPY_LOG_LOCATION=<value>`|
-| **Linux** | `export AZCOPY_LOG_LOCATION=<value>` |
-| **macOS** | `export AZCOPY_LOG_LOCATION=<value>` |
+```
+azcopy jobs show <job-id>
+```
 
-Use the `azcopy env` to check the current value of this variable. If the value is blank, then logs are written to the default location.
+To filter the transfers by status, use the following command:
 
-### Change the default log level
+```
+azcopy jobs show <job-id> --with-status=Failed
+```
 
-By default, AzCopy log level is set to `INFO`. If you would like to reduce the log verbosity to save disk space, overwrite this setting by using the ``--log-level`` option. 
+Use the following command to resume a failed/canceled job. This command uses its identifier along with the SAS token as it isn't persistent for security reasons:
 
-Available log levels are: `NONE`, `DEBUG`, `INFO`, `WARNING`, `ERROR`, `PANIC`, and `FATAL`.
+```
+azcopy jobs resume <job-id> --source-sas="<sas-token>"
+azcopy jobs resume <job-id> --destination-sas="<sas-token>"
+```
+
+> [!TIP]
+> Enclose path arguments such as the SAS token with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
+
+When you resume a job, AzCopy looks at the job plan file. The plan file lists all the files that were identified for processing when the job was first created. When you resume a job, AzCopy will attempt to transfer all of the files that are listed in the plan file which weren't already transferred.
+
+
+## Remove plan and log files
+
+If you want to remove all plan and log files from your local machine to save disk space, use the `azcopy jobs clean` command.
+
+To remove the plan and log files associated with only one job, use `azcopy jobs rm <job-id>`. Replace the `<job-id>` placeholder in this example with the job id of the job.

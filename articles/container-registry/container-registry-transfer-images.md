@@ -417,7 +417,7 @@ az resource delete \
   * Storage blob in target storage account might not be deleted after successful import run. Confirm that the DeleteBlobOnSuccess option is set in the import run and the SAS token has sufficient permissions.
   * Storage blob not created or deleted. Confirm that container specified in export or import run exists, or specified storage blob exists for manual import run. 
 * **AzCopy issues**
-  * See [Troubleshoot AzCopy issues](../storage/common/storage-use-azcopy-logs.md).  
+  * See [Troubleshoot AzCopy issues](../storage/common/storage-use-azcopy-configure.md).  
 * **Artifacts transfer problems**
   * Not all artifacts, or none, are transferred. Confirm spelling of artifacts in export run, and name of blob in export and import runs. Confirm you are transferring a maximum of 50 artifacts.
   * Pipeline run might not have completed. An export or import run can take some time. 
