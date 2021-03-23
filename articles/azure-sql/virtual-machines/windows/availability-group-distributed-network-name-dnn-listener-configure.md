@@ -119,7 +119,7 @@ Use either SQL Server Management Studio or Transact-SQL to confirm your DNN list
 
 ### SQL Server Management Studio
 
-Expand **Availability Group listeners** in [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) to view your DNN listener:
+Expand **Availability Group Listeners** in [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) to view your DNN listener:
 
 :::image type="content" source="media/availability-group-distributed-network-name-dnn-listener-configure/dnn-listener-in-ssms.png" alt-text="View the DNN listener under availability group listeners in SQL Server Management Studio (SSMS)":::
 
