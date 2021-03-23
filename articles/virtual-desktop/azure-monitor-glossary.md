@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 3/22/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -109,16 +109,11 @@ The following table lists the recommended performance counters and time interval
 |PhysicalDisk(\*)\\Avg. Disk sec/Read|30 seconds|
 |PhysicalDisk(\*)\\Avg. Disk sec/Transfer|30 seconds|
 |PhysicalDisk(\*)\\Avg. Disk sec/Write|30 seconds|
-|Process(\*)\\% Processor Time|20 seconds|
-|Process(\*)\\% User Time|30 seconds|
-|Process(\*)\\Thread Count|30 seconds|
-|Process(\*)\\ IO Write Operations/sec|30 seconds|
-|Process(\*)\\ IO Read Operations/sec|30 seconds|
 |Processor Information(_Total)\\% Processor Time|30 seconds|
 |Terminal Services(\*)\\Active Sessions|60 seconds|
 |Terminal Services(\*)\\Inactive Sessions|60 seconds|
 |Terminal Services(\*)\\Total Sessions|60 seconds|
-|\*User Input Delay per Process(\*)\\Max Input Dela|30 seconds|
+|\*User Input Delay per Process(\*)\\Max Input Delay|30 seconds|
 |\*User Input Delay per Session(\*)\\Max Input Delay|30 seconds|
 |RemoteFX Network(\*)\\Current TCP RTT|30 seconds|
 |RemoteFX Network(\*)\\Current UDP Bandwidth|30 seconds|
@@ -144,7 +139,7 @@ You can also select entries to view additional information. You can view which h
 
 ## Round-trip time (RTT)
 
-Round-trip time (RTT) is an estimate of the connection's round-trip time between the end-user’s location and the VM's Azure region. To see which locations have the best latency, look up your desired location in the [Windows Virtual Desktop Experience Estimator tool](https://azure.microsoft.com/services/virtual-desktop/assessment/).
+Round-trip time (RTT) is an estimate of the connection's round-trip time between the end-user’s location and the session host's Azure region. To see which locations have the best latency, look up your desired location in the [Windows Virtual Desktop Experience Estimator tool](https://azure.microsoft.com/services/virtual-desktop/assessment/).
 
 ## Session history
 
@@ -169,11 +164,11 @@ maximum number of users per core over time can help you identify whether the
 environment consistently runs at a high, low, or fluctuating number of users per
 core. Knowing how many users are active will help you efficiently resource and scale the environment.
 
-## Windows events
+## Windows Event Logs
 
-Windows Event logs are data sources collected by Log Analytics agents on Windows virtual machines. You can collect events from standard logs like System and Application as well as custom logs created by applications you need to monitor.
+Windows Event Logs are data sources collected by Log Analytics agents on Windows virtual machines. You can collect events from standard logs like System and Application as well as custom logs created by applications you need to monitor.
 
-The following table lists the required Windows events for Azure Monitor for Windows Virtual Desktop:
+The following table lists the required Windows Event Logs for Azure Monitor for Windows Virtual Desktop:
 
 |Event name|Event type|
 |---|---|
@@ -184,7 +179,7 @@ The following table lists the required Windows events for Azure Monitor for Wind
 | Microsoft-FSLogix-Apps/Operational|Error, Warning, and Information|
 |Microsoft-FSLogix-Apps/Admin|Error, Warning, and Information|
 
-To learn more about Windows events, see [Windows event records properties](../azure-monitor/agents/data-sources-windows-events.md).
+To learn more about Windows Event Logs, see [Windows Event records properties](https://docs.microsoft.com/azure/azure-monitor/agents/data-sources-windows-events#configuring-windows-event-logs).
 
 ## Next steps
 
@@ -201,4 +196,4 @@ If you need help or have any questions, check out our community resources:
    
 - To learn how to leave feedback, see [Troubleshooting overview, feedback, and support for Windows Virtual Desktop](troubleshoot-set-up-overview.md#report-issues).
 
-- You can also leave feedback for Windows Virtual Desktop at the [Windows Virtual Desktop feedback hub](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app) or [our UserVoice forum](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
+- You can also leave feedback for Windows Virtual Desktop at the [Windows Virtual Desktop feedback hub](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app)
