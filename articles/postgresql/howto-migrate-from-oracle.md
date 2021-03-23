@@ -14,7 +14,7 @@ ms.date: 03/18/2021
 
 This guide teaches you to migrate your Oracle schema to Azure Database for PostgreSQL. 
 
-For detailed and comprehensive migration guidance, see the [Migration Guide resources](https://github.com/microsoft/OrcasNinjaTeam/blob/master/Oracle%20to%20PostgreSQL%20Migration%20Guide/Oracle%20to%20Azure%20Database%20for%20PostgreSQL%20Migration%20Guide.pdf). 
+For detailed and comprehensive migration guidance, see the [Migration guide resources](https://github.com/microsoft/OrcasNinjaTeam/blob/master/Oracle%20to%20PostgreSQL%20Migration%20Guide/Oracle%20to%20Azure%20Database%20for%20PostgreSQL%20Migration%20Guide.pdf). 
 
 ## Prerequisites
 
@@ -27,7 +27,9 @@ To migrate your Oracle schema to Azure Database for PostgreSQL, you need to:
 
 ## Overview
 
-PostgreSQL is one of world's most advanced open-source databases. This article describes how to use the free ora2pg utility to migrate an Oracle database to PostgreSQL. You can use ora2pg, a free tool, to migrate an Oracle or MySQL database to a PostgreSQL compatible schema. The utility connects your Oracle database, scans it automatically, and extracts its structure or data. Afterwards ora2pg generates SQL scripts that you can load into your PostgreSQL database. ora2pg can be used for tasks from reverse engineering an Oracle database, performing a huge enterprise database migration, or simply replicating some Oracle data into a PostgreSQL database. It's easy to use and doesn't require any Oracle database knowledge other than the ability to provide the parameters needed to connect to the Oracle database.
+PostgreSQL is one of world's most advanced open-source databases. This article describes how to use the free ora2pg tool to migrate an Oracle database to PostgreSQL. You can use ora2pg to migrate an Oracle or MySQL database to a PostgreSQL-compatible schema. 
+
+The ora2pg tool connects your Oracle database, scans it automatically, and extracts its structure or data. Then ora2pg generates SQL scripts that you can load into your PostgreSQL database. You can use ora2pg for tasks such as reverse-engineering an Oracle database, migrating a huge enterprise database, or simply replicating some Oracle data into a PostgreSQL database. The tool is easy to use and requires no Oracle database knowledge besides the ability to provide the parameters needed to connect to the Oracle database.
 
 > [!NOTE]
 > For more information about using the latest version of ora2pg, see the [ora2pg documentation](https://ora2pg.darold.net/documentation.html).
@@ -36,15 +38,15 @@ PostgreSQL is one of world's most advanced open-source databases. This article d
 
 ![Screenshot of the ora2pg migration architecture.](media/howto-migrate-from-oracle/ora2pg-migration-architecture.png)
 
-After provisioning the VM and Azure Database for PostgreSQL, two configurations are needed for enabling connectivity between them: **Allow Azure Services** and **Enforce SSL Connection**, depicted as follows:
+After you provision the VM and Azure Database for PostgreSQL, you need two configurations to enable connectivity between them: **Allow Azure Services** and **Enforce SSL Connection**: 
 
-- **Connection Security** blade -> **Allow access to Azure Services** -> ON
+- **Connection Security** blade > **Allow access to Azure Services** > **ON**
 
-- **Connection Security** blade -> **SSL Settings** -> **Enforce SSL Connection** -> DISABLED
+- **Connection Security** blade > **SSL Settings** > **Enforce SSL Connection** > **DISABLED**
 
 ### Recommendations
 
-- To improve the performance of the assessment or export operations in the Oracle server, collect statistics as following:
+- To improve the performance of the assessment or export operations in the Oracle server, collect the following statistics:
 
    ```
    BEGIN
@@ -55,41 +57,46 @@ After provisioning the VM and Azure Database for PostgreSQL, two configurations 
      END;
    ```
 
-- Export data using the COPY command instead of INSERT.
+- Export data by using the `COPY` command instead of `INSERT`.
 
-- Avoid exporting tables with their FKs, constraints, and indexes – doing so will make it slower to import the data into PostgreSQL.
+- Avoid exporting tables with their foreign keys (FKs), constraints, and indexes. These elements slow down the process of importing data into PostgreSQL.
 
-- Create materialized views using the **no data clause** and refresh it later.
+- Create materialized views by using the *no data clause*. Then refresh the views later.
 
-- If possible, implement unique indexes in materialized views, this will make the refresh faster with the syntax `REFRESH MATERIALIZED VIEW CONCURRENTLY`.
+- If possible, use unique indexes in materialized views. These indexes can speed up the refresh when you use the syntax `REFRESH MATERIALIZED VIEW CONCURRENTLY`.
 
 
+## Premigration 
 
-## Pre-migration 
+After verifying that your source environment is supported and ensuring that you have addressed any prerequisites, you're ready to start the premigration stage. To begin: 
 
-After verifying that your source environment is supported and ensuring that you have addressed any prerequisites, you are ready to start the Pre-migration stage. This part of the process involves conducting an inventory of the databases that you need to migrate, assessing those databases for potential migration issues or blockers, and then resolving any items you might have uncovered. For heterogenous migrations such as Oracle to Azure Database for PostgreSQL, this stage also involves converting the schema(s) in the source database(s) to be compatible with the target environment.
+1. Inventory the databases that you need to migrate. 
+1. Assess those databases for potential migration issues or blockers.
+1. Resolve any items you might have uncovered. 
+ 
+For heterogenous migrations such as Oracle to Azure Database for PostgreSQL, this stage also involves making the source database schemas compatible with the target environment.
 
 ### Discover
 
-The goal of the Discover phase is to identify existing data sources and details about the features that are being used to get a better understanding of and plan for the migration. This process involves scanning the network to identify all your organization's Oracle instances together with the version and features in use.
+The goal of the discovery phase is to identify existing data sources and details about the features that are being used. This phase helps you better understand and plan for the migration. The process involves scanning the network to identify all your organization's Oracle instances together with the version and features in use.
 
-Microsoft Oracle pre-assessment scripts run against the Oracle database. The Pre-assessment scripts are a set of queries that hits the Oracle metadata and provides the following:
+Microsoft preassessment scripts for Oracle run against the Oracle database. The preassessment scripts are a set of queries against the Oracle metadata. The scripts provide:
 
-- Database inventory, including counts of objects by schema, type, and status.
+- A database inventory, including counts of objects by schema, type, and status.
 
-- A rough estimate of Raw Data in each schema (based on statistics).
+- A rough estimate of the raw data in each schema, based on statistics.
 
-- Sizing of tables in each schema.
+- The size of tables in each schema.
 
-- The number of lines of code per Package, Function, Procedure, etc.
+- The number of code lines per package, function, procedure, and so on.
 
-Download the related scripts from the [ora2pg website](http://ora2pg.darold.net/).
+Download the related scripts from the [ora2pg website](https://ora2pg.darold.net/).
 
 ### Assess
 
-After completing the inventory of the Oracle database(s) to get an idea of the database size and what the challenges are, the next step is to run the Assessment.
+After you inventory the Oracle databases, you'll have an idea of the database size and potential challenges. The next step is to run the assessment.
 
-Estimating the cost of a migration process from Oracle to PostgreSQL is not easy. To obtain a good assessment of this migration cost, ora2pg will inspect all database objects, all functions, and stored procedures to detect if there are still some objects and PL/SQL code that cannot be automatically converted by ora2pg.
+Estimating the cost of a migration from Oracle to PostgreSQL isn't easy. To assess the migration cost, ora2pg inspects all database objects, functions, and stored procedures to check for objects and PL or SQL code that it can't automatically convert.
 
 ora2pg has a content analysis mode that inspects the Oracle database to generate a text report on what the Oracle database contains and what cannot be exported.
 
