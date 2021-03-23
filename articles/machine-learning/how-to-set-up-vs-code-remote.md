@@ -57,14 +57,14 @@ To connect to your remote compute instance:
 
 Navigate to [ml.azure.com](https://ml.azure.com)
 
-**Compute**
+### Compute
 
 1. Select the **Compute** tab
 1. In the *Application URI* column, select **VS Code** for the compute instance you want to connect to.
 
 :::image type="content" source="media/how-to-set-up-vs-code-remote/studio-compute-instance-vs-code-launch.png" alt-text="Connect to Compute Instance VS Code Azure ML studio" lightbox="media/how-to-set-up-vs-code-remote/studio-compute-instance-vs-code-launch.png":::
 
-**Notebook**
+### Notebook
 
 1. Select the **Notebook** tab
 1. In the *Notebook* tab, select the file you want to edit.
