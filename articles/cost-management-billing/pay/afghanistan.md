@@ -1,6 +1,7 @@
 ---
-title: Payment information for Afghanistan
+title: Payment information for Afghanistan - Azure
 author: bandersmsft
+ms.date: 03/23/2021
 ms.author: banders
 ms.reviewer: baolcsva
 ms.topic: reference

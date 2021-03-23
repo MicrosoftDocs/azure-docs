@@ -26,7 +26,7 @@ Some of the benefits under the agreement include:
 
 When your organization signed the Microsoft Customer Agreement, a billing account was automatically created. The billing account is used for invoice payment for your consumed Azure services. The billing administration owner for the account is the person who bought the Microsoft Customer Agreement. Or, another user can be appointed as owner. They are responsible for [billing management](../manage/understand-mca-roles.md) of the billing account.
 
-- [Learn how about the charges on your invoice](https://www.youtube.com/watch?v=e2LGZZ7GubA) and [take a step-by-step invoice tutorial.](../understand/review-customer-agreement-bill.md)
+- [Learn how about the charges on your invoice](https://www.youtube.com/watch?v=e2LGZZ7GubA) and [take a step-by-step invoice tutorial](../understand/review-customer-agreement-bill.md)
 - [Organize your costs](https://www.youtube.com/watch?v=7RxTfShGHwU) and [customize billing to meet your needs](../manage/mca-section-invoice.md).
 
 ## Start receiving invoices for your agreement
@@ -55,6 +55,5 @@ If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_A
 
 ## Next steps
 
-- [Create an additional Azure subscription for Microsoft Customer Agreement](create-subscription.md)
-- [Manage billing roles in the Azure portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
-- [Get billing ownership of Azure subscriptions from users in other billing accounts](mca-request-billing-ownership.md)
+- [Take a step-by-step invoice tutorial](../understand/review-customer-agreement-bill.md)
+- [Customize billing to meet your needs](../manage/mca-section-invoice.md)

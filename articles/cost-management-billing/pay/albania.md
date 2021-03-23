@@ -1,5 +1,5 @@
 ---
-title: Payment information for Albania
+title: Payment information for Albania - Azure
 author: bandersmsft
 ms.author: banders
 ms.reviewer: baolcsva
