@@ -10,7 +10,7 @@ ms.date: 03/17/2021
 
 # Support matrix for VMware assessment 
 
-This article summarizes prerequisites and support requirements when you discover and assess servers running in VMware environment for migration to Azure, using the [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool. To assess servers, you create a project, which adds the Azure Migrate: Discovery and assessment tool to the project. After the tool is added, you deploy the Azure Migrate appliance. The appliance continuously discovers on-premises servers, and sends configuration and performance metadata to Azure. After discovery is complete, you gather discovered servers into groups, and run an assessment for a group.
+This article summarizes prerequisites and support requirements when you discover and assess servers running in VMware environment for migration to Azure, using the [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool. To assess servers, you create a project, which adds the Azure Migrate: Discovery and assessment tool to the project. After the tool is added, you deploy the Azure Migrate appliance. The appliance continuously discovers on-premises servers, and sends configuration and performance metadata to Azure. After discovery is complete, you gather discovered servers into groups, and run an assessment for a group.
 
 If you want to migrate VMware servers to Azure, review the [migration support matrix](migrate-support-matrix-vmware-migration.md).
 

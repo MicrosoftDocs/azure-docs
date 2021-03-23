@@ -10,7 +10,7 @@ ms.date: 04/16/2020
 
 # Set up an appliance for servers in VMware environment
 
-Follow this article to set up the Azure Migrate appliance for assessment with the [Azure Migrate:Discovery and assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool, and for agentless migration using the [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool.
+Follow this article to set up the Azure Migrate appliance for assessment with the [Azure Migrate:Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool, and for agentless migration using the [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool.
 
 The [Azure Migrate appliance](migrate-appliance.md) is a lightweight appliance used by Azure Migrate:Discovery and assessment and Server Migration to discover servers running in vCenter Server, send server configuration and performance metadata to Azure, and for replication of servers using agentless migration.
 
@@ -19,23 +19,23 @@ You can deploy the appliance using a couple of methods:
 - Create a server on vCenter Server using a downloaded OVA template. This is the method described in this article.
 - Set up the appliance on an existing server using a PowerShell installer script. [This method](deploy-appliance-script.md) should be used if you cannot use OVA template, or if you're in Azure Government.
 
-After creating the appliance, you check that it can connect to Azure Migrate:Discovery and assessment, register it with the Azure Migrate project and configure the appliance to initiate discovery.
+After creating the appliance, you check that it can connect to Azure Migrate:Discovery and assessment, register it with the project and configure the appliance to initiate discovery.
 
 ## Deploy with OVA
 
 To set up the appliance using an OVA template you:
-1. Provide an appliance name and generate an Azure Migrate project key in the portal.
+1. Provide an appliance name and generate a project key in the portal.
 1. Download an OVA template file, and import it to vCenter Server. Verify the OVA is secure.
 1. Create the appliance VM from the OVA file , and check that it can connect to Azure Migrate.
-1. Configure the appliance for the first time, and register it with the project using the Azure Migrate project key.
+1. Configure the appliance for the first time, and register it with the project using the project key.
 
-### 1. Generate the Azure Migrate project key
+### 1. Generate the project key
 
 1. In **Migration Goals** > **Servers** > **Azure Migrate: Discovery and assessment**, select **Discover**.
 2. In **Discover servers** > **Are your servers virtualized?**, select **Yes, with VMware vSphere hypervisor**.
-3. In **1:Generate Azure Migrate project key**, provide a name for the Azure Migrate appliance that you will set up for discovery of servers in your VMware environment.The name should be alphanumeric with 14 characters or fewer.
+3. In **1:Generate project key**, provide a name for the Azure Migrate appliance that you will set up for discovery of servers in your VMware environment.The name should be alphanumeric with 14 characters or fewer.
 1. Click on **Generate key** to start the creation of the required Azure resources. Please do not close the Discover page during the creation of resources.
-1. After the successful creation of the Azure resources, an **Azure Migrate project key** is generated.
+1. After the successful creation of the Azure resources, an **project key** is generated.
 1. Copy the key as you will need it to complete the registration of the appliance during its configuration.
 
 ### 2. Download the OVA template
@@ -112,7 +112,7 @@ Set up the appliance for the first time.
 
 ## Register the appliance with Azure Migrate
 
-1. Paste the **Azure Migrate project key** copied from the portal. If you do not have the key, go to **Discovery and assessment> Discover> Manage existing appliances**, select the appliance name you provided at the time of key generation and copy the corresponding key.
+1. Paste the **project key** copied from the portal. If you do not have the key, go to **Discovery and assessment> Discover> Manage existing appliances**, select the appliance name you provided at the time of key generation and copy the corresponding key.
 1. You will need a device code to authenticate with Azure. Clicking on **Login** will open a modal with the device code as shown below.
 
     :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Modal showing the device code":::
