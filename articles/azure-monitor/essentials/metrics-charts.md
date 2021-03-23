@@ -257,7 +257,7 @@ By clicking on the failure option, you will be led to a custom failure blade tha
 
 ### Common problems with Drill into Logs
 
-* Log and queries are disabled - To view recommended logs and queries, you must route your diagnostic logs to Log Analytics. Read [this document](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) to learn how to do this. 
+* Log and queries are disabled - To view recommended logs and queries, you must route your diagnostic logs to Log Analytics. Read [this document](./diagnostic-settings.md) to learn how to do this. 
 * Activity logs are only provided - The Drill into Logs feature is only available for select resource providers. By default, activity logs are provided. 
 
  
@@ -274,4 +274,3 @@ If you don't see any data on your chart, review the following troubleshooting in
 ## Next steps
 
 To create actionable dashboards by using metrics, see [Creating custom KPI dashboards](../app/tutorial-app-dashboards.md).
-
