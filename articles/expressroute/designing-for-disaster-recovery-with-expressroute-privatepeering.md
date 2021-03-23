@@ -34,7 +34,17 @@ If you rely on ExpressRoute connectivity between your on-premises network and Mi
 
 When you interconnect the same set of networks using more than one connection, you introduce parallel paths between the networks. Parallel paths, when not properly architected, could lead to asymmetrical routing. If you have stateful entities (for example, NAT, firewall) in the path, asymmetrical routing could block traffic flow.  Typically, over the ExpressRoute private peering path you won't come across stateful entities such as NAT or Firewalls. That's why, asymmetrical routing over ExpressRoute private peering doesn't necessarily block traffic flow.
  
-However, if you load balance traffic across geo-redundant parallel paths, regardless of whether you have stateful entities or not, you would experience inconsistent network performance. These geo-redundant parallel paths can be through the same location or different locations found on the [providers by location](expressroute-locations-providers.md#partners) page. When using the same location, you must use the secondary location for the second path for this configuration to work. An example of the same location would be *Amsterdam* and *Amsterdam2*. When using different locations for Standard SKU circuits, the secondary location must be in the same [geo-political region](expressroute-locations-providers.md#locations). To choose a location outside of the geo-political region, you will need to use Premium SKU for both circuits in the parallel paths. In this article, let's discuss how to address challenges you may face when configuring geo-redundant paths.
+However, if you load balance traffic across geo-redundant parallel paths, regardless of whether you have stateful entities or not, you would experience inconsistent network performance. These geo-redundant parallel paths can be through the same metro or different metro found on the [providers by location](expressroute-locations-providers.md#partners) page. 
+
+### Same metro
+
+When using the same metro, you must use the secondary location for the second path for this configuration to work. An example of the same metro would be *Amsterdam* and *Amsterdam2*. The advantage of selecting the same metro comes into play when application failover happens. End-to-end latency between your on-premises applications and Microsoft stay the same. However, in the case of a natural disaster connectivity for both paths may no longer be available. 
+
+### Different metros
+
+When using different metros for Standard SKU circuits, the secondary location must be in the same [geo-political region](expressroute-locations-providers.md#locations). To choose a location outside of the geo-political region, you will need to use Premium SKU for both circuits in the parallel paths. The advantage of this configuration is the chances of a natural disaster causing an outage to both links are much lower but at the cost of increase latency end-to-end.
+
+In this article, let's discuss how to address challenges you may face when configuring geo-redundant paths.
 
 ## Small to medium on-premises network considerations
 
