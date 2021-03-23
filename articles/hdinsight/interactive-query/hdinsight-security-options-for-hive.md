@@ -11,7 +11,7 @@ ms.date: 10/02/2020
 
 This document describes the recommended security options for Hive in HDInsight. These options can be configured through Ambari.
 
-![`Security Options for Hive`](./media/hdinsight-security-options-for-hive/security-options-hive.png "Security Options for Hive")
+:::image type="content" source="./media/hdinsight-security-options-for-hive/security-options-hive.png " alt-text="`Security Options for Hive`" border="true":::
 
 ## HiveServer2 authentication
 
