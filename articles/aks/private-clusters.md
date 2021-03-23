@@ -76,6 +76,26 @@ The following parameters can be leveraged to configure Private DNS Zone.
 * The AKS Preview version 0.5.3 or later
 * The api version 2020-11-01 or later
 
+To leverage the fqdn-subdomain feature, you must enable the `EnablePrivateClusterFQDNSubdomain` feature flag on your subscription. 
+
+Register the `EnablePrivateClusterFQDNSubdomain` feature flag using the [az feature register][az-feature-register] command as shown in the following example:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "EnablePrivateClusterFQDNSubdomain"
+```
+
+You can check on the registration status using the [az feature list][az-feature-list] command:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnablePrivateClusterFQDNSubdomain')].{Name:name,State:properties.state}"
+```
+
+When ready, refresh the registration of the *Microsoft.ContainerService* resource provider using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
 ### Create a private AKS cluster with Private DNS Zone (Preview)
 
 ```azurecli-interactive
@@ -138,6 +158,7 @@ As mentioned, virtual network peering is one way to access your private cluster.
 
 <!-- LINKS - internal -->
 [az-provider-register]: /cli/azure/provider#az-provider-register
+[az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
