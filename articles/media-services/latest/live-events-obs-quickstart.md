@@ -212,7 +212,7 @@ In the next procedure, you will adjust the audio encoding settings.
 
 1. Set the Track 1 **Audio Bitrate** to 128 Kbps.
 
-   ![OBS Audio Bitrate settings.](media/live-events-obs-quickstart/live-event-obs-audio-settings.png)
+   ![OBS Audio Bitrate settings.](media/live-events-obs-quickstart/live-event-obs-audio-output-panel.png)
 
 1. Select the Audio tab in Settings.
 
