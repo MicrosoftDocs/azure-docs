@@ -43,7 +43,7 @@ policy_signer | x-ms-policy-signer
 
 ### Outgoing claims
 
-Azure Attestation includes the below claims in the attestation token for all attestation types. The claim names are leveraged from teh mentioned sources.
+Azure Attestation includes the below claims in the attestation token for all attestation types. The claim names are leveraged from the mentioned sources.
 
 Source: [IETF JWT](https://tools.ietf.org/html/rfc7519)
 
@@ -55,9 +55,9 @@ Source: [IETF JWT](https://tools.ietf.org/html/rfc7519)
 
 Source: [IETF EAT](https://tools.ietf.org/html/draft-ietf-rats-eat-03#page-9)
 
-- **"Nonce claim" (nonce)**
+- **"Nonce claim" (nonce)** - An untransformed direct copy of an optional nonce value provided by a client 
 
-Below claims are included in the attestation token by default based on the incoming claims:
+Source
 
 - **x-ms-ver**: JWT schema version (expected to be "1.0")
 - **x-ms-attestation-type**: String value representing attestation type 
