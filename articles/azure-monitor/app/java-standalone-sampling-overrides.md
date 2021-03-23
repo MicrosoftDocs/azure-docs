@@ -17,7 +17,7 @@ Here are some use cases for sampling overrides:
  * Suppress collecting telemetry for health checks.
  * Suppress collecting telemetry for noisy dependency calls.
  * Reduce the noise from health checks or noisy dependency calls without suppressing them completely.
- * Collect 100% of telemetry for an important request (e.g. `/login`) even though you have default sampling
+ * Collect 100% of telemetry for an important request type (e.g. `/login`) even though you have default sampling
    configured to something lower.
 
 ## Terminology
