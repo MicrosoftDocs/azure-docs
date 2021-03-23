@@ -73,7 +73,7 @@ If you create a non-default set of configuration values, your update history is 
 
 The following diagram shows key Spark objects: the driver program and its associated Spark Context, and the cluster manager and its *n* worker nodes.  Each worker node includes an Executor, a cache, and *n* task instances.
 
-:::image type="content" source="./media/apache-spark-settings/hdi-spark-architecture.png" alt-text="Cluster objects" border="true":::
+:::image type="content" source="./media/apache-spark-settings/hdi-spark-architecture.png" alt-text="Cluster objects" border="false":::
 
 Spark jobs use worker resources, particularly memory, so it's common to adjust Spark configuration values for worker node Executors.
 
@@ -98,7 +98,7 @@ Depending on your Spark workload, you may determine that a non-default Spark con
 
 Here is an example of two worker nodes with different configuration values:
 
-:::image type="content" source="./media/apache-spark-settings/executor-configuration.png" alt-text="Two node configurations" border="true":::
+:::image type="content" source="./media/apache-spark-settings/executor-configuration.png" alt-text="Two node configurations" border="false":::
 
 The following list shows key Spark executor memory parameters.
 
@@ -111,7 +111,7 @@ The following list shows key Spark executor memory parameters.
 
 YARN controls the maximum sum of memory used by the containers on each Spark node. The following diagram shows the per-node relationships between YARN configuration objects and Spark objects.
 
-:::image type="content" source="./media/apache-spark-settings/hdi-yarn-spark-memory.png" alt-text="YARN Spark Memory Management" border="true":::
+:::image type="content" source="./media/apache-spark-settings/hdi-yarn-spark-memory.png" alt-text="YARN Spark Memory Management" border="false":::
 
 ## Change parameters for an application running in Jupyter Notebook
 
