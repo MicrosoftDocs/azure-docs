@@ -724,7 +724,7 @@ addProperty(<object>, '<property>', <value>)
 | <*updated-object*> | Object | The updated JSON object with the specified property |
 ||||
 
-To add a parent property to an existing property, use setProperty() call instead. Otherwise, the function returns only the child object as output.
+To add a parent property to an existing property, use the `setProperty()` function, not the `addProperty()` function. Otherwise, the function returns only the child object as output.
 
 ```
 setProperty(<object>['<parent-property>'], '<parent-property>', addProperty(<object>['<parent-property>'], '<child-property>', <value>)
