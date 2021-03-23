@@ -157,7 +157,7 @@ conceptualContent:
           text: Key Vault with Virtual Machine Scale Sets
     - title: Key Vault Integration
       links:
-        - url: /azure/devops/pipelines/library/variable-groups?tabs=yaml&view=azure-devops#link-secrets-from-an-azure-key-vault
+        - url: /azure/devops/pipelines/library/variable-groups?tabs=yaml#link-secrets-from-an-azure-key-vault
           itemType: overview
           text: Azure Dev Ops - Reference Key Vault secrets in Azure Pipelines
         - url: ../app-service/app-service-key-vault-references.md

@@ -1,15 +1,11 @@
 ---
-title: Agent portfolio overview and OS support 
+title: Agent portfolio overview and OS support (Preview)
 description: Azure Defender for IoT provides a large portfolio of agents based on the device type. 
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/20/2021
 ms.topic: quickstart
-ms.service: azure
 ---
 
-# Agent portfolio overview and OS support 
+# Agent portfolio overview and OS support (Preview)
 
 Azure Defender for IoT provides a large portfolio of agents based on the device type. 
 
@@ -33,4 +29,4 @@ The Azure Defender for IoT micro agent comes built in as part of the Azure RTOS 
 
 ## Next steps
 
-Learn more about the [Standalone micro agent overview ](concept-standalone-micro-agent-overview.md).
+Learn more about the [Standalone micro agent overview (Preview)](concept-standalone-micro-agent-overview.md).

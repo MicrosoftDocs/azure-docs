@@ -202,7 +202,7 @@ To resolve this issue:
 >To change the **fReverseConnectMode** or **fEnableWinStation** mode for multiple VMs at a time, you can do one of the following two things:
 >
 >- Export the registry key from the machine that you already have working and import it into all other machines that need this change.
->- Create a general policy object (GPO) that sets the registry key value for the machines that need the change.
+>- Create a group policy object (GPO) that sets the registry key value for the machines that need the change.
 
 7. Go to **HKEY_LOCAL_MACHINE** > **SYSTEM** > **CurrentControlSet** > **Control** > **Terminal Server** > **ClusterSettings**.
 8. Under **ClusterSettings**, find **SessionDirectoryListener** and make sure its data value is **rdp-sxs...**.

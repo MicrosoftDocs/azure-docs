@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/13/2021
+ms.date: 03/08/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to order Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -160,7 +160,7 @@ You will see the following output:
     WSManStackVersion              3.0
 ```
 
-If your version is lower than 6.2.4, you need to upgrade your version of Windows PowerShell. To install the latest version of Windows PowerShell, see [Install Azure PowerShell](/powershell/scripting/install/installing-powershell?view=powershell-7&preserve-view=true).
+If your version is lower than 6.2.4, you need to upgrade your version of Windows PowerShell. To install the latest version of Windows PowerShell, see [Install Azure PowerShell](/powershell/scripting/install/installing-powershell).
 
 **Install Azure PowerShell and Data Box modules**
 
@@ -351,22 +351,34 @@ Do the following steps in the Azure portal to order a device.
     ![Expanded Bring your own password options for a Data Box import order](media/data-box-deploy-ordered/select-data-box-import-security-02.png) 
 
    - To use your own password for your new device, by **Set preference for the device password**, select **Use your own password**, and type a password that meets the security requirements.
+     
+     The password must be alphanumeric and contain from 12 to 15 characters, with at least one uppercase letter, one lowercase letter, one special character, and one number. 
+
+     - Allowed special characters: @ # - $ % ^ ! + = ; : _ ( )
+     - Characters not allowed: I i L o O 0
    
      ![Options for using your own device password on the Security screen for a Data Box import order](media/data-box-deploy-ordered/select-data-box-import-security-03.png)
 
  - To use your own passwords for shares:
 
-   - By **Set preference for share passwords**, select **Use your own passwords** and then **Select passwords for the shares**.
+   1. By **Set preference for share passwords**, select **Use your own passwords** and then **Select passwords for the shares**.
      
-        ![Options for using your own share passwords on the Security screen for a Data Box import order](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
+       ![Options for using your own share passwords on the Security screen for a Data Box import order](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
 
-    - Type a password for each storage account in the order. The password will be used on all shares for the storage account.
-     
-        To use the same password for all of the storage accounts, select **Copy to all**. When you finish, select **Save**.
-     
-        ![Screen for entering share passwords for a Data Box import order](media/data-box-deploy-ordered/select-data-box-import-security-05.png)
+    1. Type a password for each storage account in the order. The password will be used on all shares for the storage account.
+    
+       The password must be alphanumeric and contain from 12 to 64 characters, with at least one uppercase letter, one lowercase letter, one special character, and one number.
 
-       On the **Security** screen, you can use **View or change passwords** to change the passwords.
+       - Allowed special characters: @ # - $ % ^ ! + = ; : _ ( )
+       - Characters not allowed: I i L o O 0
+     
+    1. To use the same password for all of the storage accounts, select **Copy to all**. 
+
+    1. When you finish, select **Save**.
+     
+       ![Screen for entering share passwords for a Data Box import order](media/data-box-deploy-ordered/select-data-box-import-security-05.png)
+
+    On the **Security** screen, you can use **View or change passwords** to change the passwords.
 
 16. In **Security**, if you want to enable software-based double encryption, expand **Double-encryption (for highly secure environments)**, and select **Enable double encryption for the order**.
 

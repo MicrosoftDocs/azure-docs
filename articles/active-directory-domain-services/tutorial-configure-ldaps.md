@@ -150,7 +150,7 @@ Before you can use the digital certificate created in the previous step with you
 
     On the **Security** page, choose the option for **Password** to protect the *.PFX* certificate file. The encryption algorithm must be *TripleDES-SHA1*. Enter and confirm a password, then select **Next**. This password is used in the next section to enable secure LDAP for your managed domain.
 
-    If you export using the [PowerShell export-pfxcertificate cmdlet](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate?view=win10-ps), you need to pass the *-CryptoAlgorithmOption* flag using TripleDES_SHA1.
+    If you export using the [PowerShell export-pfxcertificate cmdlet](/powershell/module/pkiclient/export-pfxcertificate), you need to pass the *-CryptoAlgorithmOption* flag using TripleDES_SHA1.
 
     ![Screenshot of how to encrypt the password](./media/tutorial-configure-ldaps/encrypt.png)
 

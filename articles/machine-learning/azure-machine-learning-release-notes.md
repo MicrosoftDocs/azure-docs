@@ -18,14 +18,45 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
 
+
+## 2021-03-08
+
+### Azure Machine Learning SDK for Python v1.24.0
++ **Bug fixes and improvements**
+  + **azureml-automl-core**
+    + Removed backwards compatible imports from `azureml.automl.core.shared`. Module not found errors in the `azureml.automl.core.shared` namespace can be resolved by importing from `azureml.automl.runtime.shared`.
+  + **azureml-contrib-automl-dnn-vision**
+    + Exposed object detection yolo model.
+  + **azureml-contrib-dataset**
+    + Added functionality to filter Tabular Datasets by column values and File Datasets by metadata.
+  + **azureml-contrib-fairness**
+    + Include JSON schema in wheel for `azureml-contrib-fairness`
+  + **azureml-contrib-k8s**
+    + Must now provide resource_id to attach instead of resource group and cluster name.
+  + **azureml-contrib-mir**
+    + With setting show_output to True when deploy models, inference configuration and deployment configuration will be replayed before sending the request to server.
+  + **azureml-core**
+    + Added functionality to filter Tabular Datasets by column values and File Datasets by metadata.
+    + Previously, it was possibly for users to create provisioning configurations for ComputeTarget's that did not satisfy the password strength requirements for the `admin_user_password` field (i.e., that they must contain at least 3 of the following: 1 lowercase letter, 1 uppercase letter, 1 digit, and 1 special character from the following set: ``\`~!@#$%^&*()=+_[]{}|;:./'",<>?``). If the user created a configuration with a weak password and ran a job using that configuration, the job would fail at runtime. Now, the call to `AmlCompute.provisioning_configuration` will throw a `ComputeTargetException` with an accompanying error message explaining the password strength requirements. 
+    + Additionally, it was also possible in some cases to specify a configuration with a negative number of maximum nodes. It is no longer possible to do this. Now, `AmlCompute.provisioning_configuration` will throw a `ComputeTargetException` if the `max_nodes` argument is a negative integer.
+    + With setting show_output to True when deploy models, inference configuration and deployment configuration will be displayed.
+    + With setting show_output to True when wait for the completion of model deployment, the progress of deployment operation will be displayed.
+    + Allow customer specified AzureML auth config directory through environment variable: AZUREML_AUTH_CONFIG_DIR
+    + Previously, it was possible to create a provisioning configuration with the minimum node count less than the maximum node count. The job would run but fail at runtime. This bug has now been fixed. If you now try to create a provisioning configuration with `min_nodes < max_nodes` the SDK will raise a `ComputeTargetException`.
+  + **azureml-interpret**
+    + fix explanation dashboard not showing aggregate feature importances for sparse engineered explanations
+    + optimized memory usage of ExplanationClient in azureml-interpret package
+  + **azureml-train-automl-client**
+    +  Fixed show_output=False to return control to the user when running using spark.
+
 ## 2021-02-28
 ### Azure Machine Learning Studio Notebooks Experience (February Update)
 + **New features**
   + [Native Terminal (GA)](https://docs.microsoft.com/azure/machine-learning/how-to-access-terminal). Users will now have access to an integrated terminal as well as Git operation via the integrated terminal.
   + [Notebook Snippets (preview)](https://azure.github.io/azureml-web/docs/vs-code-snippets/snippets). Common Azure ML code excerpts are now available at your fingertips. Navigate to the code snippets panel, accessible via the toolbar, or activate the in-code snippets menu using Ctrl + Space.  
   + [Keyboard Shortcuts](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#shortcut-keys). Full parity with keyboard shortcuts available in Jupyter. 
-  + Indicate Cell parameters. Shows users with cell in a notebook are parameter cell and can run parameterized notebooks via [Papermill](https://github.com/nteract/papermill) on the Compute Instance.
-  + Terminal and Kernel session manager: Users will be able to manage all kernels and terminal sessions running on your compute.
+  + Indicate Cell parameters. Shows users which cells in a notebook are parameter cells and can run parameterized notebooks via [Papermill](https://github.com/nteract/papermill) on the Compute Instance.
+  + Terminal and Kernel session manager: Users will be able to manage all kernels and terminal sessions running on their compute.
   + Sharing Button. Users can now share any file in the Notebook file explorer by right-clicking the file and using the share button.
 
 
@@ -36,10 +67,11 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   + Added spinning wheel to show progress for all ongoing [Compute Instance operations](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#status-indicators).
   + Right click in File Explorer. Right-clicking any file will now open file operations. 
 
+
 ## 2021-02-16
 
 ### Azure Machine Learning SDK for Python v1.23.0
-+ **New features**
++ **Bug fixes and improvements**
   + **azureml-core**
     + [Experimental feature] Add support to link synapse workspace into AML as an linked service
     + [Experimental feature] Add support to attach synapse spark pool into AML as a compute

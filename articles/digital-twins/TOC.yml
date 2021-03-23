@@ -13,8 +13,12 @@
   items:
   - name: Code a client app
     href: tutorial-code.md
-  - name: Explore the basics with a sample client app
-    href: tutorial-command-line-app.md
+  - name: Create a graph
+    items:
+    - name: Use a sample client app
+      href: tutorial-command-line-app.md
+    - name: Use the Azure CLI commands
+      href: tutorial-command-line-cli.md
   - name: Connect an end-to-end solution
     href: tutorial-end-to-end.md
 - name: Concepts
@@ -97,10 +101,10 @@
     items:
     - name: Use the APIs and SDKs
       href: how-to-use-apis-sdks.md
+    - name: Create custom-language SDKs with AutoRest
+      href: how-to-create-custom-sdks.md
     - name: Make requests with Postman
       href: how-to-use-postman.md
-    - name: Create custom SDKs with AutoRest
-      href: how-to-create-custom-sdks.md
     - name: Integrate with Azure SignalR Service
       href: how-to-integrate-azure-signalr.md
   - name: Connect input
@@ -169,6 +173,8 @@
           href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core
   - name: Digital Twins CLI
     href: /cli/azure/ext/azure-iot/dt
+  - name: DTDL v2 spec
+    href: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md
 - name: Resources
   items:
   - name: Digital Twins service limits
@@ -208,9 +214,9 @@
       - name: Python SDK - Source code
         href: https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins
       - name: Go SDK - GoDoc
-        href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt/2020-10-31/digitaltwins
+        href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt
       - name: Go - Source code
-        href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt/2020-10-31/digitaltwins
+        href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt
     - name: Data plane
       items:    
       - name: Data plane Swagger
@@ -249,8 +255,8 @@
         href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_endpoint_servicebus
   - name: Tools and sample projects
     items:
-      - name: Device simulator service
-        href: https://github.com/Azure/device-simulation-dotnet/tree/master
+      - name: Azure Digital Twins Postman Collection
+        href: https://github.com/microsoft/azure-digital-twins-postman-samples
       - name: Azure Digital Twins end-to-end samples
         href: /samples/azure-samples/digital-twins-samples/digital-twins-samples/
       - name: Azure Digital Twins explorer (sample)
@@ -269,10 +275,10 @@
         href: /samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/
       - name: Custom Swaggers for Logic Apps connector
         href: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
+      - name: Device simulator service
+        href: https://github.com/Azure/device-simulation-dotnet/tree/master
   - name: DTDL
     items:
-    - name: DTDL v2 spec
-      href: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md
     - name: DTDL extension for VS Code
       href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl
     - name: DTDL parser library - NuGet
@@ -296,4 +302,6 @@
     - name: Azure portal
       href: https://portal.azure.com
   - name: Support and help options
-    href: ../iot-fundamentals/iot-support-help.md
+    href: ../iot-fundamentals/iot-support-help.md?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json
+  - name: IoT Glossary
+    href: ../iot-fundamentals/iot-glossary.md?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json

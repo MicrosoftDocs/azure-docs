@@ -187,7 +187,7 @@ Now that you have created a FileStorage account and configured the networking, y
    echo $PSVersionTable.PSVersion.ToString() 
    ```
     
-   To upgrade your version of PowerShell, see [Upgrading existing Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6&preserve-view=true#upgrading-existing-windows-powershell)
+   To upgrade your version of PowerShell, see [Upgrading existing Windows PowerShell](/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell)
     
 1. Install the latest version of the PowershellGet module.
 

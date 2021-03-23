@@ -153,6 +153,9 @@ To add an event filter while you are creating an event route, use the _Add an ev
 
 You can either select from some basic common filter options, or use the advanced filter options to write your own custom filters.
 
+>[!NOTE]
+> Filters are **case-sensitive** and need to match on the payload case  (which may not necessarily match the model case).
+
 #### Use the basic filters
 
 To use the basic filters, expand the _Event types_ option and select the checkboxes corresponding to the events you'd like to send to your endpoint. 

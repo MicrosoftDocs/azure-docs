@@ -90,7 +90,7 @@ The backend pool of cross-region load balancer contains one or more regional loa
 
 Add your existing load balancer deployments to a cross-region load balancer for a highly available, cross-region deployment.
 
-**Home region** is where the cross-region load balancer is deployed. 
+**Home region** is where the cross-region load balancer or Public IP Address of Global tier is deployed. 
 This region doesn't affect how the traffic will be routed. If a home region goes down, traffic flow is unaffected.
 
 ### Home regions
@@ -103,9 +103,9 @@ This region doesn't affect how the traffic will be routed. If a home region goes
 * East Asia
 
 > [!NOTE]
-> You can only deploy your cross-region load balancer in one of the 8 regions above.
+> You can only deploy your cross-region load balancer or Public IP in Global tier in one of the 7 regions above.
 
-A **participating region** is where the global public IP of the load balancer is available. 
+A **participating region** is where the Global public IP of the load balancer is available. 
 
 Traffic started by the user will travel to the closest participating region through the Microsoft core network. 
 

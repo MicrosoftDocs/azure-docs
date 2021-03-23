@@ -38,7 +38,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Sign in to Azure portal
 
-[Sign in](https://preview.portal.azure.com) to the Azure preview portal.
+[Sign in](https://portal.azure.com) to the Azure portal.
 
 ## Create cross-region load balancer
 
@@ -197,9 +197,6 @@ In this tutorial, you:
 * Created a load-balancing rule.
 * Tested the load balancer.
 
-For more information on cross-region load balancer, see [Cross-region load balancer (Preview)](cross-region-overview.md).
-
-
-Advance to the next article to learn how to:
+For more information on cross-region load balancer, see:
 > [!div class="nextstepaction"]
-> [Load balance VMs across availability zones](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+> [Cross-region load balancer (Preview)](cross-region-overview.md)

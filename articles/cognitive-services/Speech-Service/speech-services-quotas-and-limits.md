@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/24/2021
+ms.date: 03/15/2021
 ms.author: alexeyo
 ---
 
@@ -22,6 +22,7 @@ Jump to [Text-to-Speech Quotas and limits](#text-to-speech-quotas-and-limits-per
 In the tables below Parameters without "Adjustable" row are **not** adjustable for all price tiers.
 
 #### Online Transcription
+For the usage with [Speech SDK](speech-sdk.md) and/or [Speech-to-text REST API for short audio](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio).
 
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
@@ -69,7 +70,7 @@ In the table below Parameters without "Adjustable" row are **not** adjustable fo
 | **Websocket specific quotas** |  |  |
 |Max Audio length produced per turn | 10 min | 10 min |
 |Max SSML Message size per turn |64 KB |64 KB |
-| **REST API limit** | 20 requests per minute | 25 requests per 5 seconds |
+| **REST API limit** | 20 requests per minute | 300 requests per minute |
 
 
 <sup>3</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>

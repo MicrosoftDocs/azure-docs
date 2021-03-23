@@ -1,6 +1,6 @@
 ---
 title: Set up an Azure Migrate appliance for VMware 
-description: Learn how to set up an Azure Migrate appliance to assess and migrate VMware VMs.
+description: Learn how to set up an Azure Migrate appliance to assess and migrate servers in VMware environment.
 author: vikram1988 
 ms.author: vibansa
 ms.manager: abhemraj
@@ -8,34 +8,34 @@ ms.topic: how-to
 ms.date: 04/16/2020
 ---
 
-# Set up an appliance for VMware VMs
+# Set up an appliance for servers in VMware environment
 
-Follow this article to set up the Azure Migrate appliance for assessment with the [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool, and for agentless migration using the [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool.
+Follow this article to set up the Azure Migrate appliance for assessment with the [Azure Migrate:Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool, and for agentless migration using the [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool.
 
-The [Azure Migrate appliance](migrate-appliance.md) is a lightweight appliance used by Azure Migrate:Server Assessment and Server Migration to discover servers running in vCenter Server, send server configuration and performance metadata to Azure, and for replication of servers using agentless migration.
+The [Azure Migrate appliance](migrate-appliance.md) is a lightweight appliance used by Azure Migrate:Discovery and assessment and Server Migration to discover servers running in vCenter Server, send server configuration and performance metadata to Azure, and for replication of servers using agentless migration.
 
 You can deploy the appliance using a couple of methods:
 
 - Create a server on vCenter Server using a downloaded OVA template. This is the method described in this article.
 - Set up the appliance on an existing server using a PowerShell installer script. [This method](deploy-appliance-script.md) should be used if you cannot use OVA template, or if you're in Azure Government.
 
-After creating the appliance, you check that it can connect to Azure Migrate:Server Assessment, register it with the Azure Migrate project and configure the appliance to initiate discovery.
+After creating the appliance, you check that it can connect to Azure Migrate:Discovery and assessment, register it with the project and configure the appliance to initiate discovery.
 
 ## Deploy with OVA
 
 To set up the appliance using an OVA template you:
-1. Provide an appliance name and generate an Azure Migrate project key in the portal.
+1. Provide an appliance name and generate a project key in the portal.
 1. Download an OVA template file, and import it to vCenter Server. Verify the OVA is secure.
 1. Create the appliance VM from the OVA file , and check that it can connect to Azure Migrate.
-1. Configure the appliance for the first time, and register it with the project using the Azure Migrate project key.
+1. Configure the appliance for the first time, and register it with the project using the project key.
 
-### 1. Generate the Azure Migrate project key
+### 1. Generate the project key
 
-1. In **Migration Goals** > **Servers** > **Azure Migrate: Server Assessment**, select **Discover**.
-2. In **Discover machines** > **Are your machines virtualized?**, select **Yes, with VMware vSphere hypervisor**.
-3. In **1:Generate Azure Migrate project key**, provide a name for the Azure Migrate appliance that you will set up for discovery of servers in your VMware environment.The name should be alphanumeric with 14 characters or fewer.
+1. In **Migration Goals** > **Servers** > **Azure Migrate: Discovery and assessment**, select **Discover**.
+2. In **Discover servers** > **Are your servers virtualized?**, select **Yes, with VMware vSphere hypervisor**.
+3. In **1:Generate project key**, provide a name for the Azure Migrate appliance that you will set up for discovery of servers in your VMware environment.The name should be alphanumeric with 14 characters or fewer.
 1. Click on **Generate key** to start the creation of the required Azure resources. Please do not close the Discover page during the creation of resources.
-1. After the successful creation of the Azure resources, an **Azure Migrate project key** is generated.
+1. After the successful creation of the Azure resources, an **project key** is generated.
 1. Copy the key as you will need it to complete the registration of the appliance during its configuration.
 
 ### 2. Download the OVA template
@@ -90,7 +90,7 @@ Set up the appliance for the first time.
 
 1. In the vSphere Client console, right-click the server, and then select **Open Console**.
 2. Provide the language, time zone, and password for the appliance.
-3. Open a browser on any machine that can connect to the appliance server, and open the URL of the appliance configuration manager: `https://appliance name or IP address: 44368`.
+3. Open a browser on any server that can connect to the appliance server, and open the URL of the appliance configuration manager: `https://appliance name or IP address: 44368`.
 
    Alternately, you can open the configuration manager from the appliance server desktop by selecting the shortcut for the configuration manager.
 1. Accept the **license terms**, and read the third-party information.
@@ -112,7 +112,7 @@ Set up the appliance for the first time.
 
 ## Register the appliance with Azure Migrate
 
-1. Paste the **Azure Migrate project key** copied from the portal. If you do not have the key, go to **Server Assessment> Discover> Manage existing appliances**, select the appliance name you provided at the time of key generation and copy the corresponding key.
+1. Paste the **project key** copied from the portal. If you do not have the key, go to **Discovery and assessment> Discover> Manage existing appliances**, select the appliance name you provided at the time of key generation and copy the corresponding key.
 1. You will need a device code to authenticate with Azure. Clicking on **Login** will open a modal with the device code as shown below.
 
     :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Modal showing the device code":::
@@ -136,7 +136,7 @@ The appliance needs to connect to vCenter Server to discover the configuration a
 
 1. In **Step 1: Provide vCenter Server credentials**, click on **Add credentials** to  specify a friendly name for credentials, add **Username** and **Password** for the vCenter Server account that the appliance will use to discover servers running on the vCenter Server.
     - You should have set up an account with the required permissions as covered in this article above.
-    - If you want to scope discovery to specific VMware objects (vCenter Server datacenters, clusters, a folder of clusters, hosts, a folder of hosts, or individual VMs.), review the instructions in [this article](set-discovery-scope.md) to restrict the account used by Azure Migrate.
+    - If you want to scope discovery to specific VMware objects (vCenter Server datacenters, clusters, a folder of clusters, hosts, a folder of hosts, or individual servers.), review the instructions in [this article](set-discovery-scope.md) to restrict the account used by Azure Migrate.
 1. In **Step 2: Provide vCenter Server details**, click on **Add discovery source** to select the friendly name for credentials from the drop-down, specify the **IP address/FQDN** of the vCenter Server. You can leave the **Port** to default (443) or specify a custom port on which vCenter Server listens and click on **Save**.
 1. On clicking **Save**, appliance will try validating the connection to the vCenter Server with the credentials provided and show the **Validation status** in the table against the vCenter Server IP address/FQDN.
 1. You can **revalidate** the connectivity to vCenter Server any time before starting the discovery.
@@ -149,8 +149,6 @@ In **Step 3: Provide server credentials to perform software inventory, agentless
 
 :::image type="content" source="./media/tutorial-discover-vmware/appliance-server-credentials-mapping.png" alt-text="Panel 3 on appliance configuration manager for server details":::
 
-> [!Note]
-> Discovery and assessment of SQL Server instances and databases running in your VMware environment is now in preview. To try out this feature, use [**this link**](https://aka.ms/AzureMigrate/SQL) to create a project in **Australia East** region. If you already have a project in Australia East and want to try out this feature, please ensure that you have completed these [**prerequisites**](how-to-discover-sql-existing-project.md) on the portal.
 
 If you want to leverage these features, you can provide server credentials by following the steps below.The appliance will attempt to automatically map the credentials to the servers to perform the discovery features.
 

@@ -7,7 +7,7 @@ manager: nmurav
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 08/20/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
@@ -41,7 +41,7 @@ dotnet build
 While still in the application directory, install the Azure Communication Services Identity library for .NET package by using the `dotnet add package` command.
 
 ```console
-dotnet add package Azure.Communication.Identity --version 1.0.0
+dotnet add package Azure.Communication.Identity --version 1.0.0-beta.5
 ```
 
 ### Set up the app framework
@@ -127,14 +127,18 @@ Access tokens are short-lived credentials that need to be reissued. Not doing so
 
 ## Create an identity and issue an access token within the same request
 
-Use the `createUserWithToken` method to create a Communication Services identity and issue an access token for it. Parameter `scopes` defines set of primitives, that will authorize this access token. See the [list of supported actions](../../concepts/authentication.md).
+Use the `CreateUserAndTokenAsync` method to create a Communication Services identity and issue an access token for it. Parameter `scopes` defines set of primitives, that will authorize this access token. See the [list of supported actions](../../concepts/authentication.md).
 
-```csharp  
+```csharp
 // Issue an identity and an access token with the "voip" scope for the new identity
-var identityWithTokenResponse = await client.CreateUserWithTokenAsync(scopes: new[] { CommunicationTokenScope.VoIP });
-var identity = identityWithTokenResponse.Value.user.Id;
-var token = identityWithTokenResponse.Value.token.Token;
-var expiresOn = identityWithTokenResponse.Value.token.ExpiresOn;
+var identityAndTokenResponse = await client.CreateUserAndTokenAsync(scopes: new[] { CommunicationTokenScope.VoIP });
+var identity = identityAndTokenResponse.Value.User;
+var token = identityAndTokenResponse.Value.AccessToken.Token;
+var expiresOn = identityAndTokenResponse.Value.AccessToken.ExpiresOn;
+
+Console.WriteLine($"\nCreated an identity with ID: {identity.Id}");
+Console.WriteLine($"\nIssued an access token with 'voip' scope that expires at {expiresOn}:");
+Console.WriteLine(token);
 ```
 
 ## Refresh access tokens

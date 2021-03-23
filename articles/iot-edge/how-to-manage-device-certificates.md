@@ -11,6 +11,8 @@ services: iot-edge
 ---
 # Manage certificates on an IoT Edge device
 
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+
 All IoT Edge devices use certificates to create secure connections between the runtime and any modules running on the device. IoT Edge devices functioning as gateways use these same certificates to connect to their downstream devices, too.
 
 ## Install production certificates
