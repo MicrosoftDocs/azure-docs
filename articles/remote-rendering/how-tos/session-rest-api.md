@@ -21,7 +21,7 @@ We also provide SDKs for [.NET](https://github.com/Azure/azure-sdk-for-net/blob/
 > Latency is an important factor when using remote rendering. For the best experience create sessions in the region that is closest to you. The [Azure Latency Test](https://www.azurespeed.com/Azure/Latency) can be used to determine which region is closest to you.
 
 > [!IMPORTANT]
-> An ARR runtime SDK is needed for a client device to connect to a rendering session. These SDKs are available in [.NET](/dotnet/api/microsoft.azure.remoterendering?view=remoterendering) and [C++](/cpp/api/remote-rendering/). Apart from connecting to the service, these SDKs can also be used to start and stop sessions.
+> An ARR runtime SDK is needed for a client device to connect to a rendering session. These SDKs are available in [.NET](/dotnet/api/microsoft.azure.remoterendering) and [C++](/cpp/api/remote-rendering/). Apart from connecting to the service, these SDKs can also be used to start and stop sessions.
 
 ## Next steps
 
