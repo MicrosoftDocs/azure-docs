@@ -5,18 +5,18 @@ author: stevevi
 ms.author: stevevi
 ms.service: azure-government
 ms.topic: quickstart
-ms.date: 03/09/2021
+ms.date: 03/16/2021
 ---
 
 # Deploy STIG-compliant Windows Virtual Machines (Preview)
 
-Microsoft Azure Security Technical Implementation Guides (STIGs) solution templates help you accelerate your [DoD STIG compliance](https://public.cyber.mil/stigs/) by delivering an automated solution to deploy virtual machines and apply STIGs through the Azure portal. For questions about this offering, contact [Azure STIG Support](mailto:azurestigsupport@microsoft.com).
+Microsoft Azure Security Technical Implementation Guides (STIGs) solution templates help you accelerate your [DoD STIG compliance](https://public.cyber.mil/stigs/) by delivering an automated solution to deploy virtual machines and apply STIGs through the Azure portal.
 
-This quickstart shows how to use the Azure portal to deploy a STIG-compliant Windows virtual machine (Preview).
+This quickstart shows how to deploy a STIG-compliant Windows virtual machine (Preview) on Azure or Azure Government using the corresponding portal.
 
 ## Prerequisites
 
-- Azure Government subscription
+- Azure or Azure Government subscription
 - Storage account
   - If desired, must be in the same resource group/region as the VM
   - Required if you plan to store Log Analytics diagnostics
@@ -24,7 +24,7 @@ This quickstart shows how to use the Azure portal to deploy a STIG-compliant Win
 
 ## Sign in to Azure
 
-Sign in at the [Azure Government portal](https://portal.azure.us/).
+Sign in at the [Azure portal](https://ms.portal.azure.com/) or [Azure Government portal](https://portal.azure.us/) depending on your subscription.
 
 ## Create a STIG-compliant virtual machine
 
@@ -111,7 +111,12 @@ Select the resource group for the virtual machine, then select **Delete**. Confi
 
 ## Next steps
 
-This quickstart showed you how to deploy a STIG-compliant Windows virtual machine (Preview) on Azure Government. For more information about creating virtual machines in Azure Government, see [Tutorial: Create Virtual Machines](./documentation-government-quickstarts-vm.md). To learn more about Azure services, continue to the Azure documentation.
+This quickstart showed you how to deploy a STIG-compliant Windows virtual machine (Preview) on Azure or Azure Government. For more information about creating virtual machines in:
+
+- Azure, see [Quickstart: Create a Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md).
+- Azure Government, see [Tutorial: Create virtual machines](./documentation-government-quickstarts-vm.md).
+
+To learn more about Azure services, continue to the Azure documentation.
 
 > [!div class="nextstepaction"]
 > [Azure documentation](../index.yml)

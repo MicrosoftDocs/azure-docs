@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -152,9 +152,16 @@ To use AD FS as an identity provider in Azure AD B2C, you need to create an AD F
 https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/your-policy/samlp/metadata?idptp=your-technical-profile
 ```
 
+When using a [custom domain](custom-domain.md), use the following format:
+
+```
+https://your-domain-name/your-tenant-name.onmicrosoft.com/your-policy/samlp/metadata?idptp=your-technical-profile
+```
+
 Replace the following values:
 
-- **your-tenant** with your tenant name, such as your-tenant.onmicrosoft.com.
+- **your-tenant-name** with your tenant name, such as your-tenant.onmicrosoft.com.
+- **your-domain-name** with your custom domain name, such as login.contoso.com.
 - **your-policy** with your policy name. For example, B2C_1A_signup_signin_adfs.
 - **your-technical-profile** with the name of your SAML identity provider technical profile. For example, Contoso-SAML2.
 

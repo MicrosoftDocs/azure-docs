@@ -966,6 +966,14 @@ groups:
     title: Android
   - id: platform-ios
     title: iOS
+- id: acs-plat-ios-android
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: platform-android
+    title: Android
+  - id: platform-ios
+    title: iOS    
 - id: acs-plat-azp-js
   title: Platform
   prompt: Choose a platform
@@ -1087,6 +1095,8 @@ groups:
   title: Programming languages
   prompt: Choose a programming language
   pivots:
+  - id: rest
+    title: REST
   - id: programming-language-csharp
     title: C#
   - id: programming-language-javascript
@@ -1099,8 +1109,6 @@ groups:
     title: Go
   - id: programming-language-ruby
     title: Ruby
-  - id: rest
-    title: Rest
 - id: azure-maps-android
 # Owner: richbrun
   title: Programming languages

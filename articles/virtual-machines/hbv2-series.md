@@ -29,10 +29,10 @@ HBv2-series VMs feature 200 Gb/sec Mellanox HDR InfiniBand. These VMs are connec
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_HB120rs_v2 | 120 | AMD EPYC 7V12 | 456 | 350 | 2.45 | 3.1 | 3.3 | 200 | All | 480 + 960 | 8 | 8 |
 
-Learn more about:
-- Underlying [architecture and VM topology](./workloads/hpc/hbv2-series-overview.md)
-- [Supported software stack](./workloads/hpc/hbv2-series-overview.md#software-specifications) including supported OS
-- Expected [performance](./workloads/hpc/hbv2-performance.md) of the HBv2-series VM.
+Learn more about the:
+- [Architecture and VM topology](./workloads/hpc/hbv2-series-overview.md)
+- Supported [software stack](./workloads/hpc/hbv2-series-overview.md#software-specifications) including supported OS
+- Expected [performance](./workloads/hpc/hbv2-performance.md) of the HBv2-series VM
 
 [!INCLUDE [hpc-include](./workloads/hpc/includes/hpc-include.md)]
 

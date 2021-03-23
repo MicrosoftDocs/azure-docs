@@ -188,10 +188,14 @@ For more information, check out the [telemetry processor](./java-standalone-tele
 Log4j, Logback, and java.util.logging are auto-instrumented, and logging performed via these logging frameworks
 is auto-collected.
 
-Logging is only captured if it first meets the logging frameworks' configured threshold,
-and second also meets the Application Insights configured threshold.
+Logging is only captured if it first meets the level that is configured for the logging framework,
+and second, also meets the level that is configured for Application Insights.
 
-The default Application Insights threshold is `INFO`. If you want to change this level:
+For example, if your logging framework is configured to log `WARN` (and above) from package `com.example`,
+and Application Insights is configured to capture `INFO` (and above),
+then Application Insights will only capture `WARN` (and above) from package `com.example`.
+
+The default level configured for Application Insights is `INFO`. If you want to change this level:
 
 ```json
 {

@@ -140,6 +140,7 @@ For more information on `az ml model register`, consult the [reference documenta
 
     For more information, see the [AutoMLRun.register_model](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun#register-model-model-name-none--description-none--tags-none--iteration-none--metric-none-) documentation.
 
+    To deploy a registered model from an `AutoMLRun`, we recommend doing so via the [one-click deploy button in Azure Machine learning studio](how-to-use-automated-ml-for-ml-models.md#deploy-your-model). 
 ### Register a model from a local file
 
 You can register a model by providing the local path of the model. You can provide the path of either a folder or a single file. You can use this method to register models trained with Azure Machine Learning and then downloaded. You can also use this method to register models trained outside of Azure Machine Learning.
@@ -363,6 +364,7 @@ For more information, see the documentation for [WebService.delete()](/python/ap
 * [Create client applications to consume web services](how-to-consume-web-service.md)
 * [Update web service](how-to-deploy-update-web-service.md)
 * [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
+* [One click deployment for automated ML runs in the Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md#deploy-your-model)
 * [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
 * [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
 * [Collect data for models in production](how-to-enable-data-collection.md)
