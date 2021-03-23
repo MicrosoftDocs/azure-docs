@@ -398,16 +398,16 @@
     - name: Create multiple instances
       items:
       - name: Resources
-        displayName: iteration,copy
+        displayName: iteration,copy,multiple
         href: copy-resources.md
       - name: Properties
-        displayName: iteration,copy
+        displayName: iteration,copy,multiple
         href: copy-properties.md
       - name: Variables
-        displayName: iteration,copy
+        displayName: iteration,copy,multiple
         href: copy-variables.md
       - name: Outputs
-        displayName: iteration,copy
+        displayName: iteration,copy,multiple
         href: copy-outputs.md
   - name: Deploy templates
     items:
