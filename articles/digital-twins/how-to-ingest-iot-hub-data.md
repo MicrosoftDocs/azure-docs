@@ -57,7 +57,7 @@ az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id t
 ```
 
 > [!Note]
-If you are using Cloud Shell in the PowerShell environment, you may need to escape the quotation mark characters on the inline JSON fields for their values to be parsed correctly. Here is the command to create the twin with this modification:
+> If you are using Cloud Shell in the PowerShell environment, you may need to escape the quotation mark characters on the inline JSON fields for their values to be parsed correctly. Here is the command to create the twin with this modification:
 >
 > Create twin:
 > ```azurecli-interactive
