@@ -2,7 +2,7 @@
 title: Prepare your organization's network for Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn aboUnderstand the network requirements for Azure Commumnication Service Voice and Video Calling
-author: mikben
+author: nmurav
 manager: jken
 services: azure-communication-services
 
@@ -90,5 +90,4 @@ Validate NAT pool size | Validate the network address translation (NAT) pool siz
 
 Azure Communication Services Voice/Video SDKs supports the selected versions of the Operation Systems and Browsers (for JavaScript SDK). The limitations are caused by the operating systems and/or browser architecture. E.g., Safari on IOS before version 14.5 cannot switch Bluetooth devices. Ensuring that users are on the supported version of OS and browsers guarantees the optimal quality of experience. 
 [Lean about supported versions of the OS and Browsers for Azure Communication Services SDKs](https://docs.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/calling-sdk-features)
-
 
