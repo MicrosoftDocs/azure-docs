@@ -56,7 +56,7 @@ You can manage the creation, deletion, server parameter configuration (my.cnf), 
 |-----|-----|-----|-----|
 |*mysql.az_kill*|processlist_id|N/A|Equivalent to [`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) command. Will terminate the connection associated with the provided processlist_id after terminating any statement the connection is executing.|
 |*mysql.az_kill_query*|processlist_id|N/A|Equivalent to [`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) command. Will terminate the statement the connection is currently executing. Leaves the connection itself alive.|
-|*mysql.az_load_timezone*|N/A|N/A|Loads [time zone tables](howto-server-parameters.md#working-with-the-time-zone-parameter) to allow the `time_zone` parameter to be set to named values (ex. "US/Pacific").|
+|*mysql.az_load_timezone*|N/A|N/A|Loads [time zone tables](../howto-server-parameters.md#working-with-the-time-zone-parameter) to allow the `time_zone` parameter to be set to named values (ex. "US/Pacific").|
 
 
 ## Next steps
