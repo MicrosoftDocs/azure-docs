@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-| Workload Type* | Limit* |
+| Workload Type* | Limit** |
 | --- | --- |
 | Light |100 |
 | Medium |50 |
