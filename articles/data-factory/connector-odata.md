@@ -341,7 +341,9 @@ You need to navigate to **Authorization** tab on the Postman Website.
 - You will be asked to login with your username and password.
 - Once you get your access token, please copy and save it for the next step.
 
-![Use Postman to get access token](/media/connector-odata/odata-project-online-postman-accesstoken.png)
+[ ![Use Postman to get access token](
+./media/connector-odata/odata-project-online-postman-accesstoken-inline.png
+) ](./media/connector-odata/odata-project-online-postman-accesstoken-expanded.png#lightbox)
 
 2. Create the OData Linked Service 
 - **Service URL**: Enter `https://<your tenant name>.sharepoint.com/sites/pwa/_api/Projectdata`. Replace `<your tenant name>` with your own tenant name. 
@@ -351,13 +353,13 @@ You need to navigate to **Authorization** tab on the Postman Website.
     - **Value**: Enter the **access token** copied from Step 1
 - Test the linked service
 
-![Create OData linked service](/media/connector-odata/odata-project-online-linked-service.png)
+![Create OData linked service](./media/connector-odata/odata-project-online-linked-service.png)
 
 3. Create the OData Dataset
 - Create the dataset with the OData linked service created in step2.
 - Preview data.
 
-![Preview data](/media/connector-odata/odata-project-online-preview-data.png)
+![Preview data](./media/connector-odata/odata-project-online-preview-data.png)
  
 > [!NOTE]
 > The access token expires in 1 hour by default, please refresh the access token when it expires.
