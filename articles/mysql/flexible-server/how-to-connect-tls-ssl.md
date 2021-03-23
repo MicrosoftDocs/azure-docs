@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 09/21/2020
 ---
 
-# Encrypted connectivity using Transport Layer Security (TLS 1.2) in Azure Database for MySQL - Flexible Server
+# Connect to Azure Database for MySQL - Flexible Server over TLS1.2/SSL
 
 > [!IMPORTANT]
 > Azure Database for MySQL Flexible Server is currently in public preview
@@ -63,7 +63,7 @@ Download [SSL public certificate](https://dl.cacerts.digicert.com/DigiCertGlobal
 //** Connect with SSL** //
 define('MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_SSL);
 //** SSL CERT **//
-define(‘MYSQL_SSL_CERT’,’/FULLPATH/on-client/to/DigiCertGlobalRootCA.crt.pem’);
+define('MYSQL_SSL_CERT','/FULLPATH/on-client/to/DigiCertGlobalRootCA.crt.pem');
 ```
 
 ### PHP
