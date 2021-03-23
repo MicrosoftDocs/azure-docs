@@ -189,11 +189,17 @@ The Body Tracking SDK C# documentation is located [here](https://microsoft.githu
 
 The Body Tracking SDK supports CPU, CUDA, DirectML (Windows only) and TensorRT execution environments to inference the pose estimation model. The `K4ABT_TRACKER_PROCESSING_MODE_GPU` defaults to CUDA execution on Linux and DirectML execution on Windows. Three additional modes have been added to select specific execution environments: `K4ABT_TRACKER_PROCESSING_MODE_GPU_CUDA`, `K4ABT_TRACKER_PROCESSING_MODE_GPU_DIRECTML`, and `K4ABT_TRACKER_PROCESSING_MODE_GPU_TENSORRT`.
 
+> [!NOTE]  
+> ONNX Runtime displays warnings for opcodes that are not accelerated. These may be safely ignored.
+
 ONNX Runtime includes environment variables to control TensorRT model caching. The recommended values are:
-- ORT_TENSORRT_ENGINE_CACHE_ENABLE=1 
-- ORT_TENSORRT_ENGINE_CACHE_PATH="pathname"
+- ORT_TENSORRT_CACHE_ENABLE=1 
+- ORT_TENSORRT_CACHE_PATH="pathname"
 
 The folder must be created prior to starting body tracking.
+
+> [!NOTE]  
+> TensorRT pre-processes the model prior to inference resulting in extended start up times when compared to other execution environments. Engine caching limits this to first execution however it is experimental and is specific to the model, ONNX Runtime version, TensorRT version and GPU model.
 
 The TensorRT execution environment supports both FP32 (default) and FP16. FP16 trades ~2x performance increase for minimal accuracy decrease. To specify FP16:
 - ORT_TENSORRT_FP16_ENABLE=1

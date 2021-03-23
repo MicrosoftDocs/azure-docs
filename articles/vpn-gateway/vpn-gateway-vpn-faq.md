@@ -15,7 +15,7 @@ ms.author: yushwang
 
 ### Can I connect virtual networks in different Azure regions?
 
-Yes. In fact, there is no region constraint. One virtual network can connect to another virtual network in the same region, or in a different Azure region. 
+Yes. In fact, there is no region constraint. One virtual network can connect to another virtual network in the same region, or in a different Azure region.
 
 ### Can I connect virtual networks in different subscriptions?
 
@@ -31,7 +31,7 @@ You can connect to multiple sites by using Windows PowerShell and the Azure REST
 
 ### Is there an additional cost for setting up a VPN gateway as active-active?
 
-No. 
+No.
 
 ### What are my cross-premises connection options?
 
@@ -69,13 +69,16 @@ Route-based gateways implement the route-based VPNs. Route-based VPNs use "route
 
 ### Can I update my policy-based VPN gateway to route-based?
 
-No. An Azure Vnet gateway type cannot be changed from policy-based to route-based or the other way. The gateway must be deleted and recreated, a process taking around 60 minutes. The IP address of the gateway will not be preserved nor will the Pre-Shared Key (PSK).
-1. Delete any connections associated with the gateway to be deleted.
-1. Delete the gateway:
-   - [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
-   - [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-   - [Azure PowerShell - classic](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-1. [Create a new gateway of the type you want and complete the VPN setup](./tutorial-site-to-site-portal.md#VNetGateway).
+No. A gateway type cannot be changed from policy-based to route-based, or from route-based to policy-based. To change a gateway type, the gateway must be deleted and recreated. This process takes about 60 minutes. When you create the new gateway, you cannot retain the IP address of the original gateway.
+
+1. Delete any connections associated with the gateway.
+
+1. Delete the gateway using one of the following articles:
+
+   * [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
+   * [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+   * [Azure PowerShell - classic](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+1. Create a new gateway using the gateway type that you want, and then complete the VPN setup. For steps, see the [Site-to-Site tutorial](./tutorial-site-to-site-portal.md#VNetGateway).
 
 ### Do I need a 'GatewaySubnet'?
 
@@ -120,7 +123,7 @@ We are limited to using pre-shared keys (PSK) for authentication.
 
 #### Classic deployment model
 
-* Azure portal: navigate to the classic virtual network > VPN connections > Site-to-site VPN connections > Local site name > Local site > Client address space. 
+* Azure portal: navigate to the classic virtual network > VPN connections > Site-to-site VPN connections > Local site name > Local site > Client address space.
 
 ### Can I use NAT-T on my VPN connections?
 
@@ -243,7 +246,6 @@ No. Only the traffic that has a destination IP that is contained in the virtual 
 ### How do I troubleshoot an RDP connection to a VM
 
 [!INCLUDE [Troubleshoot VM connection](../../includes/vpn-gateway-connect-vm-troubleshoot-include.md)]
-
 
 ## <a name="faq"></a>Virtual Network FAQ
 
