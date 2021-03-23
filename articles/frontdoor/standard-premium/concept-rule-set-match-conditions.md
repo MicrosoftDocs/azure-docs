@@ -357,7 +357,7 @@ The **request file name** match condition identifies requests that include the s
 
 ### Example
 
-In this example, we match all requests where the request file name contains the text `media.mp4`. We transform the file name to lowercase before evaluating the match, so `MEDIA.MP4` and other case variations will also trigger this match condition.
+In this example, we match all requests where the request file name is `media.mp4`. We transform the file name to lowercase before evaluating the match, so `MEDIA.MP4` and other case variations will also trigger this match condition.
 
 # [Portal](#tab/portal)
 
