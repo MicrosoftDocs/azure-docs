@@ -20,15 +20,15 @@ Using Azure portal, you'll choose between automatic or manual upgrades when crea
 
 :::image type="content" source="media/service-fabric-cluster-upgrade/portal-new-cluster-upgrade-mode.png" alt-text="Choose between automatic or manual upgrades when creating a new cluster in Azure portal from the 'Advanced' options":::
 
-You can also toggle between automatic or manual upgrades from the **Fabric upgrades** blade of an existing cluster resource.
+You can also toggle between automatic or manual upgrades from the **Fabric upgrades** section of an existing cluster resource.
 
 :::image type="content" source="./media/service-fabric-cluster-upgrade/fabric-upgrade-mode.png" alt-text="Select Automatic or Manual upgrades in the 'Fabric upgrades' section of your cluster resource in Azure portal":::
 
 ### Manual upgrades with Azure portal
 
-When you select the manual upgrade option, all that's needed to initiate an upgrade is to select from the available versions  dropdown and then *Save*. From there the cluster upgrade gets kicked off immediately.
+When you select the manual upgrade option, all that's needed to initiate an upgrade is to select from the available versions  dropdown and then *Save*. From there, the cluster upgrade gets kicked off immediately.
 
-The [cluster health policies](#custom-policies-for-manual-upgrades) (a combination of node health and the health all the applications running in the cluster) are adhered to during the upgrade. If cluster health policies are not met, the upgrade is rolled back.
+The [cluster health policies](#custom-policies-for-manual-upgrades) (a combination of node health and the health all the applications running in the cluster) are adhered to during the upgrade. If cluster health policies are not met, the upgrade will be rolled back.
 
 Once you have fixed the issues that resulted in the rollback, you'll need to initiate the upgrade again, by following the same steps as before.
 
@@ -56,7 +56,7 @@ With automatic upgrade mode, you have the option to enable your cluster for wave
 To enable wave deployment for automatic upgrade, first determine which wave to assign your cluster:
 
 * **Wave 0** (`Wave0`): Clusters are updated as soon as a new Service Fabric build is released. Intended for test/dev clusters.
-* **Wave 1** (`Wave1`): Clusters are updated one week (7 days) after a new build is released. Intended for pre-prod/staging clusters.
+* **Wave 1** (`Wave1`): Clusters are updated one week (seven days) after a new build is released. Intended for pre-prod/staging clusters.
 * **Wave 2** (`Wave2`): Clusters are updated two weeks (14 days) after a new build is released. Intended for production clusters.
 
 Then, simply add an `upgradeWave` property to your cluster resource template with one of the wave values listed above. Ensure your cluster resource API version is `2020-12-01-preview` or later.
@@ -76,9 +76,9 @@ Then, simply add an `upgradeWave` property to your cluster resource template wit
        ...
 ```
 
-Once you deploy the updated template, your cluster will be enrolled in the specified wave for the next upgrade period and thereafter.
+Once you deploy the updated template, your cluster will be enrolled in the specified wave for the next upgrade period and after that.
 
-You can [register for email notifications](#register-for-notifications) if a cluster upgrade fails, and also have the option to [pause or resume upgrades](#pause-and-resume-upgrades) on your cluster.
+You can [register for email notifications](#register-for-notifications) if a cluster upgrade fails, and can also [pause or resume upgrades](#pause-and-resume-upgrades) on your cluster.
 
 ### Register for notifications
 
@@ -119,13 +119,13 @@ If clusters hosting your test or staging environments fail during Service Fabric
 > [!NOTE]
 > Enrollment in wave deployment is not required to pause or resume upgrades.
 
-To pause upgrades on a cluster, run the following command, substituting your own subscription id (#), resource group (*myresourcegroup*), and cluster name (*mycluster*):
+To pause upgrades on a cluster, run the following command, substituting your own subscription ID (#), resource group (*myresourcegroup*), and cluster name (*mycluster*):
 
 ```powershell
 Invoke-AzureRmResourceAction -Action pause -ResourceId /subscriptions/########-####-####-####-############/resourcegroups/myresourcegroup/providers/Microsoft.ServiceFabric/clusters/mycluster/upgrade -ApiVersion "2020-12-01-preview" -Force 
 ```
 
-To resume automatic upgrades, run the following command, substituting your own subscription id (*), resource group (*myresourcegroup*), and cluster name (*mycluster*):
+To resume automatic upgrades, run the following command, substituting your own subscription ID (*), resource group (*myresourcegroup*), and cluster name (*mycluster*):
 
 ```powershell
 Invoke-AzureRmResourceAction -Action resume -ResourceId /subscriptions/########-####-####-####-############/resourcegroups/myresourcegroup/providers/Microsoft.ServiceFabric/clusters/mycluster/upgrade -ApiVersion "2020-12-01-preview" -Force 
@@ -133,7 +133,7 @@ Invoke-AzureRmResourceAction -Action resume -ResourceId /subscriptions/########-
 
 ## Custom policies for manual upgrades
 
-You can specify custom health polices for manual cluster upgrades. These policies get applied each time you select a new runtime version, which triggers the system to kick off the upgrade of your cluster. If you do not override the policies, the defaults are used.
+You can specify custom health policies for manual cluster upgrades. These policies get applied each time you select a new runtime version, which triggers the system to kick off the upgrade of your cluster. If you do not override the policies, the defaults are used.
 
 You can specify the custom health policies or review the current settings under the **Fabric upgrades** section of your cluster resource in Azure portal by selecting *Custom* option for **Upgrade policy**.
 
