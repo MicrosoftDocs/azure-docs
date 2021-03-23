@@ -5,7 +5,7 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 05/22/2020
+ms.date: 03/23/2021
 ms.author: victorh
 ---
 
@@ -66,11 +66,11 @@ You can configure custom rules WAF as follows:
 
 - **HTTP parameters-based access control:** You can base rules on string matches in HTTP/HTTPS request parameters.  For example, query strings, POST args, Request URI, Request Header, and Request Body.
 
-- **Request method-based access control:** You based rules on the HTTP request method of the request. For example, GET, PUT, or HEAD.
+- **Request method-based access control:** You base rules on the HTTP request method of the request. For example, GET, PUT, or HEAD.
 
 - **Size constraint:** You can base rules on the lengths of specific parts of a request such as query string, Uri, or request body.
 
-- **Rate limiting rules:** A rate control rule is to limit abnormal high traffic from any client IP. You may configure a threshold on the number of web requests allowed from a client IP during a one-minute duration. This rule is distinct from an IP list-based allow/block custom rule that either allows all or blocks all request from a client IP. Rate limits can be combined with additional match conditions such as HTTP(S) parameter matches for granular rate control.
+- **Rate limiting rules:** A rate control rule limits abnormally high traffic from any client IP address. You may configure a threshold on the number of web requests allowed from a client IP during a one-minute duration. This rule is distinct from an IP list-based allow/block custom rule that either allows all or blocks all request from a client IP. Rate limits can be combined with additional match conditions such as HTTP(S) parameter matches for granular rate control.
 
 ### Azure-managed rule sets
 
@@ -86,14 +86,9 @@ Azure-managed rule sets provide an easy way to deploy protection against a commo
 - SQL injection protection
 - Protocol attackers
 
-The version number of the Default Rule Set increments when new attack signatures are added to the rule set.
-Default Rule Set is enabled by default in Detection mode in your WAF policies. You can disable or enable individual rules within the Default Rule Set to meet your application requirements. You can also set specific actions (ALLOW/BLOCK/REDIRECT/LOG) per rule.
-
-Sometimes you may need to omit certain request attributes from a WAF evaluation. A common example is Active Directory-inserted tokens that are used for authentication. You may configure an exclusion list for a managed rule, rule group, or for the entire rule set.  
-
-The Default action is to BLOCK. Additionally, custom rules can be configured in the same WAF policy if you wish to bypass any of the pre-configured rules in the Default Rule Set.
-
 Custom rules are always applied before rules in the Default Rule Set are evaluated. If a request matches a custom rule, the corresponding rule action is applied. The request is either blocked or passed through to the back-end. No other custom rules or the rules in the Default Rule Set are processed. You can also remove the Default Rule Set from your WAF policies.
+
+For more information, see [Web Application Firewall DRS rule groups and rules](waf-front-door-drs20.md).
 
 ### Bot protection rule set (preview)
 

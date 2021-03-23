@@ -69,6 +69,8 @@
     items:
     - name: Tuning
       href: ./afds/waf-front-door-tuning.md
+    - name: Managed rules
+      href: ./afds/waf-front-door-drs20.md
     - name: Custom rules
       href: ./afds/waf-front-door-custom-rules.md
     - name: Exclusion lists
