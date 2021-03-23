@@ -137,11 +137,12 @@ By default, the Azure DHCP servers assign the private IPv4 address for the [prim
 
 There are scenarios where it's necessary to manually set the IP address of a network interface within the virtual machine's operating system. For example, you must manually set the primary and secondary IP addresses of a Windows operating system when adding multiple IP addresses to an Azure virtual machine. For a Linux virtual machine, you may only need to manually set the secondary IP addresses. See [Add IP addresses to a VM operating system](virtual-network-multiple-ip-addresses-portal.md#os-config) for details. If you ever need to change the address assigned to an IP configuration, it's recommended that you:
 
-1. Ensure that the virtual machine is receiving an address from the Azure DHCP servers. Once you have, change the assignment of the IP address back to DHCP within the operating system and restart the virtual machine.
-2. Stop (deallocate) the virtual machine.
-3. Change the IP address for the IP configuration within Azure.
-4. Start the virtual machine.
-5. [Manually configure](virtual-network-multiple-ip-addresses-portal.md#os-config) the secondary IP addresses within the operating system (and also the primary IP address within Windows) to match what you set within Azure.
+1. Ensure that the virtual machine is receiving a primary IP address from the Azure DHCP servers. Do not set this address in the operating system if running a Linux VM.
+2. Delete the IP configuration to be changed.
+3. Create a new IP configuration with the new address you would like to set.
+4. [Manually configure](virtual-network-multiple-ip-addresses-portal.md#os-config) the secondary IP addresses within the operating system (and also the primary IP address within Windows) to match what you set within Azure. Do not manually set the primary IP address in the OS network configuration on Linux, or it may not be able to connect to the Internet when the configuration is re-loaded.
+5. Re-load the network configuration on the guest operating system. This can be done by simply rebooting the system, or by running 'nmcli con down "System eth0 && nmcli con up "System eth0"' in Linux systems running NetworkManager.
+6. Verify the networking set-up is as desired. Test connectivity for all IP addresses of the system.
 
 By following the previous steps, the private IP address assigned to the network interface within Azure, and within a virtual machine's operating system, remain the same. To keep track of which virtual machines within your subscription that you've manually set IP addresses within an operating system for, consider adding an Azure [tag](../azure-resource-manager/management/tag-resources.md) to the virtual machines. You might use "IP address assignment: Static", for example. This way, you can easily find the virtual machines within your subscription that you've manually set the IP address for within the operating system.
 
