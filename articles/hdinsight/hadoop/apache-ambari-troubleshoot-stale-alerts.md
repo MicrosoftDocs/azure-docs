@@ -14,7 +14,7 @@ This article describes troubleshooting steps and possible resolutions for issues
 
 In the Apache Ambari UI, you might see an alert like this:
 
-![Apache Ambari stale alert example](./media/apache-ambari-troubleshoot-stale-alerts/ambari-stale-alerts-example.png)
+:::image type="content" source="./media/apache-ambari-troubleshoot-stale-alerts/ambari-stale-alerts-example.png" alt-text="Apache Ambari stale alert example" border="true":::
 
 ## Cause
 
