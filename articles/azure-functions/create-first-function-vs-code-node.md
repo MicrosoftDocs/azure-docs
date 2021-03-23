@@ -111,9 +111,9 @@ In this section, you create a function app and related resources in your Azure s
 You have used [Visual Studio Code](functions-develop-vs-code.md?tabs=javascript) to create a function app with a simple HTTP-triggered function. In the next article, you expand that function by connecting to Azure Storage. To learn more about connecting to other Azure services, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md?tabs=javascript).  
 
 > [!div class="nextstepaction"]
-> [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-javascript)
-> [!div class="nextstepaction"]
 > [Connect to a database](functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-javascript)
+> [!div class="nextstepaction"]
+> [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-javascript)
 
 [Azure Functions Core Tools]: functions-run-local.md
 [Azure Functions extension for Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions
