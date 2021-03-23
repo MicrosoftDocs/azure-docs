@@ -91,7 +91,7 @@ Azure Spring Cloud supports exporting Spring Cloud application logs and metrics 
 
 ### Does Azure Spring Cloud support distributed tracing?
 
-Yes. For more information, see [Tutorial: Use Distributed Tracing with Azure Spring Cloud](spring-cloud-tutorial-distributed-tracing.md).
+Yes. For more information, see [Tutorial: Use Distributed Tracing with Azure Spring Cloud](spring-cloud-howto-distributed-tracing.md).
 
 ::: zone pivot="programming-language-java"
 ### What resource types does Service Binding support?

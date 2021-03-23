@@ -1,5 +1,5 @@
 ---
-title: "Tutorial - Map an existing custom domain to Azure Spring Cloud"
+title: "Tutorial: Map an existing custom domain to Azure Spring Cloud"
 description: How to map an existing custom Distributed Name Service (DNS) name to Azure Spring Cloud
 author: MikeDodaro
 ms.service: spring-cloud
@@ -9,7 +9,7 @@ ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# Map an existing custom domain to Azure Spring Cloud
+# Tutorial: Map an existing custom domain to Azure Spring Cloud
 
 **This article applies to:** ✔️ Java ✔️ C#
 
