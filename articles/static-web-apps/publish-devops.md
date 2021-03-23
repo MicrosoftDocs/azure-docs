@@ -28,12 +28,15 @@ In this tutorial, you learn to:
 
 ## Create a new Web App in a DevOps repository
 > [!NOTE]
-> If you have an existing app in your repository, you may skip to the next section
+> If you have an existing app in your repository, you may skip to the next section.
 
-1. Navigate to you Azure DevOps repository
+1. Navigate to you Azure DevOps repository.
+2. Use an existing repository or _import a repository_ as shown below.
+  
+  :::image type="content" source="media/publish-devops/devops-repo.png" alt-text="DevOps Repo":::
 
-1. Create a new file for your front end web app.
-1. Copy and paste the following HTML markup into your new file:
+3. Create a new file for your front end web app.
+4. Copy and paste the following HTML markup into your new file:
 
   ```HTML
   <!DOCTYPE html>
@@ -77,7 +80,7 @@ In this tutorial, you learn to:
 
 7. Once the deployment is successful, select **Manage deployment token**.
 
-8. Copy the **deployment token** and paste it into a text editor for use in another screen
+8. Copy the **deployment token** and paste it into a text editor for use in another screen.
 
 > [!NOTE]
 > This value is set aside for now because you'll copy and paste more values in coming steps.
@@ -86,13 +89,13 @@ In this tutorial, you learn to:
 
 ## Create the Pipeline Task in Azure DevOps
 
-1. Navigate to your Azure DevOps project
+1. Navigate to your Azure DevOps project.
 
-1. Create a new **Build Pipeline**
+1. Create a new **Build Pipeline**.
 
   :::image type="content" source="media/publish-devops/azdo-build.png" alt-text="Build pipeline"::: 
 
-1. Copy and the following YAML to your clipboard 
+1. Copy and the following YAML to your clipboard .
 > [!NOTE]
 > The values entered for _app_location_, _api_location_, and _output_location_ will need to be modified for your app.  
 
@@ -112,23 +115,23 @@ steps:​
     env:​
       azure_static_web_apps_api_token: $(deployment_token)
    ```
-1. Paste the YAML into your pipeline
+1. Paste the YAML into your pipeline.
 
-2. Select **Variables**
+2. Select **Variables**.
 
-3. Create a new variable
+3. Create a new variable.
 
-4. Name the variable **deployment_token** (matching the name in the workflow)
+4. Name the variable **deployment_token** (matching the name in the workflow).
 
-5. Copy the deployment token that you previously pasted into a text editor
+5. Copy the deployment token that you previously pasted into a text editor.
 
-6. Paste in the deployment token in the _Value_ box
+6. Paste in the deployment token in the _Value_ box.
 
   :::image type="content" source="media/publish-devops/variable-token.png" alt-text="Deployment token":::
 
-1. Select **OK**
+1. Select **OK**.
 
-1. Select **Save and run** the pipeline
+1. Select **Save and run** the pipeline.
 
   :::image type="content" source="media/publish-devops/save-and-run.png" alt-text="Pipeline":::
    
