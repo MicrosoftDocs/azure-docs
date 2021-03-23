@@ -1,6 +1,6 @@
 ---
 title: Optimize the performance of AzCopy with Azure Storage | Microsoft Docs
-description: Description goes here.
+description: Description goes here 2.
 author: normesta
 ms.service: storage
 ms.topic: how-to
@@ -37,10 +37,15 @@ You can run a performance benchmark test on specific blob containers or file sha
 
 Use the following command to run a performance benchmark test.
 
-|    |     |
-|--------|-----------|
-| **Syntax** | `azcopy benchmark 'https://<storage-account-name>.blob.core.windows.net/<container-name>'` |
-| **Example** | `azcopy benchmark 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D'` |
+**Syntax**
+
+`azcopy benchmark 'https://<storage-account-name>.blob.core.windows.net/<container-name>'`
+
+**Example**
+
+```azcopy
+azcopy benchmark 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D'
+```
 
 > [!TIP]
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
