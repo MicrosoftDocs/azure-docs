@@ -1,8 +1,8 @@
 ---
 title: Create an IPSec tunnel into Azure VMware Solution
-description: Learn how to create a Virtual WAN hub to establish an IPSec tunnel into Azure VMware Solutions.
+description: Learn how to establish a VPN (IPsec IKEv1 and IKEv2) site-to-site tunnel into Azure VMware Solutions.
 ms.topic: how-to
-ms.date: 03/26/2021
+ms.date: 03/23/2021
 ---
 
 # Create an IPSec tunnel into Azure VMware Solution
@@ -19,14 +19,14 @@ In this how to, you'll:
 ## Prerequisites
 You must have a public-facing IP address terminating on an on-premises VPN device.
 
-
 ## Step 1. Create an Azure Virtual WAN
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-create-vwan-include.md)]
 
 ## Step 2. Create a Virtual WAN hub and gateway
 
-You can also [create a gateway in an existing hub](../virtual-wan/virtual-wan-expressroute-portal.md#existinghub).
+>[!TIP]
+>You can also [create a gateway in an existing hub](../virtual-wan/virtual-wan-expressroute-portal.md#existinghub).
 
 1. Select the Virtual WAN you created in the previous step.
 
@@ -54,8 +54,6 @@ You can also [create a gateway in an existing hub](../virtual-wan/virtual-wan-ex
 
 ## Step 3. Create a site-to-site VPN
 
-In this section, you create a site-to-site VPN. Sites correspond to a physical location. You can create as many sites as you need. You can create up to 1000 sites per virtual hub in a virtual WAN. 
-
 1. In the Azure portal, select the virtual WAN you created earlier.
 
 2. In the **Overview** of the virtual hub, select **Connectivity** > **VPN (Site-to-site)** > **Create new VPN site**.
@@ -80,9 +78,12 @@ In this section, you create a site-to-site VPN. Sites correspond to a physical l
  
    :::image type="content" source="../../includes/media/virtual-wan-tutorial-site-include/connect.png" alt-text="Screenshot that shows the Connected Sites pane for Virtual HUB ready for Pre-shared key and associated settings.":::   
 
-## Step 4. (Optional) Define a VPN site for policy-based VPN site-to-site tunnels
+## Step 4. (Optional) Create policy-based VPN site-to-site tunnels
 
-This is an optional step and applies only to policy-based VPNs. Policy-based (or static, route-based) VPN setups are driven by on-premise VPN device capabilities in most cases. They require on-premise and Azure VMware Solution networks to be specified. For Azure VMware Solution with an Azure Virtual WAN hub, you can't select *any* network. Instead, you have to specify all relevant on-premise and Azure VMware Solution Virtual WAN hub ranges. These hub ranges are used to specify the encryption domain of the policy base VPN tunnel on-premise endpoint. The Azure VMware Solution side only requires the policy-based traffic selector indicator to be enabled. 
+>[!IMPORTANT]
+>This is an optional step and applies only to policy-based VPNs. 
+
+Policy-based VPN setups require on-premise and Azure VMware Solution networks to be specified, including the hub ranges.  These hub ranges specify the encryption domain of the policy-based VPN tunnel on-premise endpoint.  The Azure VMware Solution side only requires the policy-based traffic selector indicator to be enabled. 
 
 1. In the Azure portal, go to your Virtual WAN hub site. Under **Connectivity**, select **VPN (Site to site)**.
 
@@ -99,26 +100,26 @@ This is an optional step and applies only to policy-based VPNs. Policy-based (or
  
    Your traffic selectors or subnets that are part of the policy-based encryption domain should be:
     
-   - The virtual WAN hub /24
-   - The Azure VMware Solution private cloud /22
-   - The connected Azure virtual network (if present)
+   - Virtual WAN hub `/24`
+   - Azure VMware Solution private cloud `/22`
+   - Connected Azure virtual network (if present)
 
 ## Step 5. Connect your VPN site to the hub
 
-In this step, you connect your VPN site to the hub.
-
 1. Select your VPN site name and then select **Connect VPN sites**. 
-
-   :::image type="content" source="../../includes/media/virtual-wan-tutorial-connect-vpn-site-include/connect.png" alt-text="Screenshot that shows the Connected Sites pane for Virtual HUB ready for a Pre-shared key and associated settings. ":::
 
 1. In the **Pre-shared key** field, enter the key previously defined for the on-premise endpoint. 
 
    >[!TIP]
    >If you don't have a previously defined key, you can leave this field blank. A key is generated for you automatically. 
- 
-1. If you're deploying a firewall in the hub and it's the next hop, set the **Propagate Default Route** option to **Enable**. When enabled, it allows the virtual hub to propagate a learned default route to this connection. This flag enables default route propagation to a connection only if the Virtual WAN hub already learns the default route due to deploying a firewall in the hub or if another connected site has forced tunneling enabled. The default route does not originate in the Virtual WAN hub. 
 
-1. Select **Connect**. After a few minutes, the site will show the connection and connectivity status.
+   :::image type="content" source="../../includes/media/virtual-wan-tutorial-connect-vpn-site-include/connect.png" alt-text="Screenshot that shows the Connected Sites pane for Virtual HUB ready for a Pre-shared key and associated settings. "::: 
+
+1. If you're deploying a firewall in the hub and it's the next hop, set the **Propagate Default Route** option to **Enable**. 
+
+   When enabled, the Virtual WAN hub propagates to a connection only if the hub already learned the default route when deploying a firewall in the hub or if another connected site has forced tunneling enabled. The default route does not originate in the Virtual WAN hub.  
+
+1. Select **Connect**. After a few minutes, the site shows the connection and connectivity status.
 
    :::image type="content" source="../../includes/media/virtual-wan-tutorial-connect-vpn-site-include/status.png" alt-text="Screenshot that shows a site-to-site connection and connectivity status.":::
 
@@ -135,11 +136,11 @@ In this step, you connect your VPN site to the hub.
 
    1. Select your ExpressRoute gateway and then select **Redeem authorization key**.
 
-   :::image type="content" source="media/create-ipsec-tunnel/redeem-authorization-key.png" alt-text="Screenshot of the ExpressRoute page for the private cloud, with Redeem authorization key selected.":::
+      :::image type="content" source="media/create-ipsec-tunnel/redeem-authorization-key.png" alt-text="Screenshot of the ExpressRoute page for the private cloud, with Redeem authorization key selected.":::
 
    1. Paste the authorization key in the **Authorization Key** field.
    1. Paste the ExpressRoute ID into the **Peer circuit URI** field. 
-   1. Select **Automatically associate this ExpressRoute circuit with the hub.** 
+   1. Select **Automatically associate this ExpressRoute circuit with the hub** check box. 
    1. Select **Add** to establish the link. 
 
 5. Test your connection by [creating an NSX-T segment](./tutorial-nsx-t-network-segment.md) and provisioning a VM on the network. Ping both the on-premise and Azure VMware Solution endpoints.
