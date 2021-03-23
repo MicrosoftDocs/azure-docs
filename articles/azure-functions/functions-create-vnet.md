@@ -329,7 +329,7 @@ Congratulations! You've successfully deployed your sample function app.
 
 Now create the private endpoint to lock down your function app. This private endpoint will connect your function app privately and securely to your virtual network by using a private IP address. 
 
-For more information, see the [private endpoint documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
+For more information, see the [private endpoint documentation](../private-link/private-endpoint-overview.md).
 
 1. In your function app, in the menu on the left, select **Networking**.
 
