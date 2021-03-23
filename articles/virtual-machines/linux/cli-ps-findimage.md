@@ -14,7 +14,7 @@ ms.custom: contperf-fy21q3-portal
 
 This topic describes how to use the Azure CLI to find VM images in the Azure Marketplace. Use this information to specify a Marketplace image when you create a VM programmatically with the CLI, Resource Manager templates, or other tools.
 
-You can also browse available images and offers using the [Azure Marketplace](https://azuremarketplace.microsoft.com/) or  [Azure PowerShell](ps-findimage.md). 
+You can also browse available images and offers using the [Azure Marketplace](https://azuremarketplace.microsoft.com/) or  [Azure PowerShell](../windows/cli-ps-findimage.md). 
 
 ## Terminology
 
@@ -27,7 +27,7 @@ A Marketplace image in Azure has the following attributes:
 
 These values can be passed individually or as an image *URN*, combining the values separated by the colon (:). For example: *Publisher*:*Offer*:*Sku*:*Version*. You can replace the version number in the URN with `latest`,to use the latest version of the image. 
 
-If the image publisher provides additional license and purchase terms, then you must accept those before you can use the image.  For more information, see [Deploy an image with Marketplace terms](#deploy-an-image-with-marketplace-terms).
+If the image publisher provides additional license and purchase terms, then you must accept those before you can use the image.  For more information, see [Check the purchase plan information](#check-the-purchase-plan-information).
 
 
 
@@ -130,7 +130,7 @@ Pass this value of the URN column with the `--image` parameter when you create a
 If you deploy a VM with a Resource Manager template, you set the image parameters individually in the `imageReference` properties. See the [template reference](/azure/templates/microsoft.compute/virtualmachines).
 
 
-## Check the purchase plan 
+## Check the purchase plan information
 
 Some VM images in the Azure Marketplace have additional license and purchase terms that you must accept before you can deploy them programmatically.  
 
