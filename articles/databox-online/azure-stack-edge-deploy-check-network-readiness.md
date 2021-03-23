@@ -10,14 +10,14 @@ ms.topic: how-to
 ms.date: 03/23/2021
 ms.author: alkohli
 
-# Customer intent: As an IT admin, I want to expedite deployment of Azure Stack devices by checking network settings in advance.
+# Customer intent: As an IT admin, I want to save time and avoid Support calls during deployment of Azure Stack devices by verifying the network settings in advance.
 ---
 
 # Check network readiness for Azure Stack Edge devices
 
 This article describes how to check your network for the most common deployment issues in Azure Stack Edge or Azure Stack Hub before deploying your devices.<!--Verify ASE SKUs. In Azure Stack Hub, they are deploying VMs, not devices?-->
 
-You'll use the Azure Stack Network Readiness Checker (NRC), a PowerShell module that can be used to run a series of tests to check mandatory and optional settings on the network where you'll deploy an Azure Stack Edge device. You can run the tool from any computer on the network.<!--OS requirements imposed by PowerShell 7.0?--> The tool returns Pass/Fail status for each setting that it tests, and saves a log file and report file.
+You'll use the Azure Stack Network Readiness Checker (NRC), a PowerShell tool runs a series of tests to check mandatory and optional settings on the network where you'll deploy an Azure Stack Edge device. You can run the tool from any computer on the network.<!--OS requirements imposed by PowerShell 7.0?--> The tool gives returns Pass/Fail status for each connection and saves a log file and report file with more detail.
 
 The Network Readiness Checker includes the following tests. You can choose which tests to run.
 
