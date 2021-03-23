@@ -22,7 +22,16 @@ Azure Form Recognizer is a cognitive service that lets you build automated data 
 
 Form Recognizer is composed of custom document processing models, prebuilt models for invoices, receipts, IDs and business cards, and the layout model. You can call Form Recognizer models by using a REST API or client library SDKs to reduce complexity and integrate it into your workflow or application.
 
-Form Recognizer is composed of the following services:
+This documentation contains the following article types:  
+
+* [**Quickstarts**](quickstarts/client-library.md) are getting-started instructions to guide you through making requests to the service.  
+* [**How-to guides**](build-training-data-set.md) contain instructions for using the service in more specific or customized ways.  
+* [**Concepts**](concept-layout.md) provide in-depth explanations of the service functionality and features.  
+* [**Tutorials**](tutorial-bulk-processing.md) are longer guides that show you how to use the service as a component in broader business solutions.  
+
+## Form Recognizer features
+
+With Form Recognizer, you can easily extract and analyze form data with these features:
 
 * **[Layout API](#layout-api)** - Extract text, selection marks, and tables structures, along with their bounding box coordinates, from documents.
 * **[Custom models](#custom-models)** - Extract text, key/value pairs, selection marks, and table data from forms. These models are trained with your own data, so they're tailored to your forms.
@@ -34,11 +43,10 @@ Form Recognizer is composed of the following services:
   * [Business cards](./concept-business-cards.md)
   * [Identification (ID) cards](./concept-identification-cards.md)
 
-## Try it out
 
-To try out the Form Recognizer Service, go to the online Sample UI Tool:
-<!-- markdownlint-disable MD025 -->
-<!-- markdownlint-disable MD024 -->
+## Get started
+
+Use the Sample Form Recognizer Tool to try out Layout, Pre-built models and train a custom model for your documents. You will need an Azure subscription ([**create one for free**](https://azure.microsoft.com/free/cognitive-services)) and a [**Form Recognizer resource**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer service.
 
 ### [v2.1 preview](#tab/v2-1)
 
@@ -51,8 +59,45 @@ To try out the Form Recognizer Service, go to the online Sample UI Tool:
 > [Try Form Recognizer](https://fott.azurewebsites.net/)
 
 ---
+Follow the [Client library / REST API quickstart](./quickstarts/client-library.md) to get started extracting data from your documents. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
-You will need an Azure subscription ([create one for free](https://azure.microsoft.com/free/cognitive-services)) and a [Form Recognizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer service.
+You can also use the REST samples (GitHub) to get started - 
+
+* Extract text, selection marks, and table structure from documents
+  * [Extract layout data - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-layout.md)
+* Train custom models and extract form data
+  * [Train without labels - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-train-extract.md)
+  * [Train with labels - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
+* Extract data from invoices
+  * [Extract invoice data - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-invoices.md)
+* Extract data from sales receipts
+  * [Extract receipt data - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-receipts.md)
+* Extract data from business cards
+  * [Extract business card data - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-business-cards.md)
+
+### Review the REST APIs
+
+You'll use the following APIs to train models and extract structured data from forms.
+
+|Name |Description |
+|---|---|
+| **Analyze Layout** | Analyze a document passed in as a stream to extract text, selection marks, tables, and structure from the document |
+| **Train Custom Model**| Train a new model to analyze your forms by using five forms of the same type. Set the _useLabelFile_ parameter to `true` to train with manually labeled data. |
+| **Analyze Form** |Analyze a form passed in as a stream to extract text, key/value pairs, and tables from the form with your custom model.  |
+| **Analyze Invoice** | Analyze an invoice to extract key information, tables, and other invoice text.|
+| **Analyze Receipt** | Analyze a receipt document to extract key information, and other receipt text.|
+| **Analyze ID** | Analyze an ID card document to extract key information, and other identification card text.|
+| **Analyze Business Card** | Analyze a business card to extract key information and text.|
+
+### [v2.1 preview](#tab/v2-1)
+
+Explore the [REST API reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm) to learn more. If you're familiar with a previous version of the API, see the [What's new](./whats-new.md) article to learn about recent changes.
+
+### [v2.0](#tab/v2-0)
+
+Explore the [REST API reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm) to learn more. If you're familiar with a previous version of the API, see the [What's new](./whats-new.md) article to learn about recent changes.
+
+---
 
 ## Layout API
 
@@ -109,61 +154,6 @@ The Identification (ID) cards model enables you to extract key information from 
 The Business Cards model enables you to extract information such as the person's name, job title, address, email, company, and phone numbers from business cards in English. See the [Business cards](./concept-business-cards.md) conceptual guide for more info.
 
 :::image type="content" source="./media/overview-business-card.jpg" alt-text="sample business card" lightbox="./media/overview-business-card.jpg":::
-
-## Get started
-
-Use the Sample Form Recognizer Tool to try out Layout, Pre-built models and train a custom model for your documents:  
-
-### [v2.1 preview](#tab/v2-1)
-
-> [!div class="nextstepaction"]
-> [Try Form Recognizer](https://fott-preview.azurewebsites.net/)
-
-### [v2.0](#tab/v2-0)
-
-> [!div class="nextstepaction"]
-> [Try Form Recognizer](https://fott.azurewebsites.net/)
-
----
-Follow the [Client library / REST API quickstart](./quickstarts/client-library.md) to get started extracting data from your documents. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
-
-You can also use the REST samples (GitHub) to get started - 
-
-* Extract text, selection marks, and table structure from documents
-  * [Extract layout data - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-layout.md)
-* Train custom models and extract form data
-  * [Train without labels - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-train-extract.md)
-  * [Train with labels - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
-* Extract data from invoices
-  * [Extract invoice data - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-invoices.md)
-* Extract data from sales receipts
-  * [Extract receipt data - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-receipts.md)
-* Extract data from business cards
-  * [Extract business card data - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-business-cards.md)
-
-### Review the REST APIs
-
-You'll use the following APIs to train models and extract structured data from forms.
-
-|Name |Description |
-|---|---|
-| **Analyze Layout** | Analyze a document passed in as a stream to extract text, selection marks, tables, and structure from the document |
-| **Train Custom Model**| Train a new model to analyze your forms by using five forms of the same type. Set the _useLabelFile_ parameter to `true` to train with manually labeled data. |
-| **Analyze Form** |Analyze a form passed in as a stream to extract text, key/value pairs, and tables from the form with your custom model.  |
-| **Analyze Invoice** | Analyze an invoice to extract key information, tables, and other invoice text.|
-| **Analyze Receipt** | Analyze a receipt document to extract key information, and other receipt text.|
-| **Analyze ID** | Analyze an ID card document to extract key information, and other identification card text.|
-| **Analyze Business Card** | Analyze a business card to extract key information and text.|
-
-### [v2.1 preview](#tab/v2-1)
-
-Explore the [REST API reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm) to learn more. If you're familiar with a previous version of the API, see the [What's new](./whats-new.md) article to learn about recent changes.
-
-### [v2.0](#tab/v2-0)
-
-Explore the [REST API reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm) to learn more. If you're familiar with a previous version of the API, see the [What's new](./whats-new.md) article to learn about recent changes.
-
----
 
 ## Input requirements
 
