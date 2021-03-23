@@ -79,4 +79,4 @@ In this step, you create an application in your Azure AD tenant that uses Applic
  
 ## Step 3: Test your application
 
-Using a browser from a computer on an external network, navigate that you configured during the publish step. Make sure you can sign in with the test account that you set up.
+Using a browser from a computer on an external network, navigate to the link that you configured during the publish step. Make sure you can sign in with the test account that you set up.
