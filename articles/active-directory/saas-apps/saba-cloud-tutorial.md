@@ -85,11 +85,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     a. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<CUSTOMER_NAME>.sabacloud.com`
 
-    b. In the **Relay State** text box, type the value: `IDP_INIT---SAML_SSO_SITE=dqtnt003site `or in case SAML is configured for a microsite, type a URL using the following pattern:
-`IDP_INIT---SAML_SSO_SITE=dqtnt003site---SAML_SSO_MICRO_SITE=<MicroSiteId>`
+    b. In the **Relay State** text box, type a URL using the following pattern: `IDP_INIT---SAML_SSO_SITE=<SITE_ID> `or in case SAML is configured for a microsite, type a URL using the following pattern:
+`IDP_INIT---SAML_SSO_SITE=<SITE_ID>---SAML_SSO_MICRO_SITE=<MicroSiteId>`
 
     > [!NOTE]
-    > For more information on configuring the RelayState, please refer [this](https://help.sabacloud.com/sabacloud/help-system/topics/help-system-idp-and-sp-initiated-sso-for-a-microsite.html) link.
+    > For more information on configuring the RelayState, please refer to [this](https://help.sabacloud.com/sabacloud/help-system/topics/help-system-idp-and-sp-initiated-sso-for-a-microsite.html) link.
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL, Sign-on URL and Relay State. Contact [Saba Cloud Client support team](mailto:support@saba.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -158,7 +158,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 In this section, a user called Britta Simon is created in Saba Cloud. Saba Cloud supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Saba Cloud, a new one is created after authentication.
 
 > [!NOTE]
-> For enabling SAML just in time user provisioning with Saba cloud, please refer [this](https://help.sabacloud.com/sabacloud/help-system/topics/help-system-user-provisioning-with-saml.html) documentation.
+> For enabling SAML just in time user provisioning with Saba cloud, please refer to [this](https://help.sabacloud.com/sabacloud/help-system/topics/help-system-user-provisioning-with-saml.html) documentation.
 
 ## Test SSO 
 
