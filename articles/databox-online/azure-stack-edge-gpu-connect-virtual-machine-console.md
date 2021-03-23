@@ -40,9 +40,9 @@ You should have access to an Azure Stack Edge Pro GPU device that is activated. 
 
 Make sure that you have access to a client system that:
 
-1. Can access the PowerShell interface of the device. The client is running a [Supported operating system](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device).
-1. The client is running PowerShell 7.0 or later. This version of PowerShell works for Windows, Mac, and Linux clients. See instructions to [install PowerShell 7.0](/powershell/scripting/whats-new/what-s-new-in-powershell-70?view=powershell-7.1&preserve-view=true#where-can-i-install-powershell).
-1. Has remote desktop capabilities. Depending on whether you are using Windows, MacOS, or Linux, you should install one of these [Remote desktop clients](/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients). This article provides instructions with [Windows Remote Desktop](/windows-server/remote/remote-desktop-services/clients/windowsdesktop#install-the-client) and [FreeRDP](https://www.freerdp.com/). <!--Which version of FreeRDP to use?-->
+- Can access the PowerShell interface of the device. The client is running a [Supported operating system](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device).
+- The client is running PowerShell 7.0 or later. This version of PowerShell works for Windows, Mac, and Linux clients. See instructions to [install PowerShell 7.0](/powershell/scripting/whats-new/what-s-new-in-powershell-70?view=powershell-7.1&preserve-view=true).
+- Has remote desktop capabilities. Depending on whether you are using Windows, macOS, or Linux, you should install one of these [Remote desktop clients](/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients). This article provides instructions with [Windows Remote Desktop](/windows-server/remote/remote-desktop-services/clients/windowsdesktop#install-the-client) and [FreeRDP](https://www.freerdp.com/). <!--Which version of FreeRDP to use?-->
 
 
 ## Connect to VM console
