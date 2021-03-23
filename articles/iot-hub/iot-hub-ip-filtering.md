@@ -83,7 +83,7 @@ For example, if you want to accept addresses in the range `192.168.100.0/22` and
 
 ### Azure portal 
 
-IP filter rules are also applied when using IoT Hub through Azure portal. This is because API calls to the IoT Hub service are made directly using your browser with your credentials, which is consistent with other Azure services. To access IoT Hub using Azure portal when IP filter is enabled, add your computer's IP address to the allow list. 
+IP filter rules are also applied when using IoT Hub through Azure portal. This is because API calls to the IoT Hub service are made directly using your browser with your credentials, which is consistent with other Azure services. To access IoT Hub using Azure portal when IP filter is enabled, add your computer's IP address to the allowlist. 
 
 ## Retrieve and update IP filters using Azure CLI
 
