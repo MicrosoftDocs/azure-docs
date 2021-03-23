@@ -44,7 +44,6 @@ Before you complete the steps in this article, you should already have:
 - Installed the latest version of [PowerShell](/powershell/azure/install-az-ps). 
 - Identified the unique port that you will use for the DNN listener. The port used for a DNN listener must be unique across all replicas of the availability group or failover Cluster Instance.  No other connection can share the same port.
 
->The port used for a DNN listener must be unique across all replicas of the Availability Group or Failover Cluster Instance.  No other connection can share the same port.
 
 
 ## Create script
