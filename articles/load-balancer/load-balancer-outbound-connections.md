@@ -92,6 +92,9 @@ To maintain unique flows, the host rewrites the source port of each outbound pac
 
  In this context, the ephemeral ports used for SNAT are called SNAT ports. It's highly recommended that an [outbound rule](./outbound-rules.md) is explicitly configured. If using default SNAT through a load-balancing rule, SNAT ports are pre-allocated as described in the [Default SNAT ports allocation table](#snatporttable).
 
+> [!NOTE]
+> **Azure Virtual Network NAT** can provide outbound connectivity for virtual machines without the need for a load balancer. See [What is Azure Virtual Network NAT?](../virtual-network/nat-overview.md) for more information.
+
  ### <a name="scenario3"></a>Scenario 3: Virtual machine without public IP and behind Standard internal Load Balancer
 
  | Associations | Method | IP protocols |
@@ -105,6 +108,9 @@ When using a Standard internal load balancer, there isn't use of ephemeral IP ad
 To achieve outbound connectivity to the internet when using a Standard internal load balancer, configure an instance level public IP address to follow the behavior in [scenario 1](#scenario1). 
 
 Another option is to add the backend instances to a Standard public load balancer with an outbound rule configured. The backend instances are added to an internal load balancer for internal load balancing. This deployment follows the behavior in [scenario 2](#scenario2). 
+
+> [!NOTE]
+> **Azure Virtual Network NAT** can provide outbound connectivity for virtual machines without the need for a load balancer. See [What is Azure Virtual Network NAT?](../virtual-network/nat-overview.md) for more information.
 
  ### <a name="scenario4"></a>Scenario 4: Virtual machine without public IP and behind Basic Load Balancer
 
