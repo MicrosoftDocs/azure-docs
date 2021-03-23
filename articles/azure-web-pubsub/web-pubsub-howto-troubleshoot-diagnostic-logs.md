@@ -1,5 +1,5 @@
 ---
-title: How to troubleshoot with diagnostic logs
+title: How to troubleshoot with Azure Web PubSub service diagnostic logs
 description: Learn how to get and troubleshoot with diagnostic logs
 author: yjin81
 ms.author: yajin1
@@ -18,15 +18,15 @@ The diagnostic logs provide richer view of connectivity and messaging informatio
 
 There are two types of logs: connectivity log and messaging log.
 
-### Connectivity Logs
+### Connectivity logs
 
 Connectivity logs provide detailed information for Azure Web PubSub hub connections. For example, basic information (user ID, connection ID and transport type, and so on) and event information (connect, disconnect, and abort event, and so on). That's why the connectivity log is helpful to troubleshoot connection-related issues. 
 
-### Messaging Logs
+### Messaging logs
 
 Messaging logs provide tracing information for the Azure Web PubSub hub messages received and sent via Azure Web PubSub service. For example, tracing ID and message type of the message. Typically the message is recorded when it arrives at or leaves from service. So messaging logs are helpful for troubleshooting message-related issues. 
 
-## Capture diagnostic logs with Azure Web PubSub service Live Trace Tool 
+## Capture diagnostic logs with Azure Web PubSub service live trace tool 
 
 The Azure Web PubSub service live trace tool has ability to collect diagnostic logs in real time, and is helpful to trace with customer's development environment.
 
@@ -44,7 +44,7 @@ The Azure Web PubSub service live trace tool has ability to collect diagnostic l
 1. Go to the Azure portal. 
 1. On the **Diagnostic Settings** page of your Azure Web PubSub service instance, select **Open Live Trace Tool**. 
 
-    :::image type="content" source="./media/web-pubsub-howto-troubleshoot-diagnostic-logs/diagnostic-logs-with-live-trace-tool.png" alt-text="Launch the live trace tool":::
+    :::image type="content" source="./media/web-pubsub-howto-troubleshoot-diagnostic-logs/diagnostic-logs-with-live-trace-tool.png" alt-text="Launch the live trace tool.":::
 
 ### Capture the diagnostic logs
 
