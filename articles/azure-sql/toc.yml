@@ -363,7 +363,7 @@
     items: 
     - name: From Access
       href: migration-guides/database/access-to-sql-database-guide.md
-    - name: From DB2
+    - name: From Db2
       href: migration-guides/database/db2-to-sql-database-guide.md
     - name: From Oracle
       href: migration-guides/database/oracle-to-sql-database-guide.md
@@ -799,7 +799,7 @@
 
   - name: Migration guides
     items: 
-    - name: From DB2
+    - name: From Db2
       href: migration-guides/managed-instance/db2-to-managed-instance-guide.md
     - name: From Oracle
       href: migration-guides/managed-instance/oracle-to-managed-instance-guide.md
@@ -1317,7 +1317,7 @@
     items: 
       - name: Overview
         href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview.md 
-      - name: From DB2
+      - name: From Db2
         href: migration-guides/virtual-machines/db2-to-sql-on-azure-vm-guide.md
       - name: From Oracle
         href: migration-guides/virtual-machines/oracle-to-sql-on-azure-vm-guide.md
