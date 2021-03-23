@@ -1,13 +1,13 @@
 ---
 title: How to manage VMs network interfaces on your Azure Stack Edge Pro via the Azure portal
-description: Learn how to create and manage VMs on your Azure Stack Edge Pro via the Azure portal.
+description: Learn how to manage network interfaces on VMs that are deployed on your Azure Stack Edge Pro via the Azure portal.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/16/2021
+ms.date: 03/23/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to manage network interfaces on an Azure Stack Edge Pro device so that I can use it to run applications using Edge compute before sending it to Azure.
 ---
@@ -54,13 +54,13 @@ Before you begin to manage VMs on your device via the Azure portal, make sure th
 
 Follow these steps to add a network interface to a virtual machine deployed on your device. 
 
-1. Go to the virtual machine that you have stopped and go to the **VM Properties** page. Select **Networking**.
+1. Go to the virtual machine that you have stopped and then go to the **VM Properties** page. Select **Networking**.
     
-    ![Add a network interface](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-1.png)
+    ![Select Networking on VM properties page](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-1.png)
 
 2. In the **Networking** blade, from the command bar, select **+ Add network interface**.
 
-    ![Add a network interface](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-2.png)
+    ![Select add network interface](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-2.png)
 
 3. In the **Add network interface** blade, enter the following parameters:
 
@@ -72,15 +72,15 @@ Follow these steps to add a network interface to a virtual machine deployed on y
     |Subnet     | A subnet within the selected virtual network. This field is automatically populated with the subnet associated with the network interface on which you enabled compute.         |       
     |IP assignment   | A static or a dynamic IP for your network interface. The static IP should be an available, free IP from the specified subnet range. Choose dynamic if a DHCP server exists in the environment.        | 
 
-    ![Add a network interface](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-3.png)
+    ![Add a network interface blade](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-3.png)
 
 4. You'll see a notification that the network interface creation is in progress.
 
-    ![Add a network interface](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-4.png)
+    ![Notification when network interface is getting created](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-4.png)
 
 5.  After the network interface is successfully created, the list of network interfaces refreshes to display the newly created interface.
 
-    ![Add a network interface](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-5.png)
+    ![Updated list of network interfaces](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-5.png)
 
 
 ## Edit a network interface
@@ -91,11 +91,11 @@ Follow these steps to edit a network interface associated with a virtual machine
 
 1. In the list of network interfaces, select the interface that you wish to edit. In the far right of the network interface selected, select the edit icon (pencil).  
 
-    ![Add a network interface](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/edit-nic-1.png)
+    ![Select a network interface to edit](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/edit-nic-1.png)
 
 1. In the **Edit network interface** blade, you can only change the IP assignment of the network interface. The name, virtual network, and subnet associated with the network interface can't be changed once it is created. Change the **IP assignment** to static and save the changes.
 
-    ![Add a network interface](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/edit-nic-2.png)
+    ![Change IP assignment for the network interface](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/edit-nic-2.png)
 
 1. The list of network interface refreshes to display the updated network interface.
 
@@ -110,13 +110,8 @@ Follow these steps to detach or remove a network interface associated with a vir
 
 1. After the deletion is complete, the list of network interfaces is refreshed to display the remaining interfaces.
 
-![Add a network interface](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/change-vm-size-1.png)
-![Add a network interface](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/change-vm-size-2.png)
-![Add a network interface](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/change-vm-size-3.png)
-
-
 
 
 ## Next steps
 
-To learn how to administer your Azure Stack Edge Pro device, see[Use local web UI to administer a Azure Stack Edge Pro](azure-stack-edge-manage-access-power-connectivity-mode.md).
+To learn how to deploy virtual machines on your Azure Stack Edge Pro device, see [Deploy virtual machines via the Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md).
