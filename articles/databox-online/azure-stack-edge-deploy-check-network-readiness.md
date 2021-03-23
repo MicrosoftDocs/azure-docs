@@ -15,9 +15,9 @@ ms.author: alkohli
 
 # Check network readiness for Azure Stack Edge devices
 
-This article describes how to check your network for the most common deployment issues in Azure Stack Edge or Azure Stack Hub before deploying your devices.<!--Verify ASE SKUs. In Azure Stack Hub, they are deploying VMs, not devices?-->
+This article describes how to check your network for the most common issues in Azure Stack Edge or Azure Stack Hub before you deploy your devices.<!--Verify ASE SKUs. In Azure Stack Hub, they are deploying VMs, not devices?-->
 
-You'll use the Azure Stack Network Readiness Checker (NRC), a PowerShell tool runs a series of tests to check mandatory and optional settings on the network where you'll deploy an Azure Stack Edge device. You can run the tool from any computer on the network.<!--OS requirements imposed by PowerShell 7.0?--> The tool gives returns Pass/Fail status for each connection and saves a log file and report file with more detail.
+You'll use the Azure Stack Network Readiness Checker (NRC), a PowerShell tool that runs a series of tests to check mandatory and optional settings on the network where you deploy Azure Stack devices. You can run the tool from any computer on the network.<!--OS requirements imposed by PowerShell 7.0?--> The tool returns Pass/Fail status for each connection and saves a log file and report file with more detail.
 
 The Network Readiness Checker includes the following tests. You can choose which tests to run.
 
@@ -26,9 +26,9 @@ The Network Readiness Checker includes the following tests. You can choose which
 |LinkLayer          |Verifies that a layer 2 network link is established on all applicable network interfaces.|
 |IpConfig           |WHAT SPECIFICALLY DOES THE TEST VERIFY IN THE CONFIGURATION?|
 |DnsServer          |Verifies that Domain Name System (DNS) server(s) are accessible and respond to DNS queries on UDP port 53.|
-|TimeServer         |(Recommended) Verifies that Network Time Protocol (NTP) server(s) respond with system time on UDP port 123 and the response message meets NTP requirements, so network clients can use the system time.|
+|TimeServer         |(Recommended) Verifies that Network Time Protocol (NTP) servers respond with system time on UDP port 123 and that the response message meets NTP requirements so that network clients can use the system time.|
 |DuplicateIP        |Checks for IP conflicts between Azure Stack networks and existing customer networks, and for conflicts within the IP address pool that used for Kubernetes on Azure Stack.|
-|Proxy              |(Optional) If you're using a proxy server, verifies that the web proxy server is accessible, that proxy server credentials work correctly, and that the Secure Sockets Layer (SSL) tunnel isn't terminated at the proxy.<!--What does this mean (from spec)? "An SSL inspection is not supported by Azure Stack."-->|
+|Proxy              |(Optional) If you're using a proxy server, verifies that the web proxy server is accessible, that proxy server credentials work, and that the Secure Sockets Layer (SSL) tunnel isn't terminated at the proxy.<!--What does this mean (from spec)? "An SSL inspection is not supported by Azure Stack."-->|
 |AzureEndpoint      |WHICH ENDPOINTS ARE CHECKED? |
 |WindowsUpdateServer|(Optional) Verifies that the Windows Update Server or Windows Update for Business Server is accessible over HTTPS.|
 |DnsRegistration    |WHICH DNS SETTINGS? - Endpoint certs match DNS name? DNS records?|
@@ -75,7 +75,7 @@ When you run the Azure Stack Network Readiness Tool, you'll need to provide netw
 
 To run a network readiness check, do the following steps:
 
-1. Open PowerShell 7.0 on a client computer running on the network where you will deploy the Azure Stack Edge device.
+1. Open PowerShell 7.0 on a client computer running on the network where you'll deploy the Azure Stack Edge device.
 
 1.  Run a network readiness check by entering the following command:<!--1) I switched the order of -WindowsUpdateServer and -SkipTests so that all computer specs preceded the choice of tests. Shouldn't affect output. Test, and then update the sample command. 2) Revisit Required vs. Optional. In this context, should the time server be required? Windows Update servers are recommended but not required? Proxy server is needed if they are using one? Format line will need to be updated based on this.-->
 
@@ -92,7 +92,7 @@ To run a network readiness check, do the following steps:
     
     - `-TimeServer`: Provides the FQDN of one or more Network Time Protocol (NTP) server(s). (Recommended)
 
-    -  `-Proxy`: If you're using a proxy server, provides the URI for the proxy server. (Optional)
+    -  `-Proxy`: If you're using a proxy server, provide the URI for the proxy server. (Optional)
     
     - `-WindowsUpdateServer`: Provides the URIs for one or more Windows Update Server(s) or Windows Update for Business Server(s). (Optional)
   
