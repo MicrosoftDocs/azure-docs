@@ -12,6 +12,8 @@ ms.custom:  [amqp, mqtt]
 ---
 # How an IoT Edge device can be used as a gateway
 
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+
 IoT Edge devices can operate as gateways, providing a connection between other devices on the network and IoT Hub.
 
 The IoT Edge hub module acts like IoT Hub, so can handle connections from any devices that have an identity with IoT Hub, including other IoT Edge devices. This type of gateway pattern is called *transparent* because messages can pass from downstream devices to IoT Hub as though there were not a gateway between them.

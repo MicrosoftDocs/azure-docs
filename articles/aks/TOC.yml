@@ -309,21 +309,6 @@
           maintainContext: true
     - name: Use Windows Server containers
       items:
-        - name: Create an AKS cluster
-          href: windows-container-cli.md
-        - name: Create an AKS cluster with PowerShell
-          href: windows-container-powershell.md
-        - name: Connect remotely
-          href: rdp.md
-        - name: Windows Server containers FAQ
-          href: windows-faq.md
-        - name: Use the Kubernetes dashboard
-          href: kubernetes-dashboard.md
-        - name: Create Dockerfiles for Windows Server containers
-          href: /virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context
-        - name: Optimize Dockerfiles for Windows Server containers
-          href: /virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context
-    - name: Develop and run applications
       items:
         - name: Use Bridge to Kubernetes with Visual Studio Code
           href: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
