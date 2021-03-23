@@ -27,7 +27,7 @@ Note: Auto-Optimize will periodically overwrite Personalizer Learning Settings. 
 ## How to Enable and Disable Auto-Optimize
 To Enable Auto-Optimize, use the toggle switch in the "Model and Learning Settings" blade in the Azure Portal. 
 
-Alternatively, you can activate Auto-Optimize using the Personalizer API.
+Alternatively, you can activate Auto-Optimize using the Personalizer **/configurations/service** API.
 
 To disable Auto-Optimize, turn off the toggle.
 
@@ -40,7 +40,7 @@ Here you can see
 * What was the reward performance of online, baseline, and best found Learning Settings,
 * Actions taken: if Learning Settings were updated or not.
 
-A history of previous Auto-Optimize runs is kept for your analysis. You can seek out more details about those Offline Evaluations and reports for each. Also, this allows you find an apply any Learning Settings that is in this history.
+A history of up to 24 previous Auto-Optimize runs is kept for your analysis. You can seek out more details about those Offline Evaluations and reports for each. Also, this allows you find an apply any Learning Settings that is in this history.
 
 ## How it Works
 Personalizer is constantly training the AI models it uses based on rewards. This training is done following some *Learning Settings*, which contain hyper-parameters and other values used in the training process. These learning settings can be "tuned" to your specific Personalizer instance. 
@@ -63,7 +63,7 @@ This criteria to maximize the reward improvement, while trying to eliminate the 
 
 #### Limitations of Auto-Optimize
 
-Personalizer Auto-Optimize relies on an analysis of a past period to estimate performance in the future. It is possible that due to external factors in the world, your application, and your users, that these estimations and predictions about Personalizer's models are not representative of the future. The next Auto-Optimize pass will probably correct these deviations.
+Personalizer Auto-Optimize relies on an evaluation of a past period to estimate performance in the future. It is possible that due to external factors in the world, your application, and your users, that these estimations and predictions about Personalizer's models done for the past period are not representative of the future.
 
 ## Read More
 
