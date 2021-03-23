@@ -17,7 +17,7 @@ This article attempts to list recent common issues and their solutions when usin
 
 ## MOFED installation on Ubuntu
 On Ubuntu-18.04, the Mellanox OFED showed incompatibility with kernels version `5.4.0-1039-azure #42` and newer which causes an increase in VM boot time to about 30 minutes. 
-This has been reported for both Mellanox OFED verions 5.2-1.0.4.0 and 5.2-2.2.0.0.
+This has been reported for both Mellanox OFED versions 5.2-1.0.4.0 and 5.2-2.2.0.0.
 The temporary solution is to use the **Canonical:UbuntuServer:18_04-lts-gen2:18.04.202101290** marketplace image or older and not to update the kernel.
 This issue is expected to be resolved with a newer MOFED (TBD).
 
