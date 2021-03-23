@@ -66,7 +66,7 @@ Azure Communication Services connections require internet connectivity to specif
 
 ### Network optimization
 
-The following tasks are optional and aren't required for rolling out Azure Communication Services. Use this guidance to optimize your network and Azure Communication Services performance or if you know you've got some network limitations.
+The following tasks are optional and aren't required for rolling out Azure Communication Services. Use this guidance to optimize your network and Azure Communication Services performance or if you know you have some network limitations.
 You might want to do additional network optimization if:
 * Azure Communication Services runs slowly (maybe you have insufficient bandwidth)
 * Calls keep dropping (might be due to firewall or proxy blockers)
