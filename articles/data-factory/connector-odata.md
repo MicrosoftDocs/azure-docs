@@ -339,7 +339,7 @@ You need to navigate to **Authorization** tab on the Postman Website.
     - **Client Secret**: Enter your service principal secret
     - **Client Authentication**: Select **Send as Basic Auth header**
 - You will be asked to login with your username and password.
-- You will get your access token, please copy and save it for the next step.
+- Once you get your access token, please copy and save it for the next step.
 
 ![Use Postman to get access token](/media/connector-odata/odata-project-online-postman-accesstoken.png)
 
