@@ -1,6 +1,6 @@
 ---
 title: Find and use marketplace purchase plan information using PowerShell 
-description: Use Azure PowerShell to find and use publisher, offer, SKU, version and plan information for Marketplace VM images.
+description: Use Azure PowerShell to find image URNs and purchase plan parameters, like the publisher, offer, SKU, and version, for Marketplace VM images.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -27,7 +27,7 @@ A Marketplace image in Azure has the following attributes:
 
 These values can be passed individually or as an image *URN*, combining the values separated by the colon (:). For example: *Publisher*:*Offer*:*Sku*:*Version*. You can replace the version number in the URN with `latest`,to use the latest version of the image. 
 
-If the image publisher provides additional license and purchase terms, then you must accept those before you can use the image.  For more information, see [Deploy an image with Marketplace terms](#deploy-an-image-with-marketplace-terms).
+If the image publisher provides additional license and purchase terms, then you must accept those before you can use the image.  For more information, see [Accept purchase plan terms](#accept-purchase-plan-terms).
 
 ## List images
 

@@ -345,7 +345,7 @@ Some properties may be changed, with exceptions depending on the current value. 
 
 - **singlePlacementGroup** - If singlePlacementGroup is true, it may be modified to false. However, if singlePlacementGroup is false, it **may not** be modified to true.
 - **subnet** - The subnet of a scale set may be modified as long as the original subnet and the new subnet are in the same virtual network.
-- **imageReferenceSku** - Image reference SKU can be updated for endorsed [Linux distros](../virtual-machines/linux/endorsed-distros.md), Windows server/client images, and images without [plan information](../virtual-machines/linux/cli-ps-findimage.md#view-plan-properties). 
+- **imageReferenceSku** - Image reference SKU can be updated for endorsed [Linux distros](../virtual-machines/linux/endorsed-distros.md), Windows server/client images, and images without [plan information](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information). 
 
 ### Properties that require deallocation to change
 Some properties may only be changed to certain values if the VMs in the scale set are deallocated. These properties include:

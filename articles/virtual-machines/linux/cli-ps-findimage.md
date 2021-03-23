@@ -1,6 +1,6 @@
 ---
 title: Find and use marketplace purchase plan information using the CLI    
-description: Learn how to use the Azure CLI to firn image URNs and purchase plan parameters, like the publisher, offer, SKU, and version, for Marketplace VM images.
+description: Learn how to use the Azure CLI to find image URNs and purchase plan parameters, like the publisher, offer, SKU, and version, for Marketplace VM images.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
