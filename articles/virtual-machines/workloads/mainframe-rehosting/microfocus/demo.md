@@ -5,7 +5,8 @@ author: sread
 ms.author: sread
 ms.date: 03/30/2020
 ms.topic: article
-ms.service: multiple
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
 ---
 
 # Set up Micro Focus CICS BankDemo for Micro Focus Enterprise Developer 4.0 on Azure
