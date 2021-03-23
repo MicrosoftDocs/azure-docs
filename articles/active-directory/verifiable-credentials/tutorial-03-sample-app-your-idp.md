@@ -15,7 +15,7 @@ ms.reviewer:
 
 ---
 
-# Tutorial 3 - Configure Azure Active Directory to work with the Verifiable Credential service
+# Tutorial - Issue verifiable credentials using your tenant
 
 > [!IMPORTANT]
 > Azure Verifiable Credentials is currently in public preview.
@@ -63,16 +63,16 @@ Register an application called 'VC Wallet App' in Azure Active Directory (AAD) a
 
 3. Select the **Endpoints** button and copy the OpenID Connect metadata document URI. You need this information for the next section. 
 
-![issuer endpoints](media/tutorial-sample-app-your-IdP/application-endpoints.png)
+   ![issuer endpoints](media/tutorial-sample-app-your-IdP/application-endpoints.png)
 
-## Your IdP with the Ninja Credential 
+## Make changes to match your environment
 
-Now let's create a new Ninja credential using your Azure Active Directory. 
+So far, we have been working with our sample app. The app uses [Azure Active Directory B2C](../../active-directory-b2c/overview.md) and we are now switching to use AAD so we need to make some changes not just to match your environment but we also need to make changes to support additional claims that were not used with the sample app.
 
-1. Copy the rules file below and save it to **modified_ninjaRules.json**. 
+1. Copy the rules file below and save it to **modified-ninjaRules.json**. 
 
-> [!note]
-> **"scope": "openid profile"** is included in this Rules file and was not included in the Sample App's Rules file. The next section will explain how to enable the optional claims in your Azure Active Directory tenant. 
+    > [!NOTE]
+    > **"scope": "openid profile"** is included in this Rules file and was not included in the Sample App's Rules file. The next section will explain how to enable the optional claims in your Azure Active Directory tenant. 
     
     ```json
     {
@@ -99,36 +99,31 @@ Now let's create a new Ninja credential using your Azure Active Directory.
 
 2. Open the file and replace the **client_id** and **configuration** values with the two values we copied in the previous section.
 
-![highlighting the two values that need to be modified as part of this step](media/tutorial-sample-app-your-IdP/rules-file.png)
+    ![highlighting the two values that need to be modified as part of this step](media/tutorial-sample-app-your-IdP/rules-file.png)
 
-The value **Configuration** is the OpenID Connect metadata document URI.
+   The value **Configuration** is the OpenID Connect metadata document URI.
 
-3. Since the Sample Code is using Azure Active Directory B2C and we are using Azure Active Directory, we need to add optional claims via scopes in order for these claims to be included in the ID Token to be written into the Verifiable Credential. 
+    >[!IMPORTANT]
+    >Since the Sample Code is using Azure Active Directory B2C and we are using Azure Active Directory, we need to add optional claims via scopes in order for these claims to be included in the ID Token to be written into the Verifiable Credential. 
 
-- Open Azure Active Directory in the portal
-- Open App Registrations
-- Open the VC Wallet App we created earlier
-- Open token configuration 
-- Add optional claim
-- Select ID
-- Select given_name and family_name
-- Press add
+3. Back in the Azure portal, open Azure Active Directory.
+4. Choose **App registrations**.
+5. Open the VC Wallet App we created earlier.
+6. Choose **Token configuration**.
+7. Choose **+ Add optional claim**
 
-![Add optional claim in the ID token](media/tutorial-sample-app-your-IdP/optional_claim.png)
+     ![under token configuration add an optional claim](media/tutorial-sample-app-your-IdP/token-configuration.png)
 
-Now when a user is presented with the "sign in" to get issued your Verifiable Credential, the VC Wallet App knows to include the specific claims to be written in to the Verifiable Credential. 
+8. From **Token type** choose **ID** and from the list of available claims choose **given_name** and **family_name**
 
-## Create new VC with this rules file and old display file
+     ![add optional claims](media/tutorial-sample-app-your-IdP/add-optional-claim.png)
 
-Follow the steps we followed earlier. Once that you have a new vv get the contract URL.
+9. Press **Add**.
+10. If you get a permissions warning as shown below, check the box and select **Add**.
 
-1. Upload the new rules file to our container
-1. From the verifiable credentials page create a new credential called **ninjaCatModified** using the old display file and the new rules file (**modified_ninjaRules.json**).
-1. Save the contract URL, we will need it in the next section. 
+     ![add permissions for optional claims](media/tutorial-sample-app-your-IdP/add-optional-claim-permissions.png)
 
-```
-goo/96e93203-0285-41ef-88e5-a8c9b7a33457/portableIdentities/contracts/MyIdPNinja
-```
+Now when a user is presented with the "sign in" to get issued your Verifiable Credential, the VC Wallet App knows to include the specific claims to be written in to the Verifiable Credential.
 
 ## Set up your node app with access to Key Vault
 
@@ -149,11 +144,12 @@ Copy down your Application (client) ID as you will need this later to update you
 
 ### Generate a client secret
 
-- Select **Certificates & secrets**.
-- In the **Client secrets** section choose **New client secret**
-- Add a description like "Node VC client secret"
-- Expires: in one year 
-- Copy down the SECRET as you will need this to update your Sample Node app.
+1. Select **Certificates & secrets**.
+2. In the **Client secrets** section choose **New client secret**
+    1. Add a description like "Node VC client secret"
+    1. Expires: in one year.
+  ![application client id](media/tutorial-sample-app-your-IdP/add-client-secret.png)
+3. Copy down the SECRET. You need this information to update your sample node app.
 
 >[!WARNING]
 > You have one chance to copy down the secret. The secret is one way hashed after this. Do not copy the ID. 
@@ -164,16 +160,25 @@ After creating your application and client secret in Azure AD, you need to grant
 
 - Go to Key Vault.
 - Select the key vault we are using for these tutorials.
-- Access Policies on left nav
-- Create new
-- Key permissions: Get, Sign
-- Select Principle and choose the application registration in the name you generated earlier. Select it.
+- Choose **Access Policies** on left nav
+- Choose **+Add Access Policy**.
+- In the **Key permissions** section choose **Get**, and **Sign**.
+- Select **Principal** and use the application ID to search for the application we registered earlier. Select it.
 - Select **Add**.
 - Choose **SAVE**.
 
-For more information about Key Vault permissions 
+For more information about Key Vault permissions and access control read the [key vault rbac guide](../../key-vault/general/rbac-guide.md)
 
-![assign key vault permissions](media/tutorial-sample-app-your-IdP/si53el7.png)
+![assign key vault permissions](media/tutorial-sample-app-your-IdP/key-vault-permissions.png)
+
+## Create new VC with this rules file and the old display file
+
+Follow the steps we followed earlier. Once that you have a new vc get the contract URL.
+
+1. Upload the new rules file to our container
+1. From the verifiable credentials page create a new credential called **ninjaCatModified** using the old display file and the new rules file (**modified_ninjaRules.json**).
+1. Save the contract URL, we will need it in the next section. 
+
 
 ## Summary
 

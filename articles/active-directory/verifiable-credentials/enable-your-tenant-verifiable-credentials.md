@@ -92,7 +92,8 @@ Take note of the two properties listed below:
 Now we need to take the last step to set up your tenant for verifiable credentials.
 
 1. From the Azure portal, search for **verifiable credentials**. 
-2. To get started with the verifiable credentials service, we need to set up your organization and provide the organization name, domain, and key vault. Let's look at each one.
+2. Choose **Get started**
+1. We need to set up your organization and provide the organization name, domain, and key vault. Let's look at each one of the values.
 
       - **organization name**: This name is how you reference your business within the Verifiable Credential service. This value is not customer facing.
       - **Domain:** The domain entered is added to a service endpoint in your DID document. [Microsoft Authenticator](../user-help/user-help-auth-app-download-install.md) and other wallets use this information to validate that your DID is linked to your domain. If the wallet can verify the DID, it displays a verified symbol. If the wallet is unable to verify the DID, it informs the user that the credential was issued by an organization it could not validate. The domain is what binds your DID to something tangible that the user may know about your business. See the example Presentation screen below.
