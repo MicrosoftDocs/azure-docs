@@ -74,7 +74,7 @@ To install the tools:
 
 ## Create the cloud components
 
-### Create the IoT Central Application
+### Create the IoT Central application
 
 There are several ways to connect devices to Azure IoT. In this section, you learn how to connect a device by using Azure IoT Central. IoT Central is an IoT application platform that reduces the cost and complexity of creating and managing IoT solutions.
 
@@ -168,7 +168,8 @@ After the build completes, confirm that the binary file was created in the follo
 1. In File Explorer, find the MXCHIP DevKit device connected to your computer. The device appears as a drive on your system with the drive label **AZ3166**.
 1. Paste the binary file into the root folder of the MXCHIP Devkit. Flashing starts automatically and completes in a few seconds.
 
-    > Note: During the flashing process, a green LED toggles on MXCHIP DevKit.
+    > [!NOTE]
+    > During the flashing process, a green LED toggles on MXCHIP DevKit.
 
 ### Confirm device connection details
 
@@ -286,7 +287,7 @@ To remove the entire Azure IoT Central sample application and all its devices an
 1. Select **Administration** > **Your application**.
 1. Select **Delete**.
 
-## Next Steps
+## Next steps
 
 In this tutorial you built a custom image that contains Azure RTOS sample code, and then flashed the image to the MXCHIP DevKit device. You also used the IoT Central portal to create Azure resources, connect the MXCHIP DevKit securely to Azure, view telemetry, and send messages.
 
