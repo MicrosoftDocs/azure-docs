@@ -35,7 +35,7 @@ A distributed network name (DNN) listener replaces the traditional virtual netwo
 Use the DNN listener to replace an existing VNN listener, or alternatively, use it in conjunction with an existing VNN listener so that your availability group has two distinct connection points - one using the VNN listener name (and port if non-default), and one using the DNN listener name and port.
 
 > [!CAUTION]
-The routing behavior when using a DNN differs when using a VNN. Do not use port 1433. To learn more, see the [Port consideration](#port-considerations) section later in this article.
+> The routing behavior when using a DNN differs when using a VNN. Do not use port 1433. To learn more, see the [Port consideration](#port-considerations) section later in this article.
 
 ## Prerequisites
 
