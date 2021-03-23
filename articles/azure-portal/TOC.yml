@@ -99,4 +99,4 @@
   - name: Azure Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-portal&sort=newest
   - name: Azure and Power BI
-    href: https://docs.microsoft.com/power-bi/connect-data/service-azure-and-power-bi?context=/azure/azure-portal/context/context
+    href: /power-bi/connect-data/service-azure-and-power-bi?context=/azure/azure-portal/context/context
