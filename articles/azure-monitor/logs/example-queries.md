@@ -1,7 +1,6 @@
 ---
 title: Log Analytics in Azure Monitor offers sets of example queries that you can run on their own or use as a starting point for your own queries. 
 description: Queries you can start from and modify for your needs 
-ms.subservice: logs
 ms.topic: article
 author: rboucher
 ms.author: robb
@@ -104,5 +103,4 @@ The query explorer experience for saving and sharing user-generated queries rema
 
 ## Next steps
 
-[Get started with KQL Queries](../log-query/get-started-queries.md)
-
+[Get started with KQL Queries](./get-started-queries.md)

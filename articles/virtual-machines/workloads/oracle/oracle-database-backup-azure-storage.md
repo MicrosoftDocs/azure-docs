@@ -402,4 +402,4 @@ az group delete --name rg-oracle
 
 [Tutorial: Create highly available VMs](../../linux/create-cli-complete.md)
 
-[Explore VM deployment Azure CLI samples](../../linux/cli-samples.md)
+[Explore VM deployment Azure CLI samples](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)

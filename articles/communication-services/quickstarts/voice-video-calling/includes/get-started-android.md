@@ -1,14 +1,17 @@
 ---
 title: Quickstart - Add VOIP calling to an Android app using Azure Communication Services
 description: In this tutorial, you learn how to use the Azure Communication Services Calling client library for Android
-author: matthewrobertson
-ms.author: marobert
-ms.date: 08/11/2020
+author: chpalm
+ms.author: mikben
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 
 In this quickstart, you'll learn how to start a call using the Azure Communication Services Calling client library for Android.
+
+> [!NOTE]
+> This document uses version 1.0.0-beta.8 of the calling client library.
 
 ## Prerequisites
 
@@ -177,9 +180,9 @@ import android.widget.Toast;
 
 import com.azure.android.communication.common.CommunicationUserIdentifier;
 import com.azure.android.communication.common.CommunicationTokenCredential;
-import com.azure.communication.calling.CallAgent;
-import com.azure.communication.calling.CallClient;
-import com.azure.communication.calling.StartCallOptions;
+import com.azure.android.communication.calling.CallAgent;
+import com.azure.android.communication.calling.CallClient;
+import com.azure.android.communication.calling.StartCallOptions;
 
 
 import java.util.ArrayList;
@@ -297,7 +300,7 @@ private void startCall() {
     
     StartCallOptions options = new StartCallOptions();
 
-    callAgent.call(
+    callAgent.startCall(
         getApplicationContext(),
         new CommunicationUserIdentifier[] {new CommunicationUserIdentifier(calleeId)},
         options);

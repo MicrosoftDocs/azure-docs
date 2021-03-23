@@ -1,23 +1,23 @@
 ---
-title: Configure Azure Arc enabled Kubernetes cluster with Azure Monitor for containers | Microsoft Docs
-description: This article describes how to configure monitoring with Azure Monitor for containers on Azure Arc enabled Kubernetes clusters.
+title: Configure Azure Arc enabled Kubernetes cluster with Container insights | Microsoft Docs
+description: This article describes how to configure monitoring with Container insights on Azure Arc enabled Kubernetes clusters.
 ms.topic: conceptual
 ms.date: 09/23/2020
 ---
 
 # Enable monitoring of Azure Arc enabled Kubernetes cluster
 
-Azure Monitor for containers provides rich monitoring experience for the Azure Kubernetes Service (AKS) and AKS Engine clusters. This article describes how to enable monitoring of your Kubernetes clusters hosted outside of Azure that are enabled with Azure Arc, to achieve a similar monitoring experience.
+Container insights provides rich monitoring experience for the Azure Kubernetes Service (AKS) and AKS Engine clusters. This article describes how to enable monitoring of your Kubernetes clusters hosted outside of Azure that are enabled with Azure Arc, to achieve a similar monitoring experience.
 
-Azure Monitor for containers can be enabled for one or more existing deployments of Kubernetes using either a PowerShell or Bash script.
+Container insights can be enabled for one or more existing deployments of Kubernetes using either a PowerShell or Bash script.
 
 ## Supported configurations
 
-Azure Monitor for containers supports monitoring Azure Arc enabled Kubernetes (preview) as described in the [Overview](container-insights-overview.md) article, except for the following features:
+Container insights supports monitoring Azure Arc enabled Kubernetes (preview) as described in the [Overview](container-insights-overview.md) article, except for the following features:
 
 - Live Data (preview)
 
-The following is officially supported with Azure Monitor for containers:
+The following is officially supported with Container insights:
 
 - Versions of Kubernetes and support policy are the same as versions of [AKS supported](../../aks/supported-kubernetes-versions.md).
 
@@ -31,15 +31,15 @@ Before you start, make sure that you have the following:
 
 - A Log Analytics workspace.
 
-    Azure Monitor for containers supports a Log Analytics workspace in the regions listed in Azure [Products by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). To create your own workspace, it can be created through [Azure Resource Manager](../samples/resource-manager-workspace.md), through [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../learn/quick-create-workspace.md).
+    Container insights supports a Log Analytics workspace in the regions listed in Azure [Products by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). To create your own workspace, it can be created through [Azure Resource Manager](../logs/resource-manager-workspace.md), through [PowerShell](../logs/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../logs/quick-create-workspace.md).
 
-- To enable and access the features in Azure Monitor for containers, at a minimum you need to be a member of the Azure *Contributor* role in the Azure subscription, and a member of the [*Log Analytics Contributor*](../platform/manage-access.md#manage-access-using-azure-permissions) role of the Log Analytics workspace configured with Azure Monitor for containers.
+- To enable and access the features in Container insights, at a minimum you need to be a member of the Azure *Contributor* role in the Azure subscription, and a member of the [*Log Analytics Contributor*](../logs/manage-access.md#manage-access-using-azure-permissions) role of the Log Analytics workspace configured with Container insights.
 
 - You are a member of the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role on the Azure Arc cluster resource.
 
-- To view the monitoring data, you are a member of the [*Log Analytics reader*](../platform/manage-access.md#manage-access-using-azure-permissions) role permission with the Log Analytics workspace configured with Azure Monitor for containers.
+- To view the monitoring data, you are a member of the [*Log Analytics reader*](../logs/manage-access.md#manage-access-using-azure-permissions) role permission with the Log Analytics workspace configured with Container insights.
 
-- [HELM client](https://helm.sh/docs/using_helm/) to onboard the Azure Monitor for containers chart for the specified Kubernetes cluster.
+- [HELM client](https://helm.sh/docs/using_helm/) to onboard the Container insights chart for the specified Kubernetes cluster.
 
 - The following proxy and firewall configuration information is required for the containerized version of the Log Analytics agent for Linux to communicate with Azure Monitor:
 
@@ -242,7 +242,7 @@ bash enable-monitoring.sh --resource-id $azureArcClusterResourceId --client-id $
 
 ## Configure proxy endpoint
 
-With the containerized agent for Azure Monitor for containers, you can configure a proxy endpoint to allow it to communicate through your proxy server. Communication between the containerized agent and Azure Monitor can be an HTTP or HTTPS proxy server, and both anonymous and basic authentication (username/password) are supported.
+With the containerized agent for Container insights, you can configure a proxy endpoint to allow it to communicate through your proxy server. Communication between the containerized agent and Azure Monitor can be an HTTP or HTTPS proxy server, and both anonymous and basic authentication (username/password) are supported.
 
 The proxy configuration value has the following syntax: `[protocol://][user:password@]proxyhost[:port]`
 
@@ -279,10 +279,10 @@ export proxyEndpoint=https://<user>:<password>@<proxyhost>:<port>
 
 ## Next steps
 
-- With monitoring enabled to collect health and resource utilization of your Arc-enabled Kubernetes cluster and workloads running on them, learn [how to use](container-insights-analyze.md) Azure Monitor for containers.
+- With monitoring enabled to collect health and resource utilization of your Arc-enabled Kubernetes cluster and workloads running on them, learn [how to use](container-insights-analyze.md) Container insights.
 
 - By default, the containerized agent collects the stdout/ stderr container logs of all the containers running in all the namespaces except kube-system. To configure container log collection specific to particular namespace or namespaces, review [Container Insights agent configuration](container-insights-agent-config.md) to configure desired data collection settings to your ConfigMap configurations file.
 
 - To scrape and analyze Prometheus metrics from your cluster, review [Configure Prometheus metrics scraping](container-insights-prometheus-integration.md)
 
-- To learn how to stop monitoring your Arc enabled Kubernetes cluster with Azure Monitor for containers, see [How to stop monitoring your hybrid cluster](container-insights-optout-hybrid.md#how-to-stop-monitoring-on-arc-enabled-kubernetes).
+- To learn how to stop monitoring your Arc enabled Kubernetes cluster with Container insights, see [How to stop monitoring your hybrid cluster](container-insights-optout-hybrid.md#how-to-stop-monitoring-on-arc-enabled-kubernetes).

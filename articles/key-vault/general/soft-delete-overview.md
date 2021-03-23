@@ -25,7 +25,7 @@ Key Vault's soft-delete feature allows recovery of the deleted vaults and delete
 
 ## Supporting interfaces
 
-The soft-delete feature is available through the [REST API](/rest/api/keyvault/), the [Azure CLI](./key-vault-recovery.md), [Azure PowerShell](./key-vault-recovery.md), and [.NET/C#](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet&preserve-view=true) interfaces, as well as [ARM templates](/azure/templates/microsoft.keyvault/2019-09-01/vaults).
+The soft-delete feature is available through the [REST API](/rest/api/keyvault/), the [Azure CLI](./key-vault-recovery.md), [Azure PowerShell](./key-vault-recovery.md), and [.NET/C#](/dotnet/api/microsoft.azure.keyvault) interfaces, as well as [ARM templates](/azure/templates/microsoft.keyvault/2019-09-01/vaults).
 
 ## Scenarios
 
@@ -97,6 +97,6 @@ In general, when an object (a key vault or a key or a secret) is in deleted stat
 
 The following two guides offer the primary usage scenarios for using soft-delete.
 
-- [How to use Key Vault soft-delete with Portal](https://docs.microsoft.com/azure/key-vault/general/key-vault-recovery?tabs=azure-portal)
+- [How to use Key Vault soft-delete with Portal](./key-vault-recovery.md?tabs=azure-portal)
 - [How to use Key Vault soft-delete with PowerShell](./key-vault-recovery.md) 
 - [How to use Key Vault soft-delete with CLI](./key-vault-recovery.md)

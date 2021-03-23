@@ -26,7 +26,7 @@ In this tutorial, you migrate a dataset in MongoDB hosted in an Azure Virtual Ma
 
 The MongoDB native tools can move data only as fast as the host hardware allows; the native tools can be the simplest solution for small datasets where total migration time is not a concern. [MongoDB Spark connector](https://docs.mongodb.com/spark-connector/current/), [Azure Data Migration Service (DMS)](../dms/tutorial-mongodb-cosmos-db.md), or [Azure Data Factory (ADF)](../data-factory/connector-azure-cosmos-db-mongodb-api.md) can be better alternatives if you need a scalable migration pipeline.
 
-If you don't have a MongoDB source set up already, see the article [Install and configure MongoDB on a Windows VM in Azure](../virtual-machines/windows/install-mongodb.md).
+If you don't have a MongoDB source set up already, see the article [Install and configure MongoDB on a Windows VM in Azure](/previous-versions/azure/virtual-machines/windows/install-mongodb).
 
 ## Prerequisites
 

@@ -1,7 +1,6 @@
 ---
 title: Azure Monitor API retirement
 description: Describes the retirement of older versions of the OperationalInsights resource provider API.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -12,7 +11,7 @@ ms.date: 10/29/2020
 # OperationalInsights API version retirement
 Microsoft provides notification at least 12 months in advance of retiring an API in order to smooth the transition to a newer/supported version. We have released a new version (2020-08-01) for **OperationalInsights** resource provider APIs and will retire any earlier API versions on February 29, 2024.
 
-We encourage you to start using version 2020-08-01 now to gain the benefits of new functionality, such as [dedicated cluster](../log-query/logs-dedicated-clusters.md), [customer-managed keys](../logs/customer-managed-keys.md), [private link](./private-link-security.md) and [data export](./logs-data-export.md). Also, new features and functionality and optimizations are only added to the current API.
+We encourage you to start using version 2020-08-01 now to gain the benefits of new functionality, such as [dedicated cluster](./logs-dedicated-clusters.md), [customer-managed keys](../logs/customer-managed-keys.md), [private link](./private-link-security.md) and [data export](./logs-data-export.md). Also, new features and functionality and optimizations are only added to the current API.
 
 After February 29, 2024 Azure Monitor will no longer support earlier APIs versions than 2020-08-01. If you prefer not to upgrade, requests sent from earlier versions will continue to be served by the Azure Monitor service until February 29, 2024.
 

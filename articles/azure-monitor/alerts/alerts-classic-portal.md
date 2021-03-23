@@ -1,18 +1,18 @@
 ---
 title: Create and manage classic metric alerts using Azure Monitor
-description: Learn how to use Azure portal, CLI or Powershell to create, view and manage classic metric alert rules.
+description: Learn how to use Azure portal, CLI or PowerShell to create, view and manage classic metric alert rules.
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 02/14/2021
 ---
 # Create, view, and manage classic metric alerts using Azure Monitor
 
 > [!WARNING]
-> This article describes how to create older classic metric alerts. Azure Monitor now supports [newer near-real time metric alerts and a new alerts experience](./alerts-overview.md). Classic alerts are [retired](./monitoring-classic-retirement.md) for public cloud users, though still in limited use for resources that do not yet support the new alerts.
+> This article describes how to create older classic metric alerts. Azure Monitor now supports [newer near-real time metric alerts and a new alerts experience](./alerts-overview.md). Classic alerts are [retired](./monitoring-classic-retirement.md) for public cloud users, though still in limited use until **31 May 2021**. Classic alerts for Azure Government cloud and Azure China 21Vianet will retire on **29 February 2024**.
 >
 
-Classic metric alerts in Azure Monitor provide a way to get notified when one of your metrics cross a threshold. Classic metric alerts is an older functionality that allows for alerting only on non-dimensional metrics. There is an existing newer functionality called Metric alerts which has improved functionality over classic metric alerts. You can learn more about the new metric alerts functionality in [metric alerts overview](./alerts-metric-overview.md). In this article, we will describe how to create, view and manage classic metric alert rules through Azure portal, Azure CLI and Powershell.
+Classic metric alerts in Azure Monitor provide a way to get notified when one of your metrics cross a threshold. Classic metric alerts is an older functionality that allows for alerting only on non-dimensional metrics. There is an existing newer functionality called Metric alerts which has improved functionality over classic metric alerts. You can learn more about the new metric alerts functionality in [metric alerts overview](./alerts-metric-overview.md). In this article, we will describe how to create, view and manage classic metric alert rules through Azure portal, Azure CLI and PowerShell.
 
 ## With Azure portal
 

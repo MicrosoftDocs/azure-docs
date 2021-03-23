@@ -6,6 +6,10 @@ ms.topic: quickstart
 ms.date: 11/23/2020
 ms.custom: "devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1"
 zone_pivot_groups: app-service-platform-windows-linux
+adobe-target: true
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./quickstart-dotnetcore-uiex
 ---
 
 # Quickstart: Create an ASP.NET Core web app in Azure
@@ -253,7 +257,7 @@ az login
 Deploy the code in your local folder (*hellodotnetcore*) using the `az webapp up` command:
 
 ```azurecli
-az webapp up --sku F1 --name <app-name> --os-type linux
+az webapp up --sku F1 --name <app-name>
 ```
 
 - If the `az` command isn't recognized, be sure you have the Azure CLI installed as described in [Set up your initial environment](#set-up-your-initial-environment).

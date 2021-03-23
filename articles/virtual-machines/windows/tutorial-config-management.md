@@ -2,7 +2,8 @@
 title: Tutorial - Manage Windows virtual machine configuration in Azure 
 description: In this tutorial, you learn how to identify changes and manage package updates on a Windows virtual machine
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.topic: tutorial
 ms.workload: infrastructure
 ms.date: 12/05/2018

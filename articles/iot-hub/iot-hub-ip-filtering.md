@@ -5,7 +5,7 @@ author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/19/2020
+ms.date: 03/12/2021
 ms.author: jlian
 ---
 
@@ -15,7 +15,7 @@ Security is an important aspect of any IoT solution based on Azure IoT Hub. Some
 
 ## When to use
 
-Use IP filter to receive traffic only from a specified range of IP addresses and reject everything else. For example, you're using your IoT hub with [Azure Express Route](https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services) to create private connections between an IoT hub and your on-premises infrastructure.
+Use IP filter to receive traffic only from a specified range of IP addresses and reject everything else. For example, you're using your IoT hub with [Azure Express Route](../expressroute/expressroute-faqs.md#supported-services) to create private connections between an IoT hub and your on-premises infrastructure.
 
 ## Default setting
 
@@ -159,7 +159,7 @@ $iothubResource | Set-AzResource -Force
 ## Update IP filter rules using REST
 
 
-You may also retrieve and modify your IoT Hub's IP filter using Azure resource Provider's REST endpoint. See `properties.networkRuleSets` in [createorupdate method](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate).
+You may also retrieve and modify your IoT Hub's IP filter using Azure resource Provider's REST endpoint. See `properties.networkRuleSets` in [createorupdate method](/rest/api/iothub/iothubresource/createorupdate).
 
 ## IP filter (classic) retirement
 
@@ -169,7 +169,7 @@ Classic IP filter has been retired. To learn more, see [IoT Hub classic IP filte
 
 To further explore the capabilities of IoT Hub, see:
 
-* [IoT Hub metrics](iot-hub-metrics.md)
+* [IoT Hub metrics](./monitor-iot-hub.md)
 * [IoT Hub support for virtual networks with Private Link and Managed Identity](virtual-network-support.md)
 * [Managing public network access for your IoT hub](iot-hub-public-network-access.md)
 * [Monitor IoT Hub](monitor-iot-hub.md)

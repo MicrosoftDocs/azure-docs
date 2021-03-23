@@ -40,7 +40,7 @@ For example, automated ML generates the following charts based on experiment typ
 
 After your automated ML experiment completes, a history of the runs can be found via:
   - A browser with [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md)
-  - A Jupyter notebook using the [RunDetails Jupyter widget](/python/api/azureml-widgets/azureml.widgets.rundetails?view=azure-ml-py&preserve-view=true)
+  - A Jupyter notebook using the [RunDetails Jupyter widget](/python/api/azureml-widgets/azureml.widgets.rundetails)
 
 The following steps and video, show you how to view the run history and model evaluation metrics and charts in the studio:
 
@@ -86,6 +86,8 @@ weighted_accuracy|Weighted accuracy is accuracy where each sample is weighted by
 Automated ML doesn't differentiate between binary and multiclass metrics. The same validation metrics are reported whether a dataset has two classes or more than two classes. However, some metrics are intended for multiclass classification. When applied to a binary dataset, these metrics won't treat any class as the `true` class, as you might expect. Metrics that are clearly meant for multiclass are suffixed with `micro`, `macro`, or `weighted`. Examples include `average_precision_score`, `f1_score`, `precision_score`, `recall_score`, and `AUC`.
 
 For example, instead of calculating recall as `tp / (tp + fn)`, the multiclass averaged recall (`micro`, `macro`, or `weighted`) averages over both classes of a binary classification dataset. This is equivalent to calculating the recall for the `true` class and the `false` class separately, and then taking the average of the two.
+
+Automated ML doesn't calculate binary metrics, that is metrics for binary classification datasets. However, these metrics can be manually calculated using the [confusion matrix](#confusion-matrix) that Automated ML generated for that particular run. For example, you can calculate precision, `tp / (tp + fp)`,  with the true positive and false positive values shown in a 2x2 confusion matrix chart.
 
 ## Confusion matrix
 

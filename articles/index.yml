@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page
   author: rolyon
   ms.author: rolyon
-  ms.date: 01/29/2021
+  ms.date: 03/03/2021
   featureFlags:
   - clicktale
 
@@ -39,6 +39,13 @@ highlightedContent:
 productDirectory:
   title: Browse Azure products
   items:
+    # Card
+    - title: Azure Percept
+      summary: Edge intelligence from silicon to service
+      imageSrc: ./media/index/azure-percept.svg
+      azureCategories:
+        - iot
+      url: azure-percept/index.yml
     # Card
     - title: Anomaly Detector
       summary: Easily add anomaly detection capabilities to your apps
@@ -199,7 +206,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/custom-vision.svg
       azureCategories:
         - ai-machine-learning
-      url: cognitive-services/Custom-Vision-Service/index.yml
+      url: cognitive-services/custom-vision-service/index.yml
     # Card
     - title: Data Science Virtual Machines
       summary: Rich pre-configured environment for AI development
@@ -234,7 +241,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
         - ai-machine-learning
-      url: cognitive-services/ink-recognizer/index.yml
+      url: /previous-versions/azure/cognitive-services/Ink-Recognizer/
     # Card
     - title: Kinect DK
       summary: Build computer vision and speech models using a developer kit with advanced AI sensors
@@ -471,6 +478,13 @@ productDirectory:
         - iot
       url: cosmos-db/index.yml
     # Card
+    - title: Azure Managed Instance for Apache Cassandra
+      summary: Automate deployment and scaling for managed open-source Apache Cassandra datacenters
+      imageSrc: ./media/index/managed-instance-apache-cassandra.svg
+      azureCategories:
+        - databases
+      url: managed-instance-apache-cassandra/index.yml
+    # Card
     - title: Logic Apps
       summary: Automate the access and use of data across clouds without writing code
       imageSrc: https://static.docs.com/ui/media/product/azure/logic-apps.svg
@@ -567,7 +581,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/cloud-services.svg
       azureCategories:
         - compute
-      url: cloud-services/index.yml
+      url: cloud-services-extended-support/index.yml
     # Card
     - title: Container Instances
       summary: Easily run containers on Azure without managing servers
@@ -583,7 +597,7 @@ productDirectory:
       azureCategories:
         - featured
         - compute
-      url: virtual-machines/linux/index.yml
+      url: ./virtual-machines/index.yml
     # Card
     - title: Service Fabric
       summary: Develop microservices and orchestrate containers on Windows or Linux
@@ -639,7 +653,7 @@ productDirectory:
       azureCategories:
         - featured
         - compute
-      url: virtual-machines/windows/index.yml
+      url: ./virtual-machines/index.yml
     # Card
     - title: Azure Dev Spaces
       summary: Test and iteratively develop your microservices app in Azure AKS
@@ -677,7 +691,7 @@ productDirectory:
       azureCategories:
         - databases
         - integration
-      url: healthcare-apis/index.yml
+      url: healthcare-apis/fhir/index.yml
     # Card
     - title: Azure Cache for Redis
       summary: Power applications with high-throughput, low-latency data access
@@ -997,7 +1011,7 @@ productDirectory:
         - integration
       url: service-bus-messaging/index.yml
     # Card
-    - title: Azure Digital Twins (Preview)
+    - title: Azure Digital Twins
       summary: Build next-generation IoT spatial intelligence solutions
       imageSrc: https://static.docs.com/ui/media/product/azure/digital-twins.svg
       azureCategories:
@@ -1256,6 +1270,13 @@ productDirectory:
         - storage
       url: databox/index.yml
     # Card
+    - title: Object Anchors (Preview)
+      summary: Automatically align and anchor 3D content to objects in the physical world
+      imageSrc: ./media/index/object-anchors.svg
+      azureCategories:
+        - mixed-reality
+      url: object-anchors/index.yml
+    # Card
     - title: Spatial Anchors
       summary: Create multi-user, spatially aware mixed reality experiences
       imageSrc: https://static.docs.com/ui/media/product/azure/spatial-anchor-accounts.svg
@@ -1264,7 +1285,7 @@ productDirectory:
         - mobile
       url: spatial-anchors/index.yml
     # Card
-    - title: Remote Rendering (Preview)
+    - title: Azure Remote Rendering
       summary: Render high-quality, interactive 3D content, and stream it to your devices in real time
       imageSrc: https://static.docs.com/ui/media/product/azure/remote-rendering.svg
       azureCategories:
@@ -1372,6 +1393,13 @@ productDirectory:
       azureCategories:
         - networking
       url: load-balancer/index.yml
+    # Card
+    - title: Azure Route Server (Preview)
+      summary: Simplify operations management of your network appliances
+      imageSrc: ./media/index/azure-route-server.svg
+      azureCategories:
+        - networking
+      url: route-server/index.yml
     # Card
     - title: Virtual Network
       summary: Provision private networks, optionally connect to on-premises datacenters
@@ -1576,3 +1604,13 @@ additionalContent:
         - title: Azure China 21Vianet
           summary: A dedicated cloud located in China and operated by 21Vianet.
           url: /azure/china/
+    - title: Partner solutions
+      items:
+        # Card
+        - title: Azure partner solutions
+          summary: Integrated partner solutions that you can use in Azure to enhance your cloud infrastructure.
+          url: ./partner-solutions/overview.md
+        # Card
+        - title: Commercial marketplace
+          summary: An online marketplace of applications and services from independent software vendor (ISV) partners.
+          url: ./marketplace/index.yml

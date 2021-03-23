@@ -114,6 +114,6 @@ You can view the complete list of commands on the [Apache Hadoop 2.4.1 File Syst
 
 ## Next steps
 
-* [Use an Azure Data Lake Storage Gen2 capable account in Azure Databricks](./data-lake-storage-quickstart-create-databricks-account.md)
+* [Use an Azure Data Lake Storage Gen2 capable account in Azure Databricks](./data-lake-storage-use-databricks-spark.md)
 
 * [Learn about access control lists on files and directories](./data-lake-storage-access-control.md)

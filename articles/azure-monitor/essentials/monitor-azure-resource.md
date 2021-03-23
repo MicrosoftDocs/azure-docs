@@ -1,7 +1,6 @@
 ---
 title: Monitor Azure resources with Azure Monitor | Microsoft Docs
 description: Describes how to collect and analyze monitoring data from resources in Azure using Azure Monitor.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -16,7 +15,7 @@ When you have critical applications and business processes relying on Azure reso
 > This article applies to all services in Azure that use Azure Monitor. Compute resources, including VMs and App Service, generate the same monitoring data described here but also have a guest operating system that may also generate logs and metrics. See the monitoring documentation for these services for details on how to collect and analyze this data.
 
 ## What is Azure Monitor?
-Azure Monitor is a full stack monitoring service in Azure that provides a complete set of features to monitor your Azure resources in addition to resources in other clouds and on-premises. The [Azure Monitor data platform](../platform/data-platform.md) collects data into [logs](../platform/data-platform-logs.md) and [metrics](../essentials/data-platform-metrics.md) where they can be analyzed together using a complete set of monitoring tools. See the complete list of applications and services that can be monitored by Azure Monitor at [What is monitored by Azure Monitor?](../monitor-reference.md).
+Azure Monitor is a full stack monitoring service in Azure that provides a complete set of features to monitor your Azure resources in addition to resources in other clouds and on-premises. The [Azure Monitor data platform](../data-platform.md) collects data into [logs](../logs/data-platform-logs.md) and [metrics](../essentials/data-platform-metrics.md) where they can be analyzed together using a complete set of monitoring tools. See the complete list of applications and services that can be monitored by Azure Monitor at [What is monitored by Azure Monitor?](../monitor-reference.md).
 
 As soon as you create an Azure resource, Azure Monitor is enabled and starts collecting metrics and activity logs which you can [view and analyze in the Azure portal](#monitoring-in-the-azure-portal). With some configuration, you can gather additional monitoring data and enable additional features. See [Monitoring Data](#monitoring-data) below for details on any configuration requirements.
 
@@ -42,15 +41,15 @@ There may be Azure Monitor costs associated with the following. See [Azure Monit
 - Accessing metrics through API.
 
 ## Monitoring data
-Resources in Azure generate [logs](../platform/data-platform-logs.md) and [metrics](../essentials/data-platform-metrics.md) shown in the following diagram. Refer to the documentation for each Azure services for the specific data they generate and any additional solutions or insights they provide.
+Resources in Azure generate [logs](../logs/data-platform-logs.md) and [metrics](../essentials/data-platform-metrics.md) shown in the following diagram. Refer to the documentation for each Azure services for the specific data they generate and any additional solutions or insights they provide.
 
 ![Overview](media/monitor-azure-resource/logs-metrics.png)
 
 
 
 - [Platform metrics](../essentials/data-platform-metrics.md) - Numerical values that are automatically collected at regular intervals and describe some aspect of a resource at a particular time. 
-- [Resource logs](../platform/platform-logs-overview.md) - Provide insight into operations that were performed within an Azure resource (the data plane), for example getting a secret from a Key Vault or making a request to a database. The content and structure of resource logs varies by the Azure service and resource type.
-- [Activity log](../platform/platform-logs-overview.md) - Provides insight into the operations on each Azure resource in the subscription from the outside (the management plane), for example creating a new resource or starting a virtual machine. This is information about the what, who, and when for any write operations (PUT, POST, DELETE) taken on the resources in your subscription.
+- [Resource logs](./platform-logs-overview.md) - Provide insight into operations that were performed within an Azure resource (the data plane), for example getting a secret from a Key Vault or making a request to a database. The content and structure of resource logs varies by the Azure service and resource type.
+- [Activity log](./platform-logs-overview.md) - Provides insight into the operations on each Azure resource in the subscription from the outside (the management plane), for example creating a new resource or starting a virtual machine. This is information about the what, who, and when for any write operations (PUT, POST, DELETE) taken on the resources in your subscription.
 
 
 ## Configuration requirements
@@ -59,11 +58,11 @@ Resources in Azure generate [logs](../platform/data-platform-logs.md) and [metri
 Some monitoring data is collected automatically, but you may need to perform some configuration depending on your requirements. See the information below for specific information for each type of monitoring data.
 
 - [Platform metrics](../essentials/data-platform-metrics.md) - Platform metrics are collected automatically into [Azure Monitor Metrics](../essentials/data-platform-metrics.md) with no configuration required. Create a diagnostic setting to send entries to Azure Monitor Logs or to forward them outside of Azure.
-- [Resource logs](../platform/platform-logs-overview.md) - Resource logs are automatically generated by Azure resources but not collected without a diagnostic setting.  Create a diagnostic setting to send entries to Azure Monitor Logs or to forward them outside of Azure.
-- [Activity log](../platform/platform-logs-overview.md) - The Activity log is collected automatically with no configuration required and can be view in the Azure portal. Create a diagnostic setting to copy them to Azure Monitor Logs or to forward them outside of Azure.
+- [Resource logs](./platform-logs-overview.md) - Resource logs are automatically generated by Azure resources but not collected without a diagnostic setting.  Create a diagnostic setting to send entries to Azure Monitor Logs or to forward them outside of Azure.
+- [Activity log](./platform-logs-overview.md) - The Activity log is collected automatically with no configuration required and can be view in the Azure portal. Create a diagnostic setting to copy them to Azure Monitor Logs or to forward them outside of Azure.
 
 ### Log Analytics workspace
-Collecting data into Azure Monitor Logs requires a Log Analytics workspace. You can start monitoring your service quickly by creating a new workspace, but there may be value in using a workspace that's collecting data from other services. See [Create a Log Analytics workspace in the Azure portal](../learn/quick-create-workspace.md) for details on creating a workspace and [Designing your Azure Monitor Logs deployment](../platform/design-logs-deployment.md) to help determine the best workspace design for your requirements. If you use an existing workspace in your organization, then you will require appropriate permissions as described in [Manage access to log data and workspaces in Azure Monitor](../platform/manage-access.md). 
+Collecting data into Azure Monitor Logs requires a Log Analytics workspace. You can start monitoring your service quickly by creating a new workspace, but there may be value in using a workspace that's collecting data from other services. See [Create a Log Analytics workspace in the Azure portal](../logs/quick-create-workspace.md) for details on creating a workspace and [Designing your Azure Monitor Logs deployment](../logs/design-logs-deployment.md) to help determine the best workspace design for your requirements. If you use an existing workspace in your organization, then you will require appropriate permissions as described in [Manage access to log data and workspaces in Azure Monitor](../logs/manage-access.md). 
 
 
 
@@ -72,11 +71,11 @@ Collecting data into Azure Monitor Logs requires a Log Analytics workspace. You 
 ## Diagnostic settings
 Diagnostic settings define where resource logs and metrics for a particular resource should be sent. Possible destinations are:
 
-- [Log Analytics workspace](../platform/resource-logs.md#send-to-log-analytics-workspace) which allows you to analyze data with other monitoring data collected by Azure Monitor using powerful log queries and also to leverage other Azure Monitor features such as log alerts and visualizations. 
-- [Event hubs](../platform/resource-logs.md#send-to-azure-event-hubs) to stream data to external systems such as third-party SIEMs and other log analytics solutions. 
-- [Azure storage account](../platform/resource-logs.md#send-to-azure-storage) which is useful for audit, static analysis, or backup.
+- [Log Analytics workspace](./resource-logs.md#send-to-log-analytics-workspace) which allows you to analyze data with other monitoring data collected by Azure Monitor using powerful log queries and also to leverage other Azure Monitor features such as log alerts and visualizations. 
+- [Event hubs](./resource-logs.md#send-to-azure-event-hubs) to stream data to external systems such as third-party SIEMs and other log analytics solutions. 
+- [Azure storage account](./resource-logs.md#send-to-azure-storage) which is useful for audit, static analysis, or backup.
 
-Follow the procedure in [Create diagnostic setting to collect platform logs and metrics in Azure](../essentials/diagnostic-settings.md) to create and manage diagnostic settings through the Azure portal. See [Create diagnostic setting in Azure using a Resource Manager template](../samples/resource-manager-diagnostic-settings.md) to define them in a template and enable complete monitoring for a resource when it's created.
+Follow the procedure in [Create diagnostic setting to collect platform logs and metrics in Azure](../essentials/diagnostic-settings.md) to create and manage diagnostic settings through the Azure portal. See [Create diagnostic setting in Azure using a Resource Manager template](./resource-manager-diagnostic-settings.md) to define them in a template and enable complete monitoring for a resource when it's created.
 
 
 ## Monitoring in the Azure portal
@@ -96,9 +95,9 @@ If a service has an Azure Monitor insight, you can access it from **Monitoring**
 ![Insights in the Azure portal](media/monitor-azure-resource/insights.png)
 
 ### Metrics
-Analyze metrics in the Azure portal using [metrics explorer](../platform/metrics-getting-started.md) which is available from the **Metrics** menu item for most services. This tool allows you to work with individual metrics or combine  multiple to identify correlations and trends. 
+Analyze metrics in the Azure portal using [metrics explorer](./metrics-getting-started.md) which is available from the **Metrics** menu item for most services. This tool allows you to work with individual metrics or combine  multiple to identify correlations and trends. 
 
-- See [Getting started with Azure Metrics Explorer](../platform/metrics-getting-started.md) for the basics of using metrics explorer.
+- See [Getting started with Azure Metrics Explorer](./metrics-getting-started.md) for the basics of using metrics explorer.
 - See [Advanced features of Azure Metrics Explorer](../essentials/metrics-charts.md) for advanced features of metrics explorer such as using multiple metrics and applying filters and splitting.
 
 ![Metrics explorer in the Azure portal](media/monitor-azure-resource/metrics.png)
@@ -115,11 +114,11 @@ View entries in the activity log in the Azure portal with the initial filter set
 ### Azure Monitor Logs
 Azure Monitor Logs consolidates logs and metrics from multiple services and other data sources for analysis with a powerful query tool. As described above, create a diagnostic setting to collect platform metrics, activity log, and resource logs into a Log Analytics workspace in Azure Monitor.
 
-[Log Analytics](../log-query/log-analytics-tutorial.md) allows you to work with [log queries](../log-query/log-query-overview.md), which is a powerful feature of Azure Monitor that allows you to perform advanced analysis of log data using a fully featured query language. Open Log Analytics from **Logs** in the **Monitoring** menu for an Azure resource to work with log queries using the resource as the [query scope](../log-query/scope.md#query-scope). This lets you analyze data across multiple tables for just that resource. Use **Logs** from the Azure Monitor menu to access logs for all resources. 
+[Log Analytics](../logs/log-analytics-tutorial.md) allows you to work with [log queries](../logs/log-query-overview.md), which is a powerful feature of Azure Monitor that allows you to perform advanced analysis of log data using a fully featured query language. Open Log Analytics from **Logs** in the **Monitoring** menu for an Azure resource to work with log queries using the resource as the [query scope](../logs/scope.md#query-scope). This lets you analyze data across multiple tables for just that resource. Use **Logs** from the Azure Monitor menu to access logs for all resources. 
 
-- See [Get started with log queries in Azure Monitor](../log-query/get-started-queries.md) for a tutorial on using the query language used to write log queries.
-- See [Collect Azure resource logs in Log Analytics workspace in Azure Monitor](../platform/resource-logs.md#send-to-log-analytics-workspace) for information on how resource logs are collected in Azure Monitor Logs and details for how to access them in a query.
-- See [Collection mode](../platform/resource-logs.md#send-to-log-analytics-workspace) for an explanation of how resource log data is structured in Azure Monitor Logs.
+- See [Get started with log queries in Azure Monitor](../logs/get-started-queries.md) for a tutorial on using the query language used to write log queries.
+- See [Collect Azure resource logs in Log Analytics workspace in Azure Monitor](./resource-logs.md#send-to-log-analytics-workspace) for information on how resource logs are collected in Azure Monitor Logs and details for how to access them in a query.
+- See [Collection mode](./resource-logs.md#send-to-log-analytics-workspace) for an explanation of how resource log data is structured in Azure Monitor Logs.
 - See the documentation for each Azure service for details on its table in Azure Monitor Logs.
 
 ![Log Analytics in the Azure portal](media/monitor-azure-resource/logs.png)
@@ -135,11 +134,11 @@ You can access monitoring data collected from your resource from a command line 
 ## Monitoring from REST API
 Include monitoring data collected from your resource in a custom application using a REST API.
 
-- See [Azure Monitoring REST API walkthrough](../platform/rest-api-walkthrough.md) for details on accessing metrics from the Azure Monitor REST API.
+- See [Azure Monitoring REST API walkthrough](./rest-api-walkthrough.md) for details on accessing metrics from the Azure Monitor REST API.
 - See [Azure Log Analytics REST API](https://dev.loganalytics.io/) for information on accessing Azure Monitor Logs data using a log query from Azure PowerShell.
 
 ## Alerts
-[Alerts](../platform/alerts-overview.md) proactively notify you and potentially take action when important conditions are found in your monitoring data. You create an alert rule that defines a target for the alert, the conditions for whether to create an alert, and any actions to take in response.
+[Alerts](../alerts/alerts-overview.md) proactively notify you and potentially take action when important conditions are found in your monitoring data. You create an alert rule that defines a target for the alert, the conditions for whether to create an alert, and any actions to take in response.
 
 Different kinds of monitoring data are used for different kinds of alert rules.
 
@@ -156,4 +155,4 @@ Use **Alerts** from a resource's menu to view alerts and manage alert rules for 
 
 ## Next steps
 
-* See [Supported services, schemas, and categories for Azure Resource Logs](../platform/resource-logs-schema.md) for details of resource logs for different Azure services.
+* See [Supported services, schemas, and categories for Azure Resource Logs](./resource-logs-schema.md) for details of resource logs for different Azure services.

@@ -1,14 +1,17 @@
 ---
 title: Quickstart - Add calling to an iOS app using Azure Communication Services
 description: In this quickstart, you learn how to use the Azure Communication Services Calling client library for iOS.
-author: matthewrobertson
-ms.author: marobert
-ms.date: 07/24/2020
+author: chpalm
+ms.author: mikben
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 
 In this quickstart, you'll learn how to start a call using the Azure Communication Services Calling client library for iOS.
+
+> [!NOTE]
+> This document uses version 1.0.0-beta.8 of the calling client library.
 
 ## Prerequisites
 
@@ -29,7 +32,9 @@ In Xcode, create a new iOS project and select the **Single View App** template. 
 
 ### Install the package and dependencies with CocoaPods
 
-1. Create a Podfile for your application, like this:
+1. To create a Podfile for your application open the terminal and navigate to the project folder and run 
+```pod init```
+3. Add the following code to the Podfile and save:
 
    ```
    platform :ios, '13.0'
@@ -42,7 +47,7 @@ In Xcode, create a new iOS project and select the **Single View App** template. 
    end
    ```
 
-2. Run `pod install`.
+3. Run `pod install`.
 3. Open the `.xcworkspace` with Xcode.
 
 ### Request access to the microphone

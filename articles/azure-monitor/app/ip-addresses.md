@@ -7,18 +7,20 @@ ms.date: 01/27/2020
 ---
 
 # IP addresses used by Azure Monitor
+
 [Azure Monitor](../overview.md) uses a number of IP addresses. Azure Monitor is made up of core platform metrics and log in addition to Log Analytics and Application Insights. You might need to know these addresses if the app or infrastructure that you are monitoring is hosted behind a firewall.
 
 > [!NOTE]
 > Although these addresses are static, it's possible that we will need to change them from time to time. All Application Insights traffic represents outbound traffic with the exception of availability monitoring and webhooks which require inbound firewall rules.
 
 > [!TIP]
-> You can use Azure [network service tags](../../virtual-network/service-tags-overview.md) to manage access if you are using Azure Network Security Groups. If you are managing access for hybrid/on premises resources you can download the equivalent IP address lists as [JSON files](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) which are updated each week: . To cover all the exceptions in this article you would need to use the service tags: 'ActionGroup', 'ApplicationInsightsAvailability', 'AzureMonitor'.
+> You can use Azure [network service tags](../../virtual-network/service-tags-overview.md) to manage access if you are using Azure Network Security Groups. If you are managing access for hybrid/on premises resources you can download the equivalent IP address lists as [JSON files](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) which are updated each week: . To cover all the exceptions in this article you would need to use the service tags: `ActionGroup`, `ApplicationInsightsAvailability`, and `AzureMonitor`.
 
 Alternatively, you can subscribe to this page as a RSS feed by adding https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/azure-monitor/app/ip-addresses.md.atom to your favorite RSS/ATOM reader to get notified of the latest changes.
 
 
 ## Outgoing ports
+
 You need to open some outgoing ports in your server's firewall to allow the Application Insights SDK and/or Status Monitor to send data to the portal:
 
 | Purpose | URL | IP | Ports |
@@ -27,6 +29,7 @@ You need to open some outgoing ports in your server's firewall to allow the Appl
 | Live Metrics Stream | live.applicationinsights.azure.com<br/>rt.applicationinsights.microsoft.com<br/>rt.services.visualstudio.com|23.96.28.38<br/>13.92.40.198<br/>40.112.49.101<br/>40.117.80.207<br/>157.55.177.6<br/>104.44.140.84<br/>104.215.81.124<br/>23.100.122.113| 443 |
 
 ## Status Monitor
+
 Status Monitor Configuration - needed only when making changes.
 
 | Purpose | URL | IP | Ports |
@@ -41,6 +44,7 @@ Status Monitor Configuration - needed only when making changes.
 | Installation | `globalcdn.nuget.org`, `packages.nuget.org` ,`api.nuget.org/v3/index.json` `nuget.org`, `api.nuget.org`, `dc.services.vsallin.net` | |`443` |
 
 ## Availability tests
+
 This is the list of addresses from which [availability web tests](./monitor-web-app-availability.md) are run. If you want to run web tests on your app, but your web server is restricted to serving specific clients, then you will have to permit incoming traffic from our availability test servers.
 
 
@@ -203,7 +207,7 @@ USDoD East
 | Purpose | URI |  IP | Ports |
 | --- | --- | --- | --- |
 | API |`api.applicationinsights.io`<br/>`api1.applicationinsights.io`<br/>`api2.applicationinsights.io`<br/>`api3.applicationinsights.io`<br/>`api4.applicationinsights.io`<br/>`api5.applicationinsights.io`<br/>`dev.applicationinsights.io`<br/>`dev.applicationinsights.microsoft.com`<br/>`dev.aisvc.visualstudio.com`<br/>`www.applicationinsights.io`<br/>`www.applicationinsights.microsoft.com`<br/>`www.aisvc.visualstudio.com`<br/>`api.loganalytics.io`<br/>`*.api.loganalytics.io`<br/>`dev.loganalytics.io`<br>`docs.loganalytics.io`<br/>`www.loganalytics.io` |20.37.52.188 <br/> 20.37.53.231 <br/> 20.36.47.130 <br/> 20.40.124.0 <br/> 20.43.99.158 <br/> 20.43.98.234 <br/> 13.70.127.61 <br/> 40.81.58.225 <br/> 20.40.160.120 <br/> 23.101.225.155 <br/> 52.139.8.32 <br/> 13.88.230.43 <br/> 52.230.224.237 <br/> 52.242.230.209 <br/> 52.173.249.138 <br/> 52.229.218.221 <br/> 52.229.225.6 <br/> 23.100.94.221 <br/> 52.188.179.229 <br/> 52.226.151.250 <br/> 52.150.36.187 <br/> 40.121.135.131 <br/> 20.44.73.196 <br/> 20.41.49.208 <br/> 40.70.23.205 <br/> 20.40.137.91 <br/> 20.40.140.212 <br/> 40.89.189.61 <br/> 52.155.118.97 <br/> 52.156.40.142 <br/> 23.102.66.132 <br/> 52.231.111.52 <br/> 52.231.108.46 <br/> 52.231.64.72 <br/> 52.162.87.50 <br/> 23.100.228.32 <br/> 40.127.144.141 <br/> 52.155.162.238 <br/> 137.116.226.81 <br/> 52.185.215.171 <br/> 40.119.4.128 <br/> 52.171.56.178 <br/> 20.43.152.45 <br/> 20.44.192.217 <br/> 13.67.77.233 <br/> 51.104.255.249 <br/> 51.104.252.13 <br/> 51.143.165.22 <br/> 13.78.151.158 <br/> 51.105.248.23 <br/> 40.74.36.208 <br/> 40.74.59.40 <br/> 13.93.233.49 <br/> 52.247.202.90 |80,443 |
-| Azure Pipeline annotations extension |aigs1.aisvc.visualstudio.com |dynamic|443 | 
+| Azure Pipeline annotations extension | aigs1.aisvc.visualstudio.com |dynamic|443 | 
 
 ## Application Insights Analytics
 
@@ -235,11 +239,11 @@ Note: *.loganalytics.io domain is owned by the Log Analytics team.
 
 | Purpose | URI | IP | Ports |
 | --- | --- | --- | --- |
-| Application Insights JS SDK CDN | az416426.vo.msecnd.net | dynamic | 80,443 |
+| Application Insights JS SDK CDN | az416426.vo.msecnd.net<br/>js.monitor.azure.com | dynamic | 80,443 |
 
 ## Action Group webhooks
 
-You can query the list of IP addresses used by Action Groups using the [Get-AzNetworkServiceTag PowerShell command](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag).
+You can query the list of IP addresses used by Action Groups using the [Get-AzNetworkServiceTag PowerShell command](/powershell/module/az.network/Get-AzNetworkServiceTag).
 
 ### Action Groups Service Tag
 Managing changes to Source IP addresses can be quite time consuming. Using **Service Tags** eliminates the need to update your configuration. A service tag represents a group of IP address prefixes from a given Azure service. Microsoft manages the IP addresses and automatically updates the service tag as addresses change, eliminating the need to update network security rules for an Action Group.
@@ -257,14 +261,14 @@ Managing changes to Source IP addresses can be quite time consuming. Using **Ser
     1. Select *Inbound Security Rules*.
     1. Click on **Add**.
     
-    :::image type="content" source="../alerts/media/action-groups/action-group-add-service-tag.png" alt-text="Example on how to add a service tag."border="true":::
+    :::image type="content" source="../alerts/media/action-groups/action-group-add-service-tag.png" alt-text="Example on how to add a service tag." border="true":::
 
 4. A new window will open in right pane.
     1.  Select Source: **Service Tag**
     1.  Source Service Tag: **ActionGroup**
     1.  Click **Add**.
     
-    :::image type="content" source="../alerts/media/action-groups/action-group-service-tag.png" alt-text="Example on how to add service tag."border="true":::
+    :::image type="content" source="../alerts/media/action-groups/action-group-service-tag.png" alt-text="Example on how to add service tag." border="true":::
 
 
 ## Profiler
@@ -285,4 +289,3 @@ Managing changes to Source IP addresses can be quite time consuming. Using **Ser
 | Agent | agent.azureserviceprofiler.net<br/>*.agent.azureserviceprofiler.net | 20.190.60.38<br/>20.190.60.32<br/>52.173.196.230<br/>52.173.196.209<br/>23.102.44.211<br/>23.102.45.216<br/>13.69.51.218<br/>13.69.51.175<br/>138.91.32.98<br/>138.91.37.93<br/>40.121.61.208<br/>40.121.57.2<br/>51.140.60.235<br/>51.140.180.52<br/>52.138.31.112<br/>52.138.31.127<br/>104.211.90.234<br/>104.211.91.254<br/>13.70.124.27<br/>13.75.195.15<br/>52.185.132.101<br/>52.185.132.170<br/>20.188.36.28<br/>40.89.153.171<br/>52.141.22.239<br/>52.141.22.149<br/>102.133.162.233<br/>102.133.161.73<br/>191.232.214.6<br/>191.232.213.239 | 443
 | Portal | gateway.azureserviceprofiler.net | dynamic | 443
 | Storage | *.core.windows.net | dynamic | 443
-

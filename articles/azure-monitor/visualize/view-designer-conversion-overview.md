@@ -3,8 +3,6 @@ title: Azure Monitor view designer to workbooks transition guide
 description: Transition from views to workbooks in Azure Monitor.
 author: austonli
 ms.author: aul
-
-ms.subservice: 
 ms.topic: conceptual
 ms.date: 08/04/2020
 
@@ -15,7 +13,7 @@ ms.date: 08/04/2020
 
 
 ## Workbooks overview
-[Workbooks](../insights/vminsights-workbooks.md) combine text, [log queries](/azure/data-explorer/kusto/query/), metrics, and parameters into rich interactive reports. Team members with the same access to Azure resources are also able to edit workbooks.
+[Workbooks](../vm/vminsights-workbooks.md) combine text, [log queries](/azure/data-explorer/kusto/query/), metrics, and parameters into rich interactive reports. Team members with the same access to Azure resources are also able to edit workbooks.
 
 Workbooks are helpful for scenarios such as:
 

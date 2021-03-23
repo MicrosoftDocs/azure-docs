@@ -6,7 +6,6 @@ services: azure-monitor
 ms.topic: reference
 ms.date: 02/06/2021
 ms.author: robb
-ms.subservice: metrics
 ---
 # Supported metrics with Azure Monitor
 
@@ -150,7 +149,7 @@ For important additional information, see [Monitoring Agents Overview](../agents
 |---|---|---|---|---|---|---|
 |active-timer-count|Yes|active-timer-count|Count|Average|Number of timers that are currently active|Deployment, AppName, Pod|
 |alloc-rate|Yes|alloc-rate|Bytes|Average|Number of bytes allocated in the managed heap|Deployment, AppName, Pod|
-|AppCpuUsage|Yes|App CPU Usage (preview)|Percent|Average|The recent CPU usage for the app|Deployment, AppName, Pod|
+|AppCpuUsage|Yes|App CPU Usage |Percent|Average|The recent CPU usage for the app|Deployment, AppName, Pod|
 |assembly-count|Yes|assembly-count|Count|Average|Number of Assemblies Loaded|Deployment, AppName, Pod|
 |cpu-usage|Yes|cpu-usage|Percent|Average|% time the process has utilized the CPU|Deployment, AppName, Pod|
 |current-requests|Yes|current-requests|Count|Average|Total number of requests in processing in the lifetime of the process|Deployment, AppName, Pod|
@@ -2161,9 +2160,9 @@ For important additional information, see [Monitoring Agents Overview](../agents
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|QueryVolume|Yes|Query Volume|Count|Total|Number of queries served for a DNS zone|No Dimensions|
+|QueryVolume|No|Query Volume|Count|Total|Number of queries served for a DNS zone|No Dimensions|
 |RecordSetCapacityUtilization|No|Record Set Capacity Utilization|Percent|Maximum|Percent of Record Set capacity utilized by a DNS zone|No Dimensions|
-|RecordSetCount|Yes|Record Set Count|Count|Maximum|Number of Record Sets in a DNS zone|No Dimensions|
+|RecordSetCount|No|Record Set Count|Count|Maximum|Number of Record Sets in a DNS zone|No Dimensions|
 
 
 ## Microsoft.Network/expressRouteCircuits
@@ -2793,7 +2792,7 @@ For important additional information, see [Monitoring Agents Overview](../agents
 |SuccessE2ELatency|Yes|Success E2E Latency|Milliseconds|Average|The average end-to-end latency of successful requests made to a storage service or the specified API operation, in milliseconds. This value includes the required processing time within Azure Storage to read the request, send the response, and receive acknowledgment of the response.|GeoType, ApiName, Authentication|
 |SuccessServerLatency|Yes|Success Server Latency|Milliseconds|Average|The average time used to process a successful request by Azure Storage. This value does not include the network latency specified in SuccessE2ELatency.|GeoType, ApiName, Authentication|
 |Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType, GeoType, ApiName, Authentication|
-|UsedCapacity|No|Used capacity|Bytes|Average|The amount of storage used by the storage account. For standard storage accounts, it's the sum of capacity used by blob, table, file, and queue. For premium storage accounts and Blob storage accounts, it is the same as BlobCapacity or FileCapacity.|No Dimensions|
+|UsedCapacity|Yes|Used capacity|Bytes|Average|The amount of storage used by the storage account. For standard storage accounts, it's the sum of capacity used by blob, table, file, and queue. For premium storage accounts and Blob storage accounts, it is the same as BlobCapacity or FileCapacity.|No Dimensions|
 
 
 ## Microsoft.Storage/storageAccounts/blobServices
@@ -3131,11 +3130,11 @@ For important additional information, see [Monitoring Agents Overview](../agents
 |AverageResponseTime|Yes|Average Response Time (deprecated)|Seconds|Average|The average time taken for the app to serve requests, in seconds.|Instance|
 |BytesReceived|Yes|Data In|Bytes|Total|The amount of incoming bandwidth consumed by the app, in MiB.|Instance|
 |BytesSent|Yes|Data Out|Bytes|Total|The amount of outgoing bandwidth consumed by the app, in MiB.|Instance|
-|CpuTime|Yes|CPU Time|Seconds|Total|The amount of CPU consumed by the app, in seconds. For more information about this metric. Please see https://docs.microsoft.com/azure/app-service/web-sites-monitor#cpu-time-vs-cpu-percentage (CPU time vs CPU percentage).|Instance|
+|CpuTime|Yes|CPU Time|Seconds|Total|The amount of CPU consumed by the app, in seconds. For more information about this metric. Please see https://docs.microsoft.com/azure/app-service/web-sites-monitor#cpu-time-vs-cpu-percentage (CPU time vs CPU percentage). Not applicable to Azure Functions.|Instance|
 |CurrentAssemblies|Yes|Current Assemblies|Count|Average|The current number of Assemblies loaded across all AppDomains in this application.|Instance|
 |FileSystemUsage|Yes|File System Usage|Bytes|Average|Percentage of filesystem quota consumed by the app.|No Dimensions|
-|FunctionExecutionCount|Yes|Function Execution Count|Count|Total|Function Execution Count|Instance|
-|FunctionExecutionUnits|Yes|Function Execution Units|Count|Total|Function Execution Units|Instance|
+|FunctionExecutionCount|Yes|Function Execution Count|Count|Total|Function Execution Count. Only present for Azure Functions.|Instance|
+|FunctionExecutionUnits|Yes|Function Execution Units|Count|Total|Function Execution Units. Only present for Azure Functions.|Instance|
 |Gen0Collections|Yes|Gen 0 Garbage Collections|Count|Total|The number of times the generation 0 objects are garbage collected since the start of the app process. Higher generation GCs include all lower generation GCs.|Instance|
 |Gen1Collections|Yes|Gen 1 Garbage Collections|Count|Total|The number of times the generation 1 objects are garbage collected since the start of the app process. Higher generation GCs include all lower generation GCs.|Instance|
 |Gen2Collections|Yes|Gen 2 Garbage Collections|Count|Total|The number of times the generation 2 objects are garbage collected since the start of the app process.|Instance|

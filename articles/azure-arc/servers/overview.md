@@ -18,7 +18,7 @@ When you connect your machine to Azure Arc enabled servers, it enables the abili
 
 - Assign [Azure Policy guest configurations](../../governance/policy/concepts/guest-configuration.md) using the same experience as policy assignment for Azure virtual machines. Today, most Guest Configuration policies do not apply configurations, they only audit settings inside the machine. To understand the cost of using Azure Policy Guest Configuration policies with Arc enabled servers, see Azure Policy [pricing guide](https://azure.microsoft.com/pricing/details/azure-policy/).
 
-- Report on configuration changes about installed software, Microsoft services, Windows registry and files, and Linux daemons on monitored servers using Azure Automation [Change Tracking and Inventory](../../automation/change-tracking/overview.md).
+- Report on configuration changes about installed software, Microsoft services, Windows registry and files, and Linux daemons on monitored servers using Azure Automation [Change Tracking and Inventory](../../automation/change-tracking/overview.md) and [Azure Security Center File Integrity Monitoring](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring), for servers enabled with [Azure Defender for servers](https://docs.microsoft.com/azure/security-center/defender-for-servers-introduction).
 
 - Monitor your connected machine guest operating system performance, and discover application components to monitor their processes and dependencies with other resources the application communicates using [Azure Monitor for VMs](../../azure-monitor/vm/vminsights-overview.md).
 
@@ -52,7 +52,7 @@ For example, if the machine is registered with Azure Arc in the East US region, 
 
 ### Supported environments
 
-Arc enabled servers support the management of physical servers and virtual machines hosted *outside* of Azure. For specific details of which hybrid cloud environments hosting VMs are supported, see [agent-overview.md#supported-environments].
+Arc enabled servers support the management of physical servers and virtual machines hosted *outside* of Azure. For specific details of which hybrid cloud environments hosting VMs are supported, see [Connected Machine agent prerequisites](agent-overview.md#supported-environments).
 
 > [!NOTE]
 > Arc enabled servers is not designed or supported to enable management of virtual machines running in Azure.

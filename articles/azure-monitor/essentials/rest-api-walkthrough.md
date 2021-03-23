@@ -1,7 +1,6 @@
 ---
 title: Azure Monitoring REST API walkthrough
 description: How to authenticate requests and use the Azure Monitor REST API to retrieve available metric definitions and metric values.
-ms.subservice: metrics
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.custom: has-adal-ref
@@ -457,9 +456,9 @@ Once the available metric definitions are known, it is then possible to retrieve
 >
 >
 
-**Method**: GET
+**Method**: `GET`
 
-**Request URI**: `https:\//management.azure.com/subscriptions/\*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*&api-version=*{apiVersion}*`
+**Request URI**: `https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider-namespace}/{resource-type}/{resource-name}/providers/microsoft.insights/metrics?$filter={filter}&api-version={apiVersion}`
 
 For example, to retrieve the RunsSucceeded metric data points for the given time range and for a time grain of 1 hour, the request would be as follows:
 
@@ -729,7 +728,6 @@ GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5
 ## Next steps
 
 * Review the [Overview of Monitoring](../overview.md).
-* View the [Supported metrics with Azure Monitor](../platform/metrics-supported.md).
+* View the [Supported metrics with Azure Monitor](./metrics-supported.md).
 * Review the [Microsoft Azure Monitor REST API Reference](/rest/api/monitor/).
 * Review the [Azure Management Library](/previous-versions/azure/reference/mt417623(v=azure.100)).
-

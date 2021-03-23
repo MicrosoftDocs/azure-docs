@@ -97,9 +97,9 @@
       href: logs/resource-manager-log-queries.md
     - name: Workbooks
       href: visualize/resource-manager-workbooks.md
-    - name: Azure Monitor for containers
+    - name: Container insights
       href: containers/resource-manager-container-insights.md
-    - name: Azure Monitor for VMs
+    - name: VM insights
       href: vm/resource-manager-vminsights.md
   - name: Azure CLI
     href: cli-samples.md
@@ -416,7 +416,7 @@
         - name: Send to Event Hubs
           href: agents/diagnostics-extension-stream-event-hubs.md
         - name: Send to Logs
-          href: essentials/diagnostics-extension-logs.md
+          href: agents/diagnostics-extension-logs.md
         - name: Send to Application Insights
           href: agents/diagnostics-extension-to-application-insights.md
         - name: Version history
@@ -475,8 +475,6 @@
       items:
       - name: Manage metric alerts
         href: alerts/alerts-metric.md
-      - name: Availability
-        href: app/monitor-web-app-availability.md
       - name: Use dynamic thresholds
         href: alerts/alerts-dynamic-thresholds.md
       - name: Single alerts for many time series
@@ -720,12 +718,16 @@
               href: app/java-in-process-agent.md
             - name: Configuration options
               href: app/java-standalone-config.md
-            - name: Telemetry processors
+            - name: Advanced configurations
               items:
-              - name: Overview
-                href: app/java-standalone-telemetry-processors.md
-              - name: Examples
-                href: app/java-standalone-telemetry-processors-examples.md
+              - name: JMX metrics
+                href: app/java-jmx-metrics-configuration.md
+              - name: Telemetry processors
+                items:
+                - name: Overview
+                  href: app/java-standalone-telemetry-processors.md
+                - name: Examples
+                  href: app/java-standalone-telemetry-processors-examples.md
             - name: JVM arguments setup
               href: app/java-standalone-arguments.md
             - name: Upgrade from 2.x SDK
@@ -968,8 +970,6 @@
       items:
       - name: F5 insights
         href: app/visual-studio.md
-      - name: Trends
-        href: app/visual-studio-trends.md
       - name: CodeLens
         href: app/visual-studio-codelens.md
     - name: Other platforms
@@ -986,14 +986,14 @@
       href: app/change-analysis-visualizations.md
     - name: Troubleshoot
       href: app/change-analysis-troubleshoot.md
-  - name: Azure Monitor for VMs
+  - name: VM insights
     items:
     - name: Overview
       href: vm/vminsights-overview.md
     - name: General Availability FAQ
       href: vm/vminsights-ga-release-faq.md  
     - name: FAQ
-      href: faq.md#azure-monitor-for-vms
+      href: faq.md#vm-insights
     - name: Configure workspace
       href: vm/vminsights-configure-workspace.md
     - name: Install agents
@@ -1040,12 +1040,14 @@
       href: vm/vminsights-workbooks.md
     - name: Disable monitoring
       href: vm/vminsights-optout.md
-  - name: Azure Monitor for containers 
+    - name: Troubleshoot
+      href: vm/vminsights-troubleshoot.md
+  - name: Container insights 
     items:
     - name: Overview
       href: containers/container-insights-overview.md
     - name: FAQ
-      href: faq.md#azure-monitor-for-containers
+      href: faq.md#container-insights
     - name: Enable monitoring
       items:
       - name: Enable monitoring overview 
@@ -1078,7 +1080,7 @@
       href: insights/container-insights-reports.md
     - name: View live data
       items:
-      - name: Live Data (preview) overview
+      - name: Live Data overview
         href: containers/container-insights-livedata-overview.md
       - name: Setup
         href: containers/container-insights-livedata-setup.md
@@ -1128,6 +1130,18 @@
       href: insights/network-insights-overview.md
     - name: Key Vault
       href: insights/key-vault-insights-overview.md
+    - name: SQL insights (preview)
+      items:
+      - name: Overview
+        href: insights/sql-insights-overview.md
+      - name: FAQ
+        href: faq.md#sql-insights-preview
+      - name: Enable
+        href: insights/sql-insights-enable.md
+      - name: Alerts
+        href: insights/sql-insights-alerts.md
+      - name: Troubleshoot
+        href: insights/sql-insights-troubleshoot.md
     - name: Storage
       displayname: storage, monitor, insights, storage accounts, azure storage
       href: insights/storage-insights-overview.md

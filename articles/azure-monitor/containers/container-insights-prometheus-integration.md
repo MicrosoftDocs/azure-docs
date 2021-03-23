@@ -1,13 +1,13 @@
 ---
-title: Configure Azure Monitor for containers Prometheus Integration | Microsoft Docs
-description: This article describes how you can configure the Azure Monitor for containers agent to scrape metrics from Prometheus with your Kubernetes cluster.
+title: Configure Container insights Prometheus Integration | Microsoft Docs
+description: This article describes how you can configure the Container insights agent to scrape metrics from Prometheus with your Kubernetes cluster.
 ms.topic: conceptual
 ms.date: 04/22/2020
 ---
 
-# Configure scraping of Prometheus metrics with Azure Monitor for containers
+# Configure scraping of Prometheus metrics with Container insights
 
-[Prometheus](https://prometheus.io/) is a popular open source metric monitoring solution and is a part of the [Cloud Native Compute Foundation](https://www.cncf.io/). Azure Monitor for containers provides a seamless onboarding experience to collect Prometheus metrics. Typically, to use Prometheus, you need to set up and manage a Prometheus server with a store. By integrating with Azure Monitor, a Prometheus server is not required. You just need to expose the Prometheus metrics endpoint through your exporters or pods (application), and the containerized agent for Azure Monitor for containers can scrape the metrics for you. 
+[Prometheus](https://prometheus.io/) is a popular open source metric monitoring solution and is a part of the [Cloud Native Compute Foundation](https://www.cncf.io/). Container insights provides a seamless onboarding experience to collect Prometheus metrics. Typically, to use Prometheus, you need to set up and manage a Prometheus server with a store. By integrating with Azure Monitor, a Prometheus server is not required. You just need to expose the Prometheus metrics endpoint through your exporters or pods (application), and the containerized agent for Container insights can scrape the metrics for you. 
 
 ![Container monitoring architecture for Prometheus](./media/container-insights-prometheus-integration/monitoring-kubernetes-architecture.png)
 
@@ -37,20 +37,20 @@ Active scraping of metrics from Prometheus is performed from one of two perspect
 | Kubernetes service | Cluster-wide | `http://my-service-dns.my-namespace:9100/metrics` <br>`https://metrics-server.kube-system.svc.cluster.local/metrics`​ |
 | url/endpoint | Per-node and/or cluster-wide | `http://myurl:9101/metrics` |
 
-When a URL is specified, Azure Monitor for containers only scrapes the endpoint. When Kubernetes service is specified, the service name is resolved with the cluster DNS server to get the IP address and then the resolved service is scraped.
+When a URL is specified, Container insights only scrapes the endpoint. When Kubernetes service is specified, the service name is resolved with the cluster DNS server to get the IP address and then the resolved service is scraped.
 
 |Scope | Key | Data type | Value | Description |
 |------|-----|-----------|-------|-------------|
 | Cluster-wide | | | | Specify any one of the following three methods to scrape endpoints for metrics. |
-| | `urls` | String | Comma-separated array | HTTP endpoint (Either IP address or valid URL path specified). For example: `urls=[$NODE_IP/metrics]`. ($NODE_IP is a specific Azure Monitor for containers parameter and can be used instead of node IP address. Must be all uppercase.) |
+| | `urls` | String | Comma-separated array | HTTP endpoint (Either IP address or valid URL path specified). For example: `urls=[$NODE_IP/metrics]`. ($NODE_IP is a specific Container insights parameter and can be used instead of node IP address. Must be all uppercase.) |
 | | `kubernetes_services` | String | Comma-separated array | An array of Kubernetes services to scrape metrics from kube-state-metrics. For example,`kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace:9100/metrics]`.|
-| | `monitor_kubernetes_pods` | Boolean | true or false | When set to `true` in the cluster-wide settings, Azure Monitor for containers agent will scrape Kubernetes pods across the entire cluster for the following Prometheus annotations:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
+| | `monitor_kubernetes_pods` | Boolean | true or false | When set to `true` in the cluster-wide settings, Container insights agent will scrape Kubernetes pods across the entire cluster for the following Prometheus annotations:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
 | | `prometheus.io/scrape` | Boolean | true or false | Enables scraping of the pod. `monitor_kubernetes_pods` must be set to `true`. |
 | | `prometheus.io/scheme` | String | http or https | Defaults to scrapping over HTTP. If necessary, set to `https`. | 
 | | `prometheus.io/path` | String | Comma-separated array | The HTTP resource path on which to fetch metrics from. If the metrics path is not `/metrics`, define it with this annotation. |
 | | `prometheus.io/port` | String | 9102 | Specify a port to scrape from. If port is not set, it will default to 9102. |
 | | `monitor_kubernetes_pods_namespaces` | String | Comma-separated array | An allow list of namespaces to scrape metrics from Kubernetes pods.<br> For example, `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
-| Node-wide | `urls` | String | Comma-separated array | HTTP endpoint (Either IP address or valid URL path specified). For example: `urls=[$NODE_IP/metrics]`. ($NODE_IP is a specific Azure Monitor for containers parameter and can be used instead of node IP address. Must be all uppercase.) |
+| Node-wide | `urls` | String | Comma-separated array | HTTP endpoint (Either IP address or valid URL path specified). For example: `urls=[$NODE_IP/metrics]`. ($NODE_IP is a specific Container insights parameter and can be used instead of node IP address. Must be all uppercase.) |
 | Node-wide or Cluster-wide | `interval` | String | 60s | The collection interval default is one minute (60 seconds). You can modify the collection for either the *[prometheus_data_collection_settings.node]* and/or *[prometheus_data_collection_settings.cluster]* to time units such as s, m, h. |
 | Node-wide or Cluster-wide | `fieldpass`<br> `fielddrop`| String | Comma-separated array | You can specify certain metrics to be collected or not from the endpoint by setting the allow (`fieldpass`) and disallow (`fielddrop`) listing. You must set the allow list first. |
 
@@ -119,7 +119,7 @@ Perform the following steps to configure your ConfigMap configuration file for t
         ```
 
         >[!NOTE]
-        >$NODE_IP is a specific Azure Monitor for containers parameter and can be used instead of node IP address. It must be all uppercase. 
+        >$NODE_IP is a specific Container insights parameter and can be used instead of node IP address. It must be all uppercase. 
 
     - To configure scraping of Prometheus metrics by specifying a pod annotation, perform the following steps:
 
@@ -236,7 +236,7 @@ Perform the following steps to configure your ConfigMap configuration file for y
         ```
 
         >[!NOTE]
-        >$NODE_IP is a specific Azure Monitor for containers parameter and can be used instead of node IP address. It must be all uppercase. 
+        >$NODE_IP is a specific Container insights parameter and can be used instead of node IP address. It must be all uppercase. 
 
     - To configure scraping of Prometheus metrics by specifying a pod annotation, perform the following steps:
 
@@ -325,7 +325,7 @@ To view prometheus metrics scraped by Azure Monitor and any configuration/scrapi
 
 ## View Prometheus metrics in Grafana
 
-Azure Monitor for containers supports viewing metrics stored in your Log Analytics workspace in Grafana dashboards. We have provided a template that you can download from Grafana's [dashboard repository](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker) to get you started and  reference to help you learn how to query additional data from your monitored clusters to visualize in custom Grafana dashboards. 
+Container insights supports viewing metrics stored in your Log Analytics workspace in Grafana dashboards. We have provided a template that you can download from Grafana's [dashboard repository](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker) to get you started and  reference to help you learn how to query additional data from your monitored clusters to visualize in custom Grafana dashboards. 
 
 ## Review Prometheus data usage
 
@@ -359,8 +359,8 @@ The output will show results similar to the following:
 
 ![Log query results of data ingestion volume](./media/container-insights-prometheus-integration/log-query-example-usage-02.png)
 
-Further information on how to monitor data usage and analyze cost is available in [Manage usage and costs with Azure Monitor Logs](../platform/manage-cost-storage.md).
+Further information on how to monitor data usage and analyze cost is available in [Manage usage and costs with Azure Monitor Logs](../logs/manage-cost-storage.md).
 
 ## Next steps
 
-Learn more about configuring the agent collection settings for stdout, stderr, and environmental variables from container workloads [here](container-insights-agent-config.md). 
+Learn more about configuring the agent collection settings for stdout, stderr, and environmental variables from container workloads [here](container-insights-agent-config.md).

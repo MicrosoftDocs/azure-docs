@@ -64,7 +64,7 @@ Supported cloud-based storage services in Azure that can be registered as datast
 + Azure Database for MySQL
 
 >[!TIP]
-> The generally available functionality for creating datastores requires credential-based authentication for accessing storage services, like a service principal or shared access signature (SAS) token. These credentials can be accessed by users who have *Reader* access to the workspace. <br><br>If this is a concern,  [create a datastore that uses identity-based data access to storage services (preview)](how-to-identity-based-data-access.md). This capability is an [experimental](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) preview feature, and may change at any time.
+> The generally available functionality for creating datastores requires credential-based authentication for accessing storage services, like a service principal or shared access signature (SAS) token. These credentials can be accessed by users who have *Reader* access to the workspace. <br><br>If this is a concern,  [create a datastore that uses identity-based data access to storage services (preview)](how-to-identity-based-data-access.md). This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
 
 <a name="datasets"></a>
 ## Reference data in storage with datasets
@@ -83,9 +83,9 @@ Datasets can be created from local files, public urls, [Azure Open Datasets](htt
 
 There are 2 types of datasets: 
 
-+ A [FileDataset](/python/api/azureml-core/azureml.data.file_dataset.filedataset?preserve-view=true&view=azure-ml-py) references single or multiple files in your datastores or public URLs. If your data is already cleansed and ready to use in training experiments, you can [download or mount files](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) referenced by FileDatasets to your compute target.
++ A [FileDataset](/python/api/azureml-core/azureml.data.file_dataset.filedataset) references single or multiple files in your datastores or public URLs. If your data is already cleansed and ready to use in training experiments, you can [download or mount files](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) referenced by FileDatasets to your compute target.
 
-+ A [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) represents data in a tabular format by parsing the provided file or list of files. You can load a TabularDataset into a pandas or Spark DataFrame for further manipulation and cleansing. For a complete list of data formats you can create TabularDatasets from, see the [TabularDatasetFactory class](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory).
++ A [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) represents data in a tabular format by parsing the provided file or list of files. You can load a TabularDataset into a pandas or Spark DataFrame for further manipulation and cleansing. For a complete list of data formats you can create TabularDatasets from, see the [TabularDatasetFactory class](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory).
 
 Additional datasets capabilities can be found in the following documentation:
 

@@ -6,7 +6,6 @@ ms.author: bwren
 services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
-ms.subservice: alerts
 ---
 # Resource Manager template samples for metric alert rules in Azure Monitor
 
@@ -3297,6 +3296,5 @@ Additional configuration of the content-match `pingText` parameter is controlled
 ## Next steps
 
 - [Get other sample templates for Azure Monitor](../resource-manager-samples.md).
-- [Learn more about alerts](../platform/alerts-overview.md).
+- [Learn more about alerts](./alerts-overview.md).
 - [Get a sample to create an action group with Resource Manager template](resource-manager-action-groups.md)
-

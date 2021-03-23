@@ -48,7 +48,7 @@ This article focused on how to secure your containers. To implement some of thes
 * [Automate image builds on base image update with Azure Container Registry Tasks][acr-base-image-update]
 
 <!-- EXTERNAL LINKS -->
-[azure-pipelines]: /azure/devops/pipelines/?view=vsts
+[azure-pipelines]: /azure/devops/pipelines/
 [twistlock]: https://www.twistlock.com/
 [aqua]: https://www.aquasec.com/
 

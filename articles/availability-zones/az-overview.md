@@ -4,7 +4,7 @@ description: Learn about regions and Availability Zones in Azure to meet your te
 author: prsandhu
 ms.service: azure
 ms.topic: conceptual
-ms.date: 01/26/2021
+ms.date: 02/23/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc
@@ -26,7 +26,7 @@ To better understand regions and Availability Zones in Azure, it helps to unders
 | recommended region | A region that provides the broadest range of service capabilities and is designed to support Availability Zones now, or in the future. These are designated in the Azure portal as **Recommended**. |
 | alternate (other) region | A region that extends Azure's footprint within a data residency boundary where a recommended region also exists. Alternate regions help to optimize latency and provide a second region for disaster recovery needs. They are not designed to support Availability Zones (although Azure conducts regular assessment of these regions to determine if they should become recommended regions). These are designated in the Azure portal as **Other**. |
 | foundational service | A core Azure service that is available in all regions when the region is generally available. |
-| mainstream service | An Azure service that is available in all recommended regions within 90 days of the region/service general availability or demand-driven availability in alternate regions. |
+| mainstream service | An Azure service that is available in all recommended regions within 90 days of the region general availability or demand-driven availability in alternate regions. |
 | specialized service | An Azure service that is demand-driven availability across regions backed by customized/specialized hardware. |
 | regional service | An Azure service that is deployed regionally and enables the customer to specify the region into which the service will be deployed. For a complete list, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all). |
 | non-regional service | An Azure service for which there is no dependency on a specific Azure region. Non-regional services are deployed to two or more regions and if there is a regional failure, the instance of the service in another region continues servicing customers. For a complete list, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all). |
@@ -65,7 +65,7 @@ Azure's approach on availability of Azure services across regions is best descri
 Azure services are grouped into three categories: foundational, mainstream, and specialized services. Azure's general policy on deploying services into any given region is primarily driven by region type, service categories, and customer demand:
 
 - **Foundational** – Available in all recommended and alternate regions when the region is generally available, or within 90 days of a new foundational service becoming generally available.
-- **Mainstream** – Available in all recommended regions within 90 days of the region/service general availability; demand-driven in alternate regions (many are already deployed into a large subset of alternate regions).
+- **Mainstream** – Available in all recommended regions within 90 days of the region general availability; demand-driven in alternate regions (many are already deployed into a large subset of alternate regions).
 - **Specialized** – Targeted service offerings, often industry-focused or backed by customized/specialized hardware. Demand-driven availability across regions (many are already deployed into a large subset of recommended regions).
 
 To see which services are deployed in a given region, as well as the future roadmap for preview or general availability of services in a region, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all).
@@ -77,7 +77,7 @@ If a service offering is not available in a specific region, you can share your 
 | Recommended | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Demand-driven | :heavy_check_mark: | :heavy_check_mark: |
 | Alternate | :heavy_check_mark: | :heavy_check_mark: | Demand-driven | Demand-driven | N/A | :heavy_check_mark: |
 
-### Services by category with Availability Zones
+### Services by category
 
 As mentioned previously, Azure classifies services into three categories: foundational, mainstream, and specialized. Service categories are assigned at general availability. Often, services start their lifecycle as a specialized service and as demand and utilization increases may be promoted to mainstream or foundational. The following table lists the category for services as foundational, mainstream. You should note the following about the table:
 
@@ -96,7 +96,7 @@ As mentioned previously, Azure classifies services into three categories: founda
 > | Azure ExpressRoute                     | Azure Bastion                                     | 
 > | Azure Public IP                        | Azure Cache for Redis                             | 
 > | Azure SQL Database                     | Azure Cognitive Search                            | 
-> | Azure SQL : Managed Instance           | Azure Cognitive Services                          | 
+> | Azure SQL Managed Instance             | Azure Cognitive Services                          | 
 > | Disk Storage                           | Azure Cognitive Services: Computer Vision         | 
 > | Event Hubs                             | Azure Cognitive Services: Content Moderator       | 
 > | Key Vault                              | Azure Cognitive Services: Face                    | 

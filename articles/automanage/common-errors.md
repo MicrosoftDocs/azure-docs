@@ -16,7 +16,7 @@ Automanage may fail to onboard a machine onto the service. This document explain
 ## Troubleshooting deployment failures
 Onboarding a machine to Automanage will result in an Azure Resource Manager deployment being created. If onboarding fails, it may be helpful to consult the deployment for further details as to why it failed. There are links to the deployments in the failure detail flyout, pictured below.
 
-:::image type="content" source="media\automanage-common-errors\failure-flyout.png" alt-text="Automanage failure detail flyout.":::
+:::image type="content" source="media\common-errors\failure-flyout.png" alt-text="Automanage failure detail flyout.":::
 
 ### Check the deployments for the resource group containing the failed VM
 The failure flyout will contain a link to the deployments within the resource group that contains the machine that failed onboarding and a prefix name you can use to filter deployments with. Clicking the link will take you to the deployments blade, where you can then filter deployments to see Automanage deployments to your machine. If you're deploying across multiple regions, ensure that you click on the deployment in the correct region.
@@ -32,7 +32,12 @@ If you don't see any failed deployments in the resource group or subscription co
 Error |  Mitigation
 :-----|:-------------|
 Automanage account insufficient permissions error | This may happen if you have recently moved a subscription containing a new Automanage Account into a new tenant. Steps to resolve this are located [here](./repair-automanage-account.md).
-Workspace region not matching region mapping requirements | Automanage was unable to onboard your machine but the Log Analytics workspace that the machine is currently linked to is not mapped to a supported Automation region. Ensure that your existing Log Analytics workspace and Automation account are located in a [supported region mapping](https://docs.microsoft.com/azure/automation/how-to/region-mappings).
+Workspace region not matching region mapping requirements | Automanage was unable to onboard your machine but the Log Analytics workspace that the machine is currently linked to is not mapped to a supported Automation region. Ensure that your existing Log Analytics workspace and Automation account are located in a [supported region mapping](../automation/how-to/region-mappings.md).
+"Access denied because of the deny assignment with name 'System deny assignment created by managed application'" | A [denyAssignment](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments) was created on your resource which prevented Automanage from accessing your resource. This may have been caused by either a [Blueprint](https://docs.microsoft.com/azure/governance/blueprints/concepts/resource-locking) or a [Managed Application](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/overview).
+"OS Information: Name='(null)', ver='(null)', agent status='Not Ready'." | Ensure that you're running a [minimum supported agent version](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/support-extensions-agent-version), the agent is running ([Linux](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/linux-azure-guest-agent) and [Windows](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/windows-azure-guest-agent)), and that the agent is up to date ([Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent) and [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows)).
+"VM has reported a failure when processing extension 'IaaSAntimalware'" | Ensure you don't have another antimalware/antivirus offering already installed on your VM. If that fails, contact support.
+ASC workspace: Automanage does not currently support the Log Analytics service in _location_. | Check that your VM is located in a [supported region](./automanage-virtual-machines.md#supported-regions).
+The template deployment failed because of policy violation. Please see details for more information. | There is a policy preventing Automanage from onboarding your VM. Check the policies that are applied to your subscription or resource group containing your VM you want to onboard to Automanage.
 "The assignment has failed; there is no additional information available" | Please open a case with Microsoft Azure support.
 
 ## Next steps
@@ -41,4 +46,3 @@ Workspace region not matching region mapping requirements | Automanage was unabl
 
 > [!div class="nextstepaction"]
 > [Enable Automanage for virtual machines in the Azure portal](quick-create-virtual-machines-portal.md)
-

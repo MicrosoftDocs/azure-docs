@@ -11,6 +11,10 @@
   items:
   - name: Create a Front Door Standard/Premium - Portal
     href: create-front-door-portal.md
+- name: Samples
+  items:
+  - name: Resource Manager templates
+    href: resource-manager-template-samples.md
 - name: Concepts
   items:
   - name: Front Door FAQ
@@ -56,9 +60,15 @@
   - name: Cache purge
     href: how-to-cache-purge.md
   - name: Compression
-    href: how-to-compression.md
-  - name: Enable Private Link to Web App
-    href: how-to-enable-private-link-web-app.md
+    href: how-to-compression.md  
+  - name: Enable Private Link
+    items:
+    - name: Connect to an internal load balancer
+      href: how-to-enable-private-link-internal-load-balancer.md
+    - name: Connect to a storage account
+      href: how-to-enable-private-link-storage-account.md
+    - name: Connect to a web app
+      href: how-to-enable-private-link-web-app.md
   - name: Logging
     href: how-to-logs.md
   - name: Monitoring and alerts

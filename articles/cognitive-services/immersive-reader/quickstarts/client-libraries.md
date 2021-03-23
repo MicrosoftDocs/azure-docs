@@ -9,7 +9,7 @@ zone_pivot_groups: programming-languages-set-twenty
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: quickstart
-ms.date: 09/14/2020
+ms.date: 03/08/2021
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
 keywords: display pictures, parts of speech, read selected text, translate words, reading comprehension

@@ -1,7 +1,6 @@
 ---
-title: Troubleshoot Azure Monitor for VMs guest health (preview)
-description: Describes troubleshooting steps that you can take when you have issues with Azure Monitor for VMs health.
-ms.subservice: 
+title: Troubleshoot VM insights guest health (preview)
+description: Describes troubleshooting steps that you can take when you have issues with VM insights health.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -9,8 +8,8 @@ ms.date: 09/08/2020
 
 ---
 
-# Troubleshoot Azure Monitor for VMs guest health (preview)
-This article describes troubleshooting steps that you can take when you have issues with Azure Monitor for VMs health.
+# Troubleshoot VM insights guest health (preview)
+This article describes troubleshooting steps that you can take when you have issues with VM insights health.
 
 ## Error message that no data is available 
 
@@ -30,7 +29,7 @@ Verify that the Azure Monitor agent extension and Guest VM Health agent are succ
 ![VM extensions](media/vminsights-health-troubleshoot/extensions.png)
 
 ### Verify the system assigned identity is enabled on the virtual machine
-Verify that the system assigned identity is enabled on the virtual machine. Select **Identity** from the virtual machine's menu in the Azure portal. 
+Verify that the system assigned identity is enabled on the virtual machine. Select **Identity** from the virtual machine's menu in the Azure portal. If user managed identity is enabled, regardless of the status of the system managed identity, Azure Monitor agent will not be able to communicate with the configuration service, and the guest health extension will not work.
 
 ![System assigned identity](media/vminsights-health-troubleshoot/system-identity.png)
 
@@ -44,4 +43,4 @@ This error indicates that the **Microsoft.WorkloadMonitor** resource provider wa
 
 ## Next steps
 
-- [Get an overview of the guest health feature of Azure Monitor for VMs](vminsights-health-overview.md)
+- [Get an overview of the guest health feature of VM insights](vminsights-health-overview.md)

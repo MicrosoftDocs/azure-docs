@@ -43,13 +43,6 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 | **Possible causes**    | Azure Backup for SAP HANA doesn't support incremental backup and actions performed on SAP HANA native clients (Studio/ Cockpit/ DBA Cockpit) |
 | **Recommended action** | For more information, refer [here](./sap-hana-backup-support-matrix.md#scenario-support). |
 
-### UserErrorHANAPODoesNotSupportBackupType
-
-| Error Message      | <span style="font-weight:normal">This SAP HANA database doesn't support the requested backup type</span>  |
-| ------------------ | ------------------------------------------------------------ |
-| **Possible causes**    | Azure Backup doesn't support incremental backup and backup using snapshots |
-| **Recommended action** | For more information, refer [here](./sap-hana-backup-support-matrix.md#scenario-support). |
-
 ### UserErrorHANALSNValidationFailure
 
 | Error Message      | <span style="font-weight:normal">Backup log chain is broken</span>                                    |

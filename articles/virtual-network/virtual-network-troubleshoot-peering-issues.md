@@ -40,7 +40,7 @@ To configure virtual network peering for the virtual networks that are in the sa
 >
 > * Virtual machines (VMs) behind Basic internal load balancer (ILB) SKU
 > * Redis cache (uses Basic ILB SKU)
-> * Application gateway (uses Basic ILB SKU)
+> * Application gateway v1 (uses Basic ILB SKU)
 > * Virtual machine scale sets (uses Basic ILB SKU)
 > * Azure Service Fabric clusters (uses Basic ILB SKU)
 > * SQL Server Always On (uses Basic ILB SKU)

@@ -2,7 +2,6 @@
 title: Create, view, and manage activity log alerts in Azure Monitor
 description: Create activity log alerts by using the Azure portal, an Azure Resource Manager template, and Azure PowerShell.
 ms.topic: conceptual
-ms.subservice: alerts
 ms.date: 06/25/2019
 
 ---
@@ -22,7 +21,9 @@ When you create alert rules, ensure the following:
 
 - The subscription in the scope isn't different from the subscription where the alert is created.
 - The criteria must be the level, status, caller, resource group, resource ID, or resource type event category on which the alert is configured.
-- There's no "anyOf" condition or nested conditions in the alert configuration JSON. Basically, only one "allOf" condition is allowed with no further "allOf" or "anyOf" conditions.
+- Only one "allOf" condition is allowed.
+- 'AnyOf' can be used to allow multiple conditions over multiple fields (for example, if either the “status” or the “subStatus” fields equal a certain value). Note that the use of 'AnyOf' is currently limited to creating the alert rule using an ARM template deployment.
+- 'ContainsAny' can be used to allow multiple values of the same field (for example, if “operation” equals either ‘delete’ or ‘modify’). Note that the use of ‘ContainsAny’ is currently limited to creating the alert rule using an ARM template deployment.
 - When the category is "administrative," you must specify at least one of the preceding criteria in your alert. You may not create an alert that activates every time an event is created in the activity logs.
 - Alerts cannot be created for events in Alert category of activity log.
 

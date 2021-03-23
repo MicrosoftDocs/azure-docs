@@ -32,13 +32,15 @@ Log Analytics workspace data export continuously exports data from a Log Analyti
 
 - Configuration can be performed using CLI or REST requests currently. Azure portal or PowerShell are not supported yet.
 - The ```--export-all-tables``` option in CLI and REST isn't supported and will be removed. You should provide the list of tables in export rules explicitly.
-- Supported tables are currently limited those specific in the [supported tables](#supported-tables) section below. 
+- Supported tables are currently limited those specific in the [supported tables](#supported-tables) section below. For example, custom log tables aren't supported currently.
 - If the data export rule includes an unsupported table, the operation will succeed, but no data will be exported for that table until table gets supported. 
-- If the data export rule includes a table that doesn't exist, it will fail with the error ```Table <tableName> does not exist in the workspace```.
+- If the data export rule includes a table that doesn't exist, it will fail with error ```Table <tableName> does not exist in the workspace```.
 - Your Log Analytics workspace can be in any region except for the following:
-  - Switzerland North
-  - Switzerland West
   - Azure Government regions
+  - Japan West
+  - Brazil south east
+  - Norway East
+  - UAE North
 - You can create two export rules in a workspace -- in can be one rule to event hub and one rule to storage account.
 - The destination storage account or event hub must be in the same region as the Log Analytics workspace.
 - Names of tables to be exported can be no longer than 60 characters for a storage account and no more than 47 characters to an event hub. Tables with longer names will not be exported.
@@ -68,6 +70,9 @@ Log Analytics data export can write append blobs to immutable storage accounts w
 
 ### Event hub
 Data is sent to your event hub in near-real-time as it reaches Azure Monitor. An event hub is created for each data type that you export with the name *am-* followed by the name of the table. For example, the table *SecurityEvent* would sent to an event hub named *am-SecurityEvent*. If you want the exported data to reach a specific event hub, or if you have a table with a name that exceeds the 47 character limit, you can provide your own event hub name and export all data for defined tables to it.
+
+> [!IMPORTANT]
+> The [number of supported event hubs per namespace is 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). If you export more than 10 tables, provide your own event hub name to export all your tables to that event hub.
 
 Considerations:
 1. 'Basic' event hub sku supports lower event size [limit](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-tiers) and some logs in your workspace can exceed it and be dropped. We recommend to use 'Standard' or 'Dedicated' event hub as export destination.
@@ -105,10 +110,14 @@ If you have configured your Storage Account to allow access from selected networ
 
 [![Storage account firewalls and virtual networks](media/logs-data-export/storage-account-vnet.png)](media/logs-data-export/storage-account-vnet.png#lightbox)
 
-
 ### Create or update data export rule
-A data export rule defines data to be exported for a set of tables to a single destination. You can create a single rule for each destination.
+A data export rule defines the tables for which data is exported and the destination. You can create a single rule for each destination currently.
 
+Export rule should include tables that you have in your workspace. Run this query for a list of available tables in your workspace.
+
+```kusto
+find where TimeGenerated > ago(24h) | distinct Type
+```
 
 # [Azure portal](#tab/portal)
 
@@ -119,12 +128,6 @@ N/A
 N/A
 
 # [Azure CLI](#tab/azure-cli)
-
-Use the following CLI command to view tables in your workspace. It can help copy the tables you want and include in data export rule.
-
-```azurecli
-az monitor log-analytics workspace table list --resource-group resourceGroupName --workspace-name workspaceName --query [].name --output table
-```
 
 Use the following command to create a data export rule to a storage account using CLI.
 

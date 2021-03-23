@@ -58,7 +58,7 @@ az keyvault certificate download --file
                                  [--version]
 ```
 
-View [examples and parameter definitions](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-download) for more information.
+View [examples and parameter definitions](/cli/azure/keyvault/certificate#az-keyvault-certificate-download) for more information.
 
 Downloading as certificate means getting the public portion. If you want both the private key and public metadata then you can download it as secret.
 
@@ -72,7 +72,7 @@ az keyvault secret download -–file {nameofcert.pfx}
                             [--version]
 ```
 
-For more information, see [parameter definitions](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-download).
+For more information, see [parameter definitions](/cli/azure/keyvault/secret#az-keyvault-secret-download).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -98,7 +98,7 @@ $pfxFileByte = $x509Cert.Export($type, $password)
 [System.IO.File]::WriteAllBytes("KeyVault.pfx", $pfxFileByte)
 ```
 
-This command exports the entire chain of certificates with private key. The certificate is password protected.
+This command exports the entire chain of certificates with private key (i.e. the same as it was imported). The certificate is password protected.
 For more information on the **Get-AzKeyVaultCertificate** command and parameters, see [Get-AzKeyVaultCertificate - Example 2](/powershell/module/az.keyvault/Get-AzKeyVaultCertificate?view=azps-4.4.0).
 
 # [Portal](#tab/azure-portal)

@@ -29,6 +29,9 @@ Each Application Insights resource comes with metrics that are available out-of-
 -	If it is okay to have an API key have the same access to data from all components. And 10 API keys are sufficient for the needs across all of them.
 -	If it is okay to have the same smart detection and work item integration settings across all roles.
 
+> [!NOTE]
+> If you want to consolidate multiple Application Insights Resources, you may point your existing application components to a new, consolidated Application Insights Resource. The telemetry stored in your old resource will not be transfered to the new resource, so only delete the old resource when you have enough telemetry in the new resource for business continuity.
+
 ### Other things to keep in mind
 
 -	You may need to add custom code to ensure that meaningful values are set into the [Cloud_RoleName](./app-map.md?tabs=net#set-or-override-cloud-role-name) attribute. Without meaningful values set for this attribute, *NONE* of the portal experiences will work.

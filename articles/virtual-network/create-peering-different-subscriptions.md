@@ -50,7 +50,7 @@ The following steps use different accounts for each subscription. If you're usin
     - **Subscription**: Select subscription A.
     - **Resource group**: Select **Create new** and enter *myResourceGroupA*
     - **Location**: *East US*
-4. In the **Search resources** box at the top of the portal, type *myVnetA*. Select **myVnetA** when it appears in the search results. 
+4. In the **Search resources** box at the top of the portal, type *myVnetA*. Select **myVnetA** when it appears in the search results.
 5. Select **Access control (IAM)** from the vertical list of options on the left side.
 6. Under **myVnetA - Access control (IAM)**, select **+ Add role assignment**.
 7. Select **Network contributor** in the **Role** box.
@@ -94,7 +94,7 @@ The following steps use different accounts for each subscription. If you're usin
 
 ## <a name="cli"></a>Create peering - Azure CLI
 
-This tutorial uses different accounts for each subscription. If you're using an account that has permissions to both subscriptions, you can use the same account for all steps, skip the steps for logging out of Azure, and remove the lines of script that create user role assignments. Replace UserA@azure.com and UserB@azure.com in all of the following scripts with the usernames you're using for UserA and UserB. 
+This tutorial uses different accounts for each subscription. If you're using an account that has permissions to both subscriptions, you can use the same account for all steps, skip the steps for logging out of Azure, and remove the lines of script that create user role assignments. Replace UserA@azure.com and UserB@azure.com in all of the following scripts with the usernames you're using for UserA and UserB.
 
 The following scripts:
 
@@ -160,7 +160,7 @@ Instead of installing the CLI and its dependencies, you can use the Azure Cloud 
 
 8. Log out UserA from Azure and log in to Azure as UserB.
 9. Create the peering from myVnetB to myVnetA. Copy the script contents in step 6 to a text editor on your PC. Replace `<SubscriptionB-Id>` with the ID for SubscriptionA and change all As to B and all Bs to A. Once you've made the changes, copy the modified script, paste it into your CLI session, and press `Enter`.
-10. View the peering state of myVnetB. Copy the script contents in step 7 to a text editor on your PC. Change A to B for the resource group and virtual network names, copy the script, paste the modified script in to your CLI session, and then press `Enter`. The peering state is **Connected**. The peering state of myVnetA changes to **Connected** after you've created the peering from myVnetB to myVnetA. You can log UserA back in to Azure and complete step 7 again to verify the peering state of myVnetA. 
+10. View the peering state of myVnetB. Copy the script contents in step 7 to a text editor on your PC. Change A to B for the resource group and virtual network names, copy the script, paste the modified script in to your CLI session, and then press `Enter`. The peering state is **Connected**. The peering state of myVnetA changes to **Connected** after you've created the peering from myVnetB to myVnetA. You can log UserA back in to Azure and complete step 7 again to verify the peering state of myVnetA.
 
     > [!NOTE]
     > The peering is not established until the peering state is **Connected** for both virtual networks.
@@ -176,7 +176,7 @@ Any Azure resources you create in either virtual network are now able to communi
 
 This tutorial uses different accounts for each subscription. If you're using an account that has permissions to both subscriptions, you can use the same account for all steps, skip the steps for logging out of Azure, and remove the lines of script that create user role assignments. Replace UserA@azure.com and UserB@azure.com in all of the following scripts with the usernames you're using for UserA and UserB.
 
-1. Confirm that you have Azure PowerShell version 1.0.0 or higher. You can do this by running the `Get-Module -Name Az` We recommend installing the latest version of the PowerShell [Az module](/powershell/azure/install-az-ps). If you're new to Azure PowerShell, see [Azure PowerShell overview](/powershell/azure/?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+1. Confirm that you have Azure PowerShell version 1.0.0 or higher. You can do this by running the `Get-Module -Name Az` We recommend installing the latest version of the PowerShell [Az module](/powershell/azure/install-az-ps). If you're new to Azure PowerShell, see [Azure PowerShell overview](/powershell/azure/?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Start a PowerShell session.
 3. In PowerShell, log in to Azure as UserA by entering the `Connect-AzAccount` command. The account you log in with must have the necessary permissions to create a virtual network peering. For a list of permissions, see [Virtual network peering permissions](virtual-network-manage-peering.md#permissions).
 4. Create a resource group and virtual network A. Copy the following script to a text editor on your PC. Replace `<SubscriptionA-Id>` with the ID of SubscriptionA. If you don't know your subscription Id, enter the `Get-AzSubscription` command to view it. The value for **Id** in the returned output is your subscription ID. To execute the script, copy the modified script, paste it in to PowerShell, and then press `Enter`.
@@ -271,7 +271,7 @@ This tutorial uses different accounts for each subscription. If you're using an 
    }
    ```
 
-3. Log in to Azure as UserA and deploy the template using the [portal](../azure-resource-manager/templates/deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [PowerShell](../azure-resource-manager/templates/deploy-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template), or the [Azure CLI](../azure-resource-manager/templates/deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template). Specify the file name you saved the example json text in step 2 to.
+3. Log in to Azure as UserA and deploy the template using the [portal](../azure-resource-manager/templates/deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [PowerShell](../azure-resource-manager/templates/deploy-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template-or-bicep-file), or the [Azure CLI](../azure-resource-manager/templates/deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template-or-bicep-file). Specify the file name you saved the example json text in step 2 to.
 4. Copy the example json from step 2 to a file on your computer and make changes to the lines that begin with:
    - **name**: Change *myVnetA/myVnetAToMyVnetB* to *myVnetB/myVnetBToMyVnetA*.
    - **id**: Replace `<subscription ID>` with UserB's subscription ID and change *myVnetB* to *myVnetA*.

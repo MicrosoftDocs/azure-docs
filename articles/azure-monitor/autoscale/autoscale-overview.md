@@ -86,8 +86,8 @@ In contrast, vertical scaling is different. It keeps the same number of VMs, but
 You can set up autoscale via
 
 * [Azure portal](autoscale-get-started.md)
-* [PowerShell](../samples/powershell-samples.md#create-and-manage-autoscale-settings)
-* [Cross-platform Command Line Interface (CLI)](../samples/cli-samples.md#autoscale)
+* [PowerShell](../powershell-samples.md#create-and-manage-autoscale-settings)
+* [Cross-platform Command Line Interface (CLI)](../cli-samples.md#autoscale)
 * [Azure Monitor REST API](/rest/api/monitor/autoscalesettings)
 
 ## Supported services for autoscale

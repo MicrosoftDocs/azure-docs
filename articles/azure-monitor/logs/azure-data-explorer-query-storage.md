@@ -1,7 +1,6 @@
 ---
 title: Query exported data from Azure Monitor using Azure Data Explorer (preview)
 description: Use Azure Data Explorer to query data that was exported from your Log Analytics workspace to an Azure storage account.
-ms.subservice: logs
 author: osalzberg
 ms.author: bwren
 ms.reviewer: bwren
@@ -26,9 +25,9 @@ The process flow is as follows:
 ## Send data to Azure storage
 Azure Monitor logs can be exported to an Azure Storage Account using any of the following options.
 
-- To export all data from your Log Analytics workspace to an Azure storage account or event hub, use the Log Analytics workspace data export feature of Azure Monitor Logs. See [Log Analytics workspace data export in Azure Monitor (preview)](../platform/logs-data-export.md)
-- Scheduled export from a log query using a Logic App. This is similar to the data export feature but allows you to send filtered or aggregated data to Azure storage. This method though is subject to [log query limits](../service-limits.md#log-analytics-workspaces)  See [Archive data from Log Analytics workspace to Azure storage using Logic App](../platform/logs-export-logic-app.md).
-- One time export using a Logic App. See [Azure Monitor Logs connector for Logic Apps and Power Automate](../platform/logicapp-flow-connector.md).
+- To export all data from your Log Analytics workspace to an Azure storage account or event hub, use the Log Analytics workspace data export feature of Azure Monitor Logs. See [Log Analytics workspace data export in Azure Monitor (preview)](./logs-data-export.md)
+- Scheduled export from a log query using a Logic App. This is similar to the data export feature but allows you to send filtered or aggregated data to Azure storage. This method though is subject to [log query limits](../service-limits.md#log-analytics-workspaces)  See [Archive data from Log Analytics workspace to Azure storage using Logic App](./logs-export-logic-app.md).
+- One time export using a Logic App. See [Azure Monitor Logs connector for Logic Apps and Power Automate](./logicapp-flow-connector.md).
 - One time export to local machine using PowerShell script. See [Invoke-AzOperationalInsightsQueryExport](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
 
 > [!TIP]

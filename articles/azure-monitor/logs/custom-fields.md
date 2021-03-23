@@ -1,7 +1,6 @@
 ---
 title: Custom fields in Azure Monitor (Preview) | Microsoft Docs
 description: The Custom Fields feature of Azure Monitor allows you to create your own searchable fields from records in a Log Analytics workspace that add to the properties of a collected record.  This article describes the process to create a custom field and provides a detailed walkthrough with a sample event.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -12,10 +11,10 @@ ms.date: 08/23/2019
 # Create custom fields in a Log Analytics workspace in Azure Monitor (Preview)
 
 > [!NOTE]
-> This article describes how to parse text data in a Log Analytics workspace as it's collected. We recommend parsing text data in a query filter after it's collected following the guidance described in [Parse text data in Azure Monitor](../log-query/parse-text.md). It provides several advantages over using custom fields.
+> This article describes how to parse text data in a Log Analytics workspace as it's collected. We recommend parsing text data in a query filter after it's collected following the guidance described in [Parse text data in Azure Monitor](./parse-text.md). It provides several advantages over using custom fields.
 
 > [!IMPORTANT]
-> Custom fields increases the amount of data collected in the Log Analytics workspace which can increase your cost. See [Manage usage and costs with Azure Monitor Logs](../platform/manage-cost-storage.md#pricing-model) for details.
+> Custom fields increases the amount of data collected in the Log Analytics workspace which can increase your cost. See [Manage usage and costs with Azure Monitor Logs](./manage-cost-storage.md#pricing-model) for details.
 
 The **Custom Fields** feature of Azure Monitor allows you to extend existing records in your Log Analytics workspace by adding your own searchable fields.  Custom fields are automatically populated from data extracted from other properties in the same record.
 
@@ -38,9 +37,9 @@ The following sections provide the procedure for creating a custom field.  At th
 > 
 
 ### Step 1 – Identify records that will have the custom field
-The first step is to identify the records that will get the custom field.  You start with a [standard log query](../log-query/log-query-overview.md) and then select a record to act as the model that Azure Monitor will learn from.  When you specify that you are going to extract data into a custom field, the **Field Extraction Wizard** is opened where you validate and refine the criteria.
+The first step is to identify the records that will get the custom field.  You start with a [standard log query](./log-query-overview.md) and then select a record to act as the model that Azure Monitor will learn from.  When you specify that you are going to extract data into a custom field, the **Field Extraction Wizard** is opened where you validate and refine the criteria.
 
-1. Go to **Logs** and use a [query to retrieve the records](../log-query/log-query-overview.md) that will have the custom field.
+1. Go to **Logs** and use a [query to retrieve the records](./log-query-overview.md) that will have the custom field.
 2. Select a record that Log Analytics will use to act as a model for extracting data to populate the custom field.  You will identify the data that you want to extract from this record, and Log Analytics will use this information to determine the logic to populate the custom field for all similar records.
 3. Expand the record properties, click the ellipse to the left of the top property of the record, and select **Extract fields from**.
 4. The **Field Extraction Wizard** is opened, and the record you selected is displayed in the **Main Example** column.  The custom field will be defined for those records with the same values in the properties that are selected.  
@@ -124,6 +123,5 @@ We can now use the custom field like any other record property.  To illustrate t
 ![Group by query](media/custom-fields/query-group.png)
 
 ## Next steps
-* Learn about [log queries](../log-query/log-query-overview.md) to build queries using custom fields for criteria.
+* Learn about [log queries](./log-query-overview.md) to build queries using custom fields for criteria.
 * Monitor [custom log files](../agents/data-sources-custom-logs.md) that you parse using custom fields.
-

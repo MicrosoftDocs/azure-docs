@@ -1,7 +1,6 @@
 ---
 title: Create a Log Analytics workspace using Azure CLI | Microsoft Docs
 description: Learn how to create a Log Analytics workspace to enable management solutions and data collection from your cloud and on-premises environments with Azure CLI.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren

@@ -52,7 +52,7 @@ The following data connection methods are supported by Azure Sentinel:
     - [Azure Web Application Firewall (WAF)](connect-azure-waf.md) (formerly Microsoft WAF)
     - [Cloud App Security](connect-cloud-app-security.md)
     - [Domain name server](connect-dns.md)
-    - [Microsoft 365 Defender](connect-microsoft-365-defender.md) - includes MDATP raw data
+    - [Microsoft 365 Defender](connect-microsoft-365-defender.md) - includes M365D incidents and MDE raw data
     - [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md) (formerly Microsoft Defender Advanced Threat Protection)
     - [Microsoft Defender for Identity](connect-azure-atp.md) (formerly Azure Advanced Threat Protection)
     - [Microsoft Defender for Office 365](connect-office-365-advanced-threat-protection.md) (formerly Office 365 Advanced Threat Protection)
@@ -72,6 +72,9 @@ The following data connection methods are supported by Azure Sentinel:
     - [Citrix Analytics (Security)](connect-citrix-analytics.md)
     - [F5 BIG-IP](connect-f5-big-ip.md)
     - [Forcepoint DLP](connect-forcepoint-dlp.md)
+    - [Google Workspace (formerly G Suite)](connect-google-workspace.md)
+    - [NXLog (Windows) DNS Logs](connect-nxlog-dns.md)
+    - [NXLog LinuxAudit](connect-nxlog-linuxaudit.md)
     - [Okta SSO](connect-okta-single-sign-on.md)
     - [Orca Security](connect-orca-security-alerts.md)
     - [Perimeter 81 logs](connect-perimeter-81-logs.md)
@@ -79,6 +82,7 @@ The following data connection methods are supported by Azure Sentinel:
     - [Proofpoint TAP](connect-proofpoint-tap.md)
     - [Qualys VM](connect-qualys-vm.md)
     - [Salesforce Service Cloud](connect-salesforce-service-cloud.md)
+    - [Sophos Cloud Optix](connect-sophos-cloud-optix.md)
     - [Squadra Technologies secRMM](connect-squadra-secrmm.md)
     - [Symantec ICDX](connect-symantec.md)
     - [VMware Carbon Black Cloud Endpoint Standard](connect-vmware-carbon-black.md)
@@ -94,6 +98,8 @@ The following data connection methods are supported by Azure Sentinel:
     - **Firewalls, proxies, and endpoints - CEF:**
         - [AI Vectra Detect](connect-ai-vectra-detect.md)
         - [Akamai Security Events](connect-akamai-security-events.md)
+        - [Aruba ClearPass](connect-aruba-clearpass.md)
+        - [Broadcom Symantec DLP](connect-broadcom-symantec-dlp.md)
         - [Check Point](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
         - [Citrix WAF](connect-citrix-waf.md)
@@ -114,6 +120,7 @@ The following data connection methods are supported by Azure Sentinel:
         - [Other CEF-based appliances](connect-common-event-format.md)
     - **Firewalls, proxies, and endpoints - Syslog:**
         - [Alsid for Active Directory](connect-alsid-active-directory.md)
+        - [Cisco Meraki](connect-cisco-meraki.md)
         - [Cisco Unified Computing System (UCS)](connect-cisco-ucs.md)
         - [Infoblox NIOS](connect-infoblox.md)
         - [Juniper SRX](connect-juniper-srx.md)
@@ -122,6 +129,7 @@ The following data connection methods are supported by Azure Sentinel:
         - [Squid Proxy](connect-squid-proxy.md)
         - [Symantec Proxy SG](connect-symantec-proxy-sg.md)
         - [Symantec VIP](connect-symantec-vip.md)
+        - [VMware ESXi](connect-vmware-esxi.md)
         - [Other Syslog-based appliances](connect-syslog.md)
     - [Apache HTTP Server](connect-apache-http-server.md)
     - DLP solutions

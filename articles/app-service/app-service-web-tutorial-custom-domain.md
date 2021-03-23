@@ -8,6 +8,10 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 08/25/2020
 ms.custom: mvc, seodec18
+adobe-target: true
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./app-service-web-tutorial-custom-domain-uiex
 ---
 
 # Tutorial: Map an existing custom DNS name to Azure App Service
@@ -69,7 +73,7 @@ You see the management page of the App Service app.
 
 1. The app's current tier is highlighted by a blue border. Check to make sure that the app isn't in the **F1** tier. Custom DNS isn't supported in the **F1** tier.
 
-   ![Screenshot that shows Recommended pricing tiers.](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
+   ![Screenshot that shows recommended pricing tiers.](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
 1. If the App Service plan isn't in the **F1** tier, close the **Scale up** page and skip to [Map a CNAME record](#map-a-cname-record).
 
@@ -136,7 +140,7 @@ After you add the CNAME and TXT records, the DNS records page looks like the fol
 
 1. In the left pane of the app page in the Azure portal, select **Custom domains**.
 
-    ![Screenshot that shows the Custom domains menu.](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
+    ![Screenshot that shows the custom domains menu.](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
 1. On the **Custom domains** page of the app, add the fully qualified custom DNS name (`www.contoso.com`) to the list.
 
@@ -177,7 +181,7 @@ To map an A record, you need the app's external IP address. You can find this IP
 
 1. In the left pane of the app page in the Azure portal, select **Custom domains**.
 
-   ![Screenshot that shows the Custom domains menu.](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
+   ![Screenshot that shows the custom domains menu.](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
 1. On the **Custom Domains** page, copy the app's IP address.
 
@@ -269,7 +273,7 @@ You can now add any subdomain that matches the wildcard name to the app (for exa
 
 1. In the left pane of the app page in the Azure portal, select **Custom domains**.
 
-    ![Screenshot that shows the Custom domains menu.](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
+    ![Screenshot that shows the custom domains menu.](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
 1. Select **Add custom domain**.
 
@@ -300,10 +304,7 @@ Browse to the DNS names that you configured earlier (for example, `contoso.com`,
 
 ## Resolve 404 "Not Found"
 
-If you receive an HTTP 404 (Not Found) error when you browse to the URL of your custom domain, verify that your domain resolves to your app's IP address by using <a href="https://www.whatsmydns.net/" target="_blank">WhatsmyDNS.net</a>. If not, it might be because of one of the following reasons:
-
-- The custom domain configured is missing an A record or a CNAME record.
-- The browser client has cached the old IP address of your domain. Clear the cache, and test DNS resolution again. On a Windows machine, you clear the cache with `ipconfig /flushdns`.
+If you receive an HTTP 404 (Not Found) error when you browse to the URL of your custom domain, verify that your domain resolves to your app's IP address by using <a href="https://www.nslookup.io/" target="_blank">nslookup.io</a>. If not, verify that the A and CNAME records are configured correctly using the same site. If it resolves the IP correctly, but you're still getting a 404, then your browser may have cached the old IP address of your domain. Clear the cache, and test DNS resolution again. On a Windows machine, you clear the cache with `ipconfig /flushdns`.
 
 ## Migrate an active domain
 

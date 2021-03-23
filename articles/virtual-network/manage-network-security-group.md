@@ -358,6 +358,11 @@ To do tasks on network security groups, security rules, and application security
 | Microsoft.Network/networkSecurityGroups/delete                |   Delete network security group                                       |
 | Microsoft.Network/networkSecurityGroups/join/action           |   Associate a network security group to a subnet or network interface 
 
+
+>[!NOTE]
+> To perform `write` operations on a network security group, the subscription account must have at least `read` permissions for resource group along with `Microsoft.Network/networkSecurityGroups/write` permission.
+
+
 ### Network security group rule
 
 | Action                                                        |   Name                                                                |
