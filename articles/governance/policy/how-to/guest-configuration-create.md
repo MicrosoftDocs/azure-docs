@@ -328,8 +328,8 @@ The cmdlet also supports input from the PowerShell pipeline. Pipe the output of
 New-GuestConfigurationPackage -Name AuditBitlocker -Configuration ./AuditBitlocker/AuditBitlocker.mof | Test-GuestConfigurationPackage
 ```
 
-The next step is to publish the file to Azure Blob Storage. There are no special requirements for the storage account
-but it is a good idea to host it in a region near your machines. If you do not have a storage account,
+The next step is to publish the file to Azure Blob Storage. There are no special requirements for the storage account,
+but it's a good idea to host the file in a region near your machines. If you don't have a storage account,
 use the following example. The commands below, including `Publish-GuestConfigurationPackage`,
 require the `Az.Storage` module.
 
