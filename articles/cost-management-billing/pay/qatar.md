@@ -15,7 +15,8 @@ ROBOTS: NOINDEX, NOFOLLOW
 # Payment information for Qatar
 
 
-[Find another country or region](../understand/pay-bill.md#wire-bank-details?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json).
+
+[Find another country or region](../understand/pay-bill.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json#wire-bank-details).
 
 Please pay in USD only and reference invoice number(s) on your invoice remittance.
 
