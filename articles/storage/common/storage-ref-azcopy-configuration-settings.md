@@ -1,5 +1,5 @@
 ---
-title: AzCopy configuration settings | Microsoft Docs
+title: AzCopy v10 configuration setting reference | Microsoft Docs
 description: This article provides reference information for AzCopy V10 configuration settings.
 author: normesta
 ms.service: storage
@@ -10,7 +10,7 @@ ms.subservice: common
 ms.reviewer: zezha-msft
 ---
 
-# AzCopy configuration settings
+# AzCopy v10 configuration setting reference
 
 AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. This article contains a list of configuration settings for AzCopy v10.
 
@@ -77,6 +77,65 @@ By default, AzCopy log level is set to `INFO`. If you would like to reduce the l
 
 Available log levels are: `NONE`, `DEBUG`, `INFO`, `WARNING`, `ERROR`, `PANIC`, and `FATAL`.
 
+### Authorize with Google Cloud Storage
+
+To authorize with Google Cloud Storage, you'll use a service account key. For information about how to create a service account key, see [Creating and managing service account keys](https://cloud.google.com/iam/docs/creating-managing-service-account-keys).
+
+After you've obtained a service key, set the `GOOGLE_APPLICATION_CREDENTIALS` environment variable to absolute path to the service account key file:
+
+| Operating system | Command  |
+|--------|-----------|
+| **Windows** | `set GOOGLE_APPLICATION_CREDENTIALS=<path-to-service-account-key>` |
+| **Linux** | `export GOOGLE_APPLICATION_CREDENTIALS=<path-to-service-account-key>` |
+| **macOS** | `export GOOGLE_APPLICATION_CREDENTIALS=<path-to-service-account-key>` |
+
+### Authorize with AWS S3
+
+Gather your AWS access key and secret access key, and then set these environment variables:
+
+| Operating system | Command  |
+|--------|-----------|
+| **Windows** | `set AWS_ACCESS_KEY_ID=<access-key>`<br>`set AWS_SECRET_ACCESS_KEY=<secret-access-key>` |
+| **Linux** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>` |
+| **macOS** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>`|
+
+## Optimize throughput
+
+You can use the `cap-mbps` flag in your commands to place a ceiling on the throughput data rate. For example, the following command resumes a job and caps throughput to `10` megabits (Mb) per second. 
+
+```azcopy
+azcopy jobs resume <job-id> --cap-mbps 10
+```
+
+Throughput can decrease when transferring small files. You can increase throughput by setting the `AZCOPY_CONCURRENCY_VALUE` environment variable. This variable specifies the number of concurrent requests that can occur.  
+
+If your computer has fewer than 5 CPUs, then the value of this variable is set to `32`. Otherwise, the default value is equal to 16 multiplied by the number of CPUs. The maximum default value of this variable is `3000`, but you can manually set this value higher or lower. 
+
+| Operating system | Command  |
+|--------|-----------|
+| **Windows** | `set AZCOPY_CONCURRENCY_VALUE=<value>` |
+| **Linux** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
+| **macOS** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
+
+Use the `azcopy env` to check the current value of this variable. If the value is blank, then you can read which value is being used by looking at the beginning of any AzCopy log file. The selected value, and the reason it was selected, are reported there.
+
+Before you set this variable, we recommend that you run a benchmark test. The benchmark test process will report the recommended concurrency value. Alternatively, if your network conditions and payloads vary, set this variable to the word `AUTO` instead of to a particular number. That will cause AzCopy to always run the same automatic tuning process that it uses in benchmark tests.
+
+## Optimize memory use
+
+Set the `AZCOPY_BUFFER_GB` environment variable to specify the maximum amount of your system memory you want AzCopy to use when downloading and uploading files.
+Express this value in gigabytes (GB).
+
+| Operating system | Command  |
+|--------|-----------|
+| **Windows** | `set AZCOPY_BUFFER_GB=<value>` |
+| **Linux** | `export AZCOPY_BUFFER_GB=<value>` |
+| **macOS** | `export AZCOPY_BUFFER_GB=<value>` |
+
+
 ## See also
 
-Put something here.
+- [Get started with AzCopy](storage-use-azcopy-v10.md)
+- [Optimize the performance of AzCopy v10 with Azure Storage](storage-use-azcopy-optimize.md)
+- [Troubleshoot AzCopy V10 issues in Azure Storage by using log files](storage-use-azcopy-configure.md)
+- [AzCopy V10 with Azure Storage FAQ](storage-use-faq.yml)

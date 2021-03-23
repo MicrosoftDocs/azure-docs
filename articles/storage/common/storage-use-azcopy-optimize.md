@@ -1,5 +1,5 @@
 ---
-title: Optimize the performance of AzCopy with Azure Storage | Microsoft Docs
+title: Optimize the performance of AzCopy v10 with Azure Storage | Microsoft Docs
 description: Description goes here 2.
 author: normesta
 ms.service: storage
@@ -10,26 +10,14 @@ ms.subservice: common
 ms.reviewer: dineshm
 ---
 
-# Optimize the performance of AzCopy
+# Optimize the performance of AzCopy v10 with Azure Storage
 
 AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. This article helps you to optimize performance.
 
 > [!NOTE]
-> If you're looking for content to help you get started with AzCopy, see any of the following articles:
-> - [Get started with AzCopy](storage-use-azcopy-v10.md)
-> - [Transfer data with AzCopy and blob storage](./storage-use-azcopy-v10.md#transfer-data)
-> - [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
-> - [Transfer data with AzCopy and Amazon S3 buckets](storage-use-azcopy-s3.md)
+> If you're looking for content to help you get started with AzCopy, see [Get started with AzCopy](storage-use-azcopy-v10.md)
 
 You can benchmark performance, and then use commands and environment variables to find an optimal tradeoff between performance and resource consumption.
-
-This section helps you perform these optimization tasks:
-
-> [!div class="checklist"]
-> * Run benchmark tests
-> * Optimize throughput
-> * Optimize memory use 
-> * Optimize file synchronization
 
 ## Run benchmark tests
 
@@ -94,3 +82,8 @@ The [sync](storage-ref-azcopy-sync.md) command identifies all files at the desti
 To accomplish this, use the [azcopy copy](storage-ref-azcopy-copy.md) command instead, and set the `--overwrite` flag to `ifSourceNewer`. AzCopy will compare files as they are copied without performing any up-front scans and comparisons. This provides a performance edge in cases where there are a large number of files to compare.
 
 The [azcopy copy](storage-ref-azcopy-copy.md) command doesn't delete files from the destination, so if you want to delete files at the destination when they no longer exist at the source, then use the [azcopy sync](storage-ref-azcopy-sync.md) command with the `--delete-destination` flag set to a value of `true` or `prompt`.
+
+## See also
+
+- [Get started with AzCopy](storage-use-azcopy-v10.md)
+- [AzCopy V10 with Azure Storage FAQ](storage-use-faq.yml)

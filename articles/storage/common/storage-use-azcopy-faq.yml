@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: AzCopy V10 FAQ
+  title: AzCopy V10 with Azure Storage FAQ
   description: Description goes here.
   author: normesta
   ms.author: normesta
@@ -9,7 +9,7 @@ metadata:
   ms.service: storage
   ms.subservice: common
     
-title: AzCopy V10 FAQ
+title: AzCopy V10 with Azure Storage FAQ
 
 sections:
   - name: Ignored

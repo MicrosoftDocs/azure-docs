@@ -84,3 +84,8 @@ When you resume a job, AzCopy looks at the job plan file. The plan file lists al
 If you want to remove all plan and log files from your local machine to save disk space, use the `azcopy jobs clean` command.
 
 To remove the plan and log files associated with only one job, use `azcopy jobs rm <job-id>`. Replace the `<job-id>` placeholder in this example with the job id of the job.
+
+## See also
+
+- [Get started with AzCopy](storage-use-azcopy-v10.md)
+- [AzCopy V10 with Azure Storage FAQ](storage-use-faq.yml)

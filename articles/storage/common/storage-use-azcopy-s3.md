@@ -182,10 +182,19 @@ AzCopy performs these steps:
 
 ## Next steps
 
-Find more examples in any of these articles:
+Find more examples in these articles:
 
-- [Get started with AzCopy](storage-use-azcopy-v10.md)
+- [Examples: Upload](storage-use-azcopy-blobs-upload.md)
+- [Examples: Download](storage-use-azcopy-blobs-download.md)
+- [Examples: Copy between accounts](storage-use-azcopy-blobs-copy.md)
+- [Examples: Synchronize](storage-use-azcopy-blobs-synchronize.md)
+- [Examples: Google Cloud Storage](storage-use-azcopy-google-cloud.md)
+- [Examples: Azure Files](storage-use-azcopy-files.md)
+- [Tutorial: Migrate on-premises data to cloud storage by using AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
 
-- [Transfer data](storage-use-azcopy-v10.md#transfer-data)
+See these articles to configure settings, optimize performance, and troubleshoot issues:
 
-- [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
+- [AzCopy configuration settings](storage-ref-azcopy-configuration-settings.md)
+- [Optimize the performance of AzCopy](storage-use-azcopy-optimize.md)
+- [Troubleshoot AzCopy V10 issues in Azure Storage by using log files](storage-use-azcopy-configure.md)
+- [AzCopy V10 with Azure Storage FAQ](storage-use-faq.yml)

@@ -25,7 +25,6 @@ azcopy remove [resourceURL] [flags]
 - [Get started with AzCopy](storage-use-azcopy-v10.md)
 - [Transfer data with AzCopy and Blob storage](./storage-use-azcopy-v10.md#transfer-data)
 - [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
-- [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
 
 ## Examples
 

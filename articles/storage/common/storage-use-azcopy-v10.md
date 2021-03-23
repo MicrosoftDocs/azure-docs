@@ -100,7 +100,7 @@ To find example commands, see any of these articles.
 |Google Cloud Storage|[Copy data from Google Cloud Storage to Azure Storage (preview)](storage-use-azcopy-google-cloud.md)|
 |Azure Stack storage|[Transfer data with AzCopy and Azure Stack storage](/azure-stack/user/azure-stack-storage-transfer#azcopy)|
 
-## Find AzCopy commands
+## Get command help
 
 To see a list of commands, type `azcopy -h` and then press the ENTER key.
 
@@ -110,6 +110,8 @@ To learn about a specific command, just include the name of the command (For exa
 > ![Inline help](media/storage-use-azcopy-v10/azcopy-inline-help.png)
 
 ### List of commands
+
+The following table lists all AzCopy v10 commands. Each command links to a reference article. 
 
 |Command|Description|
 |---|---|
