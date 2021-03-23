@@ -7,7 +7,7 @@ manager: daveba
 ms.service: identity
 ms.topic: tutorial
 ms.subservice: verifiable-credentials
-ms.date: 03/14/2021
+ms.date: 03/23/2021
 ms.author: barclayn
 ms.reviewer: 
 
@@ -89,25 +89,20 @@ Take note of the two properties listed below:
 
 ## Set up verifiable credentials Preview
 
-There are two ways to get to the verifiable credentials blade in the Azure portal. 
+Now we need to take the last step to set up your tenant for verifiable credentials.
 
-1. Search for **verifiable credentials**. 
-2. Navigate to AAD>Security, and choose **verifiable credentials** one the left menu.
-
-    >[!IMPORTANT]
-    > During Private Preview use the link https://aka.ms/vcpreviewportal
-
-3. To get started with the verifiable credentials service, you need to set up your organization and provide your organization name, domain, and key vault. Let's look at each one.
+1. From the Azure portal, search for **verifiable credentials**. 
+2. To get started with the verifiable credentials service, we need to set up your organization and provide the organization name, domain, and key vault. Let's look at each one.
 
       - **organization name**: This name is how you reference your business within the Verifiable Credential service. This value is not customer facing.
       - **Domain:** The domain entered is added to a service endpoint in your DID document. [Microsoft Authenticator](../user-help/user-help-auth-app-download-install.md) and other wallets use this information to validate that your DID is linked to your domain. If the wallet can verify the DID, it displays a verified symbol. If the wallet is unable to verify the DID, it informs the user that the credential was issued by an organization it could not validate. The domain is what binds your DID to something tangible that the user may know about your business. See the example Presentation screen below.
       - **Key vault:** Provide the name of the Key Vault that we created earlier.
 
-   
+ 
    >[!IMPORTANT]
    > The domain can not be a redirect, otherwise the DID and domain cannot be linked. Make sure to use https://www.domain.com format.
     
-4. Choose **Save and create credential**
+3. Choose **Save and create credential**
 
     ![set up your organizational identity](media/tutorial-verifiable-credentials-issuer/save-create.png)
 
