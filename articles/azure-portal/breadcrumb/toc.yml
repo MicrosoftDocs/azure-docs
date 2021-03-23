@@ -5,3 +5,9 @@
   - name: Azure portal documentation
     tocHref: /azure/azure-portal/
     topicHref: /azure/azure-portal/index
+  - name: Azure portal documentation
+    tocHref: /azure/virtual-nachines/
+    topicHref: /azure/azure-portal/index
+  - name: Azure portal documentation
+    tocHref: /power-bi
+    topicHref: /azure/azure-portal/index
