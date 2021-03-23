@@ -47,7 +47,7 @@ If you don't want to use auto-setup, you can omit the `data-setup` attribute and
                // add an event listener
               this.addEventListener('ended', function() {
                 console.log('Finished!');
-            }
+            });
           }
     );
     myPlayer.src([{
