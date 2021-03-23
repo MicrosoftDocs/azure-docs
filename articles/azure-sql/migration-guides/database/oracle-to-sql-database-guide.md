@@ -46,11 +46,27 @@ To create an assessment, follow these steps:
 1. Open [SQL Server Migration Assistant for Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258). 
 1. Select **File** and then choose **New Project**. 
 1. Provide a project name, a location to save your project, and then select Azure SQL Database as the migration target from the drop-down. Select **OK**.
-1. Enter in values for Oracle connection details on the **Connect to Oracle** dialog box.
+
+   ![New Project](./media/oracle-to-sql-database-guide/new-project.png)
+
+
+1. Select **Connect to Oracle**. Enter in values for Oracle connection details on the **Connect to Oracle** dialog box.
+
+   ![Connect to Oracle](./media/oracle-to-sql-database-guide/connect-to-oracle.png)
+
+   Select the Oracle schema(s) you want to migrate: 
+
+   ![Select Oracle schema](./media/oracle-to-sql-database-guide/select-schema.png)
+
 1. Right-click the Oracle schema you want to migrate in the **Oracle Metadata Explorer**, and then choose **Create report**. This will generate an HTML report. Alternatively, you can choose **Create report** from the navigation bar after selecting the database.
+
+   ![Create Report](./media/oracle-to-sql-database-guide/create-report.png)
+
 1. Review the HTML report to understand conversion statistics and any errors or warnings. You can also open the report in Excel to get an inventory of Oracle objects and the effort required to perform schema conversions. The default location for the report is in the report folder within SSMAProjects.
 
    For example: `drive:\<username>\Documents\SSMAProjects\MyOracleMigration\report\report_2020_11_12T02_47_55\`
+
+   ![Assessment Report](./media/oracle-to-sql-database-guide/assessment-report.png) 
 
 
 
@@ -61,6 +77,9 @@ Validate the default data type mappings and change them based on requirements if
 1. Select **Tools** from the menu. 
 1. Select **Project Settings**. 
 1. Select the **Type mappings** tab. 
+
+   ![Type Mappings](./media/oracle-to-sql-database-guide/type-mappings.png)
+
 1. You can change the type mapping for each table by selecting the table in the **Oracle Metadata Explorer**.
 
 ### Convert schema
@@ -73,8 +92,21 @@ To convert the schema, follow these steps:
     1. Choose your target SQL Database from the drop-down.
     1. Select **Connect**.
 
-1. Right-click the schema and then choose **Convert Schema**. Alternatively, you can choose **Convert Schema** from the top navigation bar after selecting your schema.
+    ![Connect to SQL Database](./media/oracle-to-sql-database-guide/connect-to-sql-database.png)
+
+
+1. Right-click the Oracle schema in the **Oracle Metadata Explorer** and then choose **Convert Schema**. Alternatively, you can choose **Convert Schema** from the top navigation bar after selecting your schema.
+
+   ![Convert Schema](./media/oracle-to-sql-database-guide/convert-schema.png)
+
 1. After the conversion completes, compare and review the converted objects to the original objects to identify potential problems and address them based on the recommendations.
+
+   ![Review recommendations schema](./media/oracle-to-sql-database-guide/table-mapping.png)
+
+   Compare the converted Transact-SQL text to the original stored procedures and review the recommendations. 
+
+   ![Review recommendations](./media/oracle-to-sql-database-guide/procedure-comparison.png)
+
 1. Save the project locally for an offline schema remediation exercise. Select **Save Project** from the **File** menu.
 
 ## Migrate
@@ -84,11 +116,26 @@ After you have completed assessing your databases and addressing any discrepanci
 To publish your schema and migrate your data, follow these steps:
 
 1. Publish the schema: Right-click the database from the **Databases** node in the **Azure SQL Database Metadata Explorer** and choose **Synchronize with Database**.
-1. Migrate the data: Right-click the schema from the **Oracle Metadata Explorer** and choose **Migrate Data**. 
+
+   ![Synchronize with Database](./media/oracle-to-sql-database-guide/synchronize-with-database.png)
+
+   Review the mapping between your source project and your target:
+
+   ![Synchronize with Database review](./media/oracle-to-sql-database-guide/synchronize-with-database-review.png)
+
+
+1. Migrate the data: Right-click the schema from the **Oracle Metadata Explorer** and choose **Migrate Data**. Alternatively, you can choose **Migrate Data** from the top line navigation bar after selecting the schema. 
+
+   ![Migrate Data](./media/oracle-to-sql-database-guide/migrate-data.png)
+
 1. Provide connection details for both Oracle and Azure SQL Database.
 1. View the **Data Migration report**.
+
+   ![Data Migration Report](./media/oracle-to-sql-database-guide/data-migration-report.png)
+
 1. Connect to your Azure SQL Database by using [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) and validate the migration by reviewing the data and schema.
 
+   ![Validate in SSMA](./media/oracle-to-sql-database-guide/validate-data.png)
 
 Alternatively, you can also use SQL Server Integration Services (SSIS) to perform the migration. To learn more, see: 
 

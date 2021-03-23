@@ -97,5 +97,7 @@ In this document, you learned how Azure Sentinel collects CEF logs from security
 - STEP 3: [Verify connectivity](connect-cef-verify.md)
 
 To learn more about what to do with the data you've collected in Azure Sentinel, see the following articles:
+
+- Learn about [CEF and CommonSecurityLog field mapping](cef-name-mapping.md).
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](./tutorial-detect-threats-built-in.md).

@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/19/2020
+ms.date: 03/22/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -205,20 +205,7 @@ In case the pilot does not work as expected, you can go back to the Azure AD Con
 1.	Disable provisioning configuration in the Azure portal. 
 2.	Disable all the custom sync rules created for Cloud Provisioning using the Sync Rule Editor tool. Disabling should cause full sync on all the connectors.
 
-## Configure Azure AD Connect sync to exclude the pilot OU
-Once you have verified that users from the pilot OU are successfully managed by cloud sync, you can re-configure Azure AD Connect to exclude the pilot OU that was created above.  The cloud provisioning agent will handle synchronization for these users going forward.  Use the following steps to scope Azure AD Connect.
 
- 1. On the server that is running Azure AD Connect, double-click on the Azure AD Connect icon.
- 2. Click **Configure**
- 3. Select **Customize synchronization options** and click next.
- 4. Sign-in to Azure AD and click **Next**.
- 5. On the **Connect your directories** screen click **Next**.
- 6. On the **Domain and OU filtering** screen, select **Sync selected domains and OUs**.
- 7. Expand your domain and **de-select** the **CPUsers** OU.  Click **Next**.
-![scope](media/tutorial-existing-forest/scope-1.png)</br>
- 9. On the **Optional features** screen, click **Next**.
- 10. On the **Ready to configure** screen click **Configure**.
- 11. Once that has completed, click **Exit**. 
 
 ## Next steps 
 

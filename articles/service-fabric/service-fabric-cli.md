@@ -17,7 +17,7 @@ The Azure Service Fabric command-line interface (CLI) is a command-line utility 
 
 Prior to installation, make sure your environment has both Python and pip installed. For more information, see the [pip quickstart documentation](https://pip.pypa.io/en/latest/quickstart/) and the official [Python installation documentation](https://wiki.python.org/moin/BeginnersGuide/Download).
 
-The CLI supports Python versions 2.7, 3.5, 3.6, and 3.7. Python 3.x is the recommended version, since Python 2.7 will reach end of support soon.
+The CLI supports Python versions 2.7 and 3.6+, with Python 3.x recommended.
 
 ### Service Fabric target runtime
 
