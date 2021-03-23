@@ -40,7 +40,7 @@ The [Jupyter Notebook](https://jupyter.org/) that you created in the [previous t
 
     The output looks like:
 
-    ![Show tables in Spark](./media/apache-spark-use-bi-tools/apache-spark-show-tables.png)
+    :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-show-tables.png" alt-text="Show tables in Spark" border="true":::
 
     If you closed the notebook before starting this tutorial, `hvactemptable` is cleaned up, so it's not included in the output.  Only Hive tables that are stored in the metastore (indicated by **False** under the **isTemporary** column) can be accessed from the BI tools. In this tutorial, you connect to the **hvac** table that you created.
 
@@ -53,7 +53,7 @@ The [Jupyter Notebook](https://jupyter.org/) that you created in the [previous t
 
     The output looks like:
 
-    ![Show rows from hvac table in Spark](./media/apache-spark-use-bi-tools/apache-spark-select-limit.png)
+    :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-select-limit.png" alt-text="Show rows from hvac table in Spark" border="true":::
 
 3. From the **File** menu on the notebook, select **Close and Halt**. Shut down the notebook to release the resources.
 

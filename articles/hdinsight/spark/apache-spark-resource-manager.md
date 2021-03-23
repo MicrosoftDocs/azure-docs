@@ -23,7 +23,7 @@ You can use the YARN UI to monitor applications that are currently running on th
 
 2. From **Cluster dashboards**, select **Yarn**. When prompted, enter the admin credentials for the Spark cluster.
 
-    ![Launch YARN UI](./media/apache-spark-resource-manager/azure-portal-dashboard-yarn.png)
+    :::image type="content" source="./media/apache-spark-resource-manager/azure-portal-dashboard-yarn.png" alt-text="Launch YARN UI" border="true":::
 
    > [!TIP]  
    > Alternatively, you can also launch the YARN UI from the Ambari UI. From the Ambari UI, navigate to **YARN** > **Quick Links** > **Active** > **Resource Manager UI**.
@@ -46,7 +46,7 @@ The three configuration parameters can be configured at the cluster level (for a
 
 1. Select **Save** to save the configuration changes. At the top of the page, you're prompted to restart all the affected services. Select **Restart**.
 
-    ![Restart services](./media/apache-spark-resource-manager/apache-ambari-restart-services.png)
+    :::image type="content" source="./media/apache-spark-resource-manager/apache-ambari-restart-services.png" alt-text="Restart services" border="true":::
 
 ### Change the parameters for an application running in Jupyter Notebook
 
