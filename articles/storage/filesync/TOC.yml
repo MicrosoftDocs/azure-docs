@@ -73,6 +73,8 @@
       href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
     - name: Manage tiered files
       href: storage-sync-how-to-manage-tiered-files.md
+    - name: Move resources to other resource groups, subscriptions and AAD tenants
+      href: storage-sync-resource-move.md
   - name: Data protection
     items:
     - name: Enable soft delete
