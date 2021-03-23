@@ -32,10 +32,10 @@ You can create [user flows](user-flow-overview.md) of different types in your Az
    4. Under **Manage**, select **Identity providers**.
    5. In the identity provider list, select **Local account**.
    6. In the **Configure local IDP** page, select all the identity types you want to support. Selecting options here simply makes them available for the user flows you create later:
-      - **Phone** (preview): Allows a user to enter a phone number, which is verified at sign-up and becomes their user ID.
+      - **Phone**: Allows a user to enter a phone number, which is verified at sign-up and becomes their user ID.
       - **Email** (default): Allows a user to enter an email address, which is verified at sign-up and becomes their user ID.
       - **Username**: Allows a user to create their own unique user ID. An email address is collected from the user and verified.
-    7. Select **Save**.
+    a. Select **Save**.
 
 ## Create a user flow
 

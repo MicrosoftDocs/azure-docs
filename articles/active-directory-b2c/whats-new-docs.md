@@ -69,7 +69,7 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 ### New articles
 
 - [Create a user flow in Azure Active Directory B2C](create-user-flow.md)
-- [Set up phone sign-up and sign-in for user flows (preview)](phone-authentication-user-flows.md)
+- [Set up phone sign-up and sign-in for user flows](phone-authentication-user-flows.md)
 
 ### Updated articles
 
