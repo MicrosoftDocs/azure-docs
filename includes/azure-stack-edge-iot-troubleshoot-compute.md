@@ -82,15 +82,15 @@ You can specify fixed IP addresses for your IoT Edge modules via the K8s-experim
   }
 }
 ```
-### Configure static IPs for IoT Edge modules
+### Expose Kubernetes service as cluster IP service for internal communication
 
 #### Problem description
 
-You may not want an external-facing IP address for your application and just want the IoT Edge modules within the Kubernetes cluster to access the application.
+By default, the IoT service type is of type load balancer and assigned externally facing IP addresses. You may not want an external-facing IP address for your application. You may need to expose the pods within the KUbernetes cluster for access as other pods and not as an externally exposed load balancer service. 
 
 #### Suggested solution
 
-You can use the folloing create options via the K8s-experimental section:
+You can use the create options via the K8s-experimental section. The following service option should work with port bindings.
 
 ```yaml
 {
