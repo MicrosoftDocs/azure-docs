@@ -117,9 +117,9 @@ dotnet run
 
 ## See also
 
-* See **[Authenticate requests to Azure Cognitive Services](authentication.md)** on how to securely work with Cognitive Services.
-* See **[What are Azure Cognitive Services?](./what-are-cognitive-services.md)** to get a list of different categories within Cognitive Services.
-* See **[Natural language support](language-support.md)** to see the list of natural languages that Cognitive Services supports.
-* See **[Use Cognitive Services as containers](cognitive-services-container-support.md)** to understand how to use Cognitive Services on-prem.
-* See **[Plan and manage costs for Cognitive Services](plan-manage-costs.md)** to estimate cost of using Cognitive Services.
+* See **[Authenticate requests to Azure Cognitive Services](../../authentication.md)** on how to securely work with Cognitive Services.
+* See **[What are Azure Cognitive Services?](../../what-are-cognitive-services.md)** to get a list of different categories within Cognitive Services.
+* See **[Natural language support](../../language-support.md)** to see the list of natural languages that Cognitive Services supports.
+* See **[Use Cognitive Services as containers](../../cognitive-services-container-support.md)** to understand how to use Cognitive Services on-prem.
+* See **[Plan and manage costs for Cognitive Services](../../plan-manage-costs.md)** to estimate cost of using Cognitive Services.
 * See **[Cognitive Services Management SDK reference documentation](/dotnet/api/overview/azure/cognitiveservices/management)** for more details on the management SDK.
