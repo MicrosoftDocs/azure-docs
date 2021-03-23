@@ -43,9 +43,9 @@ policy_signer | x-ms-policy-signer
 
 ### Outgoing claims
 
-Below claims are included in the attestation token for all attestation types by the service.
+Azure Attestation includes the below claims in the attestation token for all attestation types. The claim names are leveraged from teh mentioned sources.
 
-Source: As defined by [IETF JWT](https://tools.ietf.org/html/rfc7519)
+Source: [IETF JWT](https://tools.ietf.org/html/rfc7519)
 
 - **"jti" (JWT ID) Claim** - Unique identifier for the JWT
 - **"iss" (Issuer) Claim** - The principal that issued the JWT 
@@ -53,7 +53,7 @@ Source: As defined by [IETF JWT](https://tools.ietf.org/html/rfc7519)
 - **"exp" (Expiration Time) Claim** - Expiration time after which the JWT must not be accepted for processing
 - **"nbf" (Not Before) Claim** - Not Before time before which the JWT must not be accepted for processing 
 
-Source: As defined by [IETF EAT](https://tools.ietf.org/html/draft-ietf-rats-eat-03#page-9)
+Source: [IETF EAT](https://tools.ietf.org/html/draft-ietf-rats-eat-03#page-9)
 
 - **"Nonce claim" (nonce)**
 
