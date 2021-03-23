@@ -1,5 +1,5 @@
 ---
-title: Understanding app status in Azure Spring Cloud
+title: App status in Azure Spring Cloud
 description: Learn the app status categories in Azure Spring Cloud
 author: MikeDodaro
 ms.service: spring-cloud
@@ -9,7 +9,7 @@ ms.author: brendm
 ms.custom: devx-track-java
 ---
 
-# Understanding app status in Azure Spring Cloud
+# App status in Azure Spring Cloud
 
 **This article applies to:** ✔️ Java ✔️ C#
 
@@ -69,4 +69,4 @@ To view the status of a specific instance of a deployed app, click the **Name** 
 
 
 ## See also
-* [Prepare a Spring or Steeltoe application for deployment in Azure Spring Cloud](spring-cloud-tutorial-prepare-app-deployment.md)
+* [Prepare a Spring or Steeltoe application for deployment in Azure Spring Cloud](how-to-prepare-app-deployment.md)
