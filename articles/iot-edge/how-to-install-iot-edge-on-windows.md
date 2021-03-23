@@ -338,6 +338,9 @@ Verify that IoT Edge for Linux on Windows was successfully installed and configu
    Ssh-EflowVm
    ```
 
+   >[!NOTE]
+   >The only account allowed to SSH to the virtual machine is the user that created it.
+
 1. Once you are logged in, you can check the list of running IoT Edge modules using the following Linux command:
 
    ```bash
