@@ -329,15 +329,15 @@ You can use the OData connector and the access token obtained from Postman to co
 
 You need to navigate to **Authorization** tab on the Postman Website.
 
-- In the **Type** box, select **OAuth 2.0**, and in the **Add authorization data to box**, select **Request Header**.
+- In the **Type** box, select **OAuth 2.0**, and in the **Add authorization data to** box, select **Request Headers**.
 - Fill the following information in the **Configure New Token** page to get a new access token: 
-    - **Grant type**: Select **Authorization code**
-    - **Call back URL**: Enter `https://www.localhost.com` 
+    - **Grant type**: Select **Authorization Code**.
+    - **Callback URL**: Enter `https://www.localhost.com/`. 
     - **Auth URL**: Enter `https://login.microsoftonline.com/common/oauth2/authorize?resource=https://<your tenant name>.sharepoint.com`. Replace `<your tenant name>` with your own tenant name. 
-    - **Access token URL**: Enter `https://login.microsoftonline.com/common/oauth2/token`
-    - **Client ID**: Enter your AAD service principal ID
-    - **Client Secret**: Enter your service principal secret
-    - **Client Authentication**: Select **Send as Basic Auth header**
+    - **Access token URL**: Enter `https://login.microsoftonline.com/common/oauth2/token`.
+    - **Client ID**: Enter your AAD service principal ID.
+    - **Client Secret**: Enter your service principal secret.
+    - **Client Authentication**: Select **Send as Basic Auth header**.
 - You will be asked to login with your username and password.
 - Once you get your access token, please copy and save it for the next step.
 
@@ -345,17 +345,17 @@ You need to navigate to **Authorization** tab on the Postman Website.
 ./media/connector-odata/odata-project-online-postman-accesstoken-inline.png
 ) ](./media/connector-odata/odata-project-online-postman-accesstoken-expanded.png#lightbox)
 
-2. Create the OData Linked Service 
+2. Create the OData linked service 
 - **Service URL**: Enter `https://<your tenant name>.sharepoint.com/sites/pwa/_api/Projectdata`. Replace `<your tenant name>` with your own tenant name. 
-- **Authentication type**: Select **Anonymous**
+- **Authentication type**: Select **Anonymous**.
 - **Auth headers**:
-    - **Property**: Choose **Authorization**
-    - **Value**: Enter the **access token** copied from Step 1
-- Test the linked service
+    - **Property name**: Choose **Authorization**.
+    - **Value**: Enter the **access token** copied from Step 1.
+- Test the linked service.
 
 ![Create OData linked service](./media/connector-odata/odata-project-online-linked-service.png)
 
-3. Create the OData Dataset
+3. Create the OData dataset
 - Create the dataset with the OData linked service created in step2.
 - Preview data.
 
