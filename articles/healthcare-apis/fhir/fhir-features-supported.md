@@ -35,9 +35,9 @@ Previous versions also currently supported include: `3.0.2`
 | history                        | Yes       | Yes       | Yes       |                                                     |
 | create                         | Yes       | Yes       | Yes       | Support both POST/PUT                               |
 | create (conditional)           | Yes       | Yes       | Yes       | Issue [#1382](https://github.com/microsoft/fhir-server/issues/1382) |
-| search                         | Partial   | Partial   | Partial   | See supported search parameter types below.         |
-| chained search                 | Yes       | Yes       | Partial      | See Note 2 below.                                   |
-| reverse chained search         | Yes       | Yes       | Partial      | See Note 2 below.                                   |
+| search                         | Partial   | Partial   | Partial   | See Search section below.                           |
+| chained search                 | Yes       | Yes       | Partial   | See Note 2 below.                                   |
+| reverse chained search         | Yes       | Yes       | Partial   | See Note 2 below.                                   |
 | capabilities                   | Yes       | Yes       | Yes       |                                                     |
 | batch                          | Yes       | Yes       | Yes       |                                                     |
 | transaction                    | No        | Yes       | No        |                                                     |
