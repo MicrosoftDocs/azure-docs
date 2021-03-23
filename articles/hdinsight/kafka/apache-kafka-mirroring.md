@@ -86,7 +86,7 @@ This architecture features two clusters in different resource groups and virtual
 Configure IP advertising to enable a client to connect using broker IP addresses instead of domain names.
 
 1. Go to the Ambari dashboard for the primary cluster: `https://PRIMARYCLUSTERNAME.azurehdinsight.net`.
-1. Select **Services** > **Kafka**. CliSelectck the **Configs** tab.
+1. Select **Services** > **Kafka**. Select the **Configs** tab.
 1. Add the following config lines to the bottom **kafka-env template** section. Select **Save**.
 
     ```
