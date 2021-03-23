@@ -93,7 +93,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. In the **Mappings** section, select **Synchronize Azure Active Directory Users to Grammarly**.
 
-1. Review the user attributes that are synchronized from Azure AD to Grammarly in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Grammarly for update operations. If you change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you'll need to ensure that the Grammarly API supports filtering users based on that attribute. Select **Save** to commit any changes.
+1. Review the user attributes that are synchronized from Azure AD to Grammarly in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Grammarly for update operations. If you change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you'll need to ensure that the Grammarly API supports filtering users based on that attribute. Select **Save** to commit any changes.
 
    |Attribute|Type|Supported for filtering|
    |---|---|---|
