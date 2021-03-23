@@ -117,7 +117,7 @@ Use the **post args** match condition to identify requests based on the argument
 
 ### Example
 
-In this example, we match all POST requests where a `customerName` argument is provided in the request body, and where the value of `customerName` begins with the letter `J` or 'K'. We use a case transform to convert the input values to uppercase so that values beginning with `J`, `j`, `K`, and `k` are all matched.
+In this example, we match all POST requests where a `customerName` argument is provided in the request body, and where the value of `customerName` begins with the letter `J` or `K`. We use a case transform to convert the input values to uppercase so that values beginning with `J`, `j`, `K`, and `k` are all matched.
 
 # [Portal](#tab/portal)
 
@@ -225,14 +225,14 @@ In this example, we match all requests where the query string contains the strin
 
 ## <a name="RemoteAddress"></a> Remote address
 
-The **remote address** match condition identifies requests based on the requester's location or IP address.
+The **remote address** match condition identifies requests based on the requester's location or IP address. You can specify multiple values to match, which will be combined using OR logic.
 
 * Use CIDR notation when specifying IP address blocks. This means that the syntax for an IP address block is the base IP address followed by a forward slash and the prefix size. For example:
-    * **IPv4 example**: *5.5.5.64/26* matches any requests that arrive from addresses 5.5.5.64 through 5.5.5.127.
-    * **IPv6 example**: *1:2:3:/48* matches any requests that arrive from addresses 1:2:3:0:0:0:0:0 through 1:2:3: ffff:ffff:ffff:ffff:ffff.
+    * **IPv4 example**: `5.5.5.64/26` matches any requests that arrive from addresses 5.5.5.64 through 5.5.5.127.
+    * **IPv6 example**: `1:2:3:/48` matches any requests that arrive from addresses 1:2:3:0:0:0:0:0 through 1:2:3: ffff:ffff:ffff:ffff:ffff.
 * When you specify multiple IP addresses and IP address blocks, 'OR' logic is applied.
-    * **IPv4 example**: if you add two IP addresses *1.2.3.4* and *10.20.30.40*, the condition is matched if any requests that arrive from either address 1.2.3.4 or 10.20.30.40.
-    * **IPv6 example**:  if you add two IP addresses *1:2:3:4:5:6:7:8* and *10:20:30:40:50:60:70:80*, the condition is matched if any requests that arrive from either address 1:2:3:4:5:6:7:8 or 10:20:30:40:50:60:70:80.
+    * **IPv4 example**: if you add two IP addresses `1.2.3.4` and `10.20.30.40`, the condition is matched for any requests that arrive from either address 1.2.3.4 or 10.20.30.40.
+    * **IPv6 example**:  if you add two IP addresses `1:2:3:4:5:6:7:8` and `10:20:30:40:50:60:70:80`, the condition is matched for any requests that arrive from either address 1:2:3:4:5:6:7:8 or 10:20:30:40:50:60:70:80.
 
 ### Properties
 
@@ -285,7 +285,7 @@ In this example, we match all requests where the request has not originated from
 
 ## <a name="RequestBody"></a> Request body
 
-The **request body** match condition identifies requests based on specific text that appears in the body of the request.
+The **request body** match condition identifies requests based on specific text that appears in the body of the request. You can specify multiple values to match, which will be combined using OR logic.
 
 ### Properties
 
@@ -345,7 +345,7 @@ In this example, we match all requests where the request body contains the strin
 
 ## <a name="UrlFileName"></a> Request file name
 
-The **request file name** match condition identifies requests that include the specified file name in the request URL.
+The **request file name** match condition identifies requests that include the specified file name in the request URL. You can specify multiple values to match, which will be combined using OR logic.
 
 ### Properties
 
@@ -357,7 +357,7 @@ The **request file name** match condition identifies requests that include the s
 
 ### Example
 
-In this example, we match all requests where the request file name is `media.mp4`. We transform the file name to lowercase before evaluating the match, so `MEDIA.MP4` and other case variations will also trigger this match condition.
+In this example, we match all requests where the request file name contains the text `media.mp4`. We transform the file name to lowercase before evaluating the match, so `MEDIA.MP4` and other case variations will also trigger this match condition.
 
 # [Portal](#tab/portal)
 
@@ -405,7 +405,7 @@ In this example, we match all requests where the request file name is `media.mp4
 
 ## <a name="UrlFileExtension"></a> Request file extension
 
-The **request file extension** match condition identifies requests that include the specified file extension in the file name in the request URL.
+The **request file extension** match condition identifies requests that include the specified file extension in the file name in the request URL. You can specify multiple values to match, which will be combined using OR logic.
 
 > [!NOTE]
 > Don't include a leading period. For example, use `html` instead of `.html`.
@@ -420,7 +420,7 @@ The **request file extension** match condition identifies requests that include 
 
 ### Example
 
-In this example, we match all requests where the request file extension is `.pdf` or `.docx`. We transform the request file extension to lowercase before evaluating the match, so `.PDF`, `.DocX`, and other case variations will also trigger this match condition.
+In this example, we match all requests where the request file extension is `pdf` or `docx`. We transform the request file extension to lowercase before evaluating the match, so `PDF`, `DocX`, and other case variations will also trigger this match condition.
 
 # [Portal](#tab/portal)
 
@@ -469,7 +469,7 @@ In this example, we match all requests where the request file extension is `.pdf
 
 ## <a name="RequestHeader"></a> Request header
 
-The **request header** match condition identifies requests that include a specific header in the request. You can use this match condition to check if a header exists whatever its value, or to check if the header matches a specified value.
+The **request header** match condition identifies requests that include a specific header in the request. You can use this match condition to check if a header exists whatever its value, or to check if the header matches a specified value. You can specify multiple values to match, which will be combined using OR logic.
 
 ### Properties
 
@@ -520,7 +520,7 @@ In this example, we match all requests where the request contains a header named
 
 ## <a name="RequestMethod"></a> Request method
 
-The **request method** match condition identifies requests that use the specified HTTP request method.
+The **request method** match condition identifies requests that use the specified HTTP request method. You can specify multiple values to match, which will be combined using OR logic.
 
 ### Properties
 
@@ -573,7 +573,7 @@ In this example, we match all requests where the request uses the `DELETE` metho
 
 ## <a name="UrlPath"></a> Request path
 
-The **request path** match condition identifies requests that include the specified path in the request URL.
+The **request path** match condition identifies requests that include the specified path in the request URL. You can specify multiple values to match, which will be combined using OR logic.
 
 > [!NOTE]
 > The path is the part of the URL after the hostname and a slash. For example, in the URL `https://www.contoso.com/files/secure/file1.pdf`, the path is `files/secure/file1.pdf`.
@@ -692,7 +692,7 @@ In this example, we match all requests where the request uses the `HTTP` protoco
 
 ## <a name="RequestUrl"></a> Request URL
 
-Identifies requests that match the specified URL. The entire URL is evaluated.
+Identifies requests that match the specified URL. The entire URL is evaluated. You can specify multiple values to match, which will be combined using OR logic.
 
 > [!TIP]
 > When you use this rule condition, be sure to include the protocol. For example, use `https://www.contoso.com` instead of just `www.contoso.com`.
