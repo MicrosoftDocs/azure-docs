@@ -51,7 +51,7 @@ Data resides in **Asia Pacific** for the following countries/regions:
 
 > Afghanistan (AF), Hong Kong SAR (HK), India (IN), Indonesia (ID), Japan (JP), Korea (KR), Malaysia (MY), Philippines (PH), Singapore (SG), Sri Lanka (LK), Taiwan (TW), and Thailand (TH)
 
-Data resides in **Australia** for the following countries/regions:
+Data resides in **Australia** (Preview) for the following countries/regions:
 
 > Australia and New Zealand
 
