@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/03/2021
+ms.date: 02/22/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
 ---
 
 # Tutorial: Run a compute workload with IoT Edge module on Azure Stack Edge Pro GPU
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
 This tutorial describes how to run a compute workload using an IoT Edge module on your Azure Stack Edge Pro GPU device. After you configure the compute, the device will transform the data before sending it to Azure.
 
@@ -71,7 +71,7 @@ For the simple deployment in this tutorial, you'll need two shares: one Edge sha
 
     `rsync <source file path> < destination file path>`
 
-    For more information about the `rsync` command, go to [Rsync documentation](https://www.computerhope.com/unix/rsync.htm).
+    For more information about the `rsync` command, go to [`Rsync` documentation](https://www.computerhope.com/unix/rsync.htm).
  
 3. Go to **Cloud storage gateway > Shares** to see the updated list of shares.
 

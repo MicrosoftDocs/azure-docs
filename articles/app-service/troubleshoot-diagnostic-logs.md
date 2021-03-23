@@ -129,19 +129,17 @@ To stream logs in the [Azure portal](https://portal.azure.com), navigate to your
 
 To stream logs live in [Cloud Shell](../cloud-shell/overview.md), use the following command:
 
+> [!IMPORTANT]
+> This command may not work with web apps hosted in a Linux app service plan.
+
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup
 ```
 
-To filter specific events, such as errors, use the **--Filter** parameter. For example:
+To filter specific log types, such as HTTP, use the **--Provider** parameter. For example:
 
 ```azurecli-interactive
-az webapp log tail --name appname --resource-group myResourceGroup --filter Error
-```
-To filter specific log types, such as HTTP, use the **--Path** parameter. For example:
-
-```azurecli-interactive
-az webapp log tail --name appname --resource-group myResourceGroup --path http
+az webapp log tail --name appname --resource-group myResourceGroup --provider http
 ```
 
 ### In local terminal

@@ -755,7 +755,7 @@ If you have subscriptions on the free pricing tier, their secure scores will be 
 
 Learn more about [identity and access recommendations](recommendations-reference.md#recs-identityandaccess).
 
-Learn more about [monitoring identity and access](security-center-identity-access.md).
+Learn more about [Managing multi-factor authentication (MFA) enforcement on your subscriptions](security-center-identity-access.md).
 
 
 

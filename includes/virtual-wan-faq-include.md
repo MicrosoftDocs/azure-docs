@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: virtual-wan
  ms.topic: include
- ms.date: 02/05/2021
+ ms.date: 03/05/2021
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -87,7 +87,7 @@ There are two options to add DNS servers for the P2S clients. The first method i
 
 ### For User VPN (Point-to-site)- how many clients are supported?
 
-Each User VPN P2S gateway has two instances and each instance supports upto certain users as the scale unit changes. Scale unit 1-3 supports 500 connections, Scale unit 4-6 supports 1000 connections, Scale unit 7-12 supports 5000 connections and Scale unit 13-18 supports up to 10,000 connections.
+Each User VPN P2S gateway has two instances. Each instance supports up to a certain number of connections as the scale unit changes. Scale unit 1-3 supports 500 connections, scale unit 4-6 supports 1000 connections, scale unit 7-12 supports 5000 connections, and scale unit 13-18 supports up to 10,000 connections.
 
 For example, let's say the user chooses 1 scale unit. Each scale unit would imply an active-active gateway deployed and each of the instances (in this case 2) would support up to 500 connections. Since you can get 500 connections * 2 per gateway, it does not mean that you plan for 1000 instead of the 500 for this scale unit. Instances may need to be serviced during which connectivity for the extra 500 may be interrupted if you surpass the recommended connection count. Also, be sure to plan for downtime in case you decide to scale up or down on the scale unit, or change the point-to-site configuration on the VPN gateway.
 
@@ -101,7 +101,7 @@ Virtual WAN supports up to 20 Gbps aggregate throughput both for VPN and Express
 
 A virtual network gateway VPN is limited to 30 tunnels. For connections, you should use Virtual WAN for large-scale VPN. You can connect up to 1,000 branch connections per region (virtual hub) with aggregate of 20 Gbps per hub. A connection is an active-active tunnel from the on-premises VPN device to the virtual hub. You can have one hub per region, which means you can connect more than 1,000 branches across hubs.
 
-### What is a Virtual WAN Gateway Scale Unit?
+### What is a Virtual WAN gateway scale unit?
 
 A scale unit is a unit defined to pick an aggregate throughput of a gateway in Virtual hub. 1 scale unit of VPN = 500 Mbps. 1 scale unit of ExpressRoute = 2 Gbps. Example: 10 scale unit of VPN would imply 500 Mbps * 10 = 5 Gbps
 
@@ -119,7 +119,7 @@ No. You can use any VPN-capable device that adheres to the Azure requirements fo
 
 ### How do Virtual WAN partners automate connectivity with Azure Virtual WAN?
 
-Software-defined connectivity solutions typically manage their branch devices using a controller, or a device provisioning center. The controller can use Azure APIs to automate connectivity to the Azure Virtual WAN. The automation includes uploading branch information, downloading the Azure configuration, setting up IPSec tunnels into Azure Virtual hubs, and automatically setting up connectivity form the branch device to Azure Virtual WAN. When you have hundreds of branches, connecting using Virtual WAN CPE Partners is easy because the onboarding experience takes away the need to set up, configure, and manage large-scale IPsec connectivity. For more information, see [Virtual WAN partner automation](../articles/virtual-wan/virtual-wan-configure-automation-providers.md).
+Software-defined connectivity solutions typically manage their branch devices using a controller, or a device provisioning center. The controller can use Azure APIs to automate connectivity to the Azure Virtual WAN. The automation includes uploading branch information, downloading the Azure configuration, setting up IPsec tunnels into Azure Virtual hubs, and automatically setting up connectivity form the branch device to Azure Virtual WAN. When you have hundreds of branches, connecting using Virtual WAN CPE Partners is easy because the onboarding experience takes away the need to set up, configure, and manage large-scale IPsec connectivity. For more information, see [Virtual WAN partner automation](../articles/virtual-wan/virtual-wan-configure-automation-providers.md).
 
 ### What if a device I am using is not in the Virtual WAN partner list? Can I still use it to connect to Azure Virtual WAN VPN?
 
@@ -127,7 +127,7 @@ Yes as long as the device supports IPsec IKEv1 or IKEv2. Virtual WAN partners au
 
 ### How do new partners that are not listed in your launch partner list get onboarded?
 
-All virtual WAN APIs are open API. You can go over the documentation [Virtual WAN partner automation](../articles/virtual-wan/virtual-wan-configure-automation-providers.md) to assess technical feasibility. An ideal partner is one that has a device that can be provisioned for IKEv1 or IKEv2 IPsec connectivity. Once the company has completed the automation work for their CPE device based on the automation guidelines provided above, you can reach out to azurevirtualwan@microsoft.com to be listed here [Connectivity through partners]( ../articles/virtual-wan/virtual-wan-locations-partners.md#partners). If you are a customer that would like a certain company solution to be listed as a Virtual WAN partner, please have the company contact the Virtual WAN by sending an email to azurevirtualwan@microsoft.com.
+All virtual WAN APIs are open API. You can go over the documentation [Virtual WAN partner automation](../articles/virtual-wan/virtual-wan-configure-automation-providers.md) to assess technical feasibility. An ideal partner is one that has a device that can be provisioned for IKEv1 or IKEv2 IPsec connectivity. Once the company has completed the automation work for their CPE device based on the automation guidelines provided above, you can reach out to azurevirtualwan@microsoft.com to be listed here [Connectivity through partners]( ../articles/virtual-wan/virtual-wan-locations-partners.md#partners). If you are a customer that would like a certain company solution to be listed as a Virtual WAN partner, have the company contact the Virtual WAN by sending an email to azurevirtualwan@microsoft.com.
 
 ### How is Virtual WAN supporting SD-WAN devices?
 
@@ -143,7 +143,7 @@ A connection from a branch or VPN device into Azure Virtual WAN is a VPN connect
 
 ### What happens if the on-premises VPN device only has 1 tunnel to an Azure Virtual WAN VPN gateway?
 
-An Azure Virtual WAN connection is composed of 2 tunnels. A Virtual WAN VPN gateway is deployed in a virtual hub in active-active mode, which implies that there are separate tunnels from on-premises devices terminating on separate instances. This is the recommendation for all users. However, if the user chooses to only have 1 tunnel to one of the Virtual WAN VPN gateway instances, if for any reason (maintenance, patches etc.) the gateway instance were to be taken offline, the tunnel will be moved to the secondary active instance and the user may experience a reconnect. BGP sessions will not move across instances.
+An Azure Virtual WAN connection is composed of 2 tunnels. A Virtual WAN VPN gateway is deployed in a virtual hub in active-active mode, which implies that there are separate tunnels from on-premises devices terminating on separate instances. This is the recommendation for all users. However, if the user chooses to only have 1 tunnel to one of the Virtual WAN VPN gateway instances, if for any reason (maintenance, patches etc.) the gateway instance is taken offline, the tunnel will be moved to the secondary active instance and the user may experience a reconnect. BGP sessions will not move across instances.
 
 ### Can the on-premises VPN device connect to multiple hubs?
 
@@ -207,7 +207,7 @@ The total VPN throughput of a hub is up to 20 Gbps based on the chosen scale uni
 
 ### Can I use NAT-T on my VPN connections?
 
-Yes, NAT traversal (NAT-T) is supported. The Virtual WAN VPN gateway will NOT perform any NAT-like functionality on the inner packets to/from the IPsec tunnels. In this configuration, please ensure the on-premises device initiates the IPSec tunnel.
+Yes, NAT traversal (NAT-T) is supported. The Virtual WAN VPN gateway will NOT perform any NAT-like functionality on the inner packets to/from the IPsec tunnels. In this configuration, ensure the on-premises device initiates the IPsec tunnel.
 
 ### I don't see the 20 Gbps setting for the virtual hub in portal. How do I configure that?
 
@@ -297,7 +297,6 @@ No. Virtual WAN does not store any customer data.
 
 Yes. For a list of Managed Service Provider (MSP) solutions enabled via Azure Marketplace, see [Azure Marketplace offers by Azure Networking MSP partners](../articles/networking/networking-partners-msp.md#msp).
 
-### How does Virtual WAN Hub Routing Differ from Azure Route Server in a VNet?
+### How does Virtual WAN Hub routing differ from Azure Route Server in a VNet?
 
-Azure Route Server provides a Border Gateway Protocol (BGP) peering service which can be used by NVA (Network Virtual Appliance) to learn routes from the route server in a DIY hub VNet. Virtual WAN Routing provides multiples capabilities including VNET to VNET transit routing, Custom routing , Custom Route Association and Propagation and a zero-touch fully meshed hub service along with connectivity services of ExpressRoute, Site VPN, Remote User/Large Scale P2S VPN and Secure hub (Azure Firewall) capabilities . When you establish a Border Gateway Protocol (BGP) peering between your NVA and Azure Router Server, you can advertise IP addresses from your NVA to your virtual network. For all advanced routing capabilities such as transit routing, custom routing etc., you can use Virtual WAN routing.
-
+Azure Route Server provides a Border Gateway Protocol (BGP) peering service that can be used by NVAs (Network Virtual Appliance) to learn routes from the route server in a DIY hub VNet. Virtual WAN routing provides multiple capabilities including VNet-to-VNet transit routing, custom routing, custom route association and propagation, and a zero-touch fully meshed hub service along with connectivity services of ExpressRoute, Site VPN, Remote User/Large Scale P2S VPN, and Secure hub (Azure Firewall) capabilities. When you establish a BGP peering between your NVA and Azure Route Server, you can advertise IP addresses from your NVA to your virtual network. For all advanced routing capabilities such as transit routing, custom routing, etc., you can use Virtual WAN routing.

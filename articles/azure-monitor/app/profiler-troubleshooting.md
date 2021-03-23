@@ -13,6 +13,15 @@ ms.reviewer: mbullwin
 
 ## <a id="troubleshooting"></a>General troubleshooting
 
+### Make sure you're using the appropriate Profiler Endpoint
+
+Currently the only regions that require endpoint modifications are [Azure Government](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) and [Azure China](https://docs.microsoft.com/azure/china/resources-developer-guide).
+
+|App Setting    | US Government Cloud | China Cloud |   
+|---------------|---------------------|-------------|
+|ApplicationInsightsProfilerEndpoint         | `https://profiler.monitor.azure.us`    | `https://profiler.monitor.azure.cn` |
+|ApplicationInsightsEndpoint | `https://dc.applicationinsights.us` | `https://dc.applicationinsights.azure.cn` |
+
 ### Profiles are uploaded only if there are requests to your application while Profiler is running
 
 Azure Application Insights Profiler collects data for two minutes each hour. It can also collect data when you select the **Profile Now** button in the **Configure Application Insights Profiler** pane.

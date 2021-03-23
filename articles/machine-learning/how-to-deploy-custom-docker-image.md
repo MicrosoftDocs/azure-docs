@@ -37,8 +37,8 @@ This document is broken into two sections:
 ## Prerequisites
 
 * An Azure Machine Learning workspace. For more information, see the [Create a workspace](how-to-manage-workspace.md) article.
-* The [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py). 
-* The [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* The [Azure Machine Learning SDK](/python/api/overview/azure/ml/install). 
+* The [Azure CLI](/cli/azure/install-azure-cli).
 * The [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * An [Azure Container Registry](../container-registry/index.yml) or other Docker registry that is accessible on the internet.
 * The steps in this document assume that you are familiar with creating and using an __inference configuration__ object as part of model deployment. For more information, see [Where to deploy and how](how-to-deploy-and-where.md).
@@ -229,7 +229,7 @@ For more information, see [Azure Machine Learning containers](https://github.com
 
 ### Use an image with the Azure Machine Learning SDK
 
-To use an image stored in the **Azure Container Registry for your workspace**, or a **container registry that is publicly accessible**, set the following [Environment](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py) attributes:
+To use an image stored in the **Azure Container Registry for your workspace**, or a **container registry that is publicly accessible**, set the following [Environment](/python/api/azureml-core/azureml.core.environment.environment) attributes:
 
 + `docker.enabled=True`
 + `docker.base_image`: Set to the registry and path to the image.
@@ -263,7 +263,7 @@ myenv.python.conda_dependencies=conda_dep
 
 You must add azureml-defaults with version >= 1.0.45 as a pip dependency. This package contains the functionality needed to host the model as a web service. You must also set inferencing_stack_version property on the environment to "latest", this will install specific apt packages needed by web service. 
 
-After defining the environment, use it with an [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig?preserve-view=true&view=azure-ml-py) object to define the inference environment in which the model and web service will run.
+After defining the environment, use it with an [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig) object to define the inference environment in which the model and web service will run.
 
 ```python
 from azureml.core.model import InferenceConfig
@@ -292,7 +292,7 @@ For more information on customizing your Python environment, see [Create and man
 > [!IMPORTANT]
 > Currently the Machine Learning CLI can use images from the Azure Container Registry for your workspace or publicly accessible repositories. It cannot use images from standalone private registries.
 
-Before deploying a model using the Machine Learning CLI, create an [environment](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py) that uses the custom image. Then create an inference configuration file that references the environment. You can also define the environment directly in the inference configuration file. The following JSON document demonstrates how to reference an image in a public container registry. In this example, the environment is defined inline:
+Before deploying a model using the Machine Learning CLI, create an [environment](/python/api/azureml-core/azureml.core.environment.environment) that uses the custom image. Then create an inference configuration file that references the environment. You can also define the environment directly in the inference configuration file. The following JSON document demonstrates how to reference an image in a public container registry. In this example, the environment is defined inline:
 
 ```json
 {
@@ -349,4 +349,4 @@ For more information on deploying a model using the ML CLI, see the "model regis
 ## Next steps
 
 * Learn more about [Where to deploy and how](how-to-deploy-and-where.md).
-* Learn how to [Train and deploy machine learning models using Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops&preserve-view=true).
+* Learn how to [Train and deploy machine learning models using Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning).

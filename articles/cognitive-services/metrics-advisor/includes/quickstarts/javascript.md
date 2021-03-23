@@ -17,7 +17,7 @@ ms.author: mbullwin
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * The current version of [Node.js](https://nodejs.org/)
-* Once you have your Azure subscription, <a href="https://go.microsoft.com/fwlink/?linkid=2142156"  title="Create a Metrics Advisor resource"  target="_blank">create a Metrics Advisor resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to deploy your Metrics Advisor instance.  
+* Once you have your Azure subscription, <a href="https://go.microsoft.com/fwlink/?linkid=2142156"  title="Create a Metrics Advisor resource"  target="_blank">create a Metrics Advisor resource </a> in the Azure portal to deploy your Metrics Advisor instance.  
 * Your own SQL database with time series data.
   
 > [!TIP]

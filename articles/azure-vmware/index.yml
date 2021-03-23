@@ -8,9 +8,9 @@ metadata:
   description: Learn how to use Azure VMware Solution to deploy a VMware private cloud to Azure
   ms.service: azure-vmware 
   ms.topic: landing-page 
-  author: dikamath 
-  ms.author: dikamath 
-  ms.date: 11/19/2020 
+  author: shortpatti 
+  ms.author: v-patsho 
+  ms.date: 03/22/2021 
 
 # card 1
 landingContent:
@@ -20,6 +20,10 @@ landingContent:
         links:
           - text: What is Azure VMware Solution?
             url: introduction.md
+          - text: Platform updates
+            url: azure-vmware-solution-platform-updates.md
+          - text: FAQ
+            url: faq.yml
       - linkListType: concept
         links:
           - text: Private cloud and clusters
@@ -30,8 +34,6 @@ landingContent:
             url: concepts-storage.md
           - text: Access and identity for private clouds
             url: concepts-identity.md
-          - text: vSphere role-based access control 
-            url: concepts-role-based-access-control.md
           - text: Monitor and repair private clouds
             url: concepts-monitor-repair-private-cloud.md
           - text: Private cloud upgrades
@@ -74,12 +76,6 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Request host quota and enable Azure VMware Solution
-            url: enable-azure-vmware-solution.md
-          - text: Save costs with a reserved instance
-            url: reserved-instance.md
-          - text: Migration assessment
-            url: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
           - text: Manage DHCP
             url: manage-dhcp.md
           - text: Configure NSX network components
@@ -94,6 +90,17 @@ landingContent:
             url: public-ip-usage.md
           - text: Create an IPSec tunnel
             url: create-ipsec-tunnel.md
+      - linkListType: reference 
+        links:
+          - text: Request host quota Azure VMware Solution
+            url: enable-azure-vmware-solution.md
+          - text: Move EA and CSP subscriptions
+            url: move-ea-csp-subscriptions.md 
+          - text: Save costs with a reserved instance
+            url: reserved-instance.md
+          - text: Migration assessment
+            url: /azure/migrate/how-to-create-azure-vmware-solution-assessment?context=/azure/azure-vmware/context/context
+
 
 # card 4
   - title: Azure native integration
@@ -132,6 +139,8 @@ landingContent:
         links:
           - text: Backup solutions for VMs
             url: ecosystem-back-up-vms.md
+          - text: Migration solutions for VMs
+            url: ecosystem-migration-vms.md
 
 # card 7
   - title: Resources
@@ -142,8 +151,19 @@ landingContent:
             url: /cli/azure/ext/vmware/vmware
           - text: Azure PowerShell
             url: /powershell/module/az.vmware
-          - text: FAQ
-            url: faq.yml
+          - text: Terraform Azure provider
+            url: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/vmware_private_cloud
+      - linkListType: video
+        links:
+          - text: Playlist
+            url: https://youtube.com/playlist?list=PL1NLwHeM6ewbZu0dC0guj-OSpIoZnnJin
+          - text: Integration with Azure Service
+            url: https://youtu.be/m26iLu6DHbU
+          - text: Integration with Azure Application Gateway
+            url: https://youtu.be/BoQYvqzb6Y8
+          - text: Migration and capacity planning
+            url: https://youtu.be/NoNG-hkksrA
+                            
 
 # card 8
   - title: Troubleshooting

@@ -5,7 +5,7 @@ ms.topic: how-to
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 02/11/2021
+ms.date: 03/05/2021
 ---
 
 # Get started with Document Translation (Preview)
@@ -14,27 +14,28 @@ ms.date: 02/11/2021
 
 ## Prerequisites
 
+> [!NOTE]
+>
+> 1. Generally, when you create a Cognitive Service resource in the Azure portal, you have the option to create a multi-service subscription key or a single-service subscription key. However, Document Translation is currently supported in the Translator (single-service) resource only, and is **not** included in the Cognitive Services (multi-service) resource.
+> 2. Document Translation is currently available in the **S1 Standard Service Plan**. _See_ [Cognitive Services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
+>
+
 To get started, you'll need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* A [**Translator**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) service resource (**not** a Cognitive Services resource). 
+* A [**Translator**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) service resource (**not** a Cognitive Services resource).
 
-* An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). All access to Azure Storage takes place through a storage account.
-
-* A completed [**Document Translation (Preview) form**](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOEE4UVdFQVBRQVBWWDBRQUM3WjYxUEpUTC4u) to enable your Azure subscription to use the new Document Translation feature.
-
-> [!NOTE]
-> Document Translation is currently only supported in the Translator (single-service) resource, **not** the Cognitive Services (multi-service) resource.
+* An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). You will create containers to store and organize your blob data within your storage account.
 
 ## Get your custom domain name and subscription key
 
 > [!IMPORTANT]
 >
-> * You can't use the endpoint found on your Azure portal resource _Keys and Endpoint_ page nor the global translator endpoint—`api.cognitive.microsofttranslator.com`—to make HTTP requests to Document Translation.
+> * You won't use the endpoint found on your Azure portal resource _Keys and Endpoint_ page nor the global translator endpoint—`api.cognitive.microsofttranslator.com`—to make HTTP requests to Document Translation.
 > * **All API requests to the Document Translation service require a custom domain endpoint**.
 
-### What is the custom domain endpoint? 
+### What is the custom domain endpoint?
 
 The custom domain endpoint is a URL formatted with your resource name, hostname, and Translator subdirectories:
 
@@ -67,9 +68,9 @@ You'll need to  [**create containers**](../../../storage/blobs/storage-quickstar
 * **Target container**. This container is where your translated files will be stored (required).  
 * **Glossary container**. This container is where you upload your glossary files (optional).  
 
-*See* **Create SAS access tokens for Document Translation**
+### **Create SAS access tokens for Document Translation**
 
-The `sourceUrl` , `targetUrl` , and optional `glossaryUrl`  must include a Shared Access Signature (SAS) token, appended as a query string. The token can be assigned to your container or specific blobs.
+The `sourceUrl` , `targetUrl` , and optional `glossaryUrl`  must include a Shared Access Signature (SAS) token, appended as a query string. The token can be assigned to your container or specific blobs. *See* [**Create SAS tokens for Document Translation process**](create-sas-tokens.md).
 
 * Your **source** container or blob must have designated  **read** and **list** access.
 * Your **target** container or blob must have designated  **write** and **list** access.
@@ -266,7 +267,9 @@ The following headers are included with each Document Translator API request:
 
 > [!IMPORTANT]
 >
-> For the code samples, below, you may need to update the following fields, depending upon the operation:
+> For the code samples below, you'll hard-code your key and endpoint where indicated; remember to remove the key from your code when you're done, and never post it publicly.  See [Azure Cognitive Services security](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) for ways to securely store and access your credentials.
+>
+> You may need to update the following fields, depending upon the operation:
 >>>
 >> * `endpoint`
 >> * `subscriptionKey`
@@ -275,13 +278,18 @@ The following headers are included with each Document Translator API request:
 >> * `glossaryURL`
 >> * `id`  (job ID)
 >>
-> Where to finding the `id` value:
-> * You can find the job `id`  in the The POST method's  response Header `Operation-Location`  URL value. The last parameter of the URL is the operation's job **`id`**.  
-> * You can also use a GET Jobs request to retrieve the  job `id`  for a Document Translation operation.
+
+#### Locating  the `id` value
+
+* You'll find the job `id`  in the POST method response Header `Operation-Location`  URL value. The last parameter of the URL is the operation's job **`id`**:
+
+|**Response header**|**Result URL**|
+|-----------------------|----------------|
+Operation-Location   | https://<<span>NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/9dce0aa9-78dc-41ba-8cae-2e2f3c2ff8ec</span>
+
+* You can also use a **GET Jobs** request to retrieve a Document Translation  job `id` .
+
 >
-> For the code samples below, you'll hard-code your key and endpoint where indicated; remember to remove the key from your code when you're done, and never post it publicly.  
->
-> See [Azure Cognitive Services security](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) for ways to securely store and access your credentials.
 
 ## _POST Document Translation_ request
 

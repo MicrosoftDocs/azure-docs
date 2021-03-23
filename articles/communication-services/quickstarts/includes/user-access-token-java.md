@@ -6,7 +6,7 @@ author: tomaschladek
 manager: nmurav
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 08/20/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
@@ -15,7 +15,7 @@ ms.author: tchladek
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Java Development Kit (JDK)](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 8 or above.
+- [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - A deployed Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
 
@@ -39,7 +39,7 @@ Open the **pom.xml** file in your text editor. Add the following dependency elem
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-identity</artifactId>
-    <version>1.0.0-beta.3</version> 
+    <version>1.0.0-beta.6</version>
 </dependency>
 ```
 
@@ -55,13 +55,18 @@ From the project directory:
 Use the following code to begin:
 
 ```java
-import com.azure.communication.identity.*;
-import com.azure.communication.common.*;
-import java.io.*;
-import java.util.*;
-import java.time.*;
+package com.communication.quickstart;
 
+import com.azure.communication.common.*;
+import com.azure.communication.identity.*;
+import com.azure.communication.identity.models.*;
+import com.azure.core.credential.*;
 import com.azure.core.http.*;
+import com.azure.core.http.netty.*;
+
+import java.io.IOException;
+import java.time.*;
+import java.util.*;
 
 public class App
 {
@@ -80,7 +85,7 @@ Instantiate a `CommunicationIdentityClient` with your resource's access key and 
 Add the following code to the `main` method:
 
 ```java
-// Your can find your endpoint and access key from your resource in the Azure Portal
+// Your can find your endpoint and access key from your resource in the Azure portal
 String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
 String accessKey = "SECRET";
 
@@ -92,18 +97,20 @@ String accessKey = "SECRET";
 HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
 
 CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
-    .endpoint(endpoint)
-    .accessKey(accessKey)
-    .httpClient(httpClient)
-    .buildClient();
+        .endpoint(endpoint)
+        .credential(new AzureKeyCredential(accessKey))
+        .httpClient(httpClient)
+        .buildClient();
 ```
 
-You can initialize the client with any custom HTTP client the implements the `com.azure.core.http.HttpClient` interface. The above code demonstrates use of the [Azure Core Netty HTTP client](/java/api/overview/azure/core-http-netty-readme?preserve-view=true&view=azure-java-stable) that is provided by `azure-core`.
+You can initialize the client with any custom HTTP client the implements the `com.azure.core.http.HttpClient` interface. The above code demonstrates use of the [Azure Core Netty HTTP client](/java/api/overview/azure/core-http-netty-readme) that is provided by `azure-core`.
 
-You can also provide the entire connection string using the connectionString() function instead of providing the endpoint and access key. 
+You can also provide the entire connection string using the `connectionString()` function instead of providing the endpoint and access key.
 ```java
-// Your can find your connection string from your resource in the Azure Portal
+// Your can find your connection string from your resource in the Azure portal
 String connectionString = "<connection_string>";
+HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
+
 CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
     .connectionString(connectionString)
     .httpClient(httpClient)
@@ -115,42 +122,58 @@ CommunicationIdentityClient communicationIdentityClient = new CommunicationIdent
 Azure Communication Services maintains a lightweight identity directory. Use the `createUser` method to create a new entry in the directory with a unique `Id`. Store received identity with mapping to your application's users. For example, by storing them in your application server's database. The identity is required later to issue access tokens.
 
 ```java
-CommunicationUser identity = communicationIdentityClient.createUser();
-System.out.println("\nCreated an identity with ID: " + identity.getId());
+CommunicationUserIdentifier user = communicationIdentityClient.createUser();
+System.out.println("\nCreated an identity with ID: " + user.getId());
 ```
 
 ## Issue access tokens
 
-Use the `issueToken` method to issue an access token for already existing Communication Services identity. Parameter `scopes` defines set of primitives, that will authorize this access token. See the [list of supported actions](../../concepts/authentication.md). New instance of parameter `user` can be constructed based on string representation of Azure Communication Service identity.
+Use the `getToken` method to issue an access token for already existing Communication Services identity. Parameter `scopes` defines set of primitives, that will authorize this access token. See the [list of supported actions](../../concepts/authentication.md). New instance of parameter `user` can be constructed based on string representation of Azure Communication Service identity.
 
 ```java
-// Issue an access token with the "voip" scope for an identity
-List<String> scopes = new ArrayList<>(Arrays.asList("voip"));
-CommunicationUserToken response = communicationIdentityClient.issueToken(identity, scopes);
-OffsetDateTime expiresOn = response.getExpiresOn();
-String token = response.getToken();
-System.out.println("\nIssued an access token with 'voip' scope that expires at: " + expiresOn + ": " + token);
+// Issue an access token with the "voip" scope for a user identity
+List<CommunicationTokenScope> scopes = new ArrayList<>(Arrays.asList(CommunicationTokenScope.VOIP));
+AccessToken accessToken = communicationIdentityClient.getToken(user, scopes);
+OffsetDateTime expiresAt = accessToken.getExpiresAt();
+String token = accessToken.getToken();
+System.out.println("\nIssued an access token with 'voip' scope that expires at: " + expiresAt + ": " + token);
 ```
 
-Access tokens are short-lived credentials that need to be reissued. Not doing so might cause disruption of your application's users experience. The `expiresAt` response property indicates the lifetime of the access token.
+## Create an identity and issue token in one call
+
+Alternatively, use the 'createUserAndToken' method to to create a new entry in the directory with a unique `Id` and
+issue an access token.
+
+```java
+List<CommunicationTokenScope> scopes = Arrays.asList(CommunicationTokenScope.CHAT);
+CommunicationUserIdentifierAndToken result = communicationIdentityClient.createUserAndToken(scopes);
+CommunicationUserIdentifier user = result.getUser();
+System.out.println("\nCreated a user identity with ID: " + user.getId());
+AccessToken accessToken = result.getUserToken();
+OffsetDateTime expiresAt = accessToken.getExpiresAt();
+String token = accessToken.getToken();
+System.out.println("\nIssued an access token with 'chat' scope that expires at: " + expiresAt + ": " + token);
+```
+
+Access tokens are short-lived credentials that need to be reissued. Not doing so might cause disruption of your application's users experience. The `expiresAt` property indicates the lifetime of the access token.
 
 ## Refresh access tokens
 
-To refresh an access token, use the `CommunicationUser` object to reissue:
+To refresh an access token, use the `CommunicationUserIdentifier` object to reissue:
 
-```java  
+```java
 // Value existingIdentity represents identity of Azure Communication Services stored during identity creation
-CommunicationUser identity = new CommunicationUser(existingIdentity);
-response = communicationIdentityClient.issueToken(identity, scopes);
+CommunicationUserIdentifier identity = new CommunicationUserIdentifier(existingIdentity);
+AccessToken response = communicationIdentityClient.getToken(identity, scopes);
 ```
 
 ## Revoke access tokens
 
 In some cases, you may explicitly revoke access tokens. For example, when an application's user changes the password they use to authenticate to your service. Method `revokeTokens` invalidates all active access tokens, that were issued to the identity.
 
-```java  
-communicationIdentityClient.revokeTokens(identity, OffsetDateTime.now());
-System.out.println("\nSuccessfully revoked all access tokens for identity with ID: " + identity.getId());
+```java
+communicationIdentityClient.revokeTokens(user);
+System.out.println("\nSuccessfully revoked all access tokens for user identity with ID: " + user.getId());
 ```
 
 ## Delete an identity
@@ -158,8 +181,8 @@ System.out.println("\nSuccessfully revoked all access tokens for identity with I
 Deleting an identity revokes all active access tokens and prevents you from issuing access tokens for the identity. It also removes all the persisted content associated with the identity.
 
 ```java
-communicationIdentityClient.deleteUser(identity);
-System.out.println("\nDeleted the identity with ID: " + identity.getId());
+communicationIdentityClient.deleteUser(user);
+System.out.println("\nDeleted the user identity with ID: " + user.getId());
 ```
 
 ## Run the code

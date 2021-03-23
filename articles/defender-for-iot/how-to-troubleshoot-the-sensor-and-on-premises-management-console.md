@@ -1,12 +1,8 @@
 ---
 title: Troubleshoot the sensor and on-premises management console
 description: Troubleshoot your sensor and on-premises management console to eliminate any problems you might be having.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
-ms.date: 1/3/2021
+ms.date: 03/14/2021
 ms.topic: article
-ms.service: azure
 ---
 # Troubleshoot the sensor and on-premises management console
 
@@ -48,7 +44,7 @@ To recover your password:
 1. Select **Next**, and your user, and system-generated password for your management console will then appear.
 
     > [!NOTE]
-    > When you sign in to a sensor or on-premise management console for the first time it will be linked to the subscription you connected it to. If you need to reset the password for the CyberX or Support user you will need to select that subscription. For more information on recovering a CyberX or Support user password, see [Resetting a user's password for the sensor or on-premises management console](how-to-create-and-manage-users.md#resetting-a-users-password-for-the-sensor-or-on-premises-management-console)
+    > When you sign in to a sensor or on-premise management console for the first time it will be linked to the subscription you connected it to. If you need to reset the password for the CyberX or Support user you will need to select that subscription. For more information on recovering a CyberX or Support user password, see [Resetting passwords](how-to-create-and-manage-users.md#resetting-passwords).
 
 ### Investigate a lack of traffic
 

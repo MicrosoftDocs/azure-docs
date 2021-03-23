@@ -6,11 +6,13 @@ ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 02/14/2021
+ms.date: 03/22/2021
 ---
 
 # Azure Security Center free vs Azure Defender enabled
 Azure Defender is free for the first 30 days. At the end of 30 days, should you choose to continue using the service, we'll automatically start charging for usage.
+
+You can upgrade from the **Pricing & settings** page, as described in [Quickstart: Enable Azure Defender](enable-azure-defender.md). For pricing details in your currency of choice and according to your region, see [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## What are the benefits of enabling Azure Defender?
 
@@ -31,20 +33,17 @@ Security Center is offered in two modes:
 
 ## FAQ - Pricing and billing 
 
-- [Azure Security Center free vs Azure Defender enabled](#azure-security-center-free-vs-azure-defender-enabled)
-  - [What are the benefits of enabling Azure Defender?](#what-are-the-benefits-of-enabling-azure-defender)
-  - [FAQ - Pricing and billing](#faq---pricing-and-billing)
-    - [How can I track who in my organization enabled Azure Defender changes in Security Center?](#how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center)
-    - [What are the plans offered by Security Center?](#what-are-the-plans-offered-by-security-center)
-    - [How do I enable Azure Defender for my subscription?](#how-do-i-enable-azure-defender-for-my-subscription)
-    - [Can I enable Azure Defender for servers on a subset of servers in my subscription?](#can-i-enable-azure-defender-for-servers-on-a-subset-of-servers-in-my-subscription)
-    - [If I already have a license for Microsoft Defender for Endpoint can I get a discount for Azure Defender?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender)
-    - [My subscription has Azure Defender for servers enabled, do I pay for not-running servers?](#my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers)
-    - [Will I be charged for machines without the Log Analytics agent installed?](#will-i-be-charged-for-machines-without-the-log-analytics-agent-installed)
-    - [If a Log Analytics agent reports to multiple workspaces, will I be charged twice?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice)
-    - [If a Log Analytics agent reports to multiple workspaces, is the 500-MB free data ingestion available on all of them?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them)
-    - [Is the 500-MB free data ingestion calculated for an entire workspace or strictly per machine?](#is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine)
-  - [Next steps](#next-steps)
+- [How can I track who in my organization enabled Azure Defender changes in Security Center?](#how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center)
+- [What are the plans offered by Security Center?](#what-are-the-plans-offered-by-security-center)
+- [How do I enable Azure Defender for my subscription?](#how-do-i-enable-azure-defender-for-my-subscription)
+- [Can I enable Azure Defender for servers on a subset of servers in my subscription?](#can-i-enable-azure-defender-for-servers-on-a-subset-of-servers-in-my-subscription)
+- [If I already have a license for Microsoft Defender for Endpoint can I get a discount for Azure Defender?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender)
+- [My subscription has Azure Defender for servers enabled, do I pay for not-running servers?](#my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers)
+- [Will I be charged for machines without the Log Analytics agent installed?](#will-i-be-charged-for-machines-without-the-log-analytics-agent-installed)
+- [If a Log Analytics agent reports to multiple workspaces, will I be charged twice?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice)
+- [If a Log Analytics agent reports to multiple workspaces, is the 500-MB free data ingestion available on all of them?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them)
+- [Is the 500-MB free data ingestion calculated for an entire workspace or strictly per machine?](#is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine)
+- [What data types are included in the 500-MB free data limit?](#what-data-types-are-included-in-the-500-mb-free-data-limit)
 
 ### How can I track who in my organization enabled Azure Defender changes in Security Center?
 Azure Subscriptions may have multiple administrators with permissions to change the pricing settings. To find out which user made a change, use the Azure Activity Log.
@@ -65,14 +64,14 @@ Security Center has two offerings:
 ### How do I enable Azure Defender for my subscription? 
 You can use any of the following ways to enable Azure Defender for your subscription: 
 
-|Method  |Instructions  |
-|---------|---------|
-|Azure Security Center pages of the Azure portal|[Enable Azure Defender](enable-azure-defender.md)|
-|REST API|[Pricings API](/rest/api/securitycenter/pricings)|
-|Azure CLI|[az security pricing](/cli/azure/security/pricing)|
-|PowerShell|[Set-AzSecurityPricing](/powershell/module/az.security/set-azsecuritypricing)|
-|Azure Policy|[Bundle Pricings](https://github.com/Azure/Azure-Security-Center/blob/master/Pricing%20%26%20Settings/ARM%20Templates/Set-ASC-Bundle-Pricing.json)|
-|||
+| Method                                          | Instructions                                                                                                                                       |
+|-------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Azure Security Center pages of the Azure portal | [Enable Azure Defender](enable-azure-defender.md)                                                                                                  |
+| REST API                                        | [Pricings API](/rest/api/securitycenter/pricings)                                                                                                  |
+| Azure CLI                                       | [az security pricing](/cli/azure/security/pricing)                                                                                                 |
+| PowerShell                                      | [Set-AzSecurityPricing](/powershell/module/az.security/set-azsecuritypricing)                                                                      |
+| Azure Policy                                    | [Bundle Pricings](https://github.com/Azure/Azure-Security-Center/blob/master/Pricing%20%26%20Settings/ARM%20Templates/Set-ASC-Bundle-Pricing.json) |
+|                                                 |                                                                                                                                                    |
 
 ### Can I enable Azure Defender for servers on a subset of servers in my subscription?
 No. When you enable [Azure Defender for servers](defender-for-servers-introduction.md) on a subscription, all the servers in the subscription will be protected by Azure Defender. 
@@ -111,6 +110,24 @@ Yes. If you've configured your Log Analytics agent to send data to two or more d
 You’ll get 500-MB free data ingestion per day, for every machine connected to the workspace. Specifically for security data types directly collected by Azure Security Center.
 
 This data is a daily rate averaged across all nodes. So even if some machines send 100-MB and others send 800-MB, if the total doesn’t exceed the **[number of machines] x 500-MB** free limit, you won’t be charged extra.
+
+### What data types are included in the 500-MB free data limit?
+
+Security Center's billing is closely tied to the billing for Log Analytics. Security Center provides a 500 MB/node/day allocation against the following subset of [security data types](/azure/azure-monitor/reference/tables/tables-category.md#security):
+- WindowsEvent
+- SecurityAlert
+- SecurityBaseline
+- SecurityBaselineSummary
+- SecurityDetection
+- SecurityEvent
+- WindowsFirewall
+- MaliciousIPCommunication
+- LinuxAuditLog
+- SysmonEvent
+- ProtectionStatus
+- Update and UpdateSummary data types when the Update Management solution is not running on the workspace or solution targeting is enabled
+
+If the workspace is in the legacy Per Node pricing tier, the Security Center and Log Analytics allocations are combined and applied jointly to all billable ingested data.
 
 ## Next steps
 This article explained Security Center's pricing options. For related material, see:

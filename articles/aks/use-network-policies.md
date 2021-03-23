@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to secure traffic that flows in and out of pods by using Kubernetes network policies in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 03/16/2021
 
 ---
 
@@ -177,9 +177,13 @@ Calico networking policies with Windows nodes is currently in preview.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-```azurecli
-PASSWORD_WIN="P@ssw0rd1234"
+Create a username to use as administrator credentials for your Windows Server containers on your cluster. The following commands prompt you for a username and set it WINDOWS_USERNAME for use in a later command (remember that the commands in this article are entered into a BASH shell).
 
+```azurecli-interactive
+echo "Please enter the username to use as administrator credentials for Windows Server containers on your cluster: " && read WINDOWS_USERNAME
+```
+
+```azurecli
 az aks create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $CLUSTER_NAME \
@@ -191,8 +195,7 @@ az aks create \
     --vnet-subnet-id $SUBNET_ID \
     --service-principal $SP_ID \
     --client-secret $SP_PASSWORD \
-    --windows-admin-password $PASSWORD_WIN \
-    --windows-admin-username azureuser \
+    --windows-admin-username $WINDOWS_USERNAME \
     --vm-set-type VirtualMachineScaleSets \
     --kubernetes-version 1.20.2 \
     --network-plugin azure \
@@ -218,7 +221,7 @@ az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAM
 
 ## Deny all inbound traffic to a pod
 
-Before you define rules to allow specific network traffic, first create a network policy to deny all traffic. This policy gives you a starting point to begin to create an allow list for only the desired traffic. You can also clearly see that traffic is dropped when the network policy is applied.
+Before you define rules to allow specific network traffic, first create a network policy to deny all traffic. This policy gives you a starting point to begin to create an allowlist for only the desired traffic. You can also clearly see that traffic is dropped when the network policy is applied.
 
 For the sample application environment and traffic rules, let's first create a namespace called *development* to run the example pods:
 
@@ -230,13 +233,13 @@ kubectl label namespace/development purpose=development
 Create an example back-end pod that runs NGINX. This back-end pod can be used to simulate a sample back-end web-based application. Create this pod in the *development* namespace, and open port *80* to serve web traffic. Label the pod with *app=webapp,role=backend* so that we can target it with a network policy in the next section:
 
 ```console
-kubectl run backend --image=nginx --labels app=webapp,role=backend --namespace development --expose --port 80
+kubectl run backend --image=mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine --labels app=webapp,role=backend --namespace development --expose --port 80
 ```
 
 Create another pod and attach a terminal session to test that you can successfully reach the default NGINX webpage:
 
 ```console
-kubectl run --rm -it --image=alpine network-policy --namespace development
+kubectl run --rm -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 network-policy --namespace development
 ```
 
 At the shell prompt, use `wget` to confirm that you can access the default NGINX webpage:
@@ -292,7 +295,7 @@ kubectl apply -f backend-policy.yaml
 Let's see if you can use the NGINX webpage on the back-end pod again. Create another test pod and attach a terminal session:
 
 ```console
-kubectl run --rm -it --image=alpine network-policy --namespace development
+kubectl run --rm -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 network-policy --namespace development
 ```
 
 At the shell prompt, use `wget` to see if you can access the default NGINX webpage. This time, set a timeout value to *2* seconds. The network policy now blocks all inbound traffic, so the page can't be loaded, as shown in the following example:
@@ -349,7 +352,7 @@ kubectl apply -f backend-policy.yaml
 Schedule a pod that is labeled as *app=webapp,role=frontend* and attach a terminal session:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development
+kubectl run --rm -it frontend --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --labels app=webapp,role=frontend --namespace development
 ```
 
 At the shell prompt, use `wget` to see if you can access the default NGINX webpage:
@@ -379,7 +382,7 @@ exit
 The network policy allows traffic from pods labeled *app: webapp,role: frontend*, but should deny all other traffic. Let's test to see whether another pod without those labels can access the back-end NGINX pod. Create another test pod and attach a terminal session:
 
 ```console
-kubectl run --rm -it --image=alpine network-policy --namespace development
+kubectl run --rm -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 network-policy --namespace development
 ```
 
 At the shell prompt, use `wget` to see if you can access the default NGINX webpage. The network policy blocks the inbound traffic, so the page can't be loaded, as shown in the following example:
@@ -412,7 +415,7 @@ kubectl label namespace/production purpose=production
 Schedule a test pod in the *production* namespace that is labeled as *app=webapp,role=frontend*. Attach a terminal session:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production
+kubectl run --rm -it frontend --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --labels app=webapp,role=frontend --namespace production
 ```
 
 At the shell prompt, use `wget` to confirm that you can access the default NGINX webpage:
@@ -476,7 +479,7 @@ kubectl apply -f backend-policy.yaml
 Schedule another pod in the *production* namespace and attach a terminal session:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production
+kubectl run --rm -it frontend --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --labels app=webapp,role=frontend --namespace production
 ```
 
 At the shell prompt, use `wget` to see that the network policy now denies traffic:
@@ -498,7 +501,7 @@ exit
 With traffic denied from the *production* namespace, schedule a test pod back in the *development* namespace and attach a terminal session:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development
+kubectl run --rm -it frontend --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --labels app=webapp,role=frontend --namespace development
 ```
 
 At the shell prompt, use `wget` to see that the network policy allows the traffic:

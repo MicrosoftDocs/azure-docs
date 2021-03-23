@@ -10,7 +10,7 @@ metadata:
   ms.author: wiassaf
   ms.reviewer: sstein
   ms.custom: 
-  ms.date: 03/04/2021
+  ms.date: 03/05/2021
 
 title: Maintenance window FAQ
 summary: This article answers frequently asked questions about the maintenance window for [Azure SQL database](sql-database-paas-overview.md) and [SQL managed instance](../managed-instance/sql-managed-instance-paas-overview.md).
@@ -27,7 +27,7 @@ sections:
 
       - question: Users work in a different time zone than the Azure data center. Which time zone is local?
         answer: |
-          Local time is determined by the Azure region that hosts the resource. It is not determined by the time zone of the database or managed instance.
+          Local time is determined by the location of Azure region that hosts the resource and may observe daylight saving time in accordance with local time zone definition. It is not determined by the time zone configured on SQL database (always UTC) or managed instance.
 
       - question: Can I choose a specific time/day for the maintenance window?
         answer: |
@@ -35,15 +35,19 @@ sections:
 
       - question: What happens once I choose a maintenance window? 
         answer: | 
-          Configuring maintenance window is a long running asynchronous operation, similar to changing the service tier of your Azure SQL resource. The resource is available during the process, except a short failover that happens at the end of the operation and typically lasts up to 8 seconds even in case of interrupted long-running transactions. To minimize the impact of failover you should perform the operation outside of the peak hours. 
+          Configuring maintenance window is a long running asynchronous operation, similar to changing the service tier of your Azure SQL resource. The resource is available during the process, except a short failover that happens at the end of the operation and typically lasts up to 8 seconds even in case of interrupted long-running transactions. To minimize the impact of failover you should perform the operation outside of the peak hours. In case of managed instance, IP address of the instance will change.
 
-      - question: What maintenance updates are typically performed during a maintenance window? 
+      - question: What types of updates are typically performed during a maintenance window? 
         answer: |
-          The maintenance window batches all hardware, operating system software and SQL engine updates into one update event to minimize impact to customers.
+          The maintenance event may contain updates for hardware, firmware, operating system, satelite software components, and SQL engine. They are typically combined into a single batch to minimize the incidence of maintenance events.
 
       - question: What can I expect during a maintenance event?
         answer: |
           During a maintenance update, databases are fully available and accessible but some of the maintenance updates require a failover as Azure takes SQL Databases offline for a short time to apply the maintenance updates (generally a few seconds in duration). Planned maintenance updates occur once every 35 days on average, which means customer can expect approximately one planned maintenance event per month per Azure SQL Database and managed instance, and only during the maintenance window slots selected by the customer.
+
+      - question: Are there any prerequisites for configuring maintenance window?
+        answer: |
+          In case of managed instance [additional IP addresses](https://docs.microsoft.com/azure/azure-sql/managed-instance/vnet-subnet-determine-size#address-requirements-for-update-scenarios) are needed temporarily, as in scaling vCores scenario for corresponding service tier.
 
       - question: In which regions is choosing a maintenance window available?
         answer: | 
@@ -93,9 +97,9 @@ sections:
         answer: |
           Azure Portal, PowerShell, Azure CLI, and REST API.
 
-      - question: Can I configure a maintenance window during restore, recovery, copy, import, or GeoDR scenarios?
+      - question: Can I configure a maintenance window during database restore, recovery, copy, import, or GeoDR scenarios?
         answer: |
-          No. The maintenance window schedule can be configured after resource is created.
+          Not at this moment. The maintenance window can be configured once database is created.
 
 additionalContent: |
  ## See Also

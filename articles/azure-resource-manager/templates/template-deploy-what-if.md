@@ -3,7 +3,7 @@ title: Template deployment what-if
 description: Determine what changes will happen to your resources before deploying an Azure Resource Manager template.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 02/05/2021
+ms.date: 03/09/2021
 ms.author: tomfitz
 ---
 # ARM template deployment what-if operation
@@ -385,8 +385,6 @@ You can use the what-if operation through the Azure SDKs.
 
 ## Next steps
 
+- To use the what-if operation in a pipeline, see [Test ARM templates with What-If in a pipeline](https://4bes.nl/2021/03/06/test-arm-templates-with-what-if/).
 - If you notice incorrect results from the what-if operation, please report the issues at [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
 - For a Microsoft Learn module that covers using what if, see [Preview changes and validate Azure resources by using what-if and the ARM template test toolkit](/learn/modules/arm-template-test/).
-- To deploy templates with Azure PowerShell, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).
-- To deploy templates with Azure CLI, see [Deploy resources with ARM templates and Azure CLI](deploy-cli.md).
-- To deploy templates with REST, see [Deploy resources with ARM templates and Resource Manager REST API](deploy-rest.md).

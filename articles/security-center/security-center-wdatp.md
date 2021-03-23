@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 02/15/2021
+ms.date: 03/08/2021
 ms.author: memildin
 ---
 
@@ -33,7 +33,7 @@ Microsoft Defender for Endpoint is a holistic, cloud delivered endpoint security
 | Release state:                  | Generally available (GA)                                                                                                                                                                                                                                                                                      |
 | Pricing:                        | Requires [Azure Defender for servers](defender-for-servers-introduction.md)                                                                                                                                                                                                                                             |
 | Supported platforms:            |  • Azure machines running Windows<br> • Azure Arc machines running Windows|
-| Supported versions of Windows:  |  • **General Availability (GA) -** Detection on Windows Server 2016, 2012 R2, and 2008 R2 SP1<br> • **Preview -** Detection on Windows Server 2019, [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md), and [Windows 10 Enterprise multi-session](../virtual-desktop/windows-10-multisession-faq.md) (formerly Enterprise for Virtual Desktops (EVD)<br>Server endpoint monitoring using these integrations has been disabled for Office 365 GCC customers|
+| Supported versions of Windows:  |  • **General Availability (GA) -** Detection on Windows Server 2016, 2012 R2, and 2008 R2 SP1<br> • **Preview -** Detection on Windows Server 2019, [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md), and [Windows 10 Enterprise multi-session](../virtual-desktop/windows-10-multisession-faq.md) (formerly Enterprise for Virtual Desktops (EVD)|
 | Unsupported operating systems:  |  • Windows 10 (other than EVD or WVD)<br> • Linux|
 | Required roles and permissions: | To enable/disable the integration: **Security admin** or **Owner**<br>To view MDATP alerts in Security Center: **Security reader**, **Reader**, **Resource Group Contributor**, **Resource Group Owner**, **Security admin**, **Subscription owner**, or **Subscription Contributor**|
 | Clouds:                         | ![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Other Gov                                                        |

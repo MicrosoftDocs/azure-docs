@@ -26,9 +26,9 @@
 - name: Reference
   items:
   - name: Azure PowerShell
-    href: /powershell/module/az.network/?view=azps-5.5.0#route
+    href: /powershell/module/az.network/#route
   - name: Azure CLI
-    href: /cli/azure/network/routeserver?view=azure-cli-latest
+    href: /cli/azure/network/routeserver
   - name: REST
     href: /rest/api/virtualwan/virtualhubipconfiguration
 - name: Resources
@@ -38,7 +38,7 @@
   - name: Networking Blog
     href: https://azure.microsoft.com/blog/topics/networking/
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/routeserver/
+    href: https://azure.microsoft.com/pricing/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service updates

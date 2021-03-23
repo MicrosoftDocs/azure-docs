@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/08/2021
 ---
 
 # Create stateful and stateless workflows in Visual Studio Code with the Azure Logic Apps (Preview) extension
@@ -30,6 +30,8 @@ This article shows how to create your logic app and a workflow in Visual Studio 
 * Add a trigger and an action.
 
 * Run, test, debug, and review run history locally.
+
+* Find domain name details for firewall access.
 
 * Deploy to Azure, which includes optionally enabling Application Insights.
 
@@ -289,6 +291,7 @@ Before you can create your logic app, create a local project so that you can man
    1. Replace the `AzureWebJobsStorage` property value with the storage account's connection string that you saved earlier, for example:
 
       Before:
+
       ```json
       {
          "IsEncrypted": false,
@@ -300,6 +303,7 @@ Before you can create your logic app, create a local project so that you can man
       ```
 
       After:
+
       ```json
       {
          "IsEncrypted": false,
@@ -311,6 +315,25 @@ Before you can create your logic app, create a local project so that you can man
       ```
 
    1. When you're done, make sure that you save your changes.
+
+<a name="enable-built-in-connector-authoring"></a>
+
+## Enable built-in connector authoring
+
+You can create your own built-in connectors for any service you need by using the [preview release's extensibility framework](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Similar to built-in connectors such as Azure Service Bus and SQL Server, these connectors provide higher throughput, low latency, local connectivity, and run natively in the same process as the preview runtime.
+
+The authoring capability is currently available only in Visual Studio Code, but isn't enabled by default. To create these connectors, you need to first convert your project from extension bundle-based (Node.js) to NuGet package-based (.NET).
+
+> [!IMPORTANT]
+> This action is a one-way operation that you can't undo.
+
+1. In the Explorer pane, at your project's root, move your mouse pointer over any blank area below all the other files and folders, open the shortcut menu, and select **Convert to Nuget-based Logic App project**.
+
+   ![Screenshot that shows that shows Explorer pane with the project's shortcut menu opened from a blank area in the project window.](./media/create-stateful-stateless-workflows-visual-studio-code/convert-logic-app-project.png)
+
+1. When the prompt appears, confirm the project conversion.
+
+1. To continue, review and follow the steps in the article, [Azure Logic Apps Running Anywhere - Built-in connector extensibility](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
 
 <a name="open-workflow-definition-designer"></a>
 
@@ -579,7 +602,7 @@ To add a breakpoint, follow these steps:
 
 1. To review the available information when a breakpoint hits, in the Run view, examine the **Variables** pane.
 
-1. To continue workflow execution, on the Debug toolbar, select **Continue** (play button). 
+1. To continue workflow execution, on the Debug toolbar, select **Continue** (play button).
 
 You can add and remove breakpoints at any time during the workflow run. However, if you update the **workflow.json** file after the run starts, breakpoints don't automatically update. To update the breakpoints, restart the logic app.
 
@@ -765,6 +788,55 @@ After you make updates to your logic app, you can run another test by rerunning 
    ![Screenshot that shows the status for each step in the updated workflow plus the inputs and outputs in the expanded "Response" action.](./media/create-stateful-stateless-workflows-visual-studio-code/run-history-details-rerun.png)
 
 1. To stop the debugging session, on the **Run** menu, select **Stop Debugging** (Shift + F5).
+
+<a name="firewall-setup"></a>
+
+##  Find domain names for firewall access
+
+Before you deploy and run your logic app workflow in the Azure portal, if your environment has strict network requirements or firewalls that limit traffic, you have to set up permissions for any trigger or action connections that exist in your workflow.
+
+To find the fully qualified domain names (FQDNs) for these connections, follow these steps:
+
+1. In your logic app project, open the **connections.json** file, which is created after you add the first connection-based trigger or action to your workflow, and find the `managedApiConnections` object.
+
+1. For each connection that you created, find, copy, and save the `connectionRuntimeUrl` property value somewhere safe so that you can set up your firewall with this information.
+
+   This example **connections.json** file contains two connections, an AS2 connection and an Office 365 connection with these `connectionRuntimeUrl` values:
+
+   * AS2: `"connectionRuntimeUrl": https://9d51d1ffc9f77572.00.common.logic-{Azure-region}.azure-apihub.net/apim/as2/11d3fec26c87435a80737460c85f42ba`
+
+   * Office 365: `"connectionRuntimeUrl": https://9d51d1ffc9f77572.00.common.logic-{Azure-region}.azure-apihub.net/apim/office365/668073340efe481192096ac27e7d467f`
+
+   ```json
+   {
+      "managedApiConnections": {
+         "as2": {
+            "api": {
+               "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/as2"
+            },
+            "connection": {
+               "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Web/connections/{connection-resource-name}"
+            },
+            "connectionRuntimeUrl": https://9d51d1ffc9f77572.00.common.logic-{Azure-region}.azure-apihub.net/apim/as2/11d3fec26c87435a80737460c85f42ba,
+            "authentication": {
+               "type":"ManagedServiceIdentity"
+            }
+         },
+         "office365": {
+            "api": {
+               "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/office365"
+            },
+            "connection": {
+               "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Web/connections/{connection-resource-name}"
+            },
+            "connectionRuntimeUrl": https://9d51d1ffc9f77572.00.common.logic-{Azure-region}.azure-apihub.net/apim/office365/668073340efe481192096ac27e7d467f,
+            "authentication": {
+               "type":"ManagedServiceIdentity"
+            }
+         }
+      }
+   }
+   ```
 
 <a name="deploy-azure"></a>
 
@@ -1385,6 +1457,7 @@ When you try to start a debugging session, you get the error, **"Error exists af
 1. In the following task, delete the line, `"dependsOn: "generateDebugSymbols"`, along with the comma that ends the preceding line, for example:
 
    Before:
+
    ```json
     {
       "type": "func",
@@ -1396,6 +1469,7 @@ When you try to start a debugging session, you get the error, **"Error exists af
    ```
 
    After:
+
    ```json
     {
       "type": "func",

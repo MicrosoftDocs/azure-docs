@@ -15,7 +15,7 @@ As part of your migration journey to Azure, you assess your on-premises workload
 This article shows you how to assess discovered SQL instances in preparation for migration to Azure SQL, using the Azure Migrate: Discovery and assessment tool.
 
 > [!Note]
-> Discovery and assessment of SQL Server instances and databases running in your VMware environment is now in preview. To try out this feature, use [**this link**](https://aka.ms/AzureMigrate/SQL) to create a project in **Australia East** region. If you already have a project in Australia East and want to try out this feature, please ensure that you have completed these [**prerequisites**](how-to-discover-sql-existing-project.md) on the portal.
+> Discovery and assessment of SQL Server instances and databases running in your VMware environment is now in preview. 
 
 ## Before you start
 

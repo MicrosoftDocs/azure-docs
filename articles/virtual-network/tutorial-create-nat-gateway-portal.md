@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Create a NAT gateway - Azure portal'
 titlesuffix: Azure Virtual Network NAT
-description: Get started created a NAT gateway using the Azure portal.
+description: In this tutorial, learn how to create and validate a NAT gateway using the Azure portal.
 author: asudbring
 ms.author: allensu
 ms.service: virtual-network

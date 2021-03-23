@@ -1,18 +1,18 @@
 ---
-title: Support matrix for Backup Center
-description: This article summarizes the scenarios that Backup Center supports for each workload type
+title: Support matrix for Backup center
+description: This article summarizes the scenarios that Backup center supports for each workload type
 ms.topic: conceptual
 ms.date: 09/07/2020
 ---
-# Support matrix for Backup Center
+# Support matrix for Backup center
 
-Backup Center provides a single pane of glass for enterprises to [govern, monitor, operate, and analyze backups at scale](backup-center-overview.md). This article summarizes the scenarios that Backup Center supports for each workload type.
+Backup Center provides a single pane of glass for enterprises to [govern, monitor, operate, and analyze backups at scale](backup-center-overview.md). This article summarizes the scenarios that Backup center supports for each workload type.
 
 ## Supported scenarios
 
 | **Category** | **Scenario**  | **Supported workloads**  | **Limits** |
 | -------------| ------------- | ----------------------- |------------|
-| Monitoring   | View all jobs | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL server <br><br> <li> SQL in Azure VM <br><br> <li> SAP HANA in Azure VM <br><br> <li> Azure Files<br/><br/> <li>Azure Blobs<br/><br/> <li>Azure Managed Disks | <li> 7 days worth of jobs available out of the box. <br> <li> Each filter/drop-down supports a maximum of 1000 items. So Backup Center can be used to monitor a maximum of 1000 subscriptions and 1000 vaults across tenants. |
+| Monitoring   | View all jobs | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL server <br><br> <li> SQL in Azure VM <br><br> <li> SAP HANA in Azure VM <br><br> <li> Azure Files<br/><br/> <li>Azure Blobs<br/><br/> <li>Azure Managed Disks | <li> 7 days worth of jobs available out of the box. <br> <li> Each filter/drop-down supports a maximum of 1000 items. So Backup center can be used to monitor a maximum of 1000 subscriptions and 1000 vaults across tenants. |
 | Monitoring | View all backup instances | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL server <br><br> <li> SQL in Azure VM <br><br> <li> SAP HANA in Azure VM <br><br> <li> Azure Files<br/><br/> <li>Azure Blobs<br/><br/> <li>Azure Managed Disks | Same as above |
 | Monitoring | View all backup policies | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL server <br><br> <li> SQL in Azure VM <br><br> <li> SAP HANA in Azure VM <br><br> <li> Azure Files<br/><br/> <li>Azure Blobs<br/><br/> <li>Azure Managed Disks | Same as above |
 | Monitoring | View all vaults | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL server <br><br> <li> SQL in Azure VM <br><br> <li> SAP HANA in Azure VM <br><br> <li> Azure Files<br/><br/> <li>Azure Blobs<br/><br/> <li>Azure Managed Disks | Same as above |
@@ -32,7 +32,7 @@ Backup Center provides a single pane of glass for enterprises to [govern, monito
 |--------------|---------------|
 | Monitoring | View alerts at scale |
 | Actions | Configure vault settings at scale |
-| Actions | Execute cross-region restore job from Backup Center |
+| Actions | Execute cross-region restore job from Backup center |
 
 ## Next steps
 

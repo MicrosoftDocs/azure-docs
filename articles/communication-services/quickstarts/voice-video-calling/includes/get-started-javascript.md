@@ -3,13 +3,12 @@ title: Quickstart - Add VOIP calling to a web app using Azure Communication Serv
 description: In this tutorial, you learn how to use the Azure Communication Services Calling client library for JavaScript
 author: ddematheu
 ms.author: nimag
-ms.date: 08/11/2020
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 
 In this quickstart, you'll learn how start a call using the Azure Communication Services Calling client library for JavaScript.
-This document is referencing types in version 1.0.0-beta.5 of calling library.
 
 > [!NOTE]
 > This document uses version 1.0.0-beta.6 of the calling client library.
@@ -102,7 +101,7 @@ callButton.addEventListener("click", () => {
     // start a call
     const userToCall = calleeInput.value;
     call = callAgent.startCall(
-        [{ communicationUserId: userToCall }],
+        [{ id: userToCall }],
         {}
     );
     // toggle button states

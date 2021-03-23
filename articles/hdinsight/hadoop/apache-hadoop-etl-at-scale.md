@@ -13,7 +13,7 @@ Extract, transform, and load (ETL) is the process by which data is acquired from
 
 The use of HDInsight in the ETL process is summarized by this pipeline:
 
-![HDInsight ETL at scale overview](./media/apache-hadoop-etl-at-scale/hdinsight-etl-at-scale-overview.png)
+:::image type="content" source="./media/apache-hadoop-etl-at-scale/hdinsight-etl-at-scale-overview.png" alt-text="HDInsight ETL at scale overview" border="false":::
 
 The following sections explore each of the ETL phases and their associated components.
 

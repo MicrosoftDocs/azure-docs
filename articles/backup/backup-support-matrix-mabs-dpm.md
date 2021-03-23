@@ -55,9 +55,9 @@ DPM/MABS can be deployed as summarized in the following table.
 
 **Deployment** | **Support** | **Details**
 --- | --- | ---
-**Deployed on-premises** | Physical server<br/><br/>Hyper-V VM<br/><br/> VMware VM | Refer to the [protection matrix](backup-mabs-protection-matrix.md) for more details. 
+**Deployed on-premises** | Physical server, but not in a physical cluster.<br/><br/>Hyper-V VM. You can deploy MABS as a guest machine on a standalone hypervisor or cluster. It can’t be deployed on a node of a cluster or standalone hypervisor. The Azure Backup Server is designed to run on a dedicated, single-purpose server.<br/><br/> As a Windows virtual machine in a VMware environment. | On-premises MABS servers can't protect Azure-based workloads. <br><br> For more information, see [protection matrix](backup-mabs-protection-matrix.md).
 **Deployed as an Azure Stack VM** | MABS only | DPM can't be used to back up Azure Stack VMs.
-**Deployed as an Azure VM** | Protects Azure VMs and workloads that are running on those VMs | DPM/MABS running in Azure can't back up on-premises machines.
+**Deployed as an Azure VM** | Protects Azure VMs and workloads that are running on those VMs | DPM/MABS running in Azure can't back up on-premises machines. It can only protect workloads that are running in Azure IaaS VMs.
 
 ## Supported MABS and DPM operating systems
 
@@ -82,6 +82,9 @@ Azure Backup can back up DPM/MABS instances that are running any of the followin
 **Storage** | Modern backup storage (MBS) is supported from DPM 2016/MABS v2 and later. It isn't available for MABS v1.
 **MABS upgrade** | You can directly install MABS v3, or upgrade to MABS v3 from MABS v2. [Learn more](backup-azure-microsoft-azure-backup.md#upgrade-mabs).
 **Moving MABS** | Moving MABS to a new server while retaining the storage is supported if you're using MBS.<br/><br/> The server must have the same name as the original. You can't change the name if you want to keep the same storage pool, and use the same MABS database to store data recovery points.<br/><br/> You'll need a backup of the MABS database because you'll need to restore it.
+
+>[!NOTE]
+>Renaming the DPM/MABS server isn't supported.
 
 ## MABS support on Azure Stack
 
@@ -163,11 +166,19 @@ No connectivity for more than 15 days | Expired/deprovisioned | No backup to dis
 |Requirement |Details |
 |---------|---------|
 |Domain    | The DPM/MABS server should be in a Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 domain.        |
-|Domain trust   |  DPM/MABS supports data protection across forests, as long as you establish a forest-level, two-way trust between the separate forests.   <BR><BR>   DPM/MABS can protect servers and workstations across domains, within a forest that has a two-way trust relationship with the DPM/MABS server domain. To protect computers in workgroups or untrusted domains, see [Back up and restore workloads in workgroups and untrusted domains.](/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains)  |
+|Domain trust   |  DPM/MABS supports data protection across forests, as long as you establish a forest-level, two-way trust between the separate forests.   <BR><BR>   DPM/MABS can protect servers and workstations across domains, within a forest that has a two-way trust relationship with the DPM/MABS server domain. To protect computers in workgroups or untrusted domains, see [Back up and restore workloads in workgroups and untrusted domains.](/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains) <br><br> To back up Hyper-V server clusters, they must be located in the same domain as the MABS server or in a trusted or child domain. You can back up servers and clusters in an untrusted domain or workload using NTLM or certificate authentication for a single server, or certificate authentication only for a cluster.  |
 
 ## DPM/MABS storage support
 
 Data that's backed up to DPM/MABS is stored on local disk storage.
+
+USB or removable drives aren't supported.
+
+NTFS compression isn't supported on DPM/MABS volumes.
+
+BitLocker can only be enabled after you add the disk the storage pool. Don't enable BitLocker before adding it.
+
+Network-attached storage (NAS) isn't supported for use in the DPM storage pool.
 
 **Storage** | **Details**
 --- | ---
@@ -194,6 +205,38 @@ For information on the various servers and workloads that you can protect with D
 
 - Clustered workloads backed up by DPM/MABS should be in the same domain as DPM/MABS or in a child/trusted domain.
 - You can use NTLM/certificate authentication to back up data in untrusted domains or workgroups.
+
+## Deduplicated volumes support
+
+>[!NOTE]
+> Deduplication support for MABS depends on operating system support.
+
+### For NTFS volumes
+
+| Operating   system of protected server  | Operating   system of MABS server  | MABS version  | Dedup support |
+| ------------------------------------------ | ------------------------------------- | ------------------ | -------------------- |
+| Windows  Server 2019                       | Windows  Server 2019                  | MABS v3            | Y                    |
+| Windows  Server 2016                       | Windows  Server 2019                  | MABS v3            | Y*                   |
+| Windows  Server 2012 R2                    | Windows  Server 2019                  | MABS v3            | N                    |
+| Windows  Server 2012                       | Windows Server  2019                  | MABS v3            | N                    |
+| Windows  Server 2019                       | Windows  Server 2016                  | MABS v3            | Y**                  |
+| Windows  Server 2016                       | Windows  Server 2016                  | MABS v3            | Y                    |
+| Windows  Server 2012 R2                    | Windows  Server 2016                  | MABS v3            | Y                    |
+| Windows  Server 2012                       | Windows  Server 2016                  | MABS v3            | Y                    |
+
+- \* When protecting a WS 2016 NTFS deduped volume with MABS v3 running on WS 2019, the recoveries may be affected. We have a fix for doing recoveries in a non-deduped way. Reach out to MABS support if you need this fix on MABS v3 UR1.
+- \** When protecting a WS 2019 NTFS deduped volume with MABS v3 on WS 2016, the backups and restores will be non-deduped. This means that the backups will consume more space on the MABS server than the original NTFS deduped volume.
+
+**Issue**: If you upgrade the protected server operating system from Windows Server 2016 to Windows Server 2019, then the backup of the NTFS deduped volume will be affected due to changes in the deduplication logic.
+
+**Workaround**: Reach out to MABS support in case you need this fix for MABS v3 UR1.
+
+### For ReFS Volumes
+
+>[!NOTE]
+> We have identified a few issues with backups of deduplicated ReFS volumes. We are working on fixing these, and will update this section as soon as we have a fix available. Until then, we are removing the support for backup of deduplicated ReFS volumes from MABS v3.
+>
+> MABS v3 UR1 and later continues to support protection and recovery of normal ReFS volumes.
 
 ## Next steps
 

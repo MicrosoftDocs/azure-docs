@@ -59,6 +59,9 @@ The zone redundant version of the high availability architecture for the general
 
 > [!NOTE]
 > General Purpose databases with a size of 80 vcore may experience performance degradation with zone redundant configuration. Additionally, operations such as backup, restore, database copy, and setting up Geo-DR relationships may experience slower performance for any single databases larger than 1 TB. 
+> 
+> [!NOTE]
+> The preview is not covered under Reserved Instance
 
 ## Premium and Business Critical service tier locally redundant availability
 

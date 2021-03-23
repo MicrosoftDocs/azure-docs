@@ -178,15 +178,15 @@ additionalContent:
         - title: SDKs & REST APIs
           links:
             - text: C#
-              url: /dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
+              url: /dotnet/api/overview/azure/cognitiveservices/client
             - text: Go
               url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices
             - text: Java
-              url: /java/api/overview/azure/cognitiveservices/client?view=azure-java-stable
+              url: /java/api/overview/azure/cognitiveservices/client
             - text: JavaScript
-              url: /javascript/api/overview/azure/cognitive-services?view=azure-node-latest
+              url: /javascript/api/overview/azure/cognitive-services
             - text: Python
-              url: /python/api/overview/azure/cognitive-services?view=azure-python
+              url: /python/api/overview/azure/cognitive-services
             - text: R 
               url: https://github.com/Azure/AzureCognitive
             - text: Apache Spark and Databases 
@@ -198,4 +198,4 @@ additionalContent:
             - text: Azure CLI
               url: /cli/azure/cognitiveservices
             - text: PowerShell
-              url: /powershell/module/az.cognitiveservices/?view=azps-2.5.0#cognitive_services
+              url: /powershell/module/az.cognitiveservices/#cognitive_services

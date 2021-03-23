@@ -125,6 +125,7 @@ If you don't see a specific tag in Cost Management, consider the following quest
     - Data Factory
     - Databricks
     - Load balancers
+    - Machine Learning workspace Compute instances
     - Network Watcher
     - Notification Hubs
     - Service Bus

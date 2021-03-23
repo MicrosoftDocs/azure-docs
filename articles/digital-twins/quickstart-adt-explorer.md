@@ -56,7 +56,7 @@ The rest of this section walks you through these steps.
 
 ### Set up local Azure credentials
 
-The Azure Digital Twins Explorer application uses [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) (part of the `Azure.Identity` library) to authenticate users with the Azure Digital Twins instance when you run it on your local machine. For more information on different ways a client app can authenticate with Azure Digital Twins, see [Write app authentication code](how-to-authenticate-client.md).
+The Azure Digital Twins Explorer application uses [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) (part of the `Azure.Identity` library) to authenticate users with the Azure Digital Twins instance when you run it on your local machine. For more information on different ways a client app can authenticate with Azure Digital Twins, see [Write app authentication code](how-to-authenticate-client.md).
 
 With this type of authentication, Azure Digital Twins Explorer will search for credentials within your local environment, such as an Azure sign-in in a local [Azure CLI](/cli/azure/install-azure-cli) or in Visual Studio or Visual Studio Code. For this reason, you should *sign in to Azure locally* through one of these mechanisms to set up credentials for the Azure Digital Twins Explorer app.
 
@@ -94,13 +94,15 @@ Open a console window to the folder location **Azure_Digital_Twins__ADT__explore
 
 1. Enter the Azure Digital Twins instance URL that you gathered earlier in the [Set up an Azure Digital Twins instance](#set-up-an-azure-digital-twins-instance) section, in the format *https://{instance host name}*.
 
->[!NOTE]
-> You can revisit or edit this information at any time by selecting the same icon to open the **Sign In** box again. It will keep the values that you passed in.
-
 > [!TIP]
 > If a `SignalRService.subscribe` error message appears when you connect, make sure that your Azure Digital Twins URL begins with *https://*.
+>
+> If an authentication error appears, you may want to check your **environment variables** to make sure any credentials included there are valid for Azure Digital Twins. The `DefaultAzureCredential` attempts to authenticate against credential types in a [specific order](/dotnet/api/overview/azure/identity-readme#defaultazurecredential), and environment variables are evaluated first.
 
 If you see a **Permissions requested** pop-up window from Microsoft, grant consent for this application and accept to continue.
+
+>[!NOTE]
+> You can revisit or edit this information at any time by selecting the same icon to open the **Sign In** box again. It will keep the values that you passed in.
 
 ## Add the sample data
 
