@@ -145,7 +145,7 @@ The `azure_static_web_apps_api_token` value is self managed and is manually conf
 
   :::image type="content" source="media/publish-devops/save-and-run.png" alt-text="Pipeline":::
    
-Once the deployment is successful, navigate to the Azure Static Web Apps **Overview** which includes links to the deployment configuration. Select the URL of your Azure Static Web App to see your newly deployed app. The _Source_ link now points to the branch and location of the Azure DevOps repository.
+11. Once the deployment is successful, navigate to the Azure Static Web Apps **Overview** which includes links to the deployment configuration. Select the URL of your Azure Static Web App to see your newly deployed app. The _Source_ link now points to the branch and location of the Azure DevOps repository.
    
   :::image type="content" source="media/publish-devops/deployment-location.png" alt-text="Deployment location":::
 
