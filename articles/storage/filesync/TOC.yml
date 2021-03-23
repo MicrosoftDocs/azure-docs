@@ -31,6 +31,8 @@
     href: ../files/storage-files-prevent-file-share-deletion.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
   - name: Back up file shares
     href: ../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
+  - name: Understanding billing
+    href: ../files/understanding-billing.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
   - name: Encryption
     items:
     - name: Encryption at-rest

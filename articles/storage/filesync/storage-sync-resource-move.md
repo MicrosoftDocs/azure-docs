@@ -138,6 +138,6 @@ A regional fail-over can be started by Microsoft in a catastrophic event that wi
 
 ## See also
 
-- [Overview of Azure file share and sync migration guides](storage-files-migration-overview.md)
+- [Overview of Azure file share and sync migration guides](../files/storage-files-migration-overview.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json)
 - [Troubleshoot Azure File Sync](file-sync-troubleshoot.md)
 - [Planning for an Azure File Sync deployment](file-sync-planning.md)
