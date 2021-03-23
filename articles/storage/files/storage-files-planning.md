@@ -105,7 +105,7 @@ For more information about backup, see [About Azure file share backup](../../bac
 ### Azure Defender for Azure Files 
 Azure Defender for Azure Storage (formerly Advanced Threat Protection for Azure Storage) provides an additional layer of security intelligence that provides alerts when it detects anomalous activity on your storage account, for example unusual access attemps. It also runs malware hash reputation analysis and will alert on known malware. You can configure Azure Defender on a subscription or storage account level via Azure Security Center. 
 
-For more information, see [Azure Defender for Azure Storage](https://docs.microsoft.com/azure/security-center/defender-for-storage-introductionn).
+For more information, see [Introduction to Azure Defender for Storage](../../security-center/defender-for-storage-introduction.md).
 
 ## Storage tiers
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
