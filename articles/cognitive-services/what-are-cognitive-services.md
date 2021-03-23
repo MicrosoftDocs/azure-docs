@@ -149,3 +149,4 @@ Cognitive Services provides several support options to help you move forward wit
 
 * [Create a Cognitive Services account](cognitive-services-apis-create-account.md "Create a Cognitive Services account")
 * [What's new in Cognitive Services docs](whats-new-docs.md "What's new in Cognitive Services docs")
+* [Plan and manage costs for Cognitive Services](plan-manage-costs.md)
