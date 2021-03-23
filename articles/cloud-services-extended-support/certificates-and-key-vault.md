@@ -22,9 +22,8 @@ Key Vault is used to store certificates that are associated to Cloud Services (e
 
     :::image type="content" source="media/certs-and-key-vault-1.png" alt-text="Image shows selecting access policies from the key vault blade.":::
 
-3. Ensure the access policies include the following properties:
+3. Ensure the access policies include the following property:
     - **Enable access to Azure Virtual Machines for deployment**
-    - **Enable access to Azure Resource Manager for template deployment** 
 
     :::image type="content" source="media/certs-and-key-vault-2.png" alt-text="Image shows access policies window in the Azure portal.":::
  
