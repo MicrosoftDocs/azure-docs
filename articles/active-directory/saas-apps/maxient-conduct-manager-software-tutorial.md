@@ -59,7 +59,7 @@ Configure and test Azure AD SSO with Maxient Conduct Manager Software. For SSO t
 To configure and test Azure AD SSO with Maxient Conduct Manager Software, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to authenticate for use with the Maxient Conduct Manager Software
-    1. **[Assign all users to use Maxient](#assign-all-users-to-be-able-to-authenticate-for-the-maxient-conduct-manager-software)** - to allow everyone at your institution to be able to authenticate.
+    1. **[Set "User Assignment Required?" to No](#set-"user-assignment-required?"-to-no)** - to allow everyone at your institution to be able to authenticate.
 1. **[Test Azure AD Setup With Maxient](#test-with-maxient)** - to verify whether the configuration works, and the correct attributes are being released
 
 ## Configure Azure AD SSO
@@ -86,21 +86,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![The Certificate download link](common/copy-metadataurl.png)
 
-### Assign All Users to be Able to Authenticate for the Maxient Conduct Manager Software
+### Set "User Assignment Required?" to No
 
-In this section, you will grant access for all accounts to authenticate using the Azure system for the Maxient Conduct Manager Software.  It is important to note that this step is **REQUIRED** for Maxient to function properly.  Maxient leverages your Azure AD system to *authenticate* users. The *authorization* of users is performed within the Maxient system for the particular function they’re trying to perform. Maxient does not use attributes from your directory to make those decisions.
+It is important to note that this step is **REQUIRED** for Maxient to function properly.  Maxient leverages your Azure AD system to *authenticate* users. The *authorization* of users is performed within the Maxient system for the particular function they’re trying to perform. Maxient does not use attributes from your directory to make those decisions.
 
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **Maxient Conduct Manager Software**.
-1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-
-   ![The "Users and groups" link](common/users-groups-blade.png)
-
-1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-
-	![The Add User link](common/add-assign-user.png)
-
-1. In the **Users and groups** dialog, select all users (or the appropriate groups) and **assign** them to be able to authenticate with Maxient.
+1. In the app's overview page, toggle the "User Assignment Required" setting to No.
 
 ## Test with Maxient 
 
