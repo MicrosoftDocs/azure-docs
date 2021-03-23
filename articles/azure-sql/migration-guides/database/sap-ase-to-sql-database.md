@@ -56,7 +56,7 @@ Before you perform schema conversion, validate the default data-type mappings or
 
 To convert the schema, do the following:
 
-1. (Optional) To convert dynamic or ad hoc queries, right-click the node, and then select **Add statement**. 
+1. (Optional) To convert dynamic or specialized queries, right-click the node, and then select **Add statement**. 
 1. Select the **Connect to Azure SQL Database** tab, and then enter the Azure SQL Database details. You can choose to connect to an existing database or provide a new name, in which case a database will be created on the target server.
 1. On the **Sybase Metadata Explorer** pane, right-click the SAP ASE schema you're working with, and then select **Convert Schema**. 
 1. After the schema has been converted, compare and review the converted structure to the original structure identify potential problems. 
@@ -110,7 +110,7 @@ For more information about these issues and the steps to mitigate them, see the 
 
 - For a matrix of Microsoft and third-party services and tools that are available to assist you with various database and data migration scenarios and specialty tasks, see [Service and tools for data migration](../../../dms/dms-tools-matrix.md).
 
-- To learn more about Azure SQL Database see:
+- To learn more about Azure SQL Database, see:
    - [An overview of SQL Database](../../database/sql-database-paas-overview.md)
    - [Azure total cost of ownership calculator](https://azure.microsoft.com/pricing/tco/calculator/)  
 
