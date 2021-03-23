@@ -149,8 +149,6 @@ In **Step 3: Provide server credentials to perform software inventory, agentless
 
 :::image type="content" source="./media/tutorial-discover-vmware/appliance-server-credentials-mapping.png" alt-text="Panel 3 on appliance configuration manager for server details":::
 
-> [!Note]
-> Discovery and assessment of SQL Server instances and databases running in your VMware environment is now in preview. To try out this feature, use [**this link**](https://aka.ms/AzureMigrate/SQL) to create a project in **Australia East** region. If you already have a project in Australia East and want to try out this feature, please ensure that you have completed these [**prerequisites**](how-to-discover-sql-existing-project.md) on the portal.
 
 If you want to leverage these features, you can provide server credentials by following the steps below.The appliance will attempt to automatically map the credentials to the servers to perform the discovery features.
 

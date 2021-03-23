@@ -74,9 +74,6 @@ In addition to discovering Servers, Azure Migrate: Discovery and assessment can 
 
 ## Requirements for discovery of SQL Server instances and databases
 
-> [!Note]
-> Discovery and assessment of SQL Server instances and databases running in your VMware environment is now in preview. To try out this feature, use [**this link**](https://aka.ms/AzureMigrate/SQL) to create a project in **Australia East** region. If you already have a project in Australia East and want to try out this feature, please ensure that you have completed these [**prerequisites**](how-to-discover-sql-existing-project.md) on the portal.
-
 [Application discovery](how-to-discover-applications.md) identifies the SQL Server instances. Using this information, appliance attempts to connect to respective SQL Server instances through the Windows authentication or SQL Server authentication credentials provided on the appliance. Once connected, appliance gathers configuration and performance data of SQL Server instances and databases. The SQL Server configuration data is updated once every 24 hours and the performance data are captured every 30 seconds.
 
 **Support** | **Details**
