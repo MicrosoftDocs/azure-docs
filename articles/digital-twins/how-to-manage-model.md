@@ -180,7 +180,7 @@ Things you **can** do:
 * Read properties
 * Read outgoing relationships
 * Add and delete incoming relationships (as in, other twins can still form relationships *to* this twin)
-  - The `target` in the relationship definition can still reflect the DTMI of the deleted model. A relationship with no defined target can also work here.
+  - The `target` in the relationship definition can still reflect the DTMI of the deleted model. A relationship with no defined target can also work here.      
 * Delete relationships
 * Delete the twin
 
