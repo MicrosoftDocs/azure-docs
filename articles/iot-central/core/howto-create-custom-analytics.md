@@ -101,7 +101,9 @@ On the [Azure IoT Central application manager](https://aka.ms/iotcentral) websit
 1. Navigate to the **Data Export** page, select **+ New Export**.
 1. Before finishing the first window, Select **Create a destination**.
 
-The window will look like below.  :::image type="content" source="media/howto-create-custom-analytics/dataexport2.png" alt-text="image of Data export destination configuration.":::
+The window will look like below.  
+
+:::image type="content" source="media/howto-create-custom-analytics/dataexport-2.png" alt-text="image of Data export destination configuration.":::
 
 3. Enter the following values:
 
@@ -112,9 +114,9 @@ The window will look like below.  :::image type="content" source="media/howto-cr
 | Connection String| The event hub connection string you made a note of previously. | 
 | Event Hub| Your Event Hub Name|
 
-3. Click **Create** to finish.
+4. Click **Create** to finish.
 
-4. Use the following settings to configure the export:
+5. Use the following settings to configure the export:
 
     | Setting | Value |
     | ------- | ----- |
@@ -123,9 +125,9 @@ The window will look like below.  :::image type="content" source="media/howto-cr
     | Data| Select telemetry | 
     | Destinations| Create a destination, as shown below, for your export and then select it in the destination dropdown menu. |
 
-:::image type="content" source="media/howto-create-custom-analytics/dataexport1.png" alt-text="Screenshot of Data export destination configuration.":::
+:::image type="content" source="media/howto-create-custom-analytics/dataexport-1.png" alt-text="Screenshot of Data export destination configuration.":::
 
-5. When finished, select **Save**.
+6. When finished, select **Save**.
 
 Wait until the export status is **Running** before you continue.
 
@@ -189,7 +191,7 @@ Use the following steps to import a Databricks notebook that contains the Python
 
 :::image type="content" source="media/howto-create-custom-analytics/import-notebook.png" alt-text="Screenshot of Imported notebook.":::
 
-1. Edit the code in the first Python cell to add the Event Hubs connection string you saved previously:
+5. Edit the code in the first Python cell to add the Event Hubs connection string you saved previously:
 
     ```python
     from pyspark.sql.functions import *
