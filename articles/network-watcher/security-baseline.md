@@ -116,9 +116,9 @@ Network Watcher should be enabled
 
 **Guidance**: Use Azure Activity Log to monitor changes made to Azure Network Watcher. You may create alerts within Azure Monitor that will trigger when changes take place.
 
-* [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -140,7 +140,7 @@ Network Watcher should be enabled
 
 **Guidance**: Use Azure Activity Log to monitor configurations and detect changes for your Azure Network Watcher instances. Other than at the control plane (e.g. Azure portal), Network Watcher itself does not generate logs related to network traffic. Network Watcher provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network.
 
-* [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 * [Understand Network Watcher](./network-watcher-monitoring-overview.md)
 
@@ -152,7 +152,7 @@ Network Watcher should be enabled
 
 **Guidance**: Use Azure Activity Log to monitor configurations and detect changes for your Azure Network Watcher instances. Other than at the control plane (e.g. Azure portal), Network Watcher itself does not generate audit logs. Network Watcher provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network.
 
-* [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 * [Understand Network Watcher](./network-watcher-monitoring-overview.md)
 
@@ -172,7 +172,7 @@ Network Watcher should be enabled
 
 **Guidance**: In Azure Monitor, set log retention period for Log Analytics workspaces associated with Azure Network Watcher according to your organization's compliance regulations.
 
-* [How to set log retention parameters](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [How to set log retention parameters](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -182,7 +182,7 @@ Network Watcher should be enabled
 
 **Guidance**: Use Azure Activity Log to monitor configurations and detect changes for your Azure Network Watcher instances. Other than at the control plane (e.g. Azure portal), Network Watcher itself does not generate logs related to network traffic. Network Watcher provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network.
 
-* [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 * [Understand Network Watcher](./network-watcher-monitoring-overview.md)
 
@@ -477,7 +477,7 @@ To use Network Watcher capabilities, the account you log into Azure with, must b
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to Azure Network Watcher and other critical or related resources.
 
-* [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Yes
 

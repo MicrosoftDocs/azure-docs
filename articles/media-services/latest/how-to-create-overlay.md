@@ -48,4 +48,4 @@ Download the [media-services-overlay sample](https://github.com/Azure-Samples/me
 
 ## Next steps
 
-* [Subclip a video when encoding with Media Services - .NET](subclip-video-dotnet-howto.md)
+[!INCLUDE [transforms next steps](./includes/transforms-next-steps.md)]

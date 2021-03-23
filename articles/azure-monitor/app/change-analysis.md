@@ -54,6 +54,16 @@ Change Analysis captures the deployment and configuration state of an applicatio
 
 ![Screenshot of the "Scan changes now" button](./media/change-analysis/scan-changes.png)
 
+Currently all text-based files under site root **wwwroot** with the following extensions are supported:
+- *.config
+- *.xml
+- *.json
+- *.gem
+- *.yml
+- *.txt
+- *.ini
+- *.env
+
 ### Dependency changes
 
 Changes to resource dependencies can also cause issues in a resource. For example, if a web app calls into a Redis cache, the Redis cache SKU could affect the web app performance. Another example is if port 22 was closed in a Virtual Machine's Network Security Group, it will cause connectivity errors.
@@ -81,10 +91,10 @@ The Application Change Analysis service computes and aggregates change data from
 For web app in-guest changes, separate enablement is required for scanning code files within a web app. For more information, see [Change Analysis in the Diagnose and solve problems tool](change-analysis-visualizations.md#application-change-analysis-in-the-diagnose-and-solve-problems-tool) section later in this article for more details.
 
 ## Cost
-
 Application Change Analysis is a free service - it does not incur any billing cost to subscriptions with it enabled. The service also does not have any performance impact for scanning Azure Resource properties changes. When you enable Change Analysis for web apps in-guest file changes (or enable the Diagnose and Solve problems tool), it will have negligible performance impact on the web app and no billing cost.
 
-## Enable Change Analysis at scale
+
+## Enable Change Analysis at scale for Web App in-guest file and environment variable changes
 
 If your subscription includes numerous web apps, enabling the service at the level of the web app would be inefficient. Run the following script to enable all web apps in your subscription.
 

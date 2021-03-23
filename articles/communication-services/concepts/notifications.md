@@ -7,13 +7,14 @@ manager: jken
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 09/30/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
 # Communication Services notifications
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+
 
 The Azure Communication Services chat and calling client libraries create a real-time messaging channel that allows signaling messages to be pushed to connected clients in an efficient, reliable manner. This enables you to build rich, real-time communication functionality into your applications without the need to implement complicated HTTP polling logic. However, on mobile applications, this signaling channel only remains connected when your application is active in the foreground. If you want your users to receive incoming calls or chat messages while your application is in the background, you should use push notifications.
 
@@ -25,11 +26,11 @@ Azure Communication Services integrates with [Azure Event Grid](https://azure.mi
 
 :::image type="content" source="./media/notifications/acs-events-int.png" alt-text="Diagram showing how Communication Services integrates with Event Grid.":::
 
-Learn more about [event handling in Azure Communication Services](./event-handling.md).
+Learn more about [event handling in Azure Communication Services](https://docs.microsoft.com/azure/event-grid/event-schema-communication-services).
 
 ## Deliver push notifications via Azure Notification Hubs
 
-You can connect an Azure Notification Hub to your Communication Services resource in order to automatically send push notifications to a user's mobile device when they receive an incoming call. You should use these push notifications to wake up your application from the background and display UI that lets the user accept or decline the call. 
+You can connect an Azure Notification Hub to your Communication Services resource in order to automatically send push notifications to a user's mobile device when they receive an incoming call. You should use these push notifications to wake up your application from the background and display UI that lets the user accept or decline the call.
 
 :::image type="content" source="./media/notifications/acs-anh-int.png" alt-text="Diagram showing how communication services integrates with Azure Notification Hubs.":::
 
@@ -38,13 +39,13 @@ Communication Services uses Azure Notification Hub as a pass-through service to 
 > [!NOTE]
 > Currently only calling push notifications are supported.
 
-### Notification Hub provisioning 
+### Notification Hub provisioning
 
 To deliver push notifications to client devices using Notification Hubs, [create a Notification Hub](../../notification-hubs/create-notification-hub-portal.md) within the same subscription as your Communication Services resource. You must configure the Azure Notification Hub for the Platform Notification System you want to use. To learn how to get push notifications in your client app from Notification Hubs, see [Getting started with Notification Hubs](../../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md) and select your target client platform from the drop-down list near the top of the page.
 
 > [!NOTE]
-> Currently the APNs and FCM platforms are supported.  
-The APNs platform needs to be configured with token authentication mode. Certificate authentication mode isn't supported as of now. 
+> Currently the APNs and FCM platforms are supported.
+The APNs platform needs to be configured with token authentication mode. Certificate authentication mode isn't supported as of now.
 
 Once your Notification hub is configured, you can associate it to your Communication Services resource by supplying a connection string for the hub using the Azure Resource Manager Client or through the Azure portal. The connection string should contain `Send` permissions. We recommend creating another access policy with `Send` only permissions specifically for your hub. Learn more about [Notification Hubs security and access policies](../../notification-hubs/notification-hubs-push-notification-security.md)
 
@@ -69,10 +70,10 @@ In the portal, navigate to your Azure Communication Services resource. Inside th
 :::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Screenshot showing the Push Notifications settings within the Azure portal.":::
 
 > [!NOTE]
-> If the Azure Notification Hub connection string is updated the Communication Services resource has to be updated as well.  
+> If the Azure Notification Hub connection string is updated the Communication Services resource has to be updated as well.
 Any change on how the hub is linked will be reflected in data plane (i.e., when sending a notification) within a maximum period of ``10`` minutes. This is applicable also when the hub is linked for the first time **if** there were notifications sent before.
 
-### Device registration 
+### Device registration
 
 Refer to the [voice calling quickstart](../quickstarts/voice-video-calling/getting-started-with-calling.md) to learn how to register your device handle with Communication Services.
 
@@ -86,7 +87,7 @@ When you don't see push notifications on your device, there are three places whe
 
 The first place where a notification can be dropped (Azure Notification Hubs didn't accept the notifications from Azure Communication Services) is covered below. For the other two places, see [Diagnose dropped notifications in Azure Notification Hubs](../../notification-hubs/notification-hubs-push-notification-fixer.md).
 
-One way to see if your Communication Services resource sends notifications to Azure Notification Hubs is by looking at the `incoming messages` metric from the linked [Azure Notification Hub metrics](../../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs).
+One way to see if your Communication Services resource sends notifications to Azure Notification Hubs is by looking at the `incoming messages` metric from the linked [Azure Notification Hub metrics](../../azure-monitor/essentials/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs).
 
 The following are some common misconfigurations that might be the cause why Azure Notification Hub doesn't accept the notifications from your Communication Services resource.
 

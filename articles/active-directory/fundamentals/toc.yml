@@ -51,6 +51,14 @@
         href: 9-secure-access-teams-sharepoint.md
     - name: Secure Service Accounts
       items:
+      - name: Introduction to Azure service accounts
+        href: service-accounts-introduction-azure.md
+      - name: Securing managed identities
+        href: service-accounts-managed-identities.md
+      - name: Securing service principals
+        href: service-accounts-principal.md
+      - name: Governing Azure service accounts
+        href: service-accounts-governing-azure.md       
       - name: Introduction to on-premises service accounts
         href: service-accounts-on-premises.md
       - name: Securing group MSAs
@@ -154,7 +162,7 @@
         - name: Development overview
           href: resilience-app-development-overview.md
         - name: Client applications
-          href: resilience-client-app.md
+          href: resilience-client-app.md  
         - name: Daemon applications
           href: resilience-daemon-app.md
       - name: Monitor application health for resilience

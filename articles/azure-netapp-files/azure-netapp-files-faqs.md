@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 03/09/2021
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -105,7 +105,7 @@ Azure NetApp Files provides volume performance metrics. You can also use Azure M
 
 ### What’s the performance impact of Kerberos on NFSv4.1?
 
-See [Performance impact of Kerberos on NFSv4.1](configure-kerberos-encryption.md#kerberos_performance) for information about security options for NFSv4.1, the performance vectors tested, and the expected performance impact. 
+See [Performance impact of Kerberos on NFSv4.1 volumes](performance-impact-kerberos.md) for information about security options for NFSv4.1, the performance vectors tested, and the expected performance impact. 
 
 ## NFS FAQs
 
@@ -143,6 +143,16 @@ Make sure that `CaseSensitiveLookup` is enabled on the Windows client to speed u
 	Example:   
 	`Mount -o rsize=1024 -o wsize=1024 -o mtype=hard \\10.x.x.x\testvol X:*`
 
+### How does Azure NetApp Files support NFSv4.1 file-locking? 
+
+For NFSv4.1 clients, Azure NetApp Files supports the NFSv4.1 file-locking mechanism that maintains the state of all file locks under a lease-based model. 
+
+Per RFC 3530, Azure NetApp Files defines a single lease period for all state held by an NFS client. If the client does not renew its lease within the defined period, all states associated with the client's lease will be released by the server.  
+
+For example, if a client mounting a volume becomes unresponsive or crashes beyond the timeouts, the locks will be released. The client can renew its lease explicitly or implicitly by performing operations such as reading a file.   
+
+A grace period defines a period of special processing in which clients can try to reclaim their locking state during a server recovery. The default timeout for the leases is 30 seconds with a grace period of 45 seconds. After that time, the client's lease will be released.   
+
 ## SMB FAQs
 
 ### Which SMB versions are supported by Azure NetApp Files?
@@ -176,12 +186,6 @@ The volume size reported by the SMB client is the maximum size the Azure NetApp 
 ### I’m having issues connecting to my SMB share. What should I do?
 
 As a best practice, set the maximum tolerance for computer clock synchronization to five minutes. For more information, see [Maximum tolerance for computer clock synchronization](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj852172(v=ws.11)). 
-
-<!--
-### Does Azure NetApp Files support LDAP signing? 
-
-Yes, Azure NetApp Files supports LDAP signing by default. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).
---> 
 
 ## Capacity management FAQs
 

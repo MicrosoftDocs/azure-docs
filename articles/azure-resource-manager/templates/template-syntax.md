@@ -2,7 +2,7 @@
 title: Template structure and syntax
 description: Describes the structure and properties of Azure Resource Manager templates (ARM templates) using declarative JSON syntax.
 ms.topic: conceptual
-ms.date: 12/17/2020
+ms.date: 03/03/2021
 ---
 
 # Understand the structure and syntax of ARM templates
@@ -41,62 +41,6 @@ In its simplest structure, a template has the following elements:
 
 Each element has properties you can set. This article describes the sections of the template in greater detail.
 
-## Data types
-
-Within an ARM template, you can use these data types:
-
-* string
-* securestring
-* int
-* bool
-* object
-* secureObject
-* array
-
-The following template shows the format for the data types. Each type has a default value in the correct format.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "stringParameter": {
-      "type": "string",
-      "defaultValue": "option 1"
-    },
-    "intParameter": {
-      "type": "int",
-      "defaultValue": 1
-    },
-    "boolParameter": {
-        "type": "bool",
-        "defaultValue": true
-    },
-    "objectParameter": {
-      "type": "object",
-      "defaultValue": {
-        "one": "a",
-        "two": "b"
-      }
-    },
-    "arrayParameter": {
-      "type": "array",
-      "defaultValue": [ 1, 2, 3 ]
-    }
-  },
-  "resources": [],
-  "outputs": {}
-}
-```
-
-Secure string uses the same format as string, and secure object uses the same format as object. When you set a parameter to a secure string or secure object, the value of the parameter isn't saved to the deployment history and isn't logged. However, if you set that secure value to a property that isn't expecting a secure value, the value isn't protected. For example, if you set a secure string to a tag, that value is stored as plain text. Use secure strings for passwords and secrets.
-
-For integers passed as inline parameters, the range of values may be limited by the SDK or command-line tool you use for deployment. For example, when using PowerShell to deploy a template, integer types can range from -2147483648 to 2147483647. To avoid this limitation, specify large integer values in a [parameter file](parameter-files.md). Resource types apply their own limits for integer properties.
-
-When specifying boolean and integer values in your template, don't surround the value with quotation marks. Start and end string values with double quotation marks (`"string value"`).
-
-Objects start with a left brace (`{`) and end with a right brace (`}`). Arrays start with a left bracket (`[`) and end with a right bracket (`]`).
-
 ## Parameters
 
 In the `parameters` section of the template, you specify which values you can input when deploying the resources. You're limited to 256 parameters in a template. You can reduce the number of parameters by using objects that contain multiple properties.
@@ -123,7 +67,7 @@ The available properties for a parameter are:
 | Element name | Required | Description |
 |:--- |:--- |:--- |
 | parameter-name |Yes |Name of the parameter. Must be a valid JavaScript identifier. |
-| type |Yes |Type of the parameter value. The allowed types and values are **string**, **securestring**, **int**, **bool**, **object**, **secureObject**, and **array**. See [Data types](#data-types). |
+| type |Yes |Type of the parameter value. The allowed types and values are **string**, **securestring**, **int**, **bool**, **object**, **secureObject**, and **array**. See [Data types in ARM templates](data-types.md). |
 | defaultValue |No |Default value for the parameter, if no value is provided for the parameter. |
 | allowedValues |No |Array of allowed values for the parameter to make sure that the right value is provided. |
 | minValue |No |The minimum value for int type parameters, this value is inclusive. |
@@ -136,7 +80,7 @@ For examples of how to use parameters, see [Parameters in ARM templates](templat
 
 ## Variables
 
-In the `variables` section, you construct values that can be used throughout your template. You don't need to define variables, but they often simplify your template by reducing complex expressions. The format of each variable matches one of the [data types](#data-types).
+In the `variables` section, you construct values that can be used throughout your template. You don't need to define variables, but they often simplify your template by reducing complex expressions. The format of each variable matches one of the [data types](data-types.md).
 
 The following example shows the available options for defining a variable:
 

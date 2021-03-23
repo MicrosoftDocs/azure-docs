@@ -30,7 +30,7 @@ If you replicate VMware VMs or Windows/Linux physical servers to Azure, you can 
 3. Note the ID of the VMM server.
 4. Disassociate replication policies from clouds on the VMM server you want to remove.  In **Site Recovery Infrastructure** > **For System Center VMM** >  **Replication Policies**, double-click the associated policy. Right-click the cloud > **Disassociate**.
 5. Delete the VMM server or active node. In **Site Recovery Infrastructure** > **For System Center VMM** > **VMM Servers**, right-click the server > **Delete**.
-6. If your VMM server was in a Disconnected state, then download and run the [cleanup script](https://aka.ms/asr-cleanup-script-vmm) on the VMM server. Open PowerShell with the **Run as Administrator** option, to change the execution policy for the default (LocalMachine) scope. In the script, specify the ID of the VMM server you want to remove. The script removes registration and cloud pairing information from the server.
+6. If your VMM server was in a Disconnected state, then download and run the [cleanup script](/samples/browse/?redirectedfrom=TechNet-Gallery) on the VMM server. Open PowerShell with the **Run as Administrator** option, to change the execution policy for the default (LocalMachine) scope. In the script, specify the ID of the VMM server you want to remove. The script removes registration and cloud pairing information from the server.
 5. Run the cleanup script on any secondary VMM server.
 6. Run the  cleanup script on any other passive VMM cluster nodes that have the Provider installed.
 7. Uninstall the Provider manually on the VMM server. If you have a cluster, remove from all nodes.

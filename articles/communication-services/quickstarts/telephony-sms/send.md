@@ -7,7 +7,7 @@ manager: jken
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 09/30/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ms.custom: tracking-python, devx-track-js
@@ -17,9 +17,12 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
+
+[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
+
 > [!IMPORTANT]
 > SMS messages can be sent to and received from United States phone numbers. Phone numbers located in other geographies are not yet supported by Communication Services SMS.
-> For more information, see **[Plan your telephony and SMS solution](../../concepts/telephony-sms/plan-solution.md)**.
+> For more information, see **[Phone number types](../../concepts/telephony-sms/plan-solution.md)**.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Send SMS with .NET client library](./includes/send-sms-net.md)]
@@ -53,7 +56,7 @@ In this quickstart, you learned how to send SMS messages using Azure Communicati
 > [Subscribe to SMS Events](./handle-sms-events.md)
 
 > [!div class="nextstepaction"]
-> [Plan your PSTN Solution](../../concepts/telephony-sms/plan-solution.md)
+> [Phone number types](../../concepts/telephony-sms/plan-solution.md)
 
 > [!div class="nextstepaction"]
 > [Learn more about SMS](../../concepts/telephony-sms/concepts.md)

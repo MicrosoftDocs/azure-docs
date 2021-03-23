@@ -2,17 +2,13 @@
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Transforms and Jobs in Media Services
 : Azure Media Services
-description: Learn how to create a Transforms to describe the rules for processing your videos in Azure Media Services.
+description: Transforms describe the rules for processing your videos in Azure Media Services.
 services: media-services
-documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
-editor: ''
-
 ms.service: media-services
-ms.workload: 
 ms.topic: conceptual
-ms.date: 08/19/2019
+ms.date: 03/22/2021
 ms.author: inhenkel
 ---
 
@@ -55,7 +51,7 @@ Use **Transforms** to configure common tasks for encoding or analyzing videos. E
 
 ### Viewing schema
 
-In Media Services v3, presets are strongly typed entities in the API itself. You can find the "schema" definition for these objects in [Open API Specification (or Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). You can also view the preset definitions (like **StandardEncoderPreset**) in the [REST API](/rest/api/media/transforms/createorupdate#standardencoderpreset), [.NET SDK](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet), or other Media Services v3 SDK reference documentation.
+In Media Services v3, presets are strongly typed entities in the API itself. You can find the "schema" definition for these objects in [Open API Specification (or Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). You can also view the preset definitions (like **StandardEncoderPreset**) in the [REST API](/rest/api/media/transforms/createorupdate#standardencoderpreset), [.NET SDK](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset), or other Media Services v3 SDK reference documentation.
 
 ### Creating Transforms
 
@@ -87,7 +83,7 @@ Use [Asset as job input](job-input-from-local-file-how-to.md) if the input conte
 
 ### Checking Job progress
 
-The progress and state of jobs can be obtained by monitoring events with Event Grid. For more information, see [Monitor events using EventGrid](job-state-events-cli-how-to.md).
+The progress and state of jobs can be obtained by monitoring events with Event Grid. For more information, see [Monitor events using EventGrid](monitoring/job-state-events-cli-how-to.md).
 
 ### Updating Jobs
 
@@ -100,12 +96,6 @@ The following diagram shows the **Job** object and the objects it references inc
 Click the image to view it full size.  
 
 [![Diagram showing the Job object and the objects it references, including the class derivation relationships between the objects.](./media/api-diagrams/job-small.png)](./media/api-diagrams/job-large.png#lightbox)
-
-## Configure Media Reserved Units
-
-For the Audio Analysis and Video Analysis Jobs that are triggered by Media Services v3 or Video Indexer, it's highly recommended to provision your account with 10 S3 Media Reserved Units (MRUs). If you need more than 10 S3 MRUs, open a support ticket using the [Azure portal](https://portal.azure.com/).
-
-For details, see [Scale media processing with CLI](media-reserved-units-cli-how-to.md).
 
 ## Ask questions, give feedback, get updates
 

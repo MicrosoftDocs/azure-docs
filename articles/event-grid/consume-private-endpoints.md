@@ -14,7 +14,7 @@ However, if your requirements call for a secure way to send events using an encr
 Then, you can use a private link configured in Azure Functions or your webhook deployed on your virtual network to pull events. See the sample: [Connect to private endpoints with Azure Functions](/samples/azure-samples/azure-functions-private-endpoints/connect-to-private-endpoints-with-azure-functions/).
 
 
-:::image type="content" source="./media/consume-private-endpoints/deliver-private-link-service.png" alt-text="Deliver via private link service":::
+:::image type="content" source="./media/consume-private-endpoints/deliver-private-link-service.svg" alt-text="Deliver via private link service":::
 
 
 Under this configuration, the traffic goes over the public IP/internet from Event Grid to Event Hubs, Service Bus, or Azure Storage, but the channel can be encrypted and a managed identity of Event Grid is used. If you configure your Azure Functions or webhook deployed to your virtual network to use an Event Hubs, Service Bus, or Azure Storage via private link, that section of the traffic will evidently stay within Azure.
@@ -31,7 +31,7 @@ To deliver events to event hubs in your Event Hubs namespace using managed ident
 To deliver events to Service Bus queues or topics in your Service Bus namespace using managed identity, follow these steps:
 
 1. [Enable system-assigned identity for a topic or a domain](managed-service-identity.md#create-a-custom-topic-or-domain-with-an-identity). 
-1. Add the identity to the [Azure Service Bus Data Sender](/service-bus-messaging/service-bus-managed-service-identity.md#azure-built-in-roles-for-azure-service-bus) role on the Service Bus namespace
+1. Add the identity to the [Azure Service Bus Data Sender](/service-bus-messaging/service-bus-managed-service-identity#azure-built-in-roles-for-azure-service-bus) role on the Service Bus namespace
 1. [Enable the **Allow trusted Microsoft services to bypass this firewall** setting on your Service Bus namespace](../service-bus-messaging/service-bus-service-endpoints.md#trusted-microsoft-services). 
 1. [Configure the event subscription](managed-service-identity.md#create-event-subscriptions-that-use-an-identity) that uses a Service Bus queue or topic as an endpoint to use the system-assigned identity.
 

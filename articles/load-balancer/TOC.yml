@@ -39,6 +39,14 @@
       href: tutorial-cross-region-portal.md
     - name: Create cross-region load balancer - PowerShell
       href: tutorial-cross-region-powershell.md
+    - name: Create cross-region load balancer - Azure CLI
+      href: tutorial-cross-region-cli.md
+  - name: NAT gateway
+    items:
+    - name: Integrate NAT gateway public load balancer
+      href: ../virtual-network/tutorial-nat-gateway-load-balancer-public-portal.md?toc=%2fazure%2fload-balancer%2ftoc.json
+    - name: Integrate NAT gateway internal load balancer
+      href: ../virtual-network/tutorial-nat-gateway-load-balancer-internal-portal.md?toc=%2fazure%2fload-balancer%2ftoc.json
 - name: Samples
   items:
   - name: Azure CLI
@@ -47,6 +55,8 @@
     href: powershell-samples.md
 - name: Concepts
   items:
+  - name: Portal settings
+    href: manage.md
   - name: Cross-region load balancer
     href: cross-region-overview.md
   - name: What's new?
@@ -97,8 +107,6 @@
     href: instance-metadata-service-load-balancer.md
 - name: How-to
   items:
-  - name: Portal settings
-    href: manage.md
   - name: Virtual machine scale sets
     items:
     - name: Update or delete existing Azure Load Balancer used by Virtual Machine Scale Set
@@ -160,8 +168,6 @@
       href: load-balancer-troubleshoot-health-probe-status.md  
     - name: Backend pool (VM) traffic
       href: load-balancer-troubleshoot-backend-traffic.md         
-    - name: Common deployment errors
-      href: load-balancer-common-deployment-errors.md
     - name: Common outbound connection issues
       href: troubleshoot-outbound-connection.md
     - name: Resource health and inbound availability issues
@@ -191,6 +197,8 @@
     displayName: ARM
   - name: Common error codes for Azure Instance Metadata Service (IMDS)
     href: troubleshoot-load-balancer-imds.md
+  - name: Common deployment errors
+    href: load-balancer-common-deployment-errors.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn

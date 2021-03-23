@@ -100,8 +100,8 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 >|Enter_the_Redirect_Uri_Here|Replace with **http://localhost:4200**.|
 >|cacheLocation  | (Optional) Set the browser storage for the authentication state. The default is **sessionStorage**.   |
 >|storeAuthStateInCookie  | (Optional) Identify the library that stores the authentication request state. This state is required to validate the authentication flows in the browser cookies. This cookie is set for Internet Explorer and Edge to accommodate those two browsers. For more details, see the [known issues](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues->on-IE-and-Edge-Browser#issues). |
-> > [!TIP]
-> > To find the values of **Application (client) ID**, **Directory (tenant) ID**, and **Supported account types**, go to the app's **Overview** page in the Azure portal.
+>
+> To find the values of **Application (client) ID**, **Directory (tenant) ID**, and **Supported account types**, go to the app's **Overview** page in the Azure portal.
 
 For more information about available configurable options, see [Initialize client applications](msal-js-initializing-client-applications.md).
 

@@ -158,7 +158,7 @@ This error is unrecoverable. To resolve the alert, [delete your existing managed
 
 Some automatically generated service principals are used to manage and create resources for a managed domain. If the access permissions for one of these service principals is changed, the domain is unable to correctly manage resources. The following steps show you how to understand and then grant access permissions to a service principal:
 
-1. Read about [role-based access control and how to grant access to applications in the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Read about [Azure role-based access control and how to grant access to applications in the Azure portal](../role-based-access-control/role-assignments-portal.md).
 2. Review the access that the service principal with the ID *abba844e-bc0e-44b0-947a-dc74e5d09022* has and grant the access that was denied at an earlier date.
 
 ## AADDS112: Not enough IP address in the managed domain

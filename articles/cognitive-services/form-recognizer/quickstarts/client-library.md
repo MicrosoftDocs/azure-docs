@@ -3,13 +3,13 @@ title: "Quickstart: Form Recognizer client library or REST API"
 titleSuffix: Azure Cognitive Services
 description: Use the Form Recognizer client library or REST API to create a forms processing app that extracts key/value pairs and table data from your custom documents.
 services: cognitive-services
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 01/29/2021
-ms.author: pafarley
+ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
 
 ms.custom: "devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"

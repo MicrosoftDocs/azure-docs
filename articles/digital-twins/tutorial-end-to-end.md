@@ -49,7 +49,7 @@ To work through the scenario, you will interact with components of the pre-writt
 
 Here are the components implemented by the building scenario *AdtSampleApp* sample app:
 * Device authentication 
-* [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) usage examples (found in *CommandLoop.cs*)
+* [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client) usage examples (found in *CommandLoop.cs*)
 * Console interface to call the Azure Digital Twins API
 * *SampleClientApp* - A sample Azure Digital Twins solution
 * *SampleFunctionsApp* - An Azure Functions app that updates your Azure Digital Twins graph as a result of telemetry from IoT Hub and Azure Digital Twins events
@@ -108,7 +108,7 @@ Back in your Visual Studio window where the _**AdtE2ESample**_ project is open, 
 
 Before publishing the app, it's a good idea to make sure your dependencies are up to date, making sure you have the latest version of all the included packages.
 
-In the *Solution Explorer* pane, expand *SampleFunctionsApp > Dependencies*. Right-select *Packages* and choose *Manage NuGet Packages...*.
+In the *Solution Explorer* pane, expand _**SampleFunctionsApp** > Dependencies_. Right-select *Packages* and choose *Manage NuGet Packages...*.
 
 :::image type="content" source="media/tutorial-end-to-end/update-dependencies-1.png" alt-text="Visual Studio: Manage NuGet Packages for the SampleFunctionsApp project" border="false":::
 
@@ -122,33 +122,51 @@ Back in your Visual Studio window where the _**AdtE2ESample**_ project is open, 
 
 [!INCLUDE [digital-twins-publish-azure-function.md](../../includes/digital-twins-publish-azure-function.md)]
 
-### Assign permissions to the function app
+For your function app to be able to access Azure Digital Twins, it will need to have permissions to access your Azure Digital Twins instance and the instance's host name. You'll configure these next.
 
-To enable the function app to access Azure Digital Twins, the next step is to configure an app setting, assign the app a system-managed Azure AD identity, and give this identity the *Azure Digital Twins Data Owner* role in the Azure Digital Twins instance. This role is required for any user or function that wants to perform many data plane activities on the instance. You can read more about security and role assignments in [*Concepts: Security for Azure Digital Twins solutions*](concepts-security.md).
+### Configure permissions for the function app
 
-[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
+There are two settings that need to be set for the function app to access your Azure Digital Twins instance. These can both be done via commands in the [Azure Cloud Shell](https://shell.azure.com). 
 
-In Azure Cloud Shell, use the following command to set an application setting which your function app will use to reference your Azure Digital Twins instance. Fill in the placeholders with the details of your resources (remember that your Azure Digital Twins instance URL is its host name preceded by *https://*).
+#### Assign access role
+
+The first setting gives the function app the **Azure Digital Twins Data Owner** role in the Azure Digital Twins instance. This role is required for any user or function that wants to perform many data plane activities on the instance. You can read more about security and role assignments in [*Concepts: Security for Azure Digital Twins solutions*](concepts-security.md). 
+
+1. Use the following command to see the details of the system-managed identity for the function. Take note of the **principalId** field in the output.
+
+    ```azurecli-interactive	
+    az functionapp identity show -g <your-resource-group> -n <your-App-Service-(function-app)-name>	
+    ```
+
+    >[!NOTE]
+    > If the result is empty instead of showing details of an identity, create a new system-managed identity for the function using this command:
+    > 
+    >```azurecli-interactive	
+    >az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>	
+    >```
+    >
+    > The output will then display details of the identity, including the **principalId** value required for the next step. 
+
+1. Use the **principalId** value in the following command to assign the function app's identity to the **Azure Digital Twins Data Owner** role for your Azure Digital Twins instance.
+
+    ```azurecli-interactive	
+    az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
+    ```
+
+The result of this command is outputted information about the role assignment you've created. The function app now has permissions to access data in your Azure Digital Twins instance.
+
+#### Configure application settings
+
+The second setting creates an **environment variable** for the function with the URL of your Azure Digital Twins instance. The function code will use this to refer to your instance. For more information about environment variables, see [*Manage your function app*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
+
+Run the command below, filling in the placeholders with the details of your resources.
 
 ```azurecli-interactive
-az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-Azure-Digital-Twins-instance-URL>"
+az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-hostname>"
 ```
 
-The output is the list of settings for the Azure Function, which should now contain an entry called *ADT_SERVICE_URL*.
+The output is the list of settings for the Azure Function, which should now contain an entry called **ADT_SERVICE_URL**.
 
-Use the following command to create the system-managed identity. Take note of the *principalId* field in the output.
-
-```azurecli-interactive
-az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
-```
-
-Use the *principalId* value from the output in the following command, to assign the function app's identity to the *Azure Digital Twins Data Owner* role for your Azure Digital Twins instance:
-
-```azurecli-interactive
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
-```
-
-The result of this command is outputted information about the role assignment you've created. The function app now has permissions to access your Azure Digital Twins instance.
 
 ## Process simulated telemetry from an IoT Hub device
 
@@ -179,7 +197,7 @@ az iot hub create --name <name-for-your-IoT-hub> -g <your-resource-group> --sku 
 
 The output of this command is information about the IoT hub that was created.
 
-Save the name that you gave to your IoT hub. You will use it later.
+Save the **name** that you gave to your IoT hub. You will use it later.
 
 ### Connect the IoT hub to the Azure function
 
@@ -273,7 +291,10 @@ In the project console window that opens, run the following command to get the t
 ObserveProperties thermostat67 Temperature
 ```
 
-You should see the live updated temperatures *from your Azure Digital Twins instance* being logged to the console every 10 seconds.
+You should see the live updated temperatures *from your Azure Digital Twins instance* being logged to the console every two seconds.
+
+>[!NOTE]
+> It may take a few seconds for the data from the device to propagate through to the twin. The first few temperature readings may show as 0 before data begins to arrive.
 
 :::image type="content" source="media/tutorial-end-to-end/console-digital-twins-telemetry.png" alt-text="Console output showing log of temperature messages from digital twin thermostat67":::
 
@@ -331,7 +352,7 @@ Look for the `provisioningState` field in the output, and check that the value i
 
 :::image type="content" source="media/tutorial-end-to-end/output-endpoints.png" alt-text="Result of the endpoint query, showing the endpoint with a provisioningState of Succeeded":::
 
-Save the names that you gave to your event grid topic and your Event Grid endpoint in Azure Digital Twins. You will use them later.
+Save the names that you gave to your **event grid topic** and your Event Grid **endpoint** in Azure Digital Twins. You will use them later.
 
 ### Set up route
 
@@ -350,7 +371,7 @@ The output from this command is some information about the route you've created.
 
 Next, subscribe the *ProcessDTRoutedData* Azure function to the event grid topic you created earlier, so that telemetry data can flow from the *thermostat67* twin through the event grid topic to the function, which goes back into Azure Digital Twins and updates the *room21* twin accordingly.
 
-To do this, you'll create an **Event Grid subscription** from your event grid topic to your *ProcessDTRoutedData* Azure function as an endpoint.
+To do this, you'll create an **Event Grid subscription** that sends data from the **event grid topic** that you created earlier to your *ProcessDTRoutedData* Azure function.
 
 In the [Azure portal](https://portal.azure.com/), navigate to your event grid topic by searching for its name in the top search bar. Select *+ Event Subscription*.
 
@@ -385,7 +406,7 @@ In the project console window that opens, run the following command to get the t
 ObserveProperties thermostat67 Temperature room21 Temperature
 ```
 
-You should see the live updated temperatures *from your Azure Digital Twins instance* being logged to the console every 10 seconds. Notice that the temperature for *room21* is being updated to match the updates to *thermostat67*.
+You should see the live updated temperatures *from your Azure Digital Twins instance* being logged to the console every two seconds. Notice that the temperature for *room21* is being updated to match the updates to *thermostat67*.
 
 :::image type="content" source="media/tutorial-end-to-end/console-digital-twins-telemetry-b.png" alt-text="Console output showing log of temperature messages, from a thermostat and a room":::
 
@@ -407,9 +428,9 @@ After completing this tutorial, you can choose which resources you'd like to rem
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-* **If you'd like to continue using the Azure Digital Twins instance you set up in this article, but clear out some or all of its models, twins, and relationships**, you can use the [az dt](/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true) CLI commands in an [Azure Cloud Shell](https://shell.azure.com) window to delete the elements you'd like to remove.
+* **If you'd like to continue using the Azure Digital Twins instance you set up in this article, but clear out some or all of its models, twins, and relationships**, you can use the [az dt](/cli/azure/ext/azure-iot/dt) CLI commands in an [Azure Cloud Shell](https://shell.azure.com) window to delete the elements you'd like to remove.
 
-    This option will not remove any of the other Azure resources created in this tutorial (IoT Hub, Azure Functions app, etc.). You can delete these individually using the [dt commands](/cli/azure/reference-index?view=azure-cli-latest&preserve-view=true) appropriate for each resource type.
+    This option will not remove any of the other Azure resources created in this tutorial (IoT Hub, Azure Functions app, etc.). You can delete these individually using the [dt commands](/cli/azure/reference-index) appropriate for each resource type.
 
 You may also want to delete the project folder from your local machine.
 

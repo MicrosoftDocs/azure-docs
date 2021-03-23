@@ -38,7 +38,7 @@ You'll learn how Security Center helps with these core aspects of container secu
 
 The following screenshot shows the asset inventory page and the various container resource types protected by Security Center.
 
-:::image type="content" source="./media/container-security/container-security-tab.png" alt-text="Container-related resources in Security Center's asset inventory page" lightbox="./media/container-security/container-security-tab.png":::
+:::image type="content" source="./media/container-security/inventory-container-resources.png" alt-text="Container-related resources in Security Center's asset inventory page" lightbox="./media/container-security/inventory-container-resources.png":::
 
 ## Vulnerability management - scanning container images
 
@@ -88,7 +88,7 @@ For details of the relevant Security Center recommendations that might appear fo
 
 ###  Workload protection best-practices using Kubernetes admission control
 
-For a bundle of recommendations to protect the workloads of your Kubernetes containers, install the  **Azure Policy add-on for Kubernetes**. You can also auto deploy this add-on as explained in [Enable auto provisioning of extensions](security-center-enable-data-collection.md#enable-auto-provisioning-of-extensions). When auto provisioning for the add-on is set to "on", the extension is enabled by default in all existing and future clusters (that meet the add-on installation requirements).
+For a bundle of recommendations to protect the workloads of your Kubernetes containers, install the  **Azure Policy add-on for Kubernetes**. You can also auto deploy this add-on as explained in [Enable auto provisioning of the Log Analytics agent and extensions](security-center-enable-data-collection.md#auto-provision-mma). When auto provisioning for the add-on is set to "on", the extension is enabled by default in all existing and future clusters (that meet the add-on installation requirements).
 
 As explained in [this Azure Policy for Kubernetes page](../governance/policy/concepts/policy-for-kubernetes.md), the add-on extends the open-source [Gatekeeper v3](https://github.com/open-policy-agent/gatekeeper) admission controller webhook for [Open Policy Agent](https://www.openpolicyagent.org/). Kubernetes admission controllers are plugins that enforce how your clusters are used. The add-on registers as a web hook to Kubernetes admission control and makes it possible to apply at-scale enforcements and safeguards on your clusters in a centralized, consistent manner. 
 

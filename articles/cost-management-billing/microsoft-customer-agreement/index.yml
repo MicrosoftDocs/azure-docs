@@ -1,0 +1,91 @@
+### YamlMime:Landing
+
+title: Get started on the Microsoft Customer Agreement
+summary: Get started with managing your billing and subscriptions under your Microsoft Customer Agreement. Learn how to understand and optimize your costs while ensuring secure access to your billing environment.
+metadata:
+  title: Get started on the Microsoft Customer Agreement
+  description: Learn how to get started with your Microsoft Customer Agreement.
+  ms.service: cost-management-billing
+  ms.subservice: billing
+  ms.topic: landing-page
+  ms.collection: collection
+  author: bandersmsft
+  ms.author: banders
+  ms.date: 03/01/2021
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: Get started
+    linkLists:
+    - linkListType: overview
+      links:
+      - text: What is a Microsoft Customer Agreement?
+        url: ../understand/mca-overview.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - linkListType: how-to-guide
+      links:
+#      - text: Get started with your agreement (placeholder)
+#        url: ../manage/create-subscription.md
+#      - text: Access subscriptions (placeholder)
+#        url: ../manage/create-subscription.md
+      - text: Move from credit card to invoice
+        url: ../manage/mca-request-billing-ownership.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+      - text: Access subscriptions with domain ID
+        url: ../manage/mca-setup-account.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+      - text: Set up administrator to manage subscription users
+        url: ../manage/add-change-subscription-administrator.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+      - text: Create new subscriptions
+        url: ../manage/create-subscription.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+
+
+
+  # Card (optional)
+  - title: Manage billing
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: Understand my billing cycle
+        url: ../understand/mca-understand-your-invoice.md#billing-period
+    - linkListType: tutorial
+      links:
+      - text: Receive a bill under my agreement
+        url: ../understand/review-customer-agreement-bill.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - linkListType: how-to-guide
+      links:
+      - text: What is a billing profile and how do I manage it?
+        url: ../manage/mca-section-invoice.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+      - text: Pay bill by invoice
+        url: ../manage/pay-by-invoice.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+      - text: Pay bill by credit or debit card or by check or wire transfer
+        url: ../understand/pay-bill.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+      - text: Set up an administrator to manage billing
+        url: ../manage/understand-mca-roles.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+      - text: Start billing for my agreement
+        url: ../manage/mca-request-billing-ownership.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+      - text: Find my subscription owner
+        url: ../manage/add-change-subscription-administrator.md#assign-a-subscription-administrator
+    - linkListType: video
+      links:
+      - text: Organize costs
+        url: https://www.youtube.com/watch?v=7RxTfShGHwU
+      - text: Manage access to billing account
+        url: https://www.youtube.com/watch?v=9sqglBlKkho
+      - text: Understand your invoice
+        url: https://www.youtube.com/watch?v=e2LGZZ7GubA
+
+
+  # Card (optional)
+  - title: Manage subscriptions
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: What is Active Directory?
+        url: ../../active-directory/fundamentals/active-directory-whatis.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+#      - text: Manage multiple tenants (placeholder)
+#        url: ../manage/create-subscription.md
+#      - text: Manage subscriptions in multiple tenants (placeholder)
+#        url: ../manage/create-subscription.md
+

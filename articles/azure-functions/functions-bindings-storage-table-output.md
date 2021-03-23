@@ -413,7 +413,7 @@ Alternatively you can use a `CloudTable` method parameter to write to the table 
 
 # [Java](#tab/java)
 
-There are two options for outputting a Table storage row from a function by using the [TableStorageOutput](/java/api/com.microsoft.azure.functions.annotation.tableoutput?view=azure-java-stablet&preserve-view=true) annotation:
+There are two options for outputting a Table storage row from a function by using the [TableStorageOutput](/java/api/com.microsoft.azure.functions.annotation.tableoutput) annotation:
 
 - **Return value**: By applying the annotation to the function itself, the return value of the function is persisted as a Table storage row.
 
@@ -433,7 +433,7 @@ There are two options for outputting a Table storage row message from a function
 
 - **Return value**: Set the `name` property in *function.json* to `$return`. With this configuration, the function's return value is persisted as a Table storage row.
 
-- **Imperative**: Pass a value to the [set](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true#set-val--t-----none) method of the parameter declared as an [Out](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true) type. The value passed to `set` is persisted as an Event Hub message.
+- **Imperative**: Pass a value to the [set](/python/api/azure-functions/azure.functions.out#set-val--t-----none) method of the parameter declared as an [Out](/python/api/azure-functions/azure.functions.out) type. The value passed to `set` is persisted as an Event Hub message.
 
 ---
 

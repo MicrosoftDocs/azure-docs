@@ -2,7 +2,7 @@
 title: Create & deploy template specs
 description: Describes how to create template specs and share them with other users in your organization.
 ms.topic: conceptual
-ms.date: 01/14/2021
+ms.date: 03/02/2021
 ms.author: tomfitz
 author: tfitzmac
 ---
@@ -178,6 +178,12 @@ az deployment group create \
 
 ---
 
+You can also open a URL in the following format to deploy a template spec:
+
+```url
+https://portal.azure.com/#create/Microsoft.Template/templateSpecVersionId/%2fsubscriptions%2f{subscription-id}%2fresourceGroups%2f{resource-group-name}%2fproviders%2fMicrosoft.Resources%2ftemplateSpecs%2f{template-spec-name}%2fversions%2f{template-spec-version}
+```
+
 ## Parameters
 
 Passing in parameters to template spec is exactly like passing parameters to an ARM template. Add the parameter values either inline or in a parameter file.
@@ -239,6 +245,78 @@ az deployment group create \
 ```
 
 ---
+
+## Versioning
+
+When you create a template spec, you provide a version name for it. As you iterate on the template code, you can either update an existing version (for hotfixes) or publish a new version. The version is a text string. You can choose to follow any versioning system, including semantic versioning. Users of the template spec can provide the version name they want to use when deploying it.
+
+## Use tags
+
+[Tags](../management/tag-resources.md) help you logically organize your resources. You can add tags to template specs by using Azure PowerShell and Azure CLI:
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzTemplateSpec `
+  -Name storageSpec `
+  -Version 1.0a `
+  -ResourceGroupName templateSpecsRg `
+  -Location westus2 `
+  -TemplateFile ./mainTemplate.json `
+  -Tag @{Dept="Finance";Environment="Production"}
+```
+
+# [CLI](#tab/azure-cli)
+
+```azurecli
+az ts create \
+  --name storageSpec \
+  --version "1.0a" \
+  --resource-group templateSpecRG \
+  --location "westus2" \
+  --template-file "./mainTemplate.json" \
+  --tags Dept=Finance Environment=Production
+```
+
+---
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Set-AzTemplateSpec `
+  -Name storageSpec `
+  -Version 1.0a `
+  -ResourceGroupName templateSpecsRg `
+  -Location westus2 `
+  -TemplateFile ./mainTemplate.json `
+  -Tag @{Dept="Finance";Environment="Production"}
+```
+
+# [CLI](#tab/azure-cli)
+
+```azurecli
+az ts update \
+  --name storageSpec \
+  --version "1.0a" \
+  --resource-group templateSpecRG \
+  --location "westus2" \
+  --template-file "./mainTemplate.json" \
+  --tags Dept=Finance Environment=Production
+```
+
+---
+
+When creating or modifying a template spec with the version parameter specified, but without the tag/tags parameter:
+
+- If the template spec exists and has tags, but the version doesn't exist, the new version inherits the same tags as the existing template spec.
+
+When creating or modifying a template spec with both the tag/tags parameter and the version parameter specified:
+
+- If both the template spec and the version don't exist, the tags are added to both the new template spec and the new version.
+- If the template spec exists, but the version doesn't exist, the tags are only added to the new version.
+- If both the template spec and the version exist, the tags only apply to the version.
+
+When modifying a template with the tag/tags parameter specified but without the version parameter specified, the tags is only added to the template spec.
 
 ## Create a template spec with linked templates
 
@@ -325,10 +403,6 @@ The following example is similar to the earlier example, but you use the `id` pr
 ```
 
 For more information about linking template specs, see [Tutorial: Deploy a template spec as a linked template](template-specs-deploy-linked-template.md).
-
-## Versioning
-
-When you create a template spec, you provide a version name for it. As you iterate on the template code, you can either update an existing version (for hotfixes) or publish a new version. The version is a text string. You can choose to follow any versioning system, including semantic versioning. Users of the template spec can provide the version name they want to use when deploying it.
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: Describes critical open issues and resolutions for the Azure StorSi
 ms.service: storsimple
 author: v-dalc
 ms.topic: article
-ms.date: 01/22/2021
+ms.date: 03/17/2021
 ms.author: alkohli
 ---
 
@@ -26,6 +26,11 @@ Update 1.3 corresponds to software version 10.0.10319.0.
 This update contains the following improvements:KB4540725
 
 - Transport Layer Security (TLS) 1.2 is a mandatory update and must be installed. From this release onward, TLS 1.2 becomes the standard protocol for all Azure portal communication.
+  
+   If you see the following warning, you must update the software on the device before proceeding:
+
+   One or more StorSimple devices are running an older software version. The latest available update for TLS 1.2 is a mandatory update and should be installed immediately on these devices. TLS 1.2 is used for all Azure portal communication and without this update, the device won’t be able to communicate with the StorSimple service.
+
 - Garbage collection bug fixes improve the performance of the garbage collection cycle when the device and storage account are in two distant regions.
 - Fix for backup failures due to blob timeouts.
 - Updated OS/.NET framework security patches:
@@ -60,4 +65,4 @@ Looking for an older release note? Go to:
 - [StorSimple Virtual Array Update 0.4 Release Notes](./storsimple-virtual-array-update-04-release-notes.md)
 - [StorSimple Virtual Array Update 0.3 Release Notes](./storsimple-ova-update-03-release-notes.md)
 - [StorSimple Virtual Array Update 0.1 and 0.2 Release Notes](./storsimple-ova-update-01-release-notes.md)
-- [StorSimple Virtual Array General Availability Release Notes](https://review.docs.microsoft.com/en-us/azure/storsimple/storsimple-ova-pp-release-notes)
+- [StorSimple Virtual Array General Availability Release Notes](./storsimple-virtual-array-update-06-release-notes.md)

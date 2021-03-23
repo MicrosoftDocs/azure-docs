@@ -47,7 +47,7 @@ Zone redundant configuration for the general purpose service tier utilizes [Azur
 
 Zone redundant configuration for the general purpose tier has two layers:  
 
-- A stateful data layer with the database files (.mdf/.ldf) that are stored in ZRS PFS (zone-redundant [storage premium file share](../../storage/files/storage-how-to-create-premium-fileshare.md). Using [zone-redundant storage](../../storage/common/storage-redundancy.md) the data and log files are synchronously copied across three physically-isolated Azure availability zones.
+- A stateful data layer with the database files (.mdf/.ldf) that are stored in ZRS PFS (zone-redundant [storage premium file share](../../storage/files/storage-how-to-create-file-share.md). Using [zone-redundant storage](../../storage/common/storage-redundancy.md) the data and log files are synchronously copied across three physically-isolated Azure availability zones.
 - A stateless compute layer that runs the sqlservr.exe process and contains only transient and cached data, such as TempDB, model databases on the attached SSD, and plan cache, buffer pool, and columnstore pool in memory. This stateless node is operated by Azure Service Fabric that initializes sqlservr.exe, controls health of the node, and performs failover to another node if necessary. For zone redundant general purpose databases, nodes with spare capacity are readily available in other Availability Zones for failover.
 
 The zone redundant version of the high availability architecture for the general purpose service tier is illustrated by the following diagram:
@@ -59,6 +59,9 @@ The zone redundant version of the high availability architecture for the general
 
 > [!NOTE]
 > General Purpose databases with a size of 80 vcore may experience performance degradation with zone redundant configuration. Additionally, operations such as backup, restore, database copy, and setting up Geo-DR relationships may experience slower performance for any single databases larger than 1 TB. 
+> 
+> [!NOTE]
+> The preview is not covered under Reserved Instance
 
 ## Premium and Business Critical service tier locally redundant availability
 
@@ -118,7 +121,7 @@ A failover can be initiated using PowerShell, REST API, or Azure CLI:
 |Deployment type|PowerShell|REST API| Azure CLI|
 |:---|:---|:---|:---|
 |Database|[Invoke-AzSqlDatabaseFailover](/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Database failover](/rest/api/sql/databases/failover)|[az rest](/cli/azure/reference-index#az-rest) may be used to invoke a REST API call from Azure CLI|
-|Elastic pool|[Invoke-AzSqlElasticPoolFailover](/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Elastic pool failover](/rest/api/sql/elasticpools(failover)/failover/)|[az rest](/cli/azure/reference-index#az-rest) may be used to invoke a REST API call from Azure CLI|
+|Elastic pool|[Invoke-AzSqlElasticPoolFailover](/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Elastic pool failover](/rest/api/sql/elasticpools/failover)|[az rest](/cli/azure/reference-index#az-rest) may be used to invoke a REST API call from Azure CLI|
 |Managed Instance|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Managed Instances - Failover](/rest/api/sql/managed%20instances%20-%20failover/failover)|[az sql mi failover](/cli/azure/sql/mi/#az-sql-mi-failover)|
 
 > [!IMPORTANT]

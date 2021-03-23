@@ -1,13 +1,15 @@
 ---
 title: Deploy resources with PowerShell and template
-description: Use Azure Resource Manager and Azure PowerShell to deploy resources to Azure. The resources are defined in a Resource Manager template.
+description: Use Azure Resource Manager and Azure PowerShell to deploy resources to Azure. The resources are defined in a Resource Manager template or a Bicep file.
 ms.topic: conceptual
-ms.date: 01/26/2021
+ms.date: 03/04/2021
 ---
 
 # Deploy resources with ARM templates and Azure PowerShell
 
-This article explains how to use Azure PowerShell with Azure Resource Manager templates (ARM templates) to deploy your resources to Azure. If you aren't familiar with the concepts of deploying and managing your Azure solutions, see [template deployment overview](overview.md).
+This article explains how to use Azure PowerShell with Azure Resource Manager templates (ARM templates) or Bicep files to deploy your resources to Azure. If you aren't familiar with the concepts of deploying and managing your Azure solutions, see [template deployment overview](overview.md) or [Bicep overview](bicep-overview.md).
+
+To deploy Bicep files, you need [Azure PowerShell version 5.6.0 or later](/powershell/azure/install-az-ps).
 
 ## Prerequisites
 
@@ -27,13 +29,13 @@ You can target your deployment to a resource group, subscription, management gro
 - To deploy to a **resource group**, use [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment):
 
   ```azurepowershell
-  New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template>
+  New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template-or-bicep>
   ```
 
 - To deploy to a **subscription**, use [New-AzSubscriptionDeployment](/powershell/module/az.resources/new-azdeployment) which is an alias of the `New-AzDeployment` cmdlet:
 
   ```azurepowershell
-  New-AzSubscriptionDeployment -Location <location> -TemplateFile <path-to-template>
+  New-AzSubscriptionDeployment -Location <location> -TemplateFile <path-to-template-or-bicep>
   ```
 
   For more information about subscription level deployments, see [Create resource groups and resources at the subscription level](deploy-to-subscription.md).
@@ -41,7 +43,7 @@ You can target your deployment to a resource group, subscription, management gro
 - To deploy to a **management group**, use [New-AzManagementGroupDeployment](/powershell/module/az.resources/New-AzManagementGroupDeployment).
 
   ```azurepowershell
-  New-AzManagementGroupDeployment -Location <location> -TemplateFile <path-to-template>
+  New-AzManagementGroupDeployment -Location <location> -TemplateFile <path-to-template-or-bicep>
   ```
 
   For more information about management group level deployments, see [Create resources at the management group level](deploy-to-management-group.md).
@@ -49,7 +51,7 @@ You can target your deployment to a resource group, subscription, management gro
 - To deploy to a **tenant**, use [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
 
   ```azurepowershell
-  New-AzTenantDeployment -Location <location> -TemplateFile <path-to-template>
+  New-AzTenantDeployment -Location <location> -TemplateFile <path-to-template-or-bicep>
   ```
 
   For more information about tenant level deployments, see [Create resources at the tenant level](deploy-to-tenant.md).
@@ -84,7 +86,7 @@ When you specify a unique name for each deployment, you can run them concurrentl
 
 To avoid conflicts with concurrent deployments and to ensure unique entries in the deployment history, give each deployment a unique name.
 
-## Deploy local template
+## Deploy local template or Bicep file
 
 You can deploy a template from your local machine or one that is stored externally. This section describes deploying a local template.
 
@@ -94,18 +96,21 @@ If you're deploying to a resource group that doesn't exist, create the resource 
 New-AzResourceGroup -Name ExampleGroup -Location "Central US"
 ```
 
-To deploy a local template, use the `-TemplateFile` parameter in the deployment command. The following example also shows how to set a parameter value that comes from the template.
+To deploy a local template or Bicep file, use the `-TemplateFile` parameter in the deployment command. The following example also shows how to set a parameter value that comes from the template.
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
   -Name ExampleDeployment `
   -ResourceGroupName ExampleGroup `
-  -TemplateFile c:\MyTemplates\azuredeploy.json
+  -TemplateFile <path-to-template-or-bicep>
 ```
 
 The deployment can take several minutes to complete.
 
 ## Deploy remote template
+
+> [!NOTE]
+> Currently, Azure PowerShell doesn't support deploying remote Bicep files. Use [Bicep CLI](./bicep-install.md#development-environment) to compile the Bicep file to a JSON template, and then load the JSON file to the remote location.
 
 Instead of storing ARM templates on your local machine, you may prefer to store them in an external location. You can store templates in a source control repository (such as GitHub). Or, you can store them in an Azure storage account for shared access in your organization.
 
@@ -140,6 +145,8 @@ For more information, see [Use relative path for linked templates](./linked-temp
 
 ## Deploy template spec
 
+> [!NOTE]
+> Currently, Azure PowerShell doesn't support creating template specs by providing Bicep files. However you can create a Bicep file with the [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) resource to deploy a template spec. Here is an [example](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep).
 Instead of deploying a local or remote template, you can create a [template spec](template-specs.md). The template spec is a resource in your Azure subscription that contains an ARM template. It makes it easy to securely share the template with users in your organization. You use Azure role-based access control (Azure RBAC) to grant access to the template spec. This feature is currently in preview.
 
 The following examples show how to create and deploy a template spec.
@@ -182,7 +189,7 @@ To pass inline parameters, provide the names of the parameter with the `New-AzRe
 ```powershell
 $arrayParam = "value1", "value2"
 New-AzResourceGroupDeployment -ResourceGroupName testgroup `
-  -TemplateFile c:\MyTemplates\demotemplate.json `
+  -TemplateFile <path-to-template-or-bicep> `
   -exampleString "inline string" `
   -exampleArray $arrayParam
 ```
@@ -192,7 +199,7 @@ You can also get the contents of file and provide that content as an inline para
 ```powershell
 $arrayParam = "value1", "value2"
 New-AzResourceGroupDeployment -ResourceGroupName testgroup `
-  -TemplateFile c:\MyTemplates\demotemplate.json `
+  -TemplateFile <path-to-template-or-bicep> `
   -exampleString $(Get-Content -Path c:\MyTemplates\stringcontent.txt -Raw) `
   -exampleArray $arrayParam
 ```
@@ -206,13 +213,13 @@ $hash1 = @{ Name = "firstSubnet"; AddressPrefix = "10.0.0.0/24"}
 $hash2 = @{ Name = "secondSubnet"; AddressPrefix = "10.0.1.0/24"}
 $subnetArray = $hash1, $hash2
 New-AzResourceGroupDeployment -ResourceGroupName testgroup `
-  -TemplateFile c:\MyTemplates\demotemplate.json `
+  -TemplateFile <path-to-template-or-bicep> `
   -exampleArray $subnetArray
 ```
 
 ### Parameter files
 
-Rather than passing parameters as inline values in your script, you may find it easier to use a JSON file that contains the parameter values. The parameter file can be a local file or an external file with an accessible URI.
+Rather than passing parameters as inline values in your script, you may find it easier to use a JSON file that contains the parameter values. The parameter file can be a local file or an external file with an accessible URI. Both ARM template and Bicep file use JSON parameter files.
 
 For more information about the parameter file, see [Create Resource Manager parameter file](parameter-files.md).
 
@@ -220,7 +227,7 @@ To pass a local parameter file, use the `TemplateParameterFile` parameter:
 
 ```powershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
-  -TemplateFile c:\MyTemplates\azuredeploy.json `
+  -TemplateFile <path-to-template-or-bicep> `
   -TemplateParameterFile c:\MyTemplates\storage.parameters.json
 ```
 

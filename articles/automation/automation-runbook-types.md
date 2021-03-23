@@ -3,7 +3,7 @@ title: Azure Automation runbook types
 description: This article describes the types of runbooks that you can use in Azure Automation and considerations for determining which type to use.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/08/2021
+ms.date: 02/17/2021
 ms.topic: conceptual
 ---
 
@@ -96,6 +96,11 @@ PowerShell Workflow runbooks are text runbooks based on [Windows PowerShell Work
 ## Python runbooks
 
 Python runbooks compile under Python 2 and Python 3. Python 3 runbooks are currently in preview. You can directly edit the code of the runbook using the text editor in the Azure portal. You can also use an offline text editor and [import the runbook](manage-runbooks.md) into Azure Automation.
+
+Python 3 runbooks are supported in the following Azure global infrastructures:
+
+* Azure global
+* Azure Government
 
 ### Advantages
 

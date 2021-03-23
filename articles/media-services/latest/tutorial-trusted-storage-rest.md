@@ -19,6 +19,9 @@ In this tutorial, you'll learn:
 
 With the 2020-05-01 API, you can enable trusted storage by associating a Managed Identity with a Media Services account.
 
+>[!NOTE]
+>Trusted storage is only available in the API, and is not currently enabled in the Azure portal.
+
 Media Services can automatically access your storage account using system authentication. Media Services validates that the Media Services account and the storage account are in the same subscription. It also validates that the user adding the association has access the storage account with Azure Resource Manager RBAC.
 
 However, if you want to use network access control to secure your storage account and enable trusted storage, [Managed Identities](concept-managed-identities.md) authentication is required. It allows Media Services to access the storage account that has been configured with a firewall or a VNet restriction through trusted storage access.

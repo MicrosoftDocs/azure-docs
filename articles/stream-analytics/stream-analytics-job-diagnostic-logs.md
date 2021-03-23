@@ -19,9 +19,9 @@ It is highly recommended to enable resource logs for all jobs as this will great
 
 Stream Analytics offers two types of logs:
 
-* [Activity logs](../azure-monitor/platform/platform-logs-overview.md) (always on), which give insights into operations performed on jobs.
+* [Activity logs](../azure-monitor/essentials/platform-logs-overview.md) (always on), which give insights into operations performed on jobs.
 
-* [Resource logs](../azure-monitor/platform/platform-logs-overview.md) (configurable), which provide richer insights into everything that happens with a job. Resource logs start when the job is created and end when the job is deleted. They cover events when the job is updated and while it’s running.
+* [Resource logs](../azure-monitor/essentials/platform-logs-overview.md) (configurable), which provide richer insights into everything that happens with a job. Resource logs start when the job is created and end when the job is deleted. They cover events when the job is updated and while it’s running.
 
 > [!NOTE]
 > You can use services like Azure Storage, Azure Event Hubs, and Azure Monitor logs to analyze nonconforming data. You are charged based on the pricing model for those services.

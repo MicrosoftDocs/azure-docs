@@ -34,6 +34,9 @@ In the following sections, you learn how to:
 
 Applications that you or your organization have registered are represented by both an application object and service principal object in your tenant. For more information, see [Application Objects and Service Principal Objects](./app-objects-and-service-principals.md).
 
+> [!NOTE]
+> Deleting an application will also delete its service principal object in the application's home directory. For multi-tenant applications, service principal objects in other directories will not be deleted.
+
 To delete an application, be listed as an owner of the application or have admin privileges.
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
@@ -41,7 +44,8 @@ To delete an application, be listed as an owner of the application or have admin
 1. Search and select the **Azure Active Directory**. 
 1. Under **Manage**, select **App registrations**  and select the application that you want to configure. Once you've selected the app, you'll see the application's **Overview** page.
 1. From the **Overview** page, select **Delete**.
-1. Select **Yes** to confirm that you want to delete the app.
+1. Read the deletion consequences.  Check the box if one appears at the bottom of the pane.
+1. Select **Delete** to confirm that you want to delete the app.
 
 ## Remove an application authored by another organization
 

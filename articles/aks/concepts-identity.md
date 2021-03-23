@@ -38,6 +38,7 @@ The following permissions are used by the AKS cluster identity, which is created
 
 | Permission | Reason |
 |---|---|
+| Microsoft.ContainerService/managedClusters/*  <br/> | Required for creating users and operating the cluster
 | Microsoft.Network/loadBalancers/delete <br/> Microsoft.Network/loadBalancers/read <br/> Microsoft.Network/loadBalancers/write | Required to configure the load balancer for a LoadBalancer service. |
 | Microsoft.Network/publicIPAddresses/delete <br/> Microsoft.Network/publicIPAddresses/read <br/> Microsoft.Network/publicIPAddresses/write | Required to find and configure public IPs for a LoadBalancer service. |
 | Microsoft.Network/publicIPAddresses/join/action | Required for configuring public IPs for a LoadBalancer service. |
@@ -68,6 +69,7 @@ The following additional permissions are needed by the cluster identity when cre
 | Microsoft.Network/virtualNetworks/subnets/read <br/> Microsoft.Network/virtualNetworks/subnets/join/action | Required if using a subnet in another resource group such as a custom VNET. |
 | Microsoft.Network/routeTables/routes/read <br/> Microsoft.Network/routeTables/routes/write | Required if using a subnet associated with a route table in another resource group such as a custom VNET with a custom route table. Required to verify if a subnet already exists for the subnet in the other resource group. |
 | Microsoft.Network/virtualNetworks/subnets/read | Required if using an internal load balancer in another resource group. Required to verify if a subnet already exists for the internal load balancer in the resource group. |
+| Microsoft.Network/privatednszones/* | Required if using a private DNS zone in another resource group such as a custom privateDNSZone. |
 
 ## Kubernetes role-based access control (Kubernetes RBAC)
 
@@ -232,4 +234,4 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
 [operator-best-practices-identity]: operator-best-practices-identity.md
-[upgrade-per-cluster]: ../azure-monitor/insights/container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli
+[upgrade-per-cluster]: ../azure-monitor/containers/container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli

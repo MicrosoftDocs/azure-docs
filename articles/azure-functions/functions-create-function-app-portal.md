@@ -10,8 +10,7 @@ ms.custom: "devx-track-csharp, mvc, devcenter, cc996988-fb4f-47"
 
 Azure Functions lets you run your code in a serverless environment without having to first create a virtual machine (VM) or publish a web application. In this article, you learn how to use Azure Functions to create a "hello world" HTTP trigger function in the Azure portal.
 
->[!NOTE]
->In-portal editing is only supported for JavaScript, PowerShell, TypeScript, and C# Script functions.<br><br>For C# class library, Java, and Python functions, you can create the function app in the portal, but you must also create the functions locally and then publish them to Azure. 
+[!INCLUDE [functions-in-portal-editing-note](../../includes/functions-in-portal-editing-note.md)] 
 
 We instead recommend that you [develop your functions locally](functions-develop-local.md) and publish to a function app in Azure.  
 Use one of the following links to get started with your chosen local development environment and language:
@@ -38,13 +37,11 @@ Next, create a function in the new function app.
 
 1. From the left menu of the **Functions** window, select **Functions**, then select **Add** from the top menu. 
  
-1. From the **New Function** window, select **Http trigger**.
+1. From the **Add Function** window, select the **Http trigger** template.
 
     ![Choose HTTP trigger function](./media/functions-create-first-azure-function/function-app-select-http-trigger.png)
 
-1. In the **New Function** window, accept the default name for **New Function**, or enter a new name. 
-
-1. Choose **Anonymous** from the **Authorization level** drop-down list, and then select **Create Function**.
+1. Under **Template details** use `HttpExample` for **New Function**, choose **Anonymous** from the **[Authorization level](functions-bindings-http-webhook-trigger.md#authorization-keys)** drop-down list, and then select **Add**.
 
     Azure creates the HTTP trigger function. Now, you can run the new function by sending an HTTP request.
 

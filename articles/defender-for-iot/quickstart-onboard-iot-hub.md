@@ -1,23 +1,11 @@
 ---
-title: Onboard to Defender for IoT agent-based solution
-description: Learn how to onboard and enable the Defender for IoT security service in your Azure IoT Hub.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-
-
-ms.devlang: na
+title: "Quickstart: Onboard Defender for IoT to an agent-based solution"
+description: In this quickstart you will learn how to onboard and enable the Defender for IoT security service in your Azure IoT Hub.
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 1/20/2021
-ms.author: shhazam
 ---
 
-# Onboard to Defender for IoT agent-based solution
+# Quickstart: Onboard Defender for IoT to an agent-based solution
 
 This article explains how to enable the Defender for IoT service on your existing IoT Hub. If you don't currently have an IoT Hub, see [Create an IoT Hub using the Azure portal](../iot-hub/iot-hub-create-through-portal.md) to get started.
 
@@ -32,7 +20,11 @@ You can manage your IoT security through the IoT Hub in Defender for IoT. The ma
 > [!NOTE]
 > Defender for IoT currently only supports standard tier IoT Hubs.
 
-## Onboard to Defender for IoT in IoT Hub
+## Prerequisites
+
+None
+
+## Onboard Defender for IoT to an IoT Hub
 
 For all new IoT hubs, Defender for IoT is set to **On** by default. You can verify that Defender for IoT is toggled to **On** during the IoT Hub creation process.
 
@@ -52,14 +44,24 @@ To verify the toggle is set to **On**:
 
 ## Onboard Defender for IoT to an existing IoT Hub
 
-You can monitor your device identity management, device to cloud, and cloud to device communication patterns, do the following to start the service: 
+You can onboard Defender for IoT to an existing IoT Hub, where
+you can then monitor the device identity management, device to cloud, and cloud to device communication patterns.
 
-1. Navigate to IoT Hub. 
+To onboard Defender for IoT to an existing IoT Hub:
 
-1. Select the **Security overview** menu. 
+1. Navigate to the IoT Hub. 
 
-1. Click Secure your IoT solution and complete the onboarding form. 
+1. Select the IoT Hub to be onboarded.
 
+1. Select any option under the **Security** section.
+
+1. Click **Secure your IoT solution** and complete the onboarding form. 
+
+    :::image type="content" source="media/quickstart-onboard-iot-hub/secure-your-iot-solution.png" alt-text="Select the secure your IoT solution button to secure your solution.":::
+
+The **Secure your IoT solution** button will only appear if the IoT Hub has not already been onboarded, or if while onboarding you left the Defender for IoT toggle on **Off**.
+
+:::image type="content" source="media/quickstart-onboard-iot-hub/toggle-is-off.png" alt-text="If your toggle was set to off during onboarding.":::
 
 ## Next steps
 

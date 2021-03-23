@@ -2,7 +2,7 @@
 author: mikben
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 1/28/2021
+ms.date: 03/10/2021
 ms.author: mikben
 ---
 
@@ -12,7 +12,7 @@ ms.author: mikben
 
 ## Create Azure Communication Resource
 
-To create an Azure Communication Services resource, [sign in to Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli), then run the following command:
+To create an Azure Communication Services resource, [sign in to Azure CLI](/cli/azure/authenticate-azure-cli), then run the following command:
 
 ```azurecli
 az communication create --name "<communicationName>" --location "Global" --data-location "United States" --resource-group "<resourceGroup>"
@@ -36,4 +36,4 @@ az communication update --name "<communicationName>" --tags newTag="newVal" --re
 az communication show --name "<communicationName>" --resource-group "<resourceGroup>"
 ```
 
-For information on additional commands, see [az communication](https://docs.microsoft.com/cli/azure/ext/communication/communication).
+For information on additional commands, see [az communication](/cli/azure/ext/communication/communication).

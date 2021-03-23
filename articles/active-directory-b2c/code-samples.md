@@ -23,8 +23,8 @@ The following tables provide links to samples for applications including iOS, An
 |--------| ----------- |
 | [ios-swift-native-msal](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal) | An iOS sample in Swift that authenticates Azure AD B2C users and calls an API using OAuth 2.0 |
 | [android-native-msal](https://github.com/Azure-Samples/ms-identity-android-java#b2cmodefragment-class) | A simple Android app showcasing how to use MSAL to authenticate users via Azure Active Directory B2C, and access a Web API with the resulting tokens. |
-| [ios-native-appauth](https://github.com/Azure-Samples/active-directory-b2c-ios-native-appauth) | A sample that shows how you can use a third party library to build an iOS application in Objective-C that authenticates Microsoft identity users to our Azure AD B2C identity service. |
-| [android-native-appauth](https://github.com/Azure-Samples/active-directory-b2c-android-native-appauth) | A sample that shows how you can use a third party library to build an Android application that authenticates Microsoft identity users to our B2C identity service and calls a web API using OAuth 2.0 access tokens. |
+| [ios-native-appauth](https://github.com/Azure-Samples/active-directory-b2c-ios-native-appauth) | A sample that shows how you can use a third-party library to build an iOS application in Objective-C that authenticates Microsoft identity users to our Azure AD B2C identity service. |
+| [android-native-appauth](https://github.com/Azure-Samples/active-directory-b2c-android-native-appauth) | A sample that shows how you can use a third-party library to build an Android application that authenticates Microsoft identity users to our B2C identity service and calls a web API using OAuth 2.0 access tokens. |
 | [dotnet-desktop](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) | A sample that shows how a Windows Desktop .NET (WPF) application can sign in a user using Azure AD B2C, get an access token using MSAL.NET and call an API. |
 | [xamarin-native](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | A simple Xamarin Forms app showcasing how to use MSAL to authenticate users via Azure Active Directory B2C, and access a Web API with the resulting tokens. |
 
@@ -43,8 +43,17 @@ The following tables provide links to samples for applications including iOS, An
 
 | Sample | Description |
 |--------| ----------- |
-| [ms-identity-b2c-javascript-spa](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa) | A single page application (SPA) calling a Web API. Authentication is done with Azure AD B2C by using MSAL.js. This sample uses the authorization code flow with PKCE. |
-| [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | A single page application (SPA) calling a Web API. Authentication is done with Azure AD B2C by using MSAL.js. This samples uses the implicit flow.|
+| [ms-identity-javascript-react-tutorial](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/3-Authorization-II/2-call-api-b2c) | A single page application (SPA) calling a web API. Authentication is done with Azure AD B2C by using MSAL React. This sample uses the authorization code flow with PKCE. |
+| [ms-identity-b2c-javascript-spa](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa) | A single page application (SPA) calling a web API. Authentication is done with Azure AD B2C by using MSAL.js. This sample uses the authorization code flow with PKCE. |
+| [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | A single page application (SPA) calling a web API. Authentication is done with Azure AD B2C by using MSAL.js. This sample uses the implicit flow.|
+| [javascript-nodejs-management](https://github.com/Azure-Samples/ms-identity-b2c-javascript-nodejs-management/tree/main/Chapter1) | A single page application (SPA) calling Microsoft Graph to manage users in a B2C directory. Authentication is done with Azure AD B2C by using MSAL.js. This sample uses the authorization code flow with PKCE.|
+
+## Console/Daemon apps
+
+| Sample | Description |
+|--------| ----------- |
+| [javascript-nodejs-management](https://github.com/Azure-Samples/ms-identity-b2c-javascript-nodejs-management/tree/main/Chapter2) | A Node.js and express console daemon application calling Microsoft Graph with its own identity to manage users in a B2C directory. Authentication is done with Azure AD B2C by using MSAL Node. This sample uses the authorization code flow.|
+| [dotnetcore-b2c-account-management](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management) | A .NET Core console application calling Microsoft Graph with its own identity to manage users in a B2C directory. Authentication is done with Azure AD B2C by using MSAL.NET. This sample uses the authorization code flow.|
 
 ## SAML test application
 
@@ -68,8 +77,8 @@ The following tables provide links to code samples for leveraging web APIs in yo
 ### Automated fraud protection services & CAPTCHA
 | Sample                                                                                                            | Description                                                                                                                          |
 | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| [Arkose Labs fraud and abuse protection](https://github.com/Azure-Samples/active-directory-b2c-node-sign-up-user-flow-arkose) | This sample shows how to protect your user sign-ups using using the Arkose Labs fraud and abuse protection service. |
-| [reCAPTCHA](https://github.com/Azure-Samples/active-directory-b2c-node-sign-up-user-flow-captcha) | This sample shows how to protect your user sign-ups using using a reCAPTCHA challenge to prevent automated abuse. |
+| [Arkose Labs fraud and abuse protection](https://github.com/Azure-Samples/active-directory-b2c-node-sign-up-user-flow-arkose) | This sample shows how to protect your user sign-ups using the Arkose Labs fraud and abuse protection service. |
+| [reCAPTCHA](https://github.com/Azure-Samples/active-directory-b2c-node-sign-up-user-flow-captcha) | This sample shows how to protect your user sign-ups using a reCAPTCHA challenge to prevent automated abuse. |
 
 
 ### Identity verification

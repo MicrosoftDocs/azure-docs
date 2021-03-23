@@ -69,7 +69,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Analyze data with Databricks
-            url: data-lake-storage-quickstart-create-databricks-account.md
+            url: ./data-lake-storage-use-databricks-spark.md
       - linkListType: concept
         links:
           - text: Processing big data

@@ -3,7 +3,7 @@ title: Create & manage a catalog of resources in entitlement management - Azure 
 description: Learn how to create a new container of resources and access packages in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: HANKI
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 12/23/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
 
@@ -78,6 +78,14 @@ To include resources in an access package, the resources must exist in a catalog
 1. When finished, click **Add**.
 
     These resources can now be included in access packages within the catalog.
+
+### Add a Multi-geo SharePoint Site
+
+1. If you have [Multi-Geo](/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365) enabled for SharePoint, select the environment you would like to select sites from.
+    
+    :::image type="content" source="media/entitlement-management-catalog-create/sharepoint-multigeo-select.png" alt-text="Access package - Add resource roles - Select SharePoint Multi-geo sites":::
+
+1. Then select the sites you would like to be added to the catalog. 
 
 ### Adding a resource to a catalog programmatically
 
