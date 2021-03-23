@@ -83,7 +83,9 @@ private static string GetContainerSasUri(CloudBlobContainer container,
 
 A service SAS is signed with the account access key. Use the [StorageSharedKeyCredential](/javascript/api/@azure/storage-blob/storagesharedkeycredential) class to create the credential that is used to sign the SAS. Next call the [generateBlobSASQueryParameters](/javascript/api/@azure/storage-blob/#generateBlobSASQueryParameters_BlobSASSignatureValues__StorageSharedKeyCredential_) function providing the required options, to get the SAS token string.
 
-```javascript
+:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/SAS.js" id="Snippet_ContainerSAS":::
+
+<!-- ```javascript
 function getContainerSasUri(containerClient, sharedKeyCredential, storedPolicyName) {
     const sasOptions = {
         containerName: containerClient.containerName,
@@ -102,8 +104,7 @@ function getContainerSasUri(containerClient, sharedKeyCredential, storedPolicyNa
 
     return `${containerClient.url}?${sasToken}`;
 }
-```
-
+``` -->
 ---
 
 ## Create a service SAS for a blob
@@ -176,7 +177,9 @@ To create a service SAS for a blob, call the [CloudBlob.GetSharedAccessSignature
 
 To create a service SAS for a blob, call the call the [generateBlobSASQueryParameters](/javascript/api/@azure/storage-blob/#generateBlobSASQueryParameters_BlobSASSignatureValues__StorageSharedKeyCredential_) function providing the required options.
 
-```javascript
+:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/SAS.js" id="Snippet_BlobSAS":::
+
+<!-- ```javascript
 function getBlobSasUri(containerClient, blobName, sharedKeyCredential, storedPolicyName) {
     const sasOptions = {
         containerName: containerClient.containerName,
@@ -195,7 +198,7 @@ function getBlobSasUri(containerClient, blobName, sharedKeyCredential, storedPol
     console.log(`SAS token for blob is: ${sasToken}`);
 
     return `${containerClient.getBlockBlobClient(blobName).url}?${sasToken}`;
-}
+} -->
 ```
 
 ---
