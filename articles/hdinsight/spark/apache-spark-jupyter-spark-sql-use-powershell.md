@@ -135,11 +135,11 @@ If you run into an issue with creating HDInsight clusters, it could be that you 
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **HDInsight clusters**.
    
-   ![Screenshot shows the Azure portal search for H D Insight.](./media/apache-spark-jupyter-spark-sql-use-powershell/azure-portal-search-hdinsight-cluster.png)
+   :::image type="content" source="./media/apache-spark-jupyter-spark-sql-use-powershell/azure-portal-search-hdinsight-cluster.png" alt-text="Screenshot shows the Azure portal search for H D Insight." border="true":::
    
 1. From the list, select the cluster you created.
    
-   ![Screenshot shows H D Insight clusters with the cluster that you created.](./media/apache-spark-jupyter-spark-sql-use-powershell/azure-portal-open-hdinsight-cluster.png)
+   :::image type="content" source="./media/apache-spark-jupyter-spark-sql-use-powershell/azure-portal-open-hdinsight-cluster.png" alt-text="Screenshot shows H D Insight clusters with the cluster that you created." border="true":::
    
 1. On the cluster **Overview** page, select **Cluster dashboards**, and then select **Jupyter Notebook**. If prompted, enter the cluster login credentials for the cluster.
 
