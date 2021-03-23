@@ -4,7 +4,7 @@ description: Prerequisites for using Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/11/2021
+ms.date: 03/15/2021
 ms.author: v-erkel
 ---
 
@@ -56,7 +56,7 @@ The cache needs DNS to access resources outside of its virtual network. Dependin
 * To access Azure Blob storage endpoints and other internal resources, you need the Azure-based DNS server.
 * To access on-premises storage, you need to configure a custom DNS server that can resolve your storage hostnames. You must do this **before** you create the cache.
 
-If you only need access to Blob storage, you can use the default Azure-provided DNS server for your cache. However, if you need access to other resources, you should create a custom DNS server and configure it to forward any Azure-specific resolution requests to the Azure DNS server.
+If you only use Blob storage, you can use the default Azure-provided DNS server for your cache. However, if you need access to storage or other resources outside of Azure, you should create a custom DNS server and configure it to forward any Azure-specific resolution requests to the Azure DNS server.
 
 To use a custom DNS server, you need to do these setup steps before you create your cache:
 
@@ -152,13 +152,6 @@ More information is included in [Troubleshoot NAS configuration and NFS storage 
 
   * Check firewall settings to be sure that they allow traffic on all of these required ports. Be sure to check firewalls used in Azure as well as on-premises firewalls in your data center.
 
-* **Directory access:** Enable the `showmount` command on the storage system. Azure HPC Cache uses this command to check that your storage target configuration points to a valid export, and also to make sure that multiple mounts don't access the same subdirectories (a risk for file collision).
-
-  > [!NOTE]
-  > If your NFS storage system uses NetApp's ONTAP 9.2 operating system, **do not enable `showmount`**. [Contact Microsoft Service and Support](hpc-cache-support-ticket.md) for help.
-
-  Learn more about directory listing access in the NFS storage target [troubleshooting article](troubleshoot-nas.md#enable-export-listing).
-
 * **Root access** (read/write): The cache connects to the back-end system as user ID 0. Check these settings on your storage system:
   
   * Enable `no_root_squash`. This option ensures that the remote root user can access files owned by root.
@@ -180,13 +173,13 @@ Azure HPC Cache also can use a blob container mounted with the NFS protocol as a
 
 The storage account requirements are different for an ADLS-NFS blob storage target and for a standard blob storage target. Follow the instructions in [Mount Blob storage by using the Network File System (NFS) 3.0 protocol](../storage/blobs/network-file-system-protocol-support-how-to.md) carefully to create and configure the NFS-enabled storage account.
 
-This is a general overview of the steps:
+This is a general overview of the steps. These steps might change, so always refer to the [ADLS-NFS instructions](../storage/blobs/network-file-system-protocol-support-how-to.md) for current details.
 
 1. Make sure that the features you need are available in the regions where you plan to work.
 
 1. Enable the NFS protocol feature for your subscription. Do this *before* you create the storage account.
 
-1. Create a secure virtual network (VNet) for the storage account. You should use the same virtual network for your NFS-enabled storage account and for your Azure HPC Cache.
+1. Create a secure virtual network (VNet) for the storage account. You should use the same virtual network for your NFS-enabled storage account and for your Azure HPC Cache. (Do not use the same subnet as the cache.)
 
 1. Create the storage account.
 

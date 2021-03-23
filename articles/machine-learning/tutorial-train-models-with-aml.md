@@ -89,6 +89,9 @@ ws = Workspace.from_config()
 print(ws.name, ws.location, ws.resource_group, sep='\t')
 ```
 
+>[!NOTE]
+> You may be asked to authenticate to your workspace the first time you run the following code. Follow the on-screen instructions.
+
 ### Create an experiment
 
 Create an experiment to track the runs in your workspace. A workspace can have multiple experiments:

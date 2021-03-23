@@ -79,7 +79,7 @@ The following table lists the gateway IP addresses of the Azure Database for MyS
 | West Central US | 13.78.145.25	 | | |
 | West Europe |13.69.105.208, 104.40.169.187 | 40.68.37.158 | 191.237.232.75 |
 | West US |13.86.216.212, 13.86.217.212 |104.42.238.205  | 23.99.34.75|
-| West US 2 | 13.66.226.202	 | | |
+| West US 2 | 13.66.136.192 | 13.66.226.202	 | | 
 ||||
 
 ## Connection redirection

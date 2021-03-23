@@ -11,7 +11,7 @@ ms.author: inhenkel
 
 | Feature | Brazil South | Brazil Southeast |
 | --- | :---: | :---: |
-| [Azure EventGrid](../reacting-to-media-services-events.md) |![Azure EventGrid Brazil South general availability](../media/azure-clouds-regions/ga.svg)  |![Azure EventGrid Brazil Southeast future](../media/azure-clouds-regions/planned-active.svg) |
+| [Azure EventGrid](../monitoring/reacting-to-media-services-events.md) |![Azure EventGrid Brazil South general availability](../media/azure-clouds-regions/ga.svg)  |![Azure EventGrid Brazil Southeast future](../media/azure-clouds-regions/planned-active.svg) |
 | [VideoAnalyzerPreset](../analyzing-video-audio-files-concept.md) |![VideoAnalyzerPreset Brazil South general availability](../media/azure-clouds-regions/ga.svg)  | ![VideoAnalyzerPreset Brazil Southeast future](../media/azure-clouds-regions/planned-active.svg) |
 | [AudioAnalyzerPreset](../analyzing-video-audio-files-concept.md) |![AudioAnalyzerPreset Brazil South general availability](../media/azure-clouds-regions/ga.svg)  | ![AudioAnalyzerPreset Brazil Southeast future](../media/azure-clouds-regions/planned-active.svg) |
 | [StandardEncoderPreset](../encoding-concept.md) |![StandardEncoderPreset Brazil South general availability](../media/azure-clouds-regions/ga.svg)  | ![StandardEncoderPreset Brazil Southeast future](../media/azure-clouds-regions/planned-active.svg) |

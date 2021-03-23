@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 10/21/2020
+ms.date: 03/17/2021
 ms.author: inhenkel
 ---
 
@@ -26,7 +26,32 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Bug fixes
 * Deprecated functionality
 
-## Known issues
+## March 2021
+
+### New language support added to the AudioAnalyzer preset
+
+Additional languages for video transcription and subtitling are available now in the AudioAnalyzer preset (both Basic and Standard modes).
+
+* English (Australia), 'en-AU'
+* French (Canada), 'fr-CA'
+* Arabic (Bahrain) modern standard, 'ar-BH'
+* Arabic (Egypt), 'ar-EG'
+* Arabic (Iraq), 'ar-IQ'
+* Arabic (Israel), 'ar-IL'
+* Arabic (Jordan), 'ar-JO'
+* Arabic (Kuwait), 'ar-KW'
+* Arabic (Lebanon), 'ar-LB'
+* Arabic (Oman), 'ar-OM'
+* Arabic (Qatar), 'ar-QA'
+* Arabic (Saudi Arabia), 'ar-SA'
+* Danish, ‘da-DK’
+* Norwegian, 'nb-NO'
+* Swedish, ‘sv-SE’
+* Finnish, ‘fi-FI’
+* Thai, ‘th-TH’
+* Turkish, ‘tr-TR’
+
+See the latest available languages in the [Analyzing Video And Audio Files concept article.](analyzing-video-audio-files-concept.md)
 
 ## February 2021
 
@@ -56,7 +81,7 @@ Version 3 provides:
  
 - 24x7 live event support
 - ARM REST APIs, client SDKs for .NET core, Node.js, Python, Java, Go and Ruby.
-- Customer managed keys, trusted storage integration, private link support, and [more](https://review.docs.microsoft.com/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
+- Customer managed keys, trusted storage integration, private link support, and [more](https://docs.microsoft.com/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
 
 #### Action Required
 
@@ -95,7 +120,6 @@ Please update to the latest client SDKs in your code bases using your package ma
 - **[Trusted Storage](concept-trusted-storage.md)**: Media Services can be configured to access Azure Storage using a Managed Identity associated with the Media Services account. When storage accounts are accessed using a Managed Identity, customers can configure more restrictive network ACLs on the storage account without blocking Media Services scenarios.
 
 - **[Managed Identities](concept-managed-identities.md)**: Customers may enable a System Assigned Managed Identity for a Media Services account to provide access to Key Vaults (for Customer Managed Keys) and storage accounts (for Trusted Storage).
-
 
 ### Updated Typescript Node.js Samples using isomorphic SDK for JavaScript
 
@@ -345,7 +369,7 @@ You can now specify a list of asset or account filters, which would apply to you
 
 Media Services v3 is now supported in Azure national clouds. Not all features are available in all clouds yet. For details, see [Clouds and regions in which Azure Media Services v3 exists](azure-clouds-regions.md).
 
-[Microsoft.Media.JobOutputProgress](media-services-event-schemas.md#monitoring-job-output-progress) event was added to the Azure Event Grid schemas for Media Services.
+[Microsoft.Media.JobOutputProgress](monitoring/media-services-event-schemas.md#monitoring-job-output-progress) event was added to the Azure Event Grid schemas for Media Services.
 
 ## January 2019
 

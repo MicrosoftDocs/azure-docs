@@ -4,7 +4,7 @@ description: Explains how to configure additional settings for the cache like MT
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/11/2021
+ms.date: 03/17/2021
 ms.author: v-erkel
 ---
 
@@ -61,14 +61,16 @@ Check that your DNS configuration can successfully resolve these items before us
 * Certificate revocation list (CRL) download and online certificate status protocol (OCSP) verification services. A partial list is provided in the [firewall rules item](../security/fundamentals/tls-certificate-changes.md#will-this-change-affect-me) at the end of this [Azure TLS article](../security/fundamentals/tls-certificate-changes.md), but you should consult a Microsoft technical representative to understand all of the requirements.
 * The fully qualified domain name of your NTP server (time.microsoft.com or a custom server)
 
-If you need to set a custom DNS server for your cache, fill in the provided fields:
+If you need to set a custom DNS server for your cache, use the provided fields:
 
-* **DNS search domain** - Enter your search domain, for example, ``contoso.com``. A single value is allowed.
+* **DNS search domain** (optional) - Enter your search domain, for example, ``contoso.com``. A single value is allowed, or you can leave it blank.
 * **DNS server(s)** - Enter up to three DNS servers. Specify them by IP address.
 
 <!-- 
   > [!NOTE]
   > The cache will use only the first DNS server it successfully finds. -->
+
+Consider using a test cache to check and refine your DNS setup before you use it in a production environment.
 
 ### Refresh storage target DNS
 
@@ -89,10 +91,10 @@ This feature is available for Azure Blob storage targets only, and its configura
 
 Snapshots are taken every eight hours, at UTC 0:00, 08:00, and 16:00.
 
-Azure HPC Cache stores daily, weekly, and monthly snapshots until they are replaced by new ones. The limits are:
+Azure HPC Cache stores daily, weekly, and monthly snapshots until they are replaced by new ones. The snapshot retention limits are:
 
 * Up to 20 daily snapshots
 * Up to 8 weekly snapshots
 * Up to 3 monthly snapshots
 
-Access the snapshots from the `.snapshot` directory in your blob storage target's namespace.
+Access the snapshots from the `.snapshot` directory in the root of your mounted blob storage target.

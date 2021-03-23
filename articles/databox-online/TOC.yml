@@ -165,7 +165,9 @@
       - name: Kubernetes RBAC
         href: azure-stack-edge-gpu-kubernetes-rbac.md 
       - name: Kubernetes workloads
-        href: azure-stack-edge-gpu-kubernetes-workload-management.md 
+        href: azure-stack-edge-gpu-kubernetes-workload-management.md
+    - name: What is GPU sharing?
+      href: azure-stack-edge-gpu-sharing.md 
     - name: View Key Vault integration 
       href: azure-stack-edge-gpu-activation-key-vault.md
     - name: Enable proactive logging
@@ -197,11 +199,15 @@
         - name: Statically provisioned stateful app 
           href: azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md 
         - name: Dynamically provisioned stateful app
-          href: azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md         
+          href: azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md 
+        - name: GPU shared workload
+          href: azure-stack-edge-gpu-deploy-kubernetes-gpu-sharing.md         
       - name: Via IoT Edge
         items:
         - name: Stateless app
           href: azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md 
+        - name: GPU shared workload
+          href: azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing.md  
         - name: Develop C# module
           href: azure-stack-edge-gpu-create-iot-edge-module.md 
       - name: Via Azure Arc (Preview)
@@ -237,9 +243,13 @@
       - name: Deploy Custom Script Extension on VMs
         href: azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md 
       - name: Create VM image
-        href: azure-stack-edge-gpu-create-virtual-machine-image.md 
+        href: azure-stack-edge-gpu-create-virtual-machine-image.md
+      - name: Use Windows generalized image
+        href: azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md
       - name: Supported VM sizes, types
         href: azure-stack-edge-gpu-virtual-machine-sizes.md 
+      - name: Connect to VM console
+        href: azure-stack-edge-gpu-connect-virtual-machine-console.md
     - name: Manage certificates
       items:
       - name: Requirements
@@ -308,7 +318,9 @@
         href: azure-stack-edge-contact-microsoft-support.md 
   - name: Shared release notes
     items:
-    - name: 2101 - Current 
+    - name: 2103 - Current
+      href: azure-stack-edge-gpu-2103-release-notes.md
+    - name: 2101 
       href: azure-stack-edge-gpu-2101-release-notes.md
     - name: 2010 
       href: azure-stack-edge-gpu-2010-release-notes.md 
