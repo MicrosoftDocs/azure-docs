@@ -58,7 +58,7 @@ Follow these steps to purchase reserved capacity:
 1. Select **Azure Files** to buy a new reservation.  
 1. Fill in the required fields as described in the following table:
 
-    ![Screenshot showing how to purchase reserved capacity](../blobs/media/storage-blob-reserved-capacity/select-reserved-capacity.png)
+    ![Screenshot showing how to purchase reserved capacity](./media/files-reserve-capacity/select-reserved-capacity.png)
 
    |Field  |Description  |
    |---------|---------|
@@ -74,8 +74,6 @@ Follow these steps to purchase reserved capacity:
 1. After you select the parameters for your reservation, the Azure portal displays the cost. The portal also shows the discount percentage over pay-as-you-go billing.
 
 1. In the **Purchase reservations** blade, review the total cost of the reservation. You can also provide a name for the reservation.
-
-    ![Screenshot showing how to purchase a reservation](../blobs/media/storage-blob-reserved-capacity/purchase-reservations.png)
 
 After you purchase a reservation, it is automatically applied to any existing Azure file shares that match the terms of the reservation. If you haven't created any Azure file shares yet, the reservation will apply whenever you create a resource that matches the terms of the reservation. In either case, the term of the reservation begins immediately after a successful purchase.
 
