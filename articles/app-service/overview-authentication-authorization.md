@@ -47,14 +47,18 @@ App Service can be used for authentication with or without restricting access to
 
 ## How it works
 
-[Feature architecture on Windows (non-container deployment)](#feature-architecture-on-windows-(non-container-deployment))
-[Feature architecture on Linux and containers](#feature-architecture-on-Linux-and-containers)
+[Feature architecture on Windows (non-container deployment)](#feature-architecture-on-windows-non-container-deployment))
+
+[Feature architecture on Linux and containers](#feature-architecture-on-linux-and-containers)
+
 [Authentication flow](#authentication-flow)
+
 [Authorization behavior](#authorization-behavior)
-[Allow Anonymous requests (no action)](#allow-anonymous-requests-(no-action))
-[Allow only authenticated requests](#allow-only-authenticated-requests)
+
 [User and Application claims](#user-and-application-claims)
+
 [Token store](#token-store)
+
 [Logging and tracing](#logging-and-tracing)
 
 #### Feature architecture on Windows (non-container deployment)
@@ -98,7 +102,7 @@ For client browsers, App Service can automatically direct all unauthenticated us
 
 <a name="authorization"></a>
 
-#### Authorization behavior
+**Authorization behavior**
 
 In the [Azure portal](https://portal.azure.com), you can configure App Service authorization with a number of behaviors when incoming request is not authenticated.
 
@@ -106,7 +110,7 @@ In the [Azure portal](https://portal.azure.com), you can configure App Service a
 
 The following headings describe the options.
 
-#### Allow Anonymous requests (no action)
+**Allow Anonymous requests (no action)**
 
 This option defers authorization of unauthenticated traffic to your application code. For authenticated requests, App Service also passes along authentication information in the HTTP headers.
 
