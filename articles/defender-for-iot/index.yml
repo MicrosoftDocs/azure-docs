@@ -63,7 +63,7 @@ landingContent:
     linkLists:
     - linkListType: overview
       links:
-        - text: Edge security module
+        - text: Edge Defender-IoT-micro-agent
           url: security-edge-architecture.md
         
     - linkListType: quickstart
@@ -72,7 +72,7 @@ landingContent:
           url: quickstart-onboard-iot-hub.md
         - text: Configure your IoT security solution
           url: quickstart-configure-your-solution.md
-        - text: Configure your Security Module for Azure RTOS 
+        - text: Configure your Defender-IoT-micro-agent for Azure RTOS 
           url: quickstart-azure-rtos-security-module.md
         - text: Create an Azure Defender for IoT module twin
           url: quickstart-create-security-twin.md

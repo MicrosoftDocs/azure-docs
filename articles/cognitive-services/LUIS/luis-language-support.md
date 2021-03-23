@@ -41,7 +41,7 @@ LUIS understands utterances in the following languages:
 | Korean |`ko-KR` |✔|-|-|Key phrase only|
 | Marathi | `mr-IN`|-|-|-|-|
 | Portuguese (Brazil) |`pt-BR` |✔| ✔ |✔ |not all sub-cultures|
-| Spanish (Mexico)|`es-MX` |-|-|✔|✔|
+| Spanish (Mexico)|`es-MX` |-|✔|✔|✔|
 | Spanish (Spain) |`es-ES` |✔| ✔ |✔|✔|
 | Tamil | `ta-IN`|-|-|-|-|
 | Telugu | `te-IN`|-|-|-|-|

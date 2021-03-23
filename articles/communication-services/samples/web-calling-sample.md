@@ -7,7 +7,7 @@ manager: mariusu-msft
 services: azure-communication-services
 
 ms.author: mariusu
-ms.date: 10/15/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
@@ -89,7 +89,7 @@ For more information, see the following articles:
 
 ## Additional reading
 
-- [Azure Communication GitHub](https://github.com/Azure/communication) - Find more examples and information on the official GitHub page
+- [Samples](./overview.md) - Find more samples and examples on our samples overview page.
 - [Redux](https://redux.js.org/) - Client-side state management
 - [FluentUI](https://aka.ms/fluent-ui) - Microsoft powered UI library
 - [React](https://reactjs.org/) - Library for building user interfaces

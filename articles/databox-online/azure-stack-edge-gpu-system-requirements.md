@@ -7,12 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 02/05/2021
+ms.date: 03/17/2021
 ms.author: alkohli
+ms.custom: "contperf-fy21q3"
 ---
 # System requirements for Azure Stack Edge Pro with GPU 
 
-This article describes the important system requirements for your Microsoft Azure Stack Edge Pro solution and for the clients connecting to Azure Stack Edge Pro. We recommend that you review the information carefully before you deploy your Azure Stack Edge Pro. You can refer back to this information as necessary during the deployment and subsequent operation.
+This article describes the important system requirements for your Microsoft Azure Stack Edge Pro GPU solution and for the clients connecting to Azure Stack Edge Pro. We recommend that you review the information carefully before you deploy your Azure Stack Edge Pro. You can refer back to this information as necessary during the deployment and subsequent operation.
 
 The system requirements for the Azure Stack Edge Pro include:
 

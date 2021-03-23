@@ -209,6 +209,9 @@
       href: customize-ui-with-html.md
     - name: JavaScript and page layouts
       href: javascript-and-page-layout.md
+    - name: Embedded sign-in with iframe
+      displayName: iframe
+      href: embedded-login.md
     - name: Customize language
       href: language-customization.md
       displayName: localization
@@ -420,11 +423,13 @@
       href: partner-whoiam.md
     - name: Zscaler
       href: partner-zscaler.md
-  - name: Use b2clogin.com
+  - name: Domain name
     items:
     - name: b2clogin.com overview
       href: b2clogin.md
-    - name: Migrate web API to b2clogin.com
+    - name: Configure a custom domain
+      href: custom-domain.md
+    - name: Configure web API domains 
       href: multiple-token-endpoints.md
       displayName: migrate, b2clogin, owin
   - name: Automation
@@ -491,6 +496,7 @@
     href: custom-policy-developer-notes.md
   - name: Page layout versions
     href: page-layout.md
+    displayName: Page version
   - name: Region availability & data residency
     href: data-residency.md
   - name: Build for resilience
