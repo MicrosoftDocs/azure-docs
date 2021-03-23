@@ -78,8 +78,11 @@ The second way to access the new tables is through Cluster portal access.
 
 For comparison, the following screenshots show the legacy integration workspace view and the new integration workspace view:
 
-<![alt-text-description]()>
-<![alt-text-description]()>
+**Legacy integration workspace view**
+:::image type="content" source="./media/log-analytics-migration/legacy-integration-workspace-view.png" alt-text="Screenshot that shows the legacy integration workspace view." border="true":::
+
+**New integration workspace view**
+:::image type="content" source="./media/log-analytics-migration/new-integration-workspace-view.png" alt-text="Screenshot that shows the new integration workspace view." border="true":::
 
 ### Using the new tables
 
@@ -89,7 +92,8 @@ These integrations can help you use the new tables:
 
 In your Logs query editor, set the toggle to **Queries** above the tables list. Make sure that you group the queries by **Resource Type** and that there's no filter set for a resource type other than **HDInsight Clusters**. The following image shows how the results look when grouped by **Resource Type** and filtered for **HDInsight Clusters**. Just select one and it appears in the Logs query editor. Be sure to read the comments included in the queries, as some require you to enter some information, like your cluster name, for the query to run successfully.
 
-<![alt-text-description]()>
+:::image type="content" source="./media/log-analytics-migration/default-query-results-grouped-resource-type.png" alt-text="Screenshot that shows the default query results grouped resource type." border="true":::
+
 
 #### Create your own queries
 
@@ -99,7 +103,7 @@ You can enter your own queries in the Logs query editor. Queries used on the old
 
 Insights are cluster-specific visualization dashboards made using [Azure Workbooks](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview). These dashboards give you detailed graphs and visualizations of how your cluster is running. The dashboards have sections for each cluster type, YARN, system metrics, and component logs. You can access your cluster's dashboard by visiting your cluster's page in the portal, scrolling down to the **Monitoring** section, and selecting the **Insights** pane. The dashboard loads automatically if you've enabled the new integration. Allow a few seconds for the graphs to load as they query the logs.
 
-<![alt-text-description]()>
+:::image type="content" source="./media/log-analytics-migration/visualization-dashboard.png" alt-text="Screenshot that shows the visualization dashboard." border="true":::
 
 #### Custom Azure workbooks
 
@@ -112,13 +116,13 @@ Use our new at-scale workbook <add link> to get a multi-cluster monitoring exper
 1. Go to the **Azure Monitor** page in from the Azure portal home page
 2. Once on the **Azure Monitor** page, look at the menu on the left for the section, **Insights**, and select the workbook under the **HDInsight** pane.
 
-   <Add picture of at scale workbook>
+   :::image type="content" source="./media/log-analytics-migration/at-scale-workbook.png" alt-text="Screenshot that shows the at-scale workbook." border="true":::
 
 #### Alerts
 
 You can add custom alerts to your clusters and workspaces in the Log query editor. Go to the Logs query editor by selecting the **Logs** pane from either your cluster or workspace portal. Run a query and then select **New Alert Rule** as shown in the following screenshot. For more information, read about [configuring alerts](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log).
 
-<![alt-text-description]()>
+:::image type="content" source="./media/log-analytics-migration/new-rule-alert.png" alt-text="Screenshot that shows the new rule alert." border="true":::
 
 ## Migrating from Azure Monitor Classic to the new Azure Monitor Integration
 
