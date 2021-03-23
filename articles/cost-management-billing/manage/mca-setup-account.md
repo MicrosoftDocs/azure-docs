@@ -48,11 +48,18 @@ To complete the setup, you need the following access:
 &mdash; And &mdash;
 - Enterprise administrator on the enrollment that is renewed.
 
-### Get permission needed to complete setup
+### Start migration and get permission needed to complete setup
 
-When you signed your new Microsoft Customer Agreement, you should have been given the option to **Start account setup**. You were also sent an email with a link to start your account setup. Selecting the **Start account setup** link or selecting the link in the mail opens the Azure portal to the Set up your billing account page.
+You can use the following options to start the migration experience for your EA enrollment to your Microsoft Customer Agreement.
 
-If you have both the enterprise administrator and billing account owner roles, you see the following page in the Azure portal. You can continue setting up your EA enrollments and Microsoft Customer Agreement billing account for transition.
+
+- Sign in to the Azure portal using the link in the email that was sent to you when you signed the Microsoft Customer Agreement.
+
+- If you don't have the email, sign in using the following link. Replace `enrollmentNumber` with the enrollment number of your enterprise agreement that was renewed.
+
+  `https://portal.azure.com/#blade/Microsoft_Azure_EA/EATransitionToMCA/enrollmentId/<enrollmentNumber>`
+
+If you have both the enterprise administrator and billing account owner roles or billing profile role, you see the following page in the Azure portal. You can continue setting up your EA enrollments and Microsoft Customer Agreement billing account for transition.
 
 :::image type="content" source="./media/mca-setup-account/setup-billing-account-page.png" alt-text="Screenshot showing the Set up your billing account page" lightbox="./media/mca-setup-account/setup-billing-account-page.png" :::
 
