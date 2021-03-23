@@ -17,7 +17,7 @@ Here are some use cases for sampling overrides:
  * Suppress collecting telemetry for health checks.
  * Suppress collecting telemetry for noisy dependency calls.
  * Reduce the noise from health checks or noisy dependency calls without suppressing them completely.
- * Collect 100% of telemetry for an important request type (e.g. login) even though you have default sampling
+ * Collect 100% of telemetry for an important request (e.g. `/login`) even though you have default sampling
    configured to something lower.
 
 ## Terminology
@@ -90,8 +90,8 @@ If no sampling overrides match:
 > [!NOTE]
 > The sampling decision is based on hashing the traceId (also known as the operationId) to a number between 0 and 100,
 > and that hash is then compared to the sampling percentage.
-> Since all spans in a given trace will have the same hash, the sampling decision will be consistent across the whole
-> trace.
+> Since all spans in a given trace will have the same traceId, they will have the same hash,
+> and so the sampling decision will be consistent across the whole trace.
 
 ## Example: Suppress collecting telemetry for health checks
 
@@ -124,7 +124,7 @@ This will also suppress collecting any downstream spans (dependencies) that woul
 
 ## Example: Suppress collecting telemetry for a noisy dependency call
 
-This will suppress collecting telemetry for all redis calls to `GET my-noisy-key`.
+This will suppress collecting telemetry for all `GET my-noisy-key` redis calls.
 
 ```json
 {
