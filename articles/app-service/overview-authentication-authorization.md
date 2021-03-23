@@ -13,6 +13,8 @@ Azure App Service provides built-in authentication and authorization capabilitie
 
 ## Why use the built-in authentication?
 
+You're not required to use this feature for authentication and authorization. You can use the bundled security features in your web framework of choice, or you can write your own utilities. However, you will need to ensure that your solution stays up to date with the latest security, protocol, and browser updates.
+
 Implementing a secure solution for authentication (signing-in users) and authorization (providing access to secure data) can take significant effort. You must make sure to follow industry best practices and standards, and keep your implementation up to date. The built-in authentication feature for App Service and Azure Functions can save you time and effort by providing out-of-the-box authentication with federated identity providers, allowing you to focus on the rest of your application.
 
 - Azure App Service allows you to integrate a variety of auth capabilities into your web app or API without implementing them yourself.
@@ -35,8 +37,6 @@ App Service uses [federated identity](https://en.wikipedia.org/wiki/Federated_id
 When you enable authentication and authorization with one of these providers, its sign-in endpoint is available for user authentication and for validation of authentication tokens from the provider. You can provide your users with any number of these sign-in options.
 
 ## Considerations for using built-in authentication
-
-You're not required to use this feature for authentication and authorization. You can use the bundled security features in your web framework of choice, or you can write your own utilities. However, keep in mind that you will need to ensure that your solution stays up to date with the latest security, protocol, and browser updates.
 
 Enabling this feature will cause all requests to your application to be automatically redirected to HTTPS, regardless of the App Service configuration setting to enforce HTTPS. You can disable this with the  `requireHttps` setting in the V2 configuration. However, we do recommend sticking with HTTPS, and you should ensure no security tokens ever get transmitted over non-secure HTTP connections.
 
