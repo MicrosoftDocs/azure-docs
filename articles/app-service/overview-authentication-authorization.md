@@ -102,7 +102,7 @@ For client browsers, App Service can automatically direct all unauthenticated us
 
 <a name="authorization"></a>
 
-**Authorization behavior**
+#### Authorization behavior
 
 In the [Azure portal](https://portal.azure.com), you can configure App Service authorization with a number of behaviors when incoming request is not authenticated.
 
@@ -116,7 +116,7 @@ This option defers authorization of unauthenticated traffic to your application 
 
 This option provides more flexibility in handling anonymous requests. For example, it lets you [present multiple sign-in providers](app-service-authentication-how-to.md#use-multiple-sign-in-providers) to your users. However, you must write code.
 
-#### Allow only authenticated requests
+**Allow only authenticated requests**
 
 The option is **Log in with \<provider>**. App Service redirects all anonymous requests to `/.auth/login/<provider>` for the provider you choose. If the anonymous request comes from a native mobile app, the returned response is an `HTTP 401 Unauthorized`.
 
