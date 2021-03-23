@@ -25,7 +25,7 @@ The Network Readiness Checker includes the following tests. You can choose which
 |-------------------|-------------|
 |LinkLayer          |Verifies that a layer 2 network link is established on all applicable network interfaces.|
 |IpConfig           |WHAT SPECIFICALLY DOES THE TEST VERIFY IN THE CONFIGURATION?|
-|DnsServer          |Verifies that Domain Name System (DNS) server(s) are accessible and respond to DNS queries on UDP port 53.|      |
+|DnsServer          |Verifies that Domain Name System (DNS) server(s) are accessible and respond to DNS queries on UDP port 53.|
 |TimeServer         |(Recommended) Verifies that Network Time Protocol (NTP) server(s) respond with system time on UDP port 123 and the response message meets NTP requirements, so network clients can use the system time.|
 |DuplicateIP        |Checks for IP conflicts between Azure Stack networks and existing customer networks, and for conflicts within the IP address pool that used for Kubernetes on Azure Stack.|
 |Proxy              |(Optional) If you're using a proxy server, verifies that the web proxy server is accessible, that proxy server credentials work correctly, and that the Secure Sockets Layer (SSL) tunnel isn't terminated at the proxy.<!--What does this mean (from spec)? "An SSL inspection is not supported by Azure Stack."-->|
@@ -43,7 +43,7 @@ Before you begin, complete the following tasks:
 
 - Install PowerShell 7.0 on the client computer. For guidance, see [What's new in PowerShell 7.0](/powershell/scripting/whats-new/what-s-new-in-powershell-70.md?view=powershell-7.1&preserve-view=true).<!--Vibha to verify whether tool has been tested in PowerShell 7.0. PowerShell 7.0 enables multi-platform testing in a Windows/Linux environment.-->
 
-- Install the Azure Stack Network Readiness Checker tool in PowerShell by following the steps in [Install Network Readiness Checker](azure-stack-edge-check-network=readiness.md#install-network-readiness-checker), below.
+- Install the Azure Stack Network Readiness Checker tool in PowerShell by following the steps in [Install Network Readiness Checker](azure-stack-edge-check-network-readiness.md#install-network-readiness-checker), below.
 
 
 ## Install Network Readiness Checker
