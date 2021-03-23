@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 03/23/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -108,6 +108,10 @@ To enable TLS 1.2, follow these steps.
 ## Known limitations
 
 The following are known limitations:
+
+### On-Premises FQDN
+
+- If syncing disconnected forests they must have different FQDN's.
 
 ### Delta Synchronization
 
