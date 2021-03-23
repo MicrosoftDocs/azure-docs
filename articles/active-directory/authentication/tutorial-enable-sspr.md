@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 07/13/2020
+ms.date: 03/23/2021
 
 ms.author: justinha
 author: justinha
@@ -137,6 +137,22 @@ If you no longer want to use the SSPR functionality you have configured as part 
 1. Search for and select **Azure Active Directory**, then choose **Password reset** from the menu on the left-hand side.
 1. From the **Properties** page, under the option *Self service password reset enabled*, choose **None**.
 1. To apply the SSPR change, select **Save**.
+
+## FAQs
+
+This section explains common questions from administrators and end-users who try SSPR:
+
+- Why do federated users wait up to 2 minutes after they see “Your password has been reset” before they can use passwords that are synchronized from on-premises?
+
+  For federated users whose passwords are synchronized, the source of authority for the passwords is on-premises. As a result, SSPR updates only the on-premises passwords. Password hash synchronization back to Azure AD is scheduled for every 2 minutes.
+
+- When a newly created user who is pre-populated with SSPR data such as phone and email visits the SSPR registration page, **Don’t lose access to your account!** appears at the title of the page. Why don't other users who have SSPR data pre-populated see the message?
+
+  A user who sees **Don’t lose access to your account!** is a member of SSPR/combined registration groups that are configured for the tenant. Users who don’t see **Don’t lose access to your account!** were not part of the SSPR/combined registration groups.
+
+- When some users go through SSPR process and reset their password, why don't they see the weak/strong password strength indicator?
+
+  Users who don’t see weak/strong password strength have synchronized password writeback enabled. Since SSPR can’t determine the password policy of the customer’s on-premises environment, it cannot validate password strength or weakness. 
 
 ## Next steps
 
