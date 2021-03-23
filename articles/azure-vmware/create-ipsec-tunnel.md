@@ -56,10 +56,6 @@ You can also [create a gateway in an existing hub](../virtual-wan/virtual-wan-ex
 
 In this section, you create a site-to-site VPN. Sites correspond to a physical location. You can create as many sites as you need. You can create up to 1000 sites per virtual hub in a virtual WAN. 
 
-[!INCLUDE [Create a site](../../includes/virtual-wan-tutorial-s2s-site-include.md)]
-
- 
-
 1. In the Azure portal, select the virtual WAN you created earlier.
 
 2. In the **Overview** of the virtual hub, select **Connectivity** > **VPN (Site-to-site)** > **Create new VPN site**.
@@ -76,8 +72,14 @@ In this section, you create a site-to-site VPN. Sites correspond to a physical l
 
 1. Select **Next : Links** and fill in the required fields. Specifying link and provider names allow you to distinguish between any number of gateways that may eventually be created as part of the hub. BGP and autonomous system number (ASN) must be unique inside your organization.
 
+   :::image type="content" source="media/create-ipsec-tunnel/create-vpn-site-links.png" alt-text="Screenshot that shows link details.":::
+
 1. Select **Review + create**. 
+
+1. Navigate to the virtual hub that you want, and deselect **Hub association** to connect your VPN site to the hub.
  
+   :::image type="content" source="../../includes/media/virtual-wan-tutorial-site-include/connect.png" alt-text="Screenshot that shows the Connected Sites pane for Virtual HUB ready for Pre-shared key and associated settings.":::   
+
 ## Step 4. (Optional) Define a VPN site for policy-based VPN site-to-site tunnels
 
 This is an optional step and applies only to policy-based VPNs. Policy-based (or static, route-based) VPN setups are driven by on-premise VPN device capabilities in most cases. They require on-premise and Azure VMware Solution networks to be specified. For Azure VMware Solution with an Azure Virtual WAN hub, you can't select *any* network. Instead, you have to specify all relevant on-premise and Azure VMware Solution Virtual WAN hub ranges. These hub ranges are used to specify the encryption domain of the policy base VPN tunnel on-premise endpoint. The Azure VMware Solution side only requires the policy-based traffic selector indicator to be enabled. 
@@ -105,39 +107,38 @@ This is an optional step and applies only to policy-based VPNs. Policy-based (or
 
 In this step, you connect your VPN site to the hub.
 
-[!INCLUDE [Connect VPN sites](../../includes/virtual-wan-tutorial-s2s-connect-vpn-site-include.md)]
-
-
-
-
-
-
 1. Select your VPN site name and then select **Connect VPN sites**. 
+
+   :::image type="content" source="../../includes/media/virtual-wan-tutorial-connect-vpn-site-include/connect.png" alt-text="Screenshot that shows the Connected Sites pane for Virtual HUB ready for a Pre-shared key and associated settings. ":::
+
 1. In the **Pre-shared key** field, enter the key previously defined for the on-premise endpoint. 
 
    >[!TIP]
    >If you don't have a previously defined key, you can leave this field blank. A key is generated for you automatically. 
  
+1. If you're deploying a firewall in the hub and it's the next hop, set the **Propagate Default Route** option to **Enable**. When enabled, it allows the virtual hub to propagate a learned default route to this connection. This flag enables default route propagation to a connection only if the Virtual WAN hub already learns the default route due to deploying a firewall in the hub or if another connected site has forced tunneling enabled. The default route does not originate in the Virtual WAN hub. 
+
+1. Select **Connect**. After a few minutes, the site will show the connection and connectivity status.
+
+   :::image type="content" source="../../includes/media/virtual-wan-tutorial-connect-vpn-site-include/status.png" alt-text="Screenshot that shows a site-to-site connection and connectivity status.":::
+
+1. [Download the VPN configuration file](../virtual-wan-site-to-site-portal#device) for the on-premises endpoint.  
+
+3. Patch the Azure VMware Solution ExpressRoute in the Virtual WAN hub. 
+
    >[!IMPORTANT]
-   >Only enable **Propagate Default Route** if you're deploying a firewall in the hub and it is the next hop for connections through that tunnel.
-
-1. Select **Connect**. A connection status screen shows the status of the tunnel creation.
-
-2. Go to the Virtual WAN overview and open the VPN site page to download the VPN configuration file for the on-premises endpoint.  
-
-3. Patch the Azure VMware Solution ExpressRoute in the Virtual WAN hub. This step requires first creating your private cloud.
+   >You must first have created a private cloud before you can patch the platform. 
 
    [!INCLUDE [request-authorization-key](includes/request-authorization-key.md)]
 
-4. Link Azure VMware Solution and the VPN gateway together in the Virtual WAN hub. 
-   1. In the Azure portal, open the Virtual WAN you created earlier. 
-   1. Select the created Virtual WAN hub and then select **ExpressRoute** in the left pane. 
-   1. Select **+ Redeem authorization key**.
+4. Link Azure VMware Solution and the VPN gateway together in the Virtual WAN hub. You'll use the authorization key and ExpressRoute ID (peer circuit URI) from the previous step.
 
-      :::image type="content" source="media/create-ipsec-tunnel/redeem-authorization-key.png" alt-text="Screenshot of the ExpressRoute page for the private cloud, with Redeem authorization key selected.":::
+   1. Select the your ExpressRoute gateway and then select **Redeem authorization key**.
 
-   1. Paste the authorization key into the Authorization key field.
-   1. Past the ExpressRoute ID into the **Peer circuit URI** field. 
+   :::image type="content" source="media/create-ipsec-tunnel/redeem-authorization-key.png" alt-text="Screenshot of the ExpressRoute page for the private cloud, with Redeem authorization key selected.":::
+
+   1. Paste the authorization key in the **Authorization Key** field.
+   1. Paste the ExpressRoute ID into the **Peer circuit URI** field. 
    1. Select **Automatically associate this ExpressRoute circuit with the hub.** 
    1. Select **Add** to establish the link. 
 
