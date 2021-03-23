@@ -7,7 +7,6 @@ ms.topic: article
 ms.date: 2/11/2020
 ms.author: amgowda
 ms.service: container-service
-ms.subservice: confidential-computing
 ---
 
 # Confidential Containers

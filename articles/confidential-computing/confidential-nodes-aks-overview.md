@@ -4,7 +4,6 @@ description: Confidential computing nodes on AKS
 services: virtual-machines
 author: agowdamsft
 ms.service: container-service
-ms.subservice: confidential-computing
 ms.topic: overview
 ms.date: 2/08/2021
 ms.author: amgowda

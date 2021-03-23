@@ -3,7 +3,6 @@ title: 'Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster by using Az
 description: In this quickstart, you will learn to create an AKS cluster with confidential nodes and deploy a hello world app using the Azure CLI.
 author: agowdamsft
 ms.service: container-service
-ms.subservice: confidential-computing
 ms.topic: quickstart
 ms.date: 03/18/2020
 ms.author: amgowda

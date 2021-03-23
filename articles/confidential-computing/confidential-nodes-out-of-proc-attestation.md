@@ -2,7 +2,6 @@
 title: Out-of-proc attestation support with Intel SGX quote helper Daemonset on Azure (preview)
 description: DaemonSet for generating the quote outside of the SGX application process. This article explains how the out-of-proc attestation facility is rovided for confidential workloads running inside a container.
 ms.service: container-service
-ms.subservice: confidential-computing
 author: agowdamsft
 ms.topic: overview
 ms.date: 2/12/2021
