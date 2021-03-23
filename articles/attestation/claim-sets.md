@@ -47,11 +47,11 @@ Below claims are included in the attestation token for all attestation types by 
 
 Source: As defined by [IETF JWT](https://tools.ietf.org/html/rfc7519)
 
-- **"jti" (JWT ID) Claim**
-- **"iss" (Issuer) Claim**
-- **"iat" (Issued At) Claim**
-- **"exp" (Expiration Time) Claim**
-- **"nbf" (Not Before) Claim**
+- **"jti" (JWT ID) Claim** - Unique identifier for the JWT
+- **"iss" (Issuer) Claim** - The principal that issued the JWT 
+- **"iat" (Issued At) Claim** - The time at which the JWT was issued at 
+- **"exp" (Expiration Time) Claim** - Expiration time after which the JWT must not be accepted for processing
+- **"nbf" (Not Before) Claim** - Not Before time before which the JWT must not be accepted for processing 
 
 Source: As defined by [IETF EAT](https://tools.ietf.org/html/draft-ietf-rats-eat-03#page-9)
 
