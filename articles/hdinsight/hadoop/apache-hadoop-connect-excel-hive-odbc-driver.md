@@ -32,7 +32,7 @@ The following steps show you how to create a Hive ODBC Data Source.
 
 1. From Windows, navigate to **Start > Windows Administrative Tools > ODBC Data Sources (32-bit)/(64-bit)**.  This action opens the **ODBC Data Source Administrator** window.
 
-    :::image type="content" source="./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-datasourceadmin1.png "Configure a DSN using ODBC Data Source Administrator"" alt-text="OBDC data source administrator" border="true":::
+   :::image type="content" source="./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-datasourceadmin1.png" alt-text="OBDC data source administrator" border="true":::
 
 1. From the **User DSN** tab, select **Add** to open the **Create New Data Source** window.
 
@@ -58,7 +58,7 @@ The following steps show you how to create a Hive ODBC Data Source.
    |  Rows fetched per block |When fetching a large number of records, tuning this parameter may be required to ensure optimal performances. |
    |  Default string column length, Binary column length, Decimal column scale |The data type lengths and precisions may affect how data is returned. They cause incorrect information to be returned because of loss of precision and, or truncation. |
 
-    :::image type="content" source="./media/apache-hadoop-connect-excel-hive-odbc-driver/hiveodbc-datasource-advancedoptions1.png "Advanced DSN configuration options"" alt-text="Advanced DSN configuration options" border="true":::
+    :::image type="content" source="./media/apache-hadoop-connect-excel-hive-odbc-driver/hiveodbc-datasource-advancedoptions1.png" alt-text="Advanced DSN configuration options" border="true":::
 
 1. Select **Test** to test the data source. When the data source is configured correctly, the test result shows **SUCCESS!**
 
@@ -76,7 +76,7 @@ The following steps describe the way to import data from a Hive table into an Ex
 
 2. From the **Data** tab, navigate to **Get Data** > **From Other Sources** > **From ODBC** to launch the **From ODBC** window.
 
-    :::image type="content" source="./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-excel-dataconnection1.png "Open Excel data connection wizard"" alt-text="Open Excel data connection wizard" border="true":::
+   :::image type="content" source="./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-excel-dataconnection1.png" alt-text="Open Excel data connection wizard" border="true":::
 
 3. From the drop-down list, select the data source name that you created in the last section and then select **OK**.
 
@@ -84,7 +84,7 @@ The following steps describe the way to import data from a Hive table into an Ex
 
 5. From **Navigator**, navigate to **HIVE** > **default** > **hivesampletable**, and then select **Load**. It takes a few moments before data gets imported to Excel.
 
-    :::image type="content" source="./media/apache-hadoop-connect-excel-hive-odbc-driver/hdinsight-hive-odbc-navigator.png "HDInsight Excel Hive ODBC navigator"" alt-text="HDInsight Excel Hive ODBC navigator" border="true":::
+   :::image type="content" source="./media/apache-hadoop-connect-excel-hive-odbc-driver/hdinsight-hive-odbc-navigator.png" alt-text="HDInsight Excel Hive ODBC navigator" border="true":::
 
 ## Next steps
 

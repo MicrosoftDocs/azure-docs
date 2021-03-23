@@ -184,20 +184,22 @@ Create an Active Directory tenant administrator.
 
 1. On the **Connect to Azure AD** page, enter the username and password of the global administrator for Azure AD. Use the username `fabrikamazureadmin@hdifabrikam.com` that you created when you configured your Active Directory tenant. Then select **Next**.
 
-    :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0058.png" alt-text="The "Connect to Azure A D" page." border="true":::
+   :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0058.png" alt-text="Connect to Azure A D" border="true":::
 
 1. On the **Connect to Active Directory Domain Services** page, enter the username and password for an enterprise admin account. Use the username `HDIFabrikam\HDIFabrikamAdmin` and its password that you created earlier. Then select **Next**.
 
-   :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0060.png" alt-text="The "Connect to A D D S" page." border="true":::
+   :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0060.png" alt-text="Connect to A D D S page." border="true":::
+
 1. On the **Azure AD sign-in configuration** page, select **Next**.
-   :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0062.png" alt-text="The "Azure AD sign-in configuration" page" border="true":::
+
+   :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0062.png" alt-text="Azure AD sign-in configuration page" border="true":::
 
 1. On the **Ready to configure** page, select **Install**.
 
-   :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0064.png" alt-text="The "Ready to configure" page" border="true":::
+   :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0064.png" alt-text="Ready to configure page" border="true":::
 
 1. On the **Configuration complete** page, select **Exit**.
-   :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0078.png" alt-text="The "Configuration complete" page" border="true":::
+   :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0078.png" alt-text="Configuration complete page" border="true":::
 
 1. After the sync completes, confirm that the users you created on the IaaS directory are synced to Azure AD.
    1. Sign in to the Azure portal.
@@ -242,28 +244,28 @@ Follow these steps to enable Azure AD DS. For more information, see [Enable Azur
 1. Sign in to the Azure portal.
 1. Select **Create resource**, enter `Domain services`, and select **Azure AD Domain Services** > **Create**.
 1. On the **Basics** page:
-    1. Under **Directory name**, select the Azure AD directory you created: **HDIFabrikam**.
-    1. For **DNS domain name**, enter *HDIFabrikam.com*.
-    1. Select your subscription.
-    1. Specify the resource group **HDIFabrikam-CentralUS**. For **Location**, select **Central US**.
+   1. Under **Directory name**, select the Azure AD directory you created: **HDIFabrikam**.
+   1. For **DNS domain name**, enter *HDIFabrikam.com*.
+   1. Select your subscription.
+   1. Specify the resource group **HDIFabrikam-CentralUS**. For **Location**, select **Central US**.
 
-        :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0084.png" alt-text="Azure AD DS basic details" border="true":::
+      :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0084.png" alt-text="Azure AD DS basic details" border="true":::
 
 1. On the **Network** page, select the network (**HDIFabrikam-VNET**) and the subnet (**AADDS-subnet**) that you created by using the PowerShell script. Or choose **Create new** to create a virtual network now.
 
-    :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0086.png" alt-text="The "Create virtual network" step" border="true":::
+   :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0086.png" alt-text="Create virtual network step" border="true":::
 
 1. On the **Administrator group** page, you should see a notification that a group named **AAD DC Administrators** has already been created to administer this group. You can modify the membership of this group if you want to, but in this case you don't need to change it. Select **OK**.
 
-    :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0088.png" alt-text="View the Azure AD administrator group" border="true":::
+   :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0088.png" alt-text="View the Azure AD administrator group" border="true":::
 
 1. On the **Synchronization** page, enable complete synchronization by selecting **All** > **OK**.
 
-    :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0090.png" alt-text="Enable Azure AD DS synchronization" border="true":::
+   :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0090.png" alt-text="Enable Azure AD DS synchronization" border="true":::
 
 1. On the **Summary** page, verify the details for Azure AD DS and select **OK**.
 
-    :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0092.png" alt-text="The summary of "Enable Azure AD Domain Services"" border="true":::
+   :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0092.png" alt-text="Enable Azure AD Domain Services" border="true":::
 
 After you enable Azure AD DS, a local DNS server runs on the Azure AD VMs.
 
@@ -272,19 +274,19 @@ After you enable Azure AD DS, a local DNS server runs on the Azure AD VMs.
 Use the following steps to configure your Azure AD DS virtual network (**HDIFabrikam-AADDSVNET**) to use your custom DNS servers.
 
 1. Locate the IP addresses of your custom DNS servers.
-    1. Select the `HDIFabrikam.com` Azure AD DS resource.
-    1. Under **Manage**, select **Properties**.
-    1. Find the IP addresses under **IP address on virtual network**.
+   1. Select the `HDIFabrikam.com` Azure AD DS resource.
+   1. Under **Manage**, select **Properties**.
+   1. Find the IP addresses under **IP address on virtual network**.
 
-    :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0096.png" alt-text="Locate custom DNS IP addresses for Azure AD DS" border="true":::
+   :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0096.png" alt-text="Locate custom DNS IP addresses for Azure AD DS" border="true":::
 
 1. Configure **HDIFabrikam-AADDSVNET** to use custom IP addresses 10.0.0.4 and 10.0.0.5.
 
-    1. Under **Settings**, select **DNS Servers**.
-    1. Select **Custom**.
-    1. In the text box, enter the first IP address (*10.0.0.4*).
-    1. Select **Save**.
-    1. Repeat the steps to add the other IP address (*10.0.0.5*).
+   1. Under **Settings**, select **DNS Servers**.
+   1. Select **Custom**.
+   1. In the text box, enter the first IP address (*10.0.0.4*).
+   1. Select **Save**.
+   1. Repeat the steps to add the other IP address (*10.0.0.5*).
 
 In our scenario, we configured Azure AD DS to use IP addresses 10.0.0.4 and 10.0.0.5, setting the same IP address on the Azure AD DS virtual network:
 
@@ -322,37 +324,37 @@ Verify that the certificate is installed in the computer's **Personal** store:
 
 1. On the **Export Private Key** page, select **Yes, export the private key**. The computer where the key will be imported needs the private key to read the encrypted messages.
 
-    :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0103.png" alt-text="The Export Private Key page of the Certificate Export Wizard" border="true":::
+   :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0103.png" alt-text="The Export Private Key page of the Certificate Export Wizard" border="true":::
 
 1. On the **Export File Format** page, leave the default settings, and then select **Next**.
 1. On the **Password** page, type a password for the private key. For **Encryption**, select **TripleDES-SHA1**. Then select **Next**.
 1. On the **File to Export** page, type the path and the name for the exported certificate file, and then select **Next**. The file name has to have a .pfx extension. This file is configured in the Azure portal to establish a secure connection.
 1. Enable LDAPS for an Azure AD DS managed domain.
-    1. From the Azure portal, select the domain `HDIFabrikam.com`.
-    1. Under **Manage**, select **Secure LDAP**.
-    1. On the **Secure LDAP** page, under **Secure LDAP**, select **Enable**.
-    1. Browse for the .pfx certificate file that you exported on your computer.
-    1. Enter the certificate password.
+   1. From the Azure portal, select the domain `HDIFabrikam.com`.
+   1. Under **Manage**, select **Secure LDAP**.
+   1. On the **Secure LDAP** page, under **Secure LDAP**, select **Enable**.
+   1. Browse for the .pfx certificate file that you exported on your computer.
+   1. Enter the certificate password.
 
-    :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0113.png" alt-text="Enable secure LDAP" border="true":::
+   :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0113.png" alt-text="Enable secure LDAP" border="true":::
 
 1. Now that you've enabled LDAPS, make sure it's reachable by enabling port 636.
-    1. In the **HDIFabrikam-CentralUS** resource group, select the network security group **AADDS-HDIFabrikam.com-NSG**.
-    1. Under **Settings**, select **Inbound security rules** > **Add**.
-    1. On the **Add inbound security rule** page, enter the following properties, and select **Add**:
+   1. In the **HDIFabrikam-CentralUS** resource group, select the network security group **AADDS-HDIFabrikam.com-NSG**.
+   1. Under **Settings**, select **Inbound security rules** > **Add**.
+   1. On the **Add inbound security rule** page, enter the following properties, and select **Add**:
 
-        | Property | Value |
-        |---|---|
-        | Source | Any |
-        | Source port ranges | * |
-        | Destination | Any |
-        | Destination port range | 636 |
-        | Protocol | Any |
-        | Action | Allow |
-        | Priority | \<Desired number> |
-        | Name | Port_LDAP_636 |
+      | Property | Value |
+      |---|---|
+      | Source | Any |
+      | Source port ranges | * |
+      | Destination | Any |
+      | Destination port range | 636 |
+      | Protocol | Any |
+      | Action | Allow |
+      | Priority | \<Desired number> |
+      | Name | Port_LDAP_636 |
 
-    :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png" alt-text="The "Add inbound security rule" dialog box" border="true":::
+      :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png" alt-text="The Add inbound security rule dialog box" border="true":::
 
 **HDIFabrikamManagedIdentity** is the user-assigned managed identity. The HDInsight Domain Services Contributor role is enabled for the managed identity that will allow this identity to read, create, modify, and delete domain services operations.
 
@@ -406,7 +408,7 @@ This step requires the following prerequisites:
     :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0135.jpg" alt-text="The Apache Ambari UI sign-in window" border="true":::
 
 1. From the cluster dashboard, select **Roles**.
-1. On the **Roles** page, under **Assign roles to these**, next to the **Cluster Administrator** role, enter the group *hdiusergroup*. 
+1. On the **Roles** page, under **Assign roles to these**, next to the **Cluster Administrator** role, enter the group *hdiusergroup*.
 
     :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0137.jpg" alt-text="Assign the cluster admin role to hdiusergroup" border="true":::
 
