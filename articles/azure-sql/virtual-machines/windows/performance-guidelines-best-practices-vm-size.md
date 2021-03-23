@@ -58,7 +58,7 @@ Some of the features of the M and Mv2-series attractive for SQL Server performan
 
 [Mdsv2 Medium Memory series](https://docs.microsoft.com/en-us/azure/virtual-machines/msv2-mdsv2-series) is a new M-series that is currently in [preview](https://aka.ms/Mv2MedMemoryPreview) that offers a range of M-series level Azure virtual machines with a midtier memory offering.
 
-All of the virtual machines are Intel® Xeon® Platinum 8280 (Cascade Lake). These virtual machines range from 32 to to 192 vCPUs with 875 GiB to 4096 GiB of memory. These machines would be well suited for SQL Server workloads with a minimum of 1:10 vCore-to-memory support up to 1:30.
+All of the virtual machines are Intel® Xeon® Platinum 8280 (Cascade Lake). These virtual machines range from 32 to to 192 vCPUs with 875 GiB to 4096 GiB of memory. These machines would be well suited for SQL Server workloads with a minimum of 10 memory-to-vCore support up to 30.
 
 There are additional features for these virtual machines with ephemeral disk support, isolated VM sizes, premium storage support, strong memory options, and Write Accelerator support.
 
@@ -72,9 +72,9 @@ The Edsv4-series virtual machines support [premium storage](../../../virtual-mac
 
 #### Standard_E80ids_v4
 
-There is a new virtual machine in this group with the Standard_E80ids_v4 that offers 80 vCores, 503 GBs of memory, with a vCore-to-memory ratio of 1:6. This virtual machine features ephemeral disk support, premium disk support, accelerated networking and is isolated to a single customer.
+There is a new virtual machine in this group with the [Standard_E80ids_v4](https://docs.microsoft.com/en-us/azure/virtual-machines/edv4-edsv4-series) that offers 80 vCores, 503 GBs of memory, with a memory-to-vCore ratio of 6. This virtual machine features ephemeral disk support, premium disk support, accelerated networking and is isolated to a single customer.
 
-This machine does not have the recommended minimum vCore-to-memory ratio of 1:8 that is recommended for most SQL Server machines. It is recommended to leverage the Standard_E64ds_v4 over the new Standard_E80ids_v4 unless the isolation is required for the workload. 
+This machine does not have the recommended minimum memory-to-vCore ratio of 8 that is recommended for most SQL Server machines. It is recommended to leverage the Standard_E64ds_v4 over the new Standard_E80ids_v4 unless the isolation is required for the workload. 
 
 Additionally, the Standard_E64ds_v4 has [constrained CPU](https://docs.microsoft.com/en-us/azure/virtual-machines/constrained-vcpu) support which the Standard_E80ids_v4 does not.
 
