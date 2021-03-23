@@ -770,7 +770,8 @@ This section provides example SCIM requests emitted by the AAD SCIM client and e
     "totalResults": 3,
     "Resources": [
   {
-    "id" : "urn:ietf:params:scim:schemas:core:2.0:User",
+   "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Schema"],
+   "id" : "urn:ietf:params:scim:schemas:core:2.0:User",
     "name" : "User",
     "description" : "User Account",
     "attributes" : [
@@ -797,6 +798,7 @@ REQUIRED.",
     }
   },
   {
+    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Schema"],
     "id" : "urn:ietf:params:scim:schemas:core:2.0:Group",
     "name" : "Group",
     "description" : "Group",
@@ -821,6 +823,7 @@ REQUIRED.",
     }
   },
   {
+    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Schema"],
     "id" : "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
     "name" : "EnterpriseUser",
     "description" : "Enterprise User",
