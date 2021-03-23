@@ -21,7 +21,7 @@
       items:
       - name: Embedded device development quickstarts
         href: quickstart-device-development.md
-      - name: Send telemetry from an MXCHIP AZ3166
+      - name: Connect an MXCHIP AZ3166 to IoT Central
         href: quickstart-devkit-mxchip-az3166.md
 - name: Tutorials
   items:

@@ -1,5 +1,5 @@
 ---
-title: Send telemetry from MXCHIP AZ3166 to Azure IoT Central
+title: Connect an MXCHIP AZ3166 to Azure IoT Central quickstart
 description: Use Azure RTOS embedded software to connect an MXCHIP AZ3166 device to Azure IoT and send telemetry.
 author: timlt
 ms.author: timlt
@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.date: 03/17/2021
 ---
 
-# Quickstart: Send telemetry from an MXCHIP AZ3166 devkit to IoT Central
+# Quickstart: Connect an MXCHIP AZ3166 devkit to IoT Central
 
 **Applies to**: [Embedded device development](about-iot-develop.md#embedded-device-development)
 **Total completion time**:  30 minutes
@@ -21,6 +21,9 @@ You will complete the following tasks:
 * Install a set of embedded development tools for programming the MXChip DevKit in C
 * Build an image and flash it onto the MXCHIP DevKit
 * Use Azure IoT Central to create cloud components, view properties, view device telemetry, and call direct commands
+
+> [!NOTE]
+> If you prefer to only view the code and not complete this article, see the sample at [Readme: Sample for MXCHIP AZ3166](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166). If you plan to complete this article, you'll clone the GitHub repo in a later step.
 
 ## Prerequisites
 
@@ -50,7 +53,8 @@ git clone --recursive https://github.com/azure-rtos/getting-started.git
 
 The cloned repo contains a setup script that installs and configures the required tools. If you installed these tools in another tutorial in the getting started guide, you don't need to do it again.
 
-> Note: The setup script installs the following tools:
+> [!NOTE]
+> The setup script installs the following tools:
 > * [CMake](https://cmake.org): Build
 > * [ARM GCC](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm): Compile
 > * [Termite](https://www.compuphase.com/software_termite.htm): Monitor serial port output for connected devices
@@ -86,7 +90,8 @@ To create a new application:
 
     After IoT Central provisions the application, it redirects you automatically to the new application dashboard.
 
-    > Note: If you have an existing IoT Central application, you can use it to complete the steps in this article rather than create a new application.
+    > [!NOTE]
+    > If you have an existing IoT Central application, you can use it to complete the steps in this article rather than create a new application.
 
 ### Create a new device
 
@@ -167,10 +172,9 @@ After the build completes, confirm that the binary file was created in the follo
 
 You can use the **Termite** utility to monitor communication and confirm that your device is set up correctly.
 
-> **Note:** If you are unable to connect Termite to your devkit, install the [ST-LINK driver](https://my.st.com/content/ccc/resource/technical/software/driver/files/stsw-link009.zip) and try again. See  [Troubleshooting](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md) for additional steps.
-
-
 1. Start **Termite**.
+    > [!TIP]
+    > If you are unable to connect Termite to your devkit, install the [ST-LINK driver](https://my.st.com/content/ccc/resource/technical/software/driver/files/stsw-link009.zip) and try again. See  [Troubleshooting](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md) for additional steps.
 1. Select **Settings**.
 1. In the **Serial port settings** dialog, check the following settings and update if needed:
     * **Baud rate**: 115,200
@@ -242,7 +246,8 @@ To view telemetry in IoT Central portal:
 1. View the telemetry as the device sends messages to the cloud in the **Overview** tab.
     :::image type="content" source="media/quickstart-devkit-mxchip-az3166/iot-central-device-telemetry.png" alt-text="View device telemetry in IoT Central":::
 
-    > Note: You can also monitor telemetry from the device by using the Termite terminal.
+    > [!NOTE]
+    > You can also monitor telemetry from the device by using the Termite terminal.
 
 ## Call a direct method on the device
 
@@ -282,4 +287,7 @@ In this tutorial you built a custom image that contains Azure RTOS sample code, 
 * For device developers, the suggested next step is to see the other tutorials in the series [Getting started with Azure IoT embedded device development](quickstart-device-development.md).
 * If you have issues getting your device to initialize or connect after following the steps in this guide, see [Troubleshooting](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
 * To learn more about how Azure RTOS components are used in the sample code for this tutorial, see [Using Azure RTOS in the Getting Started guide](https://github.com/azure-rtos/getting-started/blob/master/docs/using-azure-rtos.md).
-    >Note: Azure RTOS provides OEMs with components to secure communication and to create code and data isolation using underlying MCU/MPU hardware protection mechanisms. However, each OEM is ultimately responsible for ensuring that their device meets evolving security requirements.
+
+    > [!IMPORTANT]
+    > Azure RTOS provides OEMs with components to secure communication and to create code and data isolation using underlying MCU/MPU hardware protection mechanisms. However, each OEM is ultimately responsible for ensuring that their device meets evolving security requirements.
+
