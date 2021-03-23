@@ -43,7 +43,7 @@ specific tuning.
 
 ### **LLAP Architecture/Components:**  
 
-![`LLAP Architecture/Components`](./media/hive-llap-sizing-guide/LLAP_architecture_sizing_guide.png "LLAP Architecture/Components")
+:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_architecture_sizing_guide.png " alt-text="`LLAP Architecture/Components`" border="true":::
 
 ### **LLAP Daemon size estimations:** 
 
@@ -77,7 +77,7 @@ Default HDInsight cluster has four LLAP daemons running on four worker nodes, so
 
 **Ambari UI slider for Hive config variable `hive.server2.tez.sessions.per.default.queue`:**
 
-![`LLAP maximum concurrent queries`](./media/hive-llap-sizing-guide/LLAP_sizing_guide_max_concurrent_queries.png "LLAP maximum number of concurrent queries")
+:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_sizing_guide_max_concurrent_queries.png " alt-text="`LLAP maximum concurrent queries`" border="true":::
 
 #### **5. Tez Container and Tez Application Master size**    
 Configuration: ***tez.am.resource.memory.mb, hive.tez.container.size***  
@@ -163,7 +163,7 @@ For D14 v2, this value is 19 x 3 GB = **57 GB**
 
 `Ambari environment variable for LLAP heap size:`
 
-![`LLAP heap size`](./media/hive-llap-sizing-guide/LLAP_sizing_guide_llap_heap_size.png "LLAP heap size")
+:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_sizing_guide_llap_heap_size.png " alt-text="`LLAP heap size`" border="true":::
 
 When SSD cache is disabled, the in-memory cache is amount of memory that is left after taking out Headroom size and Heap size from the LLAP daemon container size.
 
@@ -196,11 +196,11 @@ Ambari environment variables: ***num_llap_nodes, num_llap_nodes_for_llap_daemons
 
 **num_llap_nodes** - specifies number of nodes used by Hive LLAP service, this includes nodes running LLAP daemon, LLAP Service Master, and Tez Application Master(Tez AM).  
 
-![`Number of Nodes for LLAP service`](./media/hive-llap-sizing-guide/LLAP_sizing_guide_num_llap_nodes.png "Number of Nodes for LLAP service")  
+:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_sizing_guide_num_llap_nodes.png " alt-text="`Number of Nodes for LLAP service`" border="true":::  
 
 **num_llap_nodes_for_llap_daemons** - specified number of nodes used only for LLAP daemons. LLAP daemon container sizes are set to max fit node, so it will result in one llap daemon on each node.
 
-![`Number of Nodes for LLAP daemons`](./media/hive-llap-sizing-guide/LLAP_sizing_guide_num_llap_nodes_for_llap_daemons.png "Number of Nodes for LLAP daemons")
+:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_sizing_guide_num_llap_nodes_for_llap_daemons.png " alt-text="`Number of Nodes for LLAP daemons`" border="true":::
 
 It's recommended to keep both values same as number of worker nodes in Interactive Query cluster.
 
