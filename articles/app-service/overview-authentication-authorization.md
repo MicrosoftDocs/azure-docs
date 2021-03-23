@@ -34,27 +34,16 @@ App Service uses [federated identity](https://en.wikipedia.org/wiki/Federated_id
 
 When you enable authentication and authorization with one of these providers, its sign-in endpoint is available for user authentication and for validation of authentication tokens from the provider. You can provide your users with any number of these sign-in options.
 
-## Frequently asked questions
-
-**Am I limited to using the built-in authentication feature?**
+## Considerations for using built-in authentication
 
 You're not required to use this feature for authentication and authorization. You can use the bundled security features in your web framework of choice, or you can write your own utilities. However, keep in mind that you will need to ensure that your solution stays up to date with the latest security, protocol, and browser updates.
 
-**Can I link an existing app registration for multiple apps or slots?**
-
-Give each app registration its own permission and consent. Avoid permission sharing between environments by using separate app registrations for separate deployment slots. When testing new code, this practice can help prevent issues from affecting the production app.
-
-**Are all requests redirected to HTTPS?**
-
 Enabling this feature will cause all requests to your application to be automatically redirected to HTTPS, regardless of the App Service configuration setting to enforce HTTPS. You can disable this with the  `requireHttps` setting in the V2 configuration. However, we do recommend sticking with HTTPS, and you should ensure no security tokens ever get transmitted over non-secure HTTP connections.
-
-**Will this restrict access to content and APIs?**
 
 App Service can be used for authentication with or without restricting access to your site content and APIs. To restrict app access only to authenticated users, set **Action to take when request is not authenticated** to  log in with one of the configured identity providers. To authenticate but not restrict access, set **Action to take when request is not authenticated** to "Allow anonymous requests (no action)."
 
-**Can I authorize it with role-specific authorization?**
-
-Authorization, such as role-specific authorization, can be handled by inspecting the user's claims (see Access user claims). Restricting access in this way applies to all calls to your app, which may not be desirable for apps wanting a publicly available home page, as in many single-page applications.
+> [!NOTE]
+> You should give each app registration its own permission and consent. Avoid permission sharing between environments by using separate app registrations for separate deployment slots. When testing new code, this practice can help prevent issues from affecting the production app.
 
 ## How it works
 
