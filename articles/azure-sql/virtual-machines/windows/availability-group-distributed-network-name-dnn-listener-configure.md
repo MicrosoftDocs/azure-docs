@@ -169,7 +169,7 @@ Test the connectivity to your DNN listener with these steps:
 
 ## Port considerations
 
-DNN listeners are designed to listen on all IP addresses, but on a specific, unique port.  The DNS entry for the listener name should resolve to the addresses of all replicas in the AG.  This is done automatically with the Powershell script above in the [Create Script](#create-script) section.  Because DNN listeners accept connections on all IP addresses, it is critical that the port used for a listener be unique, and not in use by any other replica in the AG.  Since SQL Server either directly or via the Browser, always listens on port 1433, that port cannot be used for any DNN listener.
+DNN listeners are designed to listen on all IP addresses, but on a specific, unique port.  The DNS entry for the listener name should resolve to the addresses of all replicas in the availability group.  This is done automatically with the PowerShell script provided in the [Create Script](#create-script) section.  Since DNN listeners accept connections on all IP addresses, it is critical that the listener port be unique, and not in use by any other replica in the availability group.  Since SQL Server always listens on port 1433, either directly or via the SQL Browser service,  port 1433 cannot be used for any DNN listener.
 
 ## Next steps
 
