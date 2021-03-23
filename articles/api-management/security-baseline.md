@@ -56,7 +56,7 @@ Inbound and outbound traffic into the subnet in which API Management is deployed
 
 Caution: When configuring an NSG on the API Management subnet, there are a set of ports that are required to be open. If any of these ports are unavailable, API Management may not operate properly and may become inaccessible.
 
-- [Understand NSG configurations for Azure API Management](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues)
+- [Understand NSG configurations for Azure API Management](./api-management-using-with-vnet.md#-common-network-configuration-issues)
 
 - [How to Enable NSG Flow Logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
@@ -79,7 +79,7 @@ Note: This feature is available in the Premium and Developer tiers of API Manage
 
 - [How to integrate API Management in an internal VNET with Application Gateway](api-management-howto-integrate-internal-vnet-appgateway.md)
 
-- [Understand Azure Application Gateway](/azure/application-gateway/)
+- [Understand Azure Application Gateway](../application-gateway/index.yml)
 
 **Responsibility**: Customer
 
@@ -100,7 +100,7 @@ Use Azure Security Center Integrated Threat Intelligence to deny communications 
 
 - [How to integrate API Management in an internal VNET with Application Gateway](api-management-howto-integrate-internal-vnet-appgateway.md)
 
-- [Understand Azure Application Gateway](/azure/application-gateway/)
+- [Understand Azure Application Gateway](../application-gateway/index.yml)
 
 - [Understand Azure Security Center Integrated Threat Intelligence](../security-center/azure-defender.md)
 
@@ -114,7 +114,7 @@ Use Azure Security Center Integrated Threat Intelligence to deny communications 
 
 Caution: When configuring an NSG on the API Management subnet, there are a set of ports that are required to be open. If any of these ports are unavailable, API Management may not operate properly and may become inaccessible.
 
-- [Understand NSG configurations for Azure API Management](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues)
+- [Understand NSG configurations for Azure API Management](./api-management-using-with-vnet.md#-common-network-configuration-issues)
 
 - [How to Enable NSG Flow Logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
@@ -164,7 +164,7 @@ Note: This feature is available in the Premium and Developer tiers of API Manage
 
 - [Azure Web Application Firewall on Azure Application Gateway](../web-application-firewall/ag/ag-overview.md)
 
-- [Understand Azure Application Gateway](/azure/application-gateway/overview)
+- [Understand Azure Application Gateway](../application-gateway/overview.md)
 
 **Responsibility**: Customer
 
@@ -178,7 +178,7 @@ Caution: When configuring an NSG on the API Management subnet, there are a set o
 
 - [Understanding and using Service Tags](../virtual-network/service-tags-overview.md)
 
-- [Ports required for API Management](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues)
+- [Ports required for API Management](./api-management-using-with-vnet.md#-common-network-configuration-issues)
 
 **Responsibility**: Customer
 
@@ -202,7 +202,7 @@ You may also use Azure Blueprints to simplify large-scale Azure deployments by p
 
 **Guidance**: Use Tags for Network Security groups (NSGs) and other resources related to network security and traffic flow. For individual NSG rules, you may use the "Description" field to specify business need and/or duration (etc.) for any rules that allow traffic to/from a network.
 
-- [How to create and use Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
 - [How to create a Virtual Network](../virtual-network/quick-create-portal.md)
 
@@ -216,9 +216,9 @@ You may also use Azure Blueprints to simplify large-scale Azure deployments by p
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes to network resources associated with your Azure API Management deployments. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
-- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log-view)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsibility**: Customer
 
@@ -236,7 +236,7 @@ In addition to Azure Monitor, Azure API Management can be integrated with one or
 
 Optionally, enable, and on-board data to Azure Sentinel or a third-party Security Incident and Event Management (SIEM).
 
-- [How to configure diagnostic settings](/azure/azure-monitor/platform/diagnostic-settings#create-in-azure-portal)
+- [How to configure diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md#create-in-azure-portal)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -256,9 +256,9 @@ Optionally, enable, and on-board data to Azure Sentinel or a third-party Securit
 
 For data plane audit logging, diagnostic logs provide rich information about operations and errors that are important for auditing as well as troubleshooting purposes. Diagnostics logs differ from activity logs. Activity logs provide insights into the operations that were performed on your Azure resources. Diagnostics logs provide insight into operations that your resource performed.
 
-- [How to enable Diagnostic Settings for Azure Activity Log](/azure/azure-monitor/platform/activity-log)
+- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
-- [How to enable Diagnostic Settings for Azure API Management](/Azure/api-management/api-management-howto-use-azure-monitor#resource-logs)
+- [How to enable Diagnostic Settings for Azure API Management](./api-management-howto-use-azure-monitor.md#resource-logs)
 
 **Responsibility**: Customer
 
@@ -268,9 +268,9 @@ For data plane audit logging, diagnostic logs provide rich information about ope
 
 **Guidance**: Within Azure Monitor, set your Log Analytics Workspace retention period according to your organization's compliance regulations. Use Azure Storage accounts for long-term/archival storage.
 
-- [How to set log retention parameters for Log Analytics Workspaces](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [How to set log retention parameters for Log Analytics Workspaces](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [How to archive logs to an Azure Storage account](/azure/azure-monitor/platform/resource-logs#send-to-azure-storage)
+- [How to archive logs to an Azure Storage account](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 **Responsibility**: Customer
 
@@ -282,11 +282,11 @@ For data plane audit logging, diagnostic logs provide rich information about ope
 
 Optionally, integrate API Management with Azure Application Insights and use it as primary or secondary monitoring, tracing, reporting, and alerting tool.
 
-- [How to monitor and review logs for Azure API Management](/Azure/api-management/api-management-howto-use-azure-monitor)
+- [How to monitor and review logs for Azure API Management](./api-management-howto-use-azure-monitor.md)
 
-- [How to perform custom queries in Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
+- [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
-- [Understand Log Analytics Workspace](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [Understand Log Analytics Workspace](../azure-monitor/logs/log-analytics-tutorial.md)
 
 - [How to integrate with Azure Application Insights](api-management-howto-app-insights.md)
 
@@ -304,11 +304,11 @@ Optionally, integrate API Management with Azure Application Insights and use it 
 
 Optionally, you may enable and on-board data to Azure Sentinel or a third-party SIEM.
 
-- [How to enable diagnostic settings for Azure Activity Log](/azure/azure-monitor/platform/activity-log)
+- [How to enable diagnostic settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
-- [How to enable diagnostic settings for Azure API Management](https://docs.microsoft.com/azure/api-management/api-management-howto-use-azure-monitor#resource-logs)
+- [How to enable diagnostic settings for Azure API Management](./api-management-howto-use-azure-monitor.md#resource-logs)
 
-- [How to configure an alert rule for Azure API Management](/Azure/api-management/api-management-howto-use-azure-monitor#set-up-an-alert-rule-for-unauthorized-request)
+- [How to configure an alert rule for Azure API Management](./api-management-howto-use-azure-monitor.md#set-up-an-alert-rule)
 
 - [How to view capacity metrics of an Azure API management instance](api-management-capacity.md)
 
@@ -342,7 +342,7 @@ Follow recommendations from Azure Security Center for the management and mainten
 
 - [How to get a directory role definition in Azure AD with PowerShell](/powershell/module/az.resources/get-azroledefinition)
 
-- [Understand identity and access recommendations from Azure Security Center](https://docs.microsoft.com/azure/security-center/recommendations-reference#identityandaccess-recommendations)
+- [Understand identity and access recommendations from Azure Security Center](../security-center/recommendations-reference.md#identityandaccess-recommendations)
 
 **Responsibility**: Customer
 
@@ -423,7 +423,7 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 
 - [How to deploy Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [Understand Azure AD risk detections](/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Understand Azure AD risk detections](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Responsibility**: Customer
 
@@ -509,7 +509,7 @@ Configure advanced monitoring with API Management by using the `log-to-eventhub`
 
 **Guidance**: For account login behavior deviation on the control plane (the Azure portal), use Azure Active Directory (Azure AD) Identity Protection and risk detection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation.
 
-- [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [How to view Azure AD risky sign-ins](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -523,7 +523,7 @@ Configure advanced monitoring with API Management by using the `log-to-eventhub`
 
 **Guidance**: Not currently available; Customer Lockbox is not currently supported for Azure API Management.
 
-- [List of Customer Lockbox-supported services](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+- [List of Customer Lockbox-supported services](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Responsibility**: Customer
 
@@ -537,7 +537,7 @@ Configure advanced monitoring with API Management by using the `log-to-eventhub`
 
 **Guidance**: Use tags to assist in tracking Azure resources that store or process sensitive information.
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Responsibility**: Customer
 
@@ -547,11 +547,11 @@ Configure advanced monitoring with API Management by using the `log-to-eventhub`
 
 **Guidance**: Implement separate subscriptions and/or management groups for development, test, and production. Azure API Management instances should be separated by virtual network (VNet)/subnet and tagged appropriately.
 
-- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
+- [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
 - [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 - [How to use Azure API Management with virtual networks](api-management-using-with-vnet.md)
 
@@ -575,7 +575,7 @@ Microsoft manages the underlying infrastructure for Azure API Management and has
 
 **Guidance**: Management plane calls are made through Azure Resource Manager over TLS. A valid JSON web token (JWT) is required. Data plane calls can be secured with TLS and one of supported authentication mechanisms (for example, client certificate or JWT).
 
-- [Understand data protection in Azure API Management](/azure/api-management/api-management-security-controls#data-protection)
+- [Understand data protection in Azure API Management](#data-protection)
 
 - [Manage TLS settings in Azure API Management](api-management-howto-manage-protocols-ciphers.md)
 
@@ -625,7 +625,7 @@ Microsoft manages the underlying infrastructure for Azure API Management and has
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to production Azure Functions apps as well as other critical or related resources.
 
-- [How to create alerts for Azure Activity Log events](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [How to use Azure Monitor and Azure Activity Log in Azure API Management](api-management-howto-use-azure-monitor.md)
 
@@ -643,7 +643,7 @@ Microsoft manages the underlying infrastructure for Azure API Management and has
 
 Underlying platform scanned and patched by Microsoft. Review security controls available to reduce service configuration related vulnerabilities.
 
-- [Understanding security controls available to Azure API Management](/azure/api-management/api-management-security-controls)
+- [Understanding security controls available to Azure API Management]()
 
 **Responsibility**: Customer
 
@@ -679,7 +679,6 @@ Underlying platform scanned and patched by Microsoft. Review security controls a
 
 Underlying platform scanned and patched by Microsoft. Customer to review security controls available to them to reduce service configuration related vulnerabilities.
 
-- [Understanding security controls available to Azure API Management](/azure/api-management/api-management-security-controls)
 
 **Responsibility**: Customer
 
@@ -697,7 +696,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 - [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [How to view your Azure Subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -709,7 +708,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 **Guidance**: Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.
 
-- [How to create and utilize Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and utilize Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Responsibility**: Customer
 
@@ -723,11 +722,11 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 - Not allowed resource types
 - Allowed resource types
 
-- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
+- [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
 - [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
-- [How to create and use Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Responsibility**: Customer
 
@@ -789,7 +788,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
 **Responsibility**: Customer
 
@@ -839,7 +838,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: Define and implement standard security configurations for your Azure API Management service with Azure Policy. Use Azure Policy aliases in the "Microsoft.ApiManagement" namespace to create custom policies to audit or enforce the configuration of your Azure API Management services.
 
-- [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -943,7 +942,7 @@ In addition, define and implement standard security configurations for your Azur
 
 - [How to create a managed identity for an API Management instance](api-management-howto-use-managed-service-identity.md)
 
-- [Policy to authenticate with managed identity](https://docs.microsoft.com/azure/api-management/api-management-authentication-policies#ManagedIdentity)
+- [Policy to authenticate with managed identity](./api-management-authentication-policies.md#ManagedIdentity)
 
 **Responsibility**: Customer
 
@@ -1005,7 +1004,7 @@ The service backup and restore features of API Management provide the necessary 
 
 - [How to deploy API Management data plane to multiple regions](api-management-howto-deploy-multi-region.md)
 
-- [How to implement disaster recovery using service backup and restore in Azure API Management](https://docs.microsoft.com/azure/api-management/api-management-howto-disaster-recovery-backup-restore#calling-the-backup-and-restore-operations)
+- [How to implement disaster recovery using service backup and restore in Azure API Management](./api-management-howto-disaster-recovery-backup-restore.md#calling-the-backup-and-restore-operations)
 
 - [How to call the API Management backup operation](/rest/api/apimanagement/2019-01-01/apimanagementservice/backup)
 
@@ -1021,9 +1020,9 @@ The service backup and restore features of API Management provide the necessary 
 
 Managed identities can be used to obtain certificates from Azure Key Vault for API Management custom domain names. Backup any certificates being stored within Azure Key Vault.
 
-- [How to implement disaster recovery using service backup and restore in Azure API Management](https://docs.microsoft.com/azure/api-management/api-management-howto-disaster-recovery-backup-restore#calling-the-backup-and-restore-operations)
+- [How to implement disaster recovery using service backup and restore in Azure API Management](./api-management-howto-disaster-recovery-backup-restore.md#calling-the-backup-and-restore-operations)
 
-- [How to backup Azure Key Vault certificates](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultcertificate?view=azps-4.8.0&amp;preserve-view=true)
+- [How to backup Azure Key Vault certificates](/powershell/module/az.keyvault/backup-azkeyvaultcertificate?preserve-view=true&view=azps-4.8.0)
 
 **Responsibility**: Customer
 
@@ -1045,7 +1044,7 @@ Managed identities can be used to obtain certificates from Azure Key Vault for A
 
 **Guidance**: Azure API Management writes backups to customer-owned Azure Storage accounts. Follow Azure Storage security recommendations to protect your backup.
 
-- [How to implement disaster recovery using service backup and restore in Azure API Management](https://docs.microsoft.com/azure/api-management/api-management-howto-disaster-recovery-backup-restore#calling-the-backup-and-restore-operations)
+- [How to implement disaster recovery using service backup and restore in Azure API Management](./api-management-howto-disaster-recovery-backup-restore.md#calling-the-backup-and-restore-operations)
 
 - [Security recommendation for blob storage](../storage/blobs/security-recommendations.md)
 
@@ -1083,7 +1082,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 - [Security alerts in Azure Security Center](../security-center/security-center-alerts-overview.md)
 
-- [Use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags)
+- [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md)
 
 **Responsibility**: Customer
 
@@ -1148,5 +1147,5 @@ https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1.
 
 ## Next steps
 
-- See the [Azure Security Benchmark V2 overview](/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure Security Benchmark V2 overview](../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)
