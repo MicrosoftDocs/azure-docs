@@ -19,7 +19,7 @@ The following release notes identify the critical open issues and the resolved i
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your device, carefully review the information contained in the release notes.
 
-This article applies to the **Azure Stack Edge 2103** release, which maps to software version number **2.2.XXXX.XXXX**.
+This article applies to the **Azure Stack Edge 2103** release, which maps to software version number **2.2.1539.2889**.
 
 ## What's new
 
@@ -33,9 +33,9 @@ The following new features are available in the Azure Stack Edge 2103 release.
 
   You can also [Connect to the VM console on your device](azure-stack-edge-gpu-connect-virtual-machine-console.md) and troubleshoot any VM issues.
 
-- **Kubernetes cloud management** - Beginning this release, you can manage the Kubernetes cluster on your Azure Stack Edge Pro GPU device via the Azure portal. For more information, see [Manage Kubernetes on your Azure Stack Edge Pro GPU via the Azure portal](https://aka.ms/ase-cloud-mgmt-k8s-doc).
+- **Kubernetes cloud management** - From this release onwards, you can manage the Kubernetes cluster on your Azure Stack Edge Pro GPU device via the Azure portal. For more information, see [Manage Kubernetes on your Azure Stack Edge Pro GPU via the Azure portal](https://aka.ms/ase-cloud-mgmt-k8s-doc).
 
-- **Connect to PowerShell interface via https** - Starting this release, you will no longer be able to open a remote PowerShell session into a device over *http*. By default, *https* will be used for all the sessions. For more information, see [Connect to the PowerShell interface](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface).
+- **Connect to PowerShell interface via https** - Starting this release, you will no longer be able to open a remote PowerShell session into a device over *http*. By default, *https* will be used for all the sessions. For more information, see how to [Connect to the PowerShell interface](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface) of your device.
 
 - **Improvements for Compute** - Several enhancements and improvements were made including those for:
 
