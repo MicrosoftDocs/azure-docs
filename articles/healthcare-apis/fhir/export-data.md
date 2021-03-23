@@ -19,9 +19,6 @@ Before using $export, you will want to make sure that the Azure API for FHIR is 
 
 After configuring the Azure API for FHIR for export, you can use the $export command to export the data out of the service. The data will be stored into the storage account you specified while configuring export. To learn how to invoke $export command in FHIR server, read documentation on the [HL7 FHIR $export specification](https://hl7.org/Fhir/uv/bulkdata/export/index.html).
 
-> [!Note]
-> If the initial connection job fails to connect to the storage account, 
-you'll receive an error message and the export job will hang; thus, never reaching terminal state. To ensure a connection to the storage account, go back and validate that you are pointing to a valid storage account.
 
 **Jobs stuck in a bad state**
 
