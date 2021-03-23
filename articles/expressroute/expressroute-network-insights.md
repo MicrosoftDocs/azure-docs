@@ -60,7 +60,7 @@ The *Packet Drops* tab plots the dropped bits/second for ingress and egress traf
 
 Lastly, the Gateway Metrics tab populates with key metrics charts for a selected ExpressRoute gateway (from the Linked Resources section). Use this tab when you need to monitor your connectivity to specific virtual networks.
 
-:::image type="content" source="./media/expressroute-network-insights/gateway-metrics.png" alt-text="Screenshot of dropped packets graphs." lightbox="./media/expressroute-network-insights/gateway-metrics-expanded.png":::
+:::image type="content" source="./media/expressroute-network-insights/gateway-metrics.png" alt-text="Screenshot of gateway throughput and CPU metrics." lightbox="./media/expressroute-network-insights/gateway-metrics-expanded.png":::
 
 ## One place for all your network monitoring needs
 
