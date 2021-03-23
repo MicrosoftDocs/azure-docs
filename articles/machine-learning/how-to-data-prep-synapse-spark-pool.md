@@ -294,6 +294,10 @@ input1 = train_ds.as_mount()
 
 ```
 
+## Example notebook
+
+See this [end to end notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-synapse/spark_job_on_synapse_spark_pool.ipynb) for a detailed code example of how to perform data preparation and model training from a single notebook with Azure Synapse Analytics and Azure Machine Learning.
+
 ## Next steps
 
 * [Train a model](how-to-set-up-training-targets.md).

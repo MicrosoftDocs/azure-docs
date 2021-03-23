@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 03/22/2021
 ms.author: cherylmc
 
 ---
