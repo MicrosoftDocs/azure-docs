@@ -90,7 +90,15 @@ The following parameters are used by the App Configuration Push task:
 
 - **Azure subscription**: A drop-down containing your available Azure service connections. To update and refresh your list of available Azure service connections, press the **Refresh Azure subscription** button to the right of the textbox.
 - **App Configuration Name**: A drop-down that loads your available configuration stores under the selected subscription. To update and refresh your list of available configuration stores, press the **Refresh App Configuration Name** button to the right of the textbox.
-- **Configuration File Path**: The path to your configuration file. The **Configuration File Path** parameter begins at the root of the file repository. You can browse through your build artifact to select a configuration file. (`...` button to the right of the textbox). The supported file formats are: yaml, json, properties.
+- **Configuration File Path**: The path to your configuration file. The **Configuration File Path** parameter begins at the root of the file repository. You can browse through your build artifact to select a configuration file. (`...` button to the right of the textbox). The supported file formats are: yaml, json, properties. The following is an example configuration file in json format.
+    ```json
+    {
+        "TestApp:Settings:BackgroundColor":"#FFF",
+        "TestApp:Settings:FontColor":"#000",
+        "TestApp:Settings:FontSize":"24",
+        "TestApp:Settings:Message": "Message data"
+    }
+    ```
 - **Separator**: The separator that's used to flatten .json and .yml files.
 - **Depth**: The depth that the .json and .yml files will be flattened to.
 - **Prefix**: A string that's appended to the beginning of each key pushed to the App Configuration store.
@@ -101,7 +109,7 @@ The following parameters are used by the App Configuration Push task:
   - **Checked**: Removes all key-values in the App Configuration store that match both the specified prefix and label before pushing new key-values from the configuration file.
   - **Unchecked**: Pushes all key-values from the configuration file into the App Configuration store and leaves everything else in the App Configuration store intact.
 
-After filling out required parameters, run the pipeline. All key-values in the specified configuration file will be uploaded to App Configuration.
+
 
 ## Troubleshooting
 
