@@ -64,9 +64,9 @@ In this section, you create a site-to-site VPN. Sites correspond to a physical l
  
 3. On the **Basics** tab, enter the required fields. 
 
-   :::image type="content" source="media/create-ipsec-tunnel/create-vpn-site-basics2.png" alt-text="Screenshot of the Basics tabfor the new VPN site.":::  
+   :::image type="content" source="media/create-ipsec-tunnel/create-vpn-site-basics2.png" alt-text="Screenshot of the Basics tab for the new VPN site.":::  
 
-   1. Set the **Border Gateway Protocol** to **Enable**.  This ensures that both Azure VMware Solution and the on-premises servers advertise their routes across the tunnel. If disabled, the subnets that need to be advertised must be manually maintained. If subnets are missed, HCX will fail to form the service mesh. For more information, see  [About BGP with Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-overview.md).
+   1. Set the **Border Gateway Protocol** to **Enable**.  When enabled, it ensures that both Azure VMware Solution and the on-premises servers advertise their routes across the tunnel. If disabled, the subnets that need to be advertised must be manually maintained. If subnets are missed, HCX will fail to form the service mesh. For more information, see  [About BGP with Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-overview.md).
    
    1. For the **Private address space**, enter the on-premises CIDR block. It's used to route all traffic bound for on-premises across the tunnel.  The CIDR block is only required if you don't enable BGP.
 
@@ -133,7 +133,7 @@ In this step, you connect your VPN site to the hub.
 
 4. Link Azure VMware Solution and the VPN gateway together in the Virtual WAN hub. You'll use the authorization key and ExpressRoute ID (peer circuit URI) from the previous step.
 
-   1. Select the your ExpressRoute gateway and then select **Redeem authorization key**.
+   1. Select your ExpressRoute gateway and then select **Redeem authorization key**.
 
    :::image type="content" source="media/create-ipsec-tunnel/redeem-authorization-key.png" alt-text="Screenshot of the ExpressRoute page for the private cloud, with Redeem authorization key selected.":::
 
