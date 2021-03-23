@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 09/17/2020
+ms.date: 03/23/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
@@ -73,9 +73,6 @@ After you have created an encryption scope, you can specify that encryption scop
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
-> [!IMPORTANT]
-> To avoid unexpected costs, be sure to disable any encryption scopes that you do not currently need.
-
 ### Create a container or blob with an encryption scope
 
 Blobs that are created under an encryption scope are encrypted with the key specified for that scope. You can specify an encryption scope for an individual blob when you create the blob, or you can specify a default encryption scope when you create a container. When a default encryption scope is specified at the level of a container, all blobs in that container are encrypted with the key associated with the default scope.
@@ -95,8 +92,8 @@ If your encryption scope is protected with customer-managed keys for Azure Key V
 - [How to use soft-delete with PowerShell](../../key-vault/general/key-vault-recovery.md)
 - [How to use soft-delete with CLI](../../key-vault/general/key-vault-recovery.md)
 
-> [!NOTE]
-> It is not possible to delete an encryption scope.
+> [!IMPORTANT]
+> It is not possible to delete an encryption scope. To avoid unexpected costs, be sure to disable any encryption scopes that you do not currently need.
 
 ## Next steps
 
