@@ -77,6 +77,8 @@ You have used [Visual Studio Code](functions-develop-vs-code.md?tabs=csharp) to 
 
 > [!div class="nextstepaction"]
 > [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-csharp)
+> [!div class="nextstepaction"]
+> [Connect to a database](functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-csharp)
 
 [Azure Functions Core Tools]: functions-run-local.md
 [Azure Functions extension for Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions
