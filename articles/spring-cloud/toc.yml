@@ -123,6 +123,8 @@
           href: how-to-enable-system-assigned-managed-identity.md
         - name: Create roles and permissions
           href: how-to-permissions.md
+        - name: Access Config Server and Service Registry
+          href: how-to-access-data-plane-azure-ad-rbac.md
     - name: Integrate
       items:
         - name: Bind an app to Azure CosmosDB

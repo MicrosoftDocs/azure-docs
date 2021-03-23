@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/spring-cloud/spring-cloud-howto-access-data-plane-azure-ad-rbac.md",
+      "redirect_url": "/azure/spring-cloud/how-to-access-data-plane-azure-ad-rbac",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/iot-accelerators/howto-opc-publisher-configure.md",
       "redirect_url": "/previous-versions/azure/iot-accelerators/howto-opc-publisher-configure",
       "redirect_document_id": false
