@@ -44,7 +44,6 @@ Before you complete the steps in this article, you should already have:
 - Installed the latest version of [PowerShell](/powershell/azure/install-az-ps). 
 - Identified the unique port that you will use for the DNN listener. The port used for a DNN listener must be unique across all replicas of the availability group or failover Cluster Instance.  No other connection can share the same port.
 
->[!NOTE]
 >The port used for a DNN listener must be unique across all replicas of the Availability Group or Failover Cluster Instance.  No other connection can share the same port.
 
 
@@ -176,4 +175,3 @@ Test the connectivity to your DNN listener with these steps:
 ## Next steps
 
 To learn more about SQL Server HADR features in Azure, see [Availability groups](availability-group-overview.md) and [Failover cluster instance](failover-cluster-instance-overview.md). You can also learn [best practices](hadr-cluster-best-practices.md) for configuring your environment for high availability and disaster recovery. 
-
