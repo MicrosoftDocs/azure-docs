@@ -872,7 +872,7 @@ We will not read out the bookmark elements.
 The bookmark element can be used to reference a specific location in the text or tag sequence.
 
 > [!NOTE]
-> `bookmark` element only works for `en-US-AriaNeural` voice for now.
+> `bookmark` element only works for `en-US-AriaNeural` voice in West US (`westus`) region for now.
 
 **Syntax**
 
