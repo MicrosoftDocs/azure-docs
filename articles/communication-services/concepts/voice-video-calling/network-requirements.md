@@ -15,7 +15,7 @@ ms.service: azure-communication-services
 
 # Ensuring high-quality media in Azure Communication Services
 
-This article explains the factors that affects the media quality and provides the guidance how to monitor your solution to ensure the best possible quality.
+This document provides an overview of the factors and best practices that should be considered when building high-quality multimedia communication experiences with Azure Communication Services.
 
 ## Factors that affect media quality and reliability
 
