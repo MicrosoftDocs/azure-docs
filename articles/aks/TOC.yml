@@ -264,8 +264,6 @@
           href: control-kubeconfig-access.md
         - name: Open Service Mesh (Preview)
           href: servicemesh-osm-about.md
-        - name: OSM Troubleshooting Guides (Preview)
-          href: servicemesh-osm-troubleshooting.md
         - name: Secure pod traffic with network policies
           href: use-network-policies.md
         - name: Use Azure Policy
