@@ -55,7 +55,7 @@ You can see all the applications in a soft deleted state.  Only applications del
 
 2. Search and select **Azure Active Directory**, select **App registrations**, and then select the **Deleted applications (Preview)** tab.
 
-    Review the list of applications. Only applications that have been deleted in the past 30 days are available to restore. If using the Search preview, you can filter by the 'Deleted date' column to see only these applications.
+    Review the list of applications. Only applications that have been deleted in the past 30 days are available to restore. If using the App registrations search preview, you can filter by the 'Deleted date' column to see only these applications.
 
 ### Restore a recently deleted application
 
