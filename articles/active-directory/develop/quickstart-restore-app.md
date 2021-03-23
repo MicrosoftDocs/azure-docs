@@ -66,7 +66,7 @@ When an app registration is deleted from the organization, the app is in a suspe
 
 
 #### To restore an application
-1. On the **Deleted applications** tab, search for and select one of the applications deleted less than 30 days ago. For example, _Contoso_.
+1. On the **Deleted applications (Preview)** tab, search for and select one of the applications deleted less than 30 days ago. For example, `Contoso`.
 
 2. Select **Restore app registration**.
 
