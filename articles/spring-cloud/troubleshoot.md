@@ -78,7 +78,7 @@ To ascertain which situation applies, do the following:
 2. Add an **App=** filter to specify which application you want to monitor.
 3. Split the metrics by **Instance**.
 
-If *all instances* are experiencing high CPU or memory usage, you need to either scale out the application or scale up the CPU or memory usage. For more information, see [Tutorial: Scale an application in Azure Spring Cloud](spring-cloud-tutorial-scale-manual.md).
+If *all instances* are experiencing high CPU or memory usage, you need to either scale out the application or scale up the CPU or memory usage. For more information, see [Tutorial: Scale an application in Azure Spring Cloud](spring-cloud-howto-scale-manual.md).
 
 If *some instances* are experiencing high CPU or memory usage, check the instance status and its discovery status.
 
@@ -94,7 +94,7 @@ Before you onboard your application, ensure that it meets the following criteria
 
 * The application can run locally with the specified Java runtime version.
 * The environment config (CPU/RAM/Instances) meets the minimum requirement set by the application provider.
-* The configuration items have their expected values. For more information, see [Config Server](spring-cloud-tutorial-config-server.md).
+* The configuration items have their expected values. For more information, see [Config Server](spring-cloud-howto-config-server.md).
 * The environment variables have their expected values.
 * The JVM parameters have their expected values.
 * We recommended that you disable or remove the embedded _Config Server_ and _Spring Service Registry_ services from the application package.

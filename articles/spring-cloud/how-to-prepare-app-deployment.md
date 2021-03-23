@@ -307,8 +307,8 @@ Include the following `spring-cloud-sleuth-zipkin` dependency in the dependencie
 
 ## See also
 * [Analyze application logs and metrics](./diagnostic-services.md)
-* [Set up your Config Server](./spring-cloud-tutorial-config-server.md)
-* [Use distributed tracing with Azure Spring Cloud](./spring-cloud-tutorial-distributed-tracing.md)
+* [Set up your Config Server](spring-cloud-tutorial-config-server.md)
+* [Use distributed tracing with Azure Spring Cloud](spring-cloud-tutorial-distributed-tracing.md)
 * [Spring Quickstart Guide](https://spring.io/quickstart)
 * [Spring Boot documentation](https://spring.io/projects/spring-boot)
 

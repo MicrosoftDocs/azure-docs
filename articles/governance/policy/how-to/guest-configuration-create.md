@@ -268,11 +268,11 @@ Configuration AuditBitLocker
 }
 
 # Compile the configuration to create the MOF files
-AuditBitLocker ./Config
+AuditBitLocker
 ```
 
-Save this file with name `config.ps1` in the project folder. Run it in PowerShell by executing
-`./config.ps1` in the terminal. A new mof file is created.
+Run this script in a PowerShell terminal or save this file with name `config.ps1` in the project folder.
+Run it in PowerShell by executing `./config.ps1` in the terminal. A new mof file is created.
 
 The `Node AuditBitlocker` command isn't technically required but it produces a file named
 `AuditBitlocker.mof` rather than the default, `localhost.mof`. Having the .mof file name follow the
@@ -295,7 +295,7 @@ Run the following command to create a package using the configuration given in t
 ```azurepowershell-interactive
 New-GuestConfigurationPackage `
   -Name 'AuditBitlocker' `
-  -Configuration './Config/AuditBitlocker.mof'
+  -Configuration './AuditBitlocker/AuditBitlocker.mof'
 ```
 
 After creating the Configuration package but before publishing it to Azure, you can test the package
@@ -325,7 +325,7 @@ The cmdlet also supports input from the PowerShell pipeline. Pipe the output of
 `New-GuestConfigurationPackage` cmdlet to the `Test-GuestConfigurationPackage` cmdlet.
 
 ```azurepowershell-interactive
-New-GuestConfigurationPackage -Name AuditBitlocker -Configuration ./Config/AuditBitlocker.mof | Test-GuestConfigurationPackage
+New-GuestConfigurationPackage -Name AuditBitlocker -Configuration ./AuditBitlocker/AuditBitlocker.mof | Test-GuestConfigurationPackage
 ```
 
 The next step is to publish the file to Azure Blob Storage. The command `Publish-GuestConfigurationPackage` requires the `Az.Storage`
@@ -511,122 +511,6 @@ Community solutions can be discovered by searching the PowerShell Gallery for ta
 After the DSC resource has been installed in the development environment, use the
 **FilesToInclude** parameter for `New-GuestConfigurationPackage` to include
 content for the third-party platform in the content artifact.
-
-### Step by step, creating a content artifact that uses third-party tools
-
-Only the `New-GuestConfigurationPackage` cmdlet requires a change from the step-by-step guidance for
-DSC content artifacts. For this example, use the `gcInSpec` module to extend Guest Configuration to
-audit Windows machines using the InSpec platform rather than the built-in module used on Linux. The
-community module is maintained as an
-[open source project in GitHub](https://github.com/microsoft/gcinspec).
-
-Install required modules in your development environment:
-
-```azurepowershell-interactive
-# Update PowerShellGet if needed to allow installing PreRelease versions of modules
-Install-Module PowerShellGet -Force
-
-# Install GuestConfiguration module prerelease version
-Install-Module GuestConfiguration -allowprerelease
-
-# Install commmunity supported gcInSpec module
-Install-Module gcInSpec
-```
-
-First, create the YaML file used by InSpec. The file provides basic information about the
-environment. An example is given below:
-
-```YaML
-name: wmi_service
-title: Verify WMI service is running
-maintainer: Microsoft Corporation
-summary: Validates that the Windows Service 'winmgmt' is running
-copyright: Microsoft Corporation
-license: MIT
-version: 1.0.0
-supports:
-  - os-family: windows
-```
-
-Save this file named `wmi_service.yml` in a folder named `wmi_service` in your project directory.
-
-Next, create the Ruby file with the InSpec language abstraction used to audit the machine.
-
-```Ruby
-control 'wmi_service' do
-  impact 1.0
-  title 'Verify windows service: winmgmt'
-  desc 'Validates that the service, is installed, enabled, and running'
-
-  describe service('winmgmt') do
-    it { should be_installed }
-    it { should be_enabled }
-    it { should be_running }
-  end
-end
-
-```
-
-Save this file `wmi_service.rb` in a new folder named `controls` inside the `wmi_service` directory.
-
-Finally, create a configuration, import the **GuestConfiguration** resource module, and use the
-`gcInSpec` resource to set the name of the InSpec profile.
-
-```powershell
-# Define the configuration and import GuestConfiguration
-Configuration wmi_service
-{
-    Import-DSCResource -Module @{ModuleName = 'gcInSpec'; ModuleVersion = '2.1.0'}
-    node 'wmi_service'
-    {
-        gcInSpec wmi_service
-        {
-            InSpecProfileName       = 'wmi_service'
-            InSpecVersion           = '3.9.3'
-            WindowsServerVersion    = '2016'
-        }
-    }
-}
-
-# Compile the configuration to create the MOF files
-wmi_service -out ./Config
-```
-
-You should now have a project structure as below:
-
-```file
-/ wmi_service
-    / Config
-        wmi_service.mof
-    / wmi_service
-        wmi_service.yml
-        / controls
-            wmi_service.rb 
-```
-
-The supporting files must be packaged together. The completed package is used by Guest Configuration
-to create the Azure Policy definitions.
-
-The `New-GuestConfigurationPackage` cmdlet creates the package. For third-party content, use the
-**FilesToInclude** parameter to add the InSpec content to the package. You don't need to specify the
-**ChefProfilePath** as for Linux packages.
-
-- **Name**: Guest Configuration package name.
-- **Configuration**: Compiled configuration document full path.
-- **Path**: Output folder path. This parameter is optional. If not specified, the package is created
-  in current directory.
-- **FilesoInclude**: Full path to InSpec profile.
-
-Run the following command to create a package using the configuration given in
-the previous step:
-
-```azurepowershell-interactive
-New-GuestConfigurationPackage `
-  -Name 'wmi_service' `
-  -Configuration './Config/wmi_service.mof' `
-  -FilesToInclude './wmi_service'  `
-  -Path './package' 
-```
 
 ## Policy lifecycle
 

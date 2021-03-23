@@ -97,7 +97,7 @@ To lock down your application to accept traffic only from your specific Front Do
 
 - Look for the `Front Door ID` value under the Overview section from Front Door portal page. You can then filter on the incoming header '**X-Azure-FDID**' sent by Front Door to your backend with that value to ensure only your own specific Front Door instance is allowed (because the IP ranges above are shared with other Front Door instances of other customers).
 
-- Apply rule filtering in your backend web server to restrict traffic based on the resulting 'X-Azure-FDID' header value. Note that some services like Azure App Service provide this [header based filtering](../app-service/app-service-ip-restrictions.md#restrict-access-to-a-specific-azure-front-door-instance-preview) capability without needing to change your application or host.
+- Apply rule filtering in your backend web server to restrict traffic based on the resulting 'X-Azure-FDID' header value. Note that some services like Azure App Service provide this [header based filtering](../app-service/app-service-ip-restrictions.md#restrict-access-to-a-specific-azure-front-door-instance) capability without needing to change your application or host.
 
   Here's an example for [Microsoft Internet Information Services (IIS)](https://www.iis.net/):
 
