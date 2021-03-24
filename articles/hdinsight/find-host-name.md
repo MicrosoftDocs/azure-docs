@@ -12,7 +12,7 @@ ms.date: 03/23/2021
 
 HDInsight cluster is created with public DNS clustername.azurehdinsight.net. When you SSH to individual nodes or set connection to cluster nodes with in the same custom virtual network, you need to use host name, or fully qualified domain names (FQDN) of cluster nodes.
 
-In this article, you learn how to get the host names of cluster nodes. You can get it manually through Ambari Web UI or automated through Ambari REST API.
+In this article, you learn how to get the host names of cluster nodes. You can get it manually through Ambari Web UI or automatically through Ambari REST API.
 
 > [!WARNING]
 > Please use the following recommended approaches to fetch host names of cluster nodes. The numbers in the host name is not guaranteed in sequence and HDInsight may change the host name format to align with VMs with release refresh. Don’t take the dependency on any certain naming convention that exists today. 
@@ -33,11 +33,14 @@ Here are some examples of how to retrieve the FQDN for the various nodes in the 
 The following example uses [jq](https://stedolan.github.io/jq/) or [ConvertFrom-Json](/powershell/module/microsoft.powershell.utility/convertfrom-json) to parse the JSON response document and display only the host names.
 
 ```bash
+export password=''
+export clusterName=''
 curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/hosts" \
 | jq -r '.items[].Hosts.host_name'
 ```  
 
 ```powershell
+$creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
 $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/hosts" `
     -Credential $creds -UseBasicParsing
 $respObj = ConvertFrom-Json $resp.Content
