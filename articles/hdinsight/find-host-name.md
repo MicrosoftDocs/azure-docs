@@ -28,7 +28,7 @@ You can use Ambari Web UI to get the host names when you SSH to the node. The Am
 ## Get the host names from Ambari REST API
 When building automation scripts,  you can use the Ambari REST API to get the host names before you make connections to hosts. The numbers in the host name are not guaranteed in sequence and HDInsight may change the host name format to align with VMs with release refresh. Don’t take the dependency on any certain naming convention that exists today. 
 
-Here are some examples of how to retrieve the FQDN for the various nodes in the cluster. For more information about Ambari REST API, see [Manage HDInsight clusters by using the Apache Ambari REST API](.\hdinsight-hadoop-manage-ambari-rest-api.md)
+Here are some examples of how to retrieve the FQDN for the nodes in the cluster. For more information about Ambari REST API, see [Manage HDInsight clusters by using the Apache Ambari REST API](.\hdinsight-hadoop-manage-ambari-rest-api.md)
 
 The following example uses [jq](https://stedolan.github.io/jq/) or [ConvertFrom-Json](/powershell/module/microsoft.powershell.utility/convertfrom-json) to parse the JSON response document and display only the host names.
 
@@ -40,6 +40,7 @@ curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/c
 ```  
 
 ```powershell
+$clusterName=''
 $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
 $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/hosts" `
     -Credential $creds -UseBasicParsing
