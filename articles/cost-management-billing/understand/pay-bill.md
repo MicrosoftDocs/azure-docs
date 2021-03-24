@@ -45,9 +45,7 @@ Alternatively, if your invoice is under the threshold amount for your currency, 
 #### Bank details used to send wire transfer payments
 <a name="wire-bank-details"></a>
 
-If your default payment method is wire transfer, check your invoice for payment instructions. You can also use the drop-down below to find payment instructions for your country or region.
- 
-Choose your *bill-to* country from the following table.
+If your default payment method is wire transfer, check your invoice for payment instructions. Find payment instructions for your country or region in the following table.
 
 | Country or region | Country or region | Country or region |
 | --- | --- | --- |
