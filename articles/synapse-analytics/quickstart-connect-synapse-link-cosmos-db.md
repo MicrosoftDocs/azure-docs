@@ -9,6 +9,7 @@ ms.topic: quickstart
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
+ms.custom: cosmos-db
 ---
 
 # Quickstart: Connect to Azure Synapse Link for Azure Cosmos DB
