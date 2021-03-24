@@ -1,6 +1,6 @@
 ---
 title: Migrate an HBase cluster to a new version and Storage account - Azure HDInsight
-description: Learn how to migrate Apache HBase cluster to a newer version in a different Storage account in Azure HDInsight.
+description: Learn how to migrate Apache HBase cluster to a newer version with a different Azure Storage account in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
@@ -9,9 +9,9 @@ ms.date: 03/22/2021
 
 # Migrate Apache HBase to a new version and Storage account
 
-This article discusses how to update your Apache HBase cluster on Azure HDInsight to a newer version with a different Storage account.
+This article discusses how to update your Apache HBase cluster on Azure HDInsight to a newer version with a different Azure Storage account.
 
-This article applies only if you need to use different Azure Storage accounts for your source and destination clusters. To upgrade versions with the same Storage account for your destination cluster, see [Migrate Apache HBase to a new version](apache-hbase-migrate-new-version.md).
+This article applies only if you need to use different storage accounts for your source and destination clusters. To upgrade versions with the same Storage account for your source and destination clusters, see [Migrate Apache HBase to a new version](apache-hbase-migrate-new-version.md).
 
 The downtime while upgrading should be only a few minutes. This downtime is caused by the steps to flush all in-memory data, then the time to configure and restart the services on the new cluster. Your results will vary, depending on the number of nodes, amount of data, and other variables.
 
@@ -43,7 +43,7 @@ For more information about HDInsight versions and compatibility, see [Azure HDIn
 
 To upgrade your Apache HBase cluster on Azure HDInsight, complete the following steps:
 
-1. [Set up a new destination HDInsight cluster](../hdinsight-hadoop-provision-linux-clusters.md) that uses a different storage account than the source cluster.
+1. [Set up a new destination HDInsight cluster](../hdinsight-hadoop-provision-linux-clusters.md) that uses a different Storage account than the source cluster.
 
 1. Sign in to [Apache Ambari](https://ambari.apache.org/) on the destination cluster with `https://<NEWCLUSTERNAME>.azurehdinsight.net`, and stop the HBase services.
    
@@ -94,7 +94,7 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
    
    :::image type="content" source="./media/apache-hbase-migrate-new-version/turn-on-maintenance-mode.png" alt-text="Select Turn On Maintenance Mode for HBase, then confirm." border="false":::
    
-1. Copy the `hbase` folder from the source cluster's Storage account to the destination cluster's Storage account by using [AzCopy](/azure/storage/common/storage-ref-azcopy).
+1. Copy the `hbase` folder from the source cluster's storage account to the destination cluster's Azure Storage account by using [AzCopy](/azure/storage/common/storage-ref-azcopy).
    
    - If you're **migrating from another Azure HDInsight cluster**, run an AzCopy command like:
      
@@ -104,9 +104,9 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
      
      `azcopy copy <local-folder-path>' 'https://<destination-account>.<blob or dfs>.core.windows.net/<destination-storage-container>' --recursive=true`
      
-     \<local-folder-path> is the root directory of your hbase source cluster. You can find this path in the `hbase.rootdir` property in the `hbase-site.xml` file. If this field isn't configured in your source cluster, the default is `/hbase`.
+     `<local-folder-path>` is the root directory of your hbase source cluster. If you don't find this path in the `hbase.rootdir` property in the `hbase-site.xml` file, the default value is `/hbase`.
      
-     For more information about using AzCopy, see [](/azure/storage/common/storage-use-azcopy-migrate-on-premises-data).
+     For more information, see [Tutorial: Migrate on-premises data to cloud storage with AzCopy](/azure/storage/common/storage-use-azcopy-migrate-on-premises-data).
    
 1. If your source HBase cluster doesn't have the [Accelerated Writes](apache-hbase-accelerated-writes.md) feature, skip this step. For source HBase clusters with Accelerated Writes, back up the WAL dir under HDFS by running the following commands from an SSH session on any of the Zookeeper nodes or worker nodes of the source cluster.
    

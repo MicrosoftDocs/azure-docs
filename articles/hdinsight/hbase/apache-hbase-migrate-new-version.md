@@ -91,8 +91,8 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
 1. If neither the source cluster nor the destination cluster has the Accelerated Writes feature, skip this step. Otherwise, do the following steps, depending on whether the source, destination, or both clusters have the Accelerated Writes feature.
    
    > [!NOTE]  
-   > - The \<source-container-fullpath> for storage type WASB is `wasb://<source-container-name>@<storageaccountname>.blob.core.windows.net`
-   > - The \<source-container-fullpath> for storage type ADLS Gen2 is `abfs://<source-container-name>@<storageaccountname>.dfs.core.windows.net`
+   > - The `<source-container-fullpath>` for storage type WASB is `wasb://<source-container-name>@<storageaccountname>.blob.core.windows.net`
+   > - The `<source-container-fullpath>` for storage type ADLS Gen2 is `abfs://<source-container-name>@<storageaccountname>.dfs.core.windows.net`
 
    - If **source and destination clusters** both have the Accelerated Writes feature:
      
