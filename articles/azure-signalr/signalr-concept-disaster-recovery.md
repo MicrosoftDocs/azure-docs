@@ -134,3 +134,5 @@ You'll need to handle such cases at client side to make it transparent to your e
 In this article, you have learned how to configure your application to achieve resiliency for SignalR service. To understand more details about server/client connection and connection routing in SignalR service, you can read [this article](signalr-concept-internals.md) for SignalR service internals.
 
 For scaling scenarios such as sharding, that use multiple instances together to handle large number of connections, read [how to scale multiple instances](signalr-howto-scale-multi-instances.md).
+
+For how to configure Azure Functions with multiple SignalR service instances, read [Multiple Azure SignalR Service Instances Support in Azure Functions](https://github.com/Azure/azure-functions-signalrservice-extension/blob/dev/docs/sharding.md).
