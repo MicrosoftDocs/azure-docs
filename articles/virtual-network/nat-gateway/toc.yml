@@ -1,0 +1,33 @@
+- name: Virtual Network NAT Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Virtual Network NAT?
+    href: nat-overview.md
+- name: Tutorials
+  items:
+  - name: Create and validate NAT gateway - Azure portal
+    href: tutorial-create-nat-gateway-portal.md
+  - name: Create and validate NAT gateway - PowerShell
+    href: tutorial-create-nat-gateway-powershell.md
+  - name: Create and validate NAT gateway - Azure CLI
+    href: tutorial-create-nat-gateway-cli.md
+  - name: Create NAT gateway - ARM template
+    displayname: Resource Manager
+    href: quickstart-create-nat-gateway-template.md
+  - name: Integrate NAT gateway public load balancer
+    href: tutorial-nat-gateway-load-balancer-public-portal.md
+  - name: Integrate NAT gateway internal load balancer
+    href: tutorial-nat-gateway-load-balancer-internal-portal.md
+- name: Concepts
+  items:
+  - name: Resource
+    href: nat-gateway-resource.md
+  - name: Metrics and alerts
+    href: nat-metrics.md
+  - name: Troubleshoot
+    href: troubleshoot-nat.md
+  - name: Security
+    items:
+    - name: Virtual network NAT security baseline
+      href: nat-security-baseline.md

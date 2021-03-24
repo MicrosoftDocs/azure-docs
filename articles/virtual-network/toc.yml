@@ -25,12 +25,6 @@
     href: tutorial-restrict-network-access-to-resources.md
   - name: Connect virtual networks
     href: tutorial-connect-virtual-networks-portal.md
-  - name: Create and validate NAT gateway
-    href: tutorial-create-nat-gateway-portal.md
-  - name: Integrate NAT gateway public load balancer
-    href: tutorial-nat-gateway-load-balancer-public-portal.md
-  - name: Integrate NAT gateway internal load balancer
-    href: tutorial-nat-gateway-load-balancer-internal-portal.md
 - name: Samples
   items:
   - name: Azure CLI
@@ -47,16 +41,6 @@
     href: virtual-network-disaster-recovery-guidance.md
   - name: Connectivity
     items:
-    - name: NAT
-      items:
-      - name: Overview
-        href: nat-overview.md
-      - name: Resource
-        href: nat-gateway-resource.md
-      - name: Metrics and alerts
-        href: nat-metrics.md
-      - name: Troubleshoot
-        href: troubleshoot-nat.md
     - name: Routing
       href: virtual-networks-udr-overview.md
     - name: Backend Connectivity Interoperability
@@ -109,8 +93,6 @@
     items:
     - name: Virtual network security baseline
       href: security-baseline.md
-    - name: Virtual network NAT security baseline
-      href: nat-security-baseline.md
     - name: Network isolation of Azure services
       href: vnet-integration-for-azure-services.md
     - name: Network security groups
@@ -412,15 +394,6 @@
         href: move-across-regions-publicip-portal.md
       - name: Public IPs - PowerShell
         href: move-across-regions-publicip-powershell.md
-  - name: NAT
-    items:
-    - name: Create and validate NAT gateway - PowerShell
-      href: tutorial-create-nat-gateway-powershell.md
-    - name: Create and validate NAT gateway - CLI
-      href: tutorial-create-nat-gateway-cli.md
-    - name: Create NAT gateway - ARM template
-      displayname: Resource Manager
-      href: quickstart-create-nat-gateway-template.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot virtual network peering issues
