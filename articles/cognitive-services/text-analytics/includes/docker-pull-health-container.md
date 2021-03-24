@@ -17,7 +17,7 @@ The form requests information about you, your company, and the user scenario for
 
 > [!IMPORTANT]
 > * On the form, you must use an email address associated with an Azure subscription ID.
-> * The Azure resource you use to run the container must have been created with the approved Azure subscription ID. 
+> * The Text Analytics resource (billing endpoint and apikey) you use to run the container must have been created with the approved Azure subscription ID. 
 > * Check your email (both inbox and junk folders) for updates on the status of your application from Microsoft.
 
 Once approved, use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download this container image from the Microsoft public container registry.
