@@ -13,7 +13,7 @@ ms.custom: include file
 ms.author: lakshmans
 ---
 
-Get started with Azure Communication Services by using the Communication Services Python SMS client library to send SMS messages.
+Get started with Azure Communication Services by using the Communication Services Python SMS SDK to send SMS messages.
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -58,7 +58,7 @@ except Exception as ex:
 
 ### Install the package
 
-While still in the application directory, install the Azure Communication Services SMS client library for Python package by using the `pip install` command.
+While still in the application directory, install the Azure Communication Services SMS SDK for Python package by using the `pip install` command.
 
 ```console
 pip install azure-communication-sms --pre
@@ -66,7 +66,7 @@ pip install azure-communication-sms --pre
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services SMS client library for Python.
+The following classes and interfaces handle some of the major features of the Azure Communication Services SMS SDK for Python.
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |

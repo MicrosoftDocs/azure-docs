@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Add VOIP calling to a web app using Azure Communication Services
-description: In this tutorial, you learn how to use the Azure Communication Services Calling client library for JavaScript
+description: In this tutorial, you learn how to use the Azure Communication Services Calling SDK for JavaScript
 author: ddematheu
 ms.author: nimag
 ms.date: 03/10/2021
@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 
-In this quickstart, you'll learn how start a call using the Azure Communication Services Calling client library for JavaScript.
+In this quickstart, you'll learn how start a call using the Azure Communication Services Calling SDK for JavaScript.
 
 > [!NOTE]
-> This document uses version 1.0.0-beta.6 of the calling client library.
+> This document uses version 1.0.0-beta.6 of the Calling SDK.
 
 ## Prerequisites
 
@@ -69,11 +69,11 @@ const hangUpButton = document.getElementById("hang-up-button");
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services Calling client library:
+The following classes and interfaces handle some of the major features of the Azure Communication Services Calling SDK:
 
 | Name                             | Description                                                                                                                                 |
 | ---------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------- |
-| CallClient                       | The CallClient is the main entry point to the Calling client library.                                                                       |
+| CallClient                       | The CallClient is the main entry point to the Calling SDK.                                                                       |
 | CallAgent                        | The CallAgent is used to start and manage calls.                                                                                            |
 | AzureCommunicationTokenCredential | The AzureCommunicationTokenCredential class implements the CommunicationTokenCredential interface which is used to instantiate the CallAgent. |
 
