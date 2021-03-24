@@ -3,7 +3,7 @@ title: Azure Data Factory - Frequently Asked Questions
 description: Frequently asked questions about Azure Data Factory.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018

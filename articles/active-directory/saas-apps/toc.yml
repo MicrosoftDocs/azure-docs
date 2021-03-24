@@ -59,7 +59,7 @@
         href: adoddle-csaas-platform-tutorial.md
       - name: ADP
         href: adpfederatedsso-tutorial.md
-      - name: ADP Globalview
+      - name: ADP Globalview (Deprecated)
         href: adglobalview-tutorial.md
       - name: Agiloft
         href: agiloft-tutorial.md
@@ -435,7 +435,7 @@
         href: convercent-tutorial.md
       - name: Coralogix
         href: coralogix-tutorial.md
-      - name: Cornerstone OnDemand
+      - name: Cornerstone Single Sign-On
         href: cornerstone-ondemand-tutorial.md
       - name: CorpTax
         href: corptax-tutorial.md
@@ -711,7 +711,7 @@
       - name: Fuse
         href: fuse-tutorial.md
       - name: Fuze
-        href: fuze-tutorial.md
+        href: fuze-tutorial.md  
       - name: G Suite
         href: google-apps-tutorial.md
       - name: GaggleAMP
@@ -1186,6 +1186,8 @@
         href: mongodb-cloud-tutorial.md
       - name: Montage Online
         href: montageonline-tutorial.md
+      - name: Moqups
+        href: moqups-tutorial.md
       - name: Motus
         href: motus-tutorial.md
       - name: MOVEit Transfer - Azure AD integration
@@ -1414,7 +1416,7 @@
         href: presspage-tutorial.md
       - name: Prezi
         href: prezi-tutorial.md
-      - name: PrinterLogic SaaS
+      - name: PrinterLogic
         href: printerlogic-saas-tutorial.md
       - name: Printix
         href: printix-tutorial.md
@@ -1632,7 +1634,7 @@
         href: sendsafely-tutorial.md
       - name: SensoScientific Wireless Temperature Monitoring System
         href: sensoscientific-tutorial.md
-      - name: Sequr
+      - name: Genea Access Control
         href: sequr-tutorial.md
       - name: Serraview Space Utilization Software Solutions
         href: serraview-space-utilization-software-solutions-tutorial.md
@@ -2205,6 +2207,8 @@
         href: github-enterprise-managed-user-provisioning-tutorial.md
       - name: GoToMeeting
         href: citrixgotomeeting-provisioning-tutorial.md
+      - name: Grammarly
+        href: grammarly-provisioning-tutorial.md        
       - name: GroupTalk
         href: grouptalk-provisioning-tutorial.md
       - name: Gtmhub
@@ -2243,6 +2247,8 @@
         href: lucidchart-provisioning-tutorial.md
       - name: Leapsome
         href: leapsome-provisioning-tutorial.md
+      - name: LogicGate
+        href: logicgate-provisioning-tutorial.md
       - name: Looop
         href: looop-provisioning-tutorial.md
       - name: MediusFlow
