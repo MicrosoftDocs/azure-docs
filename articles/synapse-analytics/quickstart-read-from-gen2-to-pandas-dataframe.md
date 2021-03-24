@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Read data from Gen2 storage into a Pandas dataframe'  
+title: 'Quickstart: Read data from ADLSGen2 to Pandas dataframe in Azure Synapse'
 description: Read data from an Azure Data Lake Storage Gen2 account into a Pandas dataframe using Python in Synapse Studio.
 
 services: synapse-analytics
