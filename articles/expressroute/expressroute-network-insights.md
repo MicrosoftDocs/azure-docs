@@ -62,20 +62,12 @@ Lastly, the Gateway Metrics tab populates with key metrics charts for a selected
 
 :::image type="content" source="./media/expressroute-network-insights/gateway-metrics.png" alt-text="Screenshot of gateway throughput and CPU metrics." lightbox="./media/expressroute-network-insights/gateway-metrics-expanded.png":::
 
-## One place for all your network monitoring needs
-
-Network Insights fully support the new monitoring and insights experience for Azure ExpressRoute. With all your network resource metrics in a single place, you can quickly filter by type, subscription, and keyword to view the health, connectivity, and alert status of all your Azure network resources such as Azure Firewalls, Load Balancers, Application Gateways and more.
-
-:::image type="content" source="./media/expressroute-network-insights/dashboard.png" alt-text="Screenshot of Network Insights dashboard." lightbox="./media/expressroute-network-insights/dashboard-expanded.png":::
-
-As we rapidly transition to the cloud and applications become more complex, customers need tools to easily maintain, monitor, and update their network configurations. With the integration of the Azure ExpressRoute with Network Insights, we deliver a piece of this and look forward to continuing to provide our valued customers with the best in class experience they deserve.
-  
 ## Next steps
 
 Configure your ExpressRoute connection.
   
-* Learn more about [Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction), [Network Insights](https://docs.microsoft.com/azure/azure-monitor/insights/network-insights-overview), and [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)
+* Learn more about [Azure ExpressRoute](expressroute-introduction.md), [Network Insights](../azure-monitor/insights/network-insights-overview.md), and [Network Watcher](../network-watcher/network-watcher-monitoring-overview.md)
 * [Create and modify a circuit](expressroute-howto-circuit-arm.md)
 * [Create and modify peering configuration](expressroute-howto-routing-arm.md)
 * [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md)
-* [Customize your metrics](https://docs.microsoft.com/azure/expressroute/expressroute-monitoring-metrics-alerts) and create a [Connection Monitor](https://docs.microsoft.com/azure/network-watcher/connection-monitor-overview)
+* [Customize your metrics](expressroute-monitoring-metrics-alerts.md) and create a [Connection Monitor](../network-watcher/connection-monitor-overview.md)
