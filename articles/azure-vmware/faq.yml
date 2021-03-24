@@ -109,8 +109,9 @@ sections:
         answer: No. 
 
       - question: 1.	What is the Fault tolerance of hardware failure on the vSAN?
-        answer: FTT-1, RAID-1 (mirroring) with Object Space reservation set to Thick Provisioning is the Default Storage policy for the SDDC.
-        |
+        answer: |
+        FTT-1, RAID-1 (mirroring) with Object Space reservation set to Thick Provisioning is the Default Storage policy for the SDDC.
+        
         :::image type="content" source="media/vsphere-vm-storage-policies.png" alt-text="Screenshot showing the vSphere Client VM Storage Policies window.":::
 
       - question: Why is thick provisioning the default vSAN policy in Azure VMware Solution?
