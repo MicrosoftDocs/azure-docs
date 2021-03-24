@@ -59,7 +59,7 @@ You can see all the applications in a soft deleted state.  Only applications del
 
 ### Restore a recently deleted application
 
-When an app registration is deleted from the organization, the app is in a suspended state and its configurations are preserved. When you restore an app registration, its configurations are also restored.  However, if there were any organization-specific settings in **Enterprise applications** for your home tenant, those will not be restored.  
+When an app registration is deleted from the organization, the app is in a suspended state and its configurations are preserved. When you restore an app registration, its configurations are also restored.  However, if there were any organization-specific settings in **Enterprise applications** for the application's home tenant, those will not be restored.  
 
 This is because organization-specific settings are stored on a separate object, called the service principal.  Settings held on the service principal include permission consents and user and group assignments for a certain organization; these configurations will not be restored when the app is restored. For more information, see [Application and service principal objects](app-objects-and-service-principals.md). 
 
