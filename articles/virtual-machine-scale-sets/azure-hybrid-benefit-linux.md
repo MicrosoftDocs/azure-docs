@@ -24,14 +24,14 @@ With this benefit, you pay for only the infrastructure cost of your scale set. T
 
 
 >[!NOTE]
-> This article describes the Azure Hybrid Benefit for Linux VMSS. There is a separate [article available [here AHB for Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux), which is already available to Azure customers since November, 2020. 
+> This article describes the Azure Hybrid Benefit for Linux VMSS. There is a separate [article available [here AHB for Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux), which is already available to Azure customers since November, 2020.
 
 ## Benefit description
 Azure Hybrid allows you to use the existing Cloud access licenses from Red Hat or SUSE and flexibly convert virtual machine scale set instances to bring-your-own-subscription (BYOS) billing. 
 
 Virtual machine scale set deployed from PAYG marketplace images will charge both infrastructure and software fee. With AHB, PAYG instances can be converted to a BYOS billing model without redeployment.
 
-:::image type="content" source="./media/azure-hybrid-benefit-linux-vmss/azure-hybrid-benefit-linux-vmss-cost.png" alt-text="Azure Hybrid Benefit cost visualization on Linux VMs.":::
+:::image type="content" source="./media/azure-hybrid-benefit-linux/azure-hybrid-benefit-linux-cost.png" alt-text="Azure Hybrid Benefit cost visualization on Linux VMs.":::
 
 ## Scope of Azure Hybrid Benefit eligibility for Linux
 Azure Hybrid Benefit is available for all RHEL and SLES PAYG images from Azure Marketplace. The benefit isn't yet available for RHEL or SLES BYOS images or custom images from Azure Marketplace.
