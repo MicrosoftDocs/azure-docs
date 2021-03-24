@@ -77,8 +77,8 @@
         href: ./scripts/powershell-get-all-custom-domains-and-certs.md
       - name: List apps without certs
         href: ./scripts/powershell-get-all-custom-domain-no-cert.md
-      - name:
-        href: 
+      - name: List apps with identical certs
+        href: ./scripts/powershell-get-custom-domain-identical-cert.md
       - name:
         href: 
 
