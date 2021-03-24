@@ -59,7 +59,8 @@ You can then [export the certificate](../key-vault/certificates/how-to-export-ce
 
 After you have a certificate, you can then upload it as part of the API connector configuration. Note that password is only required for certificate files protected by a password.
 
-For Azure App Service and Azure Functions, see [configure TLS mutual authentication](../app-service/app-service-web-configure-tls-mutual-auth.md) to learn how to enable and validate the certificate from your API service. Your API service must implement the authorization based on sent client certificates in order to protect the API endpoints.
+Your API must implement the authorization based on sent client certificates in order to protect the API endpoints. For Azure App Service and Azure Functions, see [configure TLS mutual authentication](../app-service/app-service-web-configure-tls-mutual-auth.md) to learn how to enable and *validate the certificate from your API code*.  You can also use [Azure API Management](
+../api-management/api-management-howto-mutual-certificates-for-clients.md) to protect your API and check certificate properties against desired values using policy expressions.
 
 It's recommended you set reminder alerts for when your certificate will expire. You will need to generate a new certificate and repeat the steps above. Your API service can temporarily continue to accept old and new certificates while the new certificate is deployed. To upload a new certificate to an existing API connector, select the API connector under **API connectors** and click on **Upload new certificate**. The most recently uploaded certificate which is not expired and is past the start date will automatically be used  by Azure Active Directory.
 
