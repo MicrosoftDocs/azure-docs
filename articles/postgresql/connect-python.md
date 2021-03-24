@@ -31,7 +31,7 @@ For this quickstart you need:
   | **Configure Service Endpoint** | Public | [Portal](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md)|
   | **Configure private link** | Private | [Portal](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) |
 
-- [Python](https://www.python.org/downloads/) 2.7.9+ or 3.4+.
+- [Python](https://www.python.org/downloads/) 2.7 or 3.6+.
 
 - Latest [pip](https://pip.pypa.io/en/stable/installing/) package installer.
 - Install [psycopg2](https://pypi.python.org/pypi/psycopg2/) using `pip install psycopg2` in a terminal or command prompt window. For more information, see [how to install `psycopg2`](http://initd.org/psycopg/docs/install.html).
