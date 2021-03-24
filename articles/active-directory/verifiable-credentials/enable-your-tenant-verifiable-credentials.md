@@ -63,14 +63,14 @@ When working with verifiable credentials, you have complete control and manageme
 
     ![create a key vault page](media/tutorial-verifiable-credentials-issuer/create-key-vault.png)
 
-7. In the Access Policy screen, choose **Add Access Policy**
+7. In the Access Policy screen, choose **Access Policy**
 
     >[!NOTE]
     > By default the account that creates the key vault is the only one with access. The verifiable credential service needs access to key vault to get started. The key vault used needs an access policy allowing the Admin to **create keys***, have the ability to **delete keys** if you opt out, and **sign** to create the domain binding for verifiable credential. If you are using the same account while testing make sure to modify the default policy to grant the account **sign** in addition to the default permissions granted to vault creators.
 
-8. In the key permissions section choose **Create**, **Delete**, and **Sign**.
+8. For the User Admin, make sure the key permissions section has **Create**, **Delete**, and **Sign** enabled. By default Create and Delete are already enabled and Sign should be the only Key Permission that needs to be updated. 
 
-    ![Key Vault permissions](media/tutorial-verifiable-credentials-issuer/vault-permissions.png)
+    ![Key Vault permissions](media/tutorial-verifiable-credentials-issuer/keyvault_access.png)
 
 9. Select **Review + create**.
 10. Select **Create**.
@@ -110,9 +110,255 @@ Now we need to take the last step to set up your tenant for verifiable credentia
 
     ![set up your organizational identity](media/tutorial-verifiable-credentials-issuer/save-create.png)
 
-## Next Steps
+Congratulations, your tenant is now enabled for the Verifiable Credential preview! 
 
-When we started, we could issue and verify credentials using the sample app and the test Azure tenant. At the end of this tutorial, your tenant is enabled for the verifiable credentials preview. In later tutorials, we take the steps needed to get your tenant issuing and verifying credentials.
+## Create a storage account
+
+Before creating our first Verifiable Credential, we need to create a Blob Storage container that can hold the needed files. 
+
+1. Create a storage account using the options shown below. For detailed steps review the [Create a storage account](../../storage/common/storage-account-create.md?tabs=azure-portal) article. 
+
+    - **Subscription:** Choose the subscription that we are using for these tutorials.
+    - **Resource group:** Choose the same resource group we used in earlier tutorials (**vc-resource-group**).
+    - **Name:**  A unique name.
+    - **Location:** (US) EAST US.
+    - **Performance:** Standard.
+    - **Account kind:** Storage V2.
+    - **Replication:** Locally redundant.
+ 
+   ![Create a new storage account](media/tutorial-create-sample-card-your-issuer/create-storage-account.png)
+
+2. After creating the storage account, we need to create a container. Select Containers under Blob Storage and create a container using the values provided below:
+
+    - **Name:** vc-container
+    - **Public access level:** Private (no anonymous access)
+
+   ![Create a container](media/tutorial-create-sample-card-your-issuer/new-container.png)
+
+3. Now select your new container and upload both the rules and display files from ```sample app download location\issuer\issuer_config\```
+
+   ![upload rules file](media/tutorial-create-sample-card-your-issuer/blob-storage-upload-rules-display-files.png)
+
+## Assign the storage blob role data reader role to your account
+
+Before creating the credential, we need to first give the signed in user the correct role assignment so that they can access the files in Storage Blob.
+
+1. Navigate to **Storage** > **Container**.
+2. Choose **Access Control (IAM)** from the menu on the left.
+3. Choose **Role Assignments**.
+4. Select **Add**.
+5. In the **Role** section, choose **Storage Blob Data Reader**.
+6. Under **Assign access to** choose **User, group, or service principle**.
+7. In **Select**: Choose the account that you are using to perform these steps.
+8. Select **Save** to complete the role assignment.
+
+
+   ![Add a role assignment](media/tutorial-create-sample-card-your-issuer/role-assignment.png)
+
+  >[!IMPORTANT]
+  >By default, container creators get the **Owner** role assigned. Even if you created the container with the account you are using, the **Owner** role is not enough on its own. For more information review [Use the Azure portal to assign an Azure role for access to blob and queue data](../../storage/common/storage-auth-aad-rbac-portal.md) Your account needs  the **Storage Blob Data Reader** role.
+
+
+## Create a Modified Rules and Display File
+
+In this section, we are going to use the Rules and Display files from the Sample Issuer App and slightly modify them to create your tenant's first Verifiable Credential. 
+
+1. Copy both the rules and display json files to a temporary folder and rename them **MyFirstVC-display.json** and **MyFirstVC-rules.json** respectively. You can find both files under **issuer\issuer_config**
+
+   ![display and rules files as part of the sample app directory](media/tutorial-create-sample-card-your-issuer/sample-app-rules-display.png)
+
+   ![display and rules files in a temp folder](media/tutorial-create-sample-card-your-issuer/display-rules-files-temp.png)
+
+2. Open up the MyFirstVC-rules.json file in your code editor. 
+
+```json
+{
+  "attestations": {
+    "idTokens": [
+      {
+        "mapping": {
+          "firstName": { "claim": "given_name" },
+          "lastName": { "claim": "family_name" }
+        },
+        "configuration": "https://didplayground.b2clogin.com/didplayground.onmicrosoft.com/B2C_1_sisu/v2.0/.well-known/openid-configuration",
+        "client_id": "8d5b446e-22b2-4e01-bb2e-9070f6b20c90",
+        "redirect_uri": "vcclient://openid"
+      }
+    ]
+  },
+  "validityInterval": 2592000,
+  "vc": {
+    "type": ["VerifiedCredentialNinja"]
+  }
+}
+```
+Now let's change the type field to "MyFirstVC". 
+
+```json
+"type": ["MyFirstVC"]
+```
+Save this change. 
+
+ >[!note]
+   > We are not changing the "configuration" or the "client_id" here. We will continue to use the Microsoft B2C tenant for this stage of the tutorial and we will change the IDP in the next section. 
+
+3. Open up the MyFirstVC-display.json file in your code editor. 
+
+```json
+{
+  "default": {
+    "locale": "en-US",
+    "card": {
+      "title": "Verified Credential Ninja",
+      "issuedBy": "Microsoft",
+      "backgroundColor": "#000000",
+      "textColor": "#ffffff",
+      "logo": {
+        "uri": "https://didcustomerplayground.blob.core.windows.net/public/ninja-icon.png",
+        "description": "Ninja Logo"
+      },
+      "description": "Use your verified credential ninja card to prove to anyone that you know all about verifiable credentials."
+    },
+    "consent": {
+      "title": "Do you want to get your Verified Credential Ninja card?",
+      "instructions": "Sign in with your account to get your card."
+    },
+    "claims": {
+      "vc.credentialSubject.firstName": {
+        "type": "String",
+        "label": "First name"
+      },
+      "vc.credentialSubject.lastName": {
+        "type": "String",
+        "label": "Last name"
+      }
+    }
+  }
+}
+```
+
+Lets make a few modifications so this Verifiable Credential looks visibly different than the Sample Code's version. 
+
+```json
+   "card": {
+      "title": "My First VC",
+      "issuedBy": "Your Issuer Name",
+      "backgroundColor": "#ffffff",
+      "textColor": "#000000",
+```
+
+Save these changes. 
+
+## Create your VC in the Portal
+Now that you have modified the Rules and Display file, it's time to create the Verifiable Credential in the portal. 
+
+1. On the Azure portal, navigate to the verifiable credentials preview portal.
+1. Select **Credentials** from the verifiable credentials preview page.
+
+   ![verifiable credentials get started](media/tutorial-create-sample-card-your-issuer/verifiable-credentials-page-preview.png)
+
+4. Choose **Create a credential**
+5. Under Credential Name, add the name **MyFirstVC**. This name is used in the portal to identify your verifiable credentials and it is included as part of the verifiable credentials contract.
+
+   ![Create a new credential screen](media/tutorial-create-sample-card-your-issuer/create-credential.png)
+
+6. In the **Display file** section choose **Configure display file**
+7. In the **Storage accounts** section, select **contosovcstorage**.
+8. From the list of available containers choose **vc-container**.
+9. Choose **MyFirstVC-display.json** which we created earlier.
+10. From the **Create a new credential** in the **Rules file** section choose **Configure rules file**
+11. In the **Storage accounts** section, select **contosovcstorage**
+12. Choose **vc-container**.
+13. Select **MyFirstVC-rules.json**
+14. From the **Create a new credential** screen choose **Create**.
+
+### Credential URL
+
+Now that you have a new credential, copy the credential URL.
+
+   ![The issue credential URL](media/tutorial-create-sample-card-your-issuer/issue-credential-url.png)
+
+>[!note]
+The credential URL is the combination of the Rules and Display file and is the URL that Authenitcator will evaluate in order to show the User the requirements they need to meet in order to receive the Verifiable Credential.  
+
+## Update the sample app
+
+Now we make modifications to the sample app's issuer code to update it with your verifiable credential URL. This allows you to issue verifiable credentials using your own tenant.
+
+1. Open your Issuer Sample code app.js file.
+2. Update the constant 'credential' with your new credential URL and the new credentialType 'MyFirstVC' and save the file.
+
+    ![image of visual studio code showing the relevant areas highlighted](media/tutorial-create-sample-card-your-issuer/sample-app-vscode.png)
+
+3. Open a command prompt and open the issuer folder.
+4. Run the updated node app.
+
+    ```cmd
+    node ./app.js
+    ```
+5. Using a different command prompt run ngrok to set up a URL on 8081
+
+    ```cmd
+    ngrok http 8081
+    ```
+    
+    >[!IMPORTANT]
+    > You may also notice a warning that this app or website may be risky. The message is expected at this time because we have not yet linked your DID to your domain. Follow the [DNS binding](how-to-dnsbind.md) instructions to configure this. 
+    
+6. Open the HTTPS URL generated by ngrok and test issuing the VC to yourself.
+
+    ![NGROK forwarding endpoints](media/tutorial-create-sample-card-your-issuer/ngrok-url-screen.png)
+
+
+## Test verifying the VC using the sample app
+
+Now that we've issued the verifiable credential from our own tenant, let's verify it using our Sample app.
+
+>[!IMPORTANT]
+> When testing, use the same email and password that you used during the [get started](get-started-verifiable-credentials.md) article. You need that information because while you are issuing the vc authentication is still handled by the same B2C tenant that handled authentication while completing the first tutorial.
+
+1. Open up **Settings** in the verifiable credentials blade in Azure portal. Copy the Issuer identifier.
+
+   ![copy the issuer identifier](media/tutorial-create-sample-card-your-issuer/issuer-identifier.png)
+
+2. Now open up your app.js file in your Verifier Sample code and make the following changes:
+
+- credential: change to your credential URL
+- credentialType: 'MyFirstVC'
+- issuerDid: Copy this value from Azure Portal>Verifiable credentials (Preview)>Settings>Decentralized identifier (DID)
+
+   ![update the constant issuerDid to match your issuer identifier](media/tutorial-create-sample-card-your-issuer/constant-update.png)
+
+3. Now run your verifier app and present the VC.
+
+4. Stop running your issuer ngrok service.
+
+    ```cmd
+    control-c
+    ```
+
+5. Now run ngrok with the verifier port 8082.
+
+    ```cmd
+    ngrok http 8082
+    ```
+
+6. In another terminal window, navigate to the verifier app and run it similarly to how we ran the issuer app.
+
+    ```cmd
+    cd ..
+    cd verifier
+    node app.js
+    ```
+
+>[!note]
+The Verifier DID is still from the Microsoft Sample App tenant. Since Microsoft's DID has been linked to a domain we own, you will not see the warning like we experienced during the Issuance flow. This will be updated in the next section. 
+
+## Next steps
+
+Now that you have the sample code issuing a VC from your issuer, lets continue to the next section where you use your own identity provider to authenticate users trying to get verifiable credentials.
 
 > [!div class="nextstepaction"]
-> [Create Sample Ninja Credential in your Issuer](create-sample-card-your-issuer.md)
+> [Tutorial - Configure your identity provider using the verifiable credentials sample app](tutorial-03-sample-app-your-idp.md)
+
+

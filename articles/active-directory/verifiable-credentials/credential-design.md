@@ -19,11 +19,28 @@ ms.author: barclayn
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Verifiable Credentials are made up of two components, the rules and display files. Your organization is able to create, customize and submit these files within the Azure Portal in order to issue Verifiable Credentials.  
+Verifiable Credentials are made up of two components, the rules and display files. The Rules file determines what the user needs to do in order to receive a Verifiable Credential and the Display File controls the branding of the credential and styling of the claims. In this guide, we will explain how to modify both files to meet the requirements of your organization. 
 
-Verifiable Credentials offer a limited set of options that can be used to reflect your brand. This article provides instructions how to customize your credentials, and best practices for designing credentials that look great once issued to users.
+## Rules File: Requirements from the user
 
-## Create a credential rules file
+There are currently 4 inputs that that are available in order for the Verifiable Credential Issuing service to insert a claim and sign it with your DID. 
+
+- ID Token
+- Verifiable Credentials 
+- Self Issued Claims
+- Hard Coded Claims
+
+**ID Token:** The Sample App and Tutorial use the ID Token. When this option is selected, you will need to provide an Open ID Connect configuration URI and include the claims that should be included in the VC. The user will be promoted to 'Sign In' on the Authenticator app in order to meet this requirement and add the associated claims from their account. 
+
+// insert image 
+
+**Verifiable Credentials:** The end result of an issuance flow is to produce a Verifiable Credential but you may also ask the user to Present a Verifiable Credential in order to issue one. The Rules File is able to take specific claims from the presented Verifiable Credential and include those claims in the newly issued Verifiable Credential from your organization. 
+
+// insert image 
+
+**Self Issued Claims:** When this option is selected, the user will be able to directly type information into Authenticator 
+
+// insert image 
 
 The rules file is a simple JSON file that describes important properties of verifiable credentials. In particular it describes how claims are used to populate your Verifiable Credentials. The rules file has the following structure.
 
@@ -67,34 +84,13 @@ The rules file is a simple JSON file that describes important properties of veri
 
 To issue verifiable credentials, you need to construct your own rules file. Begin with the example given above, and change the following values.
 
-<div class="step">
-<div class="numberCircle">1</div>
-<div class="singleline-step">
-Modify the `credentialIssuer` value to use your Azure AD tenant ID.
-</div>
-</div>
+1. Modify the `credentialIssuer` value to use your Azure AD tenant ID.
 
-<div class="step">
-<div class="numberCircle">2</div>
-<div class="singleline-step">
-Modify the `vc.type` value to reflect the type of your credential. See the section below.
-</div>
-</div>
+2. Modify the `vc.type` value to reflect the type of your credential. See the section below.
 
-<div class="step">
-<div class="numberCircle">3</div>
-<div class="multiline-step">
-Modify the `mapping` section, so that claims from your identitiy provider are mapped to attributes of your Verifiable Credential.
-</div>
-</div>
+3. Modify the `mapping` section, so that claims from your identitiy provider are mapped to attributes of your Verifiable Credential.
 
-<div class="step">
-<div class="numberCircle">4</div>
-<div class="singleline-step">
-Modify the `configuration` and `client_id` values to the values you prepared in the section above.
-</div>
-</div>
-
+4. Modify the `configuration` and `client_id` values to the values you prepared in the section above.
 
 ## Choose credential type(s)
 
@@ -114,6 +110,8 @@ To ensure interoperability of your credentials, it's recommended that you work c
 
 
 ## Cards in Microsoft Authenticator
+
+Verifiable Credentials offer a limited set of options that can be used to reflect your brand. This article provides instructions how to customize your credentials, and best practices for designing credentials that look great once issued to users.
 
 Verifiable Credentials issued to users are displayed as cards in Microsoft Authenticator. As the administrator, you may choose card color, icon, and text strings to match your organization's brand.
 
