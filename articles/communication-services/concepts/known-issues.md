@@ -15,7 +15,7 @@ ms.service: azure-communication-services
 This article provides information about limitations and known issues related to Azure Communication Services.
 
 > [!IMPORTANT]
-> There are multiple factors that can affect the quality of your calling experience. Refer to the [network requirements](./voice-video-calling/network-requirements) documentation to learn more about Communication Services network configuration and testing best practices.
+> There are multiple factors that can affect the quality of your calling experience. Refer to the **[network requirements](./voice-video-calling/network-requirements)** documentation to learn more about Communication Services network configuration and testing best practices.
 
 
 ## JavaScript client library known issues 
@@ -49,7 +49,7 @@ Switching between video devices may cause your video stream to pause while the s
 Streaming from and switching between media devices is computationally intensive. Switching frequently can cause performance degradation. Developers are encouraged to stop one device stream before starting another.
 
 ### Bluetooth headset microphone is not detected therefore is not audible during the call on Safari
-Currently, there is no ability to use the headset connected via Bluetooth on Safari. Your Bluetooth device will not be listed in available microphone options and other participants will not be able to hear you if you try using Bluetooth over Safari.
+Bluetooth headsets aren't supported by Safari. Your Bluetooth device will not be listed in available microphone options and other participants will not be able to hear you if you try using Bluetooth over Safari.
 
 #### Possible causes
 This is a known iOS operating system limitation. 
@@ -83,7 +83,7 @@ Mobile browsers are sensitive to any changes made while being in the `connecting
 
 
 #### Possible causes
-Under investigation
+Under investigation.
 
 ###  Sometimes it takes a long time to render remote participant videos
-This issue has been observed when, during an ongoing group call, User A sends video and then User B joins the call. Sometimes User B doesn't see video from User A, or User A's video begins rendering after a long delay. This could be caused by a network environment that requires further configuration. Refer to the (network requirements)[./concepts/voice-video-calling/network-requirements] documentation for network configuration guidance.
+This issue has been observed when, during an ongoing group call, User A sends video and then User B joins the call. Sometimes User B doesn't see video from User A, or User A's video begins rendering after a long delay. This could be caused by a network environment that requires further configuration. Refer to the [network requirements](./voice-video-calling/network-requirements) documentation for network configuration guidance.
