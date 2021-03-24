@@ -37,6 +37,7 @@ There are two core parts to chat architecture: 1) Trusted Service and 2) Client 
 
  - **Trusted service:** To properly manage a chat session, you need a service that helps you connect to Communication Services by using your resource connection string. This service is responsible for creating chat threads, managing thread participant lists, and providing access tokens to users. More information about access tokens can be found in our [access tokens](../../quickstarts/access-tokens.md) quickstart.	
  - **Client app:**  The client application connects to your trusted service and receives the access tokens that are used to connect directly to Communication Services. After this connection is made, your client app can send and receive messages.	
+
 We recommend generating access tokens using the trusted service tier. In this scenario the server side would be responsible for creating and managing users and issuing their tokens.	
     	
 ## Message types	
