@@ -89,6 +89,7 @@ Not all features available in Azure Database for MySQL - Single Server is availa
 
 ## Next steps
 
-- Understand [what’s available for compute and storage options](concepts-compute-storage.md)
+- Learn [choose the right MySQL Server option in Azure documentation](../select-right-deployment-type.md)
+- Understand [what’s available for compute and storage options in flexible server](concepts-compute-storage.md)
 - Learn about [Supported MySQL Versions](concepts-supported-versions.md)
-- Review [how to back up and restore a server using the Azure portal](how-to-restore-server-portal.md)
+- Quickstart: [Use the Azure portal to create an Azure Database for MySQL flexible server](quickstart-create-server-portal.md)
