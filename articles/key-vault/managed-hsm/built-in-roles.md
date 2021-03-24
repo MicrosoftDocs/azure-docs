@@ -19,13 +19,13 @@ Managed HSM local RBAC has several built-in roles that you can assign to users, 
 
 |Role Name|Description|ID|
 |---|---|---|
-|Managed HSM Administrator| Grants full access to all data actions.|a290e904-7015-4bba-90c8-60543313cdb4|
-|Managed HSM Crypto Officer| Grants full access to all key management and key cryptographic operations|515eb02d-2335-4d2d-92f2-b1cbdf9c3778|
-|Managed HSM Crypto User|Grants access to create and use keys for cryptographic operations. Cannot permanently delete keys.|21dbd100-6940-42c2-9190-5d6cb909625b|
+|Managed HSM Administrator| Grants permissions to perform all operations related to Security Domain, full backup/restore, and role managmenet. Not permitted to perform any key management operations.|a290e904-7015-4bba-90c8-60543313cdb4|
+|Managed HSM Crypto Officer|Grants permissions to perform all role management, purge or recover deleted keys, and export keys. Not permitted to perform any other key management operations.|515eb02d-2335-4d2d-92f2-b1cbdf9c3778|
+|Managed HSM Crypto User|Grants permissions to perform all key management operations except purge or recover deleted keys, and export keys.|21dbd100-6940-42c2-9190-5d6cb909625b|
 |Managed HSM Policy Administrator| Grants permission to create and delete role assignments|4bd23610-cdcf-4971-bdee-bdc562cc28e4|
-|Managed HSM Crypto Auditor|Grants read permission to read (but not use) keys|2c18b078-7c48-4d3a-af88-5a3a1b3f82b3|
+|Managed HSM Crypto Auditor|Grants read permission to read (but not use) key attributes.|2c18b078-7c48-4d3a-af88-5a3a1b3f82b3|
 |Managed HSM Crypto Service Encryption| Grants permission to use a key for service encryption. |33413926-3206-4cdd-b39a-83574fe37a17|
-|Managed HSM Backup| Grants permission to perform single key or whole HSM backup. |7b127d3c-77bd-4e3e-bbe0-dbb8971fa7f8|
+|Managed HSM Backup| Grants permission to perform single key or whole HSM backup.|7b127d3c-77bd-4e3e-bbe0-dbb8971fa7f8|
 
 ## Permitted operations
 > [!NOTE]  
@@ -41,24 +41,24 @@ Managed HSM local RBAC has several built-in roles that you can assign to users, 
 /securitydomain/upload/read|<center>X</center>||||||
 /securitydomain/transferkey/read|<center>X</center>||||||
 |**Key management**|
-|/keys/read/action|<center>X</center>|<center>X</center>|<center>X</center>||<center>X</center>||<center>X</center>|
-|/keys/write/action|<center>X</center>|<center>X</center>|<center>X</center>||||
-|/keys/create|<center>X</center>|<center>X</center>|<center>X</center>||||
-|/keys/delete|<center>X</center>|<center>X</center>|||||
-|/keys/deletedKeys/read/action|<center>X</center>|<center>X</center>|||||
-|/keys/deletedKeys/recover/action|<center>X</center>|<center>X</center>|||||
-|/keys/deletedKeys/delete|<center>X</center>|<center>X</center>|||||<center>X</center>|
-|/keys/backup/action|<center>X</center>|<center>X</center>|<center>X</center>|||<center>X</center>|
-|/keys/restore/action|<center>X</center>|<center>X</center>|||||
-|/keys/export/action|<center>X</center>|<center>X</center>|||||
-|/keys/import/action|<center>X</center>|<center>X</center>|||||
+|/keys/read/action|<center></center>|<center></center>|<center>X</center>||<center>X</center>||<center>X</center>|
+|/keys/write/action|<center></center>|<center></center>|<center>X</center>||||
+|/keys/create|<center></center>|<center></center>|<center>X</center>||||
+|/keys/delete|<center></center>||<center>X</center>||||
+|/keys/deletedKeys/read/action|<center></center>|<center>X</center>|||||
+|/keys/deletedKeys/recover/action|<center></center>|<center>X</center>|||||
+|/keys/deletedKeys/delete|<center></center>|<center>X</center>|||||<center>X</center>|
+|/keys/backup/action|<center></center>|<center></center>|<center>X</center>|||<center>X</center>|
+|/keys/restore/action|<center></center>||<center>X</center>||||
+|/keys/export/action|<center></center>|<center>X</center>|||||
+|/keys/import/action|<center></center>||<center>X</center>||||
 |**Key cryptographic operations**|
-|/keys/encrypt/action|<center>X</center>|<center>X</center>|<center>X</center>||||
-|/keys/decrypt/action|<center>X</center>|<center>X</center>|<center>X</center>||||
-|/keys/wrap/action|<center>X</center>|<center>X</center>|<center>X</center>||<center>X</center>||
-|/keys/unwrap/action|<center>X</center>|<center>X</center>|<center>X</center>||<center>X</center>||
-|/keys/sign/action|<center>X</center>|<center>X</center>|<center>X</center>||||
-|/keys/verify/action|<center>X</center>|<center>X</center>|<center>X</center>||||
+|/keys/encrypt/action|<center></center>|<center></center>|<center>X</center>||||
+|/keys/decrypt/action|<center></center>|<center></center>|<center>X</center>||||
+|/keys/wrap/action|<center></center>|<center></center>|<center>X</center>||<center>X</center>||
+|/keys/unwrap/action|<center></center>|<center></center>|<center>X</center>||<center>X</center>||
+|/keys/sign/action|<center></center>|<center></center>|<center>X</center>||||
+|/keys/verify/action|<center></center>|<center></center>|<center>X</center>||||
 |**Role management**|
 |/roleAssignments/delete/action|<center>X</center>|||<center>X</center>|||
 |/roleAssignments/read/action|<center>X</center>|||<center>X</center>|||
