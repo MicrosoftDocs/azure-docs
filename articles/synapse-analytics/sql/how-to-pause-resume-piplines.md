@@ -1,6 +1,6 @@
 ---
-title: Pause and resume dedicated SQL pools using Synapse Pipelines 
-description: Learn to automate pause and resume for dedicated SQL pools using Synapse Pipelines in Azure Synapse Analytics. 
+title: Pause and resume dedicated SQL pools with Synapse Pipelines 
+description: Learn to automate pause and resume a dedicated SQL pool with Synapse Pipelines in Azure Synapse Analytics. 
 author: iamjenetzler
 ms.author: jeetzler
 ms.service: synapse-analytics
@@ -9,7 +9,7 @@ ms.date: 02/05/2021
 ms.custom: template-how-to 
 ---
 
-# Pause and resume dedicated SQL pools using Synapse Pipelines
+# Pause and resume dedicated SQL pools with Synapse Pipelines
 
 Pause and resume for dedicated SQL pools can be automated using Synapse Pipeline in Azure Synapse Analytics. Pause and resume are used to save costs for a dedicated SQL pool. This solution can easily be included in an existing data orchestration process. 
 
@@ -31,26 +31,27 @@ Depending upon the nature of your environment, the whole process described here 
 
 The above steps above use the REST APIs for Synapse and Azure SQL:
 
-[Dedicated SQL pool operations](/rest/api/synapse/sqlpools)
+- [Dedicated SQL pool operations](/rest/api/synapse/sqlpools)
  
-[Azure SQL Database REST API](/rest/api/sql)
+- [Azure SQL Database REST API](/rest/api/sql)
 
-Synapse Pipelines allows for the automation of pause and resume, but you can execute these commands on-demand via the tools or application of your choice.
+Synapse Pipelines allow for the automation of pause and resume, but you can execute these commands on-demand via the tool or application of your choice.
 
 ## Prerequisites
 
 - You'll need an [Azure Synapse workspace](../get-started-create-workspace.md)
-- 
-> [!IMPORTANT]
-> For all of the Web Activities / REST API Web calls, you need to ensure that Synapse Pipeline is authenticated against dedicated SQL pool. [Managed Identity](../../data-factory/control-flow-web-activity.md#managed-identity) is required to run these REST API calls. 
-
-![View of Synapse Pipeline authentication showing MSI selected.](./media/how-to-pause-resume-pipelines/msi.png)
+- You wil need to assign security to the workspace
 
 ## Pipeline setup steps
 
-1. Navigate to your workspace and open Synapse Studio. Select the Integrate icon, then select the + sign to create a new pipeline.
+1. Create pipeline
+    1. Navigate to your workspace and open Synapse Studio. 
+    1. Select the Integrate icon, then select the + sign to create a new pipeline. 
+    1. Name your pipeline PauseResume.
 
-1. The pipeline created below is parameter driven. Parameters allow you to create a generic pipeline that you can use across multiple subscriptions, resource groups, or dedicated SQL pools. Select the **Parameters** tab near the bottom of the pipeline screen. Create the following parameters:
+    ![Create a pipeline in Synapse Studio](./media/how-to-pause-resume-pipelines/create-pipeline.png) 
+
+2. The pipeline created below is parameter driven. Parameters allow you to create a generic pipeline that you can use across multiple subscriptions, resource groups, or dedicated SQL pools. Select the **Parameters** tab near the bottom of the pipeline screen. Create the following parameters:
 
     
     |Name  |Type  |Default value  |Description|
@@ -61,8 +62,16 @@ Synapse Pipelines allows for the automation of pause and resume, but you can exe
     |SQLPoolName      |string        |SQLpool1         |Name of your dedicated SQL pool|
     |PauseorResume    |string        |Pause            |The desired state at the end of the pipeline run|
 
+    ![Pipeline parameters inputin Synapse Studio.](./media/how-to-pause-resume-pipelines/pipeline-parameters.png)
 
-1. Under **Activities** > **General** drag a **Web Activity** to the pipeline as the first stage of your pipeline. You'll use this activity to identify the list of dedicated SQL pools by calling the dedicated SQL pools - List By Server REST API request. In the **General** tab, name this stage GET list. Select the **Settings** tab. Click in the **URL** entry space, then select **Add dynamic content**. Copy and paste the GET request that has been parameterized using the @concat string function into the dynamic content box. Select **Finish**. Select **Advanced to expand the content. Select MSI as the Authentication type. For Resource enter "https://management.azure.com/"
+3. Set up a **Web** activity, you'll use this activity to identify the list of dedicated SQL pools by calling the dedicated SQL pools - List By Server REST API request. The output is a JSON string that contains a list of the database instances in the SQL server named above. The JSON string is passed to the next activity.
+    1. Under **Activities** > **General** drag a **Web Activity** to the pipeline canvas as the first stage of your pipeline.  
+    1. In the **General** tab, name this stage GET List. 
+    1. Select the **Settings** tab. 
+    1. Click in the **URL** entry space, then select **Add dynamic content**. Copy and paste the GET request that has been parameterized using the @concat string function from below into the dynamic content box. Select **Finish**. 
+    1. Select the drop down for **Method** and select **Get**  Select **Advanced to expand the content. Select MSI as the Authentication type. For Resource enter `https://management.azure.com/` 
+    > [!IMPORTANT]
+    > For all of the Web Activities / REST API Web calls, you need to ensure that Synapse Pipeline is authenticated against dedicated SQL pool. [Managed Identity](../../data-factory/control-flow-web-activity.md#managed-identity) is required to run these REST API calls. 
     
     
     ![Web activity list for dedicated SQL pools](./media/how-to-pause-resume-pipelines/web-activity-list-sql-pools.png)
@@ -73,49 +82,39 @@ Synapse Pipelines allows for the automation of pause and resume, but you can exe
     GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Synapse/workspaces/{workspace-name}/sqlPools?api-version=2019-06-01-preview
     ```
     
-    Enter the GET request has been parameterized using the @concat string function:
+    GET request that has been parameterized using the @concat string function:
     
     ```HTTP
     @concat('https://management.azure.com/subscriptions/',pipeline().parameters.SubscriptionID,'/resourceGroups/',pipeline().parameters.ResourceGroup,'/providers/Microsoft.Synapse/workspaces/',pipeline().parameters.WorkspaceName,'/sqlPools?api-version=2019-06-01-preview')
     ```
 
-   
-    The output is a JSON string that contains a list of the database instances in the SQL server named above. The JSON string is passed to the next activity.
 
-1. Remove irrelevant dedicated SQL pools with a Filter Activity that filters based on the values passed from the DBList1 Activity.
-    
-    ![Filter dedicated SQL pools](./media/how-to-pause-resume-pipelines/filter-sql-pools.png)
-    
-    
-    In this example, we're extracting the records from the array that don't have "prod" in the name. Other conditions can be applied as needed, such as filtering on the sku/name of the Synapse workspace to ensure only valid dedicated SQL pools are identified.
-    
-    Here the command under **Items** is:
-    
-    ```HTTP
-    @activity('Get list').output.value
-    ```
-    
-    where GET List Databases is the name of the preceding Web activity
-    
-    The command under **Condition** is:
-    
-    ```HTTP
-    @not(endswith(item().name,'prod'))
-    ```
-    
-    The remaining records in the array are then passed to the next activity.
+4. Remove dedicated SQL pools that you do not want to pause or resume with a Filter Activity that filters based on the values passed from the DBList1 Activity.  In this example, we're extracting the records from the array that don't have "prod" in the name. Other conditions can be applied as needed, such as filtering on the sku/name of the Synapse workspace to ensure only valid dedicated SQL pools are identified.
+    1. Select and drag the **Filter** activity under **Iteration & conditionals** to the pipeline canvas.    
+    ![Filter dedicated SQL pools](./media/how-to-pause-resume-pipelines/filter-sql-pools.png)    
+    1. Connect the Get List Web activity to the Filter activity by selecting the green tab on the Web activity and dragging it to the Filter box.
+    1. Enter `@activity('Get list').output.value` for **Items** where GET List  is the name of the preceding Web activity
+    1. Enter `@not(endswith(item().name,'prod'))` for **Condition**. The remaining records in the array are then passed to the next activity.
 
-4. Loop over the list of dedicated SQL pools
-    
-    In the pipeline where the above activities are being run, create a ForEach activity to loop over each dedicated SQL pool. On the **General** tab name the activity, we have used 'for each dedicated SQL pool'. On the **Settings** tab, select **Sequential**. Select the **Items** input and select **Add dynamic content**. Scroll to the **activity outputs** and select the output from your filter activity. Select **finish**.
+5. In the pipeline where the above activities are being run, create a ForEach activity to loop over each dedicated SQL pool. 
+    1. Select and drag the **ForEach** activity under **Iteration & conditionals** to the pipeline canvas.
+    1. On the **General** tab name the activity, we have used 'ForEachSQLPool'. 
+    1. On the **Settings** tab, select **Sequential**. 
+    1. Select the **Items** input and select **Add dynamic content**. Scroll to the **Activity outputs** and select the output from your filter activity. Select **finish**.
 
     ![Loop through dedicated SQL pools](./media/how-to-pause-resume-pipelines/loop-through-sql-pools.png)
     
-    If you're pausing or resuming a single dedicated SQL pool, complete step 1 and follow the next steps.
+    1. If you're pausing or resuming a single dedicated SQL pool, complete step 1 and follow the next steps.
 
-    a. Check the state of the dedicated SQL pools
-    
-    Checking the state of the dedicated SQL pool requires a Web Activity, similar to step 1. This activity calls the [Check dedicated SQL pool state REST API for Azure Synapse](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
+       
+6. Checking the state of the dedicated SQL pool requires a Web Activity, similar to step 1. This activity calls the [Check dedicated SQL pool state REST API for Azure Synapse](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
+     activity.
+    1. Select and drag a **Switch** activity under **Iteration & conditionals** to the pipeline canvas.    
+    1. Connect the Get List Web activity to the CheckState activity by selecting the green tab on the Web activity and dragging it to the Switch box.  
+    1. In the **General** tab, name this stage CheckState. 
+    1. Select the **Settings** tab.     
+    1. Click in the **URL** entry space, then select **Add dynamic content**. Copy and paste the GET request that has been parameterized using the @concat string function from below into the dynamic content box. Select **Finish**. 
+    1. Select the drop down for **Method** and select **Get**  Select **Advanced to expand the content. Select MSI as the Authentication type. For Resource enter `https://management.azure.com/` 
     
     ![Check state of the dedicated SQL pool](./media/how-to-pause-resume-pipelines/check-sql-pool-state.png)
     
@@ -128,16 +127,18 @@ Synapse Pipelines allows for the automation of pause and resume, but you can exe
     You can parameterize the GET request using the @concat string function:
     
     ```HTTP
-    @concat('https://management.azure.com/subscriptions/',pipeline().parameters.Subscription,'/resourceGroups/',pipeline().parameters.ResourceGroup,'/providers/Microsoft.Synapse/workspaces/',pipeline().parameters.ServerName,'/sqlPools/',item().name,'?api-version=2019-06-01-preview')
+    @concat('https://management.azure.com/subscriptions/',pipeline().parameters.SubscriptionID,'/resourceGroups/',pipeline().parameters.ResourceGroup,'/providers/Microsoft.Synapse/workspaces/',pipeline().parameters.WorkspaceName,'/sqlPools/',item().name,'?api-version=2019-06-01-preview')
     ```
     
-    In this case, we are using item().name â€“ the name of the dedicated SQL pool from Step 1 â€“ that that was passed to this activity from the ForEach loop. If you are using in a pipeline to control a single database, you can embed the name of your dedicated SQL pool here, or use a parameter from the pipeline. For example, you could use pipeline().parameters.DatabaseName.
+    In this case, we are using item().name which is the name of the dedicated SQL pool from Step 1 that that was passed to this activity from the ForEach loop. If you are using a pipeline to control a single dedicated SQL pool, you can embed the name of your dedicated SQL pool here, or use a parameter from the pipeline. For example, you could use pipeline().parameters.SQLPoolName.
     
     The output is a JSON string that contains details of the dedicated SQL pool, including its status (in properties.status). the JSON string is passed to the next activity.
 
-    b. Evaluate the desired state, Pause or Resume, and the current status, Online, or Paused, and then initiate Pause or Resume as needed.
+7. Evaluate the desired state, Pause or Resume, and the current status, Online, or Paused, and then initiate Pause or Resume as needed.
     
-    Create a Switch activity to evaluate the desired state and the current status from the previous step.
+    1. Select and drag a **Switch** activity, under **Iteration & conditionals**, to the pipeline canvas.    
+    1. Connect the Switch activity to the CheckState activity by selecting the green tab on the Web activity and dragging it to the Switch box.  
+    1. In the **General** tab, name this stage CheckState. 
     
     ![Check condition dedicated SQL pool](./media/how-to-pause-resume-pipelines/check-condition.png)
     
