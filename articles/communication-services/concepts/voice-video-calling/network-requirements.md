@@ -95,6 +95,6 @@ Learn about the operating systems and browsers that the calling client libraries
 
 The following documents may be interesting to you:
 
-- Learn more about [calling lubruaries](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features)
+- Learn more about [calling libruaries](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features)
 - Learn about [Client-server architecture](https://docs.microsoft.com/azure/communication-services/concepts/client-and-server-architecture)
 - Learn about [Call flow topologies](https://docs.microsoft.com/azure/communication-services/concepts/call-flows)
