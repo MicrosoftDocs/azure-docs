@@ -186,7 +186,7 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Virtual Machines (incl. Reserved Instances)](https://azure.microsoft.com/services/virtual-machines/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Virtual Network](https://azure.microsoft.com/services/virtual-network/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Virtual Network NAT](../../virtual-network/nat-overview.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Virtual Network NAT](../../virtual-network/nat-gateway/nat-overview.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Virtual WAN](https://azure.microsoft.com/services/virtual-wan/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Visual Studio Codespaces](https://azure.microsoft.com/services/visual-studio-online/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
@@ -264,7 +264,7 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [Azure Service Manager (RDFE)](/previous-versions/azure/ee460799(v=azure.100)) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
 | [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Stack Hub](/azure-stack/operator/azure-stack-overview?view=azs-2002)| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
+| [Azure Stack Hub](/azure-stack/operator/azure-stack-overview?view=azs-2002&preserve-view=true)| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
 | [Backup](https://azure.microsoft.com/services/backup/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Batch](https://azure.microsoft.com/services/batch/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Cloud Services](https://azure.microsoft.com/services/cloud-services/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -338,7 +338,7 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Virtual Network](https://azure.microsoft.com/services/virtual-network/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Virtual Network NAT](../../virtual-network/nat-overview.md)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
+| [Virtual Network NAT](../../virtual-network/nat-gateway/nat-overview.md)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
 | [Virtual WAN](https://azure.microsoft.com/services/virtual-wan/) | :heavy_check_mark: |  |  |  | :heavy_check_mark: | :heavy_check_mark: 
 | [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Web Apps (App Service)](https://azure.microsoft.com/services/app-service/web/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |

@@ -285,7 +285,7 @@
     - name: Load Balancer - public
       href: ../../load-balancer/quickstart-load-balancer-standard-public-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: NAT gateway
-      href: ../../virtual-network/quickstart-create-nat-gateway-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: ../../virtual-network/nat-gateway/quickstart-create-nat-gateway-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Private Endpoint
       href: ../../private-link/create-private-endpoint-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Private Link service
@@ -398,16 +398,16 @@
     - name: Create multiple instances
       items:
       - name: Resources
-        displayName: iteration,copy,multiple
+        displayName: iteration,copy
         href: copy-resources.md
       - name: Properties
-        displayName: iteration,copy,multiple
+        displayName: iteration,copy
         href: copy-properties.md
       - name: Variables
-        displayName: iteration,copy,multiple
+        displayName: iteration,copy
         href: copy-variables.md
       - name: Outputs
-        displayName: iteration,copy,multiple
+        displayName: iteration,copy
         href: copy-outputs.md
   - name: Deploy templates
     items:

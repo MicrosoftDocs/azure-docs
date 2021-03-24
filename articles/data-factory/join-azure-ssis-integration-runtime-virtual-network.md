@@ -66,7 +66,7 @@ If your SSIS packages access Azure resources that support [virtual network servi
 If your SSIS packages access data stores/resources that allow only specific static public IP addresses and you want to secure access to those resources from Azure-SSIS IR, you can associate [public IP addresses](../virtual-network/virtual-network-public-ip-address.md) with Azure-SSIS IR while joining it to a virtual network and then add an IP firewall rule to the relevant resources to allow access from those IP addresses. There are two alternative ways to do this: 
 
 - When you create Azure-SSIS IR, you can bring your own public IP addresses and specify them via [Data Factory UI or SDK](#join-the-azure-ssis-ir-to-a-virtual-network). Only the outbound internet connectivity of Azure-SSIS IR will use your provided public IP addresses and other devices in the subnet will not use them.
-- You can also setup [Virtual Network NAT](../virtual-network/nat-overview.md) for the subnet that Azure-SSIS IR will join and all outbound connectivity in this subnet will use your specified public IP addresses.
+- You can also setup [Virtual Network NAT](../virtual-network/nat-gateway/nat-overview.md) for the subnet that Azure-SSIS IR will join and all outbound connectivity in this subnet will use your specified public IP addresses.
 
 In all cases, the virtual network can be deployed only through the Azure Resource Manager deployment model.
 
