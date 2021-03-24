@@ -6,6 +6,8 @@
     href: introduction.md
   - name: Platform updates
     href: azure-vmware-solution-platform-updates.md
+  - name: FAQ
+    href: faq.yml
 - name: Quick start
   items:
     - name: 0 - Plan the deployment
@@ -118,8 +120,6 @@
     items:
     - name: Open a support request for deployment failures
       href: fix-deployment-provisioning-failures.md
-  - name: FAQ
-    href: faq.yml
   - name: Videos 
     items:
     - name: Playlist
