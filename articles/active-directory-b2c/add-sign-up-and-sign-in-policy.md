@@ -12,6 +12,7 @@ ms.topic: how-to
 ms.date: 12/16/2020
 ms.author: mimart
 ms.subservice: B2C
+ms.custom: "b2c-support"
 zone_pivot_groups: b2c-policy-type
 ---
 
@@ -62,6 +63,7 @@ The sign-up and sign-in user flow handles both sign-up and sign-in experiences w
     ![Attributes and claims selection page with three claims selected](./media/add-sign-up-and-sign-in-policy/signup-signin-attributes.png)
 
 1. Click **Create** to add the user flow. A prefix of *B2C_1* is automatically prepended to the name.
+2. Follow the steps covered [here](https://docs.microsoft.com/azure/active-directory-b2c/add-password-reset-policy?pivots=b2c-user-flow#self-service-password-reset-recommended) to handle the flow for "Forgot your password?" within the Sign-up or Sign-in policy.
 
 ### Test the user flow
 
