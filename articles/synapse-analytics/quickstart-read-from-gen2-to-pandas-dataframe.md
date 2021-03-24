@@ -15,7 +15,7 @@ ms.author: garye
 
 # Quickstart: Read data from ADLS Gen2 storage into a Pandas dataframe
 
-In this quickstart, you'll learn how to use Python to read data from an Azure Data Lake Storage (ADLS) Gen2 data source into a Pandas dataframe.
+In this quickstart, you'll learn how to easily use Python to read data from an Azure Data Lake Storage (ADLS) Gen2  into a Pandas dataframe in Azure Synapse.
 
 From a Synapse Studio notebook, you'll:
 
