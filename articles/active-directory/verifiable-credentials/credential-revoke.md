@@ -7,7 +7,7 @@ manager: davba
 ms.service: identity
 ms.subservice: verifiable-credentials
 ms.topic: how-to
-ms.date: 03/14/2021
+ms.date: 03/24/2021
 ms.author: barclayn
 # Customer intent: As a developer I am looking for information on how to enable my users to control their own information 
 ---
@@ -36,4 +36,6 @@ To invalidate all credentials you've issued, complete the following steps.
 1. Navigate to the **Overview** tab for your credential in the Azure portal.
 3. Click the **Delete & Revoke All Credentials** button. All users who have received Verifiable Credentials will no longer be able to use the credential with any verifier.
 
+## Next steps
 
+- Set up verifiable credentials on your [Azure tenant](get-started-verifiable-credentials.md)

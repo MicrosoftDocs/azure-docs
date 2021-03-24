@@ -7,7 +7,7 @@ manager: daveba
 ms.service: identity
 ms.topic: tutorial
 ms.subservice: verifiable-credentials
-ms.date: 03/23/2021
+ms.date: 03/24/2021
 ms.author: barclayn
 ms.reviewer: 
 

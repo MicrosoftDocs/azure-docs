@@ -7,7 +7,7 @@ manager: daveba
 ms.service: identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 03/15/2021
+ms.date: 03/24/2021
 ms.author: barclayn
 
 #Customer intent: Why are we doing this?
@@ -59,9 +59,7 @@ To make a link between a domain and a DID we follow an open standard written by 
 
 2. The verifiable credential service in AAD generates a compliant well-known configuration resource that you can host on your domain. The configuration file includes a self-issued verifiable credential of credentialType 'DomainLinkageCredential' signed with your DID that has an origin of your domain. Here is an example of the config doc that is stored at the root domain url.
 
-    ```json
-    https://www.example.com/.well-known/did-configuration.json
-    ```
+
     ```json
     {
       "@context": "https://identity.foundation/.well-known/contexts/did-configuration-v0.0.jsonld",
@@ -91,7 +89,7 @@ Before Microsoft Authenticator displays a 'Verified' icon, a few things need to 
 
 If all of the previously mentioned are true, then Microsoft Authenticator will display a Verified page and include the domain that was validated. 
 
-![new permission request](media/tutorial-verifiable-credentials-issuer/e5EKExG.png) 
+   ![new permission request](media/how-to-dnsbind/new-permission-request.png) 
 
 ## Unverified Domain
 
@@ -122,7 +120,7 @@ If any of the above are not true, the Microsoft Authenticator will display a ful
 6. Test out issuing or presenting with Microsoft Authenticator to validate. Make sure the setting in Authenticator 'Warn about unsafe apps' is toggled on.
 
 >[!NOTE]
->By default, 'Warn about unsafe apps' is turned on. 
+>By default, 'Warn about unsafe apps' is turned on.
 
 Congratulations, you now have bootstrapped the web of trust with your DID!
 
