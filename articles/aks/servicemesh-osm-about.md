@@ -79,9 +79,9 @@ As noted prior, the OSM add-on for AKS is in a preview state and will undergo ad
 > [!NOTE]
 > Do not attempt to install OSM from the binary using `osm install`. This will result in a installation of OSM that is not integrated as an add-on for AKS.
 
-## Install Open Service Mesh (OSM) Azure Kubernetes Service (AKS) add-on - Greenfield Deployment
+## Install Open Service Mesh (OSM) Azure Kubernetes Service (AKS) add-on for a new AKS cluster
 
-In the greenfield scenario, you will start with a brand new deployment of an AKS cluster enabling the OSM add-on at the cluster create operation.
+For a new AKS cluster deployment scenario, you will start with a brand new deployment of an AKS cluster enabling the OSM add-on at the cluster create operation.
 
 ### Create a resource group
 
@@ -110,9 +110,9 @@ Get access credentials for the new managed Kubernetes cluster.
 az aks get-credentials -n myOsmAksCluster -g myOsmAksGroup
 ```
 
-## Enable Open Service Mesh (OSM) Azure Kubernetes Service (AKS) add-on - Brownfield Deployment
+## Enable Open Service Mesh (OSM) Azure Kubernetes Service (AKS) add-on for an existing AKS cluster
 
-In the brownfield scenario, you will enable the OSM add-on to an existing AKS cluster that has already been deployed.
+For an existing AKS cluster scenario, you will enable the OSM add-on to an existing AKS cluster that has already been deployed.
 
 ### Enable the OSM add-on to existing AKS cluster
 
