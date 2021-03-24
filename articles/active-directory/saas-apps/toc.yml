@@ -2333,6 +2333,8 @@
         href: secure-login-provisioning-tutorial.md
       - name: ServiceNow
         href: servicenow-provisioning-tutorial.md
+      - name: Segment
+        href: segment-provisioning-tutorial.md
       - name: Shopify Plus
         href: shopify-plus-provisioning-tutorial.md
       - name: Slack
