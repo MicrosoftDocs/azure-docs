@@ -75,16 +75,14 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Authenticate the client
 
-Instantiate an **SmsClient** with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage you resource's connection string](../../create-communication-resource.md#store-your-connection-string).
+Instantiate an **SmsClient** with your connection string. Learn how to [manage you resource's connection string](../../create-communication-resource.md#store-your-connection-string).
 
 ```python
-# This code demonstrates how to fetch your connection string
-# from an environment variable.
-connection_string = os.getenv('COMMUNICATION_SERVICES_CONNECTION_STRING')
-
 # Create the SmsClient object which will be used to send SMS messages
-sms_client = SmsClient.from_connection_string(connection_string)
+sms_client = SmsClient.from_connection_string(<connection_string>)
 ```
+For simplicity we are using connection strings in this quickstart, but in production environments we recommend using [managed identities](../../../quickstarts/managed-identity.md) because they are more secure and manageable at scale.
+
 
 ## Send a 1:1 SMS Message
 
@@ -103,6 +101,9 @@ sms_responses = sms_client.send(
 ```
 
 You should replace `<from-phone-number>` with an SMS enabled phone number associated with your communication service and `<to-phone-number>` with the phone number you wish to send a message to. 
+
+> [!WARNING]
+> Note that phone numbers shold be provided in E.164 international standard format. (e.g.: +12223334444)
 
 ## Send a 1:N SMS Message
 
