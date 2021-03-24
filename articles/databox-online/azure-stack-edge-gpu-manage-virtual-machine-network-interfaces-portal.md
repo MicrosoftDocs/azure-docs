@@ -113,8 +113,6 @@ Follow these steps to detach or remove a network interface associated with a vir
 
 1. After the interface is completely detached, the list of network interfaces is refreshed to display the remaining interfaces.
 
-
-
 ## Next steps
 
 To learn how to deploy virtual machines on your Azure Stack Edge Pro device, see [Deploy virtual machines via the Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md).
