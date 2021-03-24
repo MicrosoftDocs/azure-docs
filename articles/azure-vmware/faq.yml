@@ -58,17 +58,6 @@ sections:
       - question: Can Azure Bastion be used for connecting to Azure VMware Solution VMs?
         answer: Azure Bastion is the service recommended to connect to the jump box to prevent exposing Azure VMware Solution to the internet. You can't use Azure Bastion to connect to Azure VMware Solution VMs since they aren't Azure IaaS objects.
 
-      - question: Can Azure Load Balancer internal be used for Azure VMware Solution VMs?
-        answer: No. Azure Load Balancer internal-only supports Azure IaaS VMs. Azure Load Balancer doesn't support IP-based backend pools; only Azure VMs or virtual machine scale set objects in which Azure VMware Solution VMs aren't Azure objects.
-
-      - question: Can an existing ExpressRoute Gateway be used to connect to Azure VMware Solution?
-        answer: Yes. Use an existing ExpressRoute Gateway to connect to Azure VMware Solution as long as it doesn't exceed the limit of four ExpressRoute circuits per virtual network. To access Azure VMware Solution from on-premises through ExpressRoute, you must have ExpressRoute Global Reach since the ExpressRoute Gateway doesn't provide transitive routing between its connected circuits.
-
-      - question: Why does Azure VMware Solution use a Public 4-byte Autonomous System Number (ASN)?
-        answer: Azure VMware Solution uses the officially registered Public 4-byte ASNs to ensure there is never a conflict with your on-premises use of Private ASNs in the customer's routing path to Azure VMware Solution.
-
-      - question: How can I use ExpressRoute to connect to Azure VMware Solution if the on-premises ExpressRoute-carrier partners/ISPs don't support 4-byte ASN?
-        answer: The only way to connect to Azure VMware Solution through ExpressRoute is for your environment and the on-premises ExpressRoute-carrier partners/ISPs support 4-byte ASN or have backward compatibility from 4 byte to 2-byte ASN in the BGP prefix ASN path advertisement.
 
   - name: Compute, network, storage, and backup
     questions:
@@ -107,6 +96,18 @@ sections:
 
       - question: Does ExpressRoute support packets exceeding MTU of 1500?
         answer: No. 
+
+      - question: Can Azure Load Balancer internal be used for Azure VMware Solution VMs?
+        answer: No. Azure Load Balancer internal-only supports Azure IaaS VMs. Azure Load Balancer doesn't support IP-based backend pools; only Azure VMs or virtual machine scale set objects in which Azure VMware Solution VMs aren't Azure objects.
+
+      - question: Can an existing ExpressRoute Gateway be used to connect to Azure VMware Solution?
+        answer: Yes. Use an existing ExpressRoute Gateway to connect to Azure VMware Solution as long as it doesn't exceed the limit of four ExpressRoute circuits per virtual network. To access Azure VMware Solution from on-premises through ExpressRoute, you must have ExpressRoute Global Reach since the ExpressRoute Gateway doesn't provide transitive routing between its connected circuits.
+
+      - question: Why does Azure VMware Solution use a Public 4-byte Autonomous System Number (ASN)?
+        answer: Azure VMware Solution uses the officially registered Public 4-byte ASNs to ensure there is never a conflict with your on-premises use of Private ASNs in the customer's routing path to Azure VMware Solution.
+
+      - question: How can I use ExpressRoute to connect to Azure VMware Solution if the on-premises ExpressRoute-carrier partners/ISPs don't support 4-byte ASN?
+        answer: The only way to connect to Azure VMware Solution through ExpressRoute is for your environment and the on-premises ExpressRoute-carrier partners/ISPs support 4-byte ASN or have backward compatibility from 4 byte to 2-byte ASN in the BGP prefix ASN path advertisement.
 
       - question: 1.	What is the Fault tolerance of hardware failure on the vSAN?
         answer: FTT-1, RAID-1 (mirroring) with Object Space reservation set to Thick Provisioning is the Default Storage policy for the SDDC.
@@ -271,4 +272,7 @@ sections:
   - name: Customer communication
     questions:
       - question: How can I receive an alert when Azure sends service health notifications to my Azure subscription?
-        answer: Service issues, planned maintenance, health advisories, security advisories notifications are published through **Service Health** in the Azure portal.  You can take timely actions when you set up activity log alerts for these notifications. For more information, see [Create service health alerts using the Azure portal](../service-health/alerts-activity-log-service-notifications-portal.md#create-service-health-alert-using-azure-portal).
+        answer: |
+        Service issues, planned maintenance, health advisories, security advisories notifications are published through **Service Health** in the Azure portal.  You can take timely actions when you set up activity log alerts for these notifications. For more information, see [Create service health alerts using the Azure portal](../service-health/alerts-activity-log-service-notifications-portal.md#create-service-health-alert-using-azure-portal).
+
+        :::image type="content" source="media/service-health.png" alt-text="Screenshot of Service Health notifications":::
