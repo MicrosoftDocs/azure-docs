@@ -33,19 +33,19 @@ There is typically a trade-off between optimizing for costs and optimizing for p
     - For the data drive, only use [premium P30 and P40 disks](../../../virtual-machines/disks-types.md#premium-ssd) to ensure the availability of cache support
     - For the log drive plan for capacity and test performance versus cost while evaluating the [premium P30 - P80 disks](../../../virtual-machines/disks-types#premium-ssd)
       - If 1-ms storage latencies are required, leverage [Ultra SSD Disks](../../../virtual-machines/disks-types#ultra-disk) for the transaction log. 
-        - For M-series virtual machine deployments consider [write accelerator](../../../virtual-machines/how-to-enable-write-accelerator) over using Ultra SSD disks.
+      - For M-series virtual machine deployments consider [write accelerator](../../../virtual-machines/how-to-enable-write-accelerator) over using Ultra SSD disks.
     - Place [tempdb](/sql/relational-databases/databases/tempdb-database) on the local ephemeral SSD D:\ drive for most SQL Server workloads after choosing the optimal VM size. 
       - If the capacity of the local drive is not enough for tempdb, see [Data file caching policies](#data-file-caching-policies) for more information.
 
-- Stripe multiple Azure data disks using [Storage Spaces](https://docs.microsoft.com/en-us/windows-server/storage/storage-spaces/overview) to increase I/O bandwidth up to the target virtual machine's IOPS and throughput limits.
+- Stripe multiple Azure data disks using [Storage Spaces](/windows-server/storage/storage-spaces/overview) to increase I/O bandwidth up to the target virtual machine's IOPS and throughput limits.
 
-- Set [host caching](../../../virtual-machines/disks-performance#virtual-machine-uncached-vs-cached-limits.md) to read-only for data file disks
+- Set [host caching](../../../virtual-machines/disks-performance#virtual-machine-uncached-vs-cached-limits.md) to read-only for data file disks.
 - Set [host caching](../../../virtual-machines/disks-performance#virtual-machine-uncached-vs-cached-limits.md) to none for log file disks.
-    - Note: Do not enable read/write caching on disks that contain SQL Server files	
-    - Note: Always stop the SQL Server service before changing the cache settings your disk.
+    - Do not enable read/write caching on disks that contain SQL Server files. 
+    - Always stop the SQL Server service before changing the cache settings of your disk.
 
-- For development and test workloads, and backup file locations consider leveraging standard storage. It is not recommended to use Standard HDD/SDD for production workloads.
-- [Credit-based Disk Bursting](../../../virtual-machines/disk-bursting#credit-based-bursting) (P1-P20) should be only considered for smaller dev/test workloads and departmental systems.
+- For development and test workloads, and long-term backup archival consider leveraging standard storage. It is not recommended to use Standard HDD/SDD for production workloads.
+- [Credit-based Disk Bursting](../../../virtual-machines/disk-bursting#credit-based-bursting) (P1-P20) should only be considered for smaller dev/test workloads and departmental systems.
 
 - Provision the storage account in the same region as the SQL Server VM. 
 - Disable Azure geo-redundant storage (geo-replication) and leverage LRS (local redundant storage) on the storage account.
@@ -53,23 +53,19 @@ There is typically a trade-off between optimizing for costs and optimizing for p
 
 ## Overview
 
-To find the most effective configuration for SQL Server workloads on an Azure VM, start by measuring the storage performance of your business application. Once storage requirements are known, select a virtual machine that supports the necessary IOPS and throughput with the appropriate core-to-memory ratio. 
+To find the most effective configuration for SQL Server workloads on an Azure VM, start by measuring the storage performance of your business application. Once storage requirements are known, select a virtual machine that supports the necessary IOPS and throughput with the appropriate memory-to-vCore ratio. 
 
 Choose a VM size with enough storage scalability for your workload and a mixture of disks, usually in a storage pool, that meet the capacity and performance requirements. 
 
 The type of disk will depend on both the file type that will be hosted on the disk and your peak performance requirements.
 
-This article provides information about the different types of data disks, which disks to use for SQL Server, and storage and monitoring considerations specific to SQL Server workloads. 
 
 > [!TIP]
 > Provisioning a SQL Server VM through the Azure portal helps guide you through the storage configuration process and implements most storage best practices such as creating separate storage pools for your data and log files, targeting tempdb to the D:\ drive, and enabling the optimal caching policy. For more information about provisioning and configuring storage, see [SQL VM storage configuration](storage-configuration.md). 
 
 ## VM disk types
 
-You have a choice in the performance level for your disks. The available types of managed disks listed in the order of increasing performance capabilities are standard hard disk drives (HDD), standard SSDs, premium solid-state drives (SSD), and Ultra Disks as the underlying storage.
-
->[NOTE] For an explanation of managed disk provisioning such as
-> disk allocation and performance, see [Managed disks overview](../../../virtual-machines/managed-disks-overview.md).
+You have a choice in the performance level for your disks. The available types of managed disks listed in the order of increasing performance capabilities are standard hard disk drives (HDD), standard SSDs, premium solid-state drives (SSD), and Ultra Disks as the underlying storage. To learn more about managed disk provisioning, see [Managed disks overview](../../../virtual-machines/managed-disks-overview.md). 
 
 The performance of the disk increases with the capacity, grouped by [premium disk labels](../../../virtual-machines/disks-types.md#premium-ssd) such as the P1 with 4GiB of space and 120 IOPS to the P80 with 32TiB of storage and 20,000 IOPS. Premium storage supports a storage cache that helps improve read and write performance for some workloads.
 
@@ -77,7 +73,7 @@ There are also three main [disk types](../../../virtual-machines/managed-disks-o
 
 An administrator should carefully choose what is stored on these local system disks; the operating system drive (C:\) and the ephemeral temporary drive (D:\). 
 
-An administrator is responsilble to configure the optimal disk storage for the remote data disks where SQL Server will host your SQL Server data files, log files, and other files.
+An administrator is responsible to configure the optimal disk storage for the remote data disks where SQL Server will host your SQL Server data files, log files, and other files.
 
 ### Operating system disk
 
@@ -87,7 +83,7 @@ For production SQL Server environments, use data disks instead of the operating 
 
 ### Temporary disk
 
-Many Azure virtual machines contain another disk type called the temporary disk (labeled as the D:\ drive). Depending on the virtual machine series and size this disk could either be local or remote storage and the capacity will vary. The temporary disk is ephemeral meaning that the disk storage will be recreated, deallocated and allocated again, when the virtual machine is recycled. 
+Many Azure virtual machines contain another disk type called the temporary disk (labeled as the D:\ drive). Depending on the virtual machine series and size this disk could either be local or remote storage and the capacity will vary. The temporary disk is ephemeral meaning that the disk storage will be recreated (as in, it will be deallocated and allocated again), when the virtual machine is restarted, or moved to a different host (for [service healing](), for example. ). 
 
 The temporary storage drive is not persisted to remote storage and therefore, you should not store user database files, transaction log files, or anything that cannot be easily recreated on the D:\ drive.
 
