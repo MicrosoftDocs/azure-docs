@@ -20,7 +20,7 @@ After completing this quickstart, you'll understand key concepts of the Batch se
 
 - A Batch account and a linked Azure Storage account. To create these accounts, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md).
 
-- [Python](https://python.org/downloads) version 2.7 or 3.3 or later, including the [pip](https://pip.pypa.io/en/stable/installing/) package manager
+- [Python](https://python.org/downloads) version 2.7 or 3.6, including the [pip](https://pip.pypa.io/en/stable/installing/) package manager
 
 ## Sign in to Azure
 
