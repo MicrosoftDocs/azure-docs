@@ -89,6 +89,9 @@ To prevent the creation of roles that can't be assigned or deleted, Azure VMware
 
 ## NSX-T Manager access and identity
 
+>[!NOTE]
+>NSX-T 2.5 is currently supported.
+
 Use the *administrator* account to access NSX-T Manager. It has full privileges and lets you create and manage Tier-1 (T1) Gateways, segments (logical switches), and all services. The privileges give you access to the NSX-T Tier-0 (T0) Gateway. A change to the T0 Gateway could result in degraded network performance or no private cloud access. Open a support request in the Azure portal to request any changes to your NSX-T T0 Gateway.
 
  
