@@ -38,7 +38,7 @@ Use the performance analysis to select the [VM Size](../../../virtual-machines/s
 
 SQL Server performance depends heavily on the I/O subsystem and storage performance is measured by IOPS and throughput. Unless your database fits into physical memory, SQL Server constantly brings database pages in and out of the buffer pool. The data files for SQL Server should be treated differently. Access to log files is sequential except when a transaction needs to be rolled back where data files, including TempDB, are randomly accessed. If you have a slow I/O subsystem, your users may experience performance issues such as slow response times and tasks that do not complete due to time-outs. 
 
-The Azure Marketplace virtual machines have log files on a physical disk that is separate from the data files by default. The TempDB data files count and size meet best practices and are targeted to the ephemeral D:/ drive.. 
+The Azure Marketplace virtual machines have log files on a physical disk that is separate from the data files by default. The TempDB data files count and size meet best practices and are targeted to the ephemeral `D:\` drive.. 
 
 The following PerfMon counters can help validate the IO throughput required by your SQL Server: 
 * **\LogicalDisk\Disk Reads/Sec** (read and write IOPS)

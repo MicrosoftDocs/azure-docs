@@ -208,7 +208,7 @@ To configure disk striping, see [disk striping](storage-configuration.md#disk-st
 
 There are throughput limits at both the disk and virtual machine level. The maximum IOPS limits per VM and per disk differ and are independent of each other.
 
-Applications that consume resources beyond these limits will be throttled. Select a virtual machine and disk size in a disk stripe that meets application requirements and will not face capping limitations. To address capping, use caching, or tune the application so that less throughput is required.
+Applications that consume resources beyond these limits will be throttled (also known as capped). Select a virtual machine and disk size in a disk stripe that meets application requirements and will not face capping limitations. To address capping, use caching, or tune the application so that less throughput is required.
 
 For example, an application that needs 12,000 IOPS and 180 MB/s can: 
 - Use the [Standard_M32ms](../../../virtual-machines/m-series.md) which has a max uncached disk throughput of 20,000 IOPS and 500 MBps.
@@ -265,7 +265,7 @@ I/O unit sizes influence IOPS and throughput capabilities as smaller I/O sizes y
 There are specific Azure Monitor metrics that are invaluable for discovering capping at the virtual machine and disk level as well as the consumption and the health of the AzureBlob cache. To identify key counters to add to your monitoring solution and Azure portal dashboard, see [Storage utilization metrics](../../../virtual-machines/disks-metrics.md#storage-io-utilization-metrics). 
 
 > [!NOTE]
-> Azure Monitor does not currently offer disk-level metrics for the ephemeral temp drive ``(D:\)``. VM Cached IOPS Consumed Percentage and VM Cached Bandwidth Consumed Percentage will reflect IOPS and throughput from both the ephemeral temp drive ``(D:\)`` and host caching together.
+> Azure Monitor does not currently offer disk-level metrics for the ephemeral temp drive `(D:\)`. VM Cached IOPS Consumed Percentage and VM Cached Bandwidth Consumed Percentage will reflect IOPS and throughput from both the ephemeral temp drive `(D:\)` and host caching together.
 
 
 ## Next steps

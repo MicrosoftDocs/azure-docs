@@ -72,7 +72,7 @@ Based on your choices, Azure performs the following storage configuration tasks 
 * Associates the storage pool with a new drive on the virtual machine.
 * Optimizes this new drive based on your specified workload type (Data warehousing, Transactional processing, or General).
 
-For further details on how Azure configures storage settings, see the [Storage configuration section](#storage-configuration). For a full walkthrough of how to create a SQL Server VM in the Azure portal, see [the provisioning tutorial](../../../azure-sql/virtual-machines/windows/create-sql-vm-portal.md).
+or a full walkthrough of how to create a SQL Server VM in the Azure portal, see [the provisioning tutorial](../../../azure-sql/virtual-machines/windows/create-sql-vm-portal.md).
 
 ### Resource Manager templates
 
