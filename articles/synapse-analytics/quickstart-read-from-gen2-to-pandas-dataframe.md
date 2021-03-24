@@ -19,7 +19,7 @@ In this quickstart, you'll learn how to easily use Python to read data from an A
 
 From a Synapse Studio notebook, you'll:
 
-- connect to a container in an ADLS Gen2 storage account
+- connect to a container in an ADLS Gen2 storage account that is linked to your Azure Synapse workspace
 - read the data in Python using `spark.read.load`
 - convert the data to a Pandas dataframe using `.toPandas()`
 
