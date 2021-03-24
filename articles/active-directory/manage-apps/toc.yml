@@ -73,8 +73,8 @@
         href: ./scripts/powershell-get-all-default-domain-apps.md
       - name: List apps using wildcard publishing
         href: ./scripts/powershell-get-all-wildcard-apps.md
-      - name:
-        href: 
+      - name: List all custom domains and certs
+        href: ./scripts/powershell-get-all-custom-domains-and-certs.md
       - name:
         href: 
       - name:
