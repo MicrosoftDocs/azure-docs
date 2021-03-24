@@ -8,7 +8,7 @@ ms.custom: sqldbrb=2
 author: VanMSFT
 ms.author: vanto
 ms.topic: article
-ms.date: 09/21/2020
+ms.date: 03/23/2021
 ms.reviewer: ""
 ---
 
@@ -134,7 +134,7 @@ Azure AD Multi-Factor Authentication helps provides additional security by requi
   - Use Interactive Authentication supported in SQL Server Data Tools (SSDT). See the article, [Azure Active Directory support in SQL Server Data Tools (SSDT)](/sql/ssdt/azure-active-directory?view=azuresqldb-current).
   - Use other SQL tools supporting Multi-Factor Authentication.
     - SSMS Wizard support for export/extract/deploy database  
-    - [sqlpackage.exe](/sql/tools/sqlpackage): option ‘/ua’
+    - [sqlpackage.exe](/sql/tools/sqlpackage): option '/ua'
     - [sqlcmd Utility](/sql/tools/sqlcmd-utility): option -G (interactive)
     - [bcp Utility](/sql/tools/bcp-utility): option -G (interactive)
 
@@ -725,7 +725,7 @@ Discover columns that potentially contain sensitive data. What is considered sen
 
 **Best practices**:
 
-- Monitor the classification dashboard on a regular basis for an accurate assessment of the database’s classification state. A report on the database classification state can be exported or printed to share for compliance and auditing purposes.
+- Monitor the classification dashboard on a regular basis for an accurate assessment of the database's classification state. A report on the database classification state can be exported or printed to share for compliance and auditing purposes.
 
 - Continuously monitor the status of recommended sensitive data in SQL Vulnerability Assessment. Track the sensitive data discovery rule and identify any drift in the recommended columns for classification.  
 
@@ -796,35 +796,38 @@ Most security standards address data availability in terms of operational contin
     - [Overview of business continuity](business-continuity-high-availability-disaster-recover-hadr-overview.md)
 
 
-## Block creation or modification of resources through T-SQL 
-To block creation or modification of resources through T-SQL and enforce resource management through ARM for a given subscription, the subscription level preview features in Azure Portal can be used. This is particularly useful when you are using Azure Policies to enforce organizational standards through ARM. Since T-SQL does not adhere to the Azure Policies, a block on T-SQL create or modify operations can be applied. The following section describes how you can register or unregister a preview feature with Microsoft.Sql resource provider in Azure Portal: 
+## Block creation or modification of Azure SQL resources through T-SQL 
+To block creation or modification of resources through T-SQL and enforce resource management through an Azure Resource Manager (ARM) template for a given subscription, the subscription level preview features in Azure portal can be used. This is particularly useful when you are using [Azure Policies](/azure/governance/policy/overview) to enforce organizational standards through ARM templates. Since T-SQL does not adhere to the Azure Policies, a block on T-SQL create or modify operations can be applied. The syntax blocked includes `CREATE DATABASE`, `ALTER DATABASE`, and `DROP DATABASE` statements. 
+
+The following section describes how you can register or unregister a preview feature with Microsoft.Sql resource provider in Azure portal: 
 
 ### Register Block T-SQL CRUD
-Here is how you can block T-SQL CRUD operations at the subscription level. CRUD operations here refer to the T-SQL used to create or modify SQL database / server. That is Create, Alter or Drop/Delete database statements. 
-1. Go to your subscriptioion on Azure Portal
-2. Click on **Preview Features** tab. 
+
+1. Go to your subscription on Azure portal.
+2. Select on **Preview Features** tab. 
 3. Select **Block T-SQL CRUD**.
-4. After you click on Block T-SQL CRUD, a new blade will open, click **Register**, to register this block with Microsoft.Sql resource provider.
+4. After you select on Block T-SQL CRUD, a new window will open, select **Register**, to register this block with Microsoft.Sql resource provider.
 
-![select block tsql crud](./media/block-tsql-crud/BlockTSQLCrud.png)
+![Select "Block T-SQL CRUD" in the list of Preview Features](./media/block-tsql-crud/BlockTSQLCrud.png)
 
-![register block tsql crud](./media/block-tsql-crud/BlockTSQLCrud_register.png)
+![With "Block T-SQL CRUD" checked, select Register](./media/block-tsql-crud/BlockTSQLCrud_register.png)
 
   
 ### Re-register Microsoft.sql resource provider 
-After you register the block of T-SQL CRUD with Microsoft.Sql resource provider, you must re-register the Microsoft.Sql resource provider for the changes to take effect. To re-register the Microsfot.Sql resource provider:
-1. Go to your subscription on Azure Portal.
-2. Click on **Resource Providers** tab.
+After you register the block of T-SQL CRUD with Microsoft.Sql resource provider, you must re-register the Microsoft.Sql resource provider for the changes to take effect. To re-register the Microsoft.Sql resource provider:
+
+1. Go to your subscription on Azure portal.
+2. Select on **Resource Providers** tab.
 3. Search and select **Microsoft.Sql** resource provider.
-4. Click **Re-register**. 
+4. Select **Re-register**. 
 
 > [!NOTE]
 > The re-registration step is mandatory for the T-SQL block to be applied to your subscription. 
 
-![re-register Microsoft.Sql resource provider](./media/block-tsql-crud/BlockTSQLCrud_re-register.png)
+![Re-register the Microsoft.Sql resource provider](./media/block-tsql-crud/BlockTSQLCrud_re-register.png)
 
 ### Removing Block T-SQL CRUD
-To remove the block on T-SQL create or modify operations from your subscription, first unregister the previously registered T-SQL block and then re-register the Microsoft.Sql resource provider as shown above for the removal of T-SQL block to take effect. 
+To remove the block on T-SQL create or modify operations from your subscription, first unregister the previously registered T-SQL block. Then, re-register the Microsoft.Sql resource provider as shown above for the removal of T-SQL block to take effect. 
 
 
 ## Next steps
