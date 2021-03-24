@@ -4,7 +4,7 @@ description: Learn how to configure role-based access control with Azure Active 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 03/24/2021
 ms.author: thweiss
 ---
 
@@ -309,7 +309,7 @@ resourceGroupName='<myResourceGroup>'
 accountName='<myCosmosAccount>'
 readOnlyRoleDefinitionId = '<roleDefinitionId>' // as fetched above
 principalId = '<aadPrincipalId>'
-az cosmosdb sql role assignment create --account-name $accountName --resource-group --scope "/" --principal-id $principalId --role-definition-id $readOnlyRoleDefinitionId
+az cosmosdb sql role assignment create --account-name $accountName --resource-group $resourceGroupName --scope "/" --principal-id $principalId --role-definition-id $readOnlyRoleDefinitionId
 ```
 
 ## Initialize the SDK with Azure AD
