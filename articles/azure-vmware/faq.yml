@@ -121,7 +121,7 @@ sections:
           No. However, if the VM is migrated as thick, you can change policies on the individual VMs and individual vmdks through a combination of UI and PowerCLI.       
 
       - question: How many disks can fail on the vSAN before data loss occurs? 
-        answer: It depends on how you plan your application workloads to run inside the SDDC (private cloud). Microsoft governs these failures regularly and replaces the hardware when such events are detected from an infrastructure perspective. As a default, a setting of FFT-1 is used, which accommodates a single host's failure.
+        answer: It depends on how you plan your application workloads to run inside the SDDC (private cloud). Microsoft governs these failures regularly and replaces the hardware when such events are detected from an infrastructure perspective. As a default, a setting of FFT1 is used, which accommodates a single host's failure.
 
       - question: Is there an SLA on disk replacement when failures occur? 
         answer: Any host with disk issues will be replaced. It rolls up to 99.9 SLA availability of the Azure VMware Solution service.
