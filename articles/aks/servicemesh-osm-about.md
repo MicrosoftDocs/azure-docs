@@ -1484,8 +1484,106 @@ You should see the following output
 - [AGIC Troubleshooting Documentation](https://docs.microsoft.com/en-us/azure/application-gateway/ingress-controller-troubleshoot)
 - [Additional troubleshooting tools are available on AGIC's GitHub repo](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/master/docs/troubleshootings/troubleshooting-installing-a-simple-application.md)
 
+## Open Service Mesh (OSM) AKS add-on Troubleshooting Guides
+
+When you deploy the OSM AKS add-on, you might occasionally experience a problem. The following guides will assist you on how to troubleshoot errors and resolve common problems.
+
+### Verifying and Troubleshooting OSM components
+
+#### Check OSM Controller Deployment
+
+```azurecli-interactive
+kubectl get deployment -n kube-system --selector app=osm-controller
+```
+
+A healthy OSM Controller would look like this:
+
+```Output
+NAME             READY   UP-TO-DATE   AVAILABLE   AGE
+osm-controller   1/1     1            1           59m
+```
+
+#### Check the OSM Controller Pod
+
+```azurecli-interactive
+kubectl get pods -n kube-system --selector app=osm-controller
+```
+
+A healthy OSM Pod would look like this:
+
+```Output
+NAME                            READY   STATUS    RESTARTS   AGE
+osm-controller-b5bd66db-wglzl   0/1     Evicted   0          61m
+osm-controller-b5bd66db-wvl9w   1/1     Running   0          31m
+```
+
+Eventhough we had one controller evicted at some point, we have another one which is READY 1/1 and Running with 0 restarts. If the column READY is anything other than 1/1 the service mesh would be in a broken state.
+Column READY with 0/1 indicates the control plane container is crashing - we need to get logs. See Get OSM Controller Logs from Azure Support Center section below. Column READY with a number higher than 1 after the / would indicate that there are sidecars installed. OSM Controller would most likely not work with any sidecars attached to it.
+
+> [!NOTE]
+> As of version v0.8.2 the OSM Controller is not in HA mode and will run in a deploynd with replica count of 1 - single pod. The pod does have health probes and will be restarted by the kubelet if needed.
+
+#### Check OSM Controller Service
+
+```azurecli-interactive
+kubectl get service -n kube-system osm-controller
+```
+
+A healthy OSM Controller servcie would look like this:
+
+```Output
+NAME             TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)              AGE
+osm-controller   ClusterIP   10.0.31.254   <none>        15128/TCP,9092/TCP   67m
+```
+
+> [!NOTE]
+> The CLUSTER-IP would be different. The service NAME and PORT(S) must be the same as the example above.
+
+#### Check OSM Controller Endpoints
+
+```azurecli-interactive
+kubectl get endpoints -n kube-system osm-controller
+```
+
+A healthy OSM Controller endpoint(s) would look like this:
+
+```Output
+NAME             ENDPOINTS                              AGE
+osm-controller   10.240.1.115:9092,10.240.1.115:15128   69m
+```
+
+#### Check OSM Injector Deployment
+
+```azurecli-interactive
+kubectl get pod -n kube-system --selector app=osm-injector
+```
+
+A healthy OSM Injector deployment would look like this:
+
+```Output
+NAME                            READY   STATUS    RESTARTS   AGE
+osm-injector-5986c57765-vlsdk   1/1     Running   0          73m
+```
+
+#### Check OSM Injector Service
+
+```azurecli-interactive
+kubectl get service -n kube-system osm-injector
+```
+
+A healthy OSM Injector service would look like this:
+
+```Output
+NAME           TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)    AGE
+osm-injector   ClusterIP   10.0.39.54   <none>        9090/TCP   75m
+```
+
 ## Next steps
 
 <!-- LINKS - internal -->
 
 [kubernetes-service]: concepts-network.md#services
+
+```
+
+```
