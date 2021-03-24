@@ -28,13 +28,13 @@ The examples in this article require knowledge of the following concepts and fra
 
 Mocking is supported via the following interface:
 
-* [IDurableOrchestrationClient](/dotnet/api/microsoft.azure.webjobs.IDurableOrchestrationClient), [IDurableEntityClient](/dotnet/api/microsoft.azure.webjobs.IDurableEntityClient) and [IDurableClient](/dotnet/api/microsoft.azure.webjobs.IDurableClient)
+* [IDurableOrchestrationClient](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationclient#azure-dotnet), [IDurableEntityClient](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableentityclient#azure-dotnet) and [IDurableClient](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableclient#azure-dotnet)
 
-* [IDurableOrchestrationContext](/dotnet/api/microsoft.azure.webjobs.IDurableOrchestrationContext)
+* [IDurableOrchestrationContext](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext#azure-dotnet)
 
-* [IDurableActivityContext](/dotnet/api/microsoft.azure.webjobs.IDurableActivityContext)
+* [IDurableActivityContext](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableactivitycontext#azure-dotnet)
   
-* [IDurableEntityContext](/dotnet/api/microsoft.azure.webjobs.IDurableEntityContext)
+* [IDurableEntityContext](/dotnet/api//dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableentitycontext#azure-dotnet)
 
 These interfaces can be used with the various trigger and bindings supported by Durable Functions. When executing your Azure Functions, the functions runtime will run your function code with a concrete implementation of these interfaces. For unit testing, you can pass in a mocked version of these interfaces to test your business logic.
 
