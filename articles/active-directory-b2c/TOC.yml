@@ -241,8 +241,8 @@
           href: partner-typingdna.md
         - name: WhoIAM
           href: partner-whoiam.md
-        - name: Set up direct sign-in
-          href: direct-signin.md
+    - name: Set up direct sign-in
+      href: direct-signin.md
   - name: Tokens and session management
     items:
     - name: Configure session behavior
