@@ -15,7 +15,7 @@ This topic shows you how to enable end-to-end SSL/TLS to secure traffic from an 
 
 ## Prerequisites 
 
-- A deployed Azure Spring Cloud instance. Follow our [quickstart on deploying via the Azure CLI](https://docs.microsoft.com/en-us/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli) to get started.
+- A deployed Azure Spring Cloud instance. Follow our [quickstart on deploying via the Azure CLI](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli) to get started.
 - If you're unfamiliar with end-to-end TLS, see the [end-to-end TLS sample](https://github.com/Azure-Samples/spring-boot-secure-communications-using-end-to-end-tls-ssl).
 
 
