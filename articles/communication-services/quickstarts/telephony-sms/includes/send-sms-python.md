@@ -129,9 +129,31 @@ The `enable_delivery_report` parameter is an optional parameter that you can use
 The `tag` parameter is an optional parameter that you can use to configure custom tagging.
 
 ## Run the code
-
 Run the application from your application directory with the `python` command.
 
 ```console
 python send-sms.py
+```
+
+The complete Python script should look something like:
+
+```python
+
+import os
+from azure.communication.sms import SmsClient
+
+try:
+    # Create the SmsClient object which will be used to send SMS messages
+    sms_client = SmsClient.from_connection_string("<connection string>")
+    # calling send() with sms values
+    sms_responses = sms_client.send(
+       from_="<from-phone-number>",
+       to="<to-phone-number>",
+       message="Hello World via SMS",
+       enable_delivery_report=True, # optional property
+       tag="custom-tag") # optional property
+
+except Exception as ex:
+    print('Exception:')
+    print(ex)
 ```
