@@ -112,7 +112,7 @@ On the [Azure IoT Central application manager](https://aka.ms/iotcentral) websit
 
     The **Event Hub** shows as **centralexport**.
 
-    :::image type="content" source="media/howto-create-custom-analytics/data-export-1.png" alt-text="Screenshot showing data export destination":::
+    :::image type="content" source="media/howto-create-custom-analytics/data-export-1.png" alt-text="Screenshot showing data export destination.":::
 
 1. Select **Save**.
 
@@ -131,7 +131,7 @@ To create the export definition:
 
 1. Select **Save**.
 
-    :::image type="content" source="media/howto-create-custom-analytics/data-export-2.png" alt-text="Screenshot showing data export definition":::
+    :::image type="content" source="media/howto-create-custom-analytics/data-export-2.png" alt-text="Screenshot showing data export definition.":::
 
 Wait until the export status is **Healthy** on the **Data export** page before you continue.
 
