@@ -66,8 +66,7 @@ If you already have an enrollment in Partner Center, to create your account:
 If you're already enrolled in a Partner Center developer program, create your account directly from Partner Center.
 
 > [!NOTE]
-> To sign up for the Office Store under the same account you're signed in as, you need to have registered on Partner Center using a company account. If you signed up with an individual account, your Office Store enrollment will appear under a new account.
-> Individual accounts are for single developers working on their own. Company accounts are for organizations and businesses. Company accounts give you access to submit apps with additional functionality. We require greater verification for company accounts after you register to confirm that you're authorized to set up the account for your company. This verification can take from a few days to a couple of weeks, and often includes a phone call to your company. Both types of accounts allow you to submit apps, add-ins, and services. For more info, see Account types, locations, and fees.
+> To sign up for the Office Store under the same account you're signed in as, you need to have registered on Partner Center using a company account. Note that you must use a company account to submit apps. We require greater verification for company accounts after you register to confirm that you're authorized to set up the account for your company. This verification can take from a few days to a couple of weeks, and often includes a phone call to your company. 
 
 Sign in to Partner Center with your Partner Center account to enroll into the Office Store program under the same account. By signing up for Office Store using the same account, you can see both your existing program enrollments and Office Store in the left navigation menu of Partner Center.
 
