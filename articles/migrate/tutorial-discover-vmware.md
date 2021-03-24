@@ -278,6 +278,8 @@ If you want to use these features, you can provide server credentials by followi
 - You can see the **Validation status** for all the domain credentials in the credentials table. Only domain credentials will be validated.
 - If the validation fails, you can click on **Failed** status to see the error encountered and click on **Revalidate credentials** after fixing the issue to validate the failed domain credentials again.
 
+     :::image type="content" source="./media/tutorial-discover-vmware/add-server-credentials-multiple.png" alt-text="Panel 3 on appliance configuration manager for server details":::
+
 ### Start discovery
 
 1. Click on **Start discovery**, to kick off vCenter Server discovery. After the discovery has been successfully initiated, you can check the discovery status against the vCenter Server IP address/FQDN in the sources table.
