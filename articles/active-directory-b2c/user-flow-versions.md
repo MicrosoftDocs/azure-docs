@@ -20,10 +20,10 @@ User flows in Azure Active Directory B2C (Azure AD B2C) help you to set up commo
 > [!IMPORTANT]
 > We've changed the way we reference user flow versions. Previously, we offered V1 (production-ready) versions, and V1.1 and V2 (preview) versions. Now, we've consolidated user flows into two versions:
 >
->- **Recommended** user flows are the generally available, next-generation user flows with the latest features. They combine all the features of the legacy **V2** and **V1.1** versions. Going forward, **Recommended** user flows will be maintained and updated. Once you move to these new recommended user flows, you'll have access to new features as they're released.
+>- **Recommended** user flows are the generally available, next-generation user flows with the latest features. They combine all the features of the legacy **V1**, **V1.1**, and **V2** versions. Going forward, **Recommended** user flows will be maintained and updated. Once you move to these new recommended user flows, you'll have access to new features as they're released.
 >- **Standard (Legacy)** user flows, previously known as **V1**, are legacy user flows. Unless you have a specific business need, we don't recommend using these versions of user flows because they won't be maintained or updated.
 >
->All legacy preview user flows (V1.1 and V2) are on a path to deprecation by **August 1, 2021**. Wherever possible, we highly recommend that you [switch to the **Recommended** versions](#how-to-switch-to-a-new-recommended-user-flow) as soon as possible so you can always take advantage of the latest features and updates. *These changes apply to the Azure public cloud only. Other environments will continue to use [legacy user flow versioning](user-flow-versions-legacy.md).*
+>All legacy preview user flows (V1.1 and V2) are on a path to deprecation by **August 1, 2021**. Wherever possible, we highly recommend that you [switch to the **Recommended** versions](#how-to-switch-to-a-recommended-user-flow) as soon as possible so you can always take advantage of the latest features and updates. *These changes apply to the Azure public cloud only. Other environments will continue to use [legacy user flow versioning](user-flow-versions-legacy.md).*
 
 ## Recommended user flows
 
@@ -41,8 +41,8 @@ Recommended user flows are the generally available, next-generation user flows w
 
 Standard user flows (previously referred to as V1) user flows, previously known as **V1**, are legacy user flows. Unless you have a specific business need, we don't recommend using these versions of user flows because they won't be updated going forward.
 
-| User flow | Description | |
-| --------- | ----------- | ----------- |
+| User flow | Description |
+| --------- | ----------- |
 | Password reset | Enables a user to choose a new password after verifying their email. Using this user flow, you can configure: <ul><li>[Multi-factor authentication](multi-factor-authentication.md)</li><li>Token compatibility settings</li><li>[Password complexity requirements](password-complexity.md)</li></ul> |
 | Profile editing | Enables a user to configure their user attributes. Using this user flow, you can configure: <ul><li>[Token lifetime](tokens-overview.md)</li><li>Token compatibility settings</li><li>Session behavior</li></ul> |
 | Sign in | Enables a user to sign in to their account. Using this user flow, you can configure: <ul><li>[Multi-factor authentication](multi-factor-authentication.md)</li><li>[Token lifetime](tokens-overview.md)</li><li>Token compatibility settings</li><li>Session behavior</li><li>Block sign-in</li><li>Force password reset</li><li>Keep Me Signed In (KMSI)</ul><br>You can't customize the user interface with this user flow. |
@@ -81,4 +81,4 @@ If you're using a legacy V2 or V1.1 user flow, your application won't be affecte
 
 ### Will Microsoft still support my legacy V2 or V1.1 user flow policy?
 
-In the public cloud, all legacy preview user flows (V1.1 and V2) are on a path to deprecation by August 1, 2021. Wherever possible, we highly recommend that you [switch to the **Recommended** versions](#how-to-switch-to-a-new-recommended-user-flow) as soon as possible so you can always take advantage of the latest features and updates. *These changes apply to the Azure public cloud only. Other environments will continue to use [legacy user flow versioning](user-flow-versions-legacy.md).*
+In the public cloud, all legacy preview user flows (V1.1 and V2) are on a path to deprecation by August 1, 2021. Wherever possible, we highly recommend that you [switch to the **Recommended** versions](#how-to-switch-to-a-recommended-user-flow) as soon as possible so you can always take advantage of the latest features and updates. *These changes apply to the Azure public cloud only. Other environments will continue to use [legacy user flow versioning](user-flow-versions-legacy.md).*
