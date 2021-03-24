@@ -32,7 +32,7 @@ For additional release notes on the latest versions of HDInsight, see [HDInsight
 Support is defined as a time period that an HDInsight version is supported by Microsoft Customer Service and Support. HDInsight offers two types of support: 
 - **Standard support** is a time period in which Microsoft provides updates and support on HDInsight clusters.  
     We recommend building solutions using the most recent fully supported version. 
-- **Basic support** is a time period in which Microsoft will provide limited servicing to HDInsight Resource provider. HDInsight images and OSS components will not be serviced.   Only critical security fixes will be patched on HDInsight clusters.  
+- **Basic support** is a time period in which Microsoft will provide limited servicing to HDInsight Resource provider. HDInsight images and open-source software (OSS) components will not be serviced.   Only critical security fixes will be patched on HDInsight clusters.  
   Microsoft does not encourage creating new clusters or building any fresh solutions when a version is in Basic support. We recommend migrating existing clusters to the most recent fully supported version. 
 
 **Support expiration** means that Microsoft no longer provides support for the specific HDInsight version. And it may no longer available through the Azure portal for cluster creation.
