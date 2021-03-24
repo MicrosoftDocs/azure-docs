@@ -15,11 +15,6 @@ The diagram shows the adjacency between private clouds and VNets in Azure, Azure
 
 ![Image of Azure VMware Solution private cloud adjacency to Azure and on-premises](./media/adjacency-overview-drawing-final.png)
 
-## Customer communication
-Service issues, planned maintenance, health advisories, security advisories notifications are published through **Service Health** in the Azure portal. You can take timely actions when you set up activity log alerts for these notifications. For more information, see [Create service health alerts using the Azure portal](../service-health/alerts-activity-log-service-notifications-portal.md#create-service-health-alert-using-azure-portal).
-
-:::image type="content" source="media/service-health.png" alt-text="Screenshot of Service Health notifications":::
-
 ## Hosts, clusters, and private clouds
 
 Azure VMware Solution private clouds and clusters are built from a bare-metal, hyper-converged Azure infrastructure host. The high-end hosts have 576-GB RAM and dual Intel 18 core, 2.3-GHz processors. The HE hosts have two vSAN diskgroups with 15.36 TB (SSD) of raw vSAN capacity tier and a 3.2 TB (NVMe) vSAN cache tier.
@@ -54,6 +49,11 @@ In your private cloud, you can:
 - Run the same queries you usually run on your VMs.
 
 Monitoring patterns inside the Azure VMware Solution are similar to Azure VMs within the IaaS platform. For more information and how-tos, see [Monitoring Azure VMs with Azure Monitor](../azure-monitor/vm/monitor-vm-azure.md).
+
+## Customer communication
+Service issues, planned maintenance, health advisories, security advisories notifications are published through **Service Health** in the Azure portal. You can take timely actions when you set up activity log alerts for these notifications. For more information, see [Create service health alerts using the Azure portal](../service-health/alerts-activity-log-service-notifications-portal.md#create-service-health-alert-using-azure-portal).
+
+:::image type="content" source="media/service-health.png" alt-text="Screenshot of Service Health notifications":::
 
 ## Next steps
 
