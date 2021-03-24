@@ -251,7 +251,7 @@
       - name: Connect to VM console
         href: azure-stack-edge-gpu-connect-virtual-machine-console.md
       - name: Manage network interfaces
-        href: azure-stack-edge-gpu-manage-virtual-machine-network-interfaces.md
+        href: azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal.md
     - name: Manage certificates
       items:
       - name: Requirements
