@@ -182,7 +182,7 @@ Upon expiry after the specified number of days, IoT Edge has to be restarted to 
 
 1. Delete the contents of the `hsm` folder to remove any previously generated certificates.
 
-   Linux: `/var/lib/iotedge/hsm/certs` and `/var/lib/iotedge/hsm/cert_keys`
+   Linux and IoT Edge for Linux on Windows: `/var/lib/iotedge/hsm/certs` and `/var/lib/iotedge/hsm/cert_keys`
    Windows using Windows containers: `C:\ProgramData\iotedge\hsm\certs` and `C:\ProgramData\iotedge\hsm\cert_keys`
 
 1. Restart the IoT Edge service.
