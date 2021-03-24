@@ -152,11 +152,11 @@ $diskEncryptionSet = Get-AzDiskEncryptionSet -ResourceGroupName $rgName -Name $d
 New-AzDiskUpdateConfig -EncryptionType "EncryptionAtRestWithCustomerKey" -DiskEncryptionSetId $diskEncryptionSet.Id | Update-AzDisk -ResourceGroupName $rgName -DiskName $diskName
 ```
 
-### Encrypt existing VMSS with SSE and Customer-Managed Keys (CMK) 
+### Encrypt an existing virtual machine scale set with SSE and customer-managed keys 
 
-Copy the script, replace all of the example values with your own parameters, and then run it.
+Copy the script, replace all the example values with your own parameters, and then run it:
 
-```PowerShell
+```powershell
 #set variables 
 $vmssname = "name of the vmss that is already created"
 $diskencryptionsetname = "name of the diskencryptionset already created"
