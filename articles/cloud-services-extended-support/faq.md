@@ -77,6 +77,8 @@ Template and parameter files are only used for deployment automation. Like Cloud
 ###	How does my application code change on Cloud Services (extended support)
 There are no changes required for your application code packaged in cspkg. Your existing applications will continue to work as before. 
 
+### Does Cloud Services (extended support) allow CTP package format?
+CTP package format is not supported in Cloud Services (extended support). However, it allows an enhanced package size limit of 800 MB
 
 ## Migration
 
