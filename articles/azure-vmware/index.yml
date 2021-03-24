@@ -39,6 +39,28 @@ landingContent:
           - text: Private cloud upgrades
             url: concepts-upgrades.md
 
+# faq card
+  - title: FAQ
+    linkLists:
+      - linkListType: 
+        links:
+        - text: General
+          url: /azure/azure-vmware/faq#general
+        - text: Compute, network, storage, and backup
+          url: /azure/azure-vmware/faq#compute,-network,-storage,-and-backup
+        - text: Hosts, clusters, and private clouds
+          url: /azure/azure-vmware/faq#hosts,-clusters,-and-private-clouds
+        - text: Azure VMware Solution and VMware software
+          url: /azure/azure-vmware/faq#azure-vmware-solution-and-vmware-software
+        - text: Connectivity
+          url: /azure/azure-vmware/faq#connectivity
+        - text: Accounts and privileges
+          url: /azure/azure-vmware/faq#accounts-and-privileges
+        - text: Billing and support
+          url: /azure/azure-vmware/faq#billing-and-support
+        - text: Customer communication
+          url: /azure/azure-vmware/faq#customer-communication
+
 # card 2
   - title: Get started
     linkLists:
