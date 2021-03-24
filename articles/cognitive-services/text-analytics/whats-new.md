@@ -46,8 +46,8 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
     * A new `Date` entity type.
     * Assertion detection which replaces negation detection (only available in API v3.1-preview.4).
     * A new preferred `name` property for linked entities that is normalized from various ontologies and coding systems (only available in API v3.1-preview.4). 
-* A new container image with tag `3.0.015370001-onprem-amd64` and the new model-version `2021-03-01` has been released to the container preview repository. 
-* The Text Analytics for health container image will be moving to a new repository next month.  Please watch for an email communication on the location of its new home.
+* A new container image with tag `3.0.015370001-onprem-amd64` and the new model-version `2021-03-01` has been released to the container preview repository. **Please note that this container image will no longer be available for download from containerpreview.azurecr.io starting April 26th.**
+* A new Text Analytics for health container image with this same model-version is available in its new home at mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare.  Please note that the Text Analytics for health container image will only be available for download from this repository starting April 26th.
 > [!div class="nextstepaction"]
 > [Learn more about Text Analytics for health](how-tos/text-analytics-for-health.md)
 >
