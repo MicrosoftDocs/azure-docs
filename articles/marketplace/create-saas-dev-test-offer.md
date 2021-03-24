@@ -12,7 +12,7 @@ ms.date: 03/25/2021
 
 # Create a test offer
 
-To develop in a separate environment from your production offer, you’ll create a separate test and development (DEV) offer and a separate production (PROD) offer. For information about the benefits of using a separate DEV offer, see [Plan a SaaS offer](plan-saas-offer.md#development-and-test-offer).
+To develop in a separate environment from your production offer, you’ll create a separate test and development (DEV) offer and a separate production (PROD) offer. For information about the benefits of using a separate DEV offer, see [Plan a SaaS offer](plan-saas-offer.md#test-offer).
 
 You’ll configure most settings the same in the DEV and PROD offers. For example, the official marketing language and assets, such as screenshots and logos should be the same. In the cases where the configuration is the same, you can copy-and-paste fields from the plans in the DEV offer to the plans in the PROD offer.
 
