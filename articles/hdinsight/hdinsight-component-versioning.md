@@ -18,8 +18,8 @@ This table lists the versions of HDInsight that are available in the Azure porta
 
 | HDInsight version | VM OS | Release date| Support type | Support expiration date | Retirement date | High availability |
 | --- | --- | --- | --- | --- | --- | ---|
-| [HDInsight 4.0](hdinsight-40-component-versioning.md) |Ubuntu 16.0.4 LTS |September 24, 2018 | [Standard](hdinsight-component-versioning.md#support-options-for-hdnsight-versions) | | |Yes |
-| [HDInsight 3.6](hdinsight-36-component-versioning.md) |Ubuntu 16.0.4 LTS |April 4, 2017      | [Basic](hdinsight-component-versioning.md#support-options-for-hdnsight-versions) | Standard support expiration - June 30, 2021 <br> Basic support expiration - March 31, 2022 |April 1, 2022 |Yes |
+| [HDInsight 4.0](hdinsight-40-component-versioning.md) |Ubuntu 16.0.4 LTS |September 24, 2018 | [Standard](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) | | |Yes |
+| [HDInsight 3.6](hdinsight-36-component-versioning.md) |Ubuntu 16.0.4 LTS |April 4, 2017      | [Basic](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) | Standard support expiration - June 30, 2021 <br> Basic support expiration - March 31, 2022 |April 1, 2022 |Yes |
 
 *Starting July 1st, 2021 Microsoft will offer Basic support for certain HDI 3.6 cluster types. See [HDInsight 3.6 component versions](hdinsight-36-component-versioning.md).
 
