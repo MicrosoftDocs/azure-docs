@@ -71,8 +71,8 @@
         href: ./scripts/powershell-assign-group-to-app.md
       - name: List apps using default domains
         href: ./scripts/powershell-get-all-default-domain-apps.md
-      - name:
-        href: 
+      - name: List apps using wildcard publishing
+        href: ./scripts/powershell-get-all-wildcard-apps.md
       - name:
         href: 
       - name:
