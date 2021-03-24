@@ -28,7 +28,7 @@ Messaging logs provide tracing information for the Azure Web PubSub hub messages
 
 ## Capture diagnostic logs with Azure Web PubSub service live trace tool 
 
-The Azure Web PubSub service live trace tool has ability to collect diagnostic logs in real time, and is helpful to trace with customer's development environment.
+The Azure Web PubSub service live trace tool has ability to collect diagnostic logs in real time, and is helpful to trace with customer's development environment. The live trace tool could capture both connectivity logs and messaging logs.
 
 > [!NOTE]
 > The real-time diagnostic logs captured by live trace tool will be billed as messages (outbound traffic).
@@ -69,12 +69,6 @@ The real-time diagnostic logs captured by live trace tool contain detailed infor
 | IP | The IP address of client | 
 
 After the Azure Web PubSub service is GA, the live trace tool will also support to export the logs as a specific format and then help you share with others for troubleshooting. 
-
-## Capture diagnostic logs with Azure Monitor
-
-You could also capture and store the diagnostic logs with [Azure Monitor](https://azure.microsoft.com/services/monitor/), [Azure Storage](https://docs.microsoft.com/azure/azure-monitor/essentials/resource-logs#send-to-azure-storage), and [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/essentials/resource-logs#send-to-log-analytics-workspace). Comparing with the live trace tool, this option enables you to store the log data and complete further analysis with diagnostic logs. 
-
-This option is not available right now, and will be released later.
 
 ## Troubleshoot with the diagnostic logs
 
