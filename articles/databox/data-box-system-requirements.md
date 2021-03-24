@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 02/22/2021
+ms.date: 03/24/2021
 ms.author: alkohli
 ---
 # Azure Data Box system requirements
@@ -34,7 +34,8 @@ The software requirements include supported operating systems, file transfer pro
 [!INCLUDE [data-box-supported-file-systems-clients](../../includes/data-box-supported-file-systems-clients.md)]
 
 > [!IMPORTANT] 
-> Connection to Data Box shares is not supported via REST for export orders. 
+> * Connection to Data Box shares is not supported via REST for export orders.
+>* For NFS shares, copying data into Data Box from an Advanced Interactive Executive (AIX) host using the IBM Database 2 (DB2) Export tool is not supported.
 
 ### Supported storage accounts
 
