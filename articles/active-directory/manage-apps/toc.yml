@@ -44,14 +44,14 @@
         href: ./scripts/powershell-export-all-enterprise-apps-secrets-and-certs.md
       - name: Export expiring secrets and certs
         href: ./scripts/powershell-export-apps-with-expriring-secrets.md
-      - name: List info about App Proxy apps
+      - name: Export secrets and certs expiring beyond required date
         href: ./scripts/powershell-export-apps-with-secrets-beyond-required.md
 
     - name: App Proxy PowerShell samples
       items:
       - name: Overview of App Proxy samples
         href: application-proxy-powershell-samples.md
-      - name: Export secrets and certs (app registrations)
+      - name: List info about App Proxy apps
         href: ./scripts/powershell-get-all-app-proxy-apps-basic.md
 
   - name: Concepts
