@@ -1,6 +1,6 @@
 ---
-title: List blobs with .NET - Azure Storage 
-description: Learn how to list blobs in a container in your Azure Storage account using the .NET client library. Code examples show how to list blobs in a flat listing, or how to list blobs hierarchically, as though they were organized into directories or folders.
+title: List blobs with Azure Storage APIs
+description: Learn how to list blobs in your storage account using the using the Azure Storage client libraries. Code examples show how to list blobs in a flat listing, or how to list blobs hierarchically, as though they were organized into directories or folders.
 services: storage
 author: tamram
 
@@ -16,13 +16,13 @@ ms.custom: devx-track-csharp
 
 When you list blobs from your code, you can specify a number of options to manage how results are returned from Azure Storage. You can specify the number of results to return in each set of results, and then retrieve the subsequent sets. You can specify a prefix to return blobs whose names begin with that character or string. And you can list blobs in a flat listing structure, or hierarchically. A hierarchical listing returns blobs as though they were organized into folders.
 
-This article shows how to list blobs using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).  
-
 ## Understand blob listing options
 
 To list the blobs in a storage account, call one of these methods:
 
 # [.NET v12](#tab/dotnet)
+
+This article shows how to list blobs using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).
 
 - [BlobContainerClient.GetBlobs](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobs)
 - [BlobContainerClient.GetBlobsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsasync)
@@ -45,6 +45,8 @@ The overloads for these methods provide additional options for managing how blob
 
 # [Python v12](#tab/python)
 
+This article shows how to list blobs using the [Azure Storage client library for Python](/azure/developer/python/sdk/storage/overview).
+
 - [ContainerClient.list_blobs](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient?view=storage-py-v12#list-blobs-name-starts-with-none--include-none----kwargs-)
 
 ---
@@ -61,13 +63,25 @@ To filter the list of blobs, specify a string for the `prefix` parameter. The pr
 
 You can return blob metadata with the results.
 
-- If you're using the .NET v12 SDK, specify the **Metadata** value for the [BlobTraits](/dotnet/api/azure.storage.blobs.models.blobtraits) enumeration.
+# [.NET v12](#tab/dotnet)
 
-- If you're using the .NET v11 SDK, specify the **Metadata** value for the [BlobListingDetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails) enumeration. Azure Storage includes metadata with each blob returned, so you do not need to call one of the **FetchAttributes** methods in this context to retrieve the blob metadata.
+Specify the **Metadata** value for the [BlobTraits](/dotnet/api/azure.storage.blobs.models.blobtraits) enumeration.
+
+# [.NET v11](#tab/dotnet11)
+
+Specify the **Metadata** value for the [BlobListingDetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails) enumeration. Azure Storage includes metadata with each blob returned, so you do not need to call one of the **FetchAttributes** methods in this context to retrieve the blob metadata.
+
+# [Python v12](#tab/python)
+
+Specify `metadata` for the `include=` parameter when calling [list_blobs](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient?view=storage-py-v12#list-blobs-name-starts-with-none--include-none----kwargs-).
+
+---
 
 ### List blob versions or snapshots
 
 To list blob versions or snapshots with the .NET v12 client library, specify the [BlobStates](/dotnet/api/azure.storage.blobs.models.blobstates) parameter with the **Version** or **Snapshot** field. Versions and snapshots are listed from oldest to newest. For more information about listing versions, see [List blob versions](versioning-enable.md#list-blob-versions).
+
+To list the number of snapshots with the Python v12 client library, specify `num_snapshots` in the `include=` parameter when calling [list_blobs](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient?view=storage-py-v12#list-blobs-name-starts-with-none--include-none----kwargs-).
 
 ### Flat listing versus hierarchical listing
 
@@ -143,7 +157,7 @@ private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container
 
 The sample output is similar to:
 
-```
+```console
 Blob name: FolderA/blob1.txt
 Blob name: FolderA/blob2.txt
 Blob name: FolderA/blob3.txt
@@ -234,7 +248,7 @@ private static async Task ListBlobsHierarchicalListingAsync(CloudBlobContainer c
 
 The sample output is similar to:
 
-```
+```console
 Virtual directory prefix: FolderA/
 Blob name: FolderA/blob1.txt
 Blob name: FolderA/blob2.txt
