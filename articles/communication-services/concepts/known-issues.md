@@ -38,8 +38,9 @@ If you're using Safari on MacOS, your app may not be able to enumerate/select sp
 ### Audio connectivity is lost when receiving SMS messages or calls during an ongoing VoIP call
 Mobile browsers don't maintain connectivity while in the background state. This can lead to a degraded call experience if the VoIP call was interrupted by text message or incoming PSTN call that pushes your application into the background.
 
-Platform: Web
+Client library: Calling (JavaScript)
 Browser: Safari, Chrome
+Operating System: iOS, Android
 
 ### Repeatedly switching video devices may cause video streaming to temporarily stop
 
@@ -61,16 +62,20 @@ With Safari on **MacOS**, your app may have trouble enumerating/selecting speake
 ### Rotation of a device can create poor video quality
 We encourage developers to build their app in a way that does not require rotation of multimedia devices. Users may experience degraded video quality when devices are rotated.
 
-Devices affected: Google Pixel 5, Google Pixel 3a, Apple iPad 8, and Apple iPad X.
-Browsers: Chrome
-Platforms: iOS, Android
+Devices affected: Google Pixel 5, Google Pixel 3a, Apple iPad 8, and Apple iPad X
+Client library: Calling (JavaScript)
+Browsers: Safari, Chrome
+Operating System: iOS, Android
 
 
 ### Camera switching makes the screen freeze 
 When a Communication Services user joins a call using the JavaScript calling client library and then hits the camera switch button, the UI may become completely unresponsive until the application is refreshed.
 
-Devices affected: Pixel 4a
+Devices affected: Google Pixel 4a
+Client library: Calling (JavaScript)
 Browsers: Chrome
+Operating System: iOS, Android
+
 
 #### Possible causes
 Under investigation.
