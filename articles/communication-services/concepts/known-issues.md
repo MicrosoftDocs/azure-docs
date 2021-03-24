@@ -11,7 +11,7 @@ ms.topic: troubleshooting
 ms.service: azure-communication-services
 ---
 
-# VoiP Limitations / known issues 
+# VoIP limitations / known issues 
 This article provides information about limitations and known issues related to Voice and Video Calling SDKs in Azure Communication Services.
 
 ## JAVASCRIPT SDK LIMITATIONS
