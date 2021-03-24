@@ -143,7 +143,7 @@ $maa-attestationcollateral | x-ms-sgx-collateral
 
 ### TPM and VBS attestation
 
-- **report_validity_in_minutes**: An integer claim signifying for how long the token is valid.
+- **report_validity_in_minutes**: An integer claim to signify for how long the token is valid.
   - **Default value(time)**: One day in minutes.
   - **Maximum value(time)**: One year in minutes.
 - **omit_x5c**: A Boolean claim indicating if Azure Attestation should omit the cert used to provide proof of service authenticity. If true, x5t will be added to the attestation token. If false(default), x5c will be added to the attestation token.
