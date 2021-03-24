@@ -65,8 +65,8 @@
         href: ./scripts/powershell-move-all-apps-to-connector-group.md
       - name: List users and groups assigned to app
         href: ./scripts/powershell-display-users-group-of-app.md
-      - name:
-        href: 
+      - name: Assign user to app
+        href: ./scripts/powershell-assign-user-to-app.md
       - name:
         href: 
       - name:
