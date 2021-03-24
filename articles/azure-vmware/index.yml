@@ -22,8 +22,6 @@ landingContent:
             url: introduction.md
           - text: Platform updates
             url: azure-vmware-solution-platform-updates.md
-          - text: FAQ
-            url: faq.yml
       - linkListType: concept
         links:
           - text: Private cloud and clusters
