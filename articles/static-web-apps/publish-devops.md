@@ -75,10 +75,10 @@ In this tutorial, you learn to:
 5. Select **Create**.
    
 6. Under _Deployment details_ ensure that you select **Other**. This enables you to use the code in your Azure DevOps repository.
-    > [!NOTE]
-    > The functionality to select _other_ is currently rolling out and may not be available yet in all Azure subscriptions.
+  > [!NOTE]
+  > The functionality to select _other_ is currently rolling out and may not be available yet in all Azure subscriptions.
 
-    :::image type="content" source="media/publish-devops/create-resource.png" alt-text="Deployment details - other":::
+  :::image type="content" source="media/publish-devops/create-resource.png" alt-text="Deployment details - other":::
 
 7. Once the deployment is successful, select **Manage deployment token**.
 
@@ -87,7 +87,7 @@ In this tutorial, you learn to:
   > [!NOTE]
   > This value is set aside for now because you'll copy and paste more values in coming steps.
 
-    :::image type="content" source="media/publish-devops/deployment-token.png" alt-text="Deployment token"::: 
+  :::image type="content" source="media/publish-devops/deployment-token.png" alt-text="Deployment token"::: 
 
 ## Create the Pipeline Task in Azure DevOps
 
