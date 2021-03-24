@@ -12,7 +12,7 @@ ms.subservice: blobs
 ms.custom: devx-track-csharp
 ---
 
-# List blobs with .NET
+# List blobs with Azure Storage APIs
 
 When you list blobs from your code, you can specify a number of options to manage how results are returned from Azure Storage. You can specify the number of results to return in each set of results, and then retrieve the subsequent sets. You can specify a prefix to return blobs whose names begin with that character or string. And you can list blobs in a flat listing structure, or hierarchically. A hierarchical listing returns blobs as though they were organized into folders.
 
