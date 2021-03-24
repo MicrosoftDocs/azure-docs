@@ -49,6 +49,8 @@ Continuous access evaluation is implemented by enabling services, like Exchange 
 
 This process enables the scenario where users lose access to organizational SharePoint Online files, email, calendar, or tasks, and Teams from Microsoft 365 client apps within mins after one of these critical events. 
 
+[!NOTE] Teams does not support user risk events yet.
+
 ### Conditional Access policy evaluation (preview)
 
 Exchange and SharePoint are able to synchronize key Conditional Access policies so they can be evaluated within the service itself.
