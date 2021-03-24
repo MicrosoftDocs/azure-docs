@@ -70,6 +70,10 @@ The real-time diagnostic logs captured by live trace tool contain detailed infor
 
 After the Azure Web PubSub service is GA, the live trace tool will also support to export the logs as a specific format and then help you share with others for troubleshooting. 
 
+## Capture diagnostic logs with Azure Monitor
+
+Integration with [Azure Monitor](https://azure.microsoft.com/services/monitor/), [Azure Storage](https://docs.microsoft.com/azure/azure-monitor/essentials/resource-logs#send-to-azure-storage), and [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/essentials/resource-logs#send-to-log-analytics-workspace) to capture the diagnostic logs is not supported for public preview.
+
 ## Troubleshoot with the diagnostic logs
 
 When finding connection unexpected growing or dropping situation, you can take advantage of diagnostic logs to troubleshoot. Typical issues are often about connections' unexpected quantity changes, connections reach connection limits and authorization failure.
