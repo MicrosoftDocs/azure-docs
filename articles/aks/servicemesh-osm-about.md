@@ -336,6 +336,253 @@ Navigate to the following url from a browser `http://localhost:8080`. You should
 
 ![OSM bookbuyer app UI image](./media/aks-osm-addon/osm-bookthief-service-ui.png)
 
+### Disable OSM Permissive Traffic Mode for the mesh
+
+As metioned earlier when viewing the OSM cluster configuration, the OSM configuration defaults to enabling permissive traffic mode policy. In this mode traffic policy enforcement is bypassed and OSM automatically discovers services that are a part of the service mesh and programs traffic policy rules on each Envoy proxy sidecar to be able to communicate with these services.
+
+We will now disable the permissive traffic mode policy and OSM will need explicit [SMI](https://smi-spec.io/) policies deployed to the cluster to allow communications in the mesh from each service. To disable permissive traffic mode, run the following command to update the configmap property changine the value from `true` to `false`.
+
+```azurecli-interactive
+kubectl patch ConfigMap -n kube-system osm-config --type merge --patch '{"data":{"permissive_traffic_policy_mode":"false"}}'
+```
+
+You should see output similar to the following. Your bookthief pod will have a unique name appended.
+
+```Output
+configmap/osm-config patched
+```
+
+To verify permissive traffic mode has been disabled, port forward back into either the bookbuyer or booktheif pod to view their UI in the browser and see if the books bought or books stolen is no more incremnting. Ensure to refresh the browser. If the incrementing has stopped, the policy was applied correctly. You have successfuly stopped the bookthief from stealing books, but neither the bookbuyer can purchase from the bookstore nor the bookstore can retrieve books from the bookwarehouse. Next we will implement [SMI](https://smi-spec.io/) policies to allow only the services in the mesh you would like to have communicate do so.
+
+### Apply Service Mesh Interface (SMI) traffic access policies
+
+Now that we have disabled all communications in the mesh, let's allow our bookbuyer service to communicate to our bookstore service for purchasing books, and allow our bookstore service to communicate to our bookwarehouse service to retrieving books to sell.
+
+Deploy the following [SMI](https://smi-spec.io/) policies.
+
+```azurecli-interactive
+kubectl apply -f - <<EOF
+---
+apiVersion: access.smi-spec.io/v1alpha3
+kind: TrafficTarget
+metadata:
+  name: bookbuyer-access-bookstore-v1
+  namespace: bookstore
+spec:
+  destination:
+    kind: ServiceAccount
+    name: bookstore
+    namespace: bookstore
+  rules:
+  - kind: HTTPRouteGroup
+    name: bookstore-service-routes
+    matches:
+    - buy-a-book
+    - books-bought
+  sources:
+  - kind: ServiceAccount
+    name: bookbuyer
+    namespace: bookbuyer
+---
+apiVersion: specs.smi-spec.io/v1alpha4
+kind: HTTPRouteGroup
+metadata:
+  name: bookstore-service-routes
+  namespace: bookstore
+spec:
+  matches:
+  - name: books-bought
+    pathRegex: /books-bought
+    methods:
+    - GET
+    headers:
+    - "user-agent": ".*-http-client/*.*"
+    - "client-app": "bookbuyer"
+  - name: buy-a-book
+    pathRegex: ".*a-book.*new"
+    methods:
+    - GET
+  - name: update-books-bought
+    pathRegex: /update-books-bought
+    methods:
+    - POST
+---
+kind: TrafficTarget
+apiVersion: access.smi-spec.io/v1alpha3
+metadata:
+  name: bookstore-access-bookwarehouse
+  namespace: bookwarehouse
+spec:
+  destination:
+    kind: ServiceAccount
+    name: bookwarehouse
+    namespace: bookwarehouse
+  rules:
+  - kind: HTTPRouteGroup
+    name: bookwarehouse-service-routes
+    matches:
+    - restock-books
+  sources:
+  - kind: ServiceAccount
+    name: bookstore-v1
+    namespace: bookstore
+  - kind: ServiceAccount
+    name: bookstore-v2
+    namespace: bookstore
+---
+apiVersion: specs.smi-spec.io/v1alpha4
+kind: HTTPRouteGroup
+metadata:
+  name: bookwarehouse-service-routes
+  namespace: bookwarehouse
+spec:
+  matches:
+    - name: restock-books
+      methods:
+      - POST
+      headers:
+      - host: bookwarehouse.bookwarehouse
+EOF
+```
+
+You should see output similar to the following.
+
+```Output
+traffictarget.access.smi-spec.io/bookbuyer-access-bookstore-v1 created
+httproutegroup.specs.smi-spec.io/bookstore-service-routes created
+traffictarget.access.smi-spec.io/bookstore-access-bookwarehouse created
+httproutegroup.specs.smi-spec.io/bookwarehouse-service-routes created
+```
+
+You can now setup a port forwarding session on either the bookbuyer or bookstore pods and see that both the books bought and books sold metrics are back incrementing. You can also do the same for the bookthief pod to verify it is still no longer able to steal books.
+
+### Apply Service Mesh Interface (SMI) traffic split policies
+
+For our final demonstration, we will create an [SMI](https://smi-spec.io/) traffic split policy to configure the weight of communications from one service to multiple services as a backend. The traffic split functionality allow you to progressively move connections to one service over to another by weighting the traffic on a scale of 0 to 100.
+
+The below graphic is a diagram of the [SMI](https://smi-spec.io/) Traffic Split policy to be deployed. We will deploy an additonal Bookstore version 2 and then split the incoming traffic from the bookbuyer, weighting 25% of the traffic to the bookstore v1 service and 75% to the bookstore v2 service.
+
+![OSM bookbuyer traffic split diagram](./media/aks-osm-addon/osm-bookbuyer-traffic-split-diagram.png)
+
+Deploy the bookstore v2 service.
+
+```azurecli-interactive
+kubectl apply -f - <<EOF
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bookstore-v2
+  namespace: bookstore
+  labels:
+    app: bookstore-v2
+spec:
+  ports:
+  - port: 14001
+    name: bookstore-port
+  selector:
+    app: bookstore-v2
+---
+# Deploy bookstore-v2 Service Account
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: bookstore-v2
+  namespace: bookstore
+---
+# Deploy bookstore-v2 Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bookstore-v2
+  namespace: bookstore
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bookstore-v2
+  template:
+    metadata:
+      labels:
+        app: bookstore-v2
+    spec:
+      serviceAccountName: bookstore-v2
+      containers:
+        - name: bookstore
+          image: openservicemesh/bookstore:v0.8.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 14001
+              name: web
+          command: ["/bookstore"]
+          args: ["--path", "./", "--port", "14001"]
+          env:
+            - name: BOOKWAREHOUSE_NAMESPACE
+              value: bookwarehouse
+            - name: IDENTITY
+              value: bookstore-v2
+---
+kind: TrafficTarget
+apiVersion: access.smi-spec.io/v1alpha3
+metadata:
+  name: bookstore-v2
+  namespace: bookstore
+spec:
+  destination:
+    kind: ServiceAccount
+    name: bookstore-v2
+    namespace: bookstore
+  rules:
+  - kind: HTTPRouteGroup
+    name: bookstore-service-routes
+    matches:
+    - buy-a-book
+    - books-bought
+  sources:
+  - kind: ServiceAccount
+    name: bookbuyer
+    namespace: bookbuyer
+EOF
+```
+
+You should see the following output.
+
+```Output
+service/bookstore-v2 configured
+serviceaccount/bookstore-v2 created
+deployment.apps/bookstore-v2 created
+traffictarget.access.smi-spec.io/bookstore-v2 created
+```
+
+Now deploy the traffic split policy to split the bookbuyer traffic between the two bookstore v1 and v2 service.
+
+```azurecli-interactive
+kubectl apply -f - <<EOF
+apiVersion: split.smi-spec.io/v1alpha2
+kind: TrafficSplit
+metadata:
+  name: bookstore-split
+  namespace: bookstore
+spec:
+  service: bookstore.bookstore
+  backends:
+  - service: bookstore-v1
+    weight: 25
+  - service: bookstore-v2
+    weight: 75
+EOF
+```
+
+You should see the following output.
+
+```Output
+trafficsplit.split.smi-spec.io/bookstore-split created
+```
+
+Setup a port forward tunnel to the bookbuyer pod and you should now see books being purchased from the bookstore v2 service. If you continue to watch the increment of purchases you should notice a faster increment of purchases happening through the bookstore v2 service.
+
+![OSM bookbuyer traffic split diagram](./media/aks-osm-addon/osm-bookbuyer-traffic-split-ui.png)
+
 ## Manage existing deployed applications to be managed by the Open Service Mesh (OSM) Azure Kubernetes Service (AKS) add-on
 
 ### Before you begin
@@ -477,7 +724,7 @@ Please verify your application is still functional after the Envoy sidecar proxy
 
 ### Onboard existing deployed applications with Open Service Mesh (OSM) Permissive Traffic Policy configured as False
 
-When the OSM configuration for the permissive traffic policy is set to `false`, OSM will require explicit [SMI](https://smi-spec.io/) traffic access policies deployed for the service-to-service communication to happen within your cluster. Currently, OSM also uses Kubernetes service accounts as part of authorizing service-to-service communications as well. To ensure your existing deployed applications will communicate when managed my the OSM mesh, we will need to verify the existance of a service account to utilize, update the application deployment with the service account information, apply the [SMI](https://smi-spec.io/) traffic access policies.
+When the OSM configuration for the permissive traffic policy is set to `false`, OSM will require explicit [SMI](https://smi-spec.io/) traffic access policies deployed for the service-to-service communication to happen within your cluster. Currently, OSM also uses Kubernetes service accounts as part of authorizing service-to-service communications as well. To ensure your existing deployed applications will communicate when managed by the OSM mesh, we will need to verify the existance of a service account to utilize, update the application deployment with the service account information, apply the [SMI](https://smi-spec.io/) traffic access policies.
 
 #### Verify Kubernetes Service Accounts
 
