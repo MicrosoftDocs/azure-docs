@@ -45,7 +45,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. In the left pane, click **Data** and select the **Linked** tab.
 
-1. Click **+** and select "Connect to external data".
+1. If you want to attach a new storage account, click **+** and select "Connect to external data". You don't need to perform this step if you just want to use the default data lake storage account in your workspace.
 
 1. In the **Connect to external data** pane, select "Azure Data Lake Storage Gen2" and click **Continue**.
 
