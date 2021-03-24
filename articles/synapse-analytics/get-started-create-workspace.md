@@ -28,10 +28,10 @@ To complete this tutorial's steps, you need to have access to a resource group f
 1. Select **Add** to create a workspace.
 
 ## Basics tab > Project Details
-1. **Basics** tab, under **Project Details**, fill in the following fields:
-      1. **Subscription** - Pick any subscription.
-      2. **Resource group** - Use any resource group.
-      3. **Resource group** - Leave this blank.
+Fill in the following fields:
+    1. **Subscription** - Pick any subscription.
+    1. **Resource group** - Use any resource group.
+    1. **Resource group** - Leave this blank.
 
 
 ## Basics tab > Workspace details
