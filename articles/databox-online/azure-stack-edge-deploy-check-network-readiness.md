@@ -15,6 +15,8 @@ ms.author: alkohli
 
 # Check network readiness for Azure Stack Edge devices
 
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
+
 This article describes how to check your network for the most common issues in Azure Stack Edge deployments before you deploy an Azure Stack Edge device.<!--Verify ASE SKUs.-->
 
 You'll use the Azure Stack Network Readiness Checker, a PowerShell tool that runs a series of tests to check mandatory and optional settings on the network where you deploy your Azure Stack Edge devices. You can run the tool from any computer on the network where you'll deploy the Azure Stack Edge devices.<!--OS requirements imposed by PowerShell 7.0?--> The tool returns Pass/Fail status for each test and saves a log file and report file with more detail.
