@@ -75,7 +75,7 @@ Use the DEV offer to experiment with pricing models. After you verify which pric
 The DEV offer should have plans with zero or very low prices in the plans. The PROD offer will have the prices you want to charge to customers.
 
 > [!NOTE]
-> Information the user should notice even if skimmingPurchases made in Preview will be processed for both DEV and PROD offers. If an offer has a $100/mo price, your company will be charged $100. If this happens, you can open a [support ticket](support.md) and we will issue a payout for the full amount (and take no agency fee).
+> Purchases made in Preview will be processed for both DEV and PROD offers. If an offer has a $100/mo price, your company will be charged $100. If this happens, you can open a [support ticket](support.md) and we will issue a payout for the full amount (and take no agency fee).
 
 #### Pricing model
 
