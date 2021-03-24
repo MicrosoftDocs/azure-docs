@@ -78,11 +78,14 @@ For production SQL Server environments, do not use the operating system disk for
 
 ### Temporary disk
 
-Many Azure virtual machines contain another disk type called the temporary disk (labeled as the `D:\` drive). Depending on the virtual machine series and size this disk could either be local or remote storage and the capacity will vary. The temporary disk is ephemeral, which means the disk storage is recreated (as in, it is deallocated and allocated again), when the virtual machine is restarted, or moved to a different host (for [service healing](/troubleshoot/azure/virtual-machines/understand-vm-reboot), for example). 
+Many Azure virtual machines contain another disk type called the temporary disk (labeled as the `D:\` drive). Depending on the virtual machine series and size the capacity of this disk will vary. The temporary disk is ephemeral, which means the disk storage is recreated (as in, it is deallocated and allocated again), when the virtual machine is restarted, or moved to a different host (for [service healing](/troubleshoot/azure/virtual-machines/understand-vm-reboot), for example). 
 
 The temporary storage drive is not persisted to remote storage and therefore should not store user database files, transaction log files, or anything that must be preserved. 
 
 Place tempdb on the local temporary SSD `D:\` drive for SQL Server workloads unless consumption of local cache is a concern. To learn more, see [tempdb data caching policies](performance-guidelines-best-practices-storage.md#data-file-caching-policies)
+
+> [!NOTE]
+> If you are using a virtual machine that [does not have a temporary disk](../../../virtual-machines/azure-vms-no-temp-disk.md) then it is recommended to place tempdb on its own isolated disk or storage pool with caching set to read-only.
 
 ### Data disks
 
@@ -100,7 +103,7 @@ Use premium SSD disks for data and log files for production SQL Server workloads
 
 For production workloads, use the P30 and/or P40 disks for SQL Server data files to ensure caching support and use the P30 up to P80 for SQL Server transaction log files.  For the best total cost of ownership, start with P30s (5000 IOPS/200 MBPS) for data and log files and only choose higher capacities when you need to control the virtual machine disk count.
 
-For OLTP workloads, match the target IOPS per disk (or storage pool) with your performance requirements using workloads at peak times and the `avg. disk reads/sec` + `avg. disk writes/sec` performance counters. For data warehouse and reporting workloads, match the target throughput using workloads at peak times and the `disk read bytes/sec` + `disk write bytes/sec`. 
+For OLTP workloads, match the target IOPS per disk (or storage pool) with your performance requirements using workloads at peak times and the `Disk Reads/sec` + `Disk Writes/sec` performance counters. For data warehouse and reporting workloads, match the target throughput using workloads at peak times and the `Disk Read Bytes/sec` + `Disk Write Bytes/sec`. 
 
 Use Storage Spaces to achieve optimal performance, configure two pools, one for the log file(s) and the other for the data files. If you are not using disk striping, use two premium SSD disks mapped to separate drives, where one drive contains the log file and the other contains the data.
 
@@ -138,7 +141,7 @@ Virtual machines that support premium storage caching can take advantage of an a
 
 The IOPS and MBps throughput without caching counts against a virtual machine's uncached disk throughput limits. The maximum cached limits provide an additional buffer for reads that helps address growth and unexpected peaks.
 
-Enable premium caching whenever the option is supported to significantly improve performance for reads against the data drive. 
+Enable premium caching whenever the option is supported to significantly improve performance for reads against the data drive without additional cost. 
 
 Reads and writes to the Azure BlobCache (cached IOPS and throughput) do not count against the uncached IOPS and throughput limits of the virtual machine.
 
@@ -155,7 +158,7 @@ For example, the [M-series](../../../virtual-machines/m-series.md) documentation
 
 ![M-series Uncached Disk Throughput](./media/performance-guidelines-best-practices/M-Series_table.png)
 
-Likewise, you can see that the Standard_M32ts supports 20,000 uncached disk IOPS and 500-MBps uncached disk throughput. This limit is governed at the virtual machine level regardless of the underlying premium disk storage.
+Likewise, you can see that the Standard_M32ts supports 20,000 uncached disk IOPS and 500 MBps uncached disk throughput. This limit is governed at the virtual machine level regardless of the underlying premium disk storage.
 
 For more information, see [uncached and cached limits](../../../virtual-machines/linux/disk-performance-linux.md#virtual-machine-uncached-vs-cached-limits).
 
@@ -172,7 +175,7 @@ Only certain virtual machines support both premium storage and premium storage c
 
 ![M-Series Premium Storage Support](./media/performance-guidelines-best-practices/M-Series_table_premium_support.png)
 
-The limits of the cache will vary based on the virtual machine size. For example, the Standard_M8ms VM supports 10000 cached disk IOPS and 1000-MBps cached disk throughput with a total cache size of 793 GiB. Similarly, the Standard_M32ts VM supports 40000 cached disk IOPS and 400-MBps cached disk throughput with a total cache size of 3174 GiB. 
+The limits of the cache will vary based on the virtual machine size. For example, the Standard_M8ms VM supports 10000 cached disk IOPS and 1000 MBps cached disk throughput with a total cache size of 793 GiB. Similarly, the Standard_M32ts VM supports 40000 cached disk IOPS and 400 MBps cached disk throughput with a total cache size of 3174 GiB. 
 
 ![M-series Cached Disk Throughput](./media/performance-guidelines-best-practices/M-Series_table_cached_temp.png)
 
@@ -180,7 +183,7 @@ You can manually enable host caching on an existing VM. Stop all application wor
 
 ### Data file caching policies
 
-Your storage caching policy varies depending on the type of SQL Server data file is hosted on the drive. 
+Your storage caching policy varies depending on the type of SQL Server data files that are hosted on the drive. 
 
 The following table provides a summary of the recommended caching policies based on the type of SQL Server data: 
 
@@ -200,7 +203,7 @@ To learn more, see [Disk caching](../../../virtual-machines/premium-storage-perf
 
 Analyze the throughput and bandwidth required for your SQL data files to determine the number of data disks, including the log file and tempdb. Throughput and bandwidth limits vary by VM size. To learn more, see [VM Size](../../../virtual-machines/sizes.md)
 
-Add additional data disks and use disk striping for more throughput. For example, an application that needs 12,000 IOPS and 180 MBs/ throughput can use three striped P30 disks to deliver 15,000 IOPS and 600-MB/s throughput. 
+Add additional data disks and use disk striping for more throughput. For example, an application that needs 12,000 IOPS and 180 MB/s throughput can use three striped P30 disks to deliver 15,000 IOPS and 600 MB/s throughput. 
 
 To configure disk striping, see [disk striping](storage-configuration.md#disk-striping). 
 
@@ -256,9 +259,9 @@ If possible, use Write Acceleration over Ultra Disks for the transaction log dis
 
 To assess storage needs, and determine how well storage is performing, you need to understand what to measure, and what those indicators mean. 
 
-[IOPS (Input/Output per second)](../../../virtual-machines/premium-storage-performance.md#iops) is the number of requests the application is making to storage per second. Measure IOPS using Performance Monitor counters `Avg. Disk reads/sec` and `Avg. Disk writes/sec`. [OLTP (Online transaction processing)](/azure/architecture/data-guide/relational-data/online-transaction-processing) applications need to drive higher IOPS in order to achieve optimal performance. Applications such as payment processing systems, online shopping, and retail point-of-sale systems are all examples of OLTP applications.
+[IOPS (Input/Output per second)](../../../virtual-machines/premium-storage-performance.md#iops) is the number of requests the application is making to storage per second. Measure IOPS using Performance Monitor counters `Disk Reads/sec` and `Disk Writes/sec`. [OLTP (Online transaction processing)](/azure/architecture/data-guide/relational-data/online-transaction-processing) applications need to drive higher IOPS in order to achieve optimal performance. Applications such as payment processing systems, online shopping, and retail point-of-sale systems are all examples of OLTP applications.
 
-[Throughput](../../../virtual-machines/premium-storage-performance.md#throughput) is the volume of data that is being sent to the underlying storage, often measured by megabytes per second. Measure throughput with the Performance Monitor counters `Disk read bytes/sec` and `Disk write bytes/sec`. [Data warehousing](/azure/architecture/data-guide/relational-data/data-warehousing) is optimized around maximizing throughput over IOPS. Applications such as data stores for analysis, reporting, ETL workstreams, and other business intelligence targets are all examples of data warehousing applications.
+[Throughput](../../../virtual-machines/premium-storage-performance.md#throughput) is the volume of data that is being sent to the underlying storage, often measured by megabytes per second. Measure throughput with the Performance Monitor counters `Disk Read Bytes/sec` and `Disk Write Bytes/sec`. [Data warehousing](/azure/architecture/data-guide/relational-data/data-warehousing) is optimized around maximizing throughput over IOPS. Applications such as data stores for analysis, reporting, ETL workstreams, and other business intelligence targets are all examples of data warehousing applications.
 
 I/O unit sizes influence IOPS and throughput capabilities as smaller I/O sizes yield higher IOPS and larger I/O sizes yield higher throughput. SQL Server chooses the optimal I/O size automatically. For more information about, see [Optimize IOPS, throughput, and latency for your applications](../../../virtual-machines/premium-storage-performance.md#optimize-iops-throughput-and-latency-at-a-glance). 
 
