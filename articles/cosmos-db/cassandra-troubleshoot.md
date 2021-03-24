@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot common errors in the Azure Cosmos DB Cassandra API
-description: This article discusses common issues encountered in the Azure Cosmos DB Cassandra API and how to troubleshoot.
+description: This article discusses common issues in the Azure Cosmos DB Cassandra API and how to troubleshoot them.
 author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
@@ -25,20 +25,21 @@ This article describes common errors and solutions for applications that use the
 
 ## NoNodeAvailableException
 
-This is a top-level wrapper exception with a large number of possible causes and inner exceptions, many of which can be client-related.
+This error is a top-level wrapper exception with a large number of possible causes and inner exceptions, many of which can be client-related.
 
 Common causes and solutions:
 
-- **Idle timeout of Azure LoadBalancers**: This might also manifest as `ClosedConnectionException`. To resolve this, set the keep-alive setting in the driver (see [Enable keep-alive for Java driver](#enable-keep-alive-for-java-driver)) and increase keep-alive settings in your operating system, or [adjust idle timeout in Azure Load Balancer](../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal).
+- **Idle timeout of Azure LoadBalancers**: This issue might also manifest as `ClosedConnectionException`. To resolve the issue, set the keep-alive setting in the driver (see [Enable keep-alive for Java driver](#enable-keep---alive-for-the-java-driver)) and increase keep-alive settings in your operating system, or [adjust idle timeout in Azure Load Balancer](../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal).
+
 - **Client application resource exhaustion**: Ensure that client machines have sufficient resources to complete the request.
 
 ## Can't connect to a host
 
 You might see this error: "Cannot connect to any host, scheduling retry in 600000 milliseconds".
 
-This might be source network address translation (SNAT) exhaustion on the client side. Follow the steps at [SNAT for outbound connections](../load-balancer/load-balancer-outbound-connections.md) to rule out this issue.
+This error might be caused by source network address translation (SNAT) exhaustion on the client side. Follow the steps at [SNAT for outbound connections](../load-balancer/load-balancer-outbound-connections.md) to rule out this issue.
 
-This might also be an idle timeout issue where the Azure load balancer has four minutes of idle timeout by default. See [Load balancer idle timeout](../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal). [Enable keep-alive from the Java driver settings](#enable-keep-alive-for-java-driver) and set the `keepAlive` interval on the operating system to less than four minutes.
+The error might also be an idle timeout issue where the Azure load balancer has four minutes of idle timeout by default. See [Load balancer idle timeout](../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal). [Enable keep-alive from the Java driver settings](#enable-keep---alive-for-the-java-driver) and set the `keepAlive` interval on the operating system to less than four minutes.
 
 ## OverloadedException (Java)
 
@@ -66,11 +67,11 @@ Connection drops or times out unexpectedly.
 
 The Apache Cassandra drivers for Java provide two native reconnection policies: `ExponentialReconnectionPolicy` and `ConstantReconnectionPolicy`. The default is `ExponentialReconnectionPolicy`. However, for Azure Cosmos DB Cassandra API, we recommend `ConstantReconnectionPolicy` with a two-second delay.
 
-See the [documentation for the Java 4.x driver](https://docs.datastax.com/en/developer/java-driver/4.9/manual/core/reconnection/), the [documentation for the Java 3.x driver](https://docs.datastax.com/en/developer/java-driver/3.7/manual/reconnection/), or [Configuring ReconnectionPolicy for the Java driver](#configuring-reconnectionpolicy-for-the-java-driver) examples.
+See the [documentation for the Java 4.x driver](https://docs.datastax.com/en/developer/java-driver/4.9/manual/core/reconnection/), the [documentation for the Java 3.x driver](https://docs.datastax.com/en/developer/java-driver/3.7/manual/reconnection/), or [Configuring ReconnectionPolicy for the Java driver](#configure-reconnectionpolicy-for-the-java-driver) examples.
 
 ## Error with load-balancing policy
 
-You might have implemented a load-balancing policy in v3.x of the Java DataStax driver, with code similar to this:
+You might have implemented a load-balancing policy in v3.x of the Java DataStax driver, with code similar to:
 
 ```java
 cluster = Cluster.builder()
