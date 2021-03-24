@@ -48,7 +48,7 @@ Per [RFC 8252 sections 8.3](https://tools.ietf.org/html/rfc8252#section-8.3) and
 1. `http` URI schemes are acceptable because the redirect never leaves the device. As such, both of these URIs are acceptable:
     - `http://localhost/myApp`
     - `https://localhost/myApp`
-1. Due to ephemeral port ranges often required by native applications, the port component (for example, `:5001` or `:443`) is ignored for the purposes of matching a redirect URI. As a result, all of these URIs are considered equivalent:
+1. Due to ephemeral port ranges often required by native applications, the port component (for example, `:5001` or `:443`) is ignored for the purposes of matching a redirect URI for `http` URI schemes. As a result, all of these URIs are considered equivalent:
     - `http://localhost/MyApp`
     - `http://localhost:1234/MyApp`
     - `http://localhost:5000/MyApp`
