@@ -515,17 +515,25 @@ Any SAP action filtering happens at the level of the SAP adapter for your on-pre
 
 If you can't send IDoc packets from SAP to your logic app's trigger, see the Transactional RFC (tRFC) call rejection message in the SAP tRFC dialog box (T-code SM58). In the SAP interface, you might get the following error messages, which are clipped due to the substring limits on the **Status Text** field.
 
-* `The RequestContext on the IReplyChannel was closed without a reply being sent`: Unexpected failures happen when the catch-all handler for the channel terminates the channel due to an error, and rebuilds the channel to process other messages.
+##### The RequestContext on the IReplyChannel was closed without a reply being sent
 
-  * To acknowledge that your logic app received the IDoc, [add a Response action](../connectors/connectors-native-reqres.md#add-a-response-action) that returns a `200 OK` status code. The IDoc is transported through tRFC, which doesn't allow for a response payload.
+This error message means unexpected failures happen when the catch-all handler for the channel terminates the channel due to an error, and rebuilds the channel to process other messages.
 
-  * If you need to reject the IDoc instead, respond with any HTTP status code other than `200 OK` so that the SAP Adapter returns an exception back to SAP on your behalf. 
+To acknowledge that your logic app received the IDoc, [add a Response action](../connectors/connectors-native-reqres.md#add-a-response-action) that returns a `200 OK` status code. The IDoc is transported through tRFC, which doesn't allow for a response payload.
 
-  * If you see this message and experience intermittent failures calling Logic Apps, you might need to increase your retry count and/or retry interval. Check SAP settings in your on-premises data gateway service configuration file, `Microsoft.PowerBI.EnterpriseGateway.exe.config`. The retry count setting looks like `WebhookRetryMaximumCount="2"`. The retry interval setting looks like `WebhookRetryDefaultDelay="00:00:00.10"` and the timespan format is `HH:mm:ss.ff`. Be sure to restart your on-premises data gateway after saving your changes.
+If you need to reject the IDoc instead, respond with any HTTP status code other than `200 OK` so that the SAP Adapter returns an exception back to SAP on your behalf. 
 
-* `The segment or group definition E2EDK36001 was not found in the IDoc meta`: Expected failures happen with other errors, such as the failure to generate an IDoc XML payload because its segments are not released by SAP, so the segment type metadata required for conversion is missing. 
+If you're receiving this error message and experience intermittent failures calling Logic Apps, you might need to increase your retry count and/or retry interval. 
 
-  * To have these segments released by SAP, contact the ABAP engineer for your SAP system.
+1. Check SAP settings in your on-premises data gateway service configuration file, `Microsoft.PowerBI.EnterpriseGateway.exe.config`. The retry count setting looks like `WebhookRetryMaximumCount="2"`. The retry interval setting looks like `WebhookRetryDefaultDelay="00:00:00.10"` and the timespan format is `HH:mm:ss.ff`. 
+    
+1. Save your changes and restart your on-premises data gateway.
+
+##### The segment or group definition E2EDK36001 was not found in the IDoc meta
+
+This error message means expected failures happen with other errors. For example, the failure to generate an IDoc XML payload because its segments are not released by SAP. As a result, the segment type metadata required for conversion is missing.
+
+To have these segments released by SAP, contact the ABAP engineer for your SAP system.
 ### Asynchronous request-reply for triggers
 
 The SAP connector supports Azure's [asynchronous request-reply pattern](/azure/architecture/patterns/async-request-reply) for Logic Apps triggers. You can use this pattern to create successful requests that would have otherwise failed with the default synchronous request-reply pattern. 
