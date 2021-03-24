@@ -32,7 +32,7 @@ Active geo-replication groups two or more Enterprise Azure Cache for Redis insta
 
     ![Active geo-replication configured](./media/cache-how-to-active-geo-replication/cache-active-geo-replication-configured.png)
 
-1. Repeat the above steps for each additional cache instance in the geo-replication group.
+1. Wait for the first cache to be created successfully. Repeat the above steps for each additional cache instance in the geo-replication group.
 
 ## Remove from an active geo-replication group
 

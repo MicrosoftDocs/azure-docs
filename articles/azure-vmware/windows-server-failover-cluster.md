@@ -46,10 +46,10 @@ The following diagram illustrates the architecture of WSFC virtual nodes on an A
 
 Currently, the following configurations are supported:
 
-- Microsoft Windows Server 2012 or later.
-- Up to five failover clustering nodes per cluster.
-- Up to four PVSCSI adapters per VM.
-- Up to 64 disks per PVSCSI adapter.
+- Microsoft Windows Server 2012 or later
+- Up to five failover clustering nodes per cluster
+- Up to four PVSCSI adapters per VM
+- Up to 64 disks per PVSCSI adapter
 
 ## Virtual Machine configuration requirements
 

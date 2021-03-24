@@ -35,7 +35,7 @@ Additional resources:
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - Azure Storage account - [create a storage account](../common/storage-account-create.md)
-- [Python](https://www.python.org/downloads/) for your operating system - 2.7, 3.5 or above
+- [Python](https://www.python.org/downloads/) for your operating system - 2.7 or 3.6+
 
 ## Setting up
 

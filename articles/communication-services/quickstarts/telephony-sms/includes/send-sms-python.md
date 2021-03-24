@@ -24,7 +24,7 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- [Python](https://www.python.org/downloads/) 2.7, 3.5, or above.
+- [Python](https://www.python.org/downloads/) 2.7 or 3.6+.
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
 - An SMS enabled telephone number. [Get a phone number](../get-phone-number.md).
 
@@ -95,7 +95,7 @@ To send an SMS message to a single recipient, call the ```send``` method from th
 # calling send() with sms values
 sms_responses = sms_client.send(
     from_="<from-phone-number>",
-    to="<to-phone-number>,
+    to="<to-phone-number>",
     message="Hello World via SMS",
     enable_delivery_report=True, # optional property
     tag="custom-tag") # optional property

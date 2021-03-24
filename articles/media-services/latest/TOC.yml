@@ -86,7 +86,7 @@
       href: stream-files-nodejs-quickstart.md
   - name: Python
     items:
-    - name: Python Basic Encoding Quickstart
+    - name: Python Basic Encoding
       href: quickstart-basic-encoding-python.md
   - name: Azure portal
     items:
@@ -95,10 +95,12 @@
     - name: Store AMS events in Azure Log Analytics
       href: tutorial-events-log-analytics.md
 - name: Samples
-  items:    
+  items:
+  - name: Samples overview
+    href: samples-overview.md
   - name: Media Services v3 samples
     displayName: .NET, Java
-    href: /samples/browse/?products=azure-media-services
+    href: https://github.com/Azure-Samples?q=media-services&type=&language=&sort=
   - name: Media Services v3 REST samples
     href: https://github.com/Azure-Samples/media-services-v3-rest-postman
 - name: Concepts
@@ -223,9 +225,9 @@
       - name: Monitor with Event Grid
         items:
         - name: Events with Event Grid
-          href: reacting-to-media-services-events.md  
+          href: monitoring/reacting-to-media-services-events.md  
         - name: Event Grid schemas
-          href: media-services-event-schemas.md              
+          href: monitoring/media-services-event-schemas.md              
   - name: Compatible players
     items:
     - name: Media players for Media Services
@@ -394,15 +396,15 @@
   - name: Use Event Grid
     items:
     - name: Monitor events - Portal
-      href: monitor-events-portal-how-to.md
+      href: monitoring/monitor-events-portal-how-to.md
     - name: Monitor events - CLI
-      href: job-state-events-cli-how-to.md 
+      href: monitoring/job-state-events-cli-how-to.md 
   - name: Use Azure Monitor
     items:
     - name: Monitor metrics
-      href: media-services-metrics-howto.md
+      href: monitoring/media-services-metrics-howto.md
     - name: Monitor diagnostic logs
-      href: media-services-diagnostic-logs-howto.md
+      href: monitoring/media-services-diagnostic-logs-howto.md
   - name: Protect content
     items:
     - name: Get content key policy
