@@ -142,7 +142,7 @@ The appliance needs to connect to vCenter Server to discover the configuration a
 1. On clicking **Save**, appliance will try validating the connection to the vCenter Server with the credentials provided and show the **Validation status** in the table against the vCenter Server IP address/FQDN.
 1. You can **revalidate** the connectivity to vCenter Server anytime before starting the discovery.
 
-    :::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Panel 3 on appliance configuration manager for vCenter Server details":::
+    :::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Panel on appliance configuration manager for vCenter Server details":::
 
 ### Provide server credentials
 
@@ -162,7 +162,7 @@ If you want to leverage these features, you can provide server credentials by fo
 - When you click on **Save** or **Add more**, the appliance validates the domain credentials with the domain's Active Directory for their authenticity. This is done to avoid any account lockouts when appliance does multiple iterations to map credentials to the respective servers.
 - You can see the **Validation status** for all the domain credentials in the credentials table. Only domain credentials will be validated.
 - If the validation fails, you can click on **Failed** status to see the error encountered and click on **Revalidate credentials** after fixing the issue to validate the failed domain credentials again.
-    :::image type="content" source="./media/tutorial-discover-vmware/add-server-credentials-multiple.png" alt-text="Panel 3 on appliance configuration manager for server details":::
+    :::image type="content" source="./media/tutorial-discover-vmware/add-server-credentials-multiple.png" alt-text="Panel 4 on appliance configuration manager for server details":::
 
 ### Start discovery
 
