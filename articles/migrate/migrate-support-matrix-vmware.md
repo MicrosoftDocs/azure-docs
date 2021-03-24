@@ -10,7 +10,7 @@ ms.date: 03/17/2021
 
 # Support matrix for VMware assessment 
 
-This article summarizes prerequisites and support requirements when you discover and assess servers running in VMware environment for migration to Azure, using the [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool. To assess servers, you create a project, which adds the Azure Migrate: Discovery and assessment tool to the project. After the tool is added, you deploy the Azure Migrate appliance. The appliance continuously discovers on-premises servers, and sends configuration and performance metadata to Azure. After discovery is complete, you gather discovered servers into groups, and run an assessment for a group.
+This article summarizes prerequisites and support requirements when you discover and assess servers running in VMware environment for migration to Azure, using the [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool. To assess servers, you create a project, which adds the Azure Migrate: Discovery and assessment tool to the project. After the tool is added, you deploy the Azure Migrate appliance. The appliance continuously discovers on-premises servers, and sends configuration and performance metadata to Azure. After discovery is complete, you gather discovered servers into groups, and run an assessment for a group.
 
 If you want to migrate VMware servers to Azure, review the [migration support matrix](migrate-support-matrix-vmware-migration.md).
 
@@ -20,7 +20,7 @@ If you want to migrate VMware servers to Azure, review the [migration support ma
 
 **Requirement** | **Details**
 --- | ---
-**Project limits** | You can create multiple projects in an Azure subscription.<br/><br/> You can discover and assess up to 50,000 servers from VMware environment in a single [project](migrate-support-matrix.md#azure-migrate-projects). A project can also include physical servers, and servers from Hyper-V environment, up to the assessment limits.
+**Project limits** | You can create multiple projects in an Azure subscription.<br/><br/> You can discover and assess up to 50,000 servers from VMware environment in a single [project](migrate-support-matrix.md#project). A project can also include physical servers, and servers from Hyper-V environment, up to the assessment limits.
 **Discovery** | The Azure Migrate appliance can discover up to 10,000 servers on a vCenter Server.
 **Assessment** | You can add up to 35,000 servers in a single group.<br/><br/> You can assess up to 35,000 servers in a single assessment.
 
@@ -73,9 +73,6 @@ In addition to discovering Servers, Azure Migrate: Discovery and assessment can 
 **Port access** | The Azure Migrate appliance must be able to connect to TCP port 443 on ESXi hosts running servers on which you want to perform application discovery. The vCenter Server returns an ESXi host connection, to download the file containing the details of software inventory.
 
 ## Requirements for discovery of SQL Server instances and databases
-
-> [!Note]
-> Discovery and assessment of SQL Server instances and databases running in your VMware environment is now in preview. To try out this feature, use [**this link**](https://aka.ms/AzureMigrate/SQL) to create a project in **Australia East** region. If you already have a project in Australia East and want to try out this feature, please ensure that you have completed these [**prerequisites**](how-to-discover-sql-existing-project.md) on the portal.
 
 [Application discovery](how-to-discover-applications.md) identifies the SQL Server instances. Using this information, appliance attempts to connect to respective SQL Server instances through the Windows authentication or SQL Server authentication credentials provided on the appliance. Once connected, appliance gathers configuration and performance data of SQL Server instances and databases. The SQL Server configuration data is updated once every 24 hours and the performance data are captured every 30 seconds.
 

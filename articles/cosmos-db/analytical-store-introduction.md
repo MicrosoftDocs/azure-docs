@@ -105,9 +105,10 @@ The following constraints are applicable on the operational data in Azure Cosmos
 
 * Currently we do not support Azure Synapse Spark reading column names that contain blanks (white spaces).
 
-* Expect different behavior in regard to `NULL` values:
-  * Spark pools in Azure Synapse will read these values as 0 (zero).
-  * SQL serverless pools in Azure Synapse will read these values as `NULL`.
+* Expect different behavior in regard to explicit `null` values:
+  * Spark pools in Azure Synapse will read these values as `0` (zero).
+  * SQL serverless pools in Azure Synapse will read these values as `NULL` if the first document of the collection has, for the same property, a value with a `non-numeric` datatype.
+  * SQL serverless pools in Azure Synapse will read these values as `0` (zero) if the first document of the collection has, for the same property, a value with a `numeric` datatype.
 
 * Expect different behavior in regard to missing columns:
   * Spark pools in Azure Synapse will represent these columns as `undefined`.
@@ -139,6 +140,11 @@ The well-defined schema representation creates a simple tabular representation o
 
 > [!NOTE]
 > If the Azure Cosmos DB analytical store follows the well-defined schema representation and the specification above is violated by certain items, those items will not be included in the analytical store.
+
+* Expect different behavior in regard to different types in well defined schema:
+  * Spark pools in Azure Synapse will represent these values as `undefined`.
+  * SQL serverless pools in Azure Synapse will represent these values as `NULL`.
+
 
 **Full fidelity schema representation**
 
