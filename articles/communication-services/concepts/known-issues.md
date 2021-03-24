@@ -28,7 +28,7 @@ It's a current limitation due to technical implementation, please refer to [Call
 ### Enumeration of the mic and speaker devices is not possible in Safari when the application runs on iOS or iPadOS 
 Applications can't enumerate/select mic/speaker devices (like Bluetooth) on Safari iOS/iPad. It's a limitation of the OS - there's always only one device.
 
-For Safari on MacOS - app can't enumerate/select speaker through Communication Services Device Manager - these must be selected via the OS. If you use Chrome on MacOS, the app can enumerate/select devices through the Communication Services Device Manager.
+If you're using Safari on MacOS, your app may not be able to enumerate/select speakers through the Communication Services Device Manager. In this scenario, devices must be selected via the OS. If you use Chrome on MacOS, the app can enumerate/select devices through the Communication Services Device Manager.
 
 ### Audio is lost if a user receives text or call during the ongoing VoIP call
 Mobile browsers are lacking the ability to maintain the connectivity while in background state. This will lead to poor experiences if the VoIP call was interrupted by text message or incoming PSTN call.
