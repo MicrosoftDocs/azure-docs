@@ -119,7 +119,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 >    - If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with `common`. To restrict support to *personal Microsoft accounts only*, replace this value with `consumers`.
 >
 >    To find the value of **Supported account types**, go to the app registration's **Overview** page in the Azure portal.
->    - `Enter_the_Redirect_Uri_Here` is `http://localhost:3000/`.
+> - `Enter_the_Redirect_Uri_Here` is `http://localhost:3000/`.
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 3: Your app is configured and ready to run
