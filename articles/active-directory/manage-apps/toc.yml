@@ -59,8 +59,8 @@
         href: ./scripts/powershell-get-all-app-proxy-apps-by-connector-group.md
       - name: List App Proxy apps with token lifetime policy
         href: ./scripts/powershell-get-all-app-proxy-apps-with-policy.md
-      - name:
-        href: 
+      - name: List connector groups and connectors
+        href: ./scripts/powershell-get-all-connectors.md
       - name:
         href: 
       - name:
