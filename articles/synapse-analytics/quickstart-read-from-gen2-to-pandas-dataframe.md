@@ -26,8 +26,8 @@ From a Synapse Studio notebook, you'll:
 ## Prerequisites
 
 - Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
-- Synapse Analytics workspace with an ADLS Gen2 storage account configured as the default storage - You need to be the **Storage Blob Data Contributor** of the ADLS Gen2 filesystem that you work with. For details on how to create a workspace, see [Creating a Synapse workspace](../get-started-create-workspace.md).
-- Apache Spark pool in your workspace - See [Create a serverless Apache Spark pool](../get-started-analyze-spark.md#create-a-serverless-apache-spark-pool).
+- Synapse Analytics workspace with an ADLS Gen2 storage account configured as the default storage - You need to be the **Storage Blob Data Contributor** of the ADLS Gen2 filesystem that you work with. For details on how to create a workspace, see [Creating a Synapse workspace](get-started-create-workspace.md).
+- Apache Spark pool in your workspace - See [Create a serverless Apache Spark pool](get-started-analyze-spark.md#create-a-serverless-apache-spark-pool).
 
 ## Sign in to the Azure portal
 
@@ -100,6 +100,6 @@ Job execution SucceededSpark 2 executors 8 cores
 
 ## Next steps
 
-- [What is Azure Synapse Analytics?](../overview-what-is.md)
-- [Get Started with Azure Synapse Analytics](../get-started.md)
-- [Create a serverless Apache Spark pool](../get-started-analyze-spark.md#create-a-serverless-apache-spark-pool)
+- [What is Azure Synapse Analytics?](overview-what-is.md)
+- [Get Started with Azure Synapse Analytics](get-started.md)
+- [Create a serverless Apache Spark pool](get-started-analyze-spark.md#create-a-serverless-apache-spark-pool)
