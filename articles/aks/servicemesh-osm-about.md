@@ -104,7 +104,7 @@ az aks create -n osm-addon-cluster -g myOsmAksGroup --kubernetes-version 1.19.6 
 
 #### Get AKS Cluster Access Credentials
 
-Get access credentials for the new managed Kubernetes cluster
+Get access credentials for the new managed Kubernetes cluster.
 
 ```azurecli-interactive
 az aks get-credentials -n myOsmAksCluster -g myOsmAksGroup
