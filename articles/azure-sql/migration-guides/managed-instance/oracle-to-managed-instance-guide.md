@@ -100,7 +100,7 @@ To convert the schema:
 1. In the output pane, select **Review results** and review the errors in the **Error List** pane.
 1. Save the project locally for an offline schema remediation exercise. On the **File** menu, select **Save Project**. This step gives you an opportunity to evaluate the source and target schemas offline and perform remediation before you publish the schema to SQL Managed Instance.
 
-## Migrate the databases
+## Migrate
 
 After you've completed assessing your databases and addressing any discrepancies, the next step is to run the migration process. Migration involves two steps: publishing the schema and migrating the data.
 
