@@ -166,7 +166,7 @@ Create or add diagnostic settings for your workspace, dedicated SQL pool, or Apa
 1. Give your setting a name, select **Send to Log Analytics**, and then select a workspace from **Log Analytics workspace**.
 
     > [!NOTE]
-    > Because an Azure log table can't have more than 500 columns, we **highly recommended** you select _Resource-Specific mode_. For more information, see [AzureDiagnostics Logs reference](/azure-monitor/reference/tables/azurediagnostics#additionalfields-column).
+    > Because an Azure log table can't have more than 500 columns, we **highly recommended** you select _Resource-Specific mode_. For more information, see [AzureDiagnostics Logs reference](/azure/azure-monitor/reference/tables/azurediagnostics#additionalfields-column).
 
 1. Select **Save**.
 
