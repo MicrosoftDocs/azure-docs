@@ -30,47 +30,14 @@ The following remote desktop clients support the Start VM on Connect feature:
 
 You can check for announcements about updates and client support on the [Tech Community forum](https://aka.ms/wvdtc).
 
+>[!IMPORTANT]
+>The Start VM on Connect feature currently only supports PowerShell and REST API, not the Azure portal. For more information, see [Create or update a host pool](/rest/api/desktopvirtualization/hostpools/createorupdate).
+
 ## Create a custom role for Start VM on Connect
 
 Before you can configure the Start VM on Connect feature, you'll need to assign your VM a custom RBAC (role-based access control) role. This role will let Windows Virtual Desktop manage the VMs in your subscription. You can also use this role to turn on VMs, check their status, and report diagnostic info. If you want to know more about what each role does, take a look at [Azure custom roles](../role-based-access-control/custom-roles.md).
-
-### Use the Azure portal
-
-To use the Azure portal to assign a custom role for Start VM on Connect:
-
-1. Open the Azure portal and go to **Subscriptions**.
-
-2. Go to **Access control (IAM)** and select **Add a custom role**.
-
-    > [!div class="mx-imgBorder"]
-    > ![A screenshot of a drop-down menu from the Add button in Access control (IAM). "Add a custom role" is highlighted in red.](/media/add-custom-role.png)
-
-3. Next, name the custom role and add a description. We recommend you name it “start VM on connect.”
-
-4. On the **Permissions** tab, add the following permissions to the subscription you're assigning the role to: 
- 
-   - Microsoft.Compute/virtualMachines/start/action
-   - Microsoft.Compute/virtualMachines/read
-
-5. When you're finished, select **Ok**.
-
-After that, you'll need to assign the role to grant access to Windows Virtual Desktop.
-
-To assign the custom role:
-
-1. In the **Access control (IAM) tab**, select **Add role assignments**.
-
-2. Select the role you just created.
-
-3. In the search bar, enter and select **Windows Virtual Desktop**.
-
-      >[!NOTE]
-      >You might see two apps if you have deployed Windows Virtual Desktop (classic). Assign the role to both apps you see.
-      >
-      > [!div class="mx-imgBorder"]
-      > ![A screenshot of the Access control (IAM) tab. In the search bar, both Windows Virtual Desktop and Windows Virtual Desktop (classic) are highlighted in red.](media/add-role-assignment.png)
     
-### Create a custom role with a JSON file template
+## Create a custom role with a JSON file template
 
 If you're using a JSON file to create the custom role, the following example shows a basic template you can use. Make sure you replace the subscription ID value with the subscription ID you want to assign the role to.
 
@@ -115,24 +82,6 @@ Start VM on Connect is a host pool setting. If you only want a select group of u
 
 >[!IMPORTANT]
 > You can only configure this feature in existing host pools. This feature isn't available when you create a new host pool.
-
-### Use the Azure portal
-
-To use the Azure portal to configure Start VM on Connect:
-
-1. Open your browser and go to [the Azure portal](https://portal.azure.com/?feature.startVMonConnect=true#home). We recommend you open the Azure portal in an InPrivate window.
-
-2. In the Azure portal, go to **Windows Virtual Desktop**.
-
-3. Select **Host pools**, then find the host pool that contains the personal desktops you assigned the role to.
-
-   >[!NOTE]
-   > The host pool you configure this feature in must have personal desktops with direct role assignments. If the desktops in the host pool aren't configured correctly, the configuration process won't work.
-
-4. In the host pool, select **Properties**. Under **Start VM on connect**, select **Yes**, then select **Save** to instantly apply the setting.
-
-    > [!div class="mx-imgBorder"]
-    > ![A screenshot of the Properties window. The Start VM on connect option is highlighted in red.](media/properties-start-vm-on-connect.png)
 
 ### Use PowerShell
 
