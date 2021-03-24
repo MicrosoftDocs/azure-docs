@@ -48,66 +48,66 @@ Communication Services Chat shares user-generated messages as well as system-gen
  - `ThreadActivity/ParticipantAdded`: A system message that indicates one or more participants have been added to the chat thread. For example:	
 
 
-```	
+```json	
 {	
-            "id": "1613589626560",	
-            "type": "participantAdded",	
-            "sequenceId": "7",	
-            "version": "1613589626560",	
-            "content":	
-            {	
-                "participants":	
-                [	
-                    {	
-                        "id": "8:acs:d2a829bc-8523-4404-b727-022345e48ca6_00000008-511c-4df6-f40f-343a0d003226",	
-                        "displayName": "Jane",	
-                        "shareHistoryTime": "1970-01-01T00:00:00Z"	
-                    }	
-                ],	
-                "initiator": "8:acs:d2a829bc-8523-4404-b727-022345e48ca6_00000008-511c-4ce0-f40f-343a0d003224"	
-            },	
-            "createdOn": "2021-02-17T19:20:26Z"	
-        }	
+    "id": "1613589626560",	
+    "type": "participantAdded",	
+    "sequenceId": "7",	
+    "version": "1613589626560",	
+    "content":	
+    {	
+	"participants":	
+	[	
+	    {	
+		"id": "8:acs:d2a829bc-8523-4404-b727-022345e48ca6_00000008-511c-4df6-f40f-343a0d003226",	
+		"displayName": "Jane",	
+		"shareHistoryTime": "1970-01-01T00:00:00Z"	
+	    }	
+	],	
+	"initiator": "8:acs:d2a829bc-8523-4404-b727-022345e48ca6_00000008-511c-4ce0-f40f-343a0d003224"	
+    },	
+    "createdOn": "2021-02-17T19:20:26Z"	
+}	
 ```	
 
 - `ThreadActivity/ParticipantRemoved`: System message that indicates a participant has been removed from the chat thread. For example:	
 
-```	
+```json	
 {	
-            "id": "1613589627603",	
-            "type": "participantRemoved",	
-            "sequenceId": "8",	
-            "version": "1613589627603",	
-            "content":	
-            {	
-                "participants":	
-                [	
-                    {	
-                        "id": "8:acs:d2a829bc-8523-4404-b727-022345e48ca6_00000008-511c-4df6-f40f-343a0d003226",	
-                        "displayName": "Jane",	
-                        "shareHistoryTime": "1970-01-01T00:00:00Z"	
-                    }	
-                ],	
-                "initiator": "8:acs:d2a829bc-8523-4404-b727-022345e48ca6_00000008-511c-4ce0-f40f-343a0d003224"	
-            },	
-            "createdOn": "2021-02-17T19:20:27Z"	
-        }	
+    "id": "1613589627603",	
+    "type": "participantRemoved",	
+    "sequenceId": "8",	
+    "version": "1613589627603",	
+    "content":	
+    {	
+	"participants":	
+	[	
+	    {	
+		"id": "8:acs:d2a829bc-8523-4404-b727-022345e48ca6_00000008-511c-4df6-f40f-343a0d003226",	
+		"displayName": "Jane",	
+		"shareHistoryTime": "1970-01-01T00:00:00Z"	
+	    }	
+	],	
+	"initiator": "8:acs:d2a829bc-8523-4404-b727-022345e48ca6_00000008-511c-4ce0-f40f-343a0d003224"	
+    },	
+    "createdOn": "2021-02-17T19:20:27Z"	
+}	
 ```	
 
 - `ThreadActivity/TopicUpdate`: System message that indicates the thread topic has been updated. For example:	
-```	
+```json	
 {	
-            "id": "1613589623037",	
-            "type": "topicUpdated",	
-            "sequenceId": "2",	
-            "version": "1613589623037",	
-            "content":	
-            {	
-                "topic": "New topic",	
-                "initiator": "8:acs:d2a829bc-8523-4404-b727-022345e48ca6_00000008-511c-4ce0-f40f-343a0d003224"	
-            },	
-            "createdOn": "2021-02-17T19:20:23Z"	
-        }	
+    "id": "1613589623037",	
+    "type": "topicUpdated",	
+    "sequenceId": "2",	
+    "version": "1613589623037",	
+    "content":	
+    {	
+	"topic": "New topic",	
+	"initiator": "8:acs:d2a829bc-8523-4404-b727-022345e48ca6_00000008-511c-4ce0-f40f-343a0d003224"	
+    },	
+    "createdOn": "2021-02-17T19:20:23Z"	
+}	
 ```	
 
 ## Real-time signaling 	
