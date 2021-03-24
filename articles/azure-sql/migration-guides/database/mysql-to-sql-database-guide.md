@@ -33,7 +33,7 @@ After you have met the prerequisites, you are ready to discover the topology of 
 
 ### Assess 
 
-Use SQL Server Migration Assistant (SSMA) for mySQL to review database objects and data, and assess databases for migration. 
+Use SQL Server Migration Assistant (SSMA) for MySQL to review database objects and data, and assess databases for migration. 
 
 To create an assessment, perform the following steps: 
 
