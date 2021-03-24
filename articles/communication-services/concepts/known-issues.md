@@ -1,5 +1,5 @@
 ---
-title: Azure Communication Services - FAQ / Known issues
+title: Azure Communication Services - known issues
 description: Learn more about Azure Communication Services
 author: rinarish
 manager: jken
@@ -11,8 +11,8 @@ ms.topic: troubleshooting
 ms.service: azure-communication-services
 ---
 
-# Known issues 
-This article provides information about limitations and known issues related to Azure Communication Services.
+# Known issues: Azure Communication Services client libraries
+This article provides information about limitations and known issues related to the Azure Communication Services client libraries.
 
 > [!IMPORTANT]
 > There are multiple factors that can affect the quality of your calling experience. Refer to the **[network requirements](./voice-video-calling/network-requirements)** documentation to learn more about Communication Services network configuration and testing best practices.
