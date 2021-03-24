@@ -243,9 +243,15 @@
       - name: Deploy Custom Script Extension on VMs
         href: azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md 
       - name: Create VM image
-        href: azure-stack-edge-gpu-create-virtual-machine-image.md 
+        href: azure-stack-edge-gpu-create-virtual-machine-image.md
+      - name: Use Windows generalized image
+        href: azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md
       - name: Supported VM sizes, types
         href: azure-stack-edge-gpu-virtual-machine-sizes.md 
+      - name: Connect to VM console
+        href: azure-stack-edge-gpu-connect-virtual-machine-console.md
+      - name: Manage network interfaces
+        href: azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal.md
     - name: Manage certificates
       items:
       - name: Requirements
@@ -314,7 +320,9 @@
         href: azure-stack-edge-contact-microsoft-support.md 
   - name: Shared release notes
     items:
-    - name: 2101 - Current 
+    - name: 2103 - Current
+      href: azure-stack-edge-gpu-2103-release-notes.md
+    - name: 2101 
       href: azure-stack-edge-gpu-2101-release-notes.md
     - name: 2010 
       href: azure-stack-edge-gpu-2010-release-notes.md 
