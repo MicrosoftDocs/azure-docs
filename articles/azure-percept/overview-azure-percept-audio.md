@@ -5,20 +5,17 @@ author: elqu20
 ms.author: v-elqu
 ms.service: azure-percept
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 03/23/2021
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---
 
 # Introduction to Azure Percept Audio
 
-Azure Percept Audio is an accessory device that adds speech AI capabilities to the Azure Percept DK. It contains a preconfigured audio processor and a four-microphone linear array, enabling you to apply voice commanding, keyword spotting, and far field speech to local listening devices using Azure Cognitive Services. Azure Percept Audio enables device manufacturers to extend Azure Percept DK beyond vision capabilities to new, smart voice-activated devices. It is integrated out-of-the-box with Azure Percept DK, Azure Percept Studio, and other Azure edge management services. It is available for purchase at the [Microsoft online store](https://go.microsoft.com/fwlink/p/?LinkId=2155270).
+Azure Percept Audio is an accessory device that adds speech AI capabilities to [Azure Percept DK](./overview-azure-percept-dk.md). It contains a preconfigured audio processor and a four-microphone linear array, enabling you to use voice commands, keyword spotting, and far field speech with the help of Azure Cognitive Services. It is integrated out-of-the-box with Azure Percept DK, [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819), and other Azure edge management services. Azure Percept Audio is available for purchase at the [Microsoft online store](https://go.microsoft.com/fwlink/p/?LinkId=2155270).
 
 > [!div class="nextstepaction"]
 > [Buy now](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
 
-<!---
-:::image type="content" source="./media/overview-azure-percept-audio/percept-audio.png" alt-text="Azure Percept Audio device.":::
---->
 </br>
 
 > [!VIDEO https://www.youtube.com/embed/Qj8NGn-7s5A]
@@ -27,21 +24,21 @@ Azure Percept Audio is an accessory device that adds speech AI capabilities to t
 
 Azure Percept Audio contains the following major components:
 
-- Production-ready Azure Percept Audio device (SoM) with four-microphone linear array and audio processing done by an XMOS Codec
-- Developer (Interposer) board (includes 2x buttons, 3x LEDs, Micro USB, and 3.5 mm Audio Jack)
+- Production-ready Azure Percept Audio device (SoM) with a four-microphone linear array and audio processing via XMOS Codec
+- Developer (interposer) board: 2x buttons, 3x LEDs, Micro USB, and 3.5 mm audio jack
 - Required cables: FPC cable, USB Micro Type-B to USB-A
 - Welcome card
 - Mechanical mounting plate with integrated 80/20 1010 series mount
 
 ## Compute capabilities ​
 
-Azure Percept Audio passes the audio input through the speech stack that runs on the CPU of the carrier board of the Azure Percept DK in a hybrid edge-cloud manner. Therefore, Azure Percept Audio requires a carrier board with an OS that supports the speech stack in order to perform. ​
+Azure Percept Audio passes audio input through the speech stack that runs on the CPU of the Azure Percept DK carrier board in a hybrid edge-cloud manner. Therefore, Azure Percept Audio requires a carrier board with an OS that supports the speech stack in order to perform. ​
 
-The processing is done as follows: ​
+The audio processing is done as follows: ​
 
 - Azure Percept Audio: captures and converts the audio and sends it to the DK and audio jack.
 
-- Azure Percept DK: the speech stack performs beam forming and echo cancellation and processes the incoming audio to optimize for speech. It then performs the keyword spotting.
+- Azure Percept DK: the speech stack performs beam forming and echo cancellation and processes the incoming audio to optimize for speech. After processing, it performs keyword spotting.
 
 - Cloud: processes natural language commands and phrases, keyword verification, and retraining. ​
 
@@ -50,8 +47,8 @@ The processing is done as follows: ​
 ## Getting started
 
 - [Assemble your Azure Percept DK](./quickstart-percept-dk-unboxing.md)
-- [Complete the Azure Percept DK setup experience](./quickstart-percept-dk-set-up.md)
 - [Connect your Azure Percept Audio device to your devkit](./quickstart-percept-audio-setup.md)
+- [Complete the Azure Percept DK setup experience](./quickstart-percept-dk-set-up.md)
 
 ## Build a no-code prototype
 
@@ -59,8 +56,8 @@ Build a [no-code speech solution](./tutorial-no-code-speech.md) in [Azure Percep
 
 ### Manage your no-code speech solution
 
-- [Configure your voice assistant in Iot Hub](./how-to-manage-voice-assistant.md)
-- [Configure your voice assistant in Azure Percept Studio](./how-to-configure-voice-assistant.md)
+- [Configure your voice assistant in Azure Percept Studio](./how-to-manage-voice-assistant.md)
+- [Configure your voice assistant in Iot Hub](./how-to-configure-voice-assistant.md)
 - [Azure Percept Audio troubleshooting](./troubleshoot-audio-accessory-speech-module.md)
 
 ## Additional technical information
