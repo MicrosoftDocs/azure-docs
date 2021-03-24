@@ -68,7 +68,7 @@ items:
     - name: Link a Power BI workspace
       href: quickstart-power-bi.md
       displayName: quickstart      
-    - name: Read from ADLS Gen2 into a Pandas dataframe
+    - name: Read ADLS Gen2 into Pandas dataframe
       href: quickstart-read-from-gen2-to-pandas-dataframe.md
       displayName: quickstart
     - name: Connect to Azure Data Explorer
