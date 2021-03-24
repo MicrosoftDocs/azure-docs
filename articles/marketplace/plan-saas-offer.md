@@ -65,7 +65,7 @@ If you’re creating a transactable offer, you'll need to gather the following i
 
   This URL will be called with the marketplace purchase identification token parameter that uniquely identifies the specific customer's SaaS purchase. You must exchange this token for the corresponding SaaS subscription details using the [resolve API](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription). Those details and any others you wish to collect should be used as part of a customer-interactive web page built in your experience to complete customer registration and activate their purchase. On this page, the user should sign up through one-click authentication by using Azure Active Directory (Azure AD).
 
-  This URL with marketplace purchase identification token parameter will also be called when the customer launches a managed SaaS experience from the Azure portal or M365 Admin Center. You should handle both flows: when the token is provided for the first time after a new customer purchase, and when it's provided again for an existing customer managing their SaaS solution.
+  This URL with marketplace purchase identification token parameter will also be called when the customer launches a managed SaaS experience from the Azure portal or Microsoft 365 Admin Center. You should handle both flows: when the token is provided for the first time after a new customer purchase, and when it's provided again for an existing customer managing their SaaS solution.
 
     The Landing page you configure should be up and running 24/7. This is the only way you’ll be notified about new purchases of your SaaS offers made in the commercial marketplace, or configuration requests for an active subscription of an offer.
 
@@ -129,6 +129,35 @@ If you choose to use the standard contract, you have the option to add universal
 
 > [!NOTE]
 > After you publish an offer using the standard contract for the commercial marketplace, you cannot use your own custom terms and conditions. It is an "or" scenario. You either offer your solution under the standard contract or your own terms and conditions. If you want to modify the terms of the standard contract you can do so through Standard Contract Amendments.
+
+## Microsoft 365 App integration 
+
+Integration with the Microsoft 365 platform allows your SaaS offer to provide connected experience across multiple [Microsoft 365 App](https://developer.microsoft.com/en-us/microsoft-365/blogs/building-microsoft-365-apps-connected-experiences-across-devices/) surfaces through related free consumptions clients like Office add-ins, Teams apps, and SharePoint solutions. You can help your customers easily discover all facets of an application: web service + related consumption clients; and deploy them within one process by providing the following information.  
+
+- If your SaaS offer integrates with Microsoft Graph API and the Azure Active Directory (AAD) App ID used by your SaaS offer for the integration. Administrators will use this AAD App ID to review access permissions required for the functionalities of your SaaS offer and grant access if advanced admin permission is needed.  
+
+ 
+
+    - If you choose to sell your offer through Microsoft, then this is the same AAD ID that you have registered to use on your landing page to get basic user information to complete customer subscription activation. For detailed guidance, see [Build the landing page for your transactable SaaS offer in the commercial marketplace](azure-ad-transactable-saas-landing-page.md).  
+
+ - Related Microsoft 365 App consumption clients that work with your SaaS offer. Customers will be able to discover and deploy all the related consumption clients you have linked as a single solution.
+     - To link related consumption clients, you need to provide the AppSource link of the product, so the product must be first published to AppSource.  Supported product types are: Office add-in, Teams apps, and SharePoint Framework (SPFx) solution. Each linked product must be unique for a SaaS offer.  
+
+For linked products, search on AppSource will show single icon for both SaaS and all linked consumption clients. The customer can navigate between the product detail pages of the SaaS offer and the related consumption clients.  
+
+Microsoft 365 Admin users can review and deploy both the SaaS and linked consumption clients within the same process through an integrated and connected experience within the Microsoft 365 admin center. To learn more, see [Test and deploy Microsoft 365 Apps - Microsoft 365 admin](/microsoft-365/admin/manage/test-and-deploy-microsoft-365-apps?view=o365-worldwide). 
+
+Following scenarios are not supported by the unified delivery described above through the Microsoft 365 admin center, however, AppSource discovery as a single solution is supported for all cases: 
+
+- The same consumption client is linked to more than one SaaS offer. 
+
+- The SaaS offer is linked to consumption clients, but it does not integrate with Microsoft Graph API and no AAD App ID is provided. 
+
+- The SaaS offer is linked to consumption clients, but AAD App ID provided for Microsoft Graph API integration is shared by multiple SaaS offers. 
+
+ 
+
+
 
 ## Offer listing details
 

@@ -48,7 +48,7 @@ On the **Offer setup** tab, under **Setup details**, you’ll choose whether to 
    + To provide a 30-day free trial, select **Free trial**, and then in the **Trial URL** box that appears, enter the URL (beginning with *http* or *https*) where customers can access your free trial through [one-click authentication by using Azure Active Directory (Azure AD)](azure-ad-saas.md). For example, `https://contoso.com/trial/saas-app`.
    + To have potential customers contact you to purchase your offer, select **Contact me**.
 
-### Enable a test drive (optional)
+## Enable a test drive (optional)
 
 A test drive is a great way to showcase your offer to potential customers by giving them access to a preconfigured environment for a fixed number of hours. Offering a test drive results in an increased conversion rate and generates highly qualified leads. To Learn more about test drives, see [What is a test drive?](./what-is-test-drive.md).
 
@@ -59,14 +59,14 @@ A test drive is a great way to showcase your offer to potential customers by giv
 1.	Under **Test drive**, select the **Enable a test drive** check box.
 1.	Select the test drive type from the list that appears.
 
-### Configure lead management
+## Configure lead management
 
 Connect your customer relationship management (CRM) system with your commercial marketplace offer so you can receive customer contact information when a customer expresses interest or deploys your product. You can modify this connection at any time during or after you create the offer.
 
 > [!NOTE]
 > You must configure lead management if you’re selling your offer through Microsoft or you selected the **Contact Me** listing option. For detailed guidance, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
-#### To configure the connection details in Partner Center
+### To configure the connection details in Partner Center
 
 1.	Under **Customer leads**, select the **Connect** link.
 1. In the **Connection details** dialog box, select a lead destination from the list.
@@ -80,6 +80,36 @@ Connect your customer relationship management (CRM) system with your commercial 
 
 1. To validate the configuration you provided, select the **Validate** link.
 1. To close the dialog box, select **OK**.
+
+## Configure Microsoft 365 App integration 
+
+You can light up [unified discovery and delivery](./plan-a-SaaS-offer#Microsoft 365 App integration) of your SaaS offer and any related Microsoft 365 App consumption by linking them. 
+
+### Integrate with Microsoft API 
+
+1. If your SaaS offer does not integrate with Microsoft Graph API, select **No**. Continue to Link published Microsoft 365 App consumption clients.  
+
+1. If your SaaS offer integrates with Microsoft Graph API, select **Yes**, and then provide the Azure Active Directory App ID you have created and registered to integrate with Microsoft Graph API. 
+
+### Link published Microsoft 365 App consumption clients 
+
+1. If you do not have published Office add-in, Teams app, or SharePoint Framework solutions that works with your SaaS offer, select **No**. 
+
+1. If you have published Office add-in, Teams app, or SharePoint Framework solutions that works with your SaaS offer, select **Yes**, then select **+Add another AppSource link** to add new links.  
+
+1. Provide a valid AppSource link. 
+
+1. Continue adding all the links by select **+Add another AppSource link** and provide valid AppSource links.  
+
+1. The order the linked products are shown on the listing page of the SaaS offer is indicated by the Rank value, you can change it by select, hold, and move the = icon up and down the list. 
+
+1. You can delete a linked product by select **Delete** in the product row.  
+
+
+> [!IMPORTANT]
+> If you stop-sell a linked product, it won’t be automatically unlinked on the SaaS offer, you must delete it from the list of linked products and resubmit the SaaS offer.  
+
+ 
 
 ## Next steps
 
