@@ -84,7 +84,7 @@ Before you start estimating, it’s important that you understand that each perf
 
    Default sample rate per minute × sessions per day × average session duration × average number of processes per session = number of records sent per day
 
-The following table lists the 20 performance counters Azure Monitor for Windows Virtual Desktop collects by default:
+The following table lists the 20 performance counters Azure Monitor for Windows Virtual Desktop collects and their default rates:
 
 | Counter name | Default sample rate | Frequency factor |
 |--------------|---------------------|------------------|
@@ -111,7 +111,7 @@ The following table lists the 20 performance counters Azure Monitor for Windows 
 
 In this example, the total cost would be $611,040.
 
-If we estimate each record size to be 200 bytes, this comes out to roughly 150 megabytes of performance counter data per day per VM in the example environment. However, record size can vary, so the record size for your deployment may be different.
+If we estimate each record size to be 200 bytes, an example VM running a light workload on the default sample rate would send roughly 90 megabytes of performance counter data per day per VM. Meanwhile, an example VM running a power workload would send roughly 130 megabytes of performance counter data per day per VM. However, record size and environment usage can vary, so the megabytes per day your deployment uses may be different.
 
 To learn more about input delay performance counters, see [User Input Delay performance counters](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/).
 
@@ -136,65 +136,37 @@ To learn more about Windows events, see [Windows event records properties](../az
 
 The diagnostics service creates activity logs for both user and administrative actions.
 
-Here's an example of estimating usage for the diagnostics feature:
+These are the names of the activity logs the diagnostic counter tracks:
 
-| Windows Virtual Desktop diagnostics  | Estimated records per day | Estimated size per event (bytes) | Size Estimate per day (megabytes) |
-|----------------------|--------------------------|--------------------------------------|--------------------------------------------|
-| WVDCheckpoints       | \~500-1000             | 200    | 0.1-0.2 |
-| WVDConnections       |  N/A           | N/A  |  N/A       |
-| WVDErrors            |  N/A           | N/A  | N/A        |
-| WVDFeeds             |  N/A           | N/A  | N/A        |
-| WVDManagement        | N/A            | N/A  | N/A        |
+- WVDCheckpoints
+- WVDConnections
+- WVDErrors
+- WVDFeeds
+- WVDManagement
 
-The total for this example is less than 1 MB.
+The service sends diagnostic information whenever the environment meets the terms required to make a record. Since diagnostic record count is unpredictable, we use a range of 500 to 1000 events per VM per day based on examples from healthy environments for this estimate.
+
+For example, if we estimate each diagnostic record size in this example to be 200 bytes, then the total ingested data would be less than 1 MB per VM per day.
 
 To learn more about the activity log categories, see [Windows Virtual Desktop diagnostics](diagnostics-log-analytics.md).
 
-## Estimated total costs
+## Estimating total costs
 
-Finally, let's estimate the total cost based on the values in the previous sections:
+Finally, let's estimate the total cost. In this example, let's say we come up with the following results based on the example values in the previous sections:
 
-| Data source        | Size estimate per day (megabytes)   |
+| Data source        | Size estimate per day (in megabytes)   |
 |-------------------------------------|------------------------------------------|
-| Performance counters   | 150 |
-| Events    | 1-5 |
+| Performance counters   | 90-130 |
+| Events    | 2-15 |
 | Windows Virtual Desktop diagnostics | \< 1 |
 
-The total for this example is 150-155 Megabytes per VM per day divided by ~3-6 Gigabytes/VM/month (one month = 31 days) for the specified environment.
+In this example, the total ingested data for Azure Monitor for Windows Virtual Desktop is between 92 to 145 megabytes per VM per day. In other words, every 31 days, each VM ingests roughly 3 to 5 gigabytes of data.
 
-Using the default, Pay-as-you-go model for [Log Analytics pricing](https://azure.microsoft.com/pricing/details/monitor/), you can estimate the Azure Monitor data collection and storage cost per month. Depending on your data ingestion, you may also consider the Capacity Reservation model for Log Analytics pricing.
-
-## Measuring data ingestion
-
-Your true monitoring costs will depend on your environment size, usage, and health. To understand how to measure data ingestion in your Log analytics workspace, see [Understanding ingested log data volume](../azure-monitor/logs/manage-cost-storage.md#understanding-ingested-data-volume).
-
-**Performance counters** from the session hosts are likely to be your largest source of ingested data for Azure Monitor for Windows Virtual Desktop.
-
-You can run the following custom query on your Log Analytics workspace to understand frequency and MB ingested per Performance counter over the last day:
-
-```
-let WVDHosts = dynamic(['Host1.MyCompany.com', 'Host2.MyCompany.com']);
-
-Perf
-
-\| where TimeGenerated \> ago(1d)
-
-\| where Computer in (WVDHosts)
-
-\| extend PerfCounter = strcat(ObjectName, ":", CounterName)
-
-\| summarize Records = count(TimeGenerated), InstanceNames = dcount(InstanceName), Bytes=sum(_BilledSize) by PerfCounter
-
-\| extend Billed_MBytes = Bytes / (1024 \* 1024), BytesPerRecord = Bytes / Records
-
-\| sort by Records desc
-```
-
-This query will show all performance counters you have enabled on the environment, not just the default ones for Azure Monitor for Windows Virtual Desktop. This information can help you understand which areas to target to reduce costs, like reducing a counter’s frequency or removing it altogether.
+Using the default Pay-as-you-go model for [Log Analytics pricing](https://azure.microsoft.com/pricing/details/monitor/), you can estimate the Azure Monitor data collection and storage cost per month. Depending on your data ingestion, you may also consider the Capacity Reservation model for Log Analytics pricing.
 
 ## Manage your data ingestion to reduce costs
 
-This section will explain how to change your settings to manage data ingestion and reduce costs.
+This section will explain how to measure and manage data ingestion to reduce costs.
 
 To learn about managing rights and permissions to the workbook, see [Access control](../azure-monitor/visualize/workbooks-access-control.md).
 
@@ -203,22 +175,42 @@ To learn about managing rights and permissions to the workbook, see [Access cont
 
 ### Log Analytics settings
 
-Here are some suggestions fro how to optimize your **Log Analytics** settings to manage data ingestion:
+Here are some suggestions to optimize your Log Analytics settings to manage data ingestion:
 
-- Use a designated Log Analytics workspace for your Windows Virtual Desktop resources to ensure that Log ANalytics only collects performance counters and events for the virtual machines in your Windows Virtual Desktop deployment.
+- Use a designated Log Analytics workspace for your Windows Virtual Desktop resources to ensure that Log Analytics only collects performance counters and events for the virtual machines in your Windows Virtual Desktop deployment.
 - Adjust your Log Analytics storage settings to manage costs. You can reduce the retention period, evaluate whether a fixed storage pricing tier would be more cost-effective, or set boundaries on how much data you can ingest to limit impact of an unhealthy deployment. To learn more, see [Manage usage and costs for Azure Monitor Logs](../azure-monitor/platform/manage-cost-storage.md).
 
 ### Remove excess data
 
 Our default configuration is the only set of data we recommend for Azure Monitor for Windows Virtual Desktop. You always have the option to add additional data points and view them in the Host Diagnostics: Host browser or build custom charts for them, however added data will increase your Log Analytics cost. These can be removed for cost savings.
 
-### Remove performance counters
+### Measure and manage your performance counter data
 
-You can also reduce costs by removing performance counters. To remove Performance counters or reduce their frequency see [Configuring Performance counters](../azure-monitor/platform/data-sources-performance-counters.md#configuring-performance-counters). The document details how to add counters, but they can be removed and edited in the same location.
+Your true monitoring costs will depend on your environment size, usage, and health. To understand how to measure data ingestion in your Log Analytics workspace, see [Understanding ingested log data volume](../azure-monitor/logs/manage-cost-storage.md#understanding-ingested-data-volume).
 
-### Manage Windows Events
+The performance counters the session hosts use will probably be your largest source of ingested data for Azure Monitor for Windows Virtual Desktop. The following custom query template for a Log Analytics workspace can track frequency and megabytes ingested per performance counter over the last day:
 
-Windows Events are unlikely to cause a spike in data ingestion when all hosts are healthy. An unhealthy host can increase events sent, but the information can be critical to fixing the host's issues. We recommend keeping all recommended Error and Warning level events. To manage Windows Events, see [Configuring Windows Event logs](../azure-monitor/agents/data-sources-windows-events.md#configuring-windows-event-logs).
+```azure
+let WVDHosts = dynamic(['Host1.MyCompany.com', 'Host2.MyCompany.com']);
+Perf
+| where TimeGenerated > ago(1d)
+| where Computer in (WVDHosts)
+| extend PerfCounter = strcat(ObjectName, ":", CounterName)
+| summarize Records = count(TimeGenerated), InstanceNames = dcount(InstanceName), Bytes=sum(_BilledSize) by PerfCounter
+| extend Billed_MBytes = Bytes / (1024 * 1024), BytesPerRecord = Bytes / Records
+| sort by Records desc
+```
+
+>[!NOTE]
+>Make sure to replace the template's placeholder values with the values your environment uses, otherwise the query won't work.
+
+This query will show all performance counters you have enabled on the environment, not just the default ones for Azure Monitor for Windows Virtual Desktop. This information can help you understand which areas to target to reduce costs, like reducing a counter’s frequency or removing it altogether.
+
+You can also reduce costs by removing performance counters. To learn how to remove performance counters or edit existing counters to reduce their frequency, see [Configuring performance counters](../azure-monitor/platform/data-sources-performance-counters.md#configuring-performance-counters).
+
+### Manage Windows Event Logs
+
+Windows Events are unlikely to cause a spike in data ingestion when all hosts are healthy. An unhealthy host can increase the number of events sent to the log, but the information can be critical to fixing the host's issues. We recommend keeping them. To learn more about how to manage Windows Event Logs, see [Configuring Windows Event logs](../azure-monitor/agents/data-sources-windows-events.md#configuring-windows-event-logs).
 
 ### Manage diagnostics
 
