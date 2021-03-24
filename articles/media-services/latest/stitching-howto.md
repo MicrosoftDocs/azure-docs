@@ -1,5 +1,5 @@
 ---
-title: How to stitch two or more video files with .Net | Microsoft Docs
+title: How to stitch two or more video files with .NET | Microsoft Docs
 description: This topic shows how to stitch two or more video files.
 services: media-services
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.author: inhenkel
 ms.custom: devx-track-csharp
 ---
 
-# How to stitch two or more video files with .Net
+# How to stitch two or more video files with .NET
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 

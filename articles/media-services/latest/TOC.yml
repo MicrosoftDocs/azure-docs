@@ -341,13 +341,15 @@
       href: how-to-create-copyallbitratenoninterleaved-transform.md
     - name: Copy videos without encoding with REST
       href: how-to-create-copy-video-audio-transform.md
-    - name: Create jobs
+    - name: Create jobs with .Net
       href: cli-create-jobs.md
     - name: Create job input with a local file and .NET
       displayName: upload
       href: job-input-from-local-file-how-to.md
     - name: Jobs with multiple transform outputs
       href: job-multiple-transform-outputs.md
+    - name: Stitch two or more video files with .NET
+      href: stitching-howto.md
   - name: Encode content 
     items:
     - name: HTTPS as job input
