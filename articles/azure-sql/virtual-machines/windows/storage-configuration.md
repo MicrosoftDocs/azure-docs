@@ -189,10 +189,7 @@ To enable Write Acceleration using the Azure portal, follow these steps:
 
 1. After the change takes effect, start the virtual machine and SQL Server service. 
 
-
-
 ## Disk striping
-
 
 For more throughput, you can add additional data disks and use disk striping. To determine the number of data disks, analyze the throughput and bandwidth required for your SQL Server data files, including the log and tempdb. Throughput and bandwidth limits vary by VM size. To learn more, see [VM Size](../../../virtual-machines/sizes.md)
 

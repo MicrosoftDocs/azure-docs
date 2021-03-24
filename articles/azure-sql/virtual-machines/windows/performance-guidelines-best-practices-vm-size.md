@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 03/23/2021
+ms.date: 03/25/2021
 ms.author: dplessMSFT
 ms.reviewer: jroth
 ---
@@ -25,15 +25,19 @@ There is typically a trade-off between optimizing for costs and optimizing for p
 
 ## Checklist
 
+Review the following checklist for a brief overview of the VM size best practices that the rest of the article covers in greater detail: 
+
 - Use VM sizes with 4 or more vCPU like the [Standard_M8-4ms](/../../virtual-machines/m-series), the [E4ds_v4](../../../virtual-machines/edv4-edsv4-series.md#edv4-series), or the [DS12_v2](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) or higher. 
 - Use [memory optimized](../../../virtual-machines/sizes-memory.md) virtual machine sizes for the best performance of SQL Server workloads. <br/><br/> - The [DSv2 11-15](../../../virtual-machines/dv2-dsv2-series-memory.md), [Edsv4](../../../virtual-machines/edv4-edsv4-series.md) series, the [M-](../../../virtual-machines/m-series.md), and the [Mv2-](../../../virtual-machines/mv2-series.md) series offer the optimal memory-to-vCore ratio required for OLTP workloads. Both M series VMs offer the highest memory-to-vCore ratio required for mission critical workloads and is also ideal for data warehouse workloads. 
-- Use a higher memory-to-vCore ratio mission critical and data warehouse workloads. 
+- Consider a higher memory-to-vCore ratio for mission critical and data warehouse workloads. 
 - Leverage the Azure Virtual Machine marketplace images as the SQL Server settings and storage options are configured for optimal SQL Server performance. 
-- Collect the target workload's performance characteristics and use them to determine the appropriate VM size for your business.|
+- Collect the target workload's performance characteristics and use them to determine the appropriate VM size for your business.
+
+To compare the VM size checklist with the others, see the comprehensive [Performance best practices checklist](performance-guidelines-best-practices-checklist.md). 
 
 ## Overview
 
-If you are creating a new SQL Server on Azure VM and are not migrating a current source system, create your new SQL Server VM based on your vendor requirements.  The vendor requirements for a SQL Server VM are the same as what you would deploy on-premises. 
+When you are creating a SQL Server on Azure VM, carefully consider the type of workload necessary. If you are migrating an existing environment, [collect a performance baseline](performance-guidelines-best-practices-collect-baseline.md) to determine your SQL Server on Azure VM requirements. If this is a new VM, then create your new SQL Server VM based on your vendor requirements. 
 
 If you are creating a new SQL Server VM with a new application built for the cloud, you can easily size your SQL Server VM as your data and usage requirements evolve.
 Start the development environments with the lower-tier D-Series, B-Series, or Av2-series and grow your environment over time. 
@@ -64,11 +68,11 @@ Some of the features of the M and Mv2-series attractive for SQL Server performan
 
 ### Mdsv2-series Medium Memory (Preview)
 
-[Mdsv2 Medium Memory series](https://docs.microsoft.com/en-us/azure/virtual-machines/msv2-mdsv2-series) is a new M-series that is currently in [preview](https://aka.ms/Mv2MedMemoryPreview) that offers a range of M-series level Azure virtual machines with a midtier memory offering.
+[Mdsv2 Medium Memory series](../../..//virtual-machines/msv2-mdsv2-series.md) is a new M-series that is currently in [preview](https://aka.ms/Mv2MedMemoryPreview) that offers a range of M-series level Azure virtual machines with a midtier memory offering.
 
-All of the virtual machines are Intel® Xeon® Platinum 8280 (Cascade Lake). These virtual machines range from 32 to to 192 vCPUs with 875 GiB to 4096 GiB of memory. These machines would be well suited for SQL Server workloads with a minimum of 10 memory-to-vCore support up to 30.
+All of the virtual machines are Intel® Xeon® Platinum 8280 (Cascade Lake). These virtual machines range from 32 to to 192 vCPUs with 875 GiB to 4096 GiB of memory. These machines are well suited for SQL Server workloads with a minimum of 10 memory-to-vCore support up to 30.
 
-There are additional features for these virtual machines with ephemeral disk support, isolated VM sizes, premium storage support, strong memory options, and Write Accelerator support.
+There are additional features for these virtual machines, with ephemeral disk support, isolated VM sizes, premium storage support, strong memory options, and Write Accelerator support.
 
 ### Edsv4-series
 
@@ -80,11 +84,11 @@ The Edsv4-series virtual machines support [premium storage](../../../virtual-mac
 
 #### Standard_E80ids_v4
 
-There is a new virtual machine in this group with the [Standard_E80ids_v4](https://docs.microsoft.com/en-us/azure/virtual-machines/edv4-edsv4-series) that offers 80 vCores, 503 GBs of memory, with a memory-to-vCore ratio of 6. This virtual machine features ephemeral disk support, premium disk support, accelerated networking and is isolated to a single customer.
+There is a new virtual machine in this group with the [Standard_E80ids_v4](../../../virtual-machines/edv4-edsv4-series.md) that offers 80 vCores, 503 GBs of memory, with a memory-to-vCore ratio of 6. This virtual machine features ephemeral disk support, premium disk support, accelerated networking and is isolated to a single customer.
 
 This machine does not have the recommended minimum memory-to-vCore ratio of 8 that is recommended for most SQL Server machines. It is recommended to leverage the Standard_E64ds_v4 over the new Standard_E80ids_v4 unless the isolation is required for the workload. 
 
-Additionally, the Standard_E64ds_v4 has [constrained CPU](https://docs.microsoft.com/en-us/azure/virtual-machines/constrained-vcpu) support which the Standard_E80ids_v4 does not.
+Additionally, the Standard_E64ds_v4 has [constrained CPU](../../..//virtual-machines/constrained-vcpu.md) support which the Standard_E80ids_v4 does not.
 
 ### DSv2-series 11-15
 

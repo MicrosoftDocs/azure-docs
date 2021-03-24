@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/09/2020
+ms.date: 03/25/2021
 ms.author: mathoma
 ms.reviewer: jroth
 ---
@@ -25,7 +25,7 @@ There is typically a trade-off between optimizing for costs and optimizing for p
 
 ## Overview
 
-For a more prescriptive approach, gather performance counters using PerfMon/LogMan and capture SQL Server wait statistics to better understand general pressures and potential bottlenecks of the source environment. 
+For a prescriptive approach, gather performance counters using PerfMon/LogMan and capture SQL Server wait statistics to better understand general pressures and potential bottlenecks of the source environment. 
 
 Start by collecting the CPU, memory, [IOPS](../../../virtual-machines/premium-storage-performance.md#iops), [throughput](../../../virtual-machines/premium-storage-performance.md#throughput), and [latency](../../../virtual-machines/premium-storage-performance.md#latency) of the source workload at peak times following the [application performance checklist](../../../virtual-machines/premium-storage-performance.md#application-performance-requirements-checklist). 
 
@@ -76,6 +76,7 @@ The following PerfMon counters can help validate the compute health of a SQL Ser
 
 > [!NOTE] 
 > Ideally, try to aim for using 80% of your compute, with peaks above 90% but not reaching 100% for any sustained period of time. Fundamentally, you only want to provision the compute the application needs and then plan to scale up or down as the business requires. 
+
 
 ## Next steps
 
