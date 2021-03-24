@@ -7,7 +7,7 @@ author: v-dalc@microsoft.com
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/23/2021
+ms.date: 03/24/2021
 ms.author: alkohli
 #Customer intent: As an IT pro or network administrator, I need to give users secure wireless access to their Azure Stack Edge Mini R devices.    
 ---
@@ -53,7 +53,7 @@ The following code example shows basic settings for a profile to use with a typi
 	<autoSwitch>false</autoSwitch>
 ```
 
-For more information about Wi-Fi profile settings, see **Enterprise profile** in [Add Wi-Fi settings for Windows 10 and newer devices](/mem/intune/configuration/wifi-settings-windows#enterprise-profile), and see [Configure Cisco Wi-Fi profile](azure-stack-edge-mini-r-manage-wifi.md#configure-cisco-wi-fi-profile).
+For more information about Wi-Fi profile settings, see **Enterprise profile** in [Add Wi-Fi settings for Windows 10 and newer devices](/mem/intune/configuration/wi-fi-settings-windows#enterprise-profile), and see [Configure Cisco Wi-Fi profile](azure-stack-edge-mini-r-manage-wifi.md#configure-cisco-wi-fi-profile).
 
 To enable wireless connections on an Azure Stack Edge Mini R device, you configure the Wi-Fi port on your device, and then add the Wi-Fi profile(s) to the device. On an enterprise network,  you'll also upload certificates to the device. You can then connect to a wireless network from the local web UI for the device. For more information, see [Manage wireless connectivity on your Azure Stack Edge Mini R](./azure-stack-edge-mini-r-manage-wifi.md).
 
