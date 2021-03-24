@@ -46,7 +46,6 @@
         href: ./scripts/powershell-export-apps-with-expriring-secrets.md
       - name: Export secrets and certs expiring beyond required date
         href: ./scripts/powershell-export-apps-with-secrets-beyond-required.md
-
     - name: App Proxy PowerShell samples
       items:
       - name: Overview of App Proxy samples
@@ -81,7 +80,6 @@
         href: ./scripts/powershell-get-custom-domain-identical-cert.md
       - name: Replace identical certs
         href: ./scripts/powershell-get-custom-domain-replace-cert.md
-
   - name: Concepts
     expanded: true
     items: 
