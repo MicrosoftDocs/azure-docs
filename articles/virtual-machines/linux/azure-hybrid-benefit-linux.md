@@ -178,7 +178,7 @@ This means that if you have purchased compute costs at a discounted rate using R
 ![AHB for RIs](./media/azure-hybrid-benefit/azure-hybrid-benefit-ri.png)
 
 >[!NOTE]
->Pre-purchased RHEL or SUSE licenses getting a discounted rate using Azure Reservations are out of scope for Azure Hybrid Benefit. Please wait for the reservation tenure to complete before adding the Azure Hybrid Benefit.
+>If you have already purchased reservations for RHEL or SUSE PAYG software on Azure Marketplace, please wait for the reservation tenure to complete before using the Azure Hybrid Benefit..
 
 
 ## Frequently asked questions
