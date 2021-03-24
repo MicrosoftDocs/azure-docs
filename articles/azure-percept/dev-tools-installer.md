@@ -16,11 +16,11 @@ The Dev Tools Pack Installer is a one-stop solution that installs and configures
 ## Mandatory Tools Installed
 
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Python 3.6 (Windows) or 3.5 (Linux)](https://www.python.org/)
+* [Python 3.6 or later](https://www.python.org/)
 * [Docker 19.03](https://www.docker.com/)
 * [PIP3](https://pip.pypa.io/en/stable/user_guide/)
 * [TensorFlow 1.13](https://www.tensorflow.org/)
-* [Azure Machine Learning SDK 1.1](https://docs.microsoft.com/python/api/overview/azure/ml/)
+* [Azure Machine Learning SDK 1.1](/python/api/overview/azure/ml/)
 
 ## Optional Tools Available for Installation
 
