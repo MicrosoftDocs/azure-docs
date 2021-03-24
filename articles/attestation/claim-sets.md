@@ -71,7 +71,7 @@ Claims issued by Azure Attestation for VBS attestation is in addition to the cla
 
 ## Outgoing claims 
 
-## Common for all attestation types
+### Common for all attestation types
 
 Azure Attestation includes the below claims in the attestation token for all attestation types. 
 
