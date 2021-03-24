@@ -164,14 +164,20 @@ Deploy the [Continuous patient monitoring application template](../../iot-centra
 > Whenever your real devices are ready, you can use same IoT Central application to [onboard your devices](../../iot-central/core/howto-set-up-template.md) and replace device simulators. Your device data will automatically start flowing to FHIR as well. 
 
 ## Connect your IoT data with the Azure IoT Connector for FHIR (preview)
-> [!WARNING]
-> The Device mapping template provided in this guide is designed to work with Data Export (legacy) within IoT Central.
 
-Once you've deployed your IoT Central application, your two out-of-the-box simulated devices will start generating telemetry. For this tutorial, we'll ingest the telemetry from *Smart Vitals Patch* simulator into FHIR via the Azure IoT Connector for FHIR. To export your IoT data to the Azure IoT Connector for FHIR, we'll want to [set up a continuous data export within IoT Central](../../iot-central/core/howto-export-data-legacy.md). On the continuous data export page:
-- Pick *Azure Event Hubs* as the export destination.
-- Select *Use a connection string* value for **Event Hubs namespace** field.
-- Provide Azure IoT Connector for FHIR's connection string obtained in a previous step for the **Connection String** field.
-- Keep **Telemetry** option *On* for **Data to Export** field.
+Once you've deployed your IoT Central application, your two out-of-the-box simulated devices will start generating telemetry. For this tutorial, we'll ingest the telemetry from *Smart Vitals Patch* simulator into FHIR via the Azure IoT Connector for FHIR. To export your IoT data to the Azure IoT Connector for FHIR, we'll want to [set up a continuous data export within IoT Central](../../iot-central/core/howto-export-data.md). We'll first need to create a connection to the destination, and then we'll create a data export job to continuously run: 
+
+Create a new destination:
+- Go to the **Destinations** tab and create a new destination.
+- Start by giving your destination a unique name.
+- Pick *Azure Event Hubs* as the destination type.
+- Provide Azure IoT Connector for FHIR's connection string obtained in a previous step for the **Connection string** field.
+
+Create a new data export:
+- Once you've created your destination, go over to the **Exports** tab and create a new data export. 
+- Start by giving it the data export a unique name.
+- Under **Data** select *Telemetry* as the *Type of data to export*.
+- Under **Destination** select the destination name you created in the previous name.
 
 ## View device data in Azure API for FHIR
 
