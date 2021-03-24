@@ -9,7 +9,7 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
-ms.date: 03/18/2020 
+ms.date: 03/24/2021 
 ---
 
 # Analyze data with dedicated SQL pools
