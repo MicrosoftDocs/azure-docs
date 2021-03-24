@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 ---
 # SDKs and REST APIs
 
-Azure Communication Services capabilities are conceptually organized into six areas. Most areas have fully open-sourced client libraries programmed against published REST APIs that you can leverage directly over the Internet. The Calling client library uses proprietary network interfaces and is currently closed-source. Samples and additional technical details for SDKs are published in the [Azure Communication Services GitHub repo](https://github.com/Azure/communication).
+Azure Communication Services capabilities are conceptually organized into six areas. Most areas have fully open-sourced client libraries programmed against published REST APIs that you can use directly over the Internet. The Calling client library uses proprietary network interfaces and is currently closed-source. Samples and more technical details for SDKs are published in the [Azure Communication Services GitHub repo](https://github.com/Azure/communication).
 
 ## REST APIs
 Communication Services APIs are documented alongside other Azure REST APIs in [docs.microsoft.com](/rest/api/azure/). This documentation will tell you how to structure your HTTP messages and offers guidance for using Postman. This documentation is also offered in Swagger format on [GitHub](https://github.com/Azure/azure-rest-api-specs).
@@ -28,7 +28,7 @@ Communication Services APIs are documented alongside other Azure REST APIs in [d
 | Phone numbers _(beta)_| Azure.Communication.PhoneNumbers| [REST](https://docs.microsoft.com/en-us/rest/api/communication/phonenumberadministration)|| Managing phone numbers |
 | Chat | Azure.Communication.Chat| [REST](https://docs.microsoft.com/rest/api/communication/) with proprietary signaling | Add real-time text based chat to your applications |
 | SMS| Azure.Communication.SMS | [REST](https://docs.microsoft.com/en-us/rest/api/communication/sms)| Send and receive SMS messages|
-| Calling| Azure.Communication.Calling | Proprietary transport | Leverage voice, video, screen-sharing, and other real-time data communication capabilities |
+| Calling| Azure.Communication.Calling | Proprietary transport | Use voice, video, screen-sharing, and other real-time data communication capabilities |
 
 The Azure Resource Manager, Identity, and SMS client libraries are focused on service integration, and in many cases security issues arise if you integrate these functions into end-user applications. The Common and Chat client libraries are suitable for service and client applications. The Calling client library is designed for client applications. A client library focused on service scenarios is in development.
 
@@ -69,7 +69,7 @@ Certain REST APIs and correponsding SDK methods have throttle limits you should 
 
 ### .NET 
 
-With the exception of Calling, Communication Services packages target .NET Standard 2.0 which supports the platforms listed below.
+Except for Calling, Communication Services packages target .NET Standard 2.0, which supports the platforms listed below.
 
 Support via .NET Framework 4.6.1
 - Windows 10, 8.1, 8 and 7
@@ -101,11 +101,11 @@ In the future we may retire versions of the Communication Services client librar
 
 **You've integrated the v24 version of the SMS REST API into your application. Azure Communication releases v25.**
 
-You'll get 3 years warning before these APIs stop working and are forced to update to v25. This update might require a code change.
+You'll get three years warning before these APIs stop working and are forced to update to v25. This update might require a code change.
 
 **You've integrated the v2.02 version of the Calling client library into your application. Azure Communication releases v2.05.**
 
-You may be required to update to the v2.05 version of the Calling client library within 12 months of the release of v2.05. This should be a simple replacement of the artifact without requiring a code change because v2.05 is in the v2 major version and has no breaking changes.
+You may be required to update to the v2.05 version of the Calling client library within 12 months of the release of v2.05. This task should be a simple replacement of the artifact without requiring a code change because v2.05 is in the v2 major version and has no breaking changes.
 
 ## Next steps
 
