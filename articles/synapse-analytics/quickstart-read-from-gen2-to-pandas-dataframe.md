@@ -13,7 +13,7 @@ author: garyericson
 ms.author: garye
 ---
 
-# Quickstart: Read data from Gen2 into Pandas dataframe
+# Quickstart: Read data from ADLS Gen2 storage into a Pandas dataframe
 
 In this quickstart, you'll learn how to use Python to read data from an Azure Data Lake Storage (ADLS) Gen2 data source into a Pandas dataframe.
 
@@ -21,13 +21,13 @@ From a Synapse Studio notebook, you'll:
 
 - connect to a container in an ADLS Gen2 storage account
 - read the data in Python using `spark.read.load`
-- then convert it to a Pandas dataframe using `.toPandas()`
+- convert the data to a Pandas dataframe using `.toPandas()`
 
 ## Prerequisites
 
 - Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
-- Synapse Analytics workspace with an ADLS Gen2 storage account configured as the default storage. You need to be the **Storage Blob Data Contributor** of the ADLS Gen2 filesystem that you work with. For details on how to create a workspace, see [Creating a Synapse workspace](../get-started-create-workspace.md).
-- Apache Spark pool in your workspace. See [Create a serverless Apache Spark pool](../get-started-analyze-spark.md#create-a-serverless-apache-spark-pool).
+- Synapse Analytics workspace with an ADLS Gen2 storage account configured as the default storage - You need to be the **Storage Blob Data Contributor** of the ADLS Gen2 filesystem that you work with. For details on how to create a workspace, see [Creating a Synapse workspace](../get-started-create-workspace.md).
+- Apache Spark pool in your workspace - See [Create a serverless Apache Spark pool](../get-started-analyze-spark.md#create-a-serverless-apache-spark-pool).
 
 ## Sign in to the Azure portal
 
@@ -102,5 +102,4 @@ Job execution SucceededSpark 2 executors 8 cores
 
 - [What is Azure Synapse Analytics?](../overview-what-is.md)
 - [Get Started with Azure Synapse Analytics](../get-started.md)
-- [Create a blob with the Azure portal](/azure/storage/blobs/storage-quickstart-blobs-portal)
 - [Create a serverless Apache Spark pool](../get-started-analyze-spark.md#create-a-serverless-apache-spark-pool)

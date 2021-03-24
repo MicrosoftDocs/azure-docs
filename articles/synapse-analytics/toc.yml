@@ -1,3 +1,4 @@
+items:
 - name: Azure Synapse Analytics
   href: index.yml
 - name: Switch to dedicated SQL pool (formerly SQL DW) >
@@ -67,6 +68,9 @@
     - name: Link a Power BI workspace
       href: quickstart-power-bi.md
       displayName: quickstart      
+    - name: Read from ADLS Gen2 into a Pandas dataframe
+      href: quickstart-read-from-gen2-to-pandas-dataframe.md
+      displayName: quickstart
     - name: Connect to Azure Data Explorer
       href: quickstart-connect-azure-data-explorer.md
       displayName: quickstart
