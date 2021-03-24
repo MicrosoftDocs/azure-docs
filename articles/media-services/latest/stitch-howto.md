@@ -1,6 +1,6 @@
 ---
 title: How to stitch two or more video files with .NET | Microsoft Docs
-description: This topic shows how to stitch two or more video files.
+description: This article shows how to stitch two or more video files.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -25,7 +25,7 @@ The following example illustrates how you can generate a preset to stitch two or
 
 ## Prerequisites
 
-Clone or download the [Media Services .Net samples](https://github.com/Azure-Samples/media-services-v3-dotnet/).  The code that is referenced below is located in the [EncodingWithMESCustomStitchTwoAssets folder](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/VideoEncoding/EncodingWithMESCustomStitchTwoAssets/Program.cs).
+Clone or download the [Media Services .NET samples](https://github.com/Azure-Samples/media-services-v3-dotnet/).  The code that is referenced below is located in the [EncodingWithMESCustomStitchTwoAssets folder](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/VideoEncoding/EncodingWithMESCustomStitchTwoAssets/Program.cs).
 
 ### .NET code
 

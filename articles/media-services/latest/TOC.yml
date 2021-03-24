@@ -349,7 +349,7 @@
     - name: Jobs with multiple transform outputs
       href: job-multiple-transform-outputs.md
     - name: Stitch two or more video files with .NET
-      href: stitching-howto.md
+      href: stitch-howto.md
   - name: Encode content 
     items:
     - name: HTTPS as job input
