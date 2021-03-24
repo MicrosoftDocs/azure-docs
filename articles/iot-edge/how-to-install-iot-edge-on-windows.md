@@ -116,9 +116,9 @@ If you want to deploy to a remote target device instead of your local device and
 
    ![Select your device to verify it is supported](./media/how-to-install-iot-edge-on-windows/evaluate-supported-device.png)
 
-1. On the **2.2 Settings** tab, review the configuration of your deployment. Once you are satisfied with the settings, select **Next**.
+1. On the **2.2 Settings** tab, review the configuration settings of your deployment. Once you are satisfied with the settings, select **Next**.
 
-   ![Review the configuration settings of your deployment](./media/how-to-install-iot-edge-on-windows/default-deployment-configuration.png)
+   ![Review the configuration settings of your deployment](./media/how-to-install-iot-edge-on-windows/default-deployment-configuration-settings.png)
 
    >[!NOTE]
    >If you are using a Windows virtual machine, it is recommended to use a default switch rather than an external switch to ensure the Linux virtual machine created in the deployment can obtain an IP address.
