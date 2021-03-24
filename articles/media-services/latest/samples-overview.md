@@ -72,7 +72,7 @@ Currently, there is one Python sample, [Basic Encoding with Python](https://gith
 |[OfflinePlayReadyAndWidevine](https://github.com/Azure-Samples/media-services-v3-java/tree/master/ContentProtection/OfflinePlayReadyAndWidevine)|How to dynamically encrypt your content with PlayReady and Widevine DRM and play the content without requesting a license from license service.|
 |DynamicPackagingVODContent||
 |[AssetFilters](https://github.com/Azure-Samples/media-services-v3-java/tree/master/DynamicPackagingVODContent/AssetFilters)|How to filter content using asset and account filters.|
-|[StreamHLSAndDASH](https://github.com/Azure-Samples/media-services-v3-java/tree/master/DynamicPackagingVODContent/StreamHLSAndDASH)Hhow to dynamically package VOD content into HLS/DASH for streaming.|
+|[StreamHLSAndDASH](https://github.com/Azure-Samples/media-services-v3-java/tree/master/DynamicPackagingVODContent/StreamHLSAndDASH)|How to dynamically package VOD content into HLS/DASH for streaming.|
 |[LiveIngest/LiveEventWithDVR](https://github.com/Azure-Samples/media-services-v3-java/tree/master/LiveIngest/LiveEventWithDVR)|How to create a Live Event with a full archive up to 25 hours and a filter on the asset with 5 minutes DVR window and how to create a locator for streaming and use the filter.|
 |[VideoAnalytics/VideoAnalyzer](https://github.com/Azure-Samples/media-services-v3-java/tree/master/VideoAnalytics/VideoAnalyzer)|How to create a Live Event with a full archive up to 25 hours and a filter on the asset with 5 minutes DVR window and how to create a locator for streaming and use the filter.|
 |VideoEncoding||
