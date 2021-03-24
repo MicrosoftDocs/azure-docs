@@ -106,7 +106,7 @@ The following software must be installed:
 
 ## Unity
 
-For development with Unity, install a current version of Unity 2019.4 LTS [(download)](https://unity3d.com/get-unity/download). We recommend using Unity Hub for managing installations.
+For development with Unity, install a current version of Unity 2019.3 or 2019.4 LTS [(download)](https://unity3d.com/get-unity/download). We recommend using Unity Hub for managing installations.
 Make sure to include the following modules in your Unity installation:
 * **UWP** - Universal Windows Platform Build Support
 * **IL2CPP** - Windows Build Support (IL2CPP)

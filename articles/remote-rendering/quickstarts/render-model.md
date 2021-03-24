@@ -32,7 +32,7 @@ The following software must be installed:
   * **Desktop development with C++**
   * **Universal Windows Platform (UWP) development**
 * GIT [(download)](https://git-scm.com/downloads)
-* [Unity](../overview/system-requirements.md#Unity)
+* Unity (see [system requirements](../overview/system-requirements.md#Unity) for supported versions)
 
 ## Clone the sample app
 
