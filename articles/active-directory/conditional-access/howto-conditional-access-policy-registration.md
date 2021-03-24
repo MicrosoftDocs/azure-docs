@@ -53,9 +53,9 @@ Administrators will now have to issue Temporary Access Pass credentials to new u
 
 Organizations may choose to require other grant controls in addition to or in place of **Require multi-factor authentication** at step 6b. When selecting multiple controls be sure to select the appropriate radio button toggle to require **all** or **one** of the selected controls when making this change.
 
-### Guest users
+### Guest user registration
 
-For [guest users](../external-identities/what-is-b2b.md) who need to register for multi-factor authentication in your directory you may choose to block registration from outside of trusted network locations using the following guide.
+For [guest users](../external-identities/what-is-b2b.md) who need to register for multi-factor authentication in your directory you may choose to block registration from outside of [trusted network locations](concept-conditional-access-conditions.md#locations) using the following guide.
 
 1. In the **Azure portal**, browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
