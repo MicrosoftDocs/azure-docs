@@ -72,13 +72,13 @@ If the client application trying to connect to flexible server is in the peered 
 * Use Private DNS zone (Recommended for production) - This option is suited for production purposes. You provision a [private DNS zone](../../dns/private-dns-getstarted-portal.md) and link it to your client virtual network. In the private DNS zone, you add a [A-record](../../dns/dns-zones-records.md#record-types) for your flexible server using its private IP address. You can then use the A-record to connect from the client application in peered virtual network to flexible server.
 
 ### Connecting from on-premises to flexible server in Virtual Network using ExpressRoute or VPN
-For workloads requiring access to flexible server in virtual network from on-premises network, you will require [ExpressRoute](../../architecture/reference-architectures/hybrid-networking/expressroute.md) or [VPN](../../architecture/reference-architectures/hybrid-networking/vpn.md) and virtual network [connected to on-premises](../../architecture/reference-architectures/hybrid-networking.md). With this setup in place, you will require a DNS forwarder to resolve the flexible servername if you would like to connect from client application (like MySQL Workbench) running on on-premises virtual network. This DNS forwarder is responsible for resolving all the DNS queries via a server-level forwarder to the Azure-provided DNS service [168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
+For workloads requiring access to flexible server in virtual network from on-premises network, you will require [ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute/) or [VPN](/azure/architecture/reference-architectures/hybrid-networking/vpn/) and virtual network [connected to on-premises](/azure/architecture/reference-architectures/hybrid-networking/). With this setup in place, you will require a DNS forwarder to resolve the flexible servername if you would like to connect from client application (like MySQL Workbench) running on on-premises virtual network. This DNS forwarder is responsible for resolving all the DNS queries via a server-level forwarder to the Azure-provided DNS service [168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
 To configure properly, you need the following resources:
 
 - On-premises network
 - MySQL Flexible Server provisioned with private access (VNet integration)
-- Virtual network [connected to on-premises](../../architecture/reference-architectures/hybrid-networking/)
+- Virtual network [connected to on-premises](/azure/architecture/reference-architectures/hybrid-networking/)
 - Use DNS forwarder [168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md) deployed in Azure
 
 You can then use the flexible servername (FQDN) to connect from the client application in peered virtual network or on-premises network to flexible server.
