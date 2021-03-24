@@ -46,8 +46,9 @@ Before you begin to manage VMs on your device via the Azure portal, make sure th
 
 1. You have atleast one VM deployed on your device. To create this VM, see the instructions in [Deploy VM on your Azure Stack Edge Pro via the Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md).
 
-1. Your VM should be in **Stopped** state. To stop your VM, go to **Virtual machines > Overview** and select the VM you want to stop. In the VM properties page, select **Stop**. Before you add, edit, or delete network interfaces, you must stop the VM.
+1. Your VM should be in **Stopped** state. To stop your VM, go to **Virtual machines > Overview** and select the VM you want to stop. In the VM properties page, select **Stop** and then select **Yes** when prompted for confirmation. Before you add, edit, or delete network interfaces, you must stop the VM.
 
+    ![Stop VM from VM properties page](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/stop-vm-2.png)
 
 
 ## Add a network interface
@@ -106,9 +107,11 @@ Follow these steps to detach or remove a network interface associated with a vir
 
 1. Go to the virtual machine that you have stopped and go to the **VM Properties** page. Select **Networking**.
 
-1. In the list of network interfaces, select the interface that you wish to edit. In the far right of the network interface selected, select the delete icon (trash can).  
+1. In the list of network interfaces, select the interface that you wish to edit. In the far right of the network interface selected, select the detach icon (unplug).  
 
-1. After the deletion is complete, the list of network interfaces is refreshed to display the remaining interfaces.
+    ![Select a network interface to detach](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/detach-nic-1.png)
+
+1. After the interface is completely detached, the list of network interfaces is refreshed to display the remaining interfaces.
 
 
 
