@@ -209,7 +209,7 @@ $replicaSetParams = @{
   Location = $AzureLocation
   SubnetId = "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"
 }
-$replicaSet = New-AzADDomainServiceReplicaSetObject @replicaSetParams
+$replicaSet = New-AzADDomainServiceReplicaSet @replicaSetParams
 
 $domainServiceParams = @{
   Name = $ManagedDomainName
@@ -351,7 +351,7 @@ $replicaSetParams = @{
   Location = $AzureLocation
   SubnetId = "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"
 }
-$replicaSet = New-AzADDomainServiceReplicaSetObject @replicaSetParams
+$replicaSet = New-AzADDomainServiceReplicaSet @replicaSetParams
 
 $domainServiceParams = @{
   Name = $ManagedDomainName
