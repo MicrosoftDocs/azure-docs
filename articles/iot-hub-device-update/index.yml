@@ -21,16 +21,6 @@ landingContent:
       links:
         - text: What is Device Update for IoT Hub?
           url: understand-device-update.md
-  - title: Get started
-    linkLists:
-    - linkListType: tutorial
-      links:
-          - text: Device update on a simulator
-            url: device-update-simulator.md
-          - text: Device update on Raspberry Pi
-            url: device-update-raspberry-pi.md
-          - text: Device update on Ubuntu Server 18.04 x64 Package agent
-            url: device-update-ubuntu-agent.md
   - title: Learn more
     linkLists:
     - linkListType: how-to-guide
@@ -60,4 +50,14 @@ landingContent:
     - linkListType: how-to-guide
       links:
         - text: Build, run and modify device update agent
-          url: device-update-agent-provisioning.md        
+          url: device-update-agent-provisioning.md
+  - title: Get started
+    linkLists:
+    - linkListType: tutorial
+      links:
+          - text: Device update on a simulator
+            url: device-update-simulator.md
+          - text: Device update on Raspberry Pi
+            url: device-update-raspberry-pi.md
+          - text: Device update on Ubuntu Server 18.04 x64 Package agent
+            url: device-update-ubuntu-agent.md
