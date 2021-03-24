@@ -34,7 +34,7 @@ There are several ways to check whether a file has been tiered to your Azure fil
         | L | Reparse point | Indicates that the file has a reparse point. A reparse point is a special pointer for use by a file system filter. Azure File Sync uses reparse points to define to the Azure File Sync file system filter (StorageSync.sys) the cloud location where the file is stored. This supports seamless access. Users won't need to know that Azure File Sync is being used or how to get access to the file in your Azure file share. When a file is fully recalled, Azure File Sync removes the reparse point from the file. |
         | O | Offline | Indicates that some or all of the file's content is not stored on disk. When a file is fully recalled, Azure File Sync removes this attribute. |
 
-        ![The Properties dialog box for a file, with the Details tab selected](media/storage-files-faq/azure-file-sync-file-attributes.png)
+        ![The Properties dialog box for a file, with the Details tab selected](../files/media/storage-files-faq/azure-file-sync-file-attributes.png)
         
     
         > [!NOTE]
