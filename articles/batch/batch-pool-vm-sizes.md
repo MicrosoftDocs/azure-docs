@@ -13,11 +13,6 @@ When you select a node size for an Azure Batch pool, you can choose from among a
 
 ## Supported VM series and sizes
 
-There are a few exceptions and limitations to choosing a VM size for your Batch pool:
-
-- Some VM series or VM sizes are not supported in Batch.
-- Some VM sizes are restricted and need to be specifically enabled before they can be allocated.
-
 ### Pools in Virtual Machine configuration
 
 Batch pools in the Virtual Machine configuration support almost all [VM sizes](../virtual-machines/sizes.md). See the following table to learn more about supported sizes and restrictions.
@@ -31,13 +26,11 @@ Batch pools in the Virtual Machine configuration support almost all [VM sizes](.
 | DCsv2 | All sizes |
 | Dv2, DSv2 | All sizes |
 | Dv3, Dsv3 | All sizes |
-| Dav4 | All sizes |
-| Dasv4 | All sizes |
+| Dav4, Dasv4 | All sizes |
 | Ddv4, Ddsv4 |  All sizes |
 | Dv4, Dsv4 | Not supported |
 | Ev3, Esv3 | All sizes, except for E64is_v3 |
-| Eav4 | All sizes |
-| Easv4 | All sizes |
+| Eav4, Easv4 | All sizes |
 | Edv4, Edsv4 |  All sizes |
 | Ev4, Esv4 | Not supported |
 | F, Fs | All sizes |
@@ -55,7 +48,7 @@ Batch pools in the Virtual Machine configuration support almost all [VM sizes](.
 | NC | All sizes |
 | NCv2 | All sizes |
 | NCv3 | All sizes |
-| NCasT4_v3 | None - not yet available |
+| NCasT4_v3 | All sizes |
 | ND | All sizes |
 | NDv2 | None - not yet available |
 | NV | All sizes |
