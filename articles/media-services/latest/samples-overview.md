@@ -62,21 +62,21 @@ Currently, there is one Python sample, [Basic Encoding with Python](https://gith
 
 |Folder|Description|
 |---|---|
-|[AudioAnalytics/AudioAnalyzer/](https://github.com/Azure-Samples/media-services-v3-java/tree/master/AudioAnalytics/AudioAnalyzer)|This sample demonstrates how to analyze audio in a media file. |
+|[AudioAnalytics/AudioAnalyzer/](https://github.com/Azure-Samples/media-services-v3-java/tree/master/AudioAnalytics/AudioAnalyzer)|How to analyze audio in a media file. |
 |Content Protection|
-|[ContentProtection](https://github.com/Azure-Samples/media-services-v3-java/tree/master/ContentProtection)||
-|[BasicAESClearKey](https://github.com/Azure-Samples/media-services-v3-java/tree/master/ContentProtection/BasicAESClearKey)|This sample demonstrates how to dynamically encrypt your content with AES-128.|
-|[BasicPlayReady](https://github.com/Azure-Samples/media-services-v3-java/tree/master/ContentProtection/BasicPlayReady)|This sample demonstrates how to dynamically encrypt your content with PlayReady DRM.|
-|[BasicWidevine](https://github.com/Azure-Samples/media-services-v3-java/tree/master/ContentProtection/BasicWidevine)|This sample demonstrates how to dynamically encrypt your content with Widevine DRM.|
-|[OfflineFairPlay](https://github.com/Azure-Samples/media-services-v3-java/tree/master/ContentProtection/OfflineFairPlay)|This sample demonstrates how to dynamically encrypt your content with FairPlay DRM and play the content without requesting a license from license service.|
-|[OfflinePlayReadyAndWidevine](https://github.com/Azure-Samples/media-services-v3-java/tree/master/ContentProtection/OfflinePlayReadyAndWidevine)||
+|ContentProtection||
+|[BasicAESClearKey](https://github.com/Azure-Samples/media-services-v3-java/tree/master/ContentProtection/BasicAESClearKey)|How to dynamically encrypt your content with AES-128.|
+|[BasicPlayReady](https://github.com/Azure-Samples/media-services-v3-java/tree/master/ContentProtection/BasicPlayReady)|How to dynamically encrypt your content with PlayReady DRM.|
+|[BasicWidevine](https://github.com/Azure-Samples/media-services-v3-java/tree/master/ContentProtection/BasicWidevine)|How to dynamically encrypt your content with Widevine DRM.|
+|[OfflineFairPlay](https://github.com/Azure-Samples/media-services-v3-java/tree/master/ContentProtection/OfflineFairPlay)|How to dynamically encrypt your content with FairPlay DRM and play the content without requesting a license from license service.|
+|[OfflinePlayReadyAndWidevine](https://github.com/Azure-Samples/media-services-v3-java/tree/master/ContentProtection/OfflinePlayReadyAndWidevine)|How to dynamically encrypt your content with PlayReady and Widevine DRM and play the content without requesting a license from license service.|
 |DynamicPackagingVODContent||
-|[AssetFilters](https://github.com/Azure-Samples/media-services-v3-java/tree/master/DynamicPackagingVODContent/AssetFilters)|This sample demonstrates how to filter content using asset and account filters.|
-|[StreamHLSAndDASH](https://github.com/Azure-Samples/media-services-v3-java/tree/master/DynamicPackagingVODContent/StreamHLSAndDASH)|This sample demonstrates how to dynamically package VOD content into HLS/DASH for streaming.|
-|[LiveIngest/LiveEventWithDVR](https://github.com/Azure-Samples/media-services-v3-java/tree/master/LiveIngest/LiveEventWithDVR)|This sample first shows how to create a Live Event with a full archive up to 25 hours and a filter on the asset with 5 minutes DVR window. The sample then shows how to create a locator for streaming and use the filter.|
-|[VideoAnalytics/VideoAnalyzer](https://github.com/Azure-Samples/media-services-v3-java/tree/master/VideoAnalytics/VideoAnalyzer)|This sample first shows how to create a Live Event with a full archive up to 25 hours and a filter on the asset with 5 minutes DVR window. The sample then shows how to create a locator for streaming and use the filter.|
+|[AssetFilters](https://github.com/Azure-Samples/media-services-v3-java/tree/master/DynamicPackagingVODContent/AssetFilters)|How to filter content using asset and account filters.|
+|[StreamHLSAndDASH](https://github.com/Azure-Samples/media-services-v3-java/tree/master/DynamicPackagingVODContent/StreamHLSAndDASH)Hhow to dynamically package VOD content into HLS/DASH for streaming.|
+|[LiveIngest/LiveEventWithDVR](https://github.com/Azure-Samples/media-services-v3-java/tree/master/LiveIngest/LiveEventWithDVR)|How to create a Live Event with a full archive up to 25 hours and a filter on the asset with 5 minutes DVR window and how to create a locator for streaming and use the filter.|
+|[VideoAnalytics/VideoAnalyzer](https://github.com/Azure-Samples/media-services-v3-java/tree/master/VideoAnalytics/VideoAnalyzer)|How to create a Live Event with a full archive up to 25 hours and a filter on the asset with 5 minutes DVR window and how to create a locator for streaming and use the filter.|
 |VideoEncoding||
-|[EncodingWithMESCustomPreset](https://github.com/Azure-Samples/media-services-v3-java/tree/master/VideoEncoding/EncodingWithMESCustomPreset)|This sample shows how to create a custom encoding Transform using the StandardEncoderPreset settings.|
-|[EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-java/tree/master/VideoEncoding/EncodingWithMESPredefinedPreset)|This sample shows how to submit a job using a built-in preset and an HTTP URL input, publish output asset for streaming, and download results for verification.|
+|[EncodingWithMESCustomPreset](https://github.com/Azure-Samples/media-services-v3-java/tree/master/VideoEncoding/EncodingWithMESCustomPreset)|How to create a custom encoding Transform using the StandardEncoderPreset settings.|
+|[EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-java/tree/master/VideoEncoding/EncodingWithMESPredefinedPreset)|How to submit a job using a built-in preset and an HTTP URL input, publish output asset for streaming, and download results for verification.|
 
 ---
