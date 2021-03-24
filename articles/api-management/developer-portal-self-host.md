@@ -2,7 +2,7 @@
 title: Self-host the developer portal
 titleSuffix: Azure API Management
 description: Learn how to set up your local development environment, carry out changes in the Azure API Management developer portal, and publish and deploy them to an Azure storage account.
-author: erikadoyle
+author: dlepow
 ms.author: apimpm
 ms.date: 03/24/2021
 ms.service: api-management
@@ -13,7 +13,7 @@ ms.topic: how-to
 
 This tutorial describes how to set up your local development environment, carry out changes in the developer portal for API Management, and publish and deploy them to an Azure storage account.
 
-If you have already uploaded or modified media files in the managed portal, you need to follow the [Move from managed to self-hosted](dev-portal-move-managed-self-hosted.md) guide instead.
+If you have already uploaded or modified media files in the managed portal, you need to follow the [Move from managed to self-hosted](developer-portal-move-managed-self-hosted.md) guide instead.
 
 ## Prerequisites
 
@@ -68,7 +68,7 @@ Go to the `/src/` folder and open the `config.design.json` file.
 ```json
 {
   "environment": "development",
-  "managementApiUrl": "https://<service-name>.management.azure-api.net/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/xxxxx/providers/Microsoft.ApiManagement/service/<service-name>",
+  "managementApiUrl": "https://<service-name>.management.azure-api.net",
   "managementApiAccessToken": "SharedAccessSignature ...",
   "backendUrl": "https://<service-name>.developer.azure-api.net",
   "useHipCaptcha": false
@@ -86,8 +86,6 @@ Configure the file:
     ...
     ``` 
 
-    You don't need to replace the `xxx...x` strings.
-
 1. [Manually create a SAS token](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-authentication#ManuallyCreateToken) to enable the direct REST API access to your API Management instance.
 
 1. Copy the generated token and paste it as the `managementApiAccessToken` value.
@@ -101,7 +99,7 @@ Configure the file:
     ...
     ```
 
-1. If you'd like to enable CAPTCHA in your developer portal, see [Enable CAPTCHA](#enable-captcha).
+1. If you'd like to enable CAPTCHA in your developer portal, see [Enable CAPTCHA](developer-portal-enable-captcha.md).
 
 ### config.publish.json file
 
@@ -120,7 +118,7 @@ Configure the file:
 
 1. Copy and paste the `managementApiUrl`, and `managementApiAccessToken` values from the previous configuration file.
 
-1. If you'd like to enable CAPTCHA in your developer portal, see [Enable CAPTCHA](#enable-captcha).
+1. If you'd like to enable CAPTCHA in your developer portal, see [Enable CAPTCHA](developer-portal-enable-captcha.md).
 
 ### config.runtime.json file
 
@@ -199,9 +197,9 @@ Use the visual editor to carry out these tasks:
 - Organize the structure of the website
 - Stylize its appearance
 
-See [Tutorial: Access and customize the developer portal](api-management-howto-developer-portal-customize.md). It covers the basics of the administrative user interface and lists recommended changes to the default content.
+See [Tutorial: Access and customize the developer portal](api-management-howto-developer-portal-customize.md). It covers the basics of the administrative user interface and lists recommended changes to the default content. Save all changes in the local environment, and press **Ctrl + C** to close it.
 
-:::image type="content" source="media/dev-portal/readme-dev-save.png" alt-text="Save content for API Management developer portal" border="false":::
+:::image type="content" source="media/developer-portal-self-host/save-content.png" alt-text="Save content for API Management developer portal" border="false":::
 
 ## Publish locally
 
@@ -211,7 +209,7 @@ The portal data originates in the form of strong-typed objects. The following co
 npm run publish
 ```
 
-:::image type="content" source="media/dev-portal/readme-dev-generate.png" alt-text="Generate static files for developer portal" border="false":::
+:::image type="content" source="media/developer-portal-self-host/generate-content.png" alt-text="Generate static files for developer portal" border="false":::
 
 ## Upload static files to a blob
 
@@ -229,13 +227,13 @@ Use Azure CLI to upload the locally generated static files to a blob, and make s
         --connection-string <account-connection-string>
     ```
 
-:::image type="content" source="media/dev-portal/readme-dev-upload.png" alt-text="Publish developer portal" border="false":::
+:::image type="content" source="media/developer-portal-self-host/upload-content.png" alt-text="Publish developer portal" border="false":::
 
 ## Go to your website
 
 Your website is now live under the hostname specified in your Azure Storage properties (**Primary endpoint** in **Static websites**).
 
-![API Management developer portal development - visit portal](media/dev-portal/readme-dev-visit.png)
+![API Management developer portal development - visit portal](media/developer-portal-self-host/view-content.png)
 
 ## Change API Management notification templates
 
@@ -244,7 +242,7 @@ Replace the developer portal URL in the API Management notification templates to
 In particular, carry out the following changes to the default templates:
 
 > [!NOTE]
-> The values in the **Updated** sections assume that you're hosting the portal at **https:\//portal.contoso.com/**.
+> The values in the following **Updated** sections assume that you're hosting the portal at **https:\//portal.contoso.com/**. 
 
 ### Email change confirmation
 
@@ -395,7 +393,8 @@ Update the developer portal URL in any template that has a link in the footer:
 <a href="https://portal.contoso.com/">https://portal.contoso.com/</a>
 ```
 
+
 ## Next steps
 
-- [Enable CAPTCHA](dev-portal-enable-captcha.md)
-- Learn about [Alternative processes for self-hosted portal](dev-portal-alternative-processes-self-hosted-portal.md)
+- [Enable CAPTCHA](developer-portal-enable-captcha.md)
+- Learn about [Alternative processes for self-hosted portal](developer-portal-alternative-processes-self-hosted-portal.md)

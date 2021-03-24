@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Learn how to migrate self-hosted developer portal content between two API Management services.
 author: erikadoyle
 ms.author: apimpm
-ms.date: 11/30/2020
+ms.date: 03/24/2021
 ms.service: api-management
 ms.topic: how-to
 ---
