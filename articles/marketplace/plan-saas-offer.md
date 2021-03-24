@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/19/2021
+ms.date: 03/25/2021
 ---
 
 # How to plan a SaaS offer for the commercial marketplace
@@ -251,11 +251,11 @@ A preview audience can access your offer prior to being published live in the on
 
 On the **Preview audience** page, you can define a limited preview audience. This setting is not available if you choose to process transactions independently instead of selling your offer through Microsoft. If so, you can skip this section and go to [Additional sales opportunities](#additional-sales-opportunities).
 
-## Development and test offer
+## Test offer
 
 Before you publish your offer live, you should use the preview functionality to develop your technical implementation, test and experiment with different pricing models.
 
-To develop and test your SaaS offer with the lowest amount of risk, we recommend that you create a development (DEV) offer for experimentation and testing. The DEV offer will be separate from your production (PROD) offer.
+To develop and test your SaaS offer with the lowest amount of risk, we recommend that you create a test and development (DEV) offer for experimentation and testing. The DEV offer will be separate from your production (PROD) offer.
 
 To prevent accidental purchases of the DEV offer, you’ll never push the **Go live** button to publish the DEV offer live.
 

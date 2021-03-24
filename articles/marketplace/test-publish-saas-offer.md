@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms 
 ms.author: mingshen
-ms.date: 03/18/2021
+ms.date: 03/25/2021
 ---
 
 # How to test and publish a SaaS offer to the commercial marketplace
@@ -15,7 +15,7 @@ ms.date: 03/18/2021
 This article explains how to use Partner Center to submit your SaaS offer for publishing, preview your offer, test it, and then publish it live to the commercial marketplace. You must have already created an offer that you want to publish.
 
 > [!NOTE]
-> We recommend that you create a separate development/test (DEV) offer as a low-risk way to test before you publish your production (PROD) offer. Follow these steps to create and test the DEV offer before you publish your (PROD) offer.
+> We recommend that you create a separate test and development (DEV) offer as a low-risk way to test before you publish your production (PROD) offer. Follow these steps to create and test the DEV offer before you publish your (PROD) offer.
 
 ## Submit your offer for publishing
 
