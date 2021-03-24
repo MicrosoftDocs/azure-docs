@@ -141,6 +141,8 @@ $maa-attestationcollateral | x-ms-sgx-collateral
 
 ## Property claims
 
+### TPM and VBS attestation
+
 - **report_validity_in_minutes**: An integer claim signifying for how long the token is valid.
   - **Default value(time)**: One day in minutes.
   - **Maximum value(time)**: One year in minutes.
