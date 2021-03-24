@@ -51,7 +51,10 @@ Follow these steps to make a user eligible to be a member or owner of a privileg
 
 1. In the **Assignment type** list, select **Eligible** or **Active**. Privileged access groups provide two distinct assignment types:
 
-    - **Eligible** assignments require the member of the role to perform an action to use the role. Actions might include performing a multi-factor authentication (MFA) check, providing a business justification, or requesting approval from designated approvers.
+    - **Eligible** assignments require the member of the role to perform an action to use the role. Actions might include performing a multi-factor authentication (MFA) check, providing a business justification, or requesting approval from designated approvers. 
+
+      > [!Important]
+      > For privileged access groups used for elevating into Azure AD roles, Microsoft recommends that you require an approval process for eligible member assignments. Assignments that can be activated without approval can leave you vulnerable to a security risk from another  administrator with permission to reset an eligible user's passwords.
 
     - **Active** assignments don't require the member to perform any action to use the role. Members assigned as active have the privileges assigned to the role at all times.
 
