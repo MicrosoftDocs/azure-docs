@@ -83,7 +83,7 @@
     - name: Azure Blob storage
       href: ../../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Files
-      href: ../../storage/files/reserve-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
+      href: ../../storage/files/files-reserve-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Cosmos DB
       href: ../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Databricks
