@@ -20,7 +20,7 @@ This article provides information about limitations and known issues related to 
 There are multiple factors that can affect the quality of your calling experience. Ensure that your solution is being used on supported operating systems and test the end-to-end connectivity of your network configuration. Refer to the [network requirements](./voice-video-calling/network-requirements) documentation to learn more about Communication Services network configuration and testing best practices.
 
 ### After refreshing the page the call disconnects on web
-On page refresh, ACS SDK may not be able to inform ACS media service that it is about to disconnect, ACS media service will start timeout. When those timeouts get raised, we disconnect the endpoint. We recommend developers build their apps in a way so the user can't (don't need) refresh the page. If it did happen the best way to handle it is:
+When refreshing pages, the Communication Services client library may not be able to inform the Communication Services media service that it's about to disconnect. The Communication Services media service will then time out. When those timeouts get raised, the media endpoint is disconnected. We encourage developers build experiences that don't require end-users to refresh the page of your application while participating in a call. If a refresh does happen, the best way to handle it is to track and reuse the same Communication Services user ID between refreshes, and select the stream with the highest numerical ID.
 1) reuse same ACS user ID - and pick stream with the highest ID
 2) use different ACS user ID - we should discourage - as at that point app won't know if new user equals old user 
 
