@@ -76,7 +76,7 @@ Under investigation
 #### If the video signal was stopped while the call is in connecting state, the video will not be send after the call started 
 Mobile browsers are sensitive to any changes made while being in the “connecting state”. At this time we encourage developers build their apps in a way to prevent end user to make any changes. Otherwise you experience maybe degraded in following scenarios: 
  1. If you start with audio and then start and stop video while the call is in `Connecting` state
-•	Scenario 2: I start with audio and start video and then stop video while call in lobby
+ 2. If you start with audio and then start and stop video while the call is in the lobby
 
 
 #### Possible causes
