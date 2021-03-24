@@ -2,7 +2,7 @@
 title: Tutorial - Connect and monitor Azure Synapse Spark Application level metrics
 description: Tutorial - Learn how to integrate your existing on-premises Prometheus server with Azure Synapse workspace for near real-time Azure Spark application metrics using the Synapse Prometheus connector.
 services: synapse-analytics 
-author: jrasnick
+author: julieMSFT
 ms.author: jejiang
 ms.reviewer: jrasnick 
 ms.service: synapse-analytics
