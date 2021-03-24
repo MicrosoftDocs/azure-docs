@@ -29,4 +29,4 @@ Clone or download the [Media Services .Net samples](https://github.com/Azure-Sam
 
 ### .NET code
 
-:::code language="csharp" source="https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/VideoEncoding/EncodingWithMESCustomStitchTwoAssets/Program.cs":::
+[!code-csharp[Main](../../../media-services-v3-dotnet/VideoEncoding/EncodingWithMESCustomStitchTwoAssets/Program.cs)]
