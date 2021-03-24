@@ -435,7 +435,7 @@
         href: convercent-tutorial.md
       - name: Coralogix
         href: coralogix-tutorial.md
-      - name: Cornerstone OnDemand
+      - name: Cornerstone Single Sign-On
         href: cornerstone-ondemand-tutorial.md
       - name: CorpTax
         href: corptax-tutorial.md
@@ -2247,6 +2247,8 @@
         href: lucidchart-provisioning-tutorial.md
       - name: Leapsome
         href: leapsome-provisioning-tutorial.md
+      - name: LogicGate
+        href: logicgate-provisioning-tutorial.md
       - name: Looop
         href: looop-provisioning-tutorial.md
       - name: MediusFlow

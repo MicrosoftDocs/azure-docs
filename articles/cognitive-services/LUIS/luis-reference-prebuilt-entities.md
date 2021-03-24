@@ -37,7 +37,7 @@ Unless otherwise noted, prebuilt entities are available in all LUIS application 
 |Korean|[ko-KR](#korean-entity-support)||
 |Portuguese|[pt-BR (Brazil)](#portuguese-brazil-entity-support)||
 |Spanish|[es-ES (Spain)](#spanish-spain-entity-support), [es-MX (Mexico)](#spanish-mexico-entity-support)||
-|Turkish|[turkish](#turkish-entity-support)|No prebuilt entities supported in Turkish|
+|Turkish|[turkish](#turkish-entity-support)||
 
 ## Prediction endpoint runtime
 
@@ -315,10 +315,6 @@ See notes on [Deprecated prebuilt entities](luis-reference-prebuilt-deprecated.m
 
 ## Turkish entity support
 
-**There are no prebuilt entities supported in Turkish.**
-
-<!--
-
 | Prebuilt entity | tr-tr |
 | --------------- | :---: |
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    -   |
@@ -326,19 +322,16 @@ See notes on [Deprecated prebuilt entities](luis-reference-prebuilt-deprecated.m
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   |
 [Dimension](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>weight<br>information (ex: bit/byte)<br>length (ex: meter)<br>speed (ex: mile per hour)  |    -   |
 [Email](luis-reference-prebuilt-email.md)   |    -   |
-[GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    -   |
 [Number](luis-reference-prebuilt-number.md)   |    -   |
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    -   |
 [Percentage](luis-reference-prebuilt-percentage.md)   |    -   |
-[PersonName](luis-reference-prebuilt-person.md)   |    -   |
 [Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    -   |
 [Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    -   |
 [URL](luis-reference-prebuilt-url.md)   |    -   |
 
+<!---
 See notes on [Deprecated prebuilt entities](luis-reference-prebuilt-deprecated.md)
-
-
 KeyPhrase is not available.
 -->
 

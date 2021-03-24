@@ -1,5 +1,5 @@
 ---
-title: "SQL Server to SQL Database: Migration overview"
+title: "SQL Server to Azure SQL Database: Migration overview"
 description: Learn about the tools and options available to migrate your SQL Server databases to Azure SQL Database.
 ms.service: sql-database
 ms.subservice: migration-guide
@@ -11,7 +11,7 @@ ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
 ---
-# Migration overview: SQL Server to SQL Database
+# Migration overview: SQL Server to Azure SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
 
 Learn about the options and considerations for migrating your SQL Server databases to Azure SQL Database. 
@@ -24,7 +24,7 @@ You can migrate SQL Server databases running on-premises or on:
 - Compute Engine in Google Cloud Platform (GCP)  
 - Cloud SQL for SQL Server in GCP 
 
-For other scenarios, see the [Database Migration Guide](https://datamigration.microsoft.com/). 
+For other migration guides, see [Database Migration](https://docs.microsoft.com/data-migration). 
 
 ## Overview
 
@@ -50,8 +50,7 @@ Tools are available for various workloads and user preferences. Some tools can b
 
 ## Choose an appropriate target
 
-Consider general guidelines to help you choose the right deployment model and service tier of Azure SQL Database. You can choose compute and storage resources during deployment and then change them afterward by using the [Azure portal](../../database/scale-resources.md) without incurring downtime for your application.
-
+Consider general guidelines to help you choose the right deployment model and service tier of Azure SQL Database. You can choose compute and storage resources during deployment and then [change them afterward by using the Azure portal](../../database/scale-resources.md) without incurring downtime for your application.
 
 **Deployment models**: Understand your application workload and the usage pattern to decide between a single database or an elastic pool. 
 
@@ -152,13 +151,13 @@ Beyond the high-availability architecture that's included in Azure SQL Database,
 SQL Agent jobs are not directly supported in Azure SQL Database and need to be deployed to [elastic database jobs (preview)](../../database/job-automation-overview.md).
 
 ### Logins and groups
-Move SQL logins from the SQL Server source to Azure SQL Database by using Database Migration Service in offline mode.  Use the **Selected logins** pane in the Migration Wizard to migrate logins to your target SQL database. 
+Move SQL logins from the SQL Server source to Azure SQL Database by using Database Migration Service in offline mode. Use the **Selected logins** pane in the Migration Wizard to migrate logins to your target SQL database. 
 
 You can also migrate Windows users and groups via Database Migration Service by enabling the corresponding toggle on the Database Migration Service **Configuration** page. 
 
 Alternatively, you can use the [PowerShell utility](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/MoveLogins) specially designed by Microsoft data migration architects. The utility uses PowerShell to create a Transact-SQL (T-SQL) script to re-create logins and select database users from the source to the target. 
 
-The PowerShell utility automatically maps Windows Server Active Directory accounts to Azure AD accounts, and can do a UPN lookup for each login against the source Active Directory instance. The utility scripts custom server and database roles, along with role membership and user permissions. Contained databases are not yet supported, and only a subset of possible SQL Server permissions are scripted. 
+The PowerShell utility automatically maps Windows Server Active Directory accounts to Azure Active Directory (Azure AD) accounts, and it can do a UPN lookup for each login against the source Active Directory instance. The utility scripts custom server and database roles, along with role membership and user permissions. Contained databases are not yet supported, and only a subset of possible SQL Server permissions are scripted. 
 
 ### System databases
 For Azure SQL Database, the only applicable system databases are [master](/sql/relational-databases/databases/master-database) and tempdb. To learn more, see [Tempdb in Azure SQL Database](/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).
@@ -167,7 +166,7 @@ For Azure SQL Database, the only applicable system databases are [master](/sql/r
 
 Be sure to take advantage of the advanced cloud-based features in SQL Database. For example, you don't need to worry about managing backups because the service does it for you. You can restore to any [point in time within the retention period](../../database/recovery-using-backups.md#point-in-time-restore). 
 
-To strengthen security, consider using [Azure Active Directory (Azure AD) authentication](../../database/authentication-aad-overview.md), [auditing](../../database/auditing-overview.md), [threat detection](../../database/azure-defender-for-sql.md), [row-level security](/sql/relational-databases/security/row-level-security), and [dynamic data masking](/sql/relational-databases/security/dynamic-data-masking).
+To strengthen security, consider using [Azure AD authentication](../../database/authentication-aad-overview.md), [auditing](../../database/auditing-overview.md), [threat detection](../../database/azure-defender-for-sql.md), [row-level security](/sql/relational-databases/security/row-level-security), and [dynamic data masking](/sql/relational-databases/security/dynamic-data-masking).
 
 In addition to advanced management and security features, SQL Database provides tools that can help you [monitor and tune your workload](../../database/monitor-tune-overview.md). [Azure SQL Analytics (Preview)](../../../azure-monitor/insights/azure-sql.md) is an advanced solution for monitoring the performance of all of your databases in Azure SQL Database at scale and across multiple subscriptions in a single view. Azure SQL Analytics collects and visualizes key performance metrics with built-in intelligence for performance troubleshooting.
 
@@ -187,7 +186,7 @@ For more assistance, see the following resources that were developed for real-wo
 |[Convert SQL Server Agent jobs into elastic database jobs](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Convert%20SQL%20Server%20Agent%20Jobs%20into%20Elastic%20Database%20Jobs)|This script migrates your source SQL Server Agent jobs to elastic database jobs.|
 |[Send emails from Azure SQL Database](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/AF%20SendMail)|This solution is an alternative to SendMail capability and is available for on-premises SQL Server. It uses Azure Functions and the SendGrid service to send emails from Azure SQL Database.|
 |[Utility to move on-premises SQL Server logins to Azure SQL Database](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/MoveLogins)|A PowerShell script can create a T-SQL command script to re-create logins and select database users from on-premises SQL Server to Azure SQL Database. The tool allows automatic mapping of Windows Server Active Directory accounts to Azure AD accounts, along with optionally migrating SQL Server native logins.|
-|[Perfmon data collection automation using Logman](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Perfmon%20Data%20Collection%20Automation%20Using%20Logman)|You can use a tool that collects Perfmon data (to help you understand baseline performance) and assists in migration target recommendations. This tool uses logman.exe to create the command that will create, start, stop, and delete performance counters set on a remote SQL Server instance.|
+|[Perfmon data collection automation by using Logman](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Perfmon%20Data%20Collection%20Automation%20Using%20Logman)|You can use a tool that collects Perfmon data (to help you understand baseline performance) and assists in migration target recommendations. This tool uses logman.exe to create the command that will create, start, stop, and delete performance counters set on a remote SQL Server instance.|
 |[Database migration to Azure SQL Database by using BACPAC](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Database%20migrations%20-%20Benchmarks%20and%20Steps%20to%20Import%20to%20Azure%20SQL%20DB%20Single%20Database%20from%20BACPAC.pdf)|This white paper provides guidance and steps to help accelerate migrations from SQL Server to Azure SQL Database by using BACPAC files.|
 
 These resources were developed as part of the Data SQL Ninja Program, which is sponsored by the Azure Data Group engineering team. The core charter of the Data SQL Ninja program is to unblock and accelerate complex modernization and compete data platform migration opportunities to Microsoft's Azure data platform. If you think your organization would be interested in participating in the Data SQL Ninja program, ask your account team to submit a nomination.
@@ -195,7 +194,7 @@ These resources were developed as part of the Data SQL Ninja Program, which is s
 
 ## Next steps
 
-- To start migrating your SQL Server databases to Azure SQL Database, see the [SQL Server to SQL Database migration guide](sql-server-to-sql-database-guide.md).
+- To start migrating your SQL Server databases to Azure SQL Database, see the [SQL Server to Azure SQL Database migration guide](sql-server-to-sql-database-guide.md).
 
 - For a matrix of services and tools that can help you with database and data migration scenarios as well as specialty tasks, see [Services and tools for data migration](../../../dms/dms-tools-matrix.md).
 

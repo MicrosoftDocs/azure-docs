@@ -11,7 +11,7 @@ ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 02/18/2020
 ---
-# Migration overview: SQL Server to SQL Managed Instance
+# Migration overview: SQL Server to Azure SQL Managed Instance
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
 
 Learn about the options and considerations for migrating your SQL Server databases to Azure SQL Managed Instance. 
@@ -24,7 +24,7 @@ You can migrate SQL Server databases running on-premises or on:
 - Compute Engine in Google Cloud Platform (GCP)  
 - Cloud SQL for SQL Server in GCP 
 
-For other scenarios, see the [Database Migration Guide](https://datamigration.microsoft.com/). 
+For other migration guides, see [Database Migration](https://docs.microsoft.com/data-migration). 
 
 ## Overview
 
@@ -54,7 +54,7 @@ The following general guidelines can help you choose the right service tier and 
 - Use the baseline I/O latency of the file subsystem to choose between the General Purpose (latency greater than 5 ms) and Business Critical (latency less than 3 ms) service tiers. 
 - Use the baseline throughput to preallocate the size of the data and log files to achieve expected I/O performance. 
 
-You can choose compute and storage resources during deployment and then change them afterward by using the [Azure portal](../../database/scale-resources.md), without incurring downtime for your application. 
+You can choose compute and storage resources during deployment and then [change them afterward by using the Azure portal](../../database/scale-resources.md), without incurring downtime for your application. 
 
 > [!IMPORTANT]
 > Any discrepancy in the [virtual network requirements for managed instances](../../managed-instance/connectivity-architecture-overview.md#network-requirements) can prevent you from creating new instances or using existing ones. Learn more about [creating new](../../managed-instance/virtual-network-subnet-create-arm-template.md) and [configuring existing](../../managed-instance/vnet-existing-add-subnet.md) networks. 
@@ -65,7 +65,7 @@ Another key consideration in the selection of the target service tier in Azure S
 
 Your business might have requirements that make [SQL Server on Azure Virtual Machines](../../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) a more suitable target than Azure SQL Managed Instance. 
 
-If the following apply to your business, consider moving to a SQL Server virtual machine (VM) instead: 
+If one of the following conditions applies to your business, consider moving to a SQL Server virtual machine (VM) instead: 
 
 - You require direct access to the operating system or file system, such as to install third-party or custom agents on the same virtual machine with SQL Server. 
 - You have strict dependency on features that are still not supported, such as FileStream/FileTable, PolyBase, and cross-instance transactions. 
@@ -86,13 +86,12 @@ We recommend the following migration tools:
 
 The following table lists alternative migration tools: 
 
-|Technology |Description  |
+|**Technology** |**Description**  |
 |---------|---------|
 |[Transactional replication](../../managed-instance/replication-transactional-overview.md) | Replicate data from source SQL Server database tables to SQL Managed Instance by providing a publisher-subscriber type migration option while maintaining transactional consistency. |  |
 |[Bulk copy](/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server)| The [bulk copy program (bcp) tool](/sql/tools/bcp-utility) copies data from an instance of SQL Server into a data file. Use the tool to export the data from your source and import the data file into the target SQL managed instance. </br></br> For high-speed bulk copy operations to move data to Azure SQL Managed Instance, you can use the [Smart Bulk Copy tool](/samples/azure-samples/smartbulkcopy/smart-bulk-copy/) to maximize transfer speed by taking advantage of parallel copy tasks. | 
-|[Import Export Service/BACPAC](../../database/database-import.md?tabs=azure-powershell)| [BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) is a Windows file with a .bacpac extension that encapsulates a database's schema and data. You can use BACPAC to both export data from a SQL Server source and import the data back into Azure SQL Managed Instance. |  
+|[Import Export Wizard/BACPAC](../../database/database-import.md?tabs=azure-powershell)| [BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) is a Windows file with a .bacpac extension that encapsulates a database's schema and data. You can use BACPAC to both export data from a SQL Server source and import the data back into Azure SQL Managed Instance. |  
 |[Azure Data Factory](../../../data-factory/connector-azure-sql-managed-instance.md)|  The [Copy activity](../../../data-factory/copy-activity-overview.md) in Azure Data Factory migrates data from source SQL Server databases to SQL Managed Instance by using built-in connectors and an [integration runtime](../../../data-factory/concepts-integration-runtime.md).</br> </br> Data Factory supports a wide range of [connectors](../../../data-factory/connector-overview.md) to move data from SQL Server sources to SQL Managed Instance. |
-| | |
 
 ## Compare migration options
 
@@ -139,7 +138,7 @@ SQL Server Analysis Services tabular models from SQL Server 2012 and later can b
 Alternatively, you can consider migrating your on-premises Analysis Services tabular models to [Power BI Premium by using the new XMLA read/write endpoints](/power-bi/admin/service-premium-connect-tools). 
 
 > [!NOTE]
-> Power BI XMLA read/write endpoints functionality is currently in public preview. Don't consider it for production workloads until it becomes generally available.
+> Power BI XMLA read/write endpoint functionality is currently in public preview. Don't consider it for production workloads until it becomes generally available.
 
 ### High availability
 
@@ -156,77 +155,75 @@ Use the offline Azure Database Migration Service option to migrate [SQL Agent jo
 
 ### Logins and groups
 
-Move SQL logins from the SQL Server source to Azure SQL Managed Instance by using Database Migration Service in offline mode.  Use the **[Select logins](../../../dms/tutorial-sql-server-to-managed-instance.md#select-logins)** pane in the Migration Wizard to migrate logins to your target SQL managed instance. 
+Move SQL logins from the SQL Server source to Azure SQL Managed Instance by using Database Migration Service in offline mode.  Use the [Select logins](../../../dms/tutorial-sql-server-to-managed-instance.md#select-logins) pane in the Migration Wizard to migrate logins to your target SQL managed instance. 
 
-By default, Azure Database Migration Service supports migrating only SQL logins. However, you can enable the ability to migrate Windows logins by:
+By default, Azure Database Migration Service supports migrating only SQL logins. However, you can enable the migration of Windows logins by:
 
-- Ensuring that the target SQL managed instance has Azure AD read access. A user who has the Global Administrator role can configure that access via the Azure portal.
-- Configuring your Azure Database Migration Service instance to enable Windows user or group login migrations. You set this up via the Azure portal, on the **Configuration** page. After you enable this setting, restart the service for the changes to take effect.
+- Ensuring that the target SQL managed instance has Azure Active Directory (Azure AD) read access. A user who has the Global Administrator role can configure that access via the Azure portal.
+- Configuring Azure Database Migration Service to enable Windows user or group login migrations. You set this up via the Azure portal, on the **Configuration** page. After you enable this setting, restart the service for the changes to take effect.
 
-After you restart the service, Windows user or group logins appear in the list of logins available for migration. For any Windows user or group logins you migrate, you're prompted to provide the associated domain name. Service user accounts (account with the domain name NT AUTHORITY) and virtual user accounts (accounts with the domain name NT SERVICE) are not supported.
-
-To learn more, see [How to migrate Windows users and groups in a SQL Server instance to Azure SQL Managed Instance using T-SQL](../../managed-instance/migrate-sql-server-users-to-instance-transact-sql-tsql-tutorial.md).
+After you restart the service, Windows user or group logins appear in the list of logins available for migration. For any Windows user or group logins that you migrate, you're prompted to provide the associated domain name. Service user accounts (accounts with the domain name NT AUTHORITY) and virtual user accounts (accounts with the domain name NT SERVICE) are not supported. To learn more, see [How to migrate Windows users and groups in a SQL Server instance to Azure SQL Managed Instance using T-SQL](../../managed-instance/migrate-sql-server-users-to-instance-transact-sql-tsql-tutorial.md).
 
 Alternatively, you can use the [PowerShell utility](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/MoveLogins) specially designed by Microsoft data migration architects. The utility uses PowerShell to create a Transact-SQL (T-SQL) script to re-create logins and select database users from the source to the target. 
 
-The PowerShell utility automatically maps Windows Server Active Directory accounts to Azure AD accounts, and can do a UPN lookup for each login against the source Active Directory instance. The utility scripts custom server and database roles, along with role membership and user permissions. Contained databases are not yet supported, and only a subset of possible SQL Server permissions are scripted. 
+The PowerShell utility automatically maps Windows Server Active Directory accounts to Azure AD accounts, and it can do a UPN lookup for each login against the source Active Directory instance. The utility scripts custom server and database roles, along with role membership and user permissions. Contained databases are not yet supported, and only a subset of possible SQL Server permissions are scripted. 
 
 ### Encryption
 
-When migrating databases protected by [Transparent Data Encryption](../../database/transparent-data-encryption-tde-overview.md) to a managed instance using native restore option, [migrate the corresponding certificate](../../managed-instance/tde-certificate-migrate.md) from the source SQL Server to the target SQL Managed Instance *before* database restore. 
+When you're migrating databases protected by [Transparent Data Encryption](../../database/transparent-data-encryption-tde-overview.md) to a managed instance by using the native restore option, [migrate the corresponding certificate](../../managed-instance/tde-certificate-migrate.md) from the source SQL Server instance to the target SQL managed instance *before* database restore. 
 
 ### System databases
 
-Restore of system databases is not supported. To migrate instance-level objects (stored in master or msdb databases), script them by using Transact-SQL (T-SQL) and then recreate them on the target managed instance. 
+Restore of system databases is not supported. To migrate instance-level objects (stored in master or msdb databases), script them by using Transact-SQL (T-SQL) and then re-create them on the target managed instance. 
 
-### In-Memory OLTP (Memory-optimized tables)
+### In-Memory OLTP (memory-optimized tables)
 
-SQL Server provides In-Memory OLTP capability that allows usage of memory-optimized tables, memory-optimized table types and natively compiled SQL modules to run workloads that have high throughput and low latency transactional processing requirements. 
+SQL Server provides In-Memory OLTP capability that allows usage of memory-optimized tables, memory-optimized table types, and natively compiled SQL modules to run workloads that have high-throughput and low-latency transactional processing requirements. 
 
 > [!IMPORTANT]
-> In-Memory OLTP is only supported in the Business Critical tier in Azure SQL Managed Instance (and not supported in the General Purpose tier).
+> In-Memory OLTP is supported only in the Business Critical tier in Azure SQL Managed Instance (and not supported in the General Purpose tier).
 
-If you have memory-optimized tables or memory-optimized table types in your on-premises SQL Server and you are looking to migrate to Azure SQL Managed Instance, you should either:
+If you have memory-optimized tables or memory-optimized table types in your on-premises SQL Server instance and you want to migrate to Azure SQL Managed Instance, you should either:
 
-- Choose Business Critical tier for your target Azure SQL Managed Instance that supports In-Memory OLTP, Or
-- If you want to migrate to General Purpose tier in Azure SQL Managed Instance, remove memory-optimized tables, memory-optimized table types and natively compiled SQL modules that interact with memory-optimized objects before migrating your database(s). The following T-SQL query can be used to identify all objects that need to be removed before migration to General Purpose tier:
+- Choose the Business Critical tier for your target SQL managed instance that supports In-Memory OLTP
+- If you want to migrate to the General Purpose tier in Azure SQL Managed Instance, remove memory-optimized tables, memory-optimized table types, and natively compiled SQL modules that interact with memory-optimized objects before migrating your databases. You can use the following T-SQL query to identify all objects that need to be removed before migration to the General Purpose tier:
 
-```tsql
-SELECT * FROM sys.tables WHERE is_memory_optimized=1
-SELECT * FROM sys.table_types WHERE is_memory_optimized=1
-SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
-```
+   ```tsql
+   SELECT * FROM sys.tables WHERE is_memory_optimized=1
+   SELECT * FROM sys.table_types WHERE is_memory_optimized=1
+   SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
+   ```
 
-To learn more about in-memory technologies, see [Optimize performance by using in-memory technologies in Azure SQL Database and Azure SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/in-memory-oltp-overview)
+To learn more about in-memory technologies, see [Optimize performance by using in-memory technologies in Azure SQL Database and Azure SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/in-memory-oltp-overview).
 
 ## Advanced features 
 
 Be sure to take advantage of the advanced cloud-based features in SQL Managed Instance. For example, you don't need to worry about managing backups because the service does it for you. You can restore to any [point in time within the retention period](../../database/recovery-using-backups.md#point-in-time-restore). Additionally, you don't need to worry about setting up high availability, because [high availability is built in](../../database/high-availability-sla.md). 
 
-To strengthen security, consider using [Azure Active Directory (Azure AD) Authentication](../../database/authentication-aad-overview.md), [auditing](../../managed-instance/auditing-configure.md), [threat detection](../../database/azure-defender-for-sql.md), [row-level security](/sql/relational-databases/security/row-level-security), and [dynamic data masking](/sql/relational-databases/security/dynamic-data-masking).
+To strengthen security, consider using [Azure AD authentication](../../database/authentication-aad-overview.md), [auditing](../../managed-instance/auditing-configure.md), [threat detection](../../database/azure-defender-for-sql.md), [row-level security](/sql/relational-databases/security/row-level-security), and [dynamic data masking](/sql/relational-databases/security/dynamic-data-masking).
 
-In addition to advanced management and security features, SQL Managed Instance provides advanced tools that can help you [monitor and tune your workload](../../database/monitor-tune-overview.md). [Azure SQL Analytics](../../../azure-monitor/insights/azure-sql.md) allows you to monitor a large set of managed instances in a centralized way. [Automatic tuning](/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction) in managed instances continuously monitors performance of your SQL plan execution statistics and automatically fixes the identified performance issues. 
+In addition to advanced management and security features, SQL Managed Instance provides advanced tools that can help you [monitor and tune your workload](../../database/monitor-tune-overview.md). [Azure SQL Analytics](../../../azure-monitor/insights/azure-sql.md) allows you to monitor a large set of managed instances in a centralized way. [Automatic tuning](/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction) in managed instances continuously monitors performance of your SQL plan execution and automatically fixes the identified performance problems. 
 
 Some features are available only after the [database compatibility level](/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database) is changed to the latest compatibility level (150). 
 
 ## Migration assets 
 
-For more assistance, see the following resources that were developed for real world migration projects.
+For more assistance, see the following resources that were developed for real-world migration projects.
 
 |Asset  |Description  |
 |---------|---------|
-|[Data workload assessment model and tool](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool)| This tool provides suggested "best fit" target platforms, cloud readiness, and an application/database remediation level for a workload. It offers simple, one-click calculation and report generation that helps to accelerate large estate assessments by providing and automated and uniform decision process for target platforms.|
-|[DBLoader Utility](https://github.com/microsoft/DataMigrationTeam/tree/master/DBLoader%20Utility)|You can use DBLoader to load data from delimited text files into SQL Server. This Windows console utility uses the SQL Server native client bulk-load interface. The interface works on all versions of SQL Server, along with Azure SQL Managed Instance.|
+|[Data workload assessment model and tool](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool)| This tool provides suggested "best fit" target platforms, cloud readiness, and an application/database remediation level for a workload. It offers simple, one-click calculation and report generation that helps to accelerate large estate assessments by providing an automated and uniform decision process for target platforms.|
+|[DBLoader utility](https://github.com/microsoft/DataMigrationTeam/tree/master/DBLoader%20Utility)|You can use DBLoader to load data from delimited text files into SQL Server. This Windows console utility uses the SQL Server native client bulk-load interface. The interface works on all versions of SQL Server, along with Azure SQL Managed Instance.|
 |[Utility to move on-premises SQL Server logins to Azure SQL Managed Instance](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/MoveLogins)|A PowerShell script can create a T-SQL command script to re-create logins and select database users from on-premises SQL Server to Azure SQL Managed Instance. The tool allows automatic mapping of Windows Server Active Directory accounts to Azure AD accounts, along with optionally migrating SQL Server native logins.|
-|[Perfmon data collection automation using Logman](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Perfmon%20Data%20Collection%20Automation%20Using%20Logman)|A tool that collects Perform data to understand baseline performance that assists in the migration target recommendation. This tool that uses logman.exe to create the command that will create, start, stop, and delete performance counters set on a remote SQL Server.|
+|[Perfmon data collection automation by using Logman](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Perfmon%20Data%20Collection%20Automation%20Using%20Logman)|You can use a tool that collects Perfmon data (to help you understand baseline performance) and assists in migration target recommendations. This tool uses logman.exe to create the command that will create, start, stop, and delete performance counters set on a remote SQL Server instance.|
 |[Database migration to Azure SQL Managed Instance by restoring full and differential backups](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Database%20migrations%20to%20Azure%20SQL%20DB%20Managed%20Instance%20-%20%20Restore%20with%20Full%20and%20Differential%20backups.pdf)|This white paper provides guidance and steps to help accelerate migrations from SQL Server to Azure SQL Managed Instance if you have only full and differential backups (and no log backup capability).|
 
-These resources were developed as part of the Data SQL Ninja Program, which is sponsored by the Azure Data Group engineering team. The core charter of the Data SQL Ninja program is to unblock and accelerate complex modernization and compete data platform migration opportunities to Microsoft's Azure data platform. If you think your organization would be interested in participating in the Data SQL Ninja program, ask your account team and ask them to submit a nomination.
+These resources were developed as part of the Data SQL Ninja Program, which is sponsored by the Azure Data Group engineering team. The core charter of the Data SQL Ninja program is to unblock and accelerate complex modernization and compete data platform migration opportunities to Microsoft's Azure data platform. If you think your organization would be interested in participating in the Data SQL Ninja program, ask your account team to submit a nomination.
 
 
 ## Next steps
 
-- To start migrating your SQL Server databases to Azure SQL Managed Instance, see the [SQL Server to SQL Managed Instance migration guide](sql-server-to-managed-instance-guide.md).
+- To start migrating your SQL Server databases to Azure SQL Managed Instance, see the [SQL Server to Azure SQL Managed Instance migration guide](sql-server-to-managed-instance-guide.md).
 
 - For a matrix of services and tools that can help you with database and data migration scenarios as well as specialty tasks, see [Services and tools for data migration](../../../dms/dms-tools-matrix.md).
 
