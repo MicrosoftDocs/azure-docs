@@ -61,6 +61,7 @@ To configure and test Azure AD SSO with Saba Cloud, perform the following steps:
 1. **[Configure Saba Cloud SSO](#configure-saba-cloud-sso)** - to configure the single sign-on settings on application side.
     1. **[Create Saba Cloud test user](#create-saba-cloud-test-user)** - to have a counterpart of B.Simon in Saba Cloud that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
+1. **[Test SSO for Saba Cloud (mobile)](#test-sso-for-saba-cloud-mobile)** to verify whether the configuration works.
 
 ## Configure Azure AD SSO
 
@@ -178,6 +179,20 @@ You can also use Microsoft My Apps to test the application in any mode. When you
 
 > [!NOTE]
 > If the sign-on URL is not populated in Azure AD then the application is treated as IDP initiated mode and if the sign-on URL is populated then Azure AD will always redirect the user to the Saba Cloud application for service provider initiated flow.
+
+## Test SSO for Saba Cloud (mobile)
+
+1. Open Saba Cloud Mobile application, give the **Site Name** in the textbox and click **Enter**.
+
+    ![Screenshot for Site name.](./media/saba-cloud-tutorial/site-name.png)
+
+1. Enter your **email address** and click **Next**.
+
+    ![Screenshot for email address.](./media/saba-cloud-tutorial/email-address.png)
+
+1. Finally after successful sign in, the application page will be displayed.
+
+    ![Screenshot for successful sign in.](./media/saba-cloud-tutorial/dashboard.png)
 
 ## Next steps
 
