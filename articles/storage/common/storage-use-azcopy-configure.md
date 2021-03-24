@@ -23,7 +23,7 @@ AzCopy creates *log* and *plan* files for every job. You can use these logs to i
 
 The logs will contain the status of failure (`UPLOADFAILED`, `COPYFAILED`, and `DOWNLOADFAILED`), the full path, and the reason of the failure.
 
-By default, the log and plan files are located in the `%USERPROFILE%\.azcopy` directory on Windows or `$HOME$\.azcopy` directory on Mac and Linux, but you can change that location if you want. See [Configure logging](storage-ref-azcopy-configuration-settings.md#configure-logging).
+By default, the log and plan files are located in the `%USERPROFILE%\.azcopy` directory on Windows or `$HOME$\.azcopy` directory on Mac and Linux, but you can change that location. 
 
 The relevant error isn't necessarily the first error that appears in the file. For errors such as network errors, timeouts and Server Busy errors, AzCopy will retry up to 20 times and usually the retry process succeeds.  The first error that you see might be something harmless that was successfully retried.  So instead of looking at the first error in the file, look for the errors that are near `UPLOADFAILED`, `COPYFAILED`, or `DOWNLOADFAILED`. 
 
@@ -78,6 +78,35 @@ azcopy jobs resume <job-id> --destination-sas="<sas-token>"
 
 When you resume a job, AzCopy looks at the job plan file. The plan file lists all the files that were identified for processing when the job was first created. When you resume a job, AzCopy will attempt to transfer all of the files that are listed in the plan file which weren't already transferred.
 
+## Change the location of plan files
+
+Use any of these commands.
+
+| Operating system | Command  |
+|--------|-----------|
+| **Windows** | PowerShell:`$env:AZCOPY_JOB_PLAN_LOCATION="<value>"` <br> In a command prompt use:: `set AZCOPY_JOB_PLAN_LOCATION=<value>` |
+| **Linux** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
+| **macOS** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
+
+Use the `azcopy env` to check the current value of this variable. If the value is blank, then plan files are written to the default location.
+
+## Change the location of log files
+
+Use any of these commands.
+
+| Operating system | Command  |
+|--------|-----------|
+| **Windows** | PowerShell:`$env:AZCOPY_LOG_LOCATION="<value>"` <br> In a command prompt use:: `set AZCOPY_LOG_LOCATION=<value>`|
+| **Linux** | `export AZCOPY_LOG_LOCATION=<value>` |
+| **macOS** | `export AZCOPY_LOG_LOCATION=<value>` |
+
+Use the `azcopy env` to check the current value of this variable. If the value is blank, then logs are written to the default location.
+
+## Change the default log level
+
+By default, AzCopy log level is set to `INFO`. If you would like to reduce the log verbosity to save disk space, overwrite this setting by using the ``--log-level`` option. 
+
+Available log levels are: `NONE`, `DEBUG`, `INFO`, `WARNING`, `ERROR`, `PANIC`, and `FATAL`.
 
 ## Remove plan and log files
 
@@ -88,4 +117,4 @@ To remove the plan and log files associated with only one job, use `azcopy jobs 
 ## See also
 
 - [Get started with AzCopy](storage-use-azcopy-v10.md)
-- [AzCopy V10 with Azure Storage FAQ](storage-use-faq.yml)
+- [AzCopy V10 with Azure Storage FAQ](storage-use-azcopy-faq.yml)

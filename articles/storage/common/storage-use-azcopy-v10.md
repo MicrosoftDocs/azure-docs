@@ -189,6 +189,8 @@ See any of the following resources:
 
 - [Troubleshoot AzCopy V10 issues in Azure Storage by using log files](storage-use-azcopy-configure.md)
 
+- [AzCopy V10 with Azure Storage FAQ](storage-use-azcopy-faq.yml)
+
 ## Use a previous version
 
 If you need to use the previous version of AzCopy, see either of the following links:

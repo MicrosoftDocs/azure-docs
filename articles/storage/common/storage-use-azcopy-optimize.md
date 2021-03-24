@@ -86,4 +86,4 @@ The [azcopy copy](storage-ref-azcopy-copy.md) command doesn't delete files from 
 ## See also
 
 - [Get started with AzCopy](storage-use-azcopy-v10.md)
-- [AzCopy V10 with Azure Storage FAQ](storage-use-faq.yml)
+- [AzCopy V10 with Azure Storage FAQ](storage-use-azcopy-faq.yml)
