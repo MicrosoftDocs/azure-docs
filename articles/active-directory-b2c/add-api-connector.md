@@ -272,7 +272,6 @@ Content-type: application/json
 
 {
     "version": "1.0.0",
-    "status": 400,
     "action": "ShowBlockPage",
     "userMessage": "There was a problem with your request. You are not able to sign up at this time.",
 }
@@ -283,7 +282,6 @@ Content-type: application/json
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
 | version     | String | Yes      | The version of the API.                                                    |
 | action      | String | Yes      | Value must be `ShowBlockPage`                                              |
-| status      | Integer / String | Yes      | Must be value `400`, or `"400"` for a ShowBlockPage response.  |
 | userMessage | String | Yes      | Message to display to the user.                                            |
 
 **End-user experience with a blocking response**
