@@ -16,7 +16,7 @@ This article provides information about limitations and known issues related to 
 
 ## JavaScript client library limitations 
 
-### Quality
+### Ensuring high-quality multimedia experiences
 There are multiple factors that can affect the quality of your experience. Please ensure that you use the supported version of SDKs and operation systems, validate your network. This [article]( https://github.com/nmurav/azure-docs-pr/edit/master/articles/communication-services/concepts/voice-video-calling/network-requirements.md) explains the considerations how to plan for media quality.
 
 ### After refreshing the page the call disconnects on web
