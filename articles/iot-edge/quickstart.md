@@ -56,7 +56,6 @@ Make sure your IoT Edge device meets the following requirements:
   
 * Hardware requirements
   * Minimum Free Memory: 2 GB
-  * Minimum vCPUs: 4
   * Minimum Free Disk Space: 10 GB
 
 
