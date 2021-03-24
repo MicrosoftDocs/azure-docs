@@ -83,21 +83,21 @@ The following regions and maximum resources are available to container groups wi
 | Brazil South | 4 | 16 | 4 | 16 | 20 |
 | Canada Central | 2 | 8 | 2 | 3.5 | 20 |
 | Central India | 2 | 3.5 | 2 | 3.5 | 20 |
-| Central US | 2 | 3.5 | 2 | 3.5 | 20 |
+| Central US | 2 | 8 | 2 | 3.5 | 20 |
 | East Asia | 2 | 3.5 | 2 | 3.5 | 20 |
-| East US | 4 | 16 | 2 | 8 | 20 |
-| East US 2 | 2 | 3.5 | 4 | 16 | 20 |
+| East US | 2 | 8 | 2 | 8 | 20 |
+| East US 2 | 2 | 8 | 4 | 16 | 20 |
 | Japan East | 4 | 16 | 4 | 16 | 20 |
 | Korea Central | 4 | 16 | 4 | 16 | 20 |
-| North Central US | 4 | 16 | 4 | 16 | 20 |
+| North Central US | 2 | 8 | 4 | 16 | 20 |
 | North Europe | 2 | 8 | 2 | 8 | 20 |
-| South Central US | 2 | 3.5 | 2 | 8 | 20 |
+| South Central US | 2 | 8 | 2 | 8 | 20 |
 | Southeast Asia | N/A | N/A | 2 | 3.5 | 20 |
 | South India | 2 | 3.5 | 2 | 3.5 | 20 |
 | UK South | 2 | 8 | 2 | 3.5 | 20 |
-| West Central US | 4 | 16 | 2 | 8 | 20 |
+| West Central US | 2 | 8 | 2 | 8 | 20 |
 | West Europe | 4 | 16 | 4 | 16 | 20 |
-| West US | 4 | 16 | 2 | 8 | 20 |
+| West US | 2 | 8 | 2 | 8 | 20 |
 | West US 2 | 2 | 8 | 2 | 3.5 | 20 |
 
 
