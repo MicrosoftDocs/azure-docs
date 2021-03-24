@@ -28,7 +28,7 @@ From the left menu, click **Deployment Center** > **Settings**.
 **Choose** the deployment source depends on your scenario:
 - **Container registry** sets up CI/CD between your container registry and App Service.
 - The **GitHub Actions** option is for you if you maintain the source code for your container image in GitHub. Triggered by new commits to your GitHub repository, the deploy action can run `docker build` and `docker push` directly to your container registry, then update your App Service app to run the new image. For more information, see [How CI/CD works with GitHub Actions](#how-cicd-works-with-github-actions).
-- To set up CI/CD with **Azure Pipelines**, see [Deploy an Azure Web App Container from Azure Pipelines](/devops/pipelines/targets/webapp-on-container-linux).
+- To set up CI/CD with **Azure Pipelines**, see [Deploy an Azure Web App Container from Azure Pipelines](/azure/devops/pipelines/targets/webapp-on-container-linux).
 
 > [!NOTE]
 > For a Docker Compose app, select **Container Registry**.
