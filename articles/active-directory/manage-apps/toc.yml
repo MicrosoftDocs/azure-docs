@@ -79,8 +79,8 @@
         href: ./scripts/powershell-get-all-custom-domain-no-cert.md
       - name: List apps with identical certs
         href: ./scripts/powershell-get-custom-domain-identical-cert.md
-      - name:
-        href: 
+      - name: Replace identical certs
+        href: ./scripts/powershell-get-custom-domain-replace-cert.md
 
   - name: Concepts
     expanded: true
