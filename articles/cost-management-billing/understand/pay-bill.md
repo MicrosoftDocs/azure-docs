@@ -47,161 +47,61 @@ Alternatively, if your invoice is under the threshold amount for your currency, 
 
 If your default payment method is wire transfer, check your invoice for payment instructions. You can also use the drop-down below to find payment instructions for your country or region.
  
-Choose your *bill-to* country or region from the drop-down menu below.
+Choose your *bill-to* country from the following table.
 
-> [!div class="op_single_selector"]
-> - **Choose your country or region**
-> - [Afghanistan](../pay/afghanistan.md)
-> - [Albania](../pay/albania.md)
-> - [Algeria](../pay/algeria.md)
-> - [Angola](../pay/angola.md)
-> - [Argentina](../pay/argentina.md)
-> - [Armenia](../pay/armenia.md)
-> - [Australia](../pay/australia.md)
-> - [Austria](../pay/austria.md)
-> - [Azerbaijan](../pay/azerbaijan.md)
-> - [Bahamas](../pay/bahamas.md)
-> - [Bahrain](../pay/bahrain.md)
-> - [Bangladesh](../pay/bangladesh.md)
-> - [Barbados](../pay/barbados.md)
-> - [Belarus](../pay/belarus.md)
-> - [Belgium](../pay/belgium.md)
-> - [Belize](../pay/belize.md)
-> - [Bermuda](../pay/bermuda.md)
-> - [Bolivia](../pay/bolivia.md)
-> - [Bosnia and Herzegovina](../pay/bosnia-and-herzegovina.md)
-> - [Botswana](../pay/botswana.md)
-> - [Brazil](../pay/brazil.md)
-> - [Brunei](../pay/brunei.md)
-> - [Bulgaria](../pay/bulgaria.md)
-> - [Cameroon](../pay/cameroon.md)
-> - [Canada](../pay/canada.md)
-> - [Cape Verde](../pay/cape-verde.md)
-> - [Cayman Islands](../pay/cayman-islands.md)
-> - [Chile](../pay/chile.md)
-> - [China (PRC)](../pay/china-prc.md)
-> - [Colombia](../pay/colombia.md)
-> - [Costa Rica](../pay/costa-rica.md)
-> - [Côte d'Ivoire](../pay/cote-divoire.md)
-> - [Croatia](../pay/croatia.md)
-> - [Curacao](../pay/curacao.md)
-> - [Cyprus](../pay/cyprus.md)
-> - [Czech Republic](../pay/czech-republic.md)
-> - [Democratic Republic of Congo](../pay/democratic-republic-of-congo.md)
-> - [Denmark](../pay/denmark.md)
-> - [Dominican Republic](../pay/dominican-republic.md)
-> - [Ecuador](../pay/ecuador.md)
-> - [Egypt](../pay/egypt.md)
-> - [El Salvador](../pay/el-salvador.md)
-> - [Estonia](../pay/estonia.md)
-> - [Ethiopia](../pay/ethiopia.md)
-> - [Faroe Islands](../pay/faroe-islands.md)
-> - [Fiji](../pay/fiji.md)
-> - [Finland](../pay/finland.md)
-> - [France](../pay/france.md)
-> - [French Guiana](../pay/french-guiana.md)
-> - [Georgia](../pay/georgia.md)
-> - [Germany](../pay/germany.md)
-> - [Ghana](../pay/ghana.md)
-> - [Greece](../pay/greece.md)
-> - [Grenada](../pay/grenada.md)
-> - [Guadeloupe](../pay/guadeloupe.md)
-> - [Guam](../pay/guam.md)
-> - [Guatemala](../pay/guatemala.md)
-> - [Guyana](../pay/guyana.md)
-> - [Haiti](../pay/haiti.md)
-> - [Honduras](../pay/honduras.md)
-> - [Hong Kong](../pay/hong-kong.md)
-> - [Hungary](../pay/hungary.md)
-> - [Iceland](../pay/iceland.md)
-> - [India](../pay/india.md)
-> - [Indonesia](../pay/indonesia.md)
-> - [Iraq](../pay/iraq.md)
-> - [Ireland](../pay/ireland.md)
-> - [Israel](../pay/israel.md)
-> - [Italy](../pay/italy.md)
-> - [Jamaica](../pay/jamaica.md)
-> - [Japan](../pay/japan.md)
-> - [Jordan](../pay/jordan.md)
-> - [Kazakhstan](../pay/kazakhstan.md)
-> - [Kenya](../pay/kenya.md)
-> - [Korea](../pay/korea.md)
-> - [Kuwait](../pay/kuwait.md)
-> - [Kyrgyzstan](../pay/kyrgyzstan.md)
-> - [Latvia](../pay/latvia.md)
-> - [Lebanon](../pay/lebanon.md)
-> - [Libya](../pay/libya.md)
-> - [Liechtenstein](../pay/liechtenstein.md)
-> - [Lithuania](../pay/lithuania.md)
-> - [Luxembourg](../pay/luxembourg.md)
-> - [Macao](../pay/macao.md)
-> - [Macedonia, Former Yugoslav Republic of](../pay/macedonia.md)
-> - [Malaysia](../pay/malaysia.md)
-> - [Malta](../pay/malta.md)
-> - [Mauritius](../pay/mauritius.md)
-> - [Mexico](../pay/mexico.md)
-> - [Moldova](../pay/moldova.md)
-> - [Monaco](../pay/monaco.md)
-> - [Mongolia](../pay/mongolia.md)
-> - [Montenegro](../pay/montenegro.md)
-> - [Morocco](../pay/morocco.md)
-> - [Namibia](../pay/namibia.md)
-> - [Nepal](../pay/nepal.md)
-> - [Netherlands](../pay/netherlands.md)
-> - [New Zealand](../pay/new-zealand.md)
-> - [Nicaragua](../pay/nicaragua.md)
-> - [Nigeria](../pay/nigeria.md)
-> - [Norway](../pay/norway.md)
-> - [Oman](../pay/oman.md)
-> - [Pakistan](../pay/pakistan.md)
-> - [Palestinian Authority](../pay/palestinian-authority.md)
-> - [Panama](../pay/panama.md)
-> - [Paraguay](../pay/paraguay.md)
-> - [Peru](../pay/peru.md)
-> - [Philippines](../pay/philippines.md)
-> - [Poland](../pay/poland.md)
-> - [Portugal](../pay/portugal.md)
-> - [Puerto Rico](../pay/puerto-rico.md)
-> - [Qatar](../pay/qatar.md)
-> - [Romania](../pay/romania.md)
-> - [Russia](../pay/russia.md)
-> - [Rwanda](../pay/rwanda.md)
-> - [Saint Kitts and Nevis](../pay/saint-kitts-and-nevis.md)
-> - [Saint Lucia](../pay/saint-lucia.md)
-> - [Saint Vincent and the Grenadines](../pay/saint-vincent-and-the-grenadines.md)
-> - [Saudi Arabia](../pay/saudi-arabia.md)
-> - [Senegal](../pay/senegal.md)
-> - [Serbia](../pay/serbia.md)
-> - [Singapore](../pay/singapore.md)
-> - [Slovakia](../pay/slovakia.md)
-> - [Slovenia](../pay/slovenia.md)
-> - [South Africa](../pay/south-africa.md)
-> - [Spain](../pay/spain.md)
-> - [Sri Lanka](../pay/sri-lanka.md)
-> - [Suriname](../pay/suriname.md)
-> - [Sweden](../pay/sweden.md)
-> - [Switzerland](../pay/switzerland.md)
-> - [Taiwan](../pay/taiwan.md)
-> - [Tajikistan](../pay/tajikistan.md)
-> - [Tanzania](../pay/tanzania.md)
-> - [Thailand](../pay/thailand.md)
-> - [Trinidad and Tobago](../pay/trinidad-and-tobago.md)
-> - [Turkmenistan](../pay/turkmenistan.md)
-> - [Tunisia](../pay/tunisia.md)
-> - [Turkey](../pay/turkey.md)
-> - [Uganda](../pay/uganda.md)
-> - [Ukraine](../pay/ukraine.md)
-> - [United Arab Emirates](../pay/united-arab-emirates.md)
-> - [United Kingdom](../pay/united-kingdom.md)
-> - [United States](../pay/united-states.md)
-> - [Uruguay](../pay/uruguay.md)
-> - [Uzbekistan](../pay/uzbekistan.md)
-> - [Venezuela](../pay/venezuela.md)
-> - [Vietnam](../pay/vietnam.md)
-> - [Virgin Islands, US](../pay/virgin-islands.md)
-> - [Yemen](../pay/yemen.md)
-> - [Zambia](../pay/zambia.md)
-> - [Zimbabwe](../pay/zimbabwe.md)
+| Country or region | Country or region | Country or region |
+| --- | --- | --- |
+| [Afghanistan](/legal/pay/afghanistan)| [Albania](/legal/pay/albania)| [Algeria](/legal/pay/algeria)|
+| [Angola](/legal/pay/angola)| [Argentina](/legal/pay/argentina)| [Armenia](/legal/pay/armenia.md)|
+| [Australia](/legal/pay/australia)| [Austria](/legal/pay/austria)| [Azerbaijan](/legal/pay/azerbaijan)|
+| [Bahamas](/legal/pay/bahamas)| [Bahrain](/legal/pay/bahrain)| [Bangladesh](/legal/pay/bangladesh)|
+| [Barbados](/legal/pay/barbados)| [Belarus](/legal/pay/belarus)| [Belgium](/legal/pay/belgium)|
+| [Belize](/legal/pay/belize)| [Bermuda](/legal/pay/bermuda)| [Bolivia](/legal/pay/bolivia)|
+| [Bosnia and Herzegovina](/legal/pay/bosnia-and-herzegovina)| [Botswana](/legal/pay/botswana)| [Brazil](/legal/pay/brazil)|
+| [Brunei](/legal/pay/brunei)| [Bulgaria](/legal/pay/bulgaria)| [Cameroon](/legal/pay/cameroon)|
+| [Canada](/legal/pay/canada)| [Cape Verde](/legal/pay/cape-verde)| [Cayman Islands](/legal/pay/cayman-islands) |
+| [Chile](/legal/pay/chile)| [China (PRC)](/legal/pay/china-prc)| [Colombia](/legal/pay/colombia) |
+| [Costa Rica](/legal/pay/costa-rica)| [Côte d'Ivoire](/legal/pay/cote-divoire)| [Croatia](/legal/pay/croatia) |
+| [Curacao](/legal/pay/curacao)| [Cyprus](/legal/pay/cyprus)| [Czech Republic](/legal/pay/czech-republic) |
+| [Democratic Republic of Congo](/legal/pay/democratic-republic-of-congo)| [Denmark](/legal/pay/denmark)| [Dominican Republic](/legal/pay/dominican-republic) |
+| [Ecuador](/legal/pay/ecuador)| [Egypt](/legal/pay/egypt)| [El Salvador](/legal/pay/el-salvador) |
+| [Estonia](/legal/pay/estonia)| [Ethiopia](/legal/pay/ethiopia)| [Faroe Islands](/legal/pay/faroe-islands) |
+| [Fiji](/legal/pay/fiji)| [Finland](/legal/pay/finland)| [France](/legal/pay/france)|
+| [French Guiana](/legal/pay/french-guiana)| [Georgia](/legal/pay/georgia)| [Germany](/legal/pay/germany)|
+| [Ghana](/legal/pay/ghana)| [Greece](/legal/pay/greece)| [Grenada](/legal/pay/grenada)|
+| [Guadeloupe](/legal/pay/guadeloupe)| [Guam](/legal/pay/guam)| [Guatemala](/legal/pay/guatemala)|
+| [Guyana](/legal/pay/guyana)| [Haiti](/legal/pay/haiti)| [Honduras](/legal/pay/honduras)|
+| [Hong Kong](/legal/pay/hong-kong)| [Hungary](/legal/pay/hungary)| [Iceland](/legal/pay/iceland)|
+| [India](/legal/pay/india)| [Indonesia](/legal/pay/indonesia)| [Iraq](/legal/pay/iraq)|
+| [Ireland](/legal/pay/ireland)| [Israel](/legal/pay/israel)| [Italy](/legal/pay/italy)|
+| [Jamaica](/legal/pay/jamaica)| [Japan](/legal/pay/japan)| [Jordan](/legal/pay/jordan)|
+| [Kazakhstan](/legal/pay/kazakhstan)| [Kenya](/legal/pay/kenya)| [Korea](/legal/pay/korea)|
+| [Kuwait](/legal/pay/kuwait)| [Kyrgyzstan](/legal/pay/kyrgyzstan)| [Latvia](/legal/pay/latvia)|
+| [Lebanon](/legal/pay/lebanon)| [Libya](/legal/pay/libya)| [Liechtenstein](/legal/pay/liechtenstein)|
+| [Lithuania](/legal/pay/lithuania)| [Luxembourg](/legal/pay/luxembourg)| [Macao](/legal/pay/macao)|
+| [Macedonia, Former Yugoslav Republic of](/legal/pay/macedonia)| [Malaysia](/legal/pay/malaysia)| [Malta](/legal/pay/malta)|
+| [Mauritius](/legal/pay/mauritius)| [Mexico](/legal/pay/mexico)| [Moldova](/legal/pay/moldova)|
+| [Monaco](/legal/pay/monaco)| [Mongolia](/legal/pay/mongolia)| [Montenegro](/legal/pay/montenegro)|
+| [Morocco](/legal/pay/morocco)| [Namibia](/legal/pay/namibia)| [Nepal](/legal/pay/nepal)|
+| [Netherlands](/legal/pay/netherlands)| [New Zealand](/legal/pay/new-zealand)| [Nicaragua](/legal/pay/nicaragua)|
+| [Nigeria](/legal/pay/nigeria)| [Norway](/legal/pay/norway)| [Oman](/legal/pay/oman)|
+| [Pakistan](/legal/pay/pakistan)| [Palestinian Authority](/legal/pay/palestinian-authority)| [Panama](/legal/pay/panama)|
+| [Paraguay](/legal/pay/paraguay)| [Peru](/legal/pay/peru)| [Philippines](/legal/pay/philippines)|
+| [Poland](/legal/pay/poland)| [Portugal](/legal/pay/portugal)| [Puerto Rico](/legal/pay/puerto-rico)|
+| [Qatar](/legal/pay/qatar)| [Romania](/legal/pay/romania)| [Russia](/legal/pay/russia)|
+| [Rwanda](/legal/pay/rwanda)| [Saint Kitts and Nevis](/legal/pay/saint-kitts-and-nevis)| [Saint Lucia](/legal/pay/saint-lucia)|
+| [Saint Vincent and the Grenadines](/legal/pay/saint-vincent-and-the-grenadines)| [Saudi Arabia](/legal/pay/saudi-arabia)| [Senegal](/legal/pay/senegal)|
+| [Serbia](/legal/pay/serbia)| [Singapore](/legal/pay/singapore)| [Slovakia](/legal/pay/slovakia)|
+| [Slovenia](/legal/pay/slovenia)| [South Africa](/legal/pay/south-africa)| [Spain](/legal/pay/spain)|
+| [Sri Lanka](/legal/pay/sri-lanka)| [Suriname](/legal/pay/suriname)| [Sweden](/legal/pay/sweden)|
+| [Switzerland](/legal/pay/switzerland)| [Taiwan](/legal/pay/taiwan)| [Tajikistan](/legal/pay/tajikistan)|
+| [Tanzania](/legal/pay/tanzania)| [Thailand](/legal/pay/thailand)| [Trinidad and Tobago](/legal/pay/trinidad-and-tobago)|
+| [Turkmenistan](/legal/pay/turkmenistan)| [Tunisia](/legal/pay/tunisia)| [Turkey](/legal/pay/turkey)|
+| [Uganda](/legal/pay/uganda)| [Ukraine](/legal/pay/ukraine)| [United Arab Emirates](/legal/pay/united-arab-emirates)|
+| [United Kingdom](/legal/pay/united-kingdom)| [United States](/legal/pay/united-states)| [Uruguay](/legal/pay/uruguay)|
+| [Uzbekistan](/legal/pay/uzbekistan)| [Venezuela](/legal/pay/venezuela)| [Vietnam](/legal/pay/vietnam)|
+| [Virgin Islands, US](/legal/pay/virgin-islands)| [Yemen](/legal/pay/yemen)| [Zambia](/legal/pay/zambia)|
+| [Zimbabwe](/legal/pay/zimbabwe)|
 
 ## Pay now in the Azure portal
 
