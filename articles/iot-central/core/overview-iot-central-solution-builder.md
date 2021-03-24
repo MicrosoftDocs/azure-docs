@@ -51,6 +51,14 @@ As a solution builder, you can use the data export and rules capabilities in IoT
 - [Extend Azure IoT Central with custom analytics using Azure Databricks](howto-create-custom-analytics.md)
 - [Visualize and analyze your Azure IoT Central data in a Power BI dashboard](howto-connect-powerbi.md)
 
+## APIs
+
+IoT Central APIs let you build deep integrations with other services. The available APIs are categorized as *data plane* or *control plane* APIs.
+
+You use data plane APIs to access the capabilities an IoT Central application exposes. For example managing devices, device templates, users, and roles. The IoT Central REST API operations are *data plane* operations. To learn more, see [How to use the IoT Central REST API to manage users and roles](howto-manage-users-roles-with-rest-api.md).
+
+You use the *control plane* to manage IoT Central-related resources in your Azure subscription. You can use the Azure CLI and Resource Manager templates for control plane operations. For example, you can use the Azure CLI to create an IoT Central application. To learn more, see [Manage IoT Central from Azure CLI](howto-manage-iot-central-from-cli.md).
+
 ## Next steps
 
 If you want to learn more about using IoT Central, the suggested next steps are to try the quickstarts, beginning with [Create an Azure IoT Central application](./quick-deploy-iot-central.md).
