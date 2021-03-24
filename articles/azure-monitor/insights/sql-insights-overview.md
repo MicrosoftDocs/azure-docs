@@ -15,13 +15,16 @@ SQL insights performs all monitoring remotely. Monitoring agents on dedicated vi
 ## Pricing
 There is no direct cost for SQL insights. All costs are incurred by the virtual machines that gather the data, the Log Analytics workspaces that store the data, and any alert rules configured on the data. 
 
-### Virtual machines
+**Virtual machines**
+
 For virtual machines, you're charged based on the pricing published on the [virtual machines pricing page](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/). The number of virtual machines required will vary based on the number of connection strings you want to monitor. We recommend to allocate 1 virtual machine of size Standard_B2s for every 100 connection strings. See [Azure virtual machine requirements](sql-insights-enable.md#azure-virtual-machine-requirements) for more details.
 
-### Log Analytics workspaces
+**Log Analytics workspaces**
+
 For the Log Analytics workspaces, you're charged based on the pricing published on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/). The Log Analytics workspaces used by SQL insights will incur costs for data ingestion, data retention, and (optionally) data export. Exact charges will vary based on the amount of data ingested, retained, and exported. The amount of this data will subsequently vary based on your database activity and the collection settings defined in your [monitoring profiles](sql-insights-enable.md#create-sql-monitoring-profile).
 
-### Alert rules
+**Alert rules**
+
 For alert rules in Azure Monitor, you're charged based on the pricing published on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/). If you choose to [create alerts with SQL insights](sql-insights-alerts.md), you're charged for any alert rules created and any notifications sent.
 
 ## Supported versions 
