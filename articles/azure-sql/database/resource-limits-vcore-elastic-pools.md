@@ -10,7 +10,7 @@ ms.topic: reference
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 03/24/2021
+ms.date: 03/23/2021
 ---
 # Resource limits for elastic pools using the vCore purchasing model
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -438,12 +438,12 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 |Compute generation|M-series|M-series|M-series|M-series|M-series|
 |vCores|20|24|32|64|128|
 |Memory (GB)|588.6|706.3|941.8|1883.5|3767.0|
-|Max number DBs per pool <sup>1</sup>|100|100|100|100|100|100|
+|Max number DBs per pool <sup>1</sup>|100|100|100|100|100|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|172|216|304|704|1768|
 |Max data size (GB)|1280|1536|2048|4096|4096|
 |Max log size (GB)|427|512|683|1024|1024|
-|TempDB max data size (GB)|4096|2048|1024|768|640|
+|TempDB max data size (GB)|640|768|1024|2048|4096|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data IOPS per pool <sup>2</sup>|31,248|37,497|49,996|99,993|160,000|
