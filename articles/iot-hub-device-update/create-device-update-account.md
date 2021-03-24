@@ -126,7 +126,7 @@ Try updating a device using one of the following quick tutorials:
 
  - [Device update on a simulator](device-update-simulator.md)
  - [Device update on Raspberry Pi](device-update-raspberry-pi.md)
- - [Device update on Ubuntu Server 18.04 x64 Package agent](device-update-ubuntu-agent)
+ - [Device update on Ubuntu Server 18.04 x64 Package agent](device-update-ubuntu-agent.md)
 
 [Learn about Device update account and instance.](device-update-resources.md) 
 
