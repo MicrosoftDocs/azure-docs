@@ -102,6 +102,14 @@ You'll now deploy a new AKS cluster with the OSM add-on enabled.
 az aks create -n osm-addon-cluster -g myOsmAksGroup --kubernetes-version 1.19.6 --node-osdisk-type Ephemeral --node-osdisk-size 30 --network-plugin azure --enable-managed-identity -a open-service-mesh
 ```
 
+#### Get AKS Cluster Access Credentials
+
+Get access credentials for the new managed Kubernetes cluster
+
+```azurecli-interactive
+az aks get-credentials -n myOsmAksCluster -g myOsmAksGroup
+```
+
 ## Enable Open Service Mesh (OSM) Azure Kubernetes Service (AKS) add-on - Brownfield Deployment
 
 In the brownfield scenario, you will enable the OSM add-on to an existing AKS cluster that has already been deployed.
@@ -270,7 +278,7 @@ deployment.apps/bookwarehouse created
 
 The example Bookstore application is a multi-tiered app that consists of four services, being the bookbuyer, bookthief, bookstore, and bookwarehouse. Both the bookbuyer and bookthief service communicate to the bookstore service to retrieve books from the bookstore service. The bookstore service retrievs books out of the bookwarehouse service to supply the bookbuyer and bookthief. This is a simple multi-tiered application that works well in showing how a service mesh can be used to protect and authorize communications between the applications services. As we continue through the walkthrough, we will be enabling and disabling Service Mesh Interface (SMI) policies to both allow and disallow the services to communicate via OSM. Below is an architecture diagram of what got installed for the bookstore application.
 
-![OSM bookbuyer app UI image](./media/aks-osm-addon/osm-bookstore-app-arch.png)
+![OSM bookbuyer app architecture](./media/aks-osm-addon/osm-bookstore-app-arch.png)
 
 ### Verify the Bookstore application running inside the AKS cluster
 
@@ -316,7 +324,7 @@ You will also notice that the the total books bought number continues to increme
 You can also check the same for the bookthief service.
 
 ```azurecli-interactive
-kubectl get pod -n booktheif
+kubectl get pod -n bookthief
 ```
 
 You should see output similar to the following. Your bookthief pod will have a unique name appended.
@@ -329,12 +337,12 @@ bookthief-59549fb69c-cr8vl   2/2     Running   0          15m54s
 Port forward to bookthief pod.
 
 ```Bash
-kubectl port-forward bookbuyer-7676c7fcfb-mtnrz -n bookbuyer 8080:14001
+kubectl port-forward bookthief-59549fb69c-cr8vl -n bookthief 8080:14001
 ```
 
 Navigate to the following url from a browser `http://localhost:8080`. You should see the bookthief is currently stealing books from the bookstore service! Later on we will implement a traffic policy to stop the bookthief.
 
-![OSM bookbuyer app UI image](./media/aks-osm-addon/osm-bookthief-service-ui.png)
+![OSM bookthief app UI image](./media/aks-osm-addon/osm-bookthief-service-ui.png)
 
 ### Disable OSM Permissive Traffic Mode for the mesh
 
