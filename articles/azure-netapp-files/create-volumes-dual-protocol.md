@@ -147,3 +147,4 @@ Follow instructions in [Configure an NFS client for Azure NetApp Files](configur
 
 * [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md)
 * [Troubleshoot SMB or dual-protocol volumes](troubleshoot-dual-protocol-volumes.md)
+* [Troubleshoot LDAP volume issues](troubleshoot-ldap-volumes.md)

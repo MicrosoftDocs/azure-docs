@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 03/232021
+ms.date: 03/23/2021
 ms.author: b-juche
 ---
 # Troubleshoot LDAP volume issues
@@ -33,5 +33,4 @@ This article describes resolutions to error conditions you might have when confi
 
 * [Configure LDAP with extended groups for NFS](configure-ldap-extended-groups.md)
 * [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
-* [Create and manage Active Directory connections](create-active-directory-connections.md)
-
+* [Create a dual-protocol (NFSv3 and SMB) volume for Azure NetApp Files](create-volumes-dual-protocol.md)
