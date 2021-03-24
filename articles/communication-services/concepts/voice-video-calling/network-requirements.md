@@ -45,6 +45,7 @@ Below are the bandwidth requirements for the JavaScript client libraries:
 |1.2 Mbps|HD Group video calling with resolution of HD 720p at 30fps| 
 
 Below are the bandwidth requirements for the native Android and iOS client libraries:
+
 |Bandwidth|Scenarios|
 |:--|:--|
 |30 kbps|Peer-to-peer audio calling |
@@ -90,10 +91,10 @@ Validate NAT pool size | Validate the network address translation (NAT) pool siz
 Azure Communication Services voice/video client libraries support certain operating systems and browsers.
 Learn about the operating systems and browsers that the calling client libraries support in the [calling conceptual documentation](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features).
 
-# Next steps
+## Next steps
 
 The following documents may be interesting to you:
 
-- Learn more about [calling lubruaries](../concepts/voice-video-calling/calling-sdk-features.md)
-- Learn about [Client-server architecture](./client-and-server-architecture.md)
-- Learn about [Call flow topologies](./detailed-call-flows.md)
+- Learn more about [calling lubruaries](https://docs.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/calling-sdk-features)
+- Learn about [Client-server architecture](https://docs.microsoft.com/en-us/azure/communication-services/concepts/client-and-server-architecture)
+- Learn about [Call flow topologies](https://docs.microsoft.com/en-us/azure/communication-services/concepts/call-flows)
