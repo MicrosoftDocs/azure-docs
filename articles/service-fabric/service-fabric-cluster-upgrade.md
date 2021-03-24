@@ -32,7 +32,7 @@ To opt in to wave deployment, specify one of the following wave values for your 
 * **Wave 1**: Clusters are updated one week (seven days) after a new build is released. Intended for pre-prod/staging clusters.
 * **Wave 2**: Clusters are updated two weeks (14 days) after a new build is released. Intended for production clusters.
 
-You can register for email notifications if a cluster upgrade fails, and can also pause / resume upgrades on your cluster. See [Wave deployment for automatic upgrades](service-fabric-cluster-upgrade-version-azure.md#wave-deployment-for-automatic-upgrades) to get started.
+You can register for email notifications with links to further help if a cluster upgrade fails. See [Wave deployment for automatic upgrades](service-fabric-cluster-upgrade-version-azure.md#wave-deployment-for-automatic-upgrades) to get started.
 
 ## Phases of automatic upgrade
 

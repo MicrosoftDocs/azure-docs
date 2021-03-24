@@ -78,7 +78,7 @@ Then, simply add an `upgradeWave` property to your cluster resource template wit
 
 Once you deploy the updated template, your cluster will be enrolled in the specified wave for the next upgrade period and after that.
 
-You can [register for email notifications](#register-for-notifications) if a cluster upgrade fails, and can also [pause or resume upgrades](#pause-and-resume-upgrades) on your cluster.
+You can [register for email notifications](#register-for-notifications) with links to further help if a cluster upgrade fails.
 
 ### Register for notifications
 
@@ -110,26 +110,7 @@ To enroll in notifications, add a `notifications` section to your cluster resour
         }]
 ```
 
-Once you deploy your updated template, you'll be enrolled for upgrade failure notifications. Upon failure of a cluster in an earlier deployment wave (or for any other reason), you can choose to [pause upgrades](#pause-and-resume-upgrades) for a cluster.
-
-### Pause and resume upgrades
-
-If clusters hosting your test or staging environments fail during Service Fabric upgrade, you may wish to pause upgrades in subsequent waves. In other cases, you may wish to postpone upgrading your cluster until after a business-critical event is over.
-
-> [!NOTE]
-> Enrollment in wave deployment is not required to pause or resume upgrades.
-
-To pause upgrades on a cluster, run the following command, substituting your own subscription ID (#), resource group (*myresourcegroup*), and cluster name (*mycluster*):
-
-```powershell
-Invoke-AzureRmResourceAction -Action pause -ResourceId /subscriptions/########-####-####-####-############/resourcegroups/myresourcegroup/providers/Microsoft.ServiceFabric/clusters/mycluster/upgrade -ApiVersion "2020-12-01-preview" -Force 
-```
-
-To resume automatic upgrades, run the following command, substituting your own subscription ID (*), resource group (*myresourcegroup*), and cluster name (*mycluster*):
-
-```powershell
-Invoke-AzureRmResourceAction -Action resume -ResourceId /subscriptions/########-####-####-####-############/resourcegroups/myresourcegroup/providers/Microsoft.ServiceFabric/clusters/mycluster/upgrade -ApiVersion "2020-12-01-preview" -Force 
-```
+Once you deploy your updated template, you'll be enrolled for upgrade failure notifications.
 
 ## Custom policies for manual upgrades
 
