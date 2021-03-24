@@ -184,24 +184,24 @@ async function localVideoView() {
     document.getElementById("myVideo").appendChild(view.target);
 }
 ```
-All remote participants are available through the `remoteParticipants` collection on a call instance. You need to subscribe to the remote participants of the current call and listen to the event `remoteParticipantsUpdated` to subscribe to added remote participants.
+All remote participants are available through the `remoteParticipants` collection on a call instance. You need to listen to the event `remoteParticipantsUpdated`to be notified when a new remote participant is added into the call. You also need to iterate the `remoteParticipants` collection to subscribe to each of them in order to subscribe to their video streams. 
 
 ```JavaScript
 function subscribeToRemoteParticipantInCall(callInstance) {
     callInstance.on('remoteParticipantsUpdated', e => {
         e.added.forEach( p => {
-            subscribeToRemoteParticipant(p);
+            subscribeToParticipantVideoStreams(p);
         })
     }); 
     callInstance.remoteParticipants.forEach( p => {
-        subscribeToRemoteParticipant(p);
+        subscribeToParticipantVideoStreams(p);
     })
 }
 ```
-You can subscribe to the `remoteParticipants` collection of the current call and inspect the `videoStreams` collections to list the streams of each participant. You also need to subscribe to the remoteParticipantsUpdated event to handle added remote participants. 
+You need to subscribe to the `videoStreamsUpdated` event to handle added video streams of remote participants. You can inspect the `videoStreams` collections to list the streams of each participant while going through the `remoteParticipants` collection of the current call.
 
 ```JavaScript
-function subscribeToRemoteParticipant(remoteParticipant) {
+function subscribeToParticipantVideoStreams(remoteParticipant) {
     remoteParticipant.on('videoStreamsUpdated', e => {
         e.added.forEach(v => {
             handleVideoStream(v);
@@ -255,7 +255,7 @@ callAgent.on('incomingCall', async e => {
     const addedCall = await e.incomingCall.accept({videoOptions: {localVideoStreams:[localVideoStream]}});
     call = addedCall;
 
-    subscribeToRemoteParticipantInCall(addedCall);   
+    subscribeToRemoteParticipantInCall(addedCall);  
 });
 ```
 ## End the current call
