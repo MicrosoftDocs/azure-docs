@@ -96,13 +96,15 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 >
 > Where:
 > - `Enter_the_Application_Id_here` - is the **Application (client) ID** for the application you registered.
+>    
+>    To find the value of **Application (client) ID**, go to the app's **Overview** page in the Azure portal.
 > - `Enter_the_Tenant_Info_Here` - is set to one of the following options:
 >   - If your application supports **Accounts in this organizational directory**, replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
 >   - If your application supports **Accounts in any organizational directory**, replace this value with `organizations`
->   - If your application supports **Accounts in any organizational directory and personal Microsoft accounts**, replace this value with `common`
+>   - If your application supports **Accounts in any organizational directory and personal Microsoft accounts**, replace this value with `common`.
 >
-> > [!TIP]
-> > To find the values of **Application (client) ID**, **Directory (tenant) ID**, and **Supported account types**, go to the app's **Overview** page in the Azure portal.
+>     To find the values of **Directory (tenant) ID** and **Supported account types**, go to the app's **Overview** page in the Azure portal.
+>
 
 ## More information
 
@@ -134,9 +136,9 @@ PublicClientApplicationBuilder.Create(ClientId)
                 .Build();
 ```
 
-> |Where: | Description |
-> |---------|---------|
-> | `ClientId` | Is the **Application (client) ID** for the application registered in the Azure portal. You can find this value in the app's **Overview** page in the Azure portal. |
+|Where: | Description |
+|---------|---------|
+| `ClientId` | Is the **Application (client) ID** for the application registered in the Azure portal. You can find this value in the app's **Overview** page in the Azure portal. |
 
 ### Requesting tokens
 
@@ -156,9 +158,9 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(_scopes)
                                       .ExecuteAsync();
 ```
 
-> |Where:| Description |
-> |---------|---------|
-> | `_scopes` | Contains the scopes being requested, such as `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom web APIs. |
+|Where:| Description |
+|---------|---------|
+| `_scopes` | Contains the scopes being requested, such as `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom web APIs. |
 
 #### Get a user token silently
 
@@ -171,10 +173,10 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
                                       .ExecuteAsync();
 ```
 
-> |Where: | Description |
-> |---------|---------|
-> | `scopes` | Contains the scopes being requested, such as `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom web APIs. |
-> | `firstAccount` | Specifies the first user in the cache (MSAL support multiple users in a single app). |
+|Where: | Description |
+|---------|---------|
+| `scopes` | Contains the scopes being requested, such as `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom web APIs. |
+| `firstAccount` | Specifies the first user in the cache (MSAL support multiple users in a single app). |
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
