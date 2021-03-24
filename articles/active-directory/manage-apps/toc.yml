@@ -63,8 +63,8 @@
         href: ./scripts/powershell-get-all-connectors.md
       - name: Move apps between connector groups
         href: ./scripts/powershell-move-all-apps-to-connector-group.md
-      - name:
-        href: 
+      - name: List users and groups assigned to app
+        href: ./scripts/powershell-display-users-group-of-app.md
       - name:
         href: 
       - name:
