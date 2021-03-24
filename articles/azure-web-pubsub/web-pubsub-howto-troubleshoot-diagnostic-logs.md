@@ -20,7 +20,7 @@ There are two types of logs: connectivity log and messaging log.
 
 ### Connectivity logs
 
-Connectivity logs provide detailed information for Azure Web PubSub hub connections. For example, basic information (user ID, connection ID and transport type, and so on) and event information (connect, disconnect, and abort event, and so on). That's why the connectivity log is helpful to troubleshoot connection-related issues. 
+Connectivity logs provide detailed information for Azure Web PubSub hub connections. For example, basic information (user ID, connection ID and so on) and event information (connect, disconnect, and abort event, and so on). That's why the connectivity log is helpful to troubleshoot connection-related issues. 
 
 ### Messaging logs
 
@@ -35,9 +35,6 @@ The Azure Web PubSub service live trace tool has ability to collect diagnostic l
 
 > [!NOTE]
 > The Azure Web PubSub service instance created as free tier has the daily limit of messages (outbound traffic).
-
-> [!WARNING]
-> As default, the message content with the real-time diagnostic logs is disabled. If you enable this feature, the captured logs by live trace tool contain the full contents of every message sent by your app. **Never** post raw diagnostic logs with message contents from production apps to public forums like GitHub.
 
 ### Launch the live trace tool
 
@@ -77,7 +74,7 @@ After the Azure Web PubSub service is GA, the live trace tool will also support 
 
 You could also capture and store the diagnostic logs with [Azure Monitor](https://azure.microsoft.com/services/monitor/), [Azure Storage](https://docs.microsoft.com/azure/azure-monitor/essentials/resource-logs#send-to-azure-storage), and [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/essentials/resource-logs#send-to-log-analytics-workspace). Comparing with the live trace tool, this option enables you to store the log data and complete further analysis with raw logs. 
 
-This option will be ready after Azure Web PubSub service GA.
+This option is not available right now, and will be released later.
 
 ## Troubleshoot with the diagnostic logs
 
@@ -96,8 +93,7 @@ The abort reasons are listed in the following table:
 | Reason | Description |
 | ------- | ------- |
 | Connection count reaches limit | Connection count reaches limit of your current price tier. Consider scale up service unit
-| Connection ping timeout | Usually it is caused by network issue. Consider checking your app server's availability from the internet |
-| Service reloading, reconnect | Azure Web PubSub service is reloading. Azure Web PubSub service supports auto reconnecting, you can wait until reconnected or manually reconnect to Azure Web PubSub service |
+| Service reloading, reconnect | Azure Web PubSub service is reloading. You need to implement your own reconnect mechanism or manually reconnect to Azure Web PubSub service |
 | Internal server transient error | Transient error occurs in Azure Web PubSub service, should be auto recovered
 
 #### Unexpected connection growing
