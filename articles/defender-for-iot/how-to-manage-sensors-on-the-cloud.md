@@ -1,5 +1,5 @@
 ---
-title: Onboard and manage sensors and subscriptions in the Defender for IoT portal
+title: Manage sensors and subscriptions in the Defender for IoT portal
 description: Learn how to onboard, view, and manage sensors in the Defender for IoT portal.
 author: shhazam-ms
 manager: rkarlin
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.service: azure
 ---
 
-# Onboard and manage sensors and subscriptions in the Defender for IoT portal
+# Manage sensors and subscriptions in the Defender for IoT portal
 
 This article describes how to onboard, view, and manage sensors in the [Defender for IoT portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
 
@@ -136,6 +136,6 @@ To offboard a subscription:
 
 The on-premises environment is not affected, but you should uninstall the sensor from the on-premises environment, or reassign the sensor to another subscription, so as to prevent any related data from flowing to the on-premises management console. 
 
-## See also
+## Next steps
 
 [Activate and set up your sensor](how-to-activate-and-set-up-your-sensor.md)
