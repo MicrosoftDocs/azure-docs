@@ -61,13 +61,13 @@ With Safari on **MacOS**, your app may have trouble enumerating/selecting speake
 ### Rotation of a device can create poor video quality
 We encourage developers to build their app in a way that does not require rotation of multimedia devices. Users may experience degraded video quality when devices are rotated.
 
-Devices affected: Pixel 5, Pixel 3a, iPad 8, and iPad X.
+Devices affected: Google Pixel 5, Google Pixel 3a, Apple iPad 8, and Apple iPad X.
 Browsers: Chrome
 Platforms: iOS, Android
 
 
 ### Camera switching makes the screen freeze 
-When a Communication Services user joins a call using WebRTC and then hits the camera switch button, the UI may become completely unresponsive until the application is refreshed.
+When a Communication Services user joins a call using the JavaScript calling client library and then hits the camera switch button, the UI may become completely unresponsive until the application is refreshed.
 
 Devices affected: Pixel 4a
 Browsers: Chrome
@@ -86,4 +86,4 @@ Mobile browsers are sensitive to any changes made while being in the `connecting
 Under investigation.
 
 ###  Sometimes it takes a long time to render remote participant videos
-This issue has been observed when, during an ongoing group call, User A sends video and then User B joins the call. Sometimes User B doesn't see video from User A, or User A's video begins rendering after a long delay. This could be caused by a network environment that requires further configuration. Refer to the [network requirements](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/network-requirements) documentation for network configuration guidance.
+During an ongoing group call, _User A_ sends video and then _User B_ joins the call. Sometimes, User B doesn't see video from User A, or User A's video begins rendering after a long delay. This could be caused by a network environment that requires further configuration. Refer to the [network requirements](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/network-requirements) documentation for network configuration guidance.
