@@ -22,7 +22,7 @@
     - name: Identify anomalies in your data
       href: how-to/identify-anomalies.md
   - name: Deploy Anomaly Detector
-    items:
+  items:
     - name: Deploy to IoT Edge
       href: how-to/deploy-anomaly-detection-on-iot-edge.md
     - name: Containers
