@@ -34,7 +34,7 @@ Edge Secured-core is an incremental certification in the Azure Certified Device 
 |Applies To|Any device|
 |OS|Agnostic|
 |Validation Type|Manual/Tools|
-|Validation	|Device must generate security logs and alerts. Device logs and alerts messages to Azure Security Center.<ol><li>Download and deploy security agent from Github</li><li>Validate alert message from Azure Defender for IoT.</li></ol>|
+|Validation	|Device must generate security logs and alerts. Device logs and alerts messages to Azure Security Center.<ol><li>Download and deploy security agent from GitHub</li><li>Validate alert message from Azure Defender for IoT.</li></ol>|
 |Resources|[Azure Docs IoT Defender for IoT](../defender-for-iot/how-to-configure-agent-based-solution.md)|
 
 ---
@@ -198,7 +198,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Protection.NetworkServices|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the test is to validate that applications accepting input from the network are not running with elevated privledges.|
+|Description|The purpose of the test is to validate that applications accepting input from the network are not running with elevated privileges.|
 |Target Availability|2021|
 |Applies To|Any device|
 |OS|Agnostic|
