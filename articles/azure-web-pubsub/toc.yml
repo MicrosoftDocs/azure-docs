@@ -13,6 +13,7 @@
     href: web-pubsub-quickstart-serverless.md
 
 - name: How-to guides
+  expanded: true
   items:
   - name: Develop
     items:
@@ -22,6 +23,8 @@
     items:
     - name: Collect network trace
       href: web-pubsub-howto-troubleshoot-network-trace.md
+    - name: Capture diagnostic logs
+      href: web-pubsub-howto-troubleshoot-diagnostic-logs.md
 
 - name: Resources
   items:
