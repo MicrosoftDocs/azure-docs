@@ -41,7 +41,7 @@ The inline frame element `<iframe>` is used to embed a document in an HTML5 web 
 When using iframe, consider the following:
 
 - Embedded sign-in supports local accounts only. Most social identity providers (for example, Google and Facebook) block their sign-in pages from being rendered in inline frames.
-- Because Azure AD B2C session cookies within an iframe are considered third-party cookies, certain browsers (for example Safari or Chrome in incognito mode) either block or clear these cookies, resulting in an undesirable user experience. To prevent this issue, make sure your application domain name and your Azure AD B2C domain have the *same origin*. To use the same origin, [enable custom domains](custom-domain.md) for Azure AD B2C tenant, then configure your web app with the same origin. For example, an application hosted on https://app.contoso.com has the same origin as Azure AD B2C running on https://login.contoso.com.
+- Because Azure AD B2C session cookies within an iframe are considered third-party cookies, certain browsers (for example Safari or Chrome in incognito mode) either block or clear these cookies, resulting in an undesirable user experience. To prevent this issue, make sure your application domain name and your Azure AD B2C domain have the *same origin*. To use the same origin, [enable custom domains](custom-domain.md) for Azure AD B2C tenant, then configure your web app with the same origin. For example, an application hosted on 'https://app.contoso.com' has the same origin as Azure AD B2C running on 'https://login.contoso.com'.
 
 ## Prerequisites
 
