@@ -144,7 +144,7 @@ Any alert instance describes the resource that was affected and the cause of the
 ### Log alerts
 
 > [!NOTE]
-> For log alerts that have a custom email subject and/or JSON payload defined, enabling the common schema reverts email subject and/or payload schema to the one described as follows. Alerts with the common schema enabled have an upper size limit of 256 KB per alert. Search results aren't embedded in the log alerts payload if they cause the alert size to cross this threshold. You can determine this by checking the flag `IncludeSearchResults`. When the search results aren't included, you should use the `LinkToFilteredSearchResultsAPI` or `LinkToSearchResultsAPI` to access query results with the [Log Analytics API](/rest/api/loganalytics/dataaccess/query/get).
+> For log alerts that have a custom email subject and/or JSON payload defined, enabling the common schema reverts email subject and/or payload schema to the one described as follows. This means that if you want to have a custom JSON payload defined, the webhook cannot use the common alert schema. Alerts with the common schema enabled have an upper size limit of 256 KB per alert. Search results aren't embedded in the log alerts payload if they cause the alert size to cross this threshold. You can determine this by checking the flag `IncludeSearchResults`. When the search results aren't included, you should use the `LinkToFilteredSearchResultsAPI` or `LinkToSearchResultsAPI` to access query results with the [Log Analytics API](/rest/api/loganalytics/dataaccess/query/get).
 
 #### `monitoringService` = `Log Analytics`
 
