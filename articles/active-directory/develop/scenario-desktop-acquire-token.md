@@ -287,7 +287,7 @@ The class defines the following constants:
 
 #### WithUseEmbeddedWebView
 
-This method enables you to specify if you want to force the usage of an embedded WebView or the system WebView (when available). For more information, see [Usage of web browsers](https://aka.ms/msal-net-uses-web-browser).
+This method enables you to specify if you want to force the usage of an embedded WebView or the system WebView (when available). For more information, see [Usage of web browsers](msal-net-web-browsers.md).
 
  ```csharp
  var result = await app.AcquireTokenInteractive(scopes)
