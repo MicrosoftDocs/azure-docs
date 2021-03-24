@@ -34,7 +34,8 @@ A serverless Spark pool is a way of indicating how a user wants to work with Spa
 1. In Synapse Studio go to the **Develop** hub
 2. Create a new Notebook with the default language set to **PySpark (Python)**.
 3. Create a new code cell and paste the following code into that cell.
-    ```
+    ```py
+    %%pyspark
     from azureml.opendatasets import NycTlcYellow
 
     data = NycTlcYellow()
@@ -57,6 +58,7 @@ Data is available via the dataframe named **data**. Load it into a Spark databas
 1. Add a new to the notebook, and then enter the following code:
 
     ```py
+    spark.sql("CREATE DATABASE IF NOT EXISTS nyctaxi")
     df.write.mode("overwrite").saveAsTable("nyctaxi.trip")
     ```
 ## Analyze the NYC Taxi data using Spark and notebooks
