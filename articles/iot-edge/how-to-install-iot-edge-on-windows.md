@@ -116,7 +116,9 @@ If you want to deploy to a remote target device instead of your local device and
 
    ![Select your device to verify it is supported](./media/how-to-install-iot-edge-on-windows/evaluate-supported-device.png)
 
-1. Accept the default settings on the **2.2 Settings** tab.
+1. On the **2.2 Settings** tab, review the configuration of your deployment.
+
+   ![Review the configuration settings of your deployment](./media/how-to-install-iot-edge-on-windows/default-deployment-configuration.png)
 
 1. On the **2.3 Deployment** tab, you can watch the progress of the deployment. The full process includes downloading the Azure IoT Edge for Linux on Windows package, installing the package, configuring the host device, and setting up the Linux virtual machine. This process may take several minutes to complete. A successful deployment is pictured below.
 
