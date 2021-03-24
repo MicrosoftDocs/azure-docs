@@ -28,7 +28,7 @@ Chat conversations happen within chat threads. A chat thread can contain many me
 - The maximum number of participants allowed in a chat thread is 250.	
 - The maximum message size allowed is approximately 28 KB. 	
 - For chat threads with more than 20 participants, read receipts and typing indicator features aren't supported. 	
-- 
+
 ## Chat architecture	
 
 There are two core parts to chat architecture: 1) Trusted Service and 2) Client Application.	
