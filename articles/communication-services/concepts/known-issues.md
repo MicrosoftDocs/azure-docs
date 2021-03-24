@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 ---
 
 # VoIP limitations / known issues 
-This article provides information about limitations and known issues related to Voice and Video Calling SDKs in Azure Communication Services.
+This article provides information about limitations and known issues related to Azure Communication Services.
 
 ## JavaScript client library limitations 
 
