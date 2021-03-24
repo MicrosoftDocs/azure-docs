@@ -39,7 +39,7 @@ If you're using Safari on MacOS, your app may not be able to enumerate/select sp
 Mobile browsers don't maintain connectivity while in the background state. This can lead to a degraded call experience if the VoIP call was interrupted by text message or incoming PSTN call that pushes your application into the background.
 
 Client library: Calling (JavaScript)
-Browser: Safari, Chrome
+Browsers: Safari, Chrome
 Operating System: iOS, Android
 
 ### Repeatedly switching video devices may cause video streaming to temporarily stop
