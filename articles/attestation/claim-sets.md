@@ -43,9 +43,14 @@ policy_signer | x-ms-policy-signer
 
 ### Outgoing claims
 
-Azure Attestation includes the below claims in the attestation token for all attestation types. The claim names are leveraged from the mentioned sources.
+Azure Attestation includes the below claims in the attestation token for all attestation types. 
 
-Source: [IETF JWT](https://tools.ietf.org/html/rfc7519)
+- **x-ms-ver**: JWT schema version (expected to be "1.0")
+- **x-ms-attestation-type**: String value representing attestation type 
+- **x-ms-policy-hash**: String value containing SHA256 hash of the policy text computed by BASE64URL(SHA256(UTF8(BASE64URL(UTF8(policy text)))))
+- **x-ms-policy-signer**: Contains a JWK with the public key or the certificate chain present in the signed policy header. x-ms-policy-signer is only added if the policy is signed
+
+Below claim names are leverged from [IETF JWT specification](https://tools.ietf.org/html/rfc7519)
 
 - **"jti" (JWT ID) Claim** - Unique identifier for the JWT
 - **"iss" (Issuer) Claim** - The principal that issued the JWT 
@@ -53,16 +58,10 @@ Source: [IETF JWT](https://tools.ietf.org/html/rfc7519)
 - **"exp" (Expiration Time) Claim** - Expiration time after which the JWT must not be accepted for processing
 - **"nbf" (Not Before) Claim** - Not Before time before which the JWT must not be accepted for processing 
 
-Source: [IETF EAT](https://tools.ietf.org/html/draft-ietf-rats-eat-03#page-9)
+Below claim names are leverged from [IETF EAT draft specification](https://tools.ietf.org/html/draft-ietf-rats-eat-03#page-9)
 
 - **"Nonce claim" (nonce)** - An untransformed direct copy of an optional nonce value provided by a client 
 
-Source
-
-- **x-ms-ver**: JWT schema version (expected to be "1.0")
-- **x-ms-attestation-type**: String value representing attestation type 
-- **x-ms-policy-hash**: String value containing SHA256 hash of the policy text computed by BASE64URL(SHA256(UTF8(BASE64URL(UTF8(policy text)))))
-- **x-ms-policy-signer**: Contains a JWK with the public key or the certificate chain present in the signed policy header. x-ms-policy-signer is only added if the policy is signed
 
 ## Claims specific to SGX attestation
 
