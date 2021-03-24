@@ -152,6 +152,30 @@ $diskEncryptionSet = Get-AzDiskEncryptionSet -ResourceGroupName $rgName -Name $d
 New-AzDiskUpdateConfig -EncryptionType "EncryptionAtRestWithCustomerKey" -DiskEncryptionSetId $diskEncryptionSet.Id | Update-AzDisk -ResourceGroupName $rgName -DiskName $diskName
 ```
 
+### Encrypt an existing virtual machine scale set with SSE and customer-managed keys 
+
+Copy the script, replace all the example values with your own parameters, and then run it:
+
+```powershell
+#set variables 
+$vmssname = "name of the vmss that is already created"
+$diskencryptionsetname = "name of the diskencryptionset already created"
+$vmssrgname = "vmss resourcegroup name"
+$diskencryptionsetrgname = "diskencryptionset resourcegroup name"
+
+#get vmss object and create diskencryptionset object attach to vmss os disk
+$ssevmss = get-azvmss -ResourceGroupName $vmssrgname -VMScaleSetName $vmssname
+$ssevmss.VirtualMachineProfile.StorageProfile.OsDisk.ManagedDisk.DiskEncryptionSet = New-Object -TypeName Microsoft.Azure.Management.Compute.Models.DiskEncryptionSetParameters
+
+#get diskencryption object and retrieve the resource id
+$des = Get-AzDiskEncryptionSet -ResourceGroupName $diskencryptionsetrgname -Name $diskencryptionsetname
+write-host "the diskencryptionset resource id is:" $des.Id
+
+#associate DES resource id to os disk and update vmss 
+$ssevmss.VirtualMachineProfile.StorageProfile.OsDisk.ManagedDisk.DiskEncryptionSet.id = $des.Id
+$ssevmss | update-azvmss
+```
+
 ### Create a virtual machine scale set using a Marketplace image, encrypting the OS and data disks with customer-managed keys
 
 Copy the script, replace all of the example values with your own parameters, and then run it.
