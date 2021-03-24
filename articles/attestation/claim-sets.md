@@ -86,7 +86,8 @@ Deprecated claim | Recommended claim
 --- | --- 
 ver | x-ms-ver
 tee | x-ms-attestation-type
-policy_hash, maa-policyHash | x-ms-policy-hash
+policy_hash | x-ms-policy-hash
+maa-policyHash | x-ms-policy-hash
 policy_signer  | x-ms-policy-signer
 
 Below claim names are leverged from [IETF JWT specification](https://tools.ietf.org/html/rfc7519)
@@ -129,9 +130,9 @@ $product-id | x-ms-sgx-product-id
 $sgx-mrsigner | x-ms-sgx-mrsigner
 $sgx-mrenclave | x-ms-sgx-mrenclave
 $svn | x-ms-sgx-svn
-maa-ehd | x-ms-sgx-ehd
-aas-ehd | x-ms-sgx-ehd
-maa-attestationcollateral | x-ms-sgx-collateral
+$maa-ehd | x-ms-sgx-ehd
+$aas-ehd | x-ms-sgx-ehd
+$maa-attestationcollateral | x-ms-sgx-collateral
 
 ### TPM and VBS attestation
 
