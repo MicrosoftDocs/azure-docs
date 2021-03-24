@@ -175,7 +175,7 @@ To use Azure Hybrid Benefit for your SLES VMs, and for information about moving 
 
 Azure Reservations (Azure Reserved Virtual Machine Instances) help you save money by committing to one-year or three-year plans for multiple products. You can learn more about [Reserved instances here](https://docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations). The Azure Hybrid Benefit is available in Preview for [Reserved Virtual Machine Instance(RIs)](https://review.docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations#charges-covered-by-reservation). 
 This means that if you have purchased compute costs at a discounted rate using RI, you can apply AHB benefit on the licensing costs for RHEL and SUSE on top of it. The steps to apply AHB benefit for an RI instance remains exactly same as it is for a regular VM.
-![AHB for RIs](./media/azure-hybrid-benefit/azure-hybrid-benefit-ri.png)
+![AHB for RIs](./media/azure-hybrid-benefit/reserved-instances.png)
 
 >[!NOTE]
 >If you have already purchased reservations for RHEL or SUSE PAYG software on Azure Marketplace, please wait for the reservation tenure to complete before using the Azure Hybrid Benefit..
