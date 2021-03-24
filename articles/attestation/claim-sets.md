@@ -107,7 +107,7 @@ policy_signer  | x-ms-policy-signer
 Below claims are generated and included in the attestation token by the service for SGX attestation.
 
 - **x-ms-sgx-is-debuggable**: A Boolean, which indicates whether or not the enclave has debugging enabled or not
-- **x-ms-sgx-product-id**: Product id value of the SGX enclave 
+- **x-ms-sgx-product-id**: Product ID value of the SGX enclave 
 - **x-ms-sgx-mrsigner**: hex encoded value of the “mrsigner” field of the quote
 - **x-ms-sgx-mrenclave**: hex encoded value of the “mrenclave” field of the quote
 - **x-ms-sgx-svn**: security version number encoded in the quote 
