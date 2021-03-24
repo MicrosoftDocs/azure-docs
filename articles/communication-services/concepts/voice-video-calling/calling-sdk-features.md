@@ -68,7 +68,7 @@ The following list presents the set of features which are currently available in
 |                   | Render remote video stream                                                                                          | ✔️   | ✔️            | ✔️
 
 ## Calling client library streaming support
-The Communication Services calling client library supports the following streaming configurations:
+The Communication Services Calling client library supports the following streaming configurations:
 
 | Limit          |Web | Android/iOS|
 |-----------|----|------------|
