@@ -27,13 +27,9 @@ In this tutorial you will learn how to:
 > * Deploy a package update
 > * Monitor the update deployment
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
 ## Prerequisites
 
-* Access to an IoT Hub. It is recommended that you use a S1 (Standard) tier or above.
-* A Device Update instance and account linked to your IoT Hub.
-  * Follow the guide to [create and link a device update account](create-device-update-account.md) if you have not done so previously.
+* If you haven't already done so, create a [Device Update account and instance](create-device-update-account.md), including configuring an IoT Hub.
 * The [connection string for an IoT Edge device](../iot-edge/how-to-register-device.md?view=iotedge-2020-11&preserve-view=true#view-registered-devices-and-retrieve-connection-strings).
 
 ## Prepare a device
