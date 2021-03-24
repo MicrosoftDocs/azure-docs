@@ -176,7 +176,7 @@ You can set the service tier, compute size (service objective), and storage amou
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|
 |Max data size (GB)|1024|1024|1024|1024|1536|
 |Max log size (GB)|336|336|336|336|512|
-|TempDB max data size (GB)|333|333|333|333|333|
+|TempDB max data size (GB)|37|46|56|65|74|
 |Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data IOPS per pool <sup>2</sup>|2560|3200|3840|4480|5120|
@@ -208,7 +208,7 @@ You can set the service tier, compute size (service objective), and storage amou
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|
 |Max data size (GB)|1536|1536|1536|3072|3072|4096|
 |Max log size (GB)|512|512|512|1024|1024|1024|
-|TempDB max data size (GB)|83.25|92.5|111|148|166.5|333|
+|TempDB max data size (GB)|83|93|111|148|167|333|
 |Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data IOPS per pool <sup>2</sup>|5760|6400|7680|10240|11520|12800|
