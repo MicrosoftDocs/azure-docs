@@ -75,8 +75,8 @@
         href: ./scripts/powershell-get-all-wildcard-apps.md
       - name: List all custom domains and certs
         href: ./scripts/powershell-get-all-custom-domains-and-certs.md
-      - name:
-        href: 
+      - name: List apps without certs
+        href: ./scripts/powershell-get-all-custom-domain-no-cert.md
       - name:
         href: 
       - name:

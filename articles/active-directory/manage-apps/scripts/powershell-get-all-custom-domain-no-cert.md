@@ -13,7 +13,7 @@ ms.author: kenwith
 ms.reviewer: japere
 ---
 
-# Get all Azure AD Proxy application apps published with no certificate uploaded
+# Get all App Proxy apps published with no certificate uploaded
 
 This PowerShell script example lists all Azure Active Directory (Azure AD) Application Proxy apps that are using custom domains but do not have a valid TLS/SSL certificate uploaded.
 
