@@ -17,7 +17,12 @@ Before using $export, you will want to make sure that the Azure API for FHIR is 
 
 ## Using $export command
 
-After configuring the Azure API for FHIR for export, you can use the $export command to export the data out of the service. The data will be stored into the storage account you specified while configuring export. To learn how to invoke $export command in FHIR server, read documentation on the [HL7 FHIR $export specification](https://hl7.org/Fhir/uv/bulkdata/export/index.html). 
+After configuring the Azure API for FHIR for export, you can use the $export command to export the data out of the service. The data will be stored into the storage account you specified while configuring export. To learn how to invoke $export command in FHIR server, read documentation on the [HL7 FHIR $export specification](https://hl7.org/Fhir/uv/bulkdata/export/index.html).
+
+
+**Jobs stuck in a bad state**
+
+In some situations, there is a potential for a job to be stuck in a bad state. This can occur especially if the storage account permissions have not been setup properly. One way to validate if your export is successful is to check your storage account to see if the corresponding container (that is, ndjson) files are present. If they are not present, and there are no other export jobs running, then there is a possibility the current job is stuck in a bad state. You should cancel the export job by sending a cancellation request and try re-queuing the job again. Our default run time for an export in bad state is 10 minutes before it will stop and move to a new job or retry the export. 
 
 The Azure API For FHIR supports $export at the following levels:
 * [System](https://hl7.org/Fhir/uv/bulkdata/export/index.html#endpoint---system-level-export): `GET https://<<FHIR service base URL>>/$export>>`
