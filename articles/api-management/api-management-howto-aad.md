@@ -12,7 +12,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 03/22/2021
 ms.author: apimpm
 ---
 
@@ -43,7 +43,15 @@ This article shows you how to enable access to the developer portal for users fr
     Controls that enable you to enter other necessary information appear in the pane. The controls include **Client ID** and **Client secret**. (You get information about these controls later in the article.)
 9. Make a note of the content of **Redirect URL**.
     
-   ![Steps for adding an identity provider in the Azure portal](./media/api-management-howto-aad/api-management-with-aad001.png)  
+
+    :::image type="content" source="media/api-management-howto-aad/api-management-with-aad001.png" alt-text="Add identity provider in Azure portal":::
+    > [!NOTE]
+    > There are two redirect URLs:<br/>
+    > **Redirect URL** - points to the latest developer portal of the API Management.<br/>
+    > **Redirect URL (deprecated portal)** - points to the deprecated developer portal of API Management.
+    >
+    > It is recommended to use the latest developer portal Redirect URL.
+   
 10. In your browser, open a different tab. 
 11. Navigate to the [Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) to register an app in Active Directory.
 12. Under **Manage**, select **App registrations**.

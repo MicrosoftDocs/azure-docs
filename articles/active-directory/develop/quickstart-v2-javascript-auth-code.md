@@ -22,7 +22,7 @@ In this quickstart, you download and run a code sample that demonstrates how a J
 
 See [How the sample works](#how-the-sample-works) for an illustration.
 
-This quickstart uses MSAL.js 2.0 with the authorization code flow. For a similar quickstart that uses MSAL.js 1.0 with the implicit flow, see [Quickstart: Sign in users in JavaScript single-page apps](./quickstart-v2-javascript.md).
+This quickstart uses MSAL.js v2 with the authorization code flow. For a similar quickstart that uses MSAL.js v1 with the implicit flow, see [Quickstart: Sign in users in JavaScript single-page apps](./quickstart-v2-javascript.md).
 
 ## Prerequisites
 

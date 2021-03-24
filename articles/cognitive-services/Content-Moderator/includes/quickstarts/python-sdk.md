@@ -348,6 +348,3 @@ In this quickstart, you learned how to use the Content Moderator Python library 
 
 > [!div class="nextstepaction"]
 >[Image moderation concepts](../../image-moderation-api.md)
-
-* [What is Azure Content Moderator?](../../overview.md)
-* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ContentModerator/ContentModeratorQuickstart.py).
