@@ -80,16 +80,6 @@ Azure Attestation includes the below claims in the attestation token for all att
 - **x-ms-policy-hash**: Hash of Azure Attestation evaluation policy computed as BASE64URL(SHA256(UTF8(BASE64URL(UTF8(policy text)))))
 - **x-ms-policy-signer**: JSON object with a "jwk” member representing the key a customer used to sign their policy. This is applicable when customer uploads a signed policy
 
-Below claims are considered deprecated but are fully supported and will continue to be included in the future. It is recommended to use the non-deprecated claim names.
-
-Deprecated claim | Recommended claim
---- | --- 
-ver | x-ms-ver
-tee | x-ms-attestation-type
-policy_hash | x-ms-policy-hash
-maa-policyHash | x-ms-policy-hash
-policy_signer  | x-ms-policy-signer
-
 Below claim names are leverged from [IETF JWT specification](https://tools.ietf.org/html/rfc7519)
 
 - **"jti" (JWT ID) Claim** - Unique identifier for the JWT
@@ -101,6 +91,16 @@ Below claim names are leverged from [IETF JWT specification](https://tools.ietf.
 Below claim names are leverged from [IETF EAT draft specification](https://tools.ietf.org/html/draft-ietf-rats-eat-03#page-9)
 
 - **"Nonce claim" (nonce)** - An untransformed direct copy of an optional nonce value provided by a client 
+
+Below claims are considered deprecated but are fully supported and will continue to be included in the future. It is recommended to use the non-deprecated claim names.
+
+Deprecated claim | Recommended claim
+--- | --- 
+ver | x-ms-ver
+tee | x-ms-attestation-type
+policy_hash | x-ms-policy-hash
+maa-policyHash | x-ms-policy-hash
+policy_signer  | x-ms-policy-signer
 
 ### SGX attestation 
 
