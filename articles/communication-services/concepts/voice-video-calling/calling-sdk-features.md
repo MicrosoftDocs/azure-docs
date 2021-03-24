@@ -70,7 +70,7 @@ The following list presents the set of features which are currently available in
 ## Calling client library streaming support
 The Communication Services calling client library supports the following streaming configurations:
 
-|           |Web | Android/iOS|
+| Limit          |Web | Android/iOS|
 |-----------|----|------------|
 |**# of outgoing streams that can be sent simultaneously** |1 video + 1 screen sharing | 1 video + 1 screen sharing|
 |**# of incoming streams that can be rendered simultaneously** |1 video + 1 screen sharing| 6 video + 1 screen sharing |
@@ -93,7 +93,7 @@ The following timeouts apply to the Communication Services calling client librar
 
 The following table represents the set of supported browsers which are currently available. We support the most recent three versions of the browser unless otherwise indicated.
 
-|                                  | Chrome | Safari*  | Edge (Chromium) | 
+| Platform                         | Chrome | Safari*  | Edge (Chromium) | 
 | -------------------------------- | -------| ------  | --------------  |
 | Android                          |  ✔️    | ❌     | ❌             |
 | iOS                              |  ❌    | ✔️**** | ❌             |
