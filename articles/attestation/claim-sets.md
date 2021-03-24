@@ -86,7 +86,7 @@ Below claims are generated and included in the attestation token by the service 
 - **x-ms-sgx-svn**: security version number encoded in the quote 
 - **x-ms-sgx-ehd**: enclave held data formatted as BASE64URL(enclave held data)
 - **x-ms-sgx-collateral**: JSON object describing the collateral used to perform attestation. The value for the x-ms-sgx-collateral claim is a nested JSON object with the following key/value pairs:
-    - **qeidcertshash**: SHA256 value of Qupting Enclave (QE) Identity issuing certs
+    - **qeidcertshash**: SHA256 value of Quoting Enclave (QE) Identity issuing certs
     - **qeidcrlhash**: SHA256 value of QE Identity issuing certs CRL list
     - **qeidhash**: SHA256 value of the QE Identity collateral
     - **quotehash**: SHA256 value of the evaluated quote
