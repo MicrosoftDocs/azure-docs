@@ -1,7 +1,7 @@
 ---
 title: Start, monitor, and cancel training runs in Python
 titleSuffix: Azure Machine Learning
-description: Learn how to start, status, and manage your machine learning experiment runs with the Azure Machine Learning Python SDK. 
+description: Learn how to start, monitor, and track your machine learning experiment runs with the Azure Machine Learning Python SDK. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,17 +14,17 @@ ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
 ---
 
-# Start, monitor and track runs 
+# Start, monitor, and track run history 
 
-The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro), [Machine Learning CLI](reference-azure-machine-learning-cli.md), and [Azure Machine Learning studio](https://ml.azure.com) provide various methods to monitor, organize, and manage your runs for training and experimentation.
+The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro), [Machine Learning CLI](reference-azure-machine-learning-cli.md), and [Azure Machine Learning studio](https://ml.azure.com) provide various methods to monitor, organize, and track your runs for training and experimentation. Your ML run history is an important part of an explainable and repeatable ML development process.
 
-This article shows examples of the following tasks:
+This article shows how to do the following tasks:
 
 * Monitor run performance.
 * Monitor the run status by email notification.
 * Tag and find runs.
 * Add a run description. 
-* Run search. 
+* Run search over your run history. 
 * Cancel or fail runs.
 * Create child runs.
  
