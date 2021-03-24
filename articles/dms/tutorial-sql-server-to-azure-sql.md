@@ -240,6 +240,9 @@ Select either all databases or specific databases that you want to migrate to Az
 1. On the **Select target** screen, provide authentication settings to your Azure SQL Database. 
 
    ![Select target](media/tutorial-sql-server-to-azure-sql/select-target.png)
+   
+   > [!NOTE]
+   > Currently SQL Authentication is the only supported Authentication type
 
 1. Select **Next: Map to target databases** screen, map the source and the target database for migration.
 
