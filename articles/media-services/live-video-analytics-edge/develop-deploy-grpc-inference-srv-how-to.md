@@ -240,7 +240,7 @@ Now that you have created your gRPC extension module, we will now create and dep
         * Under GraphInstanceSet, edit the name of the graph topology to match the value in the preceding link:<br/>`"topologyName": "InferencingWithGrpcExtension"`
         * Under GraphTopologyDelete, edit the name:<br/>`"name": "InferencingWithGrpcExtension"`
 
-            The topology (for example, `https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/grpcExtension/topology.json`) must define an extension address:
+            The topology (for example, `https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/grpcExtensionOpenVINO/2.0/topology.json`) must define an extension address:
     * Extension address Parameter
 
         ```
@@ -307,4 +307,4 @@ At this stage, the deployment of edge modules to your IoT Edge device has starte
 ## Next steps
 
 Follow the **Prepare to monitor events** steps mentioned in the [Analyze live video with your model](use-your-model-quickstart.md) quickstart to run the sample and interpret the results. 
-Also, check out our sample gRPC topologies: [gRPCExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/grpcExtension/topology.json), [CVRWithGrpcExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/cvr-with-grpcExtension/topology.json), [EVRtoAssetsByGrpcExtension, and [EVROnMotionPlusGrpcExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/motion-with-grpcExtension/topology.json).
+Also, check out our sample gRPC topologies: [gRPCExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/grpcExtensionOpenVINO/2.0/topology.json), [CVRWithGrpcExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/cvr-with-grpcExtension/topology.json), [EVRtoAssetsByGrpcExtension, and [EVROnMotionPlusGrpcExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/motion-with-grpcExtension/topology.json).
