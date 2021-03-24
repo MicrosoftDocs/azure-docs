@@ -70,7 +70,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
    ```python
    %%pyspark
    data_path = spark.read.load('<ABFSS Path to RetailSales.csv>', format='csv', header=True)
-   data_path.show(100)
+   data_path.show(10)
    
    print('Converting to Pandas.')
    
@@ -83,9 +83,9 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 After a few minutes the data displayed should look similar to the following.
 
 ```text
-Command executed in 27s 22ms by xxxx on 03-23-2021 14:39:29.712 -07:00
+Command executed in 25s 324ms by garye on 03-23-2021 17:40:23.481 -07:00
 
-Job execution SucceededSpark 2 executors 8 cores
+Job execution Succeeded Spark 2 executors 8 cores
 
 +-------+-----------+--------+-----------+-----------+-----+------------+--------------------+
 |storeId|productCode|quantity|logQuantity|advertising|price|weekStarting|                  id|
@@ -96,6 +96,28 @@ Job execution SucceededSpark 2 executors 8 cores
 |      2| surface.go|      28|7.965545573|          0|  209|   8/10/2017|b8cd9987-1d5a-4f4...|
 |      2| surface.go|      16|7.377758908|          0|  209|   8/24/2017|ac0ec099-e102-4bf...|
 |      2| surface.go|     253| 10.1402973|          1|  189|   8/31/2017|3d22c002-b04c-409...|
+|      2| surface.go|     107|9.282847063|          0|  189|    9/7/2017|b6e19699-d684-449...|
+|      2| surface.go|      66|8.803273983|          0|  189|   9/14/2017|e89a5838-fb8f-413...|
+|      2| surface.go|      65|8.793612072|          0|  179|   9/21/2017|c3278682-16c0-483...|
+|      2| surface.go|      17|7.454719949|          0|  269|  10/12/2017|f40190c1-b2ed-46f...|
++-------+-----------+--------+-----------+-----------+-----+------------+--------------------+
+only showing top 10 rows
+
+Converting to Pandas.
+      storeId  ...                                    id
+0           2  ...  d6bd47a7-2ad6-4f0a-b8de-ed1386cae5ea
+1           2  ...  64cc74c2-c7da-4e12-af64-c95bdf429934
+2           2  ...  9a2d164b-5e44-44d7-9837-cf9ae6566c99
+3           2  ...  b8cd9987-1d5a-4f4f-9346-719d73b1f7f0
+4           2  ...  ac0ec099-e102-4bfc-9775-983b151dcd03
+...       ...  ...                                   ...
+28942     137  ...  6af00133-7015-415d-831b-ddf05bb5828c
+28943     137  ...  1e0d3a21-ab43-49c4-89e2-49d202821807
+28944     137  ...  5cc7e50a-6aa4-419b-a933-905a667aa2df
+28945     137  ...  650ca506-7a4f-46f8-b2e1-e52ceffadf16
+28946     137  ...  9bb216f6-04ec-4b61-9e68-34772b814c44
+
+[28947 rows x 8 columns]
 ```
 
 ## Next steps
