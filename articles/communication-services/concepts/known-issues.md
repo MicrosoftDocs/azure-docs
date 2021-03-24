@@ -25,7 +25,7 @@ When refreshing pages, the Communication Services client library may not be able
 ### It's not possible to render multiple previews from multiple devices on web
 It's a current limitation due to technical implementation, please refer to [Calling Client library overview](https://docs.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/calling-sdk-features)
 
-### Enumeration if the mic and speaker devices is not possible in Safari, when the application run on iOS or iPadOS. 
+### Enumeration of the mic and speaker devices is not possible in Safari when the application runs on iOS or iPadOS 
 Applications can't enumerate/select mic/speaker devices (like Bluetooth) on Safari iOS/iPad. It's a limitation of the OS - there's always only one device.
 
 For Safari on MacOS - app can't enumerate/select speaker through Communication Services Device Manager - these must be selected via the OS. If you use Chrome on MacOS, the app can enumerate/select devices through the Communication Services Device Manager.
