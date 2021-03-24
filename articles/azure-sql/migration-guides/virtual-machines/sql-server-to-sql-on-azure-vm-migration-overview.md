@@ -24,7 +24,7 @@ You can migrate SQL Server running on-premises or on:
 - Amazon Relational Database Service (AWS RDS) 
 - Compute Engine (Google Cloud Platform - GCP)
 
-For other scenarios, see the [Database Migration Guide](https://datamigration.microsoft.com/). 
+For other migration guides, see [Database Migration](https://docs.microsoft.com/data-migration). 
 
 ## Overview
 
