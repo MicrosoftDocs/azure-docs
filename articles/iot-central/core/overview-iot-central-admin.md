@@ -48,12 +48,12 @@ As an _Administrator_ you can do the following:
 ## Configure file uploads
 You can configure how to [file uploads](howto-configure-file-uploads.md)
 
-## Tools - Azure CLI, Azure PowerShell, Azure Portal
+## Tools - Azure CLI, Azure PowerShell, Azure portal
 
 Here are some tools you have access to as _administrator_.
-* (Azure CLI)[howto-manage-iot-central-from-cli.md]
-* (Azure PowerShell)[howto-manage-iot-central-from-powershell.md]
-* (Azure Portal)[howto-manage-iot-central-from-portal.md]
+* [Azure CLI](howto-manage-iot-central-from-cli.md)
+* [Azure PowerShell](howto-manage-iot-central-from-powershell.md)
+* [Azure portal](howto-manage-iot-central-from-portal.md)
 
 ## Next steps
 
