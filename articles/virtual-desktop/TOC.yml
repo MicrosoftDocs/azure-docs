@@ -210,6 +210,8 @@
     href: security-guide.md
   - name: Linux support
     href: linux-overview.md
+  - name: Estimate Azure Monitor costs
+    href: azure-monitor-costs.md
   - name: Supported RDP file settings
     href: /windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context
   - name: Virtual machine sizing guidance

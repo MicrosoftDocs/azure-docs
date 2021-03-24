@@ -15,8 +15,7 @@ Azure Monitor Logs is a service that collects, indexes, and stores data generate
 This article will explain the following things to help you understand how pricing in Azure Monitor works:
 
 - How to estimate data ingestion and storage costs upfront before you enable this feature
-- How to measure data ingestion and storage costs after you enable this feature
-- How to control the ingestion and storage of data to reduce costs
+- How to measure and control your ingestion and storage to reduce costs when using this feature
 
 >[!NOTE]
 > All sizes and pricing listed in this article are just examples to demonstrate how estimation works. For a more accurate assessment based on your Azure Monitor Log Analytics pricing model and Azure region, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
@@ -25,59 +24,90 @@ This article will explain the following things to help you understand how pricin
 
 We recommend you use a predefined set of data written as logs in your Log Analytics workspace. In the following example estimates, we'll look at billable data in the default configuration
 
-Azure Monitor for Windows Virtual Desktop default data configuration includes the following features:
+The predefined datasets for Azure Monitor for Windows Virtual Desktop include:
 
-- Specified performance counters
-- Windows event logs
-- Windows Virtual Desktop Diagnostics
+- Performance counters from the session hosts
+- Windows Event Logs from the session hosts
+- Windows Virtual Desktop diagnostics from the service infrastructure
 
 The specs for the virtual machine (VM) we'll be using in this example include the following components and usage:
 
-- 2 vCPUs (4 cores), 2 disks
-- 20 sessions per day (assuming one session per user, this means about 20 users)
-- An average session duration of 4 hours (240 minutes)
+Your data ingestion and storage costs depend on your environment size, health, and usage. The example estimates we'll use in this article to calculate the cost ranges you can expect are based on healthy virtual machines running light to power usage, based on our [virtual machine sizing guidelines](/remote/remote-desktop-services/virtual-machine-recs), to calculate a range of data ingestion and storage costs you could expect.
+
+The light usage VM we'll be using in our example includes the following components:
+
+- 4 vCPUs, 1 disk
+- 16 sessions per day
+- An average session duration of 2 hours (120 minutes)
+- 100 processes per session
+
+The power usage VM we'll be using in our example includes the following components:
+
+- 6 vCPUs, 1 disk
+- 6 sessions per day
+- Average session duration of 4 hours (240 minutes)
 - 200 processes per session
 
-## Estimating performance counter costs
+## Estimating performance counter ingestion
 
 Performance counters show how the system resources are performing. Performance counter data ingestion depends on your environment size and usage. In most cases, performance counters should make up 80 to 99% of your data ingestion for Azure Monitor for Windows Virtual Desktop.
 
 Before you start estimating, it’s important that you understand that each performance counter sends data at a specific frequency. We set a default sample rate-per-minute (you can also edit this rate in your settings), but that rate will be applied at different multiplying factors depending on the counter. The following factors affect the rate:
 
-- For the per virtual machine (VM) factor, each counter sends data at the default sample rate per VM in your environment. The number of records these counters will send per day equals the default sample rate per minute, divided by 60 minutes per hour, divided by average active hours for a VM per day, divided by the number of VMs in your environment.
+- For the per virtual machine (VM) factor, each counter sends data per VM in your environment at the default sample rate per minute while the VM is running. You can estimate the number of records these counters send per day by multiplying the default sample rate per minute by the number of VMs in your environment, then multiplying that number by the average VM running time per day.
 
-- For the per CPU factor, each counter sends data at the default sample rate for each CPU core in each VM in your environment. The number of records these counters will send per day equals the default sample rate per minute divided by the number of CPU cores in the VM SKU, divided by 60 minutes per hour, divided by the average active hours per VM.
+   To summarize:
+
+   Default sample rate per minute per day × number of VMs × average VM running time per day = number of records
+
+- For the per CPU factor, each counter sends at the default sample rate per minute per vCPU in each VM in your environment while the VM is running. You can estimate the number of records the counters will send per day by multiplying the default sample rate per minute by the number of CPU cores in the VM SKU, then multiplying that number by the number of minutes the VM runs and the number of VMs in your environment.
+
+   To summarize:
+   
+   Default sample rate per minute × number of CPU cores in the VM SKU × number of minutes the VM runs × number of VMs = number of records sent per day
 
 - For the per disk factor, each counter sends data at the default sample rate for each disk in each VM in your environment. The number of records these counters will send per day equals the default sample rate per minute divided by number of disks in the VM SKU, divided by 60 minutes per hour, divided by the average active hours for a VM.
 
-- For the per session/per user factor, each counter sends data at the default sample rate per session (typically one session per user) in your environment. The number of records these counters will send per day equals the default sample rate per minute divided by the average number of sessions per day, divided by the average session duration.
+   To summarize:
 
-- For the per-process factor, each counter sends data most frequently and at the default rate for each process in each session in your environment. The number of records these counters will send per day equals the default sample rate per minute divided by the average number of sessions per day, divided by the average session duration.
+   Default sample rate per minute ÷ number of disks in VM SKU ÷ 60 mimutes per hour ÷ number of hours the VM runs = number of records sent per day
+
+- For the per session factor, each counter sends data at the default sample rate for each session in your environment while the session is connected. You can estimate the number of records these counters will send per day can by multiplying the default sample rate per minute by the average number of sessions per day and the average session duration.
+
+   To summarize:
+
+   Default sample rate per minute × sessions per day × average session duration = number of records sent per day
+
+- For the per-process factor, each counter sends data at the default rate for each process in each session in your environment. You can estimate the number of records these counters will send per day by multiplying the default sample rate per minute by the average number of sessions per day, then multiplying that by the average session duration and the average number of processes per session.
+  
+   To summarize:
+
+   Default sample rate per minute × sessions per day × average session duration × average number of processes per session = number of records sent per day
 
 The following table lists the 20 performance counters Azure Monitor for Windows Virtual Desktop collects by default:
 
-| Counter name | Default sample rate | Frequency factor | Estimated records per day |
-|--------------|---------------------|------------------|--------------------------|
-| Logical Disk(C:)\\% free space | 60 seconds  | Per disk             | 2,880       |
-| Logical Disk(C:)\\Avg. Disk Queue Length   | 30 seconds    | Per disk             | 5,760       |
-| Logical Disk(C:)\\Avg. Disk sec/Transfer  | 60 seconds       | Per disk             | 2,880       |
-| Logical Disk(C:)\\Current Disk Queue Length  | 30 seconds      | Per disk             | 5,760       |
-| Memory(\*)\\Available Mbytes | 30 seconds    | Per VM  | 2,880       |
-| Memory(\*)\\Page Faults/sec | 30 seconds   | Per VM  | 2,880       |
-| Memory(\*)\\Pages/sec | 30 seconds   | Per VM  | 2,880       |
-| Memory(\*)\\% Committed Bytes in Use | 30 seconds    | Per VM  | 2,880       |
-| PhysicalDisk(\*)\\Avg. Disk Queue Length | 30 seconds      | Per disk             | 5,760       |
-| PhysicalDisk(\*)\\Avg. Disk sec/Read | 30 seconds  | Per disk             | 5,760       |
-| PhysicalDisk(\*)\\Avg. Disk sec/Transfer | 30 seconds  | Per disk             | 5,760       |
-| PhysicalDisk(\*)\\Avg. Disk sec/Write | 30 seconds | Per disk             | 5,760       |
-| Processor Information(_Total)\\% Processor Time | 30 seconds | Per core/CPU         | 11,520      |
-| Terminal Services(\*)\\Active Sessions          | 60 seconds | Per VM  | 1,440       |
-| Terminal Services(\*)\\Inactive Sessions        | 60 seconds | Per VM  | 1,440       |
-| Terminal Services(\*)\\Total Sessions | 60 seconds | Per VM  | 1,440       |
-| User Input Delay per Process(\*)\\Max Input Delay         | 30 seconds | Per process          | 480,000     |
-| User Input Delay per Session(\*)\\Max Input Delay        | 30 seconds | Per session          | 57,600      |
-| RemoteFX Network(\*)\\Current TCP RTT | 30 seconds | Per VM  | 2,880       |
-| RemoteFX Network(\*)\\Current UDP Bandwidth     | 30 seconds | Per VM  | 2,880       |
+| Counter name | Default sample rate | Frequency factor |
+|--------------|---------------------|------------------|
+| Logical Disk(C:)\\% free space | 60 seconds  | Per disk             |
+| Logical Disk(C:)\\Avg. Disk Queue Length   | 30 seconds    | Per disk             |
+| Logical Disk(C:)\\Avg. Disk sec/Transfer  | 60 seconds       | Per disk             |
+| Logical Disk(C:)\\Current Disk Queue Length  | 30 seconds      | Per disk             |
+| Memory(\*)\\Available Mbytes | 30 seconds    | Per VM  |
+| Memory(\*)\\Page Faults/sec | 30 seconds   | Per VM  |
+| Memory(\*)\\Pages/sec | 30 seconds   | Per VM  |
+| Memory(\*)\\% Committed Bytes in Use | 30 seconds    | Per VM  |
+| PhysicalDisk(\*)\\Avg. Disk Queue Length | 30 seconds      | Per disk             |
+| PhysicalDisk(\*)\\Avg. Disk sec/Read | 30 seconds  | Per disk             |
+| PhysicalDisk(\*)\\Avg. Disk sec/Transfer | 30 seconds  | Per disk             |
+| PhysicalDisk(\*)\\Avg. Disk sec/Write | 30 seconds | Per disk             |
+| Processor Information(_Total)\\% Processor Time | 30 seconds | Per core/CPU         |
+| Terminal Services(\*)\\Active Sessions          | 60 seconds | Per VM  |
+| Terminal Services(\*)\\Inactive Sessions        | 60 seconds | Per VM  |
+| Terminal Services(\*)\\Total Sessions | 60 seconds | Per VM  |
+| User Input Delay per Process(\*)\\Max Input Delay         | 30 seconds | Per process          |
+| User Input Delay per Session(\*)\\Max Input Delay        | 30 seconds | Per session          |
+| RemoteFX Network(\*)\\Current TCP RTT | 30 seconds | Per VM  |
+| RemoteFX Network(\*)\\Current UDP Bandwidth     | 30 seconds | Per VM  |
 
 In this example, the total cost would be $611,040.
 
@@ -85,28 +115,24 @@ If we estimate each record size to be 200 bytes, this comes out to roughly 150 m
 
 To learn more about input delay performance counters, see [User Input Delay performance counters](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/).
 
-## Windows Event logs
+## Estimating Windows Event Log ingestion
 
-Windows Event logs are data sources collected by Log Analytics agents on Windows virtual machines. You can collect events from standard logs like System and Application as well as custom logs created by applications you need to monitor. We exclude information-level events from the default configuration for cost savings.
+Windows Event Logs are data sources collected by Log Analytics agents on Windows virtual machines. You can collect events from standard logs like System and Application as well as custom logs created by applications you need to monitor. We exclude information-level events from the default configuration for cost savings.
 
-The following table lists the default Windows Events for Azure Monitor for Windows Virtual Desktop:
+These are the default Windows Events for Azure Monitor for Windows Virtual Desktop:
 
-| Event name         | Event type    | Estimated records per day |
-|----------------|-------------------|--------------------------|
-| Application            | Error and Warning | 900\*       |
-| Microsoft-Windows-TerminalServices-RemoteConnectionManager/Admin     | Error and Warning | N/A            |
-| Microsoft-Windows-TerminalServices-LocalSessionManager/Operational   | Error and Warning | N/A            |
-| System    | Error and Warning | N/A            |
-| Microsoft-FSLogix-Apps/Operational             | Error and Warning | N/A           |
-| Microsoft-FSLogix-Apps/Admin     | Error and Warning | N/A            |
+- Application
+- Microsoft-Windows-TerminalServices-RemoteConnectionManager/Admin
+- Microsoft-Windows-TerminalServices-LocalSessionManager/Operational
+- System
+- Microsoft-FSLogix-Apps/Operational
+- Microsoft-FSLogix-Apps/Admin
 
-If we estimate each record size in this example to be 1,500 bytes, this comes out to roughly 1 to 2 Megabytes of Event data per day for the specified environment.
-
-\* Windows Events sends events whenever the terms of the error or warning are met in the environment. Machines in healthy states will send fewer events than machines in unhealthy states. Since event count is unpredictable, we use a range based on examples from relatively healthy environments for this estimation.
+Windows Events send whenever the terms of the event are met in the environment. Machines in healthy states will send fewer events than machines in unhealthy states. Since event count is unpredictable, we use a range of 1,000 to 10,000 events per VM per day based on examples from healthy environments for this estimate. For example, if we estimate each event record size in this example to be 1,500 bytes, this comes out to roughly 2 to 15 megabytes of event data per day for the specified environment.
 
 To learn more about Windows events, see [Windows event records properties](../azure-monitor/agents/data-sources-windows-events.md).
 
-## Diagnostics
+## Estimating diagnostics ingestion
 
 The diagnostics service creates activity logs for both user and administrative actions.
 
