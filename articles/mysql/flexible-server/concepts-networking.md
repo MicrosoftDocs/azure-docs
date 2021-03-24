@@ -69,17 +69,17 @@ Flexible server supports virtual network peering within the same Azure region. P
 ### Connecting from peered VNets in same Azure region
 If the client application trying to connect to flexible server is in the peered virtual network, it may not be able to connect using the flexible server servername as it cannot resolve DNS name for the flexible server from peered VNet. There are two options to resolve this:
 * Use Private IP address (Recommended for dev/test scenario) - This option can be used for development or testing purposes. You can use nslookup to reverse lookup the private IP address for your flexible servername (fully qualified domain name) and use Private IP address to connect from the client application. Using the private IP address for connection to flexible server is not recommended for production use as it can change during planned or unplanned event.
-* Use Private DNS zone (Recommended for production) - This option is suited for production purposes. You provision a [private DNS zone](../../dns/private-dns-getstarted-portal.md) and link it to your client virtual network. In the private DNS zone, you add a [A-record](../dns/dns-zones-records.md#record-types) for your flexible server using its private IP address. You can then use the A-record to connect from the client application in peered virtual network to flexible server.
+* Use Private DNS zone (Recommended for production) - This option is suited for production purposes. You provision a [private DNS zone](../../dns/private-dns-getstarted-portal.md) and link it to your client virtual network. In the private DNS zone, you add a [A-record](../../dns/dns-zones-records.md#record-types) for your flexible server using its private IP address. You can then use the A-record to connect from the client application in peered virtual network to flexible server.
 
 ### Connecting from on-premises to flexible server in Virtual Network using ExpressRoute or VPN
-For workloads requiring access to flexible server in virtual network from on-premises network, you will require [ExpressRoute](../../architecture/reference-architectures/hybrid-networking/expressroute.md) or [VPN](../../architecture/reference-architectures/hybrid-networking/vpn.md) and virtual network [connected to on-premises](/azure/architecture/reference-architectures/hybrid-networking/). With this setup in place, you will require a DNS forwarder to resolve the flexible servername if you would like to connect from client application (like MySQL Workbench) running on on-premises virtual network. This DNS forwarder is responsible for resolving all the DNS queries via a server-level forwarder to the Azure-provided DNS service [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md).
+For workloads requiring access to flexible server in virtual network from on-premises network, you will require [ExpressRoute](../../architecture/reference-architectures/hybrid-networking/expressroute.md) or [VPN](../../architecture/reference-architectures/hybrid-networking/vpn.md) and virtual network [connected to on-premises](../../architecture/reference-architectures/hybrid-networking.md). With this setup in place, you will require a DNS forwarder to resolve the flexible servername if you would like to connect from client application (like MySQL Workbench) running on on-premises virtual network. This DNS forwarder is responsible for resolving all the DNS queries via a server-level forwarder to the Azure-provided DNS service [168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
 To configure properly, you need the following resources:
 
 - On-premises network
 - MySQL Flexible Server provisioned with private access (VNet integration)
-- Virtual network [connected to on-premises](/azure/architecture/reference-architectures/hybrid-networking/)
-- Use DNS forwarder [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) deployed in Azure
+- Virtual network [connected to on-premises](../../architecture/reference-architectures/hybrid-networking/)
+- Use DNS forwarder [168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md) deployed in Azure
 
 You can then use the flexible servername (FQDN) to connect from the client application in peered virtual network or on-premises network to flexible server.
 
