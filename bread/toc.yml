@@ -242,6 +242,9 @@
       - name: Azure Maps
         tocHref: /azure/azure-maps/
         topicHref: /azure/azure-maps/
+      - name: Azure Certified Device
+        tocHref: /azure/certification/
+        topicHref: /azure/certification/
   - name: Resource Manager
     tocHref: /azure/azure-resource-manager/
     topicHref: /azure/azure-resource-manager/
