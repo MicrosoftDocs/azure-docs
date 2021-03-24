@@ -26,7 +26,7 @@ When refreshing pages, the Communication Services client library may not be able
 It's a current limitation due to technical implementation, please refer to [Calling Client library overview](https://docs.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/calling-sdk-features)
 
 ### Enumeration of the mic and speaker devices is not possible in Safari when the application runs on iOS or iPadOS 
-Applications can't enumerate/select mic/speaker devices (like Bluetooth) on Safari iOS/iPad. It's a limitation of the OS - there's always only one device.
+Applications can't enumerate/select mic/speaker devices (like Bluetooth) on Safari iOS/iPad. This is a known operating system limitation.
 
 If you're using Safari on MacOS, your app may not be able to enumerate/select speakers through the Communication Services Device Manager. In this scenario, devices must be selected via the OS. If you use Chrome on MacOS, the app can enumerate/select devices through the Communication Services Device Manager.
 
