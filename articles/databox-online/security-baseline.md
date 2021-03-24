@@ -307,7 +307,8 @@ Note that additional permissions might be required to get visibility into worklo
 
 **Guidance**: Only authorized users, for example, the 'EdgeArmUser' can access the Azure Stack Edge device APIs via the local Azure Resource Manager. User account passwords can only be managed at the Azure portal. 
 
-- [Set Azure Resource Manager password](azure-stack-edge-j-series-set-azure-resource-manager-password.md)
+- [Set Azure Resource Manager password](/azure/databox-online/azure-stack-edge-gpu-set-azure-resource-manager-password
+)
 
 **Azure Security Center monitoring**: Currently not available
 
