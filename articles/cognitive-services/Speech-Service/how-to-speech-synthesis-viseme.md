@@ -17,7 +17,7 @@ zone_pivot_groups: programming-languages-speech-services-nomore-variant
 # Get facial pose events
 
 > [!NOTE]
-> Viseme only works for `en-US-AriaNeural` voice in West US (`westus`) region for now, and will be available for all `en-US` voices by the end of April, 2021.
+> Viseme only works for `en-US-AriaNeural` voice in West US 2 (`westus2`) region for now.
 
 A viseme is the visual description of a phoneme in spoken language.
 It defines the position of the face and mouth when speaking a word.

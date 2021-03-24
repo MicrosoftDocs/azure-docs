@@ -608,6 +608,8 @@
         displayName: hyperscale, ssl
       - name: Security baseline
         href: postgresql-hyperscale-security-baseline.md
+    - name: Scheduled maintenance
+      href: concepts-hyperscale-maintenance.md
     - name: Business continuity
       items:
       - name: Backup and restore

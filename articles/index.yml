@@ -34,7 +34,7 @@ highlightedContent:
     # Card
     - title: Build your skills with Microsoft Learn
       itemType: learn
-      url: /learn/browse/?products=azure&resource_type=learning%2bpath
+      url: /learn/browse/?products=azure&resource_type=learning%20path
 
 productDirectory:
   title: Browse Azure products
