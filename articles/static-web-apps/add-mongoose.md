@@ -59,7 +59,7 @@ The creation process will take a few minutes. Later steps will return to the dat
 
 This tutorial uses a GitHub template repository to help you create your application.
 
-1. Navigate to the [starter template](https://github.com/login?return_to=/GeekTrainer/aswa-mongoose/generate)
+1. Navigate to the [starter template](https://github.com/login?return_to=/staticwebdev/aswa-mongoose/generate)
 2. Choose the **owner** (if using an organization other than your main account)
 3. Name your repository **aswa-mongoose-tutorial**
 4. Click **Create repository from template**
