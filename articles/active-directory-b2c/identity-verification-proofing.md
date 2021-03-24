@@ -20,7 +20,7 @@ With Azure AD B2C partners, customers can enable identity verification and proof
 
 A high-level architecture diagram explains the flow.
 
-![Diagram shows the identity proofing flow](./media/third-party-identity-proofing.png)
+![Diagram shows the identity proofing flow](./media/partner-gallery/third-party-identity-proofing.png)
 
 Microsoft partners with the following ISV partners.
 
