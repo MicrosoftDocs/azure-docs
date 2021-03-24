@@ -46,7 +46,7 @@ az account get-access-token
 
 3. Access the composed endpoint with the access token. Put the access token in a header to provide authorization.  Only the "GET" method is supported.
 
-For example, access an endpoint like *https://SERVICE_NAME.Root_Endpoint/eureka/actuator/health* to see the health status of eureka.
+For example, access an endpoint like *https://SERVICE_NAME.svc.azuremicroservices.io/eureka/actuator/health* to see the health status of eureka.
 
 If the response is *401 Unauthorized*, check to see if the role is successfully assigned.  It will take several minutes for the role take effect or verify that the access token has not expired.
 
