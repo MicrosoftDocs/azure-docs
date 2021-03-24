@@ -1,5 +1,5 @@
 ---
-title: Tutorial 3 Set up Verifiable Credentials issuer in your own Azure AD? (preview)
+title: Tutorial - Issue and verify verifiable credentials using your tenant (preview)
 description: Change the Verifiable Credential code sample to work with your Azure tenant
 documentationCenter: ''
 author: barclayn
@@ -7,7 +7,7 @@ manager: daveba
 ms.service: identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 03/15/2021
+ms.date: 03/23/2021
 ms.author: barclayn
 ms.reviewer: 
 
@@ -15,7 +15,7 @@ ms.reviewer:
 
 ---
 
-# Tutorial - Issue verifiable credentials using your tenant
+# Tutorial: Issue and verify verifiable credentials using your tenant (preview)
 
 > [!IMPORTANT]
 > Azure Verifiable Credentials is currently in public preview.
@@ -156,16 +156,16 @@ Copy down your Application (client) ID as you will need this later to update you
 
 ![Certificates and secrets](media/tutorial-sample-app-your-IdP/nfskid8.png)
 
-After creating your application and client secret in Azure AD, you need to grant the application permission to perform operations on your Key Vault. Making these permission changes is required to enable the website to access and use the private keys stored there.
+After creating your application and client secret in Azure AD, you need to grant the application the necessary permissions to perform operations on your Key Vault. Making these permission changes is required to enable the website to access and use the private keys stored there.
 
-- Go to Key Vault.
-- Select the key vault we are using for these tutorials.
-- Choose **Access Policies** on left nav
-- Choose **+Add Access Policy**.
-- In the **Key permissions** section choose **Get**, and **Sign**.
-- Select **Principal** and use the application ID to search for the application we registered earlier. Select it.
-- Select **Add**.
-- Choose **SAVE**.
+1. Go to Key Vault.
+2. Select the key vault we are using for these tutorials.
+3. Choose **Access Policies** on left nav
+4. Choose **+Add Access Policy**.
+5. In the **Key permissions** section choose **Get**, and **Sign**.
+6. Select **Principal** and use the application ID to search for the application we registered earlier. Select it.
+7. Select **Add**.
+8. Choose **SAVE**.
 
 For more information about Key Vault permissions and access control read the [key vault rbac guide](../../key-vault/general/rbac-guide.md)
 
@@ -180,9 +180,82 @@ Follow the steps we followed earlier. Once that you have a new vc get the contra
 1. Save the contract URL, we will need it in the next section. 
 
 
-## Summary
+## Before we continue
 
-We created a new verifiable credential using your identity provider. There are some values  and that has your own IdP and copied the contract URL. You should have also generated a Client ID for the node app along with a client secret. We will need these values in the next section to turn your sample code to start using your own keys from key vault. 
+We created a new verifiable credential using your identity provider. There are some values  and that has your own IdP and copied the contract URL. You should have also generated a Client ID for the node app along with a client secret. We will need these values in the next section to turn your sample code to start using your own keys from key vault.
+
+- Contract URI
+- Application Client ID (We got this when we registered the Node app)
+- Client secret.
+
+There are a few other values we need to get in order to make the changes one time in our Sample app. Let's get those now!
+
+## Verifiable Credentials Settings
+
+Navigate to the Verifiable Credentials Settings and copy down the following values:
+
+- Tenant identifier 
+- Issuer identifier (your DID)
+- Key vault (uri)
+
+Under the Signing key identifier, there is a URI but we only need a portion of it. Copy from the part that says issuerSigningKeyION. 
+
+Here is an example:
+
+```
+issuerSigningKeyIon-25e48331-508a-b026-55ee-ca87dc173104/aee901a18c814dcab1a6d202ac35a3f3
+```
+
+## DID Document 
+
+1. Open notepad and paste ```https://beta.discover.did.microsoft.com/1.0/identifiers/``` and append your did to the url. Like what is shown below:
+
+    ```http
+    https://beta.discover.did.microsoft.com/1.0/identifiers/did:ion:EiD3DvRok3n5OwN5hXy2gmzzbzyuxNSjPm9UwnI3sL3Ssg:eyJkZWx0YSI6eyJwYXRjaGVzIjpbeyJhY3Rpb24iOiJyZXBsYWNlIiwiZG9jdW1lbnQiOnsicHVibGljS2V5cyI6W3siaWQiOiJzaWdfOTk0ZWMwYWIiLCJwdWJsaWNLZXlKd2siOnsiY3J2Ijoic2VjcDI1NmsxIiwia3R5IjoiRUMiLCJ4IjoiRXFXS3g0NlRrMXgzUHpnanRMVzlMMThrbEhwZjJ3Y0xIWkFYSU5ORFF0MCIsInkiOiJ6TmVWbmZsN2xUZWJDOGNXc3VyR1l3VURCWGViWEUzeWljREZTRTFobGRjskkdlkdlslole:LoKIJNML
+    ```
+
+2. Paste the URL in your browser.
+
+    ![assign key vault permissions](media/tutorial-sample-app-your-IdP/did-document.png)
+
+3. Copy the json in the browser and open up the following link: https://jsonformatter.org/ to format the json response. 
+4. From the formatted response find the section called **verificationMethod**
+5. Under "verificationMethod" copy the id and label it as the kvSigningKeyId
+    
+    ```json=
+    "verificationMethod": [
+          {
+            "id": "#sig_25e48331",
+    ```
+
+Now we have everything we need to make the changes in our sample code.
+
+- **Issuer:** app.js update const credential with your new contract uri
+- **Verifier:** app.js update the issuerDid with your Issuer Identifier
+- **Issuer and Verifier** update the didconfig.json with the following values:
+
+
+```json=
+{
+    "azTenantId": "Your tenant ID",
+    "azClientId": "Your client ID",
+    "azClientSecret": "Your client secret",
+    "kvVaultUri": "your keyvault uri",
+    "kvSigningKeyId": "The ID from your DID Document",
+    "kvRemoteSigningKeyId" : "The snippet of the issuerSigningKeyION we copied ",
+    "did": "Your DID"
+}
+```
+
+>[!IMPORTANT]
+>This is a demo application and you should never give your application the secret.
+
+
+Now you have everything in place to issuer and verify your own Verifiable Credential from your AAD with your own keys. 
+
+## Issue and Verify the VC
+
+Follow the same steps to issue the Verifiable Credential and validate it with your app. 
 
 ## Next steps
 
