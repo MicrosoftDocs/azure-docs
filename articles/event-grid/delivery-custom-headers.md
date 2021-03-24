@@ -29,20 +29,22 @@ You can set the value of a header based on a property in an incoming event. Use 
 
 ```screenshot with the below example goes instead of the table below```
 
-| Header name |            | Header value |
-| :--         | :--------: | :--:         |
-|`Channel`      |            | `data.system`  |
+| Header name |  Header value |
+| :--         |  :--:         |
+|`Channel`    |  `data.system`  |
 
 
-## Examples of using delivery properties
+## Examples
+This section gives you a few examples of using delivery properties.
 
 ### Setting the Authorization header with a bearer token (non-normative example)
 
-Set a value to an Authorization header to identify the request with your Webhook handler. An Authorization header can be set if you aren't [protecting your Webhook with Azure Active Directory](https://docs.microsoft.com/en-us/azure/event-grid/secure-webhook-delivery).
+Set a value to an Authorization header to identify the request with your Webhook handler. An Authorization header can be set if you aren't [protecting your Webhook with Azure Active Directory](secure-webhook-delivery.md).
 
-| Header name   |            | Header value |
-| :--           | :--------: | :--:         |
-|`Authorization`  |            |`BEARER SlAV32hkKG...`|
+| Header name   | Header value |
+| :--           | :--:         |
+|`Authorization` |`BEARER SlAV32hkKG...`|
+
 
 ```screenshot```
 
@@ -65,9 +67,9 @@ Azure Service Bus supports the use of a [BrokerProperties HTTP header](/rest/api
 
 ```screenshot with the below example goes instead of the table below```
 
-| Header name          |            | Header value                                  |
-| :--                  | :--------: | :--:                                          |
-|`BrokerProperties`      |            | `BrokerProperties:  { “MessageId”: “{701332E1-B37B-4D29-AA0A-E367906C206E}”, “TimeToLive” : 90}` |'
+| Header name | Header value                                  |
+| :-- | :--:                                          |
+|`BrokerProperties`      | `BrokerProperties:  { "MessageId": "{701332E1-B37B-4D29-AA0A-E367906C206E}", "TimeToLive" : 90}` |
 
 
 ### Event Hubs example
@@ -76,9 +78,9 @@ If you need to publish events to a specific partition within an event hub, defin
 
 ```screenshot with the below example goes instead of the table below```
 
-| Header name          |            | Header value                                  |
-| :--                  | :--------: | :--:                                          |
-|`BrokerProperties`      |            | `BrokerProperties: {"PartitionKey": "0000000000-0000-0000-0000-000000000000000"}`  |
+| Header name | Header value                                  |
+| :-- | :--:                                          |
+|`BrokerProperties` | `BrokerProperties: {"PartitionKey": "0000000000-0000-0000-0000-000000000000000"}`  |
 
 
 ### Configure time to live on outgoing events to Azure Storage Queues
@@ -87,3 +89,9 @@ Define the time to live the outgoing message will have once been delivered to an
 
 ```screenshot goes here```
 
+## Next steps
+For more information about event delivery, see the following article:
+
+- [Delivery and retry](delivery-and-retry.md)
+- [Webhook event delivery](webhook-event-delivery.md)
+- [Event filtering](event-filtering.md)
