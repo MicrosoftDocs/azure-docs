@@ -9,7 +9,7 @@ ms.topic: overview
 ms.date: 03/24/2021
 ms.author: inhenkel
 ---
-# Media Services samples
+# Media Services sampless
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 

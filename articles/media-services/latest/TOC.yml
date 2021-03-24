@@ -96,7 +96,7 @@
       href: tutorial-events-log-analytics.md
 - name: Samples
   items:
-  - name: Samples overview
+  - name: Samples overviews
     href: samples-overview.md
   - name: Media Services v3 samples
     displayName: .NET, Java
