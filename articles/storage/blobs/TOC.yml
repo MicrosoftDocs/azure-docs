@@ -287,7 +287,7 @@
         href: storage-blob-container-properties-metadata.md
     - name: Create and manage blobs
       items:
-      - name: List blobs (.NET)
+      - name: List blobs (SDK)
         href: storage-blobs-list.md
       - name: Manage blob properties and metadata (.NET)
         href: storage-blob-properties-metadata.md

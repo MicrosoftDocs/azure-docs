@@ -24,7 +24,7 @@ items:
   - name: 2 Analyze using serverless SQL pool
     href: get-started-analyze-sql-on-demand.md
     displayName: get, started
-  - name: 3 Analyze using Spark
+  - name: 3 Analyze using serveless Spark pool
     href: get-started-analyze-spark.md
     displayName: get, started
   - name: 4 Analyze using a dedicated SQL pool

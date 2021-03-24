@@ -1,5 +1,5 @@
 ---
-title: "SQL Server to SQL Managed Instance: Migration overview"
+title: "SQL Server to Azure SQL Managed Instance: Migration overview"
 description: Learn about the different tools and options available to migrate your SQL Server databases to Azure SQL Managed Instance.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
@@ -11,7 +11,7 @@ ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 02/18/2020
 ---
-# Migration overview: SQL Server to SQL Managed Instance
+# Migration overview: SQL Server to Azure SQL Managed Instance
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
 
 Learn about different migration options and considerations to migrate your SQL Server to Azure SQL Managed Instance. 
@@ -24,7 +24,7 @@ You can migrate SQL Server running on-premises or on:
 - Compute Engine (Google Cloud Platform - GCP)  
 - Cloud SQL for SQL Server (Google Cloud Platform – GCP) 
 
-For other scenarios, see the [Database Migration Guide](https://datamigration.microsoft.com/). 
+For other migration guides, see [Database Migration](https://docs.microsoft.com/data-migration). 
 
 ## Overview
 
@@ -54,7 +54,7 @@ Some general guidelines to help you choose the right service tier and characteri
 - Use the baseline IO latency of the file subsystem to choose between General Purpose (latency greater than 5 ms) and Business Critical (latency less than 3 ms) service tiers. 
 - Use the baseline throughput to preallocate the size of the data and log files to achieve expected IO performance. 
 
-You can choose compute and storage resources during deployment and then change them after using the [Azure portal](../../database/scale-resources.md) without incurring downtime for your application. 
+You can choose compute and storage resources during deployment and then [change them after using the Azure portal](../../database/scale-resources.md) without incurring downtime for your application. 
 
 > [!IMPORTANT]
 > Any discrepancy in the [managed instance virtual network requirements](../../managed-instance/connectivity-architecture-overview.md#network-requirements) can prevent you from creating new instances or using existing ones. Learn more about [creating new](../../managed-instance/virtual-network-subnet-create-arm-template.md) and [configuring existing](../../managed-instance/vnet-existing-add-subnet.md) networks. 
@@ -94,9 +94,9 @@ The following table lists the recommended migration tools:
 
 The following table lists alternative migration tools: 
 
-|Technology |Description  |
+|**Technology** |**Description**  |
 |---------|---------|
-|[Transactional replication](../../managed-instance/replication-transactional-overview.md) | Replicate data from source SQL Server database table(s) to SQL Managed Instance by providing a publisher-subscriber type migration option while maintaining transactional consistency. |  |
+|[Transactional replication](../../managed-instance/replication-transactional-overview.md) | Replicate data from source SQL Server database table(s) to SQL Managed Instance by providing a publisher-subscriber type migration option while maintaining transactional consistency. | 
 |[Bulk copy](/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server)| The [bulk copy program (bcp) utility](/sql/tools/bcp-utility) copies data from an instance of SQL Server into a data file. Use the BCP utility to export the data from your source and import the data file into the target SQL Managed Instance.</br></br> For high-speed bulk copy operations to move data to Azure SQL Database, [Smart Bulk Copy tool](/samples/azure-samples/smartbulkcopy/smart-bulk-copy/) can be used to maximize transfer speeds by leveraging parallel copy tasks. | 
 |[Import Export Wizard / BACPAC](../../database/database-import.md?tabs=azure-powershell)| [BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) is a Windows file with a `.bacpac` extension that encapsulates a database's schema and data. BACPAC can be used to both export data from a source SQL Server and to import the file back into Azure SQL Managed Instance.  |  
 |[Azure Data Factory (ADF)](../../../data-factory/connector-azure-sql-managed-instance.md)| The [Copy activity](../../../data-factory/copy-activity-overview.md) in Azure Data Factory migrates data from source SQL Server database(s) to SQL Managed Instance using built-in connectors and an [Integration Runtime](../../../data-factory/concepts-integration-runtime.md).</br> </br> ADF supports a wide range of [connectors](../../../data-factory/connector-overview.md) to move data from SQL Server sources to SQL Managed Instance. |
@@ -235,7 +235,7 @@ These resources were developed as part of the Data SQL Ninja Program, which is s
 
 ## Next steps
 
-To start migrating your SQL Server to Azure SQL Managed Instance, see the [SQL Server to SQL Managed Instance migration guide](sql-server-to-managed-instance-guide.md).
+To start migrating your SQL Server to Azure SQL Managed Instance, see the [SQL Server to Azure SQL Managed Instance migration guide](sql-server-to-managed-instance-guide.md).
 
 - For a matrix of the Microsoft and third-party services and tools that are available to assist you with various database and data migration scenarios as well as specialty tasks, see [Service and tools for data migration](../../../dms/dms-tools-matrix.md).
 

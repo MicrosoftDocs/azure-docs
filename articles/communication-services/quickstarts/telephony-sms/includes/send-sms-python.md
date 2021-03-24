@@ -95,7 +95,7 @@ To send an SMS message to a single recipient, call the ```send``` method from th
 # calling send() with sms values
 sms_responses = sms_client.send(
     from_="<from-phone-number>",
-    to="<to-phone-number>,
+    to="<to-phone-number>",
     message="Hello World via SMS",
     enable_delivery_report=True, # optional property
     tag="custom-tag") # optional property
