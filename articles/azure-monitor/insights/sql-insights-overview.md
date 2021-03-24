@@ -30,13 +30,14 @@ SQL insights supports the following versions of SQL Server:
 SQL insights supports SQL Server running in the following environments:
 - Azure SQL Database
 - Azure SQL Managed Instance
-- Azure SQL VMs
-- Azure VMs
+- SQL Server on Azure Virtual Machines (SQL Server running on virtual machines registered with the [SQL virtual machine](../../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md) provider)
+- Azure VMs (SQL Server running on virtual machines not registered with the [SQL virtual machine](../../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md) provider)
 
 SQL insights has no support or limited support for the following:
 - **Non-Azure instances**: SQL Server running on virtual machines outside of Azure are not supported
 - **Azure SQL Database elastic pools**: Metrics cannot be gathered for elastic pools. However, metrics can be gathered for individual databases within elastic pools
-- **Azure SQL Database serverless compute tier**: Metrics can be gathered for databases using the serverless compute tier. However, the process of gathering metrics will reset the auto-pause delay timer, preventing the database from entering an auto-paused state
+- **Azure SQL Database low service tiers**: Metrics cannot be gathered for databases on Basic, S0, S1, and S2 [service tiers](../../azure-sql/database/resource-limits-dtu-single-databases.md)
+- **Azure SQL Database serverless tier**: Metrics can be gathered for databases using the serverless compute tier. However, the process of gathering metrics will reset the auto-pause delay timer, preventing the database from entering an auto-paused state
 - **Readable secondary replicas**: Metrics can only be gathered for a single secondary replica per-database. If a database has more than 1 secondary replica, only 1 can be monitored.
 - **Authentication with Azure Active Directory**: The only supported method of [authentication](../../azure-sql/database/logins-create-manage.md#authentication-and-authorization) for monitoring is SQL authentication. For SQL Server on Azure VM, authentication using Active Directory on a custom domain controller is not supported.  
 
