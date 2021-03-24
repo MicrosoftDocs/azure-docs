@@ -77,7 +77,7 @@ The Communication Services calling client library supports the following streami
 
 ## Calling client library timeouts
 
-The following timeouts apply to the Communication Services calling client libraries:
+The following timeouts apply to the Communication Services Calling client libraries:
 
 | Action           | Timeout in seconds |
 | -------------- | ---------- |
