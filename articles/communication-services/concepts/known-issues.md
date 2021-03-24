@@ -14,7 +14,7 @@ ms.service: azure-communication-services
 # VoIP limitations / known issues 
 This article provides information about limitations and known issues related to Voice and Video Calling SDKs in Azure Communication Services.
 
-## JAVASCRIPT SDK LIMITATIONS
+## JavaScript client library limitations 
 
 ### Quality
 There are multiple factors that can affect the quality of your experience. Please ensure that you use the supported version of SDKs and operation systems, validate your network. This [article]( https://github.com/nmurav/azure-docs-pr/edit/master/articles/communication-services/concepts/voice-video-calling/network-requirements.md) explains the considerations how to plan for media quality.
