@@ -27,14 +27,14 @@ In this tutorial, you learn to:
 
 
 ## Create a static web app in an Azure DevOps repository
-> [!NOTE]
-> If you have an existing app in your repository, you may skip to the next section.
+  > [!NOTE]
+  > If you have an existing app in your repository, you may skip to the next section.
 
 1. Navigate to your Azure DevOps repository.
    
 2. Use an existing repository or _import a repository_ as shown below.
   
-  :::image type="content" source="media/publish-devops/devops-repo.png" alt-text="DevOps Repo":::
+    :::image type="content" source="media/publish-devops/devops-repo.png" alt-text="DevOps Repo":::
 
 3. Create a new file for your front end web app.
    
@@ -75,19 +75,19 @@ In this tutorial, you learn to:
 5. Select **Create**.
    
 6. Under _Deployment details_ ensure that you select **Other**. This enables you to use the code in your Azure DevOps repository.
-  > [!NOTE]
-  > The functionality to select _other_ is currently rolling out and may not be available yet in all Azure subscriptions.
+    > [!NOTE]
+    > The functionality to select _other_ is currently rolling out and may not be available yet in all Azure subscriptions.
 
-  :::image type="content" source="media/publish-devops/create-resource.png" alt-text="Deployment details - other":::
+    :::image type="content" source="media/publish-devops/create-resource.png" alt-text="Deployment details - other":::
 
 7. Once the deployment is successful, select **Manage deployment token**.
 
 8. Copy the **deployment token** and paste it into a text editor for use in another screen.
 
-> [!NOTE]
-> This value is set aside for now because you'll copy and paste more values in coming steps.
+  > [!NOTE]
+  > This value is set aside for now because you'll copy and paste more values in coming steps.
 
-  :::image type="content" source="media/publish-devops/deployment-token.png" alt-text="Deployment token"::: 
+    :::image type="content" source="media/publish-devops/deployment-token.png" alt-text="Deployment token"::: 
 
 ## Create the Pipeline Task in Azure DevOps
 
@@ -143,13 +143,13 @@ The `azure_static_web_apps_api_token` value is self managed and is manually conf
 
 10. Select **Save and run** the pipeline.
 
-  :::image type="content" source="media/publish-devops/save-and-run.png" alt-text="Pipeline":::
+    :::image type="content" source="media/publish-devops/save-and-run.png" alt-text="Pipeline":::
    
 11. Once the deployment is successful, navigate to the Azure Static Web Apps **Overview** which includes links to the deployment configuration.
 
 12. Select the **URL** to see your newly deployed website. Note how the the _Source_ link now points to the branch and location of the Azure DevOps repository.
    
-  :::image type="content" source="media/publish-devops/deployment-location.png" alt-text="Deployment location":::
+    :::image type="content" source="media/publish-devops/deployment-location.png" alt-text="Deployment location":::
 
 
 ## Next steps
