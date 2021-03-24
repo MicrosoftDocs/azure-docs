@@ -4,14 +4,14 @@ description: This article  provides information on Web Application Firewall DRS 
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 03/23/2021
+ms.date: 03/24/2021
 ms.author: victorh
 ms.topic: conceptual
 ---
 
 # Web Application Firewall DRS rule groups and rules
 
-Azure Front Door web application firewall (WAF) protects web applications from common vulnerabilities and exploits. Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Since such rulesets are managed by Azure, the rules are updated as needed to protect against new attack signatures.
+Azure Front Door web application firewall (WAF) protects web applications from common vulnerabilities and exploits. Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Since such rule sets are managed by Azure, the rules are updated as needed to protect against new attack signatures.
 
 
 ## Default rule sets
