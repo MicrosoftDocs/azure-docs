@@ -20,8 +20,8 @@ This article contains a list of all the samples available for Media Services org
 The [REST Postman](https://github.com/Azure-Samples/media-services-v3-rest-postman) samples includes a Postman environment and collection for you to import into the Postman client.
 
 ## Samples by SDK
-You'll find description and links to the samples you may be looking for in each of the tabs.
 
+You'll find description and links to the samples you may be looking for in each of the tabs.
 
 ## [.NET](#tab/net/)
 
@@ -44,6 +44,7 @@ You'll find description and links to the samples you may be looking for in each 
 | [HighAvailabilityEncodingStreaming](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/HighAvailabilityEncodingStreaming/) | Guidance and best practices for a production system using on-demand encoding or analytics. Readers should start with the companion article [High Availability with Media Services and VOD](https://docs.microsoft.com/azure/media-services/latest/media-services-high-availability-encoding). There is a separate solution file provided for the [HighAvailabilityEncodingStreaming](/HighAvailabilityEncodingStreaming/Readme.md) sample. |
 
 ## [Node.JS](#tab/node/)
+
 |Folder|Description|
 |---|---|
 |[HelloWorld-ListAssets](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/HelloWorld-ListAssets) |How to connect and list assets |
