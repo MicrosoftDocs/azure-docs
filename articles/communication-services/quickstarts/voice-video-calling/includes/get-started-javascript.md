@@ -11,7 +11,7 @@ ms.service: azure-communication-services
 In this quickstart, you'll learn how start a call using the Azure Communication Services Calling client library for JavaScript.
 
 > [!NOTE]
-> This document uses version 1.0.0-beta.6 of the calling client library.
+> This document uses version 1.0.0-beta.10 of the calling client library.
 
 ## Prerequisites
 
