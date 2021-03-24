@@ -34,9 +34,9 @@ Gather data during peak hours such as workloads during your typical business day
 Use the performance analysis to select the [VM Size](../../../virtual-machines/sizes-memory.md) that can scale to your workload's performance requirements.
 
 
-## IOPS and Throughput
+## Storage
 
-SQL Server performance depends heavily on the I/O subsystem. Unless your database fits into physical memory, SQL Server constantly brings database pages in and out of the buffer pool. The data files for SQL Server should be treated differently. Access to log files is sequential except when a transaction needs to be rolled back where data files, including TempDB, are randomly accessed. If you have a slow I/O subsystem, your users may experience performance issues such as slow response times and tasks that do not complete due to time-outs. 
+SQL Server performance depends heavily on the I/O subsystem and storage performance is measured by IOPS and throughput. Unless your database fits into physical memory, SQL Server constantly brings database pages in and out of the buffer pool. The data files for SQL Server should be treated differently. Access to log files is sequential except when a transaction needs to be rolled back where data files, including TempDB, are randomly accessed. If you have a slow I/O subsystem, your users may experience performance issues such as slow response times and tasks that do not complete due to time-outs. 
 
 The Azure Marketplace virtual machines have log files on a physical disk that is separate from the data files by default. The TempDB data files count and size meet best practices and are targeted to the ephemeral D:/ drive.. 
 
@@ -62,7 +62,7 @@ The following PerfMon counters can help validate the memory health of a SQL Serv
 * [\SQLServer:Buffer Manager\Lazy writes/sec](/sql/relational-databases/performance-monitor/sql-server-buffer-manager-object)
 * [\SQLServer:Buffer Manager\Page life expectancy](/sql/relational-databases/performance-monitor/sql-server-buffer-manager-object)
 
-## Compute / Processing
+## Compute
 
 Compute in Azure is managed differently than on-premises. On-premises servers are built to last several years without an upgrade due to the management overhead and cost of acquiring new hardware. Virtualization mitigates some of these issues but applications are optimized to take the most advantage of the underlying hardware, meaning any significant change to resource consumption requires rebalancing the entire physical environment. 
 

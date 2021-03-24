@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/25/2021
-ms.author: dplessMSFT
+ms.author: dpless
 ms.reviewer: jroth
 ---
 # VM size: Performance best practices for SQL Server on Azure VMs
@@ -101,7 +101,7 @@ The [DSv2-series 11-15](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2
 
 The [general purpose virtual machine sizes](../../../virtual-machines/sizes-general.md) are designed to provide balanced memory-to-vCore ratios for smaller entry level workloads such as development and test, web servers, and smaller database servers. 
 
-Because of the smaller memory-to-vCore ratios with the general purpose virtual machines, it is important to carefully monitor memory-based performance counters to ensure SQL Server is able to get the buffer cache memory it needs. See [memory performance baseline](#memory) for more information. 
+Because of the smaller memory-to-vCore ratios with the general purpose virtual machines, it is important to carefully monitor memory-based performance counters to ensure SQL Server is able to get the buffer cache memory it needs. See [memory performance baseline](performance-guidelines-best-practices-collect-baseline.md#memory) for more information. 
 
 Since the starting recommendation for production workloads is a memory-to-vCore ratio of 8, the minimum recommended configuration for a general purpose VM running SQL Server is 4 vCPU and 32 GB of memory. 
 
