@@ -147,7 +147,7 @@ You can use the client credentials flow to get an access token. To access the me
 | grant_type    | True     | Specifies the requested grant type. In a Client Credentials Grant flow, the value must be client_credentials. |
 | client_id     | True     | The application (service principal) ID of the application you registered in Azure portal or Azure CLI.        |
 | client_secret | True     | The secret generated for the application (service principal)                                                  |
-| resource      | True     | Synapse resource uri, should be https://dev.azuresynapse.net                                                  |
+| resource      | True     | Synapse resource uri, should be 'https://dev.azuresynapse.net'                                                  |
 
 ```bash
 curl -X GET -H 'Content-Type: application/x-www-form-urlencoded' \
