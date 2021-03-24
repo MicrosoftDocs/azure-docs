@@ -24,9 +24,9 @@ You have two networking options for your Azure Database for MySQL Flexible Serve
 * **Private access (VNet Integration)** – You can deploy your flexible server into your [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md). Azure virtual networks provide private and secure network communication. Resources in a virtual network can communicate through private IP addresses.
 
    Choose the VNet Integration option if you want the following capabilities:
-   * Connect from Azure resources in the same virtual network to your flexible server using private IP addresses
+   * Connect from Azure resources in the same virtual network or [peered virtual network](../../virtual-network/virtual-network-peering-overview.md) to your flexible server
    * Use VPN or ExpressRoute to connect from non-Azure resources to your flexible server
-   * The flexible server has no public endpoint
+   * No public endpoint
 
 * **Public access (allowed IP addresses)** – Your flexible server is accessed through a public endpoint. The public endpoint is a publicly resolvable DNS address. The phrase “allowed IP addresses” refers to a range of IPs you choose to give permission to access your server. These permissions are called **firewall rules**. 
 
@@ -53,7 +53,6 @@ Here are some concepts to be familiar with when using virtual networks with MySQ
 
     Your virtual network must be in the same Azure region as your flexible server.
 
-
 * **Delegated subnet** - 
    A virtual network contains subnets (sub-networks). Subnets enable you to segment your virtual network into smaller address spaces. Azure resources are deployed into specific subnets within a virtual network. 
 
@@ -62,6 +61,31 @@ Here are some concepts to be familiar with when using virtual networks with MySQ
 * **Network security groups (NSG)**
    Security rules in network security groups enable you to filter the type of network traffic that can flow in and out of virtual network subnets and network interfaces. Review the [network security group overview](../../virtual-network/network-security-groups-overview.md) for more information.
 
+* **Virtual network peering**
+   Virtual network peering enables you to seamlessly connect two or more Virtual Networks in Azure. The peered virtual networks appear as one for connectivity purposes. The traffic between virtual machines in peered virtual networks uses the Microsoft backbone infrastructure. The traffic between client application and flexible server in peered VNets is routed through Microsoft's private network only and is isolated to that network only.
+
+Flexible server supports virtual network peering within the same Azure region. Peering VNets across regions **is not supported**. Review the [virtual network peering concepts](../../virtual-network/virtual-network-peering-overview.md) for more information.
+
+### Connecting from peered VNets in same Azure region
+If the client application trying to connect to flexible server is in the peered virtual network, it may not be able to connect using the flexible server servername as it cannot resolve DNS name for the flexible server from peered VNet. There are two options to resolve this:
+* Use Private IP address (Recommended for dev/test scenario) - This option can be used for development or testing purposes. You can use nslookup to reverse lookup the private IP address for your flexible servername (fully qualified domain name) and use Private IP address to connect from the client application. Using the private IP address for connection to flexible server is not recommended for production use as it can change during planned or unplanned event.
+* Use Private DNS zone (Recommended for production) - This option is suited for production purposes. You provision a [private DNS zone](../../dns/private-dns-getstarted-portal.md) and link it to your client virtual network. In the private DNS zone, you add a [A-record](../dns/dns-zones-records.md#record-types) for your flexible server using its private IP address. You can then use the A-record to connect from the client application in peered virtual network to flexible server.
+
+### Connecting from on-premises to flexible server in Virtual Network using ExpressRoute or VPN
+For workloads requiring access to flexible server in virtual network from on-premises network, you will require [ExpressRoute](../../architecture/reference-architectures/hybrid-networking/expressroute.md) or [VPN](../../architecture/reference-architectures/hybrid-networking/vpn.md) and virtual network [connected to on-premises](/azure/architecture/reference-architectures/hybrid-networking/). With this setup in place, you will require a DNS forwarder to resolve the flexible servername if you would like to connect from client application (like Workbench) running on on-premises virtual network. This DNS forwarder is responsible for resolving all the DNS queries via a server-level forwarder to the Azure-provided DNS service [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md).
+
+In addition, a [private DNS zone](../../dns/private-dns-getstarted-portal.md) linked to your virtual network hosting flexible server is required for this configuration to work. All client connections made from on-premises and [peered virtual networks](../virtual-network/virtual-network-peering-overview.md) must also use the same private DNS zone.
+
+To configure properly, you need the following resources:
+
+- On-premises network
+- MySQL Flexible Server provisioned with private access (VNet integration)
+- Virtual network [connected to on-premises](/azure/architecture/reference-architectures/hybrid-networking/)
+- [Peered virtual network](../virtual-network/virtual-network-peering-overview.md) 
+- DNS forwarder [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) deployed in Azure
+- Private DNS zones with [A-record](../dns/dns-zones-records.md#record-types) for your flexible server using its private IP address
+
+You can then use the A-record to connect from the client application in peered virtual network or on-premises network to flexible server.
 
 ### Unsupported virtual network scenarios
 * Public endpoint (or public IP or DNS) - A flexible server deployed to a virtual network cannot have a public endpoint
@@ -117,11 +141,10 @@ Example
 * Where possible, avoid using `hostname = 10.0.0.4` (a private address) or `hostname = 40.2.45.67` (a public IP)
 
 
-
 ## TLS and SSL
 Azure Database for MySQL Flexible Server supports connecting your client applications to the MySQL service using Transport Layer Security (TLS). TLS is an industry standard protocol that ensures encrypted network connections between your database server and client applications. TLS is an updated protocol of Secure Sockets Layer (SSL).
 
-Azure Database for MySQL Flexible Server only supports encrypted connections using Transport Layer Security (TLS 1.2). All incoming connections with TLS 1.0 and TLS 1.1 will be denied. You cannot disable or change the TLS version for connecting to Azure Database for MySQL Flexible Server.
+Azure Database for MySQL Flexible Server only supports encrypted connections using Transport Layer Security (TLS 1.2). All incoming connections with TLS 1.0 and TLS 1.1 will be denied. You cannot disable or change the TLS version for connecting to Azure Database for MySQL Flexible Server. Review how to [connect using SSL/TLS](how-to-connect-tls-ssl.md) to learn more. 
 
 
 ## Next steps
