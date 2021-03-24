@@ -80,7 +80,7 @@ Azure Attestation includes the below claims in the attestation token for all att
 - **x-ms-policy-hash**: Hash of Azure Attestation evaluation policy computed as BASE64URL(SHA256(UTF8(BASE64URL(UTF8(policy text)))))
 - **x-ms-policy-signer**: JSON object with a "jwk” member representing the key a customer used to sign their policy. This is applicable when customer uploads a signed policy
 
-Below claim names are leveraged from [IETF JWT specification](https://tools.ietf.org/html/rfc7519)
+Below claim names are used from [IETF JWT specification](https://tools.ietf.org/html/rfc7519)
 
 - **"jti" (JWT ID) Claim** - Unique identifier for the JWT
 - **"iss" (Issuer) Claim** - The principal that issued the JWT 
@@ -88,7 +88,7 @@ Below claim names are leveraged from [IETF JWT specification](https://tools.ietf
 - **"exp" (Expiration Time) Claim** - Expiration time after which the JWT must not be accepted for processing
 - **"nbf" (Not Before) Claim** - Not Before time before which the JWT must not be accepted for processing 
 
-Below claim names are leveraged from [IETF EAT draft specification](https://tools.ietf.org/html/draft-ietf-rats-eat-03#page-9)
+Below claim names are used from [IETF EAT draft specification](https://tools.ietf.org/html/draft-ietf-rats-eat-03#page-9)
 
 - **"Nonce claim" (nonce)** - An untransformed direct copy of an optional nonce value provided by a client 
 
