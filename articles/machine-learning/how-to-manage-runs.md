@@ -98,7 +98,7 @@ You'll need the following items:
     
         For more information, see [az ml folder attach](/cli/azure/ext/azure-cli-ml/ml/folder?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach).
     
-    2. To start the run, use the following command. When using this command, specify the name of the runconfig file (the text before \*.runconfig if you are looking at your file system) against the -c parameter.
+    2. To start the run, use the following command. When using this command, specify the name of the runconfig file (the text before \*.runconfig if you're looking at your file system) against the -c parameter.
     
         ```azurecli-interactive
         az ml run submit-script -c sklearn -e testexperiment train.py
@@ -129,7 +129,7 @@ You'll need the following items:
         print(notebook_run.get_status())
         ```
     
-    * To get the run ID, execution time, and additional details about the run, use the [`get_details()`](/python/api/azureml-core/azureml.core.workspace.workspace#get-details--) method.
+    * To get the run ID, execution time, and other details about the run, use the [`get_details()`](/python/api/azureml-core/azureml.core.workspace.workspace#get-details--) method.
     
         ```python
         print(notebook_run.get_details())
@@ -185,7 +185,7 @@ You'll need the following items:
     
         In the **All runs'** page, you can filter the runs list by tags, experiments, compute target and more to better organize and scope your work.  
     
-    1. Make customizations to the page by selecting runs to compare, adding charts or applying filters. These changes can be saved as a **Custom View** so you can easily return to your work. Users with workspace permissions can edit or view the custom view. Also, share the custom view with team members for enhanced collaboration by selecting **Share view**.   
+    1. Make customizations to the page by selecting runs to compare, adding charts or applying filters. These changes can be saved as a **Custom View** so you can easily return to your work. Users with workspace permissions can edit, or view the custom view. Also, share the custom view with team members for enhanced collaboration by selecting **Share view**.   
     
         :::image type="content" source="media/how-to-manage-runs/custom-views.gif" alt-text="Screenshot: create a custom view":::
     
@@ -220,7 +220,7 @@ You'll need the following items:
 
 A run description can be added to a run to provide more context and information to the run. You can also search on these descriptions from the runs list and add the run description as a column in the runs list. 
 
-Navigate to the **Run Details** page for your run and select the edit or pencil icon to add, edit or delete descriptions for your run. To persist the changes to the runs list, save the changes to your existing Custom View or a new Custom View. Markdown format is supported for run descriptions which allows images to be embedded and deep linking as shown below.
+Navigate to the **Run Details** page for your run and select the edit or pencil icon to add, edit, or delete descriptions for your run. To persist the changes to the runs list, save the changes to your existing Custom View or a new Custom View. Markdown format is supported for run descriptions, which allows images to be embedded and deep linking as shown below.
 
 :::image type="content" source="media/how-to-manage-runs/run-description.gif" alt-text="Screenshot: create a run description"::: 
 
@@ -280,9 +280,9 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
     
     # [Studio](#tab/azure-studio)
     
-    You can add, edit or delete run tags from the studio. Navigate to the **Run Details** page for your run and select the edit or pencil icon to add, edit or delete tags for your runs. You can also search and filter on these tags from the runs list page.
+    You can add, edit, or delete run tags from the studio. Navigate to the **Run Details** page for your run and select the edit, or pencil icon to add, edit, or delete tags for your runs. You can also search and filter on these tags from the runs list page.
     
-    :::image type="content" source="media/how-to-manage-runs/run-tags.gif" alt-text="Screenshot: Add, edit or delete run tags":::
+    :::image type="content" source="media/how-to-manage-runs/run-tags.gif" alt-text="Screenshot: Add, edit, or delete run tags":::
     
     ---
 
@@ -399,11 +399,11 @@ creating a batch of runs is more efficient than creating them one by one.
 
 ### Submit child runs
 
-Child runs can also be submitted from a parent run. This allows you to create hierarchies of parent and child runs. You cannot create a parentless child run: even if the parent run does nothing but launch child runs, it's still necessary to create the hierarchy. The statuses of all runs are independent: a parent can be in the `"Completed"` successful state even if one or more child runs were canceled or failed.  
+Child runs can also be submitted from a parent run. This allows you to create hierarchies of parent and child runs. You can't create a parentless child run: even if the parent run does nothing but launch child runs, it's still necessary to create the hierarchy. The statuses of all runs are independent: a parent can be in the `"Completed"` successful state even if one or more child runs were canceled or failed.  
 
-You may wish your child runs to use a different run configuration than the parent run. For instance, you might use a less-powerful, CPU-based configuration for the parent, while using GPU-based configurations for your children. Another common desire is to pass each child different arguments and data. To customize a child run, create a `ScriptRunConfig` object for the child run. The below code does the following:
+You may wish your child runs to use a different run configuration than the parent run. For instance, you might use a less-powerful, CPU-based configuration for the parent, while using GPU-based configurations for your children. Another common wish is to pass each child different arguments and data. To customize a child run, create a `ScriptRunConfig` object for the child run. The below code:
 
-- Retrieve a compute resource named `"gpu-cluster"` from the workspace `ws`
+- Retrieves a compute resource named `"gpu-cluster"` from the workspace `ws`
 - Iterates over different argument values to be passed to the children `ScriptRunConfig` objects
 - Creates and submits a new child run, using the custom compute resource and argument
 - Blocks until all of the child runs complete
@@ -452,7 +452,7 @@ print(parent_run.get_children())
 
 ### Log to parent or root run
 
-You can use the `Run.parent` field to access the run that launched the current child run. A common use-case for this is when you wish to consolidate log results in a single place. Note that child runs execute asynchronously and there is no guarantee of ordering or synchronization beyond the ability of the parent to wait for its child runs to complete.
+You can use the `Run.parent` field to access the run that launched the current child run. A common use-case for using `Run.parent` is to combine log results in a single place. Note that child runs execute asynchronously and there's no guarantee of ordering or synchronization beyond the ability of the parent to wait for its child runs to complete.
 
 ```python
 # in child (or even grandchild) run
