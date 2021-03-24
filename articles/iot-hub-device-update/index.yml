@@ -22,6 +22,7 @@ landingContent:
         - text: What is Device Update for IoT Hub?
           url: understand-device-update.md
   - title: Get started
+    linkLists:
     - linkListType: tutorial
       links:
           - text: Device update on a simulator
