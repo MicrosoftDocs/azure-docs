@@ -19,7 +19,7 @@ import { CommunicationIdentityClient, CommunicationUserToken } from "@azure/comm
 import { SmsClient, SmsSendRequest } from "@azure/communication-sms";
 ```
 
-The examples below are using the [DefaultAzureCredential](/javascript/api/azure.identity.defaultazurecredential). This credential is suitable for production and development environments.
+The examples below are using the [DefaultAzureCredential](/javascript/api/@azure/identity/defaultazurecredential). This credential is suitable for production and development environments.
 
 To register application in the development environment and set up environment variables, see [Authorize access with managed identity](../managed-identity-from-cli.md)  
 
