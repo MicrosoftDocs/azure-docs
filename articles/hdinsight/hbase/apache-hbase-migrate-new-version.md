@@ -1,6 +1,6 @@
 ---
 title: Migrate an HBase cluster to a new version - Azure HDInsight
-description: How to migrate Apache HBase clusters to a newer version in the same Storage account in Azure HDInsight.
+description: Learn how to migrate Apache HBase clusters to a newer version in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
@@ -49,7 +49,7 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
    
 1. Flush the source HBase cluster you're upgrading.
    
-   HBase writes incoming data to an in-memory store called a *memstore*. After the memstore reaches a certain size, HBase flushes it to disk for long-term storage in the cluster's storage account. When you delete the source cluster after upgrading, you lose any memstore data. To retain the data, manually flush each table's memstore to disk before upgrading by running this [script to flush all HBase tables](https://raw.githubusercontent.com/Azure/hbase-utils/master/scripts/flush_all_tables.sh).
+   HBase writes incoming data to an in-memory store called a *memstore*. After the memstore reaches a certain size, HBase flushes it to disk for long-term storage in the cluster's storage account. Deleting the source cluster after upgrading also deletes any data in the memstores. To retain the data, manually flush each table's memstore to disk before upgrading, by running this [script to flush all HBase tables](https://raw.githubusercontent.com/Azure/hbase-utils/master/scripts/flush_all_tables.sh):
    
    :::code language="bash" source="~/hbase-utils/scripts/flush_all_tables.sh":::
    
@@ -178,5 +178,5 @@ To learn more about [Apache HBase](https://hbase.apache.org/) and upgrading HDIn
 
 - [Upgrade an HDInsight cluster to a newer version](../hdinsight-upgrade-cluster.md)
 - [Monitor and manage Azure HDInsight using the Apache Ambari Web UI](../hdinsight-hadoop-manage-ambari.md)
-- [Apache Hadoop components and versions](../hdinsight-component-versioning.md)
+- [Azure HDInsight versions](../hdinsight-component-versioning.md)
 - [Optimize Apache HBase](../optimize-hbase-ambari.md)
