@@ -287,6 +287,9 @@ In this example, we match all requests where the request has not originated from
 
 The **request body** match condition identifies requests based on specific text that appears in the body of the request. You can specify multiple values to match, which will be combined using OR logic.
 
+> [!NOTE]
+> If a request body exceeds 64KB in size, only the first 64KB will be considered for the **request body** match condition.
+
 ### Properties
 
 | Property | Supported values |
