@@ -96,7 +96,7 @@
   - name: Node.js API
     href: /javascript/api/durable-functions/
   - name: Python API
-    href: /python/api/azure-functions-durable/azure.durable_functions?view=azure-python
+    href: /python/api/azure-functions-durable/azure.durable_functions
 - name: How-to guides
   items:
   - name: Develop

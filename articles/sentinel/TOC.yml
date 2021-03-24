@@ -21,10 +21,14 @@
     href: tutorial-monitor-your-data.md
   - name: Investigate incidents
     href: tutorial-investigate-cases.md
-  - name: Respond to threats
+  - name: Use automation to respond to threats
     href: tutorial-respond-threats-playbook.md
+  - name: Create KQL queries (Learn module)
+    href: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
 - name: Concepts
   items:
+  - name: Classify data using entities
+    href: entities-in-azure-sentinel.md
   - name: Manage access
     items:
     - name: Permissions in Azure Sentinel
@@ -33,18 +37,26 @@
       href: resource-context-rbac.md
   - name: Advanced multistage attack detection
     href: fusion.md
-  - name: Bring your own machine learning platform
-    href: bring-your-own-ml.md
-  - name: Extend Azure Sentinel across workspaces and tenants
-    href: extend-sentinel-across-workspaces-tenants.md
+  - name: Automation (SOAR)
+    items:
+    - name: SOAR in Azure Sentinel
+      href: automation-in-azure-sentinel.md
+    - name: Automation rules for incident handling
+      href: automate-incident-handling-with-automation-rules.md
+    - name: Advanced automation with playbooks
+      href: automate-responses-with-playbooks.md
   - name: Identify advanced threats with UEBA
     href: identify-threats-with-entity-behavior-analytics.md
   - name: Import threat intelligence into Azure Sentinel
     href: import-threat-intelligence.md
+  - name: Bring your own machine learning platform
+    href: bring-your-own-ml.md
   - name: Integrate Microsoft 365 Defender with Azure Sentinel
     href: microsoft-365-defender-sentinel-integration.md
   - name: Use external data with watchlists
     href: watchlists.md
+  - name: Extend Azure Sentinel across workspaces and tenants
+    href: extend-sentinel-across-workspaces-tenants.md
   - name: Normalize your data across tables
     href: normalization.md
   - name: Security
@@ -62,40 +74,46 @@
         href: connect-aws.md
       - name: Azure Active Directory
         href: connect-azure-active-directory.md
-      - name: Office 365 (now with Teams!)
-        href: connect-office-365.md
-      - name: Dynamics 365 (new!)
-        href: connect-dynamics-365.md
-      - name: Cloud App Security
-        href: connect-cloud-app-security.md
       - name: Azure Activity Log
         href: connect-azure-activity.md
       - name: Azure AD Identity Protection
         href: connect-azure-ad-identity-protection.md
-      - name: Azure Information Protection
-        href: connect-azure-information-protection.md
-      - name: Microsoft 365 Defender
-        href: connect-microsoft-365-defender.md
-      - name: Microsoft Defender for Endpoint (formerly MDATP)
-        href: connect-microsoft-defender-advanced-threat-protection.md
-      - name: Microsoft Defender for Identity (formerly Azure ATP)
-        href: connect-azure-atp.md
-      - name: Microsoft Defender for Office 365 (formerly Office 365 ATP)
-        href: connect-office-365-advanced-threat-protection.md
       - name: Azure Defender alerts from ASC
         href: connect-azure-security-center.md
-      - name: Azure Defender (formerly ASC) for IoT
-        href: connect-asc-iot.md
       - name: Azure DDoS Protection
         href: connect-azure-ddos-protection.md
       - name: Azure Firewall
         href: connect-azure-firewall.md
-      - name: Azure Web Application Firewall (WAF)
-        href: connect-azure-waf.md
+      - name: Azure Information Protection
+        href: connect-azure-information-protection.md
+      - name: Azure Key Vault
+        href: connect-azure-key-vault.md
+      - name: Azure Kubernetes Service (AKS)
+        href: connect-azure-kubernetes-service.md
       - name: Azure SQL database logs
         href: connect-azure-sql-logs.md
+      - name: Azure Web Application Firewall (WAF)
+        href: connect-azure-waf.md
+      - name: Defender for IoT (formerly ASC for IoT)
+        href: connect-asc-iot.md
       - name: Domain name server
         href: connect-dns.md
+      - name: Dynamics 365 (new!)
+        href: connect-dynamics-365.md
+      - name: Microsoft 365 Defender
+        href: connect-microsoft-365-defender.md
+        expanded: true
+        items:
+        - name: Cloud App Security
+          href: connect-cloud-app-security.md
+        - name: Microsoft Defender for Endpoint (formerly MDATP)
+          href: connect-microsoft-defender-advanced-threat-protection.md
+        - name: Microsoft Defender for Identity (formerly Azure ATP)
+          href: connect-azure-atp.md
+        - name: Microsoft Defender for Office 365 (formerly Office 365 ATP)
+          href: connect-office-365-advanced-threat-protection.md
+      - name: Office 365 (now with Teams!)
+        href: connect-office-365.md
       - name: Windows firewall
         href: connect-windows-firewall.md
       - name: Windows security events
@@ -242,12 +260,16 @@
       href: monitor-data-connector-health.md
   - name: Enable user and entity behavior analytics
     href: enable-entity-behavior-analytics.md
+  - name: Map data fields to entities
+    href: map-data-fields-to-entities.md
   - name: Manage multiple tenants (MSSP)
     href: multiple-tenants-service-providers.md
   - name: Work with incidents in multiple workspaces
     href: multiple-workspace-view.md
   - name: Set up customer-managed keys (CMK)
     href: customer-managed-keys.md
+  - name: Surface custom details in alerts
+    href: surface-custom-details-in-alerts.md
   - name: Create incidents from alerts
     href: create-incidents-from-alerts.md
   - name: Manage your SOC better with incident metrics
@@ -285,6 +307,8 @@
       href: watchlist-with-rest-api.md
   - name: Azure Sentinel Logic Apps connector
     href: /connectors/azuresentinel/
+  - name: Entities reference
+    href: entities-reference.md
   - name: Network normalization schema
     href: normalization-schema.md
   - name: Data source schema reference
@@ -295,8 +319,12 @@
       href: /azure/data-explorer/kusto/query/
     - name: Kusto Query Language quick reference
       href: /azure/data-explorer/kql-quick-reference
+    - name: Azure Monitor log query optimizations
+      href: /azure/azure-monitor/logs/query-optimization
   - name: UEBA enrichments
     href: ueba-enrichments.md
+  - name: CEF log field mapping
+    href: cef-name-mapping.md
 - name: Resources
   items:
   - name: Useful resources

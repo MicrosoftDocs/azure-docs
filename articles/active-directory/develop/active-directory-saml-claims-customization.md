@@ -66,7 +66,7 @@ Select the desired source for the `NameIdentifier` (or NameID) claim. You can se
 |------|-------------|
 | Email | Email address of the user |
 | userprincipalName | User principal name (UPN) of the user |
-| onpremisessamaccount | SAM account name that has been synced from on-premises Azure AD |
+| onpremisessamaccountname | SAM account name that has been synced from on-premises Azure AD |
 | objectid | Objectid of the user in Azure AD |
 | employeeid | Employee ID of the user |
 | Directory extensions | Directory extensions [synced from on-premises Active Directory using Azure AD Connect Sync](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |

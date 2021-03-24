@@ -232,7 +232,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Computer Vision API v3.2 preview
-            url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005
+            url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b
           - text: Computer Vision API v3.1
             url: https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005
           - text: Computer Vision API v2.1
@@ -240,7 +240,7 @@ landingContent:
           - text: .NET SDK
             url: /dotnet/api/overview/azure/cognitiveservices/client/computervision
           - text: Python SDK
-            url: /python/api/overview/azure/cognitiveservices/computervision?view=azure-python
+            url: /python/api/overview/azure/cognitiveservices/computervision
           - text: Java SDK
             url: /java/api/overview/azure/cognitiveservices/client/computervision
           - text: Node.js SDK

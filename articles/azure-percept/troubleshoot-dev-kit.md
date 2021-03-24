@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot general issues with Azure Percept DK and IoT Edge
-description: Get troubleshooting tips for some of the more common issues found during the on-boarding experience
+description: Get troubleshooting tips for some of the more common issues with Azure Percept DK
 author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
@@ -23,7 +23,13 @@ To run these commands,
 To redirect any output to a .txt file for further analysis, use the following syntax:
 
 ```console
-[command] > [file name].txt
+sudo [command] > [file name].txt
+```
+
+Change the permissions of the .txt file so it can be copied:
+
+```console
+sudo chmod 666 [file name].txt
 ```
 
 After redirecting output to a .txt file, copy the file to your host PC via SCP:
@@ -34,7 +40,7 @@ scp [remote username]@[IP address]:[remote file path]/[file name].txt [local hos
 
 ```[local host file path]``` refers to the location on your host PC that you would like to copy the .txt file to. ```[remote username]``` is the SSH username chosen during the [setup experience](./quickstart-percept-dk-set-up.md). If you did not set up an SSH login during the OOBE, your remote username is ```root```.
 
-For additional information on the Azure IoT Edge commands, see the [Azure IoT Edge device troubleshooting documentation](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
+For additional information on the Azure IoT Edge commands, see the [Azure IoT Edge device troubleshooting documentation](../iot-edge/troubleshoot.md).
 
 |Category:         |Command:                    |Function:                  |
 |------------------|----------------------------|---------------------------|
@@ -42,13 +48,13 @@ For additional information on the Azure IoT Edge commands, see the [Azure IoT Ed
 |OS                |```cat /etc/os-subrelease```      |check derivative image version |
 |OS                |```cat /etc/adu-version```        |check ADU version |
 |Temperature       |```cat /sys/class/thermal/thermal_zone0/temp``` |check temperature of devkit |
-|Wi-Fi             |```journalctl -u hostapd.service``` |check SoftAP logs|
-|Wi-Fi             |```journalctl -u wpa_supplicant.service``` |check Wi-Fi services logs |
-|Wi-Fi             |```journalctl -u ztpd.service```  |check Wi-Fi Zero Touch Provisioning Service logs |
-|Wi-Fi             |```journalctl -u systemd-networkd``` |check Mariner Network stack logs |
-|Wi-Fi             |```/data/misc/wifi/hostapd_virtual.conf``` |check wifi access point configuration details |
-|OOBE              |```journalctl -u oobe -b```       |check OOBE logs |
-|Telemetry         |```azure-device-health-id```      |find unique telemetry HW_ID |
+|Wi-Fi             |```sudo journalctl -u hostapd.service``` |check SoftAP logs|
+|Wi-Fi             |```sudo journalctl -u wpa_supplicant.service``` |check Wi-Fi services logs |
+|Wi-Fi             |```sudo journalctl -u ztpd.service```  |check Wi-Fi Zero Touch Provisioning Service logs |
+|Wi-Fi             |```sudo journalctl -u systemd-networkd``` |check Mariner Network stack logs |
+|Wi-Fi             |```sudo cat /etc/hostapd/hostapd-wlan1.conf``` |check wifi access point configuration details |
+|OOBE              |```sudo journalctl -u oobe -b```       |check OOBE logs |
+|Telemetry         |```sudo azure-device-health-id```      |find unique telemetry HW_ID |
 |Azure IoT Edge          |```sudo iotedge check```          |run configuration and connectivity checks for common issues |
 |Azure IoT Edge          |```sudo iotedge logs [container name]``` |check container logs, such as speech and vision modules |
 |Azure IoT Edge          |```sudo iotedge support-bundle --since 1h``` |collect module logs, Azure IoT Edge security manager logs, container engine logs, ```iotedge check``` JSON output, and other useful debug information from the past hour |
@@ -56,26 +62,26 @@ For additional information on the Azure IoT Edge commands, see the [Azure IoT Ed
 |Azure IoT Edge          |```sudo systemctl restart iotedge``` |restart the Azure IoT Edge Security Daemon |
 |Azure IoT Edge          |```sudo iotedge list```           |list the deployed Azure IoT Edge modules |
 |Other             |```df [option] [file]```          |display information on available/total space in specified file system(s) |
-|Other             |```ip route get 1.1.1.1```        |display device IP and interface information |
-|Other             |```ip route get 1.1.1.1 \| awk '{print $7}'``` <br> ```ifconfig [interface]``` |display device IP address only |
+|Other             |`ip route get 1.1.1.1`        |display device IP and interface information |
+|Other             |<code>ip route get 1.1.1.1 &#124; awk '{print $7}'</code> <br> `ifconfig [interface]` |display device IP address only |
 
 
 The ```journalctl``` Wi-Fi commands can be combined into the following single command:
 
 ```console
-journalctl -u hostapd.service -u wpa_supplicant.service -u ztpd.service -u systemd-networkd -b
+sudo journalctl -u hostapd.service -u wpa_supplicant.service -u ztpd.service -u systemd-networkd -b
 ```
 
 ## Docker troubleshooting commands
 
 |Command:                        |Function:                  |
 |--------------------------------|---------------------------|
-|```docker ps``` |[shows which containers are running](https://docs.docker.com/engine/reference/commandline/ps/) |
-|```docker images``` |[shows which images are on the device](https://docs.docker.com/engine/reference/commandline/images/)|
-|```docker rmi [image id] -f``` |[deletes an image from the device](https://docs.docker.com/engine/reference/commandline/rmi/) |
-|```docker logs -f edgeAgent``` <br> ```docker logs -f [module_name]``` |[takes container logs of specified module](https://docs.docker.com/engine/reference/commandline/logs/) |
-|```docker image prune``` |[removes all dangling images](https://docs.docker.com/engine/reference/commandline/image_prune/) |
-|```watch docker ps``` <br> ```watch ifconfig [interface]``` |check docker container download status |
+|```sudo docker ps``` |[shows which containers are running](https://docs.docker.com/engine/reference/commandline/ps/) |
+|```sudo docker images``` |[shows which images are on the device](https://docs.docker.com/engine/reference/commandline/images/)|
+|```sudo docker rmi [image id] -f``` |[deletes an image from the device](https://docs.docker.com/engine/reference/commandline/rmi/) |
+|```sudo docker logs -f edgeAgent``` <br> ```sudo docker logs -f [module_name]``` |[takes container logs of specified module](https://docs.docker.com/engine/reference/commandline/logs/) |
+|```sudo docker image prune``` |[removes all dangling images](https://docs.docker.com/engine/reference/commandline/image_prune/) |
+|```sudo watch docker ps``` <br> ```watch ifconfig [interface]``` |check docker container download status |
 
 ## USB Updating
 
@@ -90,9 +96,7 @@ There are three small LEDs on top of the carrier board housing. A cloud icon is 
 |LED             |State      |Description                      |
 |----------------|-----------|---------------------------------|
 |LED 1 (IoT Hub) |On (solid) |Device is connected to an IoT Hub. |
-|LED 2 (Wi-Fi)   |Slow blink |Device authentication in progress. |
+|LED 2 (Wi-Fi)   |Slow blink |Device is ready to be configured by Wi-Fi Easy Connect and is announcing its presence to a configurator. |
 |LED 2 (Wi-Fi)   |Fast blink |Authentication was successful, device association in progress. |
 |LED 2 (Wi-Fi)   |On (solid) |Authentication and association were successful; device is connected to a Wi-Fi network. |
 |LED 3           |NA         |LED not in use. |
-
-

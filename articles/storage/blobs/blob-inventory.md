@@ -22,7 +22,7 @@ The Azure Storage blob inventory feature provides an overview of your blob data 
 Blob inventory is supported for both general purpose version 2 (GPv2) and premium block blob storage accounts. This feature is supported with or without the [hierarchical namespace](data-lake-storage-namespace.md) feature enabled.
 
 > [!IMPORTANT]
-> Bob inventory is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Blob inventory is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ### Preview regions
 
@@ -202,4 +202,5 @@ Sample event:
 
 ## Next steps
 
-[Manage the Azure Blob Storage lifecycle](storage-lifecycle-management-concepts.md)
+- [Calculate the count and total size of blobs per container](calculate-blob-count-size.md)
+- [Manage the Azure Blob Storage lifecycle](storage-lifecycle-management-concepts.md)

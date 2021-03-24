@@ -258,6 +258,8 @@
         - name: Use Resource Manager template
           displayName: arm
           href: how-to-create-workspace-template.md
+        - name: Link to Azure Synapse Analytics workspace
+          href: how-to-link-synapse-ml-workspaces.md
     - name: Create & manage compute resources
       items: 
         - name: Compute instance
@@ -266,6 +268,9 @@
         - name: Compute cluster
           displayName: compute target, low priority, managed identity
           href: how-to-create-attach-compute-cluster.md
+        - name: Upgrade host OS
+          displayName: upgrade compute cluster, upgrade compute instance, upgrade ubuntu
+          href: how-to-compute-cluster-instance-os-upgrade.md
         - name: Azure Kubernetes Service
           displayName: AKS, inference
           href: how-to-create-attach-kubernetes.md
@@ -592,7 +597,7 @@
   items: 
     - name: Python SDK
       displayName: api, core, package, python, class
-      href: /python/api/overview/azure/ml/intro?view=azure-ml-py
+      href: /python/api/overview/azure/ml/intro
     - name: R SDK
       displayName: api, core, package, R, class
       href: https://azure.github.io/azureml-sdk-for-r/reference/index.html

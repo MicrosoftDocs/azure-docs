@@ -88,20 +88,6 @@ return result;
 
 ```
 
-# [Python](#tab/python)
-
-```Python
-result = None
-
-# Firstly, check the cache to see if this end user has signed in before
-accounts = app.get_accounts(username=config["username"])
-if accounts:
-    result = app.acquire_token_silent(config["scope"], account=accounts[0])
-
-if not result:
-    result = app.acquire_token_by_xxx(scopes=config["scope"])
-```
-
 # [macOS](#tab/macOS)
 
 ### In MSAL for iOS and macOS
@@ -142,6 +128,83 @@ application.acquireTokenSilent(with: silentParameters) { (result, error) in
     }
 }
 ```
+
+# [Node.js](#tab/nodejs)
+
+In MSAL Node, you acquire tokens via authorization code flow with Proof Key for Code Exchange (PKCE). MSAL Node uses an in-memory token cache to see if there are any user accounts in the cache. If there is, the account object can be passed to the `acquireTokenSilent()` method to retrieve a cached access token.
+
+```JavaScript
+
+const msal = require("@azure/msal-node");
+
+const msalConfig = {
+    auth: {
+        clientId: "your_client_id_here",
+        authority: "your_authority_here",
+    }
+};
+
+const pca = new msal.PublicClientApplication(msalConfig);
+const msalTokenCache = pca.getTokenCache();
+
+let accounts = await msalTokenCache.getAllAccounts();
+
+    if (accounts.length > 0) {
+
+        const silentRequest = {
+            account: accounts[0], // Index must match the account that is trying to acquire token silently
+            scopes: ["user.read"],
+        };
+    
+        pca.acquireTokenSilent(silentRequest).then((response) => {
+            console.log("\nSuccessful silent token acquisition");
+            console.log("\nResponse: \n:", response);
+            res.sendStatus(200);
+        }).catch((error) => console.log(error));
+    } else {
+        const {verifier, challenge} = await msal.cryptoProvider.generatePkceCodes();
+
+        const authCodeUrlParameters = {
+            scopes: ["User.Read"],
+            redirectUri: "your_redirect_uri",
+            codeChallenge: challenge, // PKCE Code Challenge
+            codeChallengeMethod: "S256" // PKCE Code Challenge Method 
+        };
+        
+        // get url to sign user in and consent to scopes needed for application
+        pca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
+            console.log(response);
+        
+            const tokenRequest = {
+                code: response["authorization_code"],
+                codeVerifier: verifier // PKCE Code Verifier 
+                redirectUri: "your_redirect_uri",
+                scopes: ["User.Read"],
+            };
+            
+            // acquire a token by exchanging the code
+            pca.acquireTokenByCode(tokenRequest).then((response) => {
+                console.log("\nResponse: \n:", response);
+            }).catch((error) => {
+                console.log(error);
+            });
+        }).catch((error) => console.log(JSON.stringify(error)));
+    }
+```
+
+# [Python](#tab/python)
+
+```Python
+result = None
+
+# Firstly, check the cache to see if this end user has signed in before
+accounts = app.get_accounts(username=config["username"])
+if accounts:
+    result = app.acquire_token_silent(config["scope"], account=accounts[0])
+
+if not result:
+    result = app.acquire_token_by_xxx(scopes=config["scope"])
+```
 ---
 
 Here are the various ways to acquire tokens in a desktop application.
@@ -151,6 +214,7 @@ Here are the various ways to acquire tokens in a desktop application.
 The following example shows minimal code to get a token interactively for reading the user's profile with Microsoft Graph.
 
 # [.NET](#tab/dotnet)
+
 ### In MSAL.NET
 
 ```csharp
@@ -352,25 +416,6 @@ private static IAuthenticationResult acquireTokenInteractive() throws Exception 
 }
 ```
 
-# [Python](#tab/python)
-
-MSAL Python doesn't provide an interactive acquire token method directly. Instead, it requires the application to send an authorization request in its implementation of the user interaction flow to obtain an authorization code. This code can then be passed to the `acquire_token_by_authorization_code` method to get the token.
-
-```Python
-result = None
-
-# Firstly, check the cache to see if this end user has signed in before
-accounts = app.get_accounts(username=config["username"])
-if accounts:
-    result = app.acquire_token_silent(config["scope"], account=accounts[0])
-
-if not result:
-    result = app.acquire_token_by_authorization_code(
-         request.args['code'],
-         scopes=config["scope"])
-
-```
-
 # [macOS](#tab/macOS)
 
 ### In MSAL for iOS and macOS
@@ -405,6 +450,70 @@ application.acquireToken(with: interactiveParameters, completionBlock: { (result
     // Get access token from result
     let accessToken = authResult.accessToken
 })
+```
+
+# [Node.js](#tab/nodejs)
+
+In MSAL Node, you acquire tokens via authorization code flow with Proof Key for Code Exchange (PKCE). The process has two steps: first, the application obtains a URL that can be used to generate an authorization code. This URL can be opened in a browser of choice, where the user can input their credentials, and will be redirected back to the `redirectUri` (registered during the app registration) with an authorization code. Second, the application passes the authorization code received to the `acquireTokenByCode()` method which exchanges it for an access token.
+
+```JavaScript
+const msal = require("@azure/msal-node");
+
+const msalConfig = {
+    auth: {
+        clientId: "your_client_id_here",
+        authority: "your_authority_here",
+    }
+};
+
+const pca = new msal.PublicClientApplication(msalConfig);
+
+const {verifier, challenge} = await msal.cryptoProvider.generatePkceCodes();
+
+const authCodeUrlParameters = {
+    scopes: ["User.Read"],
+    redirectUri: "your_redirect_uri",
+    codeChallenge: challenge, // PKCE Code Challenge
+    codeChallengeMethod: "S256" // PKCE Code Challenge Method 
+};
+
+// get url to sign user in and consent to scopes needed for application
+pca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
+    console.log(response);
+
+    const tokenRequest = {
+        code: response["authorization_code"],
+        codeVerifier: verifier // PKCE Code Verifier 
+        redirectUri: "your_redirect_uri",
+        scopes: ["User.Read"],
+    };
+    
+    // acquire a token by exchanging the code
+    pca.acquireTokenByCode(tokenRequest).then((response) => {
+        console.log("\nResponse: \n:", response);
+    }).catch((error) => {
+        console.log(error);
+    });
+}).catch((error) => console.log(JSON.stringify(error)));
+```
+
+# [Python](#tab/python)
+
+MSAL Python doesn't provide an interactive acquire token method directly. Instead, it requires the application to send an authorization request in its implementation of the user interaction flow to obtain an authorization code. This code can then be passed to the `acquire_token_by_authorization_code` method to get the token.
+
+```Python
+result = None
+
+# Firstly, check the cache to see if this end user has signed in before
+accounts = app.get_accounts(username=config["username"])
+if accounts:
+    result = app.acquire_token_silent(config["scope"], account=accounts[0])
+
+if not result:
+    result = app.acquire_token_by_authorization_code(
+         request.args['code'],
+         scopes=config["scope"])
+
 ```
 ---
 
@@ -583,13 +692,17 @@ private static IAuthenticationResult acquireTokenIwa() throws Exception {
 }
 ```
 
-# [Python](#tab/python)
-
-This flow isn't yet supported in MSAL Python.
-
 # [macOS](#tab/macOS)
 
 This flow doesn't apply to macOS.
+
+# [Node.js](#tab/nodejs)
+
+This flow isn't yet supported in MSAL Node.
+
+# [Python](#tab/python)
+
+This flow isn't yet supported in MSAL Python.
 
 ---
 
@@ -879,6 +992,41 @@ private static IAuthenticationResult acquireTokenUsernamePassword() throws Excep
 }
 ```
 
+# [macOS](#tab/macOS)
+
+This flow isn't supported on MSAL for macOS.
+
+# [Node.js](#tab/nodejs)
+
+This extract is from the [MSAL Node dev samples](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/standalone-samples/username-password). In the code snippet below, the username and password are hardcoded for illustration purposes only. This should be avoided in production. Instead, a basic UI prompting the user to enter her username/password would be recommended. 
+
+```JavaScript
+const msal = require("@azure/msal-node");
+
+const msalConfig = {
+    auth: {
+        clientId: "your_client_id_here",
+        authority: "your_authority_here",
+    }
+};
+
+const pca = new msal.PublicClientApplication(msalConfig);
+
+// For testing, enter your username and password below.
+// In production, replace this with a UI prompt instead.
+const usernamePasswordRequest = {
+    scopes: ["user.read"],
+    username: "", // Add your username here
+    password: "", // Add your password here
+};
+
+pca.acquireTokenByUsernamePassword(usernamePasswordRequest).then((response) => {
+    console.log("acquired token by password grant");
+}).catch((error) => {
+    console.log(error);
+});
+```
+
 # [Python](#tab/python)
 
 This extract is from the [MSAL Python dev samples](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/dev/sample/).
@@ -908,10 +1056,6 @@ if not result:
     result = app.acquire_token_by_username_password(
         config["username"], config["password"], scopes=config["scope"])
 ```
-
-# [macOS](#tab/macOS)
-
-This flow isn't supported on MSAL for macOS.
 
 ---
 
@@ -1091,6 +1235,39 @@ private static IAuthenticationResult acquireTokenDeviceCode() throws Exception {
 }
 ```
 
+# [macOS](#tab/macOS)
+
+This flow doesn't apply to macOS.
+
+# [Node.js](#tab/nodejs)
+
+This extract is from the [MSAL Node dev samples](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/standalone-samples/device-code).
+
+```JavaScript
+const msal = require('@azure/msal-node');
+
+const msalConfig = {
+    auth: {
+        clientId: "your_client_id_here",
+        authority: "your_authority_here",
+    }
+};
+
+const pca = new msal.PublicClientApplication(msalConfig);
+
+const deviceCodeRequest = {
+    deviceCodeCallback: (response) => (console.log(response.message)),
+    scopes: ["user.read"],
+    timeout: 20,
+};
+
+pca.acquireTokenByDeviceCode(deviceCodeRequest).then((response) => {
+    console.log(JSON.stringify(response));
+}).catch((error) => {
+    console.log(JSON.stringify(error));
+});
+```
+
 # [Python](#tab/python)
 
 This extract is from the [MSAL Python dev samples](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/dev/sample/).
@@ -1141,10 +1318,6 @@ if not result:
         # or you may even turn off the blocking behavior,
         # and then keep calling acquire_token_by_device_flow(flow) in your own customized loop
 ```
-
-# [macOS](#tab/macOS)
-
-This flow doesn't apply to macOS.
 
 ---
 

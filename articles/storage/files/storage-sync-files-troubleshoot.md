@@ -69,8 +69,8 @@ To install the Az or AzureRM module on PowerShell 5.1, perform the following ste
 
 1. Type **powershell** from an elevated command prompt and hit enter.
 2. Install the latest Az or AzureRM module by following the documentation:
-    - [Az module (requires .NET 4.7.2)](/powershell/azure/install-az-ps?viewFallbackFrom=azps-1.1.0)
-    - [AzureRM module]( https://go.microsoft.com/fwlink/?linkid=856959)
+    - [Az module (requires .NET 4.7.2)](/powershell/azure/install-az-ps)
+    - [AzureRM module](https://go.microsoft.com/fwlink/?linkid=856959)
 3. Run ServerRegistration.exe, and complete the wizard to register the server with a Storage Sync Service.
 
 <a id="server-already-registered"></a>**Server Registration displays the following message: "This server is already registered"** 
@@ -108,7 +108,7 @@ This error occurs if the Azure file share is already in use by another cloud end
 If you see this message and the Azure file share currently is not in use by a cloud endpoint, complete the following steps to clear the Azure File Sync metadata on the Azure file share:
 
 > [!Warning]  
-> Deleting the metadata on an Azure file share that is currently in use by a cloud endpoint causes Azure File Sync operations to fail. 
+> Deleting the metadata on an Azure file share that is currently in use by a cloud endpoint causes Azure File Sync operations to fail. If you then use this file share for sync in a different sync group, data loss for files in the old sync group is almost certain.
 
 1. In the Azure portal, go to your Azure file share.  
 2. Right-click the Azure file share, and then select **Edit metadata**.

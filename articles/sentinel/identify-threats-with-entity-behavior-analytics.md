@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/25/2021
+ms.date: 02/10/2021
 ms.author: yelevin
 
 ---
@@ -64,41 +64,9 @@ Each activity is scored with “Investigation Priority Score” – which determ
 
 See how behavior analytics is used in [Microsoft Cloud App Security](https://techcommunity.microsoft.com/t5/microsoft-security-and/prioritize-user-investigations-in-cloud-app-security/ba-p/700136) for an example of how this works.
 
-## Entities in Azure Sentinel
+## Entity Pages
 
-### Entity identifiers
-
-When alerts are sent to Azure Sentinel, they include data elements that Azure Sentinel identifies and classifies as entities, such as user accounts, hosts, IP addresses and others. On occasion, this identification can be a challenge, if the alert does not contain sufficient information about the entity.
-
-For example, user accounts can be identified in more than one way: using an Azure AD account’s numeric identifier (GUID), or its User Principal Name (UPN) value, or alternatively, using a combination of its username and its NT domain name. Different data sources can identify the same user in different ways. Therefore, whenever possible, Azure Sentinel merges those identifiers into a single entity, so that it can be properly identified.
-
-It can happen, though, that one of your resource providers creates an alert in which an entity is not sufficiently identified - for example, a user name without the domain name context. In such a case, the user entity cannot be merged with other instances of the same user account, which would be identified as a separate entity, and those two entities would remain separate instead of unified.
-
-In order to minimize the risk of this happening, you should verify that all of your alert providers properly identify the entities in the alerts they produce. Additionally, synchronizing user account entities with Azure Active Directory may create a unifying directory, which will be able to merge user account entities.
-
-The following types of entities are currently identified in Azure Sentinel:
-
-- User account (Account)
-- Host
-- IP address (IP)
-- Malware
-- File
-- Process
-- Cloud application (CloudApplication)
-- Domain name (DNS)
-- Azure resource
-- File (FileHash)
-- Registry key
-- Registry value
-- Security group
-- URL
-- IoT device
-- Mailbox
-- Mail cluster
-- Mail message
-- Submission mail
-
-### Entity pages
+Learn more about [entities in Azure Sentinel](entities-in-azure-sentinel.md) and see the full list of [supported entities and identifiers](entities-reference.md).
 
 When you encounter any entity (currently limited to users and hosts) in a search, an alert, or an investigation, you can select the entity and be taken to an **entity page**, a datasheet full of useful information about that entity. The types of information you will find on this page include basic facts about the entity, a timeline of notable events related to this entity and insights about the entity's behavior.
  
@@ -127,21 +95,23 @@ The following types of items are included in the timeline:
  
 ### Entity Insights
  
-Entity insights are queries defined by Microsoft security researchers to help your analysts investigate more efficiently and effectively. The insights are presented as part of the entity page, and provide valuable security information on hosts and users, in the form of tabular data and charts. Having the information here means you don't have to detour to Log Analytics. The insights include data regarding Sign-Ins, Group Additions, Anomalous Events and more, and include advanced ML algorithms to detect anomalous behavior. 
-The insights are based on the following data types:
-- Syslog
-- SecurityEvent
-- Audit Logs
-- Sign-in Logs
-- Office Activity
-- BehaviorAnalytics (UEBA) 
- 
+Entity insights are queries defined by Microsoft security researchers to help your analysts investigate more efficiently and effectively. The insights are presented as part of the entity page, and provide valuable security information on hosts and users, in the form of tabular data and charts. Having the information here means you don't have to detour to Log Analytics. The insights include data regarding sign-ins, group additions, anomalous events and more, and include advanced ML algorithms to detect anomalous behavior. 
+
+The insights are based on the following data sources:
+- Syslog (Linux)
+- SecurityEvent (Windows)
+- AuditLogs (Azure AD)
+- SigninLogs (Azure AD)
+- OfficeActivity (Office 365)
+- BehaviorAnalytics (Azure Sentinel UEBA)
+- Heartbeat (Azure Monitor Agent)
+- CommonSecurityLog (Azure Sentinel)
+
 ### How to use entity pages
 
 Entity pages are designed to be part of multiple usage scenarios, and can be accessed from incident management, the investigation graph, bookmarks, or directly from the entity search page under **Entity behavior analytics** in the Azure Sentinel main menu.
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-use-cases.png" alt-text="Entity page use cases":::
-
 
 ## Data schema
 

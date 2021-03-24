@@ -70,5 +70,3 @@ This IoT Hub developer guide includes the following articles:
 * [Reference - Device and service SDKs](iot-hub-devguide-sdks.md) lists the Azure IoT SDKs for developing device and service apps that interact with your IoT hub. The article includes links to online API documentation.
 
 * [Reference - IoT Hub MQTT support](iot-hub-mqtt-support.md) provides detailed information about how IoT Hub supports the MQTT protocol. The article describes the support for the MQTT protocol built-in to the Azure IoT SDKs and provides information about using the MQTT protocol directly.
-
-* [Glossary](iot-hub-devguide-glossary.md) a list of common IoT Hub-related terms.

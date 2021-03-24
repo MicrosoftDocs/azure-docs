@@ -9,7 +9,7 @@ ms.custom: references_regions
 
 ---
 
-# Connect Azure to ITSM tools by using IT Service Management Connector
+# Connect Azure to ITSM tools by using IT Service Management Solution
 
 :::image type="icon" source="media/itsmc-overview/itsmc-symbol.png":::
 
@@ -86,7 +86,7 @@ Action groups provide a modular and reusable way to trigger actions for your Azu
 
 ## Define a template
 
-Certain work item types can use templates that you define in the ITSM tool. By using templates, you can define fields that will be automatically populated according to fixed values for an action group. You can define which template you want to use as a part of the definition of an action group.
+Certain work item types can use templates that you define in the ITSM tool. By using templates, you can define fields that will be automatically populated according to fixed values for an action group. You can define which template you want to use as a part of the definition of an action group. You can find in ServiceNow docs information about how to create templates - (here)[https://docs.servicenow.com/bundle/paris-platform-administration/page/administer/form-administration/task/t_CreateATemplateUsingTheTmplForm.html].
 
 To create an action group:
 

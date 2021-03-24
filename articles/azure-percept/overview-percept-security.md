@@ -20,7 +20,7 @@ Azure Percept DK devices are designed with a hardware root of trust: additional 
 
 ### Azure Percept DK
 
-Azure Percept DK includes a Trusted Platform Module (TPM) version 2.0 which can be utilized to connect the device to Azure Device Provisioning Services with additional security. TPM is an industry-wide, ISO standard from the Trusted Computing Group, and you can read more about TPM at the [complete TPM 2.0 spec](https://trustedcomputinggroup.org/resource/tpm-library-specification/) or the ISO/IEC 11889 spec. For more information on how DPS can provision devices in a secure manner see [Azure IoT Hub Device Provisioning Service - TPM Attestation](https://docs.microsoft.com/azure/iot-dps/concepts-tpm-attestation).
+Azure Percept DK includes a Trusted Platform Module (TPM) version 2.0 which can be utilized to connect the device to Azure Device Provisioning Services with additional security. TPM is an industry-wide, ISO standard from the Trusted Computing Group, and you can read more about TPM at the [complete TPM 2.0 spec](https://trustedcomputinggroup.org/resource/tpm-library-specification/) or the ISO/IEC 11889 spec. For more information on how DPS can provision devices in a secure manner see [Azure IoT Hub Device Provisioning Service - TPM Attestation](../iot-dps/concepts-tpm-attestation.md).
 
 ### Azure Percept system on module (SOM)
 
@@ -32,7 +32,7 @@ Azure Percept devices use the hardware root trust to secure firmware. The boot R
 
 ### IoT Edge
 
-Azure Percept DK connects to Azure Percept Studio with additional security and other Azure services utilizing Transport Layer Security (TLS) protocol. Azure Percept DK is an Azure IoT Edge enabled device. IoT Edge runtime is a collection of programs that turn a device into an IoT Edge device. Collectively, the IoT Edge runtime components enable IoT Edge devices to receive code to run at the edge and communicate the results. Azure Percept DK utilizes Docker containers for isolating IoT Edge workloads from the host operating system and edge enabled applications. For more information about the Azure IoT Edge security framework, read about the [IoT Edge security manager](https://docs.microsoft.com/azure/iot-edge/iot-edge-security-manager?view=iotedge-2018-06).
+Azure Percept DK connects to Azure Percept Studio with additional security and other Azure services utilizing Transport Layer Security (TLS) protocol. Azure Percept DK is an Azure IoT Edge enabled device. IoT Edge runtime is a collection of programs that turn a device into an IoT Edge device. Collectively, the IoT Edge runtime components enable IoT Edge devices to receive code to run at the edge and communicate the results. Azure Percept DK utilizes Docker containers for isolating IoT Edge workloads from the host operating system and edge enabled applications. For more information about the Azure IoT Edge security framework, read about the [IoT Edge security manager](../iot-edge/iot-edge-security-manager.md).
 
 ### Device Update for IoT Hub
 
@@ -52,7 +52,7 @@ This checklist is a starting point for firewall rules:
 |*.auth.azureperceptdk.azure.net|	443|	Azure DK SOM Authentication and Authorization|
 |*.auth.projectsantacruz.azure.net|	443|	Azure DK SOM Authentication and Authorization|
 
-Additionally, review the list of [connections used by Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/production-checklist?view=iotedge-2018-06#allow-connections-from-iot-edge-devices).
+Additionally, review the list of [connections used by Azure IoT Edge](../iot-edge/production-checklist.md#allow-connections-from-iot-edge-devices).
 
 <!---
 ## Additional Recommendations for Deployment to Production

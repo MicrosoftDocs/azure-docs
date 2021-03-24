@@ -76,13 +76,12 @@ A scenario without a link doesn't yet have a published migration guide. Check th
 | Source | Target: </br>Hybrid deployment | Target: </br>Cloud-only deployment |
 |:---|:--|:--|
 | | Tool combination:| Tool combination: |
-| Windows Server 2012 R2 and later | <ul><li>[Azure File Sync](storage-sync-files-deployment-guide.md)</li><li>[Azure File Sync and Azure Data Box](storage-sync-offline-data-transfer.md)</li><li>[Azure File Sync and pre-seeded files in the cloud](storage-sync-offline-data-transfer.md#azure-file-sync-and-pre-seeded-files-in-the-cloud)</li><li>Azure File Sync and Storage Migration Service</li></ul> | <ul><li>Azure File Sync</li><li>Azure File Sync and Data Box</li><li>Azure File Sync and Storage Migration Service</li><li>RoboCopy</li></ul> |
-| Windows Server 2012 and earlier | <ul><li>Azure File Sync and Data Box</li><li>Azure File Sync and Storage Migration Service</li></ul> | <ul><li>Azure File Sync and Storage Migration Service</li><li>RoboCopy</li></ul> |
-| Network-attached storage (NAS) | <ul><li>[Azure File Sync and RoboCopy](storage-files-migration-nas-hybrid.md)</li></ul> | <ul><li>RoboCopy</li></ul> |
-| Linux or Samba | <ul><li>[Azure File Sync and RoboCopy](storage-files-migration-linux-hybrid.md)</li></ul> | <ul><li>RoboCopy</li></ul> |
-| Microsoft Azure StorSimple Cloud Appliance 8100 or StorSimple Cloud Appliance 8600 | <ul><li>[Azure File Sync and StorSimple Cloud Appliance 8020](storage-files-migration-storsimple-8000.md)</li></ul> | |
-| StorSimple Cloud Appliance 1200 | <ul><li>[Azure File Sync](storage-files-migration-storsimple-1200.md)</li></ul> | |
-| | | |
+| Windows Server 2012 R2 and later | <ul><li>[Azure File Sync](storage-sync-files-deployment-guide.md)</li><li>[Azure File Sync and Azure DataBox](storage-sync-offline-data-transfer.md)</li></ul> | <ul><li>Via RoboCopy to a mounted Azure file share</li><li>Via Azure File Sync</li></ul> |
+| Windows Server 2012 and earlier | <ul><li>Via DataBox and Azure File Sync to recent server OS</li><li>Via Storage Migration Service to recent server with Azure File Sync, then upload</li></ul> | <ul><li>Via Storage Migration Service to recent server with Azure File Sync</li><li>Via RoboCopy to a mounted Azure file share</li></ul> |
+| Network-attached storage (NAS) | <ul><li>[Via Azure File Sync upload](storage-files-migration-nas-hybrid.md)</li><li>[Via DataBox + Azure File Sync](storage-files-migration-nas-hybrid-databox.md)</li></ul> | <ul><li>Via RoboCopy to a mounted Azure file share</li></ul> |
+| Linux / Samba | <ul><li>[Azure File Sync and RoboCopy](storage-files-migration-linux-hybrid.md)</li></ul> | <ul><li>Via RoboCopy to a mounted Azure file share</li></ul> |
+| Microsoft Azure StorSimple Cloud Appliance 8100 or StorSimple Cloud Appliance 8600 | <ul><li>[Via dedicated data migration cloud service](storage-files-migration-storsimple-8000.md)</li></ul> | |
+| StorSimple Cloud Appliance 1200 | <ul><li>[Via Azure File Sync](storage-files-migration-storsimple-1200.md)</li></ul> | |
 
 ## Migration toolbox
 
@@ -115,9 +114,9 @@ The following table classifies Microsoft tools and their current suitability for
 |![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| RoboCopy | Supported. Azure file shares can be mounted as network drives. | Full fidelity.* |
 |![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| Azure File Sync | Natively integrated into Azure file shares. | Full fidelity.* |
 |![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| Storage Migration Service | Indirectly supported. Azure file shares can be mounted as network drives on SMS target servers. | Full fidelity.* |
-|![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| AzCopy, version 10.4 or later| Supported. | Full fidelity.* |
-|![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| Data Box | Supported. | DataBox now fully supports metadata. [Data Box can also be used in combination with Azure File Sync](storage-sync-offline-data-transfer.md). |
-|![Not fully recommended](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Azure Storage Explorer, version 1.14 | Supported. | Doesn't copy ACLs. Supports timestamps.  |
+|![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| AzCopy </br>version 10.6 | Supported. | Doesn't support copy of source root ACL, otherwise full fidelity.* </br>[Learn how to use AzCopy with Azure file shares](../common/storage-use-azcopy-files.md) |
+|![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| Data Box | Supported. | DataBox fully supports metadata. |
+|![Not fully recommended](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Azure Storage Explorer </br>version 1.14 | Supported. | Doesn't copy ACLs. Supports timestamps.  |
 |![Not recommended](media/storage-files-migration-overview/circle-red-x.png)| Azure Data Factory | Supported. | Doesn't copy metadata. |
 |||||
 
@@ -144,7 +143,7 @@ The tested version of the tool is version 4.4.1. It's compatible with cloud-tier
 1. Create a plan for which deployment of Azure file shares (cloud-only or hybrid) you want.
 1. Review the list of available migration guides to find the detailed guide that matches your source and deployment of Azure file shares.
 
-Here is more information about the Azure Files technologies mentioned in this article:
+More information about the Azure Files technologies mentioned in this article:
 
 * [Azure file share overview](storage-files-introduction.md)
 * [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)

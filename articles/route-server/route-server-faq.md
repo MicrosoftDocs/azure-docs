@@ -5,7 +5,7 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: article
-ms.date: 03/02/2021
+ms.date: 03/08/2021
 ms.author: duau
 ---
 
@@ -65,7 +65,7 @@ Azure Route Server has the following limits (per deployment).
 | Number of routes each BGP peer can advertise to Azure Route Server | 200 |
 | Number of routes that Azure Route Server can advertise to ExpressRoute or VPN gateway | 200 |
 
-For more information, see [Diagnose an Azure virtual machine routing problem](../virtual-network/diagnose-network-routing-problem.md).
+If your NVA advertises more routes than the limit, the BGP session will be dropped. If this happens to the gateway and Azure Route Server, you'll lose connectivity from your on-premises network to Azure. For more information, see [Diagnose an Azure virtual machine routing problem](../virtual-network/diagnose-network-routing-problem.md).
 
 ## Next steps
 

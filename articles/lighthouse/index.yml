@@ -87,15 +87,11 @@ landingContent:
             url: ./how-to/manage-sentinel-workspaces.md
           - text: Use Azure Monitor Logs
             url: ./how-to/monitor-at-scale.md
-          - text: Monitor delegation changes
-            url: ./how-to/monitor-delegation-changes.md
           - text: Deploy Azure Policy
             url: ./how-to/policy-at-scale.md
-          - text: Deploy a policy that can be remediated
-            url: ./how-to/deploy-policy-remediation.md
           - text: Manage hybrid machines with Azure Arc
             url: ./how-to/manage-hybrid-infrastructure-arc.md
-          - text: Manage migration projects
+          - text: Manage Azure Migrate projects
             url: ./how-to/migration-at-scale.md
 
   - title: Reference - SDKs

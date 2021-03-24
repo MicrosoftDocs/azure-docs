@@ -93,7 +93,7 @@ Use Azure diagnostic extension if you need to:
 - Send data to Azure Storage for archiving or to analyze it with tools such as [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
 - Send data to [Azure Monitor Metrics](../essentials/data-platform-metrics.md) to analyze it with [metrics explorer](../essentials/metrics-getting-started.md) and to take advantage of features such as near real-time [metric alerts](../alerts/alerts-metric-overview.md) and [autoscale](../autoscale/autoscale-overview.md) (Windows only).
 - Send data to third-party tools using [Azure Event Hubs](./diagnostics-extension-stream-event-hubs.md).
-- Collect [Boot Diagnostics](../../virtual-machines/troubleshooting/boot-diagnostics.md) to investigate VM boot issues.
+- Collect [Boot Diagnostics](/troubleshoot/azure/virtual-machines/boot-diagnostics) to investigate VM boot issues.
 
 Limitations of Azure diagnostics extension include:
 
@@ -148,10 +148,10 @@ The following tables list the operating systems that are supported by the Azure 
 
 ### Linux
 
-| Operating system | Azure Monitor agent | Log Analytics agent | Dependency agent | Diagnostics extension | 
+| Operating system | Azure Monitor agent <sup>1</sup> | Log Analytics agent <sup>1</sup> | Dependency agent | Diagnostics extension <sup>2</sup>| 
 |:---|:---:|:---:|:---:|:---:
 | Amazon Linux 2017.09                                        |   | X |   |   |
-| CentOS Linux 8 <sup>1</sup> <sup>2</sup>                    | X | X | X |   |
+| CentOS Linux 8                                              | X <sup>3</sup> | X | X |   |
 | CentOS Linux 7                                              | X | X | X | X |
 | CentOS Linux 6                                              |   | X |   |   |
 | CentOS Linux 6.5+                                           |   | X | X | X |
@@ -160,26 +160,28 @@ The following tables list the operating systems that are supported by the Azure 
 | Debian 8                                                    |   | X | X |   |
 | Debian 7                                                    |   |   |   | X |
 | OpenSUSE 13.1+                                              |   |   |   | X |
-| Oracle Linux 8 <sup>1</sup> <sup>2</sup>                    | X | X |   |   |
+| Oracle Linux 8                                              | X <sup>3</sup> | X |   |   |
 | Oracle Linux 7                                              | X | X |   | X |
 | Oracle Linux 6                                              |   | X |   |   |
 | Oracle Linux 6.4+                                           |   | X |   | X |
-| Red Hat Enterprise Linux Server 8 <sup>1</sup> <sup>2</sup> | X | X | X |   |
+| Red Hat Enterprise Linux Server 8                           | X <sup>3</sup> | X | X |   |
 | Red Hat Enterprise Linux Server 7                           | X | X | X | X |
 | Red Hat Enterprise Linux Server 6                           |   | X | X |   |
 | Red Hat Enterprise Linux Server 6.7+                        |   | X | X | X |
-| SUSE Linux Enterprise Server 15.2 <sup>1</sup> <sup>2</sup> | X |   |   |   |
-| SUSE Linux Enterprise Server 15.1 <sup>1</sup> <sup>2</sup> | X | X |   |   |
+| SUSE Linux Enterprise Server 15.2                           | X <sup>3</sup> |   |   |   |
+| SUSE Linux Enterprise Server 15.1                           | X <sup>3</sup> | X |   |   |
 | SUSE Linux Enterprise Server 15                             | X | X | X |   |
 | SUSE Linux Enterprise Server 12                             | X | X | X | X |
-| Ubuntu 20.04 LTS <sup>1</sup>                               | X | X | X |   |
+| Ubuntu 20.04 LTS                                            | X | X | X |   |
 | Ubuntu 18.04 LTS                                            | X | X | X | X |
 | Ubuntu 16.04 LTS                                            | X | X | X | X |
 | Ubuntu 14.04 LTS                                            |   | X |   | X |
 
-<sup>1</sup> Requires Python 3 to be installed on the machine.
+<sup>1</sup> Requires Python (2 or 3) to be installed on the machine.
 
-<sup>2</sup> Known issue collecting Syslog events. Only performance data is currently supported.
+<sup>2</sup> Requires Python 2 to be installed on the machine.
+
+<sup>3</sup> Known issue collecting Syslog events. Only performance data is currently supported.
 #### Dependency agent Linux kernel support
 
 Since the Dependency agent works at the kernel level, support is also dependent on the kernel version. The following table lists the major and minor Linux OS release and supported kernel versions for the Dependency agent.

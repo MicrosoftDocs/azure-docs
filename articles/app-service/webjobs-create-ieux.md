@@ -16,7 +16,7 @@ ROBOTS: NOINDEX,NOFOLLOW
 
 # Run background tasks with WebJobs in Azure App Service
 
-The concept of runn [background tasks](./webjobs-create-ieux-conceptual.md) on Azure is provided with Azure App service web jobs. Learn how to deploy <abbr title="A program or script in the same instance as a web app, API app, or mobile app.">WebJobs</abbr> by using the [Azure portal](https://portal.azure.com) to upload an executable or script. 
+The concept of running [background tasks](./webjobs-create-ieux-conceptual.md) on Azure is provided with Azure App service web jobs. Learn how to deploy <abbr title="A program or script in the same instance as a web app, API app, or mobile app.">WebJobs</abbr> by using the [Azure portal](https://portal.azure.com) to upload an executable or script. 
 
 Three supported WebJobs include:
 

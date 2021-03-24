@@ -267,7 +267,7 @@ ms.custom: H1Hack27Feb2017, devx-track-azurecli
 [virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]:../../linux/add-disk.md#format-and-mount-the-disk
 [virtual-machines-linux-tutorial]:../../linux/quick-create-cli.md
 [virtual-machines-linux-update-agent]:../../linux/update-agent.md
-[virtual-machines-manage-availability]:../../linux/manage-availability.md
+[virtual-machines-manage-availability]:../../linux/availability.md
 [virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:virtual-machines-windows-create-powershell.md
 [virtual-machines-sizes-linux]:../../linux/sizes.md
 [virtual-machines-sizes-windows]:../../windows/sizes.md
@@ -1826,7 +1826,7 @@ There are two types of Azure platform events that can affect the availability of
 * Planned maintenance events are periodic updates made by Microsoft to the underlying Azure platform to improve overall reliability, performance, and security of the platform infrastructure that your virtual machines run on.
 * Unplanned maintenance events occur when the hardware or physical infrastructure underlying your virtual machine has faulted in some way. This may include local network failures, local disk failures, or other rack level failures. When such a failure is detected, the Azure platform will automatically migrate your virtual machine from the unhealthy physical server hosting your virtual machine to a healthy physical server. Such events are rare, but may also cause your virtual machine to reboot.
 
-For more details, see [Availability of Windows virtual machines in Azure](../../manage-availability.md) and [Availability of Linux virtual machines in Azure](../../manage-availability.md).
+For more details, see [Availability of Windows virtual machines in Azure](../../availability.md) and [Availability of Linux virtual machines in Azure](../../availability.md).
 
 #### Azure Storage Redundancy
 

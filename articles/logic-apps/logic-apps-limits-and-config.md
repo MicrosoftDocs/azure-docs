@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 03/03/2021
+ms.date: 03/18/2021
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -45,7 +45,7 @@ Here are the limits for a single logic app run:
 | Name | Multi-tenant limit | Integration service environment limit | Notes |
 |------|--------------------|---------------------------------------|-------|
 | Run duration | 90 days | 366 days | Run duration is calculated by using a run's start time and the limit that's specified in the workflow setting, [**Run history retention in days**](#change-duration) at that start time. <p><p>To change the default limit, see [Change run duration and history retention in storage](#change-duration). |
-| Run history retention in storage | 90 days | 366 days | If a run's duration exceeds the current run history retention limit, the run is removed from the runs history in storage. Whether the run completes or times out, run history retention is always calculated by using the run's start time and the current limit specified in the workflow setting, [**Run history retention in days**](#change-retention). No matter the previous limit, the current limit is always used for calculating retention. <p><p>To change the default limit and for more information, see [Change duration and run history retention in storage](#change-retention). To increase the maximum limit, [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) for help with your requirements. |
+| Run history retention in storage | 90 days | 366 days | If a run's duration exceeds the current run history retention limit, the run is removed from the runs history in storage. Whether the run completes or times out, run history retention is always calculated by using the run's start time and the current limit specified in the workflow setting, [**Run history retention in days**](#change-retention). No matter the previous limit, the current limit is always used for calculating retention. <p><p>To change the default limit and for more information, see [Change duration and run history retention in storage](#change-retention). To increase the maximum limit, [contact the Logic Apps team](mailto://logicappspm@microsoft.com) for help with your requirements. |
 | Minimum recurrence interval | 1 second | 1 second ||
 | Maximum recurrence interval | 500 days | 500 days ||
 |||||
@@ -199,8 +199,8 @@ For more information about your logic app resource definition, see [Overview: Au
 
   | Name | Limit | Notes |
   |------|-------|-------|
-  | Base unit execution limit | System-throttled when infrastructure capacity reaches 80% | Provides ~4,000 action executions per minute, which is ~160 million action executions per month | |
-  | Scale unit execution limit | System-throttled when infrastructure capacity reaches 80% | Each scale unit can provide ~2,000 additional action executions per minute, which is ~80 million more action executions per month | |
+  | Base unit execution limit | System-throttled when infrastructure capacity reaches 80% | Provides ~4,000 action executions per minute, which is ~160 million action executions per month |
+  | Scale unit execution limit | System-throttled when infrastructure capacity reaches 80% | Each scale unit can provide ~2,000 additional action executions per minute, which is ~80 million more action executions per month |
   | Maximum scale units that you can add | 10 | |
   ||||
 
@@ -240,11 +240,11 @@ Some connector operations make asynchronous calls or listen for webhook requests
 
 #### Character limits
 
-| Name | Notes |
-|------|-------|
+| Name | Limit | Notes |
+|------|-------|-------|
 | Expression evaluation limit | 131,072 characters | The `@concat()`, `@base64()`, `@string()` expressions can't be longer than this limit. |
-| Request URL character limit | 16,384 characters |
-|||
+| Request URL character limit | 16,384 characters | |
+||||
 
 <a name="retry-policy-limits"></a>
 

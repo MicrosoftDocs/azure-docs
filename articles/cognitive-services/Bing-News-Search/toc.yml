@@ -69,7 +69,7 @@
       - name: Java
         href: /java/api/overview/azure/cognitiveservices/client/bingnewssearch
       - name: Python
-        href: /python/api/azure-cognitiveservices-search-newssearch/?view=azure-python
+        href: /python/api/azure-cognitiveservices-search-newssearch/
       - name: Node.js
         href: /javascript/api/@azure/cognitiveservices-newssearch/
       - name: Go

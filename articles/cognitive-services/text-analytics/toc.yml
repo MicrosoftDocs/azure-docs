@@ -119,7 +119,7 @@
         - name: .NET
           href: /dotnet/api/overview/azure/cognitiveservices/client
         - name: Python
-          href: /python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python
+          href: /python/api/overview/azure/cognitiveservices/textanalytics
         - name: Java
           href: /java/api/overview/azure/cognitiveservices/client/textanalytics
         - name: Node.js

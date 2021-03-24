@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 03/05/2021
+ms.date: 03/08/2021
 tags: connectors
 ---
 
@@ -25,7 +25,7 @@ This article explains how you can access your SAP resources from Logic Apps usin
 
     * If you're running your logic app in multi-tenant Azure, see the [multi-tenant prerequisites](#multi-tenant-azure-prerequisites).
 
-    * If you're running your logic app in a Premium-level[ integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), see the [ISE prerequisites](#ise-prerequisites).
+    * If you're running your logic app in a Premium-level [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), see the [ISE prerequisites](#ise-prerequisites).
 
 * An [SAP application server](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) or [SAP message server](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm) that you want to access from Logic Apps. For information about what SAP servers and SAP actions you can use with the connector, see [SAP compatibility](#sap-compatibility).
 
@@ -637,6 +637,14 @@ To send IDocs from SAP to your logic app, you need the following minimum configu
     * For your **RFC Destination**, enter a name.
     
     * On the **Technical Settings** tab, for **Activation Type**, select **Registered Server Program**. For your **Program ID**, enter a value. In SAP, your logic app's trigger will be registered by using this identifier.
+
+    > [!IMPORTANT]
+    > The SAP **Program ID** is case-sensitive. Make sure you consistently use the same case format for your **Program ID** when you configure your logic app and SAP server. Otherwise, you might receive the following errors in the tRFC Monitor (T-Code SM58) when you attempt to send an IDoc to SAP:
+    >
+    > * **Function IDOC_INBOUND_ASYNCHRONOUS not found**
+    > * **Non-ABAP RFC client (partner type) not supported**
+    >
+    > For more information from SAP, see the following notes (login required) <https://launchpad.support.sap.com/#/notes/2399329> and <https://launchpad.support.sap.com/#/notes/353597>.
     
     * On the **Unicode** tab, for **Communication Type with Target System**, select **Unicode**.
 
@@ -748,11 +756,27 @@ You can set up SAP to [send IDocs in packets](https://help.sap.com/viewer/8f3819
 
 Here's an example that shows how to extract individual IDocs from a packet by using the [`xpath()` function](./workflow-definition-language-functions-reference.md#xpath):
 
-1. Before you start, you need a logic app with an SAP trigger. If you don't already have this logic app, follow the previous steps in this topic to [set up a logic app with an SAP trigger](#receive-message-from-sap).
+1. Before you start, you need a logic app with an SAP trigger. If you don't already have this in your logic app, follow the previous steps in this topic to [set up a logic app with an SAP trigger](#receive-message-from-sap).
+
+    > [!IMPORTANT]
+    > The SAP **Program ID** is case-sensitive. Make sure you consistently use the same case format for your **Program ID** when you configure your logic app and SAP server. Otherwise, you might receive the following errors in the tRFC Monitor (T-Code SM58) when you attempt to send an IDoc to SAP:
+    >
+    > * **Function IDOC_INBOUND_ASYNCHRONOUS not found**
+    > * **Non-ABAP RFC client (partner type) not supported**
+    >
+    > For more information from SAP, see the following notes (login required) <https://launchpad.support.sap.com/#/notes/2399329> and <https://launchpad.support.sap.com/#/notes/353597>.
 
    For example:
 
    ![Add SAP trigger to logic app](./media/logic-apps-using-sap-connector/first-step-trigger.png)
+
+1. [Add a response action to your logic app](/azure/connectors/connectors-native-reqres#add-a-response-action) to reply immediately with the status of your SAP request. It's a best practice to add this action immediately after your trigger, to free up the communication channel with your SAP server. Choose one of the following status codes (`statusCode`) to use in your response action:
+
+    * **202 Accepted**, which means the request has been accepted for processing but the processing isn't complete yet.
+
+    * **204 No Content**, which means the server has successfully fulfilled the request and there is no additional content to send in the response payload body. 
+
+    * **200 OK**. This status code always contains a payload, even if the server generates a payload body of zero length. 
 
 1. Get the root namespace from the XML IDoc that your logic app receives from SAP. To extract this namespace from the XML document, add a step that creates a local string variable and stores that namespace by using an `xpath()` expression:
 
@@ -1320,11 +1344,18 @@ If you experience an issue with duplicate IDocs being sent to SAP from your logi
 
 ## Known issues and limitations
 
-Here are the currently known issues and limitations for the managed (non-ISE) SAP connector:
+Here are the currently known issues and limitations for the managed (non-ISE) SAP connector: 
 
-* The SAP trigger doesn't support data gateway clusters. In some failover cases, the data gateway node that communicates with the SAP system might differ from the active node, which results in unexpected behavior. For send scenarios, data gateway clusters are supported.
+* In general, the SAP trigger doesn't support data gateway clusters. In some failover cases, the data gateway node that communicates with the SAP system might differ from the active node, which results in unexpected behavior.
+
+  * For send scenarios, data gateway clusters in failover mode are supported. 
+
+  * Data gateway clusters in load balancing mode aren't supported by stateful SAP actions. These actions include **Create stateful session**, **Commit BAPI transaction**, **Rollback BAPI transaction**, **Close stateful session**, and all actions that specify a **Session ID** value. Stateful communications must remain on the same data gateway cluster node. 
+
+  * For stateful SAP actions, use the data gateway either in non-cluster mode or in a cluster that's set up for failover only.
 
 * The SAP connector currently doesn't support SAP router strings. The on-premises data gateway must exist on the same LAN as the SAP system you want to connect.
+
 
 ## Connector reference
 

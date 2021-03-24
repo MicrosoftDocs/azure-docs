@@ -1,61 +1,47 @@
 ---
 title: "Cognitive Services: What's new in docs"
-description: "What's new in the Cognitive Services docs for January 1, 2021 - January 31, 2021."
+description: "What's new in the Cognitive Services docs for February 1, 2020 - February 28, 2020."
 author: erhopf
 manager: nitinme
 ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
-ms.date: 02/08/2021
+ms.date: 03/08/2021
 ---
 
-# Cognitive Services docs: What's new for January 1, 2021 - January 31, 2021
+# Cognitive Services docs: What's new for February 1, 2021 - February 28, 2021
 
-Welcome to what's new in the Cognitive Services docs from January 1, 2021 through January 31, 2021. This article lists some of the major changes to docs during this period.
+Welcome to what's new in the Cognitive Services docs from February 1, 2021 through February 28, 2021. This article lists some of the major changes to docs during this period.
 
 ## Cognitive Services
 
-**Updated articles**
+### New articles
 
-- [Plan and manage costs for Azure Cognitive Services](plan-manage-costs.md)
-- [Azure Cognitive Services containers](cognitive-services-container-support.md)
+- [Azure Policy Regulatory Compliance controls for Azure Cognitive Services](security-controls-policy.md)
+
+## Containers
+
+### New articles
+
+- [Azure Cognitive Services containers frequently asked questions (FAQ)](/azure/cognitive-services/containers/container-faq)
+
+### Updated articles
+
+- [Azure Cognitive Services container image tags and release notes](/azure/cognitive-services/containers/container-image-tags)
 
 ## Form Recognizer
 
-**New articles**
+### Updated articles
 
-- [Tutorial: Extract form data in bulk using Azure Data Factory](./form-recognizer/tutorial-bulk-processing.md)
-
-**Updated articles**
-
-- [What is Form Recognizer?](./form-recognizer/overview.md)
-
-## Immersive Reader
-
-**Updated articles**
-
-- [Create an Immersive Reader resource and configure Azure Active Directory authentication](./immersive-reader/how-to-create-immersive-reader.md)
-
-## Personalizer
-
-**Updated articles**
-
-- [Features are information about actions and context](./personalizer/concepts-features.md)
+- [Deploy the sample labeling tool](/azure/cognitive-services/form-recognizer/deploy-label-tool)
+- [What is Form Recognizer?](/azure/cognitive-services/form-recognizer/overview)
+- [Train a Form Recognizer model with labels using the sample labeling tool](/azure/cognitive-services/form-recognizer/quickstarts/label-tool)
 
 ## Text Analytics
 
-**Updated articles**
+### Updated articles
 
-- [Text Analytics API v3 language support](./text-analytics/language-support.md)
-- [Migrate to version 3.x of the Text Analytics API](./text-analytics/migration-guide.md)
-- [What's new in the Text Analytics API?](./text-analytics/whats-new.md)
-
-## Community contributors
-
-The following people contributed to the Cognitive Services docs during this period. Thank you! Learn how to contribute by following the links under "Get involved" in the [what's new landing page](index.yml).
-
-- [AnweshGangula](https://github.com/AnweshGangula) - Anwesh Gangula (1)
-- [cdglasz](https://github.com/cdglasz) - Christopher Glasz (1)
-- [huybuidac](https://github.com/huybuidac) - Bui Dac Huy (1)
+- [Text Analytics API v3 language support](/azure/cognitive-services/text-analytics/language-support)
+- [How to call the Text Analytics REST API](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api)
 
 [!INCLUDE [Service specific updates](./includes/service-specific-updates.md)]

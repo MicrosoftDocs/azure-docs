@@ -61,7 +61,7 @@
       - name: Java
         href: /java/api/overview/azure/cognitiveservices/client/bingentitysearchapi
       - name: Python
-        href: /python/api/azure-cognitiveservices-search-entitysearch/?view=azure-python
+        href: /python/api/azure-cognitiveservices-search-entitysearch/
       - name: Node.js
         href: /javascript/api/@azure/cognitiveservices-entitysearch/
       - name: Go

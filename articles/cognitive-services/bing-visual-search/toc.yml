@@ -72,7 +72,7 @@
       - name: Java
         href:  /java/api/overview/azure/cognitiveservices/client/bingvisualsearch
       - name: Python
-        href: /python/api/azure-cognitiveservices-search-visualsearch/?view=azure-python
+        href: /python/api/azure-cognitiveservices-search-visualsearch/
       - name: Node.js
         href: /javascript/api/@azure/cognitiveservices-visualsearch/
   - name: Use and display requirements

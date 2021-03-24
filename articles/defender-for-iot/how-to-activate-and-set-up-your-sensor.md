@@ -1,12 +1,8 @@
 ---
 title: Activate and set up your sensor
 description: This article describes how to sign in and activate a sensor console.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
-ms.service: azure
 ---
 
 # Activate and set up your sensor

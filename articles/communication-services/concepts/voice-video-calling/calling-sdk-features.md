@@ -7,13 +7,14 @@ manager: jken
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 03/04/2021
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
 # Calling client library overview
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
 
 There are two separate families of Calling client libraries, for *clients* and *services.* Currently available client libraries are intended for end-user experiences: websites and native apps.
 
@@ -23,12 +24,12 @@ The Service client libraries are not yet available, and provide access to the ra
 
 The following list presents the set of features which are currently available in the Azure Communication Services Calling client libraries.
 
-| Group of features | Capability                                                                                                          | JS  | Java (Android) | Objective-C (iOS) 
+| Group of features | Capability                                                                                                          | JS  | Java (Android) | Objective-C (iOS)
 | ----------------- | ------------------------------------------------------------------------------------------------------------------- | ---  | -------------- | -------------
-| Core Capabilities | Place a one-to-one call between two users                                                                           | ✔️   | ✔️            | ✔️  
-|                   | Place a group call with more than two users (up to 350 users)                                                       | ✔️   | ✔️            | ✔️ 
-|                   | Promote a one-to-one call with two users into a group call with more than two users                                 | ✔️   | ✔️            | ✔️ 
-|                   | Join a group call after it has started                                                                              | ✔️   | ✔️            | ✔️ 
+| Core Capabilities | Place a one-to-one call between two users                                                                           | ✔️   | ✔️            | ✔️
+|                   | Place a group call with more than two users (up to 350 users)                                                       | ✔️   | ✔️            | ✔️
+|                   | Promote a one-to-one call with two users into a group call with more than two users                                 | ✔️   | ✔️            | ✔️
+|                   | Join a group call after it has started                                                                              | ✔️   | ✔️            | ✔️
 |                   | Invite another VoIP participant to join an ongoing group call                                                       | ✔️   | ✔️            | ✔️
 |  Mid call control | Turn your video on/off                                                                                              | ✔️   | ✔️            | ✔️ 
 |                   | Mute/Unmute mic                                                                                                     | ✔️   | ✔️            | ✔️         
@@ -80,7 +81,7 @@ The following table represents the set of supported browsers which are currently
 | Windows***                       |  ✔️    | ❌     | ✔️             |
 | Ubuntu/Linux                     |  ✔️    | ❌     | ❌             |
 
-*Safari versions 13.1+ are supported. 
+*Safari versions 13.1+ are supported, 1:1 calls are not supported on Safari. 
 
 **Safari 14+/macOS 11+ needed for outgoing video support. 
 
@@ -114,8 +115,8 @@ The Communication Services calling client library supports the following streami
 
 |           |Web | Android/iOS|
 |-----------|----|------------|
-|**# of outgoing streams that can be sent simultaneously** |1 video + 1 screen sharing | 1 video + 1 screen sharing|
-|**# of incoming streams that can be rendered simultaneously** |1 video + 1 screen sharing| 6 video + 1 screen sharing |
+|**# of outgoing streams that can be sent simultaneously** |1 video or 1 screen sharing | 1 video + 1 screen sharing|
+|**# of incoming streams that can be rendered simultaneously** |1 video or 1 screen sharing| 6 video + 1 screen sharing |
 
 
 ## Next steps

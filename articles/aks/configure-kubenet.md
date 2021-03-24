@@ -21,7 +21,7 @@ This article shows you how to use *kubenet* networking to create and use a virtu
 * The virtual network for the AKS cluster must allow outbound internet connectivity.
 * Don't create more than one AKS cluster in the same subnet.
 * AKS clusters may not use `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`, or `192.0.2.0/24` for the Kubernetes service address range, pod address range or cluster virtual network address range.
-* The service principal used by the AKS cluster must have at least [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor) role on the subnet within your virtual network. You must also have the appropriate permissions, such as the subscription owner, to create a service principal and assign it permissions. If you wish to define a [custom role](../role-based-access-control/custom-roles.md) instead of using the built-in Network Contributor role, the following permissions are required:
+* The cluster identity used by the AKS cluster must have at least [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor) role on the subnet within your virtual network. You must also have the appropriate permissions, such as the subscription owner, to create a cluster identity and assign it permissions. If you wish to define a [custom role](../role-based-access-control/custom-roles.md) instead of using the built-in Network Contributor role, the following permissions are required:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
@@ -124,10 +124,6 @@ az ad sp create-for-rbac --skip-assignment
 ```
 
 The following example output shows the application ID and password for your service principal. These values are used in additional steps to assign a role to the service principal and then create the AKS cluster:
-
-```azurecli
-az ad sp create-for-rbac --skip-assignment
-```
 
 ```output
 {

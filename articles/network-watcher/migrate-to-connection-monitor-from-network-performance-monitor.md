@@ -32,6 +32,9 @@ The migration helps produce the following results:
 * Data monitoring:
    * **Data in Log Analytics**: Before migration, the data remains in the workspace in which NPM is configured in the NetworkMonitoring table. After the migration, the data goes to the NetworkMonitoring table, NWConnectionMonitorTestResult table and NWConnectionMonitorPathResult table in the same workspace. After the tests are disabled in NPM, the data is stored only in the NWConnectionMonitorTestResult table and NWConnectionMonitorPathResult table.
    * **Log-based alerts, dashboards, and integrations**: You must manually edit the queries based on the new NWConnectionMonitorTestResult table and NWConnectionMonitorPathResult table. To re-create the alerts in metrics, see [Network connectivity monitoring with Connection Monitor](./connection-monitor-overview.md#metrics-in-azure-monitor).
+* For ExpressRoute Monitoring:
+	* **End to end loss and latency**:  Connection Monitor will power this, and it will easier than NPM as users do not need to configure which circuits and peerings to monitor. Circuits in the path will automatically be discovered , data will be available in metrics (faster than LA which was where NPM stored the results). Topology will work as is as well.
+	* **Bandwidth measurements**: With the launch of bandwidth related metrics, NPM’s log analytics based approach was not effective in bandwidth monitoring for ExpressRoute customers. This capability is now not available in Connection Monitor.
 	
 ## Prerequisites
 
@@ -55,7 +58,7 @@ After the migration begins, the following changes take place:
    * One connection monitor per region and subscription is created. For tests with on-premises agents, the new connection monitor name is formatted as `<workspaceName>_"workspace_region_name"`. For tests with Azure agents, the new connection monitor name is formatted as `<workspaceName>_<Azure_region_name>`.
    * Monitoring data is now stored in the same Log Analytics workspace in which NPM is enabled, in new tables called NWConnectionMonitorTestResult table and NWConnectionMonitorPathResult table. 
    * The test name is carried forward as the test group name. The test description isn't migrated.
-   * Source and destination endpoints are created and used in the new test group. For on-premises agents, the endpoints are formatted as `<workspaceName>_<FQDN of on-premises machine>`.
+   * Source and destination endpoints are created and used in the new test group. For on-premises agents, the endpoints are formatted as `<workspaceName>_<FQDN of on-premises machine>`.The Agent description isn't migrated.
    * Destination port and probing interval are moved to a test configuration called `TC_<protocol>_<port>` and `TC_<protocol>_<port>_AppThresholds`. The protocol is set based on the port values. For ICMP, the test configurations are named as `TC_<protocol>` and `TC_<protocol>_AppThresholds`. Success thresholds and other optional properties if set are migrated, otherwise are left blank.
    * If the migrating tests contain agents that aren't running, you need to enable the agents and migrate again.
 * NPM isn't disabled, so the migrated tests can continue to send data to the NetworkMonitoring table, NWConnectionMonitorTestResult table and NWConnectionMonitorPathResult table. This approach ensures that existing log-based alerts and integrations are unaffected.

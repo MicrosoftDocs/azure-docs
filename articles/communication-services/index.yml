@@ -1,16 +1,16 @@
 ### YamlMime:Landing
 
 title: Azure Communication Services
-summary: Azure Communication Services is a cloud-based communications service that lets you add voice, video, chat, and telephony to your apps. Note that Azure Communication Services is currently in public preview.
+summary: Azure Communication Services is a cloud-based communications service that lets you add voice, video, chat, and telephony to your apps.
 
 metadata:
-  title: Azure Communication Services 
-  description: Azure Communication Services is a cloud-based communications service that lets you add voice, video, chat, and telephony to your apps. Note that Azure Communication Services is currently in public preview.
+  title: Azure Communication Services
+  description: Azure Communication Services is a cloud-based communications service that lets you add voice, video, chat, and telephony to your apps.
   ms.service: azure-communication-services
   ms.topic: landing-page # Required
-  author: mikben 
+  author: mikben
   ms.author: mikben
-  ms.date: 08/10/2020 
+  ms.date: 03/10/2021
 
 landingContent:
   - title: About Azure Communication Services
@@ -18,7 +18,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Communication Services?
-            url: overview.md 
+            url: overview.md
       - linkListType: concept
         links:
           - text: Client library options
@@ -40,7 +40,7 @@ landingContent:
           - text: Authentication and authorization
             url: concepts/authentication.md
           - text: Event handling
-            url: concepts/event-handling.md
+            url: https://docs.microsoft.com/azure/event-grid/event-schema-communication-services
           - text: Notifications
             url: concepts/notifications.md
   - title: Voice and video calling
@@ -67,7 +67,7 @@ landingContent:
             url: quickstarts/telephony-sms/get-phone-number.md
           - text: Send an SMS message
             url: quickstarts/telephony-sms/send.md
-          - text: Handle SMS events 
+          - text: Handle SMS events
             url: quickstarts/telephony-sms/handle-sms-events.md
       - linkListType: concept
         links:

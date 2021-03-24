@@ -6,7 +6,7 @@ author: tomaschladek
 manager: nmurav
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 08/20/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
@@ -15,7 +15,7 @@ ms.author: tchladek
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Python](https://www.python.org/downloads/) 2.7, 3.5, or above.
+- [Python](https://www.python.org/downloads/) 2.7 or 3.6+.
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
 
 ## Setting Up
@@ -32,7 +32,7 @@ ms.author: tchladek
 
    ```python
    import os
-   from azure.communication.identity import CommunicationIdentityClient
+   from azure.communication.identity import CommunicationIdentityClient, CommunicationUserIdentifier
 
    try:
       print('Azure Communication Services - Access Tokens Quickstart')
@@ -65,6 +65,12 @@ connection_string = os.environ['COMMUNICATION_SERVICES_CONNECTION_STRING']
 client = CommunicationIdentityClient.from_connection_string(connection_string)
 ```
 
+Alternatively, if you have managed identity set up, see [Use managed identities](../managed-identity.md), you may also authenticate with managed identity.
+```python
+const endpoint = os.environ["COMMUNICATION_SERVICES_ENDPOINT"];
+var client = new CommunicationIdentityClient(endpoint, DefaultAzureCredential());
+```
+
 ## Create an identity
 
 Azure Communication Services maintains a lightweight identity directory. Use the `create_user` method to create a new entry in the directory with a unique `Id`. Store received identity with mapping to your application's users. For example, by storing them in your application server's database. The identity is required later to issue access tokens.
@@ -76,11 +82,11 @@ print("\nCreated an identity with ID: " + identity.identifier)
 
 ## Issue access tokens
 
-Use the `issue_token` method to issue an access token for already existing Communication Services identity. Parameter `scopes` defines set of primitives, that will authorize this access token. See the [list of supported actions](../../concepts/authentication.md). New instance of parameter `communicationUser` can be constructed based on string representation of Azure Communication Service identity.
+Use the `get_token` method to issue an access token for already existing Communication Services identity. Parameter `scopes` defines set of primitives, that will authorize this access token. See the [list of supported actions](../../concepts/authentication.md). New instance of parameter `CommunicationUserIdentifier` can be constructed based on string representation of Azure Communication Service identity.
 
 ```python
 # Issue an access token with the "voip" scope for an identity
-token_result = client.issue_token(identity, ["voip"])
+token_result = client.get_token(identity, ["voip"])
 expires_on = token_result.expires_on.strftime('%d/%m/%y %I:%M %S %p')
 print("\nIssued an access token with 'voip' scope that expires at " + expires_on + ":")
 print(token_result.token)
@@ -90,11 +96,11 @@ Access tokens are short-lived credentials that need to be reissued. Not doing so
 
 ## Create an identity and issue an access token within the same request
 
-Use the `create_user_with_token` method to create a Communication Services identity and issue an access token for it. Parameter `scopes` defines set of primitives, that will authorize this access token. See the [list of supported actions](../../concepts/authentication.md).
+Use the `create_user_and_token` method to create a Communication Services identity and issue an access token for it. Parameter `scopes` defines set of primitives, that will authorize this access token. See the [list of supported actions](../../concepts/authentication.md).
 
 ```python
 # Issue an identity and an access token with the "voip" scope for the new identity
-identity_token_result = client.create_user_with_token(["voip"])
+identity_token_result = client.create_user_and_token(["voip"])
 identity = identity_token_result[0].identifier
 token = identity_token_result[1].token
 expires_on = identity_token_result[1].expires_on.strftime('%d/%m/%y %I:%M %S %p')
@@ -105,19 +111,19 @@ print(token)
 
 ## Refresh access tokens
 
-To refresh an access token, use the `CommunicationUser` object to reissue:
+To refresh an access token, use the `CommunicationUserIdentifier` object to reissue:
 
-```python  
+```python
 # Value existingIdentity represents identity of Azure Communication Services stored during identity creation
-identity = CommunicationUser(existingIdentity)
-token_result = client.issue_token( identity, ["voip"])
+identity = CommunicationUserIdentifier(existingIdentity)
+token_result = client.get_token( identity, ["voip"])
 ```
 
 ## Revoke access tokens
 
 In some cases, you may explicitly revoke access tokens. For example, when an application's user changes the password they use to authenticate to your service. Method `revoke_tokens` invalidates all active access tokens, that were issued to the identity.
 
-```python  
+```python
 client.revoke_tokens(identity)
 print("\nSuccessfully revoked all access tokens for identity with ID: " + identity.identifier)
 ```

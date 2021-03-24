@@ -29,7 +29,7 @@ To restore files or folders from the recovery point, go to the virtual machine a
 
 3. In the Backup dashboard menu, select **File Recovery**.
 
-    ![Select File Recovery](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
+    ![Select File Recovery](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)32
 
     The **File Recovery** menu opens.
 
@@ -54,18 +54,18 @@ To restore files or folders from the recovery point, go to the virtual machine a
 
 ## Step 2: Ensure the machine meets the requirements before executing the script
 
-After the script is successfully downloaded, make sure you have the right machine to execute this script. The VM where you are planning to execute the script, should not have any of the following unsupported configurations. If it does, then choose an alternate machine preferably from the same region that meets the requirements.  
+After the script is successfully downloaded, make sure you have the right machine to execute this script. The VM where you are planning to execute the script, should not have any of the following unsupported configurations. **If it does, then choose an alternate machine preferably from the same region that meets the requirements**.  
 
 ### Dynamic disks
 
-You can't run the executable script on the VM with any of the following characteristics:
+You can't run the executable script on the VM with any of the following characteristics: Choose an alternate machine
 
 - Volumes that span multiple disks (spanned and striped volumes).
 - Fault-tolerant volumes (mirrored and RAID-5 volumes) on dynamic disks.
 
 ### Windows Storage Spaces
 
-You cannot run the downloaded executable on the VM that is configured for Windows Storage Spaces.
+You cannot run the downloaded executable on the same backed-up VM if the backed up VM has Windows Storage Spaces. Choose an alternate machine.
 
 ### Virtual machine backups having large disks
 
@@ -75,6 +75,7 @@ See requirements to restore files from backed-up VMs with large disk:<br>
 [Windows OS](#for-backed-up-vms-with-large-disks-windows)<br>
 [Linux OS](#for-backed-up-vms-with-large-disks-linux)
 
+After you choose the correct machine to run the ILR script, ensure that it meets the [OS requirements](#step-3-os-requirements-to-successfully-run-the-script) and [access requirements](#step-4-access-requirements-to-successfully-run-the-script). 
 
 ## Step 3: OS requirements to successfully run the script
 
@@ -120,6 +121,8 @@ The script also requires Python and bash components to execute and connect secur
 | .NET | 4.6.2 and above |
 | TLS | 1.2 should be supported  |
 
+Also, ensure that you have the [right machine to execute the ILR script](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script) and it meets the [access requirements](#step-4-access-requirements-to-successfully-run-the-script).
+
 ## Step 4: Access requirements to successfully run the script
 
 If you run the script on a computer with restricted access, ensure there's access to:
@@ -142,12 +145,13 @@ For Linux, the script requires 'open-iscsi' and 'lshw' components to connect to 
 
 The access to `download.microsoft.com` is required to download components used to build a secure channel between the machine where the script is run and the data in the recovery point.
 
+Also, ensure that you have the [right machine to execute the ILR script](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script) and it meets the [OS requirements](#step-3-os-requirements-to-successfully-run-the-script).
 
 ## Step 5: Running the script and identifying volumes
 
 ### For Windows
 
-After you meet all the requirements listed in Step 2, Step 3 and Step 4, copy the script from the downloaded location (usually the Downloads folder), right-click the executable or script and run it with Administrator credentials. When prompted, type the password or paste the password from memory, and press Enter. Once the valid password is entered, the script connects to the recovery point.
+After you meet all the requirements listed in [Step 2](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script), [Step 3](#step-3-os-requirements-to-successfully-run-the-script) and [Step 4](#step-4-access-requirements-to-successfully-run-the-script), copy the script from the downloaded location (usually the Downloads folder), see [Step 1 to learn how to generate and download script](#step-1-generate-and-download-script-to-browse-and-recover-files). Right-click the executable file and run it with Administrator credentials. When prompted, type the password or paste the password from memory, and press Enter. Once the valid password is entered, the script connects to the recovery point.
 
   ![Executable output](./media/backup-azure-restore-files-from-vm/executable-output.png)
 
@@ -174,7 +178,7 @@ If the file recovery process hangs after you run the file-restore script (for ex
 
 ### For Linux
 
-For Linux machines, a python script is generated. Download the script and copy it to the relevant/compatible Linux server. You may have to modify the permissions to execute it with ```chmod +x <python file name>```. Then run the python file with ```./<python file name>```.
+After you meet all the requirements listed in [Step 2](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script), [Step 3](#step-3-os-requirements-to-successfully-run-the-script) and [Step 4](#step-4-access-requirements-to-successfully-run-the-script), generate a python script for Linux machines. See [Step 1 to learn how to generate and download script](#step-1-generate-and-download-script-to-browse-and-recover-files). Download the script and copy it to the relevant/compatible Linux server. You may have to modify the permissions to execute it with ```chmod +x <python file name>```. Then run the python file with ```./<python file name>```.
 
 
 In Linux, the volumes of the recovery point are mounted to the folder where the script is run. The attached disks, volumes, and the corresponding mount paths are shown accordingly. These mount paths are visible to users having root level access. Browse through the volumes mentioned in the script output.

@@ -246,6 +246,7 @@ Guest/server multipath (MPIO) | No
 Guest/server GPT partitions | Five partitions are supported from [Update Rollup 37](https://support.microsoft.com/help/4508614/) (version 9.25 of the Mobility service) onwards. Previously four were supported.
 ReFS | Resilient File System is supported with Mobility service version 9.23 or higher
 Guest/server EFI/UEFI boot | - Supported for all [Azure Marketplace UEFI operating systems](../virtual-machines/generation-2.md#generation-2-vm-images-in-azure-marketplace) with Site Recovery mobility agent version 9.30 onwards. <br/> - Secure UEFI boot type is not supported. [Learn more.](../virtual-machines/generation-2.md#on-premises-vs-azure-generation-2-vms)
+RAID disk| No
 
 ## Replication channels
 
@@ -291,10 +292,10 @@ On-premises VMs replicated to Azure must meet the Azure VM requirements summariz
 --- | --- | ---
 Guest operating system | Verify [supported operating systems](#replicated-machines) for replicated machines. | Check fails if unsupported.
 Guest operating system architecture | 64-bit. | Check fails if unsupported.
-Operating system disk size | Up to 2,048 GB. | Check fails if unsupported.
+Operating system disk size | Up to 2,048 GB for Generation 1 machines. <br> Up to 4,095 GB for Generation 2 machines. | Check fails if unsupported.
 Operating system disk count | 1 </br> boot and system partition on different disks is not supported | Check fails if unsupported.
 Data disk count | 64 or less. | Check fails if unsupported.
-Data disk size | Up to 8,192 GB when replicating to managed disk (9.26 version onwards)<br> Up to 4,095 GB when replicating to storage account </br> Minimum disk size requirement - at least 1024 MB| Check fails if unsupported.
+Data disk size | Up to 32,767 GB when replicating to managed disk (9.41 version onwards)<br> Up to 4,095 GB when replicating to storage account </br> Minimum disk size requirement - at least 1024 MB| Check fails if unsupported.
 Network adapters | Multiple adapters are supported. |
 Shared VHD | Not supported. | Check fails if unsupported.
 FC disk | Not supported. | Check fails if unsupported.

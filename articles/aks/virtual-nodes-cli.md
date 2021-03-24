@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to use the Azure CLI to create an Azure Kubernetes Services (AKS) cluster that uses virtual nodes to run pods.
 services: container-service
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 03/16/2021
 ms.custom: references_regions, devx-track-azurecli
 ---
 
@@ -81,7 +81,7 @@ az network vnet subnet create \
 
 ## Create a service principal or use a managed identity
 
-To allow an AKS cluster to interact with other Azure resources, an Azure Active Directory service principal is used. This service principal can be automatically created by the Azure CLI or portal, or you can pre-create one and assign additional permissions. Alternatively, you can use a managed identity for permissions instead of a service principal. For more information, see [Use managed identities](use-managed-identity.md).
+To allow an AKS cluster to interact with other Azure resources, a cluster identity is used. This cluster identity can be automatically created by the Azure CLI or portal, or you can pre-create one and assign additional permissions. By default, this cluster identity is a managed identity. For more information, see [Use managed identities](use-managed-identity.md). You can also use a service principal as your cluster identity. The following steps show you how to manually create and assign the service principal to your cluster.
 
 Create a service principal using the [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] command. The `--skip-assignment` parameter limits any additional permissions from being assigned.
 
@@ -241,7 +241,7 @@ The pod is assigned an internal IP address from the Azure virtual network subnet
 To test the pod running on the virtual node, browse to the demo application with a web client. As the pod is assigned an internal IP address, you can quickly test this connectivity from another pod on the AKS cluster. Create a test pod and attach a terminal session to it:
 
 ```console
-kubectl run -it --rm testvk --image=debian
+kubectl run -it --rm testvk --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
 ```
 
 Install `curl` in the pod using `apt-get`:

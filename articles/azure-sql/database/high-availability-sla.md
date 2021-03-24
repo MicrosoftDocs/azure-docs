@@ -59,6 +59,9 @@ The zone redundant version of the high availability architecture for the general
 
 > [!NOTE]
 > General Purpose databases with a size of 80 vcore may experience performance degradation with zone redundant configuration. Additionally, operations such as backup, restore, database copy, and setting up Geo-DR relationships may experience slower performance for any single databases larger than 1 TB. 
+> 
+> [!NOTE]
+> The preview is not covered under Reserved Instance
 
 ## Premium and Business Critical service tier locally redundant availability
 
@@ -118,7 +121,7 @@ A failover can be initiated using PowerShell, REST API, or Azure CLI:
 |Deployment type|PowerShell|REST API| Azure CLI|
 |:---|:---|:---|:---|
 |Database|[Invoke-AzSqlDatabaseFailover](/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Database failover](/rest/api/sql/databases/failover)|[az rest](/cli/azure/reference-index#az-rest) may be used to invoke a REST API call from Azure CLI|
-|Elastic pool|[Invoke-AzSqlElasticPoolFailover](/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Elastic pool failover](/rest/api/sql/elasticpools(failover)/failover/)|[az rest](/cli/azure/reference-index#az-rest) may be used to invoke a REST API call from Azure CLI|
+|Elastic pool|[Invoke-AzSqlElasticPoolFailover](/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Elastic pool failover](/rest/api/sql/elasticpools/failover)|[az rest](/cli/azure/reference-index#az-rest) may be used to invoke a REST API call from Azure CLI|
 |Managed Instance|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Managed Instances - Failover](/rest/api/sql/managed%20instances%20-%20failover/failover)|[az sql mi failover](/cli/azure/sql/mi/#az-sql-mi-failover)|
 
 > [!IMPORTANT]
