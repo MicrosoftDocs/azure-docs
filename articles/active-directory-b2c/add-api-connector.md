@@ -5,7 +5,7 @@ services: active-directory-b2c
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 10/15/2020
+ms.date: 03/24/2021
 
 ms.author: mimart
 author: msmimart
@@ -272,6 +272,7 @@ Content-type: application/json
 
 {
     "version": "1.0.0",
+    "status": 400,
     "action": "ShowBlockPage",
     "userMessage": "There was a problem with your request. You are not able to sign up at this time.",
 }
@@ -282,6 +283,7 @@ Content-type: application/json
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
 | version     | String | Yes      | The version of the API.                                                    |
 | action      | String | Yes      | Value must be `ShowBlockPage`                                              |
+| status      | Integer / String | Yes      | Must be value `400`, or `"400"` for a ShowBlockPage response.  |
 | userMessage | String | Yes      | Message to display to the user.                                            |
 
 **End-user experience with a blocking response**
@@ -306,7 +308,7 @@ Content-type: application/json
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | version     | String  | Yes      | The version of your API.                                                    |
 | action      | String  | Yes      | Value must be `ValidationError`.                                           |
-| status      | Integer | Yes      | Must be value `400` for a ValidationError response.                        |
+| status      | Integer / String | Yes      | Must be value `400`, or `"400"` for a ValidationError response.  |
 | userMessage | String  | Yes      | Message to display to the user.                                            |
 
 > [!NOTE]
