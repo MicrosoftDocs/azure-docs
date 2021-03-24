@@ -1,17 +1,7 @@
 ---
 title: Agentless solution architecture
 description: Learn about Azure Defender for IoT agentless architecture and information flow.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 1/25/2021
 ms.author: shhazam
 ---

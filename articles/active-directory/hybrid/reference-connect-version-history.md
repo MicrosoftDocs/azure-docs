@@ -53,7 +53,7 @@ Please follow this link to read more about [auto upgrade](how-to-connect-install
 >For version history information on retired versions, see [Azure AD Connect version release history archive](reference-connect-version-history-archive.md)
 
 
-## 1.6.2.3
+## 1.6.2.4
 
 >[!NOTE]
 > - This release will be made available for download only.
@@ -61,7 +61,7 @@ Please follow this link to read more about [auto upgrade](how-to-connect-install
 > - This release defaults the AADConnect server to the new V2 end point. Note that this end point is not supported in the German national cloud, the Chinese national cloud and the US government cloud and if you need to deploy this version in these clouds you need to follow [these instructions](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-endpoint-api-v2#rollback) to switch back to the V1 end point. Failure to do so will result in errors in synchronization.
 
 ### Release status
-3/17/2021: Released for download
+3/19/2021: Released for download
 
 ### Functional changes
 
@@ -78,6 +78,7 @@ Please follow this link to read more about [auto upgrade](how-to-connect-install
      - If the Cloned Custom Sync Rule does not flow some Mail and Exchange attributes, then new Exchange Sync Rule will add those attributes.
  - Added support for [Selective Password hash Synchronization](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-selective-password-hash-synchronization)
  - Added the new [Single Object Sync cmdlet](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-single-object-sync). Use this cmdlet to troubleshoot your Azure AD Connect sync configuration. 
+ -  Azure AD Connect now supports the Hybrid Identity Administrator role for configuring the service.
  - Updated AADConnectHealth agent to 3.1.83.0
  - New version of the [ADSyncTools PowerShell module](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-adsynctools), which has several new or improved cmdlets. 
  
