@@ -12,7 +12,7 @@ ms.subservice: blobs
 ms.custom: devx-track-csharp
 ---
 
-# List blobs with Azure Storage APIs
+# List blobs with Azure Storage client libraries
 
 When you list blobs from your code, you can specify a number of options to manage how results are returned from Azure Storage. You can specify the number of results to return in each set of results, and then retrieve the subsequent sets. You can specify a prefix to return blobs whose names begin with that character or string. And you can list blobs in a flat listing structure, or hierarchically. A hierarchical listing returns blobs as though they were organized into folders.
 
@@ -21,8 +21,6 @@ When you list blobs from your code, you can specify a number of options to manag
 To list the blobs in a storage account, call one of these methods:
 
 # [.NET v12](#tab/dotnet)
-
-This article shows how to list blobs using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).
 
 - [BlobContainerClient.GetBlobs](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobs)
 - [BlobContainerClient.GetBlobsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsasync)
@@ -41,11 +39,7 @@ To list the blobs in a container, call one of these methods:
 - [CloudBlobContainer.ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmented)
 - [CloudBlobContainer.ListBlobsSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmentedasync)
 
-The overloads for these methods provide additional options for managing how blobs are returned by the listing operation. These options are described in the following sections.
-
 # [Python v12](#tab/python)
-
-This article shows how to list blobs using the [Azure Storage client library for Python](/azure/developer/python/sdk/storage/overview).
 
 - [ContainerClient.list_blobs](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient#list-blobs-name-starts-with-none--include-none----kwargs-)
 
@@ -79,9 +73,9 @@ Specify `metadata` for the `include=` parameter when calling [list_blobs](/azure
 
 ### List blob versions or snapshots
 
-To list blob versions or snapshots with the .NET v12 client library, specify the [BlobStates](/dotnet/api/azure.storage.blobs.models.blobstates) parameter with the **Version** or **Snapshot** field. Versions and snapshots are listed from oldest to newest. For more information about listing versions, see [List blob versions](versioning-enable.md#list-blob-versions).
+- To list blob versions or snapshots with the .NET v12 client library, specify the [BlobStates](/dotnet/api/azure.storage.blobs.models.blobstates) parameter with the **Version** or **Snapshot** field. Versions and snapshots are listed from oldest to newest. For more information about listing versions, see [List blob versions](versioning-enable.md#list-blob-versions).
 
-To list the number of snapshots with the Python v12 client library, specify `num_snapshots` in the `include=` parameter when calling [list_blobs](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient#list-blobs-name-starts-with-none--include-none----kwargs-).
+- To list the number of snapshots with the Python v12 client library, specify `num_snapshots` in the `include=` parameter when calling [list_blobs](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient#list-blobs-name-starts-with-none--include-none----kwargs-).
 
 ### Flat listing versus hierarchical listing
 
@@ -171,7 +165,7 @@ Blob name: FolderA/FolderB/FolderC/blob3.txt
 
 ## Use a hierarchical listing
 
-When you call a listing operation hierarchically, Azure Storage returns the virtual directories and blobs at the first level of the hierarchy. The [Prefix](/dotnet/api/microsoft.azure.storage.blob.cloudblobdirectory.prefix) property of each virtual directory is set so that you can pass the prefix in a recursive call to retrieve the next directory.
+When you call a listing operation hierarchically, Azure Storage returns the virtual directories and blobs at the first level of the hierarchy.
 
 # [.NET v12](#tab/dotnet)
 
@@ -182,6 +176,8 @@ The following example lists the blobs in the specified container using a hierarc
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsHierarchicalListing":::
 
 # [.NET v11](#tab/dotnet11)
+
+The [Prefix](/dotnet/api/microsoft.azure.storage.blob.cloudblobdirectory.prefix) property of each virtual directory is set so that you can pass the prefix in a recursive call to retrieve the next directory.
 
 To list blobs hierarchically, set the `useFlatBlobListing` parameter of the listing method to **false**.
 
@@ -241,6 +237,10 @@ private static async Task ListBlobsHierarchicalListingAsync(CloudBlobContainer c
 ```
 
 # [Python v12](#tab/python)
+
+To list blobs hierarchically, call the [walk_blobs](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient#walk-blobs-name-starts-with-none--include-none--delimiter--------kwargs-) method.
+
+The following example lists the blobs in the specified container using a hierarchical listing, with an optional segment size specified, and writes the blob name to the console window.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/list_blobs.py" id="Snippet_WalkHierarchy":::
 
