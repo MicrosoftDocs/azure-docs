@@ -125,6 +125,21 @@ ws.compute_targets['Synapse Spark pool alias']
 
 ## Launch Synapse Spark pool for data preparation tasks
 
+To begin data preparation with the Apache Spark pool, specify the Apache Spark pool name:
+
+> [!IMPORTANT]
+> To continue use of the Apache Spark pool you must indicate which compute resource to use throughout your data wrangling tasks with `%synapse` for single lines of code and `%%synapse` for multiple lines. 
+
+```python
+%synapse start -c SynapseSparkPoolAlias
+```
+
+After the session starts, you can check the session's metadata.
+
+```python
+%synapse meta
+```
+
 You can specify an [Azure Machine Learning environment](concept-environments.md) to use during your Apache Spark session. Only Conda dependencies specified in the environment will take effect. Docker image is not supported.
 
 >[!WARNING]
@@ -145,21 +160,11 @@ env.python.conda_dependencies.add_conda_package("numpy==1.17.0")
 env.register(workspace=ws)
 ```
 
-To begin data preparation with the Apache Spark pool, specify the Apache Spark pool name and provide your subscription ID, the machine learning workspace resource group, the name of the machine learning workspace, and which environment to use during the Apache Spark session. 
-
-> [!IMPORTANT]
-> To continue use of the Apache Spark pool you must indicate which compute resource to use throughout your data wrangling tasks with `%synapse` for single lines of code and `%%synapse` for multiple lines. 
+To begin data preparation with the Apache Spark pool and your custom environment, specify the Apache Spark pool name and which environment to use during the Apache Spark session. Furthermore, you can provide your subscription ID, the machine learning workspace resource group, and the name of the machine learning workspace.
 
 ```python
-%synapse start -c SynapseSparkPoolAlias -s AzureMLworkspaceSubscriptionID -r AzureMLworkspaceResourceGroupName -w AzureMLworkspaceName -e myenv
+%synapse start -c SynapseSparkPoolAlias -e myenv -s AzureMLworkspaceSubscriptionID -r AzureMLworkspaceResourceGroupName -w AzureMLworkspaceName
 ```
-
-After the session starts, you can check the session's metadata.
-
-```python
-%synapse meta
-```
-
 ## Load data from storage
 
 Once your Apache Spark session starts, read in the data that you wish to prepare. Data loading is supported for Azure Blob storage and Azure Data Lake Storage Generations 1 and 2.
@@ -225,14 +230,22 @@ df = spark.read.csv("abfss://<container name>@<storage account>.dfs.core.windows
 
 ### Read in data from registered datasets
 
-You can also get an existing registered dataset in your workspace and perform data preparation on it by converting it into a spark dataframe.  
+You can also get an existing registered dataset in your workspace and perform data preparation on it by converting it into a spark dataframe.
 
-The following example gets a registered TabularDataset, `blob_dset`, that references files in blob storage, and converts it into a spark dataframe. When you convert your datasets into a spark dataframe, you can leverage `pyspark` data exploration and preparation libraries.  
+The following example authenticates to the workspace, gets a registered TabularDataset, `blob_dset`, that references files in blob storage, and converts it into a spark dataframe. When you convert your datasets into a spark dataframe, you can leverage `pyspark` data exploration and preparation libraries.  
 
 ``` python
 
 %%synapse
 from azureml.core import Workspace, Dataset
+
+subscription_id = "<enter your subscription ID>"
+resource_group = "<enter your resource group>"
+workspace_name = "<enter your workspace name>"
+
+ws = Workspace(workspace_name = workspace_name,
+               subscription_id = subscription_id,
+               resource_group = resource_group)
 
 dset = Dataset.get_by_name(ws, "blob_dset")
 spark_df = dset.to_spark_dataframe()
@@ -293,6 +306,10 @@ train_ds = Dataset.File.from_files(path=datastore_paths, validate=True)
 input1 = train_ds.as_mount()
 
 ```
+
+## Example notebook
+
+See this [end to end notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-synapse/spark_job_on_synapse_spark_pool.ipynb) for a detailed code example of how to perform data preparation and model training from a single notebook with Azure Synapse Analytics and Azure Machine Learning.
 
 ## Next steps
 

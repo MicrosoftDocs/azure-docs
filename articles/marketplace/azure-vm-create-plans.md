@@ -217,6 +217,8 @@ Regardless of which operating system you use, add only the minimum number of dat
 
 Select **Save draft**, then select **← Plan overview** at the top left to see the plan you just created.
 
+Once your VM image has published, you can delete the image from your Azure storage.
+
 ## Next steps
 
 - [Resell through CSPs](azure-vm-create-resell-csp.md)

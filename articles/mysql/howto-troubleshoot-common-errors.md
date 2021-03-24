@@ -48,7 +48,7 @@ BEGIN
 END;
 ```
 
-**Resolution**:  To resolve the error, set log_bin_trust_function_creators to 1 from [server parameters](howto-server-parameters.md) blade in portal, execute the DDL statements or import the schema to create the desired objects and revert back the log_bin_trust_function_creators parameter to its previous value after creation.
+**Resolution**:  To resolve the error, set log_bin_trust_function_creators to 1 from [server parameters](howto-server-parameters.md) blade in portal, execute the DDL statements or import the schema to create the desired objects. You can continue to maintain log_bin_trust_function_creators to 1 for your server to avoid the error in future. Our recommendation is to set log_bin_trust_function_creators as the security risk highlighted in [MySQL community documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) is minimal in Azure DB for MySQL service as bin log is not exposed to any threats.
 
 #### ERROR 1227 (42000) at line 101: Access denied; you need (at least one of) the SUPER privilege(s) for this operation. Operation failed with exitcode 1
 

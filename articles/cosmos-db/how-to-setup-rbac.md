@@ -4,7 +4,7 @@ description: Learn how to configure role-based access control with Azure Active 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 03/24/2021
 ms.author: thweiss
 ---
 
@@ -309,7 +309,7 @@ resourceGroupName='<myResourceGroup>'
 accountName='<myCosmosAccount>'
 readOnlyRoleDefinitionId = '<roleDefinitionId>' // as fetched above
 principalId = '<aadPrincipalId>'
-az cosmosdb sql role assignment create --account-name $accountName --resource-group --scope "/" --principal-id $principalId --role-definition-id $readOnlyRoleDefinitionId
+az cosmosdb sql role assignment create --account-name $accountName --resource-group $resourceGroupName --scope "/" --principal-id $principalId --role-definition-id $readOnlyRoleDefinitionId
 ```
 
 ## Initialize the SDK with Azure AD
@@ -320,13 +320,13 @@ The way you create a `TokenCredential` instance is beyond the scope of this arti
 
 - [in .NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme#credential-classes)
 - [in Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme#credential-classes)
+- [in JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme#credential-classes)
 
 The examples below use a service principal with a `ClientSecretCredential` instance.
 
 ### In .NET
 
-> [!NOTE]
-> You must use the `preview` version of the Azure Cosmos DB .NET SDK to access this feature.
+The Azure Cosmos DB RBAC is currently supported in the `preview` version of the [.NET SDK V3](sql-api-sdk-dotnet-standard.md).
 
 ```csharp
 TokenCredential servicePrincipal = new ClientSecretCredential(
@@ -337,6 +337,8 @@ CosmosClient client = new CosmosClient("<account-endpoint>", servicePrincipal);
 ```
 
 ### In Java
+
+The Azure Cosmos DB RBAC is currently supported in the [Java SDK V4](sql-api-sdk-java-v4.md).
 
 ```java
 TokenCredential ServicePrincipal = new ClientSecretCredentialBuilder()
@@ -349,6 +351,21 @@ CosmosAsyncClient Client = new CosmosClientBuilder()
     .endpoint("<account-endpoint>")
     .credential(ServicePrincipal)
     .build();
+```
+
+### In JavaScript
+
+The Azure Cosmos DB RBAC is currently supported in the [JavaScript SDK V3](sql-api-sdk-node.md).
+
+```javascript
+const servicePrincipal = new ClientSecretCredential(
+    "<azure-ad-tenant-id>",
+    "<client-application-id>",
+    "<client-application-secret>");
+const client = new CosmosClient({
+    "<account-endpoint>",
+    aadCredentials: servicePrincipal
+});
 ```
 
 ## Auditing data requests

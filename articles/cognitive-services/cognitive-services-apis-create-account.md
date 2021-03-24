@@ -34,12 +34,10 @@ The multi-service resource is named **Cognitive Services** in the portal. [Creat
 
 At this time, the multi-service resource enables access to the following Cognitive Services:
 
-* Computer Vision
-* Content Moderator
-* Face
-* Language Understanding (LUIS)
-* Text Analytics
-* Translator
+* **Vision** - Computer Vision, Custom Vision, Form Recognizer, Face
+* **Speech** - Speech
+* **Language** - Language Understanding (LUIS), Text Analytics, Translator
+* **Decision** - Personalizer, Content Moderator
 
 ### [Single-service resource](#tab/singleservice)
 
@@ -48,9 +46,10 @@ Use the below links to create a resource for the available Cognitive Services:
 | Vision                      | Speech                  | Language                          | Decision             |
 |-----------------------------|-------------------------|-----------------------------------|----------------------|
 | [Computer vision](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)         | [Speech Services](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)     | [Immersive reader](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesImmersiveReader)              | [Anomaly Detector](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) | 
-| [Custom vision service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision) | [Speaker Recognition](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeakerRecognition) | [Language Understanding (LUIS)](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) | [Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) | 
+| [Custom vision service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision) |  | [Language Understanding (LUIS)](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) | [Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) | 
 | [Face](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace)                    |                         | [QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)                     | [Personalizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)     |
-| [Ink Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesInkRecognizer)        |                         | [Text Analytics](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |  [Metrics Advisor](https://go.microsoft.com/fwlink/?linkid=2142156)                    |
+| [Form Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer)        |                         | [Text Analytics](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |  [Metrics Advisor](https://go.microsoft.com/fwlink/?linkid=2142156)                    |
+| | | [Translator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) | |
 
 ---
 
@@ -67,9 +66,10 @@ Use the below links to create a resource for the available Cognitive Services:
 | **Name** | A descriptive name for your cognitive services resource. For example, *MyCognitiveServicesResource*. |
 | **Pricing tier** | The cost of your Cognitive Services account depends on the options you choose and your usage. For more information, see the API [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/).
 
-![Multi-service resource resource creation screen](media/cognitive-services-apis-create-account/resource_create_screen-multi.png)
+<!--![Multi-service resource creation screen](media/cognitive-services-apis-create-account/resource_create_screen-multi.png)-->
+:::image type="content" source="media/cognitive-services-apis-create-account/resource_create_screen-multi.png" alt-text="Multi-service resource creation screen":::
 
-Select **Create**.
+Read and accept the conditions (as applicable for you) and then select **Review + create**.
 
 ### [Single-service resource](#tab/singleservice)
 
@@ -81,9 +81,10 @@ Select **Create**.
 | **Name** | A descriptive name for your cognitive services resource. For example, *MyCognitiveServicesResource*. |
 | **Pricing tier** | The cost of your Cognitive Services account depends on the options you choose and your usage. For more information, see the API [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/).
 
-![Single-service resource creation screen](media/cognitive-services-apis-create-account/resource_create_screen.png)
+<!--![Single-service resource creation screen](media/cognitive-services-apis-create-account/resource_create_screen.png)-->
+:::image type="content" source="media/cognitive-services-apis-create-account/resource_create_screen.png" alt-text="Single-service resource creation screen":::
 
-Select **Create**.
+Select **Next: Virtual Network** and choose the type of network access you want to allow for your resource, and then select **Review + create**.
 
 ---
 
@@ -111,8 +112,8 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## See also
 
-* [Authenticate requests to Azure Cognitive Services](authentication.md)
-* [What is Azure Cognitive Services?](./what-are-cognitive-services.md)
-* [Create a new resource using the Azure Management client library](.\cognitive-services-apis-create-account-client-library.md)
-* [Natural language support](language-support.md)
-* [Docker container support](cognitive-services-container-support.md)
+* See **[Authenticate requests to Azure Cognitive Services](authentication.md)** on how to securely work with Cognitive Services.
+* See **[What are Azure Cognitive Services?](./what-are-cognitive-services.md)** to get a list of different categories within Cognitive Services.
+* See **[Natural language support](language-support.md)** to see the list of natural languages that Cognitive Services supports.
+* See **[Use Cognitive Services as containers](cognitive-services-container-support.md)** to understand how to use Cognitive Services on-prem.
+* See **[Plan and manage costs for Cognitive Services](plan-manage-costs.md)** to estimate cost of using Cognitive Services.
