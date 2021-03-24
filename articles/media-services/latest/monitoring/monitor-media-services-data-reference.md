@@ -62,7 +62,7 @@ For more information on what metric dimensions are, see [Multi-dimensional metri
 
 ## Media Services diagnostic logs
 
-Diagnostic logs provide rich and frequent data about the operation of an Azure resource. For more information, see [How to collect and consume log data from your Azure resources](https://docs.microsoft.com/azure/azure-monitor/essentials/platform-logs-overview.md).
+Diagnostic logs provide rich and frequent data about the operation of an Azure resource. For more information, see [How to collect and consume log data from your Azure resources](/azure/azure-monitor/essentials/platform-logs-overview).
 
 Media Services supports the following diagnostic logs:
 
@@ -76,7 +76,7 @@ Media Services supports the following diagnostic logs:
 
 ## Schemas
 
-For detailed description of the top-level diagnostic logs schema, see [Supported services, schemas, and categories for Azure Diagnostic Logs](https://docs.microsoft.com/azure/azure-monitor/essentials/resource-logs-schema.md).
+For detailed description of the top-level diagnostic logs schema, see [Supported services, schemas, and categories for Azure Diagnostic Logs](/azure/azure-monitor/essentials/resource-logs-schema).
 
 ## Key delivery log schema properties
 
