@@ -15,7 +15,7 @@ ms.service: azure-communication-services
 This article provides information about limitations and known issues related to the Azure Communication Services client libraries.
 
 > [!IMPORTANT]
-> There are multiple factors that can affect the quality of your calling experience. Refer to the **[network requirements](./voice-video-calling/network-requirements)** documentation to learn more about Communication Services network configuration and testing best practices.
+> There are multiple factors that can affect the quality of your calling experience. Refer to the **[network requirements](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/network-requirements)** documentation to learn more about Communication Services network configuration and testing best practices.
 
 
 ## JavaScript client library known issues 
@@ -28,7 +28,7 @@ When refreshing pages, the Communication Services client library may not be able
 We encourage developers build experiences that don't require end-users to refresh the page of your application while participating in a call. If a refresh does happen, the best way to handle it is to track and reuse the same Communication Services user ID between refreshes, and select the stream with the highest numerical ID.
 
 ### It's not possible to render multiple previews from multiple devices on web
-This is a known limitation. Refer to the [calling client library overview](./voice-video-calling/calling-sdk-features) for more information.
+This is a known limitation. Refer to the [calling client library overview](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features) for more information.
 
 ### Enumeration of the mic and speaker devices is not possible in Safari when the application runs on iOS or iPadOS 
 Applications can't enumerate/select mic/speaker devices (like Bluetooth) on Safari iOS/iPad. This is a known operating system limitation.
@@ -86,4 +86,4 @@ Mobile browsers are sensitive to any changes made while being in the `connecting
 Under investigation.
 
 ###  Sometimes it takes a long time to render remote participant videos
-This issue has been observed when, during an ongoing group call, User A sends video and then User B joins the call. Sometimes User B doesn't see video from User A, or User A's video begins rendering after a long delay. This could be caused by a network environment that requires further configuration. Refer to the [network requirements](./voice-video-calling/network-requirements) documentation for network configuration guidance.
+This issue has been observed when, during an ongoing group call, User A sends video and then User B joins the call. Sometimes User B doesn't see video from User A, or User A's video begins rendering after a long delay. This could be caused by a network environment that requires further configuration. Refer to the [network requirements](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/network-requirements) documentation for network configuration guidance.
