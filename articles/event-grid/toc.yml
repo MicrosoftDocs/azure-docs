@@ -188,6 +188,8 @@
       href: delivery-and-retry.md
     - name: Webhook event delivery
       href: webhook-event-delivery.md
+    - name: Delivery headers
+      href: delivery-headers.md
   - name: Disaster recovery
     items:
     - name: Geo disaster recovery
