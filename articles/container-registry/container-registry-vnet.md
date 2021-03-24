@@ -21,7 +21,6 @@ Configuring a registry service endpoint is available in the **Premium** containe
 * Future development of service endpoints for Azure Container Registry isn't currently planned. We recommend using [private endpoints](container-registry-private-link.md) instead.
 * You can't use the Azure portal to configure service endpoints on a registry.
 * Only an [Azure Kubernetes Service](../aks/intro-kubernetes.md) cluster or Azure [virtual machine](../virtual-machines/linux/overview.md) can be used as a host to access a container registry using a service endpoint. *Other Azure services including Azure Container Instances aren't supported.*
-* Each registry supports a maximum of 100 network access rules.
 * Service endpoints for Azure Container Registry aren't supported in the Azure US Government cloud or Azure China cloud.
 
 [!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
@@ -44,13 +43,11 @@ Configuring a registry service endpoint is available in the **Premium** containe
 
 ## Configure network access for registry
 
-In this section, configure your container registry to allow access from a subnet in an Azure virtual network. Equivalent steps using the Azure CLI and Azure portal are provided.
+In this section, configure your container registry to allow access from a subnet in an Azure virtual network. Steps are provided using the Azure CLI.
 
-### Allow access from a virtual network - CLI
+### Add a service endpoint to a subnet
 
-#### Add a service endpoint to a subnet
-
-When you create a VM, Azure by default creates a virtual network in the same resource group. The name of the virtual network is based on the name of the virtual machine. For example, if you name your virtual machine *myDockerVM*, the default virtual network name is *myDockerVMVNET*, with a subnet named *myDockerVMSubnet*. Verify this in the Azure portal or by using the [az network vnet list][az-network-vnet-list] command:
+When you create a VM, Azure by default creates a virtual network in the same resource group. The name of the virtual network is based on the name of the virtual machine. For example, if you name your virtual machine *myDockerVM*, the default virtual network name is *myDockerVMVNET*, with a subnet named *myDockerVMSubnet*. Verify this by using the [az network vnet list][az-network-vnet-list] command:
 
 ```azurecli
 az network vnet list \
@@ -96,7 +93,7 @@ Output:
 /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myDockerVMVNET/subnets/myDockerVMSubnet
 ```
 
-#### Change default network access to registry
+### Change default network access to registry
 
 By default, an Azure container registry allows connections from hosts on any network. To limit access to a selected network, change the default action to deny access. Substitute the name of your registry in the following [az acr update][az-acr-update] command:
 
@@ -104,7 +101,7 @@ By default, an Azure container registry allows connections from hosts on any net
 az acr update --name myContainerRegistry --default-action Deny
 ```
 
-#### Add network rule to registry
+### Add network rule to registry
 
 Use the [az acr network-rule add][az-acr-network-rule-add] command to add a network rule to your registry that allows access from the VM's subnet. Substitute the container registry's name and the resource ID of the subnet in the following command: 
 
@@ -138,11 +135,9 @@ Error response from daemon: login attempt to https://xxxxxxx.azurecr.io/v2/ fail
 
 ## Restore default registry access
 
-To restore the registry to allow access by default, remove any network rules that are configured. Then set the default action to allow access. Equivalent steps using the Azure CLI and Azure portal are provided.
+To restore the registry to allow access by default, remove any network rules that are configured. Then set the default action to allow access. 
 
-### Restore default registry access - CLI
-
-#### Remove network rules
+### Remove network rules
 
 To see a list of network rules configured for your registry, run the following [az acr network-rule list][az-acr-network-rule-list] command:
 
@@ -161,7 +156,7 @@ az acr network-rule remove \
   xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myDockerVMVNET/subnets/myDockerVMSubnet
 ```
 
-#### Allow access
+### Allow access
 
 Substitute the name of your registry in the following [az acr update][az-acr-update] command:
 ```azurecli
@@ -176,8 +171,6 @@ If you created all the Azure resources in the same resource group and no longer 
 az group delete --name myResourceGroup
 ```
 
-To clean up your resources in the portal, navigate to the myResourceGroup resource group. Once the resource group is loaded, click on **Delete resource group** to remove the resource group and the resources stored there.
-
 ## Next steps
 
 * To restrict access to a registry using a private endpoint in a virtual network, see [Configure Azure Private Link for an Azure container registry](container-registry-private-link.md).
@@ -190,7 +183,6 @@ To clean up your resources in the portal, navigate to the myResourceGroup resour
 
 
 <!-- LINKS - External -->
-[aci-helloworld]: https://hub.docker.com/r/microsoft/aci-helloworld/
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms

@@ -1,14 +1,20 @@
 ---
 title: Introduction to Azure Service Fabric networking 
 description: Learn about networks, gateways, and intelligent traffic routing in Service Fabric Mesh.
-author: dkkapur
+author: georgewallace
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter 
 
 ---
 # Introduction to networking in Service Fabric Mesh applications
+
+> [!IMPORTANT]
+> The preview of Azure Service Fabric Mesh has been retired. New deployments will no longer be permitted through the Service Fabric Mesh API. Support for existing deployments will continue through April 28, 2021.
+> 
+> For details, see [Azure Service Fabric Mesh Preview Retirement](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+
 This article describes different types of load balancers, how gateways connect the network with your applications to other networks, and how traffic is routed between the services in your applications.
 
 ## Layer 4 vs layer 7 load balancers

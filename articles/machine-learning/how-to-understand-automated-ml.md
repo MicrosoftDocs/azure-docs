@@ -1,276 +1,250 @@
 ---
-title: Understand automated ML results
+title: Evaluate AutoML experiment results
 titleSuffix: Azure Machine Learning
-description: Learn how to view and understand charts and metrics for each of your automated machine learning runs. 
+description: Learn how to view and evaluate charts and metrics for each of your automated machine learning experiment runs. 
 services: machine-learning
-author: aniththa
-ms.author: anumamah
+author: gregorybchris
+ms.author: chgrego
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 12/05/2019
+ms.date: 12/09/2020
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, contperf-fy21q2, automl
 ---
 
-# Understand automated machine learning results
+# Evaluate automated machine learning experiment results
 
+In this article, learn how to evaluate and compare models trained by your automated machine learning (automated ML) experiment. Over the course of an automated ML experiment, many runs are created and each run creates a model. For each model, automated ML generates evaluation metrics and charts that help you measure the model's performance. 
 
-In this article, you learn how to view and understand the charts and metrics for each of your automated machine learning runs. 
+For example, automated ML generates the following charts based on experiment type.
 
-Learn more about:
-+ [Metrics and charts for classification models](#classification)
-+ [Metrics and charts for regression models](#regression)
-+ [Model interpretability and feature importance](#explain-model)
+| Classification| Regression/forecasting |
+| ----------------------------------------------------------- | ---------------------------------------- |
+| [Confusion matrix](#confusion-matrix)                       | [Residuals histogram](#residuals)        |
+| [Receiver operating characteristic (ROC) curve](#roc-curve) | [Predicted vs. true](#predicted-vs-true) |
+| [Precision-recall (PR) curve](#precision-recall-curve)      |                                          |
+| [Lift curve](#lift-curve)                                   |                                          |
+| [Cumulative gains curve](#cumulative-gains-curve)           |                                          |
+| [Calibration curve](#calibration-curve)                     |                     
+
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+- An Azure subscription. (If you don't have an Azure subscription, [create a free account](https://aka.ms/AMLFree) before you begin)
+- An Azure Machine Learning experiment created with either:
+  - The [Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md) (no code required)
+  - The [Azure Machine Learning Python SDK](how-to-configure-auto-train.md)
 
-* Create an experiment for your automated machine learning run, either with the SDK, or in Azure Machine Learning studio.
+## View run results
 
-    * Use the SDK to build a [classification model](how-to-auto-train-remote.md) or [regression model](tutorial-auto-train-models.md)
-    * Use [Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md) to create a classification or regression model by uploading the appropriate data.
+After your automated ML experiment completes, a history of the runs can be found via:
+  - A browser with [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md)
+  - A Jupyter notebook using the [RunDetails Jupyter widget](/python/api/azureml-widgets/azureml.widgets.rundetails)
 
-## View the run
+The following steps and video, show you how to view the run history and model evaluation metrics and charts in the studio:
 
-After running an automated machine learning experiment, a history of the runs can be found in your machine learning workspace. 
+1. [Sign into the studio](https://ml.azure.com/) and navigate to your workspace.
+1. In the left menu, select **Experiments**.
+1. Select your experiment from the list of experiments.
+1. In the table at the bottom of the page, select an automated ML run.
+1. In the **Models** tab, select the **Algorithm name** for the model you want to evaluate.
+1. In the **Metrics** tab, use the checkboxes on the left to view metrics and charts.
 
-1. Go to your workspace.
+![Steps to view metrics in studio](./media/how-to-understand-automated-ml/how-to-studio-metrics.gif)
 
-1. In the left panel of the workspace, select **Experiments**.
+## Classification metrics
 
-   ![Screenshot of experiment menu](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-menu.png)
+Automated ML calculates performance metrics for each classification model generated for your experiment. These metrics are based on the scikit learn implementation. 
 
-1. In the list of experiments, select the one you want to explore.
+Many classification metrics are defined for binary classification on two classes, and require averaging over classes to produce one score for multi-class classification. Scikit-learn provides several averaging methods, three of which automated ML exposes: **macro**, **micro**, and **weighted**.
 
-   [![Experiment list](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-list.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-list-expanded.png)
+- **Macro** - Calculate the metric for each class and take the unweighted average
+- **Micro** - Calculate the metric globally by counting the total true positives, false negatives, and false positives (independent of classes).
+- **Weighted** - Calculate the metric for each class and take the weighted average based on the number of samples per class.
 
-1. In the bottom table, select the **Run**.
+While each averaging method has its benefits, one common consideration when selecting the appropriate method is class imbalance. If classes have different numbers of samples, it might be more informative to use a macro average where minority classes are given equal weighting to majority classes. Learn more about [binary vs multiclass metrics in automated ML](#binary-vs-multiclass-classification-metrics). 
 
-   [![Experiment run](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run-expanded.png))
+The following table summarizes the model performance metrics that automated ML calculates for each classification model generated for your experiment. For more detail, see the scikit-learn documentation linked in the **Calculation** field of each metric. 
 
-1. In the Models, select the **Algorithm name** for the model that you want to explore further.
+|Metric|Description|Calculation|
+|--|--|---|
+|AUC | AUC is the Area under the [Receiver Operating Characteristic Curve](#roc-curve).<br><br> **Objective:** Closer to 1 the better <br> **Range:** [0, 1]<br> <br>Supported metric names include, <li>`AUC_macro`, the arithmetic mean of the AUC for each class.<li> `AUC_micro`, computed by combining the true positives and false positives from each class. <li> `AUC_weighted`, arithmetic mean of the score for each class, weighted by the number of true instances in each class.   |[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | 
+|accuracy| Accuracy is the ratio of predictions that exactly match the true class labels. <br> <br>**Objective:** Closer to 1 the better <br> **Range:** [0, 1]|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|
+|average_precision|Average precision summarizes a precision-recall curve as the weighted mean of precisions achieved at each threshold, with the increase in recall from the previous threshold used as the weight. <br><br> **Objective:** Closer to 1 the better <br> **Range:** [0, 1]<br> <br>Supported metric names include,<li>`average_precision_score_macro`, the arithmetic mean of the average precision score of each class.<li> `average_precision_score_micro`, computed by combining the true positives and false positives at each cutoff.<li>`average_precision_score_weighted`, the arithmetic mean of the average precision score for each class, weighted by the number of true instances in each class.|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|
+balanced_accuracy|Balanced accuracy is the arithmetic mean of recall for each class.<br> <br>**Objective:** Closer to 1 the better <br> **Range:** [0, 1]|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|
+f1_score|F1 score is the harmonic mean of precision and recall. It is a good balanced measure of both false positives and false negatives. However, it does not take true negatives into account. <br> <br>**Objective:** Closer to 1 the better <br> **Range:** [0, 1]<br> <br>Supported metric names include,<li>  `f1_score_macro`: the arithmetic mean of F1 score for each class. <li> `f1_score_micro`: computed by counting the total true positives, false negatives, and false positives. <li> `f1_score_weighted`: weighted mean by class frequency of F1 score for each class.|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|
+log_loss|This is the loss function used in (multinomial) logistic regression and extensions of it such as neural networks, defined as the negative log-likelihood of the true labels given a probabilistic classifier's predictions. <br><br> **Objective:** Closer to 0 the better <br> **Range:** [0, inf)|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|
+norm_macro_recall| Normalized macro recall is recall macro-averaged and normalized, so that random performance has a score of 0, and perfect performance has a score of 1. <br> <br>**Objective:** Closer to 1 the better <br> **Range:** [0, 1] |`(recall_score_macro - R)`&nbsp;/&nbsp;`(1 - R)` <br><br>where, `R` is the expected value of `recall_score_macro` for random predictions.<br><br>`R = 0.5`&nbsp;for&nbsp; binary&nbsp;classification. <br>`R = (1 / C)` for C-class classification problems.|
+matthews_correlation | Matthews correlation coefficient is a balanced measure of accuracy, which can be used even if one class has many more samples than another. A coefficient of 1 indicates perfect prediction, 0 random prediction, and -1 inverse prediction.<br><br> **Objective:** Closer to 1 the better <br> **Range:** [-1, 1]|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.matthews_corrcoef.html)|
+precision|Precision is the ability of a model to avoid labeling negative samples as positive. <br><br> **Objective:** Closer to 1 the better <br> **Range:** [0, 1]<br> <br>Supported metric names include, <li> `precision_score_macro`, the arithmetic mean of precision for each class. <li> `precision_score_micro`, computed globally by counting the total true positives and false positives. <li> `precision_score_weighted`, the arithmetic mean of precision for each class, weighted by number of true instances in each class.|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|
+recall| Recall is the ability of a model to detect all positive samples. <br><br> **Objective:** Closer to 1 the better <br> **Range:** [0, 1]<br> <br>Supported metric names include, <li>`recall_score_macro`: the arithmetic mean of recall for each class. <li> `recall_score_micro`: computed globally by counting the total true positives, false negatives and false positives.<li> `recall_score_weighted`: the arithmetic mean of recall for each class, weighted by number of true instances in each class.|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|
+weighted_accuracy|Weighted accuracy is accuracy where each sample is weighted by the total number of samples belonging to the same class. <br><br>**Objective:** Closer to 1 the better <br>**Range:** [0, 1]|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|
 
-   [![Experiment model](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model-expanded.png)
+### Binary vs. multiclass classification metrics
 
-You also see these same results during a run when you use the `RunDetails`[Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true).
+Automated ML doesn't differentiate between binary and multiclass metrics. The same validation metrics are reported whether a dataset has two classes or more than two classes. However, some metrics are intended for multiclass classification. When applied to a binary dataset, these metrics won't treat any class as the `true` class, as you might expect. Metrics that are clearly meant for multiclass are suffixed with `micro`, `macro`, or `weighted`. Examples include `average_precision_score`, `f1_score`, `precision_score`, `recall_score`, and `AUC`.
 
-## <a name="classification"></a> Classification results
+For example, instead of calculating recall as `tp / (tp + fn)`, the multiclass averaged recall (`micro`, `macro`, or `weighted`) averages over both classes of a binary classification dataset. This is equivalent to calculating the recall for the `true` class and the `false` class separately, and then taking the average of the two.
 
-Thee following metrics and charts are available for every classification model that you build using the automated machine learning capabilities of Azure Machine Learning
+Automated ML doesn't calculate binary metrics, that is metrics for binary classification datasets. However, these metrics can be manually calculated using the [confusion matrix](#confusion-matrix) that Automated ML generated for that particular run. For example, you can calculate precision, `tp / (tp + fp)`,  with the true positive and false positive values shown in a 2x2 confusion matrix chart.
 
-+ [Metrics](#classification-metrics)
-+ [Confusion matrix](#confusion-matrix)
-+ [Precision-Recall chart](#precision-recall-chart)
-+ [Receiver operating characteristics (or ROC)](#roc)
-+ [Lift curve](#lift-curve)
-+ [Gains curve](#gains-curve)
-+ [Calibration plot](#calibration-plot)
+## Confusion matrix
 
-### Classification metrics
+Confusion matrices provide a visual for how a machine learning model is making systematic errors in its predictions for classification models. The word "confusion" in the name comes from a model "confusing" or mislabeling samples. A cell at row `i` and column `j` in a confusion matrix contains the number of samples in the evaluation dataset that belong to class `C_i` and were classified by the model as class `C_j`.
 
-The following metrics are saved in each run iteration for a classification task.
+In the studio, a darker cell indicates a higher number of samples. Selecting **Normalized** view in the dropdown will normalize over each matrix row to show the percent of class `C_i` predicted to be class `C_j`. The benefit of the default **Raw** view is that you can see whether imbalance in the distribution of actual classes caused the model to misclassify samples from the minority class, a common issue in imbalanced datasets.
 
-Metric|Description|Calculation|Extra Parameters
---|--|--|--
-AUC_macro| AUC is the Area under the Receiver Operating Characteristic Curve. Macro is the arithmetic mean of the AUC for each class.  | [Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="macro"|
-AUC_micro| AUC is the Area under the Receiver Operating Characteristic Curve. Micro is computed globally by combining the true positives and false positives from each class.| [Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="micro"|
-AUC_weighted  | AUC is the Area under the Receiver Operating Characteristic Curve. Weighted is the arithmetic mean of the score for each class, weighted by the number of true instances in each class.| [Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html)|average="weighted"
-accuracy|Accuracy is the percent of predicted labels that exactly match the true labels. |[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html) |None|
-average_precision_score_macro|Average precision summarizes a precision-recall curve as the weighted mean of precisions achieved at each threshold, with the increase in recall from the previous threshold used as the weight. Macro is the arithmetic mean of the average precision score of each class.|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|average="macro"|
-average_precision_score_micro|Average precision summarizes a precision-recall curve as the weighted mean of precisions achieved at each threshold, with the increase in recall from the previous threshold used as the weight. Micro is computed globally by combining the true positives and false positives at each cutoff.|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|average="micro"|
-average_precision_score_weighted|Average precision summarizes a precision-recall curve as the weighted mean of precisions achieved at each threshold, with the increase in recall from the previous threshold used as the weight. Weighted is the arithmetic mean of the average precision score for each class, weighted by the number of true instances in each class.|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|average="weighted"|
-balanced_accuracy|Balanced accuracy is the arithmetic mean of recall for each class.|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="macro"|
-f1_score_macro|F1 score is the harmonic mean of precision and recall. Macro is the arithmetic mean of F1 score for each class.|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|average="macro"|
-f1_score_micro|F1 score is the harmonic mean of precision and recall. Micro is computed globally by counting the total true positives, false negatives, and false positives.|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|average="micro"|
-f1_score_weighted|F1 score is the harmonic mean of precision and recall. Weighted mean by class frequency of F1 score for each class|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|average="weighted"|
-log_loss|This is the loss function used in (multinomial) logistic regression and extensions of it such as neural networks, defined as the negative log-likelihood of the true labels given a probabilistic classifier's predictions. For a single sample with true label yt in {0,1} and estimated probability yp that yt = 1, the log loss is -log P(yt&#124;yp) = -(yt log(yp) + (1 - yt) log(1 - yp)).|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|None|
-norm_macro_recall|Normalized Macro Recall is Macro Recall normalized so that random performance has a score of 0 and perfect performance has a score of 1. This is achieved by norm_macro_recall := (recall_score_macro - R)/(1 - R), where R is the expected value of recall_score_macro for random predictions (i.e., R=0.5 for binary classification and R=(1/C) for C-class classification problems).|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average = "macro" |
-precision_score_macro|Precision is the percent of positively predicted elements that are correctly labeled. Macro is the arithmetic mean of precision for each class.|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|average="macro"|
-precision_score_micro|Precision is the percent of positively predicted elements that are correctly labeled. Micro is computed globally by counting the total true positives and false positives.|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|average="micro"|
-precision_score_weighted|Precision is the percent of positively predicted elements that are correctly labeled. Weighted is the arithmetic mean of precision for each class, weighted by number of true instances in each class.|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|average="weighted"|
-recall_score_macro|Recall is the percent of correctly labeled elements of a certain class. Macro is the arithmetic mean of recall for each class.|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="macro"|
-recall_score_micro|Recall is the percent of correctly labeled elements of a certain class. Micro is computed globally by counting the total true positives, false negatives and false positives|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="micro"|
-recall_score_weighted|Recall is the percent of correctly labeled elements of a certain class. Weighted is the arithmetic mean of recall for each class, weighted by number of true instances in each class.|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="weighted"|
-weighted_accuracy|Weighted accuracy is accuracy where the weight given to each example is equal to the proportion of true instances in that example's true class.|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|sample_weight is a vector equal to the proportion of that class for each element in the target|
+The confusion matrix of a good model will have most samples along the diagonal.
 
-### Binary vs. multiclass metrics
+### Confusion matrix for a good model 
+![Confusion matrix for a good model ](./media/how-to-understand-automated-ml/chart-confusion-matrix-good.png)
 
-AutoML doesn't differentiate between binary and multiclass metrics. The same validation metrics are reported whether a dataset has two classes or more than two classes. However, some metrics are intended for multiclass classification. When applied to a binary dataset, these metrics won't treat any class as the `true` class, as you might expect. Metrics that are clearly meant for multiclass are suffixed with `micro`, `macro`, or `weighted`. Examples include `average_precision_score`, `f1_score`, `precision_score`, `recall_score`, and `AUC`.
+### Confusion matrix for a bad model
+![Confusion matrix for a bad model](./media/how-to-understand-automated-ml/chart-confusion-matrix-bad.png)
 
-A concrete example makes this distinction clearer: Instead of calculating recall as `tp / (tp + fn)`, the multiclass averaged recall (`micro`, `macro`, or `weighted`) averages over both classes of a binary classification dataset. This is equivalent to calculating the recall for the `true` class and the `false` class separately and then taking the average of the two.
+## ROC curve
 
-<a name="confusion-matrix"></a>
+The receiver operating characteristic (ROC) curve plots the relationship between true positive rate (TPR) and false positive rate (FPR) as the decision threshold changes. The ROC curve can be less informative when training models on datasets with high class imbalance, as the majority class can drown out contributions from minority classes.
 
-### Confusion matrix
+The area under the curve (AUC) can be interpreted as the proportion of correctly classified samples. More precisely, the AUC is the probability that the classifier ranks a randomly chosen positive sample higher than a randomly chosen negative sample. The shape of the curve gives an intuition for relationship between TPR and FPR as a function of the classification threshold or decision boundary.
 
-#### What is a confusion matrix?
-A confusion matrix is used to describe the performance of a classification model. Each row displays the instances of the true, or actual class in your dataset, and each column represents the instances of the class that was predicted by the model. 
+A curve that approaches the top-left corner of the chart is approaching a 100% TPR and 0% FPR, the best possible model. A random model would produce an ROC curve along the `y = x` line from the bottom-left corner to the top-right. A worse than random model would have an ROC curve that dips below the `y = x` line.
+> [!TIP]
+> For classification experiments, each of the line charts produced for automated ML models can be used to evaluate the model per-class or averaged over all classes. You can switch between these different views by clicking on class labels in the legend to the right of the chart.
+### ROC curve for a good model
+![ROC curve for a good model](./media/how-to-understand-automated-ml/chart-roc-curve-good.png)
 
-#### What does automated ML do with the confusion matrix?
-For classification problems, Azure Machine Learning automatically provides a confusion matrix for each model that is built. For each confusion matrix, automated ML will show the frequency of each predicted label (column) compared against the true label (row). The darker the color, the higher the count in that particular part of the matrix. 
+### ROC curve for a bad model
+![ROC curve for a bad model](./media/how-to-understand-automated-ml/chart-roc-curve-bad.png)
 
-#### What does a good model look like?
-We are comparing the actual value of the dataset against the predicted values that the model gave. Because of this, machine learning models have higher accuracy if the model has most of its values along the diagonal, meaning the model predicted the correct value. If a model has class imbalance, the confusion matrix will help to detect a biased model.
+## Precision-recall curve
 
-##### Example 1: A classification model with poor accuracy
-![A classification model with poor accuracy](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix1.png)
+The precision-recall curve plots the relationship between precision and recall as the decision threshold changes. Recall is the ability of a model to detect all positive samples and precision is the ability of a model to avoid labeling negative samples as positive. Some business problems might require higher recall and some higher precision depending on the relative importance of avoiding false negatives vs false positives.
+> [!TIP]
+> For classification experiments, each of the line charts produced for automated ML models can be used to evaluate the model per-class or averaged over all classes. You can switch between these different views by clicking on class labels in the legend to the right of the chart.
+### Precision-recall curve for a good model
+![Precision-recall curve for a good model](./media/how-to-understand-automated-ml/chart-precision-recall-curve-good.png)
 
-##### Example 2: A classification model with high accuracy 
-![A classification model with high accuracy](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix2.png)
+### Precision-recall curve for a bad model
+![Precision-recall curve for a bad model](./media/how-to-understand-automated-ml/chart-precision-recall-curve-bad.png)
 
-##### Example 3: A classification model with high accuracy and high bias in model predictions
-![A classification model with high accuracy and high bias in model predictions](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-biased-model.png)
+## Cumulative gains curve
 
-<a name="precision-recall-chart"></a>
-### Precision-recall chart
-#### What is a precision-recall chart?
-The precision-recall curve shows the relationship between precision and recall from a model. The term precision represents that ability for a model to label all instances correctly. Recall represents the ability for a classifier to find all instances of a particular label.
+The cumulative gains curve plots the percent of positive samples correctly classified as a function of the percent of samples considered where we consider samples in the order of predicted probability.
 
-#### What does automated ML do with the precision-recall chart?
+To calculate gain, first sort all samples from highest to lowest probability predicted by the model. Then take `x%` of the highest confidence predictions. Divide the number of positive samples detected in that `x%` by the total number of positive samples to get the gain. Cumulative gain is the percent of positive samples we detect when considering some percent of the data that is most likely to belong to the positive class.
 
-With this chart, you can compare the precision-recall curves for each model to determine which model has an acceptable relationship between precision and recall for your particular business problem. This chart shows Macro Average Precision-Recall, Micro Average Precision-Recall, and the precision-recall associated with all classes for a model. 
+A perfect model will rank all positive samples above all negative samples giving a cumulative gains curve made up of two straight segments. The first is a line with slope `1 / x` from `(0, 0)` to `(x, 1)` where `x` is the fraction of samples that belong to the positive class (`1 / num_classes` if classes are balanced). The second is a horizontal line from `(x, 1)` to `(1, 1)`. In the first segment, all positive samples are classified correctly and cumulative gain goes to `100%` within the first `x%` of samples considered.
 
-Macro-average will compute the metric independently of each class and then take the average, treating all classes equally. However, micro-average will aggregate the contributions of all the classes to compute the average. Micro-average is preferable if there is class imbalance present in the dataset.
+The baseline random model will have a cumulative gains curve following `y = x` where for `x%` of samples considered only about `x%` of the total positive samples were detected. A perfect model will have a micro average curve that touches the top-left corner and a macro average line that has slope `1 / num_classes` until cumulative gain is 100% and then horizontal until the data percent is 100.
+> [!TIP]
+> For classification experiments, each of the line charts produced for automated ML models can be used to evaluate the model per-class or averaged over all classes. You can switch between these different views by clicking on class labels in the legend to the right of the chart.
+### Cumulative gains curve for a good model
+![Cumulative gains curve for a good model](./media/how-to-understand-automated-ml/chart-cumulative-gains-curve-good.png)
 
-#### What does a good model look like?
-Depending on the goal of the business problem, the ideal precision-recall curve could differ. Some examples are given below
+### Cumulative gains curve for a bad model
+![Cumulative gains curve for a bad model](./media/how-to-understand-automated-ml/chart-cumulative-gains-curve-bad.png)
 
-##### Example 1: A classification model with low precision and low recall
-![A classification model with low precision and low recall](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall1.png)
+## Lift curve
 
-##### Example 2: A classification model with ~100% precision and ~100% recall 
-![A classification model high precision and recall](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall2.png)
-<a name="roc"></a>
-### ROC chart
+The lift curve shows how many times better a model performs compared to a random model. Lift is defined as the ratio of cumulative gain to the cumulative gain of a random model.
 
-#### What is a ROC chart?
-The receiver operating characteristic (or ROC) is a plot of the correctly classified labels vs. the incorrectly classified labels for a particular model. The ROC curve can be less informative when training models on datasets with high class imbalance, as the majority class can drown out contribution from minority classes.
+This relative performance takes into account the fact that classification gets harder as you increase the number of classes. (A random model incorrectly predicts a higher fraction of samples from a dataset with 10 classes compared to a dataset with two classes)
 
-#### What does automated ML do with the ROC chart?
-You can visualize the area under the ROC chart as the proportion of correctly classified samples. An advanced user of the ROC chart might look beyond the area under the curve and get an intuition for the true positive and false positive rates as a function of the classification threshold or decision boundary.
+The baseline lift curve is the `y = 1` line where the model performance is consistent with that of a random model. In general, the lift curve for a good model will be higher on that chart and farther from the x-axis, showing that when the model is most confident in its predictions it performs many times better than random guessing.
 
-#### What does a good model look like?
-An ROC curve that approaches the top left corner with 100% true positive rate and 0% false positive rate will be the best model. A random model would display as a flat line from the bottom left to the top right corner. Worse than random would dip below the y=x line.
+> [!TIP]
+> For classification experiments, each of the line charts produced for automated ML models can be used to evaluate the model per-class or averaged over all classes. You can switch between these different views by clicking on class labels in the legend to the right of the chart.
+### Lift curve for a good model
+![Lift curve for a good model](./media/how-to-understand-automated-ml/chart-lift-curve-good.png)
+ 
+### Lift curve for a bad model
+![Lift curve for a bad model](./media/how-to-understand-automated-ml/chart-lift-curve-bad.png)
 
-##### Example 1: A classification model with low true labels and high false labels
-![Classification model with low true labels and high false labels](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-1.png)
+## Calibration curve
 
-##### Example 2: A classification model with high true labels and low false labels
-![a classification model with high true labels and low false labels](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-2.png)
-<a name="lift-curve"></a>
-### Lift chart
-#### What is a lift chart?
-Lift charts are used to evaluate the performance of classification models. A lift chart shows how many times better a model performs compared to a random model. This gives you a relative performance that takes into account the fact that classification gets harder as you increase the number of classes. A random model will incorrectly predict a higher fraction of samples from a dataset with ten classes compared to a dataset with two classes.
+The calibration curve plots a model's confidence in its predictions against the proportion of positive samples at each confidence level. A well-calibrated model will correctly classify 100% of the predictions to which it assigns 100% confidence, 50% of the predictions it assigns 50% confidence, 20% of the predictions it assigns a 20% confidence, and so on. A perfectly calibrated model will have a calibration curve following the `y = x` line where the model perfectly predicts the probability that samples belong to each class.
 
-#### What does automated ML do with the lift chart?
-You can compare the lift of the model built automatically with Azure Machine Learning to the baseline in order to view the value gain of that particular model.
-#### What does a good model look like?
-
-##### Example 1: A classification model that does worse than a random selection model
-![A classification model that does worse than a random selection model](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve1.png)
-##### Example 2: A classification model that performs better than a random selection model
-![A classification model that performs better](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve2.png)
-<a name="gains-curve"></a>
-### Cumulative gains chart
-#### What is a cumulative gains chart?
-
-A cumulative gains chart evaluates the performance of a classification model by each portion of the data. For each percentile of the data set, the chart shows how many more samples have been accurately classified.
-
-#### What does automated ML do with the gains chart?
-Use the cumulative gains chart to help you choose the classification cutoff using a percentage that corresponds to a desired gain from the model. This information provides another way of looking at the results in the accompanying lift chart.
-
-#### What does a good model look like?
-##### Example 1: A classification model with minimal gain
-![a classification model with minimal gain](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-gains-curve1.png)
-
-##### Example 2: A classification model with significant gain
-![A classification model with significant gain](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-gains-curve2.png)
-<a name="calibration-plot"></a>
-### Calibration chart
-
-#### What is a calibration chart?
-A calibration plot is used to display the confidence of a predictive model. It does this by showing the relationship between the predicted probability and the actual probability, where "probability" represents the likelihood that a particular instance belongs under some label.
-#### What does automated ML do with the calibration chart?
-For all classification problems, you can review the calibration line for micro-average, macro-average, and each class in a given predictive model.
-
-Macro-average will compute the metric independently of each class and then take the average, treating all classes equally. However, micro-average will aggregate the contributions of all the classes to compute the average. 
-#### What does a good model look like?
-A well-calibrated model aligns with the y=x line, where it correctly predicts the probability that samples belong to each class. An over-confident model will over-predict probabilities close to zero and one, rarely being uncertain about the class of each sample.
-
-
-##### Example 1: A well-calibrated model
-![ more well-calibrated model](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve1.png)
-
-##### Example 2: An over-confident model
-![An over-confident model](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve2.png)
-
-## <a name="regression"></a> Regression results
-
-Thee following metrics and charts are available for every regression model that you build using the automated machine learning capabilities of Azure Machine Learning
-
-+ [Metrics](#reg-metrics)
-+ [Predicted vs. True](#pvt)
-+ [Histogram of residuals](#histo)
-
-
-### <a name="reg-metrics"></a> Regression metrics
-
-The following metrics are saved in each run iteration for a regression or forecasting task.
-
-|Metric|Description|Calculation|Extra Parameters
---|--|--|--|
-explained_variance|Explained variance is  the proportion to which a mathematical model accounts for the variation of a given data set. It is the percent decrease in variance of the original data to the variance of the errors. When the mean of the errors is 0, it is equal to the coefficient of determination (see r2_score below).|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|None|
-r2_score|R^2 is the coefficient of determination or the percent reduction in squared errors compared to a baseline model that outputs the mean. |[Calculation](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|None|
-spearman_correlation|Spearman correlation is a nonparametric measure of the monotonicity of the relationship between two datasets. Unlike the Pearson correlation, the Spearman correlation does not assume that both datasets are normally distributed. Like other correlation coefficients, this one varies between -1 and +1 with 0 implying no correlation. Correlations of -1 or +1 imply an exact monotonic relationship. Positive correlations imply that as x increases, so does y. Negative correlations imply that as x increases, y decreases.|[Calculation](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|None|
-mean_absolute_error|Mean absolute error is the expected value of absolute value of difference between the target and the prediction|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|None|
-normalized_mean_absolute_error|Normalized mean absolute error is mean Absolute Error divided by the range of the data|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|Divide by range of the data|
-median_absolute_error|Median absolute error is the median of all absolute differences between the target and the prediction. This loss is robust to outliers.|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|None|
-normalized_median_absolute_error|Normalized median absolute error is median absolute error divided by the range of the data|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|Divide by range of the data|
-root_mean_squared_error|Root mean squared error is the square root of the expected squared difference between the target and the prediction|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|None|
-normalized_root_mean_squared_error|Normalized root mean squared error is root mean squared error divided by the range of the data|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Divide by range of the data|
-root_mean_squared_log_error|Root mean squared log error is the square root of the expected squared logarithmic error|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|None|
-normalized_root_mean_squared_log_error|Normalized Root mean squared log error is root mean squared log error divided by the range of the data|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Divide by range of the data|
-
-### <a name="pvt"></a> Predicted vs. True chart
-#### What is a Predicted vs. True chart?
-Predicted vs. True shows the relationship between a predicted value and its correlating true value for a regression problem. This graph can be used to measure performance of a model as the closer to the y=x line the predicted values are, the better the accuracy of a predictive model.
-
-#### What does automated ML do with the Predicted vs. True chart?
-After each run, you can see a predicted vs. true graph for each regression model. To protect data privacy, values are binned together and the size of each bin is shown as a bar graph on the bottom portion of the chart area. You can compare the predictive model, with the lighter shade area showing error margins, against the ideal value of where the model should be.
-
-#### What does a good model look like?
-##### Example 1: A classification model with low accuracy
-![A regression model with low accuracy in predictions](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression1.png)
-
-##### Example 2: A regression model with high accuracy 
-[![A regression model with high accuracy in its predictions](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2-expanded.png)
-
-
-
-### <a name="histo"></a> Histogram of residuals chart
-#### What is a residuals chart?
-A residual is the difference between the prediction and the actual value (`y_pred - y_true`). To show a margin of error with low bias, the histogram of residuals should be shaped as a bell curve, centered around 0. 
-#### What does automated ML do with the residuals chart?
-Automated ML automatically provides a residuals chart to show the distribution of errors in the predictions.
-#### What does a good model look like?
-A good model will typically have residuals closely centered around zero.
-
-##### Example 1: A regression model with bias in its errors
-![SA regression model with bias in its errors](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression3.png)
-
-##### Example 2: A regression model with more even distribution of errors
-![A regression model with more even distribution of errors](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression4.png)
-
-## <a name="explain-model"></a> Model interpretability and feature importance
-Automated ML provides a machine learning interpretability dashboard for your runs.
-For more information on enabling interpretability features, see the [how-to](how-to-machine-learning-interpretability-automl.md) on enabling interpretability in automated ML experiments.
+An over-confident model will over-predict probabilities close to zero and one, rarely being uncertain about the class of each sample and the calibration curve will look similar to backward "S". An under-confident model will assign a lower probability on average to the class it predicts and the associated calibration curve will look similar to an "S". The calibration curve does not depict a model's ability to classify correctly, but instead its ability to correctly assign confidence to its predictions. A bad model can still have a good calibration curve if the model correctly assigns low confidence and high uncertainty.
 
 > [!NOTE]
-> The ForecastTCN model is not currently supported by the Explanation Client. This model will not return an explanation dashboard if it is returned as the best model, and does not support on-demand explanation runs.
+> The calibration curve is sensitive to the number of samples, so a small validation set can produce noisy results that can be hard to interpret. This does not necessarily mean that the model is not well-calibrated.
+
+### Calibration curve for a good model
+![Calibration curve for a good model](./media/how-to-understand-automated-ml/chart-calibration-curve-good.png)
+
+### Calibration curve for a bad model
+![Calibration curve for a bad model](./media/how-to-understand-automated-ml/chart-calibration-curve-bad.png)
+
+## Regression/forecasting metrics
+
+Automated ML calculates the same performance metrics for each  model generated, regardless if it is a regression or forecasting experiment. These metrics also undergo normalization to enable comparison between models trained on data with different ranges. To learn more, see [metric normalization](#metric-normalization).  
+
+The following table summarizes the model performance metrics generated for regression and forecasting experiments. Like classification metrics, these metrics are also based on the scikit learn implementations. The appropriate scikit learn documentation is linked accordingly, in the **Calculation** field.
+
+|Metric|Description|Calculation|
+--|--|--|
+explained_variance|Explained variance measures the extent to which a model accounts for the variation in the target variable. It is the percent decrease in variance of the original data to the variance of the errors. When the mean of the errors is 0, it is equal to the coefficient of determination (see r2_score below). <br> <br> **Objective:** Closer to 1 the better <br> **Range:** (-inf, 1]|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|
+mean_absolute_error|Mean absolute error is the expected value of absolute value of difference between the target and the prediction.<br><br> **Objective:** Closer to 0 the better <br> **Range:** [0, inf) <br><br> Types: <br>`mean_absolute_error` <br>  `normalized_mean_absolute_error`,  the mean_absolute_error divided by the range of the data. | [Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|
+mean_absolute_percentage_error|Mean absolute percentage error (MAPE) is a measure of the average difference between a predicted value and the actual value.<br><br> **Objective:** Closer to 0 the better <br> **Range:** [0, inf) ||
+median_absolute_error|Median absolute error is the median of all absolute differences between the target and the prediction. This loss is robust to outliers.<br><br> **Objective:** Closer to 0 the better <br> **Range:** [0, inf)<br><br>Types: <br> `median_absolute_error`<br> `normalized_median_absolute_error`: the median_absolute_error divided by the range of the data. |[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|
+r2_score|R<sup>2</sup> (the coefficient of determination) measures the proportional reduction in mean squared error (MSE) relative to the total variance of the observed data. <br> <br> **Objective:** Closer to 1 the better <br> **Range:** [-1, 1]<br><br>Note: R<sup>2</sup> often has the range (-inf, 1]. The MSE can be larger than the observed variance, so R<sup>2</sup> can have arbitrarily large negative values, depending on the data and the model predictions. Automated ML clips reported R<sup>2</sup> scores at -1, so a value of -1 for R<sup>2</sup> likely means that the true R<sup>2</sup> score is less than -1. Consider the other metrics values and the properties of the data when interpreting a negative R<sup>2</sup> score.|[Calculation](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|
+root_mean_squared_error |Root mean squared error (RMSE) is the square root of the expected squared difference between the target and the prediction. For an unbiased estimator, RMSE is equal to the standard deviation.<br> <br> **Objective:** Closer to 0 the better <br> **Range:** [0, inf)<br><br>Types:<br> `root_mean_squared_error` <br> `normalized_root_mean_squared_error`: the root_mean_squared_error divided by the range of the data. |[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|
+root_mean_squared_log_error|Root mean squared log error is the square root of the expected squared logarithmic error.<br><br>**Objective:** Closer to 0 the better <br> **Range:** [0, inf) <br> <br>Types: <br>`root_mean_squared_log_error` <br> `normalized_root_mean_squared_log_error`: the root_mean_squared_log_error divided by the range of the data.  |[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|
+spearman_correlation| Spearman correlation is a nonparametric measure of the monotonicity of the relationship between two datasets. Unlike the Pearson correlation, the Spearman correlation does not assume that both datasets are normally distributed. Like other correlation coefficients, Spearman varies between -1 and 1 with 0 implying no correlation. Correlations of -1 or 1 imply an exact monotonic relationship. <br><br> Spearman is a rank-order correlation metric meaning that changes to predicted or actual values will not change the Spearman result if they do not change the rank order of predicted or actual values.<br> <br> **Objective:** Closer to 1 the better <br> **Range:** [-1, 1]|[Calculation](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|
+
+### Metric normalization
+
+Automated ML normalizes regression and forecasting metrics which enables comparison between models trained on data with different ranges. A model trained on a data with a larger range has higher error than the same model trained on data with a smaller range, unless that error is normalized.
+
+While there is no standard method of normalizing error metrics, automated ML takes the common approach of dividing the error by the range of the data: `normalized_error = error / (y_max - y_min)`
+
+When evaluating a forecasting model on time series data, automated ML takes extra steps to ensure that normalization happens per time series ID (grain), because each time series likely has a different distribution of target values.
+## Residuals
+
+The residuals chart is a histogram of the prediction errors (residuals) generated for regression and forecasting experiments. Residuals are calculated as `y_predicted - y_true` for all samples and then displayed as a histogram to show model bias.
+
+In this example, note that both models are slightly biased to predict lower than the actual value. This is not uncommon for a dataset with a skewed distribution of actual targets, but indicates worse model performance. A good model will have a residuals distribution that peaks at zero with few residuals at the extremes. A worse model will have a spread out residuals distribution with fewer samples around zero.
+
+### Residuals chart for a good model
+![Residuals chart for a good model](./media/how-to-understand-automated-ml/chart-residuals-good.png)
+
+### Residuals chart for a bad model
+![Residuals chart for a bad model](./media/how-to-understand-automated-ml/chart-residuals-bad.png)
+
+## Predicted vs. true
+
+For regression and forecasting experiment the predicted vs. true chart plots the relationship between the target feature (true/actual values) and the model's predictions. The true values are binned along the x-axis and for each bin the mean predicted value is plotted with error bars. This allows you to see if a model is biased toward predicting certain values. The line displays the average prediction and the shaded area indicates the variance of predictions around that mean.
+
+Often, the most common true value will have the most accurate predictions with the lowest variance. The distance of the trend line from the ideal `y = x` line where there are few true values is a good measure of model performance on outliers. You can use the histogram at the bottom of the chart to reason about the actual data distribution. Including more data samples where the distribution is sparse can improve model performance on unseen data.
+
+In this example, note that the better model has a predicted vs. true line that is closer to the ideal `y = x` line.
+
+### Predicted vs. true chart for a good model
+![Predicted vs. true chart for a good model](./media/how-to-understand-automated-ml/chart-predicted-true-good.png)
+
+### Predicted vs. true chart for a bad model
+![Predicted vs. true chart for a bad model](./media/how-to-understand-automated-ml/chart-predicted-true-bad.png)
+
+## Model explanations and feature importances
+
+While model evaluation metrics and charts are good for measuring the general quality of a model, inspecting which dataset features a model used to make its predictions is essential when practicing responsible AI. That's why automated ML provides a model interpretability dashboard to measure and report the relative contributions of dataset features.
+
+To view the interpretability dashboard in the studio:
+1. [Sign into the studio](https://ml.azure.com/) and navigate to your workspace
+2. In the left menu, select **Experiments**
+3. Select your experiment from the list of experiments
+4. In the table at the bottom of the page, select an AutoML run
+5. In the **Models** tab, select the **Algorithm name** for the model you want to explain
+6. In the **Explanations** tab, you may see an explanation was already created if the model was the best
+7. To create a new explanation, select **Explain model** and select the remote compute with which to compute explanations
+
+[Learn more about model explanations in automated ML](how-to-machine-learning-interpretability-automl.md).
+
+> [!NOTE]
+> The ForecastTCN model is not currently supported by automated ML explanations and other forecasting models may have limited access to interpretability tools.
 
 ## Next steps
-
-+ Learn more about [automated ml](concept-automated-ml.md) in Azure Machine Learning.
-+ Try the [Automated Machine Learning Model Explanation](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) sample notebooks.
+* Try the [automated machine learning model explanation sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).
+* For automated ML specific questions, reach out to askautomatedml@microsoft.com.

@@ -1,17 +1,16 @@
 ---
-title: Encode a remote file and stream using Azure Media Services v3
+title: Encode a remote file and stream using Media Services
 description: Follow the steps of this tutorial to encode a file based on a URL and stream your content with Azure Media Services using REST.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 08/31/2020
+ms.date: 03/17/2021
 ms.author: inhenkel
 ---
 
@@ -113,7 +112,7 @@ In this section, we send requests that are relevant to encoding and creating URL
     The following **POST** operation is sent.
 
     ```
-    https://login.microsoftonline.com/:tenantId/oauth2/token
+    https://login.microsoftonline.com/:aadTenantDomain/oauth2/token
     ```
 
 4. The response comes back with the token and sets the "AccessToken" environment variable to the token value. To see the code that sets "AccessToken" , click on the **Tests** tab. 
@@ -166,10 +165,17 @@ The output [Asset](/rest/api/media/assets) stores the result of your encoding jo
         {
         "properties": {
             "description": "My Asset",
-            "alternateId" : "some GUID"
+            "alternateId" : "some GUID",
+            "storageAccountName": "<replace from environment file>",
+            "container": "<supply any valid container name of your choosing>"
          }
         }
         ```
+
+> [!NOTE]
+> Be sure to replace the storage account and container names either with those from the environment file or supply your own.
+>
+> As you complete the steps described in the rest of this article, make sure that you supply valid parameters in request bodies.
 
 ### Create a transform
 
@@ -248,7 +254,7 @@ In this example, the job's input is based on an HTTPS URL ("https:\//nimbuscdn-n
         }
         ```
 
-The job takes some time to complete and when it does you want to be notified. To see the progress of the job, we recommend using Event Grid. It is designed for high availability, consistent performance, and dynamic scale. With Event Grid, your apps can listen for and react to events from virtually all Azure services, as well as custom sources. Simple, HTTP-based reactive event handling helps you build efficient solutions through intelligent filtering and routing of events.  See [Route events to a custom web endpoint](job-state-events-cli-how-to.md).
+The job takes some time to complete and when it does you want to be notified. To see the progress of the job, we recommend using Event Grid. It is designed for high availability, consistent performance, and dynamic scale. With Event Grid, your apps can listen for and react to events from virtually all Azure services, as well as custom sources. Simple, HTTP-based reactive event handling helps you build efficient solutions through intelligent filtering and routing of events.  See [Route events to a custom web endpoint](monitoring/job-state-events-cli-how-to.md).
 
 The **Job** usually goes through the following states: **Scheduled**, **Queued**, **Processing**, **Finished** (the final state). If the job has encountered an error, you get the **Error** state. If the job is in the process of being canceled, you get **Canceling** and **Canceled** when it is done.
 
@@ -351,8 +357,9 @@ In this section, let's build an HLS streaming URL. URLs consist of the following
     To get the hostname, you can use the following GET operation:
     
     ```
-    https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amsaccount/streamingEndpoints/default?api-version={{api-version}}
+    https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/streamingEndpoints/default?api-version={{api-version}}
     ```
+    and make sure that you set the `resourceGroupName` and `accountName` parameters to match the environment file. 
     
 3. A path that you got in the previous (List paths) section.  
 

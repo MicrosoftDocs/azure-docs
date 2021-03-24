@@ -2,7 +2,7 @@
 title: Azure Batch pool resize complete event
 description: Reference for Batch pool resize complete event. See an example of a pool that increased in size and completed successfully.
 ms.topic: reference
-ms.date: 04/20/2017
+ms.date: 12/28/2020
 ---
 
 # Pool resize complete event
@@ -13,18 +13,18 @@ ms.date: 04/20/2017
 
 ```
 {
-	"id": "myPool",
-	"nodeDeallocationOption": "invalid",
-     	"currentDedicatedNodes": 10,
-    	"targetDedicatedNodes": 10,
-   	"currentLowPriorityNodes": 5,
-    	"targetLowPriorityNodes": 5,
-	"enableAutoScale": false,
-	"isAutoPool": false,
-	"startTime": "2016-09-09T22:13:06.573Z",
-	"endTime": "2016-09-09T22:14:01.727Z",
-	"resultCode": "Success",
-	"resultMessage": "The operation succeeded"
+   "id": "myPool",
+   "nodeDeallocationOption": "invalid",
+      "currentDedicatedNodes": 10,
+      "targetDedicatedNodes": 10,
+   "currentLowPriorityNodes": 5,
+     "targetLowPriorityNodes": 5,
+   "enableAutoScale": false,
+   "isAutoPool": false,
+   "startTime": "2016-09-09T22:13:06.573Z",
+   "endTime": "2016-09-09T22:14:01.727Z",
+   "resultCode": "Success",
+   "resultMessage": "The operation succeeded"
 }
 ```
 

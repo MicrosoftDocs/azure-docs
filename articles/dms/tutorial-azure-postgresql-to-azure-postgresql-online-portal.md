@@ -14,9 +14,9 @@ ms.topic: tutorial
 ms.date: 07/21/2020
 ---
 
-# Tutorial: Migrate Azure DB for PostgreSQL - Single Server to Azure DB for PostgreSQL - Single Server or Hyperscale (Citus) online using DMS via the Azure portal
+# Tutorial: Migrate/Upgrade Azure DB for PostgreSQL - Single Server to Azure DB for PostgreSQL - Single Server  online using DMS via the Azure portal
 
-You can use Azure Database Migration Service to migrate the databases from an [Azure Database for PostgreSQL - Single Server](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) instance to a [Hyperscale (Citus) on Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---hyperscale-citus) instance with minimal downtime. In this tutorial, you migrate the **DVD Rental** sample database from an Azure Database for PostgreSQL v10 to Hyperscale (Citus) on Azure Database for PostgreSQL by using the online migration activity in Azure Database Migration Service.
+You can use Azure Database Migration Service to migrate the databases from an [Azure Database for PostgreSQL - Single Server](../postgresql/overview.md#azure-database-for-postgresql---single-server) instance to same or different version of Azure Database for PostgreSQL - Single Server instance or Azure Database for PostgreSQL - Flexible Server with minimal downtime. In this tutorial, you migrate the **DVD Rental** sample database from an Azure Database for PostgreSQL v10 to Azure Database for PostgreSQL - Single Server by using the online migration activity in Azure Database Migration Service.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -41,24 +41,25 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need to:
 
-* Check [status of migration scenarios supported by Azure Database Migration Service](https://docs.microsoft.com/azure/dms/resource-scenario-status) for supported migration and version combinations. 
-* An existing [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) version 10 and later instance with the **DVD Rental** database. Azure Database Migration Service does not support migrating from Azure DB for PostgreSQL 9.5 or 9.6.
+* Check [status of migration scenarios supported by Azure Database Migration Service](./resource-scenario-status.md) for supported migration and version combinations. 
+* An existing [Azure Database for PostgreSQL](../postgresql/index.yml) version 10 and later instance with the **DVD Rental** database. 
 
     Also note that the target Azure Database for PostgreSQL version must be equal to or later than the on-premises PostgreSQL version. For example, PostgreSQL 10 can migrate to Azure Database for PostgreSQL 10, or 11, but not to Azure Database for PostgreSQL 9.6.
 
-* [Create an Azure Database for PostgreSQL server](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) or [Create an Azure Database for PostgreSQL - Hyperscale (Citus) server](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal) as the target database server to migrate data into.
-* Create a Microsoft Azure Virtual Network for Azure Database Migration Service by using the Azure Resource Manager deployment model. For more information about creating a virtual network, see the [Virtual Network Documentation](https://docs.microsoft.com/azure/virtual-network/), and especially the quickstart articles with step-by-step details.
+* [Create an Azure Database for PostgreSQL server](../postgresql/quickstart-create-server-database-portal.md) or [Create an Azure Database for PostgreSQL - Hyperscale (Citus) server](../postgresql/quickstart-create-hyperscale-portal.md) as the target database server to migrate data into.
+* Create a Microsoft Azure Virtual Network for Azure Database Migration Service by using the Azure Resource Manager deployment model. For more information about creating a virtual network, see the [Virtual Network Documentation](../virtual-network/index.yml), and especially the quickstart articles with step-by-step details.
 
-* Ensure that the Network Security Group (NSG) rules for your virtual network don't block the following inbound communication ports to Azure Database Migration Service: 443, 53, 9354, 445, 12000. For more detail on virtual network NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
-* Create a server-level [firewall rule](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) for Azure Database for PostgreSQL source to allow Azure Database Migration Service to access to the source databases. Provide the subnet range of the virtual network used for Azure Database Migration Service.
-* Create a server-level [firewall rule](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) for Azure Database for PostgreSQL target to allow Azure Database Migration Service to access to the target databases. Provide the subnet range of the virtual network used for Azure Database Migration Service.
+* Ensure that the Network Security Group (NSG) rules for your virtual network don't block the outbound port 443 of ServiceTag for ServiceBus, Storage and AzureMonitor. For more detail on virtual network NSG traffic filtering, see the article [Filter network traffic with network security groups](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+* Create a server-level [firewall rule](../azure-sql/database/firewall-configure.md) for Azure Database for PostgreSQL source to allow Azure Database Migration Service to access to the source databases. Provide the subnet range of the virtual network used for Azure Database Migration Service.
+* Create a server-level [firewall rule](../azure-sql/database/firewall-configure.md) for Azure Database for PostgreSQL target to allow Azure Database Migration Service to access to the target databases. Provide the subnet range of the virtual network used for Azure Database Migration Service.
+* [Enable logical replication](../postgresql/concepts-logical.md) in the Azure DB for PostgreSQL source. 
 * Set the following Server parameters in the Azure Database for PostgreSQL instance being used as a source:
 
-  * max_replication_slots = [number of slots], recommend setting to **five slots**
+  * max_replication_slots = [number of slots], recommend setting to **ten slots**
   * max_wal_senders =[number of concurrent tasks] - The max_wal_senders parameter sets the number of concurrent tasks that can run, recommend setting to **10 tasks**
 
 > [!NOTE]
-> The above server parameters are static and will require a reboot of your Azure Database for PostgreSQL instance for them to take effect. For more information on toggling server parameters, see [Configure Azure Database for PostgreSQL Server Parameters](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal).
+> The above server parameters are static and will require a reboot of your Azure Database for PostgreSQL instance for them to take effect. For more information on toggling server parameters, see [Configure Azure Database for PostgreSQL Server Parameters](../postgresql/howto-configure-server-parameters-using-portal.md).
 
 > [!IMPORTANT]
 > All tables in your existing database need a primary key to ensure that changes can be synced to the target database.
@@ -83,7 +84,7 @@ To complete all the database objects like table schemas, indexes and stored proc
 
 2. Create an empty database in your target environment, which is Azure Database for PostgreSQL.
 
-    For details on how to connect and create a database, see the article [Create an Azure Database for PostgreSQL server in the Azure portal](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) or [Create an Azure Database for PostgreSQL - Hyperscale (Citus) server in the Azure portal](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal).
+    For details on how to connect and create a database, see the article [Create an Azure Database for PostgreSQL server in the Azure portal](../postgresql/quickstart-create-server-database-portal.md) or [Create an Azure Database for PostgreSQL - Hyperscale (Citus) server in the Azure portal](../postgresql/quickstart-create-hyperscale-portal.md).
 
     > [!NOTE]
     > An instance of Azure Database for PostgreSQL - Hyperscale (Citus) has only a single database: **citus**.
@@ -107,8 +108,8 @@ To complete all the database objects like table schemas, indexes and stored proc
 
     ```
     SELECT Q.table_name
-        ,CONCAT('ALTER TABLE ', table_schema, '.', table_name, STRING_AGG(DISTINCT CONCAT(' DROP CONSTRAINT ', foreignkey), ','), ';') as DropQuery
-            ,CONCAT('ALTER TABLE ', table_schema, '.', table_name, STRING_AGG(DISTINCT CONCAT(' ADD CONSTRAINT ', foreignkey, ' FOREIGN KEY (', column_name, ')', ' REFERENCES ', foreign_table_schema, '.', foreign_table_name, '(', foreign_column_name, ')' ), ','), ';') as AddQuery
+        ,CONCAT('ALTER TABLE ','"', table_schema,'"', '.','"', table_name ,'"', STRING_AGG(DISTINCT CONCAT(' DROP CONSTRAINT ','"', foreignkey,'"'), ','), ';') as DropQuery
+            ,CONCAT('ALTER TABLE ','"', table_schema,'"', '.','"', table_name,'"', STRING_AGG(DISTINCT CONCAT(' ADD CONSTRAINT ','"', foreignkey,'"', ' FOREIGN KEY (','"', column_name,'"', ')', ' REFERENCES ','"', foreign_table_schema,'"', '.','"', foreign_table_name,'"', '(','"', foreign_column_name,'"', ')',' ON UPDATE ',update_rule,' ON DELETE ',delete_rule), ','), ';') as AddQuery
     FROM
         (SELECT
         S.table_schema,
@@ -117,7 +118,9 @@ To complete all the database objects like table schemas, indexes and stored proc
         STRING_AGG(DISTINCT S.column_name, ',') AS column_name,
         S.foreign_table_schema,
         S.foreign_table_name,
-        STRING_AGG(DISTINCT S.foreign_column_name, ',') AS foreign_column_name
+        STRING_AGG(DISTINCT S.foreign_column_name, ',') AS foreign_column_name,
+        S.update_rule,
+        S.delete_rule
     FROM
         (SELECT DISTINCT
         tc.table_schema,
@@ -126,13 +129,16 @@ To complete all the database objects like table schemas, indexes and stored proc
         kcu.column_name,
         ccu.table_schema AS foreign_table_schema,
         ccu.table_name AS foreign_table_name,
-        ccu.column_name AS foreign_column_name
+        ccu.column_name AS foreign_column_name,
+        rc.update_rule AS update_rule,
+        rc.delete_rule AS delete_rule
         FROM information_schema.table_constraints AS tc
         JOIN information_schema.key_column_usage AS kcu ON tc.constraint_name = kcu.constraint_name AND tc.table_schema = kcu.table_schema
         JOIN information_schema.constraint_column_usage AS ccu ON ccu.constraint_name = tc.constraint_name AND ccu.table_schema = tc.table_schema
+        JOIN information_schema.referential_constraints as rc ON rc.constraint_name = tc.constraint_name AND rc.constraint_schema = tc.table_schema
     WHERE constraint_type = 'FOREIGN KEY'
         ) S
-        GROUP BY S.table_schema, S.foreignkey, S.table_name, S.foreign_table_schema, S.foreign_table_name
+        GROUP BY S.table_schema, S.foreignkey, S.table_name, S.foreign_table_schema, S.foreign_table_name,S.update_rule,S.delete_rule
         ) Q
         GROUP BY Q.table_schema, Q.table_name;
     ```
@@ -179,7 +185,7 @@ To complete all the database objects like table schemas, indexes and stored proc
 
     The virtual network provides Azure Database Migration Service with access to the source PostgreSQL server and the target Azure Database for PostgreSQL instance.
 
-    For more information about how to create a virtual network in the Azure portal, see the article [Create a virtual network using the Azure portal](https://aka.ms/DMSVnet).
+    For more information about how to create a virtual network in the Azure portal, see the article [Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md).
 
 5. Select a pricing tier.
 
@@ -252,7 +258,20 @@ After the service is created, locate it within the Azure portal, open it, and th
 
 * Select **Run migration**.
 
-    The migration activity window appears, and the **Status** of the activity should update to show as **Backup in Progress**.
+The migration activity window appears, and the **Status** of the activity should update to show as **Backup in Progress**. You may encounter the following error when upgrading from Azure DB for PostgreSQL 9.5 or 9.6:
+
+**A scenario reported an unknown error. 28000: no pg_hba.conf entry for replication connection from host "40.121.141.121", user "sr"**
+
+This is because the PostgreSQL does not have appropriate privileges to create required logical replication artifacts. To enable required privileges, you can do the following:
+
+1. Open "Connection security" settings for the source Azure DB for PostgreSQL server you are trying to migrate/upgrade from.
+2. Add a new firewall rule with a name ending with "_replrule" and add the IP address from the error message to the start IP and End IP fields. For the above error example -
+> Firewall rule name = sr_replrule;
+> Start IP = 40.121.141.121;
+> End IP = 40.121.141.121
+
+3. Click save and let the change complete. 
+4. Retry DMS activity. 
 
 ## Monitor the migration
 
@@ -279,10 +298,13 @@ After the initial Full load is completed, the databases are marked **Ready to cu
 
     ![Complete cutover screen](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/dms-complete-cutover.png)
 
-3. When the database migration status shows **Completed**, connect your applications to the new target instance of Azure Database for PostgreSQL.
+3. When the database migration status shows **Completed**, [recreate sequences](https://wiki.postgresql.org/wiki/Fixing_Sequences) (if applicable), and connect your applications to the new target instance of Azure Database for PostgreSQL.
+ 
+> [!NOTE]
+> Azure Database Migration Service can be used to perform major version upgrades with reduced downtime in Azure Database for PostgreSQL - Single Server. You first configure a target database with desired higher PostgreSQL version, network settings and parameters. Then, you can initiate the migration to the target databases using the procedure explained above. After you cutover to the target database server, you can update your application connection string to point to the target database server. 
 
 ## Next steps
 
 * For information about known issues and limitations when performing online migrations to Azure Database for PostgreSQL, see the article [Known issues and workarounds with Azure Database for PostgreSQL online migrations](known-issues-azure-postgresql-online.md).
-* For information about the Azure Database Migration Service, see the article [What is the Azure Database Migration Service?](https://docs.microsoft.com/azure/dms/dms-overview).
-* For information about Azure Database for PostgreSQL, see the article [What is Azure Database for PostgreSQL?](https://docs.microsoft.com/azure/postgresql/overview).
+* For information about the Azure Database Migration Service, see the article [What is the Azure Database Migration Service?](./dms-overview.md).
+* For information about Azure Database for PostgreSQL, see the article [What is Azure Database for PostgreSQL?](../postgresql/overview.md).

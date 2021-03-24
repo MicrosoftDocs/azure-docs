@@ -45,7 +45,7 @@ With URL rewrite capability in Application Gateway, you can:
 
 To learn how to rewrite URL with Application Gateway using Azure portal, see [here](rewrite-url-portal.md).
 
-![img](./media/rewrite-http-headers-url/url-rewrite-overview.png)
+![Diagram that describes the process for rewriting a URL with Application Gateway.](./media/rewrite-http-headers-url/url-rewrite-overview.png)
 
 >[!NOTE]
 > URL rewrite feature is in preview and is available only for Standard_v2 and WAF_v2 SKU of Application Gateway. It is not recommended for use in production environment. To learn more about previews, see [terms of use here](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -159,7 +159,7 @@ When a back-end application sends a redirection response, you might want to redi
 
 Because App Service is a multitenant service, it uses the host header in the request to route the request to the correct endpoint. App services have a default domain name of *.azurewebsites.net (say contoso.azurewebsites.net) that's different from the application gateway's domain name (say contoso.com). Because the original request from the client has the application gateway's domain name (contoso.com) as the hostname, the application gateway changes the hostname to contoso.azurewebsites.net. It makes this change so that the app service can route the request to the correct endpoint.
 
-When the app service sends a redirection response, it uses the same hostname in the location header of its response as the one in the request it receives from the application gateway. So the client will make the request directly to contoso.azurewebsites.net/path2 instead of going through the application gateway (contoso.com/path2). Bypassing the application gateway isn't desirable.
+When the app service sends a redirection response, it uses the same hostname in the location header of its response as the one in the request it receives from the application gateway. So the client will make the request directly to `contoso.azurewebsites.net/path2` instead of going through the application gateway (`contoso.com/path2`). Bypassing the application gateway isn't desirable.
 
 You can resolve this issue by setting the hostname in the location header to the application gateway's domain name.
 

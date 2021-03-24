@@ -2,10 +2,10 @@
 title: Read Azure Event Hubs captured data from a Python app (latest)
 description: This article shows you how to write Python code to capture data that's sent to an event hub and read the captured event data from an Azure storage account. 
 ms.topic: quickstart
-ms.date: 06/23/2020
+ms.date: 01/04/2021
 ---
 
-# Capture Event Hubs data in Azure Storage and read it by using Python (azure-eventhub version 5)
+# Capture Event Hubs data in Azure Storage and read it by using Python (azure-eventhub)
 
 You can configure an event hub so that the data that's sent to an event hub is captured in an Azure storage account or Azure Data Lake Storage Gen 1 or Gen 2. This article shows you how to write Python code to send events to an event hub and read the captured data from **Azure Blob storage**. For more information about this feature, see [Event Hubs Capture feature overview](event-hubs-capture-overview.md).
 
@@ -22,7 +22,11 @@ In this quickstart, you:
 
 ## Prerequisites
 
-- Python 2.7, and 3.5 or later, with PIP installed and updated.  
+- Python with PIP and the following packages installed. The code in this article has been tested against these versions. 
+    - Python 3.7
+    - azure-eventhub 5.2.0
+    - azure-storage-blob 12.6.0
+    - avro-python3 1.10.1
 - An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.  
 - An active Event Hubs namespace and event hub.
 [Create an Event Hubs namespace and an event hub in the namespace](event-hubs-create.md). Record the name of the Event Hubs namespace, the name of the event hub, and the primary access key for the namespace. To get the access key, see [Get an Event Hubs connection string](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). The default key name is *RootManageSharedAccessKey*. For this quickstart, you need only the primary key. You don't need the connection string.  
@@ -150,6 +154,13 @@ In this example, the captured data is stored in Azure Blob storage. The script i
    pip install azure-eventhub
    pip install avro-python3
    ```
+
+    > [!NOTE]
+    > The code in this article has been tested against these versions. 
+    > - Python 3.7
+    > - azure-eventhub 5.2.0
+    > - azure-storage-blob 12.6.0
+    > - avro-python3 1.10.1
 2. Change your directory to the directory where you saved *sender.py* and *capturereader.py*, and run this command:
    
    ```

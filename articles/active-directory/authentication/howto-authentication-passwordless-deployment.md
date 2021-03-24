@@ -6,10 +6,10 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 02/22/2021
 
 ms.author: baselden
-author: iainfoulds
+author: justinha
 manager: daveba
 ms.reviewer: baselden, librown
 
@@ -64,9 +64,9 @@ Organizations must meet the following prerequisites before beginning a passwordl
 
 | Prerequisite | Authenticator app | FIDO2 Security Keys |
 | --- | --- | --- |
-| [Combined registration for Azure Multi-factor authentication and self-service password reset (SSPR)](howto-registration-mfa-sspr-combined.md) is enabled | √ | √ |
-| [Users can perform Azure Multi-factor authentication](howto-mfa-getstarted.md) | √ | √ |
-| [Users have registered for Azure Multi-factor authentication and SSPR](howto-registration-mfa-sspr-combined.md) | √ | √ |
+| [Combined registration for Azure AD Multi-Factor Authentication and self-service password reset (SSPR)](howto-registration-mfa-sspr-combined.md) is enabled | √ | √ |
+| [Users can perform Azure AD Multi-Factor Authentication](howto-mfa-getstarted.md) | √ | √ |
+| [Users have registered for Azure AD Multi-Factor Authentication and SSPR](howto-registration-mfa-sspr-combined.md) | √ | √ |
 | [Users have registered their mobile devices to Azure Active Directory](../devices/overview.md) | √ |   |
 | Windows 10 version 1809 or higher using a supported browser like Microsoft Edge or Mozilla Firefox <br> (version 67 or higher). <br> *Microsoft recommends version 1903 or higher for native support*. |   | √ |
 | Compatible FIDO2 security keys. Ensure that you're using a [Microsoft-tested and verified](./concept-authentication-passwordless.md) FIDO2 security device, or other compatible FIDO2 security device. |   | √ |
@@ -75,9 +75,9 @@ Organizations must meet the following prerequisites before beginning a passwordl
 
 The prerequisites for Windows Hello are highly dependent on whether you're deploying in an on-premises, hybrid, or cloud-only configuration. For more information, see the [full listing of prerequisites for Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 
-### Azure Multi-Factor Authentication
+### Azure AD Multi-Factor Authentication
 
-Users register their passwordless method as a part of the Azure Multi-factor authentication registration flow. Multi-factor authentication with a username and password along with another registered method can be used as a fallback in case they can't use their phone or security key in some scenarios.
+Users register their passwordless method as a part of the Azure AD Multi-Factor Authentication registration flow. Multi-factor authentication with a username and password along with another registered method can be used as a fallback in case they can't use their phone or security key in some scenarios.
 
 ### Licensing 
 There is no additional cost for passwordless authentication, although some prerequisites may require a premium subscription. For detailed feature and licensing information in the [Azure Active Directory licensing page](https://azure.microsoft.com/pricing/details/active-directory/). 
@@ -124,7 +124,7 @@ When you deploy passwordless authentication, you should first enable one or more
 
 Groups can be synced from an on-premises directory, or from Azure AD. Once you're happy with the results of your pilot, you can switch on the passwordless authentication for all users.
 
-See [Best practices for a pilot](https://aka.ms/deploymentplans) on the deployment plans page.
+See [Best practices for a pilot](../fundamentals/active-directory-deployment-plans.md) on the deployment plans page.
 
 ## Plan passwordless authentication with the Microsoft Authenticator app
 
@@ -138,7 +138,7 @@ It turns any iOS or Android phone into a strong, passwordless credential. Users 
 
 **AD FS Integration** - When a user enables the Microsoft Authenticator passwordless credential, authentication for that user defaults to sending a notification for approval. Users in a hybrid tenant are prevented from being directed to ADFS for sign-in unless they select "Use your password instead." This process also bypasses any on-premises Conditional Access policies, and pass-through authentication flows. However, if a *login_hint* is specified, the user is forwarded to ADFS and bypass the option to use the passwordless credential.
 
-**Azure Multi-factor authentication server** - End users enabled for Multi-factor authentication through an organization's on-premises Azure MFA server can create and use a single passwordless phone sign-in credential. If the user attempts to upgrade multiple installations (5 or more) of the Microsoft Authenticator with the credential, this change may result in an error.
+**Azure AD Multi-Factor Authentication server** - End users enabled for Multi-factor authentication through an organization's on-premises Azure MFA server can create and use a single passwordless phone sign-in credential. If the user attempts to upgrade multiple installations (5 or more) of the Microsoft Authenticator with the credential, this change may result in an error.
 
 **Device Registration** - To use the Authenticator app for passwordless authentication, the device must be registered in the Azure AD tenant and can't be a shared device. A device can only be registered in a single tenant. This limit means that only one work or school account is supported for phone sign-in using the Authenticator app.
 
@@ -147,8 +147,8 @@ There are three types of passwordless sign-in deployments available with securit
 
 -    Azure Active Directory web apps on a supported browser
 -    Azure Active Directory Joined Windows 10 devices
--    Hybrid Azure Active Directory Joined Windows 10 devices (preview)
-     -    Provides access to both cloud-based and on premises resources. For more information about access to on-premises resources, see [SSO to on-premises resources using FIDOP2 keys](./howto-authentication-passwordless-security-key-on-premises.md)
+-    Hybrid Azure Active Directory Joined Windows 10 devices
+     -    Provides access to both cloud-based and on premises resources. For more information about access to on-premises resources, see [SSO to on-premises resources using FIDO2 keys](./howto-authentication-passwordless-security-key-on-premises.md)
 
 You must enable **Compatible FIDO2 security keys**. Microsoft announced [key partnerships with FIDO2 key vendors](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Microsoft-passwordless-partnership-leads-to-innovation-and-great/ba-p/566493).
 
@@ -191,7 +191,7 @@ Enabling Windows 10 sign-in using FIDO2 security keys requires enabling the cred
 
 #### Enable on-premises integration
 
-To enable access to on-premises resources, follow the steps to [Enable passwordless security key sign in to on-premises resources (preview)](howto-authentication-passwordless-security-key-on-premises.md).
+To enable access to on-premises resources, follow the steps to [Enable passwordless security key sign in to on-premises resources](howto-authentication-passwordless-security-key-on-premises.md).
 
 > [!IMPORTANT]
 > These steps must also be completed for any hybrid Azure AD joined devices to utilize FIDO2 security keys for Windows 10 sign in.
@@ -328,4 +328,4 @@ Follow the steps in the article, [Enable passwordless security key sign in for A
 
 - [Enable passwordless security keys for sign in for Azure AD](howto-authentication-passwordless-security-key.md)
 - [Enable passwordless sign-in with the Microsoft Authenticator app](howto-authentication-passwordless-phone.md)
-- [Learn more about Authentication methods usage & insights](howto-authentication-methods-usage-insights.md)
+- [Learn more about Authentication methods usage & insights](./howto-authentication-methods-activity.md)

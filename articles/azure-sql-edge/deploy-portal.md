@@ -20,8 +20,7 @@ Azure SQL Edge is a relational database engine optimized for IoT and Azure IoT E
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 * Sign in to the [Azure portal](https://portal.azure.com/).
 * Create an [Azure IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
-* Register an [IoT Edge Device from the Azure portal](../iot-edge/how-to-register-device-portal.md).
-* Prepare the IoT Edge device to [deploy IoT Edge module from the Azure portal](../iot-edge/how-to-deploy-modules-portal.md).
+* Create an [Azure IoT Edge device](../iot-edge/how-to-install-iot-edge.md).
 
 > [!NOTE]   
 > To deploy an Azure Linux VM as an IoT Edge device, see this [quickstart guide](../iot-edge/quickstart-linux.md).
@@ -208,7 +207,7 @@ Now, run a query to return data from the `Inventory` table.
 
 ## Connect from outside the container
 
-You can connect and run SQL queries against your Azure SQL Edge instance from any external Linux, Windows, or macOS tool that supports SQL connections. For more information on connecting to a SQL Edge container from outside, refer [Connect and Query Azure SQL Edge](https://docs.microsoft.com/azure/azure-sql-edge/connect).
+You can connect and run SQL queries against your Azure SQL Edge instance from any external Linux, Windows, or macOS tool that supports SQL connections. For more information on connecting to a SQL Edge container from outside, refer [Connect and Query Azure SQL Edge](./connect.md).
 
 In this quickstart, you deployed a SQL Edge Module on an IoT Edge device. 
 

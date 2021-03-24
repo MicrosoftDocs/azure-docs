@@ -45,7 +45,7 @@ For detailed overview of single server deployment mode, refer [single server ove
 
 ### Azure Database for MySQL - Flexible Server (Preview)
 
-Azure Database for MySQL Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. In general, the service provides more flexibility and customizations based on the user requirements. The flexible server architecture allows users to opt for high availability within single availability zone and across multiple availability zones. Flexible servers provides better cost optimization controls with the ability to stop/start server and burstable compute tier, ideal for workloads that do not need full compute capacity continuously. The service currently supports community version of MySQL 5.7 with plans to add newer versions soon. The service is currently in public preview, available today in wide variety of [Azure regions](https://azure.microsoft.com/global-infrastructure/services/).
+Azure Database for MySQL Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. In general, the service provides more flexibility and customizations based on the user requirements. The flexible server architecture allows users to opt for high availability within single availability zone and across multiple availability zones. Flexible servers provides better cost optimization controls with the ability to stop/start server and burstable compute tier, ideal for workloads that do not need full compute capacity continuously. The service supports community version of MySQL 5.7 and 8.0. The service is currently in public preview, available today in wide variety of [Azure regions](https://azure.microsoft.com/global-infrastructure/services/).
 
 Flexible servers are best suited for 
 - Application developments requiring better control and customizations.
@@ -53,6 +53,15 @@ Flexible servers are best suited for
 - Managed maintenance windows
 
 For detailed overview of flexible server deployment mode, refer [flexible server overview](flexible-server/overview.md).
+
+## Contacts
+For any questions or suggestions you might have about working with Azure Database for MySQL, send an email to the Azure Database for MySQL Team ([@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). This email address is not a technical support alias.
+
+In addition, consider the following points of contact as appropriate:
+
+- To contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- To fix an issue with your account, file a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
+- To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
 
 ## Next steps
 

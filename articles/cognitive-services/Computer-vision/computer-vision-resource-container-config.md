@@ -1,21 +1,21 @@
 ---
-title: Configure containers - Computer Vision
+title: Configure Read OCR containers - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: This article shows you how to configure both required and optional settings for Recognize Text containers in Computer Vision.
+description: This article shows you how to configure both required and optional settings for Read OCR containers in Computer Vision.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18
 ---
 
-# Configure Computer Vision Docker containers
+# Configure Read OCR Docker containers
 
-You configure the Computer Vision container's runtime environment by using the `docker run` command arguments. This container has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the billing settings. 
+You configure the Computer Vision Read OCR container's runtime environment by using the `docker run` command arguments. This container has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the billing settings. 
 
 ## Configuration settings
 
@@ -34,6 +34,8 @@ The container also has the following container-specific configuration settings:
 |No|Queue:Azure:QueueVisibilityTimeoutInMilliseconds | v3.x containers only. The time for a message to be invisible when another worker is processing it. |
 |No|Storage::DocumentStore::MongoDB|v2.0 containers only. Enables MongoDB for permanent result storage. |
 |No|Storage:ObjectStore:AzureBlob:ConnectionString| v3.x containers only. Azure blob storage connection string. |
+|No|Storage:TimeToLiveInDays| v3.x containers only. Result expiration period in days. The setting specifies when the system should clear recognition results. The default is 2 days (48 hours), which means any result live for longer than that period is not guaranteed to be successfully retrieved. |
+|No|Task:MaxRunningTimeSpanInMinutes| v3.x containers only. Maximum running time for a single request. The default is 60 minutes. |
 
 ## ApiKey configuration setting
 
@@ -115,13 +117,13 @@ Replace {_argument_name_} with your own values:
 The following Docker examples are for the Read container.
 
 
-# [Version 3.1-preview](#tab/version-3-1)
+# [Version 3.2-preview](#tab/version-3-2)
 
 ### Basic example
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -132,30 +134,7 @@ ApiKey={API_KEY}
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
-Eula=accept \
-Billing={ENDPOINT_URI} \
-ApiKey={API_KEY}
-Logging:Console:LogLevel:Default=Information
-```
-
-# [Version 3.0-preview](#tab/version-3)
-
-### Basic example
-
-```bash
-docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview \
-Eula=accept \
-Billing={ENDPOINT_URI} \
-ApiKey={API_KEY}
-```
-
-### Logging example 
-
-```bash
-docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}

@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 05/21/2020
+ ms.date: 10/15/2020
  ms.author: cherylmc
  ms.custom: include file
 
@@ -68,9 +68,13 @@ Register the VPN client in the Azure AD tenant.
     https://https://login.chinacloudapi.cn/common/oauth2/authorize?client_id=49f817b6-84ae-4cc0-928c-73f27289b3aa&response_type=code&redirect_uri=https://portal.azure.cn&nonce=1234&prompt=admin_consent
     ```
 
+> [!NOTE]
+> If you using a global admin account that is not native to the Azure AD tenant to provide consent, please replace “common” with the Azure AD directory id in the URL. You may also have to replace “common” with your directory id in certain other cases as well.
+>
+
 5. Select the **Global Admin** account if prompted.
 
-    ![Directory ID](./media/openvpn-azure-ad-tenant-multi-app/pick.png)
+    ![Directory ID 2](./media/openvpn-azure-ad-tenant-multi-app/pick.png)
 
 6. Select **Accept** when prompted.
 
@@ -86,11 +90,11 @@ In this step, you register additional applications for various users and groups.
 
 1. Under your Azure Active Directory, click **App registrations** and then **+ New registration**.
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/app1.png)
+    ![Azure VPN 2](./media/openvpn-azure-ad-tenant-multi-app/app1.png)
 
 2. On the **Register an application** page, enter the **Name**. Select the desired **Supported account types**, then click **Register**.
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/app2.png)
+    ![Azure VPN 3](./media/openvpn-azure-ad-tenant-multi-app/app2.png)
 
 3. Once the new app has been registered, click **Expose an API** under the app blade.
 
@@ -98,11 +102,11 @@ In this step, you register additional applications for various users and groups.
 
 5. Leave the default **Application ID URI**. Click **Save and continue**.
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/app3.png)
+    ![Azure VPN 4](./media/openvpn-azure-ad-tenant-multi-app/app3.png)
 
 6. Fill in the required fields and ensure that **State** is **Enabled**. Click **Add scope**.
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/app4.png)
+    ![Azure VPN 5](./media/openvpn-azure-ad-tenant-multi-app/app4.png)
 
 7. Click **Expose an API** then **+ Add a client application**.  For **Client ID**, enter the following values depending on the cloud:
 
@@ -113,11 +117,11 @@ In this step, you register additional applications for various users and groups.
 
 8. Click **Add application**.
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/app5.png)
+    ![Azure VPN 6](./media/openvpn-azure-ad-tenant-multi-app/app5.png)
 
 9. Copy the **Application (client) ID** from the **Overview** page. You will need this information to configure your VPN gateway(s).
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/app6.png)
+    ![Azure VPN 7](./media/openvpn-azure-ad-tenant-multi-app/app6.png)
 
 10. Repeat the steps in this [register additional applications](#register-apps) section to create as many applications that are needed for your security requirement. Each application will be associated to a VPN gateway and can have a different set of users. Only one application can be associated to a gateway.
 
@@ -127,12 +131,12 @@ Assign the users to your applications.
 
 1. Under **Azure AD -> Enterprise applications**, select the newly registered application and click **Properties**. Ensure that **User assignment required?** is set to **yes**. Click **Save**.
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/user2.png)
+    ![Azure VPN 8](./media/openvpn-azure-ad-tenant-multi-app/user2.png)
 
 2. On the app page, click **Users and groups**, and then click **+Add user**.
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/user3.png)
+    ![Azure VPN 9](./media/openvpn-azure-ad-tenant-multi-app/user3.png)
 
 3. Under **Add Assignment**, click **Users and groups**. Select the users that you want to be able to access this VPN application. Click **Select**.
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/user4.png)
+    ![Azure VPN 10](./media/openvpn-azure-ad-tenant-multi-app/user4.png)

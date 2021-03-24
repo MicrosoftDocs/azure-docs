@@ -15,6 +15,11 @@ ms.author: aahi
 
 # Call your Bing Custom Search instance from the Portal
 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+
 After you've configured your custom search experience, you can test it from within the Bing Custom Search [portal](https://customsearch.ai). 
 
 ![a screenshot of the Bing custom search portal](media/portal-search-screen.png)
@@ -22,7 +27,7 @@ After you've configured your custom search experience, you can test it from with
 
 After you've signed into the Bing Custom Search [portal](https://customsearch.ai), select your search instance and click the **Production** tab. Under **Endpoints**, select an API endpoint (for example, Web API). Your subscription determines what endpoints are shown.
 
-To create a search query, enter the parameter values for your endpoint. Note that the parameters displayed in the portal may change depending on the endpoint you choose. See the [Custom Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) for more information. To change the subscription your search instance uses, add the appropriate subscription key, and update the appropriate market and/or language parameters.
+To create a search query, enter the parameter values for your endpoint. Note that the parameters displayed in the portal may change depending on the endpoint you choose. See the [Custom Search API reference](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) for more information. To change the subscription your search instance uses, add the appropriate subscription key, and update the appropriate market and/or language parameters.
 
 Some important parameters are below:
 
@@ -56,4 +61,4 @@ You can change the subscription associated with your Bing Custom Search instance
 - [Call your custom view with NodeJs](./call-endpoint-nodejs.md)
 - [Call your custom view with Python](./call-endpoint-python.md)
 
-- [Call your custom view with the C# SDK](./sdk-csharp-quick-start.md)
+- [Call your custom view with the C# SDK](./quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)

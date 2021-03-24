@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 02/11/2020
+ms.date: 03/10/2021
 ---
 # Train Model module
 
@@ -35,16 +35,14 @@ In Azure Machine Learning, creating and using a machine learning model is typica
 3. After training is completed, use the trained model with one of the [scoring modules](./score-model.md), to make predictions on new data.
 
 ## How to use Train Model 
-  
-1.  In Azure Machine Learning, configure a classification model or regression model.
     
-2. Add the **Train Model** module to the pipeline.  You can find this module under the **Machine Learning** category. Expand **Train**, and then drag the **Train Model** module into your pipeline.
+1. Add the **Train Model** module to the pipeline.  You can find this module under the **Machine Learning** category. Expand **Train**, and then drag the **Train Model** module into your pipeline.
   
-3.  On the left input, attach the untrained mode. Attach the training dataset to the right-hand input of **Train Model**.
+1.  On the left input, attach the untrained mode. Attach the training dataset to the right-hand input of **Train Model**.
 
     The training dataset must contain a label column. Any rows without labels are ignored.
   
-4.  For **Label column**, click **Edit column** in the right panel of module, and choose a single column that contains outcomes the model can use for training.
+1.  For **Label column**, click **Edit column** in the right panel of module, and choose a single column that contains outcomes the model can use for training.
   
     - For classification problems, the label column must contain either **categorical** values or **discrete** values. Some examples might be a yes/no rating, a disease classification code or name, or an income group.  If you pick a noncategorical column, the module will return an error during training.
   
@@ -57,7 +55,34 @@ In Azure Machine Learning, creating and using a machine learning model is typica
     > [!TIP] 
     > If you have trouble using the Column Selector, see the article [Select Columns in Dataset](./select-columns-in-dataset.md) for tips. It describes some common scenarios and tips for using the **WITH RULES** and **BY NAME** options.
   
-5.  Submit the pipeline. If you have a lot of data, this can take a while.
+1.  Submit the pipeline. If you have a lot of data, it can take a while.
+
+    > [!IMPORTANT] 
+    > If you have an ID column which is the ID of each row, or a text column, which contains too many unique values, **Train Model** may hit an error like "Number of unique values in column: "{column_name}" is greater than allowed.
+    >
+    > This is because the column hit the threshold of unique values, and may cause out of memory. You can use [Edit Metadata](edit-metadata.md) to mark that column as **Clear feature** and it will not be used in training, or [Extract N-Gram Features from Text module](extract-n-gram-features-from-text.md) to preprocess text column. See [Designer error code](././designer-error-codes.md) for more error details.
+
+## Model Interpretability
+
+Model interpretability provides possibility to comprehend the ML model and to present the underlying basis for decision-making in a way that is understandable to humans.
+
+Currently **Train Model** module supports [using interpretability package to explain ML models](https://docs.microsoft.com/azure/machine-learning/how-to-machine-learning-interpretability-aml#generate-feature-importance-values-via-remote-runs). Following built-in algorithms are supported:
+
+- Linear Regression
+- Neural Network Regression
+- Two-Class Logistic Regression
+- Two-Class Support Vector Machine
+- Multi-class Decision Forest
+
+To generate model explanations, you can select **True** in the drop-down list of **Model Explanation** in Train Model module. By default it is set to False in the **Train Model** module. Please note that generating explanation requires extra compute cost.
+
+![Screenshot showing model explanation checkbox](./media/module/train-model-explanation-checkbox.png)
+
+After the pipeline run completed, you can visit **Explanations** tab in the right pane of **Train Model** module, and explore the model performance, dataset and feature importance.
+
+![Screenshot showing model explanation charts](./media/module/train-model-explanations-tab.gif)
+
+To learn more about using model explanations in Azure Machine Learning, refer to the how-to article about [Interpret ML models](https://docs.microsoft.com/azure/machine-learning/how-to-machine-learning-interpretability-aml#generate-feature-importance-values-via-remote-runs).
 
 ## Results
 

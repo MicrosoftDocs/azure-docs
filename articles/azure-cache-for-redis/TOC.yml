@@ -4,11 +4,13 @@
   items:
   - name: About Azure Cache for Redis
     href: cache-overview.md
+  - name: What's new
+    href: cache-whats-new.md
 - name: Quickstarts
   expanded: true
   items:
   - name: Create a cache
-    items:
+    items: 
     - name: Basic, Standard and Premium tiers
       href: quickstart-create-redis.md
     - name: Enterprise tiers
@@ -27,6 +29,10 @@
       href: cache-nodejs-get-started.md
     - name: Python app
       href: cache-python-get-started.md
+    - name: Go app
+      href: cache-go-get-started.md
+    - name: Rust app
+      href: cache-rust-get-started.md
 - name: Tutorials
   items:
   - name: ASP.NET
@@ -38,34 +44,50 @@
   - name: Java Spring
     items:
     - name: Use Spring Boot Initializer
-      href: cache-java-spring-boot-initializer-with-redis-cache.md
+      href: /azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache
+  - name: Azure Event Grid
+    items:
+    - name: Route events with Azure portal  
+      href: cache-event-grid-quickstart-portal.md
+    - name: Route events with Azure CLI 
+      href: cache-event-grid-quickstart-cli.md
+    - name: Route events with PowerShell 
+      href: cache-event-grid-quickstart-powershell.md
   - name: Create leaderboards
     href: cache-web-app-cache-aside-leaderboard.md
+  - name: Deploy a machine learning model 
+    href: cache-ml.md
   - name: Manage with Azure PowerShell
     href: cache-how-to-manage-redis-cache-powershell.md
   - name: Manage with Azure CLI
     href: cli-samples.md
 - name: Concepts
   items:
+    - name: High availability
+      href: cache-high-availability.md
     - name: Failover and patching
       href: cache-failover.md
     - name: Best practices
       href: cache-best-practices.md
     - name: Security
       items:
+      - name: Network isolation options
+        href: cache-network-isolation.md
       - name: Security controls by Azure Policy
         displayName: regulatory, compliance, standards, domains
         href: ./security-controls-policy.md
       - name: Security baseline
         href: security-baseline.md
     - name: Caching architecture
-      href: https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json
+      href: /azure/architecture/best-practices/caching?toc=%2fazure%2fredis-cache%2ftoc.json
 - name: How-to guides
   items:
   - name: Plan
     items:
     - name: Choose a cache tier
       href: cache-overview.md#choosing-the-right-tier
+    - name: Set Redis version
+      href: cache-how-to-version.md
     - name: Distribute your cache with clustering
       href: cache-how-to-premium-clustering.md
     - name: Persist your cache with Redis data persistence
@@ -78,14 +100,14 @@
       href: cache-private-link.md
     - name: Enable zone redundancy 
       href: cache-how-to-zone-redundancy.md
-    - name: Set up geo-replication
+    - name: Set up OSS geo-replication
       href: cache-how-to-geo-replication.md
+    - name: Set up Enterprise active geo-replication
+      href: cache-how-to-active-geo-replication.md
     - name: Save with reserved capacity
       href: cache-reserved-pricing.md
     - name: Migrate to Azure Cache for Redis
       href: cache-migration-guide.md
-    - name: Migrate from Managed Cache Service (deprecated)
-      href: cache-migrate-to-redis.md
     - name: Planning FAQs
       href: cache-planning-faq.md
   - name: Build
@@ -116,6 +138,8 @@
       href: cache-administration.md#schedule-updates
     - name: Configure redis-cli.exe access
       href: cache-how-to-redis-cli-tool.md
+    - name: Publishing Azure Cache for Redis events
+      href: cache-event-grid.md
     - name: Remove TLS 1.0 and 1.1
       href: cache-remove-tls-10-11.md
     - name: Management FAQs
@@ -161,7 +185,7 @@
   - name: Azure CLI
     href: /cli/azure/redis
   - name: REST
-    href: https://docs.microsoft.com/rest/api/redis/
+    href: /rest/api/redis/
   - name: Resource Manager template
     href: /azure/templates/microsoft.cache/allversions
   - name: Azure Policy built-ins
@@ -176,7 +200,7 @@
   - name: Videos
     href: https://www.youtube.com/results?search_query=azure+redis+cache
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-cache-redis.html
+    href: /answers/topics/azure-cache-redis.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cache/
   - name: Build your skills with Microsoft Learn

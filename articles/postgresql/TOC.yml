@@ -1,4 +1,4 @@
-- name: Azure DB for PostgreSQL documentation
+- name: Azure Database for PostgreSQL documentation
   href: index.yml
 - name: Overview
   items:
@@ -12,6 +12,10 @@
       href: concepts-certificate-rotation.md
 - name: Shared documentation
   items:
+  - name: Database deployment
+    items:
+    - name: GitHub actions
+      href: how-to-deploy-github-action.md
   - name: Migration
     items:
       - name: Migrate data with pg_dump and pg_restore
@@ -23,6 +27,14 @@
       - name: Minimal-downtime migration with DMS
         href: howto-migrate-online.md
         displayName: dms, data migration service
+      - name: Migrate from Oracle
+        href: howto-migrate-from-oracle.md
+  - name: Versioning policy
+    href: concepts-version-policy.md
+    displayName: version, postgresql
+  - name: Known issues & limitations
+    href: concepts-known-issues-limitations.md
+    displayName: issues, limitations, postgresql 
 - name: Single Server
   expanded: true
   items:
@@ -104,7 +116,8 @@
     - name: Azure CLI
       href: sample-scripts-azure-cli.md
     - name: Azure Policy built-ins
-      href: policy-samples.md
+      displayName: samples, policies, definitions
+      href: ./policy-reference.md
   - name: Concepts
     items:
     - name: Servers
@@ -144,6 +157,9 @@
       - name: Infrastructure double encryption
         href: concepts-infrastructure-double-encryption.md
         displayName: security, infrastructure encryption
+      - name: Security controls by Azure Policy
+        displayName: regulatory, compliance, standards, domains
+        href: ./security-controls-policy.md
       - name: Security baseline
         href: security-baseline.md
     - name: Networking
@@ -157,6 +173,8 @@
       - name: Private link
         href: concepts-data-access-and-security-private-link.md
         displayName: security, private link, private endpoint
+    - name: Planned maintenance
+      href: concepts-planned-maintenance-notification.md
     - name: Business continuity
       items:
       - name: Business continuity intro
@@ -196,6 +214,8 @@
         displayName: query store, performance, optimize, recommendations
     - name: App Development
       items:
+      - name: Best practices
+        href: application-best-practices.md
       - name: Connection libraries
         href: concepts-connection-libraries.md
         displayName: libraries, drivers
@@ -250,6 +270,9 @@
       - name: Azure PowerShell
         href: howto-restore-server-powershell.md
         displayName: restore, georestore, geo-restore, outage
+      - name: Restore a dropped server
+        href: howto-restore-dropped-server.md
+        displayName: restore server,dropped, recover
     - name: Enable authentication
       items:
         - name: Create users
@@ -380,6 +403,8 @@
       items:
       - name: Azure portal
         href: howto-move-regions-portal.md
+    - name: Major version upgrades
+      href: how-to-upgrade-using-dump-and-restore.md
 - name: Flexible Server (Preview)
   expanded: true
   items:
@@ -397,17 +422,30 @@
       - name: Azure CLI
         href: flexible-server/quickstart-create-server-cli.md
       - name: ARM template
+        displayName: Resource Manager
         href: flexible-server/quickstart-create-server-arm-template.md
     - name: Connect and query
       items:
+        - name: Azure CLI
+          href: flexible-server/connect-azure-cli.md
         - name: Python
           href: flexible-server/connect-python.md
+        - name: Java
+          href: flexible-server/connect-java.md
+        - name: .NET
+          href: flexible-server/connect-csharp.md
   - name: Tutorials
     items:
-    - name: Create a web app in a virtual network
-      href: flexible-server/tutorial-webapp-server-vnet.md
-    - name: Deploy a Django app
-      href: flexible-server/tutorial-django-app-service-postgres.md
+    - name: Build with AKS
+      items:
+      - name: Deploy Python App on Kubernetes
+        href: flexible-server/tutorial-django-aks-database.md
+    - name: Build with App Services
+      items:
+      - name: Create a web app in a virtual network
+        href: flexible-server/tutorial-webapp-server-vnet.md
+      - name: Deploy a Django app on App Service
+        href: flexible-server/tutorial-django-app-service-postgres.md
   - name: Concepts
     items:
     - name: Servers
@@ -454,6 +492,8 @@
         href: flexible-server/how-to-manage-server-portal.md
       - name: Azure CLI
         href: flexible-server/how-to-manage-server-cli.md
+      - name: Connect and query guide
+        href: flexible-server/how-to-connect-query-guide.md
     - name: Scheduled maintenance
       items:
       - name: Azure portal
@@ -527,20 +567,18 @@
         displayName: portal, create hyperscale
   - name: Tutorials
     items:
-    - name: Design a multi-tenant database
-      href: tutorial-design-database-hyperscale-multi-tenant.md
-      displayName: hyperscale, tutorial, multi-tenant
-    - name: Design a real-time dashboard
-      href: tutorial-design-database-hyperscale-realtime.md
-      displayName: hyperscale, tutorial, real-time
-  - name: Samples
-    items:
-    - name: Azure CLI
-      href: sample-scripts-azure-cli.md
-      displayName: samples, azure cli
-    - name: Azure Policy built-ins
-      displayName: samples, policies, definitions
-      href: ./policy-samples.md
+      - name: Create a server group
+        href: tutorial-hyperscale-server-group.md
+      - name: Model and load data
+        items:
+        - name: Shard data on worker nodes
+          href: tutorial-hyperscale-shard.md
+      - name: Design a multi-tenant database
+        href: tutorial-design-database-hyperscale-multi-tenant.md
+        displayName: hyperscale, tutorial, multi-tenant
+      - name: Design a real-time dashboard
+        href: tutorial-design-database-hyperscale-realtime.md
+        displayName: hyperscale, tutorial, real-time
   - name: Concepts
     items:
     - name: Distributed data
@@ -564,6 +602,8 @@
         displayName: hyperscale, ssl
       - name: Security baseline
         href: postgresql-hyperscale-security-baseline.md
+    - name: Scheduled maintenance
+      href: concepts-hyperscale-maintenance.md
     - name: Business continuity
       items:
       - name: Backup and restore
@@ -575,6 +615,8 @@
       items:
       - name: Monitor and tune
         href: concepts-hyperscale-monitoring.md
+      - name: Audit logs
+        href: concepts-hyperscale-audit.md
     - name: Configuration options
       href: concepts-hyperscale-configuration-options.md
     - name: Prepay for reserved capacity
@@ -591,8 +633,14 @@
         href: reference-hyperscale-metadata.md
   - name: How-to guides
     items:
-    - name: Scale a server group
-      href: howto-hyperscale-scaling.md
+    - name: Server group size
+      items:
+      - name: Pick initial size
+        href: howto-hyperscale-scale-initial.md
+      - name: Scale server group
+        href: howto-hyperscale-scale-grow.md
+      - name: Rebalance shards
+        href: howto-hyperscale-scale-rebalance.md
     - name: Firewall rules
       items:
       - name: Azure portal
@@ -602,6 +650,8 @@
       href: howto-hyperscale-create-users.md
     - name: Distributed data
       items:
+      - name: Determine table size
+        href: howto-hyperscale-table-size.md
       - name: Distribute and modify tables
         href: howto-hyperscale-modify-distributed-tables.md
     - name: High availability
@@ -619,6 +669,8 @@
       - name: Troubleshoot connection errors
         href: howto-hyperscale-troubleshoot-common-connection-issues.md
         displayName: connection errors, hyperscale
+      - name: Useful diagnostic queries
+        href: howto-hyperscale-useful-diagnostic-queries.md
 - name: Reference
   items:
    - name: Azure CLI
@@ -627,6 +679,9 @@
      href: /rest/api/postgresql
    - name: Resource Manager template
      href: /azure/templates/microsoft.dbforpostgresql/allversions
+   - name: Azure Policy built-ins
+     displayName: samples, policies, definitions
+     href: ./policy-reference.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
@@ -638,7 +693,7 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/postgresql/
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-database-postgresql.html
+    href: /answers/topics/azure-database-postgresql.html
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-database-postgresql
   - name: Videos

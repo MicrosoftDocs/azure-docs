@@ -16,13 +16,18 @@
     href: quick-create-powershell.md
   - name: Portal
     href: quick-create-portal.md
+  - name: .NET
+    href: quick-create-net.md
+  - name: Node.js
+    href: quick-create-node.md
   - name: Python
     href: quick-create-python.md
-
+  - name: Java
+    href: quick-create-java.md
 - name: Samples
   items:
   - name: Key Vault Code Samples
-    href: https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault
+    href: /samples/browse/?expanded=azure&products=azure-key-vault
 
 - name: Tutorials 
   items:
@@ -40,6 +45,8 @@
     href: create-certificate.md
   - name: Creating certificate signing request
     href: create-certificate-signing-request.md
+  - name: Certificate access control
+    href: certificate-access-control.md
     
 - name: How-to guides 
   items:
@@ -53,17 +60,17 @@
 - name: Reference
   items:
   - name: Azure PowerShell
-    href: /powershell/module/az.keyvault/?view=azps-1.2.0#key_vault
+    href: /powershell/module/az.keyvault/#key_vault
   - name: Azure CLI
     href: /cli/azure/keyvault
   - name: .NET
-    href: /dotnet/api/overview/azure/security.keyvault.certificates-readme?view=azure-dotnet
+    href: /dotnet/api/overview/azure/security.keyvault.certificates-readme
   - name: Java
-    href: /java/api/overview/azure/keyvault?view=azure-java-stable
+    href: /java/api/overview/azure/keyvault
   - name: Node.js
-    href: https://docs.microsoft.com/javascript/api/overview/azure/key-vault-index?view=azure-node-latest
+    href: /javascript/api/overview/azure/key-vault-index
   - name: Python
-    href: /python/api/overview/azure/keyvault-certificates-readme?view=azure-python
+    href: /python/api/overview/azure/keyvault-certificates-readme
   - name: REST
     href: /rest/api/keyvault
   - name: Resource Manager template
@@ -90,6 +97,6 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=key-vault
   - name: Blog
-    href: https://blogs.technet.com/b/kv/
+    href: /archive/blogs/kv/
   - name: Product Feedback
     href: https://feedback.azure.com/forums/906355-azure-key-vault

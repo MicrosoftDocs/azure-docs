@@ -35,7 +35,7 @@ In the Azure portal, while creating an event subscription, select **Service Bus 
 
 ### Using CLI to add a Service Bus topic handler
 
-For Azure CLI, the following example subscribes and connects an event grid topic to a Service Bus queue:
+For Azure CLI, the following example subscribes and connects an event grid topic to a Service Bus topic:
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
@@ -45,18 +45,8 @@ az eventgrid event-subscription create \
     --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/topics/topic1
 ```
 
-## Message properties
-If you use a **Service Bus topic or queue** as an event handler for events from Event Grid, these are the properties you receive in the message headers: 
+[!INCLUDE [event-grid-message-headers](../../includes/event-grid-message-headers.md)]
 
-| Property name | Description |
-| ------------- | ----------- | 
-| aeg-subscription-name | Name of event subscription. |
-| aeg-delivery-count | <p>Number of attempts made for the event.</p> <p>Example: "1"</p> |
-| aeg-event-type | <p>Type of the event.</p><p> Example: "Microsoft.Storage.blobCreated"</p> | 
-| aeg-metadata-version | <p>Metadata version of the event.</p> <p>Example: "1".</p><p> For **Event Grid event schema**, this property represents the metadata version and for **cloud event schema**, it represents the **spec version**. </p>|
-| aeg-data-version | <p>Data version of the event.</p><p>Example: "1".</p><p>For **Event Grid event schema**, this property represents the data version and for **cloud event schema**, it doesn't apply.</p> |
-
-## Message headers
 When sending an event to a Service Bus queue or topic as a brokered message, the `messageid` of the brokered message is an internal system ID.
 
 The internal system ID for the message will be maintained across redelivery of the event so that you can avoid duplicate deliveries by turning on **duplicate detection** on the service bus entity. We recommend that you enable duration of the duplicate detection on the Service Bus entity to be either the time-to-live (TTL) of the event or max retry duration, whichever is longer.
@@ -151,9 +141,6 @@ The internal system ID for the message will be maintained across redelivery of t
 	}
 }
 ```
-
-> [!NOTE]
-> Delivering events to an Azure Servive Bus queue or topic in **another tenant** isn't supported. 
 
 ## Next steps
 See the [Event handlers](event-handlers.md) article for a list of supported event handlers. 

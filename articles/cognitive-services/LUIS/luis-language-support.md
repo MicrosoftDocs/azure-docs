@@ -3,14 +3,14 @@ title: Language support - LUIS
 titleSuffix: Azure Cognitive Services
 description: LUIS has a variety of features within the service. Not all features are at the same language parity. Make sure the features you are interested in are supported in the language culture you are targeting. A LUIS app is culture-specific and cannot be changed once it is set.
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
-ms.author: diberry
+
 ---
 
 # Language and region support for LUIS
@@ -25,14 +25,14 @@ If you need a multi-language LUIS client application such as a chatbot, you have
 
 LUIS understands utterances in the following languages:
 
-| Language |Locale  |  Prebuilt domain | Prebuilt entity | Phrase list recommendations | **[Text analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentiment and<br>Keywords)|
+| Language |Locale  |  Prebuilt domain | Prebuilt entity | Phrase list recommendations | **[Text analytics](../text-analytics/language-support.md)<br>(Sentiment and<br>Keywords)|
 |--|--|:--:|:--:|:--:|:--:|
-| English (United States) |`en-US` | ✔ | ✔  |✔|✔|
 | Arabic (preview - modern standard Arabic) |`ar-AR`|-|-|-|-|
 | *[Chinese](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
 | Dutch |`nl-NL` |✔|-|-|✔|
-| French (France) |`fr-FR` |✔| ✔ |✔ |✔|
+| English (United States) |`en-US` | ✔ | ✔  |✔|✔|
 | French (Canada) |`fr-CA` |-|-|-|✔|
+| French (France) |`fr-FR` |✔| ✔ |✔ |✔|
 | German |`de-DE` |✔| ✔ |✔ |✔|
 | Gujarati | `gu-IN`|-|-|-|-|
 | Hindi | `hi-IN`|-|✔|-|-|
@@ -41,8 +41,8 @@ LUIS understands utterances in the following languages:
 | Korean |`ko-KR` |✔|-|-|Key phrase only|
 | Marathi | `mr-IN`|-|-|-|-|
 | Portuguese (Brazil) |`pt-BR` |✔| ✔ |✔ |not all sub-cultures|
+| Spanish (Mexico)|`es-MX` |-|✔|✔|✔|
 | Spanish (Spain) |`es-ES` |✔| ✔ |✔|✔|
-| Spanish (Mexico)|`es-MX` |-|-|✔|✔|
 | Tamil | `ta-IN`|-|-|-|-|
 | Telugu | `te-IN`|-|-|-|-|
 | Turkish | `tr-TR` |✔|✔|-|Sentiment only|
@@ -66,7 +66,7 @@ Language support varies for [prebuilt entities](luis-reference-prebuilt-entities
 See Speech [Supported languages](../speech-service/speech-to-text.md) for Speech dictation mode languages.
 
 ### Bing Spell Check supported languages
-See Bing Spell Check [Supported languages](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages) for a list of supported languages and status.
+See Bing Spell Check [Supported languages](../bing-spell-check/language-support.md) for a list of supported languages and status.
 
 ## Rare or foreign words in an application
 In the `en-us` culture, LUIS learns to distinguish most English words, including slang. In the `zh-cn` culture, LUIS learns to distinguish most Chinese characters. If you use a rare word in `en-us` or character in `zh-cn`, and you see that LUIS seems unable to distinguish that word or character, you can add that word or character to a [phrase-list feature](luis-how-to-add-features.md). For example, words outside of the culture of the application -- that is, foreign words -- should be added to a phrase-list feature.

@@ -1,14 +1,10 @@
 ---
 title: Pipeline execution and triggers in Azure Data Factory 
 description: This article provides information about how to execute a pipeline in Azure Data Factory, either on-demand or by creating a trigger.
-services: data-factory
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
-ms.reviewer: maghan
+author: dcstwh
+ms.author: weetok
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
 ---
@@ -174,7 +170,7 @@ Pipelines and triggers have a many-to-many relationship (except for the tumbling
 ## Schedule trigger
 A schedule trigger runs pipelines on a wall-clock schedule. This trigger supports periodic and advanced calendar options. For example, the trigger supports intervals like "weekly" or "Monday at 5:00 PM and Thursday at 9:00 PM." The schedule trigger is flexible because the dataset pattern is agnostic, and the trigger doesn't discern between time-series and non-time-series data.
 
-For more information about schedule triggers and, for examples, see [Create a schedule trigger](how-to-create-schedule-trigger.md).
+For more information about schedule triggers and, for examples, see [Create a trigger that runs a pipeline on a schedule](how-to-create-schedule-trigger.md).
 
 ## Schedule trigger definition
 When you create a schedule trigger, you specify scheduling and recurrence by using a JSON definition.
@@ -234,7 +230,7 @@ The following table provides a high-level overview of the major schema elements 
 | --- | --- |
 | **startTime** | A date-time value. For basic schedules, the value of the **startTime** property applies to the first occurrence. For complex schedules, the trigger starts no sooner than the specified **startTime** value. |
 | **endTime** | The end date and time for the trigger. The trigger doesn't execute after the specified end date and time. The value for the property can't be in the past. <!-- This property is optional. --> |
-| **timeZone** | The time zone. Currently, only the UTC time zone is supported. |
+| **timeZone** | The time zone. For a list of supported time zones, see [Create a trigger that runs a pipeline on a schedule](how-to-create-schedule-trigger.md#time-zone-option). |
 | **recurrence** | A recurrence object that specifies the recurrence rules for the trigger. The recurrence object supports the **frequency**, **interval**, **endTime**, **count**, and **schedule** elements. When a recurrence object is defined, the **frequency** element is required. The other elements of the recurrence object are optional. |
 | **frequency** | The unit of frequency at which the trigger recurs. The supported values include "minute", "hour", "day", "week", and "month". |
 | **interval** | A positive integer that denotes the interval for the **frequency** value. The **frequency** value determines how often the trigger runs. For example, if the **interval** is 3 and the **frequency** is "week", the trigger recurs every three weeks. |
@@ -322,13 +318,8 @@ Tumbling window triggers are a type of trigger that fires at a periodic time int
 
 For more information about tumbling window triggers and, for examples, see [Create a tumbling window trigger](how-to-create-tumbling-window-trigger.md).
 
-## Event-based trigger
-
-An event-based trigger runs pipelines in response to an event, such as the arrival of a file, or the deletion of a file, in Azure Blob Storage.
-
-For more information about event-based triggers, see [Create a trigger that runs a pipeline in response to an event](how-to-create-event-trigger.md).
-
 ## Examples of trigger recurrence schedules
+
 This section provides examples of recurrence schedules. It focuses on the **schedule** object and its elements.
 
 The examples assume that the **interval** value is 1 and that the **frequency** value is correct according to the schedule definition. For example, you can't have a **frequency** value of "day" and also have a **monthDays** modification in the **schedule** object. These kinds of restrictions are described in the table in the preceding section.
@@ -363,6 +354,7 @@ The examples assume that the **interval** value is 1 and that the **frequency** 
 | `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` | Run at 5:15 AM, 5:45 AM, 5:15 PM, and 5:45 PM on the third Wednesday of every month. |
 
 ## Trigger type comparison
+
 The tumbling window trigger and the schedule trigger both operate on time heartbeats. How are they different?
 
 > [!NOTE]
@@ -376,10 +368,20 @@ The following table provides a comparison of the tumbling window trigger and sch
 | **Reliability** | 100% reliability. Pipeline runs can be scheduled for all windows from a specified start date without gaps. | Less reliable. |
 | **Retry capability** | Supported. Failed pipeline runs have a default retry policy of 0, or a policy that's specified by the user in the trigger definition. Automatically retries when the pipeline runs fail due to concurrency/server/throttling limits (that is, status codes 400: User Error, 429: Too many requests, and 500: Internal Server error). | Not supported. |
 | **Concurrency** | Supported. Users can explicitly set concurrency limits for the trigger. Allows between 1 and 50 concurrent triggered pipeline runs. | Not supported. |
-| **System variables** | Along with @trigger().scheduledTime and @trigger().startTime, it also supports the use of the **WindowStart** and **WindowEnd** system variables. Users can access `triggerOutputs().windowStartTime` and `triggerOutputs().windowEndTime` as trigger system variables in the trigger definition. The values are used as the window start time and window end time, respectively. For example, for a tumbling window trigger that runs every hour, for the window 1:00 AM to 2:00 AM, the definition is `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` and `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`. | Only supports default @trigger().scheduledTime and @trigger().startTime variables. |
+| **System variables** | Along with @trigger().scheduledTime and @trigger().startTime, it also supports the use of the **WindowStart** and **WindowEnd** system variables. Users can access `trigger().outputs.windowStartTime` and `trigger().outputs.windowEndTime` as trigger system variables in the trigger definition. The values are used as the window start time and window end time, respectively. For example, for a tumbling window trigger that runs every hour, for the window 1:00 AM to 2:00 AM, the definition is `trigger().outputs.windowStartTime = 2017-09-01T01:00:00Z` and `trigger().outputs.windowEndTime = 2017-09-01T02:00:00Z`. | Only supports default @trigger().scheduledTime and @trigger().startTime variables. |
 | **Pipeline-to-trigger relationship** | Supports a one-to-one relationship. Only one pipeline can be triggered. | Supports many-to-many relationships. Multiple triggers can kick off a single pipeline. A single trigger can kick off multiple pipelines. |
 
+## Event-based trigger
+
+An event-based trigger runs pipelines in response to an event. There are two flavors of event based triggers.
+
+* _Storage event trigger_ runs a pipeline against events happening in a Storage account, such as the arrival of a file, or the deletion of a file in Azure Blob Storage account.
+* _Custom event trigger_ processes and handles [custom topics](../event-grid/custom-topics.md) in Event Grid
+
+For more information about event-based triggers, see [Storage Event Trigger](how-to-create-event-trigger.md) and [Custom Event Trigger](how-to-create-custom-event-trigger.md).
+
 ## Next steps
+
 See the following tutorials:
 
 - [Quickstart: Create a data factory by using the .NET SDK](quickstart-create-data-factory-dot-net.md)

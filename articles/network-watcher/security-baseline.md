@@ -16,13 +16,13 @@ ms.custom: subject-security-benchmark
 
 The Azure Security Baseline for Network Watcher contains recommendations that will help you improve the security posture of your deployment.
 
-The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance.
+The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](../security/benchmarks/overview.md), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance.
 
-For more information, see the [Azure security baselines overview](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+For more information, see the [Azure security baselines overview](../security/benchmarks/security-baselines-overview.md).
 
 ## Network security
 
-*For more information, see [Security control: Network security](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*For more information, see [Security control: Network security](../security/benchmarks/security-control-network-security.md).*
 
 ### 1.1: Protect Azure resources within virtual networks
 
@@ -96,9 +96,9 @@ Deploy network watcher when virtual networks are created
 
 Network Watcher should be enabled
 
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [How to create a custom policy with policy aliases](https://docs.microsoft.com/azure/governance/policy/tutorials/create-custom-policy-definition)
+* [How to create a custom policy with policy aliases](../governance/policy/tutorials/create-custom-policy-definition.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -116,9 +116,9 @@ Network Watcher should be enabled
 
 **Guidance**: Use Azure Activity Log to monitor changes made to Azure Network Watcher. You may create alerts within Azure Monitor that will trigger when changes take place.
 
-* [How to view and retrieve Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+* [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [How to create alerts in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+* [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -126,7 +126,7 @@ Network Watcher should be enabled
 
 ## Logging and monitoring
 
-*For more information, see [Security control: Logging and monitoring](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*For more information, see [Security control: Logging and monitoring](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### 2.1: Use approved time synchronization sources
 
@@ -140,9 +140,9 @@ Network Watcher should be enabled
 
 **Guidance**: Use Azure Activity Log to monitor configurations and detect changes for your Azure Network Watcher instances. Other than at the control plane (e.g. Azure portal), Network Watcher itself does not generate logs related to network traffic. Network Watcher provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network.
 
-* [How to view and retrieve Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+* [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Understand Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)
+* [Understand Network Watcher](./network-watcher-monitoring-overview.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -152,9 +152,9 @@ Network Watcher should be enabled
 
 **Guidance**: Use Azure Activity Log to monitor configurations and detect changes for your Azure Network Watcher instances. Other than at the control plane (e.g. Azure portal), Network Watcher itself does not generate audit logs. Network Watcher provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network.
 
-* [How to view and retrieve Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+* [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Understand Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)
+* [Understand Network Watcher](./network-watcher-monitoring-overview.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -172,7 +172,7 @@ Network Watcher should be enabled
 
 **Guidance**: In Azure Monitor, set log retention period for Log Analytics workspaces associated with Azure Network Watcher according to your organization's compliance regulations.
 
-* [How to set log retention parameters](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+* [How to set log retention parameters](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -182,9 +182,9 @@ Network Watcher should be enabled
 
 **Guidance**: Use Azure Activity Log to monitor configurations and detect changes for your Azure Network Watcher instances. Other than at the control plane (e.g. Azure portal), Network Watcher itself does not generate logs related to network traffic. Network Watcher provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network.
 
-* [How to view and retrieve Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+* [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Understand Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)
+* [Understand Network Watcher](./network-watcher-monitoring-overview.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -194,7 +194,7 @@ Network Watcher should be enabled
 
 **Guidance**: You can configure to receive alerts based on activity logs related to Azure Network Watcher. Azure Monitor allows you to configure an alert to send an email notification, call a webhook, or invoke an Azure Logic App.
 
-* [How to manage alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)
+* [How to manage alerts in Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -226,7 +226,7 @@ Network Watcher should be enabled
 
 ## Identity and access control
 
-*For more information, see [Security control: Identity and access control](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*For more information, see [Security control: Identity and access control](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### 3.1: Maintain an inventory of administrative accounts
 
@@ -234,9 +234,9 @@ Network Watcher should be enabled
 
 You can use the Identity and Access control (IAM) pane in the Azure portal for your subscription to configure Azure role-based access control (Azure RBAC). The roles are applied to users, groups, service principals, and managed identities in Active Directory.
 
-* [Understand Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Understand Azure RBAC](../role-based-access-control/overview.md)
 
-* [Role-based access control permissions required to use Network Watcher capabilities](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions)
+* [Role-based access control permissions required to use Network Watcher capabilities](./required-rbac-permissions.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -259,9 +259,9 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 - Deprecated accounts with owner permissions should be removed from your subscription
 - External accounts with owner permissions should be removed from your subscription
 
-* [How to use Azure Security Center to monitor identity and access (Preview)](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [How to use Azure Security Center to monitor identity and access (Preview)](../security-center/security-center-identity-access.md)
 
-* [How to use Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [How to use Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -279,9 +279,9 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 
 **Guidance**: Enable Azure Active Directory Multi-Factor Authentication and follow Azure Security Center Identity and Access Management recommendations.
 
-* [How to enable MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-* [How to monitor identity and access within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [How to monitor identity and access within Azure Security Center](../security-center/security-center-identity-access.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -289,11 +289,11 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 
 ### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
 
-**Guidance**: Use a Privileged Access Workstation (PAW) with Azure Multi-Factor Authentication (MFA) enabled to log into and configure your Azure Sentinel-related resources.
+**Guidance**: Use a Privileged Access Workstation (PAW) with Azure AD Multi-Factor Authentication (MFA) enabled to log into and configure your Azure Sentinel-related resources.
 
-* [Privileged Access Workstations](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-* [Planning a cloud-based Azure Multi-Factor Authentication deployment](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -305,9 +305,9 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 
 In addition, use Azure AD risk detections to view alerts and reports on risky user behavior.
 
-* [How to deploy Privileged Identity Management (PIM)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+* [How to deploy Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-* [Understand Azure AD risk detections](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+* [Understand Azure AD risk detections](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -317,7 +317,7 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 
 **Guidance**: Use Conditional Access Named Locations to allow access to the Azure portal from only specific logical groupings of IP address ranges or countries/regions.
 
-* [How to configure Named Locations in Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+* [How to configure Named Locations in Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -327,7 +327,7 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 
 **Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system for your Azure Sentinel instances. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
 
-* [How to create and configure an Azure AD instance](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+* [How to create and configure an Azure AD instance](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -337,9 +337,9 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 
 **Guidance**: Azure Active Directory (AD) provides logs to help you discover stale accounts. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right Users have continued access.
 
-* [Understand Azure AD reporting](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
+* [Understand Azure AD reporting](../active-directory/reports-monitoring/index.yml)
 
-* [How to use Azure Identity Access Reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+* [How to use Azure Identity Access Reviews](../active-directory/governance/access-reviews-overview.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -353,9 +353,9 @@ You have access to Azure AD sign-in activity, audit and risk event log sources, 
 
 You can streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics workspace. You can configure desired log alerts within Log Analytics.
 
-* [How to integrate Azure Activity Logs into Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+* [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [How to on-board Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [How to on-board Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -365,11 +365,11 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: For account login behavior deviation on the control plane (e.g. Azure portal), use Azure AD Identity Protection and risk detection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation.
 
-* [How to view Azure AD risky sign-in](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+* [How to view Azure AD risky sign-in](../active-directory/identity-protection/overview-identity-protection.md)
 
-* [How to configure and enable Identity Protection risk policies](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+* [How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
-* [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -379,7 +379,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Not applicable; Customer Lockbox is not applicable to Azure Network Watcher.
 
-* [List of Customer Lockbox-supported services](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+* [List of Customer Lockbox-supported services](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -387,13 +387,13 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 ## Data protection
 
-*For more information, see [Security control: Data protection](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*For more information, see [Security control: Data protection](../security/benchmarks/security-control-data-protection.md).*
 
 ### 4.1: Maintain an inventory of sensitive Information
 
 **Guidance**: Use tags to assist in tracking Azure resources that store or process sensitive information.
 
-* [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -403,9 +403,9 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Implement separate subscriptions and/or management groups for development, test, and production.
 
-* [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+* [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-* [How to create Management Groups](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -415,7 +415,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Microsoft manages the underlying infrastructure for Azure Network Watcher and related resources and has implemented strict controls to prevent the loss or exposure of customer data.
 
-* [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -425,9 +425,9 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: If you are using Azure VPN Gateway to create a secure connection between your on-premises network and your Azure virtual networks, ensure that your on-premises local network gateway has been configured with compatible IPsec communication and encryption parameters. Any misconfiguration will lead to loss of connectivity between the on-premises network and Azure.
 
-* [Supported IPSec parameters for Azure VPN Gateway](https://docs.microsoft.com/azure/network-watcher/network-watcher-diagnose-on-premises-connectivity)
+* [Supported IPSec parameters for Azure VPN Gateway](./network-watcher-diagnose-on-premises-connectivity.md)
 
-* [How to configure a site-to-site connection in the Azure portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
+* [How to configure a site-to-site connection in the Azure portal](../vpn-gateway/tutorial-site-to-site-portal.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -447,9 +447,9 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 To use Network Watcher capabilities, the account you log into Azure with, must be assigned to the Owner, Contributor, or Network contributor built-in roles, or assigned to a custom role that is assigned the actions listed for specific Network Watcher capabilities.
 
-* [How to configure Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+* [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
-* [Understand Azure RBAC permissions in Network Watcher](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions)
+* [Understand Azure RBAC permissions in Network Watcher](./required-rbac-permissions.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -459,7 +459,7 @@ To use Network Watcher capabilities, the account you log into Azure with, must b
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources. Microsoft manages the underlying infrastructure for Azure Network Watcher and has implemented strict controls to prevent the loss or exposure of customer data.
 
-* [Azure customer data protection](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Azure customer data protection](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -477,7 +477,7 @@ To use Network Watcher capabilities, the account you log into Azure with, must b
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to Azure Network Watcher and other critical or related resources.
 
-* [How to create alerts for Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+* [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -485,7 +485,7 @@ To use Network Watcher capabilities, the account you log into Azure with, must b
 
 ## Vulnerability management
 
-*For more information, see [Security control: Vulnerability management](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*For more information, see [Security control: Vulnerability management](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### 5.1: Run automated vulnerability scanning tools
 
@@ -529,7 +529,7 @@ To use Network Watcher capabilities, the account you log into Azure with, must b
 
 ## Inventory and asset management
 
-*For more information, see [Security control: Inventory and asset management](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*For more information, see [Security control: Inventory and asset management](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### 6.1: Use automated Asset Discovery solution
 
@@ -537,11 +537,11 @@ To use Network Watcher capabilities, the account you log into Azure with, must b
 
 Although classic Azure resources may be discovered via Resource Graph, it is highly recommended that you create and use Azure Resource Manager resources going forward.
 
-* [How to create queries with Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-* [How to view your Azure Subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-* [Understand Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Understand Azure RBAC](../role-based-access-control/overview.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -551,7 +551,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 **Guidance**: Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.
 
-* [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -565,11 +565,11 @@ In addition, use Azure Policy to put restrictions on the type of resources that 
 - Not allowed resource types
 - Allowed resource types
 
-* [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+* [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-* [How to create management groups](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [How to create management groups](../governance/management-groups/create-management-group-portal.md)
 
-* [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -589,9 +589,9 @@ In addition, use Azure Policy to put restrictions on the type of resources that 
 
 Use Azure Resource Graph to query for and discover resources within their subscriptions. Ensure that all Azure resources present in the environment are approved.
 
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [How to create queries with Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -627,9 +627,9 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 - Not allowed resource types
 - Allowed resource types
 
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+* [How to deny a specific resource type with Azure Policy](../governance/policy/samples/index.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -647,7 +647,7 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 **Guidance**: Configure Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
-* [How to configure Conditional Access to block access to Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+* [How to configure Conditional Access to block access to Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -671,7 +671,7 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 ## Secure configuration
 
-*For more information, see [Security control: Secure configuration](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*For more information, see [Security control: Secure configuration](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### 7.1: Establish secure configurations for all Azure resources
 
@@ -679,9 +679,9 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 * [Deploy network watcher when virtual networks are created](https://github.com/Azure/azure-policy/blob/master/samples/built-in-policy/deploy-network-watcher-in-vnet-regions/README.md)
 
-* [Also see: How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Also see: How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [How to create a custom policy with policy aliases](https://docs.microsoft.com/azure/governance/policy/tutorials/create-custom-policy-definition)
+* [How to create a custom policy with policy aliases](../governance/policy/tutorials/create-custom-policy-definition.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -699,9 +699,9 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 **Guidance**: Use Azure Policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
 
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Understand Azure Policy Effects](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+* [Understand Azure Policy Effects](../governance/policy/concepts/effects.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -719,9 +719,9 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 **Guidance**: If using custom Azure Policy definitions, use Azure DevOps or Azure Repos to securely store and manage your code.
 
-* [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-* [Azure Repos Documentation](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+* [Azure Repos Documentation](/azure/devops/repos/index?view=azure-devops)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -743,9 +743,9 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 Also see:
 
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [How to create a custom policy with policy aliases](https://docs.microsoft.com/azure/governance/policy/tutorials/create-custom-policy-definition)
+* [How to create a custom policy with policy aliases](../governance/policy/tutorials/create-custom-policy-definition.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -763,7 +763,7 @@ Also see:
 
 **Guidance**: Use built-in Azure Policy definitions as well as Azure Policy aliases in the "Microsoft.Network" namespace to create custom Azure Policy definitions to alert, audit, and enforce system configurations. Use Azure Policy [audit], [deny], and [deploy if not exist] to automatically enforce configurations for your Azure resources.
 
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -789,7 +789,7 @@ Also see:
 
 **Guidance**: Not applicable; Azure Network Watcher does not make use of managed identities.
 
-* [Azure services that support managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)
+* [Azure services that support managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -807,7 +807,7 @@ Also see:
 
 ## Malware defense
 
-*For more information, see [Security control: Malware defense](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*For more information, see [Security control: Malware defense](../security/benchmarks/security-control-malware-defense.md).*
 
 ### 8.1: Use centrally managed anti-malware software
 
@@ -835,7 +835,7 @@ Also see:
 
 ## Data recovery
 
-*For more information, see [Security control: Data recovery](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*For more information, see [Security control: Data recovery](../security/benchmarks/security-control-data-recovery.md).*
 
 ### 9.1: Ensure regular automated back ups
 
@@ -871,13 +871,13 @@ Also see:
 
 ## Incident response
 
-*For more information, see [Security control: Incident response](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*For more information, see [Security control: Incident response](../security/benchmarks/security-control-incident-response.md).*
 
 ### 10.1: Create an incident response guide
 
 **Guidance**: Build out an incident response guide for your organization. Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.
 
-* [How to configure Workflow Automation within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+* [How to configure Workflow Automation within Azure Security Center](../security-center/security-center-planning-and-operations-guide.md)
 
 * [Guidance on building your own security incident response process](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
@@ -913,7 +913,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 **Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that the customer's data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are resolved.
 
-* [How to set the Azure Security Center Security Contact](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+* [How to set the Azure Security Center Security Contact](../security-center/security-center-provide-security-contact-details.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -921,11 +921,11 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 ### 10.5: Incorporate security alerts into your incident response system
 
-**Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts Sentinel.
+**Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts to Azure Sentinel.
 
-* [How to configure continuous export](https://docs.microsoft.com/azure/security-center/continuous-export)
+* [How to configure continuous export](../security-center/continuous-export.md)
 
-* [How to stream alerts into Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+* [How to stream alerts into Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -935,7 +935,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 **Guidance**: Use the Workflow Automation feature in Azure Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations.
 
-* [How to configure Workflow Automation and Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
+* [How to configure Workflow Automation and Logic Apps](../security-center/workflow-automation.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -943,7 +943,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 ## Penetration tests and red team exercises
 
-*For more information, see [Security control: Penetration tests and red team exercises](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*For more information, see [Security control: Penetration tests and red team exercises](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
@@ -957,5 +957,5 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 ## Next steps
 
-- See the [Azure security benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure security benchmark](../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)

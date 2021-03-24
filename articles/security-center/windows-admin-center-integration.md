@@ -12,11 +12,11 @@ ms.author: memildin
 ---
 # Protect Windows Admin Center resources with Security Center
 
-Windows Admin Center is a management tool for your Windows servers. It's a single location for system administrators to access the majority of the most commonly used admin tools. From within Windows Admin Center, you can directly onboard your on-prem servers into Azure Security Center. You can then view a summary of your security recommendations and alerts directly in the Windows Admin Center experience.
+Windows Admin Center is a management tool for your Windows servers. It's a single location for system administrators to access the majority of the most commonly used admin tools. From within Windows Admin Center, you can directly onboard your on-premises servers into Azure Security Center. You can then view a summary of your security recommendations and alerts directly in the Windows Admin Center experience.
 
 > [!NOTE]
 > Your Azure subscription and the associated Log Analytics workspace both need to have Azure Defender enabled in order to enable the Windows Admin Center integration.
-> Azure Defender is free for the first 30 days if you haven't previously used it on the subscription and workspace. For more information​, see [the pricing information page](security-center-pricing.md).
+> Azure Defender is free for the first 30 days if you haven't previously used it on the subscription and workspace. For pricing details in your currency of choice and according to your region, see [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/).
 >
 
 When you've successfully onboarded a server from Windows Admin Center to Azure Security Center, you can:
@@ -24,7 +24,7 @@ When you've successfully onboarded a server from Windows Admin Center to Azure S
 * View security alerts and recommendations inside the Security Center extension in Windows Admin Center
 * View the security posture and retrieve additional detailed information of your Windows Admin Center managed servers in Security Center within the Azure portal (or via an API)
 
-By combining these two tools, Security Center becomes your single pane of glass to view all your security information, whatever the resource: protecting your Windows Admin Center managed on-prem servers, your VMs, and any additional PaaS workloads.
+By combining these two tools, Security Center becomes your single pane of glass to view all your security information, whatever the resource: protecting your Windows Admin Center managed on-premises servers, your VMs, and any additional PaaS workloads.
 
 ## Onboard Windows Admin Center managed servers into Security Center
 

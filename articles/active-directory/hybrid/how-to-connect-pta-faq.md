@@ -30,13 +30,9 @@ Review [this guide](./choose-ad-authn.md) for a comparison of the various Azure 
 
 Pass-through Authentication is a free feature. You don't need any paid editions of Azure AD to use it.
 
-## Is Pass-through Authentication available in the [Microsoft Azure Germany cloud](https://www.microsoft.de/cloud-deutschland) and the [Microsoft Azure Government cloud](https://azure.microsoft.com/features/gov/)?
-
-No. Pass-through Authentication is only available in the worldwide instance of Azure AD.
-
 ## Does [Conditional Access](../conditional-access/overview.md) work with Pass-through Authentication?
 
-Yes. All Conditional Access capabilities, including Azure Multi-Factor Authentication, work with Pass-through Authentication.
+Yes. All Conditional Access capabilities, including Azure AD Multi-Factor Authentication, work with Pass-through Authentication.
 
 ## Does Pass-through Authentication support "Alternate ID" as the username, instead of "userPrincipalName"?
 Yes, sign-in using a non-UPN value, such as an alternate email, is supported for both pass-through authentication (PTA) and password hash sync (PHS). For more information about [Alternate Login ID](../authentication/howto-authentication-use-email-signin.md).
@@ -136,10 +132,6 @@ For most customers, two or three Authentication Agents in total are sufficient f
 
 >[!NOTE]
 >There is a system limit of 40 Authentication Agents per tenant.
-
-## Can I install the first Pass-through Authentication Agent on a server other than the one that runs Azure AD Connect?
-
-No, this scenario is _not_ supported.
 
 ## Why do I need a cloud-only Global Administrator account to enable Pass-through Authentication?
 

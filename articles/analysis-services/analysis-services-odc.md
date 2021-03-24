@@ -4,14 +4,14 @@ description: Learn how to create an Office Data Connection file to connect to an
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 12/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
 ---
 # Create an Office Data Connection file
 
-Information in this article describes how you can create an Office Data Connection file to connect to an Azure Analysis Services server from Excel 2016 version number 16.0.7369.2117 or earlier, or Excel 2013. An updated [MSOLAP.7 provider](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current) is also required.
+Information in this article describes how you can create an Office Data Connection file to connect to an Azure Analysis Services server from Excel 2016 version number 16.0.7369.2117 or earlier, or Excel 2013. An updated [MSOLAP.7 provider](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true) is also required.
 
 
 1. Copy the sample connection file below and paste into a text editor. 
@@ -139,6 +139,3 @@ function init() {
 </html>
 
 ```
-
-
-

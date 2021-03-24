@@ -1,20 +1,11 @@
 ---
 title: Invoke stored procedure from Azure Data Factory Copy Activity 
 description: 'Learn how to invoke a stored procedure in Azure SQL Database, or SQL Server from an Azure Data Factory copy activity.'
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-editor: 
-
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
-
 robots: noindex
 ---
 
@@ -23,7 +14,7 @@ robots: noindex
 > This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [transform data using stored procedure activity in Data Factory](../transform-data-using-stored-procedure.md).
 
 
-When copying data into [SQL Server](data-factory-sqlserver-connector.md) or [Azure SQL Database](data-factory-azure-sql-connector.md), you can configure the **SqlSink** in copy activity to invoke a stored procedure. You may want to use the stored procedure to perform any additional processing (merging columns, looking up values, insertion into multiple tables, etc.) is required before inserting data in to the destination table. This feature takes advantage of [Table-Valued Parameters](https://msdn.microsoft.com/library/bb675163.aspx). 
+When copying data into [SQL Server](data-factory-sqlserver-connector.md) or [Azure SQL Database](data-factory-azure-sql-connector.md), you can configure the **SqlSink** in copy activity to invoke a stored procedure. You may want to use the stored procedure to perform any additional processing (merging columns, looking up values, insertion into multiple tables, etc.) is required before inserting data in to the destination table. This feature takes advantage of [Table-Valued Parameters](/dotnet/framework/data/adonet/sql/table-valued-parameters). 
 
 The following sample shows how to invoke a stored procedure in a SQL Server database from a Data Factory pipeline (copy activity):  
 

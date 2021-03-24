@@ -5,7 +5,8 @@ author: njray
 ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
-ms.service: storage
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
 ---
 # Move mainframe storage to Azure
 
@@ -53,7 +54,7 @@ following table summarizes. Learn more about [when to use each](../../../../stor
 <tr><td>Azure Files
 </td>
 <td>
-Provides an SMB interface, client libraries, and a <a href="https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api">REST</a> interface that allows access from anywhere to stored files.
+Provides an SMB interface, client libraries, and a <a href="/rest/api/storageservices/file-service-rest-api">REST</a> interface that allows access from anywhere to stored files.
 </td>
 <td><ul>
 <li>Lift and shift an application to the cloud when the application uses the native file system APIs to share data between it and other applications running in Azure.</li>
@@ -63,7 +64,7 @@ Provides an SMB interface, client libraries, and a <a href="https://docs.microso
 </tr>
 <tr><td>Azure Blobs
 </td>
-<td>Provides client libraries and a <a href="https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api">REST</a> interface that allows unstructured data to be stored and accessed at a massive scale in block blobs. Also supports <a href="/azure/storage/blobs/data-lake-storage-introduction">Azure Data Lake Storage Gen2</a> for enterprise big data analytics solutions.
+<td>Provides client libraries and a <a href="/rest/api/storageservices/blob-service-rest-api">REST</a> interface that allows unstructured data to be stored and accessed at a massive scale in block blobs. Also supports <a href="/azure/storage/blobs/data-lake-storage-introduction">Azure Data Lake Storage Gen2</a> for enterprise big data analytics solutions.
 </td>
 <td><ul>
 <li>Support streaming and random-access scenarios in an application.</li>
@@ -73,7 +74,7 @@ Provides an SMB interface, client libraries, and a <a href="https://docs.microso
 </tr>
 <tr><td>Azure Disks
 </td>
-<td>Provides client libraries and a <a href="https://docs.microsoft.com/rest/api/compute/disks">REST</a>
+<td>Provides client libraries and a <a href="/rest/api/compute/disks">REST</a>
 interface that allows data to be persistently stored and accessed from an attached virtual hard disk.
 </td>
 <td><ul>
@@ -124,4 +125,4 @@ Blob storage provides the largest volume of storage on Azure. In addition to sto
 ### More migration resources
 
 - [Azure Virtual Data Center Lift and Shift Guide](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)
-- [GlusterFS iSCSI](https://docs.gluster.org/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/)
+- [GlusterFS iSCSI](https://glusterdocs.readthedocs.io/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/)

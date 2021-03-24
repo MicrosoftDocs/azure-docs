@@ -11,6 +11,7 @@ ms.date: 09/14/2020
 ---
 
 # Apache Cassandra features supported by Azure Cosmos DB Cassandra API 
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the Azure Cosmos DB Cassandra API through the CQL Binary Protocol v4 [wire protocol](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec) compliant open-source Cassandra client [drivers](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver). 
 
@@ -37,7 +38,7 @@ The following versions of Cassandra drivers are supported by Azure Cosmos DB Cas
 
 Azure Cosmos DB Cassandra API supports the following CQL data types:
 
-|Command  |Supported |
+|Type  |Supported |
 |---------|---------|
 | ascii  | Yes |
 | bigint  | Yes |
@@ -67,6 +68,8 @@ Azure Cosmos DB Cassandra API supports the following CQL data types:
 | udts  | Yes |
 | map | Yes |
 
+Static is supported for data type declaration.
+
 ## CQL functions
 
 Azure Cosmos DB Cassandra API supports the following CQL functions:
@@ -74,21 +77,30 @@ Azure Cosmos DB Cassandra API supports the following CQL functions:
 |Command  |Supported |
 |---------|---------|
 | Token * | Yes |
-| ttl | Yes |
-| writetime | Yes |
-| cast | No |
+| ttl *** | Yes |
+| writetime *** | Yes |
+| cast ** | Yes |
 
-\* Cassandra API supports token as a projection/selector, and only allows token(pk) on the left-hand side of a where clause. For example, `WHERE token(pk) > 1024` is supported, but `WHERE token(pk) > token(100)` is not supported.
+> [!NOTE] 
+> \* Cassandra API supports token as a projection/selector, and only allows token(pk) on the left-hand side of a where clause. For example, `WHERE token(pk) > 1024` is supported, but `WHERE token(pk) > token(100)` is **not** supported.  
+> \*\* The `cast()` function is not nestable in Cassandra API. For example, `SELECT cast(count as double) FROM myTable` is supported, but `SELECT avg(cast(count as double)) FROM myTable` is **not** supported.    
+> \*\*\* Custom timestamps and TTL specified with the `USING` option are applied at a row level (and not per cell).
+
 
 
 Aggregate functions:
 
 |Command  |Supported |
 |---------|---------|
-| min | Yes |
-| max | Yes |
 | avg | Yes |
 | count | Yes |
+| min | Yes |
+| max | Yes |
+| sum | Yes |
+
+> [!NOTE]
+> Aggregate functions work on regular columns, but aggregates on clustering columns are **not** supported.
+
 
 Blob conversion functions:
  
@@ -143,7 +155,7 @@ Azure Cosmos DB supports the following database commands on Cassandra API accoun
 | CREATE ROLE | No |
 | CREATE USER (Deprecated in native Apache Cassandra) | No |
 | DELETE | Yes |
-| DELETE (lightweight transactions with IF CONDITION)| Yes |
+| DISTINCT | No |
 | DROP AGGREGATE | No |
 | DROP FUNCTION | No |
 | DROP INDEX | Yes |
@@ -156,17 +168,49 @@ Azure Cosmos DB supports the following database commands on Cassandra API accoun
 | DROP USER (Deprecated in native Apache Cassandra) | No |
 | GRANT | No |
 | INSERT | Yes |
-| INSERT (lightweight transactions with IF CONDITION)| Yes |
 | LIST PERMISSIONS | No |
 | LIST ROLES | No |
 | LIST USERS (Deprecated in native Apache Cassandra) | No |
 | REVOKE | No |
 | SELECT | Yes |
-| SELECT (lightweight transactions with IF CONDITION)| No |
 | UPDATE | Yes |
-| UPDATE (lightweight transactions with IF CONDITION)| No |
 | TRUNCATE | No |
 | USE | Yes |
+
+## Lightweight Transactions (LWT)
+
+| Component  |Supported |
+|---------|---------|
+| DELETE IF EXISTS | Yes |
+| DELETE conditions | No |
+| INSERT IF NOT EXISTS | Yes |
+| UPDATE IF EXISTS | Yes |
+| UPDATE IF NOT EXISTS | Yes |
+| UPDATE conditions | No |
+
+## CQL Shell commands
+
+Azure Cosmos DB supports the following database commands on Cassandra API accounts.
+
+|Command  |Supported |
+|---------|---------|
+| CAPTURE | Yes |
+| CLEAR | Yes |
+| CONSISTENCY * | N/A |
+| COPY | No |
+| DESCRIBE | Yes |
+| cqlshExpand | No |
+| EXIT | Yes |
+| LOGIN | N/A (CQL function `USER` is not supported, hence `LOGIN` is redundant) |
+| PAGING | Yes |
+| SERIAL CONSISTENCY * | N/A |
+| SHOW | Yes |
+| SOURCE | Yes |
+| TRACING | N/A (Cassandra API is backed by Azure Cosmos DB - use [diagnostic logging](cosmosdb-monitor-resource-logs.md) for troubleshooting) |
+
+> [!NOTE] 
+> \* Consistency works differently in Azure Cosmos DB, see [here](cassandra-consistency.md) for more information.  
+
 
 ## JSON Support
 |Command  |Supported |
@@ -189,7 +233,7 @@ Azure Cosmos DB Cassandra API is a managed service platform. It does not require
 
 ## Hosted CQL shell (preview)
 
-You can open a hosted native Cassandra shell (CQLSH v5.0.1) directly from the Data Explorer in the [Azure portal](data-explorer.md) or the [Azure Cosmos explorer](https://cosmos.azure.com/). Before enabling the CQL shell, you must [enable the Notebooks](enable-notebooks.md) feature in your account (if not already enabled, you will be prompted when clicking on `Open Cassandra Shell`). Check the highlighted note in [Enable notebooks for Azure Cosmos DB accounts](enable-notebooks.md) for supported Azure Regions.
+You can open a hosted native Cassandra shell (CQLSH v5.0.1) directly from the Data Explorer in the [Azure portal](data-explorer.md) or the [Azure Cosmos DB Explorer](https://cosmos.azure.com/). Before enabling the CQL shell, you must [enable the Notebooks](enable-notebooks.md) feature in your account (if not already enabled, you will be prompted when clicking on `Open Cassandra Shell`). See the article [Enable notebooks for Azure Cosmos DB accounts](enable-notebooks.md#supported-regions) for supported Azure Regions.
 
 :::image type="content" source="./media/cassandra-support/cqlsh.png" alt-text="Open CQLSH":::
 
@@ -200,7 +244,7 @@ You can also connect to the Cassandra API in Azure Cosmos DB by using the CQLSH 
 
 **Windows:**
 
-If using windows, we recommend you enable the [Windows filesystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10#install-the-windows-subsystem-for-linux). You can then follow the linux commands below.
+If using windows, we recommend you enable the [Windows filesystem for Linux](/windows/wsl/install-win10#install-the-windows-subsystem-for-linux). You can then follow the linux commands below.
 
 **Unix/Linux/Mac:**
 
@@ -247,11 +291,11 @@ foreach (string key in insertResult.Info.IncomingPayload)
 
 ## Consistency mapping 
 
-Azure Cosmos DB Cassandra API provides choice of consistency for read operations.  The consistency mapping is detailed [here](consistency-levels-across-apis.md#cassandra-mapping).
+Azure Cosmos DB Cassandra API provides choice of consistency for read operations.  The consistency mapping is detailed [here](./cassandra-consistency.md#mapping-consistency-levels).
 
 ## Permission and role management
 
-Azure Cosmos DB supports role-based access control (RBAC) for provisioning, rotating keys, viewing metrics and read-write and read-only passwords/keys that can be obtained through the [Azure portal](https://portal.azure.com). Azure Cosmos DB does not support roles for CRUD activities.
+Azure Cosmos DB supports Azure role-based access control (Azure RBAC) for provisioning, rotating keys, viewing metrics and read-write and read-only passwords/keys that can be obtained through the [Azure portal](https://portal.azure.com). Azure Cosmos DB does not support roles for CRUD activities.
 
 ## Keyspace and Table options
 
@@ -268,7 +312,8 @@ CREATE TABLE sampleks.t1(user_id int PRIMARY KEY, lastname text) WITH cosmosdb_p
 ALTER TABLE gks1.t1 WITH cosmosdb_provisioned_throughput=10000 ;
 
 ```
-
+## Secondary Index
+Cassandra API supports secondary indexes on all data types except frozen collection types, decimal and variant types. 
 
 ## Usage of Cassandra retry connection policy
 

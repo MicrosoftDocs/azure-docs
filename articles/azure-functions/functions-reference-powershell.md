@@ -17,7 +17,7 @@ A PowerShell Azure function (function) is represented as a PowerShell script tha
 
 Like other kinds of functions, PowerShell script functions take in parameters that match the names of all the input bindings defined in the `function.json` file. A `TriggerMetadata` parameter is also passed that contains additional information on the trigger that started the function.
 
-This article assumes that you have already read the [Azure Functions developer reference](functions-reference.md). You should have also completed the [Functions quickstart for PowerShell](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell) to create your first PowerShell function.
+This article assumes that you have already read the [Azure Functions developer reference](functions-reference.md). You should have also completed the [Functions quickstart for PowerShell](./create-first-function-vs-code-powershell.md) to create your first PowerShell function.
 
 ## Folder structure
 
@@ -141,7 +141,7 @@ The following common parameters are also supported:
 * `PipelineVariable`
 * `OutVariable` 
 
-For more information, see [About CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+For more information, see [About CommonParameters](/powershell/module/microsoft.powershell.core/about/about_commonparameters).
 
 #### Push-OutputBinding example: HTTP responses
 
@@ -560,7 +560,7 @@ There are a few concurrency models that you could explore depending on the type 
 
 You set these environment variables in the [app settings](functions-app-settings.md) of your function app.
 
-Depending on your use case, Durable Functions may significantly improve scalability. To learn more, see [Durable Functions application patterns](/azure/azure-functions/durable/durable-functions-overview?tabs=powershell#application-patterns).
+Depending on your use case, Durable Functions may significantly improve scalability. To learn more, see [Durable Functions application patterns](./durable/durable-functions-overview.md?tabs=powershell#application-patterns).
 
 >[!NOTE]
 > You might get "requests are being queued due to no available runspaces" warnings, please note that this is not an error. The message is telling you that requests are being queued and they will be handled when the previous requests are completed.
@@ -649,11 +649,11 @@ When you work with PowerShell functions, be aware of the considerations in the f
 
 ### Cold Start
 
-When developing Azure Functions in the [serverless hosting model](functions-scale.md#consumption-plan), cold starts are a reality. *Cold start* refers to period of time it takes for your function app to start running to process a request. Cold start happens more frequently in the Consumption plan because your function app gets shut down during periods of inactivity.
+When developing Azure Functions in the [serverless hosting model](consumption-plan.md), cold starts are a reality. *Cold start* refers to period of time it takes for your function app to start running to process a request. Cold start happens more frequently in the Consumption plan because your function app gets shut down during periods of inactivity.
 
 ### Bundle modules instead of using `Install-Module`
 
-Your script is run on every invocation. Avoid using `Install-Module` in your script. Instead use `Save-Module` before publishing so that your function doesn't have to waste time downloading the module. If cold starts are impacting your functions, consider deploying your function app to an [App Service plan](functions-scale.md#app-service-plan) set to *always on* or to a [Premium plan](functions-scale.md#premium-plan).
+Your script is run on every invocation. Avoid using `Install-Module` in your script. Instead use `Save-Module` before publishing so that your function doesn't have to waste time downloading the module. If cold starts are impacting your functions, consider deploying your function app to an [App Service plan](dedicated-plan.md) set to *always on* or to a [Premium plan](functions-premium-plan.md).
 
 ## Next steps
 

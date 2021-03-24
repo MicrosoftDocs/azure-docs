@@ -1,62 +1,47 @@
 ---
-title: "Cognitive Services docs: What's new for August 1, 2020 - August 31, 2020"
-description: "What's new in the Cognitive Services docs for August 1, 2020 - August 31, 2020."
+title: "Cognitive Services: What's new in docs"
+description: "What's new in the Cognitive Services docs for February 1, 2020 - February 28, 2020."
 author: erhopf
 manager: nitinme
 ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
-ms.date: 09/08/2020
+ms.date: 03/08/2021
 ---
 
-# Cognitive Services docs: What's new for August 1, 2020 - August 31, 2020
+# Cognitive Services docs: What's new for February 1, 2021 - February 28, 2021
 
-Welcome to what's new in the Cognitive Services docs from August 1, 2020 through August 31, 2020. This article lists some of the major changes to docs during this period.
+Welcome to what's new in the Cognitive Services docs from February 1, 2021 through February 28, 2021. This article lists some of the major changes to docs during this period.
 
-## Computer Vision
+## Cognitive Services
 
 ### New articles
 
-- [Upgrade to v3.0 of Computer Vision API from v2.0 and v2.1](/azure/cognitive-services/computer-vision/upgrade-api-versions)
+- [Azure Policy Regulatory Compliance controls for Azure Cognitive Services](security-controls-policy.md)
 
 ## Containers
 
+### New articles
+
+- [Azure Cognitive Services containers frequently asked questions (FAQ)](/azure/cognitive-services/containers/container-faq)
+
 ### Updated articles
 
-- [Azure Cognitive Services container image tags](/azure/cognitive-services/containers/container-image-tags)
+- [Azure Cognitive Services container image tags and release notes](/azure/cognitive-services/containers/container-image-tags)
 
 ## Form Recognizer
 
-### New articles
+### Updated articles
 
-- [Business card concepts](/azure/cognitive-services/form-recognizer/concept-business-cards)
-- [Receipt concepts](/azure/cognitive-services/form-recognizer/concept-receipts)
-- [Quickstart: Extract business card data using the Form Recognizer REST API with Python](/azure/cognitive-services/form-recognizer/quickstarts/python-business-cards)
+- [Deploy the sample labeling tool](/azure/cognitive-services/form-recognizer/deploy-label-tool)
+- [What is Form Recognizer?](/azure/cognitive-services/form-recognizer/overview)
+- [Train a Form Recognizer model with labels using the sample labeling tool](/azure/cognitive-services/form-recognizer/quickstarts/label-tool)
+
+## Text Analytics
 
 ### Updated articles
 
-- [Quickstart: Train a Form Recognizer model and extract form data by using the REST API with cURL](/azure/cognitive-services/form-recognizer/quickstarts/curl-train-extract)
-- [Quickstart: Train a Form Recognizer model with labels using REST API and Python](/azure/cognitive-services/form-recognizer/quickstarts/python-labeled-data)
-- [Quickstart: Extract text and layout information using the Form Recognizer REST API with Python](/azure/cognitive-services/form-recognizer/quickstarts/python-layout)
-- [Quickstart: Train a Form Recognizer model and extract form data by using the REST API with Python](/azure/cognitive-services/form-recognizer/quickstarts/python-train-extract)
-
-## Speech Service
-
-### New articles
-
-- [Speech Services quotas and limits](/azure/cognitive-services/speech-service/speech-services-quotas-and-limits)
-
-### Updated articles
-
-- [Long Audio API (Preview)](/azure/cognitive-services/speech-service/long-audio-api)
-
-## Community contributors
-
-The following people contributed to the Cognitive Services docs during this period. Thank you! 
-
-- [hyoshioka0128](https://github.com/hyoshioka0128) - Hiroshi Yoshioka (2)
-- [anwesh-b](https://github.com/anwesh-b) - Anwesh Budhathoki (1)
-- [jangelfdez](https://github.com/jangelfdez) - José Ángel Fernández (1)
-- [xhan742](https://github.com/xhan742) (1)
+- [Text Analytics API v3 language support](/azure/cognitive-services/text-analytics/language-support)
+- [How to call the Text Analytics REST API](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api)
 
 [!INCLUDE [Service specific updates](./includes/service-specific-updates.md)]

@@ -1,11 +1,11 @@
 ---
 title: Compute and storage options - Azure Database for MySQL - Flexible Server
 description: This article describes the compute and storage options in Azure Database for MySQL - Flexible Server.
-author: ajlam
-ms.author: andrela
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 9/21/2020
+ms.date: 1/28/2021
 ---
 
 # Compute and storage options in Azure Database for MySQL - Flexible Server (Preview)
@@ -18,7 +18,7 @@ You can create an Azure Database for MySQL Flexible Server in one of three diffe
 | Resource / Tier | **Burstable** | **General Purpose** | **Memory Optimized** |
 |:---|:----------|:--------------------|:---------------------|
 | VM series| B-series | Ddsv4-series | Edsv4-series|
-| vCores | 1, 2 | 2, 4, 8, 16, 32, 64 | 2, 4, 8, 16, 32, 48, 64 |
+| vCores | 1, 2 | 2, 4, 8, 16, 32, 48, 64 | 2, 4, 8, 16, 32, 48, 64 |
 | Memory per vCore | Variable | 4 GiB | 8 GiB * |
 | Storage size | 5 GiB to 16 TiB | 5 GiB to 16 TiB | 5 GiB to 16 TiB |
 | Database backup retention period | 1 to 35 days | 1 to 35 days | 1 to 35 days |
@@ -41,30 +41,33 @@ Compute resources can be selected based on the tier and size. This determines th
 
 The detailed specifications of the available server types are as follows:
 
-| Compute size         | vCores | Memory Size (GiB) | 
-|----------------------|--------|-------------------|
+| Compute size         | vCores | Memory Size (GiB) | Max Supported IOPS | Max Supported I/O bandwidth (MBps)|
+|----------------------|--------|-------------------| ------------------ |-----------------------------------|
 | **Burstable**        |        |                   | 
-| B1s                  | 1      | 1                 |  
-| B1ms                 | 1      | 2                 | 
-| B2s                  | 2      | 4                 |  
-| **General Purpose**  |        |                   | 
-| D2ds_v4              | 2      | 8                 |  
-| D4ds_v4              | 4      | 16                | 
-| D8ds_v4              | 8      | 32                | 
-| D16ds_v4             | 16     | 64                | 
-| D32ds_v4             | 32     | 128               |  
-| D48ds_v4             | 48     | 192               |  
-| D64ds_v4             | 64     | 256               | 
-| **Memory Optimized** |        |                   |
-| E2ds_v4              | 2      | 16                |
-| E4ds_v4              | 4      | 32                |
-| E8ds_v4              | 8      | 64                |
-| E16ds_v4             | 16     | 128               |
-| E32ds_v4             | 32     | 256               |
-| E48ds_v4             | 48     | 384               |
-| E64ds_v4             | 64     | 504               |
+| Standard_B1s         | 1      | 1                 | 320                | 10                                | 
+| Standard_B1ms        | 1      | 2                 | 640                | 10                                |
+| Standard_B2s         | 2      | 4                 | 1280               | 15                                |
+| **General Purpose**  |        |                   |                    |                                   |
+| Standard_D2ds_v4     | 2      | 8                 | 3200               | 48                                |
+| Standard_D4ds_v4     | 4      | 16                | 6400               | 96                                |
+| Standard_D8ds_v4     | 8      | 32                | 12800              | 192                               |
+| Standard_D16ds_v4    | 16     | 64                | 20000              | 384                               |
+| Standard_D32ds_v4    | 32     | 128               | 20000              | 768                               |
+| Standard_D48ds_v4    | 48     | 192               | 20000              | 1152                              |
+| Standard_D64ds_v4    | 64     | 256               | 20000              | 1200                              |
+| **Memory Optimized** |        |                   |                    |                                   |
+| Standard_E2ds_v4     | 2      | 16                | 3200               | 48                                |
+| Standard_E4ds_v4     | 4      | 32                | 6400               | 96                                |
+| Standard_E8ds_v4     | 8      | 64                | 12800              | 192                               |
+| Standard_E16ds_v4    | 16     | 128               | 20000              | 384                               |
+| Standard_E32ds_v4    | 32     | 256               | 20000              | 768                               |
+| Standard_E48ds_v4    | 48     | 384               | 20000              | 1152                              |
+| Standard_E64ds_v4    | 64     | 504               | 20000              | 1200                              |
 
 To get more details about the compute series available, refer to Azure VM documentation for [Burstable (B-series)](../../virtual-machines/sizes-b-series-burstable.md), [General Purpose (Ddsv4-series)](../../virtual-machines/ddv4-ddsv4-series.md), and [Memory Optimized (Edsv4-series)](../../virtual-machines/edv4-edsv4-series.md).
+
+>[!NOTE]
+>For [Burstable (B-series) compute tier](../../virtual-machines/sizes-b-series-burstable.md) if the VM is started/stopped or restarted, the credits may be lost. For more information, see [Burstable (B-Series) FAQ](../../virtual-machines/sizes-b-series-burstable.md#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart).
 
 ## Storage
 
@@ -94,42 +97,44 @@ We recommend that you <!--turn on storage auto-grow or to--> set up an alert to 
 Storage auto-grow is not yet available for Azure Database for MySQL Flexible Server.
 
 ## IOPS
-The minimum effective IOPS is 100 across all compute sizes and the max effective IOPS is determined by both of the following attributes: 
-- Compute: the max effective IOPS maybe limited by the maximum available IOPS of the selected compute size.
-- Storage: in all compute tiers, the IOPS scale with the provisioned storage size in a 3:1 ratio.
 
-You can scale effective IOPS available by increasing the provisioned storage or moving to a larger compute size (if your IOPS are limited by compute). In preview, the max effective IOPS supported is 20,000 IOPS.
+Azure Database for MySQL – Flexible Server supports the provisioning of additional IOPS. This feature enables you to provision additional IOPS above the complimentary IOPS limit. Using this feature, you can increase or decrease the number of IOPS provisioned based on your workload requirements at any time. 
 
-To learn more about the max effective IOPS per compute size, using the combination of both compute and storage, is shown below: 
+The minimum IOPS is 100 across all compute sizes and the maximum IOPS is determined by the selected compute size. In preview, the maximum IOPS supported is 20,000 IOPS.
 
-| Compute size         | Max effective IOPS  | 
+To learn more about the maximum IOPS per compute size is shown below: 
+
+| Compute size         | Maximum IOPS        | 
 |----------------------|---------------------|
 | **Burstable**        |                     |
-| B1s                  | 320                 |
-| B1ms                 | 640                 |
-| B2s                  | 1280                | 
+| Standard_B1s         | 320                 |
+| Standard_B1ms        | 640                 |
+| Standard_B2s         | 1280                | 
 | **General Purpose**  |                     |
-| D2ds_v4              | 3200                |
-| D4ds_v4              | 6400                |
-| D8ds_v4              | 12800               |
-| D16ds_v4             | 20000               |
-| D32ds_v4             | 20000               |
-| D48ds_v4             | 20000               | 
-| D64ds_v4             | 20000               | 
+| Standard_D2ds_v4     | 3200                |
+| Standard_D4ds_v4     | 6400                |
+| Standard_D8ds_v4     | 12800               |
+| Standard_D16ds_v4    | 20000               |
+| Standard_D32ds_v4    | 20000               |
+| Standard_D48ds_v4    | 20000               | 
+| Standard_D64ds_v4    | 20000               | 
 | **Memory Optimized** |                     | 
-| E2ds_v4              | 3200                | 
-| E4ds_v4              | 6400                | 
-| E8ds_v4              | 12800               | 
-| E16ds_v4             | 20000               | 
-| E32ds_v4             | 20000               | 
-| E48ds_v4             | 20000               | 
-| E64ds_v4             | 20000               |  
+| Standard_E2ds_v4     | 3200                | 
+| Standard_E4ds_v4     | 6400                | 
+| Standard_ E8ds_v4    | 12800               | 
+| Standard_ E16ds_v4   | 20000               | 
+| Standard_E32ds_v4    | 20000               | 
+| Standard_E48ds_v4    | 20000               | 
+| Standard_E64ds_v4    | 20000               |  
 
-The maximum effective IOPS is dependent on the maximum available IOPS per compute size. See to the formula below and refer to the column *Max uncached disk throughput: IOPS/MBps* in the [B-series](../../virtual-machines/sizes-b-series-burstable.md), [Ddsv4-series](../../virtual-machines/ddv4-ddsv4-series.md), and [Edsv4-series](../../virtual-machines/edv4-edsv4-series.md) documentation.
+The maximum IOPS is dependent on the maximum available IOPS per compute size. Refer to the column *Max uncached disk throughput: IOPS/MBps* in the [B-series](../../virtual-machines/sizes-b-series-burstable.md), [Ddsv4-series](../../virtual-machines/ddv4-ddsv4-series.md), and [Edsv4-series](../../virtual-machines/edv4-edsv4-series.md) documentation.
 
-**Max effective IOPS** = MINIMUM(*"Max uncached disk throughput: IOPS/MBps"* of compute size, storage provisioned in GiB * 3)
+> [!Important]
+> **Complimentary IOPS** are equal to MINIMUM("Max uncached disk throughput: IOPS/MBps" of compute size, storage provisioned in GiB * 3)<br>
+> **Minimum IOPS** is 100 across all compute sizes<br>
+> **Maximum IOPS** is determined by the selected compute size. In preview, the maximum IOPS supported is 20,000 IOPS.
 
-You can monitor your I/O consumption in the Azure portal (with Azure Monitor) using [IO percent](./concepts-monitoring.md) metric. If you need more IOPS, you will need to understand if you are restricted by the compute size or the storage provisioned. Scale your server's compute or storage provisioned accordingly.
+You can monitor your I/O consumption in the Azure portal (with Azure Monitor) using [IO percent](./concepts-monitoring.md) metric. If you need more IOPS then the max IOPS based on compute then you need to scale your server's compute.
 
 ## Backup
 

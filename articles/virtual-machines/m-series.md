@@ -3,7 +3,7 @@ title: M-series - Azure Virtual Machines
 description: Specifications for the M-series VMs.
 author: ayshakeen
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: jushiman
@@ -15,17 +15,16 @@ The M-series offers a high vCPU count (up to 128 vCPUs) and a large amount of me
 
 M-series VM's feature Intel&reg; Hyper-Threading Technology.
 
-ACU: 160-180
-
-Premium Storage:  Supported
-
-Premium Storage caching:  Supported
-
-Live Migration: Not Supported
-
-Memory Preserving Updates: Not Supported
-
-Write Accelerator:  [Supported](./how-to-enable-write-accelerator.md)
+[ACU](acu.md): 160-180<br>
+[Premium Storage](premium-storage-performance.md): Supported<br>
+[Premium Storage caching](premium-storage-performance.md): Supported<br>
+[Live Migration](maintenance-and-updates.md): Not Supported<br>
+[Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
+[VM Generation Support](generation-2.md): Generation 1 and 2<br>
+[Write Accelerator](./how-to-enable-write-accelerator.md): Supported<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
+<br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs|Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|
@@ -44,7 +43,7 @@ Write Accelerator:  [Supported](./how-to-enable-write-accelerator.md)
 | Standard_M128 <sup>1</sup>     | 128 | 2048   | 14336 | 64 | 250000/1600 (2456)  | 80000/2000 | 8|32000 |
 | Standard_M128m <sup>1</sup>    | 128 | 3892   | 14336 | 64 | 250000/1600 (2456)  | 80000/2000 | 8|32000 |
 
-<sup>1</sup> More than 64 vCPU's require one of these supported guest OSes: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2, and Red Hat Enterprise Linux, CentOS 7.3 or Oracle Linux 7.3 with LIS 4.2.1.
+<sup>1</sup> More than 64 vCPU's require one of these supported guest versions: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2, and Red Hat Enterprise Linux, CentOS 7.3 or Oracle Linux 7.3 with LIS 4.2.1.
 
 <sup>2</sup> Instance is isolated to hardware dedicated to a single customer.
 

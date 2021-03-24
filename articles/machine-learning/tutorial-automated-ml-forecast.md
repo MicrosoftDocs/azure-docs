@@ -9,8 +9,8 @@ ms.topic: tutorial
 ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
-ms.date: 07/10/2020
-
+ms.date: 12/21/2020
+ms.custom: automl
 # Customer intent: As a non-coding data scientist, I want to use automated machine learning to build a demand forecasting model.
 ---
 
@@ -96,7 +96,7 @@ Before you configure your experiment, upload your data file to your workspace in
 
     1. Select  **Next**.
 
-## Configure experiment run
+## Configure run
 
 After you load and configure your data, set up your remote compute target and select which column in your data you want to predict.
 
@@ -107,14 +107,22 @@ After you load and configure your data, set up your remote compute target and se
 
     1. Select **Create a new compute** and configure your compute target. Automated ML only supports Azure Machine Learning compute. 
 
-        Field | Description | Value for tutorial
-        ----|---|---
-        Compute name |A unique name that identifies your compute context.|bike-compute
-        Virtual&nbsp;machine&nbsp;type|Select the virtual machine type for your compute.|CPU (Central Processing Unit)
-        Virtual&nbsp;machine&nbsp;size| Select the virtual machine size for your compute.|Standard_DS12_V2
-        Min / Max nodes| To profile data, you must specify 1 or more nodes.|Min nodes: 1<br>Max nodes: 6
-        Idle seconds before scale down | Idle time before  the cluster is automatically scaled down to the minimum node count.|120 (default)
-        Advanced settings | Settings to configure and authorize a virtual network for your experiment.| None
+        1. Populate the **Virtual Machine** form to set up your compute.
+
+            Field | Description | Value for tutorial
+            ----|---|---
+            Virtual&nbsp;machine&nbsp;priority |Select what priority your experiment should have| Dedicated
+            Virtual&nbsp;machine&nbsp;type| Select the virtual machine type for your compute.|CPU (Central Processing Unit)
+            Virtual&nbsp;machine&nbsp;size| Select the virtual machine size for your compute. A list of recommended sizes is provided based on your data and experiment type. |Standard_DS12_V2
+        
+        1. Select **Next** to populate the **Configure settings form**.
+        
+             Field | Description | Value for tutorial
+            ----|---|---
+            Compute name |	A unique name that identifies your compute context. | bike-compute
+            Min / Max nodes| To profile data, you must specify 1 or more nodes.|Min nodes: 1<br>Max nodes: 6
+            Idle seconds before scale down | Idle time before  the cluster is automatically scaled down to the minimum node count.|120 (default)
+            Advanced settings | Settings to configure and authorize a virtual network for your experiment.| None 
   
         1. Select **Create** to get the compute target. 
 
@@ -141,7 +149,7 @@ Complete the setup for your automated ML experiment by specifying the machine le
     Primary metric| Evaluation metric that the machine learning algorithm will be measured by.|Normalized root mean squared error
     Explain best model| Automatically shows explainability on the best model created by automated ML.| Enable
     Blocked algorithms | Algorithms you want to exclude from the training job| Extreme Random Trees
-    Additional forecasting settings| These settings help improve the accuracy of your model <br><br> _**Forecast target lags:**_ how far back you want to construct the lags of the target variable <br> _**Target rolling window**_: specifies the size of the rolling window over which features, such as the *max, min* and *sum*, will be generated. | <br><br>Forecast&nbsp;target&nbsp;lags: None <br> Target&nbsp;rolling&nbsp;window&nbsp;size: None
+    Additional forecasting settings| These settings help improve the accuracy of your model. <br><br> _**Forecast target lags:**_ how far back you want to construct the lags of the target variable <br> _**Target rolling window**_: specifies the size of the rolling window over which features, such as the *max, min* and *sum*, will be generated. | <br><br>Forecast&nbsp;target&nbsp;lags: None <br> Target&nbsp;rolling&nbsp;window&nbsp;size: None
     Exit criterion| If a criteria is met, the training job is stopped. |Training&nbsp;job&nbsp;time (hours): 3 <br> Metric&nbsp;score&nbsp;threshold: None
     Validation | Choose a cross-validation type and number of tests.|Validation type:<br>&nbsp;k-fold&nbsp;cross-validation <br> <br> Number of validations: 5
     Concurrency| The maximum number of parallel iterations executed per iteration| Max&nbsp;concurrent&nbsp;iterations: 6
@@ -150,11 +158,11 @@ Complete the setup for your automated ML experiment by specifying the machine le
 
 ## Run experiment
 
-To run your experiment, select **Finish**. The **Run details**  screen opens with the **Run status** at the top next to the run number. This status updates as the experiment progresses.
+To run your experiment, select **Finish**. The **Run details**  screen opens with the **Run status** at the top next to the run number. This status updates as the experiment progresses. Notifications also appear in the top right corner of the studio, to inform you of the status of your experiment.
 
 >[!IMPORTANT]
 > Preparation takes **10-15 minutes** to prepare the experiment run.
-> Once running, it takes **2-3 minutes more for each iteration**.  <br> <br>
+> Once running, it takes **2-3 minutes more for each iteration**.<br> <br>
 > In production, you'd likely walk away for a bit as this process takes time. While you wait, we suggest you start exploring the tested algorithms on the **Models** tab as they complete. 
 
 ##  Explore models
@@ -165,7 +173,7 @@ While you wait for all of the experiment models to finish, select the **Algorith
 
 The following example navigates through the **Details** and the **Metrics** tabs to view the selected model's properties, metrics and performance charts. 
 
-![Run detail](./media/tutorial-automated-ml-forecast/explore-models-ui.gif)
+![Run detail](./media/tutorial-automated-ml-forecast/explore-models.gif)
 
 ## Deploy the model
 
@@ -228,10 +236,10 @@ In this tutorial, you used automated ML in the Azure Machine Learning studio to 
 See this article for steps on how to create a Power BI supported schema to facilitate consumption of your newly deployed web service:
 
 > [!div class="nextstepaction"]
-> [Consume a web service](how-to-consume-web-service.md#consume-the-service-from-power-bi)
+> [Consume a web service](/power-bi/connect-data/service-aml-integrate?context=azure%2fmachine-learning%2fcontext%2fml-context)
 
 + Learn more about [automated machine learning](concept-automated-ml.md).
-+ For more information on classification metrics and charts, see the [Understand automated machine learning results](how-to-understand-automated-ml.md#classification) article.
++ For more information on classification metrics and charts, see the [Understand automated machine learning results](how-to-understand-automated-ml.md) article.
 + Learn more about [featurization](how-to-configure-auto-features.md#featurization).
 + Learn more about [data profiling](how-to-connect-data-ui.md#profile).
 

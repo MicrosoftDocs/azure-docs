@@ -1,21 +1,11 @@
 ---
 title: Copy data from DB2 using Azure Data Factory 
 description: Learn how to copy data from DB2 to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
-
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 05/26/2020
-
 ms.author: jingwang
-
 ---
 # Copy data from DB2 by using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -48,7 +38,7 @@ Specifically, this DB2 connector supports the following IBM DB2 platforms and ve
 * IBM DB2 for LUW 10.1
 
 >[!TIP]
->DB2 connector is built on top of Microsoft OLE DB Provider for DB2. To troubleshoot DB2 connector errors, refer to [Data Provider Error Codes](https://docs.microsoft.com/host-integration-server/db2oledbv/data-provider-error-codes#drda-protocol-errors).
+>DB2 connector is built on top of Microsoft OLE DB Provider for DB2. To troubleshoot DB2 connector errors, refer to [Data Provider Error Codes](/host-integration-server/db2oledbv/data-provider-error-codes#drda-protocol-errors).
 
 ## Prerequisites
 
@@ -81,7 +71,7 @@ Typical properties inside the connection string:
 | authenticationType |Type of authentication used to connect to the DB2 database.<br/>Allowed value is: **Basic**. |Yes |
 | username |Specify user name to connect to the DB2 database. |Yes |
 | password |Specify password for the user account you specified for the username. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
-| packageCollection	| Specify under where the needed packages are auto created by ADF when querying the database. If this is not set, Data Factory uses the {username} as the default value. | No |
+| packageCollection    | Specify under where the needed packages are auto created by ADF when querying the database. If this is not set, Data Factory uses the {username} as the default value. | No |
 | certificateCommonName | When you use Secure Sockets Layer (SSL) or Transport Layer Security (TLS) encryption, you must enter a value for Certificate common name. | No |
 
 > [!TIP]

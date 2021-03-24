@@ -10,7 +10,12 @@
   items:
   - name: Plan the aggregated namespace
     href: hpc-cache-namespace.md
-
+  - name: Understand cache usage models
+    href: cache-usage-models.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
 - name: How-to guides
   items:
   - name: Prerequisites
@@ -21,6 +26,8 @@
     items:
     - name: Add storage targets
       href: hpc-cache-add-storage.md
+    - name: Add namespace paths
+      href: add-namespace-paths.md
     - name: Move data to storage targets (if needed)
       items:
       - name: Preload new Blob storage
@@ -39,14 +46,22 @@
     href: hpc-cache-mount.md
   - name: Manage the cache
     href: hpc-cache-manage.md
-  - name: Configure optional settings
-    href: configuration.md
+  - name: Use optional settings
+    items:
+    - name: Configure optional settings
+      href: configuration.md
+    - name: Customize access policies
+      href: access-policies.md
+    - name: Set up directory services
+      href: directory-services.md
+
 - name: Reference
   items:
   - name: Azure CLI
     href: /cli/azure/ext/hpc-cache/hpc-cache
   - name: Azure PowerShell
     href: /powershell/module/Az.HPCCache
+
 - name: Resources
   items:
   - name: Open a support ticket

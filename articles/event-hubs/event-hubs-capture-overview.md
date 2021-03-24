@@ -2,7 +2,7 @@
 title: Capture streaming events - Azure Event Hubs | Microsoft Docs
 description: This article provides an overview of the Capture feature that allows you to capture events streaming through Azure Event Hubs. 
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 02/16/2021
 ---
 
 # Capture events through Azure Event Hubs in Azure Blob Storage or Azure Data Lake Storage
@@ -13,6 +13,8 @@ Azure Event Hubs enables you to automatically capture the streaming data in Even
 
 Event Hubs Capture enables you to process real-time and batch-based pipelines on the same stream. This means you can build solutions that grow with your needs over time. Whether you're building batch-based systems today with an eye towards future real-time processing, or you want to add an efficient cold path to an existing real-time solution, Event Hubs Capture makes working with streaming data easier.
 
+> [!IMPORTANT]
+> The destination storage (Azure Storage or Azure Data Lake Storage) account  must be in the same subscription as the event hub. 
 
 ## How Event Hubs Capture works
 
@@ -51,6 +53,8 @@ You can configure Capture at the event hub creation time using the [Azure portal
 - [Enable Event Hubs Capture using the Azure portal](event-hubs-capture-enable-through-portal.md)
 - [Create an Event Hubs namespace with an event hub and enable Capture using an Azure Resource Manager template](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
 
+> [!NOTE]
+> If you enable the Capture feature for an existing event hub, the feature captures events that arrive at the event hub **after** the feature is turned on. It doesn't capture events that existed in the event hub before the feature was turned on. 
 
 ## Exploring the captured files and working with Avro
 
@@ -70,13 +74,7 @@ A native support to Azure Blob storage is available, which makes it easy to quer
 
 [Apache Drill: Azure Blob Storage Plugin][Apache Drill: Azure Blob Storage Plugin]
 
-To easily query captured files, you can create and execute a VM with Apache Drill enabled via a container to access Azure Blob storage:
-
-https://github.com/yorek/apache-drill-azure-blob
-
-A full end-to-end sample is available in the Streaming at Scale repository:
-
-[Streaming at Scale: Event Hubs Capture]
+To easily query captured files, you can create and execute a VM with Apache Drill enabled via a container to access Azure Blob storage. See the following sample: [Streaming at Scale with Event Hubs Capture](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-capture).
 
 ### Use Apache Spark
 

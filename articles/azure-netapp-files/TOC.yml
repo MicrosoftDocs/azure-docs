@@ -4,6 +4,8 @@
   items:
   - name: What is Azure NetApp Files
     href: azure-netapp-files-introduction.md
+  - name: What's new
+    href: whats-new.md
   - name: Storage hierarchy of Azure NetApp Files
     href: azure-netapp-files-understand-storage-hierarchy.md
 - name: Quickstarts
@@ -29,12 +31,20 @@
       href: azure-netapp-files-performance-metrics-volumes.md 
     - name: Performance benchmarks for Linux
       href: performance-benchmarks-linux.md
+    - name: Performance impact of Kerberos on NFSv4.1
+      href: performance-impact-kerberos.md
+    - name: Oracle database performance on Azure NetApp Files single volumes
+      href: performance-oracle-single-volumes.md
     - name: FAQs about SMB performance
       href: azure-netapp-files-smb-performance.md
   - name: Cost model for Azure NetApp Files
     href: azure-netapp-files-cost-model.md
   - name: Guidelines for Azure NetApp Files network planning 
     href: azure-netapp-files-network-topologies.md
+  - name: How Azure NetApp Files snapshots work
+    href: snapshots-introduction.md
+  - name: Manual QoS capacity pool
+    href: manual-qos-capacity-pool-introduction.md
   - name: Cross-region replication
     items: 
     - name: Understand cross-region replication
@@ -53,8 +63,14 @@
         href: solutions-benefits-azure-netapp-files-electronic-design-automation.md
       - name: Benefits of using Azure NetApp Files with Windows Virtual Desktop
         href: solutions-windows-virtual-desktop.md
+      - name: Benefits of using Azure NetApp Files for SQL Server deployment
+        href: solutions-benefits-azure-netapp-files-sql-server.md
   - name: FAQs about Azure NetApp Files
     href: azure-netapp-files-faqs.md
+  - name: What is Azure Application Consistent Snapshot Tool
+    href: azacsnap-introduction.md
+  - name: What changing to volume hard quota means
+    href: volume-hard-quota-guidelines.md
 - name: How-to guides
   items:
   - name: Register for Azure NetApp Files
@@ -67,6 +83,8 @@
     href: manage-manual-qos-capacity-pool.md
   - name: Delegate a subnet to Azure NetApp Files
     href: azure-netapp-files-delegate-subnet.md
+  - name: Create and manage Active Directory connections
+    href: create-active-directory-connections.md
   - name: Create and manage an NFS volume
     items:
     - name: Create an NFS volume
@@ -93,13 +111,13 @@
     href: dynamic-change-volume-service-level.md
   - name: Manage cross-region replication
     items:
-    - name: Create replication peering
+    - name: Create volume replication
       href: cross-region-replication-create-peering.md
     - name: Display health status of replication relationship
       href: cross-region-replication-display-health-status.md
     - name: Manage disaster recovery
       href: cross-region-replication-manage-disaster-recovery.md
-    - name: Delete replications 
+    - name: Delete volume replications or volumes
       href: cross-region-replication-delete.md
   - name: Develop
     items:
@@ -107,24 +125,54 @@
       href: azure-netapp-files-develop-with-rest-api.md
     - name: REST API using PowerShell
       href: develop-rest-api-powershell.md
-    - name: Azure NetApp Files SDKs and CLI tools
+    - name: SDKs, CLI tools, and ARM templates
       href: azure-netapp-files-sdk-cli.md
-    - name: Troubleshoot Azure NetApp Files Resource Provider errors
-      href: azure-netapp-files-troubleshoot-resource-provider-errors.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot capacity pools 
       href: troubleshoot-capacity-pools.md
     - name: Troubleshoot cross-region replication
       href: troubleshoot-cross-region-replication.md
+    - name: Troubleshoot SMB or dual-protocol volumes
+      href: troubleshoot-dual-protocol-volumes.md
+    - name: Troubleshoot NFSv4.1 Kerberos volumes
+      href: troubleshoot-nfsv41-kerberos-volumes.md
     - name: Troubleshoot snapshot policies
       href: troubleshoot-snapshot-policies.md
+    - name: Troubleshoot Resource Provider errors
+      href: azure-netapp-files-troubleshoot-resource-provider-errors.md
 - name: Reference
   items:
   - name: REST
-    href: https://docs.microsoft.com/rest/api/netapp/ 
+    href: /rest/api/netapp/
   - name: Resource Manager template
     href: /azure/templates/microsoft.netapp/allversions
+  - name: Azure Application Consistent Snapshot Tool (AzAcSnap)
+    items:
+    - name: Get started with AzAcSnap
+      href: azacsnap-get-started.md
+    - name: Install AzAcSnap
+      href: azacsnap-installation.md
+    - name: Disaster recovery using AzAcSnap
+      href: azacsnap-disaster-recovery.md
+    - name: Tips and tricks for using AzAcSnap
+      href: azacsnap-tips.md
+    - name: Troubleshoot AzAcSnap
+      href: azacsnap-troubleshoot.md
+    - name: AzAcSnap command reference 
+      items: 
+      - name: Configure AzAcSnap
+        href: azacsnap-cmd-ref-configure.md
+      - name: Test AzAcSnap
+        href: azacsnap-cmd-ref-test.md
+      - name: Back up using AzAcSnap
+        href: azacsnap-cmd-ref-backup.md
+      - name: Obtain details using AzAcSnap
+        href: azacsnap-cmd-ref-details.md
+      - name: Delete using AzAcSnap
+        href: azacsnap-cmd-ref-delete.md
+      - name: Restore using AzAcSnap
+        href: azacsnap-cmd-ref-restore.md
 - name: Resources
   items:
   - name: Pricing
@@ -135,3 +183,5 @@
     href: https://azure.microsoft.com/support/legal/sla/netapp/
   - name: Videos
     href: azure-netapp-files-videos.md
+  - name: Azure Files and Azure NetApp Files comparison
+    href: ../storage/files/storage-files-netapp-comparison.md

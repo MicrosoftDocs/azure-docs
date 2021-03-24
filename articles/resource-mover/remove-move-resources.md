@@ -5,48 +5,101 @@ manager: evansma
 author: rayne-wiselman 
 ms.service: resource-move
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 02/22/2020
 ms.author: raynew
 #Customer intent: As an Azure admin,  I want remove resources I've added to a move collection.
 
 ---
-# Remove resources from a move collection
+# Manage move collections and resource groups
 
-This article describes how to remove resources from a move collection in [Azure Resource Mover](overview.md). Move collections are used when moving Azure resources between Azure regions.
+This article describes how to remove resources from a move collection, or remove a move collection/resource group, in [Azure Resource Mover](overview.md). Move collections are used when moving Azure resources between Azure regions.
 
 ## Remove a resource (portal)
 
-Remove in the Resource Mover portal as follows:
+You can remove resources in a move collection, in the Resource Mover portal as follows:
 
-1. In **Across regions**, select the resources you want to remove from the collection > **Remove**.
+1. In **Across regions**, select all the resources you want to remove from the collection, and select **Remove**. 
 
     ![Button to select to remove](./media/remove-move-resources/portal-select-resources.png)
 
-1. In **Remove resources**, click **Remove**.
+2. In **Remove resources**, click **Remove**.
 
     ![Button to select to remove resources from a move collection](./media/remove-move-resources/remove-portal.png)
 
+## Remove a move collection/resource group (portal)
+
+You can remove a move collection/resource group in the portal.
+
+1. Follow the instructions in the procedure above to remove resources from the collection. If you're removing a resource group, make sure it doesn't contain any resources.
+2. Delete the move collection or resource group.  
+
 ## Remove a resource (PowerShell)
 
-Remove a resource (in our example the PSDemoVM machines) from a collection using PowerShell, as follows:
+Using PowerShell cmdlets you can remove a single resource from a MoveCollection, or remove multiple resources.
+
+### Remove a single resource
+
+Remove a resource (in our example the virtual network *psdemorm-vnet*) as follows:
 
 ```azurepowershell-interactive
 # Remove a resource using the resource ID
-Remove-AzResourceMoverMoveResource -SubscriptionId  <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus  -MoveCollectionName MoveCollection-centralus-westcentralus - Name PSDemoVM
+Remove-AzResourceMoverMoveResource -ResourceGroupName "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS" -Name "psdemorm-vnet"
 ```
-**Expected output**
-![Output text after removing a resource from a move collection](./media/remove-move-resources/remove-resource.png)
+**Output after running cmdlet**
+
+![Output text after removing a resource from a move collection](./media/remove-move-resources/powershell-remove-single-resource.png)
+
+### Remove multiple resources
+
+Remove multiple resources as follows:
+
+1. Validate dependencies:
+
+    ````azurepowershell-interactive
+    $resp = Invoke-AzResourceMoverBulkRemove -ResourceGroupName "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS"  -MoveResource $('psdemorm-vnet') -ValidateOnly
+    ```
+
+    **Output after running cmdlet**
+
+    ![Output text after removing multiple resources from a move collection](./media/remove-move-resources/remove-multiple-validate-dependencies.png)
+
+2. Retrieve the dependent resources that need to be removed (along with our example virtual network psdemorm-vnet):
+
+    ````azurepowershell-interactive
+    $resp.AdditionalInfo[0].InfoMoveResource
+    ```
+
+    **Output after running cmdlet**
+
+    ![Output text after removing multiple resources from a move collection](./media/remove-move-resources/remove-multiple-get-dependencies.png)
+
+
+3. Remove all resources, along with the virtual network:
+
+    
+    ````azurepowershell-interactive
+    Invoke-AzResourceMoverBulkRemove -ResourceGroupName "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS"  -MoveResource $('PSDemoVM','psdemovm111', 'PSDemoRM-vnet','PSDemoVM-nsg')
+    ```
+
+    **Output after running cmdlet**
+
+    ![Output text after removing all resources from a move collection](./media/remove-move-resources/remove-multiple-all.png)
+
 
 ## Remove a collection (PowerShell)
 
-Remove an entire move collection using PowerShell, as follows:
+Remove an entire move collection from the subscription, as follows:
 
-```azurepowershell-interactive
-# Remove a resource using the resource ID
-Remove-AzResourceMoverMoveResource -SubscriptionId  <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus  -MoveCollectionName MoveCollection-centralus-westcentralus 
-```
-**Expected output**
-![Output text after removing a move collection](./media/remove-move-resources/remove-collection.png)
+1. Follow the instructions above to remove resources in the collection using PowerShell.
+2. Run:
+
+    ```azurepowershell-interactive
+    Remove-AzResourceMoverMoveCollection -ResourceGroupName "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS"
+    ```
+
+    **Output after running cmdlet**
+    
+    ![Output text after removing a move collection](./media/remove-move-resources/remove-collection.png)
 
 ## VM resource state after removing
 

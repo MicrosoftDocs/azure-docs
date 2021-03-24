@@ -2,9 +2,9 @@
 title: Troubleshoot Azure Automation Update Management issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation Update Management.
 services: automation
-ms.date: 09/25/2020
-ms.topic: conceptual
-ms.service: automation
+ms.subservice: update-management
+ms.date: 01/13/2021
+ms.topic: troubleshooting
 ---
 
 # Troubleshoot Update Management issues
@@ -13,6 +13,40 @@ This article discusses issues that you might run into when deploying the Update 
 
 >[!NOTE]
 >If you run into problems when deploying Update Management on a Windows machine, open the Windows Event Viewer, and check the **Operations Manager** event log under **Application and Services Logs** on the local machine. Look for events with event ID 4502 and event details that contain `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`.
+
+## <a name="updates-linux-installed-different"></a>Scenario: Linux updates shown as pending and those installed vary
+
+### Issue
+
+For your Linux machine, Update Management shows specific updates available under classification **Security** and **Others**. But when an update schedule is run on the machine, for example to install only updates matching the **Security** classification, the updates installed are different from or a subset of the updates shown earlier matching that classification.
+
+### Cause
+
+When an assessment of OS updates pending for your Linux machine is done, [Open Vulnerability and Assessment Language](https://oval.mitre.org/) (OVAL) files provided by the Linux distro vendor is used by Update Management for classification. Categorization is done for Linux updates as **Security** or **Others**, based on the OVAL files which states updates addressing security issues or vulnerabilities. But when the update schedule is run, it executes on the Linux machine using the appropriate package manager like YUM, APT or ZYPPER to install them. The package manager for the Linux distro may have a different mechanism to classify updates, where the results may differ from the ones obtained from OVAL files by Update Management.
+
+### Resolution
+
+You can manually check the Linux machine, the applicable updates, and their classification per the distro's package manager. To understand which updates are classified as **Security** by your package manager, run the following commands.
+
+For YUM, the following command returns a non-zero list of updates categorized as **Security** by Red Hat. Note that in the case of CentOS, it always returns an empty list and no security classification occurs.
+
+```bash
+sudo yum -q --security check-update
+```
+
+For ZYPPER, the following command returns a non-zero list of updates categorized as **Security** by SUSE.
+
+```bash
+sudo LANG=en_US.UTF8 zypper --non-interactive patch --category security --dry-run
+```
+
+For APT, the following command returns a non-zero list of updates categorized as **Security** by Canonical for Ubuntu Linux distros.
+
+```bash
+sudo grep security /etc/apt/sources.list > /tmp/oms-update-security.list LANG=en_US.UTF8 sudo apt-get -s dist-upgrade -oDir::Etc::Sourcelist=/tmp/oms-update-security.list
+```
+
+From this list you then run the command `grep ^Inst` to get all the pending security updates.
 
 ## <a name="failed-to-enable-error"></a>Scenario: You receive the error "Failed to enable the Update solution"
 
@@ -40,7 +74,7 @@ This error can occur for the following reasons:
 
 * Go to [Network configuration](../automation-hybrid-runbook-worker.md#network-planning) to learn about which addresses and ports must be allowed for Update Management to work.  
 
-* Check for scope configuration problems. [Scope configuration](../update-management/update-mgmt-scope-configuration.md) determines which machines are configured for Update Management. If your machine is showing up in your workspace but not in Update Management, you must set the scope configuration to target the machines. To learn about the scope configuration, see [Enable machines in the workspace](../update-management/update-mgmt-enable-automation-account.md#enable-machines-in-the-workspace).
+* Check for scope configuration problems. [Scope configuration](../update-management/scope-configuration.md) determines which machines are configured for Update Management. If your machine is showing up in your workspace but not in Update Management, you must set the scope configuration to target the machines. To learn about the scope configuration, see [Enable machines in the workspace](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
 
 * Remove the worker configuration by following the steps in [Remove the Hybrid Runbook Worker from an on-premises Windows computer](../automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) or [Remove the Hybrid Runbook Worker from an on-premises Linux computer](../automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker).
 
@@ -52,27 +86,25 @@ Old updates are appearing for an Automation account as missing even though they'
 
 ### Cause
 
-Superseded updates aren't correctly indicated as declined so that they can be considered not applicable.
+Superseded updates aren't declined in Windows Server Update Services (WSUS) so that they can be considered not applicable.
 
 ### Resolution
 
-When a superseded update becomes 100 percent not applicable, you should change the approval state of that update to `Declined`. To change approval state for all your updates:
+When a superseded update becomes 100 percent not applicable, you should change the approval state of that update to `Declined` in WSUS. To change approval state for all your updates:
 
-1. In the Automation account, select **Update Management** to view machine status. See [View update assessments](../update-management/update-mgmt-view-update-assessments.md).
+1. In the Automation account, select **Update Management** to view machine status. See [View update assessments](../update-management/view-update-assessments.md).
 
 2. Check the superseded update to make sure that it's 100 percent not applicable.
 
-3. Mark the update as declined unless you have a question about the update.
+3. On the WSUS server the machines report to, [decline the update](/windows-server/administration/windows-server-update-services/manage/updates-operations#declining-updates).
 
-4. Select **Computers** and, in the **Compliance** column, force a rescan for compliance. See [Manage updates for VMs](../update-management/update-mgmt-manage-updates-for-vm.md).
+4. Select **Computers** and, in the **Compliance** column, force a rescan for compliance. See [Manage updates for VMs](../update-management/manage-updates-for-vm.md).
 
 5. Repeat the steps above for other superseded updates.
 
-6. Run the cleanup wizard to delete files from the declined updates. 
+6. For Windows Server Update Services (WSUS), clean all superseded updates to refresh the infrastructure using the WSUS [Server cleanup Wizard](/windows-server/administration/windows-server-update-services/manage/the-server-cleanup-wizard).
 
-7. For Windows Server Update Services (WSUS), manually clean all superseded updates to refresh the infrastructure.
-
-8. Repeat this procedure regularly to correct the display issue and minimize the amount of disk space used for update management.
+7. Repeat this procedure regularly to correct the display issue and minimize the amount of disk space used for update management.
 
 ## <a name="nologs"></a>Scenario: Machines don't show up in the portal under Update Management
 
@@ -98,7 +130,7 @@ This issue can be caused by local configuration issues or by improperly configur
 
 1. Run the troubleshooter for [Windows](update-agent-issues.md#troubleshoot-offline) or [Linux](update-agent-issues-linux.md#troubleshoot-offline), depending on the OS.
 
-2. Make sure that your machine is reporting to the correct workspace. For guidance on how to verify this aspect, see [Verify agent connectivity to Azure Monitor](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-azure-monitor). Also make sure that this workspace is linked to your Azure Automation account. To confirm, go to your Automation account and select **Linked workspace** under **Related Resources**.
+2. Make sure that your machine is reporting to the correct workspace. For guidance on how to verify this aspect, see [Verify agent connectivity to Azure Monitor](../../azure-monitor/agents/agent-windows.md#verify-agent-connectivity-to-azure-monitor). Also make sure that this workspace is linked to your Azure Automation account. To confirm, go to your Automation account and select **Linked workspace** under **Related Resources**.
 
 3. Make sure that the machines show up in the Log Analytics workspace linked to your Automation account. Run the following query in the Log Analytics workspace.
 
@@ -107,13 +139,11 @@ This issue can be caused by local configuration issues or by improperly configur
    | summarize by Computer, Solutions
    ```
 
-4. If you don't see your machine in the query results, it hasn't recently checked in. There's probably a local configuration issue and you should [reinstall the agent](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
+    If you don't see your machine in the query results, it hasn't recently checked in. There's probably a local configuration issue and you should [reinstall the agent](../../azure-monitor/vm/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
-5. If your machine shows up in the query results, check for scope configuration problems. The [scope configuration](../update-management/update-mgmt-scope-configuration.md) determines which machines are configured for Update Management.
+    If your machine is listed in the query results, verify under the **Solutions** property that **updates** is listed. This verifies it is registered with Update Management. If it is not, check for scope configuration problems. The [scope configuration](../update-management/scope-configuration.md) determines which machines are configured for Update Management. To configure the scope configuration for the target the machine, see [Enable machines in the workspace](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
 
-6. If your machine is showing up in your workspace but not in Update Management, you must configure the scope configuration to target the machine. To learn how to do this, see [Enable machines in the workspace](../update-management/update-mgmt-enable-automation-account.md#enable-machines-in-the-workspace).
-
-7. In your workspace, run this query.
+4. In your workspace, run this query.
 
    ```kusto
    Operation
@@ -121,9 +151,9 @@ This issue can be caused by local configuration issues or by improperly configur
    | sort by TimeGenerated desc
    ```
 
-8. If you get a `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` result, the quota defined on your workspace has been reached, which has stopped data from being saved. In your workspace, go to **data volume management** under **Usage and estimated costs**, and change or remove the quota.
+   If you get a `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` result, the quota defined on your workspace has been reached, which has stopped data from being saved. In your workspace, go to **data volume management** under **Usage and estimated costs**, and change or remove the quota.
 
-9. If your issue is still unresolved, follow the steps in [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md) to reinstall the Hybrid Worker for Windows. For Linux, follow the steps in [Deploy a Linux Hybrid Runbook Worker](../automation-linux-hrw-install.md).
+5. If your issue is still unresolved, follow the steps in [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md) to reinstall the Hybrid Worker for Windows. For Linux, follow the steps in [Deploy a Linux Hybrid Runbook Worker](../automation-linux-hrw-install.md).
 
 ## <a name="rp-register"></a>Scenario: Unable to register Automation resource provider for subscriptions
 
@@ -187,11 +217,11 @@ If your subscription isn't configured for the Automation resource provider, you 
 
 #### Machines not available or not tagged correctly when schedule executed
 
-Use the following procedure if your subscription is configured for the Automation resource provider, but running the update schedule with the specified [dynamic groups](../update-management/update-mgmt-groups.md) missed some machines.
+Use the following procedure if your subscription is configured for the Automation resource provider, but running the update schedule with the specified [dynamic groups](../update-management/configure-groups.md) missed some machines.
 
 1. In the Azure portal, open the Automation account and select **Update Management**.
 
-2. Check [Update Management history](../update-management/update-mgmt-deploy-updates.md#view-results-of-a-completed-update-deployment) to determine the exact time when the update deployment was run.
+2. Check [Update Management history](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment) to determine the exact time when the update deployment was run.
 
 3. For machines that you suspect to have been missed by Update Management, use Azure Resource Graph (ARG) to [locate machine changes](../../governance/resource-graph/how-to/get-resource-changes.md#find-detected-change-events-and-view-change-details).
 
@@ -221,13 +251,13 @@ Here are possible causes for this issue:
 
 #### Incorrect access on selected scopes
 
-The Azure portal only displays machines for which you have write access in a given scope. If you don't have the correct access for a scope, see [Tutorial: Grant a user access to Azure resources using RBAC and the Azure portal](../../role-based-access-control/quickstart-assign-role-user-portal.md).
+The Azure portal only displays machines for which you have write access in a given scope. If you don't have the correct access for a scope, see [Tutorial: Grant a user access to Azure resources using the Azure portal](../../role-based-access-control/quickstart-assign-role-user-portal.md).
 
 #### ARG query doesn't return expected machines
 
 Follow the steps below to find out if your queries are working correctly.
 
-1. Run an ARG query formatted as shown below in the Resource Graph explorer blade in Azure portal. This query mimics the filters you selected when you created the dynamic group in Update Management. See [Use dynamic groups with Update Management](../update-management/update-mgmt-groups.md).
+1. Run an ARG query formatted as shown below in the Resource Graph explorer blade in Azure portal. This query mimics the filters you selected when you created the dynamic group in Update Management. See [Use dynamic groups with Update Management](../update-management/configure-groups.md).
 
     ```kusto
     where (subscriptionId in~ ("<subscriptionId1>", "<subscriptionId2>") and type =~ "microsoft.compute/virtualmachines" and properties.storageProfile.osDisk.osType == "<Windows/Linux>" and resourceGroup in~ ("<resourceGroupName1>","<resourceGroupName2>") and location in~ ("<location1>","<location2>") )
@@ -300,7 +330,7 @@ Update
 
 #### Communication with Automation account blocked
 
-Go to [Network planning](../update-management/update-mgmt-overview.md#ports) to learn about which addresses and ports must be allowed for Update Management to work.
+Go to [Network planning](../update-management/overview.md#ports) to learn about which addresses and ports must be allowed for Update Management to work.
 
 #### Duplicate computer name
 
@@ -386,9 +416,9 @@ This error can occur for one of the following reasons:
 
 ### Resolution
 
-When applicable, use [dynamic groups](../update-management/update-mgmt-groups.md) for your update deployments. In addition, you can take the following steps.
+When applicable, use [dynamic groups](../update-management/configure-groups.md) for your update deployments. In addition, you can take the following steps.
 
-1. Verify that your machine or server meets the [requirements](../update-management/update-mgmt-overview.md#client-requirements).
+1. Verify that your machine or server meets the [requirements](../update-management/overview.md#system-requirements).
 2. Verify connectivity to the Hybrid Runbook Worker using the Hybrid Runbook Worker agent troubleshooter. To learn more about the troubleshooter, see [Troubleshoot update agent issues](update-agent-issues.md).
 
 ## <a name="updates-nodeployment"></a>Scenario: Updates are installed without a deployment
@@ -484,9 +514,11 @@ The default maintenance window for updates is 120 minutes. You can increase the 
 
 ### Resolution
 
+To understand why this occurred during an update run after it starts successfully, [check the job output](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment) from the affected machine in the run. You might find specific error messages from your machines that you can research and take action on.  
+
 Edit any failing scheduled update deployments, and increase the maintenance window.
 
-For more information on maintenance windows, see [Install updates](../update-management/update-mgmt-deploy-updates.md#schedule-an-update-deployment).
+For more information on maintenance windows, see [Install updates](../update-management/deploy-updates.md#schedule-an-update-deployment).
 
 ## <a name="hresult"></a>Scenario: Machine shows as "Not assessed" and shows an HRESULT exception
 
@@ -517,7 +549,7 @@ If you see an HRESULT, double-click the exception displayed in red to see the en
 |Exception  |Resolution or action  |
 |---------|---------|
 |`Exception from HRESULT: 0x……C`     | Search the relevant error code in [Windows update error code list](https://support.microsoft.com/help/938205/windows-update-error-code-list) to find additional details about the cause of the exception.        |
-|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | These indicate network connectivity issues. Make sure your machine has network connectivity to Update Management. See the [network planning](../update-management/update-mgmt-overview.md#ports) section for a list of required ports and addresses.        |
+|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | These indicate network connectivity issues. Make sure your machine has network connectivity to Update Management. See the [network planning](../update-management/overview.md#ports) section for a list of required ports and addresses.        |
 |`0x8024001E`| The update operation didn't complete because the service or system was shutting down.|
 |`0x8024002E`| Windows Update service is disabled.|
 |`0x8024402C`     | If you're using a WSUS server, make sure the registry values for `WUServer` and `WUStatusServer` under the  `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` registry key specify the correct WSUS server.        |
@@ -551,9 +583,9 @@ Possible causes:
 
 ### Resolution
 
-If failures occur during an update run after it starts successfully, [check the job output](../update-management/update-mgmt-deploy-updates.md#view-results-of-a-completed-update-deployment) from the affected machine in the run. You might find specific error messages from your machines that you can research and take action on. Update Management requires the package manager to be healthy for successful update deployments.
+If failures occur during an update run after it starts successfully, [check the job output](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment) from the affected machine in the run. You might find specific error messages from your machines that you can research and take action on. Update Management requires the package manager to be healthy for successful update deployments.
 
-If specific patches, packages, or updates are seen immediately before the job fails, you can try [excluding](../update-management/update-mgmt-deploy-updates.md#schedule-an-update-deployment) these items from the next update deployment. To gather log information from Windows Update, see [Windows Update log files](/windows/deployment/update/windows-update-logs).
+If specific patches, packages, or updates are seen immediately before the job fails, you can try [excluding](../update-management/deploy-updates.md#schedule-an-update-deployment) these items from the next update deployment. To gather log information from Windows Update, see [Windows Update log files](/windows/deployment/update/windows-update-logs).
 
 If you can't resolve a patching issue, make a copy of the **/var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log** file and preserve it for troubleshooting purposes before the next update deployment starts.
 
@@ -563,7 +595,7 @@ If you can't resolve a patching issue, make a copy of the **/var/opt/microsoft/o
 
 Try running updates directly on the machine. If the machine can't apply the updates, consult the [list of potential errors in the troubleshooting guide](#hresult).
 
-If updates run locally, try removing and reinstalling the agent on the machine by following the guidance at [Remove a VM from Update Management](../update-management/update-mgmt-remove-vms.md).
+If updates run locally, try removing and reinstalling the agent on the machine by following the guidance at [Remove a VM from Update Management](../update-management/remove-vms.md).
 
 ### I know updates are available, but they don't show as available on my machines
 
@@ -583,7 +615,7 @@ Updates are often superseded by other updates. For more information, see [Update
 
 ### Installing updates by classification on Linux
 
-Deploying updates to Linux by classification ("Critical and security updates") has important caveats, especially for CentOS. These limitations are documented on the [Update Management overview page](../update-management/update-mgmt-overview.md#linux).
+Deploying updates to Linux by classification ("Critical and security updates") has important caveats, especially for CentOS. These limitations are documented on the [Update Management overview page](../update-management/overview.md#linux).
 
 ### KB2267602 is consistently missing
 

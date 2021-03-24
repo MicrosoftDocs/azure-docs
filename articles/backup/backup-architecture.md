@@ -30,7 +30,7 @@ Learn more about [what you can back up](backup-overview.md) and about [supported
 
 ## Where is data backed up?
 
-Azure Backup stores backed-up data in a vaults - Recover Services vaults and Backup vaults. A vault is an online-storage entity in Azure that's used to hold data, such as backup copies, recovery points, and backup policies.
+Azure Backup stores backed-up data in vaults - Recovery Services vaults and Backup vaults. A vault is an online-storage entity in Azure that's used to hold data, such as backup copies, recovery points, and backup policies.
 
 Vaults have the following features:
 
@@ -40,7 +40,7 @@ Vaults have the following features:
 - You specify how data in the vault is replicated for redundancy:
   - **Locally redundant storage (LRS)**: To protect against failure in a datacenter, you can use LRS. LRS replicates data to a storage scale unit. [Learn more](../storage/common/storage-redundancy.md#locally-redundant-storage).
   - **Geo-redundant storage (GRS)**: To protect against region-wide outages, you can use GRS. GRS replicates your data to a secondary region. [Learn more](../storage/common/storage-redundancy.md#geo-redundant-storage).
-  - **Zone-redundant storage (ZRS)**: replicates your data in [availability zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones), guaranteeing data residency and resiliency in the same region. [Learn more](../storage/common/storage-redundancy.md#zone-redundant-storage)
+  - **Zone-redundant storage (ZRS)**: replicates your data in [availability zones](../availability-zones/az-overview.md#availability-zones), guaranteeing data residency and resiliency in the same region. [Learn more](../storage/common/storage-redundancy.md#zone-redundant-storage)
   - By default, Recovery Services vaults use GRS.
 
 Recovery Services vaults have the following additional features:
@@ -82,8 +82,8 @@ Storage consumption, recovery time objective (RTO), and network consumption vari
 
 - Data source A is composed of 10 storage blocks, A1-A10, which are backed up monthly.
 - Blocks A2, A3, A4, and A9 change in the first month, and block A5 changes in the next month.
-- For differential backups, in the second month, changed blocks A2, A3, A4, and A9 are backed up. In the third month, these same blocks are backed up again, along with changed block A5. The changed blocks continue to be backed up until the next full backup happens.
-- For incremental backups, in the second month, blocks A2, A3, A4, and A9 are marked as changed and transferred. In the third month, only changed block A5 is marked and transferred.
+- For differential backups, in the second month changed blocks A2, A3, A4, and A9 are backed up. In the third month, these same blocks are backed up again, along with changed block A5. The changed blocks continue to be backed up until the next full backup happens.
+- For incremental backups, in the second month blocks A2, A3, A4, and A9 are marked as changed and transferred. In the third month, only changed block A5 is marked and transferred.
 
 ![Image showing comparisons of backup methods](./media/backup-architecture/backup-method-comparison.png)
 
@@ -118,6 +118,12 @@ Back up deduplicated disks | | | ![Partially][yellow]<br/><br/> For DPM/MABS ser
 - Retention for "monthly", "yearly" backup points is referred to as Long Term Retention (LTR)
 - When a vault is created, a "DefaultPolicy" is also created and can be used to back up resources.
 - Any changes made to the retention period of a backup policy will be applied retroactively to all the older recovery points aside from the new ones.
+
+### Impact of policy change on recovery points
+
+- **Retention duration is increased / decreased:** When the retention duration is changed, the new retention duration is applied to the existing recovery points as well. As a result, some of the recovery points will be cleaned up. If the retention period is increased, the existing recovery points will have an increased retention as well.
+- **Changed from daily to weekly:** When the scheduled backups are changed from daily to weekly,  the existing daily recovery points are cleaned up.
+- **Changed from weekly to daily:** The existing weekly backups will be retained based on the number of days remaining according to the current retention policy.
 
 ### Additional reference
 
@@ -156,7 +162,7 @@ You don't need to explicitly allow internet connectivity to back up your Azure V
 1. The MARS agent uses VSS to take a point-in-time snapshot of the volumes selected for backup.
     - The MARS agent uses only the Windows system write operation to capture the snapshot.
     - Because the agent doesn't use any application VSS writers, it doesn't capture app-consistent snapshots.
-1. After taking the snapshot with VSS, the MARS agent creates a virtual hard disk (VHD) in the cache folder you specified when you configured the backup. The agent also stores checksums for each data block.
+1. After taking the snapshot with VSS, the MARS agent creates a virtual hard disk (VHD) in the cache folder you specified when you configured the backup. The agent also stores checksums for each data block. These are later used to detect changed blocks for subsequent incremental backups.
 1. Incremental backups run according to the schedule you specify, unless you run an on-demand backup.
 1. In incremental backups, changed files are identified and a new VHD is created. The VHD is compressed and encrypted, and then it's sent to the vault.
 1. After the incremental backup finishes, the new VHD is merged with the VHD created after the initial replication. This merged VHD provides the latest state to be used for comparison for ongoing backup.

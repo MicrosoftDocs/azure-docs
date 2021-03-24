@@ -27,14 +27,14 @@ The following software must be installed:
 
 * Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * The latest version of Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
-* [Visual Studio tools for Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/install-the-tools). Specifically, the following *Workload* installations are mandatory:
+* [Visual Studio tools for Mixed Reality](/windows/mixed-reality/install-the-tools). Specifically, the following *Workload* installations are mandatory:
   * **Desktop development with C++**
   * **Universal Windows Platform (UWP) development**
 * GIT [(download)](https://git-scm.com/downloads)
 
 ## Clone the ARR samples repository
 
-As a first step, we clone the Git repository, which houses the public Azure Remote Rendering samples. Open a command prompt (type `cmd` in the Windows start menu) and change to a directory where you want to store the ARR sample project.
+As a first step, we clone the Git repository, which houses the global Azure Remote Rendering samples. Open a command prompt (type `cmd` in the Windows start menu) and change to a directory where you want to store the ARR sample project.
 
 Run the following commands:
 
@@ -56,26 +56,27 @@ Switch the build configuration to *Debug* (or *Release*) and *ARM64*. Also make 
 
 ![Visual Studio config](media/vs-config-native-cpp-tutorial.png)
 
-Since the account credentials are hardcoded in the tutorial's source code, change them to valid credentials. For that, open file `HolographicAppMain.cpp` inside Visual Studio and change the part where the frontend is created inside the constructor of class `HolographicAppMain`:
+Since the account credentials are hardcoded in the tutorial's source code, change them to valid credentials. For that, open file `HolographicAppMain.cpp` inside Visual Studio and change the part where the client is created inside the constructor of class `HolographicAppMain`:
 
 ```cpp
-// 2. Create front end
+// 2. Create Client
 {
     // Users need to fill out the following with their account data and model
-    RR::AzureFrontendAccountInfo init;
+    RR::SessionConfiguration init;
     init.AccountId = "00000000-0000-0000-0000-000000000000";
     init.AccountKey = "<account key>";
-    init.AccountDomain = "westus2.mixedreality.azure.com"; // <change to your region>
+    init.RemoteRenderingDomain = "westus2.mixedreality.azure.com"; // <change to the region that the rendering session should be created in>
+    init.AccountDomain = "westus2.mixedreality.azure.com"; // <change to the region the account was created in>
     m_modelURI = "builtin://Engine";
     m_sessionOverride = ""; // If there is a valid session ID to re-use, put it here. Otherwise a new one is created
-    m_frontEnd = RR::ApiHandle(RR::AzureFrontend(init));
+    m_client = RR::ApiHandle(RR::RemoteRenderingClient(init));
 }
 ```
 
 Specifically, change the following values:
-* `init.AccountId` and `init.AccountKey` to use your account data. See paragraph about how to [retrieve account information](../../../how-tos/create-an-account.md#retrieve-the-account-information).
-* The region part of the `init.AccountDomain` string for other regions than `westus2`, for instance `"westeurope.mixedreality.azure.com"`
-* In addition, `m_sessionOverride` can be changed to an existing session ID. Sessions can be created outside this sample, for instance by using [the powershell script](../../../samples/powershell-example-scripts.md#script-renderingsessionps1) or using the [session REST API](../../../how-tos/session-rest-api.md#create-a-session) directly.
+* `init.AccountId`, `init.AccountKey`, and `init.AccountDomain` to use your account data. See paragraph about how to [retrieve account information](../../../how-tos/create-an-account.md#retrieve-the-account-information).
+* Specify where to create the remote rendering session by modifying the region part of the `init.RemoteRenderingDomain` string for other regions than `westus2`, for instance `"westeurope.mixedreality.azure.com"`.
+* In addition, `m_sessionOverride` can be changed to an existing session ID. Sessions can be created outside this sample, for instance by using [the PowerShell script](../../../samples/powershell-example-scripts.md#script-renderingsessionps1) or using the [session REST API](../../../how-tos/session-rest-api.md) directly.
 Creating a session outside the sample is recommended when the sample should run multiple times. If no session is passed in, the sample will create a new session upon each startup, which may take several minutes.
 
 Now the application can be compiled.

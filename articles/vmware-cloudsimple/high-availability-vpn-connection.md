@@ -1,8 +1,8 @@
 --- 
 title: Azure VMware Solution by CloudSimple - Configure high availability from on-premises to CloudSimple VPN gateway
 description: Describes how to configure a high availability connection from your on-premises environment to a CloudSimple VPN gateway enabled for high availability
-author: sharaths-cs
-ms.author: b-shsury 
+author: Ajayan1008
+ms.author: v-hborys 
 ms.date: 08/14/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 

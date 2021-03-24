@@ -1,14 +1,15 @@
 ---
 title: What is Azure Machine Learning
-description: Overview of Azure Machine Learning - An integrated, end-to-end data science solution for professional data scientists to develop, experiment, and deploy advanced analytics applications at cloud scale.
+description: Azure Machine Learning is an integrated data science solution for data scientists and MLops to model and deploy ML applications at cloud scale.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: overview
-author: j-martens
-ms.author: jmartens
-ms.date: 11/04/2019
+ms.author: larryfr
+author: BlackMist
+ms.date: 11/04/2020
 ms.custom: devx-track-python
+adobe-target: true
 ---
 
 # What is Azure Machine Learning?
@@ -20,8 +21,6 @@ Azure Machine Learning can be used for any kind of machine learning, from classi
 Start training on your local machine and then scale out to the cloud. 
 
 The service also interoperates with popular deep learning and reinforcement open-source tools such as PyTorch, TensorFlow, scikit-learn, and Ray RLlib. 
-
-> [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
 
 > [!Tip]
 > **Free trial!**  If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today. You get credits to spend on Azure services. After they're used up, you can keep the account and use [free Azure services](https://azure.microsoft.com/free/). Your credit card is never charged unless you explicitly change your settings and ask to be charged.
@@ -38,13 +37,13 @@ Forecasts or predictions from machine learning can make apps and devices smarter
 Azure Machine Learning provides all the tools developers and data scientists need for their machine learning workflows, including:
 + The [Azure Machine Learning designer](tutorial-designer-automobile-price-train-score.md): drag-n-drop modules to build your experiments and then deploy pipelines.
 
-+ Jupyter notebooks: use our [example notebooks](https://github.com/Azure/MachineLearningNotebooks) or create your own notebooks to leverage our <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK for Python</a> samples for your machine learning. 
++ Jupyter notebooks: use our [example notebooks](https://github.com/Azure/MachineLearningNotebooks) or create your own notebooks to leverage our <a href="/python/api/overview/azure/ml/intro" target="_blank">SDK for Python</a> samples for your machine learning. 
 
 + R scripts or notebooks in which you use the <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">SDK for R</a> to write your own code, or use the R modules in the designer.
 
-+ + The [Many Models Solution Accelerator](https://aka.ms/many-models) (preview) builds on Azure Machine Learning and enables you to train, operate, and manage hundreds or even thousands of machine learning models.
++ The [Many Models Solution Accelerator](https://aka.ms/many-models) (preview) builds on Azure Machine Learning and enables you to train, operate, and manage hundreds or even thousands of machine learning models.
 
-+ [Visual Studio Code extension](tutorial-setup-vscode-extension.md)
++ [Machine learning extension for Visual Studio Code users](tutorial-setup-vscode-extension.md)
 
 + [Machine learning CLI](reference-azure-machine-learning-cli.md)
 
@@ -56,9 +55,9 @@ You can even use [MLflow to track metrics and deploy models](how-to-use-mlflow.m
 
 ## Build ML models in Python or R
 
-Start training on your local machine using the Azure Machine Learning <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Python SDK</a> or <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">R SDK</a>. Then, you can scale out to the cloud. 
+Start training on your local machine using the Azure Machine Learning <a href="/python/api/overview/azure/ml/intro" target="_blank">Python SDK</a> or <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">R SDK</a>. Then, you can scale out to the cloud. 
 
-With many available [compute targets](how-to-create-attach-compute-sdk.md), like Azure Machine Learning Compute and [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), and with [advanced hyperparameter tuning services](how-to-tune-hyperparameters.md), you can build better models faster by using the power of the cloud.
+With many available [compute targets](how-to-create-attach-compute-studio.md), like Azure Machine Learning Compute and [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks), and with [advanced hyperparameter tuning services](how-to-tune-hyperparameters.md), you can build better models faster by using the power of the cloud.
 
 You can also [automate model training and tuning](tutorial-auto-train-models.md) using the SDK.
 
@@ -87,9 +86,9 @@ You can also [automate model training and tuning](tutorial-auto-train-models.md)
 ## MLOps: Deploy & lifecycle management
 When you have the right model, you can easily use it in a web service, on an IoT device, or from Power BI. For more information, see the article on [how to deploy and where](how-to-deploy-and-where.md).
 
-Then you can manage your deployed models by using the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true), [Azure Machine Learning studio](https://ml.azure.com), or the [machine learning CLI](reference-azure-machine-learning-cli.md).
+Then you can manage your deployed models by using the [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/), [Azure Machine Learning studio](https://ml.azure.com), or the [machine learning CLI](reference-azure-machine-learning-cli.md).
 
-These models can be consumed and return predictions in [real time](how-to-consume-web-service.md) or [asynchronously](how-to-use-parallel-run-step.md) on large quantities of data.
+These models can be consumed and return predictions in [real time](how-to-consume-web-service.md) or [asynchronously](./tutorial-pipeline-batch-scoring-classification.md) on large quantities of data.
 
 And with advanced [machine learning pipelines](concept-ml-pipelines.md), you can collaborate on each step from data preparation, model training and evaluation, through deployment. Pipelines allow you to:
 
@@ -107,13 +106,13 @@ To get started using Azure Machine Learning, see [Next steps](#next-steps).
 Azure Machine Learning works with other services on the Azure platform, and also integrates with open source tools such as Git and MLFlow.
 
 + Compute targets such as __Azure Kubernetes Service__, __Azure Container Instances__, __Azure Databricks__, __Azure Data Lake Analytics__, and __Azure HDInsight__. For more information on compute targets, see [What are compute targets?](concept-compute-target.md).
-+ __Azure Event Grid__. For more information, see [Consume Azure Machine Learning events](concept-event-grid-integration.md).
++ __Azure Event Grid__. For more information, see [Consume Azure Machine Learning events](./how-to-use-event-grid.md).
 + __Azure Monitor__. For more information, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
 + Data stores such as __Azure Storage accounts__, __Azure Data Lake Storage__, __Azure SQL Database__, __Azure Database for PostgreSQL__, and __Azure Open Datasets__. For more information, see [Access data in Azure storage services](how-to-access-data.md) and [Create datasets with Azure Open Datasets](how-to-create-register-datasets.md).
 + __Azure Virtual Networks__. For more information, see [Virtual network isolation and privacy overview](how-to-network-security-overview.md).
 + __Azure Pipelines__. For more information, see [Train and deploy machine learning models](/azure/devops/pipelines/targets/azure-machine-learning).
 + __Git repository logs__. For more information, see [Git integration](concept-train-model-git-integration.md).
-+ __MLFlow__. For more information, see [MLflow to track metrics and deploy models](how-to-use-mlflow.md) 
++ __MLFlow__. For more information, see [MLflow to track metrics](how-to-use-mlflow.md)  and [Deploy Mlflow models as a web service](how-to-deploy-mlflow-models.md) 
 + __Kubeflow__. For more information, see [build end-to-end workflow pipelines](https://www.kubeflow.org/docs/azure/).
 
 ### Secure communications
@@ -123,8 +122,8 @@ Your Azure Storage account, compute targets, and other resources can be used sec
 ## Next steps
 
 - Create your first experiment with your preferred method:
-  + [Use Python notebooks to train & deploy ML models](tutorial-1st-experiment-sdk-setup.md)
-  + [Use R Markdown to train & deploy ML models](tutorial-1st-r-experiment.md) 
+- + [Get started in your own development environment](tutorial-1st-experiment-sdk-setup-local.md)
+  + [Use Jupyter notebooks on a compute instance to train & deploy ML models](tutorial-1st-experiment-sdk-setup.md)
   + [Use automated machine learning to train & deploy ML models](tutorial-first-experiment-automated-ml.md) 
   + [Use the designer's drag & drop capabilities to train & deploy](tutorial-designer-automobile-price-train-score.md) 
   + [Use the machine learning CLI to train and deploy a model](tutorial-train-deploy-model-cli.md)

@@ -14,7 +14,7 @@ ms.author: jgao
 
 ## Health monitoring providers
 
-In order to make health integration as easy as possible, Microsoft has been working with some of the top service health monitoring companies to provide you with a simple copy/paste solution to integrate health checks with your deployments. If you’re not already using a health monitor, these are great solutions to start with:
+In order to make health integration as easy as possible, Microsoft has been working with some of the top service health monitoring companies to provide you with a simple copy/paste solution to integrate health checks with your deployments. If you're not already using a health monitor, these are great solutions to start with:
 
 | ![azure deployment manager health monitor provider azure monitor](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-azure-monitor.svg)| ![azure deployment manager health monitor provider datadog](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-datadog.svg) | ![azure deployment manager health monitor provider site24x7](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-site24x7.svg) | ![azure deployment manager health monitor provider wavefront](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-wavefront.svg) |
 |-----|-----|------|------|
@@ -24,20 +24,20 @@ In order to make health integration as easy as possible, Microsoft has been work
 
 [Health monitoring providers](#health-monitoring-providers) offer several mechanisms for monitoring services and alerting you of any service health issues. [Azure Monitor](../../azure-monitor/overview.md) is an example of one such offering. Azure Monitor can be used to create alerts when certain thresholds are exceeded. For example, your memory and CPU utilization spike beyond expected levels when you deploy a new update to your service. When notified, you can take corrective actions.
 
-These health providers typically offer REST APIs so that the status of your service’s monitors can be examined programmatically. The REST APIs can either come back with a simple healthy/unhealthy signal (determined by the HTTP response code), and/or with detailed information about the signals it is receiving.
+These health providers typically offer REST APIs so that the status of your service's monitors can be examined programmatically. The REST APIs can either come back with a simple healthy/unhealthy signal (determined by the HTTP response code), and/or with detailed information about the signals it is receiving.
 
-The new *healthCheck* step in Azure Deployment Manager allows you to declare HTTP codes that indicate a healthy service, or, for more complex REST results, you can even specify regular expressions that, if they match, indicate a healthy response.
+The new `healthCheck` step in Azure Deployment Manager allows you to declare HTTP codes that indicate a healthy service. For complex REST results you can specify regular expressions that, when matched, indicate a healthy response.
 
-The flow to getting setup with Azure Deployment Manager health checks:
+The flow to set up Azure Deployment Manager health checks:
 
 1. Create your health monitors via a health service provider of your choice.
-1. Create one or more healthCheck steps as part of your Azure Deployment Manager rollout. Fill out the healthCheck steps with the following information:
+1. Create one or more `healthCheck` steps as part of your Azure Deployment Manager rollout. Fill out the `healthCheck` steps with the following information:
 
     1. The URI for the REST API for your health monitors (as defined by your health service provider).
-    1. Authentication information. Currently only API-key style authentication is supported. For Azure Monitor, the authentication type should be set as – “RolloutIdentity” as the user assigned managed identity used for Azure Deployment Manager Rollout extends for Azure Monitor.
-    1. [HTTP status codes](https://www.wikipedia.org/wiki/List_of_HTTP_status_codes) or regular expressions that define a healthy response.	Note that you may provide regular expressions, which ALL must match for the response to be considered healthy, or you may provide expressions of which ANY must match for the response to be considered healthy. Both methods are supported.
+    1. Authentication information. Currently only API-key style authentication is supported. For Azure Monitor, the authentication type should be set as `RolloutIdentity` as the user-assigned managed identity used for Azure Deployment Manager rollout extends for Azure Monitor.
+    1. [HTTP status codes](https://www.wikipedia.org/wiki/List_of_HTTP_status_codes) or regular expressions that define a healthy response. You may provide regular expressions, which ALL must match for the response to be considered healthy, or you may provide expressions of which ANY must match for the response to be considered healthy. Both methods are supported.
 
-    The following Json is an example for integrating Azure Monitor with Azure Deployment Manager that leverages RolloutIdentity and establishes health check wherein a Rollout proceeds if there are no alerts. The only supported Azure Monitor API: [Alerts – Get All](/rest/api/monitor/alertsmanagement/alerts/getall).
+    The following JSON is an example to integrate Azure Monitor with Azure Deployment Manager. The example uses `RolloutIdentity` and establishes a health check where a rollout proceeds if there are no alerts. The only supported Azure Monitor API: [Alerts – Get All](/rest/api/monitor/alertsmanagement/alerts/getall).
 
     ```json
     {
@@ -82,14 +82,14 @@ The flow to getting setup with Azure Deployment Manager health checks:
     }
     ```
 
-    The following Json is an example for all other health monitoring providers:
+    The following JSON is an example for all other health monitoring providers:
 
     ```json
     {
       "type": "Microsoft.DeploymentManager/steps",
       "apiVersion": "2018-09-01-preview",
       "name": "healthCheckStep",
-	  "location": "[parameters('azureResourceLocation')]",
+      "location": "[parameters('azureResourceLocation')]",
       "properties": {
         "stepType": "healthCheck",
         "attributes": {
@@ -131,7 +131,7 @@ The flow to getting setup with Azure Deployment Manager health checks:
     },
     ```
 
-1. Invoke the healthCheck steps at the appropriate time in your Azure Deployment Manager rollout. In the following example, a health check step is invoked in **postDeploymentSteps** of **stepGroup2**.
+1. Invoke the `healthCheck` steps at the appropriate time in your Azure Deployment Manager rollout. In the following example, a `healthCheck` step is invoked in `postDeploymentSteps` of `stepGroup2`.
 
     ```json
     "stepGroups": [
@@ -169,33 +169,35 @@ The flow to getting setup with Azure Deployment Manager health checks:
     ]
     ```
 
-To walk through an example, see [Tutorial: Use health check in Azure Deployment Manager](./deployment-manager-health-check.md).
+To walk through an example, see [Tutorial: Use health check in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 
 ## Phases of a health check
 
-At this point Azure Deployment Manager knows how to query for the health of your service and at what phases in your rollout to do so. However, Azure Deployment Manager also allows for deep configuration of the timing of these checks. A healthCheck step is executed in 3 sequential phases, all of which have configurable durations:
+At this point Azure Deployment Manager knows how to query for the health of your service and at which phases in your rollout to do so. However, Azure Deployment Manager also allows for deep configuration of the timing of these checks. A `healthCheck` step is executed in three sequential phases, all of which have configurable durations:
 
 1. Wait
 
-    1. After a deployment operation is completed, VMs may be rebooting, reconfiguring based on new data, or even being started for the first time. It also takes time for services to start emitting health signals to be aggregated by the health monitoring provider into something useful. During this tumultuous process, it may not make sense to check for service health since the update has not yet reached a steady state. Indeed, the service may be oscillating between healthy and unhealthy states as the resources settle.
-    1. During the Wait phase, service health is not monitored. This is used to allow the deployed resources the time to bake before beginning the health check process.
+    1. After a deployment operation is completed, VMs may be rebooting, reconfiguring based on new data, or even being started for the first time. It also takes time for services to start emitting health signals to be aggregated by the health monitoring provider into something useful. During this tumultuous process, it may not make sense to check for service health since the update hasn't yet reached a steady state. Indeed, the service may be oscillating between healthy and unhealthy states as the resources settle.
+    1. During the Wait phase, service health isn't monitored. This is used to allow the deployed resources the time to bake before beginning the health check process.
+
 1. Elastic
 
-    1. Since it is impossible to know in all cases how long resources will take to bake before they become stable, the Elastic phase allows for a flexible time period between when the resources are potentially unstable and when they are required to maintain a healthy steady state.
+    1. Since it's impossible to know in all cases how long it will take before resources become stable, the Elastic phase allows for a flexible time period between when the resources are potentially unstable and when they are required to maintain a healthy steady state.
     1. When the Elastic phase begins, Azure Deployment Manager begins polling the provided REST endpoint for service health periodically. The polling interval is configurable.
     1. If the health monitor comes back with signals indicating that the service is unhealthy, these signals are ignored, the Elastic phase continues, and polling continues.
-    1. As soon as the health monitor comes back with signals indicating that the service is healthy, the Elastic phase ends and the HealthyState phase begins.
+    1. When the health monitor returns signals indicating that the service is healthy, the Elastic phase ends and the HealthyState phase begins.
     1. Thus, the duration specified for the Elastic phase is the maximum amount of time that can be spent polling for service health before a healthy response is considered mandatory.
+
 1. HealthyState
 
     1. During the HealthyState phase, service health is continually polled at the same interval as the Elastic phase.
     1. The service is expected to maintain healthy signals from the health monitoring provider for the entire specified duration.
     1. If at any point an unhealthy response is detected, Azure Deployment Manager will stop the entire rollout and return the REST response carrying the unhealthy service signals.
-    1. Once the HealthyState duration has ended, the healthCheck is complete, and deployment continues to the next step.
+    1. After the HealthyState duration has ended, the `healthCheck` is complete, and deployment continues to the next step.
 
 ## Next steps
 
 In this article, you learned about how to integrate health monitoring in Azure Deployment Manager. Proceed to the next article to learn how to deploy with Deployment Manager.
 
 > [!div class="nextstepaction"]
-> [Tutorial: integrate health check in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md)
+> [Tutorial: Use health check in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md)

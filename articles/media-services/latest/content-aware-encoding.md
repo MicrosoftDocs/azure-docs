@@ -1,20 +1,17 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
-title: A preset for content-aware encoding - Azure Media Services 
+title: A preset for content-aware encoding
 description: This article discusses content-aware encoding in Microsoft Azure Media Services v3.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: 
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-
 ---
 
 # Use the content-aware encoding preset to find the optimal bitrate value for a given resolution
@@ -27,7 +24,7 @@ You should be aware of the content you are processing, and customize/tune the en
 
 Microsoft's [Adaptive Streaming](autogen-bitrate-ladder.md) preset partially addresses the problem of the variability in the quality and resolution of the source videos. Our customers have a varying mix of content, some at 1080p, others at 720p, and a few at SD and lower resolutions. Furthermore, not all source content is high-quality mezzanines from film or TV studios. The Adaptive Streaming preset addresses these problems by ensuring that the bitrate ladder never exceeds the resolution or the average bitrate of the input mezzanine. However, this preset does not examine source properties other than resolution and bitrate.
 
-## The content-aware encoding 
+## The content-aware encoding
 
 The content-aware encoding preset extends the "adaptive bitrate streaming" mechanism, by incorporating custom logic that lets the encoder seek the optimal bitrate value for a given resolution, but without requiring extensive computational analysis. This preset produces a set of GOP-aligned MP4s. Given any input content, the service performs an initial lightweight analysis of the input content, and uses the results to determine the optimal number of layers, appropriate bitrate and resolution settings for delivery by adaptive streaming. This preset is particularly effective for low and medium complexity videos, where the output files will be at lower bitrates than the Adaptive Streaming preset but at a quality that still delivers a good experience to viewers. The output will contain MP4 files with video and audio interleaved
 
@@ -55,7 +52,7 @@ Below are the results for another category of source content, where the encoder 
 
 You can create transforms that use this preset as follows. 
 
-See the [Next steps](#next-steps) section for tutorials that use tranform outputs. The output asset can be delivered from Media Services streaming endpoints in protocols such as MPEG-DASH and HLS (as shown in the tutorials).
+See the [Next steps](#next-steps) section for tutorials that use transform outputs. The output asset can be delivered from Media Services streaming endpoints in protocols such as MPEG-DASH and HLS (as shown in the tutorials).
 
 > [!NOTE]
 > Make sure to use the **ContentAwareEncoding** preset not  ContentAwareEncodingExperimental.

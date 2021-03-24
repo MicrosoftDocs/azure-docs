@@ -3,7 +3,7 @@ title: Reprovision devices in Azure IoT Hub Device Provisioning Service
 description: Learn how to reprovision devices with your Device Provisioning Service (DPS) instance, and why you might need to do this.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/04/2019
+ms.date: 01/25/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
@@ -11,17 +11,9 @@ services: iot-dps
 
 # How to reprovision devices
 
-During the lifecycle of an IoT solution, it is common to move devices between IoT hubs. The reasons for this move may include the following scenarios:
+During the lifecycle of an IoT solution, it is common to move devices between IoT hubs. This topic is written to assist solution operators configuring reprovisioning policies.
 
-* **Geolocation**: As a device moves between locations, network latency is improved by having the device migrated to an IoT hub closer to each location.
-
-* **Multi-tenancy**: A device could be used within the same IoT solution but, reassigned or leased to a new customer, or customer site. This new customer may be serviced using a different IoT hub.
-
-* **Solution change**: A device could be moved into a new or updated IoT solution. This reassignment may require that the device communicate with a new IoT hub that is connected to other backend components. 
-
-* **Quarantine**: Similar to a solution change. A device that is malfunctioning, compromised, or out-of-date may be reassigned to an IoT hub where all it can do is update and get back in compliance. Once the device is functioning properly, it is then migrated back to its main hub.
-
-For more a more detailed overview of reprovisioning, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md).
+For more a more detailed overview of reprovisioning scenarios, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md).
 
 
 ## Configure the enrollment allocation policy
@@ -70,7 +62,7 @@ The following steps configure the allocation policy for a device's enrollment:
 
 4. Click **Save** to enable the reprovisioning of the device based on your changes.
 
-    ![Select enrollment allocation policy](./media/how-to-reprovision/reprovisioning-policy.png)
+    ![Screenshot that highlights the changes you've made and the Save button.](./media/how-to-reprovision/reprovisioning-policy.png)
 
 
 

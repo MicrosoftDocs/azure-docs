@@ -27,7 +27,7 @@ ms.author: yelevin
 >
 > - Ingestion of Microsoft Defender for Office 365 alerts is currently in public preview. This feature is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
-[Microsoft Defender for Office 365](https://docs.microsoft.com/office365/servicedescriptions/office-365-advanced-threat-protection-service-description) safeguards your organization against zero-day and other advanced threats posed by unknown malware in email messages, malicious URL links, and collaboration tools. By ingesting Microsoft Defender for Office 365 alerts into Azure Sentinel, you'll be able to utilize information about email-, file sharing-, and URL-based threats in your security operations. You can then more comprehensively analyze security events across your organization and build playbooks for effective and immediate response.
+[Microsoft Defender for Office 365](/office365/servicedescriptions/office-365-advanced-threat-protection-service-description) safeguards your organization against zero-day and other advanced threats posed by unknown malware in email messages, malicious URL links, and collaboration tools. By ingesting Microsoft Defender for Office 365 alerts into Azure Sentinel, you'll be able to utilize information about email-, file sharing-, and URL-based threats in your security operations. You can then more comprehensively analyze security events across your organization and build playbooks for effective and immediate response.
 
 The connector imports the following alerts:
 
@@ -51,7 +51,7 @@ These alerts can be seen by Office customers in the **Office Security and Compli
 
 - You must be a Global Administrator or a Security Administrator on the Azure Sentinel workspace's tenant.
 
-- You must have a valid license for [Office 365 ATP Plan 2](https://docs.microsoft.com/microsoft-365/security/office-365-security/office-365-atp#office-365-atp-plan-1-and-plan-2) (included with the Office 365 E5, Office 365 A5, and Microsoft 365 E5 licenses, and available for purchase separately). 
+- You must have a valid license for [Office 365 ATP Plan 2](/microsoft-365/security/office-365-security/office-365-atp#office-365-atp-plan-1-and-plan-2) (included with the Office 365 E5, Office 365 A5, and Microsoft 365 E5 licenses, and available for purchase separately). 
 
 ## Connect to Microsoft Defender for Office 365
 
@@ -73,4 +73,4 @@ If Microsoft Defender for Office 365 is deployed, and if policies have been conf
 
 In this document, you learned how to connect Microsoft Defender for Office 365 to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).
+- Get started [detecting threats with Azure Sentinel](./tutorial-detect-threats-built-in.md).

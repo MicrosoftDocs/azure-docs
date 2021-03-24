@@ -18,7 +18,7 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
 1. Edit the *operations.json* file:
     * Change the link to the graph topology:
 
-        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtension/topology.json"`
+        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtension/2.0/topology.json"`
 
     * Under `GraphInstanceSet`, edit the name of the graph topology to match the value in the preceding link:
 
@@ -40,6 +40,13 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
     Otherwise, near the **AZURE IOT HUB** pane in the lower-left corner, select the **More actions** icon and then select **Set IoT Hub Connection String**. You can copy the string from the *appsettings.json* file. Or, to ensure you've configured the proper IoT hub within Visual Studio Code, use the [Select IoT hub command](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub).
     
     ![Set IoT Hub Connection String](../../../media/quickstarts/set-iotconnection-string.png)
+
+    > [!NOTE]
+    > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
+
 1. Right-click *src/edge/config/ deployment.yolov3.amd64.json* and select **Create Deployment for Single Device**. 
 
     ![Create Deployment for Single Device](../../../media/quickstarts/create-deployment-single-device.png)
@@ -50,13 +57,13 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
     * The `rtspsim` module, which simulates an RTSP server and acts as the source of a live video feed.
 
         > [!NOTE]
-        > If you are using your own edge device instead of the one provisioned by our setup script, go to your edge device and run the following commands with **admin rights**, to pull and store the sample video file used for this quickstart:  
+        > The above steps are assuming you are using the virtual machine created by the setup script. If you are using your own edge device instead, go to your edge device and run the following commands with **admin rights**, to pull and store the sample video file used for this quickstart:  
         
         ```
-        mkdir /home/lvaadmin/samples
-        mkdir /home/lvaadmin/samples/input    
-        curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/lvaadmin/samples/input/camera-300s.mkv  
-        chown -R lvaadmin /home/lvaadmin/samples/  
+        mkdir /home/lvaedgeuser/samples
+        mkdir /home/lvaedgeuser/samples/input    
+        curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/lvaedgeuser/samples/input/camera-300s.mkv  
+        chown -R lvalvaedgeuser:localusergroup /home/lvaedgeuser/samples/  
         ```
         * The `yolov3` module, which is the YoloV3 object detection model that applies computer vision to the images and returns multiple classes of object types
  
@@ -64,10 +71,24 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
 
 ### Prepare to monitor events
 
-Right-click the Live Video Analytics device and select **Start Monitoring Built-in Event Endpoint**. You need this step to monitor the IoT Hub events in the **OUTPUT** window of Visual Studio Code. 
+1. In Visual Studio Code, open the **Extensions** tab (or press Ctrl+Shift+X) and search for Azure IoT Hub.
+1. Right click and select **Extension Settings**.
 
-![Start monitoring](../../../media/quickstarts/start-monitoring-iothub-events.png) 
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/run-program/extensions-tab.png" alt-text="Extension Settings":::
+1. Search and enable “Show Verbose Message”.
 
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::
+1. Right-click the Live Video Analytics device and select **Start Monitoring Built-in Event Endpoint**. You need this step to monitor the IoT Hub events in the **OUTPUT** window of Visual Studio Code. 
+
+   ![Start monitoring](../../../media/quickstarts/start-monitoring-iothub-events.png) 
+
+> [!NOTE]
+> You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
+    ```
+    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+    ```
 ### Run the sample program
 
 1. To start a debugging session, select the F5 key. You see messages printed in the **TERMINAL** window.
@@ -78,7 +99,7 @@ Right-click the Live Video Analytics device and select **Start Monitoring Built-
    Executing operation GraphTopologyList
    -----------------------  Request: GraphTopologyList  --------------------------------------------------
    {
-   "@apiVersion": "1.0"
+   "@apiVersion": "2.0"
    }
    ---------------  Response: GraphTopologyList - Status: 200  ---------------
    {
@@ -96,7 +117,7 @@ Right-click the Live Video Analytics device and select **Start Monitoring Built-
 
          ```
          {
-           "@apiVersion": "1.0",
+           "@apiVersion": "2.0",
            "name": "Sample-Graph-1",
            "properties": {
              "topologyName": "InferencingWithHttpExtension",

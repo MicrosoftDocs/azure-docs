@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Azure Media Services v3 frequently asked questions| Microsoft Docs
+title: Azure Media Services v3 frequently asked questions
 description: This article gives answers to frequently asked questions about Azure Media Services v3.
 services: media-services
 documentationcenter: ''
@@ -23,25 +23,27 @@ This article gives answers to frequently asked questions about Azure Media Servi
 
 ## General
 
+### Does Media Services store any customer data outside of the service region?
+
+- Customers attach their own storage accounts to their Azure Media Services account.  All asset data is stored in these associated storage accounts and the customer controls the location and replication type of this storage.
+- Additional data associated with the Media Services account (including Content Encryption Keys, token verification keys, JobInputHttp urls, and other entity metadata) is stored in Microsoft owned storage within the region selected for the Media Services account.
+    - Due to [data residency requirements](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information) in Brazil South and Southeast Asia, the additional account data is stored in a zone-redundant fashion and is contained in a single region. For Southeast Asia, all the additional account data is stored in Singapore and for Brazil South, the data is stored in Brazil.
+    - In regions other than Brazil South and Southeast Asia, the additional account data may also be stored in Microsoft owned storage in the [paired region](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+- Azure Media Services is a regional service and does not provide [high availability](media-services-high-availability-encoding.md) or data replication. Customers needing these features are highly encouraged to build a solution using Media Services accounts in multiple regions.  A sample showing how to build a solution for High Availability with Media Services Video on Demand is available as a guide.
+
 ### What are the Azure portal limitations for Media Services v3?
 
-You can use the [Azure portal](https://portal.azure.com/) to manage v3 live events, view v3 assets and jobs, get info about accessing APIs, encrypt content. <br/>For all other management tasks (for example, managing transforms and jobs or analyzing v3 content), use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
+You can use the [Azure portal](https://portal.azure.com/) to manage v3 live events, view v3 assets and jobs, get info about accessing APIs, encrypt content. <br/>For all other management tasks (for example, managing transforms and jobs or analyzing v3 content), use the [REST API](/rest/api/media/accountfilters), [CLI](/cli/azure/ams), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
 If your video was previously uploaded into the Media Services account using Media Services v3 API or the content was generated based on a live output, you will not see the **Encode**, **Analyze**, or **Encrypt** buttons in the Azure portal. Use the Media Services v3 APIs to perform these tasks.  
 
 ### What Azure roles can perform actions on Azure Media Services resources? 
 
-See [Role-based access control (RBAC) for Media Services accounts](rbac-overview.md).
+See [Azure role-based access control (Azure RBAC) for Media Services accounts](rbac-overview.md).
 
 ### How do I stream to Apple iOS devices?
 
 Make sure you have **(format=m3u8-aapl)** at the end of your path (after the **/manifest** portion of the URL) to tell the streaming origin server to return HTTP Live Streaming (HLS) content for consumption on Apple iOS native devices. For details, see [Delivering content](dynamic-packaging-overview.md).
-
-### How do I configure Media Reserved Units?
-
-For the Audio Analysis and Video Analysis jobs that are triggered by Media Services v3 or Video Indexer, we recommend that you provision your account with 10 S3 Media Reserved Units (MRUs). If you need more than 10 S3 MRUs, open a support ticket by using the [Azure portal](https://portal.azure.com/).
-
-For details, see [Scale media processing](media-reserved-units-cli-how-to.md).
 
 ### What is the recommended method to process videos?
 
@@ -57,7 +59,7 @@ When you're using pagination, you should always use the next link to enumerate t
 
 ### What features are not yet available in Azure Media Services v3?
 
-For details, see [Feature gaps with respect to v2 APIs](media-services-v2-vs-v3.md#feature-gaps-with-respect-to-v2-apis).
+For details, see [the Migration Guide](migrate-v-2-v-3-migration-introduction.md).
 
 ### What is the process of moving a Media Services account between subscriptions?  
 
@@ -75,12 +77,12 @@ Your web application should prompt the user if they want to end the broadcast as
 
 #### Server side
 
-You can monitor live events by subscribing to Azure Event Grid events. For more information, see the [EventGrid event schema](media-services-event-schemas.md#live-event-types).
+You can monitor live events by subscribing to Azure Event Grid events. For more information, see the [EventGrid event schema](monitoring/media-services-event-schemas.md#live-event-types).
 
 You can either:
 
-* [Subscribe](reacting-to-media-services-events.md) to the stream-level [Microsoft.Media.LiveEventEncoderDisconnected](media-services-event-schemas.md#liveeventencoderdisconnected) events and monitor that no reconnections come in for a while to stop and delete your live event.
-* [Subscribe](reacting-to-media-services-events.md) to the track-level [heartbeat](media-services-event-schemas.md#liveeventingestheartbeat) events. If all tracks have an incoming bitrate dropping to 0 or the last time stamp is no longer increasing, you can safely shut down the live event. The heartbeat events come in at every 20 seconds for every track, so it might be a bit verbose.
+* [Subscribe](monitoring/reacting-to-media-services-events.md) to the stream-level [Microsoft.Media.LiveEventEncoderDisconnected](monitoring/media-services-event-schemas.md#liveeventencoderdisconnected) events and monitor that no reconnections come in for a while to stop and delete your live event.
+* [Subscribe](monitoring/reacting-to-media-services-events.md) to the track-level [heartbeat](monitoring/media-services-event-schemas.md#liveeventingestheartbeat) events. If all tracks have an incoming bitrate dropping to 0 or the last time stamp is no longer increasing, you can safely shut down the live event. The heartbeat events come in at every 20 seconds for every track, so it might be a bit verbose.
 
 ###  How do I insert breaks/videos and image slates during a live stream?
 
@@ -160,13 +162,13 @@ Currently, you can use the [Azure portal](https://portal.azure.com/) to:
 * View (not manage) v3 [assets](assets-concept.md). 
 * [Get info about accessing APIs](./access-api-howto.md). 
 
-For all other management tasks (for example, [Transforms and Jobs](transforms-jobs-concept.md) and [content protection](content-protection-overview.md)), use the [REST API](/rest/api/media/), the [Azure CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
+For all other management tasks (for example, [Transforms and Jobs](transforms-jobs-concept.md) and [content protection](content-protection-overview.md)), use the [REST API](/rest/api/media/), the [Azure CLI](/cli/azure/ams), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
 ### Is there an AssetFile concept in v3?
 
 The `AssetFile` concept was removed from the Media Services API to separate Media Services from Storage SDK dependency. Now Azure Storage, not Media Services, keeps the information that belongs in the Storage SDK. 
 
-For more information, see [Migrate to Media Services v3](media-services-v2-vs-v3.md).
+For more information, see [Migrate to Media Services v3](migrate-v-2-v-3-migration-introduction.md).
 
 ### Where did client-side storage encryption go?
 

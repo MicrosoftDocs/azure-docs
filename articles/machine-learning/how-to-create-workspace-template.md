@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
-ms.date: 09/21/2020
+ms.date: 09/30/2020
 
 
 # Customer intent: As a DevOps person, I need to automate or customize the creation of Azure Machine Learning by using templates.
@@ -28,14 +28,13 @@ For more information, see [Deploy an application with Azure Resource Manager tem
 
 * An **Azure subscription**. If you do not have one, try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 
-* To use a template from a CLI, you need either [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) or the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+* To use a template from a CLI, you need either [Azure PowerShell](/powershell/azure/) or the [Azure CLI](/cli/azure/install-azure-cli).
 
-* Some scenarios require you to open a support ticket. These scenarios are:
+* Some scenarios require you to open a support ticket. For example, using a Private Link enabled workspace with a customer-managed key. For more information, see [Manage and increase quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
-    * __Private Link enabled workspace with a customer-managed key (CMK)__
-    * __Azure Container Registry for the workspace behind your virtual network__
+## Limitations
 
-    For more information, see [Manage and increase quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
+[!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
 
 ## Workspace Resource Manager template
 
@@ -67,7 +66,7 @@ The example template has two **required** parameters:
 > [!TIP]
 > While the template associated with this document creates a new Azure Container Registry, you can also create a new workspace without creating a container registry. One will be created when you perform an operation that requires a container registry. For example, training or deploying a model.
 >
-> You can also reference an existing container registry or storage account in the Azure Resource Manager template, instead of creating a new one. However, the container registry you use must have the __admin account__ enabled. For information on enabling the admin account, see [Admin account](/azure/container-registry/container-registry-authentication#admin-account).
+> You can also reference an existing container registry or storage account in the Azure Resource Manager template, instead of creating a new one. When doing so, you must either [use a managed identity](how-to-use-managed-identities.md) (preview), or [enable the admin account](../container-registry/container-registry-authentication.md#admin-account) for the container registry.
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
@@ -75,7 +74,7 @@ For more information on templates, see the following articles:
 
 * [Author Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md)
 * [Deploy an application with Azure Resource Manager templates](../azure-resource-manager/templates/deploy-powershell.md)
-* [Microsoft.MachineLearningServices resource types](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
+* [Microsoft.MachineLearningServices resource types](/azure/templates/microsoft.machinelearningservices/allversions)
 
 ## Deploy template
 
@@ -159,14 +158,16 @@ New-AzResourceGroupDeployment `
 
 The following example template demonstrates how to create a workspace with three settings:
 
-* Enable high confidentiality settings for the workspace
-* Enable encryption for the workspace
-* Uses an existing Azure Key Vault to retrieve customer-managed keys
+* Enable high confidentiality settings for the workspace. This creates a new Cosmos DB instance.
+* Enable encryption for the workspace.
+* Uses an existing Azure Key Vault to retrieve customer-managed keys. Customer-managed keys are used to create a new Cosmos DB instance for the workspace.
+
+    [!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
 > [!IMPORTANT]
 > Once a workspace has been created, you cannot change the settings for confidential data, encryption, key vault ID, or key identifiers. To change these values, you must create a new workspace using the new values.
 
-For more information, see [Encryption at rest](concept-enterprise-security.md#encryption-at-rest).
+For more information, see [Encryption at rest](concept-data-encryption.md#encryption-at-rest).
 
 > [!IMPORTANT]
 > There are some specific requirements your subscription must meet before using this template:
@@ -248,7 +249,7 @@ New-AzResourceGroupDeployment `
 ```
 ---
 
-When using a customer-managed key, Azure Machine Learning creates a secondary resource group which contains the Cosmos DB instance. For more information, see [encryption at rest - Cosmos DB](concept-enterprise-security.md#encryption-at-rest).
+When using a customer-managed key, Azure Machine Learning creates a secondary resource group which contains the Cosmos DB instance. For more information, see [encryption at rest - Cosmos DB](concept-data-encryption.md#encryption-at-rest).
 
 An additional configuration you can provide for your data is to set the **confidential_data** parameter to **true**. Doing so, does the following:
 
@@ -260,7 +261,7 @@ An additional configuration you can provide for your data is to set the **confid
     > [!IMPORTANT]
     > Once a workspace has been created, you cannot change the settings for confidential data, encryption, key vault ID, or key identifiers. To change these values, you must create a new workspace using the new values.
 
-  For more information, see [encryption at rest](concept-enterprise-security.md#encryption-at-rest).
+  For more information, see [encryption at rest](concept-data-encryption.md#encryption-at-rest).
 
 ## Deploy workspace behind a virtual network
 
@@ -277,21 +278,7 @@ By setting the `vnetOption` parameter value to either `new` or `existing`, you a
 If your associated resources are not behind a virtual network, you can set the **privateEndpointType** parameter to `AutoAproval` or `ManualApproval` to deploy the workspace behind a private endpoint. This can be done for both new and existing workspaces. When updating an existing workspace, fill in the template parameters with the information from the existing workspace.
 
 > [!IMPORTANT]
-> Using Azure Private Link to create a private endpoint for Azure Machine Learning workspace is currently in public preview. This functionality is only available in the following regions:
->
-> * **East US**
-> * **South Central US**
-> * **West US**
-> * **West US 2**
-> * **Central Canada**
-> * **Southeast Asia**
-> * **Japan East**
-> * **North Europe**
-> * **East Australia**
-> * **UK South**
->
-> This preview is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Using an Azure Machine Learning workspace with private link is not available in the Azure Government regions.
 
 # [Azure CLI](#tab/azcli)
 
@@ -551,7 +538,7 @@ New-AzResourceGroupDeployment `
 
 ## Use the Azure portal
 
-1. Follow the steps in [Deploy resources from custom template](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). When you arrive at the __Select a template__ screen, choose the **201-machine-learning-advanced** template from the dropdown.
+1. Follow the steps in [Deploy resources from custom template](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template). When you arrive at the __Select a template__ screen, choose the **201-machine-learning-advanced** template from the dropdown.
 1. Select __Select template__ to use the template. Provide the following required information and any other parameters depending on your deployment scenario.
 
    * Subscription: Select the Azure subscription to use for these resources.
@@ -586,7 +573,7 @@ To avoid this problem, we recommend one of the following approaches:
     az keyvault show --name mykeyvault --resource-group myresourcegroup --query properties.accessPolicies
     ```
 
-    For more information on using the `accessPolicies` section of the template, see the [AccessPolicyEntry object reference](https://docs.microsoft.com/azure/templates/Microsoft.KeyVault/2018-02-14/vaults#AccessPolicyEntry).
+    For more information on using the `accessPolicies` section of the template, see the [AccessPolicyEntry object reference](/azure/templates/Microsoft.KeyVault/2018-02-14/vaults#AccessPolicyEntry).
 
 * Check if the Key Vault resource already exists. If it does, do not recreate it through the template. For example, to use the existing Key Vault instead of creating a new one, make the following changes to the template:
 

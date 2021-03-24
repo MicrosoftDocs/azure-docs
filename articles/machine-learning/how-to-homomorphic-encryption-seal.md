@@ -9,13 +9,13 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.custom: how-to, devx-track-python, deploy, responsible-ml
 #intent: As a data scientist, I want to deploy a service that uses homomorphic encryption to make predictions on encrypted data
 ---
 
 # How to deploy an encrypted inferencing web service (preview)
 
-Learn how to deploy an image classification model as an encrypted inferencing web service in [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI). The web service is a Docker container image that contains the model and scoring logic.
+Learn how to deploy an image classification model as an encrypted inferencing web service in [Azure Container Instances](../container-instances/index.yml) (ACI). The web service is a Docker container image that contains the model and scoring logic.
 
 In this guide, you use Azure Machine Learning service to:
 
@@ -26,7 +26,7 @@ In this guide, you use Azure Machine Learning service to:
 > * Make encrypted predictions
 > * Clean up resources
 
-ACI is a great solution for testing and understanding the model deployment workflow. For scalable production deployments, consider using Azure Kubernetes Service. For more information, see [how to deploy and where](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where).
+ACI is a great solution for testing and understanding the model deployment workflow. For scalable production deployments, consider using Azure Kubernetes Service. For more information, see [how to deploy and where](./how-to-deploy-and-where.md).
 
 The encryption method used in this sample is [homomorphic encryption](https://github.com/Microsoft/SEAL#homomorphic-encryption). Homomorphic encryption allows for computations to be done on encrypted data without requiring access to a secret (decryption) key. The results of the computations are encrypted and can be revealed only by the owner of the secret key. 
 

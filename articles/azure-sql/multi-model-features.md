@@ -38,7 +38,7 @@ The Azure SQL family of products provide the following multi-model features:
 - [Key-value pairs](#key-value-pairs) are not explicitly supported as special features since key-value pairs can be natively modeled as two-column tables.
 
   > [!Note]
-  > You can use JSON Path expression, XQuery/XPath expressions, spatial functions, and graph-query expressions in the same Transact-SQL query to access any data that you stored in the database. Also, any tool or programming language that can execute Transact-SQL queries, can also use that query interface to access multi-model data. This is the key difference compared to the multi-model databases such as [Azure Cosmos DB](/azure/cosmos-db/) that provides specialized API for different data models.
+  > You can use JSON Path expression, XQuery/XPath expressions, spatial functions, and graph-query expressions in the same Transact-SQL query to access any data that you stored in the database. Also, any tool or programming language that can execute Transact-SQL queries, can also use that query interface to access multi-model data. This is the key difference compared to the multi-model databases such as [Azure Cosmos DB](../cosmos-db/index.yml) that provides specialized API for different data models.
 
 In the following sections, you can learn about the most important multi-model capabilities of the Azure SQL family of products .
 
@@ -81,7 +81,7 @@ For more information, see [How to work with JSON data](database/json-features.md
 
 Document models can be used instead of the relational models in some specific scenarios:
 
-- High-normalization of schema doesn't bring significant benefits because you access the all fields of objects at once, or you never update normalized parts of the objects. However, the normalized model increases the complexity of your queries due to the large number of tables that you need to join to get the data.
+- High-normalization of schema doesn't bring significant benefits because you access all the fields of the objects at once, or you never update normalized parts of the objects. However, the normalized model increases the complexity of your queries due to the large number of tables that you need to join to get the data.
 - You are working with the applications that natively use JSON documents are communication or data models, and you don't want to introduce additional layers that transforms relational data to JSON and vice versa.
 - You need to simplify your data model by de-normalizing child tables or Entity-Object-Value patterns.
 - You need to load or export data stored in JSON format without some additional tool that parses the data.
@@ -119,7 +119,7 @@ The SQL Server database engine provides a powerful platform for developing rich 
 
 Document models can be used instead of the relational models in some specific scenarios:
 
-- High-normalization of schema doesn't bring significant benefits because you access the all fields of objects at once, or you never update normalized parts of the objects. However, the normalized model increases the complexity of your queries due to the large number of tables that you need to join to get the data.
+- High-normalization of schema doesn't bring significant benefits because you access all the fields of the objects at once, or you never update normalized parts of the objects. However, the normalized model increases the complexity of your queries due to the large number of tables that you need to join to get the data.
 - You are working with the applications that natively use XML documents are communication or data models, and you don't want to introduce additional layers that transforms relational data to XML and vice versa.
 - You need to simplify your data model by de-normalizing child tables or Entity-Object-Value patterns.
 - You need to load or export data stored in XML format without some additional tool that parses the data.
@@ -137,7 +137,7 @@ CREATE TABLE Collection (
 
 You can customize this key-value structure to fit your needs without any constraints. As an example, the value can be XML document instead of `nvarchar(max)` type, if the value is JSON document, you can put `CHECK` constraint that verifies the validity of JSON content. You can put any number of values related to one key in the additional columns, add computed columns and indexes to simplify and optimize data access, define the table as memory/optimized schema-only table to get better performance, etc.
 
-See [how BWin is using In-Memory OLTP to achieve unprecedented performance and scale](https://blogs.msdn.microsoft.com/sqlcat/20../../how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) for their ASP.NET caching solution that achieved 1.200.000 batches per seconds, as an example how relational model can be effectively used as key-value pair solution in practice.
+See [how BWin is using In-Memory OLTP to achieve unprecedented performance and scale](/archive/blogs/sqlcat/how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale) for their ASP.NET caching solution that achieved 1.200.000 batches per seconds, as an example how relational model can be effectively used as key-value pair solution in practice.
 
 ## Next steps
 

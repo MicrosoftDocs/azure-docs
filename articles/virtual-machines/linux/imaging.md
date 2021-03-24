@@ -2,8 +2,9 @@
 title: Overview of creating Linux images for Azure
 description: How to bring your Linux VM images or create new images to use in Azure.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: imaging
+ms.collection: linux
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 06/22/2020
@@ -25,7 +26,7 @@ Azure allows you to bring a VHD to the platform, to use as a [Managed Disk](../f
 
 Azure managed disks are single VHDs. You can either take an existing VHD and create a managed disk from it, or create an empty managed disk from scratch. You can create VMs from managed disks by attaching the disk to the VM, but you can only use a VHD with one VM. You can't modify any OS properties, Azure will just try to turn on the VM and start up using that disk. 
 
-Azure images can be made up of multiple OS disks and data disks. When you use a managed image to create a VM, the platform makes a copy of the image and uses that to create the VM, so managed image support reusing the same image for multiple VMs. Azure also provides advanced management capabilities for images, like global replication, and versioning through [Shared Image Gallery](shared-image-galleries.md). 
+Azure images can be made up of multiple OS disks and data disks. When you use a managed image to create a VM, the platform makes a copy of the image and uses that to create the VM, so managed image support reusing the same image for multiple VMs. Azure also provides advanced management capabilities for images, like global replication, and versioning through [Shared Image Gallery](../shared-image-galleries.md). 
 
 
 
@@ -42,7 +43,7 @@ Azure offers two main image types, generalized and specialized. The terms genera
 
 ### Generalized images
 
-A generalized image is an image that requires setup to be completed on first boot. For example, on first boot you set the hostname, admin user and other VM-specific configurations. This is useful when you want the image to be reused multiple times, and when you want to pass in parameters during creation. If the generalized image contains the Azure agent, the agent will process the parameters, and signal back to the platform that the initial configuration has completed. This process is called [provisioning](https://docs.microsoft.com/azure/virtual-machines/linux/provisioning). 
+A generalized image is an image that requires setup to be completed on first boot. For example, on first boot you set the hostname, admin user and other VM-specific configurations. This is useful when you want the image to be reused multiple times, and when you want to pass in parameters during creation. If the generalized image contains the Azure agent, the agent will process the parameters, and signal back to the platform that the initial configuration has completed. This process is called [provisioning](./provisioning.md). 
 
 Provisioning requires that a provisioner is included in the image. There are two provisioners:
 - [Azure Linux Agent](../extensions/agent-linux.md)
@@ -61,7 +62,7 @@ Provisioning agents are not required for these images, however, you may want to 
 When bringing your Linux image you have two options:
 
 - Managed images for simple VM creation in a development and test environment.
-- [Shared Image Gallery](shared-image-galleries.md) for creating and sharing images at-scale.
+- [Shared Image Gallery](../shared-image-galleries.md) for creating and sharing images at-scale.
 
 
 ### Managed images
@@ -72,14 +73,14 @@ Managed images can be used for development and test environments, where you need
 
 ### Azure Shared Image Gallery (SIG)
 
-[Shared Image Galleries](shared-image-galleries.md) are recommended for creating, managing and sharing images at scale. Shared image galleries help you build structure and organization around your images.  
+[Shared Image Galleries](../shared-image-galleries.md) are recommended for creating, managing and sharing images at scale. Shared image galleries help you build structure and organization around your images.  
 
 - Support for both generalized and specialized images.
 - Support for image both generation 1 and 2 images.
 - Global replication of images.
 - Versioning and grouping of images for easier management.
 - Highly available images with Zone Redundant Storage (ZRS), in regions that support Availability Zones. ZRS offers better resilience against zonal failures.
-- Sharing across subscriptions, and even between Active Directory (AD) tenants, using RBAC.
+- Sharing across subscriptions, and even between Active Directory (AD) tenants, using Azure RBAC.
 - Scaling your deployments with image replicas in each region.
 
 At a high level, you create a SIG, and it is made up of:
@@ -90,7 +91,7 @@ At a high level, you create a SIG, and it is made up of:
 
 ## Hyper-V generation
 
-Azure supports Hyper-V Generation 1 (Gen1) and Generation 2 (Gen2), Gen2 is the latest generation, and offers additional functionality over Gen1. For example: increased memory, Intel Software Guard Extensions (Intel SGX), and virtualized persistent memory (vPMEM). Generation 2 VMs running on-premises, have some features that aren't supported in Azure yet. For more information, see the Features and capabilities section. For more information see this [article](../windows/generation-2.md). Create Gen2 images if you require the additional functionality.
+Azure supports Hyper-V Generation 1 (Gen1) and Generation 2 (Gen2), Gen2 is the latest generation, and offers additional functionality over Gen1. For example: increased memory, Intel Software Guard Extensions (Intel SGX), and virtualized persistent memory (vPMEM). Generation 2 VMs running on-premises, have some features that aren't supported in Azure yet. For more information, see the Features and capabilities section. For more information see this [article](../generation-2.md). Create Gen2 images if you require the additional functionality.
 
 If you still need to create your own image, ensure it meets the [image prerequisites](./create-upload-generic.md), and upload to Azure. Distribution specific requirements:
 

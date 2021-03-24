@@ -1,19 +1,19 @@
 ---
- title: Dv4 and Dsv4-series - Azure Virtual Machines
- description: Specifications for the Dv4 and Dsv4-series VMs.
- author: brbell
- ms.author: brbell
- ms.reviewer: cynthn
- ms.custom: mimckitt
- ms.service: virtual-machines
- ms.subservice: sizes
- ms.topic: conceptual
- ms.date: 06/08/2020
+title: Dv4 and Dsv4-series - Azure Virtual Machines
+description: Specifications for the Dv4 and Dsv4-series VMs.
+author: brbell
+ms.author: brbell
+ms.reviewer: cynthn
+ms.custom: mimckitt
+ms.service: virtual-machines
+ms.subservice: vm-sizes-general
+ms.topic: conceptual
+ms.date: 06/08/2020
 ---
 
 # Dv4 and Dsv4-series
 
-The Dv4 and Dsv4-series runs on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) processors in a hyper-threaded configuration, providing a better value proposition for most general-purpose workloads. It features a sustained all core Turbo clock speed of 3.4 GHz. 
+The Dv4 and Dsv4-series runs on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) processors in a hyper-threaded configuration, providing a better value proposition for most general-purpose workloads. It features an all core Turbo clock speed of 3.4 GHz. 
 
 > [!NOTE]
 > For frequently asked questions, refer to  [Azure VM sizes with no local temp disk](azure-vms-no-temp-disk.md).
@@ -23,15 +23,15 @@ Dv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake).
 
 Remote Data disk storage is billed separately from virtual machines. To use premium storage disks, use the Dsv4 sizes. The pricing and billing meters for Dsv4 sizes are the same as Dv4-series.
 
-ACU: 195-210
-
-Premium Storage:  Not Supported
-
-Premium Storage caching:  Not Supported
-
-Live Migration: Supported
-
-Memory Preserving Updates: Supported
+[ACU](acu.md): 195-210<br>
+[Premium Storage](premium-storage-performance.md): Not Supported<br>
+[Premium Storage caching](premium-storage-performance.md): Not Supported<br>
+[Live Migration](maintenance-and-updates.md): Supported<br>
+[Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
+[VM Generation Support](generation-2.md): Generation 1<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported (*Requires a minimum of 4 vCPU*)<br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
+<br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max NICs|Expected Network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|
@@ -47,15 +47,15 @@ Memory Preserving Updates: Supported
 
 Dsv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake). The Dv4-series sizes offer a combination of vCPU, memory and remote storage options for most production workloads. Dsv4-series VMs feature [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html). Remote Data disk storage is billed separately from virtual machines.
 
-ACU: 195-210
-
-Premium Storage:  Supported
-
-Premium Storage caching:  Supported
-
-Live Migration: Supported
-
-Memory Preserving Updates: Supported
+[ACU](acu.md): 195-210<br>
+[Premium Storage](premium-storage-performance.md): Supported<br>
+[Premium Storage caching](premium-storage-performance.md): Supported<br>
+[Live Migration](maintenance-and-updates.md): Supported<br>
+[Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
+[VM Generation Support](generation-2.md): Generation 1 and 2<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported (*Requires a minimum of 4 vCPU*)<br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
+<br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max NICs|Expected Network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|

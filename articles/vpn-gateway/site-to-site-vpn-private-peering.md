@@ -6,11 +6,11 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 11/16/2020
 ms.author: cherylmc
 
 ---
-# Configure a Site-to-Site VPN connection over ExpressRoute private peering (Preview)
+# Configure a Site-to-Site VPN connection over ExpressRoute private peering
 
 You can configure a Site-to-Site VPN to a virtual network gateway over an ExpressRoute private peering using an RFC 1918 IP address. This configuration provides the following benefits:
 
@@ -68,7 +68,9 @@ In both of these examples, Azure will send traffic to 10.0.1.0/24 over the VPN c
 
 ## <a name="portal"></a>Portal steps
 
-1. Configure a Site-to-Site connection. For steps, see the [Site-to-site configuration](vpn-gateway-howto-site-to-site-resource-manager-portal.md) article. Be sure to pick a zone-redundant gateway SKU for the gateway. Zone-redundant SKUs have “AZ” at the end of the SKU. For example, VpnGw1AZ.
+1. Configure a Site-to-Site connection. For steps, see the [Site-to-site configuration](./tutorial-site-to-site-portal.md) article. Be sure to pick a zone-redundant gateway SKU for the gateway. 
+
+   Zone-redundant SKUs have “AZ” at the end of the SKU. For example, **VpnGw1AZ**. Zone-redundant gateways are only available in regions where the availability zone service is available. For information about the regions in which we support availability zones, see [Regions that support availability zones](../availability-zones/az-region.md).
 
    :::image type="content" source="media/site-to-site-vpn-private-peering/gateway.png" alt-text="Gateway Private IPs":::
 1. Enable Private IPs on the gateway. Select **Configuration**, then set **Gateway Private IPs** to **Enabled**. Select **Save** to save your changes.
@@ -83,7 +85,7 @@ In both of these examples, Azure will send traffic to 10.0.1.0/24 over the VPN c
 
 ## <a name="powershell"></a>PowerShell steps
 
-1. Configure a Site-to-Site connection. For steps, see the [Configure a Site-to-Site VPN](vpn-gateway-howto-site-to-site-resource-manager-portal.md) article. Be sure to pick a zone-redundant gateway SKU for the gateway. Zone-redundant SKUs have “AZ” at the end of the SKU. For example, VpnGw1AZ.
+1. Configure a Site-to-Site connection. For steps, see the [Configure a Site-to-Site VPN](./tutorial-site-to-site-portal.md) article. Be sure to pick a zone-redundant gateway SKU for the gateway. Zone-redundant SKUs have “AZ” at the end of the SKU. For example, VpnGw1AZ.
 1. Set the flag to use the private IP on the gateway using the following PowerShell commands:
 
    ```azurepowershell-interactive

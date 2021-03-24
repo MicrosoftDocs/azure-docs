@@ -3,7 +3,7 @@ title: 'ML Studio (classic): Deployment and consumption - Azure'
 description: You can use Azure Machine Learning Studio (classic) to deploy machine learning workflows and models as web services. These web services can then be used to call the machine learning models from applications over the internet to do predictions in real time or in batch mode. 
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 
 author: likebupt
@@ -13,7 +13,7 @@ ms.date: 04/19/2017
 ---
 # Azure Machine Learning Studio (classic) Web Services: Deployment and consumption
 
-**APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 You can use Azure Machine Learning Studio (classic) to deploy machine learning workflows and models as web services. These web services can then be used to call the machine learning models from applications over the Internet to do predictions in real time or in batch mode. Because the web services are RESTful, you can call them from various programming languages and platforms, such as .NET and Java, and from applications, such as Excel.
 
@@ -40,7 +40,7 @@ The following links provide general Information about how to deploy a new web se
 The Azure Machine Learning Studio (classic) resource provider for web services enables deployment and management of web services by using REST API calls. For more information, see the
 [Machine Learning Web Service (REST)](/rest/api/machinelearning/index) reference.
 
-<!-- [Machine Learning Web Service (REST)](https://msdn.microsoft.com/library/azure/mt767538.aspx) reference. -->
+<!-- [Machine Learning Web Service (REST)](/rest/api/machinelearning/webservices) reference. -->
 
 ### With PowerShell cmdlets
 
@@ -79,7 +79,7 @@ Here's an example:
 
 See the following articles and sample code for additional details:
 
-* [Azure Machine Learning Studio (classic) Cmdlets](https://docs.microsoft.com/powershell/module/az.machinelearning) reference on MSDN
+* [Azure Machine Learning Studio (classic) Cmdlets](/powershell/module/az.machinelearning) reference on MSDN
 
 ## Consume the web services
 

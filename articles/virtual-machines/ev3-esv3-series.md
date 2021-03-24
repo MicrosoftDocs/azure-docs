@@ -1,12 +1,12 @@
 ---
 title: Ev3-series and Esv3-series 
 description: Specifications for the Ev3 and Esv3-series VMs.
-author: joelpelley
+author: mimckitt
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.author: lahugh
+ms.author: mimckitt
 ---
 
 # Ev3 and Esv3-series
@@ -21,15 +21,15 @@ Data disk storage is billed separately from virtual machines. To use premium sto
 
 Ev3-series VM’s feature Intel® Hyper-Threading Technology.
 
-ACU: 160 - 190
-
-Premium Storage:  Not Supported
-
-Premium Storage caching:  Not Supported
-
-Live Migration: Supported
-
-Memory Preserving Updates: Supported
+[ACU](acu.md): 160 - 190<br>
+[Premium Storage](premium-storage-performance.md): Not Supported<br>
+[Premium Storage caching](premium-storage-performance.md): Not Supported<br>
+[Live Migration](maintenance-and-updates.md): Supported<br>
+[Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
+[VM Generation Support](generation-2.md): Generation 1<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported (*Requires a minimum of 4 vCPU*)<br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
+<br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max NICs / Network bandwidth |
 |---|---|---|---|---|---|---|
@@ -53,15 +53,15 @@ Esv3-series instances run on Intel® Xeon® Platinum 8272CL (Cascade Lake), Inte
 
 Esv3-series VM’s feature Intel® Hyper-Threading Technology.
 
-ACU: 160-190
-
-Premium Storage:  Supported
-
-Premium Storage caching:  Supported
-
-Live Migration: Supported
-
-Memory Preserving Updates: Supported
+[ACU](acu.md): 160-190<br>
+[Premium Storage](premium-storage-performance.md): Supported<br>
+[Premium Storage caching](premium-storage-performance.md): Supported<br>
+[Live Migration](maintenance-and-updates.md): Supported<br>
+[Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
+[VM Generation Support](generation-2.md): Generation 1 and 2<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported (*Requires a minimum of 4 vCPU*)<br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
+<br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Burst cached and temp storage throughput: IOPS/MBps<sup>3</sup> | Max uncached disk throughput: IOPS/MBps |  Burst uncached disk throughput: IOPS/MBps<sup>3</sup>| Max NICs/Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|
@@ -79,7 +79,7 @@ Memory Preserving Updates: Supported
 
 <sup>2</sup> Instance is isolated to hardware dedicated to a single customer.
 
-<sup>3</sup> Esv3-series VMs can [burst](linux/disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
+<sup>3</sup> Esv3-series VMs can [burst](./disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

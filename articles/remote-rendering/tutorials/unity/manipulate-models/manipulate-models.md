@@ -32,7 +32,7 @@ The bounds of a model are defined by the box that contains the entire model - ju
 1. Create a new script in the same directory as **RemoteRenderedModel** and name it **RemoteBounds**.
 1. Replace the contents of the script with the following code:
 
-    ```csharp
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -46,8 +46,6 @@ The bounds of a model are defined by the box that contains the entire model - ju
     {
         //Remote bounds works with a specific remotely rendered model
         private BaseRemoteRenderedModel targetModel = null;
-
-        private BoundsQueryAsync remoteBoundsQuery = null;
 
         private RemoteBoundsState currentBoundsState = RemoteBoundsState.NotReady;
 
@@ -89,14 +87,8 @@ The bounds of a model are defined by the box that contains the entire model - ju
             }
         }
 
-        // Create a query using the model entity
-        private void QueryBounds()
-        {
-            //Implement me
-        }
-
-        // Check the result and apply it to the local Unity bounding box if it was successful
-        private void ProcessQueryResult(BoundsQueryAsync remoteBounds)
+        // Create an async query using the model entity
+        async private void QueryBounds()
         {
             //Implement me
         }
@@ -108,31 +100,21 @@ The bounds of a model are defined by the box that contains the entire model - ju
 
     This script should be added to the same GameObject as the script that implements  **BaseRemoteRenderedModel**. In this case, that means **RemoteRenderedModel**. Similar to previous scripts, this initial code will handle all the state changes, events, and data related to remote bounds.
 
-    There are two methods left to implement: **QueryBounds** and **ProcessQueryResult**. **QueryBounds** fetches the bounds, and **ProcessQueryResult** takes the result of the query and applies it to the local **BoxCollider**.
+    There is only one method left to implement: **QueryBounds**. **QueryBounds** fetches the bounds asynchronously, takes the result of the query and applies it to the local **BoxCollider**.
 
-    The **QueryBounds** method is straightforward: send a query to the remote rendering session and listen for the `Completed` event.
+    The **QueryBounds** method is straightforward: send a query to the remote rendering session and await the result.
 
 1. Replace the **QueryBounds** method with the following completed method:
 
-    ```csharp
+    ```cs
     // Create a query using the model entity
-    private void QueryBounds()
+    async private void QueryBounds()
     {
-        remoteBoundsQuery = targetModel.ModelEntity.QueryLocalBoundsAsync();
+        var remoteBounds = targetModel.ModelEntity.QueryLocalBoundsAsync();
         CurrentBoundsState = RemoteBoundsState.Updating;
-        remoteBoundsQuery.Completed += ProcessQueryResult;
-    }
-    ```
+        await remoteBounds;
 
-    **ProcessQueryResult** is also straightforward. We'll check the result to see if it was successful. If yes, convert and apply the returned bounds in a format that the **BoxCollider** can accept.    
-
-1. Replace the **ProcessQueryResult** method with the following completed method:
-
-    ```csharp
-    // Check the result and apply it to the local Unity bounding box if it was successful
-    private void ProcessQueryResult(BoundsQueryAsync remoteBounds)
-    {
-        if (remoteBounds.IsRanToCompletion)
+        if (remoteBounds.IsCompleted)
         {
             var newBounds = remoteBounds.Result.toUnity();
             BoundsBoxCollider.center = newBounds.center;
@@ -147,6 +129,8 @@ The bounds of a model are defined by the box that contains the entire model - ju
     }
     ```
 
+    We'll check the query result to see if it was successful. If yes, convert and apply the returned bounds in a format that the **BoxCollider** can accept.
+
 Now, when the **RemoteBounds** script is added to the same game object as the **RemoteRenderedModel**, a **BoxCollider** will be added if needed and when the model reaches its `Loaded` state, the bounds will automatically be queried and applied to the **BoxCollider**.
 
 1. Using the **TestModel** GameObject created previously, add the **RemoteBounds** component.
@@ -156,7 +140,7 @@ Now, when the **RemoteBounds** script is added to the same game object as the **
 
 1. Run the application again. Shortly after the model loads, you'll see the bounds for the remote object. You'll see something like the below values:
 
-     ![Bounds updated](./media/updated-bounds.png)
+     ![Screenshot that shows the remote object bounds example.](./media/updated-bounds.png)
 
 Now we have a local **BoxCollider** configured with accurate bounds on the Unity object. The bounds allow for visualization and interaction using the same strategies we'd use for a locally rendered object. For example, scripts that alter the Transform, physics, and more.
 
@@ -171,7 +155,7 @@ This tutorial is using MRTK for object interaction. Most of the MRTK specific im
 1. Press Unity's Play button to play the scene and open the **Model Tools** menu inside the **AppMenu**.
 ![View controller](./media/model-with-view-controller.png)
 
-The **AppMenu** has a sub menu **Model Tools** that implements a view controller for binding with the model. When the GameObject contains a **RemoteBounds** component, the view controller will add a [**BoundingBox**](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_BoundingBox.html) component, which is an MRTK component that renders a bounding box around an object with a **BoxCollider**. A [**ObjectManipulator**](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/api/Microsoft.MixedReality.Toolkit.Experimental.UI.ObjectManipulator.html?q=ObjectManipulator), which is responsible for hand interactions. These scripts combined will allow us to move, rotate, and scale the remotely rendered model.
+The **AppMenu** has a sub menu **Model Tools** that implements a view controller for binding with the model. When the GameObject contains a **RemoteBounds** component, the view controller will add a [**BoundingBox**](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_BoundingBox.html) component, which is an MRTK component that renders a bounding box around an object with a **BoxCollider**. A [**ObjectManipulator**](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.5.1/api/Microsoft.MixedReality.Toolkit.UI.ObjectManipulator.html), which is responsible for hand interactions. These scripts combined will allow us to move, rotate, and scale the remotely rendered model.
 
 1. Move your mouse to the Game panel and click inside it to give it focus.
 1. Using [MRTK's hand simulation](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/InputSimulation/InputSimulationService.html#hand-simulation), press and hold the left Shift key.
@@ -193,7 +177,7 @@ First, let's create a static wrapper around the remote ray cast queries. This sc
 
 1. Create a new script called **RemoteRayCaster** and replace its contents with the following code:
 
-    ```csharp
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -215,7 +199,8 @@ First, let's create a static wrapper around the remote ray cast queries. This sc
             if(RemoteRenderingCoordinator.instance.CurrentCoordinatorState == RemoteRenderingCoordinator.RemoteRenderingState.RuntimeConnected)
             {
                 var rayCast = new RayCast(origin.toRemotePos(), dir.toRemoteDir(), maxDistance, hitPolicy);
-                return await RemoteRenderingCoordinator.CurrentSession.Actions.RayCastQueryAsync(rayCast).AsTask();
+                var result = await RemoteRenderingCoordinator.CurrentSession.Connection.RayCastQueryAsync(rayCast);
+                return result.Hits;
             }
             else
             {
@@ -232,13 +217,13 @@ First, let's create a static wrapper around the remote ray cast queries. This sc
     ```
 
     > [!NOTE]
-    > Unity has a class named [**RaycastHit**](https://docs.unity3d.com/ScriptReference/RaycastHit.html), and Azure Remote Rendering has a class named [**RayCastHit**](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.raycasthit). The uppercase **C** is an important difference to avoid compile errors.
+    > Unity has a class named [**RaycastHit**](https://docs.unity3d.com/ScriptReference/RaycastHit.html), and Azure Remote Rendering has a class named [**RayCastHit**](/dotnet/api/microsoft.azure.remoterendering.raycasthit). The uppercase **C** is an important difference to avoid compile errors.
 
     **RemoteRayCaster** provides a common access point for casting remote rays into the current session. To be more specific, we'll implement an MRTK pointer handler next. The script will implement the `IMixedRealityPointerHandler` interface, which will tell MRTK that we want this script to listen for [Mixed Reality Pointer](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/Input/Pointers.html) events.
 
 1. Create a new script called **RemoteRayCastPointerHandler** and replace the code with the following code:
 
-    ```csharp
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -303,13 +288,13 @@ First, let's create a static wrapper around the remote ray cast queries. This sc
 
 Sending requests for ray casting on click is an efficient strategy for querying remote objects. However, it's not an ideal user experience because the cursor collides with the box collider, not the model itself.
 
-You could also create a new MRTK pointer that casts its rays in the remote session more frequently. Although this is a more complex approach, the user experience would be better. This strategy is outside the scope of this tutorial, but an example of this approach can be seen in the Showcase App, found in the [ARR samples repository](https://github.com/Azure/azure-remote-rendering/tree/master/Unity/AzureRemoteRenderingShowcase).
+You could also create a new MRTK pointer that casts its rays in the remote session more frequently. Although this is a more complex approach, the user experience would be better. This strategy is outside the scope of this tutorial, but an example of this approach can be seen in the Showcase App, found in the [ARR samples repository](https://github.com/Azure/azure-remote-rendering/tree/master/Unity/Showcase).
 
 When a ray cast is completed successfully in the **RemoteRayCastPointerHandler**, the hit `Entity` is emitted from the `OnRemoteEntityClicked` Unity event. To respond to that event, we'll create a helper script that accepts the `Entity` and performs an action on it. Let's start by getting the script to print the name of the `Entity` to the debug log.
 
 1. Create a new script named **RemoteEntityHelper** and replace its contents with the below:
 
-    ```csharp
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
     
@@ -358,7 +343,7 @@ The same process can be done programmatically and is the first step in modifying
 
 1. Modify the **RemoteEntityHelper** script to also contain the following method:
 
-    ```csharp
+    ```cs
     public void MakeSyncedGameObject(Entity entity)
     {
         var entityGameObject = entity.GetOrCreateGameObject(UnityCreationMode.DoNotCreateUnityComponents);

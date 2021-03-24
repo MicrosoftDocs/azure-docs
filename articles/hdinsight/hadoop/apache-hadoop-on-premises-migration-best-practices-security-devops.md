@@ -1,8 +1,6 @@
 ---
 title: 'Security: Migrate on-premises Apache Hadoop to Azure HDInsight'
 description: Learn security and DevOps best practices for migrating on-premises Hadoop clusters to Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.topic: how-to
@@ -64,7 +62,7 @@ End to end enterprise security can be achieved using the following controls:
 
 **Authentication and authorization for data access**
     - Create Domain-joined HDInsight cluster using Azure Active Directory Domain Services. (Enterprise Security Package).
-    - Use Ambari to provide Role-based access to cluster resources for AD users.
+    - Use Ambari to provide role-based access to cluster resources for AD users.
     - Use Apache Ranger to set access control policies for Hive at the table / column / row level.
     - SSH access to the cluster can be restricted only to the administrator.
 
@@ -79,7 +77,7 @@ End to end enterprise security can be achieved using the following controls:
 For more information, see the following articles:
 
 - [Azure Virtual Networks overview](../../virtual-network/virtual-networks-overview.md)
-- [Azure Network Security Groups overview](../../virtual-network/security-overview.md)
+- [Azure Network Security Groups overview](../../virtual-network/network-security-groups-overview.md)
 - [Azure Virtual Network peering](../../virtual-network/virtual-network-peering-overview.md)
 - [Azure Storage security guide](../../storage/blobs/security-recommendations.md)
 - [Azure Storage Service Encryption at rest](../../storage/common/storage-service-encryption.md)
@@ -117,4 +115,4 @@ For more information, see the article: [OS patching for HDInsight](../hdinsight-
 
 ## Next steps
 
-Read more about [HDInsight 4.0](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-introduction).
+Read more about [HDInsight 4.0](./apache-hadoop-introduction.md).

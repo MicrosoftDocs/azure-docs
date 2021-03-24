@@ -1,14 +1,14 @@
 ---
 # Mandatory fields.
-title: Create custom SDKs for Azure Digital Twins with AutoRest
+title: Create custom-language SDKs with AutoRest
 titleSuffix: Azure Digital Twins
-description: See how to generate custom SDKs, to use Azure Digital Twins with languages other than C#.
+description: Learn how to use AutoRest to generate custom-language SDKs, for writing Azure Digital Twins code in other languages that don't have published SDKs.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 4/24/2020
+ms.date: 3/9/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: devx-track-js
+ms.custom: [devx-track-js, contperf-fy21q3]
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -16,25 +16,28 @@ ms.custom: devx-track-js
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Create custom SDKs for Azure Digital Twins using AutoRest
+# Create custom-language SDKs for Azure Digital Twins using AutoRest
 
-Right now, the only published data plane SDKs for interacting with the Azure Digital Twins APIs are for .NET (C#), JavaScript, and Java. You can read about these SDKs, and the APIs in general, in [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md). If you are working in another language, this article will show you how to generate your own data plane SDK in the language of your choice, using AutoRest.
+If you need to work with Azure Digital Twins using a language that does not have a [published Azure Digital Twins SDK](how-to-use-apis-sdks.md), this article will show you how to use AutoRest to generate your own SDK in the language of your choice. 
 
->[!NOTE]
-> You can also use AutoRest to generate a control plane SDK if you would like. To do this, complete the steps in this article using the [control plane Swagger (OpenAPI) file](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview) instead of the data plane one.
+The examples in this article show the creation of a [data plane SDK](how-to-use-apis-sdks.md#overview-data-plane-apis), but this process will work for generating a  [control plane SDK](how-to-use-apis-sdks.md#overview-control-plane-apis) as well.
 
-## Set up your machine
+## Prerequisites
 
-To generate an SDK, you will need:
-* [AutoRest](https://github.com/Azure/autorest), version 2.0.4413 (version 3 isn't currently supported)
-* [Node.js](https://nodejs.org) as a pre-requisite to AutoRest
-* The Azure Digital Twins [data plane Swagger (OpenAPI) file](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/preview/2020-05-31-preview) entitled *digitaltwins.json*, and its accompanying folder of examples. Download the Swagger file and its folder of examples to your local machine.
+To generate an SDK, you'll first need to complete the following setup on your local machine:
+* Install [**AutoRest**](https://github.com/Azure/autorest), version 2.0.4413 (version 3 isn't currently supported)
+* Install [**Node.js**](https://nodejs.org), which is a pre-requisite for using AutoRest
+* Install [**Visual Studio**](https://visualstudio.microsoft.com/downloads/)
+* Download the latest Azure Digital Twins **data plane Swagger** (OpenAPI) file from the [data plane Swagger folder](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins), along with its accompanying folder of examples. The Swagger file is the one called *digitaltwins.json*.
 
-Once your machine is equipped with everything from the list above, you're ready to use AutoRest to create the SDK.
+>[!TIP]
+> To create a **control plane SDK** instead, complete the steps in this article using the latest **control plane Swagger** (OpenAPI) file from the [control plane Swagger folder](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/) instead of the data plane one.
 
-## Create the SDK with AutoRest 
+Once your machine is equipped with everything from the list above, you're ready to use AutoRest to create an SDK.
 
-If you have Node.js installed, you can run this command to make sure you have the right version of AutoRest installed:
+## Create the SDK using AutoRest 
+
+Once you have Node.js installed, you can run this command to make sure you have the required version of AutoRest installed:
 ```cmd/sh
 npm install -g autorest@2.0.4413
 ```
@@ -45,24 +48,24 @@ To run AutoRest against the Azure Digital Twins Swagger file, follow these steps
 3. Run AutoRest with the following command. Replace the `<language>` placeholder with your language of choice: `python`, `java`, `go`, and so on. (You can find the full list of options in the [AutoRest README](https://github.com/Azure/autorest).)
 
 ```cmd/sh
-autorest --input-file=digitaltwins.json --<language> --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
+autorest --input-file=digitaltwins.json --<language> --output-folder=DigitalTwinsApi --add-credentials --azure-arm --namespace=DigitalTwinsApi
 ```
 
-As a result, you'll see a new folder named *ADTApi* in your working directory. The generated SDK files will have the namespace *ADTApi*. You'll continue to use that namespace through the rest of the usage examples in this article.
+As a result, you'll see a new folder named *DigitalTwinsApi* in your working directory. The generated SDK files will have the namespace *DigitalTwinsApi*. You'll continue to use that namespace through the rest of the usage examples in this article.
 
 AutoRest supports a wide range of language code generators.
 
-## Add the SDK to a Visual Studio project
+## Make the SDK into a class library
 
-You can include the files generated by AutoRest directly into a .NET solution. However, it's likely that you'll want to include the Azure Digital Twins SDK in several separate projects (your client apps, Azure Functions apps, and so on). For this reason, it can be useful to build a separate project (a .NET class library) from the generated files. Then, you can include this class library project into several solutions as a project reference.
+You can include the files generated by AutoRest directly into a .NET solution. However, it's likely that you'll want to include the Azure Digital Twins SDK in several separate projects (your client apps, Azure Functions apps, and more). For this reason, it can be useful to build a separate project (a .NET class library) from the generated files. Then, you can include this class library project into several solutions as a project reference.
 
-This section gives instructions on how to build the SDK as a class library, which is its own project and can be included into other projects. These steps rely on **Visual Studio** (you can install the latest version from [here](https://visualstudio.microsoft.com/downloads/)).
+This section gives instructions on how to build the SDK as a class library, which is its own project and can be included into other projects. These steps rely on **Visual Studio**.
 
 Here are the steps:
 
 1. Create a new Visual Studio solution for a class library
-2. Use *ADTApi* as the project name
-3. In Solutions Explorer, right-select the *ADTApi* project of the generated solution and choose *Add > Existing Item...*
+2. Use *DigitalTwinsApi* as the project name
+3. In Solutions Explorer, right-select the *DigitalTwinsApi* project of the generated solution and choose *Add > Existing Item...*
 4. Find the folder where you generated the SDK, and select the files at the root level
 5. Press "Ok"
 6. Add a folder to the project (right-select the project in Solution Explorer, and choose *Add > New Folder*)
@@ -82,7 +85,7 @@ To add these, open *Tools > NuGet Package Manager > Manage NuGet Packages for So
 
 You can now build the project, and include it as a project reference in any Azure Digital Twins application you write.
 
-## General guidelines for generated SDKs
+## Tips for using the SDK
 
 This section contains general information and guidelines for using the generated SDK.
 
@@ -101,17 +104,7 @@ Whenever an error occurs in the SDK (including HTTP errors such as 404), the SDK
 
 Here is a code snippet that tries to add a twin and catches any errors in this process:
 
-```csharp
-try
-{
-    await client.DigitalTwins.AddAsync(id, initData);
-    Console.WriteLine($"Created a twin successfully: {id}");
-}
-catch (ErrorResponseException e)
-{
-    Console.WriteLine($"*** Error creating twin {id}: {e.Response.StatusCode}"); 
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="CreateTwin_errorHandling":::
 
 ### Paging
 
@@ -119,77 +112,18 @@ AutoRest generates two types of paging patterns for the SDK:
 * One for all APIs except the Query API
 * One for the Query API
 
-In the non-query paging pattern, there are two versions of each call:
-* A version to make the initial call (such as `DigitalTwins.ListEdges()`)
-* A version to get the following pages. These calls have a suffix of "Next" (like `DigitalTwins.ListEdgesNext()`)
+In the non-query paging pattern, here is a sample method showing how to retrieve a paged list of outgoing relationships from Azure Digital Twins:
 
-Here is a code snippet showing how to retrieve a paged list of outgoing relationships from Azure Digital Twins:
-```csharp
-try
-{
-    // List to hold the results in
-    List<object> relList = new List<object>();
-    // Enumerate the IPage object returned to get the results
-    // ListAsync will throw if an error occurs
-    IPage<object> relPage = await client.DigitalTwins.ListEdgesAsync(id);
-    relList.AddRange(relPage);
-    // If there are more pages, the NextPageLink in the page is set
-    while (relPage.NextPageLink != null)
-    {
-        // Get more pages...
-        relPage = await client.DigitalTwins.ListEdgesNextAsync(relPage.NextPageLink);
-        relList.AddRange(relPage);
-    }
-    Console.WriteLine($"Found {relList.Count} relationships on {id}");
-    // Do something with each object found
-    // As relationships are custom types, they are JSON.Net types
-    foreach (JObject r in relList)
-    {
-        string relId = r.Value<string>("$edgeId");
-        string relName = r.Value<string>("$relationship");
-        Console.WriteLine($"Found relationship {relId} from {id}");
-    }
-}
-catch (ErrorResponseException e)
-{
-    Console.WriteLine($"*** Error retrieving relationships on {id}: {e.Response.StatusCode}");
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FindOutgoingRelationshipsMethod":::
 
 The second pattern is only generated for the Query API. It uses a `continuationToken` explicitly.
 
+>[!TIP]
+> A main reason for getting pages is to calculate the [Query Unit charges](concepts-query-units.md) for a Query API call.
+
 Here is an example with this pattern:
 
-```csharp
-string query = "SELECT * FROM digitaltwins";
-string conToken = null; // continuation token from the query
-int page = 0;
-try
-{
-    // Repeat the query while there are pages
-    do
-    {
-        QuerySpecification spec = new QuerySpecification(query, conToken);
-        QueryResult qr = await client.Query.QueryTwinsAsync(spec);
-        page++;
-        Console.WriteLine($"== Query results page {page}:");
-        if (qr.Items != null)
-        {
-            // Query returns are JObjects
-            foreach(JObject o in qr.Items)
-            {
-                string twinId = o.Value<string>("$dtId");
-                Console.WriteLine($"  Found {twinId}");
-            }
-        }
-        Console.WriteLine($"== End query results page {page}");
-        conToken = qr.ContinuationToken;
-    } while (conToken != null);
-} catch (ErrorResponseException e)
-{
-    Console.WriteLine($"*** Error in twin query: ${e.Response.StatusCode}");
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="PagedQuery":::
 
 ## Next steps
 

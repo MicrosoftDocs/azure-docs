@@ -4,8 +4,7 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Available deep learning frameworks and tools on Azure Data Science Virtual Machine.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 ms.custom: devx-track-python
 
 author: lobrien
@@ -24,7 +23,7 @@ Deep learning frameworks on the DSVM are listed below.
 | Version(s) supported | |
 | Supported DSVM editions      | Ubuntu 16.04    |
 | How is it configured / installed on the DSVM?  | Caffe is installed in `/opt/caffe`.   Samples are in `/opt/caffe/examples`.|
-| How to run it      | use X2Go to sign in to your VM, and then start a new terminal and enter the following:<br/>`cd /opt/caffe/examples`<br/>`source activate root`<br/>`jupyter notebook`<br/><br/>A new browser window opens with sample notebooks. Binaries are installed in /opt/caffe/build/install/bin.<br/><br/>Installed version of Caffe requires Python 2.7 and won't work with Python 3.5, which is activated by default. To switch to Python 2.7, run `source activate root` to switch to Anaconda environment.|    
+| How to run it      | use X2Go to sign in to your VM, and then start a new terminal and enter the following:<br/>`cd /opt/caffe/examples`<br/>`source activate root`<br/>`jupyter notebook`<br/><br/>A new browser window opens with sample notebooks. Binaries are installed in /opt/caffe/build/install/bin.<br/><br/>Installed version of Caffe requires Python 2.7 and won't work with Python 3.6, which is activated by default. To switch to Python 2.7, run `source activate root` to switch to Anaconda environment.|    
 
 ## [Caffe2](https://github.com/caffe2/caffe2)
 
@@ -72,7 +71,7 @@ Deep learning frameworks on the DSVM are listed below.
 | How is it configured / installed on the DSVM?  | Keras is installed in Python 3.6 on Windows and in Python 3.5 in Linux |
 | How to run it      | Activate the correct environment at the terminal, and then run Python. |
 
-## [Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/)
+## [Microsoft Cognitive Toolkit (CNTK)](/cognitive-toolkit/)
 
 | Category | Value |
 | ------------- | ------------- |
@@ -112,9 +111,9 @@ Deep learning frameworks on the DSVM are listed below.
 
 | Category | Value |
 | ------------- | ------------- |
-| Version(s) supported | 1.2.0 (Ubuntu 16.04), 1.4.0 (Ubuntu 18.04, Windows 2019) |
+| Version(s) supported | 1.2.0 (Ubuntu 16.04), 1.7.1 (Ubuntu 18.04, Windows 2019) |
 | Supported DSVM editions      | Windows Server 2019<br>Ubuntu 18.04<br> Ubuntu 16.04 |
-| How is it configured / installed on the DSVM?  | Installed in [Python 3.5](dsvm-tools-languages.md#python-linux-edition). Sample Jupyter notebooks are included, and samples are in /dsvm/samples/pytorch. |
+| How is it configured / installed on the DSVM?  | Installed in [Python 3.7](dsvm-tools-languages.md#python-linux-edition) under the py37_pytorch conda environment. Sample Jupyter notebooks are included, and samples are in /dsvm/samples/pytorch. |
 | How to run it      | Terminal: Activate the correct environment, and then run Python.<br/>* [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine): Connect, and then open the PyTorch directory for samples.  |
 
 ## [TensorFlow](https://www.tensorflow.org/)

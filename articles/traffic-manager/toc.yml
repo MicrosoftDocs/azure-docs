@@ -13,6 +13,7 @@
   - name: Create a Traffic Manager profile - Azure CLI
     href: quickstart-create-traffic-manager-profile-cli.md
   - name: Create a Traffic Manager profile - ARM Template
+    displayName: Resource Manager
     href: quickstart-create-traffic-manager-profile-template.md
   expanded: true
 - name: Tutorials
@@ -44,6 +45,10 @@
     items:
     - name: Country/Region hierarchy used by Traffic Manager
       href: traffic-manager-geographic-regions.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
   - name: Nested Traffic Manager profiles
     href: traffic-manager-nested-profiles.md
   - name: Endpoint types
@@ -57,7 +62,7 @@
   - name: Metrics and alerts
     href: traffic-manager-metrics-alerts.md
   - name: Disaster recovery using Azure DNS and Traffic Manager
-    href: ../networking/disaster-recovery-dns-traffic-manager.md  
+    href: ../networking/disaster-recovery-dns-traffic-manager.md
   - name: How Traffic Manager works
     href: traffic-manager-how-it-works.md
   - name: FAQs
@@ -69,7 +74,7 @@
   - name: Configure multivalue routing in Traffic Manager
     href: traffic-manager-configure-multivalue-routing-method.md
   - name: Configure subnet routing in Traffic Manager
-    href: traffic-manager-configure-subnet-routing-method.md 
+    href: traffic-manager-configure-subnet-routing-method.md
   - name: Send Real User Measurements to Traffic Manager
     items:
     - name: Using Visual Studio SDK
@@ -117,9 +122,9 @@
   - name: Ruby
     href: https://www.rubydoc.info/gems/azure_mgmt_traffic_manager
   - name: Python
-    href: https://azure.github.io/azure-sdk-for-python/ref/Traffic-Manager.html
+    href: https://azure.github.io/azure-sdk-for-python/trafficmanager.html
   - name: REST
-    href: https://msdn.microsoft.com/library/mt163667.aspx
+    href: /rest/api/trafficmanager/
   - name: Resource Manager template
     href: /azure/templates/microsoft.network/trafficmanagerprofiles
 - name: Resources
@@ -129,7 +134,7 @@
   - name: Blog
     href: https://azure.microsoft.com/blog/topics/networking/
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-virtual-network.html
+    href: /answers/topics/azure-virtual-network.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/traffic-manager/
   - name: Pricing calculator

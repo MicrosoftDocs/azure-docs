@@ -102,7 +102,7 @@ As you remove a user, keep in mind the following items:
 
 When you grant consent to an application as an end-user, the application has access to your email address or your username depending on the identity provider. Once this information is provided, the owner of the application decides how to manage personally identifying information.
 
-End-users need to contact administrators of individual web apps to to revoke this information from their systems.
+End-users need to contact administrators of individual web apps to revoke this information from their systems.
 
 To remove personally identifying information from the Azure Static Web Apps platform, and prevent the platform from providing this information on future requests, submit a request using the URL:
 
@@ -140,19 +140,18 @@ For example, to login with GitHub you could include a login link like the follow
 
 If you chose to support more than one provider, then you need to expose a provider-specific link for each on your website.
 
-You can use a [route rule](routes.md) to map a default provider to a friendly route like _/login_.
+You can use a [route rule](./configuration.md#routes) to map a default provider to a friendly route like _/login_.
 
 ```json
 {
   "route": "/login",
-  "serve": "/.auth/login/github"
+  "redirect": "/.auth/login/github"
 }
 ```
 
 ### Post login redirect
 
 If you want a user to return to a specific page after login, provide a URL in `post_login_redirect_uri` query string parameter.
-
 
 ## Logout
 
@@ -162,12 +161,12 @@ The `/.auth/logout` route logs users out from the website. You can add a link to
 <a href="/.auth/logout">Log out</a>
 ```
 
-You can use a [route rule](routes.md) to map a friendly route like _/logout_.
+You can use a [route rule](./configuration.md#routes) to map a friendly route like _/logout_.
 
 ```json
 {
   "route": "/logout",
-  "serve": "/.auth/logout"
+  "redirect": "/.auth/logout"
 }
 ```
 

@@ -1,7 +1,7 @@
 ---
 title: Token cache serialization (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
-description: Learn about serialization and customer serialization of the token cache using Microsoft Authentication Library for .NET (MSAL.NET).
+description: Learn about serialization and customer serialization of the token cache using the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -18,7 +18,7 @@ ms.custom: "devx-track-csharp, aaddev"
 ---
 
 # Token cache serialization in MSAL.NET
-After a [token is acquired](msal-acquire-cache-tokens.md), it is cached by Microsoft Authentication Library (MSAL).  Application code should try to get a token from the cache before acquiring a token by another method.  This article discusses default and custom serialization of the token cache in MSAL.NET.
+After a [token is acquired](msal-acquire-cache-tokens.md), it is cached by the Microsoft Authentication Library (MSAL).  Application code should try to get a token from the cache before acquiring a token by another method.  This article discusses default and custom serialization of the token cache in MSAL.NET.
 
 This article is for MSAL.NET 3.x. If you're interested in MSAL.NET 2.x, see [Token cache serialization in MSAL.NET 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Token-cache-serialization-2x).
 
@@ -31,7 +31,7 @@ In MSAL.NET, an in-memory token cache is provided by default. Serialization is p
 
 ## Custom serialization for Windows desktop apps and web apps/web APIs
 
-Remember, custom serialization isn't available on mobile platforms (UWP, Xamarin.iOS, and Xamarin.Android). MSAL already defines a secure and performant serialization mechanism for these platforms. .NET desktop and .NET Core applications, however, have varied architectures and MSAL can't implement a general-purpose serialization mechanism. For example, web sites may choose to store tokens in a Redis cache, or desktop apps store tokens in an encrypted file. So serialization isn't provided out-of-the-box. To have a persistent token cache application in .NET desktop or .NET Core, you need to customize the serialization.
+Remember, custom serialization isn't available on mobile platforms (UWP, Xamarin.iOS, and Xamarin.Android). MSAL already defines a secure and performant serialization mechanism for these platforms. .NET desktop and .NET Core applications, however, have varied architectures and MSAL can't implement a general-purpose serialization mechanism. For example, web sites may choose to store tokens in a Redis cache, or desktop apps store tokens in an encrypted file. So serialization isn't provided out-of-the-box. To have a persistent token cache application in .NET desktop or .NET Core, customize the serialization.
 
 The following classes and interfaces are used in token cache serialization:
 
@@ -83,7 +83,7 @@ static class TokenCacheHelper
   /// <summary>
   /// Path to the token cache. Note that this could be something different for instance for MSIX applications:
   /// private static readonly string CacheFilePath =
-$"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\{AppName}\msalcache.bin";
+  /// $"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\{AppName}\msalcache.bin";
   /// </summary>
   public static readonly string CacheFilePath = System.Reflection.Assembly.GetExecutingAssembly().Location + ".msalcache.bin3";
 

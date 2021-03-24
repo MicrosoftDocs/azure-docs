@@ -2,12 +2,12 @@
 title: Permissions to repositories in Azure Container Registry
 description: Create a token with permissions scoped to specific repositories in a Premium registry to pull or push images, or perform other actions
 ms.topic: article
-ms.date: 05/27/2020
+ms.date: 02/04/2021
 ---
 
 # Create a token with repository-scoped permissions
 
-This article describes how to create tokens and scope maps to manage repository-scoped permissions in your container registry. By creating tokens, a registry owner can provide users or services with scoped, time-limited access to repositories to pull or push images or perform other actions. A token provides more fine-grained permissions than other registry [authentication options](container-registry-authentication.md), which scope permissions to an entire registry. 
+This article describes how to create tokens and scope maps to manage access to specific repositories in your container registry. By creating tokens, a registry owner can provide users or services with scoped, time-limited access to repositories to pull or push images or perform other actions. A token provides more fine-grained permissions than other registry [authentication options](container-registry-authentication.md), which scope permissions to an entire registry. 
 
 Scenarios for creating a token include:
 
@@ -56,7 +56,7 @@ The following image shows the relationship between tokens and scope maps.
 
 ## Prerequisites
 
-* **Azure CLI** - Azure CLI commands to create and manage tokens are available in Azure CLI version 2.0.76 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+* **Azure CLI** - Azure CLI commands command examples in this article require Azure CLI version 2.17.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 * **Docker** - To authenticate with the registry to pull or push images, you need a local Docker installation. Docker provides installation instructions for [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms) systems.
 * **Container registry** - If you don't have one, create a Premium container registry in your Azure subscription, or upgrade an existing registry. For example, use the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI](container-registry-get-started-azure-cli.md). 
 
@@ -74,7 +74,7 @@ az acr token create --name MyToken --registry myregistry \
   content/write content/read
 ```
 
-The output shows details about the token. By default, two passwords are generated. It's recommended to save the passwords in a safe place to use later for authentication. The passwords can't be retrieved again, but new ones can be generated.
+The output shows details about the token. By default, two passwords are generated that don't expire, but you can optionally set an expiration date. It's recommended to save the passwords in a safe place to use later for authentication. The passwords can't be retrieved again, but new ones can be generated.
 
 ```console
 {
@@ -108,7 +108,7 @@ The output shows details about the token. By default, two passwords are generate
 ```
 
 > [!NOTE]
-> If you want to regenerate token passwords and set password expiration periods, see [Regenerate token passwords](#regenerate-token-passwords) later in this article.
+> To regenerate token passwords and expiration periods, see [Regenerate token passwords](#regenerate-token-passwords) later in this article.
 
 The output includes details about the scope map the command created. You can use the scope map, here named `MyToken-scope-map`, to apply the same repository actions to other tokens. Or, update the scope map later to change the permissions of the associated tokens.
 
@@ -136,7 +136,7 @@ az acr token create --name MyToken \
 The output shows details about the token. By default, two passwords are generated. It's recommended to save the passwords in a safe place to use later for authentication. The passwords can't be retrieved again, but new ones can be generated.
 
 > [!NOTE]
-> If you want to regenerate token passwords and set password expiration periods, see [Regenerate token passwords](#regenerate-token-passwords) later in this article.
+> To regenerate token passwords and expiration periods, see [Regenerate token passwords](#regenerate-token-passwords) later in this article.
 
 ## Create token - portal
 
@@ -193,13 +193,13 @@ The following examples use the token created earlier in this article to perform 
 
 ### Pull and tag test images
 
-For the following examples, pull the `hello-world` and `alpine` images from Docker Hub, and tag them for your registry and repository.
+For the following examples, pull public `hello-world` and `nginx` images from Microsoft Container Registry, and tag them for your registry and repository.
 
 ```bash
-docker pull hello-world
-docker pull alpine
-docker tag hello-world myregistry.azurecr.io/samples/hello-world:v1
-docker tag hello-world myregistry.azurecr.io/samples/alpine:v1
+docker pull mcr.microsoft.com/hello-world
+docker pull mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
+docker tag mcr.microsoft.com/hello-world myregistry.azurecr.io/samples/hello-world:v1
+docker tag mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine myregistry.azurecr.io/samples/nginx:v1
 ```
 
 ### Authenticate using token
@@ -229,17 +229,17 @@ After successful login, attempt to push the tagged images to the registry. Becau
 docker push myregistry.azurecr.io/samples/hello-world:v1
 ```
 
-The token doesn't have permissions to the `samples/alpine` repo, so the following push attempt fails with an error similar to `requested access to the resource is denied`:
+The token doesn't have permissions to the `samples/nginx` repo, so the following push attempt fails with an error similar to `requested access to the resource is denied`:
 
 ```bash
-docker push myregistry.azurecr.io/samples/alpine:v1
+docker push myregistry.azurecr.io/samples/nginx:v1
 ```
 
 ### Update token permissions
 
 To update the permissions of a token, update the permissions in the associated scope map. The updated scope map is applied immediately to all associated tokens. 
 
-For example, update `MyToken-scope-map` with `content/write` and `content/read` actions on the `samples/alpine` repository, and remove the `content/write` action on the `samples/hello-world` repository.  
+For example, update `MyToken-scope-map` with `content/write` and `content/read` actions on the `samples/ngnx` repository, and remove the `content/write` action on the `samples/hello-world` repository.  
 
 To use the Azure CLI, run [az acr scope-map update][az-acr-scope-map-update] to update the scope map:
 
@@ -247,21 +247,21 @@ To use the Azure CLI, run [az acr scope-map update][az-acr-scope-map-update] to 
 az acr scope-map update \
   --name MyScopeMap \
   --registry myregistry \
-  --add samples/alpine content/write content/read \
-  --remove samples/hello-world content/write 
+  --add-repository samples/nginx content/write content/read \
+  --remove-repository samples/hello-world content/write 
 ```
 
 In the Azure portal:
 
 1. Navigate to your container registry.
 1. Under **Repository permissions**, select **Scope maps (Preview)**, and select the scope map to update.
-1. Under **Repositories**, enter `samples/alpine`, and under **Permissions**, select `content/read` and `content/write`. Then select **+Add**.
+1. Under **Repositories**, enter `samples/nginx`, and under **Permissions**, select `content/read` and `content/write`. Then select **+Add**.
 1. Under **Repositories**, select `samples/hello-world` and under **Permissions**, deselect `content/write`. Then select **Save**.
 
 After updating the scope map, the following push succeeds:
 
 ```bash
-docker push myregistry.azurecr.io/samples/alpine:v1
+docker push myregistry.azurecr.io/samples/nginx:v1
 ```
 
 Because the scope map only has the `content/read` permission on the `samples/hello-world` repository, a push attempt to the `samples/hello-world` repo now fails:
@@ -273,12 +273,12 @@ docker push myregistry.azurecr.io/samples/hello-world:v1
 Pulling images from both repos succeeds, because the scope map provides `content/read` permissions on both repositories:
 
 ```bash
-docker pull myregistry.azurecr.io/samples/alpine:v1
+docker pull myregistry.azurecr.io/samples/nginx:v1
 docker pull myregistry.azurecr.io/samples/hello-world:v1
 ```
 ### Delete images
 
-Update the scope map by adding the `content/delete` action to the `alpine` repository. This action allows deletion of images in the repository, or deletion of the entire repository.
+Update the scope map by adding the `content/delete` action to the `nginx` repository. This action allows deletion of images in the repository, or deletion of the entire repository.
 
 For brevity, we show only the [az acr scope-map update][az-acr-scope-map-update] command to update the scope map:
 
@@ -286,16 +286,16 @@ For brevity, we show only the [az acr scope-map update][az-acr-scope-map-update]
 az acr scope-map update \
   --name MyScopeMap \
   --registry myregistry \
-  --add samples/alpine content/delete
+  --add-repository samples/nginx content/delete
 ``` 
 
 To update the scope map using the portal, see the [previous section](#update-token-permissions).
 
-Use the following [az acr repository delete][az-acr-repository-delete] command to delete the `samples/alpine` repository. To delete images or repositories, pass the token's name and password to the command. The following example uses the environment variables created earlier in the article:
+Use the following [az acr repository delete][az-acr-repository-delete] command to delete the `samples/nginx` repository. To delete images or repositories, pass the token's name and password to the command. The following example uses the environment variables created earlier in the article:
 
 ```azurecli
 az acr repository delete \
-  --name myregistry --repository samples/alpine \
+  --name myregistry --repository samples/nginx \
   --username $TOKEN_NAME --password $TOKEN_PWD
 ```
 
@@ -309,7 +309,7 @@ For brevity, we show only the [az acr scope-map update][az-acr-scope-map-update]
 az acr scope-map update \
   --name MyScopeMap \
   --registry myregistry \
-  --add samples/hello-world metadata/read 
+  --add-repository samples/hello-world metadata/read 
 ```  
 
 To update the scope map using the portal, see the [previous section](#update-token-permissions).
@@ -377,7 +377,7 @@ The following example generates a new value for password1 for the *MyToken* toke
 
 ```azurecli
 TOKEN_PWD=$(az acr token credential generate \
-  --name MyToken --registry myregistry --days 30 \
+  --name MyToken --registry myregistry --expiration-in-days 30 \
   --password1 --query 'passwords[0].value' --output tsv)
 ```
 

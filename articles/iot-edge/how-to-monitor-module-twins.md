@@ -12,6 +12,8 @@ services: iot-edge
 ---
 # Monitor module twins
 
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
 Module twins in Azure IoT Hub enable monitoring the connectivity and health of your IoT Edge deployments. Module twins store useful information in your IoT hub about the performance of your running modules. The [IoT Edge agent](iot-edge-runtime.md#iot-edge-agent) and the [IoT Edge hub](iot-edge-runtime.md#iot-edge-hub) runtime modules each maintain their module twins, `$edgeAgent` and `$edgeHub`, respectively:
 
 * `$edgeAgent` contains health and connectivity data about both the IoT Edge agent and IoT Edge hub runtime modules, and your custom modules. The IoT Edge agent is responsible for deploying the modules, monitoring them, and reporting connection status to your Azure IoT hub.
@@ -162,15 +164,15 @@ If you're experiencing issues with your downstream devices, examining this data 
 
 The information about the connectivity of your custom modules is maintained in the IoT Edge agent module twin. The module twin for your custom module is used primarily for maintaining data for your solution. The desired properties you defined in your deployment.json file are reflected in the module twin, and your module can update reported property values as needed.
 
-You can use your preferred programming language with the [Azure IoT Hub Device SDKs](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-device-sdks) to update reported property values in the module twin, based on your module's application code. The following procedure uses the Azure SDK for .NET to do this, using code from the [SimulatedTemperatureSensor](https://github.com/Azure/iotedge/blob/dd5be125df165783e4e1800f393be18e6a8275a3/edge-modules/SimulatedTemperatureSensor/src/Program.cs) module:
+You can use your preferred programming language with the [Azure IoT Hub Device SDKs](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) to update reported property values in the module twin, based on your module's application code. The following procedure uses the Azure SDK for .NET to do this, using code from the [SimulatedTemperatureSensor](https://github.com/Azure/iotedge/blob/dd5be125df165783e4e1800f393be18e6a8275a3/edge-modules/SimulatedTemperatureSensor/src/Program.cs) module:
 
-1. Create an instance of the [ModuleClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient) with the [CreateFromEnvironmentAysnc](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromenvironmentasync) method.
+1. Create an instance of the [ModuleClient](/dotnet/api/microsoft.azure.devices.client.moduleclient) with the [CreateFromEnvironmentAysnc](/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromenvironmentasync) method.
 
-1. Get a collection of the module twin's properties with the [GetTwinAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.gettwinasync?view=azure-dotnet) method.
+1. Get a collection of the module twin's properties with the [GetTwinAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.gettwinasync) method.
 
-1. Create a listener (passing a callback) to catch changes to desired properties with the [SetDesiredPropertyUpdateCallbackAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.setdesiredpropertyupdatecallbackasync?view=azure-dotnet) method.
+1. Create a listener (passing a callback) to catch changes to desired properties with the [SetDesiredPropertyUpdateCallbackAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.setdesiredpropertyupdatecallbackasync) method.
 
-1. In your callback method, update the reported properties in the module twin with the [UpdateReportedPropertiesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient) method, passing a [TwinCollection](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.shared.twincollection) of the property values that you want to set.
+1. In your callback method, update the reported properties in the module twin with the [UpdateReportedPropertiesAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient) method, passing a [TwinCollection](/dotnet/api/microsoft.azure.devices.shared.twincollection) of the property values that you want to set.
 
 ## Access the module twins
 
@@ -207,7 +209,7 @@ If you make changes, select **Update Module Twin** above the code in the editor 
 
 To see if IoT Edge is running, use the [az iot hub invoke-module-method](how-to-edgeagent-direct-method.md#ping) to ping the IoT Edge agent.
 
-The [az iot hub module-twin](/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-twin) structure provides these commands:
+The [az iot hub module-twin](/cli/azure/ext/azure-iot/iot/hub/module-twin) structure provides these commands:
 
 * **az iot hub module-twin show** - Show a module twin definition.
 * **az iot hub module-twin update** - Update a module twin definition.

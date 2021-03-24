@@ -21,7 +21,7 @@ Integrating Learning Seat LMS with Azure AD provides you with the following bene
 * You can enable your users to be automatically signed-in to Learning Seat LMS (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
@@ -93,7 +93,7 @@ To configure Azure AD single sign-on with Learning Seat LMS, perform the followi
 
 4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    ![Learning Seat LMS Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![Screenshot shows the Basic SAML Configuration, where you can enter Identifier, Reply U R L, and select Save.](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://<subdomain>.learningseatlms.com`
@@ -103,13 +103,13 @@ To configure Azure AD single sign-on with Learning Seat LMS, perform the followi
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![Learning Seat LMS Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<subdomain>.learningseatlms.com`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Learning Seat LMS Client support team](http://help.learningseatlms.com/help) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Learning Seat LMS Client support team](https://azuremarketplace.microsoft.com/marketplace/apps/aad.learnconnect?tab=Overview) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -127,7 +127,7 @@ To configure Azure AD single sign-on with Learning Seat LMS, perform the followi
 
 ### Configure Learning Seat LMS Single Sign-On
 
-To configure single sign-on on **Learning Seat LMS** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Learning Seat LMS support team](http://help.learningseatlms.com/help). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Learning Seat LMS** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Learning Seat LMS support team](https://azuremarketplace.microsoft.com/marketplace/apps/aad.learnconnect?tab=Overview). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
@@ -182,18 +182,18 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Learning Seat LMS test user
 
-In this section, you create a user called Britta Simon in Learning Seat LMS. Work with [Learning Seat LMS support team](http://help.learningseatlms.com/help) to add the users in the Learning Seat LMS platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Learning Seat LMS. Work with [Learning Seat LMS support team](https://azuremarketplace.microsoft.com/marketplace/apps/aad.learnconnect?tab=Overview) to add the users in the Learning Seat LMS platform. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Learning Seat LMS tile in the Access Panel, you should be automatically signed in to the Learning Seat LMS for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Learning Seat LMS tile in the Access Panel, you should be automatically signed in to the Learning Seat LMS for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

@@ -1,12 +1,12 @@
 ---
 title: 'Quickstart: Create a Unity iOS app'
 description: In this quickstart, you learn how to build an iOS app with Unity using Spatial Anchors.
-author: craigktreasure
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
-ms.author: crtreasu
-ms.date: 08/14/2020
+ms.author: parkerra
+ms.date: 03/18/2021
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ---
@@ -30,7 +30,7 @@ You'll learn how to:
 
 To complete this quickstart, make sure you have:
 
-- A macOS machine with <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.4 (LTS)</a>, the latest version of <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode</a> installed.
+- A macOS machine with the latest version of <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode</a> and <a href="https://unity3d.com/get-unity/download" target="_blank">Unity (LTS)</a> installed. Use **Unity 2020 LTS** with ASA SDK version 2.9 or later (which uses the [Unity XR Plug-in Framework](https://docs.unity3d.com/Manual/XRPluginArchitecture.html)) or **Unity 2019 LTS** with ASA SDK version 2.8 or earlier.
 - Git installed via HomeBrew. Enter the following command into a single line of the Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Then, run `brew install git` and `brew install git-lfs`.
 - A developer enabled <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">ARKit compatible</a> iOS device.
 
@@ -52,7 +52,11 @@ To complete this quickstart, make sure you have:
 
 [!INCLUDE [Configure Xcode](../../../includes/spatial-anchors-unity-ios-xcode.md)]
 
-Follow the instructions in the app to place and recall an anchor.
+In the app, select **BasicDemo** using the arrows, then press the **Go!** button to run the demo. Follow the instructions to place and recall an anchor.
+
+![Screenshot 1](./media/get-started-unity-ios/screenshot-1.jpg)
+![Screenshot 2](./media/get-started-unity-ios/screenshot-2.jpg)
+![Screenshot 3](./media/get-started-unity-ios/screenshot-3.jpg)
 
 When finished, stop the app by pressing **Stop** in Xcode.
 

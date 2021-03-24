@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 08/26/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 
@@ -19,7 +19,9 @@ ms.collection: M365-identity-device-management
 
 Azure Active Directory (Azure AD) self-service password reset (SSPR) lets users reset their passwords in the cloud.
 
-If you have problems with SSPR, the following troubleshooting steps and common errors may help. If you can't find the answer to your problem, [our support teams are always available](#contact-microsoft-support) to assist you further.
+If you have problems with SSPR, the following troubleshooting steps and common errors may help. You can also watch this short video on the [How ot resolve the six most common SSPR end-user error messages](https://www.youtube.com/watch?v=9RPrNVLzT8I&list=PL3ZTgFEc7LyuS8615yo39LtXR7j1GCerW&index=1).
+
+If you can't find the answer to your problem, [our support teams are always available](#contact-microsoft-support) to assist you further.
 
 ## SSPR configuration in the Azure portal
 
@@ -29,7 +31,7 @@ If you have problems seeing or configuring SSPR options in the Azure portal, rev
 
 You won't see if **Password reset** menu option if you don't have an Azure AD license assigned to the administrator performing the operation.
 
-To assign a license to the administrator account in question, follow the steps to [Assign, verify, and resolve problems with licenses](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
+To assign a license to the administrator account in question, follow the steps to [Assign, verify, and resolve problems with licenses](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
 ### I don't see a particular configuration option.
 
@@ -49,7 +51,7 @@ If you have problems with SSPR reporting in the Azure portal, review the followi
 
 This can happen if you don't have an Azure AD license assigned to the administrator performing the operation.
 
-To assign a license to the administrator account in question, follow the steps to [Assign, verify, and resolve problems with licenses](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
+To assign a license to the administrator account in question, follow the steps to [Assign, verify, and resolve problems with licenses](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
 ### User registrations show multiple times.
 
@@ -71,7 +73,7 @@ In the Azure portal, change the **Self-service password reset enabled** configur
 
 Only one Azure AD group can currently be enabled for SSPR using the Azure portal. As part of a wider deployment of SSPR, nested groups are supported. Make sure that the users in the group(s) you choose have the appropriate licenses assigned. Review the previous troubleshooting step to enable SSPR as required.
 
-Also review troubleshooting steps to make sure that the administrator performing the configuration options has a license assigned. To assign a license to the administrator account in question, follow the steps to [Assign, verify, and resolve problems with licenses](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
+Also review troubleshooting steps to make sure that the administrator performing the configuration options has a license assigned. To assign a license to the administrator account in question, follow the steps to [Assign, verify, and resolve problems with licenses](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
 ### There's an error processing the request.
 
@@ -84,7 +86,7 @@ If you or your users have problems using SSPR, review the following troubleshoot
 | Error | Solution |
 | --- | --- |
 | The directory isn't enabled for password reset. | In the Azure portal, change the **Self-service password reset enabled** configuration to *Selected* or *All* and then select **Save**. |
-| The user doesn't have an Azure AD license assigned. | This can happen if you don't have an Azure AD license assigned to the desired user. To assign a license to the administrator account in question, follow the steps to [Assign, verify, and resolve problems with licenses](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses). |
+| The user doesn't have an Azure AD license assigned. | This can happen if you don't have an Azure AD license assigned to the desired user. To assign a license to the administrator account in question, follow the steps to [Assign, verify, and resolve problems with licenses](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses). |
 | The directory is enabled for password reset, but the user has missing or malformed authentication information. | Make sure that user has properly formed contact data on file in the directory. For more information, see [Data used by Azure AD self-service password reset](howto-sspr-authenticationdata.md). |
 | The directory is enabled for password reset, but the user has only one piece of contact data on file when the policy is set to require two verification methods. | Make sure that the user has at least two properly configured contact methods. An example is having both a mobile phone number *and* an office phone number. |
 | The directory is enabled for password reset and the user is properly configured, but the user is unable to be contacted. | This can be the result of a temporary service error or if there's incorrect contact data that we can't properly detect. <br> <br> If the user waits 10 seconds, a link is displayed to "Try again" and "Contact your administrator". If the user selects "Try again," it retries the call. If the user selects "Contact your administrator," it sends a form email to the administrators requesting a password reset to be performed for that user account. |

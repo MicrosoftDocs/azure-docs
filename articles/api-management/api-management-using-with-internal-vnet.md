@@ -14,7 +14,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 03/09/2021
 ms.author: apimpm
 
 ---
@@ -48,7 +48,7 @@ To perform the steps described in this article, you must have:
 + When an API Management service is deployed in a virtual network, a [list of ports](./api-management-using-with-vnet.md#required-ports) are used and need to be opened. 
 
 ## <a name="enable-vpn"> </a>Creating an API Management in an internal virtual network
-The API Management service in an internal virtual network is hosted behind an [internal load balancer (classic)](/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). This is the only option available and can't be changed.
+The API Management service in an internal virtual network is hosted behind an [internal load balancer (classic)](/previous-versions/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). This is the only option available and can't be changed.
 
 ### Enable a virtual network connection using the Azure portal
 
@@ -67,9 +67,11 @@ After the deployment succeeds, you should see **private** virtual IP address and
 > [!NOTE]
 > The Test console available on the Azure Portal will not work for **Internal** VNET deployed service, as the Gateway Url is not registered on the Public DNS. You should instead use the Test Console provided on the **Developer portal**.
 
-### Enable a virtual network connection by using PowerShell cmdlets
+### <a name="deploy-apim-internal-vnet"> </a>Deploy API Management into Virtual Network
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-management-create-with-internal-vnet%2Fazuredeploy.json)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)] 
 
 You can also enable virtual network connectivity by using PowerShell cmdlets.
 
@@ -78,7 +80,7 @@ You can also enable virtual network connectivity by using PowerShell cmdlets.
 * Update an existing deployment of an API Management service inside a virtual network: Use the cmdlet [Update-AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) to move an existing API Management service inside a virtual network and configure it to use the internal virtual network type.
 
 ## <a name="apim-dns-configuration"></a>DNS configuration
-When API Management is in external virtual network mode, the DNS is managed by Azure. For internal virtual network mode, you have to manage your own DNS.
+When API Management is in external virtual network mode, the DNS is managed by Azure. For internal virtual network mode, you have to manage your own DNS. Configuring an Azure DNS private zone and linking it to the virtual network API Management service is deployed into is the recommended option.  Click [here](../dns/private-dns-getstarted-portal.md) to learn how to setup a private zone in Azure DNS.
 
 > [!NOTE]
 > API Management service does not listen to requests coming from IP addresses. It only responds to requests to the host name configured on its service endpoints. These endpoints include gateway, the Azure portal and the Developer portal, direct management endpoint, and Git.
@@ -140,4 +142,4 @@ To learn more, see the following articles:
 [Create API Management service]: get-started-create-service-instance.md
 [Common network configuration problems]: api-management-using-with-vnet.md#network-configuration-issues
 
-[ServiceTags]: ../virtual-network/security-overview.md#service-tags
+[ServiceTags]: ../virtual-network/network-security-groups-overview.md#service-tags

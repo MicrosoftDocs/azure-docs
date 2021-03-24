@@ -7,14 +7,15 @@ manager: phans
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-zone_pivot_groups: acs-js-csharp-java-python
+zone_pivot_groups: acs-js-csharp-java-python-swift-android
 ---
 # Quickstart: Add Chat to your App
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
 
 Get started with Azure Communication Services by using the Communication Services Chat client library to add real-time chat to your application. In this quickstart, we'll use the Chat client library to create chat threads that allow users to have conversations with one another. To learn more about Chat concepts, visit the [chat conceptual documentation](../../concepts/chat/concepts.md).
 
@@ -30,8 +31,16 @@ Get started with Azure Communication Services by using the Communication Service
 [!INCLUDE [Chat with Java client library](./includes/chat-java.md)]
 ::: zone-end
 
+::: zone pivot="programming-language-android"
+[!INCLUDE [Chat with Android client library](./includes/chat-android.md)]
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Chat with C# client library](./includes/chat-csharp.md)]
+::: zone-end
+
+::: zone pivot="programming-language-swift"
+[!INCLUDE [Chat with iOS client library](./includes/chat-swift.md)]
 ::: zone-end
 
 ## Clean up resources

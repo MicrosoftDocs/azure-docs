@@ -1,5 +1,6 @@
 ---
-title: Build single-page app calling a web API - Microsoft identity platform | Azure
+title: Build single-page app calling a web API
+titleSuffix: Microsoft identity platform
 description: Learn how to build a single-page application that calls a web API
 services: active-directory
 author: rwike77
@@ -12,7 +13,7 @@ ms.workload: identity
 ms.date: 05/06/2019
 ms.author: ryanwi
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform.
 ---
 
 # Single-page application: Call a web API
@@ -49,5 +50,4 @@ The MSAL Angular wrapper takes advantage of the HTTP interceptor to automaticall
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Move to production](scenario-spa-production.md)
+Move on to the next article in this scenario, [Move to production](scenario-spa-production.md).

@@ -2,10 +2,10 @@
 title: Deploy resources to subscription
 description: Describes how to create a resource group in an Azure Resource Manager template. It also shows how to deploy resources at the Azure subscription scope.
 ms.topic: conceptual
-ms.date: 09/24/2020
+ms.date: 01/13/2021
 ---
 
-# Create resource groups and resources at the subscription level
+# Subscription deployments with ARM templates
 
 To simplify the management of resources, you can use an Azure Resource Manager template (ARM template) to deploy resources at the level of your Azure subscription. For example, you can deploy [policies](../../governance/policy/overview.md) and [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) to your subscription, which applies them across your subscription. You can also create resource groups within the subscription and deploy resources to resource groups in the subscription.
 
@@ -47,7 +47,9 @@ For creating new resource groups, use:
 
 For managing your subscription, use:
 
+* [Advisor configurations](/azure/templates/microsoft.advisor/configurations)
 * [budgets](/azure/templates/microsoft.consumption/budgets)
+* [Change Analysis profile](/azure/templates/microsoft.changeanalysis/profile)
 * [supportPlanTypes](/azure/templates/microsoft.addons/supportproviders/supportplantypes)
 * [tags](/azure/templates/microsoft.resources/tags)
 
@@ -64,32 +66,26 @@ The schema you use for subscription-level deployments is different than the sche
 For templates, use:
 
 ```json
-https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    ...
+}
 ```
 
 The schema for a parameter file is the same for all deployment scopes. For parameter files, use:
 
 ```json
-https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    ...
+}
 ```
-
-## Deployment scopes
-
-When deploying to a subscription, you can target one subscription and any resource groups within the subscription. You can't deploy to a subscription that is different than the target subscription. The user deploying the template must have access to the specified scope.
-
-Resources defined within the resources section of the template are applied to the subscription.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-sub.json" highlight="5":::
-
-To target a resource group within the subscription, add a nested deployment and include the `resourceGroup` property. In the following example, the nested deployment targets a resource group named `rg2`.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-resource-group.json" highlight="9,13":::
-
-In this article, you can find templates that show how to deploy resources to different scopes. For a template that creates a resource group and deploys a storage account to it, see [Create resource group and resources](#create-resource-group-and-resources). For a template that creates a resource group, applies a lock to it, and assigns a role for the resource group, see [Access control](#access-control).
 
 ## Deployment commands
 
-The commands for subscription-level deployments are different than the commands for resource group deployments.
+To deploy to a subscription, use the subscription-level deployment commands.
+
+# [Azure CLI](#tab/azure-cli)
 
 For Azure CLI, use [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create). The following example deploys a template to create a resource group:
 
@@ -101,7 +97,9 @@ az deployment sub create \
   --parameters rgName=demoResourceGroup rgLocation=centralus
 ```
 
-For the PowerShell deployment command, use [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) or **New-AzSubscriptionDeployment**. The following example deploys a template to create a resource group:
+# [PowerShell](#tab/azure-powershell)
+
+For the PowerShell deployment command, use [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) or its alias `New-AzSubscriptionDeployment`. The following example deploys a template to create a resource group:
 
 ```azurepowershell-interactive
 New-AzSubscriptionDeployment `
@@ -112,35 +110,75 @@ New-AzSubscriptionDeployment `
   -rgLocation centralus
 ```
 
-For REST API, use [Deployments - Create At Subscription Scope](/rest/api/resources/deployments/createorupdateatsubscriptionscope).
+---
+
+For more detailed information about deployment commands and options for deploying ARM templates, see:
+
+* [Deploy resources with ARM templates and Azure portal](deploy-portal.md)
+* [Deploy resources with ARM templates and Azure CLI](deploy-cli.md)
+* [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md)
+* [Deploy resources with ARM templates and Azure Resource Manager REST API](deploy-rest.md)
+* [Use a deployment button to deploy templates from GitHub repository](deploy-to-azure-button.md)
+* [Deploy ARM templates from Cloud Shell](deploy-cloud-shell.md)
 
 ## Deployment location and name
 
-For subscription level deployments, you must provide a location for the deployment. The location of the deployment is separate from the location of the resources you deploy. The deployment location specifies where to store deployment data.
+For subscription level deployments, you must provide a location for the deployment. The location of the deployment is separate from the location of the resources you deploy. The deployment location specifies where to store deployment data. [Management group](deploy-to-management-group.md) and [tenant](deploy-to-tenant.md) deployments also require a location. For [resource group](deploy-to-resource-group.md) deployments, the location of the resource group is used to store the deployment data.
 
-You can provide a name for the deployment, or use the default deployment name. The default name is the name of the template file. For example, deploying a template named **azuredeploy.json** creates a default deployment name of **azuredeploy**.
+You can provide a name for the deployment, or use the default deployment name. The default name is the name of the template file. For example, deploying a template named _azuredeploy.json_ creates a default deployment name of **azuredeploy**.
 
-For each deployment name, the location is immutable. You can't create a deployment in one location when there's an existing deployment with the same name in a different location. If you get the error code `InvalidDeploymentLocation`, either use a different name or the same location as the previous deployment for that name.
+For each deployment name, the location is immutable. You can't create a deployment in one location when there's an existing deployment with the same name in a different location. For example, if you create a subscription deployment with the name **deployment1** in **centralus**, you can't later create another deployment with the name **deployment1** but a location of **westus**. If you get the error code `InvalidDeploymentLocation`, either use a different name or the same location as the previous deployment for that name.
 
-## Use template functions
+## Deployment scopes
 
-For subscription-level deployments, there are some important considerations when using template functions:
+When deploying to a subscription, you can deploy resources to:
 
-* The [resourceGroup()](template-functions-resource.md#resourcegroup) function is **not** supported.
-* The [reference()](template-functions-resource.md#reference) and [list()](template-functions-resource.md#list) functions are supported.
-* Don't use [resourceId()](template-functions-resource.md#resourceid) to get the resource ID for resources that are deployed at subscription level. Instead, use the [subscriptionResourceId()](template-functions-resource.md#subscriptionresourceid) function.
+* the target subscription from the operation
+* any subscription in the tenant
+* resource groups within the subscription or other subscriptions
+* the tenant for the subscription
 
-  For example, to get the resource ID for a policy definition that is deployed to a subscription, use:
+An [extension resource](scope-extension-resources.md) can be scoped to a target that is different than the deployment target.
 
-  ```json
-  subscriptionResourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
-  ```
+The user deploying the template must have access to the specified scope.
 
-  The returned resource ID has the following format:
+This section shows how to specify different scopes. You can combine these different scopes in a single template.
 
-  ```json
-  /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-  ```
+### Scope to target subscription
+
+To deploy resources to the target subscription, add those resources to the resources section of the template.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-sub.json" highlight="5":::
+
+For examples of deploying to the subscription, see [Create resource groups](#create-resource-groups) and [Assign policy definition](#assign-policy-definition).
+
+### Scope to other subscription
+
+To deploy resources to a subscription that is different than the subscription from the operation, add a nested deployment. Set the `subscriptionId` property to the ID of the subscription you want to deploy to. Set the `location` property for the nested deployment.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-sub.json" highlight="9,10,14":::
+
+### Scope to resource group
+
+To deploy resources to a resource group within the subscription, add a nested deployment and include the `resourceGroup` property. In the following example, the nested deployment targets a resource group named `demoResourceGroup`.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-resource-group.json" highlight="9,13":::
+
+For an example of deploying to a resource group, see [Create resource group and resources](#create-resource-group-and-resources).
+
+### Scope to tenant
+
+To create resources at the tenant, set the `scope` to `/`. The user deploying the template must have the [required access to deploy at the tenant](deploy-to-tenant.md#required-access).
+
+To use a nested deployment, set `scope` and `location`.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/subscription-to-tenant.json" highlight="9,10,14":::
+
+Or, you can set the scope to `/` for some resource types, like management groups.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/subscription-create-mg.json" highlight="12,15":::
+
+For more information, see [Management group](deploy-to-management-group.md#management-group).
 
 ## Resource groups
 
@@ -166,7 +204,7 @@ The following template creates an empty resource group.
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2020-10-01",
       "name": "[parameters('rgName')]",
       "location": "[parameters('rgLocation')]",
       "properties": {}
@@ -197,7 +235,7 @@ Use the [copy element](copy-resources.md) with resource groups to create more th
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2020-10-01",
       "location": "[parameters('rgLocation')]",
       "name": "[concat(parameters('rgNamePrefix'), copyIndex())]",
       "copy": {
@@ -211,7 +249,7 @@ Use the [copy element](copy-resources.md) with resource groups to create more th
 }
 ```
 
-For information about resource iteration, see [Deploy more than one instance of a resource  in Azure Resource Manager Templates](./copy-resources.md), and [Tutorial: Create multiple resource instances with Resource Manager templates](./template-tutorial-create-multiple-instances.md).
+For information about resource iteration, see [Resource iteration in ARM templates](./copy-resources.md), and [Tutorial: Create multiple resource instances with ARM templates](./template-tutorial-create-multiple-instances.md).
 
 ### Create resource group and resources
 
@@ -241,14 +279,14 @@ The following example creates a resource group, and deploys a storage account to
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2020-10-01",
       "name": "[parameters('rgName')]",
       "location": "[parameters('rgLocation')]",
       "properties": {}
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2020-10-01",
       "name": "storageDeployment",
       "resourceGroup": "[parameters('rgName')]",
       "dependsOn": [

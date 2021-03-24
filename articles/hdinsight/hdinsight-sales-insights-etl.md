@@ -1,12 +1,9 @@
 ---
 title: 'Tutorial: Create an end-to-end ETL pipeline to derive sales insights in Azure HDInsight'
 description: Learn how to use create ETL pipelines with Azure HDInsight to derive insights from sales data by using Spark on-demand clusters and Power BI.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 04/15/2020
 ---
 
@@ -16,19 +13,19 @@ In this tutorial, you'll build an end-to-end data pipeline that performs extract
 
 This data pipeline combines the data from various stores, removes any unwanted data, appends new data, and loads all this back to your storage to visualize business insights. Read more about ETL pipelines in [Extract, transform, and load (ETL) at scale](./hadoop/apache-hadoop-etl-at-scale.md).
 
-![ETL architecture](./media/hdinsight-sales-insights-etl/architecture.png)
+:::image type="content" source="./media/hdinsight-sales-insights-etl/architecture.png" alt-text="ETL architecture" border="false":::
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-* Azure CLI - at least version 2.2.0. See [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Azure CLI - at least version 2.2.0. See [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 * jq, a command-line JSON processor.  See [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 
 * A member of the [Azure built-in role - owner](../role-based-access-control/built-in-roles.md).
 
-* If using PowerShell to trigger the Data Factory pipeline, you'll need the [Az Module](https://docs.microsoft.com/powershell/azure/).
+* If using PowerShell to trigger the Data Factory pipeline, you'll need the [Az Module](/powershell/azure/).
 
 * [Power BI Desktop](https://aka.ms/pbiSingleInstaller) to visualize business insights at the end of this tutorial.
 
@@ -88,7 +85,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     ./scripts/resources.sh $resourceGroup LOCATION
     ```
 
-    If you're not sure which region to specify, you can retrieve a list of supported regions for your subscription with the [az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list-locations) command.
+    If you're not sure which region to specify, you can retrieve a list of supported regions for your subscription with the [az account list-locations](/cli/azure/account#az-account-list-locations) command.
 
     The command will deploy the following resources:
 

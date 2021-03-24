@@ -3,19 +3,17 @@ title: Azure Media Services release notes | Microsoft Docs
 description: This article talks about the Microsoft Azure Media Services v2 release notes.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/01/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-
 ---
 # Azure Media Services release notes
 
@@ -24,7 +22,7 @@ ms.custom: devx-track-csharp
 These release notes for Azure Media Services summarize changes from previous releases and known issues.
 
 > [!NOTE]
-> No new features are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
+> No new features are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 We want to hear from our customers so that we can focus on fixing problems that affect you. To report a problem or ask questions, submit a post in the [Azure Media Services MSDN Forum]. 
 
@@ -44,6 +42,39 @@ We want to hear from our customers so that we can focus on fixing problems that 
 
 ## <a name="rest_version_history"></a>REST API version history
 For information about the Media Services REST API version history, see the [Azure Media Services REST API reference].
+
+## February 2021
+
+### Azure Media Services v2 API and SDKs deprecation announcement
+
+#### Update your Azure Media Services REST API and SDKs to v3 by 29 February 2024
+
+Because version 3 of Azure Media Services REST API and client SDKs for .NET and Java offers more capabilities than version 2, we’re retiring version 2 of the Azure Media Services REST API and client SDKs for .NET and Java. 
+We encourage you to make the switch sooner to gain the richer benefits of version 3 of Azure Media Services REST API and client SDKs for .NET and Java.
+Version 3 provides:
+ 
+- 24x7 live event support
+- ARM REST APIs, client SDKs for .NET core, Node.js, Python, Java, Go and Ruby.
+- Customer managed keys, trusted storage integration, private link support, and [more](https://review.docs.microsoft.com/en-us/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
+
+#### Action Required:
+
+To minimize disruption to your workloads, review the [migration guide](https://go.microsoft.com/fwlink/?linkid=2149150&clcid=0x409) to transition your code from the version 2 API and SDKs to version 3 API and SDK before 29 February 2024.
+**After 29 February 2024**, Azure Media Services will no longer accept traffic on the version 2 REST API, the ARM account management API version 2015-10-01, or from the version 2 .NET client SDKs. This includes any 3rd party open-source client SDKS that may call the version 2 API.  
+
+See the official [Azure Updates announcement](https://azure.microsoft.com/updates/update-your-azure-media-services-rest-api-and-sdks-to-v3-by-29-february-2024/).
+
+## September 2020
+
+The following v2 properties will no longer be populated with historical job progress data:
+
+* [HistoricalEvents](/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.historicalevents)
+* [PerfMessage](/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.perfmessage)
+
+To get task history, you should use the v2 job notifications via webhooks or queue messages using Notification Endpoints. For more information, see:
+
+* [Use Azure Queue storage to monitor Media Services job notifications](media-services-dotnet-check-job-progress-with-queues.md)
+* [Use Azure Webhooks to monitor Media Services job notifications](media-services-dotnet-check-job-progress-with-webhooks.md)
 
 ## February 2020
 
@@ -65,7 +96,7 @@ Also see [Migrate from Azure Media Indexer and Azure Media Indexer 2 to Azure Me
 
 We are announcing deprecation of the *Windows Azure Media Encoder* (WAME) and *Azure Media Encoder* (AME) media processors. For the retirement dates, see this [legacy components](legacy-components.md) topic.
 
-For details, see [Migrate WAME to Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) and [Migrate AME to Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
+For details, see [Migrate WAME to Media Encoder Standard](./migrate-windows-azure-media-encoder.md) and [Migrate AME to Media Encoder Standard](./migrate-azure-media-encoder.md).
 
 ## March 2019
 
@@ -182,7 +213,7 @@ Some clients can come across a repeat tag issue in the Smooth Streaming manifest
 
 ## <a id="apr_changes16"></a>April 2016 release
 ### Media Analytics
- Media Services introduced Media Analytics for powerful video intelligence. For more information, see [Media Services Analytics overview](media-services-analytics-overview.md).
+ Media Services introduced Media Analytics for powerful video intelligence. For more information, see [Media Services Analytics overview](./legacy-components.md).
 
 ### Apple FairPlay (preview)
 You now can use Media Services to dynamically encrypt your HTTP Live Streaming (HLS) content with Apple FairPlay. You also can use the Media Services license delivery service to deliver FairPlay licenses to clients. For more information, see "Use Azure Media Services to stream your HLS content protected with Apple FairPlay."
@@ -259,7 +290,7 @@ For more information, see [this blog](https://azure.microsoft.com/blog/azure-med
 ## <a id="july_changes_15"></a>July 2015 release
 * The general availability of Media Encoder Standard was announced. For more information, see [this blog post](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
   
-    Media Encoder Standard uses presets, as described in [this section](https://go.microsoft.com/fwlink/?LinkId=618336). When you use a preset for 4K encodes, get the Premium reserved unit type. For more information, see [Scale encoding](media-services-scale-media-processing-overview.md).
+    Media Encoder Standard uses presets, as described in [this section](./media-services-mes-presets-overview.md). When you use a preset for 4K encodes, get the Premium reserved unit type. For more information, see [Scale encoding](media-services-scale-media-processing-overview.md).
 * Live real-time captions were used with Media Services and the Media Player. For more information, see [this blog post](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/).
 
 ### Media Services .NET SDK updates

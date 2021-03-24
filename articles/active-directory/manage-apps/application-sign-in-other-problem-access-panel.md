@@ -3,7 +3,7 @@ title: Troubleshoot problems signing in to an application from Azure AD My Apps
 description: Troubleshoot problems signing in to an application from Azure AD My Apps
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,11 +11,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
+ms.custom: contperf-fy21q2
 ---
 
 # Troubleshoot problems signing in to an application from Azure AD My Apps
 
-My Apps is a web-based portal that enables a user with a work or school account in Azure Active Directory (Azure AD) to view and start cloud-based applications that the Azure AD administrator has granted them access to. 
+My Apps is a web-based portal that enables a user with a work or school account in Azure Active Directory (Azure AD) to view and start cloud-based applications that the Azure AD administrator has granted them access to. My Apps is accessed using a web browser at [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
 To learn more about using Azure AD as an identity provider for an app, see the [What is Application Management in Azure AD](what-is-application-management.md). To get up to speed quickly, check out the [Quickstart Series on Application Management](view-applications-portal.md).
 
@@ -55,6 +56,7 @@ Access to My Apps can be blocked due to a problem with the user’s account. Fol
 -   [Check a user’s multi-factor authentication status](#check-a-users-multi-factor-authentication-status)
 -   [Check a user’s authentication contact info](#check-a-users-authentication-contact-info)
 -   [Check a user’s group memberships](#check-a-users-group-memberships)
+-   [Check if a user has more than 999 app role assignments](#check-if-a-user-has-more-than-999-app-role-assignments)
 -   [Check a user’s assigned licenses](#check-a-users-assigned-licenses)
 -   [Assign a user a license](#assign-a-user-a-license)
 
@@ -94,8 +96,8 @@ To reset a user’s password, follow these steps:
 
 ### Enable self-service password reset
 To enable self-service password reset, follow these deployment steps:
--   [Enable users to reset their Azure Active Directory passwords](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
--   [Enable users to reset or change their Active Directory on-premises passwords](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+-   [Enable users to reset their Azure Active Directory passwords](../authentication/tutorial-enable-sspr.md)
+-   [Enable users to reset or change their Active Directory on-premises passwords](../authentication/tutorial-enable-sspr.md)
 
 ### Check a user’s multi-factor authentication status
 To check a user’s multi-factor authentication status, follow these steps:
@@ -132,6 +134,17 @@ To check a user’s group memberships, follow these steps:
 5.  Select **All users**.
 6.  **Search** for the user you are interested in and **select the row** to select.
 7.  Select **Groups** to see which groups the user is a member of.
+
+### Check if a user has more than 999 app role assignments
+If a user has more than 999 app role assignments, then they may not see all of their apps on My Apps.
+
+This is because My Apps currently reads up to 999 app role assignments to determine the apps to which users are assigned. If a user is assigned to more than 999 apps, it is not possible to control which of those apps will show in the My Apps portal.
+
+To check if a user has more than 999 app role assignments, follow these steps:
+1. Install the [**Microsoft.Graph**](https://github.com/microsoftgraph/msgraph-sdk-powershell) PowerShell module.
+2. Run `Connect-MgGraph -Scopes "User.ReadBasic.All Application.Read.All"`.
+3. Run `(Get-MgUserAppRoleAssignment -UserId "<user-id>" -PageSize 999).Count` to determine the number of app role assignments the user currently has granted.
+4. If the result is 999, the user likely has more than 999 app roles assignments.
 
 ### Check a user’s assigned licenses
 To check a user’s assigned licenses, follow these steps:

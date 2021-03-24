@@ -11,9 +11,9 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: .NET Core
+  - name: ASP.NET Core
     href: quickstart-dotnetcore.md
-  - name: .NET Framework
+  - name: ASP.NET
     href: quickstart-dotnet-framework.md
   - name: Node.js
     href: quickstart-nodejs.md
@@ -28,6 +28,7 @@
   - name: Static HTML site
     href: quickstart-html.md
   - name: ARM template
+    displayName: Resource Manager
     href: quickstart-arm-template.md
   - name: Custom container
     href: quickstart-custom-container.md
@@ -35,18 +36,32 @@
     href: quickstart-multi-container.md
 - name: Tutorials
   items:
+  - name: Secure app accesses storage and Microsoft Graph
+    items:
+    - name: Overview
+      href: scenario-secure-app-overview.md
+    - name: Set up App Service authentication
+      href: scenario-secure-app-authentication-app-service.md
+    - name: Secure app accesses storage
+      href: scenario-secure-app-access-storage.md
+    - name: Secure app accesses Microsoft Graph as the user
+      href: scenario-secure-app-access-microsoft-graph-as-user.md
+    - name: Secure app accesses Microsoft Graph as the app
+      href: scenario-secure-app-access-microsoft-graph-as-app.md    
+    - name: Clean up resources
+      href: scenario-secure-app-clean-up-resources.md
   - name: App with DB
     items:
-    - name: .NET Core with SQL DB
+    - name: ASP.NET Core with SQL DB
       href: tutorial-dotnetcore-sqldb-app.md
-    - name: .NET Framework with SQL DB
+    - name: ASP.NET with SQL DB
       href: app-service-web-tutorial-dotnet-sqldatabase.md
     - name: PHP with MySQL
-      href: tutorial-php-mysql-app.md 
+      href: tutorial-php-mysql-app.md
     - name: Node.js with MongoDB
       href: tutorial-nodejs-mongodb-app.md
     - name: Ruby with Postgres
-      href: tutorial-ruby-postgres-app.md 
+      href: tutorial-ruby-postgres-app.md
     - name: Python with Postgres
       href: tutorial-python-postgresql-app.md
     - name: Java with Spring Data
@@ -87,6 +102,8 @@
   items:
   - name: App Service plans
     href: overview-hosting-plans.md
+  - name: Cost management
+    href: overview-manage-costs.md
   - name: OS functionality
     href: operating-system-functionality.md
   - name: Deployment best practices
@@ -99,8 +116,8 @@
       href: overview-authentication-authorization.md
     - name: OS and runtime patching
       href: overview-patch-os-runtime.md
-    - name: Built-in security controls
-      href: app-service-security-controls.md
+    - name: Security baseline
+      href: security-baseline.md
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
@@ -170,10 +187,6 @@
         href: deploy-ci-cd-custom-container.md
       - name: Deploy from local Git
         href: deploy-local-git.md
-      - name: GitHub Action
-        href: deploy-github-actions.md
-      - name: GitHub Action for Containers
-        href: deploy-container-github-action.md
       - name: Deploy with template
         href: deploy-complex-application-predictably.md
     - name: Set deployment credentials
@@ -208,6 +221,8 @@
         href: configure-authentication-provider-twitter.md
       - name: Authenticate with an OpenID Connect provider (Preview)
         href: configure-authentication-provider-openid-connect.md
+      - name: Authenticate using Sign in with Apple (Preview)
+        href: configure-authentication-provider-apple.md
     - name: Advanced auth
       href: app-service-authentication-how-to.md
     - name: Restrict access
@@ -226,10 +241,10 @@
     items:
     - name: Scale up server capacity
       href: manage-scale-up.md
-    - name: Configure PremiumV2 tier
+    - name: Configure PremiumV3 tier
       href: app-service-configure-premium-tier.md
     - name: Scale out to multiple instances
-      href: ../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json
+      href: ../azure-monitor/autoscale/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json
     - name: High density hosting
       href: manage-scale-per-app.md
   - name: Monitor app
@@ -240,6 +255,8 @@
       href: troubleshoot-diagnostic-logs.md
     - name: Get resource events
       href: get-resource-events.md
+    - name: Health check
+      href: monitor-instances-health-check.md      
     - name: Open SSH session to Linux container
       href: configure-linux-open-ssh-session.md
   - name: Manage app
@@ -301,6 +318,8 @@
     href: ../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits
   - name: Service Updates
     href: https://azure.microsoft.com/updates/?product=app-service
+  - name: Kudu service
+    href: resources-kudu.md
   - name: Migration Assistant guides
     href: https://github.com/Azure/App-Service-Migration-Assistant/tree/master/MigrationDocs
   - name: Best practices

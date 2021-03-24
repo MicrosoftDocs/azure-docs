@@ -53,7 +53,7 @@ However, if an existing application expects to consume group information via cla
 
 - When using group membership for in-application authorization purposes it is preferable to use the Group ObjectID. The Group ObjectID is immutable and unique in Azure Active Directory and available for all groups.
 - If using the on-premises group sAMAccountName for authorization, use domain qualified names;  there’s less chance of names clashing. sAMAccountName may be unique within an Active Directory domain, but if more than one Active Directory domain is synchronized with an Azure Active Directory tenant there is a possibility for more than one group to have the same name.
-- Consider using [Application Roles](../../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) to provide a layer of indirection between the group membership and the application.   The application then makes internal authorization decisions based on role clams in the token.
+- Consider using [Application Roles](../../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) to provide a layer of indirection between the group membership and the application.   The application then makes internal authorization decisions based on role claims in the token.
 - If the application is configured to get group attributes that are synced from Active Directory and a Group doesn't contain those attributes, it won't be included in the claims.
 - Group claims in tokens include nested groups except when using the option to restrict the group claims to groups assigned to the application.  If a user is a member of GroupB and GroupB is a member of GroupA, then the group claims for the user will contain both GroupA and GroupB. When an organization's users have large numbers of group memberships, the number of groups listed in the token can grow the token size.  Azure Active Directory limits the number of groups it will emit in a token to 150 for SAML assertions, and 200 for JWT.  If a user is a member of a larger number of groups, the groups are omitted and a link to the Graph endpoint to obtain group information is included instead.
 
@@ -141,8 +141,9 @@ Valid values are:
 |----------|-------------|
 | **"All"** | Emits security groups, distribution lists and roles |
 | **"SecurityGroup"** | Emits security groups the user is a member of in the groups claim |
-| **"DirectoryRole** | If the user is assigned directory roles, they are emitted as a 'wids' claim (groups claim won't be emitted) |
-| **"ApplicationGroup** | Emits only the groups that are explicitly assigned to the application and the user is a member of |
+| **"DirectoryRole"** | If the user is assigned directory roles, they are emitted as a 'wids' claim (groups claim won't be emitted) |
+| **"ApplicationGroup"** | Emits only the groups that are explicitly assigned to the application and the user is a member of |
+| **"None"** | No Groups are returned.(Its not case-sensetive so none works as well and it can be set directly in the application manifest.) |
 
    For example:
 

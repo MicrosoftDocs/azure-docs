@@ -1,13 +1,9 @@
 ---
 title: Migrate data from Amazon S3 to Azure Storage
 description: Use Azure Data Factory to migrate data from Amazon S3 to Azure Storage.
-services: data-factory
 ms.author: yexu
 author: dearandyxu
-ms.reviewer: ""
-manager: shwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/04/2019
@@ -36,9 +32,9 @@ Customers have successfully migrated petabytes of data consisting of hundreds of
 
 The picture above illustrates how you can achieve great data movement speeds through different levels of parallelism:
  
-- A single copy activity can take advantage of scalable compute resources: when using Azure Integration Runtime, you can specify [up to 256 DIUs](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#data-integration-units) for each copy activity in a serverless manner; when using self-hosted Integration Runtime, you can manually scale up the machine or scale out to multiple machines ([up to 4 nodes](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)), and a single copy activity will partition its file set across all nodes. 
+- A single copy activity can take advantage of scalable compute resources: when using Azure Integration Runtime, you can specify [up to 256 DIUs](./copy-activity-performance.md#data-integration-units) for each copy activity in a serverless manner; when using self-hosted Integration Runtime, you can manually scale up the machine or scale out to multiple machines ([up to 4 nodes](./create-self-hosted-integration-runtime.md#high-availability-and-scalability)), and a single copy activity will partition its file set across all nodes. 
 - A single copy activity reads from and writes to the data store using multiple threads. 
-- ADF control flow can start multiple copy activities in parallel, for example using [For Each loop](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity). 
+- ADF control flow can start multiple copy activities in parallel, for example using [For Each loop](./control-flow-for-each-activity.md). 
 
 ## Resilience
 
@@ -69,17 +65,17 @@ Migrate data over private link:
 
 - In this architecture, data migration is done over a private peering link between AWS Direct Connect and Azure Express Route such that data never traverses over public Internet.  It requires use of AWS VPC and Azure Virtual network. 
 - You need to install ADF self-hosted integration runtime on a Windows VM within your Azure virtual network to achieve this architecture.  You can manually scale up your self-hosted IR VMs or scale out to multiple VMs (up to 4 nodes) to fully utilize your network and storage IOPS/bandwidth. 
-- If it is acceptable to transfer data over HTTPS but you want to lock down network access to source S3 to a specific IP range, you can adopt a variation of this architecture by removing AWS VPC and replacing private link with HTTPS.  You will want to keep Azure Virtual and self-hosted IR on Azure VM so you can have a static publicly routable IP for whitelisting purpose. 
+- If it is acceptable to transfer data over HTTPS but you want to lock down network access to source S3 to a specific IP range, you can adopt a variation of this architecture by removing AWS VPC and replacing private link with HTTPS.  You will want to keep Azure Virtual and self-hosted IR on Azure VM so you can have a static publicly routable IP for filtering purpose. 
 - Both initial snapshot data migration and delta data migration can be achieved using this architecture. 
 
 ## Implementation best practices 
 
 ### Authentication and credential management 
 
-- To authenticate to Amazon S3 account, you must use [access key for IAM account](https://docs.microsoft.com/azure/data-factory/connector-amazon-simple-storage-service#linked-service-properties). 
-- Multiple authentication types are supported to connect to Azure Blob Storage.  Use of [managed identities for Azure resources](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#managed-identity) is highly recommended: built on top of an automatically managed ADF identify in Azure AD, it allows you to configure pipelines without supplying credentials in Linked Service definition.  Alternatively, you can authenticate to Azure Blob Storage using [Service Principal](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#service-principal-authentication), [shared access signature](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#shared-access-signature-authentication), or [storage account key](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#account-key-authentication). 
-- Multiple authentication types are also supported to connect to Azure Data Lake Storage Gen2.  Use of [managed identities for Azure resources](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#managed-identity) is highly recommended, although [service principal](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication) or [storage account key](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#account-key-authentication) can also be used. 
-- When you are not using managed identities for Azure resources, [storing the credentials in Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) is highly recommended to make it easier to centrally manage and rotate keys without modifying ADF linked services.  This is also one of the [best practices for CI/CD](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd). 
+- To authenticate to Amazon S3 account, you must use [access key for IAM account](./connector-amazon-simple-storage-service.md#linked-service-properties). 
+- Multiple authentication types are supported to connect to Azure Blob Storage.  Use of [managed identities for Azure resources](./connector-azure-blob-storage.md#managed-identity) is highly recommended: built on top of an automatically managed ADF identify in Azure AD, it allows you to configure pipelines without supplying credentials in Linked Service definition.  Alternatively, you can authenticate to Azure Blob Storage using [Service Principal](./connector-azure-blob-storage.md#service-principal-authentication), [shared access signature](./connector-azure-blob-storage.md#shared-access-signature-authentication), or [storage account key](./connector-azure-blob-storage.md#account-key-authentication). 
+- Multiple authentication types are also supported to connect to Azure Data Lake Storage Gen2.  Use of [managed identities for Azure resources](./connector-azure-data-lake-storage.md#managed-identity) is highly recommended, although [service principal](./connector-azure-data-lake-storage.md#service-principal-authentication) or [storage account key](./connector-azure-data-lake-storage.md#account-key-authentication) can also be used. 
+- When you are not using managed identities for Azure resources, [storing the credentials in Azure Key Vault](./store-credentials-in-key-vault.md) is highly recommended to make it easier to centrally manage and rotate keys without modifying ADF linked services.  This is also one of the [best practices for CI/CD](./continuous-integration-deployment.md#best-practices-for-cicd). 
 
 ### Initial snapshot data migration 
 
@@ -133,16 +129,16 @@ Here is the estimated price based on the above assumptions:
 ![Screenshot of a table shows an estimated price.](media/data-migration-guidance-s3-to-azure-storage/pricing-table.png)
 
 ### Additional references 
-- [Amazon Simple Storage Service connector](https://docs.microsoft.com/azure/data-factory/connector-amazon-simple-storage-service)
-- [Azure Blob Storage connector](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
-- [Azure Data Lake Storage Gen2 connector](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
-- [Copy activity performance tuning guide](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
-- [Creating and configuring self-hosted Integration Runtime](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
-- [Self-hosted integration runtime HA and scalability](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)
-- [Data movement security considerations](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
-- [Store credentials in Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
-- [Copy file incrementally based on time partitioned file name](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-partitioned-file-name-copy-data-tool)
-- [Copy new and changed files based on LastModifiedDate](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-lastmodified-copy-data-tool)
+- [Amazon Simple Storage Service connector](./connector-amazon-simple-storage-service.md)
+- [Azure Blob Storage connector](./connector-azure-blob-storage.md)
+- [Azure Data Lake Storage Gen2 connector](./connector-azure-data-lake-storage.md)
+- [Copy activity performance tuning guide](./copy-activity-performance.md)
+- [Creating and configuring self-hosted Integration Runtime](./create-self-hosted-integration-runtime.md)
+- [Self-hosted integration runtime HA and scalability](./create-self-hosted-integration-runtime.md#high-availability-and-scalability)
+- [Data movement security considerations](./data-movement-security-considerations.md)
+- [Store credentials in Azure Key Vault](./store-credentials-in-key-vault.md)
+- [Copy file incrementally based on time partitioned file name](./tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)
+- [Copy new and changed files based on LastModifiedDate](./tutorial-incremental-copy-lastmodified-copy-data-tool.md)
 - [ADF pricing page](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
 
 ## Template

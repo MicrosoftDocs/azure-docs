@@ -61,6 +61,13 @@ A PostgreSQL connection, even idle, can occupy about 10 MB of memory. Also, crea
 
 - Automated migration between major database engine versions is currently not supported. If you would like to upgrade to the next major version, take a [dump and restore](../howto-migrate-using-dump-and-restore.md) it to a server that was created with the new engine version.
 
+### Storage
+
+- Once configured, storage size cannot be reduced. You have to create a new server with desired storage size, perform manual [dump and restore](../howto-migrate-using-dump-and-restore.md) and migrate your database(s) to the new server.
+- Currently, storage auto-grow feature is not available. Please monitor the usage and increase the storage to a higher size. 
+- When the storage usage reaches 95% or if the available capacity is less than 5 GiB, the server is automatically switched to **read-only mode** to avoid errors associated with disk-full situations. 
+- We recommend to set alert rules for `storage used` or `storage percent` when they exceed certain thresholds so that you can proactively take action such as increasing the storage size. For example, you can set an alert if the storage percent exceeds 80% usage.
+  
 ### Networking
 
 - Moving in and out of VNET is currently not supported.
@@ -68,10 +75,12 @@ A PostgreSQL connection, even idle, can occupy about 10 MB of memory. Also, crea
 - Firewall rules are not supported on VNET, Network security groups can be used instead.
 - Public access database servers can connect to public internet, for example through `postgres_fdw`, and this access cannot be restricted. VNET-based servers can have restricted outbound access using Network Security Groups.
 
-### High availability
+### High availability (HA)
 
 - Zone-Redundant HA is currently not supported for Burstable servers.
 - The database server IP address changes when your server fails over to the HA standby. Ensure you use the DNS record instead of the server IP address.
+- If logical replication is configured with a HA configured flexible server, in the event of a failover to the standby server, the logical replication slots are not copied over to the standby server. 
+- For more details on zone-redundant HA including the limitations, please see the [concepts - HA documentation](concepts-high-availability.md) page.
 
 ### Availability zones
 
@@ -109,6 +118,7 @@ A PostgreSQL connection, even idle, can occupy about 10 MB of memory. Also, crea
 
 * Azure AD authentication is not yet supported. We recommend using the [Single Server](../overview-single-server.md) option if you require Azure AD authentication.
 * Read replicas are not yet supported. We recommend using the [Single Server](../overview-single-server.md) option if you require read replicas.
+* Moving resources to another subscription is not supported. 
 
 
 ## Next steps

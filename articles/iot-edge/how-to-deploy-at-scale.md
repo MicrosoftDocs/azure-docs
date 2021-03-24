@@ -5,14 +5,16 @@ keywords:
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 4/21/2020
+ms.date: 10/13/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ---
 # Deploy IoT Edge modules at scale using the Azure portal
 
-Create an **IoT Edge automatic deployment** in the Azure portal to manage ongoing deployments for many devices at once. Automatic deployments for IoT Edge are part of the [automatic device management](/azure/iot-hub/iot-hub-automatic-device-management) feature of IoT Hub. Deployments are dynamic processes that enable you to deploy multiple modules to multiple devices, track the status and health of the modules, and make changes when necessary.
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
+Create an **IoT Edge automatic deployment** in the Azure portal to manage ongoing deployments for many devices at once. Automatic deployments for IoT Edge are part of the [automatic device management](../iot-hub/iot-hub-automatic-device-management.md) feature of IoT Hub. Deployments are dynamic processes that enable you to deploy multiple modules to multiple devices, track the status and health of the modules, and make changes when necessary.
 
 For more information, see [Understand IoT Edge automatic deployments for single devices or at scale](module-deployment-monitoring.md).
 
@@ -47,6 +49,11 @@ The steps for creating a deployment and a layered deployment are very similar. A
 
 There are five steps to create a deployment. The following sections walk through each one.
 
+>[!NOTE]
+>The steps in this article reflect the latest schema version of the IoT Edge agent and hub. Schema version 1.1 was released along with IoT Edge version 1.0.10, and enables the module startup order and route prioritization features.
+>
+>If you are deploying to a device running version 1.0.9 or earlier, edit the **Runtime Settings** in the **Modules** step of the wizard to use schema version 1.0.
+
 ### Step 1: Name and label
 
 1. Give your deployment a unique name that is up to 128 lowercase letters. Avoid spaces and the following invalid characters: `& ^ [ ] { } \ | " < > /`.
@@ -59,55 +66,19 @@ You can add up to 50 modules to a deployment. If you create a deployment with no
 
 In deployments, you can manage the settings for the IoT Edge agent and IoT Edge hub modules. Select **Runtime Settings** to configure the two runtime modules. In layered deployment, the runtime modules are not included so cannot be configured.
 
-You can add three types of modules:
-
-* IoT Edge Module
-* Marketplace Module
-* Azure Stream Analytics Module
-
-#### Add an IoT Edge module
-
 To add custom code as a module, or to manually add an Azure service module, follow these steps:
 
-1. In the **Container Registry Credentials** section of the page, provide the names and credentials for any private container registries that contain the module images for this deployment. The IoT Edge Agent will report error 500 if it can't find the container registry credential for a Docker image.
-1. In the **IoT Edge Modules** section of the page, click **Add**.
-1. Select **IoT Edge Module** from the drop-down menu.
-1. Give your module a **IoT Edge Module Name**.
-1. For the **Image URI** field, enter the container image for your module.
-1. Use the drop-down menu to select a **Restart policy**. Choose from the following options:
-   * **always** - The module always restarts if it shuts down for any reason.
-   * **never** - The module never restarts if it shuts down for any reason.
-   * **on-failure** - The module restarts if it crashes, but not if it shuts down cleanly.
-   * **on-unhealthy** - The module restarts if it crashes or returns an unhealthy status. It's up to each module to implement the health status function.
-1. Use the drop-down menu to select the **Desired Status** for the module. Choose from the following options:
-   * **running** - Running is the default option. The module will start running immediately after being deployed.
-   * **stopped** - After being deployed, the module will remain idle until called upon to start by you or another module.
-1. Specify any **Container Create Options** that should be passed to the container. For more information, see [docker create](https://docs.docker.com/engine/reference/commandline/create/).
-1. Select **Module Twin Settings** if you want to add tags or other properties to the module twin.
-1. Enter **Environment Variables** for this module. Environment variables provide configuration information to a module.
-1. Select **Add** to add your module to the deployment.
+1. In the **Container Registry Settings** section of the page, provide the credentials to access any private container registries that contain your module images.
+1. In the **IoT Edge Modules** section of the page, select **Add**.
+1. Choose one of the three types of modules from the drop-down menu:
 
-#### Add a module from the Marketplace
+   * **IoT Edge Module** - You provide the module name and container image URI. For example, the image URI for the sample SimulatedTemperatureSensor module is `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`. If the module image is stored in a private container registry, add the credentials on this page to access the image.
+   * **Marketplace Module** - Modules hosted in the Azure Marketplace. Some marketplace modules require additional configuration, so review the module details in the [Azure Marketplace IoT Edge Modules](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) list.
+   * **Azure Stream Analytics Module** - Modules generated from an Azure Stream Analytics workload.
 
-To add a module from the Azure Marketplace, follow these steps:
+1. If needed, repeat steps 2 and 3 to add additional modules to your deployment.
 
-1. In the **IoT Edge Modules** section of the page, click **Add**.
-1. Select **Marketplace Module** from the drop-down menu.
-1. Choose a module from the **IoT Edge Module Marketplace** page. The module you select is automatically configured for your subscription, resource group, and device. It then appears in your list of IoT Edge modules. Some modules may require additional configuration. For more information, see [Deploy modules from Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace).
-
-#### Add a Stream Analytics module
-
-To add a module from Azure Stream Analytics, follow these steps:
-
-1. In the **IoT Edge Modules** section of the page, click **Add**.
-1. Select **Azure Stream Analytics module** from the drop-down menu.
-1. On the right pane, choose your **Subscription**.
-1. Choose your IoT **Edge job**.
-1. Select **Save** to add your module to the deployment.
-
-#### Configure module settings
-
-After you add a module to a deployment, you can select its name to open the **Update IoT Edge Module** page. On this page, you can edit the module settings, environment variables, create options, and module twin. If you added a module from the marketplace, it may already have some of these parameters filled in.
+After you add a module to a deployment, you can select its name to open the **Update IoT Edge Module** page. On this page, you can edit the module settings, environment variables, create options, startup order, and module twin. If you added a module from the marketplace, it may already have some of these parameters filled in. For more information about the available module settings, see [Module configuration and management](module-composition.md#module-configuration-and-management).
 
 If you're creating a layered deployment, you may be configuring a module that exists in other deployments targeting the same devices. To update the module twin without overwriting other versions, open the **Module Twin Settings** tab. Create a new **Module Twin Property** with a unique name for a subsection within the module twin's desired properties, for example `properties.desired.settings`. If you define properties within just the `properties.desired` field, it will overwrite the desired properties for the module defined in any lower priority deployments.
 
@@ -119,9 +90,13 @@ Once you have all the modules for a deployment configured, select **Next: Routes
 
 ### Step 3: Routes
 
-Routes define how modules communicate with each other within a deployment. By default the wizard gives you a route called **upstream** and defined as **FROM /messages/\* INTO $upstream**, which means that any messages output by any modules are sent to your IoT hub.  
+On the **Routes** tab, you define how messages are passed between modules and the IoT Hub. Messages are constructed using name/value pairs.
 
-Add or update the routes with information from [Declare routes](module-composition.md#declare-routes), then select **Next** to continue to the review section.
+For example, a route with a name **route** and a value **FROM /messages/\* INTO $upstream** would take any messages output by any modules and send them to your IoT hub.  
+
+The **Priority** and **Time to live** parameters are optional parameters that you can include in a route definition. The priority parameter allows you to choose which routes should have their messages processed first, or which routes should be processed last. Priority is determined by setting a number 0-9, where 0 is top priority. The time to live parameter allows you to declare how long messages in that route should be held until they're either processed or removed from the queue.
+
+For more information about how to create routes, see [Declare routes](module-composition.md#declare-routes).
 
 Select **Next: Metrics**.
 

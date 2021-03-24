@@ -2,6 +2,7 @@
 title: 'Migrate from CouchBase to Azure Cosmos DB SQL API'
 description: Step-by-Step guidance for migrating from CouchBase to Azure Cosmos DB SQL API
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: mansha
@@ -10,6 +11,7 @@ ms.custom: devx-track-java
 ---
 
 # Migrate from CouchBase to Azure Cosmos DB SQL API
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB is a scalable, globally distributed, fully managed database. It provides guaranteed low latency access to your data. To learn more about Azure Cosmos DB, see the [overview](introduction.md) article. This article provides instructions to migrate Java applications that are connected to Couchbase to a SQL API account in Azure Cosmos DB.
 
@@ -17,18 +19,18 @@ Azure Cosmos DB is a scalable, globally distributed, fully managed database. It 
 
 The following are the key features that work differently in Azure Cosmos DB when compared to Couchbase:
 
-|   Couchbase     |   Azure Cosmos DB   |
-| ---------------|-------------------|
-|Couchbase server| Account       |
-|Bucket           | Database      |
-|Bucket	          | Container/Collection |
-|JSON Document	  | Item / Document |
+| Couchbase | Azure Cosmos DB |
+|--|--|
+| Couchbase server | Account |
+| Bucket | Database |
+| Bucket | Container/Collection |
+| JSON Document | Item / Document |
 
 ## Key differences
 
 * Azure Cosmos DB has an "ID" field within the document whereas Couchbase has the ID as a part of bucket. The "ID" field is unique across the partition.
 
-* Azure Cosmos DB scales by using the partitioning or sharding technique. Which means it splits the data into multiple shards/partitions. These partitions/shards are created based on the partition key property that you provide. You can select the partition key to optimize read as well write operations or read/write optimized too. To learn more, see the [partitioning](./partition-data.md) article.
+* Azure Cosmos DB scales by using the partitioning or sharding technique. Which means it splits the data into multiple shards/partitions. These partitions/shards are created based on the partition key property that you provide. You can select the partition key to optimize read as well write operations or read/write optimized too. To learn more, see the [partitioning](./partitioning-overview.md) article.
 
 * In Azure Cosmos DB, it is not required for the top-level hierarchy to denote the collection because the collection name already exists. This feature makes the JSON structure much simpler. The following is an example that shows differences in the data model between Couchbase and Azure Cosmos DB:
 
@@ -174,7 +176,7 @@ You can read the document with or without specifying the partition key. If you d
 * ```_repo.findByIdAndName(objDoc.getId(),objDoc.getName());```
 * ```_repo.findAllByStatus(objDoc.getStatus());```
 
-That’s it, you can now use your application with Azure Cosmos DB. Complete code sample for the example described in this doc is available in the [CouchbaseToCosmosDB-SpringCosmos](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/master/SpringCosmos) GitHub repo.
+That’s it, you can now use your application with Azure Cosmos DB. Complete code sample for the example described in this doc is available in the [CouchbaseToCosmosDB-SpringCosmos](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/main/SpringCosmos) GitHub repo.
 
 ## Couchbase as a document repository & using N1QL queries
 
@@ -182,7 +184,7 @@ N1QL queries is the way to define queries in the Couchbase.
 
 |N1QL Query | Azure CosmosDB Query|
 |-------------------|-------------------|
-|SELECT META(`TravelDocument`).id AS id, `TravelDocument`.* FROM `TravelDocument` WHERE `_type` = "com.xx.xx.xx.xxx.xxx.xxxx " and country = 'India’ and ANY m in Visas SATISFIES m.type == 'Multi-Entry' and m.Country IN ['India', Bhutan’] ORDER BY ` Validity` DESC LIMIT 25 OFFSET 0	| SELECT c.id,c FROM c JOIN m in  c.country=’India’ WHERE c._type = " com.xx.xx.xx.xxx.xxx.xxxx" and c.country = 'India' and m.type = 'Multi-Entry' and m.Country IN ('India', 'Bhutan') ORDER BY c.Validity DESC OFFSET 0 LIMIT 25 |
+|SELECT META(`TravelDocument`).id AS id, `TravelDocument`.* FROM `TravelDocument` WHERE `_type` = "com.xx.xx.xx.xxx.xxx.xxxx " and country = 'India’ and ANY m in Visas SATISFIES m.type == 'Multi-Entry' and m.Country IN ['India', Bhutan’] ORDER BY ` Validity` DESC LIMIT 25 OFFSET 0 | SELECT c.id,c FROM c JOIN m in  c.country=’India’ WHERE c._type = " com.xx.xx.xx.xxx.xxx.xxxx" and c.country = 'India' and m.type = 'Multi-Entry' and m.Country IN ('India', 'Bhutan') ORDER BY c.Validity DESC OFFSET 0 LIMIT 25 |
 
 You can notice the following changes in your N1QL queries:
 
@@ -215,12 +217,12 @@ Use the Async Java SDK with the following steps:
    cp.connectionMode(ConnectionMode.DIRECT);
     
    if(client==null)
-   	client= CosmosClient.builder()
-   		.endpoint(Host)//(Host, MasterKey, dbName, collName).Builder()
-   	    .connectionPolicy(cp)
-   	    .key(MasterKey)
-   	    .consistencyLevel(ConsistencyLevel.EVENTUAL)
-   	    .build();	
+      client= CosmosClient.builder()
+         .endpoint(Host)//(Host, PrimaryKey, dbName, collName).Builder()
+          .connectionPolicy(cp)
+          .key(PrimaryKey)
+          .consistencyLevel(ConsistencyLevel.EVENTUAL)
+          .build();
    
    container = client.getDatabase(_dbName).getContainer(_collName);
    ```
@@ -236,22 +238,22 @@ Now, with the help of above method you can pass multiple queries and execute wit
 ```java
 for(SqlQuerySpec query:queries)
 {
-	objFlux= container.queryItems(query, fo);
-	objFlux .publishOn(Schedulers.elastic())
-			.subscribe(feedResponse->
-				{
-					if(feedResponse.results().size()>0)
-					{
-						_docs.addAll(feedResponse.results());
-					}
-				
-				},
-				Throwable::printStackTrace,latch::countDown);
-	lstFlux.add(objFlux);
+   objFlux= container.queryItems(query, fo);
+   objFlux .publishOn(Schedulers.elastic())
+         .subscribe(feedResponse->
+            {
+               if(feedResponse.results().size()>0)
+               {
+                  _docs.addAll(feedResponse.results());
+               }
+            
+            },
+            Throwable::printStackTrace,latch::countDown);
+   lstFlux.add(objFlux);
 }
-						
-		Flux.merge(lstFlux);
-		latch.await();
+                  
+      Flux.merge(lstFlux);
+      latch.await();
 }
 ```
 
@@ -261,7 +263,7 @@ With the previous code, you can run queries in parallel and increase the distrib
 
 To insert the document, run the following code:
 
-```java	
+```java
 Mono<CosmosItemResponse> objMono= container.createItem(doc,ro);
 ```
 
@@ -272,13 +274,13 @@ CountDownLatch latch=new CountDownLatch(1);
 objMono .subscribeOn(Schedulers.elastic())
         .subscribe(resourceResponse->
         {
-	        if(resourceResponse.statusCode()!=successStatus)
-		        {
-			        throw new RuntimeException(resourceResponse.toString());
-		        }
-	        },
+           if(resourceResponse.statusCode()!=successStatus)
+              {
+                 throw new RuntimeException(resourceResponse.toString());
+              }
+           },
         Throwable::printStackTrace,latch::countDown);
-latch.await();				
+latch.await();
 ```
 
 ### Upsert operation
@@ -294,12 +296,12 @@ Then subscribe to mono. Refer to the mono subscription snippet in insert operati
 
 Following snippet will do delete operation:
 
-```java		
+```java
 CosmosItem objItem= container.getItem(doc.Id, doc.Tenant);
 Mono<CosmosItemResponse> objMono = objItem.delete(ro);
 ```
 
-Then subscribe to mono, refer mono subscription snippet in insert operation. The complete code sample is available in the [CouchbaseToCosmosDB-AsyncInSpring](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/master/AsyncInSpring) GitHub repo.
+Then subscribe to mono, refer mono subscription snippet in insert operation. The complete code sample is available in the [CouchbaseToCosmosDB-AsyncInSpring](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/main/AsyncInSpring) GitHub repo.
 
 ## Couchbase as a key/value pair
 
@@ -344,12 +346,12 @@ This is a simple type of workload in which you can perform lookups instead of qu
    cp.connectionMode(ConnectionMode.DIRECT);
    
    if(client==null)
-   	client= CosmosClient.builder()
-   		.endpoint(Host)//(Host, MasterKey, dbName, collName).Builder()
-   	    .connectionPolicy(cp)
-   	    .key(MasterKey)
-   	    .consistencyLevel(ConsistencyLevel.EVENTUAL)
-   	    .build();
+      client= CosmosClient.builder()
+         .endpoint(Host)//(Host, PrimaryKey, dbName, collName).Builder()
+          .connectionPolicy(cp)
+          .key(PrimaryKey)
+          .consistencyLevel(ConsistencyLevel.EVENTUAL)
+          .build();
     
    container = client.getDatabase(_dbName).getContainer(_collName);
    ```
@@ -364,16 +366,16 @@ To read the item, use the following snippet:
 CosmosItemRequestOptions ro=new CosmosItemRequestOptions();
 ro.partitionKey(new PartitionKey(documentId));
 CountDownLatch latch=new CountDownLatch(1);
-		
+      
 var objCosmosItem= container.getItem(documentId, documentId);
 Mono<CosmosItemResponse> objMono = objCosmosItem.read(ro);
 objMono .subscribeOn(Schedulers.elastic())
         .subscribe(resourceResponse->
         {
-	        if(resourceResponse.item()!=null)
-	        {
-		        doc= resourceResponse.properties().toObject(UserModel.class);
-	        }
+           if(resourceResponse.item()!=null)
+           {
+              doc= resourceResponse.properties().toObject(UserModel.class);
+           }
         },
         Throwable::printStackTrace,latch::countDown);
 latch.await();
@@ -383,7 +385,7 @@ latch.await();
 
 To insert an item, you can perform the following code:
 
-```java	
+```java
 Mono<CosmosItemResponse> objMono= container.createItem(doc,ro);
 ```
 
@@ -392,14 +394,14 @@ Then subscribe to mono as:
 ```java
 CountDownLatch latch=new CountDownLatch(1);
 objMono.subscribeOn(Schedulers.elastic())
-		.subscribe(resourceResponse->
-		{
-			if(resourceResponse.statusCode()!=successStatus)
-				{
-					throw new RuntimeException(resourceResponse.toString());
-				}
-			},
-		Throwable::printStackTrace,latch::countDown);
+      .subscribe(resourceResponse->
+      {
+         if(resourceResponse.statusCode()!=successStatus)
+            {
+               throw new RuntimeException(resourceResponse.toString());
+            }
+         },
+      Throwable::printStackTrace,latch::countDown);
 latch.await();
 ```
 
@@ -416,12 +418,12 @@ Then subscribe to mono, refer mono subscription snippet in insert operation.
 
 Use the following snippet to execute the delete operation:
 
-```java		
+```java
 CosmosItem objItem= container.getItem(id, id);
 Mono<CosmosItemResponse> objMono = objItem.delete(ro);
 ```
 
-Then subscribe to mono, refer mono subscription snippet in insert operation. The complete code sample is available in the [CouchbaseToCosmosDB-AsyncKeyValue](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/master/AsyncKeyValue) GitHub repo.
+Then subscribe to mono, refer mono subscription snippet in insert operation. The complete code sample is available in the [CouchbaseToCosmosDB-AsyncKeyValue](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/main/AsyncKeyValue) GitHub repo.
 
 ## Data Migration
 

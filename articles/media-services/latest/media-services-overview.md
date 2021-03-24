@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services v3 overview
-titleSuffix: Azure Media Services
+: Azure Media Services
 description: A high-level overview of Azure Media Services v3 with links to quickstarts, tutorials, and code samples.
 services: media-services
 documentationcenter: na
@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 08/31/2020
+ms.date: 3/10/2021
 ms.author: inhenkel
 ms.custom: mvc
 #Customer intent: As a developer or a content provider, I want to encode, stream (on demand or live), analyze my media content so that my customers can: view the content on a wide variety of browsers and devices, gain valuable insights from recorded content.
@@ -28,10 +28,6 @@ ms.custom: mvc
 Azure Media Services is a cloud-based platform that enables you to build solutions that achieve broadcast-quality video streaming, enhance accessibility and distribution, analyze content, and much more. Whether you're an app developer, a call center, a government agency, or an entertainment company, Media Services helps you create apps that deliver media experiences of outstanding quality to large audiences on today's most popular mobile devices and browsers.
 
 The Media Services v3 SDKs are based on [Media Services v3 OpenAPI Specification (Swagger)](https://aka.ms/ams-v3-rest-sdk).
-
-> [!NOTE]
-> Currently, you can use the [Azure portal](https://portal.azure.com/) to: manage Media Services v3 [Live Events](live-events-outputs-concept.md), view (not manage) v3 [Assets](assets-concept.md), [get info about accessing APIs](./access-api-howto.md). 
-> For all other management tasks (for example, [Transforms and Jobs](transforms-jobs-concept.md) and [Content protection](content-protection-overview.md)), use the [REST API](/rest/api/media/), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -57,12 +53,12 @@ Media Services lets you build a variety of media workflows in the cloud. Some ex
 * Use Azure Media Services together with [Azure Cognitive Services APIs](../../index.yml?pivot=products&panel=ai) to add subtitles and captions to videos to cater to a broader audience (for example, people with hearing disabilities or people who want to read along in a different language).
 * Enable Azure CDN to achieve large scaling to better handle instantaneous high loads (for example, the start of a product launch event).
 
-## How can I get started with v3? 
+## How can I get started with v3?
 
 Learn how to encode and package content, stream videos on-demand, broadcast live, and analyze your videos with Media Services v3. Tutorials, API references, and other documentation show you how to securely deliver on-demand and live video or audio streams that scale to millions of users.
 
 > [!TIP]
-> Before you start developing, review:<br/>* [Fundamental concepts](concepts-overview.md) (incudes important concepts, like packaging, encoding, and protecting)<br/>* [Developing with Media Services v3 APIs](media-services-apis-overview.md) (includes information on accessing APIs, naming conventions, and so on)
+> Before you start developing, review: [Fundamental concepts](concepts-overview.md) which includes important concepts, like packaging, encoding, and protecting, and [Developing with Media Services v3 APIs](media-services-apis-overview.md) which includes information on accessing APIs, naming conventions, and so on.
 
 ### SDKs
 
@@ -97,7 +93,7 @@ How-to guides contain code samples that demonstrate how to complete a task. In t
 * [Create an account - CLI](./create-account-howto.md)
 * [Access APIs - CLI](./access-api-howto.md)
 * [Encode with HTTPS as job input - .NET](job-input-from-http-how-to.md)  
-* [Monitor events - Portal](monitor-events-portal-how-to.md)
+* [Monitor events - Portal](monitoring/monitor-events-portal-how-to.md)
 * [Encrypt dynamically with multi-DRM - .NET](protect-with-drm.md) 
 * [How to encode with a custom transform - CLI](custom-preset-cli-howto.md)
 

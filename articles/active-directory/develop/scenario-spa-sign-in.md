@@ -1,5 +1,6 @@
 ---
-title: Single-page app sign-in & sign-out - Microsoft identity platform | Azure
+title: Single-page app sign-in & sign-out 
+titleSuffix: Microsoft identity platform
 description: Learn how to build a single-page application (sign-in)
 services: active-directory
 author: navyasric
@@ -12,7 +13,7 @@ ms.workload: identity
 ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform.
 ---
 
 # Single-page application: Sign-in and Sign-out
@@ -204,7 +205,7 @@ myMsal.loginRedirect(loginRequest);
 
 # [JavaScript (MSAL.js 1.x)](#tab/javascript1)
 
-The redirect methods don't return a promise because of the move away from the main app. To process and access the returned tokens, you need to register success and error callbacks before you call the redirect methods.
+The redirect methods don't return a promise because of the move away from the main app. To process and access the returned tokens, register success and error callbacks before you call the redirect methods.
 
 ```javascript
 
@@ -303,5 +304,4 @@ this.authService.logout();
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Acquiring a token for the app](scenario-spa-acquire-token.md)
+Move on to the next article in this scenario, [Acquiring a token for the app](scenario-spa-acquire-token.md).

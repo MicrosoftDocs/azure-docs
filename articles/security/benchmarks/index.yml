@@ -60,6 +60,8 @@ landingContent:
             url: ../fundamentals/shared-responsibility.md
           - text: Azure Security Center
             url: ../../security-center/index.yml
+          - text: Azure Security Benchmark Foundation blueprint sample
+            url: ../../governance/blueprints/samples/azure-security-benchmark-foundation/index.md
 
 
   # Card  
@@ -68,7 +70,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Azure Databricks
-            url: ../../azure-databricks/security-baseline.md
+            url: /azure/databricks/scenarios/security-baseline
           - text: Azure Machine Learnings
             url: ../../machine-learning/security-baseline.md
           - text: Cognitive Services
@@ -91,7 +93,7 @@ landingContent:
             url: ../../hdinsight/security-baseline.md
           - text: Stream Analytics baseline
             url: ../../stream-analytics/security-baseline.md
-          - text: Synapse Analytics security baseline
+          - text: Azure Synapse Analytics security baseline
             url: ../../synapse-analytics/security-baseline.md
 
 
@@ -136,7 +138,7 @@ landingContent:
           - text: Azure Database for PostgreSQL - Hyperscale
             url: ../../postgresql/postgresql-hyperscale-security-baseline.md
           - text: Azure SQL Database 
-            url: ../../sql-database/security-baseline.md
+            url: ../../azure-sql/database/security-baseline.md
           - text: Cosmos DB
             url: ../../cosmos-db/security-baseline.md
 
@@ -200,7 +202,7 @@ landingContent:
           - text: Customer Lockbox
             url: ../fundamentals/customer-lockbox-security-baseline.md
           - text: Key Vault
-            url: ../../key-vault/security-baseline.md
+            url: ../../key-vault/general/security-baseline.md
           - text: Security Center 
             url: ../../security-center/security-baseline.md
 

@@ -13,7 +13,7 @@ metadata:
   ms.collection: na
   author: mumian
   ms.author: jgao
-  ms.date: 07/30/2020
+  ms.date: 03/03/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -25,6 +25,8 @@ landingContent:
         links:
           - text: What are templates?
             url: overview.md
+          - text: What is Bicep?
+            url: bicep-overview.md
       - linkListType: concept
         links:
           - text: Best practices
@@ -47,28 +49,34 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create templates - portal
+          - text: Create JSON templates - portal
             url: quickstart-create-templates-use-the-portal.md
-          - text: Create templates - VS Code
+          - text: Create JSON templates - VS Code
             url: quickstart-create-templates-use-visual-studio-code.md
+          - text: Create Bicep templates - VS Code
+            url: quickstart-create-bicep-use-visual-studio-code.md
+          - text: Create & deploy template specs
+            url: quickstart-create-template-specs.md
 
       - linkListType: tutorial
         links:
-          - text: Beginner tutorials
+          - text: Beginner template tutorials
             url: template-tutorial-create-first-template.md
-          - text: Deployment
-            url: deployment-tutorial-local-template.md
-
+          - text: Beginner Bicep tutorials
+            url: bicep-tutorial-create-first-bicep.md
       - linkListType: learn
         links:
-          - text: Consistent infrastructure
-            url: /learn/modules/create-azure-resource-manager-template-vs-code/
-          - text: Multiple environments
-            url: /learn/modules/modify-azure-resource-manager-template-reuse/
-          
+          - text: Deploy with ARM templates
+            url: /learn/paths/deploy-manage-resource-manager-templates/
   # Card
   - title: Develop templates
     linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Advanced templates
+            url: template-tutorial-use-template-reference.md
+          - text: Template specs
+            url: template-specs-create-linked.md
       - linkListType: how-to-guide
         links:
           - text: Use functions
@@ -91,6 +99,10 @@ landingContent:
   # Card
   - title: Deploy templates
     linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Deployment
+            url: deployment-tutorial-local-template.md
       - linkListType: how-to-guide
         links:
           - text: PowerShell
@@ -103,22 +115,29 @@ landingContent:
             url: deploy-rest.md
           - text: Deploy to Azure button
             url: deploy-to-azure-button.md
+          - text: Cloud Shell
+            url: deploy-cloud-shell.md
           - text: What-if deployment
             url: template-deploy-what-if.md
-          
+
   # Card
   - title: Scoped deployments
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Resource group
+            url: deploy-to-resource-group.md
           - text: Subscription
             url: deploy-to-subscription.md
           - text: Management group
             url: deploy-to-management-group.md
           - text: Tenant
             url: deploy-to-tenant.md
-          - text: Cross scope deployments
-            url: cross-scope-deployment.md
+          - text: Scoping extension resource
+            url: scope-extension-resources.md
+          - text: Template functions across scopes
+            url: scope-functions.md
+
 
   # Card
   - title: Explore reference content
@@ -138,7 +157,7 @@ landingContent:
         - text: Java
           url: /java/api/com.microsoft.azure.management.resources
         - text: Python
-          url: /python/api/overview/azure/resources?view=azure-python
+          url: /python/api/overview/azure/resources
 
 
   # Card

@@ -20,7 +20,7 @@ ms.custom: aaddev, identityplatformtop40
 
 In this scenario, you learn how to expose a web API. You also learn how to protect the web API so that only authenticated users can access it.
 
-To use your web API, you need to either enable authenticated users with both work and school accounts or enable Microsoft personal accounts.
+To use your web API, you either enable authenticated users with both work and school accounts or enable Microsoft personal accounts.
 
 ## Specifics
 
@@ -39,5 +39,5 @@ Here is specific information you need to know to protect web APIs:
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [App registration](scenario-protected-web-api-app-registration.md)
+Move on to the next article in this scenario,
+[App registration](scenario-protected-web-api-app-registration.md).

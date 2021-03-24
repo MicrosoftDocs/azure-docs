@@ -1,18 +1,11 @@
 ---
-title: Create Azure data factory using .NET SDK
-description: Create an Azure data factory and pipeline using .NET SDK to copy data from one location in Azure Blob storage to another location. 
-services: data-factory
-documentationcenter: ''
+title: Create Azure Data Factory using .NET SDK
+description: Create an Azure Data Factory and pipeline using .NET SDK to copy data from one location in Azure Blob storage to another location. 
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
-
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: 
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 06/24/2019
+ms.date: 03/16/2021
 ms.author: jingwang
 ---
 # Quickstart: Create a data factory and pipeline using .NET SDK
@@ -23,7 +16,7 @@ ms.author: jingwang
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-This quickstart describes how to use .NET SDK to create an Azure data factory. The pipeline you create in this data factory **copies** data from one folder to another folder in an Azure blob storage. For a tutorial on how to **transform** data using Azure Data Factory, see [Tutorial: Transform data using Spark](tutorial-transform-data-spark-portal.md).
+This quickstart describes how to use .NET SDK to create an Azure Data Factory. The pipeline you create in this data factory **copies** data from one folder to another folder in an Azure blob storage. For a tutorial on how to **transform** data using Azure Data Factory, see [Tutorial: Transform data using Spark](tutorial-transform-data-spark-portal.md).
 
 > [!NOTE]
 > This article does not provide a detailed introduction of the Data Factory service. For an introduction to the Azure Data Factory service, see [Introduction to Azure Data Factory](introduction.md).
@@ -33,10 +26,6 @@ This quickstart describes how to use .NET SDK to create an Azure data factory. T
 ### Visual Studio
 
 The walkthrough in this article uses Visual Studio 2019. The procedures for Visual Studio 2013, 2015, or 2017 differ slightly.
-
-### Azure .NET SDK
-
-Download and install [Azure .NET SDK](https://azure.microsoft.com/downloads/) on your machine.
 
 ## Create an application in Azure Active Directory
 
@@ -76,6 +65,7 @@ Next, create a C# .NET console application in Visual Studio:
     using System.Collections.Generic;
     using System.Linq;
     using Microsoft.Rest;
+    using Microsoft.Rest.Serialization;
     using Microsoft.Azure.Management.ResourceManager;
     using Microsoft.Azure.Management.DataFactory;
     using Microsoft.Azure.Management.DataFactory.Models;

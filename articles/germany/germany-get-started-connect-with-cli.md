@@ -1,37 +1,22 @@
 ---
 title: Connect to Azure Germany by using Azure CLI | Microsoft Docs
 description: Information on managing your subscription in Azure Germany by using Azure CLI
-services: germany
-cloud: na
-documentationcenter: na
-author: gitralf
-manager: rainerst
-
-ms.assetid: na
-ms.service: germany
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/12/2019
-ms.author: ralfwi
-ms.custom: devx-track-js, devx-track-azurecli
-
+ms.date: 10/16/2020
+author: gitralf
+ms.author: ralfwi 
+ms.service: germany
+ms.custom: bfdocs, devx-track-azurecli
 ---
 
 # Connect to Azure Germany by using Azure CLI
 
-> [!IMPORTANT]
-> Since [August 2018](https://news.microsoft.com/europe/2018/08/31/microsoft-to-deliver-cloud-services-from-new-datacentres-in-germany-in-2019-to-meet-evolving-customer-needs/), we have not been accepting new customers or deploying any new features and services into the original Microsoft Cloud Germany locations.
->
-> Based on the evolution in customers’ needs, we recently [launched](https://azure.microsoft.com/blog/microsoft-azure-available-from-new-cloud-regions-in-germany/) two new datacenter regions in Germany, offering customer data residency, full connectivity to Microsoft’s global cloud network, as well as market competitive pricing. 
->
-> Take advantage of the breadth of functionality, enterprise-grade security, and comprehensive features available in our new German datacenter regions by [migrating](germany-migration-main.md) today.
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
 
 To use the Azure command-line interface (Azure CLI), you need to connect to Azure Germany instead of global Azure. You can use Azure CLI to manage a large subscription through scripts or to access features that are not currently available in the Azure portal. If you have used Azure CLI in global Azure, it's mostly the same.  
 
 ## Azure CLI
-There are multiple ways to [install the Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2).  
+There are multiple ways to [install the Azure CLI](/cli/azure/install-az-cli2).  
 
 To connect to Azure Germany, set the cloud:
 
@@ -56,9 +41,9 @@ az cloud list --output table
 ```
 
 ## Azure classic CLI
-There are multiple ways to [install Azure classic CLI](../xplat-cli-install.md). If you already have Node installed, the easiest way is to install the npm package.
+There are multiple ways to [install Azure classic CLI](/cli/azure/install-azure-cli). If you already have Node installed, the easiest way is to install the npm package.
 
-To install CLI from an npm package, make sure you have downloaded and installed the [latest Node.js and npm](https://nodejs.org/en/download/package-manager/). Then, run **npm install** to install the azure-cli package:
+To install CLI from an npm package, make sure you have downloaded and installed the [latest Node.js and npm](https://nodejs.org/en/download/package-manager/). Then, run **npm install** to install the **azure-cli** package:
 
 ```bash
 npm install -g azure-cli
@@ -92,7 +77,3 @@ For more information about connecting to Azure Germany, see the following resour
 * [Connect to Azure Germany by using PowerShell](./germany-get-started-connect-with-ps.md)
 * [Connect to Azure Germany by using Visual Studio](./germany-get-started-connect-with-vs.md)
 * [Connect to Azure Germany by using the Azure portal](./germany-get-started-connect-with-portal.md)
-
-
-
-

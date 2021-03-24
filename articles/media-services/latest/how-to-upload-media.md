@@ -1,6 +1,6 @@
 ---
 title: Upload media
-titleSuffix: Azure Media Services
+: Azure Media Services
 description: Learn how to upload media for streaming or encoding.
 services: media-services
 documentationcenter: ''
@@ -35,15 +35,38 @@ Before you get started though, you'll need to collect or think about a few value
 
 ## [CLI](#tab/cli/)
 
-[!INCLUDE [Upload files with the portal](./includes/task-upload-file-to-asset-cli.md)]
+[!INCLUDE [Upload files with the CLI](./includes/task-upload-file-to-asset-cli.md)]
 
-## [REST](#tab/rest/)
+## [Python](#tab/python)
 
-Once you have [created an asset using Postman or other REST method and gotten the SAS URL for the asset](how-to-create-asset.md?tabs=rest), use the Azure Storage APIs or SDKs (for example, the [Storage REST API](../../storage/common/storage-rest-api-auth.md) or [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md).
+Assuming that your code has already established authentication and you have already created an input Asset, use the following code snippet to upload local files to that asset (in_container).
+
+```python
+#The storage objects
+from azure.storage.blob import BlobServiceClient, BlobClient
+
+#Establish storage variables
+storage_account_name = '<your storage account name'
+storage_account_key = '<your storage account key'
+storage_blob_url = 'https://<your storage account name>.blob.core.windows.net/'
+
+in_container = 'asset-' + inputAsset.asset_id
+
+#The file path of local file you want to upload
+source_file = "ignite.mp4"
+
+# Use the Storage SDK to upload the video
+blob_service_client = BlobServiceClient(account_url=storage_blob_url, credential=storage_account_key)
+blob_client = blob_service_client.get_blob_client(in_container,source_file)
+
+# Upload the video to storage as a block blob
+with open(source_file, "rb") as data:
+    blob_client.upload_blob(data, blob_type="BlockBlob")
+```
 
 ---
 <!-- add these to the tabs when available -->
-For other methods see the [Azure Storage documentation](https://docs.microsoft.com/azure/storage/blobs/) for working with blobs in [.NET](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet), [Java](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-java), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-python), and [JavaScript (Node.js)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-nodejs).
+For other methods see the [Azure Storage documentation](../../storage/blobs/index.yml) for working with blobs in [.NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md), [Java](../../storage/blobs/storage-quickstart-blobs-java.md), [Python](../../storage/blobs/storage-quickstart-blobs-python.md), and [JavaScript (Node.js)](../../storage/blobs/storage-quickstart-blobs-nodejs.md).
 
 ## Next steps
 

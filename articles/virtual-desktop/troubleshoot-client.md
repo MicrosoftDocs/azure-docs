@@ -78,10 +78,25 @@ If the Web client keeps prompting for credentials, follow these instructions:
 4. Clear browser cache. For more information, see [Clear browser cache for your browser](https://binged.it/2RKyfdU).
 5. Open your browser in Private mode.
 
+## Windows client blocks Windows Virtual Desktop (classic) feed
+
+If the Windows client feed won't show Windows Virtual Desktop (classic) apps, follow these instructions:
+
+1. Check if the Conditional Access policy includes the app IDs associated with Windows Virtual Desktop (classic).
+2. Check if the Conditional Access policy blocks all access except Windows Virtual Desktop (classic) app IDs. If so, you'll need to add the app ID **9cdead84-a844-4324-93f2-b2e6bb768d07** to the policy to allow the client to discover the feeds.
+
+If you can't find the app ID 9cdead84-a844-4324-93f2-b2e6bb768d07 in the list, you'll need to register the Windows Virtual Desktop resource provider. To register the resource provider:
+
+1. Sign in to the Azure portal.
+2. Go to **Subscription**, then select your subscription.
+3. In the menu on the left side of the page, select **Resource provider**.
+4. Find and select **Microsoft.DesktopVirtualization**, then select **Re-register**.
+
 ## Next steps
 
 - For an overview on troubleshooting Windows Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview.md).
 - To troubleshoot issues while creating a Windows Virtual Desktop environment and host pool in a Windows Virtual Desktop environment, see [Environment and host pool creation](troubleshoot-set-up-issues.md).
 - To troubleshoot issues while configuring a virtual machine (VM) in Windows Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
+- To troubleshoot issues related to the Windows Virtual Desktop agent or session connectivity, see [Troubleshoot common Windows Virtual Desktop Agent issues](troubleshoot-agent.md).
 - To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).

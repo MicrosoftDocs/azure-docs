@@ -52,7 +52,7 @@ Select the resource **ServiceFabric(mysfomsworkspace)**.
 
 In **Overview** you see tiles in the form of a graph for each of the solutions enabled, including one for Service Fabric. Click the **Service Fabric** graph to continue to the Service Fabric Analytics solution.
 
-![Service Fabric solution](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-summary.png)
+![Screenshot that shows the Service Fabric graph.](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-summary.png)
 
 The following image shows the home page of the Service Fabric Analytics solution. This home page provides a snapshot view of what's happening in your cluster.
 
@@ -236,7 +236,7 @@ Select the **Container Metric** graph to see additional details. You can also qu
 The [EventStore service](service-fabric-diagnostics-eventstore.md) provides a way to understand the state of your cluster or workloads at a given point in time. The EventStore is a stateful Service Fabric service that maintains events from the cluster. The events are exposed through the [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), REST, and APIs. EventStore queries the cluster directly to get diagnostics data on any entity in your cluster
 To see a full list of events available in the EventStore, see [Service Fabric events](service-fabric-diagnostics-event-generation-operational.md).
 
-The EventStore APIs can be queried programmatically using the [Service Fabric client library](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet#client-library).
+The EventStore APIs can be queried programmatically using the [Service Fabric client library](/dotnet/api/overview/azure/service-fabric#client-library).
 
 Here is an example request for all cluster events between 2018-04-03T18:00:00Z and 2018-04-04T18:00:00Z, via the GetClusterEventListAsync function.
 
@@ -295,10 +295,10 @@ Service Fabric introduces a [health model](service-fabric-health-introduction.md
 
 The cluster is automatically populated with health reports sent by the system components. Read more at [Use system health reports to troubleshoot](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
 
-Service Fabric exposes health queries for each of the supported [entity types](service-fabric-health-introduction.md#health-entities-and-hierarchy). They can be accessed through the API, using methods on [FabricClient.HealthManager](/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet), PowerShell cmdlets, and REST. These queries return complete health information about the entity: the aggregated health state, entity health events, child health states (when applicable), unhealthy evaluations (when the entity is not healthy), and children health statistics (when applicable).
+Service Fabric exposes health queries for each of the supported [entity types](service-fabric-health-introduction.md#health-entities-and-hierarchy). They can be accessed through the API, using methods on [FabricClient.HealthManager](/dotnet/api/system.fabric.fabricclient.healthmanager), PowerShell cmdlets, and REST. These queries return complete health information about the entity: the aggregated health state, entity health events, child health states (when applicable), unhealthy evaluations (when the entity is not healthy), and children health statistics (when applicable).
 
 ### Get cluster health
-The [Get-ServiceFabricClusterHealth cmdlet](/powershell/module/servicefabric/get-servicefabricclusterhealth) returns the health of the cluster entity and contains the health states of applications and nodes (children of the cluster).  First, connect to the cluster using the [Connect-ServiceFabricCluster cmdlet](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps).
+The [Get-ServiceFabricClusterHealth cmdlet](/powershell/module/servicefabric/get-servicefabricclusterhealth) returns the health of the cluster entity and contains the health states of applications and nodes (children of the cluster).  First, connect to the cluster using the [Connect-ServiceFabricCluster cmdlet](/powershell/module/servicefabric/connect-servicefabriccluster).
 
 The state of the cluster is 11 nodes, the system application, and fabric:/Voting configured as described.
 
@@ -450,7 +450,7 @@ HealthEvents            : None
 ```
 
 ### Get node health
-The [Get-ServiceFabricNodeHealth cmdlet](/powershell/module/servicefabric/get-servicefabricnodehealth) returns the health of a node entity and contains the health events reported on the node. First, connect to the cluster by using the [Connect-ServiceFabricCluster cmdlet](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps). The following example gets the health of a specific node by using default health policies:
+The [Get-ServiceFabricNodeHealth cmdlet](/powershell/module/servicefabric/get-servicefabricnodehealth) returns the health of a node entity and contains the health events reported on the node. First, connect to the cluster by using the [Connect-ServiceFabricCluster cmdlet](/powershell/module/servicefabric/connect-servicefabriccluster). The following example gets the health of a specific node by using default health policies:
 
 ```powershell
 Get-ServiceFabricNodeHealth _nt1vm_3

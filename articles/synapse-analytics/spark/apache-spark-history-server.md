@@ -6,7 +6,7 @@ author: euangMS
 ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.subservice: spark
-ms.date: 04/15/2020 
+ms.date: 10/15/2020 
 ms.author: euang 
 ms.reviewer: euang
 ---
@@ -234,5 +234,5 @@ Input/output data using Resilient Distributed Datasets (RDDs) doesn't show in th
 ## Next steps
 
 - [Azure Synapse Analytics](../overview-what-is.md)
-- [.NET for Apache Spark documentation](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [.NET for Apache Spark documentation](/dotnet/spark)
 

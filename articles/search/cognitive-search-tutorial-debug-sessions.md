@@ -1,52 +1,63 @@
 ---
-title: "Tutorial: Use Debug sessions to diagnose, fix, and commit changes to your skillset"
+title: "Tutorial: Use Debug Sessions to fix skillsets"
 titleSuffix: Azure Cognitive Search
-description: Debug sessions (preview) provide a portal-based interface to assess and repair issues/errors in your skillsets
+description: Debug sessions (preview) is an Azure portal tool used to find, diagnose, and repair problems in a skillset.
 
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 09/25/2020
+ms.date: 02/02/2021
 ---
 
-# Tutorial: Diagnose, repair, and commit changes to your skillset
+# Tutorial: Debug a skillset using Debug Sessions
 
-In this article, you will use the Azure portal to access Debug sessions to repair issues with the provided skillset. The skillset has some errors which need to be addressed. This tutorial will take you through a debug session to identify and resolve issues with skill inputs and outputs.
+Skillsets coordinate a series of actions that analyze or transform content, where the output of one skill becomes the input of another. When inputs depend on outputs, mistakes in skillset definitions and field associations can result in missed operations and data.
+
+**Debug sessions** in the Azure portal provides a holistic visualization of a skillset. Using this tool, you can drill down to specific steps to easily see where an action might be falling down.
+
+In this article, you'll use **Debug sessions** to find and fix 1) a missing input, and 2) output field mappings. The tutorial is all-inclusive. It provides data for you to index (clinical trials data), a Postman collection that creates objects, and instructions for using **Debug sessions** to find and fix problems in the skillset.
 
 > [!Important]
 > Debug sessions is a preview feature provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
 ## Prerequisites
 
-> [!div class="checklist"]
-> * An Azure subscription. Create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) or use your current subscription
-> * An Azure Cognitive Search service instance
-> * An Azure Storage account
-> * [Postman desktop app](https://www.getpostman.com/)
+Before you begin, have the following prerequisites in place:
 
-## Create services and load data
++ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
-This tutorial uses Azure Cognitive Search and Azure Storage services.
++ An Azure Cognitive Search service. [Create a service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
-* [Download sample data](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/clinical-trials-pdf-19) consisting of 19 files.
++ An Azure Storage account with [Blob storage](../storage/blobs/index.yml), used for hosting sample data, and for persisting temporary data created during a debug session.
 
-* [Create an Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal) or [find an existing account](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
++ [Postman desktop app](https://www.getpostman.com/) and a [Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Debug-sessions) to create objects using the REST APIs.
 
-   Choose the same region as Azure Cognitive Search to avoid bandwidth charges.
-   
-   Choose the StorageV2 (general purpose V2) account type.
++ [Sample data (clinical trials)](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/clinical-trials-pdf-19).
 
-* Open the storage services pages and create a container. Best practice is to specify the access level "private". Name your container `clinicaltrialdataset`.
+> [!NOTE]
+> This quickstart also uses [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) for the AI. Because the workload is so small, Cognitive Services is tapped behind the scenes for free processing for up to 20 transactions. This means that you can complete this exercise without having to create an additional Cognitive Services resource.
 
-* In container, click **Upload** to upload the sample files you downloaded and unzipped in the first step.
+## Set up your data
 
-* [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). You can use a free service for this quickstart.
+This section creates the sample data set in Azure blob storage so that the indexer and skillset have content to work with.
+
+1. [Download sample data (clinical-trials-pdf-19)](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/clinical-trials-pdf-19), consisting of 19 files.
+
+1. [Create an Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal) or [find an existing account](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
+
+   + Choose the same region as Azure Cognitive Search to avoid bandwidth charges.
+
+   + Choose the StorageV2 (general purpose V2) account type.
+
+1. Navigate to the Azure Storage services pages in the portal and create a Blob container. Best practice is to specify the access level "private". Name your container `clinicaltrialdataset`.
+
+1. In container, click **Upload** to upload the sample files you downloaded and unzipped in the first step.
+
+1. While in the portal, get and save off the connection string for Azure Storage. You'll need it for the REST API calls that index data. You can get the connection string from **Settings** > **Access Keys** in the portal.
 
 ## Get a key and URL
 
@@ -56,88 +67,111 @@ REST calls require the service URL and an access key on every request. A search 
 
 1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
-:::image type="content" source="media/search-get-started-postman/get-url-key.png" alt-text="Get an HTTP endpoint and access key" border="false":::
+   :::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="Get an HTTP endpoint and access key" border="false":::
 
 All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
 ## Create data source, skillset, index, and indexer
 
-In this section, Postman and a provided collection are used to create the search service's data source, skillset, index, and indexer.
+In this section, Postman and a provided collection are used to create the Cognitive Search data source, skillset, index, and indexer. If you're unfamiliar with Postman, see [this quickstart](search-get-started-rest.md).
 
-1. If you do not have Postman, you can [download the Postman desktop app here](https://www.getpostman.com/).
-1. [Download the Debug Sessions Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Debug-sessions)
-1. Start Postman
-1. Under **Files** > **New**, select the collection to import.
+You will need the [Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Debug-sessions) created for this tutorial to complete this task. 
+
+1. Start Postman and import the collection. Under **Files** > **New**, select the collection to import.
 1. After the collection is imported, expand the actions list (...).
 1. Click **Edit**.
-1. Enter the name of your searchService (for example, if the endpoint is `https://mydemo.search.windows.net`, then the service name is "`mydemo`").
-1. Enter the apiKey with either the primary or secondary key of your search service.
-1. Enter the storageConnectionString from the keys page of your Azure Storage account.
-1. Enter the containerName for the container you created in the storage account.
+1. Under Current Value, enter the name of your `searchService` (for example, if the endpoint is `https://mydemo.search.windows.net`, then the service name is "`mydemo`").
+1. Enter the `apiKey` with either the primary or secondary key of your search service.
+1. Enter the `storageConnectionString` from the keys page of your Azure Storage account.
+1. Enter the `containerName` for the container you created in the storage account, and then click **Update**.
 
-> :::image type="content" source="media/cognitive-search-debug/postman-enter-variables.png" alt-text="edit variables in Postman":::
+   :::image type="content" source="media/cognitive-search-debug/postman-enter-variables.png" alt-text="edit variables in Postman":::
 
-The collection contains four different REST calls that are used to complete this section.
+The collection contains four different REST calls that are used to create objects used in this tutorial.
 
-The first call creates the data source. `clinical-trials-ds`. The second call creates the skillset, `clinical-trials-ss`. The third call creates the index, `clinical-trials`. The fourth and final call creates the indexer, `clinical-trials-idxr`. After  all of the calls in the collection have been completed, close Postman and return to the Azure portal.
+The first call creates the data source. `clinical-trials-ds`. The second call creates the skillset, `clinical-trials-ss`. The third call creates the index, `clinical-trials`. The fourth and final call creates the indexer, `clinical-trials-idxr`.
 
-> :::image type="content" source="media/cognitive-search-debug/postman-create-data-source.png" alt-text="using Postman to create data source":::
++ Open each request in turn, and click **Send** to send each request to the search service. 
 
-## Check the results
+After  all of the calls in the collection have been completed, close Postman and return to the Azure portal.
 
-The skillset contains a few, common errors. In this section, running an empty query to return all documents will display multiple errors. In subsequent steps, the issues will be resolved using a debug session.
+## Check results in the portal
 
-1. Go to your search service in the Azure portal. 
-1. Select the **Indexes** tab. 
-1. Select the `clinical-trials` index
-1. Click **Search** to run an empty query. 
+The sample code intentionally creates a buggy index as a consequence of problems that occurred during skillset execution. The problem is missing data. 
 
-After the search has finished, two fields with no data listed; "organizations" and "locations" are listed in the window. Follow the steps to discover all of the issues produced by the skillset.
+1. In Azure portal, on the search service Overview page, select the **Indexes** tab. 
+1. Select the `clinical-trials` index.
+1. Enter this query string: `$select=metadata_storage_path, organizations, locations&$count=true` to return fields for specific documents (identified by the unique `metadata_storage_path` field).
+1. Click **Search** to run the query, returning all 19 documents, showing empty values for "organizations" and "locations".
 
-1. Return to the search service Overview page.
-1. Select the **Indexers** tab. 
-1. Click `clinical-trials-idxr` and select the warnings notification. 
+These fields should have been populated through the skillset's [Entity Recognition skill](cognitive-search-skill-entity-recognition.md), used to find organizations and locations anywhere within the blob's content. In the next exercise, you'll use Debug session to determine what went wrong.
 
-There are many issues with projection output field mappings and on page three there are warnings because one or more skill inputs are invalid.
+Another way to investigate errors and warnings is through the Azure portal.
 
-Return to the search service overview screen.
+1. Open the **Indexers** tab and select `clinical-trials-idxr`.
+1. Notice that while the indexer job succeeded overall, there were 57 warnings.
+1. Click **Success** to view the warnings (if there were mostly errors, the detail link would be **Failed**). You'll see a long list of every warning emitted by the indexer.
+
+   :::image type="content" source="media/cognitive-search-debug/portal-indexer-errors-warnings.png" alt-text="view warnings":::
 
 ## Start your debug session
 
-> :::image type="content" source="media/cognitive-search-debug/new-debug-session-screen-required.png" alt-text="start a new debug session":::
+:::image type="content" source="media/cognitive-search-debug/new-debug-session-screen-required.png" alt-text="start a new debug session":::
 
-1. Click on the Debug sessions (preview) tab.
-1. Select +NewDebugSession
+1. From the search overview page, click the **Debug sessions** tab.
+1. Select **+ New Debug Session**.
 1. Give the session a name. 
 1. Connect the session to your storage account. 
-1. Provide the indexer name. The indexer has references to the data source, the skillset, and index.
+1. In Indexer template, provide the indexer name. The indexer has references to the data source, the skillset, and index.
 1. Accept the default document choice for the first document in the collection. 
 1. **Save** the session. Saving the session will kick off the AI enrichment pipeline as defined by the skillset.
 
 > [!Important]
-> A debug session only works with a single document. A specific document in the data set can be > selected or the session will default to the first document.
+> A debug session only works with a single document. You can choose which document to debug, or just use the first one.
 
-> :::image type="content" source="media/cognitive-search-debug/debug-execution-complete1.png" alt-text="New debug session started":::
+<!-- > :::image type="content" source="media/cognitive-search-debug/debug-execution-complete1.png" alt-text="New debug session started"::: -->
 
-When the debug session has finished executing, the session defaults to the AI Enrichments tab, highlighting the Skill Graph.
+When the debug session has finished initializing, the session defaults to the **AI Enrichments** tab, highlighting the **Skill Graph**. The Skill Graph provides a visual hierarchy of the skillset and its order of execution sequentially and in parallel.
 
-+ The Skill Graph provides a visual hierarchy of the skillset and its order of execution from top to bottom. Skills that are side by side in the graph are executed in parallel. Color coding of skills in the graph indicate the types of skills that are being executed in the skillset. In the example, the green skills are text and the red skill is vision. Clicking on an individual skill in the graph will display the details of that instance of the skill in the right pane of the session window. The skill settings, a JSON editor, execution details, and errors/warnings are all available for review and editing.
-+ The Enriched Data Structure details the nodes in the enrichment tree generated by the skills from the source document's contents.
+## Find issues with the skillset
 
-The Errors/Warnings tab will provide a much smaller list than the one displayed earlier because this list is only detailing the errors for a single document. Like the list displayed by the indexer, you can click on a warning message and see the details of this warning.
+Any issues reported by the indexer can be found in the adjacent **Errors/Warnings** tab. 
+
+Notice that the **Errors/Warnings** tab will provide a much smaller list than the one displayed earlier because this list is only detailing the errors for a single document. Like the list displayed by the indexer, you can click on a warning message and see the details of this warning.
+
+Select **Errors/Warnings** to review the notifications. You should see three:
+
+   + "Could not map output field 'locations' to search index. Check the 'outputFieldMappings' property of your indexer.
+Missing value '/document/merged_content/locations'."
+
+   + "Could not map output field 'organizations' to search index. Check the 'outputFieldMappings' property of your indexer.
+Missing value '/document/merged_content/organizations'."
+
+   + "Skill executed but may have unexpected results because one or more skill inputs was invalid.
+Optional skill input is missing. Name: 'languageCode', Source: '/document/languageCode'. Expression language parsing issues: Missing value '/document/languageCode'."
+
+   Many skills have a 'languageCode' parameter. By inspecting the operation, you can see that this language code input is missing from the `Enrichment.NerSkillV2.#1`, which is the same Entity Recognition skill that is having trouble with 'locations' and 'organizations' output. 
+
+Because all three notifications are about this skill, your next step is to debug this skill. If possible, start by solving input issues first before moving on to outputFieldMapping issues.
+
+ :::image type="content" source="media/cognitive-search-debug/debug-session-errors-warnings.png" alt-text="New debug session started":::
+
+<!-- + The Skill Graph provides a visual hierarchy of the skillset and its order of execution from top to bottom. Skills that are side by side in the graph are executed in parallel. Color coding of skills in the graph indicate the types of skills that are being executed in the skillset. In the example, the green skills are text and the red skill is vision. Clicking on an individual skill in the graph will display the details of that instance of the skill in the right pane of the session window. The skill settings, a JSON editor, execution details, and errors/warnings are all available for review and editing.
+
++ The Enriched Data Structure details the nodes in the enrichment tree generated by the skills from the source document's contents. -->
 
 ## Fix missing skill input value
 
-In the Errors/Warnings tab, there is an error for an operation labeled `Enrichment.NerSkillV2.#1`. The detail of this error explains that there is a problem with a skill input value '/document/languageCode'. 
+In the **Errors/Warnings** tab, there is an error for an operation labeled `Enrichment.NerSkillV2.#1`. The detail of this error explains that there is a problem with a skill input value '/document/languageCode'. 
 
-1. Return to the AI Enrichments tab.
+1. Return to the **AI Enrichments** tab.
 1. Click on the **Skill Graph**.
-1. Click on the skill labeled #1 to display its details in the right pane.
+1. Click on the skill labeled **#1** to display its details in the right pane.
 1. Locate the input for "languageCode".
 1. Select the **</>** symbol at the beginning of the line and open the Expression Evaluator.
 1. Click the **Evaluate** button to confirm that this expression is resulting in an error. It will confirm that the "languageCode" property is not a valid input.
 
-> :::image type="content" source="media/cognitive-search-debug/expression-evaluator-language.png" alt-text="Expression Evaluator":::
+   :::image type="content" source="media/cognitive-search-debug/expression-evaluator-language.png" alt-text="Expression Evaluator":::
 
 There are two ways to research this error in the session. The first is to look at where the input is coming from - what skill in the hierarchy is supposed to produce this result? The Executions tab in the skill details pane should display the source of the input. If there is no source, this indicates a field mapping error.
 
@@ -145,9 +179,9 @@ There are two ways to research this error in the session. The first is to look a
 1. Look at the INPUTS and find "languageCode". There is no source for this input listed. 
 1. Switch the left pane to display the Enriched Data Structure. There is no mapped path corresponding to "languageCode".
 
-> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-language.png" alt-text="Enriched Data Structure":::
+   :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-language.png" alt-text="Enriched Data Structure":::
 
-There is a mapped path for "language." So, there is a typo in the skill settings. To fix this the expression in the #1 skill with the expression '/document/language' will need to be updated.
+There is a mapped path for "language." So, there is a typo in the skill settings. To fix this expression in the #1 skill with the expression '/document/language' will need to be updated.
 
 1. Open the Expression Evaluator **</>** for the path "language."
 1. Copy the expression. Close the window.
@@ -161,11 +195,11 @@ Once the debug session execution completes, click the Errors/Warnings tab and it
 
 ## Fix missing skill output values
 
-> :::image type="content" source="media/cognitive-search-debug/warnings-missing-value-locations-organizations.png" alt-text="Errors and warnings":::
+:::image type="content" source="media/cognitive-search-debug/warnings-missing-value-locations-organizations.png" alt-text="Errors and warnings":::
 
 There are missing output values from a skill. To identify the skill with the error go to the Enriched Data Structure, find the value name and look at its Originating Source. In the case of the missing organizations and locations values, they are outputs from skill #1. Opening the Expression Evaluator </> for each path, will display the expressions listed as '/document/content/organizations' and '/document/content/locations', respectively.
 
-> :::image type="content" source="media/cognitive-search-debug/expression-eval-missing-value-locations-organizations.png" alt-text="Expression evaluator organizations entity":::
+:::image type="content" source="media/cognitive-search-debug/expression-eval-missing-value-locations-organizations.png" alt-text="Expression evaluator organizations entity":::
 
 The output for these entities is empty and it should not be empty. What are the inputs producing this result?
 
@@ -173,14 +207,14 @@ The output for these entities is empty and it should not be empty. What are the 
 1. Select **Executions** tab in the right skill details pane.
 1. Open the Expression Evaluator **</>** for the INPUT "text."
 
-> :::image type="content" source="media/cognitive-search-debug/input-skill-missing-value-locations-organizations.png" alt-text="Input for text skill":::
+   :::image type="content" source="media/cognitive-search-debug/input-skill-missing-value-locations-organizations.png" alt-text="Input for text skill":::
 
 The displayed result for this input doesn’t look like a text input. It looks like an image that is surrounded by new lines. The lack of text means that no entities can be identified. Looking at the hierarchy of the skillset displays the content is first processed by the #6 (OCR) skill and then passed to the #5 (Merge) skill. 
 
 1. Select the #5 (Merge) skill in the **Skill Graph**.
 1. Select the **Executions** tab in the right skill details pane and open the Expression Evaluator **</>** for the OUTPUTS "mergedText".
 
-> :::image type="content" source="media/cognitive-search-debug/merge-output-detail-missing-value-locations-organizations.png" alt-text="Output for Merge skill":::
+   :::image type="content" source="media/cognitive-search-debug/merge-output-detail-missing-value-locations-organizations.png" alt-text="Output for Merge skill":::
 
 Here the text is paired with the image. Looking at the expression '/document/merged_content' the error in the "organizations" and "locations" paths for the #1 skill is visible. Instead of using '/document/content' it should use '/document/merged_content' for the "text" inputs.
 
@@ -200,7 +234,7 @@ After the indexer has finished running, the errors are still there. Go back to s
 1. Navigate the **Skill Settings** to find "outputs."
 1. Open the Expression Evaluator **</>** for the "organizations" entity.
 
-> :::image type="content" source="media/cognitive-search-debug/skill-output-detail-missing-value-locations-organizations.png" alt-text="Output for organizations entity":::
+   :::image type="content" source="media/cognitive-search-debug/skill-output-detail-missing-value-locations-organizations.png" alt-text="Output for organizations entity":::
 
 Evaluating the result of the expression gives the correct result. The skill is working to identify the correct value for the entity, "organizations." However, the output mapping in the entity's path is still throwing an error. In comparing the output path in the skill to the output path in the error, the skill that is parenting the outputs, organizations and locations under the /document/content node. While the output field mapping is expecting the results to be parented under the /document/merged_content node. In the previous step, the input changed from '/document/content' to '/document/merged_content'. The context in the skill settings needs to be changed in order to ensure the output is generated with the right context.
 
@@ -211,13 +245,15 @@ Evaluating the result of the expression gives the correct result. The skill is w
 1. Click **Save** in the right, skill details pane.
 1. Click **Run** in the sessions window menu. This will kick off another execution of the skillset using the document.
 
-> :::image type="content" source="media/cognitive-search-debug/skill-setting-context-correction-missing-value-locations-organizations.png" alt-text="Context correction in skill setting":::
+   :::image type="content" source="media/cognitive-search-debug/skill-setting-context-correction-missing-value-locations-organizations.png" alt-text="Context correction in skill setting":::
 
 All of the errors have been resolved.
 
 ## Commit changes to the skillset
 
-When the debug session was initiated, the search service created a copy of the skillset. This was done so changes made would not affect the production system. Now that you have finished debugging your skillset, the fixes can be committed (overwrite the original skillset) to the production system. If you want to continue to make changes to the skillset without impacting the production system, the debug session can be saved and reopened later.
+When the debug session was initiated, the search service created a copy of the skillset. This was done to protect the original skillset on your search service. Now that you have finished debugging your skillset, the fixes can be committed (overwrite the original skillset). 
+
+Alternatively, if you aren't ready to commit changes, you can save the debug session and reopen it later.
 
 1. Click **Commit changes** in the main Debug sessions menu.
 1. Click **OK** to confirm that you wish to update your skillset.
@@ -226,11 +262,13 @@ When the debug session was initiated, the search service created a copy of the s
 1. Click **Reset**.
 1. Click **Run**. Click **OK** to confirm.
 
-When the indexer has finished running, there should be a green checkmark and the word Success next to the time stamp for the latest run in the Execution history tab. To ensure that the changes have been applied:
+When the indexer has finished running, there should be a green checkmark and the word Success next to the time stamp for the latest run in the **Execution history** tab. To ensure that the changes have been applied:
 
-1. Exit **Indexer** and select the **Index** tab.
-1. Open the 'clinical-trials' index and in the Search explorer tab, click **Search**.
-1. The result window should show that organizations and locations entities are now populated with the expected values.
+1. In the search Overview page, select the **Index** tab.
+1. Open the 'clinical-trials' index and in the Search explorer tab, enter this query string: `$select=metadata_storage_path, organizations, locations&$count=true` to return fields for specific documents (identified by the unique `metadata_storage_path` field).
+1. Click **Search**.
+
+The results should show that organizations and locations are now populated with the expected values.
 
 ## Clean up resources
 
@@ -242,6 +280,10 @@ If you are using a free service, remember that you are limited to three indexes,
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Learn more about skillsets](./cognitive-search-working-with-skillsets.md)
-> [Learn more about incremental enrichment and caching](./cognitive-search-incremental-indexing-conceptual.md)
+This tutorial touched on various aspects of skillset definition and processing. To learn more about concepts and workflows, refer to the following articles:
+
++ [How to map skillset output fields to fields in a search index](cognitive-search-output-field-mapping.md)
+
++ [Skillsets in Azure Cognitive Search](cognitive-search-working-with-skillsets.md)
+
++ [How to configure caching for incremental enrichment](cognitive-search-incremental-indexing-conceptual.md)

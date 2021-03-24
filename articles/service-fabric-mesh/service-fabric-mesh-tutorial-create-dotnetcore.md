@@ -1,15 +1,20 @@
 ---
 title: Create, deploy a multi-service app to Service Fabric Mesh 
 description: In this tutorial, you create a multi-service Azure Service Fabric Mesh application consisting of an ASP.NET Core website that communicates with a back-end web service, debug it locally, and publish it to Azure.
-author: dkkapur
+author: georgewallace
 ms.topic: tutorial
 ms.date: 09/18/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: "mvc, devcenter, devx-track-csharp"
 #Customer intent: As a developer, I want learn how to create a Service Fabric Mesh app that communicates with another service, debug it on my local development cluster, publish it to Azure, monitor it, upgrade it, and then clean up resources so that I am not charged for what I'm not using.
 ---
 
 # Tutorial: Create, debug, deploy and upgrade a multi-service Service Fabric Mesh app
+
+> [!IMPORTANT]
+> The preview of Azure Service Fabric Mesh has been retired. New deployments will no longer be permitted through the Service Fabric Mesh API. Support for existing deployments will continue through April 28, 2021.
+> 
+> For details, see [Azure Service Fabric Mesh Preview Retirement](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 This tutorial is part one of a series. You'll learn how to use Visual Studio to create an Azure Service Fabric Mesh app that has an ASP.NET web front-end and an ASP.NET Core Web API back-end service. Then you'll debug the app on your local development cluster. You'll publish the app to Azure and then make config and code changes and upgrade the app. Finally, you'll clean up unused Azure resources so that you are not charged for what you aren't using.
 
@@ -55,7 +60,7 @@ In the **Name** box, type `todolistapp` and in the **Location** box, set the fol
 
 Make sure that **Create directory for solution** is checked, and click **OK** to create the Service Fabric Mesh project.
 
-![Visual studio new Service Fabric Mesh project dialog](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-project.png)
+![Screenshot that shows how to create a Service Fabric Mesh project.](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-project.png)
 
 Next you'll see the **New Service Fabric Service** dialog.
 
@@ -69,7 +74,7 @@ Set the **Service Name** to **WebFrontEnd**. Press **OK** to create the ASP.NET 
 
 Next you'll see the ASP.NET Core Web Application dialog. Select **Web Application** and then click **OK**.
 
-![Visual studio new ASP.NET core application](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-aspnetcore-app.png)
+![Screenshot that highlights the Web Appliccation template.](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-aspnetcore-app.png)
 
 Now you have a Service Fabric Mesh application. Next, create the model for to-do information.
 

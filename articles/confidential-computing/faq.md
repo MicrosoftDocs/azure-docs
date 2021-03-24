@@ -5,7 +5,7 @@ author: JBCook
 ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: confidential-computing
 ms.date: 4/17/2020
 ms.author: jencook
 ---
@@ -27,7 +27,7 @@ Here are some ways you can deploy a DCsv2 VM:
 
 **Will all OS images work with Azure confidential computing?**
 
-No. The virtual machines can only be deployed on Generation 2 operating machines with Ubuntu Server 18.04, Ubuntu Server 16.04, Windows Server 2019 Datacenter, and Windows Server 2016 Datacenter. Read more about Gen 2 VMs on [Linux](../virtual-machines/linux/generation-2.md) and [Windows](../virtual-machines/windows/generation-2.md)
+No. The virtual machines can only be deployed on Generation 2 operating machines with Ubuntu Server 18.04, Ubuntu Server 16.04, Windows Server 2019 Datacenter, and Windows Server 2016 Datacenter. Read more about Gen 2 VMs on [Linux](../virtual-machines/generation-2.md) and [Windows](../virtual-machines/generation-2.md)
 
 **DCsv2 virtual machines are grayed out in the portal and I can't select one**
 
@@ -40,6 +40,14 @@ Based on the information bubble next to the VM, there are different actions to t
 
 Make sure you've selected an [available region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines). Also make sure you select “clear all filters” in the size selector. 
 
+**Can I enable Accelerated Networking with Azure confidential computing?**
+
+ No. Accelerated Networking isn't supported on DC-Series or DCsv2-Series virtual machines. Accelerated Networking cannot be enabled for any confidential computing virtual machine deployment or Azure Kubernetes Service cluster deployment running on confidential computing.
+
+**Can I use Azure Dedicated Host with these machines?**
+
+Yes. Azure Dedicated Host support DCsv2-series virtual machines. Azure Dedicated Host provides a single-tenant physical server to run your virtual machines on. Users usually use Azure Dedicated Host to address compliance requirements around physical security, data integrity, and monitoring. 
+
 **I get an Azure Resource Manager template deployment failure error: "Operation could not be completed as it results in exceeding approved standard DcsV2 Family Cores Quota"**
 
 [Create a support request to increase your quota](../azure-portal/supportability/per-vm-quota-requests.md). Free trial subscriptions don't have quota for confidential computing VMs. 
@@ -51,6 +59,10 @@ DC-Series VMs run on older 6-core Intel Processors with Intel SGX and have less 
 **Are DCsv2 virtual machines available globally?**
 
 No. At this time, these virtual machines are only available in select regions. Check the [products by regions page](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) for the latest available regions. 
+
+**Is hyper-threading OFF on these machines?**
+
+Hyper-threading is disabled for all Azure confidential computing clusters.
 
 **How do I install the Open Enclave SDK on the DCsv2 virtual machines?**
    

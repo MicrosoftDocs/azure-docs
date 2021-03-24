@@ -1,5 +1,5 @@
 ---
-title: Create a SQL pool by using Azure Resource Manager template
+title: Create a dedicated SQL pool (formerly SQL DW) by using Azure Resource Manager template
 description: Learn how to create an Azure Synapse Analytics SQL pool by using Azure Resource Manager template.
 services: azure-resource-manager
 author: julieMSFT
@@ -10,9 +10,9 @@ ms.author: jrasnick
 ms.date: 06/09/2020
 ---
 
-# Quickstart: Create an Azure Synapse Analytics SQL pool by using an ARM template
+# Quickstart: Create an Azure Synapse Analytics dedicated SQL pool (formerly SQL DW) by using an ARM template
 
-This Azure Resource Manager template (ARM template) will create an Azure Synapse Analytics SQL pool with Transparent Data Encryption enabled. Synapse SQL pool refers to the enterprise data warehousing features that are generally available in Azure Synapse.
+This Azure Resource Manager template (ARM template) will create an dedicated SQL pool (formerly SQL DW) with Transparent Data Encryption enabled. Dedicated SQL pool (formerly SQL DW) refers to the enterprise data warehousing features that are generally available in Azure Synapse.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -36,7 +36,7 @@ The template defines one resource:
 
 ## Deploy the template
 
-1. Select the following image to sign in to Azure and open the template. This template creates a Synapse SQL pool.
+1. Select the following image to sign in to Azure and open the template. This template creates a dedicated SQL pool (formerly SQL DW).
    
    [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-sql-data-warehouse-transparent-encryption-create%2Fazuredeploy.json)
 
@@ -48,7 +48,7 @@ The template defines one resource:
    * **SQL Server name**: Accept the default name or enter a name for the SQL Server name.
    * **SQL Administrator login**: Enter the administrator username for the SQL Server.
    * **SQL Administrator password**: Enter the administrator password for the SQL Server.
-   * **Data Warehouse Name**: Enter a SQL pool name.
+   * **Data Warehouse Name**: Enter a dedicated SQL pool name.
    * **Transparent Data Encryption**: Accept the default, enabled. 
    * **Service Level Objective**: Accept the default, DW400c.
    * **Location**: Accept the default location of the resource group.
@@ -62,7 +62,7 @@ You can either use the Azure portal to check the deployed resources, or use Azur
 # [CLI](#tab/CLI)
 
 ```azurecli-interactive
-echo "Enter the resource group where your Synapse SQL pool exists:" &&
+echo "Enter the resource group where your dedicated SQL pool (formerly SQL DW) exists:" &&
 read resourcegroupName &&
 az resource list --resource-group $resourcegroupName 
 ```
@@ -70,7 +70,7 @@ az resource list --resource-group $resourcegroupName
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the resource group name where your SQL pool account exists"
+$resourceGroupName = Read-Host -Prompt "Enter the resource group name where your dedicated SQL pool (formerly SQL DW) account exists"
 (Get-AzResource -ResourceType "Microsoft.Sql/servers/databases" -ResourceGroupName $resourceGroupName).Name
  Write-Host "Press [ENTER] to continue..."
 ```
@@ -102,7 +102,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## Next steps
 
-In this quickstart, you created an Azure Synapse Analytics SQL pool using an ARM template and validated the deployment. To learn more about Azure Synapse Analytics and Azure Resource Manager, continue on to the articles below.
+In this quickstart, you created a dedicated SQL pool (formerly SQL DW) using an ARM template and validated the deployment. To learn more about Azure Synapse Analytics and Azure Resource Manager, see the articles below.
 
 - Read an [Overview of Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md)
 - Learn more about [Azure Resource Manager](../../azure-resource-manager/management/overview.md)

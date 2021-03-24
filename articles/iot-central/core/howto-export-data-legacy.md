@@ -14,7 +14,7 @@ ms.service: iot-central
 > [!Note]
 > This article describes the legacy data export features in IoT Central.
 >
-> - For information about the new preview data export features, see [Export IoT data to cloud destinations using data export](./howto-export-data.md).
+> - For information about the latest data export features, see [Export IoT data to cloud destinations using data export](./howto-export-data.md).
 > - To learn about the differences between the preview data export and legacy data export features, see the [comparison table](./howto-export-data.md#comparison-of-legacy-data-export-and-data-export).
 
 This article describes how to use the data export feature in Azure IoT Central. This feature lets you export your data continuously to **Azure Event Hubs**, **Azure Service Bus**, or **Azure Blob storage** instances. Data export uses the JSON format and can include telemetry, device information, and device template information. Use the exported data for:
@@ -58,7 +58,7 @@ When you choose Service Bus as an export destination, the queues and topics must
 
 If you don't have an existing Azure storage account to export to, follow these steps:
 
-1. Create a [new storage account in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). You can learn more about creating new [Azure Blob storage accounts](https://aka.ms/blobdocscreatestorageaccount) or [Azure Data Lake Storage v2 storage accounts](../../storage/blobs/data-lake-storage-quickstart-create-account.md). Data export can only write data to storage accounts that support block blobs. The following list shows the known compatible storage account types:
+1. Create a [new storage account in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). You can learn more about creating new [Azure Blob storage accounts](../../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Data Lake Storage v2 storage accounts](../../storage/common/storage-account-create.md). Data export can only write data to storage accounts that support block blobs. The following list shows the known compatible storage account types:
 
     |Performance Tier|Account Type|
     |-|-|
@@ -151,7 +151,7 @@ The following example shows a message received from an event hub or Service Bus 
 
 This message doesn't include the device ID of the sending device.
 
-To retrieve the device ID from the message data in an Azure Stream Analytics query, use the [GetMetadataPropertyValue](https://docs.microsoft.com/stream-analytics-query/getmetadatapropertyvalue) function. For an example, see the query in [Extend Azure IoT Central with custom rules using Stream Analytics, Azure Functions, and SendGrid](./howto-create-custom-rules.md).
+To retrieve the device ID from the message data in an Azure Stream Analytics query, use the [GetMetadataPropertyValue](/stream-analytics-query/getmetadatapropertyvalue) function. For an example, see the query in [Extend Azure IoT Central with custom rules using Stream Analytics, Azure Functions, and SendGrid](./howto-create-custom-rules.md).
 
 To retrieve the device ID in an Azure Databricks or Apache Spark workspace, use [systemProperties](https://github.com/Azure/azure-event-hubs-spark/blob/master/docs/structured-streaming-eventhubs-integration.md). For an example, see the Databricks workspace in [Extend Azure IoT Central with custom analytics using Azure Databricks](./howto-create-custom-analytics.md).
 
@@ -377,7 +377,6 @@ This example shows a message about device templates data in event hub or Service
                           {
                               "@id": "<id>",
                               "@type": ["Command"],
-                              "commandType": "synchronous",
                               "request": {
                                   "@id": "<id>",
                                   "@type": ["SchemaField"],
@@ -501,7 +500,6 @@ This example snapshot shows a message that contains device and properties data i
                           {
                               "@id": "<id>",
                               "@type": ["Command"],
-                              "commandType": "synchronous",
                               "request": {
                                   "@id": "<id>",
                                   "@type": ["SchemaField"],
@@ -552,7 +550,7 @@ This example snapshot shows a message that contains device and properties data i
 
 If you have an existing data export in your preview application with the *Devices* and *Device templates* streams turned on, update your export by **30 June 2020**. This requirement applies to exports to Azure Blob storage, Azure Event Hubs, and Azure Service Bus.
 
-Starting 3 February 2020, all new exports in applications with Devices and Device templates enabled will have the data format described above. All exports created before this date remain on the old data format until 30 June 2020, at which time these exports will automatically be migrated to the new data format. The new data format matches the [device](https://docs.microsoft.com/rest/api/iotcentral/devices/get), [device property](https://docs.microsoft.com/rest/api/iotcentral/devices/getproperties), [device cloud property](https://docs.microsoft.com/rest/api/iotcentral/devices/getcloudproperties), and [device template](https://docs.microsoft.com/rest/api/iotcentral/devicetemplates/get) objects in the IoT Central public API.
+Starting 3 February 2020, all new exports in applications with Devices and Device templates enabled will have the data format described above. All exports created before this date remain on the old data format until 30 June 2020, at which time these exports will automatically be migrated to the new data format. The new data format matches the [device](/rest/api/iotcentral/devices/get), [device property](/rest/api/iotcentral/devices/getproperties), [device cloud property](/rest/api/iotcentral/devices/getcloudproperties), and [device template](/rest/api/iotcentral/devicetemplates/get) objects in the IoT Central public API.
 
 For **Devices**, notable differences between the old data format and the new data format include:
 - `@id` for device is removed, `deviceId` is renamed to `id` 

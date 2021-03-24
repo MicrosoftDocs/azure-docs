@@ -3,9 +3,10 @@ title: Set up monitoring alerts for Azure Stream Analytics jobs
 description: This article describes how to use the Azure portal to set up monitoring and alerts for Azure Stream Analytics jobs.
 author: jseb225
 ms.author: sidram
-ms.reviewer: mamccrea
+
 ms.service: stream-analytics
 ms.topic: how-to
+ms.custom: contperf-fy21q1
 ms.date: 06/21/2019
 ---
 # Set up alerts for Azure Stream Analytics jobs
@@ -41,11 +42,11 @@ The following example demonstrates how to set up alerts for when your job enters
 
 7. The **RESOURCE**, **CONDITION**, and **ACTION GROUPS** should each have an entry. Note that in order for the alerts to fire, the conditions defined need to be met. For example, you can measure a metric's average value of over the last 15 minutes, every 5 minutes.
 
-   ![Create Stream Analytics alert rule](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule-2.png)
+   ![Screenshot shows the Create rule dialog box with RESOURCE, CONDITION, and ACTION GROUP.](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule-2.png)
 
    Add an **Alert rule name**, **Description**, and your **Resource Group** to the **ALERT DETAILS** and click **Create alert rule** to create the rule for your Stream Analytics job.
 
-   ![Create Stream Analytics alert rule](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule.png)
+   ![Screenshot shows the Create rule dialog box with ALERT DETAILS.](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule.png)
    
 ## Scenarios to monitor
 
@@ -61,5 +62,4 @@ The following alerts are recommended for monitoring the performance of your Stre
 ## Next steps
 
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-
+* [Azure Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference)

@@ -1,8 +1,8 @@
 ---
 title: Access audit logs - Azure CLI - Azure Database for MariaDB
 description: This article describes how to configure and access the audit logs in Azure Database for MariaDB from the Azure CLI.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/24/2020 
@@ -13,16 +13,17 @@ ms.custom: devx-track-azurecli
 
 You can configure the [Azure Database for MariaDB audit logs](concepts-audit-logs.md) from the Azure CLI.
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## Prerequisites
 
-To step through this how-to guide, you need:
+To complete this guide:
 
-- [Azure Database for MariaDB server](quickstart-create-mariadb-server-database-using-azure-portal.md)
+- You need an [Azure Database for MariaDB server](quickstart-create-mariadb-server-database-using-azure-portal.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-> [!IMPORTANT]
-> This how-to guide requires that you use Azure CLI version 2.0 or later. To confirm the version, at the Azure CLI command prompt, enter `az --version`. To install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
+- This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Configure audit logging
 

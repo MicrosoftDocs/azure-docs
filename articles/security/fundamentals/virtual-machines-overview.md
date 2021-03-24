@@ -47,11 +47,11 @@ Learn more about [Microsoft Antimalware for Azure](antimalware.md) and the core 
 Learn more about antimalware software to help protect your virtual machines:
 
 * [Deploying Antimalware Solutions on Azure Virtual Machines](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
-* [How to install and configure Trend Micro Deep Security as a service on a Windows VM](/azure/virtual-machines/windows/classic/install-trend)
-* [How to install and configure Symantec Endpoint Protection on a Windows VM](/azure/virtual-machines/windows/classic/install-symantec)
+* [How to install and configure Trend Micro Deep Security as a service on a Windows VM](/previous-versions/azure/virtual-machines/extensions/trend)
+* [How to install and configure Symantec Endpoint Protection on a Windows VM](../../virtual-machines/extensions/symantec.md)
 * [Security solutions in the Azure Marketplace](https://azure.microsoft.com/marketplace/?term=security)
 
-For even more powerful protection, consider using [Windows Defender Advanced Threat Protection](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection). With Windows Defender ATP, you get:
+For even more powerful protection, consider using [Windows Defender Advanced Threat Protection](/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection). With Windows Defender ATP, you get:
 
 * [Attack surface reduction](/windows/security/threat-protection/windows-defender-atp/overview-attack-surface-reduction)  
 * [Next generation protection](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)  
@@ -71,22 +71,22 @@ Learn more:
 
 Improving key security can enhance encryption and authentication protections. You can simplify the management and security of your critical secrets and keys by storing them in Azure Key Vault.
 
-Key Vault provides the option to store your keys in hardware security modules (HSMs) certified to FIPS 140-2 Level 2 standards. Your SQL Server encryption keys for backup or [transparent data encryption](https://msdn.microsoft.com/library/bb934049.aspx) can all be stored in Key Vault with any keys or secrets from your applications. Permissions and access to these protected items are managed through [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
+Key Vault provides the option to store your keys in hardware security modules (HSMs) certified to FIPS 140-2 Level 2 standards. Your SQL Server encryption keys for backup or [transparent data encryption](/sql/relational-databases/security/encryption/transparent-data-encryption) can all be stored in Key Vault with any keys or secrets from your applications. Permissions and access to these protected items are managed through [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
 
 Learn more:
 
-* [What is Azure Key Vault?](/azure/key-vault/key-vault-overview)
-* [Azure Key Vault blog](https://blogs.technet.microsoft.com/kv/)
+* [What is Azure Key Vault?](../../key-vault/general/overview.md)
+* [Azure Key Vault blog](/archive/blogs/kv/)
 
 ## Virtual machine disk encryption
 
-Azure Disk Encryption is a new capability for encrypting your Windows and Linux virtual machine disks. Azure Disk Encryption uses the industry-standard [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) feature of Windows and the [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) feature of Linux to provide volume encryption for the OS and the data disks.
+Azure Disk Encryption is a new capability for encrypting your Windows and Linux virtual machine disks. Azure Disk Encryption uses the industry-standard [BitLocker](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732774(v=ws.11)) feature of Windows and the [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) feature of Linux to provide volume encryption for the OS and the data disks.
 
 The solution is integrated with Azure Key Vault to help you control and manage the disk encryption keys and secrets in your key vault subscription. It ensures that all data in the virtual machine disks are encrypted at rest in Azure Storage.
 
 Learn more:
 
-* [Azure Disk Encryption for IaaS VMs](/azure/security/azure-security-disk-encryption-overview)
+* [Azure Disk Encryption for IaaS VMs](./azure-disk-encryption-vms-vmss.md)
 * [Quickstart: Encrypt a Windows IaaS VM with Azure PowerShell](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
 
 ## Virtual machine backup
@@ -95,8 +95,8 @@ Azure Backup is a scalable solution that helps protect your application data wit
 
 Learn more:
 
-* [What is Azure Backup?](/azure/backup/backup-introduction-to-azure-backup)
-* [Azure Backup service FAQ](/azure/backup/backup-azure-backup-faq)
+* [What is Azure Backup?](../../backup/backup-overview.md)
+* [Azure Backup service FAQ](../../backup/backup-azure-backup-faq.md)
 
 ## Azure Site Recovery
 
@@ -112,9 +112,9 @@ Site Recovery:
 
 Learn more:
 
-* [What is Azure Site Recovery?](/azure/site-recovery/site-recovery-overview)
-* [How does Azure Site Recovery work?](/azure/site-recovery/site-recovery-components)
-* [What workloads are protected by Azure Site Recovery?](/azure/site-recovery/site-recovery-workload)
+* [What is Azure Site Recovery?](../../site-recovery/site-recovery-overview.md)
+* [How does Azure Site Recovery work?](../../site-recovery/azure-to-azure-architecture.md)
+* [What workloads are protected by Azure Site Recovery?](../../site-recovery/site-recovery-workload.md)
 
 ## Virtual networking
 
@@ -125,7 +125,7 @@ An Azure virtual network is a logical construct built on top of the physical Azu
 Learn more:
 
 * [Azure network security overview](network-overview.md)
-* [Virtual Network overview](/azure/virtual-network/virtual-networks-overview)
+* [Virtual Network overview](../../virtual-network/virtual-networks-overview.md)
 * [Networking features and partnerships for enterprise scenarios](https://azure.microsoft.com/blog/networking-enterprise/)
 
 ## Security policy management and reporting
@@ -134,14 +134,14 @@ Azure Security Center helps you prevent, detect, and respond to threats. Securit
 
 Security Center helps you optimize and monitor the security of your virtual machines by:
 
-* Providing [security recommendations](/azure/security-center/security-center-recommendations) for the virtual machines. Example recommendations include: apply system updates, configure ACLs endpoints, enable antimalware, enable network security groups, and apply disk encryption.
+* Providing [security recommendations](../../security-center/security-center-recommendations.md) for the virtual machines. Example recommendations include: apply system updates, configure ACLs endpoints, enable antimalware, enable network security groups, and apply disk encryption.
 * Monitoring the state of your virtual machines.
 
 Learn more:
 
-* [Introduction to Azure Security Center](/azure/security-center/security-center-intro)
-* [Azure Security Center frequently asked questions](/azure/security-center/security-center-faq)
-* [Azure Security Center planning and operations](/azure/security-center/security-center-planning-and-operations-guide)
+* [Introduction to Azure Security Center](../../security-center/security-center-introduction.md)
+* [Azure Security Center frequently asked questions](../../security-center/faq-general.md)
+* [Azure Security Center planning and operations](../../security-center/security-center-planning-and-operations-guide.md)
 
 ## Compliance
 

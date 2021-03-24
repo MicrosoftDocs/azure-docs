@@ -2,7 +2,7 @@
 title: Transfer artifacts
 description: Transfer collections of images or other artifacts from one container registry to another registry by creating a transfer pipeline using Azure storage accounts
 ms.topic: article
-ms.date: 05/08/2020
+ms.date: 10/07/2020
 ms.custom: 
 ---
 
@@ -16,7 +16,7 @@ To transfer artifacts, you create a *transfer pipeline* that replicates artifact
 * The blob is copied from the source storage account to a target storage account
 * The blob in the target storage account gets imported as artifacts in the target registry. You can set up the import pipeline to trigger whenever the artifact blob updates in the target storage.
 
-Transfer is ideal for copying content between two Azure container registries in physically disconnected clouds, mediated by storage accounts in each cloud. For image copy from container registries in connected clouds including Docker Hub and other cloud vendors, [image import](container-registry-import-images.md) is recommended instead.
+Transfer is ideal for copying content between two Azure container registries in physically disconnected clouds, mediated by storage accounts in each cloud. If instead you want to copy images from container registries in connected clouds including Docker Hub and other cloud vendors, [image import](container-registry-import-images.md) is recommended.
 
 In this article, you use Azure Resource Manager template deployments to create and run the transfer pipeline. The Azure CLI is used to provision the associated resources such as storage secrets. Azure CLI version 2.2.0 or later is recommended. If you need to install or upgrade the CLI, see [Install Azure CLI][azure-cli].
 
@@ -27,11 +27,18 @@ This feature is available in the **Premium** container registry service tier. Fo
 
 ## Prerequisites
 
-* **Container registries** - You need an existing source registry with artifacts to transfer, and a target registry. ACR transfer is intended for movement across physically disconnected clouds. For testing, the source and target registries can be in the same or a different Azure subscription, Active Directory tenant, or cloud. If you need to create a registry, see [Quickstart: Create a private container registry using the Azure CLI](container-registry-get-started-azure-cli.md). 
-* **Storage accounts** - Create source and target storage accounts in a subscription and location of your choice. For testing purposes, you can use the same subscription or subscriptions as your source and target registries. For cross-cloud scenarios, typically you create a separate storage account in each cloud. If needed, create the storage accounts with the [Azure CLI](../storage/common/storage-account-create.md?tabs=azure-cli) or other tools. 
+* **Container registries** - You need an existing source registry with artifacts to transfer, and a target registry. ACR transfer is intended for movement across physically disconnected clouds. For testing, the source and target registries can be in the same or a different Azure subscription, Active Directory tenant, or cloud. 
+
+   If you need to create a registry, see [Quickstart: Create a private container registry using the Azure CLI](container-registry-get-started-azure-cli.md). 
+* **Storage accounts** - Create source and target storage accounts in a subscription and location of your choice. For testing purposes, you can use the same subscription or subscriptions as your source and target registries. For cross-cloud scenarios, typically you create a separate storage account in each cloud. 
+
+  If needed, create the storage accounts with the [Azure CLI](../storage/common/storage-account-create.md?tabs=azure-cli) or other tools. 
 
   Create a blob container for artifact transfer in each account. For example, create a container named *transfer*. Two or more transfer pipelines can share the same storage account, but should use different storage container scopes.
-* **Key vaults** - Key vaults are needed to store SAS token secrets used to access source and target storage accounts. Create the source and target key vaults in the same Azure subscription or subscriptions as your source and target registries. If needed, create key vaults with the [Azure CLI](../key-vault/secrets/quick-create-cli.md) or other tools.
+* **Key vaults** - Key vaults are needed to store SAS token secrets used to access source and target storage accounts. Create the source and target key vaults in the same Azure subscription or subscriptions as your source and target registries. For demonstration purposes, the templates and commands used in this article also assume that the source and target key vaults are located in the same resource groups as the source and target registries, respectively. This use of common resource groups isn't required, but it simplifies the templates and commands used in this article.
+
+   If needed, create key vaults with the [Azure CLI](../key-vault/secrets/quick-create-cli.md) or other tools.
+
 * **Environment variables** - For example commands in this article, set the following environment variables for the source and target environments. All examples are formatted for the Bash shell.
   ```console
   SOURCE_RG="<source-resource-group>"
@@ -57,7 +64,7 @@ Storage authentication uses SAS tokens, managed as secrets in key vaults. The pi
 
 ### Things to know
 * The ExportPipeline and ImportPipeline will typically be in different Active Directory tenants associated with the source and destination clouds. This scenario requires separate managed identities and key vaults for the export and import resources. For testing purposes, these resources can be placed in the same cloud, sharing identities.
-* The pipeline examples create system-assigned managed identities to access key vault secrets. ExportPipelines and ImportPipelines also support user-assigned identities. In this case, you must configure the key vaults with access policies for the identities. 
+* By default, the ExportPipeline and ImportPipeline templates each enable a system-assigned managed identity to access key vault secrets. The ExportPipeline and ImportPipeline templates also support a user-assigned identity that you provide. 
 
 ## Create and store SAS keys
 
@@ -147,7 +154,13 @@ The `options` property for the export pipelines supports optional boolean values
 
 ### Create the resource
 
-Run [az deployment group create][az-deployment-group-create] to create the resource. The following example names the deployment *exportPipeline*.
+Run [az deployment group create][az-deployment-group-create] to create a resource named *exportPipeline* as shown in the following examples. By default, with the first option, the example template enables a system-assigned identity in the ExportPipeline resource. 
+
+With the second option, you can provide the resource with a user-assigned identity. (Creation of the user-assigned identity not shown.)
+
+With either option, the template configures the identity to access the SAS token in the export key vault. 
+
+#### Option 1: Create resource and enable system-assigned identity
 
 ```azurecli
 az deployment group create \
@@ -157,10 +170,23 @@ az deployment group create \
   --parameters azuredeploy.parameters.json
 ```
 
+#### Option 2: Create resource and provide user-assigned identity
+
+In this command, provide the resource ID of the user-assigned identity as an additional parameter.
+
+```azurecli
+az deployment group create \
+  --resource-group $SOURCE_RG \
+  --template-file azuredeploy.json \
+  --name exportPipeline \
+  --parameters azuredeploy.parameters.json \
+  --parameters userAssignedIdentity="/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUserAssignedIdentity"
+```
+
 In the command output, take note of the resource ID (`id`) of the pipeline. You can store this value in an environment variable for later use by running the [az deployment group show][az-deployment-group-show]. For example:
 
 ```azurecli
-EXPORT_RES_ID=$(az group deployment show \
+EXPORT_RES_ID=$(az deployment group show \
   --resource-group $SOURCE_RG \
   --name exportPipeline \
   --query 'properties.outputResources[1].id' \
@@ -193,20 +219,39 @@ The `options` property for the import pipeline supports optional boolean values.
 
 ### Create the resource
 
-Run [az deployment group create][az-deployment-group-create] to create the resource.
+Run [az deployment group create][az-deployment-group-create] to create a resource named *importPipeline* as shown in the following examples. By default, with the first option, the example template enables a system-assigned identity in the ImportPipeline resource. 
+
+With the second option, you can provide the resource with a user-assigned identity. (Creation of the user-assigned identity not shown.)
+
+With either option, the template configures the identity to access the SAS token in the import key vault. 
+
+#### Option 1: Create resource and enable system-assigned identity
 
 ```azurecli
 az deployment group create \
   --resource-group $TARGET_RG \
   --template-file azuredeploy.json \
-  --parameters azuredeploy.parameters.json \
-  --name importPipeline
+  --name importPipeline \
+  --parameters azuredeploy.parameters.json 
 ```
 
-If you plan to run the import manually, take note of the resource ID (`id`) of the pipeline. You can store this value in an environment variable for later use by running the [az deployment group show][az-deployment-group-show]. For example:
+#### Option 2: Create resource and provide user-assigned identity
+
+In this command, provide the resource ID of the user-assigned identity as an additional parameter.
 
 ```azurecli
-IMPORT_RES_ID=$(az group deployment show \
+az deployment group create \
+  --resource-group $TARGET_RG \
+  --template-file azuredeploy.json \
+  --name importPipeline \
+  --parameters azuredeploy.parameters.json \
+  --parameters userAssignedIdentity="/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUserAssignedIdentity"
+```
+
+If you plan to run the import manually, take note of the resource ID (`id`) of the pipeline. You can store this value in an environment variable for later use by running the [az deployment group show][az-deployment-group-show] command. For example:
+
+```azurecli
+IMPORT_RES_ID=$(az deployment group show \
   --resource-group $TARGET_RG \
   --name importPipeline \
   --query 'properties.outputResources[1].id' \
@@ -241,18 +286,28 @@ az deployment group create \
   --parameters azuredeploy.parameters.json
 ```
 
+For later use, store the resource ID of the pipeline run in an environment variable:
+
+```azurecli
+EXPORT_RUN_RES_ID=$(az deployment group show \
+  --resource-group $SOURCE_RG \
+  --name exportPipelineRun \
+  --query 'properties.outputResources[0].id' \
+  --output tsv)
+```
+
 It can take several minutes for artifacts to export. When deployment completes successfully, verify artifact export by listing the exported blob in the *transfer* container of the source storage account. For example, run the [az storage blob list][az-storage-blob-list] command:
 
 ```azurecli
 az storage blob list \
-  --account-name $SOURCE_SA
-  --container transfer
+  --account-name $SOURCE_SA \
+  --container transfer \
   --output table
 ```
 
 ## Transfer blob (optional) 
 
-Use the AzCopy tool or other methods to [transfer blob data](../storage/common/storage-use-azcopy-blobs.md#copy-blobs-between-storage-accounts) from the source storage account to the target storage account.
+Use the AzCopy tool or other methods to [transfer blob data](../storage/common/storage-use-azcopy-v10.md#transfer-data) from the source storage account to the target storage account.
 
 For example, the following [`azcopy copy`](../storage/common/storage-ref-azcopy-copy.md) command copies myblob from the *transfer* container in the source account to the *transfer* container in the target account. If the blob exists in the target account, it's overwritten. Authentication uses SAS tokens with appropriate permissions for the source and target containers. (Steps to create tokens are not shown.)
 
@@ -295,8 +350,19 @@ Run [az deployment group create][az-deployment-group-create] to run the resource
 ```azurecli
 az deployment group create \
   --resource-group $TARGET_RG \
+  --name importPipelineRun \
   --template-file azuredeploy.json \
   --parameters azuredeploy.parameters.json
+```
+
+For later use, store the resource ID of the pipeline run in an environment variable:
+
+```azurecli
+IMPORT_RUN_RES_ID=$(az deployment group show \
+  --resource-group $TARGET_RG \
+  --name importPipelineRun \
+  --query 'properties.outputResources[0].id' \
+  --output tsv)
 ```
 
 When deployment completes successfully, verify artifact import by listing the repositories in the target container registry. For example, run [az acr repository list][az-acr-repository-list]:
@@ -324,20 +390,20 @@ az deployment group create \
 
 ## Delete pipeline resources
 
-To delete a pipeline resource, delete its Resource Manager deployment by using the [az deployment group delete][az-deployment-group-delete] command. The following examples delete the pipeline resources created in this article:
+The following example commands use [az resource delete][az-resource-delete] to delete the pipeline resources created in this article. The resource IDs were previously stored in environment variables.
 
-```azurecli
-az deployment group delete \
-  --resource-group $SOURCE_RG \
-  --name exportPipeline
+```
+# Delete export resources
+az resource delete \
+--resource-group $SOURCE_RG \
+--ids $EXPORT_RES_ID $EXPORT_RUN_RES_ID \
+--api-version 2019-12-01-preview
 
-az deployment group delete \
-  --resource-group $SOURCE_RG \
-  --name exportPipelineRun
-
-az deployment group delete \
-  --resource-group $TARGET_RG \
-  --name importPipeline  
+# Delete import resources
+az resource delete \
+--resource-group $TARGET_RG \
+--ids $IMPORT_RES_ID $IMPORT_RUN_RES_ID \
+--api-version 2019-12-01-preview
 ```
 
 ## Troubleshooting
@@ -356,7 +422,8 @@ az deployment group delete \
   * Not all artifacts, or none, are transferred. Confirm spelling of artifacts in export run, and name of blob in export and import runs. Confirm you are transferring a maximum of 50 artifacts.
   * Pipeline run might not have completed. An export or import run can take some time. 
   * For other pipeline issues, provide the deployment [correlation ID](../azure-resource-manager/templates/deployment-history.md) of the export run or import run to the Azure Container Registry team.
-
+* **Problems pulling the image in a physically isolated environment**
+  * If you see errors regarding foreign layers or attempts to resolve mcr.microsoft.com when attempting to pull an image in a physically isolated environment, your image manifest likely has non-distributable layers. Due to the nature of a physically isolated environment, these images will often fail to pull. You can confirm that this is the case by checking the image manifest for any references to external registries. If this is the case, you will need to push the non-distributable layers to your public cloud ACR prior to deploying an export pipeline-run for that image. For guidance on how to do this, see [How do I push non-distributable layers to a registry?](./container-registry-faq.md#how-do-i-push-non-distributable-layers-to-a-registry)
 
 ## Next steps
 
@@ -369,8 +436,6 @@ To import single container images to an Azure container registry from a public r
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-identity-create]: /cli/azure/identity#az-identity-create
-[az-identity-show]: /cli/azure/identity#az-identity-show
 [az-login]: /cli/azure/reference-index#az-login
 [az-keyvault-secret-set]: /cli/azure/keyvault/secret#az-keyvault-secret-set
 [az-keyvault-secret-show]: /cli/azure/keyvault/secret#az-keyvault-secret-show
@@ -382,3 +447,4 @@ To import single container images to an Azure container registry from a public r
 [az-deployment-group-show]: /cli/azure/deployment/group#az-deployment-group-show
 [az-acr-repository-list]: /cli/azure/acr/repository#az-acr-repository-list
 [az-acr-import]: /cli/azure/acr#az-acr-import
+[az-resource-delete]: /cli/azure/resource#az-resource-delete

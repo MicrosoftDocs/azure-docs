@@ -2,7 +2,7 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 01/11/2021
 ---
 
 # Move operation support for resources
@@ -749,7 +749,7 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | availableskus | No | No |
-> | databoxedgedevices | Yes | Yes |
+> | databoxedgedevices | No | No |
 
 ## Microsoft.Databricks
 
@@ -787,7 +787,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | datafactories | Yes | Yes |
-> | datafactoryschema | No | No |
 > | factories | Yes | Yes |
 
 ## Microsoft.DataLake
@@ -846,7 +845,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | flexibleServers | Yes | Yes |
+> | flexibleServers | No | No |
 > | servers | Yes | Yes |
 
 ## Microsoft.DBforPostgreSQL
@@ -854,7 +853,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | flexibleServers | Yes | Yes |
+> | flexibleServers | No | No |
 > | servergroups | No | No |
 > | servers | Yes | Yes |
 > | serversv2 | Yes | Yes |
@@ -1022,7 +1021,7 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | hanainstances | No | No |
-> | sapmonitors | Yes | Yes |
+> | sapmonitors | No | No |
 
 ## Microsoft.HardwareSecurityModules
 
@@ -1411,7 +1410,7 @@ Jump to a resource provider namespace:
 > | frontdoors | No | No |
 > | ipallocations | Yes | Yes |
 > | ipgroups | Yes | Yes |
-> | loadbalancers | Yes - Basic SKU<br>No - Standard SKU | Yes - Basic SKU<br>No - Standard SKU |
+> | loadbalancers | Yes - Basic SKU<br> Yes - Standard SKU | Yes - Basic SKU<br>No - Standard SKU |
 > | localnetworkgateways | Yes | Yes |
 > | natgateways | No | No |
 > | networkexperimentprofiles | No | No |
@@ -1419,7 +1418,7 @@ Jump to a resource provider namespace:
 > | networkinterfaces | Yes | Yes |
 > | networkprofiles | No | No |
 > | networksecuritygroups | Yes | Yes |
-> | networkwatchers | Yes | No |
+> | networkwatchers | No | No |
 > | networkwatchers / connectionmonitors | Yes | No |
 > | networkwatchers / flowlogs | Yes | No |
 > | networkwatchers / pingmeshes | Yes | No |
@@ -1428,9 +1427,9 @@ Jump to a resource provider namespace:
 > | privatednszones / virtualnetworklinks | Yes | Yes |
 > | privatednszonesinternal | No | No |
 > | privateendpointredirectmaps | No | No |
-> | privateendpoints | Yes | Yes |
+> | privateendpoints | No | No |
 > | privatelinkservices | No | No |
-> | publicipaddresses | Yes - Basic SKU<br>No - Standard SKU | Yes - Basic SKU<br>No - Standard SKU |
+> | publicipaddresses | Yes - Basic SKU<br>Yes - Standard SKU | Yes - Basic SKU<br>No - Standard SKU |
 > | publicipprefixes | Yes | Yes |
 > | routefilters | No | No |
 > | routetables | Yes | Yes |
@@ -1908,9 +1907,9 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | workspaces | Yes | Yes |
-> | workspaces / bigdatapools | Yes | Yes |
-> | workspaces / sqlpools | Yes | Yes |
+> | workspaces | No | No |
+> | workspaces / bigdatapools | No | No |
+> | workspaces / sqlpools | No | No |
 
 ## Microsoft.TimeSeriesInsights
 

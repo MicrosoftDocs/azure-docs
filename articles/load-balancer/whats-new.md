@@ -23,6 +23,7 @@ You can also find the latest Azure Load Balancer updates and subscribe to the RS
 
 | Type |Name |Description  |Date added  |
 | ------ |---------|---------|---------|
+| Feature | Support for moves across resource groups | Standard Load Balancer and Standard Public IP support for [resource group moves](https://azure.microsoft.com/updates/standard-resource-group-move/). | October 2020 |
 | Feature | Support for IP-based backend pool management (Preview) | Azure Load Balancer supports adding and removing resources from a backend pool via an IPv4 or IPv6 addresses. This enables easy management of containers, virtual machines, and virtual machine scale sets associated with Load Balancer. It will also allow IP addresses to be reserved as part of a backend pool before the associated resources are created. Learn more [here](backend-pool-management.md)|July 2020 |
 | Feature| Azure Load Balancer Insights using Azure Monitor | Built as part of Azure Monitor for Networks, customers now have topological maps for all their Load Balancer configurations and health dashboards for their Standard Load Balancers preconfigured with metrics in the Azure portal. [Get started and learn more](https://azure.microsoft.com/blog/introducing-azure-load-balancer-insights-using-azure-monitor-for-networks/) | June 2020 |
 | Validation | Addition of validation for HA ports | A validation was added to ensure that HA port rules and non HA port rules are only configurable when Floating IP is enabled. Previously, the this configuration would go through, but not work as intended. No change to functionality was made. You can learn more [here](load-balancer-ha-ports-overview.md#limitations)| June 2020 |
@@ -35,7 +36,7 @@ The product group is actively working on resolutions for the following known iss
 
 |Issue |Description  |Mitigation  |
 | ---------- |---------|---------|
-| Log Analytics export | Log Analytics cannot export metrics for Standard Load Balancers nor health probe status logs for Basic Load Balancer  | [Utilize Azure Monitor for multi-dimensional metrics for your Standard Load Balancer](load-balancer-standard-diagnostics.md). While not able to use Log Analytics for monitoring, Azure Monitor provides visualization for a rich set of multi-dimensional metrics. You can leverage the pre-configured metrics dashboard via the Insights sub-blade of your Load Balancer. If using Basic Load Balancer [upgrade to Standard](upgrade-basic-standard.md) for production level metrics monitoring.
+| Load Balancer Alert Event and Health Probe Status Logs | Logging does not work for Load Balancer Alert Events for Basic and Standard Load Balancer nor health probe status logs for Basic Load Balancer  | [Utilize Azure Monitor for multi-dimensional metrics for your Standard Load Balancer](load-balancer-standard-diagnostics.md). Azure Monitor provides visualization for a rich set of multi-dimensional metrics that can also be exported as logs. You can leverage the pre-configured metrics dashboard via the Insights sub-blade of your Load Balancer. If using Basic Load Balancer [upgrade to Standard](upgrade-basic-standard.md) for production level metrics monitoring.
 
   
 

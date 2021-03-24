@@ -25,7 +25,7 @@ To get started, you'll need:
 
 - An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 
-- [An Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) that's linked to your Azure subscription.
+- [An Azure AD B2C tenant](./tutorial-create-tenant.md) that's linked to your Azure subscription.
 
 - A WhoIAM [trial account](https://www.whoiam.ai/contact-us/).
 
@@ -67,7 +67,7 @@ The following architecture diagram shows the implementation.
 
     - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): Used to store and retrieve settings.
 
-    - [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview#:~:text=Application%20Insights%2C%20a%20feature%20of%20Azure%20Monitor%2C%20is,professionals.%20Use%20it%20to%20monitor%20your%20live%20applications) (optional): Used to log in to both the API and the admin portal.
+    - [Application Insights](../azure-monitor/app/app-insights-overview.md) (optional): Used to log in to both the API and the admin portal.
 
 3. Deploy the BRIMS API and the BRIMS administration portal in your Azure environment.
 
@@ -97,6 +97,6 @@ For more information about WhoIAM's BRIMS, see the [product documentation](https
 
 For additional information, review the following articles:
 
-- [Custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Custom policies in Azure AD B2C](./custom-policy-overview.md)
 
-- [Get started with custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Get started with custom policies in Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

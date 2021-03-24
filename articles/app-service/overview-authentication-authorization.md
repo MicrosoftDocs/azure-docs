@@ -9,7 +9,7 @@ ms.custom: seodec18, fasttrack-edit, has-adal-ref
 ---
 # Authentication and authorization in Azure App Service and Azure Functions
 
-Azure App Service provides built-in authentication and authorization support, so you can sign in users and access data by writing minimal or no code in your web app, RESTful API, and mobile back end, and also [Azure Functions](../azure-functions/functions-overview.md). This article describes how App Service helps simplify authentication and authorization for your app.
+Azure App Service provides built-in authentication and authorization support (sometimes referred to as "Easy Auth"), so you can sign in users and access data by writing minimal or no code in your web app, RESTful API, and mobile back end, and also [Azure Functions](../azure-functions/functions-overview.md). This article describes how App Service helps simplify authentication and authorization for your app.
 
 Secure authentication and authorization require deep understanding of security, including federation, encryption, [JSON web tokens (JWT)](https://wikipedia.org/wiki/JSON_Web_Token) management, [grant types](https://oauth.net/2/grant-types/), and so on. App Service provides these utilities so that you can spend more time and energy on providing business value to your customer.
 
@@ -18,9 +18,6 @@ Secure authentication and authorization require deep understanding of security, 
 >
 > The ASP.NET Core 2.1 and above versions hosted by App Service are already patched for this breaking change and handle Chrome 80 and older browsers appropriately. In addition, the same patch for ASP.NET Framework 4.7.2 has been deployed on the App Service instances throughout January 2020. For more information, see [Azure App Service SameSite cookie update](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/).
 >
-
-> [!NOTE]
-> The Authentication/Authorization feature is also sometimes referred to as "Easy Auth".
 
 > [!NOTE]
 > Enabling this feature will cause **all** non-secure HTTP requests to your application to be automatically redirected to HTTPS, regardless of the App Service configuration setting to [enforce HTTPS](configure-ssl-bindings.md#enforce-https). If needed, you can disable this via the `requireHttps` setting in the [auth settings configuration file](app-service-authentication-how-to.md#configuration-file-reference), but you must then take care to ensure no security tokens ever get transmitted over non-secure HTTP connections.
@@ -141,8 +138,12 @@ With this option, you don't need to write any authentication code in your app. F
 > [!CAUTION]
 > Restricting access in this way applies to all calls to your app, which may not be desirable for apps wanting a publicly available home page, as in many single-page applications.
 
+> [!NOTE]
+> By default, any user in your Azure AD tenant can request a token for your application from Azure AD. You can [configure the application in Azure AD](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) if you want to restrict access to your app to a defined set of users.
+
 ## More resources
 
+* [Tutorial: Authenticate and authorize users in a web app that accesses Azure Storage and Microsoft Graph](scenario-secure-app-authentication-app-service.md)
 * [Tutorial: Authenticate and authorize users end-to-end in Azure App Service (Windows)](tutorial-auth-aad.md)  
 * [Tutorial: Authenticate and authorize users end-to-end in Azure App Service for Linux](./tutorial-auth-aad.md?pivots=platform-linux%3fpivots%3dplatform-linux)  
 * [Customize authentication and authorization in App Service](app-service-authentication-how-to.md)
@@ -157,6 +158,7 @@ Provider-specific how-to guides:
 * [How to configure your app to use Microsoft Account login][MSA]
 * [How to configure your app to use Twitter login][Twitter]
 * [How to configure your app to use an OpenID Connect provider for login (preview)][OIDC]
+* [How to configure your app to use an Sign in with Apple (preview)][Apple]
 
 [AAD]: configure-authentication-provider-aad.md
 [Facebook]: configure-authentication-provider-facebook.md
@@ -164,6 +166,7 @@ Provider-specific how-to guides:
 [MSA]: configure-authentication-provider-microsoft.md
 [Twitter]: configure-authentication-provider-twitter.md
 [OIDC]: configure-authentication-provider-openid-connect.md
+[Apple]: configure-authentication-provider-apple.md
 
 [custom-auth]: /previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk#custom-auth
 

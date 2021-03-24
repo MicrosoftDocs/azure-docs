@@ -1,16 +1,16 @@
 ---
 title: Tutorial - add template functions
-description: Add template functions to your Azure Resource Manager template to construct values.
+description: Add template functions to your Azure Resource Manager template (ARM template) to construct values.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
-ms.author: jgao 
-ms.custom: devx-track-azurecli
+ms.author: jgao
+ms.custom:
 ---
 
 # Tutorial: Add template functions to your ARM template
 
-In this tutorial, you learn how to add [template functions](template-functions.md) to your Azure Resource Manager (ARM) template. You use functions to dynamically construct values. In addition to these system-provided template functions, you can also create [user-defined functions](./template-user-defined-functions.md). This tutorial takes **7 minutes** to complete.
+In this tutorial, you learn how to add [template functions](template-functions.md) to your Azure Resource Manager template (ARM template). You use functions to dynamically construct values. In addition to these system-provided template functions, you can also create [user-defined functions](./template-user-defined-functions.md). This tutorial takes **7 minutes** to complete.
 
 ## Prerequisites
 
@@ -28,11 +28,11 @@ The location of the storage account is hard-coded to **East US**. However, you m
 
 ## Use function
 
-If you've completed the previous tutorial in this series, you've already used a function. When you added **"[parameters('storageName')]"**, you used the [parameters](template-functions-deployment.md#parameters) function. The brackets indicate that the syntax inside the brackets is a [template expression](template-expressions.md). Resource Manager resolves the syntax rather than treating it as a literal value.
+If you've completed the previous tutorial in this series, you've already used a function. When you added `"[parameters('storageName')]"` you used the [parameters](template-functions-deployment.md#parameters) function. The brackets indicate that the syntax inside the brackets is a [template expression](template-expressions.md). Resource Manager resolves the syntax rather than treating it as a literal value.
 
 Functions add flexibility to your template by dynamically getting values during deployment. In this tutorial, you use a function to get the location of the resource group you're using for deployment.
 
-The following example highlights the changes to add a parameter called **location**.  The parameter default value calls the [resourceGroup](template-functions-resource.md#resourcegroup) function. This function returns an object with information about the resource group being used for deployment. One of the properties on the object is a location property. When you use the default value, the storage account location has the same location as the resource group. The resources inside a resource group don't have to share the same location. You can also provide a different location when needed.
+The following example highlights the changes to add a parameter called `location`. The parameter default value calls the [resourceGroup](template-functions-resource.md#resourcegroup) function. This function returns an object with information about the resource group being used for deployment. One of the properties on the object is a location property. When you use the default value, the storage account location has the same location as the resource group. The resources inside a resource group don't have to share the same location. You can also provide a different location when needed.
 
 Copy the whole file and replace your template with its contents.
 
@@ -42,7 +42,7 @@ Copy the whole file and replace your template with its contents.
 
 In the previous tutorials, you created a storage account in East US, but your resource group was created in Central US. For this tutorial, your storage account is created in the same region as the resource group. Use the default value for location, so you don't need to provide that parameter value. You must provide a new name for the storage account because you're creating a storage account in a different location. For example, use **store2** as the prefix instead of **store1**.
 
-If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the **templateFile** variable to the path to the template file, as shown in the [first tutorial](template-tutorial-create-first-template.md#deploy-template).
+If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the `templateFile` variable to the path to the template file, as shown in the [first tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -69,7 +69,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> If the deployment failed, use the **verbose** switch to get information about the resources being created. Use the **debug** switch to get more information for debugging.
+> If the deployment failed, use the `verbose` switch to get information about the resources being created. Use the `debug` switch to get more information for debugging.
 
 ## Verify deployment
 

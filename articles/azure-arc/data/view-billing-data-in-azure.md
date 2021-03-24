@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 03/02/2021
 ms.topic: how-to
 ---
 
 # Upload billing data to Azure and view it in the Azure portal
 
 > [!IMPORTANT] 
->  There is no cost to use Azure Arc enabled data services during the preview period. Although the billing system works end to end the billing meter is set to $0.  If you follow this scenario, you will see entries in your billing for a service currently named **hybrid data services** and for resources of a type called **microsoft.AzureData/`<resource type>`**. You will be able to see a record for each data service - Azure Arc that you create, but each record will be billed for $0.
+>  There is no cost to use Azure Arc enabled data services during the preview period. Although the billing system works end to end the billing meter is set to $0.  If you follow this scenario, you will see entries in your billing for a service currently named **hybrid data services** and for resources of a type called **Microsoft.AzureArcData/`<resource type>`**. You will be able to see a record for each data service - Azure Arc that you create, but each record will be billed for $0.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -25,7 +25,7 @@ In the future, there will be two modes in which you can run your Azure Arc enabl
 - **Indirectly connected** - There is no direct connection to Azure. Data is sent to Azure only through an export/upload process. All Azure Arc data services deployments work in this mode today in preview.
 - **Directly connected** - In this mode there will be a dependency on the Azure Arc enabled Kubernetes service to provide a direct connection between Azure and the Kubernetes cluster on which the Azure Arc enabled data services are running. This will enable more capabilities and will also enable you to use the Azure portal and the Azure CLI to manage your Azure Arc enabled data services just like you manage your data services in Azure PaaS.  This connectivity mode is not yet available in preview, but will be coming soon.
 
-You can read more about the difference between the [connectivity modes](/docs/connectivity.md).
+You can read more about the difference between the [connectivity modes](./connectivity.md).
 
 In the indirectly connected mode, billing data is periodically exported out of the Azure Arc data controller to a secure file and then uploaded to Azure and processed.  In the upcoming directly connected mode, the billing data will be automatically sent to Azure approximately 1/hour to give a near real-time view into the costs of your services. The process of exporting and uploading the data in the indirectly connected mode can also be automated using scripts or we may build a service that will do it for you.
 
@@ -106,14 +106,15 @@ azdata arc dc upload -p usage.json
 
 Follow these steps to view billing data in the Azure portal:
 
-1. Open the Azure portal using the special URL:  [https://aka.ms/arcdata](https://aka.ms/arcdata).
+1. Open the [Azure portal](https://portal.azure.com).
 1. In the search box at the top of the screen type in **Cost Management** and click on the Cost Management service.
+1. Under **Cost Management Overview**, click on the **Cost Management** tab.
 1. Click on the **Cost analysis** tab on the left.
 1. Click the **Cost by resource** button on the top of the view.
 1. Make sure that your Scope is set to the subscription in which your data service resources were created.
 1. Select **Cost by resource** in the View drop down next to the Scope selector near the top of the view.
-1. Make sure the date filter is set to **This month** or some other time range that makes sense given the timing of when your created your data service resources.
-1. Click **Add filter** to add a filter by **Resource type** = `microsoft.azuredata/<data service type>` if you want to filter down to just one type of Azure Arc enabled data service.
+1. Make sure the date filter is set to **This month** or some other time range that makes sense given the timing of when you created your data service resources.
+1. Click **Add filter** to add a filter by **Resource type** = `Microsoft.AzureArcData/<data service type>` if you want to filter down to just one type of Azure Arc enabled data service.
 1. You will now see a list of all the resources that were created and uploaded to Azure. Since the billing meter is $0, you will see that the cost is always $0.
 
 ## Download billing data
@@ -130,11 +131,11 @@ You can also periodically, automatically export **detailed** usage and billing d
 
 Follow these steps to set up a billing export job:
 
-1. Click Exports on the left.
-1. Click Add.
+1. Click **Exports** on the left.
+1. Click **Add**.
 1. Enter a name and export frequency and click Next.
-1. Choose to either create a new storage account or create a new one and fill out the form to specify the storage account, container, and directory path to export the billing data files to and click Next.
-1. Click Create.
+1. Choose to either create a new storage account or use an existing one and fill out the form to specify the storage account, container, and directory path to export the billing data files to and click Next.
+1. Click **Create**.
 
 The billing data export files will be available in approximately 4 hours and will be exported on the schedule you specified when creating the billing export job.
 
@@ -151,7 +152,7 @@ You can validate the billing data files in the Azure portal.
 5. Click on the container you specified when creating the billing export job above.
 6. Click on the folder you specified when creating the billing export job above.
 7. Drill down into the generated folders and files and click on one of the generated .csv files.
-8. Click the Download button which will save the file to your local Downloads folder.
+8. Click the **Download** button which will save the file to your local Downloads folder.
 9. Open the file using a .csv file viewer such as Excel.
-10. Filter the results to show only the rows with the **Resource Type** = `Microsoft.AzureData/<data service resource type`.
+10. Filter the results to show only the rows with the **Resource Type** = `Microsoft.AzureArcData/<data service resource type`.
 11. You will see the number of hours the instance was used in the current 24 hour period in the UsageQuantity column.

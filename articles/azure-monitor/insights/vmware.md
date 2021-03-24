@@ -1,7 +1,6 @@
 ---
 title: VMware Monitoring solution in Azure Monitor | Microsoft Docs
 description: Learn about how the VMware Monitoring solution can help manage logs and monitor ESXi hosts.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -29,7 +28,7 @@ Use the following information to install and configure the solution.
 vSphere ESXi Host 5.5, 6.0, and 6.5
 
 #### Prepare a Linux server
-Create a Linux operating system VM to receive all syslog data from the ESXi hosts. The [Log Analytics Linux agent](../learn/quick-collect-linux-computer.md) is the collection point for all ESXi host syslog data. You can use multiple ESXi hosts to forward logs to a single Linux server, as in the following example.
+Create a Linux operating system VM to receive all syslog data from the ESXi hosts. The [Log Analytics Linux agent](../vm/quick-collect-linux-computer.md) is the collection point for all ESXi host syslog data. You can use multiple ESXi hosts to forward logs to a single Linux server, as in the following example.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 
@@ -118,7 +117,7 @@ In the **VMware** dashboard view, blades are organized by:
 
 Click any blade to open Log Analytics search pane that shows detailed information specific for the blade.
 
-From here, you can edit the log query to modify it for something specific. For details on creating log queries, see [Find data using log queries in Azure Monitor](../log-query/log-query-overview.md).
+From here, you can edit the log query to modify it for something specific. For details on creating log queries, see [Find data using log queries in Azure Monitor](../logs/log-query-overview.md).
 
 #### Find ESXi host events
 A single ESXi host generates multiple logs, based on their processes. The VMware Monitoring solution centralizes them and summarizes the event counts. This centralized view helps you understand which ESXi host has a high volume of events and what events occur most frequently in your environment.
@@ -147,12 +146,12 @@ The solution includes other useful queries that can help you manage your ESXi ho
 
 
 #### Save queries
-Saving log queries is a standard feature in Azure Monitor and can help you keep any queries that you’ve found useful. After you create a query that you find useful, save it by clicking the **Favorites**. A saved query lets you easily reuse it later from the [My Dashboard](../learn/tutorial-logs-dashboards.md) page where you can create your own custom dashboards.
+Saving log queries is a standard feature in Azure Monitor and can help you keep any queries that you’ve found useful. After you create a query that you find useful, save it by clicking the **Favorites**. A saved query lets you easily reuse it later from the [My Dashboard](../visualize/tutorial-logs-dashboards.md) page where you can create your own custom dashboards.
 
 ![Screenshot shows part of a custom dashboard labeled Log Search with icons for Undo, Export, Alert, Save, Favorites, and History.](./media/vmware/dockerdashboardview.png)
 
 #### Create alerts from queries
-After you’ve created your queries, you might want to use the queries to alert you when specific events occur. See [Alerts in Log Analytics](../platform/alerts-overview.md) for information about how to create alerts. For examples of alerting queries and other query examples, see the [Monitor VMware using Log Analytics](/archive/blogs/msoms/monitor-vmware-using-oms-log-analytics) blog post.
+After you’ve created your queries, you might want to use the queries to alert you when specific events occur. See [Alerts in Log Analytics](../alerts/alerts-overview.md) for information about how to create alerts. For examples of alerting queries and other query examples, see the [Monitor VMware using Log Analytics](/archive/blogs/msoms/monitor-vmware-using-oms-log-analytics) blog post.
 
 ## Frequently asked questions
 ### What do I need to do on the ESXi host setting? What impact will it have on my current environment?
@@ -193,7 +192,7 @@ There can be multiple reasons:
      d. If the file does not exist or the user and group setting is wrong, take corrective action by [Preparing a Linux server](#prepare-a-linux-server).
 
 ## Next steps
-* Use [log queries](../log-query/log-query-overview.md) in Log Analytics to view detailed VMware host data.
-* [Create your own dashboards](../learn/tutorial-logs-dashboards.md) showing VMware host data.
-* [Create alerts](../platform/alerts-overview.md) when specific VMware host events occur.
+* Use [log queries](../logs/log-query-overview.md) in Log Analytics to view detailed VMware host data.
+* [Create your own dashboards](../visualize/tutorial-logs-dashboards.md) showing VMware host data.
+* [Create alerts](../alerts/alerts-overview.md) when specific VMware host events occur.
 

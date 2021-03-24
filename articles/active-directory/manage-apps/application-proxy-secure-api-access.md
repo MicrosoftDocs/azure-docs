@@ -3,7 +3,7 @@ title: Access on-premises APIs with Azure AD Application Proxy
 description: Azure Active Directory's Application Proxy lets native apps securely access APIs and business logic you host on-premises or on cloud VMs.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -14,7 +14,7 @@ ms.reviewer: japere
 ---
 # Secure access to on-premises APIs with Azure AD Application Proxy
 
-You may have business logic APIs running on-premises, or hosted on virtual machines in the cloud. Your native Android, iOS, Mac, or Windows apps need to interact with the API endpoints to use data or provide user interaction. Azure AD Application Proxy and the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/active-directory-authentication-libraries) let your native apps securely access your on-premises APIs. Azure Active Directory Application Proxy is a faster and more secure solution than opening firewall ports and controlling authentication and authorization at the app layer.
+You may have business logic APIs running on-premises, or hosted on virtual machines in the cloud. Your native Android, iOS, Mac, or Windows apps need to interact with the API endpoints to use data or provide user interaction. Azure AD Application Proxy and the [Microsoft Authentication Library (MSAL)](../azuread-dev/active-directory-authentication-libraries.md) let your native apps securely access your on-premises APIs. Azure Active Directory Application Proxy is a faster and more secure solution than opening firewall ports and controlling authentication and authorization at the app layer.
 
 This article walks you through setting up an Azure AD Application Proxy solution for hosting a web API service that native apps can access.
 
@@ -28,9 +28,9 @@ The following diagram shows how you can use Azure AD Application Proxy to secure
 
 ![Azure AD Application Proxy API access](./media/application-proxy-secure-api-access/overview-publish-api-app-proxy.png)
 
-The Azure AD Application Proxy forms the backbone of the solution, working as a public endpoint for API access, and providing authentication and authorization. You can access your APIs from a vast array of platforms by using the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/active-directory-authentication-libraries) libraries.
+The Azure AD Application Proxy forms the backbone of the solution, working as a public endpoint for API access, and providing authentication and authorization. You can access your APIs from a vast array of platforms by using the [Microsoft Authentication Library (MSAL)](../azuread-dev/active-directory-authentication-libraries.md) libraries.
 
-Since Azure AD Application Proxy authentication and authorization are built on top of Azure AD, you can use Azure AD Conditional Access to ensure only trusted devices can access APIs published through Application Proxy. Use Azure AD Join or Azure AD Hybrid Joined for desktops, and Intune Managed for devices. You can also take advantage of Azure Active Directory Premium features like Azure Multi-Factor Authentication, and the machine learning-backed security of [Azure Identity Protection](/azure/active-directory/active-directory-identityprotection).
+Since Azure AD Application Proxy authentication and authorization are built on top of Azure AD, you can use Azure AD Conditional Access to ensure only trusted devices can access APIs published through Application Proxy. Use Azure AD Join or Azure AD Hybrid Joined for desktops, and Intune Managed for devices. You can also take advantage of Azure Active Directory Premium features like Azure AD Multi-Factor Authentication, and the machine learning-backed security of [Azure Identity Protection](../identity-protection/overview-identity-protection.md).
 
 ## Prerequisites
 
@@ -90,7 +90,7 @@ You've published your web API through Azure AD Application Proxy. Now, add users
 1. Back on the **Add Assignment** page, select **Assign**.
 
 > [!NOTE]
-> APIs that use Integrated Windows Authentication might require [additional steps](/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd).
+> APIs that use Integrated Windows Authentication might require [additional steps](./application-proxy-configure-single-sign-on-with-kcd.md).
 
 ## Register the native app and grant access to the API
 

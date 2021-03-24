@@ -7,17 +7,14 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-track-azurecli
 ---
 
 # Host a static website in Azure Storage
 
-You can serve static content (HTML, CSS, JavaScript, and image files) directly from a container in an Azure Storage GPv2 account. To learn more, see [Static website hosting in Azure Storage](storage-blob-static-website.md).
+You can serve static content (HTML, CSS, JavaScript, and image files) directly from a container in a [general-purpose V2](../common/storage-account-create.md) or [BlockBlobStorage](storage-blob-create-account-block-blob.md) account. To learn more, see [Static website hosting in Azure Storage](storage-blob-static-website.md).
 
 This article shows you how to enable static website hosting by using the Azure portal, the Azure CLI, or PowerShell.
-
-> [!NOTE]
-> Make sure to create a general-purpose v2 Standard storage account . Static websites aren't available in any other type of storage account.
 
 ## Enable static website hosting
 
@@ -49,9 +46,9 @@ Static website hosting is a feature that you have to enable on the storage accou
 
 <a id="cli"></a>
 
-You can enable static website hosting by using the [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+You can enable static website hosting by using the [Azure Command-Line Interface (CLI)](/cli/azure/).
 
-1. First, open the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest), or if you've [installed](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) the Azure CLI locally, open a command console application such as Windows PowerShell.
+1. First, open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
 
 2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that will host your static website.
 
@@ -131,7 +128,7 @@ You can enable static website hosting by using the Azure PowerShell module.
 
 ### [Portal](#tab/azure-portal)
 
-These instructions show you how to upload files by using the version of Storage Explorer that appears in the Azure portal. However, you can also use the version of [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) that runs outside of the Azure portal. You could use [AzCopy](../common/storage-use-azcopy-v10.md), PowerShell, CLI, or any custom application that can upload files to the **$web** container of your account. For a step-by-step tutorial that uploads files by using Visual Studio code, see [Tutorial: Host a static website on Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
+These instructions show you how to upload files by using the version of Storage Explorer that appears in the Azure portal. However, you can also use the version of [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) that runs outside of the Azure portal. You could use [AzCopy](../common/storage-use-azcopy-v10.md), PowerShell, CLI, or any custom application that can upload files to the **$web** container of your account. For a step-by-step tutorial that uploads files by using Visual Studio code, see [Tutorial: Host a static website on Blob Storage](./storage-blob-static-website-host.md).
 
 1. Select **Storage Explorer (preview)**.
 
@@ -168,7 +165,7 @@ az storage blob upload-batch -s <source-path> -d '$web' --account-name <storage-
 > [!NOTE]
 > If you're using a location installation of Azure CLI, then you can use the path to any location on your local computer (For example: `C:\myFolder`.
 >
-> If you're using Azure Cloud Shell, you'll have to reference a file share that is visible to the Cloud Shell. This location could be the file share of the Cloud share itself or an existing file share that you mount from the Cloud Shell. To learn how to do this, see [Persist files in Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage).
+> If you're using Azure Cloud Shell, you'll have to reference a file share that is visible to the Cloud Shell. This location could be the file share of the Cloud share itself or an existing file share that you mount from the Cloud Shell. To learn how to do this, see [Persist files in Azure Cloud Shell](../../cloud-shell/persisting-shell-storage.md).
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -254,7 +251,7 @@ Once you've enabled metrics, traffic statistics on files in the **$web** contain
 
 4. Then select the **Egress** metric.
 
-   ![Azure Storage static websites metrics metric](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
+   ![Screenshot that shows the Azure Storage static websites Egress metric.](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
 
 5. Select **Sum** from the *Aggregation* selector.
 
@@ -274,4 +271,3 @@ Once you've enabled metrics, traffic statistics on files in the **$web** contain
 ## Next steps
 
 * Learn how to configure a custom domain with your static website. See [Map a custom domain to an Azure Blob Storage endpoint](storage-custom-domain-name.md).
-

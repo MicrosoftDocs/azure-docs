@@ -2,9 +2,6 @@
 title: 'Tutorial: HDInsight Apache Storm to Storage - Azure/Data Lake'
 description: Tutorial - Learn how to use Apache Storm to write to the HDFS-compatible storage for Azure HDInsight.
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/24/2019
@@ -27,7 +24,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* [Java Developer Kit (JDK) version 8](https://aka.ms/azure-jdks)
+* [Java Developer Kit (JDK) version 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 
 * [Apache Maven](https://maven.apache.org/download.cgi) properly [installed](https://maven.apache.org/install.html) according to Apache.  Maven is a project build system for Java projects.
 

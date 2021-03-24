@@ -1,19 +1,8 @@
 ---
 title: Configure security agents
 description: Learn how to configure Defender for IoT security agents for use with the Defender for IoT security service.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/09/2020
-ms.author: mlottner
 ---
 
 # Tutorial: Configure security agents
@@ -84,7 +73,7 @@ To use a default property value, remove the property from the configuration obje
 
 1. Click on **Module Identity Twin**.
 
-1. Edit the properties you wish to change in the security module.
+1. Edit the properties you wish to change in the Defender-IoT-micro-agent.
 
    For example, to configure connection events as high priority and collect high priority events every 7 minutes, use the following configuration.
 
@@ -114,7 +103,7 @@ The following table contains the controllable properties of Defender for IoT sec
 Default values are available in the proper schema in [GitHub](https\://aka.ms/iot-security-module-default).
 
 | Name| Status | Valid values| Default values| Description |
-|----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
+|----------|--------|--|-------|----|
 |highPriorityMessageFrequency|Required: false |Valid values: Duration in ISO 8601 Format |Default value: PT7M |Max time interval before high priority messages are sent.|
 |lowPriorityMessageFrequency |Required: false|Valid values: Duration in ISO 8601 Format |Default value: PT5H |Max time before low-priority messages are sent.|
 |snapshotFrequency |Require: false|Valid values: Duration in ISO 8601 Format |Default value PT13H |Time interval for the creation of device status snapshots.|
@@ -125,7 +114,7 @@ Default values are available in the proper schema in [GitHub](https\://aka.ms/io
 ### Supported security events
 
 |Event name| PropertyName | Default Value| Snapshot Event| Details Status  |
-|----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
+|----------|-|---------|----|----|
 |Diagnostic event|eventPriorityDiagnostic| Off| False| Agent related diagnostic events. Use this event for verbose logging.|
 |Configuration error |eventPriorityConfigurationError |Low |False |Agent failed to parse the configuration. Verify the configuration against the schema.|
 |Dropped events statistics |eventPriorityDroppedEventsStatistics |Low |True|Agent related event statistics. |

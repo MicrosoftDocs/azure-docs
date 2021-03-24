@@ -2,8 +2,9 @@
 title: Tutorial - Create and manage Azure virtual networks for Windows VMs 
 description: In this tutorial, you learn how to use Azure PowerShell to create and manage Azure virtual networks for Windows virtual machines
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: networking
+ms.collection: windows
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
@@ -124,7 +125,7 @@ $frontendNic = New-AzNetworkInterface `
   -PublicIpAddressId $pip.Id
 ```
 
-Set the username and password needed for the administrator account on the VM using [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1). You use these credentials to connect to the VM in additional steps:
+Set the username and password needed for the administrator account on the VM using [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential). You use these credentials to connect to the VM in additional steps:
 
 ```azurepowershell-interactive
 $cred = Get-Credential
@@ -277,7 +278,4 @@ In this tutorial, you created and secured Azure networks as related to virtual m
 > * Secure network traffic
 > * Create a back-end VM
 
-Advance to the next tutorial to learn about monitoring securing data on virtual machines using Azure backup.
-
-> [!div class="nextstepaction"]
-> [Back up Windows virtual machines in Azure](./tutorial-backup-vms.md)
+To learn about protecting your VM disks, see [Backup and disaster recovery for disks](../backup-and-disaster-recovery-for-azure-iaas-disks.md).

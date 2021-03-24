@@ -1,13 +1,10 @@
 ---
 title: Branching and chaining activities in a pipeline using Azure portal
 description: Learn how to control flow of data in Azure Data Factory pipeline by using the Azure portal.
-services: data-factory
-author: djpmsft
-ms.author: daperlov
-manager: anandsub
-ms.reviewer: maghan
+author: dcstwh
+ms.author: weetok
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
@@ -180,7 +177,7 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
    ![Drag-drop copy activity](./media/tutorial-control-flow-portal/drag-drop-copy-activity.png)
 5. In the **Properties** window for the **Copy** activity at the bottom, switch to the **Source** tab, and click **+ New**. You create a source dataset for the copy activity in this step.
 
-   ![Source dataset](./media/tutorial-control-flow-portal/new-source-dataset-button.png)
+   ![Screenshot that shows how to create a source dataset for teh copy activity.](./media/tutorial-control-flow-portal/new-source-dataset-button.png)
 6. In the **New Dataset** window, select **Azure Blob Storage**, and click **Finish**.
 
    ![Select Azure Blob Storage](./media/tutorial-control-flow-portal/select-azure-blob-storage.png)
@@ -269,7 +266,7 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
         ![Settings for the second Web activity](./media/tutorial-control-flow-portal/web-activity2-settings.png)         
 22. Select **Copy** activity in the pipeline designer, and click **+->** button, and select **Error**.  
 
-    ![Settings for the second Web activity](./media/tutorial-control-flow-portal/select-copy-failure-link.png)
+    ![Screenshot that shows how to select Error on the Copy activity in the pipeline designer.](./media/tutorial-control-flow-portal/select-copy-failure-link.png)
 23. Drag the **red** button next to the Copy activity to the second Web activity **SendFailureEmailActivity**. You can move the activities around so that the pipeline looks like in the following image:
 
     ![Full pipeline with all activities](./media/tutorial-control-flow-portal/full-pipeline.png)
@@ -300,7 +297,7 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
     ![Successful pipeline run](./media/tutorial-control-flow-portal/monitor-success-pipeline-run.png)
 2. To **view activity runs** associated with this pipeline run, click the first link in the **Actions** column. You can switch back to the previous view by clicking **Pipelines** at the top. Use the **Refresh** button to refresh the list.
 
-    ![Activity runs](./media/tutorial-control-flow-portal/activity-runs-success.png)
+    ![Screenshot that shows how to view the list of activity runs.](./media/tutorial-control-flow-portal/activity-runs-success.png)
 
 ## Trigger a pipeline run that fails
 1. Switch to the **Edit** tab on the left.

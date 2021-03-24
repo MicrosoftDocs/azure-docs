@@ -1,20 +1,14 @@
 ---
 title: Oracle solutions on Azure virtual machines | Microsoft Docs
 description: Learn about supported configurations and limitations of Oracle virtual machine images on Microsoft Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: dbakevlar
-manager: 
-tags: azure-resource-management
-
-ms.assetid: 
-ms.service: virtual-machines-windows
-
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 05/12/2020
 ms.author: kegorman
+
 ---
 # Oracle VM images and their deployment on Microsoft Azure
 
@@ -112,10 +106,6 @@ Oracle databases generally require higher memory and IO. For this reason, [Memor
 
 When migrating Oracle software and workloads from on-premises to Microsoft Azure, Oracle provides license mobility as stated in the [Oracle on Azure FAQ](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)
 
-## Oracle Real Application Cluster (Oracle RAC)
-
-Oracle Real Application Cluster (Oracle RAC) is designed to mitigate the failure of a single node in an on-premises multi-node cluster configuration. It relies on two on-premises technologies which are not native to hyper-scale public cloud environments: network multi-cast and shared disk. If your database solution requires Oracle RAC in Azure, you need third-party software to enable these technologies. For more information on Oracle RAC, see the [FlashGrid SkyCluster page](https://www.flashgrid.io/oracle-rac-in-azure/).
-
 ## High availability and disaster recovery considerations
 
 When using Oracle databases in Azure, you are responsible for implementing a high availability and disaster recovery solution to avoid any downtime.
@@ -128,7 +118,7 @@ With Oracle Data Guard, high availability can be achieved with a primary databas
 
 The tutorial [Implement Oracle GoldenGate on Azure](configure-oracle-golden-gate.md) walks you through the basic setup procedure on Azure.
 
-In addition to having an HA and DR solution architected in Azure, you should have a backup strategy in place to restore your database. The tutorial [Backup and recover an Oracle Database](oracle-backup-recovery.md) walks you through the basic procedure for establishing a consistent backup.
+In addition to having an HA and DR solution architected in Azure, you should have a backup strategy in place to restore your database. The tutorial [Backup and recover an Oracle Database](./oracle-overview.md) walks you through the basic procedure for establishing a consistent backup.
 
 ## Support for JD Edwards
 

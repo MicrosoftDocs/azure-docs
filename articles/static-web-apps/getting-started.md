@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Building your first static web app with the Azure Static Web Apps"
-description: Learn to build an Azure Static Web Apps website.
+title: "Quickstart: Building your first static site with the Azure Static Web Apps"
+description: Learn to deploy a static site to Azure Static Web Apps.
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
@@ -9,7 +9,7 @@ ms.date: 08/13/2020
 ms.author: cshoe
 ---
 
-# Quickstart: Building your first static web app
+# Quickstart: Building your first static site with Azure Static Web Apps
 
 Azure Static Web Apps publishes a website to a production environment by building apps from a GitHub repository. In this quickstart, you deploy a web application to Azure Static Web apps using the Visual Studio Code extension.
 
@@ -21,6 +21,7 @@ If you don't have an Azure subscription, [create a free trial account](https://a
 - [Azure](https://portal.azure.com) account
 - [Visual Studio Code](https://code.visualstudio.com)
 - [Azure Static Web Apps extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps)
+- [Install Git](https://www.git-scm.com/downloads)
 
 [!INCLUDE [create repository from template](../../includes/static-web-apps-get-started-create-repo.md)]
 
@@ -47,7 +48,7 @@ Next, open Visual Studio Code and go to **File > Open Folder** to open the repos
 
     :::image type="content" source="media/getting-started/extension-create-app.png" alt-text="Create Static Web App":::
 
-1. Select the **master** branch and press **Enter**.
+1. Select the **main** branch and press **Enter**.
 
     :::image type="content" source="media/getting-started/extension-branch.png" alt-text="Branch name":::
 
@@ -97,7 +98,7 @@ Next, open Visual Studio Code and go to **File > Open Folder** to open the repos
 
     :::image type="content" source="media/getting-started/extension-confirmation.png" alt-text="Created confirmation":::
 
-1. In the Visual Studio Code Explorer window, return to the _Static Web Apps_ section and right-click on **Production** and select **Open in Portal** to view app in the Azure portal.
+1. In the Visual Studio Code Explorer window, navigate to the node that has your subscription name and expand it. Please note that it might take a few minutes for the deployment to complete. Then return to the Static Web Apps section and select the name of your app and then right-click on my-first-static-web-app and select Open in Portal to view app in the Azure portal.
 
     :::image type="content" source="media/getting-started/extension-open-in-portal.png" alt-text="Open portal":::
 

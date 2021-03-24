@@ -1,98 +1,167 @@
 ---
-title: Determine your publishing option - Microsoft commercial marketplace
-description: This article describes eligibility criteria and requirements for publishing offers to Microsoft AppSource and Azure Marketplace.
+title: Introduction to listing options - Microsoft commercial marketplace
+description: This article describes listing options for offers published to Microsoft AppSource and Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
-ms.date: 09/04/2020
+author: trkeya
+ms.author: trkeya
+ms.date: 01/14/2021
 ---
 
-# Determine your publishing option
+# Introduction to listing options
 
-The publishing option that you choose for your offer relates directly to both the eligibility requirements and commercial marketplace GTM benefits. More importantly, the selection of publishing option and offer type defines how users will interact with your commercial marketplace offer.
+When you create an offer type, you choose one or more listing options. These options determine the buttons customers see on the offer listing page in the online stores. The listing options include _Free Trial_, _Test Drive_, _Contact Me_, and _Get It Now_.
 
-To configure your offer, you'll need to understand the following key commercial marketplace concepts: the publishing options, offer types and configuration, and listing options that will govern how and where your offer is presented in the commercial marketplace online stores.
+This table shows which listing options are available for each offer type.
 
-In this article, you will learn:
+| Offer type | Free Trial | Test Drive | Contact Me | Get It Now `*` |
+| ------------ | ------------- | ------------- | ------------- | ------------- |
+| Azure Application (Managed app) |   | &#10004; |   | &#10004; |
+| Azure Application (Solution template) |  |  |  | &#10004; |
+| Consulting service |  |  | &#10004; |  |
+| Azure Container |  |  |  | &#10004; |
+| Dynamics 365 business central | &#10004; | &#10004; | &#10004; | &#10004; |
+| Dynamics 365 Customer Engagement & PowerApps | &#10004; | &#10004; | &#10004; | &#10004; |
+| Dynamics 365 for operations | &#10004; | &#10004; | &#10004; | &#10004; |
+| IoT Edge module |  |  |  | &#10004; |
+| Managed Service |  |  |  | &#10004; |
+| Power BI App |  |  |  | &#10004; |
+| Azure Virtual Machine | &#10004; | &#10004; |  | &#10004; |
+| Software as a service | &#10004; | &#10004; | &#10004; | &#10004; |
+||||||
 
-- How to determine the appropriate online store for your solution.
-- Which publishing options and listing options are available in each online store.
-- Which offer types are available for each publishing option.
+&#42; The Get It Now listing option includes Get It Now (Free), bring your own license (BYOL), Subscription, and Usage-based pricing. For details, see [Get It Now](#get-it-now).
 
-## Commercial marketplace publishing options
+## Changing offer type
 
-The following table shows the publishing options for offer types in Microsoft AppSource and Azure Marketplace.
+[!INCLUDE [change-offer-type](./includes/change-offer-type.md)]
 
-|   | **List (Contact)**  | **List (Trial)**  | **Free** | **BYOL** | **Transact**|
-| :--------- | :----------- | :------------ | :----------- | :---------- |:---------- |
-| **Virtual Machine** |  |  |  | Azure Marketplace |  Azure Marketplace |
-| **Azure Apps (multi-VM)** |  |  | Azure Marketplace | Azure Marketplace | Azure Marketplace  |
-| **Container image** |  |  | Azure Marketplace | Azure Marketplace |   |
-| **IoT Edge module** |  |  | Azure Marketplace | Azure Marketplace |   |
-| **Managed services** |  |  |  | Azure Marketplace |   |
-| **Consulting services** | Both online stores |  |  |  |   |
-| **SaaS app** | Both online stores | Both online stores | Both online stores |  | Both online stores* |
-| **Microsoft 365 App** | AppSource | AppSource |  |  | AppSource**  |
-| **Dynamics 365 add-in** |  AppSource | AppSource |  |  |   |
-| **PowerApps** | AppSource |AppSource  |  |  |   |
+## Free Trial
 
-&#42; SaaS app Transact offers in Microsoft AppSource are currently credit card only.
+Use the commercial marketplace to enhance discoverability and automate provisioning of your solution's trial experience. This enables prospective customers to use your software as a service (SaaS), IaaS or Microsoft in-app experience at no cost from 30 days to six months, depending on the offer type.
 
-&#42;&#42; Microsoft 365 offers are free to install and can be monetized via SaaS offer as a licensing service. For more information, see [Monetize your Microsoft 365 add-in through the Microsoft commercial marketplace](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
+Customers use the _Free Trial_ button on your offer’s listing page to try your offer. If you provide a free trial on multiple plans within the same offer, customers can switch to a free trial on another plan, but the trial period does not restart.
 
-## Choose a listing option
+For virtual machine offers, customers are charged Azure infrastructure costs for using the offer during a trial period. Upon expiration of the trial period, customers are automatically charged for the last plan they tried based on standard rates unless they cancel before the end of the trial period.
 
-The listing options that are available offer differentiated customer engagement while giving you access to lead sharing and [commercial marketplace benefits](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits). Note the listing options that correspond with the publishing option:
+## Test Drive
 
-| **Publishing option**    | **Description**  |
-| :------------------- | :-------------------|
-| **List** | Simple listing of your application or service that enables a commercial marketplace user to request you to connect with the customer via the **Contact Me** listing options. |
-| **Trial** | Use the commercial marketplace to enhance discoverability and automate provisioning of your solution's trial experience, enabling prospective users to use your SaaS, IaaS, or Microsoft in-app experience at no cost for a limited time before they buy. The listing options used for the trial publishing option are either **Free Trial** or **Test Drive**. |
-| **BYOL** | Use the commercial marketplace to enhance discoverability and automate provisioning of your solution, and complete the financial transaction separately. BYOL offer types are ideal for on-premises to cloud migrations. The listing option is **Get it Now**.
-| **Transact** | Transact offers are sold through the commercial marketplace. Microsoft is responsible for billing and collections. The listing option is **Get it Now**.|
+Customers use the _Test Drive_ button on your offer’s listing page to get access to a preconfigured environment for a fixed number of hours. To learn more about test drives, see [What is a test drive?](what-is-test-drive.md)
 
-> [!Note]
-> When using the Transact publishing option, it is important to understand the pricing, billing, invoicing, and payout considerations before selecting an offer type and creating your offer. To learn more, review the article [Commercial marketplace transact capabilities](./marketplace-commercial-transaction-capabilities-and-considerations.md).
+> [!TIP]
+> A test drive is different from a free trial. You can offer a test drive, free trial, or both. They both provide your customers with your solution for a fixed period-of-time. But a test drive also includes a hands-on, self-guided tour of your product’s key features and benefits being demonstrated in a real-world implementation scenario.
 
-## Selecting an online store
+## Contact Me
 
-Each online store serves different customer requirements for business and IT solutions. Your offer type, transact capabilities, and category will determine where your offer will be published. Categories and subcategories are mapped to each online store based on the type of solution you publish:
+Simple listing of your application or service. Customers use the _Contact Me_ button on your offer’s listing page to request that you connect with them about your offer.
 
-**Microsoft AppSource** offers business solutions, such as industry solutions and consulting services, for Dynamics 365, Microsoft 365, and Power Platform.
+## Get It Now
 
-**Azure Marketplace** offers IT solutions built for or on Azure as well as consulting services that accelerate your customers' use of Azure.
+This listing option includes transactable offers (subscriptions and user-based pricing), bring your own license offers, and Get It Now (Free). Transactable offers are sold through the commercial marketplace. Microsoft is responsible for billing and collections. Customers use the _Get It Now button_ to get the offer.
 
-Select the category and subcategory that best align with your solution type. For example, a web application firewall is an IT solution that should be published to Azure Marketplace, under the Security category. A contract management app is a business solution that should be published to AppSource under the Sales category. Selecting the incorrect category or subcategory may result in your offer being published to the wrong online store.
+The Get It Now listing option can include the following pricing options, depending on the offer type:
 
-### Publishing to both online stores (SaaS offers only)
+- Get It Now (Free)
+- Bring your own license (BYOL)
+- Subscription
+- Usage-based pricing
 
-SaaS offers can be published to Azure Marketplace or AppSource. If your SaaS offer is *both* an IT solution (Azure Marketplace) and a business solution (AppSource), select a category and/or a subcategory applicable to each online store. Offers published to both online stores should have a value proposition as an IT solution *and* a business solution.
+This table shows which offer types support the additional pricing options that are included with the Get It Now listing option.
 
-> [!IMPORTANT]
-> SaaS offers with [metered billing](partner-center-portal/saas-metered-billing.md) are available through Azure Marketplace and the Azure portal. SaaS offers with only private plans are available through the Azure portal.
+| Offer type | Get It Now (Free) | BYOL | Subscription | Usage-based pricing |
+| ------------ | ------------- | ------------- | ------------- | ------------- |
+| Azure Application (Managed app) |   |   | &#10004; | &#10004; |
+| Azure Application (Solution template) | &#10004; |   |   |   |
+| Consulting service |   |   |   |   |
+| Azure Container | &#10004;<sup>1</sup> | &#10004;<sup>1</sup> |   |   |
+| Dynamics 365 business central | &#10004; |   |   |   |
+| Dynamics 365 Customer Engagement & PowerApps | &#10004; |   |   |   |
+| Dynamics 365 for operations | &#10004; |   |   |   |
+| IoT Edge module | &#10004;<sup>1</sup> | &#10004;<sup>1</sup> |   |   |
+| Managed Service |   | &#10004; |   |   |
+| Power BI App | &#10004; |   |   |   |
+| Azure Virtual Machine |   | &#10004; |   | &#10004;<sup>2</sup> |
+| Software as a service | &#10004; |   | &#10004; | &#10004; |
+||||||
 
-| Metered billing | Public plan | Private plan | Available in: |
-|---|---|---|---|
-| Yes             | Yes         | No           | Azure Marketplace and Azure portal |
-| Yes             | Yes         | Yes          | Azure Marketplace and Azure portal* |
-| Yes             | No          | Yes          | Azure portal only |
-| No              | No          | Yes          | Azure portal only |
+**Legend**
 
-&#42; The private plan of the offer will only be available via the Azure portal
+<sup>1</sup> The **Pricing model** column of the **Plan overview** tab shows _Free_ or _BYOL_ but it’s not selectable.
 
-For example, an offer with metered billing and a private plan only (no public plan), will be purchased by customers in the Azure portal. Learn more about [Private offers in Microsoft commercial marketplace](private-offers.md).
+<sup>2</sup> Priced per hour and billed monthly.
 
-### Categories
+### Get It Now (Free)
 
-Categories and subcategories are mapped to each online store based on the solution type. Select the categories and subcategories that best align with your solution. You can select:
+Use this listing option to offer your application for free. Customers use the _Get It Now_ button to get your free offer.
 
-- At least one and up to two categories. You can choose a primary and a secondary category.
-- Up to two subcategories for each primary and/or secondary category. If you don’t select any subcategory, your offer will still be discoverable under the selected category.
+> [!NOTE]
+> Get It Now (Free) offers are not eligible for Marketplace Rewards benefits for transactable offers. Because there is no transaction through the storefront, these are categorized as “Trial.” See [Marketplace Rewards](#marketplace-rewards) below.
 
-[!INCLUDE [categories and subcategories](./includes/categories.md)]
+### Bring Your Own License (BYOL)
+
+Use this listing option to let customers deploy your offer using a license purchased outside the commercial marketplace. This option is ideal for on-premises-to-cloud migrations. Customers use the _Get It Now_ button to purchase your offer using a license they pre-purchased from you.
+
+> [!NOTE]
+> BYOL offers are not eligible for Marketplace Rewards benefits for transactable offers. Because these require a customer to acquire the license from the partner and there is no transaction through the commercial marketplace storefront, these are categorized as “List.” See [Marketplace Rewards](#marketplace-rewards) below.
+
+### Subscription
+
+You can charge a flat fee for these offer types:
+
+- Azure Application (Managed app) offers support monthly subscriptions.
+- SaaS offers support both monthly and annual subscriptions.
+
+### Usage-based pricing
+
+The following offer types support usage-based pricing:
+
+- Azure Application (Managed app) offer support metered billing. For more details, see [Managed application metered billing](partner-center-portal/azure-app-metered-billing.md).
+- SaaS offers supports Metered billing and per user (per seat) pricing. For more information about metered billing, see [Metered billing for SaaS using the commercial marketplace metering service](partner-center-portal/saas-metered-billing.md).
+- Azure virtual machine offers support Per core, Per core size, and Per market and core size pricing. These pricing options are priced per hour and billed monthly.
+
+When creating a transactable offer, it is important to understand the pricing, billing, invoicing, and payout considerations before selecting an offer type and creating your offer. To learn more, see [Commercial marketplace online stores](overview.md#commercial-marketplace-online-stores).
+
+## Sample offer
+
+After your offer is published, the listing option(s) you chose appear as a button in the upper-left corner of the listing page in the online store(s). For example, the following screen shows an offer listing page in the Microsoft AppSource online store with the **Get It Now** and **Test Drive** buttons:
+
+:::image type="content" source="media/listing-options.png" alt-text="Illustrates the listing page for an offer with the Contact Me and Test Drive buttons.":::
+
+## Listing and pricing options by online store
+
+Based on a variety of criteria, we determine whether your offer is listed on Azure Marketplace, Microsoft AppSource, or both online stores. For more information about the differences between the two online stores, see [Commercial marketplace online stores](overview.md#commercial-marketplace-online-stores).
+
+The following table shows the options that are available for different offer types and add-ins and which online stores your offer can be listed on.
+
+| Offer types and add-ins | Contact Me | Free Trial | Get It Now (Free) | BYOL | Get It Now (Transact) |
+| ------------ | ------------- | ------------- | ------------- | ------------- | ------------- |
+| Azure Virtual Machine |   |   |   | Azure Marketplace | Azure Marketplace |
+| Azure Application |   |   | Azure Marketplace | Azure Marketplace | Azure Marketplace |
+| Azure Container  |   |   | Azure Marketplace | Azure Marketplace |   |
+| IoT Edge module |   |   | Azure Marketplace | Azure Marketplace |   |
+| Managed service |   |   |   | Azure Marketplace |   |
+| Consulting service | Both online stores |   |   |   |   |
+| SaaS  | Both online stores | Both online stores | Both online stores |   | Both online stores &#42; |
+| Microsoft 365 App | AppSource | AppSource |   |   | AppSource &#42;&#42; |
+| Dynamics 365 business central | AppSource | AppSource |   |   |   |
+| Dynamics 365 for Customer Engagements & PowerApps | AppSource | AppSource |   |   |   |
+| Dynamics 365 for operations | AppSource | AppSource |   |   |   |
+| Power BI App |   |   | AppSource |   |   |
+|||||||
+
+&#42; SaaS transactable offers in AppSource are currently credit card only.
+
+&#42;&#42; Microsoft 365 add-ins are free to install and can be monetized using a SaaS offer. For more information, see [Monetize your Office 365 add-in through the Microsoft commercial marketplace](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
+
+## Marketplace Rewards
+
+Your Marketplace Rewards are differentiated based on the listing option you choose. To learn more, see [Your commercial marketplace benefits](gtm-your-marketplace-benefits.md).
+
+If your offer is transactable, you will earn benefits as you increase your billed sales.
+
+Non-transactable offers earn benefits based on whether or not a free trial is attached.
 
 ## Next steps
 
-- Once you decide on a publishing option, review the [publishing guide by offer type](./publisher-guide-by-offer-type.md).
+- To choose an offer type to create, see [publishing guide by offer type](publisher-guide-by-offer-type.md).

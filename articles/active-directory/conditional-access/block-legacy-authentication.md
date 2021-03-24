@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 08/07/2020
+ms.date: 01/26/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -34,10 +34,7 @@ If your environment is ready to block legacy authentication to improve your tena
 
 ## Prerequisites
 
-This article assumes that you are familiar with: 
-
-- The [basic concepts](overview.md) of Azure AD Conditional Access 
-- The [best practices](best-practices.md) for configuring Conditional Access policies in the Azure portal
+This article assumes that you are familiar with the [basic concepts](overview.md) of Azure AD Conditional Access.
 
 ## Scenario description
 
@@ -60,7 +57,7 @@ This section explains how to configure a Conditional Access policy to block lega
 
 The following options are considered legacy authentication protocols
 
-- Authenticated SMTP - Used by POP and IMAP client's to send email messages.
+- Authenticated SMTP - Used by POP and IMAP clients to send email messages.
 - Autodiscover - Used by Outlook and EAS clients to find and connect to mailboxes in Exchange Online.
 - Exchange ActiveSync (EAS) - Used to connect to mailboxes in Exchange Online.
 - Exchange Online PowerShell - Used to connect to Exchange Online with remote PowerShell. If you block Basic authentication for Exchange Online PowerShell, you need to use the Exchange Online PowerShell Module to connect. For instructions, see [Connect to Exchange Online PowerShell using multi-factor authentication](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
@@ -83,6 +80,7 @@ Before you can block legacy authentication in your directory, you need to first 
 1. Navigate to the **Azure portal** > **Azure Active Directory** > **Sign-ins**.
 1. Add the Client App column if it is not shown by clicking on **Columns** > **Client App**.
 1. **Add filters** > **Client App** > select all of the legacy authentication protocols. Select outside the filtering dialog box to apply your selections and close the dialog box.
+1. If you have activated the [new sign-in activity reports preview](../reports-monitoring/concept-all-sign-ins.md), repeat the above steps also on the **User sign-ins (non-interactive)** tab.
 
 Filtering will only show you sign-in attempts that were made by legacy authentication protocols. Clicking on each individual sign-in attempt will show you additional details. The **Client App** field under the **Basic Info** tab will indicate which legacy authentication protocol was used.
 
@@ -117,9 +115,13 @@ It can take up to 24 hours for the policy to go into effect.
 
 You can select all available grant controls for the **Other clients** condition; however, the end-user experience is always the same - blocked access.
 
+### SharePoint Online and B2B guest users
+
+To block B2B user access via legacy authentication to SharePoint Online, organizations must disable legacy authentication on SharePoint using the `Set-SPOTenant` PowerShell command and setting the `-LegacyAuthProtocolsEnabled` parameter to `$false`. More information about setting this parameter can be found in the SharePoint PowerShell reference document regarding [Set-SPOTenant](/powershell/module/sharepoint-online/set-spotenant)
+
 ## Next steps
 
 - [Determine impact using Conditional Access report-only mode](howto-conditional-access-insights-reporting.md)
 - If you are not familiar with configuring Conditional Access policies yet, see [require MFA for specific apps with Azure Active Directory Conditional Access](../authentication/tutorial-enable-azure-mfa.md) for an example.
 - For more information about modern authentication support, see [How modern authentication works for Office 2013 and Office 2016 client apps](/office365/enterprise/modern-auth-for-office-2013-and-2016) 
-- [How to set up a multifunction device or application to send email using Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)
+- [How to set up a multifunction device or application to send email using Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)

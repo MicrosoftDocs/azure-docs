@@ -1,8 +1,8 @@
 ---
 title: Business continuity - Azure Database for MySQL
 description: Learn about business continuity (point-in-time restore, data center outage, geo-restore) when using Azure Database for MySQL service.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/7/2020

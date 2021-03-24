@@ -3,7 +3,7 @@ title: Use Azure AD Identity Governance to review and remove external users who 
 description: Use Access Reviews to extend of remove access from members of partner organizations
 services: active-directory
 documentationcenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 09/06/2020
-ms.author: barclayn
+ms.author: ajburnle
 ---
 
 # Use Azure Active Directory (Azure AD) Identity Governance to review and remove external users who no longer have resource access
@@ -60,14 +60,15 @@ Users that no longer have access to any resources in your tenant can be removed 
 
 When the review finishes, the **Results** page shows an overview of the response given by every external identity. You can choose to apply results automatically and let Access Reviews disable and delete them. Alternatively, you can look through the responses given and decide whether you want to remove a user’s access or follow-up with them and get additional information before making a decision. If some users still have access to resources that you have not reviewed yet, you can use the review as part of your discovery and enrich your next review and attestation cycle.
 
-## Disable and delete external identities with Azure AD Access Reviews (Preview)
+## Disable and delete external identities with Azure AD Access Reviews
 
-In addition to the option of removing unwanted external identities from resources such as groups or applications, Azure AD Access Reviews can block external identities from signing-in to your tenant and delete the external identities from your tenant after 30 days.
+In addition to the option of removing unwanted external identities from resources such as groups or applications, Azure AD Access Reviews can block external identities from signing-in to your tenant and delete the external identities from your tenant after 30 days. Once you select **Block user from signing-in for 30 days, then remove user from the tenant**, the review will stay in the “applying” state for 30 days. During this period, settings, results, reviewers or Audit logs under the current review won't be viewable or configurable. 
 
 ![upon completion settings](media/access-reviews-external-users/upon-completion-settings.png)
 
 When creating a new Access Review, in the “Upon completion settings” section, for **Action to apply on denied users** you can define **Block users from signing-in for 30 days, then remove user from the tenant**.
-This setting, currently in preview, allows you to identify, block, and delete external identities from your Azure AD tenant. External identities who are reviewed and denied continued access by the reviewer will be blocked and deleted, irrespective of the resource access or group membership they have. This setting is best used as a last step after you have validated that the external users in-review no longer carries resource access and can safely be removed from your tenant or if you want to make sure they are removed, irrespective of their standing access. The “Disable and delete” feature blocks the external user first, taking away their ability to signing into your tenant and accessing resources. Resource access is not revoked in this stage, and in case you wanted to reinstantiate the external user, their ability to log on can be reconfigured. Upon no further action, a blocked external identity will be deleted from the directory after 30 days, removing the account as well as their access.
+
+This setting allows you to identify, block, and delete external identities from your Azure AD tenant. External identities who are reviewed and denied continued access by the reviewer will be blocked and deleted, irrespective of the resource access or group membership they have. This setting is best used as a last step after you have validated that the external users in-review no longer carries resource access and can safely be removed from your tenant or if you want to make sure they are removed, irrespective of their standing access. The “Disable and delete” feature blocks the external user first, taking away their ability to signing into your tenant and accessing resources. Resource access is not revoked in this stage, and in case you wanted to reinstantiate the external user, their ability to log on can be reconfigured. Upon no further action, a blocked external identity will be deleted from the directory after 30 days, removing the account as well as their access.
 
 ## Next steps
 

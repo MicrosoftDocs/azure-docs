@@ -1,6 +1,6 @@
 ---
 title: Manage snapshots by using Azure NetApp Files | Microsoft Docs
-description: Describes how to create and manage snapshots by using Azure NetApp Files.
+description: Describes how to create, manage, and use snapshots by using Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -13,12 +13,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/04/2020
+ms.date: 02/20/2021
 ms.author: b-juche
 ---
 # Manage snapshots by using Azure NetApp Files
 
-Azure NetApp Files supports creating on-demand snapshots and using snapshot policies to schedule automatic snapshot creation.  You can also restore a snapshot to a new volume or restore a single file by using a client.  
+Azure NetApp Files supports creating on-demand snapshots and using snapshot policies to schedule automatic snapshot creation. You can also restore a snapshot to a new volume, restore a single file by using a client, or revert an existing volume by using a snapshot.
+
+> [!NOTE] 
+> For considerations about snapshot management in cross-region replication, see [Requirements and considerations for using cross-region replication](cross-region-replication-requirements-considerations.md).
 
 ## Create an on-demand snapshot for a volume
 
@@ -60,7 +63,7 @@ The **snapshot policy** feature is currently in preview. If you are using this f
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
     ```
-You can also use [Azure CLI commands](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true) `az feature register` and `az feature show` to register the feature and display the registration status. 
+You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 ### Create a snapshot policy 
 
@@ -103,6 +106,8 @@ If you want a volume to use the snapshot policy, you need to [apply the policy t
 
 If you want a volume to use a snapshot policy that you created, you need to apply the policy to the volume. 
 
+You cannot apply a snapshot policy to a destination volume in cross-region replication.  
+
 1.	Go to the **Volumes** page, right-click the volume that you want to apply a snapshot policy to, and select **Edit**.
 
     ![Volumes right-click menu](../media/azure-netapp-files/volume-right-cick-menu.png) 
@@ -137,6 +142,17 @@ You can delete a snapshot policy that you no longer want to keep.
 
     ![Snapshot policy delete confirmation](../media/azure-netapp-files/snapshot-policy-delete-confirm.png) 
 
+## Edit the Hide Snapshot Path option
+The Hide Snapshot Path option controls whether the snapshot path of a volume is visible. During the creation of an [NFS](azure-netapp-files-create-volumes.md#create-an-nfs-volume) or [SMB](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) volume, you have the option to specify whether the snapshot path should be hidden. You can subsequently edit the Hide Snapshot Path option as needed.  
+
+> [!NOTE]
+> For a [destination volume](cross-region-replication-create-peering.md#create-the-data-replication-volume-the-destination-volume) in cross-region replication, the Hide Snapshot Path option is enabled by default, and the setting cannot be modified. 
+
+1. To view the Hide Snapshot Path option setting of a volume, select the volume. The **Hide snapshot path** field shows whether the option is enabled.   
+    ![Screenshot that describes the Hide Snapshot Path field.](../media/azure-netapp-files/hide-snapshot-path-field.png) 
+2. To edit the Hide Snapshot Path option, click **Edit** on the volume page and modify the **Hide snapshot path** option as needed.   
+    ![Screenshot that describes the Edit volume snapshot option.](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
+
 ## Restore a snapshot to a new volume
 
 Currently, you can restore a snapshot only to a new volume. 
@@ -166,9 +182,9 @@ If you do not want to [restore the entire snapshot to a volume](#restore-a-snaps
 
 The mounted volume contains a snapshot directory named  `.snapshot` (in NFS clients) or `~snapshot` (in SMB clients) that is accessible to the client. The snapshot directory contains subdirectories corresponding to the snapshots of the volume. Each subdirectory contains the files of the snapshot. If you accidentally delete or overwrite a file, you can restore the file to the parent read-write directory by copying the file from a snapshot subdirectory to the read-write directory. 
 
-If you selected the Hide Snapshot Path checkbox when you created the volume, the snapshot directory is hidden. You can view the Hide Snapshot Path status of the volume by selecting the volume. You can edit the Hide Snapshot Path option by clicking **Edit** on the volume’s page.  
+You can control access to the snapshot directories by using the [Hide Snapshot Path option](#edit-the-hide-snapshot-path-option). This option controls whether the directory should be hidden from the clients. Therefore, it also controls access to files and folders in the snapshots.  
 
-![Edit volume snapshot options](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
+NFSv4.1 does not show the `.snapshot` directory (`ls -la`). However, when the Hide Snapshot Path option is not set, you can still access the `.snapshot` directory via NFSv4.1 by using the `cd <snapshot-path>` command from the client command line. 
 
 ### Restore a file by using a Linux NFS client 
 
@@ -214,8 +230,44 @@ If you selected the Hide Snapshot Path checkbox when you created the volume, the
 
     ![Properties Previous Versions](../media/azure-netapp-files/snapshot-properties-previous-version.png) 
 
+## Revert a volume using snapshot revert
+
+The snapshot revert functionality enables you to quickly revert a volume to the state it was in when a particular snapshot was taken. In most cases, reverting a volume is much faster than restoring individual files from a snapshot to the active file system. It is also more space efficient compared to restoring a snapshot to a new volume. 
+
+You can find the Revert Volume option in the Snapshots menu of a volume. After you select a snapshot for reversion, Azure NetApp Files reverts the volume to the data and timestamps that it contained when the selected snapshot was taken. 
+
+> [!IMPORTANT]
+> Active filesystem data and snapshots that were taken after the selected snapshot was taken will be lost. The snapshot revert operation will replace *all* the data in the targeted volume with the data in the selected snapshot. You should pay attention to the snapshot contents and creation date when you select a snapshot. You cannot undo the snapshot revert operation.
+
+1. Go to the **Snapshots** menu of a volume.  Right-click the snapshot you want to use for the revert operation. Select **Revert volume**. 
+
+    ![Screenshot that describes the right-click menu of a snapshot](../media/azure-netapp-files/snapshot-right-click-menu.png) 
+
+2. In the Revert Volume to Snapshot window, 
+type the name of the volume, and click **Revert**.   
+
+    The volume is now restored to the point in time of the selected snapshot.
+
+    ![Screenshot that the Revert volume to snapshot window](../media/azure-netapp-files/snapshot-revert-volume.png) 
+
+## Delete snapshots  
+
+You can delete snapshots that you no longer need to keep. 
+
+> [!IMPORTANT]
+> The snapshot deletion operation cannot be undone. A deleted snapshot cannot be recovered. 
+
+1. Go to the **Snapshots** menu of a volume. Right-click the snapshot you want to delete. Select **Delete**.
+
+    ![Screenshot that describes the right-click menu of a snapshot](../media/azure-netapp-files/snapshot-right-click-menu.png) 
+
+2. In the Delete Snapshot window, confirm that you want to delete the snapshot by clicking **Yes**. 
+
+    ![Screenshot that confirms snapshot deletion](../media/azure-netapp-files/snapshot-confirm-delete.png)  
+
 ## Next steps
 
 * [Troubleshoot snapshot policies](troubleshoot-snapshot-policies.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Azure NetApp Files Snapshots 101 video](https://www.youtube.com/watch?v=uxbTXhtXCkw&feature=youtu.be)
+* [What is Azure Application Consistent Snapshot Tool](azacsnap-introduction.md)

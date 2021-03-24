@@ -3,7 +3,7 @@ title: Create Windows Virtual Desktop host pool PowerShell - Azure
 description: How to create a host pool in Windows Virtual Desktop with PowerShell cmdlets.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/11/2020
+ms.date: 10/02/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -94,6 +94,9 @@ To successfully domain-join, do the following things on each virtual machine:
     >[!NOTE]
     > If you're joining your VMs to an Azure Active Directory Domain Services (Azure AD DS) environment, ensure that your domain join user is also a member of the [AAD DC Administrators group](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
 
+>[!IMPORTANT]
+>We recommend that you don't enable any policies or configurations that disable Windows Installer. If you disable Windows Installer, the service won't be able to install agent updates on your session hosts, and your session hosts won't function properly.
+
 ## Register the virtual machines to the Windows Virtual Desktop host pool
 
 Registering the virtual machines to a Windows Virtual Desktop host pool is as simple as installing the Windows Virtual Desktop agents.
@@ -115,7 +118,7 @@ To register the Windows Virtual Desktop agents, do the following on each virtual
 
 You'll need to update the agent if you're in one of the following situations:
 
-- You want to migrate a previously registered session to a new host pool
+- You want to migrate a previously registered session host to a new host pool
 - The session host doesn't appear in your host pool after an update
 
 To update the agent:

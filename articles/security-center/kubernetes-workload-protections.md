@@ -6,7 +6,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 09/12/2020
+ms.date: 03/17/2021
 ms.author: memildin
 ---
 
@@ -23,7 +23,7 @@ Security Center offers more container security features if you enable Azure Defe
 - Get real-time threat detection alerts for your K8s clusters [Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)
 
 > [!TIP]
-> For a list of *all* security recommendations that might appear for Kubernetes clusters and nodes, see the [container section](recommendations-reference.md#recs-containers) of the recommendations reference table.
+> For a list of *all* security recommendations that might appear for Kubernetes clusters and nodes, see the [compute section](recommendations-reference.md#recs-compute) of the recommendations reference table.
 
 
 
@@ -31,11 +31,11 @@ Security Center offers more container security features if you enable Azure Defe
 
 |Aspect|Details|
 |----|:----|
-|Release state:|Preview|
+|Release state:|General Availability (GA)|
 |Pricing:|Free|
 |Required roles and permissions:|**Owner** or **Security admin** to edit an assignment<br>**Reader** to view the recommendations|
-|Supported clusters|Kubernetes v1.14 (or higher) is required<br>No PodSecurityPolicy resource (old PSP model) on the clusters<br>Windows nodes are not supported|
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
+|Environment requirements:|Kubernetes v1.14 (or higher) is required<br>No PodSecurityPolicy resource (old PSP model) on the clusters<br>Windows nodes are not supported|
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
 |||
 
 
@@ -43,18 +43,29 @@ Security Center offers more container security features if you enable Azure Defe
 
 Azure Security Center includes a bundle of recommendations that are available when you've installed the **Azure Policy add-on for Kubernetes**.
 
-1. To configure the recommendations, first you must install the add on:
+### Step 1: Deploy the add-on
 
-    1. From the recommendations page, search for the recommendation named **Azure Policy add-on for Kubernetes should be installed and enabled on your clusters**.
+To configure the recommendations, install the  **Azure Policy add-on for Kubernetes**. 
+
+- You can auto deploy this add-on as explained in [Enable auto provisioning of the Log Analytics agent and extensions](security-center-enable-data-collection.md#auto-provision-mma). When auto provisioning for the add-on is set to "on", the extension is enabled by default in all existing and future clusters (that meet the add-on installation requirements).
+
+    :::image type="content" source="media/defender-for-kubernetes-usage/policy-add-on-auto-provision.png" alt-text="Using Security Center's auto provisioning tool to install the policy add-on for Kubernetes":::
+
+- To manually deploy the add-on:
+
+    1. From the recommendations page, search for the recommendation "**Azure Policy add-on for Kubernetes should be installed and enabled on your clusters**". 
 
         :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes.png" alt-text="Recommendation **Azure Policy add-on for Kubernetes should be installed and enabled on your clusters**":::
 
         > [!TIP]
         > The recommendation is included in five different security controls and it doesn't matter which one you select in the next step.
 
-    1. From any of the security controls, select the recommendation to see the resources on which you can install the add on, and select **Remediate**. 
+    1. From any of the security controls, select the recommendation to see the resources on which you can install the add-on.
+    1. Select the relevant cluster, and **Remediate**.
 
         :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Recommendation details page for **Azure Policy add-on for Kubernetes should be installed and enabled on your clusters**":::
+
+### Step 2: View and configure the bundle of 13 recommendations
 
 1. Approximately 30 minutes after the add-on installation completes, Security Center shows the clusters’ health status for the following recommendations, each in the relevant security control as shown:
 
@@ -63,21 +74,22 @@ Azure Security Center includes a bundle of recommendations that are available wh
     > 
     > If you don't enter the necessary parameters for the recommendations that require configuration, your workloads will be shown as unhealthy.
 
-    | Recommendation name                                                                   | Security control                         | Configuration required |
-    |---------------------------------------------------------------------------------------|------------------------------------------|------------------------|
-    | Container CPU and memory limits should be enforced (preview)                          | Protect applications against DDoS attack | No                     |
-    | Privileged containers should be avoided (preview)                                     | Manage access and permissions            | No                     |
-    | Immutable (read-only) root filesystem should be enforced for containers (preview)     | Manage access and permissions            | No                     |
-    | Container with privilege escalation should be avoided (preview)                       | Manage access and permissions            | No                     |
-    | Running containers as root user should be avoided (preview)                           | Manage access and permissions            | No                     |
-    | Containers sharing sensitive host namespaces should be avoided (preview)              | Manage access and permissions            | No                     |
-    | Least privileged Linux capabilities should be enforced for containers (preview)       | Manage access and permissions            | **Yes**                |
-    | Usage of pod HostPath volume mounts should be restricted to a known list (preview)    | Manage access and permissions            | **Yes**                |
-    | Containers should listen on allowed ports only (preview)                              | Restrict unauthorized network access     | **Yes**                |
-    | Services should listen on allowed ports only (preview)                                | Restrict unauthorized network access     | **Yes**                |
-    | Usage of host networking and ports should be restricted (preview)                     | Restrict unauthorized network access     | **Yes**                |
-    | Overriding or disabling of containers AppArmor profile should be restricted (preview) | Remediate security configurations        | **Yes**                |
-    | Container images should be deployed only from trusted registries (preview)            | Remediate vulnerabilities                | **Yes**                |
+    | Recommendation name                                                         | Security control                         | Configuration required |
+    |-----------------------------------------------------------------------------|------------------------------------------|------------------------|
+    | Container CPU and memory limits should be enforced                          | Protect applications against DDoS attack | No                     |
+    | Privileged containers should be avoided                                     | Manage access and permissions            | No                     |
+    | Immutable (read-only) root filesystem should be enforced for containers     | Manage access and permissions            | No                     |
+    | Container with privilege escalation should be avoided                       | Manage access and permissions            | No                     |
+    | Running containers as root user should be avoided                           | Manage access and permissions            | No                     |
+    | Containers sharing sensitive host namespaces should be avoided              | Manage access and permissions            | No                     |
+    | Least privileged Linux capabilities should be enforced for containers       | Manage access and permissions            | **Yes**                |
+    | Usage of pod HostPath volume mounts should be restricted to a known list    | Manage access and permissions            | **Yes**                |
+    | Containers should listen on allowed ports only                              | Restrict unauthorized network access     | **Yes**                |
+    | Services should listen on allowed ports only                                | Restrict unauthorized network access     | **Yes**                |
+    | Usage of host networking and ports should be restricted                     | Restrict unauthorized network access     | **Yes**                |
+    | Overriding or disabling of containers AppArmor profile should be restricted | Remediate security configurations        | **Yes**                |
+    | Container images should be deployed only from trusted registries            | Remediate vulnerabilities                | **Yes**                |
+    |||
 
 
 1. For the recommendations with parameters must be customized, set the parameters:
@@ -237,6 +249,6 @@ In this article, you learned how to configure Kubernetes workload protection.
 
 For other related material, see the following pages: 
 
-- [Security Center recommendations for containers](recommendations-reference.md#recs-containers)
-- [Alerts for AKS cluster level](alerts-reference.md#alerts-akscluster)
-- [Alerts for Container host level](alerts-reference.md#alerts-containerhost)
+- [Security Center recommendations for compute](recommendations-reference.md#recs-compute)
+- [Alerts for AKS cluster level](alerts-reference.md#alerts-akscluster)
+- [Alerts for Container host level](alerts-reference.md#alerts-containerhost)

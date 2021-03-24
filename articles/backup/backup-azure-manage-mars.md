@@ -184,6 +184,19 @@ Managing the backup policy for MARS is done through the MARS console and not thr
   1. Launch the MARS client to extend the retention duration according to your requirements
 - Your newly restored machine, protected with MARS, will continue to take backups.  
 
+## Configuring antivirus for the MARS agent
+
+We recommend the following configuration for your antivirus software to avoid conflicts with the operation of the MARS Agent.
+
+1. **Add Path Exclusions**: To avoid degradation of performance and possible conflicts, exclude the following paths from real-time monitoring by the antivirus software:
+    1. `%ProgramFiles%\Microsoft Azure Recovery Services Agent` and subfolders
+    1. **Scratch folder**: If the scratch folder isn't in the standard location, add that to the exclusions as well.  [See here for steps](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible) to determine the scratch folder location.
+1. **Add Binary Exclusions**: To avoid degradation of backup and console activities, exclude processes for the following binaries from real-time monitoring by the antivirus software:
+    1. `%ProgramFiles%\Microsoft Azure Recovery Services Agent\bin\cbengine.exe`
+
+>[!NOTE]
+>While excluding these paths will be sufficient for most antivirus software, some may still continue to interfere with MARS Agent operations. If you are seeing unexpected failures, uninstall the antivirus software temporarily and monitor to see if the problem goes away. If this resolves the issue, contact your antivirus software vendor for assistance with proper configuration of their product.
+
 ## Next steps
 
 - For information about supported scenarios and limitations, refer to the [Support Matrix for the MARS Agent](./backup-support-matrix-mars-agent.md).

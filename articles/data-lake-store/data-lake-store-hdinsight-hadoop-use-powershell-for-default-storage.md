@@ -42,7 +42,7 @@ Before you begin this tutorial, make sure that you meet the following requiremen
 	>You can create a service principal only if you are an Azure AD administrator. Your Azure AD administrator must create a service principal before you can create an HDInsight cluster with Data Lake Storage Gen1. The service principal must be created with a certificate, as described in [Create a service principal with certificate](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority).
 	>
 
-## Create a Data Lake Storage Gen1 account
+## Create an Azure Data Lake Storage Gen1 account
 
 To create a Data Lake Storage Gen1 account, do the following:
 
@@ -63,7 +63,7 @@ To create a Data Lake Storage Gen1 account, do the following:
     ```
 
 	> [!NOTE]
-	> If you register the Data Lake Storage Gen1 resource provider and receive an error similar to `Register-AzResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid`, your subscription might not be whitelisted for Data Lake Storage Gen1. To enable your Azure subscription for Data Lake Storage Gen1, follow the instructions in [Get started with Azure Data Lake Storage Gen1 by using the Azure portal](data-lake-store-get-started-portal.md).
+	> If you register the Data Lake Storage Gen1 resource provider and receive an error similar to `Register-AzResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid`, your subscription might not be approved for Data Lake Storage Gen1. To enable your Azure subscription for Data Lake Storage Gen1, follow the instructions in [Get started with Azure Data Lake Storage Gen1 by using the Azure portal](data-lake-store-get-started-portal.md).
 	>
 
 2. A Data Lake Storage Gen1 account is associated with an Azure resource group. Start by creating a resource group.
@@ -203,8 +203,8 @@ In this section, you create an HDInsight Hadoop Linux cluster with Data Lake Sto
     # Set these variables
 
     $location = "East US 2"
-    $storageAccountName = $dataLakeStorageGen1Name   					   # Data Lake Storage Gen1 account name
-        $storageRootPath = "<Storage root path you specified earlier>" # E.g. /clusters/hdiadlcluster
+    $storageAccountName = $dataLakeStorageGen1Name    # Data Lake Storage Gen1 account name
+        $storageRootPath = "<Storage root path you specified earlier>"     # e.g. /clusters/hdiadlcluster
         $clusterName = "<unique cluster name>"
     $clusterNodes = <ClusterSizeInNodes>            # The number of nodes in the HDInsight cluster
     $httpCredentials = Get-Credential
@@ -278,8 +278,8 @@ hdfs dfs -ls adl:///
 You can also use the `hdfs dfs -put` command to upload some files to Data Lake Storage Gen1, and then use `hdfs dfs -ls` to verify whether the files were successfully uploaded.
 
 ## See also
-* [Use Data Lake Storage Gen1 with Azure HDInsight clusters](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
+* [Use Data Lake Storage Gen1 with Azure HDInsight clusters](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen1.md)
 * [Azure portal: Create an HDInsight cluster to use Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-[makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
+[makecert]: /windows-hardware/drivers/devtest/makecert
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx

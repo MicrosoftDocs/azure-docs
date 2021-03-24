@@ -3,28 +3,26 @@ title: Indexing Media Files with Azure Media Indexer
 description: Azure Media Indexer enables you to make content of your media files searchable and to generate a full-text transcript for closed captioning and keywords. This topic shows how to use Media Indexer.
 services: media-services
 documentationcenter: ''
-author: Asolanki
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: 827a56b2-58a5-4044-8d5c-3e5356488271
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/22/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.reviewer: johndeu
 ms.custom: devx-track-csharp
-
 ---
 # Indexing Media Files with Azure Media Indexer
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-> [!NOTE]
-> The **Azure Media Indexer** media processor will be retired. For the retirement dates, see this [legacy components](legacy-components.md) topic. [Azure Media Services Video Indexer](../video-indexer/index.yml) replaces this legacy media processor. For more information, see [Migrate from Azure Media Indexer and Azure Media Indexer 2 to Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
+> [!IMPORTANT]
+> It is recommended that customers migrate from Indexer v1 and Indexer v2 to using the [Media Services v3 AudioAnalyzerPreset Basic mode](../latest/analyzing-video-audio-files-concept.md). The [Azure Media Indexer](media-services-index-content.md) media processor and [Azure Media Indexer 2 Preview](./legacy-components.md) media processors are being retired. For the retirement dates, see this [legacy components](legacy-components.md) topic.
 
 Azure Media Indexer enables you to make content of your media files searchable and to generate a full-text transcript for closed captioning and keywords. You can process one media file or multiple media files in a batch.  
 
@@ -44,7 +42,7 @@ You can specify more details for your indexing tasks by using a task configurati
 
 You can also process multiple media files at once by using a manifest file.
 
-For more information, see [Task Preset for Azure Media Indexer](./media-services-analytics-overview.md).
+For more information, see [Task Preset for Azure Media Indexer](./legacy-components.md).
 
 ## Index an asset
 The following method uploads a media file as an asset and creates a job to index the asset.
@@ -157,7 +155,7 @@ If not all input media files are indexed successfully, the indexing job fails wi
 ## Index multiple files
 The following method uploads multiple media files as an asset, and creates a job to index all these files in a batch.
 
-A manifest file with the ".lst" extension is created and uploading into the asset. The manifest file contains the list of all the asset files. For more information, see [Task Preset for Azure Media Indexer](./media-services-analytics-overview.md).
+A manifest file with the ".lst" extension is created and uploading into the asset. The manifest file contains the list of all the asset files. For more information, see [Task Preset for Azure Media Indexer](./legacy-components.md).
 
 ```csharp
     static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
@@ -274,6 +272,6 @@ Currently, the English and Spanish languages are supported.
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## Related links
-[Azure Media Services Analytics Overview](media-services-analytics-overview.md)
+[Azure Media Services Analytics Overview](./legacy-components.md)
 
-[Indexing Media Files with Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md)
+[Indexing Media Files with Azure Media Indexer 2 Preview](./legacy-components.md)

@@ -20,28 +20,28 @@ highlightedContent:
   items:
     - title: What are Cognitive Services?
       itemType: overview # controls the icon image and super-title text
-      url: ./welcome.md
+      url: ./what-are-cognitive-services.md
     - title: What's new in docs?
       itemType: whats-new
       url: whats-new-docs.md
+    - title: Development options
+      itemType: concept
+      url: ./cognitive-services-development-options.md
     - title: Cognitive Services and machine learning
       itemType: concept
       url: ./cognitive-services-and-machine-learning.md
+    - title: Cognitive Services on-prem containers
+      itemType: concept
+      url: ./containers/index.yml
+    - title: Cognitive Services with databases
+      itemType: concept
+      url: ./big-data/cognitive-services-for-big-data.md
     - title: Language support
       itemType: reference
       url: ./language-support.md
-    - title: Create a resource
-      itemType: how-to-guide
-      url: ./cognitive-services-apis-create-account.md
-    - title: Use in Containers
-      itemType: concept
-      url: ./cognitive-services-container-support.md
-    - title: Virtual networks
-      itemType: architecture
-      url: cognitive-services-virtual-networks.md
-    - title: Security
-      itemType: concept
-      url: cognitive-services-security.md
+    - title: Support & help options
+      itemType: reference
+      url: ./cognitive-services-support-options.md
 
 conceptualContent:
   
@@ -53,7 +53,7 @@ conceptualContent:
         - url: ./computer-vision/index.yml
           itemType: overview
           text: Computer Vision
-        - url: ./Custom-Vision-Service/index.yml
+        - url: ./custom-vision-service/index.yml
           itemType: overview
           text: Custom Vision
         - url: ./face/index.yml
@@ -62,9 +62,6 @@ conceptualContent:
         - url: ./form-recognizer/index.yml
           itemType: overview
           text: Form Recognizer
-        - url: ./ink-recognizer/index.yml
-          itemType: overview
-          text: Ink Recognizer (Retiring)
         - url: ../media-services/video-indexer/index.yml
           itemType: overview
           text: Video Indexer
@@ -95,7 +92,7 @@ conceptualContent:
           text: Speech service
         - url: https://speech.microsoft.com/
           itemType: overview
-          text: " - Customize with Speech Studio"
+          text: "Customize with Speech Studio"
 #        - url: ./speech/home.md
 #          itemType: overview
 #          text: Bing Speech (Retiring)
@@ -126,9 +123,12 @@ conceptualContent:
     - title: Cognitive Service Containers
       summary: Container support in Azure Cognitive Services allows developers to use the same rich APIs that are available in Azure, and enables flexibility in where to deploy and host the services that come with Docker containers.
       links:
+        - url: ./containers/index.yml
+          itemType: overview
+          text:  Cognitive Services containers documentation
         - url: ./cognitive-services-container-support.md
           itemType: overview
-          text: Cognitive Service Containers
+          text: What are Cognitive Service containers?
         - url: ./containers/container-reuse-recipe.md
           itemType: learn
           text: Create containers for reuse
@@ -141,9 +141,21 @@ conceptualContent:
         - url: ./containers/docker-compose-recipe.md
           itemType: get-started
           text: Use Docker Compose to deploy multiple containers
-        - url: ./containers/container-faq.md
+        - url: ./containers/container-faq.yml
           itemType: reference
           text: Cognitive Services containers FAQ
+    - title: Cognitive Services for Big Data
+      summary: The Cognitive Services for Big Data allows developers to use cognitive services within databases to apply intelligent algorithms over large datasets
+      links:
+        - url: ./big-data/cognitive-services-for-big-data.md
+          itemType: overview
+          text: Cognitive Services for Big Data
+        - url: ./big-data/getting-started.md
+          itemType: get-started
+          text: Use Cognitive Services within Azure Databricks and Azure Synapse Analytics
+        - url: ./big-data/samples-python.md
+          itemType: reference
+          text: Python Samples   
 additionalContent:
   sections:
     - title: Additional resources
@@ -166,22 +178,24 @@ additionalContent:
         - title: SDKs & REST APIs
           links:
             - text: C#
-              url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
+              url: /dotnet/api/overview/azure/cognitiveservices/client
             - text: Go
               url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices
             - text: Java
-              url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client?view=azure-java-stable
+              url: /java/api/overview/azure/cognitiveservices/client
             - text: JavaScript
-              url: https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest
+              url: /javascript/api/overview/azure/cognitive-services
             - text: Python
-              url: https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python
+              url: /python/api/overview/azure/cognitive-services
             - text: R 
               url: https://github.com/Azure/AzureCognitive
+            - text: Apache Spark and Databases 
+              url: ./big-data/cognitive-services-for-big-data.md
             - text: Cognitive Services Management REST API
-              url: https://docs.microsoft.com/rest/api/cognitiveservices/
+              url: /rest/api/cognitiveservices/
         - title: Tools
           links:
             - text: Azure CLI
-              url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
+              url: /cli/azure/cognitiveservices
             - text: PowerShell
-              url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.5.0#cognitive_services
+              url: /powershell/module/az.cognitiveservices/#cognitive_services

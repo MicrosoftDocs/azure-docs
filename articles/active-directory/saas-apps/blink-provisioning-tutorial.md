@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: Zhchia
 ---
@@ -45,7 +45,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Setup Blink for provisioning
 
-1. Log a [Support Case](https://support.joinblink.com) or email **Blink support** at support@joinblink.com to request a SCIM token. .
+1. Log a [Support Case](https://support.joinblink.com) or email **Blink support** at support@joinblink.com to request a SCIM token.
 
 2.	Copy the **SCIM Authentication Token**. This value will be entered in the Secret Token field in the Provisioning tab of your Blink application in the Azure portal.
 
@@ -76,7 +76,7 @@ Before configuring Blink for automatic user provisioning with Azure AD, you need
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users in Blink based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Blink , following the instructions provided in the [Blink Single sign-on tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/blink-tutorial). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
+> You may also choose to enable SAML-based single sign-on for Blink, following the instructions provided in the [Blink Single sign-on tutorial](./blink-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
 
 ### To configure automatic user provisioning for Blink in Azure AD:
 
@@ -112,7 +112,23 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 9. Review the user attributes that are synchronized from Azure AD to Blink in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Blink for update operations. Select the **Save** button to commit any changes.
 
-	![Blink User Attributes](media/blink-provisioning-tutorial/user-attributes.png)
+   |Attribute|Type|Supported for filtering|
+   |---|---|---|
+   |userName|String|&check;|
+   |active|Boolean|
+   |title|String|
+   |emails[type eq "work"].value|String|
+   |name.givenName|String|
+   |name.familyName|String|
+   |phoneNumbers[type eq "work"].value|String|
+   |phoneNumbers[type eq "mobile"].value|String|
+   |externalId|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Reference|
+   |urn:ietf:params:scim:schemas:extension:blink:2.0:User:company|String|
+   urn:ietf:params:scim:schemas:extension:blink:2.0:User:description|String|
+   urn:ietf:params:scim:schemas:extension:blink:2.0:User:location|String|
 
 10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -132,6 +148,18 @@ This operation starts the initial synchronization of all users defined in **Scop
 
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
+## Step 6. Monitor your deployment
+Once you've configured provisioning, use the following resources to monitor your deployment:
+
+* Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
+* Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
+* If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
+
+
+## Change log
+
+* 01/14/2021 - Custom extension attributes **company**, **description**, and **location** have been added.
+
 ## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
@@ -140,4 +168,3 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 ## Next steps
 
 * [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)
-

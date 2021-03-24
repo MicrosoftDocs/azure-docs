@@ -28,29 +28,13 @@ This tutorial covers the following tasks:
 
 Before you start with this tutorial, make sure to meet the following requirements:
 
-- A Synapse Studio workspace. For instructions, see [Create a Synapse Studio workspace](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace).
+- A Synapse Studio workspace. For instructions, see [Create a Synapse Studio workspace](../../machine-learning/how-to-manage-workspace.md#create-a-workspace).
 
 - An Apache Spark pool.
 
-## Monitor running Apache Spark application
-
-Open **Monitor**, then select **Apache Spark applications**. To view the details about the Apache Spark applications that are running, select the submitting Apache Spark application and view the details. If the Apache Spark application is still running, you can monitor the progress.
-
-  ![select running job](./media/how-to-monitor-spark-applications/select-running-job.png)
-
-1. Check the **Completed tasks**, **Status**, and **Total duration**.
-
-2. Cancel the Apache Spark application.
-
-3. Refresh Log query.
-
-4. View the graph.
-
-5. Check the **Summary** info.
-
-6. Check the **Logs**. The log info is empty while running.
-
-    ![view running job](./media/how-to-monitor-spark-applications/view-running-job.png)
+## View Apache Spark applications 
+You can view all Apache Spark applications from **Monitor** -> **Apache Spark applications**.
+   ![apache spark applications](./media/how-to-monitor-spark-applications/apache-spark-applications.png)
 
 ## View completed Apache Spark application
 
@@ -64,17 +48,17 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
 3. Open Apache Spark history server link by clicking **Spark history server**.
 
-4. Check the **Summary** info by clicking the icon in the graph.
+4. Check the **Summary** info.
 
-5. Check the **Logs**. You can select different type of logs from the drop-down list, and you can download the log info by clicking **Download logs**.
+5. Check the **Logs**. You can select different type of logs from the drop-down list, and you can download the log info by clicking **Download logs**, and check the checkbox of **Filter errors and warnings** to filter the errors and warnings you need.
 
 6. You can see an overview of your job in the generated job graph. By default, the graph shows all jobs. You can filter this view by **Job ID**.
 
-7. By default, the **Progress** display is selected. You can check the data flow by selecting **Read** or **Written** in the **Display** dropdown list.
+7. By default, the **Progress** display is selected. You can check the data flow by selecting **Progress**/**Read**/**Written**/**Duration** in the **Display** dropdown list.
 
-8. To play back the job, select **Playback**. You can select **Stop** at any time to stop.
+8. To playback the job, click on **Playback** button. You can click on **Stop** button at any time to stop.
 
-9. Use your mouse scroll to zoom in and out on the job graph, or select **Zoom to fit** to make it fit to screen.
+9. Use mouse scroll or scroll bar to zoom in and zoom out the job graph, you can also select **Zoom to Fit** to make it fit the screen.
 
 10. The job graph node displays the following information of each stage:
 
@@ -96,9 +80,34 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
      ![view completed job](./media/how-to-monitor-spark-applications/view-completed-job.png)
     
-11. Click the graph, then the details for stage will show out.
+11. Click on **View details** in the graph, then the details for stage will show out.
 
-   ![details for stage](./media/how-to-monitor-spark-applications/details-for-stage.png)
+    ![details for stage](./media/how-to-monitor-spark-applications/details-for-stage.png)
+
+
+## Monitor running Apache Spark application
+
+Open **Monitor**, then select **Apache Spark applications**. To view the details about the Apache Spark applications that are running, select the submitting Apache Spark application and view the details. If the Apache Spark application is still running, you can monitor the progress.
+
+   ![select running job](./media/how-to-monitor-spark-applications/select-running-job.png)
+
+1. Check the **Completed tasks**, **Status**, and **Total duration**.
+
+2. **Cancel** the Apache Spark application.
+
+3. **Refresh** Log query.
+
+4. Click on **Spark UI** button to go to Spark Job page.
+
+5. View the graph. You can see an overview of your job in the generated job graph. Refer to Step 6，7，8，9，10 of [View completed Apache Spark application](#view-completed-apache-spark-application).
+
+6. Check the **Summary** info.
+
+7. Check the diagnostics in **Diagnostic** tab.
+
+8. Check the **Logs** in this tab. You can select different type of logs from the drop-down list, and you can download the log info by clicking **Download logs**, and check the checkbox of **Filter errors and warnings** to filter the errors and warnings you need.
+
+    ![view running job](./media/how-to-monitor-spark-applications/view-running-job.png)
 
 ## View canceled Apache Spark application
 
@@ -112,11 +121,13 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
 3. Open Apache history server link by clicking **Spark history server**.
 
-4. View the graph.
+4. View the graph. You can see an overview of your job in the generated job graph. Refer to Step 6，7，8，9，10 of [View completed Apache Spark application](#view-completed-apache-spark-application).
 
 5. Check the **Summary** info.
 
-6. Check the **Logs**. You can select different type of logs from the drop-down list, and you can download the log info by clicking **Download logs**.
+6. Check the **Logs**. You can select different type of logs from the drop-down list, and you can download the log info by clicking **Download** logs, and check the checkbox of **Filter errors and warnings** to filter the errors and warnings you need.
+
+7. Click on **View details** in the graph, then the details for stage will show out.
 
    ![view cancelled job](./media/how-to-monitor-spark-applications/view-cancelled-job.png)
 
@@ -132,7 +143,7 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
 3. Open Apache Spark history server link by clicking **Spark history server**.
 
-4. View the graph.
+4. View the graph. You can see an overview of your job in the generated job graph. Refer to Step 6，7，8，9，10 of [View completed Apache Spark application](#view-completed-apache-spark-application)
 
 5. Check the **Summary** info.
 
@@ -140,6 +151,42 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
    ![failed job info](./media/how-to-monitor-spark-applications/failed-job-info.png)
 
+## Compare Apache Spark applications
+
+There are two ways to compare applications. You can compare by choose a **Compare Application**, or click the **Compare in notebook** button to view it in the notebook.
+
+### Compare by choose an application
+
+Click on **Compare applications** button and choose an application to compare performance, you can intuitively see the difference between the two applications.
+
+![compare applications](./media/how-to-monitor-spark-applications/compare-applications.png)
+
+![details compare applications](./media/how-to-monitor-spark-applications/details-compare-applications.png)
+
+1. Use the mouse to hover on an application, and then the **Compare applications** icon is displayed.
+
+2. Click on the **Compare applications** icon, and the Compare applications page will pop up.
+
+3. Click on **Choose application** button to open **Choose comparison application** page.
+
+4. When choosing the comparison application, you need to either enter the application URL, or choose from the recurring list. Then, click **OK** button. 
+
+   ![choose comparison application](./media/how-to-monitor-spark-applications/choose-comparison-application.png)
+
+5. The comparison result will be displayed on the compare applications page.
+
+   ![comparison result](./media/how-to-monitor-spark-applications/comparison-result.png)
+
+### Compare by Compare in notebook
+
+Click the **Compare in Notebook** button on the **Compare applications** page to open the notebook. The default name of the .ipynb file is **Recurrent Application Analytics**.
+
+![compare in notebook](./media/how-to-monitor-spark-applications/compare-in-notebook.png)
+
+In the Notebook: Recurrent Application Analytics file, you can run it directly after setting the Spark pool and Language.
+
+![recurrent application analytics](./media/how-to-monitor-spark-applications/recurrent-application-analytics.png)
+
 ## Next steps
 
-For more information on monitoring pipeline runs, see the [Monitor pipeline runs using Synapse Studio](how-to-monitor-pipeline-runs.md) article.  
+For more information on monitoring pipeline runs, see the [Monitor pipeline runs using Synapse Studio](how-to-monitor-pipeline-runs.md) article.

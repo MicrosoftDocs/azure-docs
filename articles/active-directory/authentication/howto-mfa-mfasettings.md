@@ -1,34 +1,34 @@
 ---
-title: Configure Azure Multi-Factor Authentication - Azure Active Directory
-description: Learn how to configure settings for Azure Multi-Factor Authentication in the Azure portal
+title: Configure Azure AD Multi-Factor Authentication - Azure Active Directory
+description: Learn how to configure settings for Azure AD Multi-Factor Authentication in the Azure portal
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 03/15/2021
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
-ms.custom: contperfq4
+ms.custom: contperf-fy20q4
 ---
-# Configure Azure Multi-Factor Authentication settings
+# Configure Azure AD Multi-Factor Authentication settings
 
-To customize the end-user experience for Azure Multi-Factor Authentication, you can configure options for settings like the account lockout thresholds or fraud alerts and notifications. Some settings are directly in the Azure portal for Azure Active Directory (Azure AD), and some in a separate Azure Multi-Factor Authentication portal.
+To customize the end-user experience for Azure AD Multi-Factor Authentication, you can configure options for settings like the account lockout thresholds or fraud alerts and notifications. Some settings are directly in the Azure portal for Azure Active Directory (Azure AD), and some in a separate Azure AD Multi-Factor Authentication portal.
 
-The following Azure Multi-Factor Authentication settings are available in the Azure portal:
+The following Azure AD Multi-Factor Authentication settings are available in the Azure portal:
 
 | Feature | Description |
 | ------- | ----------- |
-| [Account lockout](#account-lockout) | Temporarily lock accounts from using Azure Multi-Factor Authentication if there are too many denied authentication attempts in a row. This feature only applies to users who enter a PIN to authenticate. (MFA Server) |
-| [Block/unblock users](#block-and-unblock-users) | Block specific users from being able to receive Azure Multi-Factor Authentication requests. Any authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked or they're manually unblocked. |
+| [Account lockout](#account-lockout) | Temporarily lock accounts from using Azure AD Multi-Factor Authentication if there are too many denied authentication attempts in a row. This feature only applies to users who enter a PIN to authenticate. (MFA Server) |
+| [Block/unblock users](#block-and-unblock-users) | Block specific users from being able to receive Azure AD Multi-Factor Authentication requests. Any authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked or they're manually unblocked. |
 | [Fraud alert](#fraud-alert) | Configure settings that allow users to report fraudulent verification requests. |
 | [Notifications](#notifications) | Enable notifications of events from MFA Server. |
-| [OATH tokens](concept-authentication-oath-tokens.md) | Used in cloud-based Azure MFA environments to manage OATH tokens for users. |
+| [OATH tokens](concept-authentication-oath-tokens.md) | Used in cloud-based Azure AD MFA environments to manage OATH tokens for users. |
 | [Phone call settings](#phone-call-settings) | Configure settings related to phone calls and greetings for cloud and on-premises environments. |
 | Providers | This will show any existing authentication providers that you may have associated with your account. New authentication providers may not be created as of September 1, 2018 |
 
@@ -54,7 +54,7 @@ To configure account lockout settings, complete the following settings:
 
 ## Block and unblock users
 
-If a user's device has been lost or stolen, you can block Azure Multi-Factor Authentication attempts for the associated account. Any Azure Multi-Factor Authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked.
+If a user's device has been lost or stolen, you can block Azure AD Multi-Factor Authentication attempts for the associated account. Any Azure AD Multi-Factor Authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked. We have published a video on [how to block and unblock users in your tenant](https://www.youtube.com/watch?v=WdeE1On4S1o) to show you how to do this.
 
 ### Block a user
 
@@ -62,9 +62,7 @@ To block a user, complete the following steps:
 
 1. Browse to **Azure Active Directory** > **Security** > **MFA** > **Block/unblock users**.
 1. Select **Add** to block a user.
-1. Select the **Replication Group**, then choose *Azure Default*.
-
-    Enter the username for the blocked user as `username\@domain.com`, then provide a comment in the *Reason* field.
+1. Enter the username for the blocked user as `username@domain.com`, then provide a comment in the *Reason* field.
 1. When ready, select **OK** to block the user.
 
 ### Unblock a user
@@ -82,7 +80,7 @@ The fraud alert feature lets users report fraudulent attempts to access their re
 
 The following fraud alert configuration options are available:
 
-* **Automatically block users who report fraud**: If a user reports fraud, the Azure MFA authentication attempts for the user  account are blocked for 90 days or until an administrator unblocks their account. An administrator can review sign-ins by using the sign-in report, and take appropriate action to prevent future fraud. An administrator can then [unblock](#unblock-a-user) the user's account.
+* **Automatically block users who report fraud**: If a user reports fraud, the Azure AD MFA authentication attempts for the user  account are blocked for 90 days or until an administrator unblocks their account. An administrator can review sign-ins by using the sign-in report, and take appropriate action to prevent future fraud. An administrator can then [unblock](#unblock-a-user) the user's account.
 * **Code to report fraud during initial greeting**: When users receive a phone call to perform multi-factor authentication, they normally press **#** to confirm their sign-in. To report fraud, the user enters a code before pressing **#**. This code is **0** by default, but you can customize it.
 
    > [!NOTE]
@@ -120,7 +118,7 @@ OATH TOTP hardware tokens typically come with a secret key, or seed, pre-program
 
 Programmable OATH TOTP hardware tokens that can be reseeded can also be set up with Azure AD in the software token setup flow.
 
-OATH hardware tokens are supported as part of a public preview. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+OATH hardware tokens are supported as part of a public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 ![Uploading OATH tokens to the MFA OATH tokens blade](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
 
@@ -153,7 +151,7 @@ In the United States, if you haven't configured MFA Caller ID, voice calls from 
 * *+1 (877) 668 6536*
 
 > [!NOTE]
-> When Azure Multi-Factor Authentication calls are placed through the public telephone network, sometimes the calls are routed through a carrier that doesn't support caller ID. Because of this, caller ID isn't guaranteed, even though Azure Multi-Factor Authentication always sends it. This applies both to phone calls and to text messages provided by Azure Multi-Factor Authentication. If you need to validate that a text message is from Azure Multi-Factor Authentication, see [What SMS short codes are used for sending messages?](multi-factor-authentication-faq.md#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users)
+> When Azure AD Multi-Factor Authentication calls are placed through the public telephone network, sometimes the calls are routed through a carrier that doesn't support caller ID. Because of this, caller ID isn't guaranteed, even though Azure AD Multi-Factor Authentication always sends it. This applies both to phone calls and to text messages provided by Azure AD Multi-Factor Authentication. If you need to validate that a text message is from Azure AD Multi-Factor Authentication, see [What SMS short codes are used for sending messages?](multi-factor-authentication-faq.md#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users)
 
 To configure your own caller ID number, complete the following steps:
 
@@ -163,7 +161,7 @@ To configure your own caller ID number, complete the following steps:
 
 ### Custom voice messages
 
-You can use your own recordings or greetings for Azure Multi-Factor Authentication with the custom voice messages feature. These messages can be used in addition to or to replace the default Microsoft recordings.
+You can use your own recordings or greetings for Azure AD Multi-Factor Authentication with the custom voice messages feature. These messages can be used in addition to or to replace the default Microsoft recordings.
 
 Before you begin, be aware of the following restrictions:
 
@@ -224,16 +222,16 @@ To use your own custom messages, complete the following steps:
 
 ## MFA service settings
 
-Settings for app passwords, trusted IPs, verification options, and remember multi-factor authentication for Azure Multi-Factor Authentication can be found in service settings. This is more of a legacy portal, and isn't part of the regular Azure AD portal.
+Settings for app passwords, trusted IPs, verification options, and remember multi-factor authentication for Azure AD Multi-Factor Authentication can be found in service settings. This is more of a legacy portal, and isn't part of the regular Azure AD portal.
 
 Service settings can be accessed from the Azure portal by browsing to **Azure Active Directory** > **Security** > **MFA** > **Getting started** > **Configure** > **Additional cloud-based MFA settings**. A new window or tab opens with additional *service settings* options.
 
 ## Trusted IPs
 
-The _Trusted IPs_ feature of Azure Multi-Factor Authentication bypasses multi-factor authentication prompts for users who sign in from a defined IP address range. You can set trusted IP ranges for your on-premises environments to when users are in one of those locations, there's no Azure Multi-Factor Authentication prompt.
+The _Trusted IPs_ feature of Azure AD Multi-Factor Authentication bypasses multi-factor authentication prompts for users who sign in from a defined IP address range. You can set trusted IP ranges for your on-premises environments to when users are in one of those locations, there's no Azure AD Multi-Factor Authentication prompt.
 
 > [!NOTE]
-> The trusted IPs can include private IP ranges only when you use MFA Server. For cloud-based Azure Multi-Factor Authentication, you can only use public IP address ranges.
+> The trusted IPs can include private IP ranges only when you use MFA Server. For cloud-based Azure AD Multi-Factor Authentication, you can only use public IP address ranges.
 >
 > IPv6 ranges are only supported in the [Named location (preview)](../conditional-access/location-condition.md#preview-features) interface.
 
@@ -288,7 +286,7 @@ To enable trusted IPs using Conditional Access policies, complete the following 
 
 ### Enable the Trusted IPs feature by using service settings
 
-If you don't want to use Conditional Access policies to enable trusted IPs, you can configure the *service settings* for Azure Multi-Factor Authentication using the following steps:
+If you don't want to use Conditional Access policies to enable trusted IPs, you can configure the *service settings* for Azure AD Multi-Factor Authentication using the following steps:
 
 1. In the Azure portal, search for and select **Azure Active Directory**, then choose **Users**.
 1. Select **Multi-Factor Authentication**.
@@ -308,7 +306,7 @@ If you don't want to use Conditional Access policies to enable trusted IPs, you 
 
 ## Verification methods
 
-You can choose the verification methods that are available for your users in the service settings portal. When your users enroll their accounts for Azure Multi-Factor Authentication, they choose their preferred verification method from the options that you have enabled. Guidance for the user enrollment process is provided in [Set up my account for multi-factor authentication](../user-help/multi-factor-authentication-end-user-first-time.md).
+You can choose the verification methods that are available for your users in the service settings portal. When your users enroll their accounts for Azure AD Multi-Factor Authentication, they choose their preferred verification method from the options that you have enabled. Guidance for the user enrollment process is provided in [Set up my account for multi-factor authentication](../user-help/multi-factor-authentication-end-user-first-time.md).
 
 The following verification methods are available:
 
@@ -373,4 +371,4 @@ After you enable the remember Multi-Factor Authentication feature, users can mar
 
 ## Next steps
 
-To learn more about the available methods for use in Azure Multi-Factor Authentication, see [What authentication and verification methods are available in Azure Active Directory?](concept-authentication-methods.md)
+To learn more about the available methods for use in Azure AD Multi-Factor Authentication, see [What authentication and verification methods are available in Azure Active Directory?](concept-authentication-methods.md)

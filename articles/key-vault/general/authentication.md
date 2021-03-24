@@ -15,7 +15,7 @@ Azure Key Vault allows you to store secrets and control their distribution in a 
 
 ## App identity and security principals
 
-Authentication with Key Vault works in conjunction with [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis), which is responsible for authenticating the identity of any given **security principal**.
+Authentication with Key Vault works in conjunction with [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md), which is responsible for authenticating the identity of any given **security principal**.
 
 A security principal is an object that represents a user, group, service, or application that's requesting access to Azure resources. Azure assigns a unique **object ID** to every security principal.
 
@@ -31,9 +31,9 @@ For applications, there are two ways to obtain a service principal:
 
     With managed identity, Azure internally manages the application's service principal and automatically authenticates the application with other Azure services. Managed identity is available for applications deployed to a variety of services.
 
-    For more information, see the [Managed identity overview](/azure/active-directory/managed-identities-azure-resources/overview). Also see [Azure services that support managed identity](/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities), which links to articles that describe how to enable managed identity for specific services (such as App Service, Azure Functions, Virtual Machines, etc.).
+    For more information, see the [Managed identity overview](../../active-directory/managed-identities-azure-resources/overview.md). Also see [Azure services that support managed identity](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md), which links to articles that describe how to enable managed identity for specific services (such as App Service, Azure Functions, Virtual Machines, etc.).
 
-* If you cannot use managed identity, you instead **register** the application with your Azure AD tenant, as described on [Quickstart: Register an application with the Azure identity platform](/azure/active-directory/develop/quickstart-register-app). Registration also creates a second application object that identifies the app across all tenants.
+* If you cannot use managed identity, you instead **register** the application with your Azure AD tenant, as described on [Quickstart: Register an application with the Azure identity platform](../../active-directory/develop/quickstart-register-app.md). Registration also creates a second application object that identifies the app across all tenants.
 
 ## Authorize a security principal to access Key Vault
 
@@ -51,13 +51,13 @@ Key Vault works with two separate levels of authorization:
  
     To assign and manage roles, see the following articles:
 
-    - [Azure portal](/azure/role-based-access-control/role-assignments-portal)
-    - [Azure CLI](/azure/role-based-access-control/role-assignments-cli)
-    - [Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell)
+    - [Azure portal](../../role-based-access-control/role-assignments-portal.md)
+    - [Azure CLI](../../role-based-access-control/role-assignments-cli.md)
+    - [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 
-    Key Vault currently supports the [Contributor](/azure/role-based-access-control/built-in-roles#key-vault-contributor) role, which allows management operations on Key Vault resources. A number of other roles are currently in preview. You can also create custom roles, as described on [Azure custom roles](/azure/role-based-access-control/custom-roles).
+    Key Vault currently supports the [Contributor](../../role-based-access-control/built-in-roles.md#key-vault-contributor) role, which allows management operations on Key Vault resources. A number of other roles are currently in preview. You can also create custom roles, as described on [Azure custom roles](../../role-based-access-control/custom-roles.md).
 
-    For general information on roles, see [What is Azure Role-Based Access Control (RBAC)?](/azure/role-based-access-control/overview).
+    For general information on roles, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md).
 
 
 > [!IMPORTANT]
@@ -67,7 +67,7 @@ Key Vault works with two separate levels of authorization:
 
 By default, Key Vault allows access to resources through public IP addresses. For greater security, you can also restrict access to specific IP ranges, service endpoints, virtual networks, or private endpoints.
 
-For more information, see [Access Azure Key Vault behind a firewall](/azure/key-vault/general/access-behind-firewall).
+For more information, see [Access Azure Key Vault behind a firewall](./access-behind-firewall.md).
 
 
 ## The Key Vault authentication flow
@@ -75,7 +75,7 @@ For more information, see [Access Azure Key Vault behind a firewall](/azure/key-
 1. A service principal requests to authenticate with Azure AD, for example:
     * A user logs into the Azure portal using a username and password.
     * An application invokes an Azure REST API, presenting a client ID and secret or a client certificate.
-    * An Azure resource such as a virtual machine with a managed identity contacts the [Azure Instance Metadata Service (IMDS)](/azure/virtual-machines/windows/instance-metadata-service) REST endpoint to get an access token.
+    * An Azure resource such as a virtual machine with a managed identity contacts the [Azure Instance Metadata Service (IMDS)](../../virtual-machines/windows/instance-metadata-service.md) REST endpoint to get an access token.
 
 1. If authentication with Azure AD is successful, the service principal is granted an OAuth token.
 
@@ -84,7 +84,7 @@ For more information, see [Access Azure Key Vault behind a firewall](/azure/key-
 1. Key Vault Firewall checks the following criteria. If any criterion is met, the call is allowed. Otherwise the call is blocked and a forbidden response is returned.
 
     * The firewall is disabled and the public endpoint of Key Vault is reachable from the public internet.
-    * The caller is a [Key Vault Trusted Service](/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services), allowing it to bypass the firewall.
+    * The caller is a [Key Vault Trusted Service](./overview-vnet-service-endpoints.md#trusted-services), allowing it to bypass the firewall.
     * The caller is listed in the firewall by IP address, virtual network, or service endpoint.
     * The caller can reach Key Vault over a configured private link connection.    
 
@@ -98,26 +98,27 @@ The following diagram illustrates the process for an application calling a Key V
 
 ![The Azure Key Vault authentication flow](../media/authentication/authentication-flow.png)
 
+> [!NOTE]
+> Key Vault SDK clients for secrets, certificates, and keys make an additional call to Key Vault without access token,  which results in 401 response to retrieve tenant information. For more information see [Authentication, requests and responses](authentication-requests-and-responses.md)
+
 ## Code examples
 
 The following table links to different articles that demonstrate how to work with Key Vault in application code using the Azure SDK libraries for the language in question. Other interfaces such as the Azure CLI and the Azure portal are included for convenience.
 
 | Key Vault Secrets | Key Vault Keys | Key Vault Certificates |
 |  --- | --- | --- |
-| [Python](/azure/key-vault/secrets/quick-create-python) | [Python](/azure/key-vault/keys/quick-create-python) | [Python](/azure/key-vault/certificates/quick-create-python) | 
-| [.NET (SDK v4)](/azure/key-vault/secrets/quick-create-net) | -- | -- |
-| [.NET (SDK v3)](/azure/key-vault/secrets/quick-create-net-v3) | -- | -- |
-| [Java](/azure/key-vault/secrets/quick-create-java) | -- | -- |
-| [JavaScript](/azure/key-vault/secrets/quick-create-node) | -- | -- | 
-| | | |
-| [Azure portal](/azure/key-vault/secrets/quick-create-portal) | [Azure portal](/azure/key-vault/keys/quick-create-portal) | [Azure portal](/azure/key-vault/certificates/quick-create-portal) |
-| [Azure CLI](/azure/key-vault/secrets/quick-create-cli) | [Azure CLI](/azure/key-vault/keys/quick-create-cli) | [Azure CLI](/azure/key-vault/certificates/quick-create-cli) |
-| [Azure PowerShell](/azure/key-vault/secrets/quick-create-powershell) | [Azure PowerShell](/azure/key-vault/keys/quick-create-powershell) | [Azure PowerShell](/azure/key-vault/certificates/quick-create-powershell) |
-| [ARM template](/azure/key-vault/secrets/quick-create-net) | -- | -- |
+| [Python](../secrets/quick-create-python.md) | [Python](../keys/quick-create-python.md) | [Python](../certificates/quick-create-python.md) | 
+| [.NET](../secrets/quick-create-net.md) | [.NET](../keys/quick-create-net.md) | [.NET](../certificates/quick-create-net.md) |
+| [Java](../secrets/quick-create-java.md) | [Java](../keys/quick-create-java.md) | [Java](../certificates/quick-create-java.md) |
+| [JavaScript](../secrets/quick-create-node.md) | [JavaScript](../keys/quick-create-node.md) | [JavaScript](../certificates/quick-create-node.md) | 
+| [Azure portal](../secrets/quick-create-portal.md) | [Azure portal](../keys/quick-create-portal.md) | [Azure portal](../certificates/quick-create-portal.md) |
+| [Azure CLI](../secrets/quick-create-cli.md) | [Azure CLI](../keys/quick-create-cli.md) | [Azure CLI](../certificates/quick-create-cli.md) |
+| [Azure PowerShell](../secrets/quick-create-powershell.md) | [Azure PowerShell](../keys/quick-create-powershell.md) | [Azure PowerShell](../certificates/quick-create-powershell.md) |
+| [ARM template](../secrets/quick-create-net.md) | -- | -- |
 
 ## Next Steps
 
 - [Key Vault access policy troubleshooting](troubleshooting-access-issues.md)
 - [Key Vault REST API error codes](rest-error-codes.md)
 - [Key Vault developer's guide](developers-guide.md)
-- [What is Azure Role-Based Access Control (RBAC)?](/azure/role-based-access-control/overview)
+- [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md)

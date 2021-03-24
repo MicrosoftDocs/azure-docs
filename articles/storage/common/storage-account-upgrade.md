@@ -7,9 +7,9 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/25/2019
+ms.date: 03/09/2021
 ms.author: tamram   
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell
 ---
 
 # Upgrade to a general-purpose v2 storage account
@@ -20,6 +20,15 @@ Upgrading to a general-purpose v2 storage account from your general-purpose v1 o
 
 > [!IMPORTANT]
 > Upgrading a general-purpose v1 or Blob storage account to general-purpose v2 is permanent and cannot be undone.
+
+> [!NOTE]
+> Although Microsoft recommends general-purpose v2 accounts for most scenarios, Microsoft will continue to support general-purpose v1 accounts for new and existing customers. You can create general-purpose v1 storage accounts in new regions whenever Azure Storage is available in those regions. Microsoft does not currently have a plan to deprecate support for general-purpose v1 accounts and will provide at least one year's advance notice before deprecating any Azure Storage feature. Microsoft will continue to provide security updates for general-purpose v1 accounts, but no new feature development is expected for this account type.
+>
+> As of October 1, 2020, pricing for general-purpose v1 accounts in new Azure Storage regions is equivalent to pricing for general-purpose v2 accounts in those regions. Pricing in existing Azure Storage regions has not changed. For pricing details for general-purpose v1 accounts in a specific region, see the Azure Storage pricing page. Choose your region, and then next to **Pricing offers**, select **Other**.
+
+## Upgrade an account
+
+To upgrade a general-purpose v1 or Blob storage account to a general-purpose v2 account, use Azure portal, PowerShell, or Azure CLI.
 
 # [Portal](#tab/azure-portal)
 
@@ -36,16 +45,17 @@ Upgrading to a general-purpose v2 storage account from your general-purpose v1 o
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-To upgrade a general-purpose v1 account to a general-purpose v2 account using PowerShell, first update PowerShell to use the latest version of the **Az.Storage** module. See [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) for information about installing PowerShell.
+To upgrade a general-purpose v1 account to a general-purpose v2 account using PowerShell, first update PowerShell to use the latest version of the **Az.Storage** module. See [Install and configure Azure PowerShell](/powershell/azure/install-Az-ps) for information about installing PowerShell.
 
 Next, call the following command to upgrade the account, substituting your resource group name, storage account name, and desired account access tier.
 
 ```powershell
-Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2 -AccessTier <Hot/Cool>
+Set-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account> -UpgradeToStorageV2 -AccessTier <Hot/Cool>
 ```
+
 # [Azure CLI](#tab/azure-cli)
 
-To upgrade a general-purpose v1 account to a general-purpose v2 account using Azure CLI, first install the latest version of Azure CLI. See [Install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) for information about installing the CLI.
+To upgrade a general-purpose v1 account to a general-purpose v2 account using Azure CLI, first install the latest version of Azure CLI. See [Install the Azure CLI 2.0](/cli/azure/install-azure-cli) for information about installing the CLI.
 
 Next, call the following command to upgrade the account, substituting your resource group name, storage account name, and desired account access tier.
 
@@ -107,7 +117,7 @@ To decide on the best access tier for your needs, it can be helpful to determine
 
 To monitor your existing storage accounts and gather this data, you can make use of Azure Storage Analytics, which performs logging and provides metrics data for a storage account. Storage Analytics can store metrics that include aggregated transaction statistics and capacity data about requests to the storage service for GPv1, GPv2, and Blob storage account types. This data is stored in well-known tables in the same storage account.
 
-For more information, see [About Storage Analytics Metrics](https://msdn.microsoft.com/library/azure/hh343258.aspx) and [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/azure/hh343264.aspx)
+For more information, see [About Storage Analytics Metrics](../blobs/monitor-blob-storage.md) and [Storage Analytics Metrics Table Schema](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema)
 
 > [!NOTE]
 > Blob storage accounts expose the Table service endpoint only for storing and accessing the metrics data for that account.
@@ -164,4 +174,7 @@ The cost of geo-replication data transfer for Blob storage accounts can also be 
 
 ## Next steps
 
+* [Storage account overview](storage-account-overview.md)
 * [Create a storage account](storage-account-create.md)
+* [Move an Azure Storage account to another region](storage-account-move.md)
+* [Recover a deleted storage account](storage-account-recover.md)

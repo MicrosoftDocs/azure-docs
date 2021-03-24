@@ -17,6 +17,10 @@ This article applies to an Azure billing account for a Microsoft Customer Agreem
 
 Your invoice provides a summary of your charges and instructions for payment. It’s available for download in the Portable Document Format (.pdf) from the [Azure portal](https://portal.azure.com/) or can be sent via email. For more information, see [View and download your Microsoft Azure invoice](download-azure-invoice.md).
 
+Watch the [Understand your Microsoft Customer Agreement invoice](https://www.youtube.com/watch?v=e2LGZZ7GubA) video to learn about your invoice and how to analyze the charges on it.
+
+>[!VIDEO https://www.youtube.com/embed/e2LGZZ7GubA]
+
 ## Billing period
 
 You are invoiced on a monthly basis. You can find out which day of the month you receive invoices by checking *invoice date* under billing profile properties in the [Azure portal](https://portal.azure.com/). Charges that occur between the end of the billing period and the invoice date are included in the next month's invoice, since they are in the next billing period. The billing period start and end dates for each invoice are listed in the invoice PDF above **Billing Summary**.

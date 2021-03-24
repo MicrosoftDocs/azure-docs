@@ -12,7 +12,7 @@ This article shows you how to set up activity log alerts for service health noti
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Service health notifications are stored in the [Azure activity log](../azure-monitor/platform/platform-logs-overview.md). Given the possibly large volume of information stored in the activity log, there is a separate user interface to make it easier to view and set up alerts on service health notifications.
+Service health notifications are stored in the [Azure activity log](../azure-monitor/essentials/platform-logs-overview.md). Given the possibly large volume of information stored in the activity log, there is a separate user interface to make it easier to view and set up alerts on service health notifications.
 
 You can receive an alert when Azure sends service health notifications to your Azure subscription. You can configure the alert based on:
 
@@ -29,7 +29,7 @@ You also can configure who the alert should be sent to:
 - Select an existing action group.
 - Create a new action group (that can be used for future alerts).
 
-To learn more about action groups, see [Create and manage action groups](../azure-monitor/platform/action-groups.md).
+To learn more about action groups, see [Create and manage action groups](../azure-monitor/alerts/action-groups.md).
 
 ## Prerequisites
 
@@ -46,19 +46,19 @@ The following template creates an action group with an email target and enables 
   "contentVersion": "1.0.0.0",
   "parameters": {
     "actionGroups_name": {
-      "defaultValue": "SubHealth",
-      "type": "String"
+      "type": "String",
+      "defaultValue": "SubHealth"
     },
     "activityLogAlerts_name": {
-      "defaultValue": "ServiceHealthActivityLogAlert",
-      "type": "String"
+      "type": "String",
+      "defaultValue": "ServiceHealthActivityLogAlert"
     },
-    "emailAddress":{
-      "type":"string"
+    "emailAddress": {
+      "type": "string"
     }
   },
   "variables": {
-    "alertScope":"[concat('/','subscriptions','/',subscription().subscriptionId)]"
+    "alertScope": "[concat('/','subscriptions','/',subscription().subscriptionId)]"
   },
   "resources": [
     {
@@ -67,8 +67,9 @@ The following template creates an action group with an email target and enables 
       "apiVersion": "2019-06-01",
       "name": "[parameters('actionGroups_name')]",
       "location": "Global",
-      "tags": {},
       "scale": null,
+      "dependsOn": [],
+      "tags": {},
       "properties": {
         "groupShortName": "[parameters('actionGroups_name')]",
         "enabled": true,
@@ -80,8 +81,7 @@ The following template creates an action group with an email target and enables 
         ],
         "smsReceivers": [],
         "webhookReceivers": []
-      },
-      "dependsOn": []
+      }
     },
     {
       "comments": "Service Health Activity Log Alert",
@@ -89,8 +89,11 @@ The following template creates an action group with an email target and enables 
       "apiVersion": "2017-04-01",
       "name": "[parameters('activityLogAlerts_name')]",
       "location": "Global",
-      "tags": {},
       "scale": null,
+      "dependsOn": [
+        "[resourceId('microsoft.insights/actionGroups', parameters('actionGroups_name'))]"
+      ],
+      "tags": {},
       "properties": {
         "scopes": [
           "[variables('alertScope')]"
@@ -117,10 +120,7 @@ The following template creates an action group with an email target and enables 
         },
         "enabled": true,
         "description": ""
-      },
-      "dependsOn": [
-        "[resourceId('microsoft.insights/actionGroups', parameters('actionGroups_name'))]"
-      ]
+      }
     }
   ]
 }
@@ -194,7 +194,7 @@ Remove-AzResourceGroup -Name my-resource-group
 - Learn how to [setup mobile push notifications for Azure Service Health](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUw).
 - Learn how to [configure webhook notifications for existing problem management systems](service-health-alert-webhook-guide.md).
 - Learn about [service health notifications](service-notifications.md).
-- Learn about [notification rate limiting](../azure-monitor/platform/alerts-rate-limiting.md).
-- Review the [activity log alert webhook schema](../azure-monitor/platform/activity-log-alerts-webhook.md).
-- Get an [overview of activity log alerts](../azure-monitor/platform/alerts-overview.md), and learn how to receive alerts.
-- Learn more about [action groups](../azure-monitor/platform/action-groups.md).
+- Learn about [notification rate limiting](../azure-monitor/alerts/alerts-rate-limiting.md).
+- Review the [activity log alert webhook schema](../azure-monitor/alerts/activity-log-alerts-webhook.md).
+- Get an [overview of activity log alerts](../azure-monitor/alerts/alerts-overview.md), and learn how to receive alerts.
+- Learn more about [action groups](../azure-monitor/alerts/action-groups.md).

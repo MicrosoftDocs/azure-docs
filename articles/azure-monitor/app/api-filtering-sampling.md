@@ -287,7 +287,7 @@ protected void Application_Start()
 }
 ```
 
-See more of [this sample](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole).
+See more of [this sample](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole).
 
 ASP.NET **Core/Worker service apps: Load your initializer**
 
@@ -492,7 +492,7 @@ public void Initialize(ITelemetry telemetry)
 
 #### Add information from HttpContext
 
-The following sample initializer reads data from [`HttpContext`](/aspnet/core/fundamentals/http-context?view=aspnetcore-3.1) and appends it to a `RequestTelemetry` instance. The `IHttpContextAccessor` is automatically provided through constructor dependency injection.
+The following sample initializer reads data from [`HttpContext`](/aspnet/core/fundamentals/http-context) and appends it to a `RequestTelemetry` instance. The `IHttpContextAccessor` is automatically provided through constructor dependency injection.
 
 ```csharp
 public class HttpContextRequestTelemetryInitializer : ITelemetryInitializer

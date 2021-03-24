@@ -43,7 +43,7 @@
 - name: Samples
   items:
   - name: Code samples
-    href: https://docs.microsoft.com/samples/browse/?products=azure&terms=container%20instance
+    href: /samples/browse/?products=azure&terms=container%2binstance
   - name: Resource Manager templates
     href: container-instances-samples-rm.md
 - name: Concepts
@@ -72,7 +72,7 @@
       href: container-instances-vnet.md
     - name: Deploy from Azure Container Registry
       href: container-instances-using-azure-container-registry.md
-    - name: Deploy with GitHub Actions (preview)
+    - name: Deploy with GitHub Actions
       href: container-instances-github-action.md
     - name: Encrypt deployment data
       href: container-instances-encrypt-data.md
@@ -156,6 +156,9 @@
     href: container-instances-reference-yaml.md
   - name: Connector
     href: /connectors/aci
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn

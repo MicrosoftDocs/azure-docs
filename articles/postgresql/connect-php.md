@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Connect with PHP - Azure Database for PostgreSQL - Single Server'
 description: This quickstart provides a PHP code sample you can use to connect and query data from Azure Database for PostgreSQL - Single Server.
-author: rachel-msft
-ms.author: raagyema
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: php
@@ -83,7 +83,7 @@ Replace the `$host`, `$database`, `$user`, and `$password` parameters with your 
 	// Insert some data into table.
 	$name = '\'banana\'';
 	$quantity = 150;
-	$query = "INSERT INTO inventory (name, quantity) VALUES ($1, $2);";
+	$query = "INSERT INTO inventory (name, quantity) VALUES ($name, $quantity);";
 	pg_query($connection, $query) 
 		or die("Encountered an error when executing given sql statement: ". pg_last_error(). "<br/>");
 
@@ -210,6 +210,16 @@ Replace the `$host`, `$database`, `$user`, and `$password` parameters with your 
 	// Closing connection
 	pg_close($connection);
 ?>
+```
+
+## Clean up resources
+
+To clean up all resources used during this quickstart, delete the resource group using the following command:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## Next steps

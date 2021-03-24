@@ -14,9 +14,9 @@ equally named _BizTalk Services_ feature that was built on a proprietary
 protocol foundation. The integration of Hybrid Connections into Azure App
 Services will continue to function as-is.
 
-Hybrid Connections enables bi-directional, binary stream communication and
+Hybrid Connections enables bi-directional, request-response, and binary stream communication, and
 simple datagram flow between two networked applications. Either or
-both parties can reside behind NATs or firewalls.
+both parties can be behind NATs or firewalls.
 
 This article describes the client-side interactions with the Hybrid Connections
 relay for connecting clients in listener and sender roles. It also describes how 
@@ -35,7 +35,7 @@ The service allows for relaying Web Socket connections and HTTP(S)
 requests and responses.
 
 The interaction model leans on the nomenclature established by many other
-networking APIs. There is a listener that first indicates readiness to handle
+networking APIs. There's a listener that first indicates readiness to handle
 incoming connections, and subsequently accepts them as they arrive. On the
 other side, a client connects towards the listener, expecting that connection
 to be accepted for establishing a bi-directional communication path. "Connect,"
@@ -46,7 +46,7 @@ towards a service endpoint. This makes the "listener" also a "client" in
 colloquial use, and may also cause other terminology overloads. The precise
 terminology therefore used for Hybrid Connections is as follows:
 
-The programs on both sides of a connection are called "clients," since they are
+The programs on both sides of a connection are called "clients," since they're
 clients to the service. The client that waits for and accepts connections is
 the "listener," or is said to be in the "listener role." The client that
 initiates a new connection towards a listener via the service is called the
@@ -90,7 +90,7 @@ for as long as the sender is willing to wait for the connection to be
 established end-to-end. The maximum to assume is 30 seconds. The URL can only
 be used for one successful connection attempt. As soon as the WebSocket
 connection with the rendezvous URL is established, all further activity on this
-WebSocket is relayed from and to the sender. This happens without any
+WebSocket is relayed from and to the sender. This behavior happens without any
 intervention or interpretation by the service.
 
 ### Request message
@@ -101,14 +101,13 @@ the Hybrid Connection.
 
 Listeners that attach to Hybrid Connections with HTTP support MUST handle the
 `request` gesture. A listener that doesn't handle `request` and therefore
-causes repeated timeout errors while being connected MAY be blacklisted by the
+causes repeated timeout errors while being connected MAY be blocked by the
 service in the future.
 
 HTTP frame header metadata is translated into JSON for simpler handling by the
 listener framework, also because HTTP header parsing libraries are rarer than
 JSON parsers. HTTP metadata that is only relevant for the relationship between
-the sender and the Relay HTTP gateway, including authorization information, is
-not forwarded. HTTP request bodies are transparently transferred as binary
+the sender and the Relay HTTP gateway, including authorization information, isn't forwarded. HTTP request bodies are transparently transferred as binary
 WebSocket frames.
 
 The listener can respond to HTTP requests using an equivalent response gesture.
@@ -129,8 +128,8 @@ For requests, the service decides whether to route requests over the control
 channel. This includes, but may not be limited to cases where a request exceeds
 64 kB (headers plus body) outright, or if the request is sent with ["chunked"
 transfer-encoding](https://tools.ietf.org/html/rfc7230#section-4.1) and the
-service has reason to expect for the request to exceed 64kB or reading the
-request is not instantaneous. If the service chooses to deliver the request
+service has reason to expect for the request to exceed 64 kB or reading the
+request isn't instantaneous. If the service chooses to deliver the request
 over rendezvous, it only passes the rendezvous address to the listener.
 The listener then MUST establish the rendezvous WebSocket and the service
 promptly delivers the full request including bodies over the rendezvous 
@@ -288,7 +287,7 @@ Azure support personnel:
 | ---- | -------------- | -------------------------------------------------------------------
 | 404  | Not Found      | The Hybrid Connection path is invalid or the base URL is malformed.
 | 401  | Unauthorized   | The security token is missing or malformed or invalid.
-| 403  | Forbidden      | The security token is not valid for this path for this action.
+| 403  | Forbidden      | The security token isn't valid for this path for this action.
 | 500  | Internal Error | Something went wrong in the service.
 
 If the WebSocket connection is intentionally shut down by the service after it
@@ -316,8 +315,7 @@ properties at this time:
 * **address** – the URL string to be used for establishing the WebSocket to the
   service to accept an incoming connection.
 * **id** – the unique identifier for this connection. If the ID was supplied by
-  the sender client, it is the sender supplied value, otherwise it is a system
-  generated value.
+  the sender client, it is the sender supplied value, otherwise it is a system-generated value.
 * **connectHeaders** – all HTTP headers that have been supplied to the Relay
   endpoint by the sender, which also includes the Sec-WebSocket-Protocol and the
   Sec-WebSocket-Extensions headers.
@@ -367,8 +365,8 @@ fixed `$hc/` path portion.
 
 The `path` expression may be extended with a suffix and a query string
 expression that follows the registered name after a separating forward slash.
-This enables the sender client to pass dispatch arguments to the accepting
-listener when it is not possible to include HTTP headers. The expectation is
+This parameter enables the sender client to pass dispatch arguments to the accepting
+listener when it isn't possible to include HTTP headers. The expectation is
 that the listener framework parses out the fixed path portion and the
 registered name from the path and makes the remainder, possibly without any
 query string arguments prefixed by `sb-`, available to the application for
@@ -380,7 +378,7 @@ If there is an error, the service can reply as follows:
 
 | Code | Error          | Description
 | ---- | -------------- | -----------------------------------
-| 403  | Forbidden      | The URL is not valid.
+| 403  | Forbidden      | The URL isn't valid.
 | 500  | Internal Error | Something went wrong in the service
 
  After the connection has been established, the server shuts down the WebSocket
@@ -420,7 +418,7 @@ the following codes describe the error:
 
 | Code | Error          | Description                          |
 | ---- | -------------- | ------------------------------------ |
-| 403  | Forbidden      | The URL is not valid.                |
+| 403  | Forbidden      | The URL isn't valid.                |
 | 500  | Internal Error | Something went wrong in the service. |
 
 #### Request message
@@ -430,8 +428,7 @@ the control channel. The same message is also sent over the rendezvous
 WebSocket once established.
 
 The `request` consists of two parts: a header and binary body frame(s).
-If there is no body, the body frames are omitted. The indicator for
-whether a body is present is the boolean `body` property in the request
+If there is no body, the body frames are omitted. The boolean `body` property indicates whether a body is present in the request
 message.
 
 For a request with a request body, the structure may look like this:
@@ -474,7 +471,7 @@ For a request without a body, there's only one text frame.
 
 The JSON content for `request` is as follows:
 
-* **address** - URI string. This is the rendezvous address to use for this request. If the
+* **address** - URI string. It's the rendezvous address to use for this request. If the
   incoming request is larger than 64 kB, the remainder of this message is left
   empty, and the client MUST initiate a rendezvous handshake equivalent to the
   `accept` operation described below. The service will then put the complete
@@ -498,11 +495,11 @@ The JSON content for `request` is as follows:
   * `Upgrade` (RFC7230, Section 6.7)
   * `Close`  (RFC7230, Section 8.1)
 
-* **requestTarget** – string. This property holds the  ["Request Target" (RFC7230, Section 5.3)](https://tools.ietf.org/html/rfc7230#section-5.3) of the request. This includes
+* **requestTarget** – string. This property holds the  ["Request Target" (RFC7230, Section 5.3)](https://tools.ietf.org/html/rfc7230#section-5.3) of the request. It includes
   the query string portion, which is stripped of ALL `sb-hc-` prefixed parameters.
 * **method** - string. This is the method of the request, per [RFC7231, Section 4](https://tools.ietf.org/html/rfc7231#section-4). The `CONNECT` method MUST NOT
  be used.
-* **body** – boolean. Indicates whether one or more binary body frame follows.
+* **body** – boolean. Indicates whether one or more binary body frames follows.
 
 ``` JSON
 {
@@ -524,7 +521,7 @@ The JSON content for `request` is as follows:
 ##### Responding to requests
 
 The receiver MUST respond. Repeated failure to respond to requests while
-maintaining the connection might result in the listener getting blacklisted.
+maintaining the connection might result in the listener getting blocked.
 
 Responses may be sent in any order, but each request must be responded to
 within 60 seconds or the delivery will be reported as having failed. The
@@ -637,7 +634,7 @@ connect to is the same as for the listener, but the "action" differs and the
 token needs a different permission:
 
 ```
-wss://{namespace-address}/$hc/{path}?sb-hc-action=...&sb-hc-id=...&sbc-hc-token=...
+wss://{namespace-address}/$hc/{path}?sb-hc-action=...&sb-hc-id=...&sb-hc-token=...
 ```
 
 The _namespace-address_ is the fully qualified domain name of the Azure Relay
@@ -665,7 +662,7 @@ The query string parameter options are as follows:
  parameters defined here. A complete expression may then be as follows:
 
 ```
-wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id=...&]sbc-hc-token=...
+wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id=...&]sb-hc-token=...
 ```
 
 The `path` expression is passed through to the listener in the address URI contained in the "accept" control message.
@@ -680,7 +677,7 @@ Azure support personnel:
 | ---- | -------------- | -------------------------------------------------------------------
 | 404  | Not Found      | The Hybrid Connection path is invalid or the base URL is malformed.
 | 401  | Unauthorized   | The security token is missing or malformed or invalid.
-| 403  | Forbidden      | The security token is not valid for this path and for this action.
+| 403  | Forbidden      | The security token isn't valid for this path and for this action.
 | 500  | Internal Error | Something went wrong in the service.
 
 If the WebSocket connection is intentionally shut down by the service after it
@@ -690,9 +687,9 @@ message that also includes a tracking ID.
 
 | WS Status | Description
 | --------- | ------------------------------------------------------------------------------- 
-| 1000      | The listener shut down the socket.
+| 1000      | The listener shutdown the socket.
 | 1001      | The Hybrid Connection path has been deleted or disabled.
-| 1008      | The security token has expired, therefore the authorization policy is violated.
+| 1008      | The security token has expired, so the authorization policy is violated.
 | 1011      | Something went wrong in the service.
 
 ### HTTP request protocol
@@ -702,7 +699,7 @@ HTTP requests are pointed at the entity's regular runtime address, without the
 $hc infix that is used for hybrid connections WebSocket clients.
 
 ```
-https://{namespace-address}/{path}?sbc-hc-token=...
+https://{namespace-address}/{path}?sb-hc-token=...
 ```
 
 The _namespace-address_ is the fully qualified domain name of the Azure Relay
@@ -710,7 +707,7 @@ namespace that hosts the Hybrid Connection, typically of the form
 `{myname}.servicebus.windows.net`.
 
 The request can contain arbitrary extra HTTP headers, including
-application-defined ones. All supplied headers, except those directly defined
+application-defined ones. All supplied headers, except the ones directly defined
 in RFC7230 (see [Request message](#request-message)) flow to the listener and
 can be found on the `requestHeader` object of the **request** message.
 
@@ -734,7 +731,7 @@ The service adds the Relay namespace hostname to `Via`.
 | 200  | OK       | The request has been handled by at least one listener.  |
 | 202  | Accepted | The request has been accepted by at least one listener. |
 
-If there is an error, the service can reply as follows. Whether the response originates
+If there's an error, the service can reply as follows. Whether the response originates
 from the service or from the listener can be identified through presence of the `Via`
 header. If the header is present, the response is from the listener.
 
@@ -742,10 +739,10 @@ header. If the header is present, the response is from the listener.
 | ---- | --------------- |--------- |
 | 404  | Not Found       | The Hybrid Connection path is invalid or the base URL is malformed.
 | 401  | Unauthorized    | The security token is missing or malformed or invalid.
-| 403  | Forbidden       | The security token is not valid for this path and for this action.
+| 403  | Forbidden       | The security token isn't valid for this path and for this action.
 | 500  | Internal Error  | Something went wrong in the service.
-| 503  | Bad Gateway     | The request could not be routed to any listener.
-| 504  | Gateway Timeout | The request was routed to a listener, but the listener did not acknowledge receipt in the required time.
+| 503  | Bad Gateway     | The request couldn't be routed to any listener.
+| 504  | Gateway Timeout | The request was routed to a listener, but the listener didn't acknowledge receipt in the required time.
 
 ## Next steps
 

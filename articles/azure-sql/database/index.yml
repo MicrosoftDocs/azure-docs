@@ -10,10 +10,10 @@ metadata:
   ms.service: sql-database
   ms.subservice: single-database
   ms.topic: landing-page
-  author: MashaMSFT
-  ms.author: mathoma
-  ms.reviewer: sstein
-  ms.date: 05/27/2020
+  author: stevestein
+  ms.author: sstein
+  ms.reviewer:
+  ms.date: 01/25/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -24,20 +24,24 @@ landingContent:
   # Card 
   - title: Azure SQL Database
     linkLists:
+      - linkListType: whats-new
+        links:
+          - text: What's new? 
+            url: doc-changes-updates-release-notes.md?tabs=single-database        
+          - text: Feedback? Take the survey! 
+            url: https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456 
       - linkListType: quickstart
         links:
           - text: Create SQL Database
             url: single-database-create-quickstart.md
           - text: Configure firewall
-            url: firewall-create-server-level-portal-quickstart.md 
+            url: firewall-create-server-level-portal-quickstart.md
       - linkListType: video
         links:
           - text: Azure SQL Database overview
             url: https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Database-Overview-7-of-61
       - linkListType: concept
         links:
-          - text: What's new? 
-            url: doc-changes-updates-release-notes.md?tabs=single-database
           - text: What is SQL Database?
             url: sql-database-paas-overview.md
           - text: Purchasing options
@@ -52,6 +56,8 @@ landingContent:
             url: migrate-to-database-from-sql-server.md
           - text: T-SQL differences with SQL Server
             url: transact-sql-tsql-differences-sql-server.md
+          - text: Reserved capacity
+            url: reserved-capacity-overview.md
 
   # Card 
   - title: Business continuity  
@@ -116,7 +122,7 @@ landingContent:
         - text: Azure SQL for beginners
           url: https://aka.ms/azuresql4beginners
         - text: Azure SQL fundamentals 
-          url: https://docs.microsoft.com/learn/paths/azure-sql-fundamentals/
+          url: /learn/paths/azure-sql-fundamentals/
         - text: Azure SQL hands-on labs
           url: https://aka.ms/asqlworkshop
         - text: Azure SQL bootcamp 
@@ -152,11 +158,11 @@ landingContent:
           - text: Transact-SQL (T-SQL)
             url: /sql/t-sql/language-reference
           - text: Azure CLI
-            url: https://docs.microsoft.com/cli/azure/sql
+            url: /cli/azure/sql
           - text: PowerShell
-            url: https://docs.microsoft.com/powershell/module/az.sql
+            url: /powershell/module/az.sql
           - text: REST API
-            url: https://docs.microsoft.com/rest/api/sql/
+            url: /rest/api/sql/
  
   # Card 
   - title: Scalability
@@ -172,14 +178,24 @@ landingContent:
           - text: Elastic scale
             url: elastic-scale-introduction.md 
           - text: Elastic query 
-            url: elastic-query-overview.md 
+            url: elastic-query-overview.md
 
+  # Card 
+  - title: Planned maintenance
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Plan for Azure maintenance events
+            url: planned-maintenance.md
+          - text: Maintenance window
+            url: maintenance-window.md
+          - text: Resource health
+            url: resource-health-to-troubleshoot-connectivity.md
 
-
-
-
-
-
-
-
-
+      - linkListType: how-to-guide
+        links:
+          - text: Configure maintenance window
+            url: maintenance-window-configure.md
+          - text: Maintenance window notifications
+            url: advance-notifications.md
+ 

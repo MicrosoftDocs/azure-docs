@@ -1,22 +1,19 @@
 ---
 title: Configuration and management issues FAQ
-titleSuffix: Azure Cloud Services
 description: This article lists the frequently asked questions about configuration and management for Microsoft Azure Cloud Services.
-services: cloud-services
-documentationcenter: ''
-author: genlin
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
-ms.service: cloud-services
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/23/2018
-ms.author: genli
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: 
 ---
-# Configuration and management issues for Azure Cloud Services: Frequently asked questions (FAQs)
+
+# Configuration and management issues for Azure Cloud Services (classic): Frequently asked questions (FAQs)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
 
 This article includes frequently asked questions about configuration and management issues for [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). You can also consult the [Cloud Services VM Size page](cloud-services-sizes-specs.md) for size information.
 
@@ -56,7 +53,7 @@ This article includes frequently asked questions about configuration and managem
 
 **Generic**
 
-- [How do I add "nosniff" to my website?](#how-do-i-add-nosniff-to-my-website)
+- [How do I add `nosniff` to my website?](#how-do-i-add-nosniff-to-my-website)
 - [How do I customize IIS for a web role?](#how-do-i-customize-iis-for-a-web-role)
 - [What is the quota limit for my Cloud Service?](#what-is-the-quota-limit-for-my-cloud-service)
 - [Why does the drive on my Cloud Service VM show very little free disk space?](#why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space)
@@ -71,7 +68,7 @@ This article includes frequently asked questions about configuration and managem
 
 ### Why is the certificate chain of my Cloud Service TLS/SSL certificate incomplete?
     
-We recommend that customers install the full certificate chain (leaf cert, intermediate certs, and root cert) instead of just the leaf certificate. When you install just the leaf certificate, you rely on Windows to build the certificate chain by walking the CTL. If intermittent network or DNS issues occur in Azure or Windows Update when Windows is trying to validate the certificate, the certificate may be considered invalid. By installing the full certificate chain, this problem can be avoided. The blog at [How to install a chained SSL certificate](https://blogs.msdn.microsoft.com/azuredevsupport/2010/02/24/how-to-install-a-chained-ssl-certificate/) shows how to do this.
+We recommend that customers install the full certificate chain (leaf cert, intermediate certs, and root cert) instead of just the leaf certificate. When you install just the leaf certificate, you rely on Windows to build the certificate chain by walking the CTL. If intermittent network or DNS issues occur in Azure or Windows Update when Windows is trying to validate the certificate, the certificate may be considered invalid. By installing the full certificate chain, this problem can be avoided. The blog at [How to install a chained SSL certificate](/archive/blogs/azuredevsupport/how-to-install-a-chained-ssl-certificate) shows how to do this.
 
 ### What is the purpose of the "Windows Azure Tools Encryption Certificate for Extensions"?
 
@@ -105,11 +102,11 @@ You can automate this task by using a startup script (batch/cmd/PowerShell) and 
 
 ### What is the purpose of the "Microsoft Azure Service Management for MachineKey" certificate?
 
-This certificate is used to encrypt machine keys on Azure Web Roles. To learn more, check out [this advisory](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731).
+This certificate is used to encrypt machine keys on Azure Web Roles. To learn more, check out [this advisory](/security-updates/securityadvisories/2018/4092731).
 
 For more information, see the following articles:
-- [How to configure and run startup tasks for a Cloud Service](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
-- [Common Cloud Service startup tasks](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common)
+- [How to configure and run startup tasks for a Cloud Service](./cloud-services-startup-tasks.md)
+- [Common Cloud Service startup tasks](./cloud-services-startup-tasks-common.md)
 
 ## Monitoring and logging
 
@@ -122,7 +119,7 @@ $cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLoc
 $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
 ```
-Ability to choose blob or local for your csdef and cscfg upload location is coming soon. Using [New-AzureDeployment](/powershell/module/servicemanagement/azure.service/new-azuredeployment?view=azuresmps-4.0.0), you can set each location value.
+Ability to choose blob or local for your csdef and cscfg upload location is coming soon. Using [New-AzureDeployment](/powershell/module/servicemanagement/azure.service/new-azuredeployment), you can set each location value.
 
 Ability to monitor metrics at the instance level. Additional monitoring capabilities are available in [How to Monitor Cloud Services](cloud-services-how-to-monitor.md).
 
@@ -133,16 +130,16 @@ You have exhausted the local storage quota for writing to the log directory.�
 * Increase quota limit for local resources.
 
 For more information, see the following documents:
-* [Store and view diagnostic data in Azure Storage](/azure/storage/common/storage-introduction)
-* [IIS Logs stop writing in Cloud Service](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
+* [Store and view diagnostic data in Azure Storage](../storage/common/storage-introduction.md)
+* [IIS Logs stop writing in Cloud Service](/archive/blogs/cie/iis-logs-stops-writing-in-cloud-service)
 
 ### How do I enable WAD logging for Cloud Services?
 You can enable Windows Azure Diagnostics (WAD) logging through following options:
-1. [Enable from Visual Studio](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
-2. [Enable through .NET code](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
-3. [Enable through Powershell](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
+1. [Enable from Visual Studio](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+2. [Enable through .NET code](./cloud-services-dotnet-diagnostics.md)
+3. [Enable through PowerShell](./cloud-services-diagnostics-powershell.md)
 
-In order to get the current WAD settings of your Cloud Service, you can use [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) ps cmd or you can view it through portal from “Cloud Services --> Extensions” blade.
+In order to get the current WAD settings of your Cloud Service, you can use [Get-AzureServiceDiagnosticsExtensions](./cloud-services-diagnostics-powershell.md#get-current-diagnostics-extension-configuration) PowerShell cmd or you can view it through portal from “Cloud Services --> Extensions” blade.
 
 
 ## Network configuration
@@ -211,7 +208,7 @@ For more information, see [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2).
 ## Permissions
 
 ### How can I implement role-based access for Cloud Services?
-Cloud Services doesn't support the role-based access control (RBAC) model, as it's not an Azure Resource Manager based service.
+Cloud Services doesn't support the Azure role-based access control (Azure RBAC) model, as it's not an Azure Resource Manager based service.
 
 See [Understand the different roles in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
@@ -238,17 +235,17 @@ Auto-scale based on Memory metrics for a Cloud Services is not currently support
 
 To work around this problem, you can use Application Insights. Auto-Scale supports Application Insights as a Metrics Source and can scale the role instance count based on guest metric like "Memory".  You have to configure Application Insights in your Cloud Service project package file (*.cspkg) and enable Azure Diagnostics extension on the service to implement this feat.
 
-For more details on how to utilize a custom metric via Application Insights to configure Auto-Scale on  Cloud Services, see [Get started with auto scale by custom metric in Azure](../azure-monitor/platform/autoscale-custom-metric.md)
+For more details on how to utilize a custom metric via Application Insights to configure Auto-Scale on  Cloud Services, see [Get started with auto scale by custom metric in Azure](../azure-monitor/autoscale/autoscale-custom-metric.md)
 
-For more information on how to integrate Azure Diagnostics with Application Insights for Cloud Services, see [Send Cloud Service, Virtual Machine, or Service Fabric diagnostic data to Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
+For more information on how to integrate Azure Diagnostics with Application Insights for Cloud Services, see [Send Cloud Service, Virtual Machine, or Service Fabric diagnostic data to Application Insights](../azure-monitor/agents/diagnostics-extension-to-application-insights.md)
 
-For more information about to enable Application Insights for Cloud Services, see [Application Insights for Azure Cloud Services](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)
+For more information about to enable Application Insights for Cloud Services, see [Application Insights for Azure Cloud Services](../azure-monitor/app/cloudservices.md)
 
 For more information about how to enable Azure Diagnostics Logging for Cloud Services, see [Set up diagnostics for Azure Cloud Services and virtual machines](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 
 ## Generic
 
-### How do I add "nosniff" to my website?
+### How do I add `nosniff` to my website?
 To prevent clients from sniffing the MIME types, add a setting in your *web.config* file.
 
 ```xml
@@ -278,11 +275,11 @@ See [Service-specific limits](../azure-resource-manager/management/azure-subscri
 ### Why does the drive on my Cloud Service VM show very little free disk space?
 This is expected behavior, and it shouldn't cause any issue to your application. Journaling is turned on for the %approot% drive in Azure PaaS VMs, which essentially consumes double the amount of space that files normally take up. However there are several things to be aware of that essentially turn this into a non-issue.
 
-The %approot% drive size is calculated as \<size of .cspkg + max journal size + a margin of free space>, or 1.5 GB, whichever is larger. The size of your VM has no bearing on this calculation. (The VM size only affects the size of the temporary C: drive.) 
+The %approot% drive size is calculated as <size of .cspkg + max journal size + a margin of free space>, or 1.5 GB, whichever is larger. The size of your VM has no bearing on this calculation. (The VM size only affects the size of the temporary C: drive.) 
 
 It is unsupported to write to the %approot% drive. If you are writing to the Azure VM, you must do so in a temporary LocalStorage resource (or other option, such as Blob storage, Azure Files, etc.). So the amount of free space on the %approot% folder is not meaningful. If you are not sure if your application is writing to the %approot% drive, you can always let your service run for a few days and then compare the "before" and "after" sizes. 
 
-Azure will not write anything to the %approot% drive. Once the VHD is created from your .cspkg and mounted into the Azure VM, the only thing that might write to this drive is your application. 
+Azure will not write anything to the %approot% drive. Once the VHD is created from your `.cspkg` and mounted into the Azure VM, the only thing that might write to this drive is your application. 
 
 The journal settings are non-configurable, so you can't turn it off.
 
@@ -291,7 +288,7 @@ The journal settings are non-configurable, so you can't turn it off.
 You can enable Antimalware extension using PowerShell script in the Startup Task. Follow the steps in these articles to implement it: 
  
 - [Create a PowerShell startup task](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
-- [Set-AzureServiceAntimalwareExtension](/powershell/module/servicemanagement/azure.service/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
+- [Set-AzureServiceAntimalwareExtension](/powershell/module/servicemanagement/azure.service/Set-AzureServiceAntimalwareExtension)
 
 For more information about Antimalware deployment scenarios and how to enable it from the portal, see [Antimalware Deployment Scenarios](../security/fundamentals/antimalware.md#antimalware-deployment-scenarios).
 
@@ -307,7 +304,7 @@ The SNI binding can be configured using the PowerShell cmdlet **New-WebBinding**
 New-WebBinding -Name $WebsiteName -Protocol "https" -Port 443 -IPAddress $IPAddress -HostHeader $HostHeader -SslFlags $sslFlags
 ```
 
-As described [here](https://technet.microsoft.com/library/ee790567.aspx), the $sslFlags could be one of the values as the following:
+As described [here](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee790567(v=technet.10)), the $sslFlags could be one of the values as the following:
 
 |Value|Meaning|
 ------|------
@@ -318,7 +315,7 @@ As described [here](https://technet.microsoft.com/library/ee790567.aspx), the $s
  
 **Method 2: Use code**
 
-The SNI binding could also be configured via code in the role startup as described on this [blog post](https://blogs.msdn.microsoft.com/jianwu/2014/12/17/expose-ssl-service-to-multi-domains-from-the-same-cloud-service/):
+The SNI binding could also be configured via code in the role startup as described on this [blog post](/archive/blogs/jianwu/expose-ssl-service-to-multi-domains-from-the-same-cloud-service):
 
 ```csharp
 //<code snip> 
@@ -350,7 +347,6 @@ An already deployed Cloud Service gets billed for the Compute and Storage it use
 
 Here is what you can do to reduce your billing without losing the IP address for your service:
 
-1. [Reserve the IP address](../virtual-network/virtual-networks-reserved-public-ip.md) before you delete the deployments.  You will only be billed for this IP address. For more information about IP address billing, see [IP addresses pricing](https://azure.microsoft.com/pricing/details/ip-addresses/).
+1. [Reserve the IP address](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) before you delete the deployments.  You will only be billed for this IP address. For more information about IP address billing, see [IP addresses pricing](https://azure.microsoft.com/pricing/details/ip-addresses/).
 2. Delete the deployments. Don’t delete the xxx.cloudapp.net, so that you can use it for future.
 3. If you want to redeploy the Cloud Service by using the same reserve IP that you reserved in your subscription, see [Reserved IP addresses for Cloud Services and Virtual Machines](https://azure.microsoft.com/blog/reserved-ip-addresses/).
-

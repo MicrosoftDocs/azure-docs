@@ -31,9 +31,9 @@ Class `OutlineSettings` holds the settings related to global outline properties.
 The following code shows an example for setting outline parameters via the API:
 
 ```cs
-void SetOutlineParameters(AzureSession session)
+void SetOutlineParameters(RenderingSession session)
 {
-    OutlineSettings outlineSettings = session.Actions.OutlineSettings;
+    OutlineSettings outlineSettings = session.Connection.OutlineSettings;
     outlineSettings.Color = new Color4Ub(255, 255, 0, 255);
     outlineSettings.PulseRateHz = 2.0f;
     outlineSettings.PulseIntensity = 0.5f;
@@ -41,9 +41,9 @@ void SetOutlineParameters(AzureSession session)
 ```
 
 ```cpp
-void SetOutlineParameters(ApiHandle<AzureSession> session)
+void SetOutlineParameters(ApiHandle<RenderingSession> session)
 {
-    ApiHandle<OutlineSettings> outlineSettings = session->Actions()->GetOutlineSettings();
+    ApiHandle<OutlineSettings> outlineSettings = session->Connection()->GetOutlineSettings();
     Color4Ub outlineColor;
     outlineColor.channels = { 255, 255, 0, 255 };
     outlineSettings->SetColor(outlineColor);
@@ -58,8 +58,8 @@ Outline rendering may have a significant impact on rendering performance. This i
 
 ## API documentation
 
-* [C# RemoteManager.OutlineSettings property](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.outlinesettings)
-* [C++ RemoteManager::OutlineSettings()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#outlinesettings)
+* [C# RenderingConnection.OutlineSettings property](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.outlinesettings)
+* [C++ RenderingConnection::OutlineSettings()](/cpp/api/remote-rendering/renderingconnection#outlinesettings)
 
 ## Next steps
 

@@ -234,6 +234,9 @@ There are certain sets of claims that define how and when they're used in tokens
 
 To control what claims are emitted and where the data comes from, use the properties of a claims mapping policy. If a policy is not set, the system issues tokens that include the core claim set, the basic claim set, and any [optional claims](active-directory-optional-claims.md) that the application has chosen to receive.
 
+> [!NOTE]
+> Claims in the core claim set are present in every token, regardless of what this property is set to.
+
 ### Include basic claim set
 
 **String:** IncludeBasicClaimSet
@@ -245,8 +248,7 @@ To control what claims are emitted and where the data comes from, use the proper
 - If set to True, all claims in the basic claim set are emitted in tokens affected by the policy.
 - If set to False, claims in the basic claim set are not in the tokens, unless they are individually added in the claims schema property of the same policy.
 
-> [!NOTE]
-> Claims in the core claim set are present in every token, regardless of what this property is set to.
+
 
 ### Claims schema
 
@@ -414,7 +416,7 @@ Based on the method chosen, a set of inputs and outputs is expected. Define the 
 
 ### Custom signing key
 
-A custom signing key must be assigned to the service principal object for a claims mapping policy to take effect. This ensures acknowledgment that tokens have been modified by the creator of the claims mapping policy and protects applications from claims mapping policies created by malicious actors. In order to add a custom signing key, you can use the Azure PowerShell cmdlet `new-azureadapplicationkeycredential` to create a symmetric key credential for your Application object. For more information on this Azure PowerShell cmdlet, see [New-AzureADApplicationKeyCredential](/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
+A custom signing key must be assigned to the service principal object for a claims mapping policy to take effect. This ensures acknowledgment that tokens have been modified by the creator of the claims mapping policy and protects applications from claims mapping policies created by malicious actors. In order to add a custom signing key, you can use the Azure PowerShell cmdlet [`New-AzureADApplicationKeyCredential`](/powerShell/module/Azuread/New-AzureADApplicationKeyCredential) to create a certificate key credential for your Application object.
 
 Apps that have claims mapping enabled must validate their token signing keys by appending `appid={client_id}` to their [OpenID Connect metadata requests](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Below is the format of the OpenID Connect metadata document you should use:
 
@@ -434,8 +436,7 @@ Claims mapping policies can only be assigned to service principal objects.
 
 In Azure AD, many scenarios are possible when you can customize claims emitted in tokens for specific service principals. In this section, we walk through a few common scenarios that can help you grasp how to use the claims mapping policy type.
 
-> [!NOTE]
-> When creating a claims mapping policy, you can also emit a claim from a directory schema extension attribute in tokens. Use *ExtensionID* for the extension attribute instead of *ID* in the `ClaimsSchema` element.  For more info on extension attributes, see [Using directory schema extension attributes](active-directory-schema-extensions.md).
+When creating a claims mapping policy, you can also emit a claim from a directory schema extension attribute in tokens. Use *ExtensionID* for the extension attribute instead of *ID* in the `ClaimsSchema` element.  For more info on extension attributes, see [Using directory schema extension attributes](active-directory-schema-extensions.md).
 
 #### Prerequisites
 

@@ -1,20 +1,11 @@
 ---
 title: File and compression formats in Azure Data Factory 
 description: 'Learn about the file formats supported by Azure Data Factory.'
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-
-
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
-
 robots: noindex
 ---
 
@@ -39,10 +30,10 @@ If you want to read from a text file or write to a text file, set the `type` pro
 | --- | --- | --- | --- |
 | columnDelimiter |The character used to separate columns in a file. You can consider to use a rare unprintable char that may not likely exists in your data. For example, specify "\u0001", which represents Start of Heading (SOH). |Only one character is allowed. The **default** value is **comma (',')**. <br/><br/>To use a Unicode character, refer to [Unicode Characters](https://en.wikipedia.org/wiki/List_of_Unicode_characters) to get the corresponding code for it. |No |
 | rowDelimiter |The character used to separate rows in a file. |Only one character is allowed. The **default** value is any of the following values on read: **["\r\n", "\r", "\n"]** and **"\r\n"** on write. |No |
-| escapeChar |The special character used to escape a column delimiter in the content of input file. <br/><br/>You cannot specify both escapeChar and quoteChar for a table. |Only one character is allowed. No default value. <br/><br/>Example: if you have comma (',') as the column delimiter but you want to have the comma character in the text (example: "Hello, world"), you can define ‘$’ as the escape character and use string "Hello$, world" in the source. |No |
+| escapeChar |The special character used to escape a column delimiter in the content of input file. <br/><br/>You cannot specify both escapeChar and quoteChar for a table. |Only one character is allowed. No default value. <br/><br/>Example: if you have comma (',') as the column delimiter but you want to have the comma character in the text (example: "Hello, world"), you can define '$' as the escape character and use string "Hello$, world" in the source. |No |
 | quoteChar |The character used to quote a string value. The column and row delimiters inside the quote characters would be treated as part of the string value. This property is applicable to both input and output datasets.<br/><br/>You cannot specify both escapeChar and quoteChar for a table. |Only one character is allowed. No default value. <br/><br/>For example, if you have comma (',') as the column delimiter but you want to have comma character in the text (example: <Hello, world>), you can define " (double quote) as the quote character and use the string "Hello, world" in the source. |No |
 | nullValue |One or more characters used to represent a null value. |One or more characters. The **default** values are **"\N" and "NULL"** on read and **"\N"** on write. |No |
-| encodingName |Specify the encoding name. |A valid encoding name. see [Encoding.EncodingName Property](https://msdn.microsoft.com/library/system.text.encoding.aspx). Example: windows-1250 or shift_jis. The **default** value is **UTF-8**. |No |
+| encodingName |Specify the encoding name. |A valid encoding name. see [Encoding.EncodingName Property](/dotnet/api/system.text.encoding). Example: windows-1250 or shift_jis. The **default** value is **UTF-8**. |No |
 | firstRowAsHeader |Specifies whether to consider the first row as a header. For an input dataset, Data Factory reads first row as a header. For an output dataset, Data Factory writes first row as a header. <br/><br/>See [Scenarios for using `firstRowAsHeader` and `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) for sample scenarios. |True<br/><b>False (default)</b> |No |
 | skipLineCount |Indicates the number of rows to skip when reading data from input files. If both skipLineCount and firstRowAsHeader are specified, the lines are skipped first and then the header information is read from the input file. <br/><br/>See [Scenarios for using `firstRowAsHeader` and `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) for sample scenarios. |Integer |No |
 | treatEmptyAsNull |Specifies whether to treat null or empty string as a null value when reading data from an input file. |**True (default)**<br/>False |No |
@@ -90,7 +81,7 @@ If you want to parse the JSON files or write the data in JSON format, set the `t
 | filePattern |Indicate the pattern of data stored in each JSON file. Allowed values are: **setOfObjects** and **arrayOfObjects**. The **default** value is **setOfObjects**. See [JSON file patterns](#json-file-patterns) section for details about these patterns. |No |
 | jsonNodeReference | If you want to iterate and extract data from the objects inside an array field with the same pattern, specify the JSON path of that array. This property is supported only when copying data from JSON files. | No |
 | jsonPathDefinition | Specify the JSON path expression for each column mapping with a customized column name (start with lowercase). This property is supported only when copying data from JSON files, and you can extract data from object or array. <br/><br/> For fields under root object, start with root $; for fields inside the array chosen by `jsonNodeReference` property, start from the array element. See [JsonFormat example](#jsonformat-example) section on how to configure. | No |
-| encodingName |Specify the encoding name. For the list of valid encoding names, see: [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) Property. For example: windows-1250 or shift_jis. The **default** value is: **UTF-8**. |No |
+| encodingName |Specify the encoding name. For the list of valid encoding names, see: [Encoding.EncodingName](/dotnet/api/system.text.encoding) Property. For example: windows-1250 or shift_jis. The **default** value is: **UTF-8**. |No |
 | nestingSeparator |Character that is used to separate nesting levels. The default value is '.' (dot). |No |
 
 ### JSON file patterns
@@ -408,7 +399,7 @@ If you want to parse the Avro files or write the data in Avro format, set the `f
 }
 ```
 
-To use Avro format in a Hive table, you can refer to [Apache Hive’s tutorial](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
+To use Avro format in a Hive table, you can refer to [Apache Hive's tutorial](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
 
 Note the following points:  
 
@@ -493,7 +484,7 @@ The **compression** section has two properties:
   * **Fastest:** The compression operation should complete as quickly as possible, even if the resulting file is not optimally compressed.
   * **Optimal**: The compression operation should be optimally compressed, even if the operation takes a longer time to complete.
 
-    For more information, see [Compression Level](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) topic.
+    For more information, see [Compression Level](/dotnet/api/system.io.compression.compressionlevel) topic.
 
 When you specify `compression` property in an input dataset JSON, the pipeline can read compressed data from the source; and when you specify the property in an output dataset JSON, the copy activity can write compressed data to the destination. Here are a few sample scenarios:
 

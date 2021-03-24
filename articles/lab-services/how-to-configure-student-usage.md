@@ -1,62 +1,91 @@
 ---
-title: Configure usage settings in classroom labs of Azure Lab Services
+title: Configure usage settings in labs of Azure Lab Services
 description: Learn how to configure the number of students for a lab, get them registered with the lab, control the number of hours they can use the VM, and more. 
 ms.topic: article
-ms.date: 06/26/2020
+ms.date: 12/01/2020
 ---
 
 # Add and manage lab users
 
 This article describes how to add student users to a lab, register them with the lab, control the number of additional hours they can use the virtual machine (VM), and more. 
 
-## Add users to a lab
+When you add users, by default, the **Restrict access** option is turned on and, unless they're in the list of users, students can't register with the lab even if they have a registration link. Only listed users can register with the lab by using the registration link you send. You can turn off **Restrict access**, which allows students to register with the lab as long as they have the registration link. 
 
-In this section, you add students to a lab manually or by uploading a CSV file. Do the following:
+This article shows how to add users to a lab.
+
+## Add users from an Azure AD group
+
+### Overview
+
+You can now sync a lab user list to an existing Azure Active Directory (Azure AD) group so that you do not have to manually add or delete users. 
+
+An Azure AD group can be created within your organization's Azure Active Directory to manage access to organizational resources and cloud-based apps. To learn more, see [Azure AD groups](../active-directory/fundamentals/active-directory-manage-groups.md). If your organization uses Microsoft Office 365 or Azure services, your organization will already have admins who manage your Azure Active Directory. 
+
+### Sync users with Azure AD group
+
+> [!IMPORTANT]
+> Make sure the user list is empty. If there are existing users inside a lab that you added manually or through importing a CSV file, the option to sync the lab to an existing group will not appear. 
+
+1. Sign in to the [Azure Lab Services website](https://labs.azure.com/).
+1. Select the lab you want to work with.
+1. In the left pane, select **Users**. 
+1. Click **Sync from group**. 
+
+    :::image type="content" source="./media/how-to-configure-student-usage/add-users-sync-group.png" alt-text="Add users by syncing from an Azure AD group":::
+    
+1. You will be prompted to pick an existing Azure AD group to sync your lab to. 
+    
+    If you don't see an Azure AD group in the list, could be because of the following reasons:
+
+    -	If you are a guest user for an Azure Active Directory (usually if you're outside the organization that owns the Azure AD), and you are not able to to search for groups inside the Azure AD. In this case, you won’t be able to add an Azure AD group to the lab in this case. 
+    -	Azure AD groups created through Teams do not show up in this list. You can add the Azure Lab Services app inside Teams to create and manage labs directly from within it. See more information about [managing a lab’s user list from within Teams](how-to-manage-user-lists-within-teams.md). 
+1. Once you picked the Azure AD group to sync your lab to, click **Add**.
+1. Once a lab is synced, it will pull everyone inside the Azure AD group into the lab as users, and you will see the user list updated. Only the people in this Azure AD group will have access to your lab. The user list will refresh every 24 hours to match the latest membership of the Azure AD group. You can also click on the Sync button in the Users tab to manually sync to the latest changes in the Azure AD group.
+1. Invite the users to your lab by clicking on the **Invite All** button, which will send an email to all users with the registration link to the lab. 
+
+### Automatic management of virtual machines based on changes to the Azure AD group 
+
+Once the lab is synced to an Azure AD group, the number of virtual machines in the lab will automatically match the number of users in the group. You will no longer be able to manually update the lab capacity. When a user is added to the Azure AD group, a lab will automatically add a virtual machine for that user. When a user is deleted from the Azure AD group, a lab will automatically delete the user’s virtual machine from the lab. 
+
+## Add users manually from email(s) or CSV file
+
+In this section, you add students manually (by email address or by uploading a CSV file). 
+
+### Add users by email address
 
 1. In the left pane, select **Users**. 
+1. Click **Add users manually**. 
 
-    By default, the **Restrict access** option is turned on and, unless they're in the list of users, students can't register with the lab even if they have a registration link. Only listed users can register with the lab by using the registration link you send. In this procedure, you add users to the list. Alternatively, you can turn off **Restrict access**, which allows students to register with the lab as long as they have the registration link. 
+    :::image type="content" source="./media/how-to-configure-student-usage/add-users-manually.png" alt-text="Add users manually":::
+1. Select **Add by email address** (default), enter the students' email addresses on separate lines or on a single line separated by semicolons. 
 
-1. At the top of the **Users** pane, select **Add users**, and then select **Add by email address**. 
-
-    ![The "Add users" button](./media/how-to-configure-student-usage/add-users-button.png)
-
-1. In the **Add users** pane, enter the students' email addresses on separate lines or on a single line separated by semicolons. 
-
-    ![Add users' email addresses](./media/how-to-configure-student-usage/add-users-email-addresses.png)
-
+    :::image type="content" source="./media/how-to-configure-student-usage/add-users-email-addresses.png" alt-text="Add users' email addresses":::
 1. Select **Save**. 
 
     The list displays the email addresses and statuses of the current users, whether they're registered with the lab or not. 
 
-    ![Users list](./media/how-to-configure-student-usage/list-of-added-users.png)
+    :::image type="content" source="./media/how-to-configure-student-usage/list-of-added-users.png" alt-text="Users list":::
 
     > [!NOTE]
     > After the students are registered with the lab, the list displays their names. The name that's shown in the list is constructed by using the first and last names of the students in Azure Active Directory. 
 
 ### Add users by uploading a CSV file
 
-You can also add users by uploading a CSV file that contains their email addresses.
+You can also add users by uploading a CSV file that contains their email addresses. 
+
+A CSV text file is used to store comma-separated (CSV) tabular data (numbers and text). Instead of storing information in columns fields (such as in spreadsheets), a CSV file stores information separated by commas. Each line in a CSV file will have the same number of comma-separated "fields." You can use Excel to easily create and edit CSV files.
 
 1. In Microsoft Excel, create a CSV file that lists students' email addresses in one column.
 
-    ![List of users in a CSV file](./media/how-to-configure-student-usage/csv-file-with-users.png)
-
+    :::image type="content" source="./media/how-to-configure-student-usage/csv-file-with-users.png" alt-text="List of users in a CSV file":::
 1. At the top of the **Users** pane, select **Add users**, and then select **Upload CSV**.
-
-    ![The "Upload CSV" button](./media/how-to-configure-student-usage/upload-csv-button.png)
-
 1. Select the CSV file that contains the students' email addresses, and then select **Open**.
 
     The **Add users** window displays the email address list from the CSV file. 
-
-    ![The "Add users" window with email addresses from CSV file](./media/how-to-configure-student-usage/add-users-window.png)
-
 1. Select **Save**. 
-
 1. In the **Users** pane, view the list of added students. 
 
-    ![List of added users in the "Users" pane](./media/how-to-configure-student-usage/list-of-added-users.png)
+    :::image type="content" source="./media/how-to-configure-student-usage/list-of-added-users.png" alt-text="List of added users in the Users pane":::
 
 ## Send invitations to users
 
@@ -167,6 +196,7 @@ To add students to a classroom lab, you use their email accounts. Students might
 - A GitHub account. This account must be linked with a Microsoft account.
 
 ### Use a non-Microsoft email account
+
 Students can use non-Microsoft email accounts to register and sign in to a classroom lab.  However, the registration requires that they first create a Microsoft account that's linked to their non-Microsoft email address.
 
 Many students might already have a Microsoft account that's linked to their non-Microsoft email address. For example, students already have a Microsoft account if they've used their email address with other Microsoft products or services, such as Office, Skype, OneDrive, or Windows.  
@@ -181,6 +211,7 @@ Here's a link for students to [sign up for a Microsoft account](http://signup.li
 > When students sign in to a classroom lab, they aren't given the option to create a Microsoft account. For this reason, we recommend that you include this sign-up link, http://signup.live.com, in the classroom lab registration email that you send to students who are using non-Microsoft accounts.
 
 ### Use a GitHub account
+
 Students can also use an existing GitHub account to register and sign in to a classroom lab. If they already have a Microsoft account linked to their GitHub account, students can sign in and provide their password as shown in the preceding section. 
 
 If they haven't yet linked their GitHub account to a Microsoft account, they can do the following:
@@ -202,10 +233,10 @@ If they haven't yet linked their GitHub account to a Microsoft account, they can
 
     ![The "Export CSV" button](./media/how-to-export-users-virtual-machines-csv/users-export-csv.png)
 
-
 ## Next steps
+
 See the following articles:
 
 - For administrators: [Create and manage lab accounts](how-to-manage-lab-accounts.md)
 - For lab owners: [Create and manage labs](how-to-manage-classroom-labs.md) and [Set up and publish templates](how-to-create-manage-template.md)
-- For lab users: [Access classroom labs](how-to-use-classroom-lab.md)
+- For lab users: [Access labs](how-to-use-classroom-lab.md)

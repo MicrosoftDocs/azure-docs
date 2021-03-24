@@ -1,7 +1,6 @@
 ---
 title: Network Performance Monitor solution in Azure | Microsoft Docs
 description: Network Performance Monitor in Azure helps you monitor the performance of your networks, in near real time, to detect and locate network performance bottlenecks.
-ms.subservice: logs
 ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
@@ -13,6 +12,8 @@ ms.date: 02/20/2018
 
 ![Network Performance Monitor symbol](./media/network-performance-monitor/npm-symbol.png)
 
+> [!IMPORTANT]
+> Starting 1 July 2021, you will not be able to add new tests in an existing workspace or enable a new workspace in Network Performance Monitor. You can continue to use the tests created prior to 1 July 2021. To minimize service disruption to your current workloads, [migrate your tests from Network Performance Monitor to the new Connection Monitor](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md) in Azure Network Watcher before 29 February 2024.
 
 Network Performance Monitor is a cloud-based hybrid network monitoring solution that helps you monitor network performance between various points in your network infrastructure. It also helps you monitor network connectivity to service and application endpoints and monitor the performance of Azure ExpressRoute. 
 
@@ -70,7 +71,7 @@ The list of supported regions for ExpressRoute Monitor is available in the [docu
 
 ### Install and configure agents 
 
-Use the basic processes to install agents at [Connect Windows computers to Azure Monitor](../platform/agent-windows.md) and [Connect Operations Manager to Azure Monitor](../platform/om-agents.md).
+Use the basic processes to install agents at [Connect Windows computers to Azure Monitor](../agents/agent-windows.md), [Connect Linux computers to Azure Monitor (Preview)](../../virtual-machines/extensions/oms-linux.md) and [Connect Operations Manager to Azure Monitor](../agents/om-agents.md).
 
 ### Where to install the agents 
 
@@ -86,15 +87,21 @@ Use the basic processes to install agents at [Connect Windows computers to Azure
 
 Network Performance Monitor uses synthetic transactions to monitor network performance between source and destination agents. You can choose between TCP and ICMP as the protocol for monitoring in Performance Monitor and Service Connectivity Monitor capabilities. Only TCP is available as the monitoring protocol for ExpressRoute Monitor. Make sure that the firewall allows communication between the Log Analytics agents used for monitoring on the protocol you choose. 
 
-* **TCP protocol**: If you choose TCP as the protocol for monitoring, open the firewall port on the agents used for Network Performance Monitor and ExpressRoute Monitor to make sure that the agents can connect to each other. To open the port, run the [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell script without any parameters in a PowerShell window with administrative privileges.
+* **TCP protocol**: If you choose TCP as the protocol for monitoring, open the firewall port on the agents used for Network Performance Monitor and ExpressRoute Monitor to make sure that the agents can connect to each other. For Windows machines, to open the port, run the [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell script without any parameters in a PowerShell window with administrative privileges.
+For Linux machines, portNumbers to be used needs to be changed manually. 
+* Navigate to path: /var/opt/microsoft/omsagent/npm_state . 
+* Open file: npmdregistry
+* Change the value for Port Number ```“PortNumber:<port of your choice>”```
 
-    The script creates registry keys required by the solution. It also creates Windows Firewall rules to allow agents to create TCP connections with each other. The registry keys created by the script specify whether to log the debug logs and the path for the logs file. The script also defines the agent TCP port used for communication. The values for these keys are automatically set by the script. Don't manually change these keys. The port opened by default is 8084. You can use a custom port by providing the parameter portNumber to the script. Use the same port on all the computers where the script is run. 
+ Do note that port numbers being used should be same across all the agents used in a workspace. 
 
-    >[!NOTE]
-    > The script configures only Windows Firewall locally. If you have a network firewall, make sure that it allows traffic destined for the TCP port used by Network Performance Monitor.
+The script creates registry keys required by the solution. It also creates Windows Firewall rules to allow agents to create TCP connections with each other. The registry keys created by the script specify whether to log the debug logs and the path for the logs file. The script also defines the agent TCP port used for communication. The values for these keys are automatically set by the script. Don't manually change these keys. The port opened by default is 8084. You can use a custom port by providing the parameter portNumber to the script. Use the same port on all the computers where the script is run. 
 
-    >[!NOTE]
-    > You don't need to run the [EnableRules.ps1](https://aka.ms/npmpowershellscript ) PowerShell script for Service Connectivity Monitor.
+   >[!NOTE]
+   > The script configures only Windows Firewall locally. If you have a network firewall, make sure that it allows traffic destined for the TCP port used by Network Performance Monitor.
+
+   >[!NOTE]
+   > You don't need to run the [EnableRules.ps1](https://aka.ms/npmpowershellscript ) PowerShell script for Service Connectivity Monitor.
 
     
 
@@ -112,7 +119,7 @@ Network Performance Monitor uses synthetic transactions to monitor network perfo
 
 ### Configure the solution 
 
-1. Add the Network Performance Monitor solution to your workspace from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). You also can use the process described in [Add Azure Monitor solutions from the Solutions Gallery](./solutions.md). 
+1. Add the Network Performance Monitor solution to your workspace from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/solarwinds.solarwinds-orion-network-performance-monitor?tab=Overview). You also can use the process described in [Add Azure Monitor solutions from the Solutions Gallery](./solutions.md). 
 2. Open your Log Analytics workspace, and select the **Overview** tile. 
 3. Select the **Network Performance Monitor** tile with the message *Solution requires additional configuration*.
 
@@ -254,13 +261,13 @@ The topology shown in the map is layer 3 topology and doesn't contain layer 2 de
 
 ## Log queries in Azure Monitor
 
-All data that is exposed graphically through the Network Performance Monitor dashboard and drill-down pages is also available natively in [log queries](../log-query/log-query-overview.md). You can perform interactive analysis of data in the repository and correlate data from different sources. You also can create custom alerts and views and export the data to Excel, Power BI, or a shareable link. The **Common Queries** area in the dashboard has some useful queries that you can use as the starting point to create your own queries and reports. 
+All data that is exposed graphically through the Network Performance Monitor dashboard and drill-down pages is also available natively in [log queries](../logs/log-query-overview.md). You can perform interactive analysis of data in the repository and correlate data from different sources. You also can create custom alerts and views and export the data to Excel, Power BI, or a shareable link. The **Common Queries** area in the dashboard has some useful queries that you can use as the starting point to create your own queries and reports. 
 
 ## Alerts
 
-Network Performance Monitor uses the alerting capabilities of [Azure Monitor](../platform/alerts-overview.md).
+Network Performance Monitor uses the alerting capabilities of [Azure Monitor](../alerts/alerts-overview.md).
 
-This means that all notifications are managed using [action groups](../platform/action-groups.md).  
+This means that all notifications are managed using [action groups](../alerts/action-groups.md).  
 
 If you are an NPM user creating an alert via Log Analytics: 
 1. You will see a link that will redirect you to Azure portal. Click it to access the portal.
@@ -271,7 +278,7 @@ If you are an NPM user creating an alert via Log Analytics:
 If you are an NPM user creating an alert via Azure portal:  
 1. You can choose to enter your email directly or you can choose to create alerts via action groups.
 2. If you choose to enter your email directly, an action group with the name **NPM Email ActionGroup** is created and the email id is added to that action group.
-3. If you choose to use action groups, you will have to select an previously created action group. You can learn how to create an action group [here.](../platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) 
+3. If you choose to use action groups, you will have to select an previously created action group. You can learn how to create an action group [here.](../alerts/action-groups.md#create-an-action-group-by-using-the-azure-portal) 
 4. Once the alert is successfully created, you can use Manage Alerts link to manage your alerts. 
 
 Each time you create an alert, NPM creates a query based log alert rule in Azure Monitor. 
@@ -290,5 +297,4 @@ Information on pricing is available [online](network-performance-monitor-pricing
 * **Join our cohort:** We're always interested in having new customers join our cohort. As part of it, you get early access to new features and an opportunity to help us improve Network Performance Monitor. If you're interested in joining, fill out this [quick survey](https://aka.ms/npmcohort). 
 
 ## Next steps 
-Learn more about [Performance Monitor](network-performance-monitor-performance-monitor.md), [Service Connectivity Monitor](network-performance-monitor-performance-monitor.md), and [ExpressRoute Monitor](network-performance-monitor-expressroute.md). 
-
+Learn more about [Performance Monitor](network-performance-monitor-performance-monitor.md), [Service Connectivity Monitor](network-performance-monitor-performance-monitor.md), and [ExpressRoute Monitor](network-performance-monitor-expressroute.md).

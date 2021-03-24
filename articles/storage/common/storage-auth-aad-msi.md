@@ -7,11 +7,11 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 12/07/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurecli
 ---
 
 # Authorize access to blob and queue data with managed identities for Azure resources
@@ -24,7 +24,7 @@ This article shows how to authorize access to blob or queue data from an Azure V
 
 Before you can use managed identities for Azure Resources to authorize access to blobs and queues from your VM, you must first enable managed identities for Azure Resources on the VM. To learn how to enable managed identities for Azure Resources, see one of these articles:
 
-- [Azure portal](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
+- [Azure portal](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 - [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Azure Resource Manager template](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
@@ -44,7 +44,12 @@ For more information about the Azure Identity client library for .NET, see [Azur
 
 ### Assign Azure roles for access to data
 
-When an Azure AD security principal attempts to access blob or queue data, that security principal must have permissions to the resource. Whether the security principal is a managed identity in Azure or an Azure AD user account running code in the development environment, the security principal must be assigned an Azure role that grants access to blob or queue data in Azure Storage. For information about assigning permissions via RBAC, see the section titled **Assign Azure roles for access rights** in [Authorize access to Azure blobs and queues using Azure Active Directory](../common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
+When an Azure AD security principal attempts to access blob or queue data, that security principal must have permissions to the resource. Whether the security principal is a managed identity in Azure or an Azure AD user account running code in the development environment, the security principal must be assigned an Azure role that grants access to blob or queue data in Azure Storage. For information about assigning permissions via Azure RBAC, see the section titled **Assign Azure roles for access rights** in [Authorize access to Azure blobs and queues using Azure Active Directory](../common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
+
+> [!NOTE]
+> When you create an Azure Storage account, you are not automatically assigned permissions to access data via Azure AD. You must explicitly assign yourself an Azure role for Azure Storage. You can assign it at the level of your subscription, resource group, storage account, or container or queue.
+>
+> Prior to assigning yourself a role for data access, you will be able to access data in your storage account via the Azure portal because the Azure portal can also use the account key for data access. For more information, see [Choose how to authorize access to blob data in the Azure portal](../blobs/authorize-data-operations-portal.md).
 
 ### Authenticate the user in the development environment
 
@@ -67,7 +72,7 @@ The following example uses the Azure CLI to create a new service principal and a
 ```azurecli-interactive
 az ad sp create-for-rbac \
     --name <service-principal> \
-    --role "Storage Blob Data Reader" \
+    --role "Storage Blob Data Contributor" \
     --scopes /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
 ```
 
@@ -159,6 +164,7 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
 
 ## Next steps
 
-- [Manage access rights to storage data with RBAC](storage-auth-aad-rbac.md).
+- [Manage access rights to storage data with Azure RBAC](./storage-auth-aad-rbac-portal.md).
 - [Use Azure AD with storage applications](storage-auth-aad-app.md).
-- [Run PowerShell commands with Azure AD credentials to access blob data](../blobs/authorize-active-directory-powershell.md)
+- [Run PowerShell commands with Azure AD credentials to access blob data](../blobs/authorize-data-operations-powershell.md)
+- [Tutorial: Access storage from App Service using managed identies](../../app-service/scenario-secure-app-access-storage.md)

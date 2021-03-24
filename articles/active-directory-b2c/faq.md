@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -78,7 +78,10 @@ The email signature contains the Azure AD B2C tenant's name that you provided wh
 1. Change the **Name** field.
 1. Click **Save** at the top of the page.
 
-Currently there is no way to change the "From:" field on the email.
+Currently you cannot change the "From:" field on the email.
+
+> [!TIP]
+> With Azure AD B2C [custom policy](custom-policy-overview.md), you can customize the email Azure AD B2C sends to users, including the "From:" field on the email. The custom email verification requires the use of a third-party email provider like [Mailjet](custom-email-mailjet.md), [SendGrid](custom-email-sendgrid.md), or [SparkPost](https://sparkpost.com).
 
 ### How can I migrate my existing user names, passwords, and profiles from my database to Azure AD B2C?
 
@@ -86,21 +89,21 @@ You can use the Microsoft Graph API to write your migration tool. See the [User 
 
 ### What password user flow is used for local accounts in Azure AD B2C?
 
-The Azure AD B2C password user flow for local accounts is based on the policy for Azure AD. Azure AD B2C's sign-up, sign-up or sign-in and password reset user flows use the "strong" password strength and don't expire any passwords. For more details, see [Password policies and restrictions in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy).
+The Azure AD B2C password user flow for local accounts is based on the policy for Azure AD. Azure AD B2C's sign-up, sign-up or sign-in and password reset user flows use the "strong" password strength and don't expire any passwords. For more details, see [Password policies and restrictions in Azure Active Directory](../active-directory/authentication/concept-sspr-policy.md).
 
 For information about account lockouts and passwords, see [Manages threats to resources and data in Azure Active Directory B2C](threat-management.md).
 
 ### Can I use Azure AD Connect to migrate consumer identities that are stored on my on-premises Active Directory to Azure AD B2C?
 
-No, Azure AD Connect is not designed to work with Azure AD B2C. Consider using the [Microsoft Graph API](manage-user-accounts-graph-api.md) for user migration. See the [User migration guide](user-migration.md) for details.
+No, Azure AD Connect is not designed to work with Azure AD B2C. Consider using the [Microsoft Graph API](microsoft-graph-operations.md) for user migration. See the [User migration guide](user-migration.md) for details.
 
 ### Can my app open up Azure AD B2C pages within an iFrame?
 
-No, for security reasons, Azure AD B2C pages cannot be opened within an iFrame. Our service communicates with the browser to prohibit iFrames. The security community in general and the OAUTH2 specification, recommend against using iFrames for identity experiences due to the risk of click-jacking.
+This feature is in public preview. For details, see [Embedded sign-in experience](https://docs.microsoft.com/azure/active-directory-b2c/embedded-login).
 
 ### Does Azure AD B2C work with CRM systems such as Microsoft Dynamics?
 
-Integration with Microsoft Dynamics 365 Portal is available. See [Configuring Dynamics 365 Portal to use Azure AD B2C for authentication](https://docs.microsoft.com/dynamics365/customer-engagement/portals/azure-ad-b2c).
+Integration with Microsoft Dynamics 365 Portal is available. See [Configuring Dynamics 365 Portal to use Azure AD B2C for authentication](/dynamics365/customer-engagement/portals/azure-ad-b2c).
 
 ### Does Azure AD B2C work with SharePoint on-premises 2016 or earlier?
 
@@ -108,7 +111,7 @@ Azure AD B2C is not meant for the SharePoint external partner-sharing scenario; 
 
 ### Should I use Azure AD B2C or B2B to manage external identities?
 
-Read [Compare B2B collaboration and B2C in Azure AD](../active-directory/b2b/compare-with-b2c.md) to learn more about applying the appropriate features to your external identity scenarios.
+Read [Compare B2B collaboration and B2C in Azure AD](../active-directory/external-identities/compare-with-b2c.md) to learn more about applying the appropriate features to your external identity scenarios.
 
 ### What reporting and auditing features does Azure AD B2C provide? Are they the same as in Azure AD Premium?
 
@@ -120,17 +123,17 @@ No, Azure AD B2C does not support the same set of reports as Azure AD Premium. H
 
 ### Can I localize the UI of pages served by Azure AD B2C? What languages are supported?
 
-Yes, see [language customization](user-flow-language-customization.md). We provide translations for 36 languages, and you can override any string to suit your needs.
+Yes, see [language customization](language-customization.md). We provide translations for 36 languages, and you can override any string to suit your needs.
 
 ### Can I use my own URLs on my sign-up and sign-in pages that are served by Azure AD B2C? For instance, can I change the URL from contoso.b2clogin.com to login.contoso.com?
 
-Not currently. This feature is on our roadmap. Verifying your domain in the **Domains** tab in the Azure portal does not accomplish this goal. However, with b2clogin.com, we offer a [neutral top level domain](b2clogin.md), and thus the external appearance can be implemented without the mention of Microsoft.
+This feature is available in public preview. For details, see [Azure AD B2C custom domains](https://docs.microsoft.com/azure/active-directory-b2c/custom-domain?pivots=b2c-user-flow).
 
 ### How do I delete my Azure AD B2C tenant?
 
 Follow these steps to delete your Azure AD B2C tenant.
 
-You can use our new unified **App registrations** experience or our legacy  **Applications (Legacy)** experience. [Learn more about the new experience](https://aka.ms/b2cappregtraining).
+You can use our new unified **App registrations** experience or our legacy  **Applications (Legacy)** experience. [Learn more about the new experience](./app-registrations-training-guide.md).
 
 #### [App registrations](#tab/app-reg-ga/)
 
@@ -138,14 +141,13 @@ You can use our new unified **App registrations** experience or our legacy  **Ap
 1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
 1. Delete all **User flows (policies)** in your Azure AD B2C tenant.
+1. Delete all **Identity Providers** in your Azure AD B2C tenant.
 1. Select **App registrations**, then select the **All applications** tab.
 1. Delete all applications that you registered.
 1. Delete the **b2c-extensions-app**.
 1. Under **Manage**, select **Users**.
 1. Select each user in turn (exclude the *Subscription Administrator* user you are currently signed in as). Select **Delete** at the bottom of the page and select **Yes** when prompted.
 1. Select **Azure Active Directory** on the left-hand menu.
-1. Under **Manage**, select **User settings**.
-1. If present, under **LinkedIn account connections**, select **No**, then select **Save**.
 1. Under **Manage**, select **Properties**
 1. Under **Access management for Azure resources**, select **Yes**, and then select **Save**.
 1. Sign out of the Azure portal and then sign back in to refresh your access.

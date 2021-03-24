@@ -40,10 +40,10 @@ There are two options for connecting virtual networks:
 - [Azure VNet peering](../../virtual-network/virtual-network-peering-overview.md)
 - VNet-to-VNet VPN gateway ([Azure portal](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md), [Azure CLI](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md))
 
-Peering is preferable because it uses the Microsoft backbone network, so from the connectivity perspective, there is no noticeable difference in latency between virtual machines in a peered virtual network and in the same virtual network. Virtual network peering is limited to the networks in the same region.  
+Peering is preferable because it uses the Microsoft backbone network, so from the connectivity perspective, there is no noticeable difference in latency between virtual machines in a peered virtual network and in the same virtual network. Virtual network peering is to supported between the networks in the same region. Global virtual network peering is also supported with the limitation described in the note below.  
 
 > [!IMPORTANT]
-> The virtual network peering scenario for SQL Managed Instance is limited to the networks in the same region due to the [constraints of global virtual network peering](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). See also the relevant section of the [Azure Virtual Networks frequently asked questions](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) article for more details. 
+> [On 9/22/2020 we announced global virtual network peering for newly created virtual clusters](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). That means that global virtual network peering is supported for SQL Managed Instances created in empty subnets after the announcement date, as well for all the subsequent managed instances created in those subnets. For all the other SQL Managed Instances peering support is limited to the networks in the same region due to the [constraints of global virtual network peering](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). See also the relevant section of the [Azure Virtual Networks frequently asked questions](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) article for more details. 
 
 ## Connect from on-premises 
 
@@ -51,7 +51,7 @@ You can also connect your on-premises application to SQL Managed Instance. SQL M
 
 There are two options for how to connect on-premises to an Azure virtual network:
 
-- Site-to-site VPN connection ([Azure portal](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [Azure CLI](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
+- Site-to-site VPN connection ([Azure portal](../../vpn-gateway/tutorial-site-to-site-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [Azure CLI](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
 - [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) connection  
 
 If you've established an on-premises to Azure connection successfully and you can't establish a connection to SQL Managed Instance, check if your firewall has an open outbound connection on SQL port 1433 as well as the 11000-11999 range of ports for redirection.
@@ -101,7 +101,7 @@ For troubleshooting connectivity issues, review the following:
    ![ingress/egress numbers](./media/connect-application-instance/ingress-egress-numbers.png)
 
 - Check that the client machine (that is running the VPN client) has route entries for all the virtual networks that you need to access. The routes are stored in
-`%AppData%\ Roaming\Microsoft\Network\Connections\Cm\<GUID>\routes.txt`.
+`%AppData%\Roaming\Microsoft\Network\Connections\Cm\<GUID>\routes.txt`.
 
    ![route.txt](./media/connect-application-instance/route-txt.png)
 
@@ -147,8 +147,8 @@ The following minimal versions of the tools and drivers are recommended if you w
 |JDBC driver| 6.4.0 |
 |Node.js driver| 2.1.1 |
 |OLEDB driver| 18.0.2.0 |
-|SSMS| 18.0 or [higher](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
-|[SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) or higher |
+|SSMS| 18.0 or [higher](/sql/ssms/download-sql-server-management-studio-ssms) |
+|[SMO](/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) or higher |
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: Learn how to get a Linux Ruby app working in Azure App Service, wit
 ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 06/18/2020
-ms.custom: mvc, cli-validate, seodec18
+ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
 ---
 
 # Build a Ruby and Postgres app in Azure App Service on Linux
@@ -29,10 +29,12 @@ In this tutorial, you learn how to:
 
 To complete this tutorial:
 
-* [Install Git](https://git-scm.com/)
-* [Install Ruby 2.6](https://www.ruby-lang.org/en/documentation/installation/)
-* [Install Ruby on Rails 5.1](https://guides.rubyonrails.org/v5.1/getting_started.html)
-* [Install and run PostgreSQL](https://www.postgresql.org/download/)
+- [Install Git](https://git-scm.com/)
+- [Install Ruby 2.6](https://www.ruby-lang.org/en/documentation/installation/)
+- [Install Ruby on Rails 5.1](https://guides.rubyonrails.org/v5.1/getting_started.html)
+- [Install and run PostgreSQL](https://www.postgresql.org/download/)
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Prepare local Postgres
 
@@ -99,11 +101,9 @@ Navigate to `http://localhost:3000` in a browser. Add a few tasks in the page.
 
 To stop the Rails server, type `Ctrl + C` in the terminal.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 ## Create Postgres in Azure
 
-In this step, you create a Postgres database in [Azure Database for PostgreSQL](/azure/postgresql/). Later, you configure the Ruby on Rails application to connect to this database.
+In this step, you create a Postgres database in [Azure Database for PostgreSQL](../postgresql/index.yml). Later, you configure the Ruby on Rails application to connect to this database.
 
 ### Create a resource group
 
@@ -112,7 +112,7 @@ In this step, you create a Postgres database in [Azure Database for PostgreSQL](
 ## Create Postgres database in Azure
 
 <!-- > [!NOTE]
-> Before you create an Azure Database for PostgreSQL server, check which [compute generation](/azure/postgresql/concepts-pricing-tiers#compute-generations-and-vcores) is available in your region. If your region doesn't support Gen4 hardware, change *--sku-name* in the following command line to a value that's supported in your region, such as B_Gen4_1.  -->
+> Before you create an Azure Database for PostgreSQL server, check which [compute generation](../postgresql/concepts-pricing-tiers.md#compute-generations-and-vcores) is available in your region. If your region doesn't support Gen4 hardware, change *--sku-name* in the following command line to a value that's supported in your region, such as B_Gen4_1.  -->
 
 In this section, you create an Azure Database for PostgreSQL server and database. To start, install the `db-up` extension with the following command:
 
@@ -250,7 +250,7 @@ In this step, you deploy the Postgres-connected Rails application to Azure App S
 
 ### Configure database settings
 
-In App Service, you set environment variables as _app settings_ by using the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest&preserve-view=true#az-webapp-config-appsettings-set) command in the Cloud Shell.
+In App Service, you set environment variables as _app settings_ by using the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command in the Cloud Shell.
 
 The following Cloud Shell command configures the app settings `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD`. Replace the placeholders _&lt;appname>_ and _&lt;postgres-server-name>_.
 
@@ -287,7 +287,7 @@ git remote add azure <paste-copied-url-here>
 Push to the Azure remote to deploy the Ruby on Rails application. You are prompted for the password you supplied earlier as part of the creation of the deployment user.
 
 ```bash
-git push azure master
+git push azure main
 ```
 
 During deployment, Azure App Service communicates its progress with Git.
@@ -298,7 +298,7 @@ Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 291 bytes | 0 bytes/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id 'a5e076db9c'.
 remote: Running custom deployment command...
@@ -417,7 +417,7 @@ Commit all the changes in Git, and then push the code changes to Azure.
 ```bash
 git add .
 git commit -m "added complete checkbox"
-git push azure master
+git push azure main
 ```
 
 Once the `git push` is complete, navigate to the Azure app and test the new functionality.

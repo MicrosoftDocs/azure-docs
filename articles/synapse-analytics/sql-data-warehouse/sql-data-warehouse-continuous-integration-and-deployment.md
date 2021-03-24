@@ -1,18 +1,18 @@
 ---
-title: Continuous integration and deployment 
-description: Enterprise-class Database DevOps experience for data warehousing with built-in support for continuous integration and deployment using Azure Pipelines.
+title: Continuous integration and deployment for dedicated SQL pool 
+description: Enterprise-class Database DevOps experience for dedicated SQL pool in Azure Synapse Analytics with built-in support for continuous integration and deployment using Azure Pipelines.
 services: synapse-analytics
-author: kevinvngo 
+author: gaursa 
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql-dw 
 ms.date: 02/04/2020
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ---
-# Continuous integration and deployment for data warehousing
+# Continuous integration and deployment for dedicated SQL pool in Azure Synapse Analytics
 
 This simple tutorial outlines how to integrate your SQL Server Data tools (SSDT) database project with Azure DevOps and leverage Azure Pipelines to set up continuous integration and deployment. This tutorial is the second step in building your continuous integration and deployment pipeline for data warehousing.
 
@@ -36,7 +36,7 @@ This simple tutorial outlines how to integrate your SQL Server Data tools (SSDT)
 
       ![YAML](./media/sql-data-warehouse-continuous-integration-and-deployment/3-yaml-file.png "YAML")
 
-At this point, you have a simple environment where any check-in to your source control repository master branch should automatically trigger a successful Visual Studio build of your database project. Validate the automation is working end to end by making a change in your local database project and checking in that change to your master branch.
+At this point, you have a simple environment where any check-in to your source control repository main branch should automatically trigger a successful Visual Studio build of your database project. Validate the automation is working end to end by making a change in your local database project and checking in that change to your main branch.
 
 ## Continuous deployment with the Azure Synapse Analytics (or Database) deployment task
 
@@ -54,7 +54,7 @@ At this point, you have a simple environment where any check-in to your source c
 
 ## Next steps
 
-- Explore [Synapse SQL pool MPP architecture](massively-parallel-processing-mpp-architecture.md)
-- Quickly [create a SQL pool](create-data-warehouse-portal.md)
-- [Load sample data](load-data-from-azure-blob-storage-using-polybase.md)
+- Explore [Dedicated SQL pool (formerly SQL DW) architecture](massively-parallel-processing-mpp-architecture.md)
+- Quickly [create a dedicated SQL pool (formerly SQL DW)](create-data-warehouse-portal.md)
+- [Load sample data](./load-data-from-azure-blob-storage-using-copy.md)
 - Explore [Videos](sql-data-warehouse-videos.md)

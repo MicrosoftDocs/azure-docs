@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 03/17/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -31,7 +31,7 @@ Block is a powerful control that should be wielded with appropriate knowledge. P
 
 Administrators can choose to enforce one or more controls when granting access. These controls include the following options: 
 
-- [Require multi-factor authentication (Azure Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)
+- [Require multi-factor authentication (Azure AD Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)
 - [Require device to be marked as compliant (Microsoft Intune)](/intune/protect/device-compliance-get-started)
 - [Require hybrid Azure AD joined device](../devices/concept-azure-ad-join-hybrid.md)
 - [Require approved client app](app-based-conditional-access.md)
@@ -47,7 +47,9 @@ By default Conditional Access requires all selected controls.
 
 ### Require multi-factor authentication
 
-Selecting this checkbox will require users to perform Azure Multi-Factor Authentication. More information about deploying Azure Multi-Factor Authentication can be found in the article [Planning a cloud-based Azure Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md).
+Selecting this checkbox will require users to perform Azure AD Multi-Factor Authentication. More information about deploying Azure AD Multi-Factor Authentication can be found in the article [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md).
+
+[Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview) satisfies the requirement for multi-factor authentication in Conditional Access policies. 
 
 ### Require device to be marked as compliant
 
@@ -67,7 +69,7 @@ When using the [device-code OAuth flow](../develop/v2-oauth2-device-code.md), th
 
 Organizations can require that an access attempt to the selected cloud apps needs to be made from an approved client app. These approved client apps support [Intune app protection policies](/intune/app-protection-policy) independent of any mobile-device management (MDM) solution.
 
-In order to leverage this grant control, Conditional Access requires that the device be registered in Azure Active Directory which requires the use of a broker app. The broker app can be either the Microsoft Authenticator for iOS, or the Microsoft Company portal for Android devices. If a broker app is not installed on the device when the user attempts to authenticate, the user gets redirected to the app store to install the broker app.
+In order to leverage this grant control, Conditional Access requires that the device be registered in Azure Active Directory which requires the use of a broker app. The broker app can be the Microsoft Authenticator for iOS, or either the Microsoft Authenticator or Microsoft Company portal for Android devices. If a broker app is not installed on the device when the user attempts to authenticate, the user gets redirected to the appropriate app store to install the required broker app.
 
 This setting applies to the following iOS and Android apps:
 
@@ -99,14 +101,16 @@ This setting applies to the following iOS and Android apps:
 - Microsoft Word
 - Microsoft Yammer
 - Microsoft Whiteboard
+- Microsoft 365 Admin
 
 **Remarks**
 
 - The approved client apps support the Intune mobile application management feature.
 - The **Require approved client app** requirement:
    - Only supports the iOS and Android for device platform condition.
-   - A broker app is required to register the device. On iOS, the broker app is Microsoft Authenticator and on Android, it is Intune Company Portal app.
+   - A broker app is required to register the device. The broker app can be the Microsoft Authenticator for iOS, or either the Microsoft Authenticator or Microsoft Company portal for Android devices.
 - Conditional Access cannot consider Microsoft Edge in InPrivate mode an approved client app.
+- Using Azure AD Application Proxy to enable the Power BI mobile app to connect to on premises Power BI Report Server is not supported with conditional access policies that require the Microsoft Power BI app as an approved client app.
 
 See the article, [How to: Require approved client apps for cloud app access with Conditional Access](app-based-conditional-access.md) for configuration examples.
 
@@ -116,7 +120,9 @@ In your Conditional Access policy, you can require an [Intune app protection pol
 
 In order to leverage this grant control, Conditional Access requires that the device be registered in Azure Active Directory which requires the use of a broker app. The broker app can be either the Microsoft Authenticator for iOS, or the Microsoft Company portal for Android devices. If a broker app is not installed on the device when the user attempts to authenticate, the user gets redirected to the app store to install the broker app.
 
-This setting applies to the following client apps:
+Applications are required to have the **Intune SDK** with **Policy Assurance** implemented and meet certain other requirements to support this setting. Developers implementing applications with the Intune SDK can find more information in the SDK documentation on these requirements.
+
+The following client apps have been confirmed to support this setting:
 
 - Microsoft Cortana
 - Microsoft Edge
@@ -134,7 +140,7 @@ This setting applies to the following client apps:
 - Nine Mail - Email & Calendar
 
 > [!NOTE]
-> Microsoft Kaizala, Microsoft Skype for Business and Microsoft Visio do not support the **Require app protection policy** grant. If you require these apps to work, please use the **Require approved apps** grant exclusively. The use of the or clause between the two grants will not work for these three applications.
+> Microsoft Teams, Microsoft Kaizala, Microsoft Skype for Business and Microsoft Visio do not support the **Require app protection policy** grant. If you require these apps to work, please use the **Require approved apps** grant exclusively. The use of the or clause between the two grants will not work for these three applications.
 
 **Remarks**
 

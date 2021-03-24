@@ -3,8 +3,8 @@ title: Monitor Key Vault with Azure Monitor for Key Vault | Microsoft Docs
 description: This article describes the Azure Monitor for Key Vaults. 
 services: azure-monitor 
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 09/10/2020
 
 ---
@@ -86,7 +86,7 @@ The failures workbook breakdowns the results of all key vault requests in the se
 
 The Operations workbook allows users to deep dive into the full details of all transactions, which can be filtered by the Result Status using the top level tiles.
 
-![Screenshot of operations view](./media/key-vaults-insights-overview/info.png)
+![Screenshot that shows the Operations workbook that contains full details of all transactions.](./media/key-vaults-insights-overview/info.png)
 
 Users can also scope out views based on specific transaction types in the upper table, which dynamically updates the lower table, where users can view full operation details in a pop up context pane.
 
@@ -165,4 +165,4 @@ You can edit the existing workbook, through the use of the edit mode, and then s
 
 ## Next steps
 
-Learn the scenarios workbooks are designed to support, how to author new and customize existing reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../platform/workbooks-overview.md).
+Learn the scenarios workbooks are designed to support, how to author new and customize existing reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../visualize/workbooks-overview.md).

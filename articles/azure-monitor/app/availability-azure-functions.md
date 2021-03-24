@@ -2,8 +2,6 @@
 title: Create and run custom availability tests using Azure Functions
 description: This doc will cover how to create an Azure Function with TrackAvailability() that will run periodically according to the configuration given in TimerTrigger function. The results of this test will be sent to your Application Insights resource, where you will be able to query for and alert on the availability results data. Customized tests will allow you to write more complex availability tests than is possible using the portal UI, monitor an app inside of your Azure VNET, change the endpoint address, or create an availability test if it's not available in your region.
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/04/2020
 
 ---
@@ -131,7 +129,7 @@ On the right under view files, select **Add**. Call the new file **function.proj
         <TargetFramework>netstandard2.0</TargetFramework>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.8.2" /> <!-- Ensure you’re using the latest version -->
+        <PackageReference Include="Microsoft.ApplicationInsights" Version="2.15.0" /> <!-- Ensure you’re using the latest version -->
     </ItemGroup>
 </Project>
 
@@ -173,7 +171,7 @@ If you ran everything as is (without adding business logic), then you will see t
 
 ## Query in Logs (Analytics)
 
-You can use Logs(analytics) to view you availability results, dependencies, and more. To learn more about Logs, visit [Log query overview](../log-query/log-query-overview.md).
+You can use Logs(analytics) to view you availability results, dependencies, and more. To learn more about Logs, visit [Log query overview](../logs/log-query-overview.md).
 
 >[!div class="mx-imgBorder"]
 >![Availability results](media/availability-azure-functions/availabilityresults.png)

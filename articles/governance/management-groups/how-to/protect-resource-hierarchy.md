@@ -1,7 +1,7 @@
 ---
 title: How to protect your resource hierarchy - Azure Governance
 description: Learn how to protect your resource hierarchy with hierarchy settings that include setting the default management group.
-ms.date: 09/02/2020
+ms.date: 02/05/2021
 ms.topic: conceptual
 ---
 # How to protect your resource hierarchy
@@ -14,10 +14,10 @@ protect the resource hierarchy from changes that could negatively impact all res
 Management groups now have hierarchy settings that enable the tenant administrator to control these
 behaviors. This article covers each of the available hierarchy settings and how to set them.
 
-## RBAC permissions for hierarchy settings
+## Azure RBAC permissions for hierarchy settings
 
-Configuring any of the hierarchy settings requires the following two RBAC operations on the root
-management group:
+Configuring any of the hierarchy settings requires the following two resource provider operations on
+the root management group:
 
 - `Microsoft.Management/managementgroups/settings/write`
 - `Microsoft.Management/managementgroups/settings/read`
@@ -29,12 +29,12 @@ these operations are available in the Azure built-in role **Hierarchy Settings A
 ## Setting - Default management group
 
 By default, a new subscription added within a tenant is added as a member of the root management
-group. If policy assignments, role-based access control (RBAC), and other governance constructs are
-assigned to the root management group, they immediately effect these new subscriptions. For this
-reason, many organizations don't apply these constructs at the root management group even though
-that is the desired place to assign them. In other cases, a more restrictive set of controls is
-desired for new subscriptions, but shouldn't be assigned to all subscriptions. This setting supports
-both use cases.
+group. If policy assignments, Azure role-based access control (Azure RBAC), and other governance
+constructs are assigned to the root management group, they immediately effect these new
+subscriptions. For this reason, many organizations don't apply these constructs at the root
+management group even though that is the desired place to assign them. In other cases, a more
+restrictive set of controls is desired for new subscriptions, but shouldn't be assigned to all
+subscriptions. This setting supports both use cases.
 
 By allowing the default management group for new subscriptions to be defined, organization-wide
 governance constructs can be applied at the root management group, and a separate management group
@@ -143,5 +143,5 @@ To turn the setting back off, use the same endpoint and set
 
 To learn more about management groups, see:
 
-- [Create management groups to organize Azure resources](../create.md)
+- [Create management groups to organize Azure resources](../create-management-group-portal.md)
 - [How to change, delete, or manage your management groups](../manage.md)

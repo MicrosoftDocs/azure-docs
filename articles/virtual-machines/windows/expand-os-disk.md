@@ -1,7 +1,7 @@
 ---
 title: Expand the OS drive of a Windows VM in an Azure 
 description: Expand the size of the OS drive of a virtual machine using Azure PowerShell in the  Resource Manager deployment model.
-services: virtual-machines-windows
+services: virtual-machines
 documentationcenter: ''
 author: kirpasingh
 manager: roshar
@@ -9,8 +9,8 @@ editor: ''
 tags: azure-resource-manager
 
 ms.assetid: d9edfd9f-482f-4c0b-956c-0d2c2c30026c
-ms.service: virtual-machines-windows
-
+ms.service: virtual-machines
+ms.collection: windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
@@ -29,8 +29,9 @@ When you create a new virtual machine (VM) in a resource group by deploying an i
 > [!IMPORTANT]
 > Resizing an OS or Data Disk of an Azure Virtual Machine requires the virtual machine to be deallocated.
 >
-> After expanding the disks, you need to [expand the volume within the OS](#expand-the-volume-within-the-os) to take advantage of the larger disk.
+> Shrinking an existing disk isn’t supported, and can potentially result in data loss.
 > 
+> After expanding the disks, you need to [expand the volume within the OS](#expand-the-volume-within-the-os) to take advantage of the larger disk.
 
 ## Resize a managed disk in the Azure portal
 
@@ -44,21 +45,21 @@ When you create a new virtual machine (VM) in a resource group by deploying an i
 
     :::image type="content" source="./media/expand-os-disk/disk-name.png" alt-text="Screenshot that shows the Disks pane with a disk name selected.":::
 
-4. In the left menu under **Settings**, select **Configuration**.
+4. In the left menu under **Settings**, select **Size + performance**.
 
-    :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="Screenshot that shows the Configuration option selected in the Settings section of the menu.":::
+    :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="Screenshot that shows the Size and performance option selected in the Settings section of the menu.":::
 
-5. In **Size (GiB)**, select the disk size you want.
+5. In **Size + performance**, select the disk size you want.
    
    > [!WARNING]
    > The new size should be greater than the existing disk size. The maximum allowed is 2,048 GB for OS disks. (It's possible to expand the VHD blob beyond that size, but the OS works only with the first 2,048 GB of space.)
    > 
 
-    :::image type="content" source="./media/expand-os-disk/size.png" alt-text="Screenshot that shows the Configuration pane with the disk size selected.":::
+    :::image type="content" source="./media/expand-os-disk/size.png" alt-text="Screenshot that shows the Size and performance pane with the disk size selected.":::
 
-6. Select **Save**.
+6. Select **Resize** at the bottom of the page.
 
-    :::image type="content" source="./media/expand-os-disk/save.png" alt-text="Screenshot that shows the Configuration pane with the Save button selected.":::
+    :::image type="content" source="./media/expand-os-disk/save.png" alt-text="Screenshot that shows the Size and performance pane with the Resize button selected.":::
 
 
 ## Resize a managed disk by using PowerShell
@@ -222,7 +223,7 @@ Similarly, you can reference other data disks attached to the VM, either by usin
 **Unmanaged disk**
 
 ```powershell
-($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'}).DiskSizeGB = 1023
+($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'})).DiskSizeGB = 1023
 ```
 
 ## Expand the volume within the OS

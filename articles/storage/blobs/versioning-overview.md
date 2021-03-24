@@ -7,10 +7,10 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 02/09/2021
 ms.author: tamram
 ms.subservice: blobs 
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell
 ---
 
 # Blob versioning
@@ -24,7 +24,7 @@ Microsoft recommends using blob versioning to maintain previous versions of a bl
 To learn how to enable blob versioning, see [Enable and manage blob versioning](versioning-enable.md).
 
 > [!IMPORTANT]
-> Blob versioning cannot help you to recover from the accidental deletion of a storage account or container. To prevent accidental deletion of the storage account, configure a **CannotDelete** lock on the storage account resource. For more information on locking Azure resources, see [Lock resources to prevent unexpected changes](../../azure-resource-manager/management/lock-resources.md).
+> Blob versioning cannot help you to recover from the accidental deletion of a storage account or container. To prevent accidental deletion of the storage account, configure a lock on the storage account resource. For more information on locking Azure resources, see [Lock resources to prevent unexpected changes](../../azure-resource-manager/management/lock-resources.md). To protect containers from accidental deletion, configure container soft delete for the storage account. For more information, see [Soft delete for containers (preview)](soft-delete-container-overview.md).
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
@@ -33,6 +33,12 @@ To learn how to enable blob versioning, see [Enable and manage blob versioning](
 A version captures the state of a blob at a given point in time. When blob versioning is enabled for a storage account, Azure Storage automatically creates a new version of a blob each time that blob is modified or deleted.
 
 When you create a blob with versioning enabled, the new blob is the current version of the blob (or the base blob). If you subsequently modify that blob, Azure Storage creates a version that captures the state of the blob before it was modified. The modified blob becomes the new current version. A new version is created each time you modify the blob.
+
+The following diagram shows how versions are created on write and delete operations, and how a previous version may be promoted to be the current version:
+
+:::image type="content" source="media/versioning-overview/blob-versioning-diagram.png" alt-text="Diagram showing how blob versioning works":::
+
+Having a large number of versions per blob can increase the latency for blob listing operations. Microsoft recommends maintaining fewer than 1000 versions per blob. You can use lifecycle management to automatically delete old versions. For more information about lifecycle management, see [Optimize costs by automating Azure Blob Storage access tiers](storage-lifecycle-management-concepts.md).
 
 When you delete a blob with versioning enabled, Azure Storage creates a version that captures the state of the blob before it was deleted. The current version of the blob is then deleted, but the blob's versions persist, so that it can be re-created if needed. 
 
@@ -122,7 +128,7 @@ The following diagram shows how modifying a blob after versioning is disabled cr
 
 ## Blob versioning and soft delete
 
-Blob versioning and blob soft delete work together to provide you with optimal data protection. When you enable soft delete, you specify how long Azure Storage should retain a soft-deleted blob. Any soft-deleted blob version remains in the system and can be undeleted within the soft delete retention period. For more information about blob soft delete, see [Soft delete for Azure Storage blobs](storage-blob-soft-delete.md).
+Blob versioning and blob soft delete work together to provide you with optimal data protection. When you enable soft delete, you specify how long Azure Storage should retain a soft-deleted blob. Any soft-deleted blob version remains in the system and can be undeleted within the soft delete retention period. For more information about blob soft delete, see [Soft delete for Azure Storage blobs](./soft-delete-blob-overview.md).
 
 ### Deleting a blob or version
 
@@ -171,17 +177,17 @@ The following diagram shows what happens when you take a snapshot of a versioned
 
 You can authorize access to blob versions using one of the following approaches:
 
-- By using role-based access control (RBAC) to grant permissions to an Azure Active Directory (Azure AD) security principal. Microsoft recommends using Azure AD for superior security and ease of use. For more information about using Azure AD with blob operations, see [Authorize access to blobs and queues using Azure Active Directory](../common/storage-auth-aad.md).
+- By using Azure role-based access control (Azure RBAC) to grant permissions to an Azure Active Directory (Azure AD) security principal. Microsoft recommends using Azure AD for superior security and ease of use. For more information about using Azure AD with blob operations, see [Authorize access to blobs and queues using Azure Active Directory](../common/storage-auth-aad.md).
 - By using a shared access signature (SAS) to delegate access to blob versions. Specify the version ID for the signed resource type `bv`, representing a blob version, to create a SAS token for operations on a specific version. For more information about shared access signatures, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md).
 - By using the account access keys to authorize operations against blob versions with Shared Key. For more information, see [Authorize with Shared Key](/rest/api/storageservices/authorize-with-shared-key).
 
 Blob versioning is designed to protect your data from accidental or malicious deletion. To enhance protection, deleting a blob version requires special permissions. The following sections describe the permissions needed to delete a blob version.
 
-### RBAC action to delete a blob version
+### Azure RBAC action to delete a blob version
 
-The following table shows which RBAC actions support deleting a blob or a blob version.
+The following table shows which Azure RBAC actions support deleting a blob or a blob version.
 
-| Description | Blob service operation | RBAC data action required | RBAC built-in role support |
+| Description | Blob service operation | Azure RBAC data action required | Azure built-in role support |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
 | Deleting the current version of the blob | Delete Blob | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete** | Storage Blob Data Contributor |
 | Deleting a version | Delete Blob | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteBlobVersion/action** | Storage Blob Data Owner |
@@ -291,4 +297,4 @@ The following table describes the billing behavior for a blob that is soft-delet
 
 - [Enable and manage blob versioning](versioning-enable.md)
 - [Creating a snapshot of a blob](/rest/api/storageservices/creating-a-snapshot-of-a-blob)
-- [Soft delete for Azure Storage Blobs](storage-blob-soft-delete.md)
+- [Soft delete for Azure Storage Blobs](./soft-delete-blob-overview.md)

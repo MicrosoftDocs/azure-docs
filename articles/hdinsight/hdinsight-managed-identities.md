@@ -1,9 +1,6 @@
 ---
 title: Managed identities in Azure HDInsight
 description: Provides an overview of the implementation of managed identities in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
@@ -39,7 +36,7 @@ The remaining steps for configuring the managed identity depend on the scenario 
 
 Managed identities are used in Azure HDInsight in multiple scenarios. See the related documents for detailed setup and configuration instructions:
 
-* [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md#create-a-user-assigned-managed-identity)
+* [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2-portal.md#create-a-user-assigned-managed-identity)
 * [Enterprise Security Package](domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-and-authorize-a-managed-identity)
 * [Customer-managed key disk encryption](disk-encryption.md)
 
@@ -50,6 +47,7 @@ If you have already created a long running cluster with multiple different manag
  * In ESP clusters, when changing AAD-DS LDAPS cert, the LDAPS certificate does not automatically get updated and therefore LDAP sync and scale ups start failing.
  * MSI access to ADLS Gen2 start failing.
  * Encryption Keys can not be rotated in the CMK scenario.
+
 then you should assign the required roles and permissions for the above scenarios to all of those managed identities used in the cluster. For example, if you used different managed identities for ADLS Gen2 and ESP clusters then both of them should have the "Storage blob data Owner" and "HDInsight Domain Services Contributor" roles assigned to them to avoid running in to these issues.
 
 ## FAQ

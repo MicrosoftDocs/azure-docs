@@ -3,20 +3,18 @@ title: Smooth Streaming Plugin for the Open Source Media Framework
 description: Learn how to use the Azure Media Services Smooth Streaming plugin for the Adobe Open Source Media Framework.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: 6068151f-b6b0-4507-9346-f03416d3d572
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
+ms.date: 3/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-
 ---
 # How to Use the Microsoft Smooth Streaming Plugin for the Adobe Open Source Media Framework
 
@@ -55,7 +53,7 @@ OSMF plugins can be loaded statically (at compile time) or dynamically (at run-t
 * Static loading: To load statically, a static library (SWC) file is required. Static plugins are added as a reference to the projects and merge inside the final output file at the compile time.
 * Dynamic loading: To load dynamically, a precompiled (SWF) file is required. Dynamic plugins are loaded in the runtime and not included in the project output. (Compiled output) Dynamic plugins can be loaded using HTTP and FILE protocols.
 
-For more information on static and dynamic loading, see the official [OSMF plugin page](http://osmf.org/dev/osmf/OtherPDFs/osmf_plugin_dev_guide.pdf).
+For more information on static and dynamic loading, see the official [OSMF plugin page](https://www.ibm.com/support/knowledgecenter/SSLTBW_2.3.0/com.ibm.zos.v2r3.izua300/IZUHPINFO_PluginsPlanning.htm).
 
 ### SS for OSMF Static Loading
 The code snippet below shows how to load the SS plugin for OSMF statically and play a basic video using OSMF MediaFactory class. Before including the SS for OSMF code, please ensure that the project reference includes the "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc" static plugin.

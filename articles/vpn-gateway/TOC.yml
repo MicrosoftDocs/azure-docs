@@ -1,19 +1,34 @@
-- name: VPN Gateway Documentation
+- name: VPN Gateway documentation
   href: index.yml
 - name: Overview
   items:
   - name: What is VPN Gateway?
     href: vpn-gateway-about-vpngateways.md
 - name: Tutorials
+  expanded: true
   items:
   - name: Create and manage a VPN gateway
-    href: vpn-gateway-tutorial-create-gateway-powershell.md
-  - name: Create and manage S2S VPN connections
-    href: vpn-gateway-tutorial-vpnconnection-powershell.md
+    href: tutorial-create-gateway-portal.md
+  - name: Configure a site-to-site connection
+    href: tutorial-site-to-site-portal.md
 - name: Samples
   items:
   - name: Azure PowerShell
-    href: powershell-samples.md
+    items:
+    - name: Sample scripts
+      href: powershell-samples.md
+    - name: Create a VPN gateway
+      href: scripts/vpn-gateway-sample-create-vpn-gateway-powershell.md
+    - name: VPN gateway + P2S RADIUS
+      href: scripts/vpn-gateway-sample-point-to-site-radius-authentication-powershell.md
+    - name: VPN gateway + P2S certificate authentication
+      href: scripts/vpn-gateway-sample-point-to-site-certificate-authentication-powershell.md
+    - name: VPN gateway + Site-to-Site
+      href: scripts/vpn-gateway-sample-site-to-site-powershell.md
+    - name: VNet-to-VNet
+      href: scripts/vpn-gateway-sample-vnet-vnet-powershell.md
+    - name: Download VPN device template
+      href: scripts/vpn-gateway-sample-site-to-site-download-devicescript-powershell.md
 - name: Concepts
   items:
   - name: Work remotely
@@ -42,8 +57,10 @@
     href: vpn-gateway-about-point-to-site-routing.md
   - name: About zone-redundant gateways for Availability Zones
     href: about-zone-redundant-vnet-gateways.md
-  - name: Built-in security controls
-    href: vpn-gateway-security-controls.md
+  - name: Security
+    items:
+      - name: Security baseline
+        href: security-baseline.md
   - name: Backend Connectivity Interoperability
     items:
     - name: Preface and Test Setup
@@ -61,15 +78,15 @@
     - name: Create a route-based VPN gateway
       items:
       - name: Azure portal
-        href: create-routebased-vpn-gateway-portal.md
+        href: tutorial-create-gateway-portal.md
       - name: Azure PowerShell
         href: create-routebased-vpn-gateway-powershell.md
       - name: Azure CLI
         href: create-routebased-vpn-gateway-cli.md
     - name: Verify a VPN gateway connection
       href: vpn-gateway-verify-connection-resource-manager.md
-    - name: Reset a VPN gateway
-      href: vpn-gateway-resetgw-classic.md
+    - name: Reset a VPN gateway or connection
+      href: reset-gateway.md
     - name: Delete a VPN gateway
       items:
       - name: Azure portal
@@ -83,7 +100,7 @@
     - name: Configure S2S connections
       items:
       - name: Azure portal
-        href: vpn-gateway-howto-site-to-site-resource-manager-portal.md
+        href: tutorial-site-to-site-portal.md
       - name: Azure PowerShell
         href: vpn-gateway-create-site-to-site-rm-powershell.md
       - name: Azure CLI
@@ -156,22 +173,24 @@
         href: openvpn-azure-ad-mfa.md
       - name: Configure a VPN client
         href: openvpn-azure-ad-client.md
-      - name: About the client VPN profile download file
+      - name: Work with VPN client profile files
         href: about-vpn-profile-download.md 
       - name: Intune - Deploy VPN client profile
-        href: vpn-profile-intune.md       
+        href: vpn-profile-intune.md
+    - name: Multiple authentication types
+      items:
+      - name: Azure portal
+        href: howto-point-to-site-multi-auth.md          
     - name: OpenVPN
       items:
-      - name: Configure OpenVPN for Point-to-Site connections
+      - name: Configure OpenVPN tunnel type
         href: vpn-gateway-howto-openvpn.md
       - name: Configure OpenVPN clients
         href: vpn-gateway-howto-openvpn-clients.md
       - name: Move to OpenVPN protocol or IKEv2 from SSTP
         href: ikev2-openvpn-from-sstp.md
-    - name: Configure P2S session management
+    - name: P2S session management
       href: p2s-session-management.md      
-    - name: Transition to a public CA gateway certificate for P2S
-      href: vpn-gateway-point-to-site-gateway-public-ca.md
     - name: Configure an Always On VPN device tunnel
       href: vpn-gateway-howto-always-on-device-tunnel.md
     - name: Configure an Always On VPN user tunnel
@@ -190,6 +209,8 @@
         href: vpn-gateway-bgp-resource-manager-ps.md
       - name: Azure CLI
         href: bgp-how-to-cli.md
+    - name: BGP diagnostics
+      href: bgp-diagnostics.md
     - name: Configure forced tunneling
       items:
       - name: Azure PowerShell
@@ -241,6 +262,8 @@
   - name: Troubleshoot
     href: vpn-gateway-troubleshoot.md
     items:
+    - name: Troubleshoot Azure VPN Gateway using diagnostic logs
+      href: troubleshoot-vpn-with-azure-diagnostics.md
     - name: Community-suggested VPN or firewall device settings
       href: vpn-gateway-third-party-settings.md
     - name: Configure and validate VNet or VPN connections
@@ -276,7 +299,7 @@
     - name: Configure multiple S2S connections
       href: vpn-gateway-multi-site.md
     - name: Configure a VPN gateway
-      href: vpn-gateway-configure-vpn-gateway-mp.md
+      href: ./vpn-gateway-howto-site-to-site-classic-portal.md
     - name: Classic to Resource Manager migration
       href: vpn-gateway-classic-resource-manager-migration.md
 - name: Reference
@@ -284,11 +307,11 @@
   - name: Azure PowerShell
     href: /powershell/module/az.network#vpn
   - name: Azure PowerShell (classic)
-    href: /powershell/module/servicemanagement/azure.service/?view=azuresmps-4.0.0#azure
+    href: /powershell/module/servicemanagement/azure.service/#azure
   - name: REST
     href: /rest/api/network/virtualnetworkgateways
   - name: REST (classic)
-    href: https://msdn.microsoft.com/library/jj154113
+    href: /previous-versions/azure/reference/jj154113(v=azure.100)
   - name: Azure CLI
     href: /cli/azure/network/vnet-gateway
 - name: Resources
@@ -300,7 +323,7 @@
   - name: Blog
     href: https://azure.microsoft.com/blog/topics/networking
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-virtual-network.html
+    href: /answers/topics/azure-virtual-network.html
   - name: Subscription and service limits
     href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
   - name: Pricing
@@ -311,4 +334,3 @@
     href: https://azure.microsoft.com/support/legal/sla
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway
- 

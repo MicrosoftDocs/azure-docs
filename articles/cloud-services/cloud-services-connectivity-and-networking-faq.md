@@ -1,22 +1,19 @@
 ---
 title: Connectivity and networking issues
-titleSuffix: Azure Cloud Services
 description: This article lists the frequently asked questions about connectivity and networking for Microsoft Azure Cloud Services.
-services: cloud-services
-documentationcenter: ''
-author: genlin
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
-ms.service: cloud-services
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/23/2018
-ms.author: genli
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: 
 ---
-# Connectivity and networking issues for Azure Cloud Services: Frequently asked questions (FAQs)
+
+# Connectivity and networking issues for Azure Cloud Services (classic): Frequently asked questions (FAQs)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
 
 This article includes frequently asked questions about connectivity and networking issues for [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). For size information, see the [Cloud Services VM size page](cloud-services-sizes-specs.md).
 
@@ -34,7 +31,7 @@ No, not by using the normal "ping"/ICMP protocol. The ICMP protocol is not permi
 
 To test connectivity, we recommend that you do a port ping. While Ping.exe uses ICMP, you can use other tools, such as PSPing, Nmap, and telnet, to test connectivity to a specific TCP port.
 
-For more information, see [Use port pings instead of ICMP to test Azure VM connectivity](https://blogs.msdn.microsoft.com/mast/2014/06/22/use-port-pings-instead-of-icmp-to-test-azure-vm-connectivity/).
+For more information, see [Use port pings instead of ICMP to test Azure VM connectivity](/archive/blogs/mast/use-port-pings-instead-of-icmp-to-test-azure-vm-connectivity).
 
 ## How do I prevent receiving thousands of hits from unknown IP addresses that might indicate a malicious attack to the cloud service?
 Azure implements a multilayer network security to protect its platform services against distributed denial-of-service (DDoS) attacks. The Azure DDoS defense system is part of Azure's continuous monitoring process, which is continually improved through penetration testing. This DDoS defense system is designed to withstand not only attacks from the outside but also from other Azure tenants. For more information, see [Azure network security](https://download.microsoft.com/download/C/A/3/CA3FC5C0-ECE0-4F87-BF4B-D74064A00846/AzureNetworkSecurity_v3_Feb2015.pdf).
@@ -61,7 +58,7 @@ The distribution algorithm used is a 5-tuple (source IP, source port, destinatio
 
 The URL Rewrite module of IIS can be used to redirect traffic that comes to the default URL for the cloud service (for example, \*.cloudapp.net) to some custom name/URL. Because the URL Rewrite module is enabled on web roles by default and its rules are configured in the application's web.config, it's always available on the VM regardless of reboots/reimages.For more information, see:
 
-- [Create rewrite rules for the URL Rewrite module](https://docs.microsoft.com/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module)
+- [Create rewrite rules for the URL Rewrite module](/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module)
 - [Remove a default link](https://stackoverflow.com/questions/32286487/azure-website-how-to-remove-default-link?answertab=votes#tab-top)
 
 ## How can I block/disable incoming traffic to the default URL of my cloud service?
@@ -93,7 +90,7 @@ Because this host header binding is enforced through the csdef file, the service
 
 ## How can I make sure the public-facing IP address of a cloud service never changes?
 
-To make sure the public-facing IP address of your cloud service (also known as a VIP) never changes so that it can be customarily whitelisted by a few specific clients, we recommend that you have a reserved IP associated with it. Otherwise, the virtual IP provided by Azure is deallocated from your subscription if you delete the deployment. For successful VIP swap operation, you need individual reserved IPs for both production and staging slots. Without them, the swap operation fails. To reserve an IP address and associate it with your cloud service, see these articles:
+To make sure the public-facing IP address of your cloud service (also known as a VIP) never changes so that it can be customarily approved by a few specific clients, we recommend that you have a reserved IP associated with it. Otherwise, the virtual IP provided by Azure is deallocated from your subscription if you delete the deployment. For successful VIP swap operation, you need individual reserved IPs for both production and staging slots. Without them, the swap operation fails. To reserve an IP address and associate it with your cloud service, see these articles:
 
 - [Reserve the IP address of an existing cloud service](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#reserve-the-ip-address-of-an-existing-cloud-service)
 - [Associate a reserved IP to a cloud service by using a service configuration file](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)

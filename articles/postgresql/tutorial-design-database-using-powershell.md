@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Design an Azure Database for PostgreSQL - Single Server - Azure PowerShell'
 description: This tutorial shows how to create, configure, and query your first Azure Database for PostgreSQL - Single Server using Azure PowerShell.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.devlang: azurepowershell
 ms.topic: tutorial
@@ -32,9 +32,9 @@ before you begin.
 
 If you choose to use PowerShell locally, this article requires that you install the Az PowerShell
 module and connect to your Azure account using the
-[Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount)
+[Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount)
 cmdlet. For more information about installing the Az PowerShell module, see
-[Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+[Install Azure PowerShell](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
 > While the Az.PostgreSql PowerShell module is in preview, you must install it separately from the Az
@@ -53,7 +53,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.DBforPostgreSQL
 
 If you have multiple Azure subscriptions, choose the appropriate subscription in which the resources
 should be billed. Select a specific subscription ID using the
-[Set-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext) cmdlet.
+[Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
 
 ```azurepowershell-interactive
 Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
@@ -62,9 +62,9 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 ## Create a resource group
 
 Create an
-[Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)
+[Azure resource group](../azure-resource-manager/management/overview.md)
 using the
-[New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)
+[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)
 cmdlet. A resource group is a logical container in which Azure resources are deployed and managed as
 a group.
 
@@ -125,9 +125,9 @@ New-AzPostgreSqlFirewallRule -Name AllowMyIP -ResourceGroupName myresourcegroup 
 ```
 
 > [!NOTE]
-> Connections to Azure Database for PostgreSQL communicate over port 3306. If you try to connect from
-> within a corporate network, outbound traffic over port 3306 might not be allowed. In this
-> scenario, you can only connect to the server if your IT department opens port 3306.
+> Connections to Azure Database for PostgreSQL communicate over port 5432. If you try to connect from
+> within a corporate network, outbound traffic over port 5432 might not be allowed. In this
+> scenario, you can only connect to the server if your IT department opens port 5432.
 
 ## Get the connection information
 
@@ -266,6 +266,10 @@ server's **Overview** page.
 The new server created during a restore does not have the VNet service endpoints that existed on the
 original server. These rules must be set up separately for the new server. Firewall rules from the
 original server are restored.
+
+## Clean up resources
+
+In the preceding steps, you created Azure resources in a server group. If you don't expect to need these resources in the future, delete the server group. Press the *Delete* button in the *Overview* page for your server group. When prompted on a pop-up page, confirm the name of the server group and click the final *Delete* button.
 
 ## Next steps
 

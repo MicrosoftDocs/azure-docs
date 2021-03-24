@@ -4,7 +4,7 @@ description: Tutorial showing how to use message enrichments for Azure IoT Hub m
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 12/20/2019
 ms.author: robinsh
 ms.custom: "mqtt, devx-track-azurecli, devx-track-csharp"
@@ -33,13 +33,13 @@ Here are the tasks you perform to complete this tutorial:
 
 ## Prerequisites
 
-* You must have an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* Install [Visual Studio](https://www.visualstudio.com/).
+- You must have an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* Make sure that port 8883 is open in your firewall. The device sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+- Install [Visual Studio](https://www.visualstudio.com/).
 
+- Make sure that port 8883 is open in your firewall. The device sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Retrieve the IoT C# samples repository
 
@@ -381,7 +381,7 @@ To remove all of the resources you created in this tutorial, delete the resource
 
 ### Use the Azure CLI to clean up resources
 
-To remove the resource group, use the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command. Recall that `$resourceGroup` was set to **ContosoResourcesMsgEn** at the beginning of this tutorial.
+To remove the resource group, use the [az group delete](/cli/azure/group#az-group-delete) command. Recall that `$resourceGroup` was set to **ContosoResourcesMsgEn** at the beginning of this tutorial.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup
@@ -392,6 +392,7 @@ az group delete --name $resourceGroup
 In this tutorial, you configured and tested adding message enrichments to IoT Hub messages by using the following steps:
 
 **Use IoT Hub message enrichments**
+
 > [!div class="checklist"]
 > * First method: Create resources and configure message routing by using the Azure CLI. Configure the message enrichments manually by using the [Azure portal](https://portal.azure.com).
 > * Second method: Create resources and configure message routing and message enrichments by using an Azure Resource Manager template.
@@ -402,5 +403,8 @@ For more information about message enrichments, see [Overview of message enrichm
 
 For more information about message routing, see these articles:
 
-* [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](iot-hub-devguide-messages-d2c.md)
-* [Tutorial: IoT Hub routing](tutorial-routing.md)
+> [!div class="nextstepaction"]
+> [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](iot-hub-devguide-messages-d2c.md)
+
+> [!div class="nextstepaction"]
+> [Tutorial: IoT Hub routing](tutorial-routing.md)

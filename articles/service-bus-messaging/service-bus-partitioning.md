@@ -25,6 +25,9 @@ The peek operation on a non-partitioned entity always returns the oldest message
 
 There is no additional cost when sending a message to, or receiving a message from, a partitioned queue or topic.
 
+> [!NOTE]
+> The peek operation returns the oldest message from the partition based on its sequence number. For partitioned entities, the sequence number is issued relative to the partition. For more information, see [Message sequencing and timestamps](../service-bus-messaging/message-sequencing.md).
+
 ## Enable partitioning
 
 To use partitioned queues and topics with Azure Service Bus, use the Azure SDK version 2.2 or later, or specify `api-version=2013-10` or later in your HTTP requests.
@@ -87,8 +90,8 @@ using (TransactionScope ts = new TransactionScope(committableTransaction))
 {
     Message msg = new Message("This is a message");
     msg.PartitionKey = "myPartitionKey";
-    messageSender.SendAsync(msg); 
-    ts.CompleteAsync();
+    await messageSender.SendAsync(msg); 
+    await ts.CompleteAsync();
 }
 committableTransaction.Commit();
 ```
@@ -107,8 +110,8 @@ using (TransactionScope ts = new TransactionScope(committableTransaction))
 {
     Message msg = new Message("This is a message");
     msg.SessionId = "mySession";
-    messageSender.SendAsync(msg); 
-    ts.CompleteAsync();
+    await messageSender.SendAsync(msg); 
+    await ts.CompleteAsync();
 }
 committableTransaction.Commit();
 ```

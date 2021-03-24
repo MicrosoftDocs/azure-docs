@@ -67,12 +67,14 @@ In this section, you delegate the subnet that you created in the preceding secti
 
 ## Azure CLI
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+Prepare your environment for the Azure CLI.
 
-If you decide to install and use Azure CLI locally instead, this article requires you to use Azure CLI version 2.0.28 or later. To find your installed version, run `az --version`. See [Install Azure CLI](/cli/azure/install-azure-cli) for install or upgrade info.
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- This article requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ### Create a resource group
-Create a resource group with [az group create](https://docs.microsoft.com/cli/azure/group). An Azure resource group is a logical container into which Azure resources are deployed and managed.
+Create a resource group with [az group create](/cli/azure/group). An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
 The following example creates a resource group named **myResourceGroup** in the **eastus** location:
 
@@ -85,7 +87,7 @@ The following example creates a resource group named **myResourceGroup** in the 
 ```
 
 ### Create a virtual network
-Create a virtual network named **myVnet** with a subnet named **mySubnet** in the **myResourceGroup** using [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
+Create a virtual network named **myVnet** with a subnet named **mySubnet** in the **myResourceGroup** using [az network vnet create](/cli/azure/network/vnet).
 
 ```azurecli-interactive
   az network vnet create \
@@ -106,7 +108,7 @@ The built-in [Network Contributor](../role-based-access-control/built-in-roles.m
 
 In this section, you delegate the subnet that you created in the preceding section to an Azure service. 
 
-Use [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update) to update the subnet named **mySubnet** with a delegation to an Azure service.  In this example **Microsoft.DBforPostgreSQL/serversv2** is used for the example delegation:
+Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) to update the subnet named **mySubnet** with a delegation to an Azure service.  In this example **Microsoft.DBforPostgreSQL/serversv2** is used for the example delegation:
 
 ```azurecli-interactive
   az network vnet subnet update \
@@ -116,7 +118,7 @@ Use [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network
   --delegations Microsoft.DBforPostgreSQL/serversv2
 ```
 
-To verify the delegation was applied, use [az network vnet subnet show](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-show). Verify the service is delegated to the subnet under the property **serviceName**:
+To verify the delegation was applied, use [az network vnet subnet show](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-show). Verify the service is delegated to the subnet under the property **serviceName**:
 
 ```azurecli-interactive
   az network vnet subnet show \
@@ -145,7 +147,7 @@ To verify the delegation was applied, use [az network vnet subnet show](https://
 
 ### Remove subnet delegation from an Azure service
 
-Use [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update) to remove the delegation from the subnet named **mySubnet**:
+Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) to remove the delegation from the subnet named **mySubnet**:
 
 ```azurecli-interactive
   az network vnet subnet update \
@@ -154,7 +156,7 @@ Use [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network
   --vnet-name myVnet \
   --remove delegations
 ```
-To verify the delegation was removed, use [az network vnet subnet show](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-show). Verify the service is removed from the subnet under the property **serviceName**:
+To verify the delegation was removed, use [az network vnet subnet show](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-show). Verify the service is removed from the subnet under the property **serviceName**:
 
 ```azurecli-interactive
   az network vnet subnet show \
@@ -179,7 +181,7 @@ Output from command is a null bracket:
 ```
 
 ### Create a resource group
-Create a resource group with [New-AzResourceGroup](https://docs.microsoft.com/cli/azure/group). An Azure resource group is a logical container into which Azure resources are deployed and managed.
+Create a resource group with [New-AzResourceGroup](/cli/azure/group). An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
@@ -188,7 +190,7 @@ The following example creates a resource group named *myResourceGroup* in the *e
 ```
 ### Create virtual network
 
-Create a virtual network named **myVnet** with a subnet named **mySubnet** using [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig?view=latest) in the **myResourceGroup** using [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork?view=latest). The IP address space for the virtual network is **10.0.0.0/16**. The subnet within the virtual network is **10.0.0.0/24**.  
+Create a virtual network named **myVnet** with a subnet named **mySubnet** using [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) in the **myResourceGroup** using [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). The IP address space for the virtual network is **10.0.0.0/16**. The subnet within the virtual network is **10.0.0.0/24**.  
 
 ```azurepowershell-interactive
   $subnet = New-AzVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix "10.0.0.0/24"
@@ -205,7 +207,7 @@ The built-in [Network Contributor](../role-based-access-control/built-in-roles.m
 
 In this section, you delegate the subnet that you created in the preceding section to an Azure service. 
 
-Use [Add-AzDelegation](https://docs.microsoft.com/powershell/module/az.network/add-azdelegation?view=latest) to update the subnet named **mySubnet** with a delegation named **myDelegation** to an Azure service.  In this example **Microsoft.DBforPostgreSQL/serversv2** is used for the example delegation:
+Use [Add-AzDelegation](/powershell/module/az.network/add-azdelegation) to update the subnet named **mySubnet** with a delegation named **myDelegation** to an Azure service.  In this example **Microsoft.DBforPostgreSQL/serversv2** is used for the example delegation:
 
 ```azurepowershell-interactive
   $vnet = Get-AzVirtualNetwork -Name "myVNet" -ResourceGroupName "myResourceGroup"
@@ -213,7 +215,7 @@ Use [Add-AzDelegation](https://docs.microsoft.com/powershell/module/az.network/a
   $subnet = Add-AzDelegation -Name "myDelegation" -ServiceName "Microsoft.DBforPostgreSQL/serversv2" -Subnet $subnet
   Set-AzVirtualNetwork -VirtualNetwork $vnet
 ```
-Use [Get-AzDelegation](https://docs.microsoft.com/powershell/module/az.network/get-azdelegation?view=latest) to verify the delegation:
+Use [Get-AzDelegation](/powershell/module/az.network/get-azdelegation) to verify the delegation:
 
 ```azurepowershell-interactive
   $subnet = Get-AzVirtualNetwork -Name "myVnet" -ResourceGroupName "myResourceGroup" | Get-AzVirtualNetworkSubnetConfig -Name "mySubnet"
@@ -229,7 +231,7 @@ Use [Get-AzDelegation](https://docs.microsoft.com/powershell/module/az.network/g
 ```
 ### Remove subnet delegation from an Azure service
 
-Use [Remove-AzDelegation](https://docs.microsoft.com/powershell/module/az.network/remove-azdelegation?view=latest) to remove the delegation from the subnet named **mySubnet**:
+Use [Remove-AzDelegation](/powershell/module/az.network/remove-azdelegation) to remove the delegation from the subnet named **mySubnet**:
 
 ```azurepowershell-interactive
   $vnet = Get-AzVirtualNetwork -Name "myVnet" -ResourceGroupName "myResourceGroup"
@@ -237,7 +239,7 @@ Use [Remove-AzDelegation](https://docs.microsoft.com/powershell/module/az.networ
   $subnet = Remove-AzDelegation -Name "myDelegation" -Subnet $subnet
   Set-AzVirtualNetwork -VirtualNetwork $vnet
 ```
-Use [Get-AzDelegation](https://docs.microsoft.com/powershell/module/az.network/get-azdelegation?view=latest) to verify the delegation was removed:
+Use [Get-AzDelegation](/powershell/module/az.network/get-azdelegation) to verify the delegation was removed:
 
 ```azurepowershell-interactive
   $subnet = Get-AzVirtualNetwork -Name "myVnet" -ResourceGroupName "myResourceGroup" | Get-AzVirtualNetworkSubnetConfig -Name "mySubnet"

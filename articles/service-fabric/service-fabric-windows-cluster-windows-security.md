@@ -1,11 +1,8 @@
 ---
 title: Secure a cluster running on Windows by using Windows security 
 description: Learn how to configure node-to-node and client-to-node security on a standalone cluster running on Windows by using Windows security.
-author: dkkapur
-
 ms.topic: conceptual
 ms.date: 08/24/2017
-ms.author: dekapur
 ---
 # Secure a standalone cluster on Windows by using Windows security
 To prevent unauthorized access to a Service Fabric cluster, you must secure the cluster. Security is especially important when the cluster runs production workloads. This article describes how to configure node-to-node and client-to-node security by using Windows security in the *ClusterConfig.JSON* file.  The process corresponds to the configure security step of [Create a standalone cluster running on Windows](service-fabric-cluster-creation-for-windows-server.md). For more information about how Service Fabric uses Windows security, see [Cluster security scenarios](service-fabric-cluster-security.md).
@@ -16,7 +13,7 @@ To prevent unauthorized access to a Service Fabric cluster, you must secure the 
 >
 
 ## Configure Windows security using gMSA  
-The sample *ClusterConfig.gMSA.Windows.MultiMachine.JSON* configuration file downloaded with the [Microsoft.Azure.ServiceFabric.WindowsServer.\<version>.zip](https://go.microsoft.com/fwlink/?LinkId=730690) standalone cluster package contains a template for configuring Windows security using [Group Managed Service Account (gMSA)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)):  
+gMSA is the preferred security model. The sample *ClusterConfig.gMSA.Windows.MultiMachine.JSON* configuration file downloaded with the [Microsoft.Azure.ServiceFabric.WindowsServer.\<version>.zip](https://go.microsoft.com/fwlink/?LinkId=730690) standalone cluster package contains a template for configuring Windows security using [Group Managed Service Account (gMSA)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)):  
 
 ```
 "security": {
@@ -72,7 +69,7 @@ The following example **security** section configures Windows security using gMS
 ```
   
 ## Configure Windows security using a machine group  
-This model is being deprecated. The recommendation is to use gMSA as detailed above. The sample *ClusterConfig.Windows.MultiMachine.JSON* configuration file downloaded with the [Microsoft.Azure.ServiceFabric.WindowsServer.\<version>.zip](https://go.microsoft.com/fwlink/?LinkId=730690) standalone cluster package contains a template for configuring Windows security.  Windows security is configured in the **Properties** section: 
+As detailed above gMSA is preferred, but it is also supported to use this security model. The sample *ClusterConfig.Windows.MultiMachine.JSON* configuration file downloaded with the [Microsoft.Azure.ServiceFabric.WindowsServer.\<version>.zip](https://go.microsoft.com/fwlink/?LinkId=730690) standalone cluster package contains a template for configuring Windows security.  Windows security is configured in the **Properties** section: 
 
 ```
 "security": {

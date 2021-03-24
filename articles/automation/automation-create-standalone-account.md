@@ -3,7 +3,7 @@ title: Create a standalone Azure Automation account
 description: This article tells how to create a standalone Azure Automation account and a Classic Run As account.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/15/2019
+ms.date: 01/07/2021
 ms.topic: conceptual
 ---
 # Create a standalone Azure Automation account
@@ -16,7 +16,7 @@ When you create an Automation account in the Azure portal, the **Run As** accoun
 
 * Creates a service principal in Azure Active Directory (Azure AD).
 * Creates a certificate.
-* Assigns the Contributor Role-Based Access Control (RBAC), which manages Azure Resource Manager resources by using runbooks.
+* Assigns the Contributor role, which manages Azure Resource Manager resources by using runbooks.
 
 With this account created for you, you can quickly start building and deploying runbooks to support your automation needs.
 
@@ -87,7 +87,7 @@ When the Automation account is successfully created, several resources are autom
 
 ## Create a Classic Run As account
 
-Classic Run As accounts are no longer created by default when you create an Azure Automation account. If you still require a Classic Run As account:
+Classic Run As accounts are not created by default when you create an Azure Automation account. If you require a Classic Run As account to manage Azure classic resources, perform the following steps:
 
 1. From your Automation account, select **Run As Accounts** under **Account Settings**.
 2. Select **Azure Classic Run As Account**.
@@ -98,5 +98,5 @@ Classic Run As accounts are no longer created by default when you create an Azur
 * To learn more about graphical authoring, see [Author graphical runbooks in Azure Automation](automation-graphical-authoring-intro.md).
 * To get started with PowerShell runbooks, see [Tutorial: Create a PowerShell runbook](learn/automation-tutorial-runbook-textual-powershell.md).
 * To get started with PowerShell Workflow runbooks, see [Tutorial: Create a PowerShell workflow runbook](learn/automation-tutorial-runbook-textual.md).
-* To get started with Python 2 runbooks, see [Tutorial: Create a Python 2 runbook](learn/automation-tutorial-runbook-textual-python2.md).
-* For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0&preserve-view=true#automation).
+* To get started with Python 3 runbooks, see [Tutorial: Create a Python 3 runbook](learn/automation-tutorial-runbook-textual-python-3.md).
+* For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation).

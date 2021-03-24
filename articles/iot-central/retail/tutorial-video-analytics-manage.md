@@ -20,8 +20,8 @@ In this tutorial, you learn how to:
 
 Before you start, you should complete:
 
-* The [Create a live video analytics application in Azure IoT Central](./tutorial-video-analytics-create-app.md) tutorial.
-* One of the previous [Create an IoT Edge instance for live video analytics (Linux VM)](tutorial-video-analytics-iot-edge-vm.md) or [Create an IoT Edge instance for live video analytics (Linux VM)](tutorial-video-analytics-iot-edge-nuc.md) tutorials.
+* One of the previous [Create a live video analytics application in Azure IoT Central](./tutorial-video-analytics-create-app-yolo-v3.md) or [Create a video analytics in Azure IoT Central (OpenVINO&trade;)](tutorial-video-analytics-create-app-openvino.md) tutorials.
+* One of the previous [Create an IoT Edge instance for live video analytics (Linux VM)](tutorial-video-analytics-iot-edge-vm.md) or [Create an IoT Edge instance for live video analytics (Intel NUC)](tutorial-video-analytics-iot-edge-nuc.md) tutorials.
 
 You should have [Docker](https://www.docker.com/products/docker-desktop) installed on your local machine to run the video viewer application.
 
@@ -189,7 +189,7 @@ You can pause live video analytics processing in the application:
     * Click on the **Streaming Endpoint** resource.
     * On the **Streaming endpoint details** page, select **Stop**.
 
-## Tidy up
+## Clean up resources
 
 If you've finished with the application, you can remove all the resources you created as follows:
 

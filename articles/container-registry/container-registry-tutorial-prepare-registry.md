@@ -8,7 +8,7 @@ ms.custom: "seodec18, mvc"
 
 # Tutorial: Prepare a geo-replicated Azure container registry
 
-An Azure container registry is a private Docker registry deployed in Azure that you can keep network-close to your deployments. In this set of three tutorial articles, you learn how to use geo-replication to deploy an ASP.NET Core web application running in a Linux container to two [Web Apps for Containers](../app-service/containers/index.yml) instances. You'll see how Azure automatically deploys the image to each Web App instance from the closest geo-replicated repository.
+An Azure container registry is a private Docker registry deployed in Azure that you can keep network-close to your deployments. In this set of three tutorial articles, you learn how to use geo-replication to deploy an ASP.NET Core web application running in a Linux container to two [Web Apps for Containers](../app-service/index.yml) instances. You'll see how Azure automatically deploys the image to each Web App instance from the closest geo-replicated repository.
 
 In this tutorial, part one in a three-part series:
 
@@ -118,19 +118,19 @@ If you don't have `git` installed, you can [download the ZIP archive][acr-hellow
 
 ## Update Dockerfile
 
-The Dockerfile included in the sample shows how the container is built. It starts from an official [aspnetcore][dockerhub-aspnetcore] image, copies the application files into the container, installs dependencies, compiles the output using the official [aspnetcore-build][dockerhub-aspnetcore-build] image, and finally, builds an optimized aspnetcore image.
+The Dockerfile included in the sample shows how the container is built. It starts from an official ASP.NET Core runtime image, copies the application files into the container, installs dependencies, compiles the output using the official .NET Core SDK image, and finally, builds an optimized aspnetcore image.
 
 The [Dockerfile][dockerfile] is located at `./AcrHelloworld/Dockerfile` in the cloned source.
 
 ```Dockerfile
-FROM microsoft/aspnetcore:2.0 AS base
+FROM mcr.microsoft.com/dotnet/core/aspnet:2.2 AS base
 # Update <acrName> with the name of your registry
 # Example: uniqueregistryname.azurecr.io
 ENV DOCKER_REGISTRY <acrName>.azurecr.io
 WORKDIR /app
 EXPOSE 80
 
-FROM microsoft/aspnetcore-build:2.0 AS build
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2 AS build
 WORKDIR /src
 COPY *.sln ./
 COPY AcrHelloworld/AcrHelloworld.csproj AcrHelloworld/
@@ -182,8 +182,8 @@ Several lines of output are displayed as the Docker image is built (shown here t
 
 ```bash
 Sending build context to Docker daemon  523.8kB
-Step 1/18 : FROM microsoft/aspnetcore:2.0 AS base
-2.0: Pulling from microsoft/aspnetcore
+Step 1/18 : FROM mcr.microsoft.com/dotnet/core/aspnet:2.2 AS base
+2.2: Pulling from mcr.microsoft.com/dotnet/core/aspnet
 3e17c6eae66c: Pulling fs layer
 
 [...]
@@ -240,6 +240,4 @@ Advance to the next tutorial to deploy your container to multiple Web Apps for C
 <!-- LINKS - External -->
 [acr-helloworld-zip]: https://github.com/Azure-Samples/acr-helloworld/archive/master.zip
 [aspnet-core]: https://dot.net
-[dockerhub-aspnetcore]: https://hub.docker.com/r/microsoft/aspnetcore/
-[dockerhub-aspnetcore-build]: https://store.docker.com/community/images/microsoft/aspnetcore-build
 [dockerfile]: https://github.com/Azure-Samples/acr-helloworld/blob/master/AcrHelloworld/Dockerfile

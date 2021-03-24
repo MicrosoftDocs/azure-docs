@@ -65,11 +65,11 @@ This tutorial walks you through purging assets from all edge nodes of an endpoin
     ![Purge button](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> Purge requests take approximately 10 minutes to process with **Azure CDN from Microsoft**, approximately 2 minutes with **Azure CDN from Verizon** (standard and premium), and approximately 10 seconds with **Azure CDN from Akamai**.  Azure CDN has a limit of 50 concurrent purge requests at any given time at the profile level. 
+> Purge requests take approximately 10 minutes to process with **Azure CDN from Microsoft**, approximately 2 minutes with **Azure CDN from Verizon** (standard and premium), and approximately 10 seconds with **Azure CDN from Akamai**.  Azure CDN has a limit of 100 concurrent purge requests at any given time at the profile level. 
 > 
 > 
 
 ## See also
 * [Pre-load assets on an Azure CDN endpoint](cdn-preload-endpoint.md)
-* [Azure CDN REST API reference - Purge or Pre-Load an Endpoint](/rest/api/cdn/endpoints)
+* [Azure CDN REST API reference - Purge or Pre-Load an Endpoint](/rest/api/cdn/cdn/endpoints)
 

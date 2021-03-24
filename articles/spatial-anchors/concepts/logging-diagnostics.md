@@ -1,12 +1,12 @@
 ---
 title: Logging and diagnostics
 description: In-depth explanation of how to generate and retrieve logging and diagnostics in Azure Spatial Anchors.
-author: ramonarguelles
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
-ms.author: rgarcia
-ms.date: 02/22/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
@@ -38,9 +38,9 @@ There are two callbacks of interest for the user. The following sample shows how
 
 These event callbacks are provided to process logs and errors from the session:
 
-- [LogLevel](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.loglevel): Specifies the level of detail for the events to receive from the runtime.
-- [OnLogDebug](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.onlogdebug): Provides standard debug log events.
-- [Error](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.error): Provides log events that the runtime considers to be errors.
+- [LogLevel](/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.loglevel): Specifies the level of detail for the events to receive from the runtime.
+- [OnLogDebug](/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.onlogdebug): Provides standard debug log events.
+- [Error](/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.error): Provides log events that the runtime considers to be errors.
 
 ## Diagnostics logging
 

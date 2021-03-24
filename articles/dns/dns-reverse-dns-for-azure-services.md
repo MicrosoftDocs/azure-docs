@@ -28,7 +28,7 @@ Before reading this article, you should be familiar with this [Overview of rever
 In Azure DNS, compute resources (such as virtual machines, virtual machine scale sets, or Service Fabric clusters) are exposed via a PublicIpAddress resource. Reverse DNS lookups are configured using the 'ReverseFqdn' property of the PublicIpAddress.
 
 
-Reverse DNS is not currently supported for the Azure App Service.
+Reverse DNS is not currently supported for the Azure App Service and Application Gateway.
 
 ## Validation of reverse DNS records
 
@@ -242,11 +242,10 @@ No. Azure currently supports reverse DNS only for IPv4 PublicIpAddress resources
 
 ### Can I send emails to external domains from my Azure Compute services?
 
-The technical ability to send email directly from an Azure deployment depends on the subscription type. Regardless of subscription type, Microsoft recommends using trusted mail relay services to send outgoing mail. For further details, see [Enhanced Azure Security for sending Emails – November 2017 Update](https://blogs.msdn.microsoft.com/mast/2017/11/15/enhanced-azure-security-for-sending-emails-november-2017-update/).
+The technical ability to send email directly from an Azure deployment depends on the subscription type. Regardless of subscription type, Microsoft recommends using trusted mail relay services to send outgoing mail. For further details, see [Enhanced Azure Security for sending Emails – November 2017 Update](../virtual-network/troubleshoot-outbound-smtp-connectivity.md).
 
 ## Next steps
 
 For more information on reverse DNS, see [reverse DNS lookup on Wikipedia](https://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>
 Learn how to [host the reverse lookup zone for your ISP-assigned IP range in Azure DNS](dns-reverse-dns-for-azure-services.md).
-

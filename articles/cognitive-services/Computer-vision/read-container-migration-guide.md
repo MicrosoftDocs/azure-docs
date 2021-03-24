@@ -1,21 +1,20 @@
 ---
-title: Migrating from the v2 read container to v3
+title: Migrating to the Read v3.x OCR containers
 titleSuffix: Azure Cognitive Services
-description: Learn how to migrate to the v3 Read container  
+description: Learn how to migrate to the v3 Read OCR containers
 services: cognitive-services 
 author: aahill
 manager: nitinme
 ms.service: cognitive-services 
 ms.subservice: computer-vision 
 ms.topic: overview
-ms.date: 09/21/2020
+ms.date: 01/29/2021
 ms.author: aahi
 ---
 
-# Migrate to the Read v3.x container
+# Migrate to the Read v3.x OCR containers
 
-If you're using version 2 of the Computer Vision Read container, Use this article to learn about upgrading your application to use version 3.x of the container. 
-
+If you're using version 2 of the Computer Vision Read OCR container, Use this article to learn about upgrading your application to use version 3.x of the container. 
 
 
 ## Configuration changes
@@ -25,23 +24,13 @@ If you're using version 2 of the Computer Vision Read container, Use this articl
 
 ## API changes
 
-The Read v3.x containers use version 3 of the Computer Vision API and have the following endpoints:
+The Read v3.2 container uses version 3 of the Computer Vision API and has the following endpoints:
 
-#### [Version 3.1-preview](#tab/version-3-1)
+* `/vision/v3.2-preview.1/read/analyzeResults/{operationId}`
+* `/vision/v3.2-preview.1/read/analyze`
+* `/vision/v3.2-preview.1/read/syncAnalyze`
 
-* `/vision/v3.1-preview.2/read/analyzeResults/{operationId}`
-* `/vision/v3.1-preview.2/read/analyze`
-* `/vision/v3.1-preview.2/read/syncAnalyze`
-
-#### [Version 3.0-preview](#tab/version-3)
-
-* `/vision/v3.0/read/analyzeResults/{operationId}`
-* `/vision/v3.0/read/analyze`
-* `/vision/v3.0/read/syncAnalyze`
-
----
-
-See the [Computer Vision v3 REST API migration guide](https://docs.microsoft.com/azure/cognitive-services/computer-vision/upgrade-api-versions) for detailed information on updating your applications to use version 3 of cloud-based Read API. This information applies to the container as well. Note that sync operations are only supported in containers.
+See the [Computer Vision v3 REST API migration guide](./upgrade-api-versions.md) for detailed information on updating your applications to use version 3 of cloud-based Read API. This information applies to the container as well. Note that sync operations are only supported in containers.
 
 ## Memory requirements
 
@@ -49,8 +38,7 @@ The requirements and recommendations are based on benchmarks with a single reque
 
 |Container  |Minimum | Recommended  |
 |---------|---------|------|
-|Read 3.0-preview     | 8 cores, 16-GB memory         | 8 cores, 24-GB memory
-|Read 3.1-preview | 8 cores, 16-GB memory         | 8 cores, 24-GB memory
+|Read 3.2-preview | 8 cores, 16-GB memory         | 8 cores, 24-GB memory |
 
 Each core must be at least 2.6 gigahertz (GHz) or faster.
 
@@ -61,10 +49,10 @@ Core and memory correspond to the `--cpus` and `--memory` settings, which are us
 >[!NOTE]
 > MongoDB is no longer supported in 3.x versions of the container. Instead, the containers support Azure Storage and offline file systems.
 
-| Implementation |	Required runtime argument(s) |
+| Implementation |    Required runtime argument(s) |
 |---------|---------|
-|File level (default)	| No runtime arguments required. `/share` directory will be used. |
-|Azure Blob	| `Storage:ObjectStore:AzureBlob:ConnectionString={AzureStorageConnectionString}` |
+|File level (default)    | No runtime arguments required. `/share` directory will be used. |
+|Azure Blob    | `Storage:ObjectStore:AzureBlob:ConnectionString={AzureStorageConnectionString}` |
 
 ## Queue implementations
 
@@ -74,7 +62,7 @@ In v3.x of the container, RabbitMQ is currently not supported. The supported bac
 |---------|---------|-------|
 | In Memory (default) | No runtime arguments required. | Development and testing |
 | Azure Queues | `Queue:Azure:ConnectionString={AzureStorageConnectionString}` | Production |
-| RabbitMQ	| Unavailable | Production |
+| RabbitMQ    | Unavailable | Production |
 
 For added redundancy the Read v3.x container uses a visibility timer to ensure requests can be successfully processed in the event of a crash, when running in a multi-container set-up. 
 
@@ -82,7 +70,7 @@ Set the timer with `Queue:Azure:QueueVisibilityTimeoutInMilliseconds`, which set
 
 | Default value | Recommended value |
 |---------|---------|
-| 30000 |	120000 |
+| 30000 |    120000 |
 
 
 ## Next steps

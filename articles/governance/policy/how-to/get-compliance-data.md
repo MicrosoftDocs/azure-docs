@@ -1,7 +1,7 @@
 ---
 title: Get policy compliance data
 description: Azure Policy evaluations and effects determine compliance. Learn how to get the compliance details of your Azure resources.
-ms.date: 09/22/2020
+ms.date: 03/16/2021
 ms.topic: how-to
 ---
 # Get compliance data of Azure resources
@@ -25,15 +25,15 @@ updated and the frequency and events that trigger an evaluation cycle.
 > [!WARNING]
 > If compliance state is being reported as **Not registered**, verify that the
 > **Microsoft.PolicyInsights** Resource Provider is registered and that the user has the appropriate
-> role-based access control (RBAC) permissions as described in
-> [RBAC in Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
+> Azure role-based access control (Azure RBAC) permissions as described in
+> [Azure RBAC permissions in Azure Policy](../overview.md#azure-rbac-permissions-in-azure-policy).
 
 ## Evaluation triggers
 
 The results of a completed evaluation cycle are available in the `Microsoft.PolicyInsights` Resource
 Provider through `PolicyStates` and `PolicyEvents` operations. For more information about the
 operations of the Azure Policy Insights REST API, see
-[Azure Policy Insights](/rest/api/policy-insights/).
+[Azure Policy Insights](/rest/api/policy/).
 
 Evaluations of assigned policies and initiatives happen as the result of various events:
 
@@ -69,12 +69,52 @@ Evaluations of assigned policies and initiatives happen as the result of various
 ### On-demand evaluation scan
 
 An evaluation scan for a subscription or a resource group can be started with Azure CLI, Azure
-PowerShell, or a call to the REST API. This scan is an asynchronous process.
+PowerShell, a call to the REST API, or by using the
+[Azure Policy Compliance Scan GitHub Action](https://github.com/marketplace/actions/azure-policy-compliance-scan).
+This scan is an asynchronous process.
+
+#### On-demand evaluation scan - GitHub Action
+
+Use the
+[Azure Policy Compliance Scan action](https://github.com/marketplace/actions/azure-policy-compliance-scan)
+to trigger an on-demand evaluation scan from your
+[GitHub workflow](https://docs.github.com/actions/configuring-and-managing-workflows/configuring-a-workflow#about-workflows)
+on one or multiple resources, resource groups, or subscriptions, and gate the workflow based on the
+compliance state of resources. You can also configure the workflow to run at a scheduled time so
+that you get the latest compliance status at a convenient time. Optionally, this GitHub action can
+generate a report on the compliance state of scanned resources for further analysis or for
+archiving.
+
+The following example runs a compliance scan for a subscription. 
+
+```yaml
+on:
+  schedule:    
+    - cron:  '0 8 * * *'  # runs every morning 8am
+jobs:
+  assess-policy-compliance:    
+    runs-on: ubuntu-latest
+    steps:         
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS}} 
+
+    
+    - name: Check for resource compliance
+      uses: azure/policy-compliance-scan@v0
+      with:
+        scopes: |
+          /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+```
+
+For more information and workflow samples, see the
+[GitHub Action for Azure Policy Compliance Scan repo](https://github.com/Azure/policy-compliance-scan).
 
 #### On-demand evaluation scan - Azure CLI
 
 The compliance scan is started with the
-[az policy state trigger-scan](/cli/azure/policy/state#az-policy-state-trigger-scan) command.
+[az policy state trigger-scan](/cli/azure/policy/state#az_policy_state_trigger_scan) command.
 
 By default, `az policy state trigger-scan` starts an evaluation for all resources in the current
 subscription. To start an evaluation on a specific resource group, use the **resource-group**
@@ -85,7 +125,7 @@ resource group:
 az policy state trigger-scan --resource-group "MyRG"
 ```
 
-You can chose not to wait for the asynchronous process to complete before continuing with the
+You can choose not to wait for the asynchronous process to complete before continuing with the
 **no-wait** parameter.
 
 #### On-demand evaluation scan - Azure PowerShell
@@ -175,22 +215,30 @@ with the status:
 }
 ```
 
+#### On-demand evaluation scan - Visual Studio Code
+
+The Azure Policy extension for Visual Studio code is capable of running an evaluation scan for a
+specific resource. This scan is a synchronous process, unlike the Azure PowerShell and REST methods.
+For details and steps, see
+[On-demand evaluation with the VS Code extension](./extension-for-vscode.md#on-demand-evaluation-scan).
+
 ## How compliance works
 
 In an assignment, a resource is **Non-compliant** if it doesn't follow policy or initiative rules
 and isn't _exempt_. The following table shows how different policy effects work with the condition
 evaluation for the resulting compliance state:
 
-| Resource state | Effect | Policy evaluation | Compliance state |
+| Resource State | Effect | Policy Evaluation | Compliance State |
 | --- | --- | --- | --- |
-| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Non-compliant |
-| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Compliant |
-| New | Audit, AuditIfNotExist\* | True | Non-compliant |
-| New | Audit, AuditIfNotExist\* | False | Compliant |
+| New or Updated | Audit, Modify, AuditIfNotExist | True | Non-Compliant |
+| New or Updated | Audit, Modify, AuditIfNotExist | False | Compliant |
+| Exists | Deny, Audit, Append, Modify, DeployIfNotExist, AuditIfNotExist | True | Non-Compliant |
+| Exists | Deny, Audit, Append, Modify, DeployIfNotExist, AuditIfNotExist | False | Compliant |
 
-\* The Modify, Append, DeployIfNotExist, and AuditIfNotExist effects require the IF statement to be
-TRUE. The effects also require the existence condition to be FALSE to be non-compliant. When TRUE,
-the IF condition triggers evaluation of the existence condition for the related resources.
+> [!NOTE]
+> The DeployIfNotExist and AuditIfNotExist effects require the IF statement to be TRUE and the
+> existence condition to be FALSE to be non-compliant. When TRUE, the IF condition triggers
+> evaluation of the existence condition for the related resources.
 
 For example, assume that you have a resource group – ContsoRG, with some storage accounts
 (highlighted in red) that are exposed to public networks.
@@ -218,11 +266,11 @@ Besides **Compliant** and **Non-compliant**, policies and resources have four ot
 - **Not registered**: The Azure Policy Resource Provider hasn't been registered or the account
   logged in doesn't have permission to read compliance data.
 
-Azure Policy uses the **type** and **name** fields in the definition to determine if a resource is a
-match. When the resource matches, it's considered applicable and has a status of either
-**Compliant**, **Non-compliant**, or **Exempt**. If either **type** or **name** is the only property
-in the definition, then all included and non-exempt resources are considered applicable and are
-evaluated.
+Azure Policy uses the **type**, **name**, or **kind** fields in the definition to determine if a
+resource is a match. When the resource matches, it's considered applicable and has a status of
+either **Compliant**, **Non-compliant**, or **Exempt**. If either **type**, **name**, or **kind** is
+the only property in the definition, then all included and non-exempt resources are considered
+applicable and are evaluated.
 
 The compliance percentage is determined by dividing **Compliant** and **Exempt** resources by _total
 resources_. _Total resources_ is defined as the sum of the **Compliant**, **Non-compliant**,
@@ -258,14 +306,15 @@ initiative in the table provides a deeper look at the compliance for that partic
 
 The list of resources on the **Resource compliance** tab shows the evaluation status of existing
 resources for the current assignment. The tab defaults to **Non-compliant**, but can be filtered.
-Events (append, audit, deny, deploy) triggered by the request to create a resource are shown under
-the **Events** tab.
+Events (append, audit, deny, deploy, modify) triggered by the request to create a resource are shown
+under the **Events** tab.
 
 > [!NOTE]
 > For an AKS Engine policy, the resource shown is the resource group.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-events.png" alt-text="Screenshot of the Events tab on Compliance Details page." border="false":::
 
+<a name="component-compliance"></a>
 For [Resource Provider mode](../concepts/definition-structure.md#resource-provider-modes) resources,
 on the **Resource compliance** tab, selecting the resource or right-clicking on the row and
 selecting **View compliance details** opens the component compliance details. This page also offers
@@ -291,9 +340,8 @@ the reason a resource is **non-compliant** or to find the change responsible, se
 
 The same information available in the portal can be retrieved with the REST API (including with
 [ARMClient](https://github.com/projectkudu/ARMClient)), Azure PowerShell, and Azure CLI. For full
-details on the REST API, see the [Azure Policy Insights](/rest/api/policy-insights/) reference. The
-REST API reference pages have a green 'Try It' button on each operation that allows you to try it
-right in the browser.
+details on the REST API, see the [Azure Policy](/rest/api/policy/) reference. The REST API reference
+pages have a green 'Try It' button on each operation that allows you to try it right in the browser.
 
 Use ARMClient or a similar tool to handle authentication to Azure for the REST API examples.
 
@@ -301,7 +349,7 @@ Use ARMClient or a similar tool to handle authentication to Azure for the REST A
 
 With the REST API, summarization can be performed by container, definition, or assignment. Here is
 an example of summarization at the subscription level using Azure Policy Insight's [Summarize For
-Subscription](/rest/api/policy-insights/policystates/summarizeforsubscription):
+Subscription](/rest/api/policy/policystates/summarizeforsubscription):
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2019-10-01
@@ -429,7 +477,7 @@ Your results resemble the following example:
 ```
 
 For more information about querying policy events, see the
-[Azure Policy Events](/rest/api/policy-insights/policyevents) reference article.
+[Azure Policy Events](/rest/api/policy/policyevents) reference article.
 
 ### Azure CLI
 
@@ -735,7 +783,7 @@ $policyEvents = Get-AzPolicyEvent -Filter "ResourceType eq '/Microsoft.Network/v
 $policyEvents | ConvertTo-Csv | Out-File 'C:\temp\policyEvents.csv'
 ```
 
-The output of the `$policyEvents` object looks like the following:
+The output of the `$policyEvents` object looks like the following output:
 
 ```output
 Timestamp                  : 9/19/2020 5:18:53 AM
@@ -772,9 +820,9 @@ Trent Baker
 
 ## Azure Monitor logs
 
-If you have a [Log Analytics workspace](../../../azure-monitor/log-query/log-query-overview.md) with
+If you have a [Log Analytics workspace](../../../azure-monitor/logs/log-query-overview.md) with
 `AzureActivity` from the
-[Activity Log Analytics solution](../../../azure-monitor/platform/activity-log.md) tied to your
+[Activity Log Analytics solution](../../../azure-monitor/essentials/activity-log.md) tied to your
 subscription, you can also view non-compliance results from the evaluation of new and updated
 resources using simple Kusto queries and the `AzureActivity` table. With details in Azure Monitor
 logs, alerts can be configured to watch for non-compliance.

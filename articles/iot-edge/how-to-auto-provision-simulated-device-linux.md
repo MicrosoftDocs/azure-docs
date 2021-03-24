@@ -11,7 +11,14 @@ services: iot-edge
 ---
 # Create and provision an IoT Edge device with a TPM on Linux
 
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+
 This article shows how to test auto-provisioning on a Linux IoT Edge device using a Trusted Platform Module (TPM). You can automatically provision Azure IoT Edge devices with the [Device Provisioning Service](../iot-dps/index.yml). If you're unfamiliar with the process of auto-provisioning, review the [provisioning](../iot-dps/about-iot-dps.md#provisioning-process) overview before continuing.
+
+:::moniker range=">=iotedge-2020-11"
+> [!NOTE]
+> Currently, automatic provisioning using TPM authentication is not supported in IoT Edge version 1.2.
+:::moniker-end
 
 The tasks are as follows:
 
@@ -27,7 +34,7 @@ The tasks are as follows:
 
 ## Prerequisites
 
-* A Windows development machine with [Hyper-V enabled](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v). This article uses Windows 10 running an Ubuntu Server VM.
+* A Windows development machine with [Hyper-V enabled](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v). This article uses Windows 10 running an Ubuntu Server VM.
 * An active IoT Hub.
 
 > [!NOTE]
@@ -172,11 +179,40 @@ Now that an enrollment exists for this device, the IoT Edge runtime can automati
 
 The IoT Edge runtime is deployed on all IoT Edge devices. Its components run in containers, and allow you to deploy additional containers to the device so that you can run code at the edge. Install the IoT Edge runtime on your virtual machine.
 
-Know your DPS **ID Scope** and device **Registration ID** before beginning the article that matches your device type. If you installed the example Ubuntu server, use the **x64** instructions. Make sure to configure the IoT Edge runtime for automatic, not manual, provisioning.
+Follow the steps in [Install the Azure IoT Edge runtime](how-to-install-iot-edge.md), then return to this article to provision the device.
 
-When you get to the step to configure the security daemon, be sure and choose [Option 2 Automatic Provisioning](how-to-install-iot-edge-linux.md#option-2-automatic-provisioning) and configure for TPM attestation.
+## Configure the device with provisioning information
 
-[Install the Azure IoT Edge runtime on Linux](how-to-install-iot-edge-linux.md)
+Once the runtime is installed on your device, configure the device with the information it uses to connect to the Device Provisioning Service and IoT Hub.
+
+1. Know your DPS **ID Scope** and device **Registration ID** that were gathered in the previous sections.
+
+1. Open the configuration file on the IoT Edge device.
+
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
+   ```
+
+1. Find the provisioning configurations section of the file. Uncomment the lines for TPM provisioning, and make sure any other provisioning lines are commented out.
+
+   The `provisioning:` line should have no preceding whitespace, and nested items should be indented by two spaces.
+
+   ```yml
+   # DPS TPM provisioning configuration
+   provisioning:
+     source: "dps"
+     global_endpoint: "https://global.azure-devices-provisioning.net"
+     scope_id: "<SCOPE_ID>"
+     attestation:
+       method: "tpm"
+       registration_id: "<REGISTRATION_ID>"
+   # always_reprovision_on_startup: true
+   # dynamic_reprovisioning: false
+   ```
+
+   Optionally, use the `always_reprovision_on_startup` or `dynamic_reprovisioning` lines to configure your device's reprovisioning behavior. If a device is set to reprovision on startup, it will always attempt to provision with DPS first and then fall back to the provisioning backup if that fails. If a device is set to dynamically reprovision itself, IoT Edge will restart and reprovision if a reprovisioning event is detected. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
+
+1. Update the values of `scope_id` and `registration_id` with your DPS and device information.
 
 ## Give IoT Edge access to the TPM
 

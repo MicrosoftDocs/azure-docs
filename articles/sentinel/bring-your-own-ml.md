@@ -29,7 +29,7 @@ ML detection models can adapt to individual environments and to changes in user 
 
 ## What is the Bring Your Own Machine Learning (BYO-ML) platform?
 
-For organizations that have ML resources and would like to build customized ML models for their unique business needs, we offer the **BYO-ML platform**. The platform makes use of the [Azure Databricks](https://docs.microsoft.com/azure/databricks/scenarios/what-is-azure-databricks)/[Apache Spark](http://spark.apache.org/) environment and Jupyter Notebooks to produce the ML environment. It provides the following components:
+For organizations that have ML resources and would like to build customized ML models for their unique business needs, we offer the **BYO-ML platform**. The platform makes use of the [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks)/[Apache Spark](http://spark.apache.org/) environment and Jupyter Notebooks to produce the ML environment. It provides the following components:
 
 - a BYO-ML package, which includes libraries to help you access data and push the results back to Log Analytics (LA), so you can integrate the results with your detection, investigation, and hunting. 
 
@@ -79,7 +79,7 @@ The BYO ML package includes the best practices and research of Microsoft in the 
 | File name | Description |
 | --------- | ----------- |
 | azure_sentinel_utilities.whl | Contains utilities for reading blobs from Azure and writing to Log Analytics. |
-| AnomalousRASampleData | Notebook demonstrates the use of Anomalous Resource Access model in Sentinel with generated training and testing sample data. |
+| AnomalousRASampleData | Notebook demonstrates the use of Anomalous Resource Access model in Azure Sentinel with generated training and testing sample data. |
 | AnomalousRATraining.ipynb | Notebook to train the algorithm, build and save the models. |
 | AnomalousRAScoring.ipynb | Notebook to schedule the model to run, visualize the result and write score back to Azure Sentinel. |
 |
@@ -92,15 +92,15 @@ Now that you're acquainted with the key components of the BYO-ML platform, here'
 
 ### Setup the Databricks/Spark Environment
 
-You will need to setup your own Databricks environment if you don’t already have one. Refer to the [Databricks quickstart](https://docs.microsoft.com/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal?tabs=azure-portal) document for instructions.
+You will need to setup your own Databricks environment if you don’t already have one. Refer to the [Databricks quickstart](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal?tabs=azure-portal) document for instructions.
 
 ### Auto-export instruction
 
-To build custom ML models based on your own data in Sentinel, you will need to export your data from Log Analytics to a Blob storage or Event hub resource, so that the ML model can access it from Databricks. Learn how to [ingest data into Azure Sentinel](connect-data-sources.md).
+To build custom ML models based on your own data in Azure Sentinel, you will need to export your data from Log Analytics to a Blob storage or Event hub resource, so that the ML model can access it from Databricks. Learn how to [ingest data into Azure Sentinel](connect-data-sources.md).
 
 For this example, you need to have your training data for File Share Access log in the Azure blob storage. The format of the data is documented in the notebook and libraries.
 
-You can automatically export your data from Log Analytics using the [Azure Command Line Interface (CLI)](https://docs.microsoft.com/cli/azure/monitor/log-analytics). 
+You can automatically export your data from Log Analytics using the [Azure Command Line Interface (CLI)](/cli/azure/monitor/log-analytics). 
 
 You must be assigned the **Contributor** role in your Log Analytics workspace, your Storage account, and your EventHub resource in order to run the commands. 
 
@@ -138,7 +138,7 @@ For custom data that is not supported by Log Analytics auto-export, you can use 
 
 ### Correlate with data outside of Azure Sentinel
 
-You can also bring data from outside of Azure Sentinel to the blob storage or Event Hub and correlate them with the Sentinel data to build your ML models. 
+You can also bring data from outside of Azure Sentinel to the blob storage or Event Hub and correlate them with the Azure Sentinel data to build your ML models. 
  
 ### Copy and install the related packages
 

@@ -203,7 +203,7 @@ Here are the fields in the body of an edge change notification.
 
 #### Body details
 
-The body is the payload of a relationship, also in JSON format. It uses the same format as a `GET` request for a relationship via the [DigitalTwins API](how-to-use-apis-sdks.md). 
+The body is the payload of a relationship, also in JSON format. It uses the same format as a `GET` request for a relationship via the [DigitalTwins API](/rest/api/digital-twins/dataplane/twins). 
 
 "Updating a relationship" means properties of the relationship have changed. 
 
@@ -261,22 +261,9 @@ Here are the fields in the body of a digital twin change notification.
 
 The body for the `Twin.Update` notification is a JSON Patch document containing the update to the digital twin.
 
-For example, say that a digital twin was updated using the following Patch.
+For example, say that a digital twin was updated using the following patch.
 
-```json
-[
-    {
-        "op": "replace",
-        "value": 40,
-        "path": "/Temperature"
-    },
-    {
-        "op": "add",
-        "value": 30,
-        "path": "/comp1/prop1"
-    }
-]
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/patch-component-2.json":::
 
 The corresponding notification (if synchronously executed by the service, such as Azure Digital Twins updating a digital twin) would have a body like:
 

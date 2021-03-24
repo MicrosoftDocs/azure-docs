@@ -2,12 +2,12 @@
 title: 'Quickstart: create a Synapse workspace'  
 description: Create an  Synapse workspace by following the steps in this guide. 
 services: synapse-analytics
-author: pimorano
+author: saveenr
 ms.service: synapse-analytics 
 ms.topic: quickstart
-ms.subservice: 
+ms.subservice: workspace
 ms.date: 09/03/2020
-ms.author: pimorano
+ms.author: saveenr
 ms.reviewer: jrasnick 
 ---
 
@@ -17,14 +17,9 @@ This quickstart describes the steps to create an Azure Synapse workspace by usin
 ## Create a Synapse workspace
 
 1. Open the [Azure portal](https://portal.azure.com), and at the top search for **Synapse**.
-1. In the search results, under **Services**, select **Azure Synapse Analytics (workspaces preview)**.
-1. Select **Add** to create a workspace using these settings:
-
-    |Tab|Setting | Suggested value | Description |
-    |---|---|---|---|
-    |Basics|**Workspace name**|You can name it anything.| In this document, we'll use **myworkspace**.|
-    |Basics|**Region**|Match the region of the storage account.|
-
+1. In the search results, under **Services**, select **Azure Synapse Analytics**.
+1. Select **Add** to create a workspace.
+1. In the **Basics** tab, give the workspace a unique name. We'll use **mysworkspace** in this document
 1. You need an ADLSGEN2 account to create a workspace. The simplest choice is to create a new one. If you want to re-use an existing one you'll need to perform some additional configuration. 
 1. OPTION 1 Creating a new ADLSGEN2 account 
     1. Under **Select Data Lake Storage Gen 2**, click **Create New** and name it **contosolake**.
@@ -33,6 +28,10 @@ This quickstart describes the steps to create an Azure Synapse workspace by usin
 1. Your Azure Synapse workspace will use this storage account as the "primary" storage account and the container to store workspace data. The workspace stores data in Apache Spark tables. It stores Spark application logs under a folder called **/synapse/workspacename**.
 1. Select **Review + create** > **Create**. Your workspace is ready in a few minutes.
 
+> [!NOTE]
+> After creating your Azure Synapse workspace, you will not be able to move the workspace to another Azure Active Directory tenant. If you do so through subscription migration or other actions, you may lose access to the artifacts within the workspace.
+> Additionally, you currently cannot create a Synapse Analytics workspace in a [Cloud Solution Provider (CSP)](/partner-center/csp-overview) subscription.
+
 ## Open Synapse Studio
 
 After your Azure Synapse workspace is created, you have two ways to open Synapse Studio:
@@ -40,7 +39,7 @@ After your Azure Synapse workspace is created, you have two ways to open Synapse
 * Open your Synapse workspace in the [Azure portal](https://portal.azure.com). On the top of the **Overview** section, select **Launch Synapse Studio**.
 * Go to the `https://web.azuresynapse.net` and sign in to your workspace.
 
-## Prepare an existing storage account for use with Synapse Analytics
+## Prepare an existing storage account for use with Azure Synapse Analytics
 
 1. Open the [Azure portal](https://portal.azure.com).
 1. Navigate to an existing ADLSGEN2 storage account
@@ -65,6 +64,6 @@ Managed identities for your Azure Synapse workspace might already have access to
 
 ## Next steps
 
-* [Create a SQL pool](quickstart-create-sql-pool-studio.md) 
-* [Create an Apache Spark pool](quickstart-create-apache-spark-pool-portal.md)
-* [Use SQL on-demand](quickstart-sql-on-demand.md)
+* [Create a dedicated SQL pool](quickstart-create-sql-pool-studio.md) 
+* [Create a serverless Apache Spark pool](quickstart-create-apache-spark-pool-portal.md)
+* [Use serverless SQL pool](quickstart-sql-on-demand.md)

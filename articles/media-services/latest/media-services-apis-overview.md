@@ -1,7 +1,7 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Develop with v3 APIs
-titleSuffix: Azure Media Services
+: Azure Media Services
 description: Learn about rules that apply to entities and APIs when developing with Media Services v3. 
 services: media-services
 documentationcenter: ''
@@ -12,7 +12,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 10/23/2020
 ms.author: inhenkel
 ms.custom: seodec18
 
@@ -33,13 +33,13 @@ To be authorized to access Media Services resources and the Media Services API, 
 * **Service principal authentication**: Used to authenticate a service (for example: web apps, function apps, logic apps, API, and microservices). Applications that commonly use this authentication method are apps that run daemon services, middle-tier services, or scheduled jobs. For example, for web apps there should always be a mid-tier that connects to Media Services with a Service Principal.
 * **User authentication**: Used to authenticate a person who is using the app to interact with Media Services resources. The interactive app should first prompt the user for the user's credentials. An example is a management console app used by authorized users to monitor encoding jobs or live streaming.
 
-The Media Services API requires that the user or app making the REST API requests have access to the Media Services account resource and use a **Contributor** or **Owner** role. The API can be accessed with the **Reader** role but only **Get** or **List**  operations will be available. For more information, see [Role-based access control for Media Services accounts](rbac-overview.md).
+The Media Services API requires that the user or app making the REST API requests have access to the Media Services account resource and use a **Contributor** or **Owner** role. The API can be accessed with the **Reader** role but only **Get** or **List**  operations will be available. For more information, see [Azure role-based access control (Azure RBAC) for Media Services accounts](rbac-overview.md).
 
 Instead of creating a service principal, consider using managed identities for Azure resources to access the Media Services API through Azure Resource Manager. To learn more about managed identities for Azure resources, see [What is managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
 ### Azure AD service principal
 
-If you're creating an Azure AD app and service principal, the app has to be in its own tenant. After you create the app, give the app **Contributor** or **Owner** role access to the Media Services account.
+The Azure AD app and service principal should be in the same tenant. After you create the app, give the app **Contributor** or **Owner** role access to the Media Services account.
 
 If you're not sure whether you have permissions to create an Azure AD app, see [Required permissions](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
@@ -108,11 +108,11 @@ Media Services has the following long-running operations:
 * [Stop StreamingEndpoint](/rest/api/media/streamingendpoints/stop)
 * [Scale StreamingEndpoint](/rest/api/media/streamingendpoints/scale)
 
-On successful submission of a long operation, you receive a '202 Accepted' and must poll for operation completion using the returned operation ID.
+On successful submission of a long operation, you receive a '201 Created' and must poll for operation completion using the returned operation ID.
 
 The [track asynchronous Azure operations](../../azure-resource-manager/management/async-operations.md) article explains in depth how to track the status of asynchronous Azure operations through values returned in the response.
 
-Only one long-running operation is supported for a given Live Event or any of its associated Live Outputs. Once started, a long running operation must complete before starting a subsequent long-running operation on the same LiveEvent or any associated Live Outputs. For Live Events with multiple Live Outputs, you must await the completion of a long running operation on one Live Output before triggering a long running operation on another Live Output. 
+Only one long-running operation is supported for a given Live Event or any of its associated Live Outputs. Once started, a long running operation must complete before starting a subsequent long-running operation on the same LiveEvent or any associated Live Outputs. For Live Events with multiple Live Outputs, you must await the completion of a long running operation on one Live Output before triggering a long running operation on another Live Output.
 
 ## SDKs
 
@@ -121,9 +121,9 @@ Only one long-running operation is supported for a given Live Event or any of it
 
 |SDK|Reference|
 |---|---|
-|[.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)|[.NET ref](https://aka.ms/ams-v3-dotnet-ref)|
-|[Java SDK](https://aka.ms/ams-v3-java-sdk)|[Java ref](https://aka.ms/ams-v3-java-ref)|
-|[Python SDK](https://aka.ms/ams-v3-python-sdk)|[Python ref](https://aka.ms/ams-v3-python-ref)|
+|[.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)|[.NET ref](/dotnet/api/overview/azure/mediaservices/management)|
+|[Java SDK](https://aka.ms/ams-v3-java-sdk)|[Java ref](/java/api/overview/azure/mediaservices/management)|
+|[Python SDK](https://aka.ms/ams-v3-python-sdk)|[Python ref](/python/api/overview/azure/mediaservices/management)|
 |[Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk) |[Node.js ref](/javascript/api/overview/azure/mediaservices/management)| 
 |[Go SDK](https://aka.ms/ams-v3-go-sdk) |[Go ref](https://aka.ms/ams-v3-go-ref)|
 |[Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)||

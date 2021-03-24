@@ -2,13 +2,13 @@
 title: Use the Shared Image Gallery to create a custom image pool
 description: Custom image pools are an efficient way to configure compute nodes to run your Batch workloads.
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.custom: devx-track-python
+ms.date: 03/04/2021
+ms.custom: devx-track-python, devx-track-azurecli
 ---
 
 # Use the Shared Image Gallery to create a custom image pool
 
-When you create an Azure Batch pool using the Virtual Machine Configuration, you specify a VM image that provides the operating system for each compute node in the pool. You can create a pool of virtual machines either with a supported Azure Marketplace image or create a custom image with a [Shared Image Gallery image](../virtual-machines/windows/shared-image-galleries.md).
+When you create an Azure Batch pool using the Virtual Machine Configuration, you specify a VM image that provides the operating system for each compute node in the pool. You can create a pool of virtual machines either with a supported Azure Marketplace image or create a custom image with a [Shared Image Gallery image](../virtual-machines/shared-image-galleries.md).
 
 ## Benefits of the Shared Image Gallery
 
@@ -26,7 +26,7 @@ Using a Shared Image configured for your scenario can provide several advantages
 - **Copy large amounts of data once.** Make static data part of the managed Shared Image by copying it to a managed image's data disks. This only needs to be done once and makes data available to each node of the pool.
 - **Grow pools to larger sizes.** With the Shared Image Gallery, you can create larger pools with your customized images along with more Shared Image replicas.
 - **Better performance than using just a managed image as a custom image.** For a Shared Image custom image pool, the time to reach the steady state is up to 25% faster, and the VM idle latency is up to 30% shorter.
-- **Image versioning and grouping for easier management.** The image grouping definition contains information about why the image was created, what OS it is for, and information about using the image. Grouping images allows for easier image management. For more information, see [Image definitions](../virtual-machines/windows/shared-image-galleries.md#image-definitions).
+- **Image versioning and grouping for easier management.** The image grouping definition contains information about why the image was created, what OS it is for, and information about using the image. Grouping images allows for easier image management. For more information, see [Image definitions](../virtual-machines/shared-image-galleries.md#image-definitions).
 
 ## Prerequisites
 
@@ -53,7 +53,7 @@ In Azure, you can prepare a shared image from a managed image, which can be crea
 - A generalized on-premises VHD uploaded to the cloud
 
 > [!NOTE]
-> Currently, Batch only supports generalized Shared Images. You can't create a custom image pool from a specialized Shared Image at this time.
+> Batch only supports generalized Shared Images; a specialized Shared Image can't be used to create a pool.
 
 The following steps show how to prepare a VM, take a snapshot, and create an image from the snapshot.
 
@@ -62,13 +62,17 @@ The following steps show how to prepare a VM, take a snapshot, and create an ima
 If you are creating a new VM for the image, use a first party Azure Marketplace image supported by Batch as the base image for your managed image. Only first party images can be used as a base image. To get a full list of Azure Marketplace image references supported by Azure Batch, see the [List node agent SKUs](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus) operation.
 
 > [!NOTE]
-> You can't use a third-party image that has additional license and purchase terms as your base image. For information about these Marketplace images, see the guidance for [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms) or [Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms) VMs.
+> You can't use a third-party image that has additional license and purchase terms as your base image. For information about these Marketplace images, see the guidance for [Linux](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information) or [Windows](../virtual-machines/windows/cli-ps-findimage.md#view-purchase-plan-properties)VMs.
+
+Follow these guidelines when creating VMs:
 
 - Ensure the VM is created with a managed disk. This is the default storage setting when you create a VM.
 - Do not install Azure extensions, such as the Custom Script extension, on the VM. If the image contains a pre-installed extension, Azure may encounter problems when deploying the Batch pool.
 - When using attached data disks, you need to mount and format the disks from within a VM to use them.
 - Ensure that the base OS image you provide uses the default temp drive. The Batch node agent currently expects the default temp drive.
-- Once the VM is running, connect to it via RDP (for Windows) or SSH (for Linux). Install any necessary software or copy desired data.  
+- Ensure that the OS disk is not encrypted.
+- Once the VM is running, connect to it via RDP (for Windows) or SSH (for Linux). Install any necessary software or copy desired data.
+- For faster pool provisioning, use the [ReadWrite disk cache setting](../virtual-machines/premium-storage-performance.md#disk-caching) for the VM's OS disk.
 
 ### Create a VM snapshot
 
@@ -213,11 +217,11 @@ Use the following steps to create a pool from a Shared Image in the Azure portal
 
 If you plan to create a pool with hundreds or thousands of VMs or more using a Shared Image, use the following guidance.
 
-- **Shared Image Gallery replica numbers.**  For every pool with up to 600 instances, we recommend you keep at least one replica. For example, if you are creating a pool with 3000 VMs, you should keep at least 5 replicas of your image. We always suggest keeping more replicas than minimum requirements for better performance.
+- **Shared Image Gallery replica numbers.**  For every pool with up to 300 instances, we recommend you keep at least one replica. For example, if you are creating a pool with 3000 VMs, you should keep at least 10 replicas of your image. We always suggest keeping more replicas than minimum requirements for better performance.
 
 - **Resize timeout.** If your pool contains a fixed number of nodes (if it doesn't autoscale), increase the `resizeTimeout` property of the pool depending on the pool size. For every 1000 VMs, the recommended resize timeout is at least 15 minutes. For example, the recommended resize timeout for a pool with 2000 VMs is at least 30 minutes.
 
 ## Next steps
 
 - For an in-depth overview of Batch, see [Batch service workflow and resources](batch-service-workflow-features.md).
-- Learn about the [Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md).
+- Learn about the [Shared Image Gallery](../virtual-machines/shared-image-galleries.md).

@@ -1,6 +1,6 @@
 ---
 title: 'ExpressRoute: How to configure custom alerts for advertised routes'
-description: This article shows you how to use Azure Automation and Logic Apps to monitor the number of routes advertised from the ExpressRoute gateway to on-premises networks in order to prevent hitting the 200 routes limit.
+description: This article shows you how to use Azure Automation and Logic Apps to monitor the number of routes advertised from the ExpressRoute gateway to on-premises networks in order to prevent hitting the 1000 routes limit.
 services: expressroute
 author: duongau
 
@@ -12,7 +12,7 @@ ms.author: duau
 ---
 # Configure custom alerts to monitor advertised routes
 
-This article helps you use Azure Automation and Logic Apps to constantly monitor the number of routes advertised from the ExpressRoute gateway to on-premises networks. Monitoring can help prevent hitting the [200 routes limit](expressroute-faqs.md#how-many-prefixes-can-be-advertised-from-a-vnet-to-on-premises-on-expressroute-private-peering).
+This article helps you use Azure Automation and Logic Apps to constantly monitor the number of routes advertised from the ExpressRoute gateway to on-premises networks. Monitoring can help prevent hitting the 1000 routes limit](expressroute-faqs.md#how-many-prefixes-can-be-advertised-from-a-vnet-to-on-premises-on-expressroute-private-peering).
 
 **Azure Automation** allows you to automate execution of custom PowerShell script stored in a *runbook*. When using the configuration in this article, the runbook contains a PowerShell script that queries one or more ExpressRoute gateways. It collects a dataset containing the resource group, ExpressRoute gateway name, and number of network prefixes advertised on-premises.
 
@@ -38,23 +38,23 @@ Verify that you have met the following criteria before beginning your configurat
 
 * You are familiar with [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
-* You are familiar with using Azure PowerShell. Azure PowerShell is required to collect the network prefixes in ExpressRoute gateway. For more information about Azure PowerShell in general, see the [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/?view=azps-4.1.0).
+* You are familiar with using Azure PowerShell. Azure PowerShell is required to collect the network prefixes in ExpressRoute gateway. For more information about Azure PowerShell in general, see the [Azure PowerShell documentation](/powershell/azure/).
 
 ### <a name="limitations"></a>Notes and limitations
 
 * The custom alert discussed in this article is an add-on to achieve better operation and control. It is not a replacement for the native alerts in ExpressRoute.
 * Data collection for ExpressRoute gateways runs in the background. Runtime can be longer than expected. To avoid job queuing, the workflow recurrence must be set up properly.
-* Deployments by scripts or ARM templates could happen faster than the custom alarm trigger. This could result in increasing in number of network prefixes in ExpressRoute gateway above the limit of 200 routes.
+* Deployments by scripts or ARM templates could happen faster than the custom alarm trigger. This could result in increasing in number of network prefixes in ExpressRoute gateway above the limit of 1000 routes.
 
 ## <a name="accounts"></a>Create and configure accounts
 
-When you create an Automation account in the Azure portal, a [Run As](../automation/manage-runas-account.md#types-of-run-as-accounts) account is automatically created. This account takes following actions:
+When you create an Automation account in the Azure portal, a [Run As](../automation/automation-security-overview.md#run-as-accounts) account is automatically created. This account takes following actions:
 
 * Creates an Azure Active Directory (Azure AD) application with a self-signed certificate. The Run As account itself has a certificate that needs to be renewed by default every year.
 
 * Creates a service principal account for the application in Azure AD.
 
-* Assigns itself the Contributor Role (RBAC) on the Azure Subscription in use. This role manages Azure Resource Manager resources using runbooks.
+* Assigns itself the Contributor role (Azure RBAC) on the Azure Subscription in use. This role manages Azure Resource Manager resources using runbooks.
 
 In order to create an Automation account, you need privileges and permissions. For information, see [Permissions required to create an Automation account](../automation/automation-create-standalone-account.md#permissions-required-to-create-an-automation-account).
 
@@ -66,7 +66,7 @@ Create an Automation account with run-as permissions. For instructions, see [Cre
 
 ### <a name="about"></a>2. Assign the Run As account a role
 
-By default, the **Contributor** role is assigned to the service principal that is used by your **Run As** account. You can keep the default role assigned to the service principal, or you can restrict permissions by assigning a [built-in role](../role-based-access-control/built-in-roles.md) (for example, Reader) or a [custom role](../active-directory/users-groups-roles/roles-create-custom.md).
+By default, the **Contributor** role is assigned to the service principal that is used by your **Run As** account. You can keep the default role assigned to the service principal, or you can restrict permissions by assigning a [built-in role](../role-based-access-control/built-in-roles.md) (for example, Reader) or a [custom role](../active-directory/roles/custom-create.md).
 
  Use the following steps to determine the role assign to the service principal that is used by your Run As account:
 
@@ -253,7 +253,7 @@ When you run the PowerShell script, a list of values is collected:
 
 * Alert message, for a verbose description of the status (OK, ALERT, WARNING)
 
-The PowerShell script converts the collected information to a JSON output. The runbook uses the PowerShell cmdlet [Write-Output](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Write-Output?)  as Output stream to communicate information to the client.
+The PowerShell script converts the collected information to a JSON output. The runbook uses the PowerShell cmdlet [Write-Output](/powershell/module/Microsoft.PowerShell.Utility/Write-Output)  as Output stream to communicate information to the client.
 
 ### <a name="validate"></a>4. Validate the runbook
 
@@ -308,7 +308,7 @@ A logic app accesses other apps, services, and the platform though connectors. T
 
 3. Sign in using a service principal. You can use an existing service principal, or you can create a new one. To create a new service principal, see [How to use the portal to create an Azure AD service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). Select **Connect with Service Principal**.
 
-   :::image type="content" source="./media/custom-route-alert-portal/sign-in.png" alt-text="Sign in":::
+   :::image type="content" source="./media/custom-route-alert-portal/sign-in.png" alt-text="Screenshot that shows the 'Recurrence' section with the 'Connect with Service Principal' action highlighted.":::
 
 4. Type a **Connection Name**, add your **Client ID** (Application ID), **Client Secret**, and your **Tenant ID**. Then, select **Create**.
 
@@ -405,7 +405,7 @@ Once the JSON is parsed, the **Parse JSON Data Operations** action stores the co
 
    :::image type="content" source="./media/custom-route-alert-portal/peer-2.png" alt-text="numRoutesPeer2":::
 
-9. The logic condition is true when one of two dynamic variables, numRoute1 or numRoute2, is greater than the threshold. In this example, the threshold is fixed to 160 (80% of max value of 200 routes). You can change the threshold value to fit your requirements. For consistency, the value should be the same value used in the runbook PowerShell script.
+9. The logic condition is true when one of two dynamic variables, numRoute1 or numRoute2, is greater than the threshold. In this example, the threshold is fixed to 800 (80% of max value of 1000 routes). You can change the threshold value to fit your requirements. For consistency, the value should be the same value used in the runbook PowerShell script.
 
    :::image type="content" source="./media/custom-route-alert-portal/logic-condition.png" alt-text="Logic condition":::
 
@@ -415,7 +415,7 @@ Once the JSON is parsed, the **Parse JSON Data Operations** action stores the co
 
 11. In Variables, select **Add an action**. In the **Actions** list,  select **Set variable**.
 
-    :::image type="content" source="./media/custom-route-alert-portal/condition-set-variable.png" alt-text="Set variable":::
+    :::image type="content" source="./media/custom-route-alert-portal/condition-set-variable.png" alt-text="Screenshot of the 'Variables' section with the 'Actions' tab selected and 'Set variable' highlighted.":::
 
 12. In **Name**, select the variable named **EmailBody** that you previously created. For **Value**, paste the HTML script required to format the alert email. Use the **Dynamic content** to include the values of JSON body. After configuring these settings, the result is that the variable **Emailbody** contains all the information related to the alert, in HTML format.
 

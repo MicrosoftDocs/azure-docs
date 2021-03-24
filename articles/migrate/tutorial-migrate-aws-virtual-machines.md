@@ -1,6 +1,9 @@
 ---
 title: Discover, assess, and migrate Amazon Web Services (AWS) EC2 VMs to Azure
 description: This article describes how to migrate AWS VMs to Azure with Azure Migrate.
+author: deseelam
+ms.author: deseelam
+ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
@@ -35,7 +38,7 @@ Before you migrate to Azure, we recommend that you perform a VM discovery and mi
 
 Set up an assessment as follows:
 
-1. Follow the [tutorial](./tutorial-prepare-physical.md) to set up Azure and prepare your AWS VMs for an assessment. Note that:
+1. Follow the [tutorial](./tutorial-discover-physical.md) to set up Azure and prepare your AWS VMs for an assessment. Note that:
 
     - Azure Migrate uses password authentication when discovering AWS instances. AWS instances don't support password authentication by default. Before you can discover instance, you need to enable password authentication.
         - For Windows machines, allow WinRM port 5985 (HTTP). This allows remote WMI calls.
@@ -72,7 +75,7 @@ Prepare Azure for migration with Azure Migrate: Server Migration tool.
 
 **Task** | **Details**
 --- | ---
-**Create an Azure Migrate project** | Your Azure account needs Contributer or Owner permissions to create a project.
+**Create an Azure Migrate project** | Your Azure account needs Contributor or Owner permissions to [create a new project](./create-manage-projects.md).
 **Verify permissions for your Azure account** | Your Azure account needs permissions to create a VM, and write to an Azure managed disk.
 
 ### Assign permissions to create project
@@ -120,30 +123,6 @@ Prepare for appliance deployment as follows:
 
 - The replication appliance uses MySQL. Review the [options](migrate-replication-appliance.md#mysql-installation) for installing MySQL on the appliance.
 - Review the Azure URLs required for the replication appliance to access [public](migrate-replication-appliance.md#url-access) and [government](migrate-replication-appliance.md#azure-government-url-access) clouds.
-
-## Add the Server Migration tool
-
-Set up an Azure Migrate project, and then add the Server Migration tool to it.
-
-1. In the Azure portal > **All services**, search for **Azure Migrate**.
-2. Under **Services**, select **Azure Migrate**.
-3. In **Overview**, click **Assess and migrate servers**.
-4. Under **Discover, assess and migrate servers**, click **Assess and migrate servers**.
-
-    ![Discover and assess servers](./media/tutorial-migrate-physical-virtual-machines/assess-migrate.png)
-
-5. In **Discover, assess and migrate servers**, click **Add tools**.
-6. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one.
-7. In **Project Details**, specify the project name, and geography in which you want to create the project, and click **Next**. Review supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
-    - The project geography is used only to store the metadata gathered from AWS machines.
-    - You can select any target region when you run a migration.
-
-    ![Create an Azure Migrate project](./media/tutorial-migrate-physical-virtual-machines/migrate-project.png)
-
-8. In **Select assessment tool**, select **Skip adding an assessment tool for now** > **Next**.
-9. In **Select migration tool**, select **Azure Migrate: Server Migration** > **Next**.
-10. In **Review + add tools**, review the settings, and click **Add tools**
-11. After adding the tool, it appears in the Azure Migrate project > **Servers** > **Migration tools**.
 
 ## Set up the replication appliance
 
@@ -265,13 +244,23 @@ A Mobility service agent must be installed on the source AWS VMs to be migrated.
     -  Availability Zone to pin the migrated machine to a specific Availability Zone in the region. Use this option to distribute servers that form a multi-node application tier across Availability Zones. If you select this option, you'll need to specify the Availability Zone to use for each of the selected machine in the Compute tab. This option is only available if the target region selected for the migration supports Availability Zones
     -  Availability Set to place the migrated machine in an Availability Set. The target Resource Group that was selected must have one or more availability sets in order to use this option.
     - No infrastructure redundancy required option if you don't need either of these availability configurations for the migrated machines.
-11. In **Azure Hybrid Benefit**:
+    
+11. In **Disk encryption type**, select:
+    - Encryption-at-rest with platform-managed key
+    - Encryption-at-rest with customer-managed key
+    - Double encryption with platform-managed and customer-managed keys
+
+   > [!NOTE]
+   > To replicate VMs with CMK, you'll need to [create a disk encryption set](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE.
+  
+12. In **Azure Hybrid Benefit**:
+
     - Select **No** if you don't want to apply Azure Hybrid Benefit. Then click **Next**.
     - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating. Then click **Next**.
 
-    ![Target settings](./media/tutorial-migrate-physical-virtual-machines/target-settings.png)
+    ![Target settings](./media/tutorial-migrate-vmware/target-settings.png)
 
-12. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
+13. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
 
     - **VM size**: If you're using assessment recommendations, the VM size dropdown shows the recommended size. Otherwise Azure Migrate picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**.
     - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer.
@@ -280,13 +269,13 @@ A Mobility service agent must be installed on the source AWS VMs to be migrated.
 
 ![Compute settings](./media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
 
-13. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium managed disks) in Azure. Then click **Next**.
+14. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium managed disks) in Azure. Then click **Next**.
     - You can exclude disks from replication.
     - If you exclude disks, won't be present on the Azure VM after migration. 
 
     ![Disk settings](./media/tutorial-migrate-physical-virtual-machines/disks.png)
 
-14. In **Review and start replication**, review the settings, and click **Replicate** to start the initial replication for the servers.
+15. In **Review and start replication**, review the settings, and click **Replicate** to start the initial replication for the servers.
 
 > [!NOTE]
 > You can update replication settings any time before replication starts, **Manage** > **Replicating machines**. Settings can't be changed after replication starts.
@@ -365,7 +354,7 @@ After you've verified that the test migration works as expected, you can migrate
     - Keep workloads running and continuously available by replicating Azure VMs to a secondary region with Site Recovery. [Learn more](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - For increased security:
     - Lock down and limit inbound traffic access with [Azure Security Center - Just in time administration](../security-center/security-center-just-in-time.md).
-    - Restrict network traffic to management endpoints with [Network Security Groups](../virtual-network/security-overview.md).
+    - Restrict network traffic to management endpoints with [Network Security Groups](../virtual-network/network-security-groups-overview.md).
     - Deploy [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) to help secure disks, and keep data safe from theft and unauthorized access.
     - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - For monitoring and management:

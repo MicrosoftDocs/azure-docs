@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 03/02/2021
 ms.topic: how-to
 ---
 
@@ -26,18 +26,16 @@ To create the Azure Arc data Controller using Kubernetes tools you will need to 
 > [!NOTE]
 > Some of the steps to create the Azure Arc data controller that are indicated below require Kubernetes cluster administrator permissions.  If you are not a Kubernetes cluster administrator, you will need to have the Kubernetes cluster administrator perform these steps on your behalf.
 
-#### Cleanup from past installations
+### Cleanup from past installations
 
-If you installed Azure Arc data controller in the past on the same cluster and deleted the Azure Arc data controller using the `azdata arc dc delete` command, there may be some cluster level objects that would still need to be deleted. Run the following commands to delete Azure Arc data controller cluster level objects:
+If you installed Azure Arc data controller in the past, on the same cluster and deleted the Azure Arc data controller using `azdata arc dc delete` command, there may be some cluster level objects that would still need to be deleted. Run the following commands to delete Azure Arc data controller cluster level objects:
 
-```
+```console
 # Cleanup azure arc data service artifacts
 kubectl delete crd datacontrollers.arcdata.microsoft.com 
-kubectl delete sqlmanagedinstances.sql.arcdata.microsoft.com 
-kubectl delete postgresql-11s.arcdata.microsoft.com 
-kubectl delete postgresql-12s.arcdata.microsoft.com
-kubectl delete clusterroles azure-arc-data:cr-arc-metricsdc-reader
-kubectl delete clusterrolebindings azure-arc-data:crb-arc-metricsdc-reader
+kubectl delete crd sqlmanagedinstances.sql.arcdata.microsoft.com 
+kubectl delete crd postgresql-11s.arcdata.microsoft.com 
+kubectl delete crd postgresql-12s.arcdata.microsoft.com
 ```
 
 ## Overview
@@ -54,7 +52,7 @@ Creating the Azure Arc data controller has the following high level steps:
 Run the following command to create the custom resource definitions.  **[Requires Kubernetes Cluster Administrator Permissions]**
 
 ```console
-kubectl create -f https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/custom-resource-definitions.yaml
+kubectl create -f https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/custom-resource-definitions.yaml
 ```
 
 ## Create a namespace in which the data controller will be created
@@ -74,7 +72,7 @@ The bootstrapper service handles incoming requests for creating, editing, and de
 Run the following command to create a bootstrapper service, a service account for the bootstrapper service, and a role and role binding for the bootstrapper service account.
 
 ```console
-kubectl create --namespace arc -f https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/bootstrapper.yaml
+kubectl create --namespace arc -f https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/bootstrapper.yaml
 ```
 
 Verify that the bootstrapper pod is running using the following command.  You may need to run it a few times until the status changes to `Running`.
@@ -97,7 +95,7 @@ containers:
       - env:
         - name: ACCEPT_EULA
           value: "Y"
-        #image: mcr.microsoft.com/arcdata/arc-bootstrapper:public-preview-sep-2020 <-- template value to change
+        #image: mcr.microsoft.com/arcdata/arc-bootstrapper:public-preview-dec-2020  <-- template value to change
         image: <your registry DNS name or IP address>/<your repo>/arc-bootstrapper:<your tag>
         imagePullPolicy: IfNotPresent
         name: bootstrapper
@@ -139,13 +137,13 @@ PowerShell
 Linux/macOS
 
 ```console
-echo '<your string to encode here>' | base64
+echo -n '<your string to encode here>' | base64
 
 #Example
-# echo 'example' | base64
+# echo -n 'example' | base64
 ```
 
-Once you have encoded the username and password you can create a file based on the [template file](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/controller-login-secret.yaml) and replace the username and password values with your own.
+Once you have encoded the username and password you can create a file based on the [template file](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/controller-login-secret.yaml) and replace the username and password values with your own.
 
 Then run the following command to create the secret.
 
@@ -160,7 +158,7 @@ kubectl create --namespace arc -f C:\arc-data-services\controller-login-secret.y
 
 Now you are ready to create the data controller itself.
 
-First, create a copy of the [template file](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/data-controller.yaml) locally on your computer so that you can modify some of the settings.
+First, create a copy of the [template file](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/data-controller.yaml) locally on your computer so that you can modify some of the settings.
 
 Edit the following as needed:
 
@@ -172,16 +170,27 @@ Edit the following as needed:
 **RECOMMENDED TO REVIEW AND POSSIBLY CHANGE DEFAULTS**
 - **storage..className**: the storage class to use for the data controller data and log files.  If you are unsure of the available storage classes in your Kubernetes cluster, you can run the following command: `kubectl get storageclass`.  The default is `default` which assumes there is a storage class that exists and is named `default` not that there is a storage class that _is_ the default.  Note: There are two className settings to be set to the desired storage class - one for data and one for logs.
 - **serviceType**: Change the service type to `NodePort` if you are not using a LoadBalancer.  Note: There are two serviceType settings that need to be changed.
+- On Azure Red Hat OpenShift or Red Hat OpenShift container platform, you must apply the security context constraint before you create the data controller. Follow the instructions at [Apply a security context constraint for Azure Arc enabled data services on OpenShift](how-to-apply-security-context-constraint.md).
+- **Security** For Azure Red Hat OpenShift or Red Hat OpenShift container platform, replace the `security:` settings with the following values in the data controller yaml file. 
+
+```yml
+  security:
+    allowDumps: true
+    allowNodeMetricsCollection: false
+    allowPodMetricsCollection: false
+    allowRunAsRoot: false
+```
 
 **OPTIONAL**
 - **name**: The default name of the data controller is `arc`, but you can change it if you want.
 - **displayName**: Set this to the same value as the name attribute at the top of the file.
 - **registry**: The Microsoft Container Registry is the default.  If you are pulling the images from the Microsoft Container Registry and [pushing them to a private container registry](offline-deployment.md), enter the IP address or DNS name of your registry here.
 - **dockerRegistry**: The image pull secret to use to pull the images from a private container registry if required.
-- **repository**: The default repository on the Microsoft Container Registry is `arcdata`.  If you are using a private container registry, enter the path the folder/repository containing the Azure Arr enabled data services container images.
+- **repository**: The default repository on the Microsoft Container Registry is `arcdata`.  If you are using a private container registry, enter the path the folder/repository containing the Azure Arc enabled data services container images.
 - **imageTag**: the current latest version tag is defaulted in the template, but you can change it if you want to use an older version.
 
-Example of a completed data controller yaml file:
+The following example shows a completed data controller yaml file. Update the example for your environment, based on your requirements, and the information above.
+
 ```yaml
 apiVersion: arcdata.microsoft.com/v1alpha1
 kind: datacontroller
@@ -191,11 +200,11 @@ metadata:
 spec:
   credentials:
     controllerAdmin: controller-login-secret
-    #dockerRegistry: mssql-private-registry - optional if you are using a private container registry that requires authentication using an image pull secret
+    #dockerRegistry: arc-private-registry - optional if you are using a private container registry that requires authentication using an image pull secret
     serviceAccount: sa-mssql-controller
   docker:
     imagePullPolicy: Always
-    imageTag: public-preview-sep-2020
+    imageTag: public-preview-dec-2020 
     registry: mcr.microsoft.com
     repository: arcdata
   security:

@@ -5,19 +5,18 @@
     items:
      - name: What is application provisioning?
        href: user-provisioning.md
+     - name: What's new in docs?
+       href: whats-new-docs.md
   - name: Tutorials
+    expanded: true
     items:
-    - name: G Suite
-      href: ../saas-apps/google-apps-provisioning-tutorial.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
-    - name: ServiceNow
-      href: ../saas-apps/servicenow-provisioning-tutorial.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
-    - name: Amazon Web Services (AWS) - Role Provisioning
-      href: ../saas-apps/amazon-web-service-tutorial.md?context=azure/active-directory/app-provisioning/context/app-provisioning-context#configure-azure-ad-sso
-    - name: Workday
-      href: ../saas-apps/workday-inbound-tutorial.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
-    - name: SAP SuccessFactors
-      href: ../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
-    - name: All integrated gallery apps
+    - name: Plan provisioning for a SCIM endpoint 
+      href: use-scim-to-provision-users-and-groups.md
+    - name: Develop a sample SCIM endpoint
+      href: use-scim-to-build-users-and-groups-endpoints.md
+    - name: Customize attribute mappings
+      href: customize-application-attributes.md
+    - name: App specific provisioning tutorials
       href: /azure/active-directory/saas-apps
   - name: Concepts
     expanded: true
@@ -28,17 +27,13 @@
        href: plan-auto-user-provisioning.md
      - name: Plan a cloud HR provisioning deployment
        href: plan-cloud-hr-provision.md
+     - name: Understand logging with Azure Monitor
+       href: application-provisioning-log-analytics.md
   - name: How-to guides
     expanded: true
     items:
     - name: Configure provisioning for a gallery app
       href: configure-automatic-user-provisioning-portal.md
-    - name: Edit the attribute mappings
-      items:
-      - name: Customize attribute mappings
-        href: customize-application-attributes.md
-      - name: Write expressions for attribute mappings
-        href: functions-for-customizing-application-data.md
     - name: Include or exclude users and groups from scope
       items:
       - name: Scoping users or groups to be provisioned 
@@ -56,7 +51,9 @@
       - name: Export and import your configuration
         href: export-import-provisioning-configuration.md  
       - name: Provisioning reports
-        href: ../reports-monitoring/concept-provisioning-logs.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+        href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+    - name: Automate configuration using MS Graph
+      href: /graph/application-provisioning-configure-api
     - name: Troubleshoot application provisioning
       items:
       - name: Known issues
@@ -65,51 +62,45 @@
         href: application-provisioning-config-problem.md
       - name: Quarantine status
         href: application-provisioning-quarantine-status.md
-      - name: Authorization issue (unable to save admin credentials)
-        href: application-provisioning-config-problem-storage-limit.md
       - name: Users aren't provisioned 
         href: application-provisioning-config-problem-no-users-provisioned.md
-      - name: Wrong users provisioned
-        href: application-provisioning-config-problem-wrong-users-provisioned.md
       - name: Missing source attribute
         href: user-provisioning-sync-attributes-for-mapping.md
       - name: Provisioning logs
-        href: ../reports-monitoring/concept-provisioning-logs.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
-    - name: Build a SCIM endpoint and configure provisioning
-      href: use-scim-to-provision-users-and-groups.md
-    - name: Automate configuration using MS Graph
-      href: https://docs.microsoft.com/graph/application-provisioning-configure-api
+        href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
   - name: Reference
     items:
     - name: SCIM 2.0 protocol compliance
       href: application-provisioning-config-problem-scim-compatibility.md
     - name: SCIM and Graph scenarios
       href: scim-graph-scenarios.md
+    - name: Function reference for writing expressions for attribute mappings
+      href: functions-for-customizing-application-data.md
     - name: Cloud HR provisioning
       items:
-        - name: SuccessFactors integration 
-          href: sap-successfactors-integration-reference.md
-        - name: SuccessFactors attribute reference
-          href: sap-successfactors-attribute-reference.md
-        - name: Workday attribute reference
-          href: workday-attribute-reference.md
-    - name: Azure AD Connect Provisioning Agent
-      items:
-       - name: Provisioning Agent version history
-         href: provisioning-agent-release-version-history.md
+      - name: SuccessFactors integration 
+        href: sap-successfactors-integration-reference.md
+      - name: SuccessFactors attribute reference
+        href: sap-successfactors-attribute-reference.md
+      - name: Workday integration 
+        href: workday-integration-reference.md
+      - name: Workday attribute reference
+        href: workday-attribute-reference.md
+      - name: Provisioning Agent version history
+        href: provisioning-agent-release-version-history.md
   - name: Resources
     items:
-        - name: Support and help options for developers
-          href: ../develop/developer-support-help-options.md
-        - name: Azure feedback forum
-          href: https://feedback.azure.com/forums/169401-azure-active-directory
-        - name: Microsoft Q&A question page
-          href: /answers/topics/azure-active-directory.html
-        - name: Pricing
-          href: https://azure.microsoft.com/pricing/details/active-directory
-        - name: Service updates
-          href: https://azure.microsoft.com/updates/?product=active-directory
-        - name: Stack Overflow
-          href: https://stackoverflow.com/questions/tagged/azure-active-directory
-        - name: Videos
-          href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
+    - name: Support and help options for developers
+      href: ../develop/developer-support-help-options.md
+    - name: Azure feedback forum
+      href: https://feedback.azure.com/forums/169401-azure-active-directory
+    - name: Microsoft Q&A question page
+      href: /answers/topics/azure-active-directory.html
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/active-directory
+    - name: Service updates
+      href: https://azure.microsoft.com/updates/?product=active-directory
+    - name: Stack Overflow
+      href: https://stackoverflow.com/questions/tagged/azure-active-directory
+    - name: Videos
+      href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory

@@ -1,13 +1,13 @@
 ---
 title: Quickstart for adding feature flags to ASP.NET Core
 description: Add feature flags to ASP.NET Core apps and manage them using Azure App Configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
-ms.author: lcozzens
+ms.author: alkemper
 
 #Customer intent: As an ASP.NET Core developer, I want to use feature flags to control feature availability quickly and confidently.
 ---
@@ -27,7 +27,7 @@ The .NET Core Feature Management libraries extend the framework with comprehensi
 
 [!INCLUDE[Azure App Configuration resource creation steps](../../includes/azure-app-configuration-create.md)]
 
-7. Select **Operations** > **Feature manager** > **Add** to add a feature flag called *Beta*.
+8. Select **Operations** > **Feature manager** > **Add** to add a feature flag called *Beta*.
 
     > [!div class="mx-imgBorder"]
     > ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
@@ -73,6 +73,21 @@ dotnet new mvc --no-https --output TestFeatureFlags
     > [!IMPORTANT]
     > `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.x. Select the correct syntax based on your environment.
 
+     #### [.NET 5.x](#tab/core5x)
+
+    ```csharp
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+                webBuilder.ConfigureAppConfiguration(config =>
+                {
+                    var settings = config.Build();
+                    var connection = settings.GetConnectionString("AppConfig");
+                    config.AddAzureAppConfiguration(options =>
+                        options.Connect(connection).UseFeatureFlags());
+                }).UseStartup<Startup>());
+    ```
+
     #### [.NET Core 3.x](#tab/core3x)
 
     ```csharp
@@ -104,7 +119,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     ---
 
-    With the preceding change, the [configuration provider for App Configuration](https://go.microsoft.com/fwlink/?linkid=2074664) has been registered with the .NET Core Configuration API.
+    With the preceding change, the [configuration provider for App Configuration](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration) has been registered with the .NET Core Configuration API.
 
 1. In *Startup.cs*, add a reference to the .NET Core feature manager:
 
@@ -114,6 +129,15 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
 1. Update the `Startup.ConfigureServices` method to add feature flag support by calling the `AddFeatureManagement` method. Optionally, you can include any filter to be used with feature flags by calling `AddFeatureFilter<FilterType>()`:
 
+     #### [.NET 5.x](#tab/core5x)
+
+    ```csharp    
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddControllersWithViews();
+        services.AddFeatureManagement();
+    }
+    ```
     #### [.NET Core 3.x](#tab/core3x)
 
     ```csharp    
@@ -179,36 +203,9 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     The preceding code allows the `<feature>` Tag Helper to be used in the project's *.cshtml* files.
 
-1. In *Views/Shared/_Layout.cshtml*, replace the `<nav>` bar code under `<body>` > `<header>` with the following markup:
+1. Open *_Layout.cshtml* in the *Views*\\*Shared* directory. Locate the `<nav>` bar code under `<body>` > `<header>`. Insert a new `<feature>` tag in between the *Home* and *Privacy* navbar items, as shown in the highlighted lines below.
 
-    ```cshtml
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-        <div class="container">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TestFeatureFlags</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                    </li>
-                    <feature name="Beta">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Beta" asp-action="Index">Beta</a>
-                    </li>
-                    </feature>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    ```
-
-    In the preceding markup, notice the `<feature>` Tag Helper surrounding the *Beta* list item.
+    :::code language="html" source="../../includes/azure-app-configuration-navbar.md" range="15-38" highlight="14-18":::
 
 1. Create a *Views/Beta* directory and an *Index.cshtml* file containing the following markup:
 
@@ -244,7 +241,9 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store instance that you created in the quickstart.
 
-1. Select **Feature manager**, and change the state of the *Beta* key to **On**.
+1. Select **Feature manager**. 
+
+1. Enable the *Beta* flag by selecting the checkbox under **Enabled**.
 
 1. Return to the command shell. Cancel the running `dotnet` process by pressing <kbd>Ctrl+C</kbd>. Restart your app using `dotnet run`.
 
@@ -258,7 +257,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
 ## Next steps
 
-In this quickstart, you created a new App Configuration store and used it to manage features in an ASP.NET Core web app via the [Feature Management libraries](https://go.microsoft.com/fwlink/?linkid=2074664).
+In this quickstart, you created a new App Configuration store and used it to manage features in an ASP.NET Core web app via the [Feature Management libraries](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration).
 
 * Learn more about [feature management](./concept-feature-management.md).
 * [Manage feature flags](./manage-feature-flags.md).

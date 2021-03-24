@@ -25,6 +25,52 @@
   items:
   - name: Security
     items:
+    - name: Protect Microsoft 365 from on-premises attacks 
+      href: protect-m365-from-on-premises-attacks.md    
+    - name: Secure external collaboration
+      items:
+      - name: Secure external access overview 
+        href: secure-external-access-resources.md 
+      - name: 1 Determine your security posture
+        href: 1-secure-access-posture.md  
+      - name: 2 Determine your current state
+        href: 2-secure-access-current-state.md
+      - name: 3 Create a security plan
+        href: 3-secure-access-plan.md  
+      - name: 4 Secure access with groups
+        href: 4-secure-access-groups.md
+      - name: 5 Secure access with B2B collaboration
+        href: 5-secure-access-b2b.md
+      - name: 6 Secure access with Entitlement Management
+        href: 6-secure-access-entitlement-managment.md
+      - name: 7 Secure access with conditional access
+        href: 7-secure-access-conditional-access.md
+      - name: 8 Secure access with sensitivity labels
+        href: 8-secure-access-sensitivity-labels.md
+      - name: 9 Secure access to Teams, SharePoint, and OneDrive
+        href: 9-secure-access-teams-sharepoint.md
+    - name: Secure Service Accounts
+      items:
+      - name: Introduction to Azure service accounts
+        href: service-accounts-introduction-azure.md
+      - name: Securing managed identities
+        href: service-accounts-managed-identities.md
+      - name: Securing service principals
+        href: service-accounts-principal.md
+      - name: Governing Azure service accounts
+        href: service-accounts-governing-azure.md       
+      - name: Introduction to on-premises service accounts
+        href: service-accounts-on-premises.md
+      - name: Securing group MSAs
+        href: service-accounts-group-managed.md
+      - name: Securing standalone MSAs
+        href: service-accounts-standalone-managed.md
+      - name: Securing computer accounts
+        href: service-accounts-computer.md
+      - name: Securing user-based service accounts
+        href: service-accounts-user-on-premises.md
+      - name: Govern on-premises service accounts
+        href: service-accounts-govern-on-premises.md
     - name: Enable MFA
       href: concept-fundamentals-mfa-get-started.md
     - name: Security defaults
@@ -49,6 +95,80 @@
       href: active-directory-architecture.md
     - name: Integrating all your apps with Azure AD
       href: five-steps-to-full-application-integration-with-azure-ad.md
+    - name: Authentication and provisioning protocols
+      items:
+      - name: Overview
+        href: auth-sync-overview.md
+      - name: Header-based authentication
+        href: auth-header-based.md
+      - name: LDAP authentication
+        href: auth-ldap.md
+      - name: OAuth 2.0 authentication
+        href: auth-oauth2.md
+      - name: Open ID Connect authentication
+        href: auth-oidc.md
+      - name: Password-based authentication
+        href: auth-password-based-sso.md
+      - name: RADIUS authentication
+        href: auth-radius.md
+      - name: Remote desktop gateway authentication
+        href: auth-remote-desktop-gateway.md
+      - name: SAML authentication
+        href: auth-saml.md  
+      - name: SSH authentication
+        href: auth-ssh.md
+      - name: Windows authentication - KCD
+        href: auth-kcd.md
+      - name: Directory synchronization
+        href: sync-directory.md
+      - name: LDAP synchronization
+        href: sync-ldap.md                
+      - name: SCIM synchronization
+        href: sync-scim.md
+    - name: Build for resilience
+      items:
+      - name: Overview
+        href: resilience-overview.md
+      - name: Infrastructure guidance
+        items:
+        - name: Infrastructure overview
+          href: resilience-in-infrastructure.md
+        - name: Credential management
+          href: resilience-in-credentials.md
+        - name: Device states
+          href: resilience-with-device-states.md     
+        - name: Continuous access evaluation
+          href: resilience-with-continuous-access-evaluation.md
+        - name: External user authentication
+          href: resilience-b2b-authentication.md
+        - name: Hybrid authentication
+          href: resilience-in-hybrid.md
+        - name: Application Proxy
+          href: resilience-on-premises-access.md
+      - name: Azure AD B2C guidance
+        items:
+        - name: Azure AD B2C introduction to resilience
+          href: resilience-b2c.md
+        - name: End-user experience
+          href: resilient-end-user-experience.md
+        - name: Interfaces with external processes
+          href: resilient-external-processes.md
+        - name: Azure AD B2C developer best practices
+          href: resilience-b2c-developer-best-practices.md
+        - name: Monitoring and analytics
+          href: resilience-with-monitoring-alerting.md
+      - name: Application development guidance
+        items:
+        - name: Development overview
+          href: resilience-app-development-overview.md
+        - name: Client applications
+          href: resilience-client-app.md  
+        - name: Daemon applications
+          href: resilience-daemon-app.md
+      - name: Monitor application health for resilience
+        href: monitor-sign-in-health-for-resilience.md
+    - name: Certificate authorities used in Azure
+      href: certificate-authorities.md
   - name: Deployment guide
     items:
     - name: Deployment 30, 90, and beyond
@@ -88,6 +208,8 @@
       href: customize-branding.md
     - name: Configure 'Stay signed in?'
       href: keep-me-signed-in.md
+    - name: How to find tenant ID
+      href: active-directory-how-to-find-tenant.md
     - name: Associate an Azure subscription
       href: active-directory-how-subscriptions-associated-directory.md
     - name: Add your privacy info
@@ -129,5 +251,3 @@
     href: active-directory-troubleshooting-support-howto.md
   - name: Azure Active Directory FAQ
     href: active-directory-faq.md
-  
-  

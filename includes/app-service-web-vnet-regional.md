@@ -2,7 +2,7 @@
 author: ccompy
 ms.service: app-service-web
 ms.topic: include
-ms.date: 06/08/2020
+ms.date: 10/21/2020
 ms.author: ccompy
 ---
 Using regional VNet Integration enables your app to access:
@@ -12,7 +12,7 @@ Using regional VNet Integration enables your app to access:
 * Service endpoint secured services.
 * Resources across Azure ExpressRoute connections.
 * Resources in the VNet you're integrated with.
-* Resources across peered connections, which includes Azure ExpressRoute connections.
+* Resources across peered connections, which include Azure ExpressRoute connections.
 * Private endpoints 
 
 When you use VNet Integration with VNets in the same region, you can use the following Azure networking features:
@@ -30,23 +30,39 @@ By default, your app routes only RFC1918 traffic into your VNet. If you want to 
 1. Select **OK**.
 1. Select **Save**.
 
-If you route all of your outbound traffic into your VNet, it's subject to the NSGs and UDRs that are applied to your integration subnet. When you route all of your outbound traffic into your VNet, your outbound addresses are still the outbound addresses that are listed in your app properties unless you provide routes to send the traffic elsewhere.
+> [!NOTE]
+> If you route all of your outbound traffic into your VNet, it's subject to the NSGs and UDRs that are applied to your integration subnet. When you route all of your outbound traffic into your VNet, your outbound addresses are still the outbound addresses that are listed in your app properties unless you provide routes to send the traffic elsewhere.
+> 
+> Regional VNet integration is not able to use port 25.
 
 There are some limitations with using VNet Integration with VNets in the same region:
 
 * You can't reach resources across global peering connections.
-* The feature is available only from newer Azure App Service scale units that support PremiumV2 App Service plans. Note that *this does not mean your app must run on a PremiumV2 pricing tier*, only that it must run on an App Service Plan where the PremiumV2 option is available (which implies that it is a newer scale unit where this VNet integration feature is then also available).
+* The feature is available from all App Service scale units in Premium V2 and Premium V3. It is also available in Standard but only from newer App Service scale units. If you are on an older scale unit you can only use the feature from a Premium V2 App Service plan. If you want to be certain of being able to use the feature in a Standard App Service plan, create your app in a Premium V3 App Service plan. Those plans are only supported on our newest scale units. You can scale down if you desire after that.  
 * The integration subnet can be used by only one App Service plan.
 * The feature can't be used by Isolated plan apps that are in an App Service Environment.
-* The feature requires an unused subnet that's a /27 with 32 addresses or larger in an Azure Resource Manager VNet.
+* The feature requires an unused subnet that's a /28 or larger in an Azure Resource Manager VNet.
 * The app and the VNet must be in the same region.
 * You can't delete a VNet with an integrated app. Remove the integration before you delete the VNet.
-* You can only integrate with VNets in the same subscription as the app.
 * You can have only one regional VNet Integration per App Service plan. Multiple apps in the same App Service plan can use the same VNet.
 * You can't change the subscription of an app or a plan while there's an app that's using regional VNet Integration.
 * Your app cannot resolve addresses in Azure DNS Private Zones without configuration changes
 
-One address is used for each plan instance. If you scale your app to five instances, then five addresses are used. Since subnet size can't be changed after assignment, you must use a subnet that's large enough to accommodate whatever scale your app might reach. A /26 with 64 addresses is the recommended size. A /26 with 64 addresses accommodates a Premium plan with 30 instances. When you scale a plan up or down, you need twice as many addresses for a short period of time.
+VNet Integration depends on use of a dedicated subnet.  When you provision a subnet, the Azure subnet loses 5 IPs for from the start. One address is used from the integration subnet for each plan instance. If you scale your app to four instances, then four addresses are used. The debit of 5 addresses from the subnet size mean that the maximum available addresses per CIDR block are:
+
+- /28 has 11 addresses
+- /27 has 27 address
+- /26 has 59 addresses
+
+If you scale up or down in size, you need double your address need for a short period of time. The limits in size means that the real available supported instances per subnet size are, if your subnet is a:
+
+- /28, your maximum horizontal scale is 5 instances
+- /27, your maximum horizontal scale is 13 instances
+- /26, your maximum horizontal scale is 29 instances
+
+The limits noted on maximum horizontal scale assumes that you will need to scale up or down in either size or SKU at some point. 
+
+Since subnet size can't be changed after assignment, use a subnet that's large enough to accommodate whatever scale your app might reach. To avoid any issues with subnet capacity, a /26 with 64 addresses is the recommended size.  
 
 If you want your apps in another plan to reach a VNet that's already connected to by apps in another plan, select a different subnet than the one being used by the preexisting VNet Integration.
 
@@ -75,20 +91,29 @@ Border Gateway Protocol (BGP) routes also affect your app traffic. If you have B
 
 ### Azure DNS Private Zones 
 
-After your app integrates with your VNet, it uses the same DNS server that your VNet is configured with. By default, your app won't work with Azure DNS Private Zones. To work with Azure DNS Private Zones you need to add the following app settings:
+After your app integrates with your VNet, it uses the same DNS server that your VNet is configured with. By default, your app won't work with Azure DNS Private Zones. To work with Azure DNS Private Zones, you need to add the following app settings:
 
-1. WEBSITE_DNS_SERVER with value 168.63.129.16 
+
+1. WEBSITE_DNS_SERVER with value 168.63.129.16
 1. WEBSITE_VNET_ROUTE_ALL with value 1
 
-These settings will send all of your outbound calls from your app into your VNet in addition to enabling your app to use Azure DNS private zones.
+
+These settings will send all of your outbound calls from your app into your VNet in addition to enabling your app to use Azure DNS private zones.	These settings will send all the outbound calls from your app into your VNet. Additionally, it will enable the app to use Azure DNS by querying the Private DNS Zone at the worker level. This functionality is to be used when a running app is accessing a Private DNS Zone.
+
+> [!NOTE]
+>Trying to add a custom domain to a Web App using Private DNS Zone is not possible with the VNET Integration. Custom domain validation is done at the controller level, not the worker level, which prevents the DNS records from being seen. To use a custom domain from a Private DNS Zone, validation would need to be bypassed using an Application Gateway or ILB App Service Environment.
 
 ### Private endpoints
 
-If you want to make calls to [Private Endpoints][privateendpoints], then you need to either integrate with Azure DNS Private Zones or manage the private endpoint in the DNS server used by your app. 
+If you want to make calls to [Private Endpoints][privateendpoints], then you need to ensure that your DNS lookups will resolve to the private endpoint. To ensure that the DNS lookups from your app will point to your private endpoints you can:
+
+* integrate with Azure DNS Private Zones. If your VNet doesn't have a custom DNS server, this will be automatic
+* manage the private endpoint in the DNS server used by your app. To do this you need to know the private endpoint address and then point the endpoint you are trying to reach to that address with an A record.
+* configure your own DNS server to forward to Azure DNS private zones
 
 <!--Image references-->
 [4]: ../includes/media/web-sites-integrate-with-vnet/vnetint-appsetting.png
 
 <!--Links-->
-[VNETnsg]: https://docs.microsoft.com/azure/virtual-network/security-overview/
-[privateendpoints]: https://docs.microsoft.com/azure/app-service/networking/private-endpoint
+[VNETnsg]: /azure/virtual-network/security-overview/
+[privateendpoints]: ../articles/app-service/networking/private-endpoint.md

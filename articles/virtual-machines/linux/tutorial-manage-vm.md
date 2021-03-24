@@ -1,7 +1,7 @@
 ---
 title: Tutorial - Create and manage Linux VMs with the Azure CLI 
 description: In this tutorial, you learn how to use the Azure CLI to create and manage Linux VMs in Azure
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
@@ -9,7 +9,8 @@ manager: gwallace
 tags: azure-resource-manager
 
 ms.assetid: 
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -279,7 +280,7 @@ ode                DisplayStatus    Level
 PowerState/running  VM running       Info
 ```
 
-To retrieve the power state of all the VMs in your subscription, use the [Virtual Machines - List All API](https://docs.microsoft.com/rest/api/compute/virtualmachines/listall) with parameter **statusOnly** set to *true*.
+To retrieve the power state of all the VMs in your subscription, use the [Virtual Machines - List All API](/rest/api/compute/virtualmachines/listall) with parameter **statusOnly** set to *true*.
 
 ## Management tasks
 

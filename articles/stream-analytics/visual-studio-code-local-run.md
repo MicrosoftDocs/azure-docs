@@ -40,11 +40,11 @@ You need to prepare sample input data files first. If you already have some samp
 
 2. Select **Local Input**.
 
-    ![Add ASA local input in Visual Studio code](./media/vscode-local-run/add-local-input.png)
+    ![Add ASA local input in Visual Studio Code](./media/vscode-local-run/add-local-input.png)
 
 3. Select **+ New Local Input**.
 
-    ![Add a new ASA local input in Visual Studio code](./media/vscode-local-run/add-new-local-input.png)
+    ![Add a new ASA local input in Visual Studio Code](./media/vscode-local-run/add-new-local-input.png)
 
 4. Enter the same input alias that you used in your query.
 

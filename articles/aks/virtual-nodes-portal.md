@@ -3,19 +3,20 @@ title: Create virtual nodes using the portal in Azure Kubernetes Services (AKS)
 description: Learn how to use the Azure portal to create an Azure Kubernetes Services (AKS) cluster that uses virtual nodes to run pods.
 services: container-service
 ms.topic: conceptual
-ms.date: 05/06/2019
-ms.custom: references_regions
+ms.date: 03/15/2021
+ms.custom: references_regions, devx-track-azurecli
 ---
 
 # Create and configure an Azure Kubernetes Services (AKS) cluster to use virtual nodes in the Azure portal
 
-To quickly deploy workloads in an Azure Kubernetes Service (AKS) cluster, you can use virtual nodes. With virtual nodes, you have fast provisioning of pods, and only pay per second for their execution time. In a scaling scenario, you don't need to wait for the Kubernetes cluster autoscaler to deploy VM compute nodes to run the additional pods. Virtual nodes are only supported with Linux pods and nodes.
+This article shows you how to use the Azure portal to create and configure the virtual network resources and an AKS cluster with virtual nodes enabled.
 
-This article shows you how to create and configure the virtual network resources and an AKS cluster with virtual nodes enabled.
+> [!NOTE]
+> [This article](virtual-nodes.md) gives you an overview of the region availability and limitations using virtual nodes.
 
 ## Before you begin
 
-Virtual nodes enable network communication between pods that run in Azure Container Instances (ACI) and the AKS cluster. To provide this communication, a virtual network subnet is created and delegated permissions are assigned. Virtual nodes only work with AKS clusters created using *advanced* networking. By default, AKS clusters are created with *basic* networking. This article shows you how to create a virtual network and subnets, then deploy an AKS cluster that uses advanced networking.
+Virtual nodes enable network communication between pods that run in Azure Container Instances (ACI) and the AKS cluster. To provide this communication, a virtual network subnet is created and delegated permissions are assigned. Virtual nodes only work with AKS clusters created using *advanced* networking (Azure CNI). By default, AKS clusters are created with *basic* networking (kubenet). This article shows you how to create a virtual network and subnets, then deploy an AKS cluster that uses advanced networking.
 
 If you have not previously used ACI, register the service provider with your subscription. You can check the status of the ACI provider registration using the [az provider list][az-provider-list] command, as shown in the following example:
 
@@ -37,34 +38,6 @@ If the provider shows as *NotRegistered*, register the provider using the [az pr
 az provider register --namespace Microsoft.ContainerInstance
 ```
 
-## Regional availability
-
-The following regions are supported for virtual node deployments:
-
-* Australia East (australiaeast)
-* Central US (centralus)
-* East US (eastus)
-* East US 2 (eastus2)
-* Japan East (japaneast)
-* North Europe (northeurope)
-* Southeast Asia (southeastasia)
-* West Central US (westcentralus)
-* West Europe (westeurope)
-* West US (westus)
-* West US 2 (westus2)
-
-## Known limitations
-Virtual Nodes functionality is heavily dependent on ACI's feature set. In addition to the [quotas and limits for Azure Container Instances](../container-instances/container-instances-quotas.md), the following scenarios are not yet supported with Virtual Nodes:
-
-* Using service principal to pull ACR images. [Workaround](https://github.com/virtual-kubelet/azure-aci/blob/master/README.md#private-registry) is to use [Kubernetes secrets](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
-* [Virtual Network Limitations](../container-instances/container-instances-virtual-network-concepts.md) including VNet peering, Kubernetes network policies, and outbound traffic to the internet with network security groups.
-* Init containers
-* [Host aliases](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
-* [Arguments](../container-instances/container-instances-exec.md#restrictions) for exec in ACI
-* [DaemonSets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) will not deploy pods to the virtual node
-* Virtual nodes support scheduling Linux pods. You can manually install the open source [Virtual Kubelet ACI](https://github.com/virtual-kubelet/azure-aci) provider to schedule Windows Server containers to ACI.
-* Virtual nodes require AKS clusters with Azure CNI networking
-
 ## Sign in to Azure
 
 Sign in to the Azure portal at https://portal.azure.com.
@@ -76,17 +49,17 @@ In the top left-hand corner of the Azure portal, select **Create a resource** > 
 On the **Basics** page, configure the following options:
 
 - *PROJECT DETAILS*: Select an Azure subscription, then select or create an Azure resource group, such as *myResourceGroup*. Enter a **Kubernetes cluster name**, such as *myAKSCluster*.
-- *CLUSTER DETAILS*: Select a region, Kubernetes version, and DNS name prefix for the AKS cluster.
+- *CLUSTER DETAILS*: Select a region and Kubernetes version for the AKS cluster.
 - *PRIMARY NODE POOL*: Select a VM size for the AKS nodes. The VM size **cannot** be changed once an AKS cluster has been deployed.
      - Select the number of nodes to deploy into the cluster. For this article, set **Node count** to *1*. Node count **can** be adjusted after the cluster has been deployed.
 
-Click **Next: Scale**.
+Click **Next: Node Pools**.
 
-On the **Scale** page, select *Enabled* under **Virtual nodes**.
+On the **Node Pools** page, select *Enable virtual nodes*.
 
-![Create AKS cluster and enable the virtual nodes](media/virtual-nodes-portal/enable-virtual-nodes.png)
+:::image type="content" source="media/virtual-nodes-portal/enable-virtual-nodes.png" alt-text="In a browser, shows creating a cluster with virtual nodes enabled on the Azure portal. The option 'Enable virtual nodes' is highlighted.":::
 
-By default, an Azure Active Directory service principal is created. This service principal is used for cluster communication and integration with other Azure services. Alternatively, you can use a managed identity for permissions instead of a service principal. For more information, see [Use managed identities](use-managed-identity.md).
+By default, a cluster identity is created. This cluster identity is used for cluster communication and integration with other Azure services. By default, this cluster identity is a managed identity. For more information, see [Use managed identities](use-managed-identity.md). You can also use a service principal as your cluster identity.
 
 The cluster is also configured for advanced networking. The virtual nodes are configured to use their own Azure virtual network subnet. This subnet has delegated permissions to connect Azure resources between the AKS cluster. If you don't already have delegated subnet, the Azure portal creates and configures the Azure virtual network and subnet for use with the virtual nodes.
 
@@ -141,7 +114,7 @@ spec:
     spec:
       containers:
       - name: aci-helloworld
-        image: microsoft/aci-helloworld
+        image: mcr.microsoft.com/azuredocs/aci-helloworld
         ports:
         - containerPort: 80
       nodeSelector:
@@ -180,7 +153,7 @@ The pod is assigned an internal IP address from the Azure virtual network subnet
 To test the pod running on the virtual node, browse to the demo application with a web client. As the pod is assigned an internal IP address, you can quickly test this connectivity from another pod on the AKS cluster. Create a test pod and attach a terminal session to it:
 
 ```console
-kubectl run -it --rm virtual-node-test --image=debian
+kubectl run -it --rm virtual-node-test --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
 ```
 
 Install `curl` in the pod using `apt-get`:
@@ -232,9 +205,9 @@ Virtual nodes are one component of a scaling solution in AKS. For more informati
 
 <!-- LINKS - internal -->
 [aks-network]: ./configure-azure-cni.md
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [aks-hpa]: tutorial-kubernetes-scale.md
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
 [az-provider-list]: /cli/azure/provider#az-provider-list
-[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register
+[az-provider-register]: /cli/azure/provider#az-provider-register

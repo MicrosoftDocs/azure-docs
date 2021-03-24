@@ -14,17 +14,21 @@ This article builds on top of the [Getting Started quickstart](get-started-detec
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+  > [!NOTE]
+  > You will need an Azure subscription with permissions for creating service principals (**owner role** provides this). If you do not have the right permissions, please reach out to your account administrator to grant you the right permissions. 
 * [Visual Studio Code](https://code.visualstudio.com/) on your machine with [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * If you have not completed the [Getting Started quickstart](get-started-detect-motion-emit-events-quickstart.md) previously, then go through the following steps:
     * [Set up Azure resources](get-started-detect-motion-emit-events-quickstart.md#set-up-azure-resources)
     * [Deploy modules](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device)
     * [Configure Visual Studio Code](get-started-detect-motion-emit-events-quickstart.md#configure-the-azure-iot-tools-extension)
-
+    > [!TIP]
+    > If you run into issues with Azure resources that get created, please view our **[troubleshooting guide](troubleshoot-how-to.md#common-error-resolutions)** to resolve some commonly encountered issues.
 ## Review the sample video
 
 As part of the steps above to set up the Azure resources, a (short) video of a parking lot will be copied to the Linux VM in Azure being used as the IoT Edge device. This video file will be used to simulate a live stream for this tutorial.
 
 You can use an application like [VLC Player](https://www.videolan.org/vlc/), launch it, hit `Ctrl+N`, and paste [the parking lot video sample](https://lvamedia.blob.core.windows.net/public/lots_015.mkv) link to start playback. At about the 5-second mark, a white car moves through the parking lot.
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LUbN]
 
 When you complete the steps below, you will have used Live Video Analytics on IoT Edge to detect that motion of the car, and record a video clip starting at around that 5-second mark. The diagram below is the visual representation of the overall flow.
 
@@ -35,6 +39,16 @@ When you complete the steps below, you will have used Live Video Analytics on Io
 
 You can use the module to analyze live video streams by invoking direct methods. Read [Direct Methods for Live Video Analytics on IoT Edge](direct-methods.md) to understand all the direct methods provided by the module. 
 
+1. In Visual Studio Code, open the **Extensions** tab (or press Ctrl+Shift+X) and search for Azure IoT Hub.
+1. Right click and select **Extension Settings**.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Extension Settings":::
+1. Search and enable “Show Verbose Message”.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::
+
 ### Invoke GraphTopologyList
 This step enumerates all the [graph topologies](media-graph-concept.md#media-graph-topologies-and-instances) in the module.
 
@@ -44,7 +58,7 @@ This step enumerates all the [graph topologies](media-graph-concept.md#media-gra
     
 ```
 {
-    "@apiVersion" : "1.0"
+    "@apiVersion" : "2.0"
 }
 ```
 
@@ -69,7 +83,7 @@ Using the same steps as those outlined for invoking GraphTopologyList, you can i
 
 ```
 {
-    "@apiVersion": "1.0",
+    "@apiVersion": "2.0",
     "name": "EVRtoAssetsOnMotionDetection",
     "properties": {
       "description": "Event-based video recording to Assets based on motion events",
@@ -179,7 +193,7 @@ Using the same steps as those outlined for invoking GraphTopologyList, you can i
 
 The above JSON payload results in the creation of a graph topology that defines five parameters (four of which have default values). The topology has one source node ([RTSP source](media-graph-concept.md#rtsp-source)), two processor nodes ([motion detection processor](media-graph-concept.md#motion-detection-processor) and [signal gate processor](media-graph-concept.md#signal-gate-processor), and two sink nodes (IoT Hub sink and [asset sink](media-graph-concept.md#asset-sink)). The visual representation of the topology is shown above.
 
-Within a few seconds, you will see the following response in the OUTPUT window.
+Within a few seconds, you will see the following response in the **OUTPUT** window.
 
 ```
 [DirectMethod] Invoking Direct Method [GraphTopologySet] to [lva-sample-device/lvaEdge] ...
@@ -316,7 +330,7 @@ Now invoke GraphTopologyGet with the following payload
 ```
 
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "EVRtoAssetsOnMotionDetection"
 }
 ```
@@ -459,7 +473,7 @@ Now invoke the GraphInstanceSet direct method with the following payload:
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2",
     "properties" : {
         "topologyName" : "EVRtoAssetsOnMotionDetection",
@@ -521,10 +535,15 @@ The media graph you created uses the motion detection processor node to detect m
 
 1. Open the Explorer pane in Visual Studio Code and look for Azure IoT Hub at the bottom-left corner.
 1. Expand the Devices node
-1. Right-clink on lva-sample-device and chose the option "Start Monitoring Built-in Event Monitoring"
+1. Right-click on lva-sample-device and chose the option "Start Monitoring Built-in Event Monitoring"
 
     ![Start Monitoring Built-in Event Monitoring](./media/quickstarts/start-monitoring-iothub-events.png)
     
+    > [!NOTE]
+    > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
     Within seconds, you will see the following messages in the OUTPUT window:
 
 ```
@@ -541,7 +560,7 @@ Now activate the graph instance - which starts the flow of live video through th
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2"
 }
 ```
@@ -565,7 +584,7 @@ Now invoke the GraphInstanceGet direct method with the following payload:
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2"
 }
 ```
@@ -744,7 +763,7 @@ Invoke the GraphInstanceDeactivate direct method with the following payload:
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2"
 }
 ```
@@ -772,7 +791,7 @@ Invoke the direct method GraphInstanceDelete with the following payload
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2"
 }
 ```
@@ -796,7 +815,7 @@ Invoke the GraphTopologyDelete direct method with the following payload:
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "EVRtoAssetsOnMotionDetection"
 }
 ```

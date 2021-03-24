@@ -13,6 +13,8 @@ ms.service: iot-edge
 ---
 # Azure IoT Edge security manager
 
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+
 The Azure IoT Edge security manager is a well-bounded security core for protecting the IoT Edge device and all its components by abstracting the secure silicon hardware. The security manager is the focal point for security hardening and provides technology integration point to original equipment manufacturers (OEM).
 
 ![Azure IoT Edge security manager](media/edge-security-manager/iot-edge-security-manager.png)
@@ -70,7 +72,7 @@ The IoT Edge security daemon takes advantage of any available hardware root of t
 
 #### Cloud interface
 
-The cloud interface allows the IoT Edge security daemon to access cloud services such as cloud compliments to device security like security renewal.  For example, the IoT Edge security daemon currently uses this interface to access the Azure IoT Hub [Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/) for device identity lifecycle management.  
+The cloud interface allows the IoT Edge security daemon to access cloud services such as cloud compliments to device security like security renewal.  For example, the IoT Edge security daemon currently uses this interface to access the Azure IoT Hub [Device Provisioning Service](../iot-dps/index.yml) for device identity lifecycle management.  
 
 #### Management API
 

@@ -12,6 +12,8 @@ services: iot-edge
 
 # Create and provision a simulated IoT Edge device with a virtual TPM on Windows
 
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+
 Azure IoT Edge devices can be auto-provisioned using the [Device Provisioning Service](../iot-dps/index.yml) just like devices that are not edge-enabled. If you're unfamiliar with the process of auto-provisioning, review the [provisioning](../iot-dps/about-iot-dps.md#provisioning-process) overview before continuing.
 
 DPS supports symmetric key attestation for IoT Edge devices in both individual enrollment and group enrollment. For group enrollment, if you check "is IoT Edge device" option to be true in symmetric key attestation, all the devices that are registered under that enrollment group will be marked as IoT Edge devices.
@@ -70,19 +72,18 @@ After creating the individual enrollment, save the value of the **Registration I
 
 ## Install the IoT Edge runtime
 
-The IoT Edge runtime is deployed on all IoT Edge devices. Its components run in containers, and allow you to deploy additional containers to the device so that you can run code at the edge.
+The IoT Edge runtime is deployed on all IoT Edge devices. Its components run in containers, and allow you to deploy additional containers to the device so that you can run code at the edge. Install the IoT Edge runtime on the device that is running the simulated TPM.
 
-You'll need the following information when provisioning your device:
-
-* The DPS **ID Scope** value
-* The device **Registration ID** you created
-
-Install the IoT Edge runtime on the device that is running the simulated TPM. You'll configure the IoT Edge runtime for automatic, not manual, provisioning.
+Follow the steps in [Install the Azure IoT Edge runtime](how-to-install-iot-edge.md), then return to this article to provision the device.
 
 > [!TIP]
 > Keep the window that's running the TPM simulator open during your installation and testing.
 
-For more detailed information about installing IoT Edge on Windows, including prerequisites and instructions for tasks like managing containers and updating IoT Edge, see [Install the Azure IoT Edge runtime on Windows](how-to-install-iot-edge-windows.md).
+## Configure the device with provisioning information
+
+Once the runtime is installed on your device, configure the device with the information it uses to connect to the Device Provisioning Service and IoT Hub.
+
+1. Know your DPS **ID Scope** and device **Registration ID** that were gathered in the previous sections.
 
 1. Open a PowerShell window in administrator mode. Be sure to use an AMD64 session of PowerShell when installing IoT Edge, not PowerShell (x86).
 
@@ -93,7 +94,7 @@ For more detailed information about installing IoT Edge on Windows, including pr
    Deploy-IoTEdge
    ```
 
-1. At this point, IoT Core devices may restart automatically. Other Windows 10 or Windows Server devices may prompt you to restart. If so, restart your device now. Once your device is ready, run PowerShell as an administrator again.
+1. At this point, IoT Core devices may restart automatically. Windows 10 or Windows Server devices may prompt you to restart. If so, restart your device now. Once your device is ready, run PowerShell as an administrator again.
 
 1. The **Initialize-IoTEdge** command configures the IoT Edge runtime on your machine. The command defaults to manual provisioning with Windows containers. Use the `-Dps` flag to use the Device Provisioning Service instead of manual provisioning.
 

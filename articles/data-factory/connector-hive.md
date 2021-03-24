@@ -1,22 +1,13 @@
 ---
 title: Copy data from Hive using Azure Data Factory 
 description: Learn how to copy data from Hive to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
-
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 11/17/2020
 ms.author: jingwang
-
 ---
-# Copy data from Hive using Azure Data Factory 
+# Copy and transform data from Hive using Azure Data Factory 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Hive. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
@@ -66,6 +57,7 @@ The following properties are supported for Hive linked service:
 | allowHostNameCNMismatch | Specifies whether to require a CA-issued TLS/SSL certificate name to match the host name of the server when connecting over TLS. The default value is false.  | No |
 | allowSelfSignedServerCert | Specifies whether to allow self-signed certificates from the server. The default value is false.  | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
+| storageReference | A reference to the linked service of the storage account used for staging data in mapping data flow. This is required only when using the Hive linked service in mapping data flow | No |
 
 **Example:**
 
@@ -162,6 +154,53 @@ To copy data from Hive, set the source type in the copy activity to **HiveSource
     }
 ]
 ```
+
+## Mapping data flow properties
+
+The hive connector is supported as an [inline dataset](data-flow-source.md#inline-datasets) source in mapping data flows. Read using a query or directly from a Hive table in HDInsight. Hive data gets staged in a storage account as parquet files before getting transformed as part of a data flow. 
+
+### Source properties
+
+The below table lists the properties supported by a hive source. You can edit these properties in the **Source options** tab.
+
+| Name | Description | Required | Allowed values | Data flow script property |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Store | Store must be `hive` | yes |  `hive` | store | 
+| Format | Whether you are reading from a table or query | yes | `table` or `query` | format |
+| Schema name | If reading from a table, the schema of the source table |  yes, if format is `table` | String | schemaName |
+| Table name | If reading from a table, the table name |   yes, if format is `table` | String | tableName |
+| Query | If format is `query`, the source query on the Hive linked service | yes, if format is `query` | String | query |
+| Staged | Hive table will always be staged. | yes | `true` | staged |
+| Storage Container | Storage container used to stage data before reading from Hive or writing to Hive. The hive cluster must have access to this container. | yes | String | storageContainer |
+| Staging database | The schema/database where the user account specified in the linked service has access to. It is used to create external tables during staging and dropped afterwards | no | `true` or `false` | stagingDatabaseName |
+| Pre SQL Scripts | SQL code to run on the Hive table before reading the data | no | String | preSQLs |
+
+#### Source example
+
+Below is an example of a Hive source configuration:
+
+![Hive source example](media/data-flow/hive-source.png "[Hive source example")
+
+These settings translate into the following data flow script:
+
+```
+source(
+    allowSchemaDrift: true,
+    validateSchema: false,
+    ignoreNoFilesFound: false,
+    format: 'table',
+    store: 'hive',
+    schemaName: 'default',
+    tableName: 'hivesampletable',
+    staged: true,
+    storageContainer: 'khive',
+    storageFolderPath: '',
+    stagingDatabaseName: 'default') ~> hivesource
+```
+### Known limitations
+
+* Complex types such as arrays, maps, structs, and unions are not supported for read. 
+* Hive connector only supports Hive tables in Azure HDInsight of version 4.0 or greater (Apache Hive 3.1.0)
 
 ## Lookup activity properties
 

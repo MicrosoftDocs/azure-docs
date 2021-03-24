@@ -1,23 +1,19 @@
 ---
 title: Common Data Model format
 description: Transform data using the Common Data Model metadata system
-author: djpmsft
+author: kromerm
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/05/2020
-ms.author: daperlov
+ms.date: 02/04/2021
+ms.author: makromer
 ---
 
 # Common Data Model format in Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-The Common Data Model (CDM) metadata system makes it possible for data and its meaning to be easily shared across applications and business processes. To learn more, see the [Common Data Model](https://docs.microsoft.com/common-data-model/) overview.
+The Common Data Model (CDM) metadata system makes it possible for data and its meaning to be easily shared across applications and business processes. To learn more, see the [Common Data Model](/common-data-model/) overview.
 
 In Azure Data Factory, users can transform data from CDM entities in both model.json and manifest form stored in [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md) (ADLS Gen2) using mapping data flows. You can also sink data in CDM format using CDM entity references that will land your data in CSV or Parquet format in partitioned folders. 
-
-> [!NOTE]
-> Common Data Model (CDM) format connector for ADF data flows is currently available as a public preview.
 
 ## Mapping data flow properties
 
@@ -46,6 +42,12 @@ The below table lists the properties supported by a CDM source. You can edit the
 | Corpus folder | the root location of the corpus | yes, if using manifest | String | corpusPath |
 | Corpus entity | Path to entity reference | yes | String | entity |
 | Allow no files found | If true, an error is not thrown if no files are found | no | `true` or `false` | ignoreNoFilesFound |
+
+When selecting "Entity Reference" both in the Source and Sink transformations, you can select from these three options for the location of your entity reference:
+
+* Local uses the entity defined in the manifest file already being used by ADF
+* Custom will ask you to point to an entity manifest file that is different from the manifest file ADF is using
+* Standard will use an entity reference from the standard library of CDM entities maintained in ```Github```.
 
 ### Sink settings
 
@@ -77,30 +79,30 @@ When mapping data flow columns to entity properties in the Sink transformation, 
 2. Find the partitions.Location property 
 3. Change "blob.core.windows.net" to "dfs.core.windows.net"
 4. Fix any "%2F" encoding in the URL to "/"
- 
+5. If using ADF Data Flows, Special characters in the partition file path must be replaced with alpha-numeric values, or switch to Synapse Data Flows
 
 ### CDM source data flow script example
 
 ```
 source(output(
-		ProductSizeId as integer,
-		ProductColor as integer,
-		CustomerId as string,
-		Note as string,
-		LastModifiedDate as timestamp
-	),
-	allowSchemaDrift: true,
-	validateSchema: false,
-	entity: 'Product.cdm.json/Product',
-	format: 'cdm',
-	manifestType: 'manifest',
-	manifestName: 'ProductManifest',
-	entityPath: 'Product',
-	corpusPath: 'Products',
-	corpusStore: 'adlsgen2',
-	adlsgen2_fileSystem: 'models',
-	folderPath: 'ProductData',
-	fileSystem: 'data') ~> CDMSource
+        ProductSizeId as integer,
+        ProductColor as integer,
+        CustomerId as string,
+        Note as string,
+        LastModifiedDate as timestamp
+    ),
+    allowSchemaDrift: true,
+    validateSchema: false,
+    entity: 'Product.cdm.json/Product',
+    format: 'cdm',
+    manifestType: 'manifest',
+    manifestName: 'ProductManifest',
+    entityPath: 'Product',
+    corpusPath: 'Products',
+    corpusStore: 'adlsgen2',
+    adlsgen2_fileSystem: 'models',
+    folderPath: 'ProductData',
+    fileSystem: 'data') ~> CDMSource
 ```
 
 ### Sink properties
@@ -132,21 +134,21 @@ The associated data flow script is:
 
 ```
 CDMSource sink(allowSchemaDrift: true,
-	validateSchema: false,
-	entity: 'Product.cdm.json/Product',
-	format: 'cdm',
-	entityPath: 'ProductSize',
-	manifestName: 'ProductSizeManifest',
-	corpusPath: 'Products',
-	partitionPath: 'adf',
-	folderPath: 'ProductSizeData',
-	fileSystem: 'cdm',
-	subformat: 'parquet',
-	corpusStore: 'adlsgen2',
-	adlsgen2_fileSystem: 'models',
-	truncate: true,
-	skipDuplicateMapInputs: true,
-	skipDuplicateMapOutputs: true) ~> CDMSink
+    validateSchema: false,
+    entity: 'Product.cdm.json/Product',
+    format: 'cdm',
+    entityPath: 'ProductSize',
+    manifestName: 'ProductSizeManifest',
+    corpusPath: 'Products',
+    partitionPath: 'adf',
+    folderPath: 'ProductSizeData',
+    fileSystem: 'cdm',
+    subformat: 'parquet',
+    corpusStore: 'adlsgen2',
+    adlsgen2_fileSystem: 'models',
+    truncate: true,
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> CDMSink
 
 ```
 

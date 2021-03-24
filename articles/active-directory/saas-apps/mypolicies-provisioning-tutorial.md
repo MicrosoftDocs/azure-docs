@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
 ---
@@ -78,7 +78,7 @@ To configure myPolicies for automatic user provisioning with Azure AD, you need 
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in myPolicies based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for myPolicies , following the instructions provided in the [myPolicies Single sign-on tutorial](mypolicies-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
+> You may also choose to enable SAML-based single sign-on for myPolicies, following the instructions provided in the [myPolicies Single sign-on tutorial](mypolicies-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
 
 ### To configure automatic user provisioning for myPolicies in Azure AD:
 
@@ -113,7 +113,7 @@ Example: `<demo0-qa>`.mypolicies.com.
 
 9. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to myPolicies**.
 
-	![myPolicies User Mappings](media/mypolicies-provisioning-tutorial/usermapping.png)
+	:::image type="content" source="media/mypolicies-provisioning-tutorial/usermapping.png" alt-text="Screenshot of the Mappings section. Under Name, Synchronize Azure Active Directory Users to customappsso is visible." border="false":::
 
 10. Review the user attributes that are synchronized from Azure AD to myPolicies in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in myPolicies for update operations. Select the **Save** button to commit any changes.
 

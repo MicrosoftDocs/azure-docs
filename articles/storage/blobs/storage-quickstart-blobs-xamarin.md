@@ -1,21 +1,21 @@
 ---
-title: "Quickstart: Azure Blob storage library v12 - Xamarin"
-description: In this quickstart, you learn how to use the Azure Blob storage client library version 12 with Xamarin to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your mobile device, and how to list all of the blobs in a container.
+title: "Quickstart: Azure Blob Storage library v12 - Xamarin"
+description: In this quickstart, you learn how to use the Azure Blob Storage client library version 12 with Xamarin to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your mobile device, and how to list all of the blobs in a container.
 author: codemillmatt
 
 ms.author: masoucou
-ms.date: 05/08/2020
+ms.date: 10/09/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 ---
 
-# Quickstart: Azure Blob storage client library v12 with Xamarin
+# Quickstart: Azure Blob Storage client library v12 with Xamarin
 
-Get started with the Azure Blob storage client library v12 with Xamarin. Azure Blob storage is Microsoft's object storage solution for the cloud. Follow steps to install the package and try out example code for basic tasks. Blob storage is optimized for storing massive amounts of unstructured data.
+Get started with the Azure Blob Storage client library v12 with Xamarin. Azure Blob Storage is Microsoft's object storage solution for the cloud. Follow steps to install the package and try out example code for basic tasks. Blob storage is optimized for storing massive amounts of unstructured data.
 
-Use the Azure Blob storage client library v12 with Xamarin to:
+Use the Azure Blob Storage client library v12 with Xamarin to:
 
 * Create a container
 * Upload a blob to Azure Storage
@@ -35,12 +35,12 @@ Reference links:
 ## Prerequisites
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-* Azure storage account - [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* Visual Studio with [Mobile Development for .NET workload](https://docs.microsoft.com/xamarin/get-started/installation/?pivots=windows) installed or [Visual Studio for Mac](https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019)
+* Azure storage account - [create a storage account](../common/storage-account-create.md)
+* Visual Studio with [Mobile Development for .NET workload](/xamarin/get-started/installation/?pivots=windows) installed or [Visual Studio for Mac](/visualstudio/mac/installation?view=vsmac-2019)
 
 ## Setting up
     
-This section walks you through preparing a project to work with the Azure Blob storage client library v12 with Xamarin.
+This section walks you through preparing a project to work with the Azure Blob Storage client library v12 with Xamarin.
     
 ### Create the project
 
@@ -76,7 +76,7 @@ From the **BlobQuickstartV12** directory:
 
 ## Object model
 
-Azure Blob storage is optimized for storing massive amounts of unstructured data. Unstructured data is data that does not adhere to a particular data model or definition, such as text or binary data. Blob storage offers three types of resources:
+Azure Blob Storage is optimized for storing massive amounts of unstructured data. Unstructured data is data that does not adhere to a particular data model or definition, such as text or binary data. Blob storage offers three types of resources:
 
 * The storage account
 * A container in the storage account
@@ -95,7 +95,7 @@ Use the following .NET classes to interact with these resources:
 
 ## Code examples
 
-These example code snippets show you how to perform the following tasks with the Azure Blob storage client library for .NET in a Xamarin.Forms app:
+These example code snippets show you how to perform the following tasks with the Azure Blob Storage client library for .NET in a Xamarin.Forms app:
 
 * [Create class level variables](#create-class-level-variables)
 * [Create a container](#create-a-container)
@@ -106,7 +106,7 @@ These example code snippets show you how to perform the following tasks with the
 
 ### Create class level variables
 
-The code below declares several class level variables. They needed to communicate to Azure Blob storage throughout the rest of this sample.
+The code below declares several class level variables. They needed to communicate to Azure Blob Storage throughout the rest of this sample.
 
 These are in addition to the connection string for the storage account set in the [Configure your storage connection string](#configure-your-storage-connection-string) section.
 
@@ -153,7 +153,7 @@ protected async override void OnAppearing()
 The following code snippet:
 
 1. Creates a `MemoryStream` of text.
-1. Uploads the text to a Blob by calling the [UploadAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.uploadblobasync?view=azure-dotnet#Azure_Storage_Blobs_BlobContainerClient_UploadBlobAsync_System_String_System_IO_Stream_System_Threading_CancellationToken_) function of the [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) class, passing it in both the filename and the `MemoryStream` of text. This method creates the blob if it doesn't already exist, and overwrites it if it does.
+1. Uploads the text to a Blob by calling the [UploadAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.uploadblobasync#Azure_Storage_Blobs_BlobContainerClient_UploadBlobAsync_System_String_System_IO_Stream_System_Threading_CancellationToken_) function of the [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) class, passing it in both the filename and the `MemoryStream` of text. This method creates the blob if it doesn't already exist, and overwrites it if it does.
 
 Add this code to the *MainPage.xaml.cs* file:
 
@@ -265,12 +265,12 @@ After you've verified the values, confirm the prompt to delete the container and
 
 ## Next steps
 
-In this quickstart, you learned how to upload, download, and list blobs using Azure Blob storage client library v12 with Xamarin.
+In this quickstart, you learned how to upload, download, and list blobs using Azure Blob Storage client library v12 with Xamarin.
 
 To see Blob storage sample apps, continue to:
 
 > [!div class="nextstepaction"]
-> [Azure Blob storage SDK v12 Xamarin sample](https://github.com/Azure-Samples/storage-blobs-xamarin-quickstart)
+> [Azure Blob Storage SDK v12 Xamarin sample](https://github.com/Azure-Samples/storage-blobs-xamarin-quickstart)
 
 * For tutorials, samples, quick starts and other documentation, visit [Azure for mobile developers](/azure/mobile-apps).
 * To learn more about Xamarin, see [Getting started with Xamarin](/xamarin/get-started/).

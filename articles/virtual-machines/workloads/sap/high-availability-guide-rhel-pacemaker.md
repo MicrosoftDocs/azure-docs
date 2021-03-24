@@ -8,13 +8,11 @@ manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-
-ms.service: virtual-machines-windows
-
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/04/2020
+ms.date: 02/03/2021
 ms.author: radeltch
 
 ---
@@ -64,7 +62,9 @@ Read the following SAP Notes and papers first:
 * Azure-specific RHEL documentation:
   * [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341)
   * [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491)
+  * [Considerations in adopting RHEL 8 - High availability and clusters](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/considerations_in_adopting_rhel_8/high-availability-and-clusters_considerations-in-adopting-rhel-8)
   * [Configure SAP S/4HANA ASCS/ERS with Standalone Enqueue Server 2 (ENSA2) in Pacemaker on RHEL 7.6](https://access.redhat.com/articles/3974941)
+  * [RHEL for SAP Offerings on Azure](https://access.redhat.com/articles/5456301)
 
 ## Cluster installation
 
@@ -76,7 +76,7 @@ Read the following SAP Notes and papers first:
 
 The following items are prefixed with either **[A]** - applicable to all nodes, **[1]** - only applicable to node 1 or **[2]** - only applicable to node 2.
 
-1. **[A]** Register
+1. **[A]** Register. This step is not required, if using RHEL SAP HA-enabled images.  
 
    Register your virtual machines and attach it to a pool that contains repositories for RHEL 7.
 
@@ -86,9 +86,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
-   Note that by attaching a pool to an Azure Marketplace PAYG RHEL image, you will be effectively double-billed for your RHEL usage: once for the PAYG image, and once for the RHEL entitlement in the pool you attach. To mitigate this, Azure now provides BYOS RHEL images. More information is available [here](../redhat/byos.md).
+   By attaching a pool to an Azure Marketplace PAYG RHEL image, you will be effectively double-billed for your RHEL usage: once for the PAYG image, and once for the RHEL entitlement in the pool you attach. To mitigate this, Azure now provides BYOS RHEL images. More information is available [here](../redhat/byos.md).  
 
-1. **[A]** Enable RHEL for SAP repos
+1. **[A]** Enable RHEL for SAP repos. This step is not required, if using RHEL SAP HA-enabled images.  
 
    In order to install the required packages, enable the following repositories.
 
@@ -106,6 +106,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    > [!IMPORTANT]
    > We recommend the following versions of Azure Fence agent (or later) for customers to benefit from a faster failover time, if a resource stop fails or the cluster nodes cannot communicate which each other anymore:  
+   > RHEL 7.7 or higher use the latest available version of fence-agents package  
    > RHEL 7.6: fence-agents-4.2.1-11.el7_6.8  
    > RHEL 7.5: fence-agents-4.0.11-86.el7_5.8  
    > RHEL 7.4: fence-agents-4.0.11-66.el7_4.12  
@@ -163,15 +164,23 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[1]** Create Pacemaker cluster
 
-   Run the following commands to authenticate the nodes and create the cluster. Set the token to 30000 to allow Memory preserving maintenance. For more information, see [this article for Linux][virtual-machines-linux-maintenance].
-
+   Run the following commands to authenticate the nodes and create the cluster. Set the token to 30000 to allow Memory preserving maintenance. For more information, see [this article for Linux][virtual-machines-linux-maintenance].  
+   
+   If building a cluster on **RHEL 7.x**, use the following commands:  
    <pre><code>sudo pcs cluster auth <b>prod-cl1-0</b> <b>prod-cl1-1</b> -u hacluster
    sudo pcs cluster setup --name <b>nw1-azr</b> <b>prod-cl1-0</b> <b>prod-cl1-1</b> --token 30000
    sudo pcs cluster start --all
+   </code></pre>
 
-   # Run the following command until the status of both nodes is online
+   If building a cluster on **RHEL 8.X**, use the following commands:  
+   <pre><code>sudo pcs host auth <b>prod-cl1-0</b> <b>prod-cl1-1</b> -u hacluster
+   sudo pcs cluster setup <b>nw1-azr</b> <b>prod-cl1-0</b> <b>prod-cl1-1</b> totem token=30000
+   sudo pcs cluster start --all
+   </code></pre>
+
+   Verify the cluster status, by executing the following command:  
+   <pre><code> # Run the following command until the status of both nodes is online
    sudo pcs status
-
    # Cluster name: nw1-azr
    # WARNING: no stonith devices and stonith-enabled is not false
    # Stack: corosync
@@ -186,17 +195,22 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    #
    # No resources
    #
-   #
    # Daemon Status:
    #   corosync: active/disabled
    #   pacemaker: active/disabled
    #   pcsd: active/enabled
    </code></pre>
 
-1. **[A]** Set Expected Votes
-
-   <pre><code>sudo pcs quorum expected-votes 2
+1. **[A]** Set Expected Votes. 
+   
+   <pre><code># Check the quorum votes 
+    pcs quorum status
+    # If the quorum votes are not set to 2, execute the next command
+    sudo pcs quorum expected-votes 2
    </code></pre>
+
+   >[!TIP]
+   > If building multi-node cluster, that is cluster with more than two nodes, don't set the votes to 2.    
 
 1. **[1]** Allow concurrent fence actions
 
@@ -209,7 +223,7 @@ The STONITH device uses a Service Principal to authorize against Microsoft Azure
 
 1. Go to <https://portal.azure.com>
 1. Open the Azure Active Directory blade  
-   Go to Properties and write down the Directory ID. This is the **tenant ID**.
+   Go to Properties and make a note of the Directory ID. This is the **tenant ID**.
 1. Click App registrations
 1. Click New Registration
 1. Enter a Name, select "Accounts in this organization directory only" 
@@ -217,8 +231,8 @@ The STONITH device uses a Service Principal to authorize against Microsoft Azure
    The sign-on URL is not used and can be any valid URL
 1. Select Certificates and Secrets, then click New client secret
 1. Enter a description for a new key, select "Never expires" and click Add
-1. Write down the Value. It is used as the **password** for the Service Principal
-1. Select Overview. Write down the Application ID. It is used as the username (**login ID** in the steps below) of the Service Principal
+1. Make a node the Value. It is used as the **password** for the Service Principal
+1. Select Overview. Make a note the Application ID. It is used as the username (**login ID** in the steps below) of the Service Principal
 
 ### **[1]** Create a custom role for the fence agent
 
@@ -274,12 +288,18 @@ After you edited the permissions for the virtual machines, you can configure the
 sudo pcs property set stonith-timeout=900
 </code></pre>
 
-Use the following command to configure the fence device.
-
 > [!NOTE]
-> Option 'pcmk_host_map' is ONLY required in the command, if the RHEL host names and the Azure node names are NOT identical. Refer to the bold section in the command.
+> Option 'pcmk_host_map' is ONLY required in the command, if the RHEL host names and the Azure VM names are NOT identical. Specify the mapping in the format **hostname:vm-name**.
+> Refer to the bold section in the command. For more information see [What format should I use to specify node mappings to stonith devices in pcmk_host_map](https://access.redhat.com/solutions/2619961)
 
-<pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm login="<b>login ID</b>" passwd="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:10.0.0.6;prod-cl1-1:10.0.0.7"</b> \
+For RHEL **7.X**, use the following command to configure the fence device:    
+<pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm login="<b>login ID</b>" passwd="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
+power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
+op monitor interval=3600
+</code></pre>
+
+For RHEL **8.X**, use the following command to configure the fence device:  
+<pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm username="<b>login ID</b>" password="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
 power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
 op monitor interval=3600
 </code></pre>

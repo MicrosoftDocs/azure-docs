@@ -5,16 +5,15 @@ services: machine-learning
 author: likebupt
 ms.author: keli19
 
-editor: cgronlun
 ms.assetid: c54d41e1-0300-46ef-bbfc-d6f7dca85086
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 ms.date: 06/15/2017
 ---
 # Enable logging for Azure Machine Learning Studio (classic) web services
 
-**APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 This document provides information on the logging capability of Machine Learning Studio (classic) web services. Logging provides additional information, beyond just an error number and a message, that can help you troubleshoot your calls to the Machine Learning Studio (classic) APIs.  
@@ -81,5 +80,4 @@ Where _Log type_ is one of the following values:
 
 * batch  
 * score/requests  
-* score/init  
-
+* score/init

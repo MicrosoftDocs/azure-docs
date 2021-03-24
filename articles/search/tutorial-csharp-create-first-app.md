@@ -1,149 +1,175 @@
 ---
 title: C# tutorial to create your first app
 titleSuffix: Azure Cognitive Search
-description: Learn how to build your first C# search app step-by-step. The tutorial provides both a link to a working app on GitHub, and the complete process to build the app from scratch. Learn about the essential components of Azure Cognitive Search.
+description: Learn how to build your first C# search app step by step. The tutorial provides both a download link to a working app on GitHub, and the complete process to build the app from scratch.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 09/25/2020
+ms.date: 02/26/2021
 ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Create your first search app using the .NET SDK
 
-Learn how to create a web interface to query and present search results from an index using Azure Cognitive Search. This tutorial starts with an existing, hosted index so that you can focus on building a search page. The index contains fictitious hotel data. Once you have a basic page, you can enhance it in subsequent lessons to include paging, facets, and a type-ahead experience.
+This tutorial shows you how to create a web app that queries and returns results from a search index using Azure Cognitive Search and Visual Studio.
 
-In this tutorial, you learn how to:
+In this tutorial, you will learn how to:
+
 > [!div class="checklist"]
-> * Setup a development environment
+> * Set up a development environment
 > * Model data structures
-> * Create a web page
-> * Define methods
+> * Create a web page to collect query inputs and display results
+> * Define a search method
 > * Test the app
 
 You will also learn how straightforward a search call is. The key statements in the code you will develop are encapsulated in the following few lines.
 
-```cs
-var parameters = new SearchParameters
+```csharp
+var options = new SearchOptions()
 {
-    // Enter Hotel property names into this list, so only these values will be returned.
-    Select = new[] { "HotelName", "Description" }
+    // The Select option specifies fields for the result set
+    options.Select.Add("HotelName");
+    options.Select.Add("Description");
 };
 
-DocumentSearchResult<Hotel> results  = await _indexClient.Documents.SearchAsync<Hotel>("search text", parameters);
+var searchResult = await _searchClient.SearchAsync<Hotel>(model.searchText, options).ConfigureAwait(false);
+model.resultList = searchResult.Value.GetResults().ToList();
 ```
 
-This one call initiates a search of Azure data and returns the results.
+Just one call queries the index and returns results.
 
-:::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-pool.png" alt-text="Searching for *pool*" border="false":::
+:::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-pool.png" alt-text="Searching for *pool*" border="true":::
 
+## Overview
+
+This tutorial uses the hotels-sample-index, which you can create quickly on your own search service by stepping through the [Import data quickstart](search-get-started-portal.md). The index contains fictitious hotel data, available as a built-in data source in every search service.
+
+The first lesson in this tutorial creates a basic query structure and search page, which you'll enhance in subsequent lessons to include paging, facets, and a type-ahead experience.
+
+A finished version of the code can be found in the following project:
+
+* [1-basic-search-page (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/1-basic-search-page)
+
+This tutorial has been updated to use the Azure.Search.Documents (version 11) package. For an earlier version of the .NET SDK, see [Microsoft.Azure.Search (version 10) code sample](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10).
 
 ## Prerequisites
 
-To complete this tutorial, you need to:
+* [Create](search-create-service-portal.md) or [find an existing search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
 
-[Install Visual Studio](https://visualstudio.microsoft.com/) to use as the IDE.
+* Create the hotels-sample-index using the instructions in [Quickstart: Create a search index](search-get-started-portal.md).
+
+* [Visual Studio](https://visualstudio.microsoft.com/)
+
+* [Azure Cognitive Search client library (version 11)](https://www.nuget.org/packages/Azure.Search.Documents/)
 
 ### Install and run the project from GitHub
 
-1. Locate the sample on GitHub: [Create first app](https://github.com/Azure-Samples/azure-search-dotnet-samples).
-1. Select **Clone or download** and make your private local copy of the project.
-1. Using Visual Studio, navigate to, and open the solution for the basic search page, and select **Start without debugging** (or press F5).
-1. Type in some words (for example "wifi", "view", "bar", "parking"), and examine the results!
+If you want to jump ahead to a working app, follow the steps below to download and run the finished code.
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-wifi.png" alt-text="Searching for *wifi*" border="false":::
+1. Locate the sample on GitHub: [Create first app](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11).
 
-Hopefully this project will run smoothly, and you have Azure app running. Many of the essential components for more sophisticated searches are included in this one app, so it is a good idea to go through it, and recreate it step by step.
+1. At the [root folder](https://github.com/Azure-Samples/azure-search-dotnet-samples), select **Code**, followed by **Clone** or **Download ZIP** to make your private local copy of the project.
 
-To create this project from scratch, and hence help reinforce the components of Azure Cognitive Search in your mind, go through the following steps.
+1. Using Visual Studio, navigate to, and open the solution for the basic search page ("1-basic-search-page"), and select **Start without debugging** (or press F5) to build and run the program.
+
+1. This is a hotels index, so type in some words that you might use to search for hotels (for example, "wifi", "view", "bar", "parking"), and examine the results.
+
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-wifi.png" alt-text="Searching for *wifi*" border="true":::
+
+Hopefully this project will run smoothly, and you have Web app running. Many of the essential components for more sophisticated searches are included in this one app, so it is a good idea to go through it, and recreate it step by step. The following sections cover these steps.
 
 ## Set up a development environment
 
-1. In Visual Studio 2017, or later, select **New/Project** then **ASP.NET Core Web Application**. Give the project a name such as "FirstAzureSearchApp".
+To create this project from scratch, and thus reinforce the concepts of Azure Cognitive Search in your mind, start with a Visual Studio project.
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-project1.png" alt-text="Creating a cloud project" border="false":::
+1. In Visual Studio, select **New** > **Project**, then **ASP.NET Core Web Application**.
 
-2. After you have clicked **OK** for this project type, you will be given a second set of options that apply to this project. Select **Web Application (Model-View-Controller)**.
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-project1.png" alt-text="Creating a cloud project" border="true":::
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-project2.png" alt-text="Creating an MVC project":::
+1. Give the project a name such as "FirstSearchApp" and set the location. Select **Create**.
 
-3. Next, in the **Tools** menu, select **NuGet Package Manager** and then **Manage NuGet Packages for Solution...**. There is one package we need to install. Select the **Browse** tab then type "Azure Cognitive Search" into the search box. Install **Microsoft.Azure.Search** when it appears in the list (version 9.0.1, or later). You will have to click through a few additional dialogs to complete the installation.
+1. Choose the **Web Application (Model-View-Controller)** project template.
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png" alt-text="Using NuGet to add Azure libraries" border="false":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-project2.png" alt-text="Creating an MVC project" border="true":::
+
+1. Install the client library. In **Tools** > **NuGet Package Manager** > **Manage NuGet Packages for Solution...**, select  **Browse** and then search for "azure.search.documents". Install **Azure.Search.Documents** (version 11 or later), accepting the license agreements and dependencies.
+
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png" alt-text="Using NuGet to add Azure libraries" border="true":::
 
 ### Initialize Azure Cognitive Search
 
-For this sample, we are using publicly available hotel data. This data is an arbitrary collection of 50 fictional hotel names and descriptions, created solely for the purpose of providing demo data. In order to access this data, you need to specify a name and key for it.
+For this sample, you are using publicly available hotel data. This data is an arbitrary collection of 50 fictional hotel names and descriptions, created solely for the purpose of providing demo data. To access this data, specify a name and API key.
 
-1. Open up the appsettings.json file in your new project, and replace the default lines with the following name and key. The API key shown here is not an example of a key, it is _exactly_ the key you need to access the hotel data. Your appsettings.json file should now look like this.
+1. Open **appsettings.json** and replace the default lines with the search service URL (in the format `https://<service-name>.search.windows.net`) and an [admin or query API key](search-security-api-keys.md) of your search service. Since you don't need to create or update an index, you can use the query key for this tutorial.
 
-    ```cs
+    ```csharp
     {
-        "SearchServiceName": "azs-playground",
-        "SearchServiceQueryApiKey": "EA4510A6219E14888741FCFC19BFBB82"
+        "SearchServiceName": "<YOUR-SEARCH-SERVICE-URI>",
+        "SearchServiceQueryApiKey": "<YOUR-SEARCH-SERVICE-API-KEY>"
     }
     ```
 
-2. We are not done with this file yet, select the properties for this file, and change the **Copy to Output Directory** setting to **Copy if newer**.
+1. In Solution Explorer, select the file, and in Properties, change the **Copy to Output Directory** setting to **Copy if newer**.
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-copy-if-newer.png" alt-text="Copying the app settings to the output" border="false":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-copy-if-newer.png" alt-text="Copying the app settings to the output" border="true":::
 
 ## Model data structures
 
-Models (C# classes) are used to communicate data between the client (the view), the server (the controller), and also the Azure cloud using the MVC (model, view, controller) architecture. Typically, these models will reflect the structure of the data that is being accessed. Also, we need a model to handle the view/controller communications.
+Models (C# classes) are used to communicate data between the client (the view), the server (the controller), and also the Azure cloud using the MVC (model, view, controller) architecture. Typically, these models will reflect the structure of the data that is being accessed.
 
-1. Open up the **Models** folder of your project, using Solution Explorer, and you will see one default model in there: **ErrorViewModel.cs**.
+In this step, you'll model the data structures of the search index, as well as the search string used in view/controller communications. In the hotels index, each hotel has many rooms, and each hotel has a multi-part address. Altogether, the full representation of a hotel is a hierarchical and nested data structure. You will need three classes to create each component.
 
-2. Right-click the **Models** folder and select **Add** then **New Item**. Then, in the dialog that appears, select **ASP.NET Core** then the first option **Class**. Rename the .cs file to Hotel.cs, and click **Add**. Replace all the contents of Hotel.cs with the following code. Notice the **Address** and **Room** members of the class, these fields are classes themselves so we will need models for them too.
+The set of **Hotel**, **Address**, and **Room** classes are known as [*complex types*](search-howto-complex-data-types.md), an important feature of Azure Cognitive Search. Complex types can be many levels deep of classes and subclasses, and enable far more complex data structures to be represented than using *simple types* (a class containing only primitive members).
 
-    ```cs
-    using System;
-    using Microsoft.Azure.Search;
-    using Microsoft.Azure.Search.Models;
+1. In Solution Explorer, right-click **Models** > **Add** > **New Item**.
+
+1. Select**Class** and name the item Hotel.cs. Replace all the contents of Hotel.cs with the following code. Notice the **Address** and **Room** members of the class, these fields are classes themselves so you will need models for them too.
+
+    ```csharp
+    using Azure.Search.Documents.Indexes;
+    using Azure.Search.Documents.Indexes.Models;
     using Microsoft.Spatial;
-    using Newtonsoft.Json;
+    using System;
+    using System.Text.Json.Serialization;
 
     namespace FirstAzureSearchApp.Models
     {
         public partial class Hotel
         {
-            [System.ComponentModel.DataAnnotations.Key]
-            [IsFilterable]
+            [SimpleField(IsFilterable = true, IsKey = true)]
             public string HotelId { get; set; }
 
-            [IsSearchable, IsSortable]
+            [SearchableField(IsSortable = true)]
             public string HotelName { get; set; }
 
-            [IsSearchable]
-            [Analyzer(AnalyzerName.AsString.EnLucene)]
+            [SearchableField(AnalyzerName = LexicalAnalyzerName.Values.EnLucene)]
             public string Description { get; set; }
 
-            [IsSearchable]
-            [Analyzer(AnalyzerName.AsString.FrLucene)]
-            [JsonProperty("Description_fr")]
+            [SearchableField(AnalyzerName = LexicalAnalyzerName.Values.FrLucene)]
+            [JsonPropertyName("Description_fr")]
             public string DescriptionFr { get; set; }
 
-            [IsSearchable, IsFilterable, IsSortable, IsFacetable]
+            [SearchableField(IsFilterable = true, IsSortable = true, IsFacetable = true)]
             public string Category { get; set; }
 
-            [IsSearchable, IsFilterable, IsFacetable]
+            [SearchableField(IsFilterable = true, IsFacetable = true)]
             public string[] Tags { get; set; }
 
-            [IsFilterable, IsSortable, IsFacetable]
+            [SimpleField(IsFilterable = true, IsSortable = true, IsFacetable = true)]
             public bool? ParkingIncluded { get; set; }
 
-            [IsFilterable, IsSortable, IsFacetable]
+            [SimpleField(IsFilterable = true, IsSortable = true, IsFacetable = true)]
             public DateTimeOffset? LastRenovationDate { get; set; }
 
-            [IsFilterable, IsSortable, IsFacetable]
+            [SimpleField(IsFilterable = true, IsSortable = true, IsFacetable = true)]
             public double? Rating { get; set; }
 
             public Address Address { get; set; }
 
-            [IsFilterable, IsSortable]
+            [SimpleField(IsFilterable = true, IsSortable = true)]
             public GeographyPoint Location { get; set; }
 
             public Room[] Rooms { get; set; }
@@ -151,80 +177,76 @@ Models (C# classes) are used to communicate data between the client (the view), 
     }
     ```
 
-3. Follow the same process of creating a model for the **Address** class, except name the file Address.cs. Replace the contents with the following.
+1. Repeat the same process of creating a model for the **Address** class, naming the file Address.cs. Replace the contents with the following.
 
-    ```cs
-    using Microsoft.Azure.Search;
+    ```csharp
+    using Azure.Search.Documents.Indexes;
 
     namespace FirstAzureSearchApp.Models
     {
         public partial class Address
         {
-            [IsSearchable]
+            [SearchableField]
             public string StreetAddress { get; set; }
 
-            [IsSearchable, IsFilterable, IsSortable, IsFacetable]
+            [SearchableField(IsFilterable = true, IsSortable = true, IsFacetable = true)]
             public string City { get; set; }
 
-            [IsSearchable, IsFilterable, IsSortable, IsFacetable]
+            [SearchableField(IsFilterable = true, IsSortable = true, IsFacetable = true)]
             public string StateProvince { get; set; }
 
-            [IsSearchable, IsFilterable, IsSortable, IsFacetable]
+            [SearchableField(IsFilterable = true, IsSortable = true, IsFacetable = true)]
             public string PostalCode { get; set; }
 
-            [IsSearchable, IsFilterable, IsSortable, IsFacetable]
+            [SearchableField(IsFilterable = true, IsSortable = true, IsFacetable = true)]
             public string Country { get; set; }
         }
     }
     ```
 
-4. And again, follow the same process to create the **Room** class, naming the file Room.cs. Again, replace the contents with the following.
+1. And again, follow the same process to create the **Room** class, naming the file Room.cs.
 
-    ```cs
-    using Microsoft.Azure.Search;
-    using Microsoft.Azure.Search.Models;
-    using Newtonsoft.Json;
+    ```csharp
+    using Azure.Search.Documents.Indexes;
+    using Azure.Search.Documents.Indexes.Models;
+    using System.Text.Json.Serialization;
 
     namespace FirstAzureSearchApp.Models
     {
         public partial class Room
         {
-            [IsSearchable]
-            [Analyzer(AnalyzerName.AsString.EnMicrosoft)]
-
+            [SearchableField(AnalyzerName = LexicalAnalyzerName.Values.EnMicrosoft)]
             public string Description { get; set; }
 
-            [IsSearchable]
-            [Analyzer(AnalyzerName.AsString.FrMicrosoft)]
-            [JsonProperty("Description_fr")]
+            [SearchableField(AnalyzerName = LexicalAnalyzerName.Values.FrMicrosoft)]
+            [JsonPropertyName("Description_fr")]
             public string DescriptionFr { get; set; }
 
-            [IsSearchable, IsFilterable, IsFacetable]
+            [SearchableField(IsFilterable = true, IsFacetable = true)]
             public string Type { get; set; }
 
-            [IsFilterable, IsFacetable]
+            [SimpleField(IsFilterable = true, IsFacetable = true)]
             public double? BaseRate { get; set; }
 
-            [IsSearchable, IsFilterable, IsFacetable]
+            [SearchableField(IsFilterable = true, IsFacetable = true)]
             public string BedOptions { get; set; }
 
-            [IsFilterable, IsFacetable]
-
+            [SimpleField(IsFilterable = true, IsFacetable = true)]
             public int SleepsCount { get; set; }
 
-            [IsFilterable, IsFacetable]
+            [SimpleField(IsFilterable = true, IsFacetable = true)]
             public bool? SmokingAllowed { get; set; }
 
-            [IsSearchable, IsFilterable, IsFacetable]
+            [SearchableField(IsFilterable = true, IsFacetable = true)]
             public string[] Tags { get; set; }
         }
     }
     ```
 
-5. The set of **Hotel**, **Address**, and **Room** classes are what is known in Azure as [_complex types_](search-howto-complex-data-types.md), an important feature of Azure Cognitive Search. Complex types can be many levels deep of classes and subclasses, and enable far more complex data structures to be represented than using _simple types_ (a class containing only primitive members). We do need one more model, so go through the process of creating a new model class again, though this time call the class SearchData.cs and replace the default code with the following.
+1. The last model you'll create in this tutorial is a class named **SearchData** and it represents the user's input (**searchText**), and the search's output (**resultList**). The type of the output is critical, **SearchResults&lt;Hotel&gt;**, as this type exactly matches the results from the search, and you need to pass this reference through to the view. Replace the default template with the following code.
 
-    ```cs
-    using Microsoft.Azure.Search.Models;
+    ```csharp
+    using Azure.Search.Documents.Models;
 
     namespace FirstAzureSearchApp.Models
     {
@@ -234,48 +256,46 @@ Models (C# classes) are used to communicate data between the client (the view), 
             public string searchText { get; set; }
 
             // The list of results.
-            public DocumentSearchResult<Hotel> resultList;
+            public SearchResults<Hotel> resultList;
         }
     }
     ```
 
-    This class contains the user's input (**searchText**), and the search's output (**resultList**). The type of the output is critical, **DocumentSearchResult&lt;Hotel&gt;**, as this type exactly matches the results from the search, and we need to pass this reference through to the view.
-
-
-
 ## Create a web page
 
-The project you created will by default create a number of client views. The exact views depend on the version of Core .NET you are using (we use 2.1 in this sample). They are all in the **Views** folder of the project. You will only need to modify the Index.cshtml file (in the **Views/Home** folder).
+Project templates come with a number of client views located in the **Views** folder. The exact views depend on the version of Core .NET you are using (3.1 is used in this sample). For this tutorial, you will modify **Index.cshtml** to include the elements of a search page.
 
 Delete the content of Index.cshtml in its entirety, and rebuild the file in the following steps.
 
-1. We use two small images in the view. You can use your own, or copy across the images from the GitHub project: azure-logo.png and search.png. These two images should be placed in the **wwwroot/images** folder.
+1. The tutorial uses two small images in the view: an Azure logo and a search magnifier icon (azure-logo.png and search.png). Copy across the images from the GitHub project to the **wwwroot/images** folder in your project.
 
-2. The first line of Index.cshtml should reference the model we will be using to communicate data between the client (the view) and the server (the controller), which is the **SearchData** model we created. Add this line to the Index.cshtml file.
+1. The first line of Index.cshtml should reference the model used to communicate data between the client (the view) and the server (the controller), which is the **SearchData** model previously created. Add this line to the Index.cshtml file.
 
-    ```cs
+    ```csharp
     @model FirstAzureSearchApp.Models.SearchData
     ```
 
-3. It is standard practice to enter a title for the view, so the next lines should be:
+1. It is standard practice to enter a title for the view, so the next lines should be:
 
-    ```cs
+    ```csharp
     @{
         ViewData["Title"] = "Home Page";
     }
     ```
 
-4. Following the title, enter a reference to an HTML stylesheet, which we will create shortly.
+1. Following the title, enter a reference to an HTML stylesheet, which you will create shortly.
 
-    ```cs
+    ```csharp
     <head>
         <link rel="stylesheet" href="~/css/hotels.css" />
     </head>
     ```
 
-5. Now to the meat of the view. A key thing to remember is that the view has to handle two situations. Firstly, it must handle the display when the app is first launched, and the user has not yet entered any search text. Secondly, it must handle the display of results, in addition to the search text box, for repeated use by the user. To handle these two situations, we need to check whether the model provided to the view is null or not. A null model indicates we are in the first of the two situations (the initial running of the app). Add the following to the Index.cshtml file and read through the comments.
+1. The body of the view handles two use cases. First, it must provide an empty page on first use, before any search text is entered. Secondly, it must handle results, in addition to the search text box, for repeated queries.
 
-    ```cs
+   To handle both cases, you need to check whether the model provided to the view is null. A null model indicates the first use case (the initial running of the app). Add the following to the Index.cshtml file and read through the comments.
+
+    ```csharp
     <body>
     <h1 class="sampleTitle">
         <img src="~/images/azure-logo.png" width="80" />
@@ -293,21 +313,23 @@ Delete the content of Index.cshtml in its entirety, and rebuild the file in the 
         {
             // Show the result count.
             <p class="sampleText">
-                @Html.DisplayFor(m => m.resultList.Results.Count) Results
+                @Model.resultList.Count Results
             </p>
 
-            @for (var i = 0; i < Model.resultList.Results.Count; i++)
+            @for (var i = 0; i < Model.resultList.Count; i++)
             {
                 // Display the hotel name and description.
-                @Html.TextAreaFor(m => Model.resultList.Results[i].Document.HotelName, new { @class = "box1" })
-                @Html.TextArea($"desc{i}", Model.resultList.Results[i].Document.Description, new { @class = "box2" })
+                @Html.TextAreaFor(m => m.resultList[i].Document.HotelName, new { @class = "box1" })
+                @Html.TextArea($"desc{i}", Model.resultList[i].Document.Description, new { @class = "box2" })
             }
         }
     }
     </body>
     ```
 
-6. Finally, we add the stylesheet. In Visual Studio, in the **File** menu select **New/File** then **Style Sheet** (with **General** highlighted). Replace the default code with the following. We will not be going into this file in any more detail, the styles are standard HTML.
+1. Add the stylesheet. In Visual Studio, in **File**> **New** > **File**, select **Style Sheet** (with **General** highlighted).
+
+   Replace the default code with the following. We will not be going into this file in any more detail, the styles are standard HTML.
 
     ```html
     textarea.box1 {
@@ -384,34 +406,38 @@ Delete the content of Index.cshtml in its entirety, and rebuild the file in the 
     }
     ```
 
-7. Save the stylesheet file as hotels.css, into the wwwroot/css folder, alongside the default site.css file.
+1. Save the stylesheet file as hotels.css, into the **wwwroot/css** folder, alongside the default site.css file.
 
-That completes our view. We are making good progress. The models and views are completed, only the controller is left to tie everything together.
+That completes our view. At this point, both the models and views are completed. Only the controller is left to tie everything together.
 
 ## Define methods
 
-We need to modify to the contents of the one controller (**Home Controller**), which is created by default.
+In this step, modify to the contents of **Home Controller**.
 
 1. Open the HomeController.cs file and replace the **using** statements with the following.
 
-    ```cs
+    ```csharp
+    using Azure;
+    using Azure.Search.Documents;
+    using Azure.Search.Documents.Indexes;
+    using FirstAzureSearchApp.Models;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Configuration;
     using System;
     using System.Diagnostics;
+    using System.Linq;
     using System.Threading.Tasks;
-    using Microsoft.AspNetCore.Mvc;
-    using FirstAzureSearchApp.Models;
-    using Microsoft.Extensions.Configuration;
-    using Microsoft.Azure.Search;
-    using Microsoft.Azure.Search.Models;
     ```
 
 ### Add Index methods
 
-We need two **Index** methods, one taking no parameters (for the case when the app is first opened), and one taking a model as a parameter (for when the user has entered search text). The first of these methods is created by default. 
+In an MVC app, the **Index()** method is a default action method for any controller. It opens the index HTML page. The default method, which takes no parameters, is used in this tutorial for the application start-up use case: rendering an empty search page.
+
+In this section, we extend the method to support a second use case: rendering the page when a user has entered search text. To support this case, the index method is extended to take a model as a parameter.
 
 1. Add the following method, after the default **Index()** method.
 
-    ```cs
+    ```csharp
         [HttpPost]
         public async Task<ActionResult> Index(SearchData model)
         {
@@ -435,17 +461,17 @@ We need two **Index** methods, one taking no parameters (for the case when the a
         }
     ```
 
-    Notice the **async** declaration of the method, and the **await** call to **RunQueryAsync**. These keywords take care of making our calls asynchronous, and so avoid blocking threads on the server.
+    Notice the **async** declaration of the method, and the **await** call to **RunQueryAsync**. These keywords take care of making asynchronous calls, and thus avoid blocking threads on the server.
 
-    The **catch** block uses the error model that was created for us by default.
+    The **catch** block uses the error model that was created by default.
 
 ### Note the error handling and other default views and methods
 
-Depending on which version of .NET Core you are using, a slightly different set of default views are created by default. For .NET Core 2.1 the default views are Index, About, Contact, Privacy, and Error. For .NET Core 2.2, for example, the default views are Index, Privacy, and Error. In either case, you can view these default pages when running the app, and examine how they are handled in the controller.
+Depending on which version of .NET Core you are using, a slightly different set of default views are created by default. For .NET Core 3.1 the default views are Index, Privacy, and Error. You can view these default pages when running the app, and examine how they are handled in the controller.
 
-We will be testing the Error view later on in this tutorial.
+You will be testing the Error view later on in this tutorial.
 
-In the GitHub sample, we have deleted the unused views, and their associated actions.
+In the GitHub sample, unused views and their associated actions are deleted.
 
 ### Add the RunQueryAsync method
 
@@ -453,83 +479,82 @@ The Azure Cognitive Search call is encapsulated in our **RunQueryAsync** method.
 
 1. First add some static variables to set up the Azure service, and a call to initiate them.
 
-    ```cs
-        private static SearchServiceClient _serviceClient;
-        private static ISearchIndexClient _indexClient;
+    ```csharp
+        private static SearchClient _searchClient;
+        private static SearchIndexClient _indexClient;
         private static IConfigurationBuilder _builder;
         private static IConfigurationRoot _configuration;
 
         private void InitSearch()
         {
-            // Create a configuration using the appsettings file.
+            // Create a configuration using appsettings.json
             _builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
             _configuration = _builder.Build();
 
-            // Pull the values from the appsettings.json file.
-            string searchServiceName = _configuration["SearchServiceName"];
+            // Read the values from appsettings.json
+            string searchServiceUri = _configuration["SearchServiceUri"];
             string queryApiKey = _configuration["SearchServiceQueryApiKey"];
 
             // Create a service and index client.
-            _serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(queryApiKey));
-            _indexClient = _serviceClient.Indexes.GetClient("hotels");
+            _indexClient = new SearchIndexClient(new Uri(searchServiceUri), new AzureKeyCredential(queryApiKey));
+            _searchClient = _indexClient.GetSearchClient("hotels");
         }
     ```
 
 2. Now, add the **RunQueryAsync** method itself.
 
-    ```cs
-        private async Task<ActionResult> RunQueryAsync(SearchData model)
-        {
-            InitSearch();
+    ```csharp
+    private async Task<ActionResult> RunQueryAsync(SearchData model)
+    {
+        InitSearch();
 
-            var parameters = new SearchParameters
-            {
-                // Enter Hotel property names into this list so only these values will be returned.
-                // If Select is empty, all values will be returned, which can be inefficient.
-                Select = new[] { "HotelName", "Description" }
-            };
+        var options = new SearchOptions() { };
 
-            // For efficiency, the search call should be asynchronous, so use SearchAsync rather than Search.
-            model.resultList = await _indexClient.Documents.SearchAsync<Hotel>(model.searchText, parameters);
+        // Enter Hotel property names into this list so only these values will be returned.
+        // If Select is empty, all values will be returned, which can be inefficient.
+        options.Select.Add("HotelName");
+        options.Select.Add("Description");
 
-            // Display the results.
-            return View("Index", model);
-        }
+        // For efficiency, the search call should be asynchronous, so use SearchAsync rather than Search.
+        var searchResult = await _searchClient.SearchAsync<Hotel>(model.searchText, options).ConfigureAwait(false);
+        model.resultList = searchResult.Value.GetResults().ToList();
+
+        // Display the results.
+        return View("Index", model);
+    }
     ```
 
-    In this method, we first ensure our Azure configuration is initiated, then set some search parameters. The names of the fields in the **Select** parameter match exactly the property names in the **hotel** class. It is possible to leave out the **Select** parameter, in which case all properties are returned. However, setting no **Select** parameters is inefficient if we are only interested in a subset of the data. By specifying the properties we are interested in, only these properties are returned.
+    In this method, first ensure our Azure configuration is initiated, then set some search options. The **Select** option specifies which fields to return in results, and thus match the property names in the **hotel** class. If you omit **Select**, all unhidden fields are returned, which can be inefficient if you are only interested in a subset of all possible fields.
 
-    The asynchronous call to search (**model.resultList = await _indexClient.Documents.SearchAsync&lt;Hotel&gt;(model.searchText, parameters);**) is what this tutorial and app are all about. The **DocumentSearchResult** class is an interesting one, and a good idea (when the app is running) is to set a breakpoint here, and use a debugger to examine the contents of **model.resultList**. You should find that it is intuitive, providing you with the data you asked for, and not much else.
-
-Now for the moment of truth.
+    The asynchronous call to search formulates the request (modeled as **searchText**) and response (modeled as **searchResult**). If you are debugging this code, the **SearchResult** class is a good candidate for setting a break point if you need to examine the contents of **model.resultList**. You should find that it is intuitive, providing you with the data you asked for, and not much else.
 
 ### Test the app
 
-Now, let's check the app runs correctly.
+Now, let's check whether the app runs correctly.
 
-1. Select **Debug/Start Without Debugging** or press the F5 key. If you have coded things correctly, you will get the initial Index view.
+1. Select **Debug** > **Start Without Debugging** or press **F5**. If the app runs as expected, you should get the initial Index view.
 
-     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-index.png" alt-text="Opening the app" border="false":::
+     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-index.png" alt-text="Opening the app" border="true":::
 
-2. Enter text such as "beach" (or any text that comes to mind), and click the search icon. You should get some results.
+1. Enter a query string such as "beach" (or any text that comes to mind), and click the search icon to send the request.
 
-     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-beach.png" alt-text="Searching for *beach*" border="false":::
+     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-beach.png" alt-text="Searching for *beach*" border="true":::
 
-3. Try entering "five star". Note how you get no results. A more sophisticated search would treat "five star" as a synonym for "luxury" and return those results. The use of synonyms is available in Azure Cognitive Search, though we will not be covering it in the first tutorials.
- 
-4. Try entering "hot" as search text. It does _not_ return entries with the word "hotel" in them. Our search is only locating whole words, though a few results are returned.
+1. Try entering "five star". Notice that this query returns no results. A more sophisticated search would treat "five star" as a synonym for "luxury" and return those results. Support for [synonyms](search-synonyms.md) is available in Azure Cognitive Search, but isn't be covered in this tutorial series.
 
-5. Try other words: "pool", "sunshine", "view", and whatever. You will see Azure Cognitive Search working at its simplest, but still convincing level.
+1. Try entering "hot" as search text. It does _not_ return entries with the word "hotel" in them. Our search is only locating whole words, though a few results are returned.
+
+1. Try other words: "pool", "sunshine", "view", and whatever. You will see Azure Cognitive Search working at its simplest, but still convincing level.
 
 ## Test edge conditions and errors
 
 It is important to verify that our error handling features work as they should, even when things are working perfectly. 
 
-1. In the **Index** method, after the **try {** call, enter the line **Throw new Exception()**. This exception will force an error when we search on text.
+1. In the **Index** method, after the **try {** call, enter the line **Throw new Exception()**. This exception will force an error when you search on text.
 
 2. Run the app, enter "bar" as search text, and click the search icon. The exception should result in the error view.
 
-     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-error.png" alt-text="Force an error" border="false":::
+     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-error.png" alt-text="Force an error" border="true":::
 
     > [!Important]
     > It is considered a security risk to return internal error numbers in error pages. If your app is intended for general use, do some investigation into secure and best practices of what to return when an error occurs.
@@ -542,15 +567,13 @@ Consider the following takeaways from this project:
 
 * An Azure Cognitive Search call is concise, and it is easy to interpret the results.
 * Asynchronous calls add a small amount of complexity to the controller, but are the best practice if you intend to develop  quality apps.
-* This app performed a straightforward text search, defined by what is set up in **searchParameters**. However, this one class can be populated with many members that add sophistication to a search. Not much additional work is needed to make this app considerably more powerful.
+* This app performed a straightforward text search, defined by what is set up in **searchOptions**. However, this one class can be populated with many members that add sophistication to a search. Not much additional work is needed to make this app considerably more powerful.
 
 ## Next steps
 
-In order to provide the best user experience using Azure Cognitive Search, we need to add more features, notably paging (either using page numbers, or infinite scrolling), and autocomplete/suggestions. We should also consider more sophisticated search parameters (for example, geographical searches on hotels within a specified radius of a given point, and search results ordering).
+To improve upon the user experience, add more features, notably paging (either using page numbers, or infinite scrolling), and autocomplete/suggestions. You can also consider more sophisticated search options (for example, geographical searches on hotels within a specified radius of a given point, and search results ordering).
 
-These next steps are addressed in a series of tutorials. Let's start with paging.
+These next steps are addressed in the remaining tutorials. Let's start with paging.
 
 > [!div class="nextstepaction"]
 > [C# Tutorial: Search results pagination - Azure Cognitive Search](tutorial-csharp-paging.md)
-
-

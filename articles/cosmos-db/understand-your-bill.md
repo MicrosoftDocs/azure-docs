@@ -5,11 +5,12 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 11/04/2020
 ms.reviewer: sngun
 ---
 
 # Understand your Azure Cosmos DB bill
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 As a fully managed cloud-native database service, Azure Cosmos DB simplifies billing by charging only for your database operations and consumed storage. There are no additional license fees, hardware, utility costs, or facility costs compared to on-premises or IaaS-hosted alternatives. When you consider the multi region capabilities of Azure Cosmos DB, the database service provides a substantial reduction in costs compared to existing on-premises or IaaS solutions.
 
@@ -99,9 +100,9 @@ If you increase provisioned throughput for a container or a set of containers at
 
 :::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Shared throughput bill example":::
 
-## Billing examples with geo-replication and multi-master  
+## Billing examples with geo-replication  
 
-You can add/remove Azure regions anywhere in the world to your Azure Cosmos database account at any time. The throughput that you have configured for various Azure Cosmos databases and containers will be reserved in each of the Azure regions associated with your Azure Cosmos database account. If the sum of provisioned throughput (RU/sec) configured across all the databases and containers within your Azure Cosmos database account (provisioned per hour) is T and the number of Azure regions associated with your database account is N, then the total provisioned throughput for a given hour, for your Azure Cosmos database account, (a) configured with a single write region is equal to T x N RU/sec and (b) configured with all regions capable of processing writes is equal to T x (N+1) RU/sec, respectively. Provisioned throughput (single write region) costs $0.008/hour per 100 RU/sec and provisioned throughput with multiple writable regions (multi-master config) costs $0.016/per hour per 100 RU/sec (see the [Pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/)). Whether its single write region, or multiple write regions, Azure Cosmos DB allows you to read data from any region.
+You can add/remove Azure regions anywhere in the world to your Azure Cosmos database account at any time. The throughput that you have configured for various Azure Cosmos databases and containers will be reserved in each of the Azure regions associated with your Azure Cosmos database account. If the sum of provisioned throughput (RU/sec) configured across all the databases and containers within your Azure Cosmos database account (provisioned per hour) is T and the number of Azure regions associated with your database account is N, then the total provisioned throughput for a given hour, for your Azure Cosmos database account is equal to T x N RU/sec. Provisioned throughput (single write region) costs $0.008/hour per 100 RU/sec and provisioned throughput with multiple writable regions (multi-region writes config) costs $0.016/per hour per 100 RU/sec (see the [Pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/)). Whether its single write region, or multiple write regions, Azure Cosmos DB allows you to read data from any region.
 
 ### Billing example: multi-region Azure Cosmos account, single region writes
 
@@ -124,16 +125,16 @@ Let's assume you create an Azure Cosmos container in West US. The container is c
 |**Item** |**Usage (month)**|**Rate** |**Monthly Cost** |
 |---------|---------|---------|-------|
 |Throughput bill for container in West US (all regions are writable)       | 10K RU/sec * 24 * 30    |$0.016 per 100 RU/sec per hour    |$1,152 |
-|Throughput bill for 3 additional regions - East US, North Europe, and East Asia (all regions are writable)        | (3 + 1) * 10K RU/sec * 24 * 30    |$0.016 per 100 RU/sec per hour   |$4,608 |
+|Throughput bill for 3 additional regions - East US, North Europe, and East Asia (all regions are writable)        | 3 * 10K RU/sec * 24 * 30    |$0.016 per 100 RU/sec per hour   |$3,456 |
 |Storage bill for container in West US      | 250 GB    |$0.25/GB  |$62.50|
 |Storage bill for 3 additional regions - East US, North Europe, and East Asia      | 3 * 250 GB    |$0.25/GB  |$187.50|
 |**Total**     |     |  |**$6,010**|
 
 *Let's also assume that you egress 100 GB of data every month from the container in West US to replicate data into East US, North Europe, and East Asia. You're billed for egress as per data transfer rates.*
 
-### Billing example: Azure Cosmos account with multi-master, database-level throughput including dedicated throughput mode for some containers
+### Billing example: Azure Cosmos account with multi-region writes, database-level throughput including dedicated throughput mode for some containers
 
-Let's consider the following example, where we have a multi-region Azure Cosmos account where all regions are writable (multi-master config). For simplicity, we will assume storage size stays constant and doesn't change and omit it here to keep the example simpler. The provisioned throughput during the month varied as follows (assuming 30 days or 720 hours): 
+Let's consider the following example, where we have a multi-region Azure Cosmos account where all regions are writable (multiple write regions config). For simplicity, we will assume storage size stays constant and doesn't change and omit it here to keep the example simpler. The provisioned throughput during the month varied as follows (assuming 30 days or 720 hours): 
 
 [0-100 hours]:  
 
@@ -209,9 +210,13 @@ The total monthly bill will be (assuming 30 days/720 hours in a month) will be c
 | | |Throughput bill for 2 additional regions: East US, North Europe (all regions are writable)  |`(1 + 1) * (70 K RU/sec /100 * $0.016) * 20 hours = $448`  |$224  |
 || |**Total Monthly Cost**  | |**$38,688**   |
 
-## Billing examples with free tier accounts
+## <a id="azure-free-tier"></a>Billing examples with Azure Cosmos DB free tier accounts
+
 With Azure Cosmos DB free tier, you'll get the first 400 RU/s and 5 GB of storage in your account for free, applied at the account level. Any RU/s and storage beyond 400 RU/s and 5 GB will be billed at the regular pricing rates per the pricing page. On the bill, you will not see a charge or line item for the free 400 Ru/s and 5 GB, only the RU/s and storage beyond what is covered by free tier. 
-The 400 RU/s applies to any type of RU/s - provisioned throughput, autoscale and multi-master.  
+The 400 RU/s applies to any type of RU/s - provisioned throughput, autoscale, and multi-region writes.  
+
+> [!NOTE]
+> Azure Cosmos DB free tier is different from the Azure free account. The Azure free account offers Azure credits and resources for free for a limited time. When using Azure Cosmos DB as a part of this free account, you get 25-GB storage and 400 RU/s of provisioned throughput for 12 months.
 
 ### Billing example - container or database with provisioned throughput
 - Let's suppose we create a database or container in a free tier account with 400 RU/s and 5 GB of storage.
@@ -227,16 +232,16 @@ The 400 RU/s applies to any type of RU/s - provisioned throughput, autoscale and
 - Any storage beyond the first 5 GB will be billed at normal storage rates. 
 
 ### Billing example - multi-region, single write region account
-- Let's suppose in a free tier account, we create a database or container with 1200 RU/s and 10 GB of storage. We replicate the account to 3 regions, and we have a single-master (single write-region) account.
+- Let's suppose in a free tier account, we create a database or container with 1200 RU/s and 10 GB of storage. We replicate the account to 3 regions, and we have a single write-region account.
 - In total, without free tier, we would be billed for 3 * 1200 RU/s = 3600 RU/s and 3 * 10 GB = 30 GB of storage.
 - With the free tier discount, after removing 400 RU/s and 5 GB of storage, we will be billed for an effective 3200 RU/s (32 units) of provisioned throughput at the single write region rate and 25 GB of storage.
 - The monthly cost for RU/s would be: 32 units * $0.008 * 24 hours * 31 days = $190.46. The monthly cost for storage would be: 25 GB * 0.25 / GB = $6.25. The total cost would be $190.46 + $6.25 = $196.71.
 - Note: if the unit price for RU/s or storage differs in the regions, the free tier 400 RU/s and 5 GB will reflect the rates of the region the account was created in.
 
-### Billing example - multi-region, multi-master (multiple write region) account
+### Billing example - multi-region, account with multiple write regions
 
-This example reflects [multi-master pricing](https://azure.microsoft.com/pricing/details/cosmos-db/) for accounts created after December 1, 2019. 
-- Let's suppose in a free tier account, we create a database or container with 1200 RU/s and 10 GB of storage. We replicate the account to 3 regions, and we have a multi-master (multiple write region) account. 
+This example reflects [pricing for multi-region writes](https://azure.microsoft.com/pricing/details/cosmos-db/) for accounts created after December 1, 2019. 
+- Let's suppose in a free tier account, we create a database or container with 1200 RU/s and 10 GB of storage. We replicate the account to 3 regions, and we have a multiple write regions account. 
 - In total, without free tier, we would be billed for 3 * 1200 RU/s = 3600 RU/s and 3 * 10 GB = 30 GB of storage.
 - With the free tier discount, after removing 400 RU/s and 5 GB of storage, we will be billed for an effective 3200 RU/s (32 units) of provisioned throughput at the multiple write region rate and 25 GB of storage.
 - The monthly cost for RU/s would be: 32 units * $0.016 * 24 hours * 31 days = $380.93. The monthly cost for storage would be: 25 GB * 0.25 / GB = $6.25. The total cost would be $380.93 + $6.25 = $387.18.
@@ -312,5 +317,5 @@ Next you can proceed to learn about cost optimization in Azure Cosmos DB with th
 * Learn more about [Optimizing throughput cost](optimize-cost-throughput.md)
 * Learn more about [Optimizing storage cost](optimize-cost-storage.md)
 * Learn more about [Optimizing the cost of reads and writes](optimize-cost-reads-writes.md)
-* Learn more about [Optimizing the cost of queries](optimize-cost-queries.md)
+* Learn more about [Optimizing the cost of queries](./optimize-cost-reads-writes.md)
 * Learn more about [Optimizing the cost of multi-region Azure Cosmos accounts](optimize-cost-regions.md)

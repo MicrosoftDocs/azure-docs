@@ -11,6 +11,8 @@
   items:
   - name: CLI
     href: quick-create-cli.md
+  - name: PowerShell
+    href: quick-create-powershell.md
   - name: Azure Resource Manager template
     href: quick-create-template.md
 
@@ -40,23 +42,21 @@
     href: access-control.md
   - name: Local RBAC built-in roles
     href: built-in-roles.md
-- name: How-to guides 
-  items:
 
 - name: Reference
   items:
   - name: Azure PowerShell
-    href: /powershell/module/distaster-recoveryeyvault/?view=azps-1.2.0#key_vault
+    href: /powershell/azure#key_vault
   - name: Azure CLI
     href: /cli/azure/keyvault
   - name: .NET
-    href: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
+    href: /dotnet/api/overview/azure/key-vault
   - name: Java
-    href: /java/api/overview/azure/keyvault?view=azure-java-stable
+    href: /java/api/overview/azure/keyvault
   - name: Node.js
-    href: /javascript/api/overview/azure/key-vault?view=azure-node-latest
+    href: /javascript/api/overview/azure/key-vault-index
   - name: Python
-    href: /python/api/overview/azure/key-vault?view=azure-python
+    href: /python/api/overview/azure/key-vault-index
   - name: REST
     href: /rest/api/keyvault
   - name: Resource Manager template
@@ -80,6 +80,6 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=key-vault
   - name: Blog
-    href: https://blogs.technet.com/b/kv/
+    href: /archive/blogs/kv/
   - name: Product Feedback
     href: https://feedback.azure.com/forums/906355-azure-key-vault

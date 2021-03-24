@@ -1,17 +1,18 @@
 ---
-title: Azure Synapse Link (preview) for Azure Cosmos DB supported features
+title: Azure Synapse Link for Azure Cosmos DB supported features
 description: Understand the current list of actions supported by Azure Synapse Link for Azure Cosmos DB
 services: synapse-analytics 
 author: ArnoMicrosoft
 ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.subservice: synapse-link
-ms.date: 09/15/2020
+ms.date: 03/02/2021
 ms.author: acomet
 ms.reviewer: jrasnick
+ms.custom: cosmos-db
 ---
 
-# Azure Synapse Link (preview) for Azure Cosmos DB supported features
+# Azure Synapse Link for Azure Cosmos DB supported features
 
 This article describes the functionalities that are currently supported in Azure Synapse Link for Azure Cosmos DB.
 
@@ -26,16 +27,16 @@ There are two types of containers in Azure Cosmos DB:
 
 You can connect to an Azure Cosmos DB container without enabling Synapse Link. In this scenario, you can only read/write to the transactional store. What follows is a list of the currently supported features within Synapse Link for Azure Cosmos DB. 
 
-| Category              | Description |[Spark](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) | [SQL serverless](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) |
+| Category              | Description |[Apache Spark pool](../sql/on-demand-workspace-overview.md) | [Serverless SQL pool](../sql/on-demand-workspace-overview.md) |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- | ----------------------------------------------------------- |
-| **Run-time Support** |Supported Azure Synapse runtime to access Azure Cosmos DB| ✓ | [Contact Us](mailto:cosmosdbsynapselink@microsoft.com?subject=[Enable%20Preview%20Feature]%20SQL%20serverless%20for%20Cosmos%20DB) |
+| **Run-time Support** |Supported Azure Synapse runtime to access Azure Cosmos DB| ✓ | ✓ |
 | **Azure Cosmos DB API support** | Supported Azure Cosmos DB API kind | SQL / MongoDB | SQL / MongoDB |
 | **Object**  |Objects such as a table that can be created, pointing directly to Azure Cosmos DB container| Dataframe, View, Table | View |
 | **Read**    | Type of Azure Cosmos DB container that can be read | OLTP / HTAP | HTAP  |
 | **Write**   | Can the Azure Synapse runtime be used to write data to an Azure Cosmos DB container | Yes | No |
 
 * If you write data into an Azure Cosmos DB container from Spark, this process happens through the transactional store of Azure Cosmos DB. It will impact the transactional performance of Azure Cosmos DB by consuming Request Units.
-* SQL pool integration through external tables is currently not supported.
+* Dedicated SQL pool integration through external tables is currently not supported.
  
 ## Supported code-generated actions for Spark
 
@@ -47,16 +48,15 @@ You can connect to an Azure Cosmos DB container without enabling Synapse Link. I
 | **Load streaming DataFrame from container** |Stream data using Azure Cosmos DB change feed|✓| ✓ |
 | **Write streaming DataFrame to container** |Stream data using Azure Cosmos DB change feed|✓| ✓ |
 
-
-## Supported code-generated actions for SQL serverless
+## Supported code-generated actions for serverless SQL pool
 
 | Gesture              | Description |OLTP |HTAP |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- |----------------------------------------------------------- |
 | **Explore data** |Explore data from a container with familiar T-SQL syntax and automatic schema inference|X| ✓ |
-| **Create views and build BI reports** |Create a SQL view to have direct access to a container for BI through Synapse SQL serverless |X| ✓ |
+| **Create views and build BI reports** |Create a SQL view to have direct access to a container for BI through serverless SQL pool |X| ✓ |
 | **Join disparate data sources along with Cosmos DB data** | Store results of query reading data from Cosmos DB containers along with data in Azure Blob Storage or Azure Data Lake Storage using CETAS |X| ✓ |
 
 ## Next steps
 
 * See how to [connect to Synapse Link for Azure Cosmos DB](../quickstart-connect-synapse-link-cosmos-db.md)
-* [Learn how to query the analytical store with Spark](how-to-query-analytical-store-spark.md)
+* [Learn how to query the Cosmos DB Analytical Store with Spark](how-to-query-analytical-store-spark.md)

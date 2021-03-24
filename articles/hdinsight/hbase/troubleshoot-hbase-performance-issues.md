@@ -1,9 +1,6 @@
 ---
 title: Troubleshoot Apache HBase performance issues on Azure HDInsight
 description: Various Apache HBase performance tuning guidelines and tips for getting optimal performance on Azure HDInsight. 
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 09/24/2019
@@ -119,4 +116,4 @@ If your problem remains unresolved, visit one of the following channels for more
 
 - Connect with [@AzureSupport](https://twitter.com/azuresupport). This is the official Microsoft Azure account for improving customer experience. It connects the Azure community to the right resources: answers, support, and experts.
 
-- If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Your Microsoft Azure subscription includes access to subscription management and billing support, and technical support is provided through one of the [Azure support plans](https://azure.microsoft.com/support/plans/).
+- If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). Your Microsoft Azure subscription includes access to subscription management and billing support, and technical support is provided through one of the [Azure support plans](https://azure.microsoft.com/support/plans/).

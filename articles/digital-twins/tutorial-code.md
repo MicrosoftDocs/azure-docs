@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Tutorial to write the minimal code for a client app, using the .NET (C#) SDK.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 05/05/2020
+ms.date: 11/02/2020
 ms.topic: tutorial
 ms.service: digital-twins
 
@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Tutorial: Coding with the Azure Digital Twins APIs
 
-It is common for developers working with Azure Digital Twins to write a client application for interacting with their instance of the Azure Digital Twins service. This developer-focused tutorial provides an introduction to programming against the Azure Digital Twins service, using the [Azure IoT Digital Twin client library for .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). It walks you through writing a C# console client app step by step, starting from scratch.
+It is common for developers working with Azure Digital Twins to write a client application for interacting with their instance of the Azure Digital Twins service. This developer-focused tutorial provides an introduction to programming against the Azure Digital Twins service, using the [Azure Digital Twins SDK for .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client). It walks you through writing a C# console client app step by step, starting from scratch.
 
 > [!div class="checklist"]
 > * Set up project
@@ -34,7 +34,11 @@ What you need to begin:
 * Any code editor
 * **.NET Core 3.1** on your development machine. You can download this version of the .NET Core SDK for multiple platforms from [Download .NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1).
 
-[!INCLUDE [Azure Digital Twins tutorials: instance prereq](../../includes/digital-twins-tutorial-prereq-instance.md)]
+### Prepare an Azure Digital Twins instance
+
+[!INCLUDE [Azure Digital Twins: instance prereq](../../includes/digital-twins-prereq-instance.md)]
+
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
 
 ## Set up project
 
@@ -44,7 +48,7 @@ Open a command prompt or other console window on your machine, and create an emp
 
 Navigate into the new directory.
 
-Once in the project directory, create an empty .NET console app project. In the command window, run the following command to create a minimal C# project for the console:
+Once in the project directory, **create an empty .NET console app project**. In the command window, you can run the following command to create a minimal C# project for the console:
 
 ```cmd/sh
 dotnet new console
@@ -52,17 +56,14 @@ dotnet new console
 
 This will create several files inside your directory, including one called *Program.cs* where you will write most of your code.
 
-Next, add two necessary dependencies for working with Azure Digital Twins:
+Keep the command window open, as you'll continue to use it throughout the tutorial.
+
+Next, **add two dependencies to your project** that will be needed to work with Azure Digital Twins. The first is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client), the second provides tools to help with authentication against Azure.
 
 ```cmd/sh
-dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
-dotnet add package Azure.identity
+dotnet add package Azure.DigitalTwins.Core
+dotnet add package Azure.Identity
 ```
-
-The first dependency is the [Azure IoT Digital Twin client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
-The second dependency provides tools to help with authentication against Azure.
-
-Keep the command window open, as you'll continue to use it throughout the tutorial.
 
 ## Get started with project code
 
@@ -76,29 +77,19 @@ In this section, you will begin writing the code for your new app project to wor
 
 There is also a section showing the complete code at the end of the tutorial. You can use this as a reference to check your program as you go.
 
-To begin, open the file *Program.cs* in any code editor. You will see a minimal code template that looks like this:
+To begin, open the file *Program.cs* in any code editor. You will see a minimal code template that looks something like this:
 
-```csharp
-using System;
-
-namespace DigitalTwinsCodeTutorial
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
-    }
-}
-```
+:::row:::
+    :::column:::
+        :::image type="content" source="media/tutorial-code/starter-template.png" alt-text="A snippet of sample code. There is one 'using System;' statement, a namespace called DigitalTwinsCodeTutorial; a class in the namespace called Program; and a Main method in the class with a standard signature of 'static void Main(string[] args)'. The main method contains a Hello World print statement." lightbox="media/tutorial-code/starter-template.png":::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
 
 First, add some `using` lines at the top of the code to pull in necessary dependencies.
 
-```csharp
-using Azure.DigitalTwins.Core;
-using Azure.Identity;
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Azure_Digital_Twins_dependencies":::
 
 Next, you'll add code to this file to fill out some functionality. 
 
@@ -106,41 +97,14 @@ Next, you'll add code to this file to fill out some functionality.
 
 The first thing your app will need to do is authenticate against the Azure Digital Twins service. Then, you can create a service client class to access the SDK functions.
 
-In order to authenticate, you need three pieces of information:
-* The *Directory (tenant) ID* for your subscription
-* The *Application (client) ID* created when you set up the Azure Digital Twins instance earlier
-* The *hostName* of your Azure Digital Twins instance
-
->[!TIP]
-> If you don't know your *Directory (tenant) ID*, you can get it by running this command in [Azure Cloud Shell](https://shell.azure.com):
-> 
-> ```azurecli
-> az account show --query tenantId
-> ```
+In order to authenticate, you need the *hostName* of your Azure Digital Twins instance.
 
 In *Program.cs*, paste the following code below the "Hello, World!" printout line in the `Main` method. 
-Set the value of `adtInstanceUrl` to your Azure Digital Twins instance *hostName*, `clientId` to your *Application ID*, and `tenantId` to your *Directory ID*.
+Set the value of `adtInstanceUrl` to your Azure Digital Twins instance *hostName*.
 
-```csharp
-string clientId = "<your-application-ID>";
-string tenantId = "<your-directory-ID>";
-string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>";
-var credentials = new InteractiveBrowserCredential(tenantId, clientId);
-DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
-Console.WriteLine($"Service client created – ready to go");
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Authentication_code":::
 
 Save the file. 
-
-Note that this example uses an interactive browser credential:
-```csharp
-var credentials = new InteractiveBrowserCredential(tenantId, clientId);
-```
-
-This type of credential will cause a browser window to open, asking you to provide your Azure credentials. 
-
->[!NOTE]
-> For information on other types of credentials, see the documentation for the [Microsoft identity platform authentication libraries](../active-directory/develop/reference-v2-libraries.md).
 
 In your command window, run the code with this command: 
 
@@ -150,7 +114,7 @@ dotnet run
 
 This will restore the dependencies on first run, and then execute the program. 
 * If no error occurs, the program will print *Service client created - ready to go*.
-* Since there is not yet any error handling in this project, if anything goes wrong, you will see an exception thrown by the code.
+* Since there is not yet any error handling in this project, if there are any issues, you will see an exception thrown by the code.
 
 ### Upload a model
 
@@ -160,48 +124,23 @@ The first step in creating an Azure Digital Twins solution is defining at least 
 
 In the directory where you created your project, create a new *.json* file called *SampleModel.json*. Paste in the following file body: 
 
-```json
-{
-  "@id": "dtmi:com:contoso:SampleModel;1",
-  "@type": "Interface",
-  "displayName": "SampleModel",
-  "contents": [
-    {
-      "@type": "Relationship",
-      "name": "contains"
-    },
-    {
-      "@type": "Property",
-      "name": "data",
-      "schema": "string"
-    }
-  ],
-  "@context": "dtmi:dtdl:context;2"
-}
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/SampleModel.json":::
 
 > [!TIP]
 > If you're using Visual Studio for this tutorial, you may want to select the newly-created JSON file and set the *Copy to Output Directory* property in the Property inspector to *Copy if Newer* or *Copy Always*. This will enable Visual Studio to find the JSON file with the default path when you run the program with **F5** during the rest of the tutorial.
 
 > [!TIP] 
-> There is a language-agnostic [DTDL Validator sample](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) that you can use to check model documents to make sure the DTDL is valid. It is built on the DTDL parser library, which you can read more about in [*How-to: Parse and validate models*](how-to-parse-models.md).
+> There is a language-agnostic [DTDL Validator sample](/samples/azure-samples/dtdl-validator/dtdl-validator) that you can use to check model documents to make sure the DTDL is valid. It is built on the DTDL parser library, which you can read more about in [*How-to: Parse and validate models*](how-to-parse-models.md).
 
 Next, add some more code to *Program.cs* to upload the model you've just created into your Azure Digital Twins instance.
 
 First, add a few `using` statements to the top of the file:
 
-```csharp
-using System.Threading.Tasks;
-using System.IO;
-using System.Collections.Generic;
-using Azure;
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Model_dependencies":::
 
 Next, prepare to use the asynchronous methods in the C# service SDK, by changing the `Main` method signature to allow for async execution. 
 
-```csharp
-static async Task Main(string[] args)
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Async_signature":::
 
 > [!NOTE]
 > Using `async` is not strictly required, as the SDK also provides synchronous versions of all calls. This tutorial practices using `async`.
@@ -210,36 +149,22 @@ Next comes the first bit of code that interacts with the Azure Digital Twins ser
 
 Paste in the following code under the authorization code you added earlier.
 
-```csharp
-Console.WriteLine();
-Console.WriteLine($"Upload a model");
-var typeList = new List<string>();
-string dtdl = File.ReadAllText("SampleModel.json");
-typeList.Add(dtdl);
-// Upload the model to the service
-await client.CreateModelsAsync(typeList);
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp_excerpt_model.cs":::
 
 In your command window, run the program with this command: 
 
 ```cmd/sh
 dotnet run
 ```
-"Upload a model" will be printed in the output, but there is no output yet to indicate whether or not models were uploaded successfully.
+"Upload a model" will be printed in the output, indicating that this code was reached, but there is no output yet to indicate whether the upload was successful.
 
-To add a print statement indicating whether models are actually uploaded successfully, add the following code right after the previous section:
+To add a print statement showing all models that have been successfully uploaded to the instance, add the following code right after the previous section:
 
-```csharp
-// Read a list of models back from the service
-AsyncPageable<ModelData> modelDataList = client.GetModelsAsync();
-await foreach (ModelData md in modelDataList)
-{
-    Console.WriteLine($"Type name: {md.DisplayName}: {md.Id}");
-}
-```
-Before you run the program again to test this new code, recall that the last time you ran the program, you uploaded your model already. Azure Digital Twins will not let you upload the same model twice, so if you attempt to upload the same model again, the program should throw an exception.
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Print_model":::
 
-Now, run the program again with this command in your command window:
+**Before you run the program again to test this new code**, recall that the last time you ran the program, you uploaded your model already. Azure Digital Twins will not let you upload the same model twice, so if you attempt to upload the same model again, the program should throw an exception.
+
+With this in mind, run the program again with this command in your command window:
 
 ```cmd/sh
 dotnet run
@@ -251,36 +176,13 @@ The next section talks about exceptions like this and how to handle them in your
 
 ### Catch errors
 
-To keep the program from crashing, you can add exception code around the model upload code. Wrap the existing client call `client.CreateModelsAsync` in a try/catch handler, like this:
+To keep the program from crashing, you can add exception code around the model upload code. Wrap the existing client call `await client.CreateModelsAsync(typeList)` in a try/catch handler, like this:
 
-```csharp
-try {
-    await client.CreateModelsAsync(typeList);
-} catch (RequestFailedException rex) {
-    Console.WriteLine($"Load model: {rex.Status}:{rex.Message}");
-}
-```
-If you run the program with `dotnet run` in your command window now, you will see that you get an error code back. The output looks something like this:
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Model_try_catch":::
 
-```cmd/sh
-Hello World!
-Service client created - ready to go
+Now, if you run the program with `dotnet run` in your command window now, you will see that you get an error code back. The output from the model creation code shows this error:
 
-Upload a model
-Load model: 409:Service request failed.
-Status: 409 (Conflict)
-
-Content:
-{"error":{"code":"ModelAlreadyExists","message":"Model with same ID already exists dtmi:com:contoso:SampleModel;1. Use Model_List API to view models that already exist. See the Swagger example. (http://aka.ms/ModelListSwSmpl):}}
-
-Headers:
-api-supported-versions: REDACTED
-Date: Thu, 10 Sep 2020 01:57:51 GMT
-Content-Length: 115
-Content-Type: application/json; charset=utf-8
-
-Type name: : dtmi:com:contoso:SampleModel;1
-```
+:::image type="content" source= "media/tutorial-code/model-error.png" alt-text="Program output, showing a message that says '409:Service request failed. Status: 409 (Conflict).', followed by an error printout indicating that dtmi:example:SampleModel;1 already exists":::
 
 From this point forward, the tutorial will wrap all calls to service methods in try/catch handlers.
 
@@ -288,130 +190,47 @@ From this point forward, the tutorial will wrap all calls to service methods in 
 
 Now that you have uploaded a model to Azure Digital Twins, you can use this model definition to create **digital twins**. [Digital twins](concepts-twins-graph.md) are instances of a model, and represent the entities within your business environment—things like sensors on a farm, rooms in a building, or lights in a car. This section creates a few digital twins based on the model you uploaded earlier.
 
-Add a new `using` statement at the top, as you will need the built-in .NET Json serializer in `System.Text.Json`:
+Add the following code to the end of the `Main` method to create and initialize three digital twins based on this model.
 
-```csharp
-using System.Text.Json;
-using Azure.DigitalTwins.Core.Serialization;
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Initialize_twins":::
 
-Then, add the following code to the end of the `Main` method to create and initialize three digital twins based on this model.
+In your command window, run the program with `dotnet run`. In the output, look for the print messages that *sampleTwin-0*, *sampleTwin-1*, and *sampleTwin-2* were created. 
 
-```csharp
-// Initialize twin data
-BasicDigitalTwin twinData = new BasicDigitalTwin();
-twinData.Metadata.ModelId = "dtmi:com:contoso:SampleModel;1";
-twinData.CustomProperties.Add("data", $"Hello World!");
+Then, run the program again. 
 
-string prefix="sampleTwin-";
-for(int i=0; i<3; i++) {
-    try {
-        twinData.Id = $"{prefix}{i}";
-        await client.CreateDigitalTwinAsync($"{prefix}{i}", JsonSerializer.Serialize(twinData));
-        Console.WriteLine($"Created twin: {prefix}{i}");
-    } catch(RequestFailedException rex) {
-        Console.WriteLine($"Create twin error: {rex.Status}:{rex.Message}");  
-    }
-}
-```
-
-In your command window, run the program with `dotnet run`. Then, repeat to run the program again. 
-
-Notice that no error is thrown when the twins are created the second time, even though the twins already exist after the first run. Unlike model creation, twin creation is, on the REST level, a *PUT* call with *upsert* semantics. This means that if a twin already exists, trying to create it again will just replace it. No error required.
+Notice that no error is thrown when the twins are created the second time, even though the twins already exist after the first run. Unlike model creation, twin creation is, on the REST level, a *PUT* call with *upsert* semantics. This means that if a twin already exists, an attempt to create the same twin again will just replace the original twin. No error is thrown.
 
 ### Create relationships
 
 Next, you can create **relationships** between the twins you've created, to connect them into a **twin graph**. [Twin graphs](concepts-twins-graph.md) are used to represent your entire environment.
 
-To be able to create relationships, you'll need the `Azure.DigitalTwins.Core.Serialization` namespace. You added this to the project earlier with this `using` statement:
+Add a **new static method** to the `Program` class, underneath the `Main` method (the code now has two methods):
 
-```csharp
-using Azure.DigitalTwins.Core.Serialization;
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Create_relationship":::
 
-Add a new static method to the `Program` class, underneath the `Main` method:
-```csharp
-public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId)
-{
-    var relationship = new BasicRelationship
-    {
-        TargetId = targetId,
-        Name = "contains"
-    };
+Next, add the following code to the end of the `Main` method, to call the `CreateRelationship` method and use the code you just wrote:
 
-    try
-    {
-        string relId = $"{srcId}-contains->{targetId}";
-        await client.CreateRelationshipAsync(srcId, relId, JsonSerializer.Serialize(relationship));
-        Console.WriteLine("Created relationship successfully");
-    }
-    catch (RequestFailedException rex) {
-        Console.WriteLine($"Create relationship error: {rex.Status}:{rex.Message}");
-    }
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Use_create_relationship":::
 
-Then, add the following code to the end of the `Main` method to call the `CreateRelationship` code:
-```csharp
-// Connect the twins with relationships
-await CreateRelationship(client, "sampleTwin-0", "sampleTwin-1");
-await CreateRelationship(client, "sampleTwin-0", "sampleTwin-2");
-```
+In your command window, run the program with `dotnet run`. In the output, look for print statements saying that the two relationships were created successfully.
 
-In your command window, run the program with `dotnet run`.
-
-Note that Azure Digital Twins will not let you create a relationship if one with the same ID already exists—so if you run the program multiple times, you will see exceptions on relationship creation. This code catches the exceptions and ignores them. 
+Note that Azure Digital Twins will not let you create a relationship if another relationship with the same ID already exists—so if you run the program multiple times, you will see exceptions on relationship creation. This code catches the exceptions and ignores them. 
 
 ### List relationships
 
 The next code you'll add allows you to see the list of relationships you've created.
 
-Add the following new method to the `Program` class:
+Add the following **new method** to the `Program` class:
 
-```csharp
-public async static Task ListRelationships(DigitalTwinsClient client, string srcId)
-{
-    try {
-        AsyncPageable<string> results = client.GetRelationshipsAsync(srcId);
-        Console.WriteLine($"Twin {srcId} is connected to:");
-        await foreach (string rel in results)
-        {
-            var brel = JsonSerializer.Deserialize<BasicRelationship>(rel);
-            Console.WriteLine($" -{brel.Name}->{brel.TargetId}");
-        }
-    } catch (RequestFailedException rex) {
-        Console.WriteLine($"Relationship retrieval error: {rex.Status}:{rex.Message}");   
-    }
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="List_relationships":::
 
 Then, add the following code to the end of the `Main` method to call the `ListRelationships` code:
 
-```csharp
-//List the relationships
-await ListRelationships(client, "sampleTwin-0");
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Use_list_relationships":::
 
-In your command window, run the program with `dotnet run`. You should see a list of all the relationships you have created.
+In your command window, run the program with `dotnet run`. You should see a list of all the relationships you have created in an output statement that looks like this:
 
-Here is an example output:
-
-```cmd/sh
-Hello World!
-Service client created - ready to go
-
-Upload a model
-Type name: System.Collections.Generic.Dictionary'2[System.String,System.String]: dtmi:contosocom:DigitalTwins:SampleModel;1
-Create twin: sampleTwin-0
-Create twin: sampleTwin-1
-Create twin: sampleTwin-2
-Created relationship successfully
-Created relationship successfully
-Twin sampleTwin-0 is connected to:
--contains->sampleTwin-1
--contains->sampleTwin-2
-
-```
+:::image type="content" source= "media/tutorial-code/list-relationships.png" alt-text="Program output, showing a message that says 'Twin sampleTwin-0 is connected to: contains->sampleTwin-1, -contains->sampleTwin-2'" lightbox="media/tutorial-code/list-relationships.png":::
 
 ### Query digital twins
 
@@ -419,19 +238,13 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
 
 The last section of code to add in this tutorial runs a query against the Azure Digital Twins instance. The query used in this example returns all the digital twins in the instance.
 
-Add the following code to the end of the `Main` method:
+Add this `using` statement to enable use of the `JsonSerializer` class to help present the digital twin information:
 
-```csharp
-// Run a query    
-AsyncPageable<string> result = client.QueryAsync("Select * From DigitalTwins");
-await foreach (string twin in result)
-{
-    object jsonObj = JsonSerializer.Deserialize<object>(twin);
-    string prettyTwin = JsonSerializer.Serialize(jsonObj, new JsonSerializerOptions { WriteIndented = true });
-    Console.WriteLine(prettyTwin);
-    Console.WriteLine("---------------");
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Query_dependencies":::
+
+Then, add the following code to the end of the `Main` method:
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Query_twins":::
 
 In your command window, run the program with `dotnet run`. You should see all the digital twins in this instance in the output.
 
@@ -439,129 +252,19 @@ In your command window, run the program with `dotnet run`. You should see all th
 
 At this point in the tutorial, you have a complete client app, capable of performing basic actions against Azure Digital Twins. For reference, the full code of the program in *Program.cs* is listed below:
 
-```csharp
-using System;
-using Azure.DigitalTwins.Core;
-using Azure.Identity;
-using System.Threading.Tasks;
-using System.IO;
-using System.Collections.Generic;
-using Azure;
-using Azure.DigitalTwins.Core.Serialization;
-using System.Text.Json;
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs":::
 
-namespace minimal
-{
-    class Program
-    {
-        static async Task Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-            
-            string clientId = "<your-application-ID>";
-            string tenantId = "<your-directory-ID>";
-            string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>";
-            var credentials = new InteractiveBrowserCredential(tenantId, clientId);
-            DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
-            Console.WriteLine($"Service client created – ready to go");
-
-            Console.WriteLine();
-            Console.WriteLine($"Upload a model");
-            var typeList = new List<string>();
-            string dtdl = File.ReadAllText("SampleModel.json");
-            typeList.Add(dtdl);
-
-            // Upload the model to the service
-            try {
-                await client.CreateModelsAsync(typeList);
-            } catch (RequestFailedException rex) {
-                Console.WriteLine($"Load model: {rex.Status}:{rex.Message}");
-            }
-            // Read a list of models back from the service
-            AsyncPageable<ModelData> modelDataList = client.GetModelsAsync();
-            await foreach (ModelData md in modelDataList)
-            {
-                Console.WriteLine($"Type name: {md.DisplayName}: {md.Id}");
-            }
-
-            // Initialize twin data
-            BasicDigitalTwin twinData = new BasicDigitalTwin();
-            twinData.Metadata.ModelId = "dtmi:com:contoso:SampleModel;1";
-            twinData.CustomProperties.Add("data", $"Hello World!");
-    
-            string prefix="sampleTwin-";
-            for(int i=0; i<3; i++) {
-                try {
-                    twinData.Id = $"{prefix}{i}";
-                    await client.CreateDigitalTwinAsync($"{prefix}{i}", JsonSerializer.Serialize(twinData));
-                    Console.WriteLine($"Created twin: {prefix}{i}");
-                } catch(RequestFailedException rex) {
-                    Console.WriteLine($"Create twin error: {rex.Status}:{rex.Message}");  
-                }
-            }
-
-            // Connect the twins with relationships
-            await CreateRelationship(client, "sampleTwin-0", "sampleTwin-1");
-            await CreateRelationship(client, "sampleTwin-0", "sampleTwin-2");
-
-            //List the relationships
-            await ListRelationships(client, "sampleTwin-0");
-
-            // Run a query    
-            AsyncPageable<string> result = client.QueryAsync("Select * From DigitalTwins");
-            await foreach (string twin in result)
-            {
-                object jsonObj = JsonSerializer.Deserialize<object>(twin);
-                string prettyTwin = JsonSerializer.Serialize(jsonObj, new JsonSerializerOptions { WriteIndented = true });
-                Console.WriteLine(prettyTwin);
-                Console.WriteLine("---------------");
-            }
-        }
-
-        public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId)
-        {
-            var relationship = new BasicRelationship
-            {
-                TargetId = targetId,
-                Name = "contains"
-            };
-        
-            try
-            {
-                string relId = $"{srcId}-contains->{targetId}";
-                await client.CreateRelationshipAsync(srcId, relId, JsonSerializer.Serialize(relationship));
-                Console.WriteLine("Created relationship successfully");
-            }
-            catch (RequestFailedException rex) {
-                Console.WriteLine($"Create relationship error: {rex.Status}:{rex.Message}");
-            }
-        }
-        
-        public async static Task ListRelationships(DigitalTwinsClient client, string srcId)
-        {
-            try {
-                AsyncPageable<string> results = client.GetRelationshipsAsync(srcId);
-                Console.WriteLine($"Twin {srcId} is connected to:");
-                await foreach (string rel in results)
-                {
-                    var brel = JsonSerializer.Deserialize<BasicRelationship>(rel);
-                    Console.WriteLine($" -{brel.Name}->{brel.TargetId}");
-                }
-            } catch (RequestFailedException rex) {
-                Console.WriteLine($"Relationship retrieval error: {rex.Status}:{rex.Message}");   
-            }
-        }
-
-    }
-}
-```
 ## Clean up resources
- 
-The instance used in this tutorial can be reused in the next tutorial, [*Tutorial: Explore the basics with a sample client app*](tutorial-command-line-app.md). If you plan to continue to the next tutorial, you can keep the Azure Digital Twins instance you set up here.
+
+After completing this tutorial, you can choose which resources you'd like to remove, depending on what you'd like to do next.
+
+* **If you plan to continue to the next tutorial**, the instance used in this tutorial can be reused in the next one. You can keep the Azure Digital Twins resources you set up here and skip the rest of this section.
+
+[!INCLUDE [digital-twins-cleanup-clear-instance.md](../../includes/digital-twins-cleanup-clear-instance.md)]
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-Finally, delete the project folder you created on your local machine.
+You may also want to delete the project folder from your local machine.
 
 ## Next steps
 

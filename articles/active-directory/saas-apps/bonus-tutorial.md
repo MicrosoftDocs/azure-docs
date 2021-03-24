@@ -21,7 +21,7 @@ Integrating Bonusly with Azure AD provides you with the following benefits:
 * You can enable your users to be automatically signed-in to Bonusly (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
@@ -217,17 +217,17 @@ In order to enable Azure AD users to sign in to Bonusly, they must be provisione
 
 1. Click **Add User**.
 
-    ![Add User](./media/bonus-tutorial/ic781044.png "Add User")
+    ![Screenshot shows Manage Users where you can select Add User.](./media/bonus-tutorial/ic781044.png "Add User")
 
 1. On the **Add User** dialog, perform the following steps:
 
-    ![Add User](./media/bonus-tutorial/ic781045.png "Add User")  
+    ![Screenshot shows the Add User dialog box where you can enter this information.](./media/bonus-tutorial/ic781045.png "Add User")  
 
     a. In the **First name** textbox, enter the first name of user like **Britta**.
 
     b. In the **Last name** textbox, enter the last name of user like **Simon**.
 
-    c. In the **Email** textbox, enter the email of user like `brittasimon\@contoso.com`.
+    c. In the **Email** textbox, enter the email of user like `brittasimon@contoso.com`.
 
     d. Click **Save**.
 
@@ -238,12 +238,12 @@ In order to enable Azure AD users to sign in to Bonusly, they must be provisione
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Bonusly tile in the Access Panel, you should be automatically signed in to the Bonusly for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Bonusly tile in the Access Panel, you should be automatically signed in to the Bonusly for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

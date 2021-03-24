@@ -1,7 +1,7 @@
 ---
 title: Configure Node.js apps
 description: Learn how to configure a Node.js app in the native Windows instances, or in a pre-built Linux container, in Azure App Service. This article shows the most common configuration tasks. 
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-track-azurecli
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/02/2020
@@ -80,6 +80,36 @@ This setting specifies the Node.js version to use, both at runtime and during au
 > You should set the Node.js version in your project's `package.json`. The deployment engine runs in a separate container that contains all the supported Node.js versions.
 
 ::: zone-end
+
+## Get port number
+
+You Node.js app needs to listen to the right port to receive incoming requests.
+
+::: zone pivot="platform-windows"  
+
+In App Service on Windows, Node.js apps are hosted with [IISNode](https://github.com/Azure/iisnode), and your Node.js app should listen to the port specified in the `process.env.PORT` variable. The following example shows how you do it in a simple Express app:
+
+::: zone-end
+
+::: zone pivot="platform-linux"  
+
+App Service sets the environment variable `PORT` in the Node.js container, and forwards the incoming requests to your container at that port number. To receive the requests, your app should listen to that port using `process.env.PORT`. The following example shows how you do it in a simple Express app:
+
+::: zone-end
+
+```javascript
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 3000
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
+```
 
 ::: zone pivot="platform-linux"
 
@@ -308,6 +338,19 @@ if (req.secure) {
 
 ::: zone-end
 
+
+::: zone pivot="platform-linux"
+
+## Monitor with Application Insights
+
+Application Insights allows you to monitor your application's performance, exceptions, and usage without making any code changes. To attach the App Insights agent, go to your web app in the Portal and select **Application Insights** under **Settings**, then select **Turn on Application Insights**. Next, select an existing App Insights resource or create a new one. Finally, select **Apply** at the bottom. To instrument your web app using PowerShell, please see [these instructions](../azure-monitor/app/azure-web-apps.md?tabs=netcore#enabling-through-powershell)
+
+This agent will monitor your server-side Node.js application. To monitor your client-side JavaScript, [add the JavaScript SDK to your project](../azure-monitor/app/javascript.md). 
+
+For more information, see the [Application Insights extension release notes](../azure-monitor/app/web-app-extension-release-notes.md).
+
+::: zone-end
+
 ## Troubleshooting
 
 When a working Node.js app behaves differently in App Service or has errors, try the following:
@@ -336,4 +379,3 @@ When a working Node.js app behaves differently in App Service or has errors, try
 > [App Service Linux FAQ](faq-app-service-linux.md)
 
 ::: zone-end
-

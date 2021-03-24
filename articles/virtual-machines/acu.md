@@ -3,7 +3,7 @@ title: Overview of the Azure Compute Unit
 description: Overview of the concept of the Azure compute units. The ACU provides a way of comparing CPU performance across Azure SKUs.
 author: mimckitt
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: azure-compute-unit
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
@@ -21,6 +21,8 @@ The concept of the Azure Compute Unit (ACU) provides a way of comparing compute 
 
 ***Hyper-threaded and capable of running nested virtualization
 
+****AMD Simultaneous multithreading technology
+
 > [!IMPORTANT]
 > The ACU is only a guideline. The results for your workload may vary.
 <br>
@@ -33,13 +35,14 @@ The concept of the Azure Compute Unit (ACU) provides a way of comparing compute 
 | [A1_v2 - A8_v2](sizes-general.md) |100 | 1:1 |
 | [A2m_v2 - A8m_v2](sizes-general.md) |100 | 1:1 |
 | [A8 - A11](sizes-previous-gen.md) |225* | 1:1 |
+| [B](sizes-b-series-burstable.md) |Varies | Varies |
 | [D1 - D14](sizes-previous-gen.md) |160 - 250 | 1:1 |
 | [D1_v2 - D15_v2](dv2-dsv2-series.md) |210 - 250* | 1:1 |
 | [DS1 - DS14](sizes-previous-gen.md) |160 - 250 | 1:1 |
 | [DS1_v2 - DS15_v2](dv2-dsv2-series.md) |210 - 250* | 1:1 |
 | [D_v3](dv3-dsv3-series.md) |160 - 190* | 2:1\*\*\* |
 | [Ds_v3](dv3-dsv3-series.md) |160 - 190* | 2:1\*\*\* |
-| [Dav4](dav4-dasv4-series.md) |230 - 260** | 2:1 |
+| [Dav4](dav4-dasv4-series.md) |230 - 260** | 2:1\*\*\*\* |
 | [Dasv4](dav4-dasv4-series.md) |230 - 260** | 2:1 |
 | [Dv4](dv4-dsv4-series.md) | 195 - 210 | 2:1\*\*\* |
 | [Dsv4](dv4-dsv4-series.md) | 195 - 210 | 2:1\*\*\* |
@@ -47,7 +50,7 @@ The concept of the Azure Compute Unit (ACU) provides a way of comparing compute 
 | [Ddsv4](ddv4-ddsv4-series.md) | 195 - 210* | 2:1\*\*\* |
 | [E_v3](ev3-esv3-series.md) |160 - 190* | 2:1\*\*\*|
 | [Es_v3](ev3-esv3-series.md) |160 - 190* | 2:1\*\*\* |
-| [Eav4](eav4-easv4-series.md) |230 - 260** | 2:1 |
+| [Eav4](eav4-easv4-series.md) |230 - 260** | 2:1\*\*\*\* |
 | [Easv4](eav4-easv4-series.md) | 230 - 260** | 2:1 |
 | [Ev4](ev4-esv4-series.md) | 195 - 210 | 2:1\*\*\* |
 | [Esv4](ev4-esv4-series.md) | 195 - 210 | 2:1\*\*\* |
@@ -62,7 +65,7 @@ The concept of the Azure Compute Unit (ACU) provides a way of comparing compute 
 | [HB](hb-series.md) |199 - 216** | 1:1 |
 | [HC](hc-series.md) |297 - 315* | 1:1 |
 | [L4s - L32s](sizes-previous-gen.md) |180 - 240* | 1:1 |
-| [L8s_v2 - L80s_v2](lsv2-series.md) |150 - 175** | 2:1 |
+| [L8s_v2 - L80s_v2](lsv2-series.md) |150 - 175** | 2:1\*\*\*\* |
 | [M](m-series.md) | 160 - 180 | 2:1\*\*\* |
 | [NVv4](nvv4-series.md) |230 - 260** | 2:1 |
 

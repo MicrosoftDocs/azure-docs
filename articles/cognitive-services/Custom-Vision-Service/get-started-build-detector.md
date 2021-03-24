@@ -1,7 +1,7 @@
 ---
-title: "Quickstart Build an object detector - Custom Vision Service"
+title: "Quickstart: Build an object detector with the Custom Vision website"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn how to use the Custom Vision website to create an object detector model.
+description: In this quickstart, you'll learn how to use the Custom Vision website to create, train, and test an object detector model.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,13 +9,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 09/15/2020
+ms.date: 01/29/2021
 ms.author: pafarley
+ms.custom: cog-serv-seo-aug-2020
+keywords: image recognition, image recognition app, custom vision
 ---
 
-# Quickstart: How to build an object detector with Custom Vision
+# Quickstart: Build an object detector with the Custom Vision website
 
-In this quickstart, you'll learn how to build an object detector through the Custom Vision website. Once you build a model, you can test in with new images and eventually integrate it into your own image recognition software.
+In this quickstart, you'll learn how to use the Custom Vision website to create an object detector model. Once you build a model, you can test it with new images and eventually integrate it into your own image recognition app.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
@@ -62,9 +64,9 @@ In your web browser, navigate to the [Custom Vision web page](https://customvisi
 
 ## Upload and tag images
 
-In this section you will upload and manually tag images to help train the detector. 
+In this section, you will upload and manually tag images to help train the detector. 
 
-1. To add images, click the __Add images__ button and then select __Browse local files__. Select __Open__ to upload the images.
+1. To add images, select __Add images__ and then select __Browse local files__. Select __Open__ to upload the images.
 
     ![The add images control is shown in the upper left, and as a button at bottom center.](./media/get-started-build-detector/add-images.png)
 
@@ -72,7 +74,7 @@ In this section you will upload and manually tag images to help train the detect
 
     ![Images uploaded, in Untagged section](./media/get-started-build-detector/images-untagged.png)
 
-1. Click and drag a rectangle around the object in your image. Then, enter a new tag name with the **+** button, or select an existing tag from the drop-down list. It's very important to tag every instance of the object(s) you want to detect, because the detector uses the untagged background area as a negative example in training. When you're done tagging, click the arrow on the right to save your tags and move on to the next image.
+1. Click and drag a rectangle around the object in your image. Then, enter a new tag name with the **+** button, or select an existing tag from the drop-down list. It's important to tag every instance of the object(s) you want to detect, because the detector uses the untagged background area as a negative example in training. When you're done tagging, click the arrow on the right to save your tags and move on to the next image.
 
     ![Tagging an object with a rectangular selection](./media/get-started-build-detector/image-tagging.png)
 
@@ -94,16 +96,21 @@ After training has completed, the model's performance is calculated and displaye
 
 - **Precision** indicates the fraction of identified classifications that were correct. For example, if the model identified 100 images as dogs, and 99 of them were actually of dogs, then the precision would be 99%.
 - **Recall** indicates the fraction of actual classifications that were correctly identified. For example, if there were actually 100 images of apples, and the model identified 80 as apples, the recall would be 80%.
+- **Mean average precision** is the average value of the average precision (AP). AP is the area under the precision/recall curve (precision plotted against recall for each prediction made).
 
 ![The training results show the overall precision and recall, and mean average precision.](./media/get-started-build-detector/trained-performance.png)
 
-### Probability Threshold
+### Probability threshold
 
 [!INCLUDE [probability threshold](includes/probability-threshold.md)]
 
+### Overlap threshold
+
+The **Overlap Threshold** slider deals with how correct an object prediction must be to be considered "correct" in training. It sets the minimum allowed overlap between the predicted object bounding box and the actual user-entered bounding box. If the bounding boxes don't overlap to this degree, the prediction won't be considered correct.
+
 ## Manage training iterations
 
-Each time you train your detector, you create a new _iteration_ with its own updated performance metrics. You can view all of your iterations in the left pane of the **Performance** tab. In the left pane you will also find the **Delete** button, which you can use to delete an iteration if it's obsolete. When you delete an iteration, you delete any images that are uniquely associated with it.
+Each time you train your detector, you create a new _iteration_ with its own updated performance metrics. You can view all of your iterations in the left pane of the **Performance** tab. In the left pane you'll also find the **Delete** button, which you can use to delete an iteration if it's obsolete. When you delete an iteration, you delete any images that are uniquely associated with it.
 
 See [Use your model with the prediction API](./use-prediction-api.md) to learn how to access your trained models programmatically.
 

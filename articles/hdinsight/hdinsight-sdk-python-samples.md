@@ -1,9 +1,6 @@
 ---
 title: 'Azure HDInsight: Python samples'
 description: Find Python examples on GitHub for common tasks using the HDInsight SDK for Python.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: sample
 ms.date: 11/08/2019
@@ -30,7 +27,7 @@ This article provides:
 
 ## Prerequisites
 
-[Azure HDInsight SDK for Python](https://docs.microsoft.com/python/api/overview/azure/hdinsight#sdk-installation)
+[Azure HDInsight SDK for Python](/python/api/overview/azure/hdinsight#sdk-installation)
 
 ## Cluster management - creation
 
@@ -43,4 +40,4 @@ You can get these samples for Python by cloning the [hdinsight-python-sdk-sample
 
 [!INCLUDE [hdinsight-sdk-additional-functionality](../../includes/hdinsight-sdk-additional-functionality.md)]
 
-Code snippets for this additional SDK functionality can be found in the [HDInsight SDK for Python reference documentation](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python).
+Code snippets for this additional SDK functionality can be found in the [HDInsight SDK for Python reference documentation](/python/api/overview/azure/hdinsight).

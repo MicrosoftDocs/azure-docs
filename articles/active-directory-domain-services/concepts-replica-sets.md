@@ -2,24 +2,22 @@
 title: Replica sets concepts for Azure AD Domain Services | Microsoft Docs
 description: Learn what replica sets are in Azure Active Directory Domain Services and how they provide redundancy to applications that require identity services.
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/16/2020
-ms.author: iainfou
+ms.date: 02/26/2021
+ms.author: justinha
 ---
 
-# Replica sets concepts and features for Azure Active Directory Domain Services (preview)
+# Replica sets concepts and features for Azure Active Directory Domain Services
 
 When you create an Azure Active Directory Domain Services (Azure AD DS) managed domain, you define a unique namespace. This namespace is the domain name, such as *aaddscontoso.com*, and two domain controllers (DCs) are then deployed into your selected Azure region. This deployment of DCs is known as a replica set.
 
 You can expand a managed domain to have more than one replica set per Azure AD tenant. Replica sets can be added to any peered virtual network in any Azure region that supports Azure AD DS. Additional replica sets in different Azure regions provide geographical disaster recovery for legacy applications if an Azure region goes offline.
-
-Replica sets are currently in preview.
 
 > [!NOTE]
 > Replica sets don't let you deploy multiple unique managed domains in a single Azure tenant. Each replica set contains the same data.
@@ -52,15 +50,11 @@ The following example shows a managed domain with three replica sets to further 
 
 The default SKU for a managed domain is the *Enterprise* SKU, which supports multiple replica sets. To create additional replica sets if you changed to the *Standard* SKU, [upgrade the managed domain](change-sku.md) to *Enterprise* or *Premium*.
 
-The maximum number of replica sets supported during preview is four, including the first replica created when you created the managed domain.
+The supported maximum number of replica sets is four, including the first replica created when you created the managed domain.
 
 Billing for each replica set is based on the domain configuration SKU. For example, if you have a managed domain that uses the *Enterprise* SKU and you have three replica sets, your subscription is billed per hour for each of the three replica sets.
 
 ## Frequently asked questions
-
-### Can I use my production managed domain with this preview?
-
-Replica sets are a public preview feature in Azure AD Domain Services. You can use a production managed domain, but please be aware of the support differences that exist for features still in preview. For more information about previews, [Azure Active Directory Preview SLA](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ### Can I create a replica set in subscription different from my managed domain?
 
@@ -68,7 +62,7 @@ No. Replica sets must be in the same subscription as the managed domain.
 
 ### How many replica sets can I create?
 
-The preview is limited to a maximum of four replica sets - the initial replica set for the managed domain, plus three additional replica sets.
+You can create a maximum of four replica sets—the initial replica set for the managed domain, plus three additional replica sets.
 
 ### How does user and group information get synchronized to my replica sets?
 

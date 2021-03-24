@@ -3,13 +3,13 @@ title: Diagnose incidents using Metrics Advisor
 titleSuffix: Azure Cognitive Services
 description: Learn how to diagnose an incidents using Metrics Advisor, and get detailed views of anomalies in your data.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.author: aahi
+ms.author: mbullwin
 ---
 
 # How-to: Diagnose an incident using Metrics Advisor
@@ -65,7 +65,7 @@ To use the drill down function, click on the **Metric drilling** tab in the **In
 
 :::image type="content" source="../media/diagnostics/metric-drilling.png" lightbox="../media/diagnostics/metric-drilling.png" alt-text="Metric drilling ":::
 
-The **Dimensions** setting is a list of dimensions for an incident, you can select other available dimension values for each one. After the dimension values are changed. The **Timestamp** setting lets view the current incident at different moments in time.
+The **Dimensions** setting is a list of dimensions for an incident, you can select other available dimension values for each one. After the dimension values are changed. The **Timestamp** setting lets you view the current incident at different moments in time.
 
 ### Select drilling options and choose a dimension
 
@@ -75,7 +75,7 @@ There are two types of drill down options: **Drill down** and **Horizontal compa
 > 1. For drill down, you can explore the data from different dimension values, except the currenly selected dimensions. 
 > 2. For horizontal comparison, you can explore the data from different dimension values, except the all-up dimensions.
 
-:::image type="content" source="../media/diagnostics/drill-down-dimension.png"  lightbox="../media/diagnostics/drill-down-dimension.png" alt-text="Drill down dimension":::
+:::image type="content" source="../media/diagnostics/drill-down-dimension.png" lightbox="../media/diagnostics/drill-down-dimension.png" alt-text="Drill down dimension":::
 
 ### Value comparison for different dimension values
 
@@ -91,7 +91,7 @@ The third section of the drill down tab is an histogram with the values and expe
 :::image type="content" source="../media/diagnostics/drill-down-table.png" alt-text="Drill down table" lightbox="../media/diagnostics/drill-down-table.png":::
 
 ### Raw value visualization
-The last part of drill down tab is a line chart of the raw values. With this chart provided, don't need to navigate to the metric page to view details.
+The last part of drill down tab is a line chart of the raw values. With this chart provided, you don't need to navigate to the metric page to view details.
 
 :::image type="content" source="../media/diagnostics/drill-down-line-chart.png" alt-text="Drill down line chart" lightbox="../media/diagnostics/drill-down-line-chart.png":::
 
@@ -104,7 +104,7 @@ When viewing an incident, you can use the **Similar time-series-clustering** tab
 
 Available dimensions are listed on the top the the tab, and you can make a selection to specify the series.
 
-:::image type="content" source="../media/diagnostics/series-group.png" lightbox="../media/diagnostics/series-group.png"alt-text="Series group":::
+:::image type="content" source="../media/diagnostics/series-group.png" lightbox="../media/diagnostics/series-group.png" alt-text="Series group":::
 
 ## Compare time series
 
@@ -113,12 +113,12 @@ Click on the **Compare tools** tab, and then click on the blue **+ Add** button.
 
 :::image type="content" source="../media/diagnostics/add-series.png" alt-text="Add series to compare" lightbox="../media/diagnostics/add-series.png":::
 
-Select a series from your data feed. You can choose the same granularity or a different one. Select the target dimensions and load the series trend, then click **Ok** to compare it with a previous series. The series will be put together in one visualization. You can continue to add more series for comparison and get further insights. Click the drop down menu at the top of the **Compare tools** tab to compare the time series data over a period of time, shifted.  
+Select a series from your data feed. You can choose the same granularity or a different one. Select the target dimensions and load the series trend, then click **Ok** to compare it with a previous series. The series will be put together in one visualization. You can continue to add more series for comparison and get further insights. Click the drop down menu at the top of the **Compare tools** tab to compare the time series data over a time-shifted period.  
 
 > [!Warning]
-> To enable a shifted comparison, the granularity of your data must support it. For example, if your data is weekly and you use the **Day over day** comparison, you will get no results. In this example, you would use the **Month over month** comparison instead.
+> To make a comparison, time series data analysis may require shifts in data points so the granularity of your data must support it. For example, if your data is weekly and you use the **Day over day** comparison, you will get no results. In this example, you would use the **Month over month** comparison instead.
 
-After selecting a shifted comparison, you can select whether you want to compare the data values, the delta values, or the percentage delta.
+After selecting a time-shifted comparison, you can select whether you want to compare the data values, the delta values, or the percentage delta.
 
 > [!Note]
 > * **Data value** is the raw data value.

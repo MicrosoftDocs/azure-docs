@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 07/27/2020
+ms.date: 01/25/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -56,7 +56,7 @@ To confirm that this is the issue, first test that the Pass-through Authenticati
 
 1. Create a test account.  
 2. Import the PowerShell module on the agent machine:
- 
+
  ```powershell
  Import-Module "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\PassthroughAuthPSModule\PassthroughAuthPSModule.psd1"
  ```
@@ -67,7 +67,7 @@ To confirm that this is the issue, first test that the Pass-through Authenticati
  ``` 
 4. When you are prompted to enter credentials, enter the same username and password that are used to sign in to (https://login.microsoftonline.com).
 
-If you get the same username/password error, this means that the Pass-through Authentication agent is working correctly and the issue may be that the on-premises UPN is non-routable. To learn more, see [Configuring Alternate Login ID]( /windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More).
+If you get the same username/password error, this means that the Pass-through Authentication agent is working correctly and the issue may be that the on-premises UPN is non-routable. To learn more, see [Configuring Alternate Login ID](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
 
 > [!IMPORTANT]
 > If the Azure AD Connect server isn't domain joined, a requirement mentioned in [Azure AD Connect: Prerequisites](./how-to-connect-install-prerequisites.md#installation-prerequisites), the invalid username/password issue occurs.
@@ -91,6 +91,7 @@ Navigate to **Azure Active Directory** -> **Sign-ins** on the [Azure Active Dire
 | 80007 | Authentication Agent unable to connect to Active Directory. | Check if your Active Directory is reachable from the Authentication Agent.
 | 80010 | Authentication Agent unable to decrypt password. | If the problem is consistently reproducible, install and register a new Authentication Agent. And uninstall the current one. 
 | 80011 | Authentication Agent unable to retrieve decryption key. | If the problem is consistently reproducible, install and register a new Authentication Agent. And uninstall the current one.
+| 80014 | Validation request responded after maximum elapsed time exceeded. | Authentication agent timed out. Open a support ticket with the error code, correlation ID, and timestamp to get more details on this error
 
 >[!IMPORTANT]
 >Pass-through Authentication Agents authenticate Azure AD users by validating their usernames and passwords against Active Directory by calling the [Win32 LogonUser API](/windows/win32/api/winbase/nf-winbase-logonusera). As a result, if you have set the "Logon To" setting in Active Directory to limit workstation logon access, you will have to add servers hosting Pass-through Authentication Agents to the list of "Logon To" servers as well. Failing to do this will block your users from signing into Azure AD.
@@ -151,14 +152,16 @@ For errors related to the Authentication Agent, open up the Event Viewer applica
 
 For detailed analytics, enable the "Session" log (right-click inside the Event Viewer application to find this option). Don't run the Authentication Agent with this log enabled during normal operations; use only for troubleshooting. The log contents are only visible after the log is disabled again.
 
+
+
 ### Detailed trace logs
 
 To troubleshoot user sign-in failures, look for trace logs at **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\\**. These logs include reasons why a specific user sign-in failed using the Pass-through Authentication feature. These errors are also mapped to the sign-in failure reasons shown in the preceding sign-in failure reasons table. Following is an example log entry:
 
 ```
-	AzureADConnectAuthenticationAgentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.
-	    ThreadId=5
-	    DateTime=xxxx-xx-xxTxx:xx:xx.xxxxxxZ
+    AzureADConnectAuthenticationAgentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.
+        ThreadId=5
+        DateTime=xxxx-xx-xxTxx:xx:xx.xxxxxxZ
 ```
 
 You can get descriptive details of the error ('1328' in the preceding example) by opening up the command prompt and running the following command (Note: Replace '1328' with the actual error number that you see in your logs):

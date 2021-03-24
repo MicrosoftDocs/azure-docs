@@ -12,7 +12,6 @@ ms.date: 04/23/2019
 
 When you enable monitoring, you might experience issues that prevent data collection.
 This article lists all known issues and provides troubleshooting examples.
-If you come across an issue that's not listed here, you can contact us on [GitHub](https://github.com/Microsoft/ApplicationInsights-Home/issues).
 
 ## Known issues
 
@@ -49,6 +48,12 @@ You can use troubleshooting tools to see symptomatic behavior:
     0x0000000004d20000  0xb2000   C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Instrumentation64\Microsoft.ApplicationInsights.Extensions.Base_x64.dll
     ```
 
+### PowerShell Versions
+This product was written and tested using PowerShell v5.1.
+This module isn't compatible with PowerShell versions 6 or 7.
+We recommend using PowerShell v5.1 alongside newer versions. 
+For more information, see [Using PowerShell 7 side by side with PowerShell 5.1](/powershell/scripting/install/migrating-from-windows-powershell-51-to-powershell-7#using-powershell-7-side-by-side-with-windows-powershell-51).
+
 ### Conflict with IIS shared configuration
 
 If you have a cluster of web servers, you might be using a [shared configuration](/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
@@ -68,12 +73,10 @@ After you run the Enable command, complete these steps:
 ### IIS Nested Applications
 
 We don't instrument nested applications in IIS in version 1.0.
-We're tracking this issue [here](https://github.com/microsoft/ApplicationInsights-Home/issues/369).
 
 ### Advanced SDK Configuration isn't available.
 
 The SDK configuration isn't exposed to the end user in version 1.0.
-We're tracking this issue [here](https://github.com/microsoft/ApplicationInsights-Home/issues/375).
 
     
     
@@ -152,4 +155,3 @@ Review the [API reference](status-monitor-v2-api-reference.md) for a detailed de
 ## Next steps
 
 - Review the [API reference](status-monitor-v2-overview.md#powershell-api-reference) to learn about parameters you might have missed.
-- If you come across an issue that's not listed here, you can contact us on [GitHub](https://github.com/Microsoft/ApplicationInsights-Home/issues).

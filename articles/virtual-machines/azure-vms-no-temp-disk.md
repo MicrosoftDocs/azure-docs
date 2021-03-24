@@ -4,6 +4,7 @@ description: This article provides answers to frequently asked questions (FAQ) a
 author: brbell 
 ms.service: virtual-machines 
 ms.topic: conceptual 
+ms.subservice: sizes
 ms.author: brbell
 ms.reviewer: mimckitt
 ms.date: 06/15/2020 
@@ -11,9 +12,6 @@ ms.date: 06/15/2020
 
 # Azure VM sizes with no local temporary disk 
 This article provides answers to frequently asked questions (FAQ) about Azure VM sizes that do not have a local temporary disk (i.e. no local temp disk). For more information on these VM sizes, see [Specifications for Dv4 and Dsv4-series (General Purpose Workloads)](dv4-dsv4-series.md) or [Specifications for Ev4 and Esv4-series (Memory Optimized Workloads)](ev4-esv4-series.md).
-
-> [!IMPORTANT]
-> Dv4, Dsv4, Ev4 and Esv4-series VM sizes are now in Public Preview. To sign up for Public Preview, fill out this [Form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRURE1ZSkdDUzg1VzJDN0cwWUlKTkcyUlo5Mi4u). 
 
 ## What does no local temp disk mean? 
 Traditionally, we have had VM sizes (e.g. Standard_D2s_v3, Standard_E48_v3) that include a small local disk (i.e. a D: Drive). Now with these new VM sizes, that small local disk no longer exists; however, you can still attach Standard HDD, Premium SSD or Ultra SSD.
@@ -38,8 +36,22 @@ No. The only combinations allowed for resizing are:
 1. VM (with local temp disk) -> VM (with local temp disk); and 
 2. VM (with no local temp disk) -> VM (with no local temp disk). 
 
+If interested in a work around, please see next question.
+
 > [!NOTE]
 > If an image depends on the resource disk, or a pagefile or swapfile exists on the local temp disk, the diskless images will not work—instead, use the ‘with disk’ alternative. 
+
+## How do I migrate from a VM size with local temp disk to a VM size with no local temp disk?  
+You can migrate by following these steps: 
+
+1. Connect to your Virtual Machine that has a local temporary disk (for example, a D: Drive) as a local admin.
+2. Follow the guidelines on the "Temporarily move pagefile.sys to C drive" section of [Use the D: drive as a data drive on a Windows VM](./windows/change-drive-letter.md) to move the page file from the local temporary disk (D: drive) to the C: drive.
+
+   > [!NOTE]
+   > Follow the guidelines on the "Temporarily move pagefile.sys to C drive" section of Use the D: drive as a data drive on a Windows VM to move page file from the local temporary disk (D: drive) to C: drive. **Deviation from the steps outlined will lead to the error message - "Unable to resize the VM since changing from resource disk to non-resource disk VM size and vice-versa is not allowed.**
+
+3. Take a snapshot of the VM by following the steps outlined in [Create a snapshot using the portal or Azure CLI](./linux/snapshot-copy-managed-disk.md). 
+4. Use snapshot to create a new diskless VM (such as, Dv4, Dsv4, Ev4, Esv4 series) by following the steps outlined in [Create a virtual machine from a snapshot with CLI](/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot). 
 
 ## Do these VM sizes support both Linux and Windows Operating Systems (OS)?
 Yes.

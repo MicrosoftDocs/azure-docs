@@ -24,11 +24,16 @@ For example, you can configure a service to back up its data to protect against 
 - To trigger a restore, the _Fault Analysis Service (FAS)_ must be enabled for the cluster.
 - The _Backup Restore Service (BRS)_ created the backup.
 - The restore can only be triggered at a partition.
-- Install Microsoft.ServiceFabric.Powershell.Http Module [In Preview] for making configuration calls.
+- Install Microsoft.ServiceFabric.Powershell.Http Module (Preview) for making configuration calls.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
+
+> [!NOTE]
+> If your PowerShellGet version is less than 1.6.0, you'll need to update to add support for the *-AllowPrerelease* flag:
+>
+> `Install-Module -Name PowerShellGet -Force`
 
 - Make sure that Cluster is connected using the `Connect-SFCluster` command before making any configuration request using Microsoft.ServiceFabric.Powershell.Http Module.
 
@@ -186,6 +191,10 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 You can track the progress of a restore with TrackRestoreProgress.
 
+> [!NOTE]
+> When using Powershell to restore partition, if backuplocation has '$', escape it using '~'
+>
+
 ### Using Service Fabric Explorer
 You can trigger a restore from Service Fabric Explorer. Make sure Advanced Mode has been enabled in Service Fabric Explorer settings.
 1. Select the desired partitions and click on Actions. 
@@ -246,6 +255,10 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 ```
 
 You can track the restore progress by using TrackRestoreProgress.
+
+> [!NOTE]
+> When using Powershell to restore partition, if backuplocation has '$', escape it using '~'
+>
 
 ## Track restore progress
 

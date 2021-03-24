@@ -1,16 +1,20 @@
 ---
 title: Import and export - Azure Database for MySQL
 description: This article explains common ways to import and export databases in Azure Database for MySQL, by using tools such as MySQL Workbench.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
+ms.subservice: migration-guide
 ms.topic: conceptual
-ms.date: 9/22/2020
+ms.date: 10/30/2020
 ---
 
 # Migrate your MySQL database by using import and export
 [!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
 This article explains two common approaches to importing and exporting data to an Azure Database for MySQL server by using MySQL Workbench.
+
+For detailed and comprehensive migration guidance, see the [Migration Guide resources](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide). For other migration scenarios, see the [Database Migration Guide](https://datamigration.microsoft.com/). 
+
 
 ## Before you begin
 To step through this how-to guide, you need:
@@ -33,7 +37,7 @@ Add the connection information to MySQL Workbench.
 > [!TIP]
 > For scenarios where you want to dump and restore the entire database, you should use [dump and restore](concepts-migrate-dump-restore.md) approach instead.
 
-Use MySQL tools to import and export databases into Azure MySQL Database in the following scenarios.
+Use MySQL tools to import and export databases into Azure MySQL Database in the following scenarios. For other tools, see page 22 of the [MySQL to Azure Database migration guide](https://github.com/Azure/azure-mysql/blob/master/MigrationGuide/MySQL%20Migration%20Guide_v1.1.pdf). 
 
 - When you need to selectively choose a few tables to import from an existing MySQL database into Azure MySQL Database, it's best to use the import and export technique.  By doing so, you can omit any unneeded tables from the migration to save time and resources. For example, use the `--include-tables` or `--exclude-tables` switch with [mysqlpump](https://dev.mysql.com/doc/refman/5.7/en/mysqlpump.html#option_mysqlpump_include-tables) and the `--tables` switch with [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#option_mysqldump_tables).
 - When you're moving the database objects other than tables, explicitly create those objects. Include constraints (primary key, foreign key, indexes), views, functions, procedures, triggers, and any other database objects that you want to migrate.
@@ -110,4 +114,4 @@ You can use the **Data Import** tab to import or restore exported data from the 
 
 ## Next steps
 - As another migration approach, read [Migrate your MySQL database using dump and restore in Azure Database for MySQL](concepts-migrate-dump-restore.md).
-- For more information about migrating databases to Azure Database for MySQL, see the [Database Migration Guide](https://aka.ms/datamigration).
+- For more information about migrating databases to Azure Database for MySQL, see the [Database Migration Guide](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide).

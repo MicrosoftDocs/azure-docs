@@ -1,9 +1,8 @@
 ---
 title: Power BI output from Azure Stream Analytics
 description: This article describes how to output data from Azure Stream Analytics to Power BI.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
@@ -39,11 +38,14 @@ Azure Stream Analytics creates a Power BI dataset and table schema for the user 
 
 Power BI uses the first-in, first-out (FIFO) retention policy. Data will collect in a table until it hits 200,000 rows.
 
+> [!NOTE]
+> We do not recommend using multiple outputs to write to the same dataset because it can cause several issues. Each output tries to create the Power BI dataset independently which can result in multiple datasets with the same name. Additionally, if the outputs don't have consistent schemas, the dataset changes the schema on each write, which leads to too many schema change requests. Even if these issues are avoided, multiple outputs will be less performant than a single merged output.
+
 ### Convert a data type from Stream Analytics to Power BI
 
 Azure Stream Analytics updates the data model dynamically at runtime if the output schema changes. Column name changes, column type changes, and the addition or removal of columns are all tracked.
 
-This table covers the data type conversions from [Stream Analytics data types](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics) to Power BI [Entity Data Model (EDM) types](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model), if a Power BI dataset and table don't exist.
+This table covers the data type conversions from [Stream Analytics data types](/stream-analytics-query/data-types-azure-stream-analytics) to Power BI [Entity Data Model (EDM) types](/dotnet/framework/data/adonet/entity-data-model), if a Power BI dataset and table don't exist.
 
 From Stream Analytics | To Power BI
 -----|-----
@@ -68,13 +70,9 @@ Datetime | String | String |  Datetime | String
 
 ## Output batch size
 
-For output batch size, see [Power BI Rest API limits](https://msdn.microsoft.com/library/dn950053.aspx).
+For output batch size, see [Power BI Rest API limits](/power-bi/developer/automation/api-rest-api-limitations).
 
 ## Next steps
 
+* [Use Managed Identity to authenticate your Azure Stream Analytics job to Power BI (preview)](powerbi-output-managed-identity.md)
 * [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)
-* [Quickstart: Create an Azure Stream Analytics job using the Azure CLI](quick-create-azure-cli.md)
-* [Quickstart: Create an Azure Stream Analytics job by using an ARM template](quick-create-azure-resource-manager.md)
-* [Quickstart: Create a Stream Analytics job using Azure PowerShell](stream-analytics-quick-create-powershell.md)
-* [Quickstart: Create an Azure Stream Analytics job by using Visual Studio](stream-analytics-quick-create-vs.md)
-* [Quickstart: Create an Azure Stream Analytics job in Visual Studio Code](quick-create-visual-studio-code.md)

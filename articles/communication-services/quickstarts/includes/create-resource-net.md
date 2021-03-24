@@ -2,7 +2,7 @@
 author: mikben
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 9/1/2020
+ms.date: 03/10/2021
 ms.author: mikben
 ---
 
@@ -10,7 +10,7 @@ ms.author: mikben
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
 - The latest version [.NET Core client library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
-- Get the latest version of the [.NET Identity client library](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet).
+- Get the latest version of the [.NET Identity client library](/dotnet/api/azure.identity).
 - Get the latest version of the [.NET Management client library](../../concepts/sdk-options.md).
 
 ## Installing the client library
@@ -39,13 +39,13 @@ To communicate with Azure Communication Services, you must first authenticate yo
 
 ### Option 1: Managed Identity
 
-If your code is running as a service in Azure, the easiest way to authenticate is to acquire a managed identity from Azure. Learn more about [managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+If your code is running as a service in Azure, the easiest way to authenticate is to acquire a managed identity from Azure. Learn more about [managed identities](../../../active-directory/managed-identities-azure-resources/overview.md).
 
-[Azure services that support Managed Identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)
+[Azure services that support Managed Identities](../../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)
 
-[How to use managed identities for App Service and Azure Functions](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet)
+[How to use managed identities for App Service and Azure Functions](../../../app-service/overview-managed-identity.md?tabs=dotnet)
 
-#### [System-assigned Managed Identity](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity)
+#### [System-assigned Managed Identity](../../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity)
 
 ```csharp
 using Azure.Identity;
@@ -57,7 +57,7 @@ var subscriptionId = "AZURE_SUBSCRIPTION_ID";
 var acsClient = new CommunicationManagementClient(subscriptionId, new ManagedIdentityCredential());
 ```
 
-#### [User-assigned Managed Identity](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-user-assigned-identity)
+#### [User-assigned Managed Identity](../../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-user-assigned-identity)
 
 ClientId of the managed identity that you created must be passed to the `ManagedIdentityCredential` explicitly.
 
@@ -74,7 +74,7 @@ var acsClient = new CommunicationManagementClient(subscriptionId, managedIdentit
 
 ### Option 2: Service Principal
 
-Instead of using a managed identity, you may want to authenticate to Azure using a service principal that you manage yourself. Learn more using documentation on [creating and managing a service principal in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+Instead of using a managed identity, you may want to authenticate to Azure using a service principal that you manage yourself. Learn more using documentation on [creating and managing a service principal in Azure Active Directory](../../../active-directory/develop/howto-create-service-principal-portal.md).
 
 After you've created your service principal, you'll need to collect the following information about it from the Azure portal:
 
@@ -116,7 +116,7 @@ Now that you're authenticated, you can use your management client to make API ca
 
 For each of the following examples, we'll be assigning our Communication Services resources to an existing resource group.
 
-If you need to create a resource group, you can do so by using the [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) or the [Azure Resource Manager client library](https://github.com/Azure/azure-sdk-for-net/blob/master/doc/mgmt_preview_quickstart.md).
+If you need to create a resource group, you can do so by using the [Azure portal](../../../azure-resource-manager/management/manage-resource-groups-portal.md) or the [Azure Resource Manager client library](https://github.com/Azure/azure-sdk-for-net/blob/master/doc/mgmt_preview_quickstart.md).
 
 ### Create and manage a Communication Services resource
 

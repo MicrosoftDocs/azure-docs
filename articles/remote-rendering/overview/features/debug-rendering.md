@@ -23,9 +23,9 @@ The debug rendering API provides a range of global options to alter server-side 
 The following code enables these debugging effects:
 
 ```cs
-void EnableDebugRenderingEffects(AzureSession session, bool highlight)
+void EnableDebugRenderingEffects(RenderingSession session, bool highlight)
 {
-    DebugRenderingSettings settings = session.Actions.DebugRenderingSettings;
+    DebugRenderingSettings settings = session.Connection.DebugRenderingSettings;
 
     // Enable frame counter text overlay on the server side rendering
     settings.RenderFrameCount = true;
@@ -39,9 +39,9 @@ void EnableDebugRenderingEffects(AzureSession session, bool highlight)
 ```
 
 ```cpp
-void EnableDebugRenderingEffects(ApiHandle<AzureSession> session, bool highlight)
+void EnableDebugRenderingEffects(ApiHandle<RenderingSession> session, bool highlight)
 {
-    ApiHandle<DebugRenderingSettings> settings = session->Actions()->GetDebugRenderingSettings();
+    ApiHandle<DebugRenderingSettings> settings = session->Connection()->GetDebugRenderingSettings();
 
     // Enable frame counter text overlay on the server side rendering
     settings->SetRenderFrameCount(true);
@@ -72,7 +72,7 @@ However, the provided effects do no give any detailed introspection into service
 
 ## API documentation
 
-* [C++ RemoteManager::DebugRenderingSettings()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#debugrenderingsettings)
+* [C++ RenderingConnection::DebugRenderingSettings()](/cpp/api/remote-rendering/renderingconnection#debugrenderingsettings)
 
 ## Next steps
 

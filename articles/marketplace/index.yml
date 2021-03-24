@@ -8,8 +8,8 @@ metadata:
   ms.service: marketplace 
   ms.subservice: partnercenter-marketplace-publisher
   ms.topic: landing-page
-  author: keferna
-  ms.author: keferna
+  author: mingshen-ms 
+  ms.author: mingshen
   ms.date: 09/02/2020
 
 landingContent:
@@ -25,8 +25,6 @@ landingContent:
         url: ./policies-terms.md
       - text: Microsoft commercial marketplace FAQs
         url: ./marketplace-faq-publisher-guide.md
-      - text: Release notes
-        url: ./marketplace-roadmap.md
       - text: Microsoft Publisher Agreement
         url: https://go.microsoft.com/fwlink/?LinkID=699560
 
@@ -44,12 +42,12 @@ landingContent:
       links:
       - text: Customer leads from your marketplace offer
         url: ./partner-center-portal/commercial-marketplace-get-customer-leads.md
-      - text: Co-sell option in Partner Center
-        url: ./partner-center-portal/commercial-marketplace-co-sell.md
+      - text: Co-sell option in the commercial marketplace
+        url: commercial-marketplace-co-sell.md
       - text: Co-sell partner engagement
         url: ./marketplace-co-sell.md
       - text: Make solutions available in Microsoft AppSource and within Office
-        url: https://docs.microsoft.com/office/dev/store/submit-to-appsource-via-partner-center
+        url: /office/dev/store/submit-to-appsource-via-partner-center
       - text: Participate in the Azure Marketplace and AppSource community forum
         url: https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/bd-p/2222
       - text: Register to join webinars for discussion or watch later on demand
@@ -60,15 +58,15 @@ landingContent:
     - linkListType: how-to-guide
       links:
       - text: Summary dashboard
-        url: ./partner-center-portal/summary-dashboard.md
+        url: ./summary-dashboard.md
       - text: Marketplace Insights dashboard
-        url: ./partner-center-portal/insights-dashboard.md
+        url: ./insights-dashboard.md
       - text: Usage dashboard
-        url: ./partner-center-portal/usage-dashboard.md
+        url: ./usage-dashboard.md
       - text: Customer dashboard
-        url: ./partner-center-portal/customer-dashboard.md
+        url: ./customer-dashboard.md
       - text: Orders dashboard
-        url: ./partner-center-portal/orders-dashboard.md
+        url: ./orders-dashboard.md
       - text: Downloads dashboard
         url: ./partner-center-portal/downloads-dashboard.md
       - text: Ratings and reviews dashboard
@@ -83,7 +81,7 @@ landingContent:
       - text: Virtual machines offers
         url: ./marketplace-virtual-machines.md
       - text: Azure application offers
-        url: ./partner-center-portal/create-new-azure-apps-offer.md
+        url: ./create-new-azure-apps-offer.md
       - text: Dynamics 365 for Customer Engagement & PowerApps offers
         url: ./partner-center-portal/create-new-customer-engagement-offer.md
       - text: Dynamics 365 Business Central offers
@@ -91,7 +89,7 @@ landingContent:
       - text: Dynamics 365 for Operations offers
         url: ./partner-center-portal/create-new-operations-offer.md
       - text: More offer types
-        url: ./cloud-partner-portal/cpp-marketplace-offers.md
+        url: ./publisher-guide-by-offer-type.md
 
   - title: Get paid
     linkLists:
@@ -106,7 +104,7 @@ landingContent:
       - text: Tax details
         url: /partner-center/tax-details-marketplace?context=/azure/marketplace/context/context
       - text: Commercial marketplace billing
-        url: ./partner-center-portal/billing-details.md
+        url: ./marketplace-commercial-transaction-capabilities-and-considerations.md
 
   - title: API reference
     linkLists:
@@ -134,10 +132,8 @@ landingContent:
     - linkListType: get-started
       links:
       - text: Support options
-        url: ./partner-center-portal/support.md
+        url: ./support.md
       - text: Troubleshoot authentication errors
         url: ./cloud-partner-portal-api-troubleshooting-authentication-errors.md
       - text: Geographic availability and currencies
         url: ./marketplace-geo-availability-currencies.md
-
-

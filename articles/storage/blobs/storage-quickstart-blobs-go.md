@@ -104,7 +104,7 @@ The first thing to do is to create the references to the ContainerURL and BlobUR
 Once you have the ContainerURL, you can instantiate the **BlobURL** object that points to a blob, and perform operations such as upload, download, and copy.
 
 > [!IMPORTANT]
-> Container names must be lowercase. See [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) for more information about container and blob names.
+> Container names must be lowercase. See [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) for more information about container and blob names.
 
 In this section, you create a new container. The container is called **quickstartblobs-[random string]**. 
 

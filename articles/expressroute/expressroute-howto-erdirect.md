@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 09/28/2020
+ms.date: 12/14/2020
 ms.author: duau
 
 ---
@@ -14,6 +14,24 @@ ms.author: duau
 # How to configure ExpressRoute Direct
 
 ExpressRoute Direct gives you the ability to directly connect to Microsoft's global network through peering locations strategically distributed across the world. For more information, see [About ExpressRoute Direct](expressroute-erdirect-about.md).
+
+## Before you begin
+
+Before using ExpressRoute Direct, you must first enroll your subscription. Before using ExpressRoute Direct, you must first enroll your subscription. To enroll, please do the following via Azure PowerShell:
+1.  Sign in to Azure and select the subscription you wish to enroll.
+
+    ```azurepowershell-interactive
+    Connect-AzAccount 
+
+    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
+    ```
+
+2. Register your subscription for Public Preview using the following command:
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -FeatureName AllowExpressRoutePorts -ProviderNamespace Microsoft.Network
+    ```
+
+Once enrolled, verify that the **Microsoft.Network** resource provider is registered to your subscription. Registering a resource provider configures your subscription to work with the resource provider.
 
 ## <a name="resources"></a>Create the resource
 
@@ -163,8 +181,11 @@ Reference the recently created ExpressRoute Direct resource, input a customer na
 
    ```powershell
    Written Letter of Authorization To: C:\Users\SampleUser\Downloads\LOA.pdf
+   ```
 
-  This process should be used to conduct a Layer 1 test, ensuring that each cross-connection is properly patched into each router for primary and secondary.
+## <a name="state"></a>Change Admin State of links
+   
+This process should be used to conduct a Layer 1 test, ensuring that each cross-connection is properly patched into each router for primary and secondary.
 1. Get ExpressRoute Direct details.
 
    ```powershell

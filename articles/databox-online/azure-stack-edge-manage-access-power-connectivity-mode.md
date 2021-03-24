@@ -49,7 +49,7 @@ The reset workflow does not require the user to recall the old password and is u
 
 2. Enter the new password and then confirm it. The supplied password must be between 8 and 16 characters. The password must have 3 of the following characters: uppercase, lowercase, numeric, and special characters. Select **Reset**.
 
-    ![Reset password](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
+    ![Reset password 2](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
 
 ## Manage resource access
 
@@ -64,7 +64,7 @@ When generating the activation key for the Azure Stack Edge Pro device, or perfo
 
 You should have a `User` access on Active Directory tenant as you need to be able to `Read all directory objects`. You can't be a Guest user as they don't have permissions to `Read all directory objects`. If you're a guest, then the operations such as generation of an activation key, creation of a share on your Azure Stack Edge Pro device, creation of a user, configuration of Edge compute role, reset device password will all fail.
 
-For more information on how to provide access to users to Microsoft Graph API, see [Microsoft Graph permissions reference](https://docs.microsoft.com/graph/permissions-reference).
+For more information on how to provide access to users to Microsoft Graph API, see [Microsoft Graph permissions reference](/graph/permissions-reference).
 
 ### Register resource providers
 
@@ -99,7 +99,7 @@ Apart from the default fully connected mode, your device can also run in partial
 
 - **Fully connected** - This is the normal default mode in which the device operates. Both the cloud upload and download of data is enabled in this mode. You can use the Azure portal or the local web UI to manage the device.
 
-- **Partially disconnected** – In this mode, the device cannot upload or download any share data however can be managed via the Azure portal.
+- **Partially connected** – In this mode, the device cannot upload or download any share data however can be managed via the Azure portal.
 
     This mode is typically used when on a metered satellite network and the goal is to minimize network bandwidth consumption. Minimal network consumption may still occur for device monitoring operations.
 

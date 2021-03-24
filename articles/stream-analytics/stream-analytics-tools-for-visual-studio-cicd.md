@@ -3,7 +3,7 @@ title: Use the Azure Stream Analytics CI/CD NuGet package
 description: This article describes how to use Azure Stream Analytics CI/CD NuGet package to set up a continuous integration and deployment process.
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
+
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/15/2019
@@ -11,13 +11,13 @@ ms.date: 05/15/2019
 # Use the Azure Stream Analytics CI/CD NuGet package for integration and development 
 This article describes how to use the Azure Stream Analytics CI/CD NuGet package to set up a continuous integration and deployment process.
 
-Use version 2.3.0000.0 or above of [Stream Analytics tools for Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio) to get support for MSBuild.
+Use version 2.3.0000.0 or above of [Stream Analytics tools for Visual Studio](./stream-analytics-quick-create-vs.md) to get support for MSBuild.
 
 A NuGet package is available: [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). It provides the MSBuild, local run, and deployment tools that support the continuous integration and deployment process of [Stream Analytics Visual Studio projects](stream-analytics-vs-tools.md). 
 > [!NOTE]
 > The NuGet package can be used only with the 2.3.0000.0 or above version of Stream Analytics Tools for Visual Studio. If you have projects created in previous versions of Visual Studio tools, just open them with the 2.3.0000.0 or above version and save. Then the new capabilities are enabled. 
 
-For more information, see [Stream Analytics tools for Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
+For more information, see [Stream Analytics tools for Visual Studio](./stream-analytics-quick-create-vs.md).
 
 ## MSBuild
 Like the standard Visual Studio MSBuild experience, to build a project you have two options. You can right-click the project, and then choose **Build**. You also can use **MSBuild** in the NuGet package from the command line.
@@ -46,7 +46,7 @@ The default parameters in the parameters.json file are from the settings in your
       "value": null
     },
 ```
-Learn more about how to [deploy with a Resource Manager template file and Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy). Learn more about how to [use an object as a parameter in a Resource Manager template](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
+Learn more about how to [deploy with a Resource Manager template file and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md). Learn more about how to [use an object as a parameter in a Resource Manager template](/azure/architecture/guide/azure-resource-manager/advanced-templates/objects-as-parameters).
 
 To use Managed Identity for Azure Data Lake Store Gen1 as output sink, you need to provide Access to the service principal using PowerShell before deploying to Azure. Learn more about how to [deploy ADLS Gen1 with Managed Identity with Resource Manager template](stream-analytics-managed-identities-adls.md#resource-manager-template-deployment).
 

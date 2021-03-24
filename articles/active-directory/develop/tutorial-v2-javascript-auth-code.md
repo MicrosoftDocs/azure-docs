@@ -1,7 +1,7 @@
 ---
-title: JavaScript single-page app tutorial - auth code flow | Azure
+title: "Tutorial: Create a JavaScript single-page app that uses auth code flow | Azure"
 titleSuffix: Microsoft identity platform
-description: How JavaScript SPA applications can use the auth code flow to call an API that requires access tokens by Azure Active Directory v2.0 endpoint
+description: In this tutorial, you create a JavaScript SPA that can sign in users and use the auth code flow to obtain an access token from the Microsoft identity platform and call the Microsoft Graph API.
 services: active-directory
 author: hahamil
 manager: CelesteDG
@@ -16,27 +16,31 @@ ms.custom: aaddev, devx-track-js
 
 # Tutorial: Sign in users and call the Microsoft Graph API from a JavaScript single-page app (SPA) using auth code flow
 
-This tutorial shows you how to create a JavaScript single-page application (SPA) that uses the Microsoft Authentication Library (MSAL) for JavaScript v2.0 to:
+In this tutorial, you build a JavaScript single-page application (SPA) that signs in users and calls Microsoft Graph by using the authorization code flow with PKCE. The SPA you build uses the Microsoft Authentication Library (MSAL) for JavaScript v2.0.
 
+In this tutorial:
 > [!div class="checklist"]
 > * Perform the OAuth 2.0 authorization code flow with PKCE
 > * Sign in personal Microsoft accounts as well as work and school accounts
 > * Acquire an access token
-> * Call Microsoft Graph or your own API that requires access tokens obtained from the Microsoft identity platform endpoint
+> * Call Microsoft Graph or your own API that requires access tokens obtained from the Microsoft identity platform
 
 MSAL.js 2.0 improves on MSAL.js 1.0 by supporting the authorization code flow in the browser instead of the implicit grant flow. MSAL.js 2.0 does **NOT** support the implicit flow.
 
-[!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
+## Prerequisites
+
+* [Node.js](https://nodejs.org/en/download/) for running a local webserver
+* [Visual Studio Code](https://code.visualstudio.com/download) or another code editor
 
 ## How the tutorial app works
 
 :::image type="content" source="media/tutorial-v2-javascript-auth-code/diagram-01-auth-code-flow.png" alt-text="Diagram showing the authorization code flow in a single-page application":::
 
-The application you create in this tutorial enables a JavaScript SPA to query the Microsoft Graph API by acquiring security tokens from the the Microsoft identity platform endpoint. In this scenario, after a user signs in, an access token is requested and added to HTTP requests in the authorization header. Token acquisition and renewal are handled by the Microsoft Authentication Library for JavaScript (MSAL.js).
+The application you create in this tutorial enables a JavaScript SPA to query the Microsoft Graph API by acquiring security tokens from the the Microsoft identity platform. In this scenario, after a user signs in, an access token is requested and added to HTTP requests in the authorization header. Token acquisition and renewal are handled by the Microsoft Authentication Library for JavaScript (MSAL.js).
 
 This tutorial uses the following library:
 
-[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) Microsoft Authentication Library for JavaScript v2.0 browser package
+[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) the Microsoft Authentication Library for JavaScript v2.0 browser package
 
 ## Get the completed code sample
 
@@ -47,11 +51,6 @@ Prefer to download this tutorial's completed sample project instead? To run the 
 Then, to configure the code sample before you execute it, skip to the [configuration step](#register-your-application).
 
 To continue with the tutorial and build the application yourself, move on to the next section, [Prerequisites](#prerequisites).
-
-## Prerequisites
-
-* [Node.js](https://nodejs.org/en/download/) for running a local webserver
-* [Visual Studio Code](https://code.visualstudio.com/download) or another code editor
 
 ## Create your project
 
@@ -347,7 +346,7 @@ Modify the values in the `graphConfig` section as described here:
 
 - `Enter_the_Graph_Endpoint_Here` is the instance of the Microsoft Graph API the application should communicate with.
   - For the **global** Microsoft Graph API endpoint, replace both instances of this string with `https://graph.microsoft.com`.
-  - For endpoints in **national** cloud deployments, see [National cloud deployments](https://docs.microsoft.com/graph/deployments) in the Microsoft Graph documentation.
+  - For endpoints in **national** cloud deployments, see [National cloud deployments](/graph/deployments) in the Microsoft Graph documentation.
 
 The `graphMeEndpoint` and `graphMailEndpoint` values in your *graphConfig.js* should be similar to the following if you're using the global endpoint:
 
@@ -356,7 +355,7 @@ graphMeEndpoint: "https://graph.microsoft.com/v1.0/me",
 graphMailEndpoint: "https://graph.microsoft.com/v1.0/me/messages"
 ```
 
-## Use Microsoft Authentication Library (MSAL) to sign in user
+## Use the Microsoft Authentication Library (MSAL) to sign in user
 
 ### Pop-up
 
@@ -546,19 +545,21 @@ When a user selects the **Sign In** button for the first time, the `signIn` meth
 
 At this point, a PKCE-protected authorization code is sent to the CORS-protected token endpoint and is exchanged for tokens. An ID token, access token, and refresh token are received by your application and processed by *msal.js*, and the information contained in the tokens is cached.
 
-The ID token contains basic information about the user, like their display name. If you plan to use any data provided by the ID token, your back-end server *must* validate it to guarantee the token was issued to a valid user for your application. The refresh token has a limited lifetime and expires after 24 hours. The refresh token can be used to silently acquire new access tokens.
+The ID token contains basic information about the user, like their display name. If you plan to use any data provided by the ID token, your back-end server *must* validate it to guarantee the token was issued to a valid user for your application.
+
+The access token has a limited lifetime and expires after 24 hours. The refresh token can be used to silently acquire new access tokens.
 
 The SPA you've created in this tutorial calls `acquireTokenSilent` and/or `acquireTokenPopup` to acquire an *access token* used to query the Microsoft Graph API for user profile info. If you need a sample that validates the ID token, see the [active-directory-javascript-singlepageapp-dotnet-webapi-v2](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) sample application on GitHub. The sample uses an ASP.NET web API for token validation.
 
 #### Get a user token interactively
 
-After their initial sign-in, your app shouldn't ask users to reauthenticate every time they need to access a protected resource (that is, to request a token). To prevent such reauthentication requests, call `acquireTokenSilent`. There are some situations, however, where you might need to force users to interact with the Microsoft identity platform endpoint. For example:
+After their initial sign-in, your app shouldn't ask users to reauthenticate every time they need to access a protected resource (that is, to request a token). To prevent such reauthentication requests, call `acquireTokenSilent`. There are some situations, however, where you might need to force users to interact with the Microsoft identity platform. For example:
 
 - Users need to re-enter their credentials because the password has expired.
 - Your application is requesting access to a resource and you need the user's consent.
 - Two-factor authentication is required.
 
-Calling `acquireTokenPopup` opens a pop-up window (or `acquireTokenRedirect` redirects users to the Microsoft identity platform endpoint). In that window, users need to interact by confirming their credentials, giving consent to the required resource, or completing the two-factor authentication.
+Calling `acquireTokenPopup` opens a pop-up window (or `acquireTokenRedirect` redirects users to the Microsoft identity platform). In that window, users need to interact by confirming their credentials, giving consent to the required resource, or completing the two-factor authentication.
 
 #### Get a user token silently
 
@@ -613,7 +614,7 @@ You've completed creation of the application and are now ready to launch the Nod
 
 ### Sign in to the application
 
-After the browser loads your *index.html* file, select **Sign In**. You're prompted to sign in with the Microsoft identity platform endpoint:
+After the browser loads your *index.html* file, select **Sign In**. You're prompted to sign in with the Microsoft identity platform:
 
 :::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-01-signin-dialog.png" alt-text="Web browser displaying sign-in dialog":::
 
@@ -645,14 +646,7 @@ If a back-end API doesn't require a scope, which isn't recommended, you can use 
 
 ## Next steps
 
-In this tutorial, you created a JavaScript single-page application (SPA) that uses the Microsoft Authentication Library (MSAL) for JavaScript v2.0 to:
+If you'd like to dive deeper into JavaScript single-page application development on the Microsoft identity platform, see our multi-part scenario series:
 
-> [!div class="checklist"]
-> * Perform the OAuth 2.0 authorization code flow with PKCE
-> * Sign in personal Microsoft accounts as well as work and school accounts
-> * Acquire an access token
-> * Call Microsoft Graph or your own API that requires access tokens obtained from the Microsoft identity platform endpoint
-
-To learn more about the authorization code flow, including the differences between the implicit and auth code flows, see [Microsoft identity platform and OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md).
-
-If you'd like to dive deeper into JavaScript single-page application development on the Microsoft identity platform, the multi-part [Scenario: Single-page application](scenario-spa-overview.md) series of articles can help you get started.
+> [!div class="nextstepaction"]
+> [Scenario: Single-page application](scenario-spa-overview.md)

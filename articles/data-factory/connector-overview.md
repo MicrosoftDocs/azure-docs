@@ -1,14 +1,11 @@
 ---
 title: Azure Data Factory connector overview 
 description: Learn the supported connectors in Data Factory.
-services: data-factory
 author: linda33wj
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 03/10/2021
 ms.author: jingwang
-ms.reviewer: craigg
 ---
 
 # Azure Data Factory connector overview

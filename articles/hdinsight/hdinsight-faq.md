@@ -4,7 +4,6 @@ description: Frequently asked questions about HDInsight
 keywords: frequently asked questions, faq
 author: Ramakoni1
 ms.author: ramakoni
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
@@ -19,7 +18,7 @@ This article provides answers to some of the most common questions about how to 
 
 ### How do I provision an HDInsight cluster?
 
-To review the HDInsight clusters types, and the provisioning methods, see [Set up clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kafka, and more](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).
+To review the HDInsight clusters types, and the provisioning methods, see [Set up clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kafka, and more](./hdinsight-hadoop-provision-linux-clusters.md).
 
 ### How do I delete an existing HDInsight cluster?
 
@@ -33,7 +32,7 @@ Try to leave at least 30 to 60 minutes between create and delete operations. Oth
 
 The appropriate number of cores and other configuration options depend on various factors.
 
-For more information, see [Capacity planning for HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-capacity-planning).
+For more information, see [Capacity planning for HDInsight clusters](./hdinsight-capacity-planning.md).
 
 ### What are the various types of nodes in an HDInsight cluster?
 
@@ -41,11 +40,11 @@ See [Resource types in Azure HDInsight clusters](hdinsight-virtual-network-archi
 
 ### What are the best practices for creating large HDInsight clusters?
 
-1. Recommend setting up HDInsight clusters with a [Custom Ambari DB](https://docs.microsoft.com/azure/hdinsight/hdinsight-custom-ambari-db) to improve the cluster scalability.
-2. Use [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) to create HDInsight clusters to take advantage of higher bandwidth and other performance characteristics of Azure Data Lake Storage Gen2.
+1. Recommend setting up HDInsight clusters with a [Custom Ambari DB](./hdinsight-custom-ambari-db.md) to improve the cluster scalability.
+2. Use [Azure Data Lake Storage Gen2](./hdinsight-hadoop-use-data-lake-storage-gen2.md) to create HDInsight clusters to take advantage of higher bandwidth and other performance characteristics of Azure Data Lake Storage Gen2.
 3. Headnodes should be sufficiently large to accommodate multiple master services running on these nodes.
 4. Some specific workloads such as Interactive Query will also need larger Zookeeper nodes. Please consider minimum of 8 core VMs.
-5. In the case of Hive and Spark, use [External Hive metastore](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-external-metadata-stores).
+5. In the case of Hive and Spark, use [External Hive metastore](./hdinsight-use-external-metadata-stores.md).
 
 ## Individual Components
 
@@ -53,11 +52,11 @@ See [Resource types in Azure HDInsight clusters](hdinsight-virtual-network-archi
 
 Yes. To install additional components or customize cluster configuration, use:
 
-- Scripts during or after creation. Scripts are invoked via [script action](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux). Script action is a configuration option you can use from the Azure portal, HDInsight Windows PowerShell cmdlets, or the HDInsight .NET SDK. This configuration option can be used from the Azure portal, HDInsight Windows PowerShell cmdlets, or the HDInsight .NET SDK.
+- Scripts during or after creation. Scripts are invoked via [script action](./hdinsight-hadoop-customize-cluster-linux.md). Script action is a configuration option you can use from the Azure portal, HDInsight Windows PowerShell cmdlets, or the HDInsight .NET SDK. This configuration option can be used from the Azure portal, HDInsight Windows PowerShell cmdlets, or the HDInsight .NET SDK.
 
 - [HDInsight Application Platform](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) to install applications.
 
-For a list of supported components see [What are the Apache Hadoop components and versions available with HDInsight?](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions)
+For a list of supported components see [What are the Apache Hadoop components and versions available with HDInsight?](./hdinsight-component-versioning.md)
 
 ### Can I upgrade the individual components that are pre-installed on the cluster?
 
@@ -74,11 +73,11 @@ No, it's not possible to run Apache Kafka and Apache Spark on the same HDInsight
 1. Open the Ambari Web UI at `https://CLUSTERNAME.azurehdinsight.net`, where CLUSTERNAME is the name of your cluster.
 2. In the upper-right corner, select admin | Settings. 
 
-   ![Ambari Settings](media/hdinsight-faq/ambari-settings.png)
+   :::image type="content" source="media/hdinsight-faq/ambari-settings.png" alt-text="Ambari Settings":::
 
 3. In the User Settings window, select the new timezone from the Timezone drop down, and then click Save.
 
-   ![Ambari User Settings](media/hdinsight-faq/ambari-user-settings.png)
+   :::image type="content" source="media/hdinsight-faq/ambari-user-settings.png" alt-text="Ambari User Settings":::
 
 ## Metastore
 
@@ -124,11 +123,11 @@ If you block ports 22 and port 23, you won't have SSH access to the cluster. The
 
 For more information, see the following documents:
 
-- [Controlling Network traffic](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment#networktraffic)
+- [Ports used by Apache Hadoop services on HDInsight](./hdinsight-hadoop-port-settings-for-services.md)
 
 - [Secure incoming traffic to HDInsight clusters in a virtual network with private endpoint](https://azure.microsoft.com/blog/secure-incoming-traffic-to-hdinsight-clusters-in-a-vnet-with-private-endpoint/)
 
-- [HDInsight management IP addresses](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses)
+- [HDInsight management IP addresses](./hdinsight-management-ip-addresses.md)
 
 ### Can I deploy an additional virtual machine within the same subnet as an HDInsight cluster?
 
@@ -181,7 +180,7 @@ Using a certificate issued by a certificate authority is recommended. But using 
 
 ### How can I pull login activity shown in Ranger?
 
-For auditing requirements, Microsoft recommends enabling Azure Monitor logs as described in [Use Azure Monitor logs to monitor HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial).
+For auditing requirements, Microsoft recommends enabling Azure Monitor logs as described in [Use Azure Monitor logs to monitor HDInsight clusters](./hdinsight-hadoop-oms-log-analytics-tutorial.md).
 
 ### Can I disable `Clamscan` on my cluster?
 
@@ -193,7 +192,8 @@ In scenarios in which you must control the schedule, you can use the following s
 
 1. Disable automatic execution using the following command:
    
-   `/usr/local/vbin/azsecd config -s clamav -d Disabled`
+  sudo `usr/local/bin/azsecd config -s clamav -d Disabled`
+  sudo service azsecd restart 
    
 1. Add a Cron job that runs the following command as root:
    
@@ -231,7 +231,7 @@ Do one of the following actions:
 
 ### How can I set up auditing for my blob storage account?
 
-To audit blob storage accounts, configure monitoring using the procedure at [Monitor a storage account in the Azure portal](../storage/common/storage-monitor-storage-account.md). An HDFS-audit log provides only auditing information for the local HDFS filesystem only (hdfs://mycluster).  It doesn't include operations that are done on remote storage.
+To audit blob storage accounts, configure monitoring using the procedure at [Monitor a storage account in the Azure portal](../storage/common/manage-storage-analytics-logs.md). An HDFS-audit log provides only auditing information for the local HDFS filesystem only (hdfs://mycluster).  It doesn't include operations that are done on remote storage.
 
 ### How can I transfer files between a blob container and an HDInsight head node?
 
@@ -254,7 +254,7 @@ Currently, no Ranger plugin exists for blob storage and Azure Data Lake Storage 
 You can assign data access policies to your users' security groups by using the Azure Storage Explorer. For more information, see:
 
 - [How do I set permissions for Azure AD users to query data in Data Lake Storage Gen2 by using Hive or other services?](hdinsight-hadoop-use-data-lake-storage-gen2.md#how-do-i-set-permissions-for-azure-ad-users-to-query-data-in-data-lake-storage-gen2-by-using-hive-or-other-services)
-- [Set file and directory level permissions using Azure Storage Explorer with Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)
+- [Set file and directory level permissions using Azure Storage Explorer with Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-explorer.md)
 
 ### Can I increase HDFS storage on a cluster without increasing the disk size of worker nodes?
 
@@ -329,12 +329,12 @@ HDInsight cluster billing starts once a cluster is created and stops when the cl
 
 ### How do I cancel my subscription?
 
-For information about how to cancel your subscription, see [Cancel your Azure subscription](https://docs.microsoft.com/azure/billing/billing-how-to-cancel-azure-subscription).
+For information about how to cancel your subscription, see [Cancel your Azure subscription](../cost-management-billing/manage/cancel-azure-subscription.md).
 
 ### For pay-as-you-go subscriptions, what happens after I cancel my subscription?
 
 For information about your subscription after it's canceled, see
-[What happens after I cancel my subscription?](/azure/billing/billing-how-to-cancel-azure-subscription)
+[What happens after I cancel my subscription?](../cost-management-billing/manage/cancel-azure-subscription.md)
 
 ## Hive
 

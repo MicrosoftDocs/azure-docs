@@ -2,12 +2,12 @@
 title: Migrate Microsoft Translator Hub workspace and projects? - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: This article explains how to migrate your Hub workspace and projects to Azure Cognitive Services Custom Translator.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 05/26/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to understand how to migrate from Microsoft Translator Hub to Custom Translator.
 ---
@@ -23,7 +23,7 @@ These actions are performed during migration:
 * At any point, the BLEU score migrated from the Hub training can be found in the TrainingDetails page of the model in the "Bleu score in MT Hub" heading.
 
 > [!Note] 
-> For a training to succeed, Custom Translator requires a minimum of 10,000 unique extracted sentences. Custom Translator can't conduct a training with fewer than the [suggested minimum](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment#suggested-minimum-number-of-sentences).
+> For a training to succeed, Custom Translator requires a minimum of 10,000 unique extracted sentences. Custom Translator can't conduct a training with fewer than the [suggested minimum](./sentence-alignment.md#suggested-minimum-number-of-sentences).
 
 ## Find Custom Translator Workspace ID
 
@@ -51,7 +51,7 @@ To migrate a project:
 
 3. Click "Migrate" link for appropriate project.
 
-    ![How to migrate from Hub](media/how-to/how-to-migrate-from-hub.png)
+    ![Screenshot that highlights the Migrate button for the selected project.](media/how-to/how-to-migrate-from-hub.png)
 
 4. Upon pressing the migrate link you will be presented with a form allowing you to:
    * Specify the workspace you wish to transfer to on Custom Translator
@@ -72,7 +72,7 @@ To migrate a workspace:
 
 3. On "Settings" page click "Migrate Workspace data to Custom Translator".
 
-    ![How to migrate from Hub](media/how-to/how-to-migrate-workspace-from-hub.png)
+    ![Screenshot that highlights the Migrate Workspace data to Custom Translator option.](media/how-to/how-to-migrate-workspace-from-hub.png)
 
 4. On the next page select either of these two options:
 
@@ -118,7 +118,7 @@ If you want more detailed migration report about your projects, trainings and do
 * Systems with language pairs NOT yet available in Custom Translator will only be available to access data or undeploy through Custom Translator. These projects will be marked as "Unavailable" on the Projects page. As we enable new language pairs with Custom Translator, the projects will become active to train and deploy. 
 * Migrating a project from Hub to Custom Translator will not have any impact on your Hub trainings or projects. We do not delete projects or documents from Hub during a migration and we do not undeploy models.
 * You are only permitted to migrate once per project. If you need to repeat a migration on a project, please contact us.
-* Custom Translator supports NMT language pairs to and from English. [View the complete list of supported languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization). Hub does not require baseline models and therefore supports several thousand languages. You can migrate an unsupported language pair, however we will only perform the migration of documents and project definitions. We will not be able to train the new model. Furthermore, these documents and projects will be displayed as inactive in order to indicate that they can't be used at this time. If support is added for these projects and/or documents, they will become active and trainable.
+* Custom Translator supports NMT language pairs to and from English. [View the complete list of supported languages](../language-support.md#customization). Hub does not require baseline models and therefore supports several thousand languages. You can migrate an unsupported language pair, however we will only perform the migration of documents and project definitions. We will not be able to train the new model. Furthermore, these documents and projects will be displayed as inactive in order to indicate that they can't be used at this time. If support is added for these projects and/or documents, they will become active and trainable.
 * Custom Translator does not currently support monolingual training data. Like unsupported language pairs, you can migrate monolingual documents, but they show as inactive until monolingual data is supported.
 * Custom Translator requires 10k parallel sentences in order to train. Microsoft Hub could train on a smaller set of data. If a training is migrated which does not meet this requirement, it will not be trained.
 
@@ -142,4 +142,4 @@ If you are a community or organization working on creating a new language system
 ## Next steps
 
 - [Train a model](how-to-train-model.md).
-- Start using your deployed custom translation model via [Translator V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Start using your deployed custom translation model via [Translator V3](../reference/v3-0-translate.md?tabs=curl).

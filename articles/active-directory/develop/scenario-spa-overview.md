@@ -1,5 +1,6 @@
 ---
-title: JavaScript single-page app scenario - Microsoft identity platform | Azure
+title: JavaScript single-page app scenario 
+titleSuffix: Microsoft identity platform
 description: Learn how to build a single-page application (scenario overview) by using the Microsoft identity platform.
 services: active-directory
 author: navyasric
@@ -11,8 +12,8 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
-ms.custom: aaddev, identityplatformtop40
-#Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform for developers.
+ms.custom: aaddev, identityplatformtop40, devx-track-js
+#Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform.
 ---
 
 # Scenario: Single-page application
@@ -55,5 +56,4 @@ To enable this scenario for your application, you need:
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [App registration](scenario-spa-app-registration.md)
+Move on to the next article in this scenario, [App registration](scenario-spa-app-registration.md).

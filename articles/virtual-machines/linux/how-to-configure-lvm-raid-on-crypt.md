@@ -2,12 +2,14 @@
 title: Configure LVM and RAID on encrypted devices - Azure Disk Encryption
 description: This article provides instructions for configuring LVM and RAID on encrypted devices for Linux VMs.
 author: jofrance
-ms.service: security
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: linux
 ms.topic: how-to
 ms.author: jofrance
 ms.date: 03/17/2020
 
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 
 ---
 
@@ -73,7 +75,7 @@ New-AzVm -ResourceGroupName ${RGNAME} `
 ```
 Azure CLI:
 
-```bash
+```azurecli
 az vm create \
 -n ${VMNAME} \
 -g ${RGNAME} \
@@ -101,7 +103,7 @@ Update-AzVM -VM ${VM} -ResourceGroupName ${RGNAME}
 
 Azure CLI:
 
-```bash
+```azurecli
 az vm disk attach \
 -g ${RGNAME} \
 --vm-name ${VMNAME} \
@@ -121,7 +123,7 @@ $VM.StorageProfile.DataDisks | Select-Object Lun,Name,DiskSizeGB
 
 Azure CLI:
 
-```bash
+```azurecli
 az vm show -g ${RGNAME} -n ${VMNAME} --query storageProfile.dataDisks -o table
 ```
 ![List of attached disks in the Azure CLI](./media/disk-encryption/lvm-raid-on-crypt/002-lvm-raid-check-disks-cli.png)
@@ -203,7 +205,7 @@ Set-AzVMDiskEncryptionExtension -ResourceGroupName $RGNAME `
 
 Azure CLI using a KEK:
 
-```bash
+```azurecli
 az vm encryption enable \
 --resource-group ${RGNAME} \
 --name ${VMNAME} \
@@ -227,7 +229,7 @@ Get-AzVmDiskEncryptionStatus -ResourceGroupName ${RGNAME} -VMName ${VMNAME}
 
 Azure CLI:
 
-```bash
+```azurecli
 az vm encryption show -n ${VMNAME} -g ${RGNAME} -o table
 ```
 ![Encryption status in the Azure CLI](./media/disk-encryption/lvm-raid-on-crypt/009-lvm-raid-verify-encryption-status-cli.png)
@@ -256,7 +258,7 @@ Don't worry about the mount points on this file. Azure Disk Encryption will lose
 You unmount the file systems on the disks that will be used as part of LVM.
 
 ```bash
-for disk in c d e f; do unmount /tempdata${disk}; done
+for disk in c d e f; do umount /tempdata${disk}; done
 ```
 And remove the /etc/fstab entries:
 
@@ -364,7 +366,7 @@ mount -a
 lsblk -fs
 df -h
 ```
-![Information for mounted file systems](./media/disk-encryption/lvm-raid-on-crypt/018-lvm-raid-lsblk-after-lvm.png)
+![Screenshot shows a console window with file systems mounted as data0 and data1.](./media/disk-encryption/lvm-raid-on-crypt/018-lvm-raid-lsblk-after-lvm.png)
 
 On this variation of **lsblk**, we're listing the devices showing the dependencies in reverse order. This option helps to identify the devices grouped by the logical volume instead of the original /dev/sd[disk] device names.
 
@@ -419,6 +421,9 @@ mkfs.ext4 /dev/md10
 
 Create a new mount point for the file system, add the new file system to /etc/fstab, and mount it:
 
+>[!NOTE] 
+>This cycle iterates only on one device for this particular example, is built this way to be used for multiple md devices if needed.
+
 ```bash
 for device in md10; do diskuuid="$(blkid -s UUID -o value /dev/${device})"; \
 mkdir /raiddata; \
@@ -433,7 +438,7 @@ Verify that the new file system is mounted:
 lsblk -fs
 df -h
 ```
-![Information for mounted file systems](./media/disk-encryption/lvm-raid-on-crypt/021-lvm-raid-lsblk-md-details.png)
+![Screenshot shows a console window with a file system mounted as raiddata.](./media/disk-encryption/lvm-raid-on-crypt/021-lvm-raid-lsblk-md-details.png)
 
 It's important to make sure that the **nofail** option is added to the mount point options of the RAID volumes created on top of a device encrypted through Azure Disk Encryption. It prevents the OS from getting stuck during the boot process (or in maintenance mode).
 

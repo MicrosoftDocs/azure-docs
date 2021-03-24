@@ -17,7 +17,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 ## Prerequisites
 
-The latest version of the [Java Development Kit](https://aka.ms/azure-jdks) (JDK)
+The latest version of the [Java Development Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support) (JDK)
 
 Install the Bing Image Search client library dependencies by using Maven, Gradle, or another dependency management system. The Maven POM file requires the following declaration:
 
@@ -87,12 +87,12 @@ else {
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Image Search single-page app tutorial](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app)
+> [Bing Image Search single-page app tutorial](../../tutorial-bing-image-search-single-page-app.md)
 
 ## See also
 
-* [What is Bing Image Search?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [What is Bing Image Search?](../../overview.md)  
 * [Try an online interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
 * [Java samples for the Azure Cognitive Services SDK](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
-* [Azure Cognitive Services Documentation](https://docs.microsoft.com/azure/cognitive-services)
-* [Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Azure Cognitive Services Documentation](../../../index.yml)
+* [Bing Image Search API reference](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

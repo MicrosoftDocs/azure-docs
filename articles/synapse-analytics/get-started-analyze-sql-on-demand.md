@@ -1,24 +1,34 @@
 ---
-title: 'Tutorial: Get started analyze data with serverles SQL' 
-description: In this tutorial, you'll learn how to analyze data with SQL on-demand using data located in Spark databases.
+title: 'Tutorial: Get started analyze data with a serverless SQL pool' 
+description: In this tutorial, you'll learn how to analyze data with a serverless SQL pool using data located in Spark databases.
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
 manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
+ms.subservice: sql
 ms.topic: tutorial
-ms.date: 07/20/2020 
+ms.date: 12/31/2020
 ---
 
-# Analyze data with SQL on-demand
+# Analyze data with a serverless SQL pool
 
-In this tutorial, you'll learn how to analyze data with serverless SQL using an on-demand SQL pool using data located in Spark databases. 
+In this tutorial, you'll learn how to analyze data with serverless SQL pool using data located in Spark databases. 
 
-## Analyze NYC Taxi data in blob storage using SQL on-demand pool
+## The Built-in serverless SQL pool
 
-1. In the **Data** hub under **Linked**, right-click on **Azure Blob Storage > Sample Datasets > nyc_tlc_yellow** and select **SELECT TOP 100 rows**
-1. This will create a new SQL script with the following code:
+Serverless SQL pools let you use SQL without having to reserve capacity. Billing for a serverless SQL pool is based on the amount of data processed to run the query and not the number of nodes used to run the query.
+
+Every workspace comes with a pre-configured serverless SQL pool called **Built-in**. 
+
+## Analyze NYC Taxi data in blob storage using serverless SQL pool
+
+In this section, you'll use a serverless SQL pool to analyze NYC Taxi data in an Azure Blob Storage account.
+
+1. In Synapse Studio, go to the **Develop** hub
+1. Create a new SQL script.
+1. Paste the following code into the script.
 
     ```
     SELECT
@@ -31,25 +41,7 @@ In this tutorial, you'll learn how to analyze data with serverless SQL using an 
     ```
 1. Click **Run**
 
-## Analyze NYC Taxi data in Spark databases using SQL on-demand
-
-Tables in Spark databases are automatically visible, and they can be queried by SQL on-demand.
-
-1. In Synapse Studio, go to the **Develop** hub and create a new SQL script.
-1. Set **Connect to** to **SQL on-demand**.
-1. Paste the following text into the script and run the script.
-
-    ```sql
-    SELECT *
-    FROM nyctaxi.dbo.passengercountstats
-    ```
-
-    > [!NOTE]
-    > The first time you run a query that uses SQL on-demand, it takes about 10 seconds for SQL on-demand to gather the SQL resources needed to run your queries. Subsequent queries will be much faster.
-  
-
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Analyze using spark](get-started-analyze-spark.md)
+> [Analyze data with a serverless Spark pool](get-started-analyze-spark.md)

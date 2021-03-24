@@ -15,11 +15,11 @@ This article lists the steps that will help you deploy Live Video Analytics on y
 
 ## Prerequisites
 
-* An x86-64 or an ARM64 device running one of the [supported Linux operating systems](https://docs.microsoft.com/azure/iot-edge/support#operating-systems)
+* An x86-64 or an ARM64 device running one of the [supported Linux operating systems](../../iot-edge/support.md#operating-systems)
 * Azure subscription to which you have [owner privileges](../../role-based-access-control/built-in-roles.md#owner)
 * [Create and setup IoT Hub](../../iot-hub/iot-hub-create-through-portal.md)
 * [Register IoT Edge device](../../iot-edge/how-to-register-device.md)
-* [Install the Azure IoT Edge runtime on Debian-based Linux systems](../../iot-edge/how-to-install-iot-edge-linux.md)
+* [Install the Azure IoT Edge runtime on Debian-based Linux systems](../../iot-edge/how-to-install-iot-edge.md)
 * [Create an Azure Media Services account](../latest/create-account-howto.md)
 
     * Use one of these regions: East US 2, East US, Central US, North Central US, Japan East, West US, West US 2, West Central US, Canada East, UK South, France Central, France South, Switzerland North, Switzerland West, and Japan West.
@@ -56,8 +56,8 @@ Follow the steps in this article to get credentials to access the Media Service 
 To run the Live Video Analytics on IoT Edge module create a local user account with as few privileges as possible. As an example, run the following commands on your Linux machine:
 
 ```
-sudo groupadd -g 1010 localuser
-sudo adduser --home /home/edgeuser --uid 1010 -gid 1010 edgeuser
+sudo groupadd -g 1010 localusergroup
+sudo useradd --home-dir /home/edgeuser --uid 1010 --gid 1010 lvaedgeuser
 ```
 
 ## Granting permissions to device storage
@@ -67,15 +67,15 @@ Now that you have created a local user account,
 * You will need a local folder to store the application configuration data. Create a folder and grant permissions to the localuser account write to that folder using the following commands:
 
 ```
-sudo mkdir /var/lib/azuremediaservices
-sudo chown -R edgeuser /var/lib/azuremediaservices
+sudo mkdir -p /var/lib/azuremediaservices
+sudo chown -R lvaedgeuser /var/lib/azuremediaservices
 ```
 
 * You will also need a folder to [record videos to a local file](event-based-video-recording-concept.md#video-recording-based-on-events-from-other-sources). Use the following commands to create a local folder for the same:
 
 ```
-sudo mkdir /var/media
-sudo chown -R edgeuser /var/media
+sudo mkdir -p /var/media
+sudo chown -R lvaedgeuser /var/media
 ```
 
 ## Deploy Live Video Analytics Edge module
@@ -103,7 +103,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     Examples:
     
     * **IoT Edge Module Name**: lvaEdge
-    * **Image URI**: mcr.microsoft.com/media/live-video-analytics:1.0	 
+    * **Image URI**: mcr.microsoft.com/media/live-video-analytics:2.0	 
     
     ![Screenshot shows the Module Settings tab.](./media/deploy-iot-edge-device/add.png)
     
@@ -236,7 +236,7 @@ Next, lets test the sample by invoking a direct method. Read [direct methods for
     
     ```
     {
-        "@apiVersion" : "1.0"
+        "@apiVersion" : "2.0"
     }
     ```
 1. Click on “Invoke Method” option on top of the page

@@ -38,13 +38,13 @@ The `MeshComponent` class is used to place an instance of a mesh resource. Each 
 A `Mesh` resource can be shared across multiple instances of mesh components. Furthermore, the `Mesh` resource that is assigned to a mesh component can be changed programmatically at any time. The code below demonstrates how to clone a mesh:
 
 ```cs
-Entity CloneEntityWithModel(RemoteManager manager, Entity sourceEntity)
+Entity CloneEntityWithModel(RenderingConnection api, Entity sourceEntity)
 {
     MeshComponent meshComp = sourceEntity.FindComponentOfType<MeshComponent>();
     if (meshComp != null)
     {
-        Entity newEntity = manager.CreateEntity();
-        MeshComponent newMeshComp = manager.CreateComponent(ObjectType.MeshComponent, newEntity) as MeshComponent;
+        Entity newEntity = api.CreateEntity();
+        MeshComponent newMeshComp = api.CreateComponent(ObjectType.MeshComponent, newEntity) as MeshComponent;
         newMeshComp.Mesh = meshComp.Mesh; // share the mesh
         return newEntity;
     }
@@ -53,12 +53,12 @@ Entity CloneEntityWithModel(RemoteManager manager, Entity sourceEntity)
 ```
 
 ```cpp
-ApiHandle<Entity> CloneEntityWithModel(ApiHandle<RemoteManager> manager, ApiHandle<Entity> sourceEntity)
+ApiHandle<Entity> CloneEntityWithModel(ApiHandle<RenderingConnection> api, ApiHandle<Entity> sourceEntity)
 {
     if (ApiHandle<MeshComponent> meshComp = sourceEntity->FindComponentOfType<MeshComponent>())
     {
-        ApiHandle<Entity> newEntity = *manager->CreateEntity();
-        ApiHandle<MeshComponent> newMeshComp = manager->CreateComponent(ObjectType::MeshComponent, newEntity)->as<RemoteRendering::MeshComponent>();
+        ApiHandle<Entity> newEntity = *api->CreateEntity();
+        ApiHandle<MeshComponent> newMeshComp = api->CreateComponent(ObjectType::MeshComponent, newEntity)->as<RemoteRendering::MeshComponent>();
         newMeshComp->SetMesh(meshComp->GetMesh()); // share the mesh
         return newEntity;
     }
@@ -68,10 +68,10 @@ ApiHandle<Entity> CloneEntityWithModel(ApiHandle<RemoteManager> manager, ApiHand
 
 ## API documentation
 
-* [C# Mesh class](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.mesh)
-* [C# MeshComponent class](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.meshcomponent)
-* [C++ Mesh class](https://docs.microsoft.com/cpp/api/remote-rendering/mesh)
-* [C++ MeshComponent class](https://docs.microsoft.com/cpp/api/remote-rendering/meshcomponent)
+* [C# Mesh class](/dotnet/api/microsoft.azure.remoterendering.mesh)
+* [C# MeshComponent class](/dotnet/api/microsoft.azure.remoterendering.meshcomponent)
+* [C++ Mesh class](/cpp/api/remote-rendering/mesh)
+* [C++ MeshComponent class](/cpp/api/remote-rendering/meshcomponent)
 
 
 ## Next steps

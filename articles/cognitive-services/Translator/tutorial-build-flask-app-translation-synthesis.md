@@ -3,13 +3,13 @@ title: "Tutorial: Build a Flask app to translate, synthesize, and analyze text -
 titleSuffix: Azure Cognitive Services
 description: In this tutorial, you'll build a Flask-based web app to translate text, analyze sentiment, and synthesize translated text into speech.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 05/26/2020
-ms.author: swmachan
+ms.date: 03/04/2021
+ms.author: lajanuar
 ms.custom: devx-track-python, devx-track-js
 ---
 
@@ -48,7 +48,7 @@ Let's review the software and subscription keys that you'll need for this tutori
 * [Git tools](https://git-scm.com/downloads)
 * An IDE or text editor, such as [Visual Studio Code](https://code.visualstudio.com/) or [Atom](https://atom.io/)  
 * [Chrome](https://www.google.com/chrome/browser/) or [Firefox](https://www.mozilla.org/firefox)
-* A **Translator** subscription key (Note that you aren't required to select a region.)
+* A **Translator** subscription key (you can likely use the **global** location.)
 * A **Text Analytics** subscription key in the **West US** region.
 * A **Speech Services** subscription key in the **West US** region.
 
@@ -59,7 +59,7 @@ As previously mentioned, you're going to need three subscription keys for this t
 * Text Analytics
 * Speech Services
 
-Use [Create a Cognitive Services Account in the Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) for step-by-step instructions to create resources.
+Use [Create a Cognitive Services Account in the Azure portal](../cognitive-services-apis-create-account.md) for step-by-step instructions to create resources.
 
 > [!IMPORTANT]
 > For this tutorial, please create your resources in the West US region. If using a different region, you'll need to adjust the base URL in each of your Python files.
@@ -259,7 +259,7 @@ The first thing you need to do is write a function to call the Translator. This 
    # Don't forget to replace with your Cog Services subscription key!
    # If you prefer to use environment variables, see Extra Credit for more info.
    subscription_key = 'YOUR_TRANSLATOR_TEXT_SUBSCRIPTION_KEY'
-   
+   location = 'YOUR_TRANSLATOR_RESOURCE_LOCATION'
    # Don't forget to replace with your Cog Services location!
    # Our Flask route will supply two arguments: text_input and language_output.
    # When the translate text button is pressed in our Flask app, the Ajax request
@@ -273,7 +273,7 @@ The first thing you need to do is write a function to call the Translator. This 
 
        headers = {
            'Ocp-Apim-Subscription-Key': subscription_key,
-           'Ocp-Apim-Subscription-Region': 'location',
+           'Ocp-Apim-Subscription-Region': location,
            'Content-type': 'application/json',
            'X-ClientTraceId': str(uuid.uuid4())
        }
@@ -471,7 +471,7 @@ Press **CTRL + c** to kill the app, then head to the next section.
 
 ## Analyze sentiment
 
-The [Text Analytics API](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) can be used to perform sentiment analysis, extract key phrases from text, or detect the source language. In this app, we're going to use sentiment analysis to determine if the provided text is positive, neutral, or negative. The API returns a numeric score between 0 and 1. Scores close to 1 indicate positive sentiment, and scores close to 0 indicate negative sentiment.
+The [Text Analytics API](../text-analytics/overview.md) can be used to perform sentiment analysis, extract key phrases from text, or detect the source language. In this app, we're going to use sentiment analysis to determine if the provided text is positive, neutral, or negative. The API returns a numeric score between 0 and 1. Scores close to 1 indicate positive sentiment, and scores close to 0 indicate negative sentiment.
 
 In this section, you're going to do a few things:
 
@@ -491,17 +491,16 @@ Let's write a function to call the Text Analytics API. This function will take f
 
    # Don't forget to replace with your Cog Services subscription key!
    subscription_key = 'YOUR_TEXT_ANALYTICS_SUBSCRIPTION_KEY'
-
+   endpoint = "YOUR_TEXT_ANALYTICS_ENDPOINT" 
    # Our Flask route will supply four arguments: input_text, input_language,
    # output_text, output_language.
    # When the run sentiment analysis button is pressed in our Flask app,
    # the Ajax request will grab these values from our web app, and use them
    # in the request. See main.js for Ajax calls.
 
-   def get_sentiment(input_text, input_language, output_text, output_language):
-       base_url = 'https://westus.api.cognitive.microsoft.com/text/analytics'
-       path = '/v2.0/sentiment'
-       constructed_url = base_url + path
+   def get_sentiment(input_text, input_language):
+       path = '/text/analytics/v3.0/sentiment'
+       constructed_url = endpoint + path
 
        headers = {
            'Ocp-Apim-Subscription-Key': subscription_key,
@@ -517,11 +516,6 @@ Let's write a function to call the Text Analytics API. This function will take f
                    'id': '1',
                    'text': input_text
                },
-               {
-                   'language': output_language,
-                   'id': '2',
-                   'text': output_text
-               }
            ]
        }
        response = requests.post(constructed_url, headers=headers, json=body)
@@ -547,9 +541,7 @@ Let's create a route in your Flask app that calls `sentiment.py`. This route wil
        data = request.get_json()
        input_text = data['inputText']
        input_lang = data['inputLanguage']
-       output_text = data['outputText']
-       output_lang =  data['outputLanguage']
-       response = sentiment.get_sentiment(input_text, input_lang, output_text, output_lang)
+       response = sentiment.get_sentiment(input_text, input_lang)
        return jsonify(response)
    ```
 
@@ -572,9 +564,8 @@ Now that you have a function to run sentiment analysis, and a route in your Flas
    ```html
    <button type="submit" class="btn btn-primary mb-2" id="sentiment-analysis">Run sentiment analysis</button></br>
    <div id="sentiment" style="display: none">
-      <p>Sentiment scores are provided on a 1 point scale. The closer the sentiment score is to 1, indicates positive sentiment. The closer it is to 0, indicates negative sentiment.</p>
-      <strong>Sentiment score for input:</strong> <span id="input-sentiment"></span><br />
-      <strong>Sentiment score for translation:</strong> <span id="translation-sentiment"></span>
+      <p>Sentiment can be labeled as "positive", "negative", "neutral", or "mixed". </p>
+      <strong>Sentiment label for input:</strong> <span id="input-sentiment"></span><br />
    </div>
    ```
 
@@ -588,7 +579,7 @@ The code then iterates through the response, and updates the HTML with the senti
 
 2. Copy this code into `static/scripts/main.js`:
    ```javascript
-   //Run sentinment analysis on input and translation.
+   //Run sentiment analysis on input and translation.
    $("#sentiment-analysis").on("click", function(e) {
      e.preventDefault();
      var inputText = document.getElementById("text-to-translate").value;
@@ -596,7 +587,7 @@ The code then iterates through the response, and updates the HTML with the senti
      var outputText = document.getElementById("translation-result").value;
      var outputLanguage = document.getElementById("select-language").value;
 
-     var sentimentRequest = { "inputText": inputText, "inputLanguage": inputLanguage, "outputText": outputText,  "outputLanguage": outputLanguage };
+     var sentimentRequest = { "inputText": inputText, "inputLanguage": inputLanguage};
 
      if (inputText !== "") {
        $.ajax({
@@ -611,10 +602,7 @@ The code then iterates through the response, and updates the HTML with the senti
            for (var i = 0; i < data.documents.length; i++) {
              if (typeof data.documents[i] !== "undefined"){
                if (data.documents[i].id === "1") {
-                 document.getElementById("input-sentiment").textContent = data.documents[i].score;
-               }
-               if (data.documents[i].id === "2") {
-                 document.getElementById("translation-sentiment").textContent = data.documents[i].score;
+                 document.getElementById("input-sentiment").textContent = data.documents[i].sentiment;
                }
              }
            }
@@ -623,12 +611,9 @@ The code then iterates through the response, and updates the HTML with the senti
                if (data.errors[i].id === "1") {
                  document.getElementById("input-sentiment").textContent = data.errors[i].message;
                }
-               if (data.errors[i].id === "2") {
-                 document.getElementById("translation-sentiment").textContent = data.errors[i].message;
-               }
              }
            }
-           if (document.getElementById("input-sentiment").textContent !== '' && document.getElementById("translation-sentiment").textContent !== ""){
+           if (document.getElementById("input-sentiment").textContent !== ''){
              document.getElementById("sentiment").style.display = "block";
            }
          }
@@ -655,7 +640,7 @@ Press **CTRL + c** to kill the app, then head to the next section.
 
 ## Convert text-to-speech
 
-The [Text-to-speech API](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech) enables your app to convert text into natural human-like synthesized speech. The service supports standard, neural, and custom voices. Our sample app uses a handful of the available voices, for a full list, see [supported languages](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech).
+The [Text-to-speech API](../speech-service/text-to-speech.md) enables your app to convert text into natural human-like synthesized speech. The service supports standard, neural, and custom voices. Our sample app uses a handful of the available voices, for a full list, see [supported languages](../speech-service/language-support.md#text-to-speech).
 
 In this section, you're going to do a few things:
 
@@ -950,7 +935,7 @@ Navigate to the provided server address. Type text into the input area, select a
 > [!TIP]
 > If the changes you've made aren't showing up, or the app doesn't work the way you expect it to, try clearing your cache or opening a private/incognito window.
 
-That's it, you have a working app that performs translations, analyzes sentiment, and synthesized speech. Press **CTRL + c** to kill the app. Be sure to check out the other [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/).
+That's it, you have a working app that performs translations, analyzes sentiment, and synthesized speech. Press **CTRL + c** to kill the app. Be sure to check out the other [Azure Cognitive Services](../index.yml).
 
 ## Get the source code
 
@@ -958,6 +943,6 @@ The source code for this project is available on [GitHub](https://github.com/Mic
 
 ## Next steps
 
-* [Translator reference](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)
+* [Translator reference](./reference/v3-0-reference.md)
 * [Text Analytics API reference](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
-* [Text-to-speech API reference](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech)
+* [Text-to-speech API reference](../speech-service/rest-text-to-speech.md)

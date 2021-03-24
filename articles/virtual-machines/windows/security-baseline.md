@@ -2,7 +2,9 @@
 title: Azure security baseline for Linux Virtual Machines Windows Virtual Machines
 description: The Windows Virtual Machines security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
 author: msmbaldwin
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: security
+ms.collection: linux
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
@@ -30,7 +32,7 @@ For more information, see [Azure Security Baselines overview](../../security/ben
 
 Alternatively, if you have a specific use case for a centralized firewall, Azure Firewall can also be used to meet those requirements.
 
-* [Virtual networks and virtual machines in Azure](./network-overview.md)
+* [Virtual networks and virtual machines in Azure](../network-overview.md)
 
 * [How to create a Virtual Network](../../virtual-network/quick-create-portal.md)
 
@@ -74,11 +76,11 @@ You can also deploy Azure Web Application Firewall (WAF) in front of critical we
 
 You can use Azure Security Center's Just In Time Network access to limit exposure of Windows Virtual Machines to the approved IP addresses for a limited period. Also, use Azure Security Center Adaptive Network Hardening to recommend NSG configurations that limit ports and source IPs based on actual traffic and threat intelligence.
 
-* [How to configure DDoS protection](../../virtual-network/manage-ddos-protection.md)
+* [How to configure DDoS protection](../../ddos-protection/manage-ddos-protection.md)
 
 * [How to deploy Azure Firewall](../../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Understand Azure Security Center Integrated Threat Intelligence](../../security-center/threat-protection.md)
+* [Understand Azure Security Center Integrated Threat Intelligence](../../security-center/azure-defender.md)
 
 * [Understand Azure Security Center Adaptive Network Hardening](../../security-center/security-center-adaptive-network-hardening.md)
 
@@ -144,7 +146,7 @@ You can use Azure Security Center's Just In Time Network access to limit exposur
 
 * [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy samples for networking](/azure/governance/policy/samples/#network)
+* [Azure Policy samples for networking](../../governance/policy/samples/built-in-policies.md#network)
 
 * [How to create an Azure Blueprint](../../governance/blueprints/create-blueprint-portal.md)
 
@@ -172,13 +174,13 @@ You can use Azure Security Center's Just In Time Network access to limit exposur
 
 Use Azure Policy to validate (and/or remediate) configurations for network resource related to Windows Virtual Machines.
 
-* [How to view and retrieve Azure Activity Log events](../../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [How to view and retrieve Azure Activity Log events](../../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [How to create alerts in Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts in Azure Monitor](../../azure-monitor/alerts/alerts-activity-log.md)
 
 * [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy samples for networking](/azure/governance/policy/samples/#network)
+* [Azure Policy samples for networking](../../governance/policy/samples/built-in-policies.md#network)
 
 **Azure Security Center monitoring**: Not Available
 
@@ -218,13 +220,13 @@ For advanced visibility of the applications and services supported by your virtu
 
 Additionally, enable Azure Monitor for access to your audit and activity logs which includes event source, date, user, timestamp, source addresses, destination addresses, and other useful elements.
 
-* [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md)
+* [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md)
 
-* [Log analytics agent overview](../../azure-monitor/platform/log-analytics-agent.md)
+* [Log analytics agent overview](../../azure-monitor/agents/log-analytics-agent.md)
 
 * [Log analytics virtual machine extension for Windows](../extensions/oms-windows.md)
 
-* [View and retrieve Azure Activity log events](../../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [View and retrieve Azure Activity log events](../../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 * [Application Insights overview](../../azure-monitor/app/app-insights-overview.md)
 
@@ -240,7 +242,7 @@ If your organization would like to retain the security event log data from the v
 
 * [Data collection in Azure Security Center](../../security-center/security-center-enable-data-collection.md)
 
-* [To capture the Syslog data for monitoring, you will need to enable the Log Analytics extension](../../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
+* [To capture the Syslog data for monitoring, you will need to enable the Log Analytics extension](../../azure-monitor/vm/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
 
 **Azure Security Center monitoring**: Yes
 
@@ -250,9 +252,9 @@ If your organization would like to retain the security event log data from the v
 
 **Guidance**: Ensure that any storage accounts or Log Analytics workspaces used for storing virtual machine logs has the log retention period set according to your organization's compliance regulations.
 
-* [How to monitor virtual machines in Azure](./monitor.md)
+* [How to monitor virtual machines in Azure](../../azure-monitor/vm/monitor-vm-azure.md)
 
-* [How to configure Log Analytics Workspace Retention Period](../../azure-monitor/platform/manage-cost-storage.md)
+* [How to configure Log Analytics Workspace Retention Period](../../azure-monitor/logs/manage-cost-storage.md)
 
 **Azure Security Center monitoring**: Not Available
 
@@ -266,15 +268,15 @@ Analyze and monitor logs for anomalous behavior and regularly review results. Us
 
 Alternatively, you may enable and on-board data to Azure Sentinel or a third-party SIEM to monitor and review your logs.
 
-* [Log analytics agent overview](../../azure-monitor/platform/log-analytics-agent.md)
+* [Log analytics agent overview](../../azure-monitor/agents/log-analytics-agent.md)
 
 * [Log analytics virtual machine extension for Windows](../extensions/oms-windows.md)
 
 * [How to onboard Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-* [Understand Log Analytics Workspace](../../azure-monitor/log-query/get-started-portal.md)
+* [Understand Log Analytics Workspace](../../azure-monitor/logs/log-analytics-tutorial.md)
 
-* [How to perform custom queries in Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
+* [How to perform custom queries in Azure Monitor](../../azure-monitor/logs/get-started-queries.md)
 
 **Azure Security Center monitoring**: Not Available
 
@@ -290,7 +292,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 * [How to manage alerts in Azure Security Center](../../security-center/security-center-managing-and-responding-alerts.md)
 
-* [How to alert on log analytics log data](../../azure-monitor/learn/tutorial-response.md)
+* [How to alert on log analytics log data](../../azure-monitor/alerts/tutorial-response.md)
 
 **Azure Security Center monitoring**: Not Available
 
@@ -390,7 +392,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 **Guidance**: Use PAWs (privileged access workstations) with MFA configured to log into and configure Azure resources.
 
-* [Learn about Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Learn about Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [How to enable MFA in Azure](../../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -408,7 +410,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 * [How to integrate Azure Activity Logs into Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [How to configure action groups for custom alerting and notification](../../azure-monitor/platform/action-groups.md)
+* [How to configure action groups for custom alerting and notification](../../azure-monitor/alerts/action-groups.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -450,13 +452,13 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 **Guidance**: Configure diagnostic settings for Azure Active Directory to send the audit logs and sign-in logs to a Log Analytics workspace. Also, use Azure Monitor to review logs and perform queries on log data from Azure Virtual machines.
 
-* [Understand Log Analytics Workspace](../../azure-monitor/log-query/get-started-portal.md)
+* [Understand Log Analytics Workspace](../../azure-monitor/logs/log-analytics-tutorial.md)
 
 * [How to integrate Azure Activity Logs into Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [How to perform custom queries in Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
+* [How to perform custom queries in Azure Monitor](../../azure-monitor/logs/get-started-queries.md)
 
-* [How to monitor virtual machines in Azure](./monitor.md)
+* [How to monitor virtual machines in Azure](../../azure-monitor/vm/monitor-vm-azure.md)
 
 **Azure Security Center monitoring**: Not Available
 
@@ -506,7 +508,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 * [How to create additional Azure subscriptions](../../cost-management-billing/manage/create-subscription.md)
 
-* [How to create Management Groups](../../governance/management-groups/create.md)
+* [How to create Management Groups](../../governance/management-groups/create-management-group-portal.md)
 
 * [How to create and use Tags](../../azure-resource-manager/management/tag-resources.md)
 
@@ -578,7 +580,7 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 **Guidance**: Virtual disks on Windows Virtual Machines (VM) are encrypted at rest using either Server-side encryption or Azure disk encryption (ADE). Azure Disk Encryption leverages the BitLocker feature of Windows to encrypt managed disks with customer-managed keys within the guest VM. Server-side encryption with customer-managed keys improves on ADE by enabling you to use any OS types and images for your VMs by encrypting data in the Storage service.
 
-* [Server side encryption of Azure-managed disks](./disk-encryption.md)
+* [Server side encryption of Azure-managed disks](../disk-encryption.md)
 
 * [Azure Disk Encryption for Windows VMs](./disk-encryption-overview.md)
 
@@ -590,9 +592,9 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 **Guidance**: Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to Virtual machines and related resources.
 
-* [How to create alerts for Azure Activity Log events](../../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts for Azure Activity Log events](../../azure-monitor/alerts/alerts-activity-log.md)
 
-* [How to create alerts for Azure Activity Log events](../../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts for Azure Activity Log events](../../azure-monitor/alerts/alerts-activity-log.md)
 
 * [Azure Storage analytics logging](../../storage/common/storage-analytics-logging.md)
 
@@ -608,7 +610,7 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 **Guidance**: Follow recommendations from Azure Security Center on performing vulnerability assessments on your Azure Virtual Machines. Use Azure Security recommended or third-party solution for performing vulnerability assessments for your virtual machines.
 
-* [How to implement Azure Security Center vulnerability assessment recommendations](../../security-center/security-center-vulnerability-assessment-recommendations.md)
+* [How to implement Azure Security Center vulnerability assessment recommendations](../../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -618,9 +620,9 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 **Guidance**: Use the Azure Update Management solution to manage updates and patches for your virtual machines. Update Management relies on the locally configured update repository to patch supported Windows systems. Tools like System Center Updates Publisher (Updates Publisher) allow you to publish custom updates into Windows Server Update Services (WSUS). This scenario allows Update Management to patch machines that use Configuration Manager as their update repository with third-party software.
 
-* [Update Management solution in Azure](../../automation/update-management/update-mgmt-overview.md)
+* [Update Management solution in Azure](../../automation/update-management/overview.md)
 
-* [Manage updates and patches for your VMs](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
+* [Manage updates and patches for your VMs](../../automation/update-management/manage-updates-for-vm.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -630,9 +632,9 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 **Guidance**: You may use a third-party patch management solution. You can use the Azure Update Management solution to manage updates and patches for your virtual machines. Update Management relies on the locally configured update repository to patch supported Windows systems. Tools like System Center Updates Publisher (Updates Publisher) allow you to publish custom updates into Windows Server Update Services (WSUS). This scenario allows Update Management to patch machines that use Configuration Manager as their update repository with third-party software.
 
-* [Update Management solution in Azure](../../automation/update-management/update-mgmt-overview.md)
+* [Update Management solution in Azure](../../automation/update-management/overview.md)
 
-* [Manage updates and patches for your VMs](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
+* [Manage updates and patches for your VMs](../../automation/update-management/manage-updates-for-vm.md)
 
 **Azure Security Center monitoring**: Not Available
 
@@ -690,7 +692,7 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 * [How to create additional Azure subscriptions](../../cost-management-billing/manage/create-subscription.md)
 
-* [How to create Management Groups](../../governance/management-groups/create.md)
+* [How to create Management Groups](../../governance/management-groups/create-management-group-portal.md)
 
 * [How to create and use Tags](../../azure-resource-manager/management/tag-resources.md)
 
@@ -748,7 +750,7 @@ In addition to using Change Tracking for monitoring of software applications, ad
 
 * [An introduction to Azure Automation](../../automation/automation-intro.md)
 
-* [Track changes in your environment with the Change Tracking solution](../../automation/change-tracking.md)
+* [Track changes in your environment with the Change Tracking solution](../../automation/change-tracking/overview.md)
 
 * [Azure Automation State Configuration Overview](../../automation/automation-dsc-overview.md)
 
@@ -773,7 +775,7 @@ In addition to using Change Tracking for monitoring of software applications, ad
 
 * [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [How to deny a specific resource type with Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+* [How to deny a specific resource type with Azure Policy](../../governance/policy/samples/index.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -815,13 +817,13 @@ In addition to using Change Tracking for monitoring of software applications, ad
 
 **Guidance**: High risk applications deployed in your Azure environment may be isolated using virtual network, subnet, subscriptions, management groups etc. and sufficiently secured with either an Azure Firewall, Web Application Firewall (WAF) or network security group (NSG).
 
-* [Virtual networks and virtual machines in Azure](./network-overview.md)
+* [Virtual networks and virtual machines in Azure](../network-overview.md)
 
 * [Azure Firewall overview](../../firewall/overview.md)
 
 * [Web Application Firewall overview](../../web-application-firewall/overview.md)
 
-* [Network security overview](../../virtual-network/security-overview.md)
+* [Network security overview](../../virtual-network/network-security-groups-overview.md)
 
 * [Azure Virtual Network overview](../../virtual-network/virtual-networks-overview.md)
 
@@ -843,7 +845,7 @@ In addition to using Change Tracking for monitoring of software applications, ad
 
 * [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Information on how to download the VM template](./download-template.md)
+* [Information on how to download the VM template](/previous-versions/azure/virtual-machines/windows/download-template)
 
 **Azure Security Center monitoring**: Not Available
 
@@ -887,11 +889,11 @@ In addition to using Change Tracking for monitoring of software applications, ad
 
 For most scenarios, the Microsoft base VM templates combined with the Azure Automation Desired State Configuration can assist in meeting and maintaining the security requirements.
 
-* [Information on how to download the VM template](./download-template.md)
+* [Information on how to download the VM template](/previous-versions/azure/virtual-machines/windows/download-template)
 
 * [Information on creating ARM templates](./ps-template.md)
 
-* [How to upload a custom VM VHD to Azure](/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910)
+* [How to upload a custom VM VHD to Azure](/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910&preserve-view=true)
 
 **Azure Security Center monitoring**: Yes
 
@@ -969,7 +971,7 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 
 * [How to integrate with Azure-Managed Identities](../../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-* [How to create a Key Vault](../../key-vault/secrets/quick-create-portal.md)
+* [How to create a Key Vault](../../key-vault/general/quick-create-portal.md)
 
 * [How to authenticate to Key Vault](../../key-vault/general/authentication.md)
 

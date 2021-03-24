@@ -1,6 +1,6 @@
 ---
-title: Synchronize device state from Azure IoT Hub | Microsoft Docs
-description: Learn how to use device twins to configure your devices from the cloud, and receive status and compliance data from your devices.
+title: Tutorial - Synchronize device state from Azure IoT Hub | Microsoft Docs
+description: Tutorial - Learn how to use device twins to configure your devices from the cloud, and receive status and compliance data from your devices.
 services: iot-hub
 author: wesmc7777
 ms.author: wesmc
@@ -8,7 +8,7 @@ ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 06/21/2019
-ms.custom: [mvc, mqtt, 'Role: Cloud Development', 'Role: IoT Device', devx-track-js]
+ms.custom: [mvc, mqtt, 'Role: Cloud Development', 'Role: IoT Device', devx-track-js, devx-track-azurecli]
 #Customer intent: As a developer, I want to be able to configure my devices from the cloud and receive status and compliance data from my devices.
 ---
 
@@ -29,11 +29,9 @@ In this tutorial, you perform the following tasks:
 > * Use desired properties to send state information to your simulated device.
 > * Use reported properties to receive state information from your simulated device.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Prerequisites
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 The two sample applications you run in this quickstart are written using Node.js. You need Node.js v10.x.x or later on your development machine.
 
@@ -65,11 +63,11 @@ az extension add --name azure-iot
 # Create a resource group:
 az group create --name tutorial-iot-hub-rg --location $location
 
-# Create your free-tier IoT Hub. You can only have one free IoT Hub per subscription:
-az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku F1
+# Create your free-tier IoT Hub. You can only have one free IoT Hub per subscription.
+az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --partition-count 2 --sku F1
 
 # Make a note of the service connection string, you need it later:
-az iot hub show-connection-string --name $hubname --policy-name service -o table
+az iot hub connection-string show --name $hubname --policy-name service -o table
 
 ```
 
@@ -83,7 +81,7 @@ hubname=tutorial-iot-hub
 az iot hub device-identity create --device-id MyTwinDevice --hub-name $hubname --resource-group tutorial-iot-hub-rg
 
 # Retrieve the device connection string, you need this later:
-az iot hub device-identity show-connection-string --device-id MyTwinDevice --hub-name $hubname --resource-group tutorial-iot-hub-rg -o table
+az iot hub device-identity connection-string show --device-id MyTwinDevice --hub-name $hubname --resource-group tutorial-iot-hub-rg -o table
 
 ```
 
@@ -110,7 +108,7 @@ The following code gets a twin from the client object:
 
 ### Sample desired properties
 
-You can structure your desired properties in any way that's convenient to your application. This example uses one top-level property called **fanOn** and groups the remaining properties into separate **components**. The following JSON snippet shows the structure of the desired properties this tutorial uses:
+You can structure your desired properties in any way that's convenient to your application. This example uses one top-level property called **fanOn** and groups the remaining properties into separate **components**. The following JSON snippet shows the structure of the desired properties this tutorial uses. The JSON is in the desired.json file.
 
 [!code[Sample desired properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/desired.json "Sample desired properties")]
 
@@ -182,11 +180,11 @@ node ServiceClient.js "{your service connection string}"
 
 The following screenshot shows the output from the simulated device application and highlights how it handles an update to the **maxTemperature** desired property. You can see how both the top-level handler and the climate component handlers run:
 
-![Simulated device](./media/tutorial-device-twins/SimulatedDevice1.png)
+![Screenshot that shows how both the top-level handler and the climate component handlers run.](./media/tutorial-device-twins/SimulatedDevice1.png)
 
 The following screenshot shows the output from the back-end application and highlights how it sends an update to the **maxTemperature** desired property:
 
-![Back-end application](./media/tutorial-device-twins/BackEnd1.png)
+![Screenshot that shows the output from the back-end application and highlights how it sends an update.](./media/tutorial-device-twins/BackEnd1.png)
 
 ## Receive state information
 

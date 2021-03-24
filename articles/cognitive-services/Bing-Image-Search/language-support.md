@@ -14,6 +14,11 @@ ms.author: aahi
 
 # Language and region support for the Bing Image Search API
 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+
 The Bing Image Search API supports more than three dozen countries/regions, many with more than one language. Specifying a country/region with a query serves primarily to refine search results based on interests in that country/region. Additionally, the results may contain links to Bing, and these links may localize the Bing user experience according to the specified country/regions or language.
 
 To specify the country/region and language, set the `mkt` (market) query parameter to a code from the **Markets** table below. The market specifies both a country/region and language. If the user prefers to see display text in a different language, set `setLang` query parameter to the appropriate language code.
@@ -114,4 +119,4 @@ Alternatively, you can specify the country/region using the `cc` query parameter
 |United States|Spanish|es-US|
 
 ## Next steps
-For more information about the Bing News Search endpoints, see [News Image Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).
+For more information about the Bing News Search endpoints, see [News Image Search API v7 reference](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).

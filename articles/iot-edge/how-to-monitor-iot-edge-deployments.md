@@ -13,6 +13,8 @@ services: iot-edge
 ---
 # Monitor IoT Edge deployments
 
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
 Azure IoT Edge provides reporting that lets you monitor real-time information on the modules deployed to your IoT Edge devices. The IoT Hub service retrieves the status from the devices and makes them available to the operator. Monitoring is also important for [deployments made at scale](module-deployment-monitoring.md) that include automatic deployments and layered deployments.
 
 Both devices and modules have similar data, such as connectivity, so values are obtained according to the device ID or the module ID.
@@ -63,7 +65,7 @@ To make changes to your deployment, see [Modify a deployment](how-to-deploy-at-s
 
 Use the [az IoT Edge deployment show](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-show) command to display the details of a single deployment:
 
-```cli
+```azurecli
 az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name]
 ```
 
@@ -81,7 +83,7 @@ Inspect the deployment in the command window. The **metrics** property lists a 
 
 You can show a list of device IDs or objects for each of the metrics with the [az IoT Edge deployment show-metric](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-show-metric) command:
 
-```cli
+```azurecli
 az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [metric id] --hub-name [hub name]
 ```
 

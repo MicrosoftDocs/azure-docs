@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, automl
 ms.date: 03/09/2020
 
 #Customer intent: As a professional data scientist, I can use automated machine learning (automated ML) functionality to build a model on an Azure Machine Learning remote compute target.
@@ -39,7 +39,7 @@ ws = Workspace.from_config()
 
 ## Create resource
 
-Create the [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py&preserve-view=true) target in your workspace (`ws`) if it doesn't already exist.
+Create the [`AmlCompute`](/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29) target in your workspace (`ws`) if it doesn't already exist.
 
 **Time estimate**: Creation of the AmlCompute target takes approximately 5 minutes.
 
@@ -87,7 +87,7 @@ Cluster name restrictions include:
 
 ## Access data using TabularDataset function
 
-Defined training_data as [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) and the label, which are passed to Automated ML in the [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true). The `TabularDataset` method `from_delimited_files`, by default, sets the `infer_column_types` to true, which will infer the columns type automatically. 
+Defined training_data as [`TabularDataset`](/python/api/azureml-core/azureml.data.tabulardataset) and the label, which are passed to Automated ML in the [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). The `TabularDataset` method `from_delimited_files`, by default, sets the `infer_column_types` to true, which will infer the columns type automatically. 
 
 If you do wish to manually set the column types, you can set the `set_column_types` argument to manually set the type of each column. In the following code sample, the data comes from the sklearn package.
 
@@ -156,7 +156,7 @@ Now submit the configuration to automatically select the algorithm, hyper parame
 
 ```python
 from azureml.core.experiment import Experiment
-experiment = Experiment(ws, 'automl_remote')
+experiment = Experiment(ws, 'Tutorial-automl-remote')
 remote_run = experiment.submit(automl_config, show_output=True)
 ```
 
@@ -197,7 +197,7 @@ BEST: The best observed score thus far.
 
 ## Explore results
 
-You can use the same [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true) as shown in [the training tutorial](tutorial-auto-train-models.md#explore-the-results) to see a graph and table of results.
+You can use the same [Jupyter widget](/python/api/azureml-widgets/azureml.widgets) as shown in [the training tutorial](tutorial-auto-train-models.md#explore-the-results) to see a graph and table of results.
 
 ```python
 from azureml.widgets import RunDetails
@@ -217,7 +217,7 @@ If you aren't in a Jupyter notebook, you can display the URL  from the run itsel
 remote_run.get_portal_url()
 ```
 
-The same information is available in your workspace.  To learn more about these results, see [Understand automated machine learning results](how-to-understand-automated-ml.md).
+The same information is available in your workspace.  To learn more about these results, see [Evaluate automated machine learning results](how-to-understand-automated-ml.md).
 
 ## Example
 

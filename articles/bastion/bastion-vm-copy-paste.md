@@ -2,19 +2,19 @@
 title: 'Copy and paste to and from a virtual machine: Azure Bastion'
 description: In this article, learn how copy and paste to and from an Azure VM using Bastion.
 services: bastion
-author: charwen
+author: cherylmc
 
 ms.service: bastion
 ms.topic: how-to
-ms.date: 05/04/2020
-ms.author: charwen
+ms.date: 03/22/2021
+ms.author: cherylmc
 # Customer intent: I want to copy and paste to and from VMs using Azure Bastion.
 
 ---
 
 # Copy and paste to a virtual machine: Azure Bastion
 
-This article helps you copy and paste text to and from virtual machines when using Azure Bastion. Before you work with a VM, make sure you have followed the steps to [Create a Bastion host](bastion-create-host-portal.md). Then, connect to the VM that you want to work with using either [RDP](bastion-connect-vm-rdp.md) or [SSH](bastion-connect-vm-ssh.md).
+This article helps you copy and paste text to and from virtual machines when using Azure Bastion. Before you work with a VM, make sure you have followed the steps to [Create a Bastion host](./tutorial-create-host-portal.md). Then, connect to the VM that you want to work with using either [RDP](bastion-connect-vm-rdp.md) or [SSH](bastion-connect-vm-ssh.md).
 
 For browsers that support the advanced Clipboard API access, you can copy and paste text between your local device and the remote session in the same way you copy and paste between applications on your local device. For other browsers, you can use the Bastion clipboard access tool palette.
 
@@ -24,7 +24,7 @@ For browsers that support the advanced Clipboard API access, you can copy and pa
 
    ![Allow clipboard](./media/bastion-vm-manage/allow.png)
 
-Only text copy/paste is supported. For direct copy and paste, your browser may prompt you for clipboard access when the Bastion session is being initialized. **Allow** the web page to access the clipboard.
+Only text copy/paste is supported. For direct copy and paste, your browser may prompt you for clipboard access when the Bastion session is being initialized. **Allow** the web page to access the clipboard. If you are working from a Mac, the keyboard shortcut to paste is **SHIFT-CTRL-V**.
 
 ## <a name="to"></a>Copy to a remote session
 

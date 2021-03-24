@@ -2,12 +2,12 @@
 title: 'Azure VPN Gateway: Configure packet capture'
 description: Learn about packet capture functionality that you can use on VPN gateways to help narrow down the cause of a problem.  
 services: vpn-gateway
-author: radwiv
+author: anzaman
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/03/2020
-ms.author: radwiv
+ms.date: 02/22/2021
+ms.author: alzam
 ---
 
 # Configure packet capture for VPN gateways
@@ -23,10 +23,12 @@ You can run VPN Gateway packet capture on the gateway or on a specific connectio
 It's helpful to use a five-tuple filter (source subnet, destination subnet, source port, destination port, protocol) and TCP flags (SYN, ACK, FIN, URG, PSH, RST) when you're isolating problems in high-volume traffic.
 
 The following examples of JSON and a JSON schema provide explanations of each property. Here are some limitations to keep in mind when you run packet captures:
+
 - In the schema shown here, the filter is an array, but currently only one filter can be used at a time.
 - You can't run multiple gateway-wide packet captures at the same time.
 - You can't run multiple packet captures on a single connection at the same time. You can run multiple packet captures on different connections at the same time.
 - A maximum of five packet captures can be run in parallel per gateway. These packet captures can be a combination of gateway-wide packet captures and per-connection packet captures.
+- The unit for MaxPacketBufferSize is bytes and MaxFileSize is megabytes
 
 ### Example JSON
 ```JSON-interactive
@@ -312,9 +314,15 @@ The following examples of JSON and a JSON schema provide explanations of each pr
 }
 ```
 
-## Set up packet capture by using PowerShell
+## Packet capture - portal
 
-The following examples show PowerShell commands that start and stop packet captures. For more information on parameter options, see [this PowerShell document](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
+You can set up packet capture in the Azure portal.
+
+:::image type="content" source="./media/packet-capture/portal.jpg" alt-text="Screenshot of packet capture in the portal." lightbox="./media/packet-capture/portal.jpg":::
+
+## Packet capture - PowerShell
+
+The following examples show PowerShell commands that start and stop packet captures. For more information on parameter options, see [Start-AzVirtualnetworkGatewayPacketCapture](/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
 
 ### Start packet capture for a VPN gateway
 
@@ -350,6 +358,9 @@ Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourReso
 - Suggested minimum packet capture duration is 600 seconds. Because of sync issues among multiple components on the path, shorter packet captures might not provide complete data.
 - Packet capture data files are generated in PCAP format. Use Wireshark or other commonly available applications to open PCAP files.
 - Packet captures aren't supported on policy-based gateways.
+- If the `SASurl` parameter isn't configured correctly, the trace might fail with Storage errors. For examples of how to correctly generate an `SASurl` parameter, see [Stop-AzVirtualNetworkGatewayPacketCapture](/powershell/module/az.network/stop-azvirtualnetworkgatewaypacketcapture).
+
+
 
 ## Next steps
 

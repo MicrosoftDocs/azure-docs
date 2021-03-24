@@ -4,7 +4,7 @@ description: Describes Azure HPC Cache, a file access accelerator solution for h
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 09/03/2020
+ms.date: 03/11/2021
 ms.author: v-erkel
 ms.custom: references_regions
 ---
@@ -51,20 +51,7 @@ An Azure HPC Cache deployment can help speed up quantitative analysis calculatio
 
 Visit the [Azure Global Infrastructure products by region](https://azure.microsoft.com/global-infrastructure/services/?products=hpc-cache) page to learn where Azure HPC Cache is available.
 
-The [customer-managed keys feature](customer-keys.md) is supported only in these Azure regions:
-
-* East US
-* South Central US
-* West US 2
-* West Europe
-* US Gov Arizona
-* US Gov Virginia
-
-<!-- ## Service availability
-
-You must request access for each subscription you will use with Azure HPC Cache. This restriction helps ensure service quality.
-
-Request access by filling out [this form](https://aka.ms/onboard-hpc-cache). After your subscription is added to the access list, you can create caches. -->
+Azure HPC Cache resides in a single region. It can access data stored in other regions if you connect it to Blob containers located there. The cache does not permanently store customer data.
 
 ## Next steps
 

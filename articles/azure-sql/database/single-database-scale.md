@@ -7,16 +7,16 @@ ms.subservice: performance
 ms.custom: sqldbrb=1, references_regions
 ms.devlang: 
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer:
-ms.date: 09/16/2020
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: sstein
+ms.date: 02/22/2021
 ---
 # Scale single database resources in Azure SQL Database
 
 This article describes how to scale the compute and storage resources available for an Azure SQL Database in the provisioned compute tier. Alternatively, the [serverless compute tier](serverless-tier-overview.md) provides compute autoscaling and bills per second for compute used.
 
-After initially picking the number of vCores or DTUs, you can scale a single database up or down dynamically based on actual experience using the [Azure portal](single-database-manage.md#the-azure-portal), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), the [Azure CLI](/cli/azure/sql/db#az-sql-db-update), or the [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
+After initially picking the number of vCores or DTUs, you can scale a single database up or down dynamically based on actual experience using the [Azure portal](single-database-manage.md#the-azure-portal), [Transact-SQL](/sql/t-sql/statements/alter-database-transact-sql#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), the [Azure CLI](/cli/azure/sql/db#az-sql-db-update), or the [REST API](/rest/api/sql/databases/update).
 
 The following video shows dynamically changing the service tier and compute size to increase available DTUs for a single database.
 
@@ -52,7 +52,7 @@ The estimated latency to change the service tier, scale the compute size of a si
 |**Hyperscale**|N/A|N/A|N/A|&bull; &nbsp;Constant time latency independent of space used</br>&bull; &nbsp;Typically, less than 2 minutes|
 
 > [!NOTE]
-> Additionally, for Standard (S2-S12) and General Purpose databases, latency for moving a database in/out of an elastic pool or between elastic pools will be proportional to database size if the database is using Premium File Share ([PFS](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)) storage.
+> Additionally, for Standard (S2-S12) and General Purpose databases, latency for moving a database in/out of an elastic pool or between elastic pools will be proportional to database size if the database is using Premium File Share ([PFS](../../storage/files/storage-files-introduction.md)) storage.
 >
 > To determine if a database is using PFS storage, execute the following query in the context of the database. If the value in the AccountType column is `PremiumFileStorage` or `PremiumFileStorage-ZRS`, the database is using PFS storage.
  
@@ -66,7 +66,7 @@ WHERE s.type_desc IN ('ROWS', 'LOG');
 ```
 
 > [!TIP]
-> To monitor in-progress operations, see: [Manage operations using the SQL REST API](https://docs.microsoft.com/rest/api/sql/operations/list), [Manage operations using CLI](/cli/azure/sql/db/op), [Monitor operations using T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) and these two PowerShell commands: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) and [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
+> To monitor in-progress operations, see: [Manage operations using the SQL REST API](/rest/api/sql/operations/list), [Manage operations using CLI](/cli/azure/sql/db/op), [Monitor operations using T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) and these two PowerShell commands: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) and [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
 
 ## Cancelling changes
 
@@ -106,6 +106,7 @@ else {
 - When downgrading a database with [geo-replication](active-geo-replication-configure-portal.md) enabled, downgrade its primary databases to the desired service tier and compute size before downgrading the secondary database (general guidance for best performance). When downgrading to a different edition, it's a requirement that the primary database is downgraded first.
 - The restore service offerings are different for the various service tiers. If you're downgrading to the **Basic** tier, there's a lower backup retention period. See [Azure SQL Database Backups](automated-backups-overview.md).
 - The new properties for the database aren't applied until the changes are complete.
+- When data copying is required to scale a database (see [Latency](#latency)) when changing the service tier, high resource utilization concurrent to the scaling operation may cause longer scaling times. With [Accelerated Database Recovery (ADR)](/sql/relational-databases/accelerated-database-recovery-concepts), rollback of long running transactions is not a significant source of delay, but high concurrent resource usage may leave less compute, storage, and network bandwidth resources for scaling, particularly for smaller compute sizes.
 
 ## Billing
 
@@ -116,7 +117,7 @@ You're billed for each hour a database exists using the highest service tier + c
 ### vCore-based purchasing model
 
 - Storage can be provisioned up to the data storage max size limit using 1-GB increments. The minimum configurable data storage is 1 GB. See resource limit documentation pages for [single databases](resource-limits-vcore-single-databases.md) and [elastic pools](resource-limits-vcore-elastic-pools.md) for data storage max size limits in each service objective.
-- Data storage for a single database can be provisioned by increasing or decreasing its max size using the [Azure portal](https://portal.azure.com), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), or [REST API](https://docs.microsoft.com/rest/api/sql/databases/update). If the max size value is specified in bytes, it must be a multiple of 1 GB (1073741824 bytes).
+- Data storage for a single database can be provisioned by increasing or decreasing its max size using the [Azure portal](https://portal.azure.com), [Transact-SQL](/sql/t-sql/statements/alter-database-transact-sql#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), or [REST API](/rest/api/sql/databases/update). If the max size value is specified in bytes, it must be a multiple of 1 GB (1073741824 bytes).
 - The amount of data that can be stored in the data files of a database is limited by the configured data storage max size. In addition to that storage, Azure SQL Database automatically allocates 30% more storage to be used for the transaction log.
 - Azure SQL Database automatically allocates 32 GB per vCore for the `tempdb` database. `tempdb` is located on the local SSD storage in all service tiers.
 - The price of storage for a single database or an elastic pool is the sum of data storage and transaction log storage amounts multiplied by the storage unit price of the service tier. The cost of `tempdb` is included in the price. For details on storage price, see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
@@ -127,7 +128,7 @@ You're billed for each hour a database exists using the highest service tier + c
 ### DTU-based purchasing model
 
 - The DTU price for a single database includes a certain amount of storage at no additional cost. Extra storage beyond the included amount can be provisioned for an additional cost up to the max size limit in increments of 250 GB up to 1 TB, and then in increments of 256 GB beyond 1 TB. For included storage amounts and max size limits, see [Single database: Storage sizes and compute sizes](resource-limits-dtu-single-databases.md#single-database-storage-sizes-and-compute-sizes).
-- Extra storage for a single database can be provisioned by increasing its max size using the Azure portal, [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), the [Azure CLI](/cli/azure/sql/db#az-sql-db-update), or the [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
+- Extra storage for a single database can be provisioned by increasing its max size using the Azure portal, [Transact-SQL](/sql/t-sql/statements/alter-database-transact-sql#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), the [Azure CLI](/cli/azure/sql/db#az-sql-db-update), or the [REST API](/rest/api/sql/databases/update).
 - The price of extra storage for a single database is the extra storage amount multiplied by the extra storage unit price of the service tier. For details on the price of extra storage, see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
@@ -150,4 +151,3 @@ More than 1 TB of storage in the Premium tier is currently available in all regi
 ## Next steps
 
 For overall resource limits, see [Azure SQL Database vCore-based resource limits - single databases](resource-limits-vcore-single-databases.md) and [Azure SQL Database DTU-based resource limits - single databases](resource-limits-dtu-single-databases.md).
- 

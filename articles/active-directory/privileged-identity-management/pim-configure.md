@@ -10,14 +10,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 08/08/2020
+ms.date: 03/19/2021
 ms.author: curtand
-ms.custom: pim 
+ms.custom: pim ; azuread-video-2020
 ms.collection: M365-identity-device-management
 ---
+
 # What is Azure AD Privileged Identity Management?
 
- Privileged Identity Management (PIM) is a service in Azure Active Directory (Azure AD) that enables you to manage, control, and monitor access to important resources in your organization. These resources include resources in Azure AD, Azure, and other Microsoft Online Services such as Microsoft 365 or Microsoft Intune.
+ Privileged Identity Management (PIM) is a service in Azure Active Directory (Azure AD) that enables you to manage, control, and monitor access to important resources in your organization. These resources include resources in Azure AD, Azure, and other Microsoft Online Services such as Microsoft 365 or Microsoft Intune. The following video introduces you to important PIM concepts and features.
+<br><br>
+
+> [!VIDEO https://www.youtube.com/embed/f-0K7mRUPpQ]
 
 ## Reasons to use
 
@@ -83,8 +87,8 @@ To better understand Privileged Identity Management and its documentation, you s
 | activated | State | A user that has an eligible role assignment, performed the actions to activate the role, and is now active.  Once activated, the user can use the role for a preconfigured period-of-time before they need to activate again. |
 | permanent eligible | Duration | A role assignment where a user is always eligible to activate the role. |
 | permanent active | Duration | A role assignment where a user can always use the role without performing any actions. |
-| expire  eligible | Duration | A role assignment where a user is eligible to activate the role within a specified start and end date. |
-| expire active | Duration | A role assignment where a user can use the role without performing any actions within a specified start and end date. |
+| time-bound eligible | Duration | A role assignment where a user is eligible to activate the role only within start and end dates. |
+| time-bound active | Duration | A role assignment where a user can use the role only within start and end dates. |
 | just-in-time (JIT) access |  | A model in which users receive temporary permissions to perform privileged tasks, which prevents malicious or unauthorized users from gaining access after the permissions have expired. Access is granted only when users need it. |
 | principle of least privilege access |  | A recommended security practice in which every user is provided with only the minimum privileges needed to accomplish the tasks they are authorized to perform. This practice minimizes the number of Global Administrators and instead uses specific administrator roles for certain scenarios. |
 
@@ -97,5 +101,5 @@ For information about licenses for users, see [License requirements to use Privi
 ## Next steps
 
 - [License requirements to use Privileged Identity Management](subscription-requirements.md)
-- [Securing privileged access for hybrid and cloud deployments in Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+- [Securing privileged access for hybrid and cloud deployments in Azure AD](../roles/security-planning.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 - [Deploy Privileged Identity Management](pim-deployment-plan.md)

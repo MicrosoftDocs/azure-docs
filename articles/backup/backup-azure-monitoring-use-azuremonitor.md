@@ -51,7 +51,7 @@ Use an action group to specify a notification channel. To see the available noti
 
 You can satisfy all alerting and monitoring requirements from Log Analytics alone, or you can use Log Analytics to supplement built-in notifications.
 
-For more information, see [Create, view, and manage log alerts by using Azure Monitor](../azure-monitor/platform/alerts-log.md) and [Create and manage action groups in the Azure portal](../azure-monitor/platform/action-groups.md).
+For more information, see [Create, view, and manage log alerts by using Azure Monitor](../azure-monitor/alerts/alerts-log.md) and [Create and manage action groups in the Azure portal](../azure-monitor/alerts/action-groups.md).
 
 ### Sample Kusto queries
 
@@ -175,7 +175,7 @@ To identify the appropriate log and create an alert:
 
 2. Select the operation name to see the relevant details.
 3. Select **New alert rule** to open the **Create rule** page.
-4. Create an alert by following the steps in [Create, view, and manage activity log alerts by using Azure Monitor](../azure-monitor/platform/alerts-activity-log.md).
+4. Create an alert by following the steps in [Create, view, and manage activity log alerts by using Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md).
 
    ![New alert rule](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 
@@ -188,8 +188,8 @@ You can view all alerts created from activity logs and Log Analytics workspaces 
 Although you can get notifications through activity logs, we highly recommend using Log Analytics rather than activity logs for monitoring at scale. Here's why:
 
 - **Limited scenarios**: Notifications through activity logs apply only to Azure VM backups. The notifications must be set up for every Recovery Services vault.
-- **Definition fit**: The scheduled backup activity doesn't fit with the latest definition of activity logs. Instead, it aligns with [resource logs](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace). This alignment causes unexpected effects when the data that flows through the activity log channel changes.
-- **Problems with the activity log channel**: In Recovery Services vaults, activity logs that are pumped from Azure Backup follow a new model. Unfortunately, this change affects the generation of activity logs in Azure Government, Azure Germany, and Azure China 21Vianet. If users of these cloud services create or configure any alerts from activity logs in Azure Monitor, the alerts aren't triggered. Also, in all Azure public regions, if a user [collects Recovery Services activity logs into a Log Analytics workspace](../azure-monitor/platform/activity-log.md), these logs don't appear.
+- **Definition fit**: The scheduled backup activity doesn't fit with the latest definition of activity logs. Instead, it aligns with [resource logs](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace). This alignment causes unexpected effects when the data that flows through the activity log channel changes.
+- **Problems with the activity log channel**: In Recovery Services vaults, activity logs that are pumped from Azure Backup follow a new model. Unfortunately, this change affects the generation of activity logs in Azure Government, Azure Germany, and Azure China 21Vianet. If users of these cloud services create or configure any alerts from activity logs in Azure Monitor, the alerts aren't triggered. Also, in all Azure public regions, if a user [collects Recovery Services activity logs into a Log Analytics workspace](../azure-monitor/essentials/activity-log.md), these logs don't appear.
 
 Use a Log Analytics workspace for monitoring and alerting at scale for all your workloads that are protected by Azure Backup.
 

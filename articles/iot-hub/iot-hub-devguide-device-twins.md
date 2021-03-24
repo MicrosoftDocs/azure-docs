@@ -1,13 +1,13 @@
 ---
 title: Understand Azure IoT Hub device twins | Microsoft Docs
 description: Developer guide - use device twins to synchronize state and configuration data between IoT Hub and your devices
-author: ash2017
+author: nehsin
 manager: philmea
-ms.author: asrastog
+ms.author: nehsin
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/01/2020
+ms.date: 09/29/2020
 ms.custom: [mqtt, 'Role: Cloud Development']
 ---
 
@@ -35,6 +35,8 @@ Use device twins to:
 Refer to [Device-to-cloud communication guidance](iot-hub-devguide-d2c-guidance.md) for guidance on using reported properties, device-to-cloud messages, or file upload.
 
 Refer to [Cloud-to-device communication guidance](iot-hub-devguide-c2d-guidance.md) for guidance on using desired properties, direct methods, or cloud-to-device messages.
+
+To learn how device twins relate to the device model used by an Azure IoT Plug and Play device, see [Understand IoT Plug and Play digital twins](../iot-pnp/concepts-digital-twin.md).
 
 ## Device twins
 
@@ -243,7 +245,7 @@ Tags, desired properties, and reported properties are JSON objects with the foll
 
 * **Keys**: All keys in JSON objects are UTF-8 encoded, case-sensitive, and up-to 1 KB in length. Allowed characters exclude UNICODE control characters (segments C0 and C1), and `.`, `$`, and SP.
 
-* **Values**: All values in JSON objects can be of the following JSON types: boolean, number, string, object. Arrays are not allowed.
+* **Values**: All values in JSON objects can be of the following JSON types: boolean, number, string, object. Arrays are also supported.
 
     * Integers can have a minimum value of -4503599627370496 and a maximum value of 4503599627370495.
 
@@ -332,7 +334,9 @@ For example:
             "batteryLevel": "55%",
             "$metadata": {
                 "telemetryConfig": {
-                    "sendFrequency": "5m",
+                    "sendFrequency": {
+                        "$lastUpdated": "2016-03-31T16:35:48.789Z"
+                    },
                     "status": {
                         "$lastUpdated": "2016-03-31T16:35:48.789Z"
                     },

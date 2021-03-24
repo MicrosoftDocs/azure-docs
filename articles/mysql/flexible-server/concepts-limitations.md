@@ -1,11 +1,11 @@
 ---
 title: Limitations - Azure Database for MySQL - Flexible Server
 description: This article describes Limitations in Azure Database for MySQL - Flexible Server, such as number of connection and storage engine options.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 9/21/2020
+ms.date: 10/1/2020
 ---
 
 # Limitations in Azure Database for MySQL - Flexible Server (Preview)
@@ -18,9 +18,11 @@ This article describes limitations in the Azure Database for MySQL Flexible Serv
 ## Server parameters
 
 > [!NOTE]
-> If you are looking for min/max values for server parameters like `max_connections` and `innodb_buffer_pool_size`, this information has moved to the server parameters concepts <!-- **[server parameters](./concepts-server-parameters.md)** --> article.
+> If you are looking for min/max values for server parameters like `max_connections` and `innodb_buffer_pool_size`, this information has moved to the server parameters concepts [server parameters](./concepts-server-parameters.md) article.
 
-Azure Database for MySQL supports tuning the values of server parameters. The min and max value of some parameters (ex. `max_connections`, `join_buffer_size`, `query_cache_size`) is determined by the compute tier and compute size of the server. Refer to server parameters concepts <!-- [server parameters](./concepts-server-parameters.md)--> for more information about these limits.
+Azure Database for MySQL supports tuning the values of server parameters. The min and max value of some parameters (ex. `max_connections`, `join_buffer_size`, `query_cache_size`) is determined by the compute tier and compute size of the server. Refer to [server parameters](./concepts-server-parameters.md) for more information about these limits.
+
+Password plugins such as "validate_password" and "caching_sha2_password" are not supported by the service.
 
 ## Storage engines
 
@@ -82,8 +84,12 @@ The following are unsupported:
 - With point-in-time restore, new servers are created with the same compute and storage configurations as the source server it is based on. The newly restored server's compute can be scaled down after the server is created.
 - Restoring a deleted server isn't supported.
 
+## Features available in Single Server but not yet supported in Flexible Server 
+Not all features available in Azure Database for MySQL - Single Server is available in Flexible Server yet. For complete list of feature comparison between single server and flexible server, refer [choosing the right MySQL Server option in Azure documentation.](../select-right-deployment-type.md#comparing-the-mysql-deployment-options-in-azure)
+
 ## Next steps
 
-- Understand [what’s available for compute and storage options](concepts-compute-storage.md)
+- Learn [choose the right MySQL Server option in Azure documentation](../select-right-deployment-type.md)
+- Understand [what’s available for compute and storage options in flexible server](concepts-compute-storage.md)
 - Learn about [Supported MySQL Versions](concepts-supported-versions.md)
-- Review [how to back up and restore a server using the Azure portal](how-to-restore-server-portal.md)
+- Quickstart: [Use the Azure portal to create an Azure Database for MySQL flexible server](quickstart-create-server-portal.md)

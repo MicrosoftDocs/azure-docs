@@ -1,10 +1,23 @@
-- name: Virtual WAN Documentation
+- name: Virtual WAN documentation
   href: index.yml
 - name: Overview
   items:
   - name: What is Virtual WAN?
     href: virtual-wan-about.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: ARM templates
+    expanded: true
+    items:
+    - name: Any-to-any routing
+      displayName: Resource Manager Any-to-any routing
+      href: quickstart-any-to-any-template.md
+    - name: Route to shared services VNets
+      displayName: Resource Manager route to shared services VNets
+      href: quickstart-route-shared-services-vnet-template.md
 - name: Tutorials
+  expanded: true
   items:
   - name: Create a site-to-site connection
     href: virtual-wan-site-to-site-portal.md
@@ -40,32 +53,42 @@
     items:
     - name: About virtual hub routing
       href: about-virtual-hub-routing.md
-    - name: Routing scenarios
-      items:
-      - name: Any-to-any
-        href: scenario-any-to-any.md
-      - name: Isolating VNets
-        href: scenario-isolate-vnets.md
-      - name: Isolating VNets - custom
-        href: scenario-isolate-vnets-custom.md
-      - name: Shared Services VNets
-        href: scenario-shared-services-vnet.md
-      - name: Route through an NVA
-        href: scenario-route-through-nva.md
-      - name: Route through an NVA - custom
-        href: scenario-route-through-nvas-custom.md
-      - name: Azure Firewall - custom
-        href: scenario-route-between-vnets-firewall.md
+  - name: Routing scenarios
+    items:
+    - name: Any-to-any
+      href: scenario-any-to-any.md
+    - name: Isolating VNets
+      href: scenario-isolate-vnets.md
+    - name: Isolating VNets - custom
+      href: scenario-isolate-vnets-custom.md
+    - name: Isolating virtual networks and branches
+      href: scenario-isolate-virtual-networks-branches.md
+    - name: Shared services VNets
+      href: scenario-shared-services-vnet.md
+    - name: Route through an NVA
+      href: scenario-route-through-nva.md
+    - name: Route through an NVA - custom
+      href: scenario-route-through-nvas-custom.md
+    - name: Azure Firewall - custom
+      href: scenario-route-between-vnets-firewall.md
   - name: Monitoring
     items:
     - name: About Azure Monitor Insights for Virtual WAN
       href: azure-monitor-insights.md
   - name: Site-to-site
     items:
-    - name: About IPsec policies
+    - name: About S2S IPsec policies
       href: virtual-wan-ipsec.md
     - name: Multiple ISP links - Azure path selection
       href: path-selection-multiple-links.md
+  - name: Point-to-site
+    items:
+    - name: About P2S IPsec policies
+      href: point-to-site-ipsec.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
   - name: Pricing concepts
     href: pricing-concepts.md
   - name: About NVA in a virtual hub
@@ -76,6 +99,8 @@
     href: upgrade-virtual-wan.md
   - name: Create an NVA in a virtual hub
     href: How-to-nva-hub.md
+  - name: Create a cross-tenant VNet connection
+    href: cross-tenant-vnet.md
   - name: ExpressRoute
     items:
     - name: Create an ExpressRoute connection
@@ -90,6 +115,8 @@
       href: connect-virtual-network-gateway-vwan.md
     - name: Configure custom IPsec policy
       href: virtual-wan-custom-ipsec-portal.md
+    - name: Configure NAT rules
+      href: nat-rules-vpn-gateway.md
   - name: User VPN (point-to-site)
     items:
     - name: Create a User VPN connection
@@ -98,24 +125,34 @@
       href: certificates-point-to-site.md
     - name: Configure Azure AD tenant
       href: openvpn-azure-ad-tenant.md
-    - name: Client profile
-      href: about-vpn-profile-download.md
-    - name: Global and hub-based profile
-      href: global-hub-profile.md
-    - name: Configure OpenVPN clients
-      href: howto-openvpn-clients.md?
-    - name: Configure Always On VPN user tunnel
-      href: howto-always-on-user-tunnel.md
-    - name: Configure Always On VPN device tunnel
-      href: howto-always-on-device-tunnel.md
-    - name: Enable Multi-Factor Authentication(MFA)
-      href: openvpn-azure-ad-mfa.md   
-    - name: Configure Azure AD authentication
-      href: virtual-wan-point-to-site-azure-ad.md
-    - name: Configure Azure VPN Client for Windows 10
-      href: openvpn-azure-ad-client.md
-    - name: Configure Multi-application Azure AD authentication
-      href: openvpn-azure-ad-tenant-multi-app.md
+    - name: Client profiles
+      items:
+      - name: Download global and hub-based profiles
+        href: global-hub-profile.md
+      - name: Extract and view profile information
+        href: about-vpn-profile-download.md
+      - name: Deploy profiles using Intune
+        href: vpn-profile-intune.md
+    - name: VPN clients
+      items:
+      - name: Windows 10
+        href: openvpn-azure-ad-client.md
+      - name: OpenVPN
+        href: howto-openvpn-clients.md?
+    - name: Configure Always-On tunnels
+      items:
+      - name: User tunnel
+        href: howto-always-on-user-tunnel.md
+      - name: Device tunnel
+        href: howto-always-on-device-tunnel.md
+    - name: Authentication
+      items:
+      - name: Multi-Factor Authentication(MFA)
+        href: openvpn-azure-ad-mfa.md   
+      - name: Azure AD authentication
+        href: virtual-wan-point-to-site-azure-ad.md
+      - name: Multi-application Azure AD authentication
+        href: openvpn-azure-ad-tenant-multi-app.md
   - name: Routing
     items:
     - name: How to configure virtual hub routing
@@ -132,14 +169,14 @@
     items:
     - name: Install Azure Firewall in a hub
       href: howto-firewall.md
+    - name: Configure Private Link connectivity
+      href: howto-private-link.md
+    - name: Manage access to resources - Spoke VNet P2S
+      href: manage-secure-access-resources-spoke-p2s.md
   - name: Monitoring
     items:
     - name: Logs and metrics
       href: logs-metrics.md
-  - name: Private Link
-    items: 
-    - name: Configure Private Link connectivity
-      href: howto-private-link.md
 - name: Reference
   items:
   - name: Azure PowerShell

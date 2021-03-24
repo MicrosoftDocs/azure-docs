@@ -22,7 +22,7 @@ Sync data with SQL Server databases by installing and configuring the Data Sync 
 
 ## Download and install
 
-To download the Data Sync Agent, go to [SQL Data Sync Agent](https://www.microsoft.com/download/details.aspx?id=27693).
+To download the Data Sync Agent, go to [SQL Data Sync Agent](https://www.microsoft.com/download/details.aspx?id=27693). To upgrade the Data Sync Agent, install the Agent in the same location as the old Agent and it will override the original one.
 
 ### Install silently
 
@@ -320,7 +320,7 @@ For more info about SQL Data Sync, see the following articles:
         -  [Use PowerShell to sync between multiple databases in Azure SQL Database](scripts/sql-data-sync-sync-data-between-sql-databases.md)
         -  [Use PowerShell to sync between a database in Azure SQL Database and a database in a SQL Server instance](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
 -   Best practices - [Best practices for Azure SQL Data Sync](sql-data-sync-best-practices.md)
--   Monitor - [Monitor SQL Data Sync with Azure Monitor logs](sql-data-sync-monitor-sync.md)
+-   Monitor - [Monitor SQL Data Sync with Azure Monitor logs](./monitor-tune-overview.md)
 -   Troubleshoot - [Troubleshoot issues with Azure SQL Data Sync]sql-data-sync-troubleshoot.md)
 -   Update the sync schema
     -   With Transact-SQL - [Automate replication of schema changes with SQL Data Sync in Azure](sql-data-sync-update-sync-schema.md)

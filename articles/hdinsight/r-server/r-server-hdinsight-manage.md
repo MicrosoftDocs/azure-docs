@@ -1,9 +1,6 @@
 ---
 title: Manage ML Services cluster on HDInsight - Azure 
 description: Learn how to manage various tasks on ML Services cluster in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
@@ -24,7 +21,7 @@ In this article, you learn how to manage an existing ML Services cluster on Azur
 
 You can enable multiple concurrent users for ML Services cluster on HDInsight by adding more users for the edge node on which the RStudio community version runs. When you create an HDInsight cluster, you must provide two users, an HTTP user and an SSH user:
 
-![HDI Azure portal login parameters](./media/r-server-hdinsight-manage/hdi-concurrent-users1.png)
+:::image type="content" source="./media/r-server-hdinsight-manage/hdi-concurrent-users1.png" alt-text="HDI Azure portal login parameters" border="true":::
 
 - **Cluster login username**: an HTTP user for authentication through the HDInsight gateway that is used to protect the HDInsight clusters you created. This HTTP user is used to access the Apache Ambari UI, Apache Hadoop YARN UI, as well as other UI components.
 - **Secure Shell (SSH) username**: an SSH user to access the cluster through secure shell. This user is a user in the Linux system for all the head nodes, worker nodes, and edge nodes. So you can use secure shell to access any of the nodes in a remote cluster.
@@ -61,7 +58,7 @@ sudo passwd <yournewusername>
 
 The following screenshot shows the outputs.
 
-![screenshot output concurrent users](./media/r-server-hdinsight-manage/hdi-concurrent-users2.png)
+:::image type="content" source="./media/r-server-hdinsight-manage/hdi-concurrent-users2.png" alt-text="screenshot output concurrent users" border="true":::
 
 When prompted for "Current Kerberos password:", just press **Enter** to ignore it. The `-m` option in `useradd` command indicates that the system will create a home folder for the user, which is required for RStudio Community version.
 
@@ -101,7 +98,7 @@ mySparkCluster <- RxSpark(
 )
 ```
 
-For more information, see the "Using Microsoft Machine Learning Server as an Apache Hadoop Client" section in [How to use RevoScaleR in an Apache Spark compute context](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios)
+For more information, see the "Using Microsoft Machine Learning Server as an Apache Hadoop Client" section in [How to use RevoScaleR in an Apache Spark compute context](/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios)
 
 ## Use a compute context
 
@@ -209,7 +206,7 @@ To install R packages on the worker nodes of the cluster, you must use a Script 
    > 2. Some R packages require additional Linux system libraries. For convenience, the HDInsight ML Services comes pre-installed with the dependencies needed by the top 100 most popular R packages. However, if the R package(s) you install require libraries beyond these then you must download the base script used here and add steps to install the system libraries. You must then upload the modified script to a public blob container in Azure storage and use the modified script to install the packages.
    >    For more information on developing Script Actions, see [Script Action development](../hdinsight-hadoop-script-actions-linux.md).
 
-   ![Azure portal submit script action](./media/r-server-hdinsight-manage/submit-script-action.png)
+   :::image type="content" source="./media/r-server-hdinsight-manage/submit-script-action.png" alt-text="Azure portal submit script action" border="true":::
 
 4. Select **Create** to run the script. Once the script completes, the R packages are available on all worker nodes.
 

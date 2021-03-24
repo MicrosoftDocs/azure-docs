@@ -1,9 +1,6 @@
 ---
 title: Extract, transform, and load (ETL) at scale - Azure HDInsight 
 description: Learn how extract, transform, and load is used in HDInsight with Apache Hadoop.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
@@ -16,7 +13,7 @@ Extract, transform, and load (ETL) is the process by which data is acquired from
 
 The use of HDInsight in the ETL process is summarized by this pipeline:
 
-![HDInsight ETL at scale overview](./media/apache-hadoop-etl-at-scale/hdinsight-etl-at-scale-overview.png)
+:::image type="content" source="./media/apache-hadoop-etl-at-scale/hdinsight-etl-at-scale-overview.png" alt-text="HDInsight ETL at scale overview" border="false":::
 
 The following sections explore each of the ETL phases and their associated components.
 
@@ -77,11 +74,11 @@ For uploading datasets in the terabyte range, network latency can be a major pro
 
 - **Azure ExpressRoute:** Create private connections between Azure datacenters and your on-premises infrastructure. These connections provide a reliable option for transferring large amounts of data. For more information, see [Azure ExpressRoute documentation](../../expressroute/expressroute-introduction.md).
 
-- **Data upload from hard disk drives:** You can use [Azure Import/Export service](../../storage/common/storage-import-export-service.md) to ship hard disk drives with your data to an Azure datacenter. Your data is first uploaded to Azure Blob storage. You can then use Azure Data Factory or the AdlCopy tool to copy data from Azure Blob storage to Data Lake Storage.
+- **Data upload from hard disk drives:** You can use [Azure Import/Export service](../../import-export/storage-import-export-service.md) to ship hard disk drives with your data to an Azure datacenter. Your data is first uploaded to Azure Blob storage. You can then use Azure Data Factory or the AdlCopy tool to copy data from Azure Blob storage to Data Lake Storage.
 
 ### Azure Synapse Analytics
 
-Azure Synapse Analytics is an appropriate choice to store prepared results. You can use Azure HDInsight to perform those services for Zure Synapse Analytics.
+Azure Synapse Analytics is an appropriate choice to store prepared results. You can use Azure HDInsight to perform those services for Azure Synapse Analytics.
 
 Azure Synapse Analytics is a relational database store optimized for analytic workloads. It scales based on partitioned tables. Tables can be partitioned across multiple nodes. The nodes are selected at the time of creation. They can scale after the fact, but that's an active process that might require data movement. For more information, see [Manage compute in Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 

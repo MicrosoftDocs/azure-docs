@@ -1,9 +1,10 @@
 ---
 title: Dump and restore - Azure Database for PostgreSQL - Single Server
 description: Describes how to extract a PostgreSQL database into a dump file and restore from a file created by pg_dump in Azure Database for PostgreSQL - Single Server.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
+ms.subservice: migration-guide
 ms.topic: how-to
 ms.date: 09/22/2020
 ---

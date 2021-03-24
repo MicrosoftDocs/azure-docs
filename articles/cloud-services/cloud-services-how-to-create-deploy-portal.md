@@ -1,16 +1,20 @@
 ---
-title: How to create and deploy a cloud service | Microsoft Docs
+title: How to create and deploy a cloud service (classic) | Microsoft Docs
 description: Learn how to use the Quick Create method to create a cloud service and use Upload to upload and deploy a cloud service package in Azure.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 05/18/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: 
 ---
-# How to create and deploy a cloud service
+
+# How to create and deploy an Azure Cloud Service (classic)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+
 The Azure portal provides two ways for you to create and deploy a cloud service: *Quick Create* and *Custom Create*.
 
 This article explains how to use the Quick Create method to create a new cloud service and then use **Upload** to upload and deploy a cloud service package in Azure. When you use this method, the Azure portal makes available convenient links for completing all requirements as you go. If you're ready to deploy your cloud service when you create it, you can do both at the same time using Custom Create.
@@ -51,7 +55,8 @@ To create a cloud service with deployments of web roles or worker roles, you mus
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Click **Create a resource > Compute**, and then scroll down to and click **Cloud Service**.
 
-    ![Publish your cloud service](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
+    ![Publish your cloud service1](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
+
 3. In the new **Cloud Service** pane, enter a value for the **DNS name**.
 4. Create a new **Resource Group** or select an existing one.
 5. Select a **Location**.
@@ -60,7 +65,7 @@ To create a cloud service with deployments of web roles or worker roles, you mus
 8. Click **OK** which will close the **Upload a package** pane.
 9. If you do not have any certificates to add, click **Create**.
 
-    ![Publish your cloud service](media/cloud-services-how-to-create-deploy-portal/select-package.png)
+    ![Publish your cloud service2](media/cloud-services-how-to-create-deploy-portal/select-package.png)
 
 ## Upload a certificate
 If your deployment package was [configured to use certificates](cloud-services-configure-ssl-certificate-portal.md#modify), you can upload the certificate now.
@@ -69,7 +74,7 @@ If your deployment package was [configured to use certificates](cloud-services-c
 2. Click **Attach certificate**, and then click **OK** on the **Add certificates** pane.
 3. Click **Create** on the **Cloud Service** pane. When the deployment has reached the **Ready** status, you can proceed to the next steps.
 
-    ![Publish your cloud service](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
+    ![Publish your cloud service3](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
 
 ## Verify your deployment completed successfully
 1. Click the cloud service instance.
@@ -79,13 +84,10 @@ If your deployment package was [configured to use certificates](cloud-services-c
 
     ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy-portal/running.png)
 
-[TFSTutorialForCloudService]: https://go.microsoft.com/fwlink/?LinkID=251796
+[TFSTutorialForCloudService]: ./cloud-services-choose-me.md
 
 ## Next steps
 * [General configuration of your cloud service](cloud-services-how-to-configure-portal.md).
 * Configure a [custom domain name](cloud-services-custom-domain-name-portal.md).
 * [Manage your cloud service](cloud-services-how-to-manage-portal.md).
 * Configure [TLS/SSL certificates](cloud-services-configure-ssl-certificate-portal.md).
-
-
-

@@ -1,22 +1,24 @@
 ---
-title: Docker containers - LUIS
+title: Install and run Docker containers for LUIS
 titleSuffix: Azure Cognitive Services
-description: The LUIS container loads your trained or published app into a docker container and provides access to the query predictions from the container's API endpoints.
+description: Use the LUIS container to load your trained or published app, and gain access to its predictions on-premises.
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 03/02/2021
 ms.author: aahi
+keywords: on-premises, Docker, container
 ---
 
-# Install and run LUIS docker containers
+# Install and run Docker containers for LUIS
 
 [!INCLUDE [container image location note](../containers/includes/image-location-note.md)]
 
+Containers enable you to use LUIS in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run a LUIS container.
 
 The Language Understanding (LUIS) container loads your trained or published Language Understanding model. As a [LUIS app](https://www.luis.ai), the docker container provides access to the query predictions from the container's API endpoints. You can collect query logs from the container and upload them back to the Language Understanding app to improve the app's prediction accuracy.
 
@@ -343,7 +345,7 @@ From the LUIS portal, select your app, then select **Import endpoint logs** to u
 
 ![Import container's log files for active learning](./media/luis-container-how-to/upload-endpoint-log-files.png)
 
-After the log is uploaded, [review the endpoint](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances) utterances in the LUIS portal.
+After the log is uploaded, [review the endpoint](./luis-concept-review-endpoint-utterances.md) utterances in the LUIS portal.
 
 <!--  ## Validate container is running -->
 
@@ -366,9 +368,6 @@ The LUIS container sends billing information to Azure, using a _Cognitive Servic
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 For more information about these options, see [Configure containers](luis-container-configuration.md).
-
-<!--blogs/samples/video courses -->
-[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## Summary
 

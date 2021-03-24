@@ -1,12 +1,11 @@
 ---
-title: Overview of Live streaming with Azure Media Services v3 | Microsoft Docs
+title: Overview of Live streaming
 description: This article gives an overview of live streaming using Azure Media Services v3.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,7 +13,6 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-
 ---
 # Live streaming with Azure Media Services v3
 
@@ -33,7 +31,7 @@ For customers looking to deliver content to large internet audiences, we recomme
 This article gives an overview and guidance of live streaming with Media Services and links to other relevant articles.
  
 > [!NOTE]
-> You can use the [Azure portal](https://portal.azure.com/) to manage v3 [Live Events](live-events-outputs-concept.md), view v3 [assets](assets-concept.md), get info about accessing APIs. For all other management tasks (for example, Transforms and Jobs), use the [REST API](/rest/api/media/), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
+> You can use the [Azure portal](https://portal.azure.com/) to manage v3 [Live Events](live-events-outputs-concept.md), view v3 [assets](assets-concept.md), get info about accessing APIs. For all other management tasks (for example, Transforms and Jobs), use the [REST API](/rest/api/media/), [CLI](/cli/azure/ams), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
 ## Dynamic packaging and delivery
 
@@ -131,4 +129,4 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 
 * [Live streaming quickstart](live-events-wirecast-quickstart.md)
 * [Live streaming tutorial](stream-live-tutorial-with-api.md)
-* [Migration guidance for moving from Media Services v2 to v3](migrate-from-v2-to-v3.md)
+* [Migration guidance for moving from Media Services v2 to v3](migrate-v-2-v-3-migration-introduction.md)

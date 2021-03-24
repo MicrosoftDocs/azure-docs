@@ -9,14 +9,14 @@ ms.author: keli19
 editor: cgronlun
 ms.assetid: 0923074b-3728-439d-a1b8-8a7245e39be4
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: reference
 ms.date: 11/16/2016
 ---
  
 # Azure Machine Learning Studio (classic) REST API Error Codes
 
-**APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 The following error codes could be returned by an operation on an Azure Machine Learning Studio (classic) web service.
@@ -248,4 +248,3 @@ The operation could not be completed within the permitted time.
 | ---------- |--------------|
 | BackendInitializationTimeout | The web service initialization could not be completed within the permitted time. |
 | BackendScoreTimeout | The web service request execution could not be completed within the permitted time. |
- 

@@ -53,11 +53,33 @@ If you've already configured the backup and must move from GRS to LRS, then see 
 - ILR is supported for Azure VMs backed up by Azure VM backup. For more information, see [article](backup-azure-restore-files-from-vm.md)
 - ILR isn't supported for online recovery points of on-premises VMs backed up by Azure Backup Server (MABS) or System Center DPM.
 
+### How can I move data from the Recovery Services vault to on-premises?
+
+Exporting data directly from the Recovery Services vault to on-premises using Data Box is not supported. Data must be restored to a storage account, and then it can be moved to on-premises via [Data Box](../databox/data-box-overview.md) or [Import/Export](../import-export/storage-import-export-service.md).
+
+### What is the difference between a geo-redundant storage (GRS) vault with and without the Cross-Region Restore (CRR) capability enabled?
+
+In the case of a [GRS](azure-backup-glossary.md#grs) vault without [CRR](azure-backup-glossary.md#cross-region-restore-crr) capability enabled, the data in the secondary region can't be accessed until Azure declares a disaster in the primary region. In such a scenario, the restore happens from the secondary region. When CRR is enabled, even if the primary region is up and running, you can trigger a restore in the secondary region.
+
+### Can I move a subscription that contains a vault to a different Azure Active Directory?
+
+Yes. To move a subscription (that contains a vault) to a different Azure Active Directory (AD), see [Transfer subscription to a different directory](../role-based-access-control/transfer-subscription.md).
+
+>[!IMPORTANT]
+>Ensure that you perform the following actions after moving the subscription:<ul><li>Role-based access control permissions and custom roles are not transferrable. You must recreate the permissions and roles in the new Azure AD.</li><li>You must recreate the Managed Identity (MI) of the vault by disabling and enabling it again. Also, you must evaluate and recreate the MI permissions.</li><li>If the vault uses features which leverage MI, such as [Private Endpoints](private-endpoints.md#before-you-start) and [Customer Managed Keys](encryption-at-rest-with-cmk.md#before-you-start), you must reconfigure the features.</li></ul>
+
+### Can I move a subscription that contains a Recovery Services Vault to a different tenant?
+
+Yes. Ensure that you do the following: 
+
+>[!IMPORTANT]
+>Ensure that you perform the following actions after moving the subscription:<ul><li>If the vault uses CMK (customer managed keys), you must update the vault. This enables the vault to recreate and reconfigure the vault managed identity and CMK (which will reside in the new tenant), otherwise the backups/restore operation will fail.</li><li>You must reconfigure the RBAC permissions in the subscription as the existing permissions can’t be moved.</li></ul>
+
 ## Azure Backup agent
 
 ### Where can I find common questions about the Azure Backup agent for Azure VM backup?
 
-- For the agent running on Azure VMs, read this [FAQ](backup-azure-vm-backup-faq.md).
+- For the agent running on Azure VMs, read this [FAQ](backup-azure-vm-backup-faq.yml).
 - For the agent used to back up Azure file folders, read this [FAQ](backup-azure-file-folder-backup-faq.md).
 
 ## General backup
@@ -169,7 +191,7 @@ Typical long-term retention point products store backup data as full points.
 - The full points are storage *inefficient* but are easier and faster to restore.
 - Incremental copies are storage *efficient* but require you to restore a chain of data, which impacts your recovery time
 
-Azure Backup storage architecture gives you the best of both worlds by optimally storing data for fast restores and incurring low storage costs. This ensures that your ingress and egress bandwidth is used efficiently. The amount of data storage, and the time needed to recover the data, is kept to a minimum. Learn more about [incremental backups](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/).
+Azure Backup storage architecture gives you the best of both worlds by optimally storing data for fast restores and incurring low storage costs. This ensures that your ingress and egress bandwidth is used efficiently. The amount of data storage, and the time needed to recover the data, is kept to a minimum. Learn more about [incremental backups](backup-architecture.md#backup-types).
 
 ### Is there a limit on the number of recovery points that can be created?
 
@@ -223,5 +245,5 @@ The key used to encrypt the backup data is present only on your site. Microsoft 
 
 Read the other FAQs:
 
-- [Common questions](backup-azure-vm-backup-faq.md) about Azure VM backups.
+- [Common questions](backup-azure-vm-backup-faq.yml) about Azure VM backups.
 - [Common questions](backup-azure-file-folder-backup-faq.md) about the Azure Backup agent

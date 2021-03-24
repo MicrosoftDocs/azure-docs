@@ -1,6 +1,7 @@
 ---
-title: Add sign-in with Microsoft to a Microsoft identity platform Python web app | Azure
-description: Learn how to implement Microsoft Sign-In on a Python web app using OAuth2
+title: "Quickstart: Add sign-in with Microsoft to a Python web app | Azure"
+titleSuffix: Microsoft identity platform
+description: In this quickstart, learn how a Python web app can sign in users, get an access token from the Microsoft identity platform, and call the Microsoft Graph API.
 services: active-directory
 author: abhidnya13
 manager: CelesteDG
@@ -16,14 +17,13 @@ ms.custom: aaddev, devx-track-python, scenarios:getting-started, languages:Pytho
 
 # Quickstart: Add sign-in with Microsoft to a Python web app
 
-In this quickstart, you'll learn how to integrate a Python web application with the Microsoft identity platform. Your app will sign in a user, get an access token to call the Microsoft Graph API, and make a request to the Microsoft Graph API.
+In this quickstart, you download and run a code sample that demonstrates how a Python web application can sign in users and get an access token to call the Microsoft Graph API. Users with a personal Microsoft Account or an account in any Azure Active Directory (Azure AD) organization can sign into the application.
 
-When you've completed the guide, your application will accept sign-ins of personal Microsoft accounts (including outlook.com, live.com, and others) and work or school accounts from any company or organization that uses Azure Active Directory. (See [How the sample works](#how-the-sample-works) for an illustration.)
+See [How the sample works](#how-the-sample-works) for an illustration.
 
 ## Prerequisites
 
-To run this sample, you will need:
-
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Python 2.7+](https://www.python.org/downloads/release/python-2713) or [Python 3+](https://www.python.org/downloads/release/python-364/)
 - [Flask](http://flask.pocoo.org/), [Flask-Session](https://pypi.org/project/Flask-Session/), [requests](https://requests.kennethreitz.org/en/master/)
 - [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python)
@@ -36,7 +36,7 @@ To run this sample, you will need:
 >
 > ### Option 1: Register and auto configure your app and then download your code sample
 >
-> 1. Go to the [Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/PythonQuickstartPage/sourceType/docs).
+> 1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/PythonQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations</a> quickstart experience.
 > 1. Enter a name for your application and select **Register**.
 > 1. Follow the instructions to download and automatically configure your new application.
 >
@@ -46,37 +46,31 @@ To run this sample, you will need:
 >
 > To register your application and add the app's registration information to your solution manually, follow these steps:
 >
-> 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
-> 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
-> 1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
-> 1. Select **New registration**.
-> 1. When the **Register an application** page appears, enter your application's registration information:
->      - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `python-webapp`.
->      - Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
->      - Select **Register**.
->      - On the app **Overview** page, note the **Application (client) ID** value for later use.
-> 1. Select the **Authentication** from the menu, and then add the following information:
->    - Add the **Web** platform configuration. Add `http://localhost:5000/getAToken` as **Redirect URIs**.
->    - Select **Save**.
-> 1. On the left hand menu, choose **Certificates & secrets** and click on **New client secret** in the **Client Secrets** section:
->
->      - Type a key description (of instance app secret).
->      - Select a key duration of **In 1 year**.
->      - When you click on **Add**, the key value will be displayed.
->      - Copy the value of the key. You will need it later.
-> 1. Select the **API permissions** section
->
->      - Click the **Add a permission** button and then,
->      - Ensure that the **Microsoft APIs** tab is selected
->      - In the *Commonly used Microsoft APIs* section, click on **Microsoft Graph**
->      - In the **Delegated permissions** section, ensure that the right permissions are checked: **User.ReadBasic.All**. Use the search box if necessary.
->      - Select the **Add permissions** button
+> 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
+> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+> 1. Under **Manage**, select **App registrations** > **New registration**.
+> 1. Enter a **Name** for your application, for example `python-webapp` . Users of your app might see this name, and you can change it later.
+> 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
+> 1. Select **Register**.
+> 1. On the app **Overview** page, note the **Application (client) ID** value for later use.
+> 1. Under **Manage**, select **Authentication**.
+> 1. Select **Add a platform** > **Web**.
+> 1. Add `http://localhost:5000/getAToken` as **Redirect URIs**.
+> 1. Select **Configure**.
+> 1. Under **Manage**, select the **Certificates & secrets**  and from the **Client secrets** section, select **New client secret**.
+> 1. Type a key description (for instance app secret), leave the default expiration, and select **Add**.
+> 1. Note the **Value** of the **Client Secret** for later use.
+> 1. Under **Manage**, select **API permissions** > **Add a permission**.
+> 1. Ensure that the **Microsoft APIs** tab is selected.
+> 1. From the *Commonly used Microsoft APIs* section, select **Microsoft Graph**.
+> 1. From the **Delegated permissions** section, ensure that the right permissions are checked: **User.ReadBasic.All**. Use the search box if necessary.
+> 1. Select the **Add permissions** button.
 >
 > [!div class="sxs-lookup" renderon="portal"]
 >
 > #### Step 1: Configure your application in Azure portal
 >
-> For the code sample for this quickstart to work, you need to:
+> For the code sample in this quickstart to work:
 >
 > 1. Add a reply URL as `http://localhost:5000/getAToken`.
 > 1. Create a Client Secret.
@@ -93,7 +87,7 @@ To run this sample, you will need:
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Download the project and extract the zip file to a local folder closer to the root folder - for example, **C:\Azure-Samples**
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div class="sxs-lookup" renderon="portal" id="autoupdate" class="nextstepaction"]
 > [Download the code sample](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -158,11 +152,11 @@ You can add the reference to MSAL Python by adding the following code to the top
 import msal
 ```
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## Next steps
 
-Learn more about web apps that sign in users, and then that calls web APIs:
+Learn more about web apps that sign in users in our multi-part scenario series.
 
 > [!div class="nextstepaction"]
-> [Scenario: Web apps that sign in users](scenario-web-app-sign-user-overview.md)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [Scenario: Web app that signs in users](scenario-web-app-sign-user-overview.md)

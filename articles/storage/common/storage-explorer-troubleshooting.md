@@ -16,13 +16,13 @@ Microsoft Azure Storage Explorer is a standalone app that makes it easy to work 
 
 This guide summarizes solutions for issues that are commonly seen in Storage Explorer.
 
-## RBAC permissions issues
+## Azure RBAC permissions issues
 
-Role-based access control [RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) enables highly granular access management of Azure resources by combining sets of permissions into _roles_. Here are some strategies to get RBAC working optimally in Storage Explorer.
+Azure role-based access control [Azure RBAC](../../role-based-access-control/overview.md) enables highly granular access management of Azure resources by combining sets of permissions into _roles_. Here are some strategies to get Azure RBAC working optimally in Storage Explorer.
 
 ### How do I access my resources in Storage Explorer?
 
-If you're having problems accessing storage resources through RBAC, you might not have been assigned the appropriate roles. The following sections describe the permissions Storage Explorer currently requires for access to your storage resources. Contact your Azure account administrator if you're not sure you have the appropriate roles or permissions.
+If you're having problems accessing storage resources through Azure RBAC, you might not have been assigned the appropriate roles. The following sections describe the permissions Storage Explorer currently requires for access to your storage resources. Contact your Azure account administrator if you're not sure you have the appropriate roles or permissions.
 
 #### "Read: List/Get Storage Account(s)" permissions issue
 
@@ -53,25 +53,36 @@ If you don’t have a role that grants any management layer permissions, Storage
 
 ### What if I can't get the management layer permissions I need from my administrator?
 
-If you want to access blob containers or queues, you can attach to those resources using your Azure credentials.
+If you want to access blob containers, ADLS Gen2 containers or directories, or queues, you can attach to those resources using your Azure credentials.
 
 1. Open the Connect dialog.
-2. Select "Add a resource via Azure Active Directory (Azure AD). Click Next.
-3. Select the user account and tenant associated with the resource you're attaching to. Click Next.
-4. Select the resource type, enter the URL to the resource, and enter a unique display name for the connection. Click Next. Click Connect.
+1. Select the resource type you want to connect to.
+1. Select **Sign in using Azure Active Directory (Azure AD)**. Select **Next**.
+1. Select the user account and tenant associated with the resource you're attaching to. Select **Next**.
+1. Enter the URL to the resource, and enter a unique display name for the connection. Select **Next** then **Connect**.
 
-For other resource types, we don't currently have an RBAC-related solution. As a workaround, you can request a SAS URI to [attach to your resource](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
+For other resource types, we don't currently have an Azure RBAC-related solution. As a workaround, you can request a SAS URL then attach to your resource by following these steps:
+
+1. Open the Connect dialog.
+1. Select the resource type you want to connect to.
+1. Select **Shared access signature (SAS)**. Select **Next**.
+1. Enter the SAS URL you received and enter a unique display name for the connection. Select **Next** then **Connect**.
+ 
+For more information on attaching to resources, see [Attach to an Individual Resource](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux#attach-to-an-individual-resource).
 
 ### Recommended Azure built-in roles
 
 There are several Azure built-in roles that can provide the permissions needed to use Storage Explorer. Some of those roles are:
-- [Owner](/azure/role-based-access-control/built-in-roles#owner): Manage everything, including access to resources. **Note**: this role will give you key access.
-- [Contributor](/azure/role-based-access-control/built-in-roles#contributor): Manage everything, excluding access to resources. **Note**: this role will give you key access.
-- [Reader](/azure/role-based-access-control/built-in-roles#reader): Read and list resources.
-- [Storage Account Contributor](/azure/role-based-access-control/built-in-roles#storage-account-contributor): Full management of storage accounts. **Note**: this role will give you key access.
-- [Storage Blob Data Owner](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner): Full access to Azure Storage blob containers and data.
-- [Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor): Read, write, and delete Azure Storage containers and blobs.
-- [Storage Blob Data Reader](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader): Read and list Azure Storage containers and blobs.
+- [Owner](../../role-based-access-control/built-in-roles.md#owner): Manage everything, including access to resources.
+- [Contributor](../../role-based-access-control/built-in-roles.md#contributor): Manage everything, excluding access to resources.
+- [Reader](../../role-based-access-control/built-in-roles.md#reader): Read and list resources.
+- [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor): Full management of storage accounts.
+- [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): Full access to Azure Storage blob containers and data.
+- [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Read, write, and delete Azure Storage containers and blobs.
+- [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): Read and list Azure Storage containers and blobs.
+
+> [!NOTE]
+> The Owner, Contributor, and Storage Account Contributor roles grant account key access.
 
 ## Error: Self-signed certificate in certificate chain (and similar errors)
 
@@ -182,46 +193,62 @@ If you can't remove an attached account or storage resource through the UI, you 
 
 ## Proxy issues
 
-First, make sure that the following information you entered is correct:
+Storage Explorer supports connecting to Azure Storage resources via a proxy server. If you experience any issues connecting to Azure via proxy, here are some suggestions.
 
-* The proxy URL and port number
-* Username and password if the proxy requires them
+> [!NOTE]
+> Storage Explorer only supports basic authentication with proxy servers. Other authentication methods, such as NTLM, are not supported.
 
 > [!NOTE]
 > Storage Explorer doesn't support proxy auto-config files for configuring proxy settings.
 
-### Common solutions
+### Verify Storage Explorer proxy settings
 
-If you're still experiencing issues, try the following troubleshooting methods:
+The **Application → Proxy → Proxy configuration** setting determines which source Storage Explorer gets the proxy configuration from.
 
-* If you can connect to the internet without using your proxy, verify that Storage Explorer works without proxy settings enabled. If this is the case, there may be an issue with your proxy settings. Work with your administrator to identify the problems.
-* Verify that other applications that use the proxy server work as expected.
-* Verify that you can connect to the portal for the Azure environment you're trying to use.
-* Verify that you can receive responses from your service endpoints. Enter one of your endpoint URLs into your browser. If you can connect, you should receive InvalidQueryParameterValue or a similar XML response.
-* If someone else is also using Storage Explorer with your proxy server, verify that they can connect. If they can, you may have to contact your proxy server admin.
+If you select "Use environment variables", make sure to set the `HTTPS_PROXY` or `HTTP_PROXY` environment variables (environment variables are case-sensitive, so be sure to set the correct variables). If these variables are undefined or invalid, Storage Explorer won't use a proxy. Restart Storage Explorer after modifying any environment variables.
+
+If you select "Use app proxy settings", make sure the in-app proxy settings are correct.
+
+### Steps for diagnosing issues
+
+If you're still experiencing issues, try these troubleshooting methods:
+
+1. If you can connect to the internet without using your proxy, verify that Storage Explorer works without proxy settings enabled. If Storage Explorer connects successfully, there may be an issue with your proxy server. Work with your administrator to identify the problems.
+2. Verify that other applications that use the proxy server work as expected.
+3. Verify that you can connect to the portal for the Azure environment you're trying to use.
+4. Verify that you can receive responses from your service endpoints. Enter one of your endpoint URLs into your browser. If you can connect, you should receive an `InvalidQueryParameterValue` or similar XML response.
+5. Check whether someone else using Storage Explorer with the same proxy server can connect. If they can, you may have to contact your proxy server admin.
 
 ### Tools for diagnosing issues
 
-If you have networking tools, such as Fiddler for Windows, you can diagnose the problems as follows:
+A networking tool, such as Fiddler, can help you diagnose problems.
 
-* If you have to work through your proxy, you may have to configure your networking tool to connect through the proxy.
-* Check the port number used by your networking tool.
-* Enter the local host URL and the networking tool's port number as proxy settings in Storage Explorer. When you do this correctly, your networking tool starts logging network requests made by Storage Explorer to management and service endpoints. For example, enter `https://cawablobgrs.blob.core.windows.net/` for your blob endpoint in a browser, and you'll receive a response that resembles the following:
+1. Configure your networking tool as a proxy server running on the local host. If you have to continue working behind an actual proxy, you may have to configure your networking tool to connect through the proxy.
+2. Check the port number used by your networking tool.
+3. Configure Storage Explorer proxy settings to use the local host and the networking tool's port number (such as "localhost:8888").
+ 
+When set correctly, your networking tool will log network requests made by Storage Explorer to management and service endpoints.
+ 
+If your networking tool doesn't appear to be logging Storage Explorer traffic, try testing your tool with a different application. For example, enter the endpoint URL for one of your storage resources (such as `https://contoso.blob.core.windows.net/`) in a web browser, and you'll receive a response similar to:
 
   ![Code sample](./media/storage-explorer-troubleshooting/4022502_en_2.png)
 
-  This response suggests the resource exists, even though you can't access it.
+  The response suggests the resource exists, even though you can't access it.
+
+If your networking tool only shows traffic from other applications, you may need to adjust the proxy settings in Storage Explorer. Otherwise, you made need to adjust your tool's settings.
 
 ### Contact proxy server admin
 
-If your proxy settings are correct, you may have to contact your proxy server admin to:
+If your proxy settings are correct, you may have to contact your proxy server administrator to:
 
 * Make sure your proxy doesn't block traffic to Azure management or resource endpoints.
-* Verify the authentication protocol used by your proxy server. Storage Explorer doesn't currently support NTLM proxies.
+* Verify the authentication protocol used by your proxy server. Storage Explorer only supports basic authentication protocols. Storage Explorer doesn't support NTLM proxies.
 
 ## "Unable to Retrieve Children" error message
 
-If you're connected to Azure through a proxy, verify that your proxy settings are correct. If you're granted access to a resource from the owner of the subscription or account, verify that you have read or list permissions for that resource.
+If you're connected to Azure through a proxy, verify that your proxy settings are correct.
+
+If the owner of a subscription or account has granted you access to a resource, verify that you have read or list permissions for that resource.
 
 ## Connection string doesn't have complete configuration settings
 
@@ -327,7 +354,7 @@ Storage Explorer requires .NET Core to be installed on your system. We recommend
 # [Ubuntu 20.04](#tab/2004)
 
 1. Download the Storage Explorer .tar.gz file.
-2. Install the [.NET Core Runtime](https://docs.microsoft.com/dotnet/core/install/linux):
+2. Install the [.NET Core Runtime](/dotnet/core/install/linux):
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \
@@ -340,7 +367,7 @@ Storage Explorer requires .NET Core to be installed on your system. We recommend
 # [Ubuntu 18.04](#tab/1804)
 
 1. Download the Storage Explorer .tar.gz file.
-2. Install the [.NET Core Runtime](https://docs.microsoft.com/dotnet/core/install/linux):
+2. Install the [.NET Core Runtime](/dotnet/core/install/linux):
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \
@@ -353,7 +380,7 @@ Storage Explorer requires .NET Core to be installed on your system. We recommend
 # [Ubuntu 16.04](#tab/1604)
 
 1. Download the Storage Explorer .tar.gz file.
-2. Install the [.NET Core Runtime](https://docs.microsoft.com/dotnet/core/install/linux):
+2. Install the [.NET Core Runtime](/dotnet/core/install/linux):
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \

@@ -10,10 +10,15 @@
   - name: Secure virtual hub - ARM template
     displayName: Resource Manager
     href: quick-secure-virtual-hub.md
+  - name: Deploy firewall with policy - ARM template
+    displayName: Resource Manager
+    href: quick-firewall-policy.md
 - name: Tutorials
   items:
   - name: Secure your virtual hub - portal
     href: secure-cloud-network.md
+  - name: Secure your virtual hub - PowerShell
+    href: secure-cloud-network-powershell.md
   - name: Secure your hub virtual network - portal
     href: secure-hybrid-network.md
 - name: Concepts
@@ -26,6 +31,8 @@
     href: deployment-overview.md
   - name: Security partner providers
     href: trusted-security-partners.md
+  - name: Secure hubs using Check Point Cloudguard Connect
+    href: check-point-overview.md
   - name: IP Groups
     href: ip-groups.md
   - name: Rule processing logic
@@ -36,6 +43,10 @@
     href: threat-intelligence-settings.md
   - name: FQDN in network rules
     href: fqdn-filtering-network-rules.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
 - name: How-to guides
   items:
   - name: Deploy security partner providers

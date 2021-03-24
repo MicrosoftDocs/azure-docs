@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 
 * [Azure CLI](/cli/azure/overview), installed on your own computer. 
 * [Git](https://git-scm.com/)
-* [Java JDK](https://aka.ms/azure-jdks)
+* [Java JDK](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 * [Maven](https://maven.apache.org)
 
 ## Clone the sample TODO app and prepare the repo
@@ -51,16 +51,16 @@ yes | cp -rf .prep/* .
 
 Follow these steps to create an Azure Cosmos DB database in your subscription. The TODO list app will connect to this database and store its data when running, persisting the application state no matter where you run the application.
 
-1. Login your Azure CLI, and optionally set your subscription if you have more than one connected to your login credentials.
+1. Login to your Azure CLI, and optionally set your subscription if you have more than one connected to your login credentials.
 
-    ```bash
+    ```azurecli
     az login
     az account set -s <your-subscription-id>
     ```   
 
 2. Create an Azure Resource Group, noting the resource group name.
 
-    ```bash
+    ```azurecli
     az group create -n <your-azure-group-name> \
         -l <your-resource-group-region>
     ```
@@ -68,7 +68,7 @@ Follow these steps to create an Azure Cosmos DB database in your subscription. T
 3. Create Azure Cosmos DB with the `GlobalDocumentDB` kind. 
 The name of Cosmos DB must use only lower case letters. Note down the `documentEndpoint` field in the response from the command.
 
-    ```bash
+    ```azurecli
     az cosmosdb create --kind GlobalDocumentDB \
         -g <your-azure-group-name> \
         -n <your-azure-COSMOS-DB-name-in-lower-case-letters>
@@ -76,7 +76,7 @@ The name of Cosmos DB must use only lower case letters. Note down the `documentE
 
 4. Get your Azure Cosmos DB key to connect to the app. Keep the `primaryMasterKey`, `documentEndpoint` nearby as you'll need them in the next step.
 
-    ```bash
+    ```azurecli
     az cosmosdb list-keys -g <your-azure-group-name> -n <your-azure-COSMOSDB-name>
     ```
 
@@ -144,7 +144,7 @@ mvn package spring-boot:run
 
 The output should look like the following.
 
-```bash
+```output
 bash-3.2$ mvn package spring-boot:run
 [INFO] Scanning for projects...
 [INFO] 
@@ -236,7 +236,7 @@ Open the `pom.xml` file in the `initial/spring-boot-todo` directory and add the 
 
 ## Deploy to App Service on Linux
 
-Use the `azure-webapp:deploy` Maven goal to deploy the TODO app to Azure App Service on Linux.
+Use the `mvn azure-webapp:deploy` Maven goal to deploy the TODO app to Azure App Service on Linux.
 
 ```bash
 
@@ -273,7 +273,7 @@ bash-3.2$ mvn azure-webapp:deploy
 The output contains the URL to your deployed application (in this example, `https://spring-todo-app.azurewebsites.net` ). You can copy this URL into your web browser or run the following command in your Terminal window to load your app.
 
 ```bash
-open https://spring-todo-app.azurewebsites.net
+curl https://spring-todo-app.azurewebsites.net
 ```
 
 You should see the app running with the remote URL in the address bar:
@@ -289,7 +289,7 @@ You should see the app running with the remote URL in the address bar:
 
 Scale out the application by adding another worker:
 
-```bash
+```azurecli
 az appservice plan update --number-of-workers 2 \
    --name ${WEBAPP_PLAN_NAME} \
    --resource-group <your-azure-group-name>
@@ -299,7 +299,7 @@ az appservice plan update --number-of-workers 2 \
 
 If you don't need these resources for another tutorial (see [Next steps](#next)), you can delete them by running the following command in the Cloud Shell: 
   
-```bash
+```azurecli
 az group delete --name <your-azure-group-name>
 ```
 
@@ -309,7 +309,7 @@ az group delete --name <your-azure-group-name>
 
 [Azure for Java Developers](/java/azure/)
 [Spring Boot](https://spring.io/projects/spring-boot), 
-[Spring Data for Cosmos DB](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?view=azure-java-stable), 
+[Spring Data for Cosmos DB](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db), 
 [Azure Cosmos DB](../cosmos-db/introduction.md)
 and
 [App Service Linux](overview.md).

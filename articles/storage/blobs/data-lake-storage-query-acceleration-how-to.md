@@ -5,10 +5,10 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/09/2020
+ms.date: 01/06/2021
 ms.author: normesta
 ms.reviewer: jamsbak
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurecli
 ---
 
 # Filter data by using Azure Data Lake Storage query acceleration
@@ -21,7 +21,7 @@ Query acceleration enables applications and analytics frameworks to dramatically
 
 - To access Azure Storage, you'll need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- A **general-purpose v2** storage account. see [Create a storage account](../common/storage-quickstart-create-account.md).
+- A **general-purpose v2** storage account. see [Create a storage account](../common/storage-account-create.md).
 
 - Choose a tab to view any SDK-specific prerequisites.
 
@@ -35,7 +35,7 @@ Query acceleration enables applications and analytics frameworks to dramatically
 
   ### [Java](#tab/java)
 
-  - [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable&preserve-view=true) version 8 or above
+  - [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above
 
   - [Apache Maven](https://maven.apache.org/download.cgi) 
 
@@ -87,7 +87,7 @@ To use query acceleration, you must first register the query acceleration featur
 
 #### [Azure CLI](#tab/azure-cli)
 
-1. Open the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), or if you've [installed](https://docs.microsoft.com/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
+1. Open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
 
 2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account.
 
@@ -173,10 +173,10 @@ Update-Module -Name Az
    cd myProject
    ```
 
-2. Install the `12.5.0-preview.6` version of the Azure Blob storage client library for .NET package by using the `dotnet add package` command. 
+2. Install the `12.5.0-preview.6` version or later of the Azure Blob storage client library for .NET package by using the `dotnet add package` command. 
 
    ```console
-   dotnet add package Azure.Storage.Blobs -v 12.6.0
+   dotnet add package Azure.Storage.Blobs -v 12.8.0
    ```
 
 3. The examples that appear in this article parse a CSV file by using the [CsvHelper](https://www.nuget.org/packages/CsvHelper/) library. To use that library, use the following command.
@@ -323,7 +323,7 @@ Get-QueryCsv $ctx $container $blob "SELECT * FROM BlobStorage WHERE _3 = 'Heming
 
 ### [.NET](#tab/dotnet)
 
-The async method `BlobQuickQueryClient.QueryAsync` sends the query to the query acceleration API, and then streams the results back to the application as a [Stream](https://docs.microsoft.com/dotnet/api/system.io.stream) object.
+The async method `BlobQuickQueryClient.QueryAsync` sends the query to the query acceleration API, and then streams the results back to the application as a [Stream](/dotnet/api/system.io.stream) object.
 
 ```cs
 static async Task QueryHemingway(BlockBlobClient blob)
@@ -351,11 +351,11 @@ private static async Task DumpQueryCsv(BlockBlobClient blob, string query, bool 
                 query,
                 options)).Value.Content))
         {
-            using (var parser = new CsvReader(reader, new CsvConfiguration(CultureInfo.CurrentCulture) { HasHeaderRecord = true }))
+            using (var parser = new CsvReader(reader, new CsvConfiguration(CultureInfo.CurrentCulture, hasHeaderRecord: true) { HasHeaderRecord = true }))
             {
                 while (await parser.ReadAsync())
                 {
-                    Console.Out.WriteLine(String.Join(" ", parser.Context.Record));
+                    Console.Out.WriteLine(String.Join(" ", parser.Parser.Record));
                 }
             }
         }
@@ -432,7 +432,7 @@ def dump_query_csv(blob: BlobClient, query: str, headers: bool):
 
 ### [Node.js](#tab/nodejs)
 
-This example sends the query to the query acceleration API, and then streams the results back.
+This example sends the query to the query acceleration API, and then streams the results back. The `blob` object passed into the `queryHemingway` helper function is of type [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient). To learn more about how to get a [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object, see [Quickstart: Manage blobs with JavaScript v12 SDK in Node.js](storage-quickstart-blobs-nodejs.md).
 
 ```javascript
 async function queryHemingway(blob)

@@ -3,7 +3,7 @@ title: 'Quickstart: Set up SAML-based single sign-on (SSO) for an application in
 description: This quickstart walks through the process of setting up SAML-based single sign-on (SSO) for an application in your Azure Active Directory (Azure AD) tenant.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
@@ -34,7 +34,7 @@ To set up SSO for an application that you added to your Azure AD tenant, you nee
 
 ## Enable single sign-on for an app
 
-After you finish adding an application to your Azure AD tenant, the overview page appears. If you're configuring an application that was already added, look at the first quickstart. It walks you through viewing the applications added to your tenant. 
+After you finish adding an application to your Azure AD tenant, the overview page appears. If you're configuring an application that was already added, look at the first quickstart. It walks you through viewing the applications added to your tenant.
 
 To set up single sign-on for an application:
 
@@ -50,7 +50,7 @@ To set up single sign-on for an application:
 
     :::image type="content" source="media/add-application-portal-setup-sso/github-sso.png" alt-text="Screenshot shows the Single sign-on config page on GitHub.":::
 
-1. The process of configuring an application to use Azure AD for SAML-based SSO varies depending on the application. There's a link to the guidance for GitHub. To find guides for other apps, see [Tutorials for integrating SaaS applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/).
+1. The process of configuring an application to use Azure AD for SAML-based SSO varies depending on the application. There's a link to the guidance for GitHub. To find guides for other apps, see [Tutorials for integrating SaaS applications with Azure Active Directory](/azure/active-directory/saas-apps/).
 1. Follow the guide to set up SSO for the application. Many applications have specific subscription requirements for SSO functionality. For example, GitHub requires an Enterprise subscription.
     > [!TIP]
     > To learn more about the SAML configuration options, see [Configure SAML-based single sign-on](configure-saml-single-sign-on.md).
@@ -58,12 +58,12 @@ To set up single sign-on for an application:
     :::image type="content" source="media/add-application-portal-setup-sso/github-pricing.png" alt-text="Screenshot shows the Single sign-on option in the Enterprise subscription of the GitHub pricing page.":::
 
 > [!TIP]
-> You can automate app management using the Graph API, see [Automate app management with Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+> You can automate app management using the Graph API, see [Automate app management with Microsoft Graph API](/graph/application-saml-sso-configure-api).
 
 
 ## Clean up resources
 
-When your done with this quickstart series, consider deleting the app to clean up your test tenant. Deleting the app is covered in the last quickstart in this series, see [Delete an app](delete-application-portal.md).
+When you're done with this quickstart series, consider deleting the app to clean up your test tenant. Deleting the app is covered in the last quickstart in this series, see [Delete an app](delete-application-portal.md).
 
 ## Next steps
 

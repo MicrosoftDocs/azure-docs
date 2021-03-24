@@ -14,11 +14,11 @@ Azure Database for MySQL powered by the MySQL community edition is available in 
 - Single Server 
 - Flexible Server (Preview)
 
-In this article, we will provide an overview and introduction to core concepts of flexible server deployment model. 
+In this article, we will provide an overview and introduction to core concepts of flexible server deployment model. For information on how to decide what deployment option is appropriate for your workload, see [choosing the right MySQL server option in Azure](./../select-right-deployment-type.md).
 
 ## Overview
 
-Azure Database for MySQL Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. In general, the service provides more flexibility and server configuration customizations based on the user requirements. The flexible server architecture allows users to opt for high availability within single availability zone and across multiple availability zones. Flexible servers also provide better cost optimization controls with ability to stop/start your server and burstable skus, ideal for workloads that do not need full compute capacity continuously. The service currently supports community version of MySQL 5.7. The service is currently in preview, available today in wide variety of [Azure regions](https://azure.microsoft.com/global-infrastructure/services/).
+Azure Database for MySQL Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. In general, the service provides more flexibility and server configuration customizations based on the user requirements. The flexible server architecture allows users to opt for high availability within single availability zone and across multiple availability zones. Flexible servers also provide better cost optimization controls with ability to stop/start your server and burstable skus, ideal for workloads that do not need full compute capacity continuously. The service currently supports community version of MySQL 5.7 and 8.0. The service is currently in preview, available today in wide variety of [Azure regions](https://azure.microsoft.com/global-infrastructure/services/).
 
 Flexible servers are best suited for 
 - Application developments requiring better control and customizations.
@@ -48,7 +48,9 @@ See [high availability concepts](concepts-high-availability.md) for more details
 
 ## Automated patching with managed maintenance window
 
-The service performs automated patching of the underlying hardware, OS, and database engine. The patching includes security and software updates. For MySQL engine, minor version upgrades are also included as part of the planned maintenance release. Users can configure the patching schedule to be system managed or define their custom schedule. During the maintenance schedule, the patch is applied and server may require a restart as part of the patching process to complete the update. With the custom schedule, users can make their patching cycle predictable and choose a maintenance window with minimum impact to the business. In general, the service follows monthly release schedule as part of the continuous integration and release. 
+The service performs automated patching of the underlying hardware, OS, and database engine. The patching includes security and software updates. For MySQL engine, minor version upgrades are also included as part of the planned maintenance release. Users can configure the patching schedule to be system managed or define their custom schedule. During the maintenance schedule, the patch is applied and server may require a restart as part of the patching process to complete the update. With the custom schedule, users can make their patching cycle predictable and choose a maintenance window with minimum impact to the business. In general, the service follows monthly release schedule as part of the continuous integration and release.
+
+See [Scheduled Maintenance](concepts-maintenance.md) for more details. 
 
 ## Automatic backups
 
@@ -67,7 +69,7 @@ You have two networking options to connect to your Azure Database for MySQL Flex
    * Use VPN or ExpressRoute to connect from non-Azure resources to your flexible server
    * No public endpoint
 
-* **Public access (allowed IP addresses)** – You can deploy your flexible server with a public endpoint. The public endpoint is a publicly resolvable DNS address. The phrase “allowed IP addresses” refers to a range of IPs you choose to give permission to access your server. These permissions are called **firewall rules**.
+* **Public access (allowed IP addresses)** – You can deploy your flexible server with a public endpoint. The public endpoint is a publicly resolvable DNS address. The phrase "allowed IP addresses" refers to a range of IPs you choose to give permission to access your server. These permissions are called **firewall rules**.
 
 See [Networking concepts](concepts-networking.md) to learn more.
 
@@ -77,9 +79,22 @@ The flexible server service is available in three SKU tiers: Burstable, General 
 
 See [Compute and Storage concepts](concepts-compute-storage.md) to learn more.
 
+## Scale-out your read workload with up to 10 read replicas
+
+MySQL is one of the popular database engines for running internet-scale web and mobile applications. Many of our customers use it for their online education services, video streaming services, digital payment solutions, e-commerce platforms, gaming services, news portals, government, and healthcare websites. These services are required to serve and scale as the traffic on the web or mobile application increases.
+
+On the applications side, the application is typically developed in Java or php and migrated to run on [Azure virtual machine scale sets](../../virtual-machine-scale-sets/overview.md) or [Azure App Services](../../app-service/overview.md) or are containerized to run on [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md). With virtual machine scale set, App Service or AKS as underlying infrastructure, application scaling is simplified by instantaneously provisioning new VMs and replicating the stateless components of applications to cater to the requests but often, database ends up being a bottleneck as centralized stateful component.
+
+The read replica feature allows you to replicate data from an Azure Database for MySQL flexible server to a read-only server. You can replicate from the source server to **up to 10 replicas**. Replicas are updated asynchronously using the MySQL engine's native [binary log (binlog) file position-based replication technology](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html). You can use a load balancer proxy solution like [ProxySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042) to seamlessly scale-out your application workload to read replicas without any application refactoring cost. 
+
+See [Read Replica concepts](concepts-read-replicas.md) to learn more. 
+
+
 ## Stop/Start server to optimize cost
 
 The flexible server service allows you to stop and start server on-demand to optimize cost. The compute tier billing is stopped immediately when the server is stopped. This can allow you to have significant cost savings during development, testing and for time-bound predictable production workloads. The server remains in stopped state for seven days unless re-started sooner. 
+
+See [Server concepts](concept-servers.md) to learn more. 
 
 ## Enterprise grade security and privacy
 
@@ -87,9 +102,9 @@ The flexible server service uses the FIPS 140-2 validated cryptographic module f
 
 The service encrypts data in-motion with transport layer security enforced by default. Flexible Servers only supports encrypted connections using Transport Layer Security (TLS 1.2) and all incoming connections with TLS 1.0 and TLS 1.1 will be denied. 
 
-See [how to use encrypted connections to flexible servers](/articles/mysql/flexible-server/how-to-connect-tls-ssl.md) to learn more.
+See [how to use encrypted connections to flexible servers](https://docs.mongodb.com/manual/tutorial/configure-ssl) to learn more.
 
-Flexible servers allows full private access to the servers using [Azure virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) (VNet) integration. Servers in Azure virtual network can only be reached and connected through private IP addresses. With VNet integration, public access is denied and servers cannot be reached using public endpoints. 
+Flexible servers allows full private access to the servers using [Azure virtual network](../../virtual-network/virtual-networks-overview.md) (VNet) integration. Servers in Azure virtual network can only be reached and connected through private IP addresses. With VNet integration, public access is denied and servers cannot be reached using public endpoints. 
 
 See [Networking concepts](concepts-networking.md) to learn more.
 
@@ -105,7 +120,37 @@ See [Monitoring concepts](concepts-monitoring.md) to learn more.
 The service runs the community version of MySQL. This allows full application compatibility and requires minimal refactoring cost to migrate existing application developed on MySQL engine to single server service. The migration to the single server can be performed using one of the following options:
 
 - **Dump and Restore** – For offline migrations, where users can afford some downtime, dump and restore using community tools like mysqldump/mydumper can provide fastest way to migrate. See Migrate using dump and restore for details. 
-- **Azure Database Migration Service** – For seamless and simplified migrations to single server with minimal downtime, [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online) can be leveraged. 
+- **Azure Database Migration Service** – For seamless and simplified migrations to single server with minimal downtime, [Azure Database Migration Service](../../dms/tutorial-mysql-azure-mysql-online.md) can be leveraged. 
+
+## Azure regions
+
+One of the advantage of running your workload in Azure is it's global reach. The flexible server for Azure Database for MySQL is available today in following Azure regions:
+
+| Region | Availability | Zone redundant HA | 
+| --- | --- | --- |
+| West Europe | :heavy_check_mark: | :heavy_check_mark: |
+| North Europe | :heavy_check_mark: | :heavy_check_mark: |
+| UK South | :heavy_check_mark: | :x: | 
+| East US 2 | :heavy_check_mark: | :heavy_check_mark: |
+| West US 2 | :heavy_check_mark: | :heavy_check_mark: |
+| Central US | :heavy_check_mark: | :x: | 
+| East US | :heavy_check_mark: | :heavy_check_mark: |
+| Canada Central | :heavy_check_mark: | :x: | 
+| Southeast Asia | :heavy_check_mark: | :heavy_check_mark: |
+| Korea Central | :heavy_check_mark: | :x: | 
+| Japan East | :heavy_check_mark: | :x: | 
+| Australia East | :heavy_check_mark: | :heavy_check_mark: |
+
+We are working on adding new regions soon.
+
+## Contacts
+For any questions or suggestions you might have on Azure Database for MySQL flexible server, send an email to the Azure Database for MySQL Team ([@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). This email address is not a technical support alias.
+
+In addition, consider the following points of contact as appropriate:
+
+- To contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- To fix an issue with your account, file a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
+- To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
 
 ## Next steps
 Now that you've read an introduction to Azure Database for MySQL single server deployment mode, you're ready to:

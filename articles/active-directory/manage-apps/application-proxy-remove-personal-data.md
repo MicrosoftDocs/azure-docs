@@ -3,7 +3,7 @@ title: Remove personal data - Azure Active Directory Application Proxy
 description:  Remove personal data from connectors installed on devices for Azure Active Directory Application Proxy.
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -30,7 +30,7 @@ It is possible for Application Proxy to write personal data to the following log
 
 ## Remove personal data from Windows event logs
 
-For information on how to configure data retention for the Windows event logs, see [Settings for event logs](https://technet.microsoft.com/library/cc952132.aspx). To learn about Windows event logs, see [Using Windows Event Log](https://msdn.microsoft.com/library/windows/desktop/aa385772.aspx).
+For information on how to configure data retention for the Windows event logs, see [Settings for event logs](https://technet.microsoft.com/library/cc952132.aspx). To learn about Windows event logs, see [Using Windows Event Log](/windows/win32/wes/using-windows-event-log).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]
 
@@ -49,7 +49,7 @@ Use the following sections to remove personal data from connector event logs. Yo
 
 To view or export specific data, search for related entries in each of the connector event logs. The logs are located at `C:\ProgramData\Microsoft\Microsoft AAD Application Proxy Connector\Trace`.
 
-Since the logs are text files, you can use [findstr](https://docs.microsoft.com/windows-server/administration/windows-commands/findstr) to search for text entries related to a user.  
+Since the logs are text files, you can use [findstr](/windows-server/administration/windows-commands/findstr) to search for text entries related to a user.  
 
 To find personal data, search log files for UserID.
 

@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 08/06/2020
+ms.date: 12/14/2020
 ms.author: duau
 
 ---
@@ -18,12 +18,26 @@ ExpressRoute Direct lets you connect directly into Microsoft’s global network 
 
 ## <a name="before"></a>Before you begin
 
-Verify that the **Microsoft.Network** resource provider is registered to your subscription. Registering a resource provider configures your subscription to work with the resource provider.
+Before using ExpressRoute Direct, you must first enroll your subscription. To enroll, please do the following via Azure PowerShell:
+1.  Sign in to Azure and select the subscription you wish to enroll.
+
+    ```azurepowershell-interactive
+    Connect-AzAccount 
+
+    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
+    ```
+
+2. Register your subscription for Public Preview using the following command:
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -FeatureName AllowExpressRoutePorts -ProviderNamespace Microsoft.Network
+    ```
+
+Once enrolled, verify that the **Microsoft.Network** resource provider is registered to your subscription. Registering a resource provider configures your subscription to work with the resource provider.
 
 1. Access your subscription settings as described in [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
 1. In your subscription, for **Resource Providers**, verify that the **Microsoft.Network** provider shows a **Registered** status. If the Microsoft.Network resource provider is not present in the list of registered providers, add it.
 
-## <a name="create-erdir"></a>1. Create ExpressRoute Direct
+## <a name="create-erdir"></a>Create ExpressRoute Direct
 
 1. In the [Azure portal](https://portal.azure.com) menu, or from the **Home** page, select **Create a resource**.
 
@@ -44,7 +58,7 @@ Verify that the **Microsoft.Network** resource provider is registered to your su
 
 1. Next, complete the fields on the **Configuration** page.
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/configuration.png" alt-text="Configuration page":::
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/configuration.png" alt-text="Screenshot that shows the 'Create ExpressRoute Direct' page with the 'Configuration' tab selected.":::
 
     * **Peering Location**: The peering location where you will connect to the ExpressRoute Direct resource. For more information about peering locations, review [ExpressRoute Locations](expressroute-locations-providers.md).
    * **Bandwidth**: The port pair bandwidth that you want to reserve. ExpressRoute Direct supports both 10 Gb and 100 Gb bandwidth options. If your desired bandwidth is not available at the specified peering location, [open a Support Request in the Azure portal](https://aka.ms/azsupt).
@@ -58,11 +72,15 @@ Verify that the **Microsoft.Network** resource provider is registered to your su
 
 1. Specify any resource tags, then select **Review + create** to validate the ExpressRoute Direct resource settings.
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/validate.png" alt-text="Review and create":::
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/validate.png" alt-text="Screenshot that shows the 'Create ExpressRoute' page with the 'Review + create' tab selected.":::
 
 1. Select **Create**. You will see a message letting you know that your deployment is underway. Status will display on this page as the resources are created. 
 
-## <a name="state"></a>2. Change Admin State of links
+## <a name="authorization"></a>Generate the Letter of Authorization (LOA)
+
+Generating the letter of authorization is unavailable from the portal at this time. Use **[Azure PowerShell](expressroute-howto-erdirect.md#authorization)** to obtain the letter of authorization.
+
+## <a name="state"></a>Change Admin State of links
 
 This process should be used to conduct a Layer 1 test, ensuring that each cross-connection is properly patched into each router for primary and secondary.
 
@@ -80,7 +98,7 @@ This process should be used to conduct a Layer 1 test, ensuring that each cross-
 
 1. Repeat the same process for **link2**.
 
-## <a name="circuit"></a>3. Create a circuit
+## <a name="circuit"></a>Create a circuit
 
 By default, you can create 10 circuits in the subscription where the ExpressRoute Direct resource is. This number can be increased by support. You are responsible for tracking both Provisioned and Utilized Bandwidth. Provisioned bandwidth is the sum of bandwidth of all circuits on the ExpressRoute Direct resource. Utilized bandwidth is the physical usage of the underlying physical interfaces.
 
@@ -98,11 +116,11 @@ The following steps help you create an ExpressRoute circuit from the ExpressRout
 
 1. Configure the settings in the **Configuration** page.
 
-   :::image type="content" source="./media/how-to-expressroute-direct-portal/configuration2.png" alt-text="Configuration page":::
+   :::image type="content" source="./media/how-to-expressroute-direct-portal/configuration2.png" alt-text="Configuration page - ExpressRoute Direct":::
 
 1. Specify any resource tags, the select **Review + Create** in order to validate the values before creating the resource.
 
-   :::image type="content" source="./media/how-to-expressroute-direct-portal/review.png" alt-text="Review and create":::
+   :::image type="content" source="./media/how-to-expressroute-direct-portal/review.png" alt-text="Review and create - ExpressRoute Direct":::
 
 1. Select **Create**. You will see a message letting you know that your deployment is underway. Status will display on this page as the resources are created. 
 

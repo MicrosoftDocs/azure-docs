@@ -1,0 +1,119 @@
+### YamlMime:Landing
+
+title: Azure Purview documentation
+summary: Learn how to use Azure Purview so your organization can find, understand, and consume data sources.
+
+metadata:
+  title: Azure Purview documentation
+  description: Learn how to use Azure Purview where your organization can find, understand, and consume data sources. Tutorials, REST API reference, and other documentation show you how to plan and configure your data repository where data consumers can discover available data sources and gain knowledge contributed by subject matter experts.
+  ms.service: purview
+  ms.topic: landing-page
+  author: JasonWHowell
+  ms.author: jasonh
+  ms.date: 11/29/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent: 
+  # Card
+  - title: About Azure Purview
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Purview?
+            url: overview.md
+      - linkListType: concept
+        links:
+          - text: Deployment best practices
+            url: deployment-best-practices.md
+          - text: Data Catalog Permissions
+            url: catalog-permissions.md
+          - text: Supported data sources and file types
+            url: sources-and-scans.md
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a Purview account - Portal
+            url: create-catalog-portal.md
+          - text: Create a Purview account - PowerShell/CLI
+            url: create-catalog-powershell.md
+      - linkListType: tutorial
+        links:
+          - text: Download Starter kit
+            url: https://download.microsoft.com/download/9/7/9/979db3b1-0916-4997-a7fb-24e3d8f83174/PurviewStarterKitV4.zip
+          - text: Run starter kit and scan data 
+            url: tutorial-scan-data.md
+          - text: Navigate Purview home page and search
+            url: tutorial-asset-search.md
+          - text: Browse assets and view lineage 
+            url: tutorial-browse-and-view-lineage.md
+          - text: Explore resource sets, assets, schemas, classifications 
+            url: tutorial-schemas-and-classifications.md
+          - text: Create glossary terms
+            url: tutorial-import-create-glossary-terms.md
+  # Card
+  - title: Scan Azure data sources
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Run starter kit and scan data 
+            url: tutorial-scan-data.md
+      - linkListType: how-to-guide
+        links:
+          - text: Scan Azure SQL Database
+            url: register-scan-azure-sql-database.md
+          - text: Scan Azure Data Lake Storage Gen 2
+            url: register-scan-adls-gen2.md
+          - text: Scan Azure Cosmos DB
+            url: register-scan-azure-cosmos-database.md
+          - text: Power BI Tenant
+            url: register-scan-power-bi-tenant.md
+          - text: Register and scan Azure Blob Storage
+            url: register-scan-azure-blob-storage-source.md
+  - title: Scan non-Azure data sources
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Scan SQL server on-premises
+          url: register-scan-on-premises-sql-server.md
+
+  - title: Understand your data estate 
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: View asset insights
+          url: asset-insights.md
+        - text: View glossary insights
+          url: glossary-insights.md
+        - text: View scan insights
+          url: scan-insights.md
+        - text: View classification insights
+          url: classification-insights.md
+  - title: Curate data 
+    linkLists:
+    - linkListType: tutorial
+      links:
+        - text: Resource sets, assets, schemas, classifications
+          url: tutorial-schemas-and-classifications.md
+        - text: Glossary terms
+          url: tutorial-import-create-glossary-terms.md
+    - linkListType: how-to-guide
+      links:
+        - text: Create, edit, & delete custom classifications and rules
+          url: create-a-custom-classification-and-classification-rule.md
+        - text: Create, import, & export a glossary
+          url: how-to-create-import-export-glossary.md
+  - title: Discover data 
+    linkLists:
+    - linkListType: tutorial
+      links:
+        - text: Browse and lineage
+          url: tutorial-browse-and-view-lineage.md
+    - linkListType: how-to-guide
+      links:
+        - text: Browse by asset type
+          url: how-to-browse-catalog.md
+        - text: Search for assets, terms, annotations, and contacts
+          url: how-to-search-catalog.md

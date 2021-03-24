@@ -10,7 +10,7 @@ ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/26/2020
-
+ms.custom: data4ml
 # Customer intent: As a data scientist I want to optimize data processing speeds at scale
 ---
 
@@ -83,8 +83,6 @@ If you're familiar with `Pandas`| `Modin` or `Dask` dataframe
 If you prefer `Spark` | `PySpark`
 For data less than 1 GB | `Pandas` locally **or** a remote Azure Machine Learning compute instance
 For data larger than 10 GB| Move to a cluster using `Ray`, `Dask`, or `Spark`
-
-You can create `Dask` clusters on Azure ML compute cluster with the [dask-cloudprovider](https://cloudprovider.dask.org/en/latest/#azure) package. Or you can run `Dask` locally on a compute instance.
 
 ## Next steps
 

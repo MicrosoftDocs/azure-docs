@@ -46,7 +46,7 @@ Ensure that the following prerequisites are in place.
 
 ### In your on-premises environment
 
-1. Identify a server running Windows Server 2012 R2 or later to run Azure AD Connect. If not enabled already, [enable TLS 1.2 on the server](./how-to-connect-install-prerequisites.md#enable-tls-12-for-azure-ad-connect). Add the server to the same Active Directory forest as the users whose passwords you need to validate.
+1. Identify a server running Windows Server 2012 R2 or later to run Azure AD Connect. If not enabled already, [enable TLS 1.2 on the server](./how-to-connect-install-prerequisites.md#enable-tls-12-for-azure-ad-connect). Add the server to the same Active Directory forest as the users whose passwords you need to validate. It should be noted that installation of Pass-Through Authentication agent on Windows Server Core versions is not supported. 
 2. Install the [latest version of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) on the server identified in the preceding step. If you already have Azure AD Connect running, ensure that the version is 1.1.750.0 or later.
 
     >[!NOTE]
@@ -67,9 +67,10 @@ Ensure that the following prerequisites are in place.
      | **8080** (optional) | Authentication Agents report their status every ten minutes over port 8080, if port 443 is unavailable. This status is displayed on the Azure AD portal. Port 8080 is _not_ used for user sign-ins. |
      
      If your firewall enforces rules according to the originating users, open these ports for traffic from Windows services that run as a network service.
-   - If your firewall or proxy allows DNS whitelisting, add connections to **\*.msappproxy.net** and **\*.servicebus.windows.net**. If not, allow access to the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which are updated weekly.
+   - If your firewall or proxy lets you add DNS entries to an allowlist, add connections to **\*.msappproxy.net** and **\*.servicebus.windows.net**. If not, allow access to the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which are updated weekly.
+   - If you have an outgoing HTTP proxy,  make sure this URL, autologon.microsoftazuread-sso.com, is whitelisted . You should specify this URL explicitly since wildcard may not be accepted. 
    - Your Authentication Agents need access to **login.windows.net** and **login.microsoftonline.com** for initial registration. Open your firewall for those URLs as well.
-   - For certificate validation, unblock the following URLs: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80**, and **www\.microsoft.com:80**. Since these URLs are used for certificate validation with other Microsoft products you may already have these URLs unblocked.
+    - For certificate validation, unblock the following URLs: **crl3.digicert.com:80**, **crl4.digicert.com:80**, **ocsp.digicert.com:80**, **www\.d-trust.net:80**, **root-c3-ca2-2009.ocsp.d-trust.net:80**, **crl.microsoft.com:80**, **oneocsp.microsoft.com:80**, and **ocsp.msocsp.com:80**. Since these URLs are used for certificate validation with other Microsoft products you may already have these URLs unblocked.
 
 ### Azure Government cloud prerequisite
 Prior to enabling Pass-through Authentication through Azure AD Connect with Step 2, download the latest release of the PTA agent from the Azure portal.  You need to ensure that your agent is versions **1.5.1742.0.** or later.  To verify your agent see [Upgrade authentication agents](how-to-connect-pta-upgrade-preview-authentication-agents.md)

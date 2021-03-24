@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 01/22/2021
 ms.custom: seodec18
 ---
 
@@ -20,11 +20,11 @@ This article describes the various features and options available within the Azu
 
 To get started with the Azure Time Series Insights Explorer, you must:
 
-* Have an Azure Time Series Insights Gen2 environment provisioned. Learn more about provisioning an instance by reading the [Azure Time Series Insights Gen2](./time-series-insights-update-create-environment.md) tutorial.
-* [Provide data access](./time-series-insights-data-access.md) to the Azure Time Series Insights Gen2 environment that you created for the account. You can provide access to others as well as to yourself.
+* Have an Azure Time Series Insights Gen2 environment provisioned. Learn more about provisioning an instance by reading the [Azure Time Series Insights Gen2](./tutorial-set-up-environment.md) tutorial.
+* [Provide data access](./concepts-access-policies.md) to the Azure Time Series Insights Gen2 environment that you created for the account. You can provide access to others as well as to yourself.
 * Add an event source to the Azure Time Series Insights Gen2 environment to push data to the environment:
-  * Learn [how to connect to an event hub](./time-series-insights-how-to-add-an-event-source-eventhub.md)
-  * Learn [how to connect to an IoT hub](./time-series-insights-how-to-add-an-event-source-iothub.md)
+  * Learn [how to connect to an event hub](./how-to-ingest-data-event-hub.md)
+  * Learn [how to connect to an IoT hub](./how-to-ingest-data-iot-hub.md)
 
 ## Explore the Azure Time Series Insights Explorer
 
@@ -87,7 +87,7 @@ The well displays instance fields and other metadata associated with selected Ti
 
 You may remove specific data elements from your current data well by selecting the red **Delete** (trash can) control on the left side of the element. The well also lets you control how each element is displayed in the chart. You can choose to add min/max shadows, data points, shift the element in time and visualize the instance a stepped manner.
 
-Additionally, The explorations control lets you create time shifts and scatter plots easily.  
+Additionally, The explorations control lets you create time shifts and scatter plots easily.
 
   [![Well layout options](media/v2-update-explorer/well-layout-options.png)](media/v2-update-explorer/well-layout-options.png#lightbox)
 
@@ -216,7 +216,7 @@ The Azure Time Series Insights Gen2 terms editor panel takes the following param
 | `IN` | String, Bool, Double, DateTime, TimeSpan, NULL | All operands should be of the same type or be NULL constant. |
 | `HAS` | String | Only constant string literals are allowed on the right side. Empty string and NULL aren't allowed. |
 
-To learn more about supported query operations and data types, read [Time Series Expression (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
+To learn more about supported query operations and data types, read [Time Series Expression (TSX)](/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 ### Examples of where clauses
 
@@ -240,4 +240,4 @@ You can show and hide elements in the chart panel by selecting the visible icon,
 
 * Read about [data modeling](./concepts-model-overview.md) in Azure Time Series Insights Gen2.
 
-* Learn [how to diagnose and troubleshoot](./time-series-insights-update-how-to-troubleshoot.md) your environment.
+* Learn [how to diagnose and troubleshoot](./how-to-diagnose-troubleshoot.md) your environment.

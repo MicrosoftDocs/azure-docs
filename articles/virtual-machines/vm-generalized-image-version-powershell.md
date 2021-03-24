@@ -3,7 +3,7 @@ title: Create a VM from a generalized image
 description: Create a VM using a generalized image in a Shared Image Gallery.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 05/04/2020
@@ -54,6 +54,7 @@ New-AzVM `
    -Location $location `
    -Name $vmName `
    -Image $imageDefinition.Id
+   -Credential $cred
 ```
 
 
@@ -140,7 +141,7 @@ New-AzVM `
 
 
 ## Next steps
-[Azure Image Builder (preview)](./windows/image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](./windows/image-builder-gallery-update-image-version.md). 
+[Azure Image Builder (preview)](./image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](./windows/image-builder-gallery-update-image-version.md). 
 
 You can also create Shared Image Gallery resource using templates. There are several Azure Quickstart Templates available: 
 
@@ -149,4 +150,4 @@ You can also create Shared Image Gallery resource using templates. There are sev
 - [Create an Image Version in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 - [Create a VM from Image Version](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
-For more information about Shared Image Galleries, see the [Overview](./windows/shared-image-galleries.md). If you run into issues, see [Troubleshooting shared image galleries](troubleshooting-shared-images.md).
+For more information about Shared Image Galleries, see the [Overview](./shared-image-galleries.md). If you run into issues, see [Troubleshooting shared image galleries](troubleshooting-shared-images.md).

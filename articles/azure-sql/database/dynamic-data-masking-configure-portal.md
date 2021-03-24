@@ -15,10 +15,10 @@ ms.date: 04/28/2020
 # Get started with SQL Database dynamic data masking with the Azure portal
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-This article shows you how to implement [dynamic data masking](dynamic-data-masking-overview.md) with the Azure portal. You can also implement dynamic data masking using [Azure SQL Database cmdlets](https://docs.microsoft.com/powershell/module/az.sql/) or the [REST API](https://docs.microsoft.com/rest/api/sql/).
+This article shows you how to implement [dynamic data masking](dynamic-data-masking-overview.md) with the Azure portal. You can also implement dynamic data masking using [Azure SQL Database cmdlets](/powershell/module/az.sql/) or the [REST API](/rest/api/sql/).
 
 > [!NOTE]
-> This feature cannot be set using portal for Azure Synapse (use PowerShell or REST API) or SQL Managed Instance. For more information, see [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking).
+> This feature cannot be set using portal for SQL Managed Instance (use PowerShell or REST API). For more information, see [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking).
 
 ## Set up dynamic data masking for your database using the Azure portal
 
@@ -54,4 +54,4 @@ This article shows you how to implement [dynamic data masking](dynamic-data-mask
 ## Next steps
 
 - For an overview of dynamic data masking, see [dynamic data masking](dynamic-data-masking-overview.md).
-- You can also implement dynamic data masking using [Azure SQL Database cmdlets](https://docs.microsoft.com/powershell/module/az.sql/) or the [REST API](https://docs.microsoft.com/rest/api/sql/).
+- You can also implement dynamic data masking using [Azure SQL Database cmdlets](/powershell/module/az.sql/) or the [REST API](/rest/api/sql/).

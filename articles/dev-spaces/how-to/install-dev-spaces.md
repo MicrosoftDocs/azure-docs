@@ -9,6 +9,8 @@ keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers,
 
 # Enable Azure Dev Spaces on an AKS cluster and install the client-side tools
 
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
+
 This article shows you several ways to enable Azure Dev Spaces on an AKS cluster as well as install the client-side tools.
 
 ## Enable Azure Dev Spaces using the CLI
@@ -79,7 +81,7 @@ Learn more about how Azure Dev Spaces works.
 > [How Azure Dev Spaces works](../how-dev-spaces-works.md)
 
 [create-aks-cli]: ../../aks/kubernetes-walkthrough.md#create-a-resource-group
-[install-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
+[install-cli]: /cli/azure/install-azure-cli
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [az-portal]: https://portal.azure.com
 [az-portal-create-account]: https://azure.microsoft.com/free

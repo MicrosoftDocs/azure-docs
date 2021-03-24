@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/23/2020
+ms.date: 03/16/2021
 ms.author: markvi
 ms.reviewer: besiler
 
@@ -28,8 +28,8 @@ The reporting architecture in Azure Active Directory (Azure AD) consists of the 
     - **Sign-ins** – Information about when users, applications, and managed resources sign in to Azure AD to and access resources.
     - **Audit logs** - [Audit logs](concept-audit-logs.md) provide system activity information about users and group management, managed applications, and directory activities.
 - **Security** 
-    - **Risky sign-ins** - A [risky sign-in](concept-risky-sign-ins.md) is an indicator for a sign-in attempt by someone who isn't the legitimate owner of a user account.
-    - **Users flagged for risk** - A [risky user](concept-user-at-risk.md) is an indicator for a user account that might have been compromised.
+    - **Risky sign-ins** - A [risky sign-in](../identity-protection/overview-identity-protection.md) is an indicator for a sign-in attempt by someone who isn't the legitimate owner of a user account.
+    - **Users flagged for risk** - A [risky user](../identity-protection/overview-identity-protection.md) is an indicator for a user account that might have been compromised.
 
 The classic sign-ins report in Azure Active Directory provides you with an overview of interactive user sign-ins. In addition, you now have access to three additional sign-in reports that are now in preview:
 
@@ -82,7 +82,7 @@ In the sign-ins report blade, you can switch between:
 
 - **Service principal sign-ins** - Sign-ins by apps and service principals that do not involve any user. In these sign-ins, the app or service provides a credential on its own behalf to authenticate or access resources.
 
-- **Managed identities for Azure resources sign-ins** - Sign-ins by Azure resources that have secrets managed by Azure. For more information, see [What are managed identities for Azure resources?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 
+- **Managed identities for Azure resources sign-ins** - Sign-ins by Azure resources that have secrets managed by Azure. For more information, see [What are managed identities for Azure resources?](../managed-identities-azure-resources/overview.md) 
 
 
 ![Sign-ins report types](./media/concept-all-sign-ins/sign-ins-report-types.png)
@@ -121,7 +121,12 @@ Each tab in the sign-ins blade shows the default columns below. Some tabs have a
 
 Interactive user sign-ins are sign-ins where a user provides an authentication factor to Azure AD or interacts directly with Azure AD or a helper app, such as the Microsoft Authenticator app. The factors users provide include passwords, responses to MFA challenges, biometric factors, or QR codes that a user provides to Azure AD or to a helper app.
 
-This report also includes federated sign-ins from identity providers that are federated to Azure AD.  
+> [!NOTE]
+> This report also includes federated sign-ins from identity providers that are federated to Azure AD.  
+
+
+
+Note: The interactive user sign-ins report used to contain some non-interactive sign-ins from Microsoft Exchange clients. Although those sign-ins were non interactive, they were included in the interactive user sign-ins report for additional visibility. Once the non-interactive user sign-ins report entered public preview in November 2020, those non-interactive sign-in event logs were moved to the non-interactive user sign in report for increased accuracy. 
 
 
 **Report size:** small <br> 

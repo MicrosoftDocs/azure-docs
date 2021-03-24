@@ -1,15 +1,10 @@
 ---
 title: Introduction to Data Factory, a data integration service 
 description: 'Learn what Azure Data Factory is: A cloud data integration service that orchestrates and automates movement and transformation of data.'
-services: data-factory
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
-ms.reviewer: maghan
-ms.assetid: cec68cb5-ca0d-473b-8ae8-35de949a009e
+author: dcstwh
+ms.author: weetok
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: overview
 ms.date: 01/22/2018
 ---
@@ -30,7 +25,7 @@ For example, a gaming company collects logs that are produced by games in the cl
 
 To analyze these logs, the company needs to use the reference data such as customer information, game information, and marketing campaign information that is in an on-premises data store. Therefore, the company wants to ingest log data from the cloud data store and reference data from the on-premises data store. 
 
-Next they want to process the data by using Hadoop in the cloud (Azure HDInsight). They want to publish the result data into a cloud data warehouse such as Azure Synapse Analytics (formerly SQL Data Warehouse) or an on-premises data store such as SQL Server. The company wants this workflow to run once a week. 
+Next they want to process the data by using Hadoop in the cloud (Azure HDInsight). They want to publish the result data into a cloud data warehouse such as Azure Synapse Analytics or an on-premises data store such as SQL Server. The company wants this workflow to run once a week. 
 
 The company needs a platform where they can create a workflow that can ingest data from both on-premises and cloud data stores. The company also needs to be able to transform or process data by using existing compute services such as Hadoop, and publish the results to an on-premises or cloud data store for BI applications to consume. 
 

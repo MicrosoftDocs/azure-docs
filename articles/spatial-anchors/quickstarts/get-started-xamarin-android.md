@@ -1,12 +1,12 @@
 ---
 title: 'Quickstart: Create a Xamarin Android app'
 description: In this quickstart, you learn how to build an Android app with Xamarin using Spatial Anchors.
-author: craigktreasure
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
-ms.author: crtreasu
-ms.date: 07/22/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ---
@@ -33,10 +33,10 @@ To complete this quickstart, make sure you have:
     - <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a>.
     - <a href="https://git-lfs.github.com/">Git LFS</a>.
   - If using macOS:
-    - An up-to-date version of <a href="https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019" target="_blank">Visual Studio for Mac 8.1+</a>.
+    - An up-to-date version of <a href="/visualstudio/mac/installation?view=vsmac-2019" target="_blank">Visual Studio for Mac 8.1+</a>.
     - <a href="https://git-scm.com/download/mac" target="_blank">Git for macOS</a>.
     - <a href="https://git-lfs.github.com/">Git LFS</a>.
-- The latest version of Xamarin.Android installed and running on your platform of choice. For a guide to installing Xamarin.Android, refer to the [Xamarin.Android Installation](https://docs.microsoft.com/xamarin/android/get-started/installation/index) guides.
+- The latest version of Xamarin.Android installed and running on your platform of choice. For a guide to installing Xamarin.Android, refer to the [Xamarin.Android Installation](/xamarin/android/get-started/installation/index) guides.
 - A <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">developer enabled</a> and <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore capable</a> Android device.
   - Additional device drivers may be required for your computer to communicate with your Android device. For more information, see [here](https://developer.android.com/studio/run/device.html).
 - Your app must target ARCore **1.8**.
@@ -69,7 +69,7 @@ Set the startup project to **SampleXamarin.Android**, change the **Solution Conf
 
 # [Windows](#tab/deploy-windows)
 
-![Visual Studio Configuration](./media/get-started-xamarin-android/visual-studio-windows-configuration.png)
+![Screenshot that shows the menu to select the project and device in Windows.](./media/get-started-xamarin-android/visual-studio-windows-configuration.png)
 
 Select **Debug** > **Start debugging** to deploy and start your app.
 

@@ -1,6 +1,6 @@
 ---
-title: Create an Azure function with Kotlin and IntelliJ 
-description: Learn how to create and publish a simple HTTP-triggered, serverless app on Azure with Kotlin and IntelliJ.
+title: Create a Kotlin function in Azure Functions using IntelliJ 
+description: Learn how to use IntelliJ to create a simple HTTP-triggered Kotlin function, which you then publish to run in a serverless environment in Azure.
 author: dglover
 ms.service: azure-functions
 ms.topic: quickstart
@@ -8,17 +8,17 @@ ms.date: 03/25/2020
 ms.author: dglover
 ---
 
-# Quickstart: Create your first HTTP triggered function with Kotlin and IntelliJ
+# Create your first Kotlin function in Azure using IntelliJ
 
-This article shows you how to create a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function project with IntelliJ IDEA and Apache Maven. It also shows how to locally debug your function code in the integrated development environment (IDE) and then deploy the function project to Azure.
+This article shows you how to create an HTTP-triggered Java function in an IntelliJ IDEA project, run and debug the project in the integrated development environment (IDE), and finally deploy the function project to a function app in Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Set up your development environment
 
-To develop a function with Kotlin and IntelliJ, install the following software:
+To create and publish Kotlin functions to Azure using IntelliJ, install the following software:
 
-- [Java Developer Kit](https://aka.ms/azure-jdks) (JDK), version 8
+- [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support) (JDK), version 8
 - [Apache Maven](https://maven.apache.org), version 3.0 or higher
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/download), Community or Ultimate versions with Maven
 - [Azure CLI](/cli/azure)
@@ -27,7 +27,7 @@ To develop a function with Kotlin and IntelliJ, install the following software:
 > [!IMPORTANT]
 > The JAVA_HOME environment variable must be set to the install location of the JDK to complete the steps in this article.
 
-## Create a Functions project
+## Create a function project
 
 1. In IntelliJ IDEA, select **Create New Project**.  
 1. In the **New Project** window, select **Maven** from the left pane.
@@ -42,10 +42,10 @@ To develop a function with Kotlin and IntelliJ, install the following software:
 
 Maven creates the project files in a new folder with the same name as the _ArtifactId_ value. The project's generated code is a simple [HTTP-triggered](./functions-bindings-http-webhook.md) function that echoes the body of the triggering HTTP request.
 
-## Run functions locally in the IDE
+## Run project locally in the IDE
 
 > [!NOTE]
-> To run and debug functions locally, make sure you've installed [Azure Functions Core Tools, version 2](functions-run-local.md#v2).
+> To run and debug the project locally, make sure you've installed [Azure Functions Core Tools, version 2](functions-run-local.md#v2).
 
 1. Import changes manually or enable [auto import](https://www.jetbrains.com/help/idea/creating-and-optimizing-imports.html).
 1. Open the **Maven Projects** toolbar.
@@ -55,7 +55,7 @@ Maven creates the project files in a new folder with the same name as the _Artif
 
 1. Close the run dialog box when you're done testing your function. Only one function host can be active and running locally at a time.
 
-## Debug the function in IntelliJ
+## Debug the project in IntelliJ
 
 1. To start the function host in debug mode, add **-DenableDebug** as the argument when you run your function. You can either change the configuration in [maven goals](https://www.jetbrains.com/help/idea/maven-support.html#run_goal) or run the following command in a terminal window:  
 
@@ -70,25 +70,25 @@ Maven creates the project files in a new folder with the same name as the _Artif
 1. Complete the _Name_ and _Settings_ fields, and then select **OK** to save the configuration.
 1. After setup, select **Debug < Remote Configuration Name >** or press Shift+F9 on your keyboard to start debugging.
 
-   ![Debug functions in IntelliJ](media/functions-create-first-kotlin-intellij/debug-configuration-intellij.PNG)
+   ![Debug project in IntelliJ](media/functions-create-first-kotlin-intellij/debug-configuration-intellij.PNG)
 
 1. When you're finished, stop the debugger and the running process. Only one function host can be active and running locally at a time.
 
-## Deploy the function to Azure
+## Deploy the project to Azure
 
-1. Before you can deploy your function to Azure, you must [log in by using the Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+1. Before you can deploy your project to a function app in Azure, you must [log in by using the Azure CLI](/cli/azure/authenticate-azure-cli).
 
    ``` azurecli
    az login
    ```
 
-1. Deploy your code into a new function by using the `azure-functions:deploy` Maven target. You can also select the **azure-functions:deploy** option in the Maven Projects window.
+1. Deploy your code into a new function app by using the `azure-functions:deploy` Maven target. You can also select the **azure-functions:deploy** option in the Maven Projects window.
 
    ```
    mvn azure-functions:deploy
    ```
 
-1. Find the URL for your function in the Azure CLI output after  the function has been successfully deployed.
+1. Find the URL for your HTTP trigger function in the Azure CLI output after the function app has been successfully deployed.
 
    ``` output
    [INFO] Successfully deployed Function App with package.
@@ -100,5 +100,5 @@ Maven creates the project files in a new folder with the same name as the _Artif
 
 ## Next steps
 
-Now that you have deployed your first Kotlin function to Azure, review the [Java Functions developer guide](functions-reference-java.md) for more information on developing Java and Kotlin functions.
-- Add additional functions with different triggers to your project by using the `azure-functions:add` Maven target.
+Now that you have deployed your first Kotlin function app to Azure, review the [Azure Functions Java developer guide](functions-reference-java.md) for more information on developing Java and Kotlin functions.
+- Add additional function apps with different triggers to your project by using the `azure-functions:add` Maven target.

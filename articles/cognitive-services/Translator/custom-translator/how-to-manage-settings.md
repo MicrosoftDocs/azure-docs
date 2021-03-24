@@ -2,12 +2,12 @@
 title: How to manage settings? - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: How to manage settings, create workspace, share workspace, and manage subscription key in Custom Translator.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 08/17/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to understand how to manage settings, so that I can create workspace, share workspace, and manage subscription key in Custom Translator.
 ---
@@ -29,7 +29,7 @@ You need to have a Translator subscription key associated with your workspace to
 
 If you don’t have a subscription, follow the steps below:
 
-1. Subscribe to create a Translator resource. Follow [How to sign up for Translator](https://docs.microsoft.com/azure/cognitive-services/translator/translator-how-to-signup) to subscribe and acquire a Translator key.
+1. Subscribe to create a Translator resource. Follow [How to sign up for Translator](../translator-how-to-signup.md) to subscribe and acquire a Translator key.
 2. Note the key for your Translator subscription. Either of the  Key1 or Key2 are acceptable.
 3. Navigate back to the Custom Translator portal.
 
@@ -47,6 +47,8 @@ If you don’t have a subscription, follow the steps below:
 
     ![Create new workspace dialog](media/how-to/create-new-workspace-dialog.png)
 
+>[!Note]
+>Custom Translator does not support creating workspace for Translator Text API resource (a.k.a. Azure subscription key) that was created inside [Enabled VNET](../../../api-management/api-management-using-with-vnet.md).
 
 ### Modify existing key
 
@@ -57,7 +59,7 @@ If you don’t have a subscription, follow the steps below:
 
 3. In the dialog, enter the key for your Translator subscription, then click the “Save” button.
 
-    ![How to add subscription key](media/how-to/how-to-add-subscription-key-dialog.png)
+    ![How to add subscription key dialog](media/how-to/how-to-add-subscription-key-dialog.png)
 
 ## Manage your workspace
 

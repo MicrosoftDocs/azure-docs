@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 03/01/2021
 ms.author: alkohli
 ---
 
@@ -21,8 +21,8 @@ The Azure Stack Edge Pro device has the following specifications for compute and
 
 | Specification           | Value                  |
 |-------------------------|----------------------------|
-| CPU                     | 2 X Intel Xeon Silver 4214 (Cascade Lake) CPU            |
-| Memory                  | 128 (8x16 GB) GB RAM                     |
+| CPU                     | 2 X Intel Xeon Silver 4214 (Cascade Lake) CPU<br> 24 physical cores (12 per CPU)<br>48 logical cores (vCPUs) (24 per CPU)       |
+| Memory                  | 128 (8x16 GB) GB RAM <br> Dell Compatible 16 GB PC4-23400 DDR4-2933Mhz 2Rx8 1.2v ECC Registered RDIMM       |
 
 
 ## Compute acceleration specifications
@@ -52,7 +52,7 @@ Your Azure Stack Edge Pro device has six network interfaces, PORT1- PORT6.
 
 | Specification           | Description                 |
 |-------------------------|----------------------------|
-|  Network interfaces    | **2 X 1 GbE interfaces** – 1 management interface Port 1 is used for initial setup and is static by default. After the initial setup is complete, you can use the interface for data with any IP address. However, on reset, the interface reverts back to static IP. <br>The other interface Port 2 is user configurable, can be used for data transfer, and is DHCP by default. <br>**4 X 25 GbE interfaces** – These data interfaces, Port 3 through Port 6, can be configured by user as DHCP (default) or static. These can also operate as 10 GbE interfaces.  | 
+|  Network interfaces    | **2 X 1 GbE interfaces** – 1 management interface Port 1 is used for initial setup and is static by default. After the initial setup is complete, you can use the interface for data with any IP address. However, on reset, the interface reverts back to static IP. <br>The other interface Port 2 is user configurable, can be used for data transfer, and is DHCP by default. <br>**4 X 25 GbE interfaces** – These data interfaces, Port 3 through Port 6, can be configured by user as DHCP (default) or static. They can also operate as 10 GbE interfaces.  | 
 
 Your Azure Stack Edge Pro device has the following network hardware:
 
@@ -64,7 +64,7 @@ Here are the details for the Mellanox card:
 | Parameter           | Description                 |
 |-------------------------|----------------------------|
 | Model    | ConnectX®-4 Lx EN network interface card                      |
-| Model Description               | 25GbE dual-port SFP28; PCIe3.0 x8; ROHS R6                    |
+| Model Description               | 25 GbE dual-port SFP28; PCIe3.0 x8; ROHS R6                    |
 | Device Part Number (R640) | MCX4121A-ACAT  |
 | PSID (R640)           | MT_2420110034                         |
 
@@ -75,20 +75,18 @@ For a full list of supported cables, switches, and transceivers for these networ
 
 ## Storage specifications
 
-The Azure Stack Edge Pro devices have five 2.5" NVMe DC P4610 SSDs, each with a capacity of 1.6 TB. The boot drive is a 240 GB SATA SSD. The total usable capacity for the device is roughly 8.28 TB. The following table lists the storage capacity of the device.
+The Azure Stack Edge Pro devices have five 2.5" NVMe DC P4610 SSDs, each with a capacity of 1.6 TB. The boot drive is a 240 GB SATA SSD. The total usable capacity for the device is roughly 4.19 TB. The following table lists the storage capacity of the device.
 
 |     Specification                          |     Value             |
 |--------------------------------------------|-----------------------|
-|    Boot SATA solid-state drives (SSD)      |    1                  |
 |    Number of NVMe SSDs                     |    5                  |
-|    Boot SSD capacity                       |    240 GB             |
 |    Single NVMe SSD capacity                |    1.6 TB             |
-|    Total capacity                          |    8.28 TB            |
-|    Total usable capacity*                  |    ~ 7.95 TB          |
+|    Boot SATA solid-state drives (SSD)      |    1                  |
+|    Boot SSD capacity                       |    240 GB             |
+|    Total capacity                          |    8.0 TB             |
+|    Total usable capacity                   |    ~ 4.19 TB          |
+|    RAID configuration                      |    Storage Spaces Direct with a combination of mirroring and parity  |
 |    SAS controller                          |    HBA330 12 Gbps     |
-
-
-**Some space is reserved for internal use.*
 
 <!--Remove based on feedback from Ravi
 ## Other hardware specifications
@@ -146,7 +144,8 @@ This section lists the specifications related to the enclosure environment such 
 |     Enclosure                           |     Operational specifications                                                                                                                                                                                         |
 |-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    Airflow                              |    System airflow is front to rear. System must be operated with a low-pressure, rear-exhaust installation. <!--Back pressure created by rack doors and obstacles should not exceed 5 pascals (0.5 mm water gauge).-->    |
-|    Maximum altitude, operational        |    3048 meters (10,000 feet) with maximum operating temperature   de-rated determined by [Operating temperature de-rating specifications](#operating-temperature-de-rating-specifications).                                                                                |
+| Ingress protection (IP)                 |    This type of rack-mounted equipment for indoor use typically isn't tested for ingress protection (protection against solids and liquids for an electrical enclosure). Manufacturer's safety assessment shows IPXO (no ingress protection).  |
+|    Maximum altitude, operational        |    3048 meters (10,000 feet) with maximum operating temperature de-rated determined by [Operating temperature de-rating specifications](#operating-temperature-de-rating-specifications).                                                                                |
 |    Maximum altitude, non-operational    |    12,000 meters (39,370 feet)                                                                                                                                                                                         |
 |    Shock, operational                   |    6 G for 11 milliseconds in 6   orientations                                                                                                                                                                         |
 |    Shock, non-operational               |    71 G for 2 milliseconds in 6 orientations                                                                                                                                                                           |

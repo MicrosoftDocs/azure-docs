@@ -14,9 +14,11 @@ ms.date: 09/15/2020
 
 # Tutorial: Create a Blazor Server app that uses the Microsoft identity platform for authentication
 
-Blazor Server provides support for hosting Razor components on the server in an ASP.NET Core app. In this tutorial, you learn how to implement authentication and retrieve data from Microsoft Graph in a Blazor Server app with the Microsoft identity platform.
+In this tutorial, you build a Blazor Server app that signs in users and gets data from Microsoft Graph by using the Microsoft identity platform and registering your app in Azure Active Directory (Azure AD).
 
-In this tutorial, you learn how to:
+We also have a tutorial for [Blazor WASM](tutorial-blazor-webassembly.md).
+
+In this tutorial:
 
 > [!div class="checklist"]
 > * Create a new Blazor Server app configured to use Azure Active Directory (Azure AD) for authentication
@@ -35,9 +37,9 @@ Every app that uses Azure Active Directory (Azure AD) for authentication must be
 - For **Supported account types**, select **Accounts in this organizational directory only**.
 - Leave the **Redirect URI** drop down set to **Web** and enter `https://localhost:5001/signin-oidc`. The default port for an app running on Kestrel is 5001. If the app is available on a different port, specify that port number instead of `5001`.
 
-In **Authentication** > **Implicit grant**, select the check boxes for **Access tokens** and **ID tokens**, and then select the **Save** button.
+Under **Manage**, select **Authentication** > **Implicit grant and hybrid flows**. Select **Access tokens** and **ID tokens**, and then select **Save**.
 
-Finally, because the app calls a protected API (in this case Microsoft Graph), it needs a client secret in order to verify its identity when it requests an access token to call that API. 
+Finally, because the app calls a protected API (in this case Microsoft Graph), it needs a client secret in order to verify its identity when it requests an access token to call that API.
 
 1. Within the same app registration, under **Manage**, select **Certificates & secrets**.
 2. Create a **New client secret** that never expires.
@@ -45,7 +47,7 @@ Finally, because the app calls a protected API (in this case Microsoft Graph), i
 
 ## Create the app using the .NET CLI
 
-Run the following command to download the templates for Microsoft.Identity.Web, which we will make use of in this tutorial. 
+Run the following command to download the templates for Microsoft.Identity.Web, which we will make use of in this tutorial.
 
 ```dotnetcli
 dotnet new --install Microsoft.Identity.Web.ProjectTemplates::0.4.0-preview
@@ -66,24 +68,24 @@ dotnet new blazorserver2 --auth SingleOrg --calls-graph -o {APP NAME} --client-i
 Now, navigate to your new Blazor app in your editor and add the client secret to the *appsettings.json* file, replacing the text "secret-from-app-registration".
 
 ```json
-"ClientSecret": "xkAlNiG70000000_UI~d.OS4Dl.-Cy-1m3",
+"ClientSecret": "secret-from-app-registration",
 ```
 
 ## Test the app
 
-You can now build and run the app. When you run this template app, you must specify the framework to run using --framework. This tutorial uses the .NET Core 3.1 SDK. 
+You can now build and run the app. When you run this template app, you must specify the framework to run using --framework. This tutorial uses the .NET Core 3.1 SDK.
 
 ```dotnetcli
 dotnet run --framework netcoreapp3.1
 ```
 
-In your browser, navigate to `https://localhost:5001`, and log in using an Azure AD user account to see the app running. 
+In your browser, navigate to `https://localhost:5001`, and log in using an Azure AD user account to see the app running.
 
 ## Retrieving data from Microsoft Graph
 
-[Microsoft Graph](/graph/overview) offers a range of APIs that provide access to your users' Microsoft 365 data. By using the Microsoft identity platform as the identity provider for your app, you have easier access to this information since Microsoft Graph directly supports the tokens issued by the Microsoft identity platform. In this section, you add code can display the signed in user's emails on the application's "fetch data" page.
+[Microsoft Graph](/graph/overview) offers a range of APIs that provide access to your users' Microsoft 365 data. By using the Microsoft identity platform as the identity provider for your app, you have easier access to this information since Microsoft Graph directly supports the tokens issued by the Microsoft identity platform. In this section, you add code to display the signed in user's emails on the application's "fetch data" page.
 
-Before you start, log out of your app since you'll be making changes to the required permissions, and your current token won't work. If you haven't already, run your app again and select **Log out** before updating the code below. 
+Before you start, log out of your app since you'll be making changes to the required permissions, and your current token won't work. If you haven't already, run your app again and select **Log out** before updating the code below.
 
 Now you will update your app's registration and code to pull a user's email and display the messages within the app. To achieve this, first extend the app registration permissions in Azure AD to enable access to the email data. Then, add code to the Blazor app to retrieve and display this data in one of the pages.
 
@@ -198,5 +200,7 @@ After granting consent, navigate to the "Fetch data" page to read some email.
 
 ## Next steps
 
-- [Microsoft identity platform best practices and recommendations](./identity-platform-integration-checklist.md)
-- [Microsoft Identity Web basics](https://github.com/AzureAD/microsoft-identity-web/wiki/Microsoft-Identity-Web-basics)
+Learn about calling building web apps that sign in users in our multi-part scenario series:
+
+> [!div class="nextstepaction"]
+> [Scenario: Web app that signs in users](scenario-web-app-sign-user-overview.md)

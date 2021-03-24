@@ -7,7 +7,7 @@ manager: rkarlin
 tags: 'rotation'
 
 ms.service: key-vault
-ms.subservice: general
+ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
@@ -20,7 +20,8 @@ The best way to authenticate to Azure services is by using a [managed identity](
 
 This tutorial shows how to automate the periodic rotation of secrets for databases and services that use one set of authentication credentials. Specifically, this tutorial rotates SQL Server passwords stored in Azure Key Vault by using a function triggered by Azure Event Grid notification:
 
-![Diagram of rotation solution](../media/rotate-1.png)
+
+:::image type="content" source="../media/rotate-1.png" alt-text="Diagram of rotation solution":::
 
 1. Thirty days before the expiration date of a secret, Key Vault publishes the "near expiry" event to Event Grid.
 1. Event Grid checks the event subscriptions and uses HTTP POST to call the function app endpoint subscribed to the event.
@@ -39,19 +40,19 @@ This tutorial shows how to automate the periodic rotation of secrets for databas
 
 Below deployment link can be used, if you don't have existing Key Vault and SQL Server:
 
-[![Image showing a button labeled "Deploy to Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json)
+[![Image showing a button labeled "Deploy to Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmain%2FARM-Templates%2FInitial-Setup%2Fazuredeploy.json)
 
-1. Under **Resource group**, select **Create new**. Name the group **akvrotation**.
+1. Under **Resource group**, select **Create new**. Give group a name, we use **akvrotation** in this tutorial.
 1. Under **Sql Admin Login**, type Sql administrator login name. 
 1. Select **Review + create**.
 1. Select **Create**
 
-    ![Create a resource group](../media/rotate-2.png)
+:::image type="content" source="../media/rotate-2.png" alt-text="Create a resource group":::
 
 You'll now have a Key Vault, and a SQL Server instance. You can verify this setup in the Azure CLI by running the following command:
 
 ```azurecli
-az resource list -o table
+az resource list -o table -g akvrotation
 ```
 
 The result will look something the following output:
@@ -59,9 +60,11 @@ The result will look something the following output:
 ```console
 Name                     ResourceGroup         Location    Type                               Status
 -----------------------  --------------------  ----------  ---------------------------------  --------
-akvrotation-kv          akvrotation      eastus      Microsoft.KeyVault/vaults
-akvrotation-sql         akvrotation      eastus      Microsoft.Sql/servers
-akvrotation-sql/master  akvrotation      eastus      Microsoft.Sql/servers/databases
+akvrotation-kv           akvrotation      eastus      Microsoft.KeyVault/vaults
+akvrotation-sql          akvrotation      eastus      Microsoft.Sql/servers
+akvrotation-sql/master   akvrotation      eastus      Microsoft.Sql/servers/databases
+akvrotation-sql2         akvrotation      eastus      Microsoft.Sql/servers
+akvrotation-sql2/master  akvrotation      eastus      Microsoft.Sql/servers/databases
 ```
 
 ## Create and deploy sql server password rotation function
@@ -79,23 +82,24 @@ The function app requires these components:
 
 1. Select the Azure template deployment link: 
 
-   [![Image showing a button labeled "Deploy to Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmaster%2Farm-templates%2FFunction%2Fazuredeploy.json)
+   [![Image showing a button labeled "Deploy to Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmain%2FARM-Templates%2FFunction%2Fazuredeploy.json)
 
 1. In the **Resource group** list, select **akvrotation**.
 1. In the **Sql Server Name**, type the Sql Server name with password to rotate
 1. In the **Key Vault Name**,  type the key vault name
 1. In the **Function App Name**,  type the function app name
 1. In the **Secret Name**,  type secret name where the password will be stored
-1. In the **Repo Url**, type function code GitHub location (**https://github.com/jlichwa/KeyVault-Rotation-SQLPassword-Csharp.git**)
+1. In the **Repo Url**, type function code GitHub location (**https://github.com/Azure-Samples/KeyVault-Rotation-SQLPassword-Csharp.git**)
 1. Select **Review + create**.
 1. Select **Create**.
 
-   ![Select Review+create](../media/rotate-3.png)
+:::image type="content" source="../media/rotate-3.png" alt-text="Select Review+create":::
+  
 
 After you complete the preceding steps, you'll have a storage account, a server farm, and a function app. You can verify this setup in the Azure CLI by running the following command:
 
 ```azurecli
-az resource list -o table
+az resource list -o table -g akvrotation
 ```
 
 The result will look something like the following output:
@@ -112,7 +116,7 @@ akvrotation-fnapp        akvrotation       eastus      Microsoft.Web/sites
 akvrotation-fnapp        akvrotation       eastus      Microsoft.insights/components
 ```
 
-For information on how to create a function app and use managed identity to access Key Vault, see [Create a function app from the Azure portal](/azure/azure-functions/functions-create-function-app-portal), [How to use managed identity for App Service and Azure Functions](/azure/app-service/overview-managed-identity), and [Assign a Key Vault access policy using the Azure portal](../general/assign-access-policy-portal.md).
+For information on how to create a function app and use managed identity to access Key Vault, see [Create a function app from the Azure portal](../../azure-functions/functions-create-function-app-portal.md), [How to use managed identity for App Service and Azure Functions](../../app-service/overview-managed-identity.md), and [Assign a Key Vault access policy using the Azure portal](../general/assign-access-policy-portal.md).
 
 ### Rotation function
 Deployed in previous step function uses an event to trigger the rotation of a secret by updating Key Vault and the SQL database. 
@@ -184,7 +188,7 @@ This rotation method reads database information from the secret, creates a new v
         }
 }
 ```
-You can find the complete code on [GitHub](https://github.com/jlichwa/KeyVault-Rotation-SQLPassword-Csharp).
+You can find the complete code on [GitHub](https://github.com/Azure-Samples/KeyVault-Rotation-SQLPassword-Csharp).
 
 ## Add the secret to Key Vault
 Set your access policy to grant *manage secrets* permissions to users:
@@ -206,11 +210,11 @@ Creating a secret with a short expiration date will publish a `SecretNearExpiry`
 
 To verify that the secret has rotated, go to **Key Vault** > **Secrets**:
 
-![Go to Secrets](../media/rotate-8.png)
+:::image type="content" source="../media/rotate-8.png" alt-text="Screenshot that shows how to access Key Vault > Secrets.":::
 
 Open the **sqlPassword** secret and view the original and rotated versions:
 
-![Open the sqluser secret](../media/rotate-9.png)
+:::image type="content" source="../media/rotate-9.png" alt-text="Go to Secrets":::
 
 ### Create a web app
 
@@ -222,13 +226,13 @@ The web app requires these components:
 
 1. Select the Azure template deployment link: 
 
-   [![Image showing a button labeled "Deploy to Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp-WebApp%2Fmaster%2Farm-templates%2FWeb-App%2Fazuredeploy.json)
+   [![Image showing a button labeled "Deploy to Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FKeyVault-Rotation-SQLPassword-Csharp-WebApp%2Fmain%2FARM-Templates%2FWeb-App%2Fazuredeploy.json)
 
 1. Select the **akvrotation** resource group.
 1. In the **Sql Server Name**, type the Sql Server name with password to rotate
 1. In the **Key Vault Name**,  type the key vault name
 1. In the **Secret Name**,  type secret name where the password is stored
-1. In the **Repo Url**, type web app code GitHub location (**https://github.com/jlichwa/KeyVault-Rotation-SQLPassword-Csharp-WebApp.git**)
+1. In the **Repo Url**, type web app code GitHub location (**https://github.com/Azure-Samples/KeyVault-Rotation-SQLPassword-Csharp-WebApp.git**)
 1. Select **Review + create**.
 1. Select **Create**.
 
@@ -237,7 +241,7 @@ The web app requires these components:
 
 Go to the deployed application URL:
  
-https://akvrotation-app.azurewebsites.net/
+'https://akvrotation-app.azurewebsites.net/'
 
 When the application opens in the browser, you will see the **Generated Secret Value** and a **Database Connected** value of *true*.
 

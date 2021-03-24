@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/02/2020
+ms.date: 02/04/2021
 ms.author: jeedes
 ---
 
@@ -34,7 +34,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * VMware Horizon - Unified Access Gateway supports **SP and IDP** initiated SSO
 
-## Adding VMware Horizon - Unified Access Gateway from the gallery
+## Add VMware Horizon - Unified Access Gateway from the gallery
 
 To configure the integration of VMware Horizon - Unified Access Gateway into Azure AD, you need to add VMware Horizon - Unified Access Gateway from the gallery to your list of managed SaaS apps.
 
@@ -65,7 +65,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **VMware Horizon - Unified Access Gateway** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -139,8 +139,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the VMware Horizon - Unified Access Gateway for which you set up the SSO 
 
-You can also use Microsoft Access Panel to test the application in any mode. When you click the VMware Horizon - Unified Access Gateway tile in the Access Panel, you should be automatically signed in to the VMware Horizon - Unified Access Gateway for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+You can also use Microsoft Access Panel to test the application in any mode. When you click the VMware Horizon - Unified Access Gateway tile in the Access Panel, you should be automatically signed in to the VMware Horizon - Unified Access Gateway for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next Steps
 
-Once you configure VMware Horizon - Unified Access Gateway you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Once you configure VMware Horizon - Unified Access Gateway you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

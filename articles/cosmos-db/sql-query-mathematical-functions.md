@@ -3,12 +3,14 @@ title: Mathematical functions in Azure Cosmos DB query language
 description: Learn about the mathematical functions in Azure Cosmos DB to perform a calculation, based on input values that are provided as arguments, and return a numeric value.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ---
 # Mathematical functions (Azure Cosmos DB)  
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 The mathematical functions each perform a calculation, based on input values that are provided as arguments, and return a numeric value.
 
@@ -61,4 +63,4 @@ All mathematical functions, except for RAND, are deterministic functions. This m
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduction to Azure Cosmos DB](introduction.md)
 - [User Defined Functions](sql-query-udfs.md)
-- [Aggregates](sql-query-aggregates.md)
+- [Aggregates](sql-query-aggregate-functions.md)

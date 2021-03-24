@@ -1,17 +1,19 @@
 ---
 title: Deploy GPU module on your Microsoft Azure Stack Edge Pro device from Azure Marketplace| Microsoft Docs
-description: Describes how to enable compute and make your Azure Stack Edge Pro device compute-ready via the local UI.
+description: Describes how to deploy GPU enabled IoT module on your Azure Stack Edge Pro GPU device.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/09/2020
+ms.date: 02/22/2021
 ms.author: alkohli
 ---
 
 # Deploy a GPU enabled IoT module from Azure Marketplace on Azure Stack Edge Pro GPU device
+
+[!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
 This article describes how to deploy a Graphics Processing Unit (GPU) enabled IoT Edge module from Azure Marketplace on your Azure Stack Edge Pro device. 
 
@@ -51,7 +53,7 @@ Before you begin, make sure you have:
 
 4. Select **Continue** to acknowledge the provider's terms of use and privacy policy. 
 
-    ![Get sample module](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/terms-of-use-1.png)
+    ![Get sample module 2](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/terms-of-use-1.png)
 
 5. Choose the subscription that you used to deploy your Azure Stack Edge Pro device.
 
@@ -59,13 +61,11 @@ Before you begin, make sure you have:
 
 6. Enter the name of the IoT Hub service that you created when you configured your Azure Stack Edge Pro device. To find this IoT Hub service name, go to the Azure Stack Edge resource associated with your device in Azure portal. 
 
-    1. In the left pane menu options, go to **Edge compute > Get started**. 
-
-    1. In the **Configure Edge compute** tile, select **View config**. 
+    1. In the left pane menu options, go to **Edge services > IoT Edge**. 
 
         ![View compute config](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/view-config-1.png)
 
-    1. In the **Edge compute configuration** blade:
+    1. Go to **Properties**. 
 
         1. Make a note of the IoT Hub service that was created when you configured compute on your Azure Stack Edge Pro device.
         2. Note the name of the IoT Edge device that was created when you configured compute. You will use this name in the subsequent step.
@@ -85,7 +85,7 @@ Before you begin, make sure you have:
 
 13. Verify that the module is deployed in your IoT Hub in the Azure portal. Select your device, select **Set Modules** and the module should be listed in the **IoT Edge Modules** section.
 
-    ![Select create](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/running-module-iotres-1.png)
+    ![Select create 2](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/running-module-iotres-1.png)
 
 ## Monitor the module  
 

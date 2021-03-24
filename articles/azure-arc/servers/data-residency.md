@@ -2,7 +2,7 @@
 title: Data residency
 description: Data residency and information about Azure Arc enabled servers.
 ms.topic: reference
-ms.date: 09/22/2020
+ms.date: 02/16/2021
 ms.custom: references_regions
 ---
 
@@ -10,7 +10,7 @@ ms.custom: references_regions
 
 This article explains the concept of data residency and how it applies to Azure Arc enabled servers.
 
-Azure Arc enabled servers is **[available](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc)** in the **United States, Europe, United Kingdom, or Asia Pacific**.
+Azure Arc enabled servers is **[available](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc)** in the **United States, Europe, United Kingdom, Australia, and Asia Pacific**.
 
 ## Data residency
 
@@ -18,10 +18,16 @@ Azure Arc enabled servers store [Azure VM extension](manage-vm-extensions.md) co
 
 Metadata information about the connected machine is also collected. Specifically:
 
-* Operating system name and version
+* Operating system name, type, and version
 * Computer name
 * Computer fully qualified domain name (FQDN)
 * Connected Machine agent version
+* Active Directory and DNS fully qualified domain name (FQDN)
+* UUID (BIOS ID)
+* Connected Machine agent heartbeat
+* Connected Machine agent version
+* Public key for managed identity
+* Policy compliance status and details (if using Azure Policy Guest Configuration policies)
 
 Arc enabled servers allow you to specify the region where your data will be stored. Microsoft may replicate to other regions for data resiliency, but Microsoft does not replicate or move data outside the geography. This data is stored in the region where the Azure Arc machine resource is configured. For example, if the machine is registered with Arc in the East US region, this data is stored in the US region.
 

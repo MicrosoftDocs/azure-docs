@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 03/17/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -22,63 +22,84 @@ Azure AD Connect installs an on-premises service which orchestrates synchronizat
 
 Choosing the ADSync service account is an important planning decision to make prior to installing Azure AD Connect.  Any attempt to change the credentials after installation will result in the service failing to start, losing access to the synchronization database, and failing to authenticate with your connected directories (Azure and AD DS).  No synchronization will occur until the original credentials are restored.
 
-## The default ADSync service account
+The sync service can run under different accounts. It can run under a Virtual Service Account (VSA), a Managed Service Account (gMSA/sMSA), or a regular User Account. The supported options were changed with the 2017 April release and 2021 March release of Azure AD Connect when you do a fresh installation. If you upgrade from an earlier release of Azure AD Connect, these additional options are not available. 
 
-When run on a member server, the AdSync service runs in the context of a Virtual Service Account (VSA).  Due to a product limitation, a custom service account is created when installed on a domain controller.  If the Express settings service account does not meet your organizational security requirements, deploy Azure AD Connect by choosing the Customize option.  Then choose the service account option which meets your organization’s requirements.
 
->[!NOTE]
->The default service account when installed on a domain controller is of the form Domain\AAD_InstallationIdentifier.  The password for this account is randomly generated and presents significant challenges for recovery and password rotation.  Microsoft recommends customizing the service account during initial installation on a domain controller to use either a standalone or group Managed Service Account (sMSA / gMSA)
+|Type of account|Installation option|Description| 
+|-----|------|-----|
+|Virtual Service Account|Express and custom, 2017 April and later| A Virtual Service Account is used for all express installations, except for installations on a Domain Controller. When using custom installation, it is the default option unless another option is used.| 
+|Managed Service Account|Custom, 2017 April and later|If you use a remote SQL Server, then we recommend using a group Managed Service Account. |
+|Managed Service Account|Express and custom, 2021 March and later|A standalone Managed Service Account prefixed with ADSyncMSA_ is created during installation for express installations when installed on a Domain Controller. When using custom installation, it is the default option unless another option is used.|
+|User Account|Express and custom, 2017 April to 2021 March|A User Account prefixed with AAD_ is created during installation for express installations when installed on a Domain Controller. When using custom installation, it is the default option unless another option is used.|
+|User Account|Express and custom, 2017 March and earlier|A User Account prefixed with AAD_ is created during installation for express installations. When using custom installation, another account can be specified.| 
 
-|Azure AD Connect location|Service account created|
-|-----|-----|
-|Member Server|NT SERVICE\ADSync|
-|Domain Controller|Domain\AAD_74dc30c01e80 (see note)|
+>[!IMPORTANT]
+> If you use Connect with a build from 2017 March or earlier, then you should not reset the password on the service account since Windows destroys the encryption keys for security reasons. You cannot change the account to any other account without reinstalling Azure AD Connect. If you upgrade to a build from 2017 April or later, then it is supported to change the password on the service account, but you cannot change the account used. 
 
-## Custom ADSync service accounts
-Microsoft recommends running the ADSync service in the context of either a Virtual Service Account or a standalone or group Managed Service Account.  Your domain administrator may also choose to create a service account provisioned to meet your specific organizational security requirements.   To customize the service account used during installation, choose the Customize option on the Express Settings page below.   The following options are available:
+> [!IMPORTANT]
+> You can only set the service account on first installation. It is not supported to change the service account after the installation has been completed. If you need to change the service account password, this is supported and instructions can be found [here](how-to-connect-sync-change-serviceacct-pass.md).
 
-- default account – Azure AD Connect will provision the service account as described above
-- managed service account – use a standalone or group MSA provisioned by your administrator
-- domain account – use a domain service account provisioned by your administrator
+The following is a table of the default, recommended, and supported options for the sync service account. 
 
-![Screenshot of the Azure AD Connect Express Settings page with "Customize" or "Use express settings" option buttons.](media/concept-adsync-service-account/adsync1.png)
+Legend: 
 
-![Screenshot of Azure AD Connect "Install required components" page with the option to use an existing Managed Service Account selected.](media/concept-adsync-service-account/adsync2.png)
+- **Bold** indicates the default option and, in most cases, the recommended option. 
+- *Italic* indicates the recommended option when it is not the default option. 
+- Non-bold - Supported option 
+- Local account - Local user account on the server 
+- Domain account - Domain user account 
+- sMSA - [standalone Managed Service account](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10))
+- gMSA - [group Managed Service account](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)) 
 
-## Diagnosing ADSync service account changes
-Changing the credentials for the ADSync service after installation will result in the service failing to start, losing access to the synchronization database, and failing to authenticate with your connected directories (Azure and AD DS).  Granting database access to the new ADSync service account is insufficient to recover from this issue. No synchronization will occur until the original credentials are restored.
+ ||**LocalDB</br> Express**|**LocalDB/LocalSQL</br> Custom**|**Remote SQL</br> Custom**|
+|-----|-----|-----|-----|
+|**domain-joined machine**|**VSA**|**VSA**</br> *sMSA*</br> *gMSA*</br> Local account</br> Domain account| *gMSA* </br>Domain account|
+|Domain Controller| **sMSA**|**sMSA** </br>*gMSA*</br> Domain account|*gMSA*</br>Domain account| 
 
-The ADSync service will issue an error level message to the event log when it is unable to start.  The content of the message will vary depending on whether the built-in database (localdb) or full SQL is in use.  The following are examples of the event log entries that may be present.
+## Virtual Service Account 
 
-### Example 1
+A Virtual Service Account is a special type of managed local account that does not have a password and is automatically managed by Windows. 
 
-The AdSync service encryption keys could not be found and have been recreated.  Synchronization will not occur until this issue is corrected.
+ ![Virtual service account](media/concept-adsync-service-account/account-1.png)
 
-Troubleshooting this Issue
-The Microsoft Azure AD Sync encryption keys will become inaccessible if the AdSync service Log On credentials are changed.  If the credentials have been changed, use the Services application to change the Log On account back to its originally configured value (ex. NT SERVICE\AdSync) and restart the service.  This will immediately restore correct operation of the AdSync service.
+The Virtual Service Account is intended to be used with scenarios where the sync engine and SQL are on the same server. If you use remote SQL, then we recommend using a group Managed Service Account instead. 
 
-Please see the following [article](https://go.microsoft.com/fwlink/?linkid=2086764) for further information.
+The Virtual Service Account cannot be used on a Domain Controller due to [Windows Data Protection API (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx) issues. 
 
-### Example 2
+## Managed Service Account 
 
-The service was unable to start because a connection to the local database (localdb)
-could not be established.
+If you use a remote SQL Server, then we recommend to using a group Managed Service Account. For more information on how to prepare your Active Directory for group Managed Service account, see [Group Managed Service Accounts Overview](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)). 
 
-Troubleshooting this Issue
-The Microsoft Azure AD Sync service will lose permission to access the local database provider if the AdSync service Log On credentials are changed.  If the credentials have been changed use the Services application to change the Log On account back to its originally configured value (ex. NT SERVICE\AdSync) and restart the service.  This will immediately restore correct operation of the AdSync service.
+To use this option, on the [Install required components](how-to-connect-install-custom.md#install-required-components) page, select **Use an existing service account**, and select **Managed Service Account**. 
 
-Please see the following [article](https://go.microsoft.com/fwlink/?linkid=2086764) for further information.
+ ![managed service account](media/concept-adsync-service-account/account-2.png)
 
-Additional Details
-The following error information was returned by the provider:
- 
+It is also supported to use a standalone managed service account. However, these can only be used on the local machine and there is no benefit to using them over the default Virtual Service Account. 
 
-``` 
-OriginalError=0x80004005 OLEDB Provider error(s): 
-Description  = 'Login timeout expired'
-Failure Code = 0x80004005
-Minor Number = 0 
-Description  = 'A network-related or instance-specific error has occurred while establishing a connection to SQL Server. Server is not found or not accessible. Check if instance name is correct and if SQL Server is configured to allow remote connections. For more information see SQL Server Books Online.'
-```
+### Auto-generated standalone Managed Service Account 
+
+If you install Azure AD Connect on a Domain Controller, a standalone Managed Service Account is created by the installation wizard (unless you specify the account to use in custom settings). The account is prefixed **ADSyncMSA_** and used for the actual sync service to run as. 
+
+This account is a managed domain account that does not have a password and is automatically managed by Windows. 
+
+This account is intended to be used with scenarios where the sync engine and SQL are on the Domain Controller. 
+
+## User Account 
+
+A local service account is created by the installation wizard (unless you specify the account to use in custom settings). The account is prefixed AAD_ and used for the actual sync service to run as. If you install Azure AD Connect on a Domain Controller, the account is created in the domain. The AAD_ service account must be located in the domain if: 
+- you use a remote server running SQL Server 
+- you use a proxy that requires authentication 
+
+ ![user account](media/concept-adsync-service-account/account-3.png)
+
+The account is created with a long complex password that does not expire. 
+
+This account is used to store passwords for the other accounts in a secure way. These other accounts passwords are stored encrypted in the database. The private keys for the encryption keys are protected with the cryptographic services secret-key encryption using Windows Data Protection API (DPAPI). 
+
+If you use a full SQL Server, then the service account is the DBO of the created database for the sync engine. The service will not function as intended with any other permission. A SQL login is also created. 
+
+The account is also granted permission to files, registry keys, and other objects related to the Sync Engine. 
+
+
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).

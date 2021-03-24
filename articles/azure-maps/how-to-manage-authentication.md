@@ -17,7 +17,7 @@ After you create an Azure Maps account, a client ID and keys are created to supp
 
 ## View authentication details
 
-After you create an Azure Maps account, the primary and secondary keys are generated. We recommend that you use a primary key as a subscription key when you [use Shared Key authentication to call Azure Maps](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication#shared-key-authentication). You can use a secondary key in scenarios such as rolling key changes. For more information, see [Authentication in Azure Maps](https://aka.ms/amauth).
+After you create an Azure Maps account, the primary and secondary keys are generated. We recommend that you use a primary key as a subscription key when you [use Shared Key authentication to call Azure Maps](./azure-maps-authentication.md#shared-key-authentication). You can use a secondary key in scenarios such as rolling key changes. For more information, see [Authentication in Azure Maps](./azure-maps-authentication.md).
 
 You can view your authentication details in the Azure portal. There, in your account, on the **Settings** menu, select **Authentication**.
 
@@ -26,7 +26,7 @@ You can view your authentication details in the Azure portal. There, in your acc
 
 ## Discover category and scenario
 
-Depending on application needs there are specific pathways to securing the application. Azure AD defines categories to support a wide range of authentication flows. See [application categories](https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios#application-categories) to understand which category the application fits.
+Depending on application needs there are specific pathways to securing the application. Azure AD defines categories to support a wide range of authentication flows. See [application categories](../active-directory/develop/authentication-flows-app-scenarios.md#application-categories) to understand which category the application fits.
 
 > [!NOTE]
 > Even if you use shared key authentication, understanding categories and scenarios helps you to secure the application.
@@ -36,7 +36,7 @@ Depending on application needs there are specific pathways to securing the appli
 The following table outlines common authentication and authorization scenarios in Azure Maps. The table provides a comparison of the types of protection each scenario offers.
 
 > [!IMPORTANT]
-> Microsoft recommends implementing Azure Active Directory (Azure AD) with role-based access control (RBAC) for production applications.
+> Microsoft recommends implementing Azure Active Directory (Azure AD) with Azure role-based access control (Azure RBAC) for production applications.
 
 | Scenario                                                                                    | Authentication | Authorization | Development effort | Operational effort |
 | ------------------------------------------------------------------------------------------- | -------------- | ------------- | ------------------ | ------------------ |
@@ -58,10 +58,10 @@ To view Azure roles that are available for Azure Maps, go to **Access control (I
 
 ## View role assignments
 
-To view users and apps that have been granted RBAC for Azure Maps, go to **Access Control (IAM)**. There, select **Role assignments**, and then filter by **Azure Maps**.
+To view users and apps that have been granted access for Azure Maps, go to **Access Control (IAM)**. There, select **Role assignments**, and then filter by **Azure Maps**.
 
 > [!div class="mx-imgBorder"]
-> ![View users and apps that have been granted RBAC](./media/how-to-manage-authentication/how-to-view-amrbac.png)
+> ![View users and apps that have been granted access](./media/how-to-manage-authentication/how-to-view-amrbac.png)
 
 ## Request tokens for Azure Maps
 
@@ -72,11 +72,36 @@ Request a token from the Azure AD token endpoint. In your Azure AD request, use 
 | Azure public cloud     | `https://login.microsoftonline.com` | `https://atlas.microsoft.com/` |
 | Azure Government cloud | `https://login.microsoftonline.us`  | `https://atlas.microsoft.com/` |
 
-For more information about requesting access tokens from Azure AD for users and service principals, see [Authentication scenarios for Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios) and view specific scenarios in the table of [Scenarios](./how-to-manage-authentication.md#determine-authentication-and-authorization).
+For more information about requesting access tokens from Azure AD for users and service principals, see [Authentication scenarios for Azure AD](../active-directory/develop/authentication-vs-authorization.md) and view specific scenarios in the table of [Scenarios](./how-to-manage-authentication.md#determine-authentication-and-authorization).
+
+## Manage and rotate shared keys
+
+Your Azure Maps subscription keys are similar to a root password for your Azure Maps account. Always be careful to protect your subscription keys. Use Azure Key Vault to manage and rotate your keys securely. Avoid distributing access keys to other users, hard-coding them, or saving them anywhere in plain text that is accessible to others. Rotate your keys if you believe they may have been compromised.
+
+> [!NOTE]
+> Microsoft recommends using Azure Active Directory (Azure AD) to authorize requests if possible, instead of Shared Key. Azure AD provides superior security and ease of use over Shared Key.
+
+### Manually rotate subscription keys
+
+Microsoft recommends that you rotate your subscription keys periodically to help keep your Azure Maps account secure. If possible, use Azure Key Vault to manage your access keys. If you are not using Key Vault, you will need to rotate your keys manually.
+
+Two subscription keys are assigned so that you can rotate your keys. Having two keys ensures that your application maintains access to Azure Maps throughout the process.
+
+To rotate your Azure Maps subscription keys in the Azure portal:
+
+1. Update your application code to reference the secondary key for the Azure Maps account and deploy.
+2. Navigate to your Azure Maps account in the [Azure portal](https://portal.azure.com/).
+3. Under **Settings**, select **Authentication**.
+4. To regenerate the primary key for your Azure Maps account, select the **Regenerate** button next to the primary key.
+5. Update your application code to reference the new primary key and deploy.
+6. Regenerate the secondary key in the same manner.
+
+> [!WARNING]
+> Microsoft recommends using only one of the keys in all of your applications at the same time. If you use Key 1 in some places and Key 2 in others, you will not be able to rotate your keys without some applications losing access.
 
 ## Next steps
 
-For more information, see [Azure AD and Azure Maps Web SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control).
+For more information, see [Azure AD and Azure Maps Web SDK](./how-to-use-map-control.md).
 
 Find the API usage metrics for your Azure Maps account:
 > [!div class="nextstepaction"]

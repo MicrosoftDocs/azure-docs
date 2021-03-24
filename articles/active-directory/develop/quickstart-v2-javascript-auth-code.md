@@ -1,7 +1,7 @@
 ---
-title: Sign in users in JavaScript single-page apps (SPA) with auth code | Azure
+title: "Quickstart: Sign in users in JavaScript single-page apps (SPA) with auth code | Azure"
 titleSuffix: Microsoft identity platform
-description: Learn how a JavaScript single-page application (SPA) can sign in users of personal accounts, work accounts, and school accounts by using the authorization code flow.
+description: In this quickstart, learn how a JavaScript single-page application (SPA) can sign in users of personal accounts, work accounts, and school accounts by using the authorization code flow.
 services: active-directory
 author: hahamil
 manager: CelesteDG
@@ -13,16 +13,16 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-#Customer intent: As an app developer, I want to learn how to get access tokens and refresh tokens by using the Microsoft identity platform endpoint so that my JavaScript app can sign in users of personal accounts, work accounts, and school accounts.
+#Customer intent: As an app developer, I want to learn how to get access tokens and refresh tokens by using the Microsoft identity platform so that my JavaScript app can sign in users of personal accounts, work accounts, and school accounts.
 ---
 
-# Quickstart: Sign in users and get an access token in a JavaScript SPA using the auth code flow
+# Quickstart: Sign in users and get an access token in a JavaScript SPA using the auth code flow with PKCE 
 
-In this quickstart, you run a code sample that demonstrates how a JavaScript single-page application (SPA) can sign in users of personal accounts, work accounts, and school accounts by using the authorization code flow. The code sample also demonstrates obtaining an access token to call a web API, in this case the Microsoft Graph API. See [How the sample works](#how-the-sample-works) for an illustration.
+In this quickstart, you download and run a code sample that demonstrates how a JavaScript single-page application (SPA) can sign in users and call Microsoft Graph using the authorization code flow with Proof Key for Code Exchange (PKCE). The code sample demonstrates how to get an access token to call the Microsoft Graph API or any web API. 
 
-This quickstart uses MSAL.js 2.0 with the authorization code flow. For a similar quickstart that uses MSAL.js 1.0 with the implicit flow, see [Quickstart: Sign in users in JavaScript single-page apps](./quickstart-v2-javascript.md).
+See [How the sample works](#how-the-sample-works) for an illustration.
 
-[!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
+This quickstart uses MSAL.js v2 with the authorization code flow. For a similar quickstart that uses MSAL.js v1 with the implicit flow, see [Quickstart: Sign in users in JavaScript single-page apps](./quickstart-v2-javascript.md).
 
 ## Prerequisites
 
@@ -36,9 +36,7 @@ This quickstart uses MSAL.js 2.0 with the authorization code flow. For a similar
 >
 > ### Option 1 (Express): Register and auto configure your app and then download your code sample
 >
-> 1. Sign in to the [Azure portal](https://portal.azure.com).
-> 1. If your account gives you access to more than one tenant, select the account at the top right, and then set your portal session to the Azure Active Directory (Azure AD) tenant you want to use.
-> 1. Select [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs).
+> 1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations</a>.
 > 1. Enter a name for your application.
 > 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 > 1. Select **Register**.
@@ -48,21 +46,21 @@ This quickstart uses MSAL.js 2.0 with the authorization code flow. For a similar
 >
 > #### Step 1: Register your application
 >
-> 1. Sign in to the [Azure portal](https://portal.azure.com).
-> 1. If your account gives you access to more than one tenant, select your account at the top right, and then set your portal session to the Azure AD tenant you want to use.
-> 1. Select [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908).
-> 1. Select **New registration**.
-> 1. When the **Register an application** page appears, enter a name for your application.
+> 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
+> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+> 1. Search for and select **Azure Active Directory**.
+> 1. Under **Manage**, select **App registrations** > **New registration**.
+> 1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.
 > 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 > 1. Select **Register**. On the app **Overview** page, note the **Application (client) ID** value for later use.
-> 1. In the left pane of the registered application, select **Authentication**.
+> 1. Under **Manage**, select **Authentication**.
 > 1. Under **Platform configurations**, select **Add a platform**. In the pane that opens select **Single-page application**.
 > 1. Set the **Redirect URI** value to `http://localhost:3000/`.
 > 1. Select **Configure**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in the Azure portal
-> To make the code sample in this quickstart work, you need to add a `redirectUri` as `http://localhost:3000/`.
+> For the code sample in this quickstart to work, add a **Redirect URI** of `http://localhost:3000/`.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make these changes for me]()
 >
@@ -109,12 +107,18 @@ This quickstart uses MSAL.js 2.0 with the authorization code flow. For a similar
 > Modify the values in the `msalConfig` section as described here:
 >
 > - `Enter_the_Application_Id_Here` is the **Application (client) ID** for the application you registered.
+>
+>    To find the value of **Application (client) ID**, go to the app registration's **Overview** page in the Azure portal.
 > - `Enter_the_Cloud_Instance_Id_Here` is the instance of the Azure cloud. For the main or global Azure cloud, enter `https://login.microsoftonline.com/`. For **national** clouds (for example, China), see [National clouds](authentication-national-cloud.md).
 > - `Enter_the_Tenant_info_here` is set to one of the following:
 >   - If your application supports *accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name**. For example, `contoso.microsoft.com`.
+>
+>    To find the value of the **Directory (tenant) ID**, go to the app registration's **Overview** page in the Azure portal.
 >   - If your application supports *accounts in any organizational directory*, replace this value with `organizations`.
 >   - If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with `common`. **For this quickstart**, use `common`.
 >   - To restrict support to *personal Microsoft accounts only*, replace this value with `consumers`.
+>
+>    To find the value of **Supported account types**, go to the app registration's **Overview** page in the Azure portal.
 > - `Enter_the_Redirect_Uri_Here` is `http://localhost:3000/`.
 >
 > The `authority` value in your *authConfig.js* should be similar to the following if you're using the main (global) Azure cloud:
@@ -123,9 +127,7 @@ This quickstart uses MSAL.js 2.0 with the authorization code flow. For a similar
 > authority: "https://login.microsoftonline.com/common",
 > ```
 >
-> > [!TIP]
-> > To find the values of **Application (client) ID**, **Directory (tenant) ID**, and **Supported account types**, go to the app registration's **Overview** page in the Azure portal.
->
+
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 3: Your app is configured and ready to run
 > We have configured your project with values of your app's properties.
@@ -199,4 +201,4 @@ npm install @azure/msal-browser
 For a more detailed step-by-step guide on building the application used in this quickstart, see the following tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial to sign in and call MS Graph >](./tutorial-v2-javascript-auth-code.md)
+> [Tutorial to sign in and call MS Graph](./tutorial-v2-javascript-auth-code.md)

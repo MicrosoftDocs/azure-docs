@@ -15,7 +15,7 @@ This section describes how to perform the following modification operations for 
 ### Add Direct peering connections
 1. Select the **+ Add connections** button, and configure a new peering connection.
     > [!div class="mx-imgBorder"]
-    > ![Peering resource view](../media/setup-direct-modify-addconnection.png)
+    > ![The AshburnPeering - Connections page lists the connections. The + Add connections button is highlighted.](../media/setup-direct-modify-addconnection.png)
 
 1. Fill out the **Direct Peering Connection** form, and select **Save**. For help with configuring a peering connection, review the steps in the "Create and provision a Direct peering" section.
     > [!div class="mx-imgBorder"]

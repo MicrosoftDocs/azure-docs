@@ -1,32 +1,31 @@
 ---
 title: Lookup activity in Azure Data Factory 
 description: Learn how to use Lookup activity to look up a value from an external source. This output can be further referenced by succeeding activities. 
-services: data-factory
-documentationcenter: ''
 author: linda33wj
 ms.author: jingwang
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 02/25/2021
 ---
 
 # Lookup activity in Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Lookup activity can retrieve a dataset from any of the Azure Data Factory-supported data sources. Use it in the following scenario:
-- Dynamically determine which objects to operate on in a subsequent activity, instead of hard coding the object name. Some object examples are files and tables.
+Lookup activity can retrieve a dataset from any of the Azure Data Factory-supported data sources. you can use it to dynamically determine which objects to operate on in a subsequent activity, instead of hard coding the object name. Some object examples are files and tables.
 
-Lookup activity reads and returns the content of a configuration file or table. It also returns the result of executing a query or stored procedure. The output from Lookup activity can be used in a subsequent copy or transformation activity if it's a singleton value. The output can be used in a ForEach activity if it's an array of attributes.
+Lookup activity reads and returns the content of a configuration file or table. It also returns the result of executing a query or stored procedure. The output can be a singleton value or an array of attributes, which can be consumed in a subsequent copy, transformation, or control flow activities like ForEach activity.
 
 ## Supported capabilities
 
-The following data sources are supported for Lookup activity. 
+Note the following:
 
-The Lookup activity can return up to 5000 rows; if the result set contains more records, the first 5000 rows will be returned. The Lookup activity output supports up to around 4 MB in size, activity will fail if the size exceeds the limit. Currently, the longest duration for Lookup activity before timeout is one hour.
+- The Lookup activity can return up to **5000 rows**; if the result set contains more records, the first 5000 rows will be returned.
+- The Lookup activity output supports up to **4 MB** in size, activity will fail if the size exceeds the limit. 
+- The longest duration for Lookup activity before timeout is **24 hours**.
+- When you use query or stored procedure to lookup data, make sure to return one and exact one result set. Otherwise, Lookup activity fails.
+
+The following data sources are supported for Lookup activity. 
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
@@ -67,7 +66,7 @@ firstRowOnly | Indicates whether to return only the first row or all rows. | Boo
 
 The lookup result is returned in the `output` section of the activity run result.
 
-* **When `firstRowOnly` is set to `true` (default)**, the output format is as shown in the following code. The lookup result is under a fixed `firstRow` key. To use the result in subsequent activity, use the pattern of  `@{activity('LookupActivity').output.firstRow.table`.
+* **When `firstRowOnly` is set to `true` (default)**, the output format is as shown in the following code. The lookup result is under a fixed `firstRow` key. To use the result in subsequent activity, use the pattern of  `@{activity('LookupActivity').output.firstRow.table}`.
 
     ```json
     {
@@ -381,7 +380,7 @@ Here are some limitations of the Lookup activity and suggested workarounds.
 
 | Limitation | Workaround |
 |---|---|
-| The Lookup activity has a maximum of 5,000 rows, and a maximum size of 2 MB. | Design a two-level pipeline where the outer pipeline iterates over an inner pipeline, which retrieves data that doesn't exceed the maximum rows or size. |
+| The Lookup activity has a maximum of 5,000 rows, and a maximum size of 4 MB. | Design a two-level pipeline where the outer pipeline iterates over an inner pipeline, which retrieves data that doesn't exceed the maximum rows or size. |
 | | |
 
 ## Next steps

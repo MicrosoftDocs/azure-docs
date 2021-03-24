@@ -1,7 +1,7 @@
 ---
 title: "Tune Model Hyperparameters"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Tune Model Hyperparameters module in Azure Machine Learning to perform a parameter sweep on a model to determine the optimum parameter settings.
+description: Use the Tune Model Hyperparameters module in the designer to perform a parameter sweep to tune hyper-parameters.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 06/17/2020
+ms.date: 10/10/2020
 ---
 # Tune Model Hyperparameters
 
@@ -72,9 +72,9 @@ This section describes how to perform a basic parameter sweep, which trains a mo
 
 When training is complete:
 
-+ To view the sweep results, right-click the module, and then select **Visualize**.
++ To view the sweep results, you could either right-click the module, and then select **Visualize**, or right-click left output port of the module to visualize.
 
-    The output includes all parameter sweep and accuracy metrics that apply to the model type, but the metric that you selected for ranking determines which model is considered "best."
+    The **Sweep results** includes all parameter sweep and accuracy metrics that apply to the model type, and the metric that you selected for ranking determines which model is considered "best."
 
 + To save a snapshot of the trained model, select the **Outputs+logs** tab in the right panel of the **Train model** module. Select the **Register dataset** icon to save the model as a reusable module.
 

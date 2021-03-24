@@ -3,7 +3,7 @@ title: Allocate Azure costs
 description: This article explains how create cost allocation rules to distribute costs of subscriptions, resource groups, or tags to others.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/11/2020
+ms.date: 03/23/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -60,9 +60,9 @@ Once set, the prefilled percentages defined are fixed. They're used for all ongo
 1. Select one of the following options in the **Prefill percentage to** list.
     - **Distribute evenly** – Each of the targets receives an even percentage proportion of the total cost.
     - **Total cost** – Creates a ratio proportional to the targets based on their total cost. The ratio is used to distribute the costs from the selected sources.
-    - **Compute cost** - Creates a ratio proportional to the targets based on their Azure compute cost (resource types in the [Microsoft.Compute](https://docs.microsoft.com/azure/templates/microsoft.compute/allversions) namespace.The ratio is used to distribute the costs from the selected sources.
-    - **Storage cost** - Creates a ratio proportional to the targets based on their Azure storage cost (resource types in the [Microsoft.Storage](https://docs.microsoft.com/azure/templates/microsoft.storage/allversions) namespace). The ratio is used to distribute the costs from the selected sources.
-    - **Network cost** - Creates a ratio proportional to the targets based on their Azure network cost (resource types in the [Microsoft.Network](https://docs.microsoft.com/azure/templates/microsoft.network/allversions) namespace). The ratio is used to distribute the costs from the selected sources.
+    - **Compute cost** - Creates a ratio proportional to the targets based on their Azure compute cost (resource types in the [Microsoft.Compute](/azure/templates/microsoft.compute/allversions) namespace.The ratio is used to distribute the costs from the selected sources.
+    - **Storage cost** - Creates a ratio proportional to the targets based on their Azure storage cost (resource types in the [Microsoft.Storage](/azure/templates/microsoft.storage/allversions) namespace). The ratio is used to distribute the costs from the selected sources.
+    - **Network cost** - Creates a ratio proportional to the targets based on their Azure network cost (resource types in the [Microsoft.Network](/azure/templates/microsoft.network/allversions) namespace). The ratio is used to distribute the costs from the selected sources.
     - **Custom** – Allows for a whole number percentage to be manually specified. The specified total must equal 100%.
 1. When the rule is configured, select **Create**.
 
@@ -91,6 +91,11 @@ In the Azure portal, navigate to **Cost Management + Billing** > **Cost Manageme
 
 :::image type="content" source="./media/allocate-costs/tagged-costs.png" alt-text="Example showing costs for tagged items" lightbox="./media/allocate-costs/tagged-costs.png" :::
 
+Here's a video that demonstrates how to create a cost allocation rule.
+
+>[!VIDEO https://www.youtube.com/embed/nYzIIs2mx9Q]
+
+
 ## Edit an existing cost allocation rule
 
 You can edit a cost allocation rule to change the source or the target or if you want to update the prefilled percentage for either compute, storage, or network options. Edit the rules in the same way you create them. Modifying existing rules can take up to two hours to reprocess.
@@ -107,10 +112,10 @@ Currently, cost allocation is supported in Cost Management by Cost analysis, bud
 The following items are currently unsupported by the cost allocation public preview:
 
 - Scheduled [Exports](tutorial-export-acm-data.md)
-- Data exposed by the [Usage Details](https://docs.microsoft.com/rest/api/consumption/usagedetails/list) API
+- Data exposed by the [Usage Details](/rest/api/consumption/usagedetails/list) API
 - Billing subscriptions area
 - [Cost Management Power BI App](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp)
-- [Power BI Desktop connector](https://docs.microsoft.com/power-bi/connect-data/desktop-connect-azure-cost-management)
+- [Power BI Desktop connector](/power-bi/connect-data/desktop-connect-azure-cost-management)
 
 ### Are costs factored into budgets and forecast views?
 <a name="budgets-forecast"></a>
@@ -139,5 +144,5 @@ Rules that have either overlapping sources or overlapping targets aren't recomme
 
 ## Next steps
 
-- Create or update allocation rules using the [Cost allocation Rest API](https://go.microsoft.com/fwlink/?linkid=2135004)
+- Create or update allocation rules using the [Cost allocation Rest API](/rest/api/cost-management/costallocationrules)
 - Learn more about [How to optimize your cloud investment with Azure Cost Management](cost-mgt-best-practices.md)

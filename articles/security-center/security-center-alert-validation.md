@@ -1,17 +1,11 @@
 ---
-title: Alert validation (EICAR test file) in Azure Security Center | Microsoft Docs
-description: This document helps you to validate the security alerts in Azure Security Center.
-services: security-center
-documentationcenter: na
+title: Alert validation in Azure Security Center | Microsoft Docs
+description: Learn how to validate that your security alerts are correctly configured in Azure Security Center
 author: memildin
 manager: rkarlin
-ms.assetid: f8f17a55-e672-4d86-8ba9-6c3ce2e71a57
 ms.service: security-center
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date:  09/22/2020
+ms.date:  03/17/2021
 ms.author: memildin
 
 ---
@@ -22,13 +16,37 @@ This document helps you learn how to verify if your system is properly configure
 Alerts are the notifications that Security Center generates when it detects threats on your resources. It prioritizes and lists the alerts along with the information needed to quickly investigate the problem. Security Center also provides recommendations for how you can remediate an attack.
 For more information, see [Security alerts in Security Center](security-center-alerts-overview.md) and [Managing and responding to security alerts](security-center-managing-and-responding-alerts.md)
 
-## Alert validation
 
-* [Windows](#validate-windows)
-* [Linux](#validate-linux)
-* [Kubernetes](#validate-kubernetes)
+## Generate sample Azure Defender alerts
 
-## Validate alerts on Windows VMs <a name="validate-windows"></a>
+If you're using the new, preview alerts experience as described in [Manage and respond to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md), you can create sample alerts in a few clicks from the security alerts page in the Azure portal.
+
+Use sample alerts to:
+
+- evaluate the value and capabilities of Azure Defender
+- validate any configurations you've made for your security alerts (such as SIEM integrations,  workflow automation, and email notifications)
+
+To create sample alerts:
+
+1. As a user with the role **Security admin** or **Subscription Contributor**, from the toolbar on the alerts page, select **Create sample alerts**.
+1. Select the subscription.
+1. Select the relevant Azure Defender plan/s for which you want to see alerts. 
+1. Select **Create sample alerts**.
+
+    :::image type="content" source="media/security-center-alert-validation/create-sample-alerts-procedures.png" alt-text="Steps to create sample alerts in Azure Security Center":::
+    
+    A notification appears letting you know that the sample alerts are being created:
+
+    :::image type="content" source="media/security-center-alert-validation/notification-sample-alerts-creation.png" alt-text="Notification that the sample alerts are being generated.":::
+
+    After a few minutes, the alerts appear in the security alerts page. They'll also appear anywhere else that you've configured to receive your Azure Security Center security alerts (connected SIEMs, email notifications, and so on).
+
+    :::image type="content" source="media/security-center-alert-validation/sample-alerts.png" alt-text="Sample alerts in the security alerts list":::
+
+    > [!TIP]
+    > The alerts are for simulated resources.
+
+## Simulate alerts on your Azure VMs (Windows) <a name="validate-windows"></a>
 
 After Security Center agent is installed on your computer, follow these steps from the computer where you want to be the attacked resource of the alert:
 
@@ -41,7 +59,7 @@ After Security Center agent is installed on your computer, follow these steps fr
 >
 >```reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"```
 
-## Validate alerts on Linux VMs <a name="validate-linux"></a>
+## Simulate alerts on your Azure VMs (Linux) <a name="validate-linux"></a>
 
 After Security Center agent is installed on your computer, follow these steps from the computer where you want to be the attacked resource of the alert:
 1. Copy an executable to a convenient location and rename it to **./asc_alerttest_662jfi039n**, for example:
@@ -55,7 +73,7 @@ After Security Center agent is installed on your computer, follow these steps fr
 1. Wait 5 to 10 minutes and open Security Center Alerts. An alert should appear.
 
 
-## Validate alerts on Kubernetes <a name="validate-kubernetes"></a>
+## Simulate alerts on Kubernetes <a name="validate-kubernetes"></a>
 
 If you've integrated Azure Kubernetes Service with Security Center, you can test that your alerts are working with the following kubectl command:
 
@@ -68,5 +86,4 @@ This article introduced you to the alerts validation process. Now that you're fa
 
 * [Validating Azure Key Vault Threat Detection in Azure Security Center](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336)
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) - Learn how to manage alerts, and respond to security incidents in Security Center.
-* [Security health monitoring in Azure Security Center](security-center-monitoring.md) - Learn how to monitor the health of your Azure resources.
-* [Understanding security alerts in Azure Security Center](security-center-alerts-type.md) - Learn about the different types of security alerts.
+* [Understanding security alerts in Azure Security Center](./security-center-alerts-overview.md) - Learn about the different types of security alerts.

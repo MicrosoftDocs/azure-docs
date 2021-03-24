@@ -3,7 +3,7 @@ title: Set up a lab to teach data science with Python and Jupyter Notebooks | Mi
 description: Learn how to set up a lab to teach data science using Python and Jupyter Notebooks. 
 author: emaher
 ms.topic: article
-ms.date: 06/26/2020
+ms.date: 09/29/2020
 ms.author: enewman
 ---
 
@@ -81,7 +81,7 @@ If you’ve provided students with Linux VMs, there are several options students
 The following sections provide details about these ways to connect to Jupyter notebooks. 
 
 #### SSH to virtual machine
-Students can connect via SSH to their Linux VMs from a terminal session. For detailed steps, see [how to access a classroom lab](how-to-use-classroom-lab.md). If they are using a Windows client machine, they will need to enable an SSH client by downloading [PuTTY](https://www.putty.org/) or enabling [OpenSSH in Windows](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse) to SSH from the command prompt. 
+Students can connect via SSH to their Linux VMs from a terminal session. For detailed steps, see [how to access a classroom lab](how-to-use-classroom-lab.md). If they are using a Windows client machine, they will need to enable an SSH client by downloading [PuTTY](https://www.putty.org/) or enabling [OpenSSH in Windows](/windows-server/administration/openssh/openssh_install_firstuse) to SSH from the command prompt. 
 
 1.	Start the VM.
 2.	Once the VM is running, click **Connect**, which will pop up a dialog box that provides the SSH command string, which will look like the following sample:

@@ -13,6 +13,7 @@ ms.custom: devx-track-java
 ---
 
 # Use bulk executor Java library to perform bulk operations on Azure Cosmos DB data
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This tutorial provides instructions on using the Azure Cosmos DB's bulk executor Java library to import, and update Azure Cosmos DB documents. To learn about bulk executor library and how it helps you leverage massive throughput and storage, see [bulk executor Library overview](bulk-executor-overview.md) article. In this tutorial, you build a Java application that generates random documents and they are bulk imported into an Azure Cosmos container. After importing, you will bulk update some properties of a document. 
 
@@ -22,9 +23,9 @@ Currently, the bulk executor library is supported only by Azure Cosmos DB SQL AP
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.  
 
-* You can [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments. Or, you can use the [Azure Cosmos DB Emulator](/azure/cosmos-db/local-emulator) with  the `https://localhost:8081` endpoint. The Primary Key is provided in [Authenticating requests](local-emulator.md#authenticate-requests).  
+* You can [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments. Or, you can use the [Azure Cosmos DB Emulator](./local-emulator.md) with  the `https://localhost:8081` endpoint. The Primary Key is provided in [Authenticating requests](local-emulator.md#authenticate-requests).  
 
-* [Java Development Kit (JDK) 1.7+](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)  
+* [Java Development Kit (JDK) 1.7+](/java/azure/jdk/)  
   - On Ubuntu, run `apt-get install default-jdk` to install the JDK.  
 
   - Be sure to set the JAVA_HOME environment variable to point to the folder where the JDK is installed.
@@ -212,5 +213,3 @@ Consider the following points for better performance when using bulk executor li
     
 ## Next steps
 * To learn about maven package details and release notes of bulk executor Java library, see[bulk executor SDK details](sql-api-sdk-bulk-executor-java.md).
-
-

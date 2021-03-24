@@ -1,55 +1,61 @@
 - name: Microsoft identity platform documentation
   href: index.yml
 - name: Overview
-  items:
-  - name: What is Microsoft identity platform?
-    href: v2-overview.md
-- name: Quickstarts
   expanded: true
   items:
-  - name: Set up a tenant
-    href: quickstart-create-new-tenant.md
-  - name: Configure an application
+  - name: What is the Microsoft identity platform?
+    href: v2-overview.md
+  - name: What's new in docs?
+    href: whats-new-docs.md
+- name: Quickstarts
+  items:
+  - name: Prepare for development
     items:
-    - name: Register an app
+    - name: Get an Azure AD tenant
+      href: quickstart-create-new-tenant.md
+    - name: Register app or web API
       href: quickstart-register-app.md
-    - name: Configure app to expose a web API
+    - name: Expose scopes in web API registration
       href: quickstart-configure-app-expose-web-apis.md
-    - name: Configure app to access a web API
+    - name: Grant scoped permission to web API
+      displayName: permissions, scp, scp claims
       href: quickstart-configure-app-access-web-apis.md
-    - name: Modify accounts supported by an app
-      href: quickstart-modify-supported-accounts.md
-    - name: Remove an app
-      href: quickstart-remove-app.md
-  - name: Single-page apps
-    displayName: SPA
+  - name: Single-page app (SPA)
     items:
     - name: Angular
       href: quickstart-v2-angular.md
+    - name: Angular - Auth code flow
+      href: quickstart-v2-javascript-auth-code-angular.md
     - name: JavaScript - Auth code flow
       href: quickstart-v2-javascript-auth-code.md
     - name: JavaScript - Implicit flow
       href: quickstart-v2-javascript.md
-  - name: Web apps
+    - name: React - Auth code flow
+      href: quickstart-v2-javascript-auth-code-react.md 
+  - name: Web app
     items:
     - name: ASP.NET
       href: quickstart-v2-aspnet-webapp.md
-    - name: ASP.NET Core
+    - name: ASP.NET Core (sign in users)
       href: quickstart-v2-aspnet-core-webapp.md
-    - name: NodeJS
+    - name: ASP.NET Core (call Microsoft Graph)
+      href: quickstart-v2-aspnet-core-webapp-calls-graph.md
+    - name: Node.js - MSAL
+      href: quickstart-v2-nodejs-webapp-msal.md
+    - name: Node.js - Passport.js
+      displayName: OIDC, express
       href: quickstart-v2-nodejs-webapp.md
-      displayName: OIDC
     - name: Java
       href: quickstart-v2-java-webapp.md
     - name: Python
       href: quickstart-v2-python-webapp.md
-  - name: Web APIs
+  - name: Web API
     items:
     - name: ASP.NET
       href: quickstart-v2-dotnet-native-aspnet.md
     - name: ASP.NET Core
       href: quickstart-v2-aspnet-core-web-api.md
-  - name: Mobile and desktop apps
+  - name: Mobile and desktop
     items:
     - name: Android
       href: quickstart-v2-android.md
@@ -60,30 +66,39 @@
       href: quickstart-v2-uwp.md
     - name: Windows Desktop .NET
       href: quickstart-v2-windows-desktop.md
-  - name: Daemon apps
+    - name: Node.js Electron
+      href: quickstart-v2-nodejs-desktop.md
+  - name: Daemon or back-end service
     items:
     - name: .NET Core console (daemon)
       href: quickstart-v2-netcore-daemon.md
     - name: Python console daemon
       href: quickstart-v2-python-daemon.md
+    - name: Node.js console daemon
+      href: quickstart-v2-nodejs-console.md
+    - name: Java console daemon
+      href: quickstart-v2-java-daemon.md
 - name: Tutorials
   items:
-  - name: Single-page apps
-    displayName: SPA
+  - name: Single-page app (SPA)
     items:
     - name: Angular
       href: tutorial-v2-angular.md
+    - name: Blazor WebAssembly
+      href: tutorial-blazor-webassembly.md
     - name: JavaScript - Auth code flow
       href: tutorial-v2-javascript-auth-code.md
     - name: JavaScript - Implicit flow
       href: tutorial-v2-javascript-spa.md
-  - name: Web apps
+  - name: Web app
     items:
     - name: ASP.NET
       href: tutorial-v2-asp-webapp.md
     - name: Blazor Server
       href: tutorial-blazor-server.md
-  - name: Mobile and desktop apps
+    - name: Node.js web app tutorial
+      href: tutorial-v2-nodejs-webapp-msal.md
+  - name: Mobile and desktop
     items:
     - name: Android
       href: tutorial-v2-android.md
@@ -96,10 +111,14 @@
       href: tutorial-v2-windows-desktop.md
     - name: Use shared-device mode in your Android app
       href: tutorial-v2-shared-device-mode.md
-  - name: Daemon apps
+    - name: Electron desktop app
+      href: tutorial-v2-nodejs-desktop.md
+  - name: Daemon or back-end service
     items:
     - name: ASP.NET daemon web app
       href: tutorial-v2-aspnet-daemon-web-app.md
+    - name: Node.js console daemon
+      href: tutorial-v2-nodejs-console.md
 - name: Samples
   href: sample-v2-code.md
 - name: Concepts
@@ -114,18 +133,37 @@
       href: security-tokens.md
     - name: Application model
       href: application-model.md
-    - name: App sign-in flow
-      href: app-sign-in-flow.md
-  - name: Authentication flows and app scenarios
+  - name: Authentication libraries
+    displayName: msal, microsoft.identity.web
+    items:
+    - name: Microsoft Authentication Library (MSAL)
+      href: msal-overview.md
+    - name: Microsoft Identity Web library
+      href: microsoft-identity-web.md
+      displayName: auth, library, .NET Core, msal
+  - name: App scenarios and authentication flows
     displayName: Auth flows
     href: authentication-flows-app-scenarios.md
+  - name: Applications and service principals
+    href: app-objects-and-service-principals.md
   - name: Identity platform best practices
     href: identity-platform-integration-checklist.md
-  - name: Application scenarios
+  - name: Permissions and consent
+    displayName: Scopes
+    href: v2-permissions-and-consent.md
+  - name: Conditional access
+    href: v2-conditional-access-dev-guide.md
+  - name: Automatic user provisioning (SCIM)
+    href: ../app-provisioning/user-provisioning.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+- name: How-to
+  items:
+  - name: Integrate your app scenario
     displayName: App scenarios
     items:
     - name: Sign-in audience
       href: v2-supported-account-types.md
+    - name: App sign-in flow
+      href: app-sign-in-flow.md
     - name: Single-page app
       displayName: SPA
       items:
@@ -258,113 +296,10 @@
         href: scenario-mobile-call-api.md
       - name: Move to production
         href: scenario-mobile-production.md
-  - name: Microsoft Authentication Library (MSAL)
+  - name: Work with the Microsoft Authentication Library
+    displayName: MSAL
     items:
-    - name: Overview
-      href: msal-overview.md
-    - name: .NET
-      displayName: xamarin, ASP.NET Core
-      items:
-        - name: Initialize applications
-          href: msal-net-initializing-client-applications.md
-        - name: Client assertions
-          href: msal-net-client-assertions.md
-        - name: Integrate with Azure AD B2C
-          href: msal-net-aad-b2c-considerations.md
-        - name: Integrate with ADFS
-          href: msal-net-adfs-support.md
-        - name: Migrate to MSAL.NET
-          href: msal-net-migration.md
-        - name: Migrate Xamarin Android app using broker to MSAL.NET
-          href: msal-net-migration-android-broker.md
-        - name: Migrate Xamarin iOS app using broker to MSAL.NET
-          href: msal-net-migration-ios-broker.md
-        - name: Web browser considerations
-          href: msal-net-web-browsers.md
-        - name: Handle errors and exceptions
-          href: msal-handling-exceptions.md?tabs=dotnet
-        - name: Logging
-          href: msal-logging.md?tabs=dotnet
-    - name: Android
-      items:
-        - name: Accounts and tenant profiles
-          href: accounts-overview.md
-        - name: Authorization agents
-          href: authorization-agents.md
-        - name: Brokered auth
-          href: brokered-auth.md
-        - name: Integrate with Azure AD B2C
-          href: msal-android-b2c.md
-        - name: Migrate to MSAL.Android
-          href: migrate-android-adal-msal.md
-        - name: Shared device mode
-          href: msal-android-shared-devices.md
-          displayName: firstline worker, frontline worker, flw
-        - name: Single and multi account public client apps
-          href: single-multi-account.md
-        - name: Handle errors and exceptions
-          href: msal-android-handling-exceptions.md
-          displayName: android, mobile
-        - name: Logging
-          href: msal-logging.md?tabs=android
-    - name: iOS & macOS
-      items:
-        - name: Integrate with Azure AD B2C
-          href: config-authority.md#b2c
-        - name: Migrate to MSAL.iOS / macOS
-          href: migrate-objc-adal-msal.md
-        - name: Shared device mode for iOS devices
-          href: msal-ios-shared-devices.md
-          displayName: firstline worker, frontline worker, flw
-        - name: SSO between MSAL apps
-          href: single-sign-on-macos-ios.md
-        - name: SSO between ADAL and MSAL apps
-          href: sso-between-adal-msal-apps-macos-ios.md
-        - name: Troubleshoot SSL issues (MSAL iOS/macOS)
-          href: ssl-issues.md
-        - name: Handle errors and exceptions
-          href: msal-handling-exceptions.md?tabs=iosmacos
-        - name: Logging
-          href: msal-logging.md?tabs=swift
-    - name: Java
-      items:
-        - name: Migrate to MSAL for Java
-          href: migrate-adal-msal-java.md
-        - name: ADFS support in MSAL for Java
-          href: msal-java-adfs-support.md
-        - name: Handle errors and exceptions
-          href: msal-handling-exceptions.md?tabs=java
-        - name: Logging
-          href: msal-logging.md?tabs=java
-    - name: JavaScript & Node.js
-      items:
-        - name: Initialize applications - JavaScript
-          href: msal-js-initializing-client-applications.md
-        - name: Integrate with Azure AD B2C
-          href: msal-b2c-overview.md
-        - name: Migrate to MSAL.js
-          href: msal-compare-msal-js-and-adal-js.md
-        - name: Single sign-on with MSAL.js
-          href: msal-js-sso.md
-        - name: Considerations - IE
-          href: msal-js-use-ie-browser.md
-        - name: Known issues - IE and Microsoft Edge
-          href: msal-js-known-issues-ie-edge-browsers.md
-        - name: Handle errors and exceptions
-          href: msal-handling-exceptions.md?tabs=javascript
-        - name: Logging
-          href: msal-logging.md?tabs=javascript
-    - name: Python
-      items:
-        - name: Migrate to MSAL Python
-          href: migrate-python-adal-msal.md
-        - name: ADFS support in MSAL for Python
-          href: msal-python-adfs-support.md
-        - name: Handle errors and exceptions
-          href: msal-handling-exceptions.md?tabs=python
-        - name: Logging
-          href: msal-logging.md?tabs=python
-    - Name: All platforms
+    - name: All platforms
       items:
       - name: Supported authentication flows
         href: msal-authentication-flows.md
@@ -384,12 +319,260 @@
       - name: Migrate apps from ADAL to MSAL
         href: msal-migration.md
         displayName: migration
+      - name: National clouds and MSAL
+        href: msal-national-cloud.md
+        displayName: china, germany, gov, 21vianet
+    - name: MSAL.NET
+      displayName: xamarin, ASP.NET Core
+      items:
+      - name: Initialize applications
+        href: msal-net-initializing-client-applications.md
+      - name: Client assertions
+        href: msal-net-client-assertions.md
+      - name: Integrate with Azure AD B2C
+        href: msal-net-aad-b2c-considerations.md
+      - name: Integrate with ADFS
+        href: msal-net-adfs-support.md
+      - name: Migrate to MSAL.NET
+        href: msal-net-migration.md
+      - name: Migrate Xamarin Android app using broker to MSAL.NET
+        href: msal-net-migration-android-broker.md
+      - name: Migrate Xamarin iOS app using broker to MSAL.NET
+        href: msal-net-migration-ios-broker.md
+      - name: Web browser considerations
+        href: msal-net-web-browsers.md
+      - name: Handle errors and exceptions in MSAL.NET
+        href: msal-error-handling-dotnet.md
+        displayName: handling, catch
+      - name: Logging in MSAL.NET
+        href: msal-logging-dotnet.md
+      - name: Acquire a token from the cache
+        href: msal-net-acquire-token-silently.md
+      - name: Token cache serialization
+        href: msal-net-token-cache-serialization.md
+      - name: Clear the token cache
+        href: msal-net-clear-token-cache.md
+      - name: Instantiate a public client app
+        href: msal-net-instantiate-public-client-config-options.md
+      - name: Instantiate a confidential client with options
+        href: msal-net-instantiate-confidential-client-config-options.md
+      - name: Get consent for several resources
+        href: msal-net-user-gets-consent-for-multiple-resources.md
+      - name: Provide your own HttpClient
+        href: msal-net-provide-httpclient.md
+    - name: MSAL.js (JavaScript and Node.js)
+      items:
+      - name: Avoid page reloads
+        href: msal-js-avoid-page-reloads.md
+      - name: Pass custom state in authentication requests
+        href: msal-js-pass-custom-state-authentication-request.md
+      - name: Prompt behavior
+        href: msal-js-prompt-behavior.md
+      - name: Migrate SPA from implicit to auth code flow
+        href: migrate-spa-implicit-to-auth-code.md
+        displayName: authorization, single-page app, 2.0
+      - name: Initialize applications - JavaScript
+        href: msal-js-initializing-client-applications.md
+      - name: Integrate with Azure AD B2C
+        href: msal-b2c-overview.md
+      - name: Migrate to MSAL.js
+        href: msal-compare-msal-js-and-adal-js.md
+      - name: Single sign-on with MSAL.js
+        href: msal-js-sso.md
+      - name: Considerations - IE
+        href: msal-js-use-ie-browser.md
+      - name: Known issues - IE and Microsoft Edge
+        href: msal-js-known-issues-ie-edge-browsers.md
+      - name: Handle errors and exceptions in MSAL.js
+        href: msal-error-handling-js.md
+        displayName: handling, catch
+      - name: Logging in MSAL.js
+        href: msal-logging-js.md
+    - name: MSAL for iOS and macOS
+      items:
+      - name: MSAL for iOS and macOS differences
+        href: msal-differences-ios-macos.md
+      - name: Configure keychain
+        href: howto-v2-keychain-objc.md
+      - name: Customize browsers and WebViews
+        href: customize-webviews.md
+      - name: Request custom claims
+        href: request-custom-claims.md
+      - name: Redirect URI configuration
+        href: redirect-uris-ios.md
+      - name: Integrate with Azure AD B2C
+        href: config-authority.md#b2c
+      - name: Migrate to MSAL.iOS / macOS
+        href: migrate-objc-adal-msal.md
+      - name: Shared device mode for iOS devices
+        href: msal-ios-shared-devices.md
+        displayName: firstline worker, frontline worker, flw
+      - name: SSO between MSAL apps
+        href: single-sign-on-macos-ios.md
+      - name: SSO between ADAL and MSAL apps
+        href: sso-between-adal-msal-apps-macos-ios.md
+      - name: Troubleshoot SSL issues (MSAL iOS/macOS)
+        href: ssl-issues.md
+      - name: Handle errors and exceptions in MSAL for iOS/macOS
+        href: msal-error-handling-ios.md
+        displayName: handling, catch
+      - name: Logging in MSAL for iOS/macOS
+        href: msal-logging-ios.md
+    - name: MSAL for Python
+      items:
+      - name: Custom token cache serialization
+        href: msal-python-token-cache-serialization.md
+      - name: Migrate to MSAL Python
+        href: migrate-python-adal-msal.md
+      - name: ADFS support in MSAL for Python
+        href: msal-python-adfs-support.md
+      - name: Handle errors and exceptions in MSAL for Python
+        href: msal-error-handling-python.md
+        displayName: handling, catch
+      - name: Logging in MSAL for Python
+        href: msal-logging-python.md
+    - name: MSAL for Java
+      items:
+      - name: Custom token cache serialization
+        href: msal-java-token-cache-serialization.md
+      - name: Get and remove accounts from the token cache
+        href: msal-java-get-remove-accounts-token-cache.md
+      - name: Migrate to MSAL for Java
+        href: migrate-adal-msal-java.md
+      - name: ADFS support in MSAL for Java
+        href: msal-java-adfs-support.md
+      - name: Handle errors and exceptions in MSAL for Java
+        href: msal-error-handling-java.md
+        displayName: handling, catch
+      - name: Logging in MSAL for Java
+        href: msal-logging-java.md
+    - name: MSAL for Android
+      items:
+      - name: Accounts and tenant profiles
+        href: accounts-overview.md
+      - name: SSO with MSAL Android
+        href: msal-android-single-sign-on.md
+      - name: Integrate with Azure AD B2C
+        href: msal-android-b2c.md
+      - name: Migrate to MSAL.Android
+        href: migrate-android-adal-msal.md
+      - name: Shared device mode
+        href: msal-android-shared-devices.md
+        displayName: firstline worker, frontline worker, flw
+      - name: Single and multi account public client apps
+        href: single-multi-account.md
+      - name: Handle errors and exceptions in MSAL for Android
+        href: msal-android-handling-exceptions.md
+        displayName: android, mobile, handling, catch
+      - name: Logging in MSAL for Android
+        href: msal-logging-android.md
+  - name: Customize tokens and claims
+    items:
+    - name: Configure role claim
+      href: active-directory-enterprise-app-role-management.md
+    - name: Customize claims using Azure portal
+      href: active-directory-saml-claims-customization.md
+    - name: Customize claims using PowerShell
+      href: active-directory-claims-mapping.md
+    - name: Configure optional claims
+      href: active-directory-optional-claims.md
+    - name: Use directory schema extension attributes in claims
+      href: active-directory-schema-extensions.md
+    - name: Configure token lifetimes
+      href: configure-token-lifetimes.md
+    - name: Use Continuous Access Evaluation APIs
+      href: app-resilience-continuous-access-evaluation.md
+      displayName: cae
+  - name: Handle browser cookie restrictions
+    items:
+    - name: Handle ITP in Safari
+      href: reference-third-party-cookies-spas.md
+    - name: Handle SameSite cookie changes in Chrome
+      href: howto-handle-samesite-cookie-changes-chrome-browser.md
+  - name: Support passwordless authentication
+    items:
+    - name: Support FIDO2 authentication
+      href: support-fido2-authentication.md
+  - name: Authenticate apps and services
+    items:
+    - name: Create a service principal using Azure PowerShell
+      href: howto-authenticate-service-principal-powershell.md
+    - name: Create a service principal using the Azure portal
+      href: howto-create-service-principal-portal.md
+  - name: Accept sign-ins from multiple tenants
+    items:
+    - name: Modify accounts supported by an app
+      href: quickstart-modify-supported-accounts.md
+    - name: Enable multi-tenant log-ins
+      href: howto-convert-app-to-be-multi-tenant.md
+    - name: Configure the publisher domain
+      displayName: verified domain, verified publisher domain
+      href: howto-configure-publisher-domain.md
+  - name: Authorize access to apps and resources
+    items:
+    - name: Restrict your app to a set of users
+      href: howto-restrict-your-app-to-a-set-of-users.md
+    - name: Add app roles in your application
+      href: howto-add-app-roles-in-azure-ad-apps.md
+  - name: Use the Microsoft Graph API
+    href: microsoft-graph-intro.md
+  - name: Bring an app to market
+    items:
+    - name: Follow the branding guidelines
+      displayName: Add branding
+      href: howto-add-branding-in-azure-ad-apps.md
+    - name: Configure Terms of Service and Privacy Statement
+      href: howto-add-terms-of-service-privacy-statement.md
+    - name: Configure publisher verification for your app
+      items:
+      - name: Mark your app as publisher verified
+        href: mark-app-as-publisher-verified.md
+      - name: Troubleshoot publisher verification
+        href: troubleshoot-publisher-verification.md
+    - name: Publish to App Source
+      href: v2-howto-get-appsource-certified.md
+    - name: Publish to Azure AD App Gallery
+      href: v2-howto-app-gallery-listing.md
+    - name: Publish to the Office 365 Seller Dashboard
+      href: /office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
+  - name: Work with Visual Studio
+    items:
+    - name: Use the Active Directory connected service
+      href: vs-active-directory-add-connected-service.md
+    - name: Get started with .NET MVC projects
+      href: vs-active-directory-dotnet-getting-started.md
+    - name: What happened to my .NET MVC project?
+      href: vs-active-directory-dotnet-what-happened.md
+    - name: Get started with WebAPI projects
+      href: vs-active-directory-webapi-getting-started.md
+    - name: What happened to my WebAPI project?
+      href: vs-active-directory-webapi-what-happened.md
+    - name: Diagnose errors during authentication
+      href: vs-active-directory-error.md
+  - name: Remove an app registration
+    href: quickstart-remove-app.md
+  - name: Restore or remove a deleted app registration
+    href: quickstart-restore-app.md
+- name: Reference
+  items:
+  - name: Glossary
+    href: developer-glossary.md
+  - name: Application configuration
+    displayName: App configuration
+    items:
+    - name: How and why apps are added to Azure AD
+      href: active-directory-how-applications-are-added.md
+    - name: Redirect URI/reply URL restrictions and limitations
+      href: reply-url.md
+    - name: Validation differences by supported account types
+      href: supported-accounts-validation.md
+    - name: Single tenant and multi-tenant apps
+      href: single-and-multi-tenant-apps.md
+    - name: Publisher verification
+      href: publisher-verification-overview.md
   - name: Authentication protocols
     displayName: Auth protocol
     items:
-    - name: Application types and OAuth 2.0
-      displayName: App types, OAuth
-      href: v2-app-types.md
     - name: OAuth 2.0 and OpenID Connect protocols
       items:
       - name: OAuth 2.0 and OpenID Connect
@@ -410,14 +593,16 @@
       - name: OAuth 2.0 resource owner password credentials grant
         displayName: ROPC
         href: v2-oauth-ropc.md
-      - name: OAuth 2.0 SAML bearer assertion flow
-        href: v2-saml-bearer-assertion.md
       - name: Signing key rollover
         href: active-directory-signing-key-rollover.md
+      - name: Token exchange scenarios
+        href: scenario-token-exchange-saml-oauth.md
       - name: ID tokens
         href: id-tokens.md
       - name: Access tokens
         href: access-tokens.md
+      - name: Configure token lifetimes
+        href: active-directory-configurable-token-lifetimes.md
       - name: UserInfo endpoint
         href: userinfo.md
       - name: Certificate credentials
@@ -433,210 +618,9 @@
         href: active-directory-saml-protocol-reference.md
       - name: SAML tokens
         href: reference-saml-tokens.md
-  - name: Application configuration
-    displayName: App configuration
-    items:
-    - name: Applications and service principals
-      displayName: Apps, service principals
-      href: app-objects-and-service-principals.md
-    - name: How and why apps are added to Azure AD
-      href: active-directory-how-applications-are-added.md
-    - name: Redirect URI/reply URL restrictions and limitations
-      href: reply-url.md
-    - name: Validation differences by supported account types
-      href: supported-accounts-validation.md
-    - name: Single tenant and multi-tenant apps
-      href: single-and-multi-tenant-apps.md
-    - name: Publisher verification
-      href: publisher-verification-overview.md
-  - name: Permissions and consent
-    displayName: Scopes
-    items:
-    - name: Types of permissions and consent
-      href: v2-permissions-and-consent.md
-    - name: Consent framework
-      href: consent-framework.md
-    - name: Admin consent
-      href: v2-admin-consent.md
-    - name: Application consent experiences
-      displayName: App consent experiences
-      href: application-consent-experience.md
-  - name: Conditional access
-    href: v2-conditional-access-dev-guide.md
-  - name: National Clouds
-    items:
-    - name: Overview
-      href: authentication-national-cloud.md
-    - name: Authentication
-      href: msal-national-cloud.md
-  - name: Automatic user provisioning (SCIM)
-    items:
-    - name: What is automatic user provisioning?
-      href: ../app-provisioning/user-provisioning.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
-    - name: Develop and integrating a SCIM endpoint
-      href: ../app-provisioning/use-scim-to-provision-users-and-groups.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
-    - name: Common provisioning scenarios
-      href: ../app-provisioning/scim-graph-scenarios.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
-    - name: Automate configuration using MS Graph
-      href: ../app-provisioning/application-provisioning-configure-api.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
-  - name: Azure portal help articles
-    items:
-    - name: Token lifetime defaults for a custom-developed application
-      href: registration-config-change-token-lifetime-how-to.md
-    - name: Discover endpoints
-      href: registration-config-how-to.md
-    - name: Select permissions for a given API
-      href: perms-for-given-api.md
-    - name: Authentication protocols
-      href: active-directory-authentication-protocols.md
-    - name: Differences between delegated and application permissions
-      href: delegated-and-app-perms.md
-    - name: How application consent works
-      href: consent-framework-links.md
-    - name: Find a specific API needed for a custom-developed application
-      href: api-find-an-api-how-to.md
-    - name: App registration reference
-      href: active-directory-v2-registration-portal.md
-    - name: Azure portal registration fields for custom-developed apps
-      href: registration-config-specific-application-property-how-to.md
-    - name: Configure a new multitenant application
-      href: setup-multi-tenant-app.md
-    - name: Add a multitenant application to the Azure AD application gallery
-      href: registration-config-multi-tenant-application-add-to-gallery-how-to.md
-    - name: Integrating with Azure Active Directory
-      href: active-directory-how-to-integrate.md
-    - name: Configure single sign-on for an application
-      href: registration-config-sso-how-to.md
-- name: How-to guides
-  items:
-  - name: Authentication
-    items:
-    - name: Configure role claim
-      href: active-directory-enterprise-app-role-management.md
-    - name: Customize claims - Portal
-      href: active-directory-saml-claims-customization.md
-    - name: Customize claims - PowerShell
-      href: active-directory-claims-mapping.md
-    - name: Configure optional claims
-      href: active-directory-optional-claims.md
-    - name: Use directory schema extension attributes in claims
-      href: active-directory-schema-extensions.md
-    - name: Configure token lifetimes
-      href: active-directory-configurable-token-lifetimes.md
-    - name: Handle SameSite cookie changes in Chrome browser
-      href: howto-handle-samesite-cookie-changes-chrome-browser.md
-    - name: Handle ITP in Safari
-      href: reference-third-party-cookies-spas.md
-  - name: Application configuration
-    displayName: App configuration
-    items:
-    - name: Azure portal app registration training guide
-      href: app-registrations-training-guide-for-app-registrations-legacy-users.md
-    - name: Azure portal app registration experience
-      href: app-registration-portal-training-guide.md
-    - name: Convert a single-tenant app to a multi-tenant app
-      href: howto-convert-app-to-be-multi-tenant.md
-    - name: Create a service principal
-      items:
-      - name: Using Azure PowerShell
-        href: howto-authenticate-service-principal-powershell.md
-      - name: Using the Azure portal
-        href: howto-create-service-principal-portal.md
-    - name: Restrict your app to a set of users
-      href: howto-restrict-your-app-to-a-set-of-users.md
-    - name: Add app roles in your application
-      href: howto-add-app-roles-in-azure-ad-apps.md
-    - name: Follow the branding guidelines
-      displayName: Add branding
-      href: howto-add-branding-in-azure-ad-apps.md
-    - name: Configure publisher domain
-      href: howto-configure-publisher-domain.md
-    - name: Configure Terms of Service and Privacy Statement
-      href: howto-add-terms-of-service-privacy-statement.md
-    - name: Configure publisher verification for your app
-      items:
-      - name: Mark your app as publisher verified
-        href: mark-app-as-publisher-verified.md
-      - name: Troubleshoot publisher verification
-        href: troubleshoot-publisher-verification.md
-  - name: Work with Microsoft Authentication Library
-    displayName: MSAL
-    items:
-      - name: MSAL.NET
-        items:
-          - name: Acquire a token from the cache
-            href: msal-net-acquire-token-silently.md
-          - name: Token cache serialization
-            href: msal-net-token-cache-serialization.md
-          - name: Clear the token cache
-            href: msal-net-clear-token-cache.md
-          - name: Instantiate a public client app
-            href: msal-net-instantiate-public-client-config-options.md
-          - name: Instantiate a confidential client with options
-            href: msal-net-instantiate-confidential-client-config-options.md
-          - name: Get consent for several resources
-            href: msal-net-user-gets-consent-for-multiple-resources.md
-          - name: Provide your own HttpClient
-            href: msal-net-provide-httpclient.md
-      - name: MSAL.js
-        items:
-          - name: Avoid page reloads
-            href: msal-js-avoid-page-reloads.md
-          - name: Pass custom state in authentication requests
-            href: msal-js-pass-custom-state-authentication-request.md
-          - name: Prompt behavior
-            href: msal-js-prompt-behavior.md
-          - name: Migrate SPA from implicit to auth code flow
-            href: migrate-spa-implicit-to-auth-code.md
-            displayName: authorization, single-page app, 2.0
-      - name: MSAL for iOS and macOS
-        items:
-          - name: MSAL for iOS and macOS differences
-            href: msal-differences-ios-macos.md
-          - name: Configure keychain
-            href: howto-v2-keychain-objc.md
-          - name: Customize browsers and WebViews
-            href: customize-webviews.md
-          - name: Request custom claims
-            href: request-custom-claims.md
-          - name: Redirect URI configuration
-            href: redirect-uris-ios.md
-      - name: MSAL for Python
-        items:
-          - name: Custom token cache serialization
-            href: msal-python-token-cache-serialization.md
-      - name: MSAL for Java
-        items:
-          - name: Custom token cache serialization
-            href: msal-java-token-cache-serialization.md
-          - name: Get and remove accounts from the token cache
-            href: msal-java-get-remove-accounts-token-cache.md
-  - name: Use the Microsoft Graph API
-    href: microsoft-graph-intro.md
-  - name: Work with Visual Studio
-    items:
-    - name: Use the Active Directory connected service
-      href: vs-active-directory-add-connected-service.md
-    - name: Get started with .NET MVC projects
-      href: vs-active-directory-dotnet-getting-started.md
-    - name: What happened to my .NET MVC project?
-      href: vs-active-directory-dotnet-what-happened.md
-    - name: Get started with WebAPI projects
-      href: vs-active-directory-webapi-getting-started.md
-    - name: What happened to my WebAPI project?
-      href: vs-active-directory-webapi-what-happened.md
-    - name: Diagnose errors during authentication
-      href: vs-active-directory-error.md
-  - name: Bring an app to market
-    items:
-    - name: Publish to App Source
-      href: v2-howto-get-appsource-certified.md
-    - name: Publish to Azure AD App Gallery
-      href: v2-howto-app-gallery-listing.md
-    - name: Publish to the Office 365 Seller Dashboard
-      href: /office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
-- name: Reference
-  items:
+  - name: Application types and OAuth 2.0
+    displayName: App types, OAuth
+    href: v2-app-types.md
   - name: Application manifest
     href: reference-app-manifest.md
     displayName: app manifest
@@ -652,10 +636,32 @@
     href: reference-aadsts-error-codes.md
   - name: Breaking changes
     href: reference-breaking-changes.md
+  - name: Mobile single sign-on (SSO)
+    href: mobile-sso-support-overview.md
+    displayName: android, ios
+  - name: Permissions and consent
+    displayName: Scopes
+    items:
+    - name: Consent framework
+      href: consent-framework.md
+    - name: Admin consent
+      href: v2-admin-consent.md
+    - name: Application consent experiences
+      displayName: App consent experiences
+      href: application-consent-experience.md
+  - name: National cloud authentication endpoints
+    href: authentication-national-cloud.md
+    displayName: china, germany, gov, 21vianet
+  - name: Automatic user provisioning (SCIM)
+    items:
+    - name: Develop and integrating a SCIM endpoint
+      href: ../app-provisioning/use-scim-to-provision-users-and-groups.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+    - name: Common provisioning scenarios
+      href: ../app-provisioning/scim-graph-scenarios.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+    - name: Automate configuration using MS Graph
+      href: /graph/application-provisioning-configure-api?bc=%2fazure%2factive-directory%2fdevelop%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json
 - name: Resources
   items:
-  - name: Glossary
-    href: developer-glossary.md
   - name: Videos
     href: identity-videos.md
   - name: Microsoft identity platform developer blog

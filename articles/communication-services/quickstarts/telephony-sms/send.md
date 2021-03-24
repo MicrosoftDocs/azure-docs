@@ -7,7 +7,7 @@ manager: jken
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ms.custom: tracking-python, devx-track-js
@@ -15,7 +15,14 @@ zone_pivot_groups: acs-js-csharp-java-python
 ---
 # Quickstart: Send an SMS message
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
+
+[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
+
+> [!IMPORTANT]
+> SMS messages can be sent to and received from United States phone numbers. Phone numbers located in other geographies are not yet supported by Communication Services SMS.
+> For more information, see **[Phone number types](../../concepts/telephony-sms/plan-solution.md)**.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Send SMS with .NET client library](./includes/send-sms-net.md)]
@@ -33,6 +40,10 @@ zone_pivot_groups: acs-js-csharp-java-python
 [!INCLUDE [Send SMS with Java client library](./includes/send-sms-java.md)]
 ::: zone-end
 
+## Troubleshooting
+
+To troubleshoot issues related to SMS delivery, you can [enable delivery reporting with Event Grid](./handle-sms-events.md) to capture delivery details.
+
 ## Clean up resources
 
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../create-communication-resource.md#clean-up-resources).
@@ -45,7 +56,7 @@ In this quickstart, you learned how to send SMS messages using Azure Communicati
 > [Subscribe to SMS Events](./handle-sms-events.md)
 
 > [!div class="nextstepaction"]
-> [Plan your PSTN Solution](../../concepts/telephony-sms/plan-solution.md)
+> [Phone number types](../../concepts/telephony-sms/plan-solution.md)
 
 > [!div class="nextstepaction"]
 > [Learn more about SMS](../../concepts/telephony-sms/concepts.md)

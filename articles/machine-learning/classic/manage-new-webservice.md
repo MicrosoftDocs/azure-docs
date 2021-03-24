@@ -3,7 +3,7 @@ title: 'ML Studio (classic): Manage web services - Azure'
 description: Manage your Machine Learning New and Classic Web services using the Microsoft Azure Machine Learning Web Services portal. Since Classic Web services and New Web services are based on different underlying technologies, you have slightly different management capabilities for each of them.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 
 author: likebupt
@@ -13,7 +13,7 @@ ms.date: 02/28/2017
 ---
 # Manage a web service using the Azure Machine Learning Studio (classic) Web Services portal
 
-**APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 You can manage your Machine Learning New and Classic Web services using the Microsoft Azure Machine Learning Web Services portal. Since Classic Web services and New Web services are based on different underlying technologies, you have slightly different management capabilities for each of them.
@@ -39,7 +39,7 @@ If the user does not have the correct permissions to access resources in the Azu
 
 For more information on creating a workspace, see [Create and share an Azure Machine Learning Studio (classic) workspace](create-workspace.md).
 
-For more information on setting access permissions, see [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+For more information on setting access permissions, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 
 ## Manage New Web services
@@ -150,5 +150,3 @@ You can update the following properties:
 * **Description** allows you to enter a description for the Web service. Description is a required field.
 * **Logging** allows you to enable or disable error logging on the endpoint. For more information on Logging, see Enable [logging for Machine Learning web services](web-services-logging.md).
 * **Enable Sample data** allows you to provide sample data that you can use to test the Request-Response service. If you created the web service in Machine Learning Studio (classic), the sample data is taken from the data your used to train your model. If you created the service programmatically, the data is taken from the example data you provided as part of the JSON package.
-
-

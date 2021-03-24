@@ -1,7 +1,8 @@
 ---
 title: Frequently asked questions
 description: Answers for frequently asked questions related to the Azure Container Instances service 
-author: dkkapur
+author: macolso
+ms.author: macolso
 ms.topic: article
 ms.date: 06/02/2020
 ---
@@ -39,7 +40,7 @@ See more [detailed guidance](container-instances-troubleshooting.md#container-ta
 > [!NOTE]
 > Windows images based on Semi-Annual Channel release 1709 or 1803 are not supported.
 
-#### Windows Server 2019 and client base images (preview)
+#### Windows Server 2019 and client base images
 
 * [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `1809`, `10.0.17763.1040` or newer
 * [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2019`, `1809`, `10.0.17763.1040` or newer
@@ -49,13 +50,20 @@ See more [detailed guidance](container-instances-troubleshooting.md#container-ta
 
 Use the smallest image that satisfies your requirements. For Linux, you could use a *runtime-alpine* .NET Core image, which has been supported since the release of .NET Core 2.1. For Windows, if you are using the full .NET Framework, then you need to use a Windows Server Core image (runtime-only image, such as  *4.7.2-windowsservercore-ltsc2016*). Runtime-only images are smaller but do not support workloads that require the .NET SDK.
 
+> [!NOTE]
+> ACI cannot pull images from non OCI-compliant registries.
+
+### What types of container registries are compatible with ACI?
+
+ACI supports image pulls from ACR and other third-party container registries such as DockerHub. ACI supports image pulls from ACR and other third-party OCI compatible container registries such as DockerHub with an endpoint that is publicly exposed to the internet.
+
 ## Availability and quotas
 
 ### How many cores and memory should I allocate for my containers or the container group?
 
 This really depends on your workload. Start small and test performance to see how your containers do. [Monitor CPU and memory resource usage](container-instances-monitor.md), and then add cores or memory based on the kind of processes that you deploy in the container.
 
-Make sure also to check the [resource availability](container-instances-region-availability.md#availability---general) for the region you are deploying in for the upper bounds on CPU cores and memory available per container group. 
+Make sure also to check the [resource availability](container-instances-region-availability.md) for the region you are deploying in for the upper bounds on CPU cores and memory available per container group. 
 
 > [!NOTE]
 > A small amount of a container group's resources is used by the service's underlying infrastructure. Your containers will be able to access most but not all of the resources allocated to the group. For this reason, plan a small resource buffer when requesting resources for containers in the group.
@@ -74,7 +82,7 @@ Not yet. Currently, these are the maximums for a container group. Contact Azure 
 
 ### When will ACI be in a specific region?
 
-Current region availability is published [here](container-instances-region-availability.md#availability---general). If you have a requirement for a specific region, contact Azure Support.
+Current region availability is published [here](container-instances-region-availability.md). If you have a requirement for a specific region, contact Azure Support.
 
 ## Features and scenarios
 

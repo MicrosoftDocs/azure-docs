@@ -44,10 +44,6 @@ landingContent:
             url: quick-backup-vm-cli.md
           - text: Back up a VM with Resource Manager template
             url: quick-backup-vm-template.md
-
-  # Card
-  - title: Try these step-by-step tutorials
-    linkLists:
       - linkListType: tutorial
         links:
           - text: Back up Azure VMs
@@ -63,10 +59,20 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
+          - text: Azure Blobs backup
+            url: blob-backup-overview.md
+          - text: Azure Disk Backup
+            url: disk-backup-overview.md
           - text: Backup Center
             url: backup-center-overview.md
           - text: Backup Azure Database for PostgreSQL 
             url: backup-azure-database-postgresql.md
+          - text: Selective disk backup and restore for Azure VMs
+            url: selective-disk-backup-restore.md
+          - text: Cross Region Restore for SQL Server databases on Azure VMs
+            url: restore-sql-database-azure-vm.md#cross-region-restore
+          - text: Support for backup of VM with up to 32 disks
+            url: backup-support-matrix-iaas.md#vm-storage-support
           - text: Soft Delete for Azure Backup
             url: backup-azure-security-feature-cloud.md
           - text: SQL Server on Azure VMs restore as files
@@ -81,9 +87,24 @@ landingContent:
           - text: Support matrix for Azure VM backup
             url: backup-support-matrix-iaas.md
           - text: FAQ - Azure VM backup
-            url: backup-azure-vm-backup-faq.md
+            url: backup-azure-vm-backup-faq.yml
           - text: Manage Azure VM backups
             url: backup-azure-manage-vms.md
+  # Card
+  - title: Back up Azure Managed Disks (in preview)
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Overview of Azure Disk Backup
+            url: disk-backup-overview.md
+          - text: Support matrix for Azure Disk Backup
+            url: disk-backup-support-matrix.md
+          - text: Back up Azure Managed Disks
+            url: backup-managed-disks.md
+          - text: FAQ - Azure Managed Disks
+            url: disk-backup-faq.md
+          - text: Troubleshoot Azure Managed Disks backup
+            url: disk-backup-troubleshoot.md
   # Card
   - title: Back up SQL Server on Azure VMs
     linkLists:

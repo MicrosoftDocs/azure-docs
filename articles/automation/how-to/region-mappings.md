@@ -1,7 +1,7 @@
 ---
 title: Supported regions for linked Log Analytics workspace
 description: This article describes the supported region mappings between an Automation account and a Log Analytics workspace as it relates to certain features of Azure Automation.
-ms.date: 09/03/2020
+ms.date: 02/17/2021
 services: automation
 ms.topic: conceptual
 ms.custom: references_regions
@@ -10,6 +10,10 @@ ms.custom: references_regions
 # Supported regions for linked Log Analytics workspace
 
 In Azure Automation, you can enable the Update Management, Change Tracking and Inventory, and Start/Stop VMs during off-hours features for your servers and virtual machines. These features have a dependency on a Log Analytics workspace, and therefore require linking the workspace with an Automation account. However, only certain regions are supported to link them together. In general, the mapping is *not* applicable if you plan to link an Automation account to a workspace that won't have these features enabled.
+
+The mappings discussed here apply only to linking the Log Analytics Workspace to an Automation account. They do not apply to the virtual machines (VMs) that are connected to the workspace that's linked to the Automation Account. VMs aren't limited to the regions supported by a given Log Analytics workspace. They can be in any region. Keep in mind that having the VMs in a different region may affect state, local, and country regulatory requirements, or your company's compliance requirements. Having VMs in a a different region could also introduce data bandwidth charges.
+
+Before connecting VMs to a workspace in a different region, you should review the requirements and potential costs to confirm and understand the legal and cost implications.
 
 This article provides the supported mappings in order to successfully enable and use these features in your Automation account.
 
@@ -26,26 +30,39 @@ The following table shows the supported mappings:
 |---|---|
 |**US**||
 |EastUS<sup>1</sup>|EastUS2|
+|EastUS2<sup>2</sup>|EastUS|
+|WestUS|WestUS|
 |WestUS2|WestUS2|
+|CentralUS|CentralUS|
+|SouthCentralUS|SouthCentralUS|
 |WestCentralUS|WestCentralUS|
 |**Canada**||
 |CanadaCentral|CanadaCentral|
 |**Asia Pacific**||
+|AustraliaEast|AustraliaEast|
 |AustraliaSoutheast|AustraliaSoutheast|
+|EastAsia|EastAsia|
 |SoutheastAsia|SoutheastAsia|
 |CentralIndia|CentralIndia|
-|ChinaEast2<sup>2</sup>|ChinaEast2|
+|ChinaEast2<sup>3</sup>|ChinaEast2|
 |JapanEast|JapanEast|
 |**Europe**||
+|NorthEurope|NorthEurope|
+|FranceCentral|FranceCentral|
 |UKSouth|UKSouth|
 |WestEurope|WestEurope|
+|SwitzerlandNorth|SwitzerlandNorth|
 |**US Gov**||
 |USGovVirginia|USGovVirginia|
-|USGovArizona<sup>2</sup>|USGovArizona|
+|USGovArizona<sup>3</sup>|USGovArizona|
+
+
 
 <sup>1</sup> EastUS mapping for Log Analytics workspaces to Automation accounts isn't an exact region-to-region mapping, but is the correct mapping.
 
-<sup>2</sup> In this region, only Update Management is supported, and other features like Change Tracking and Inventory are not available at this time.
+<sup>2</sup> EastUS2 mapping for Log Analytics workspaces to Automation accounts isn't an exact region-to-region mapping, but is the correct mapping.
+
+<sup>3</sup> In this region, only Update Management is supported, and other features like Change Tracking and Inventory are not available at this time.
 
 ## Unlink a workspace
 
@@ -80,6 +97,6 @@ Alternatively, you can unlink your workspace from your Automation account within
 
 ## Next steps
 
-* Learn about Update Management in [Update Management overview](../update-management/update-mgmt-overview.md).
-* Learn about Change Tracking and Inventory in [Change Tracking and Inventory overview](../change-tracking.md).
+* Learn about Update Management in [Update Management overview](../update-management/overview.md).
+* Learn about Change Tracking and Inventory in [Change Tracking and Inventory overview](../change-tracking/overview.md).
 * Learn about Start/Stop VMs during off-hours in [Start/Stop VMs during off-hours overview](../automation-solution-vm-management.md).

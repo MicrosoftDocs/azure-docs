@@ -6,12 +6,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 08/12/2020
+ms.date: 12/18/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
 ---
 
 # Azure Cosmos DB Java SDK for SQL API: Release notes and resources
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
 > * [.NET SDK v2](sql-api-sdk-dotnet.md)
@@ -27,29 +28,35 @@ ms.custom: devx-track-java
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [REST Resource Provider](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
+> * [SQL](./sql-query-getting-started.md)
 > * [Bulk executor - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
 
 This is the original Azure Cosmos DB Sync Java SDK v2 for SQL API which supports synchronous operations.
 
 > [!IMPORTANT]  
-> This is *not* the latest Java SDK for Azure Cosmos DB! Consider using [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) for your project. To upgrade, follow the instructions in the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide and the [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) guide. 
+> This is *not* the latest Java SDK for Azure Cosmos DB! Consider using [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) for your project. To upgrade, follow the instructions in the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide and the [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) guide. 
 >
 
-| |  |
+| | Links |
 |---|---|
 |**SDK Download**|[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)|
 |**API documentation**|[Java API reference documentation](/java/api/com.microsoft.azure.documentdb)|
 |**Contribute to SDK**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
-|**Get started**|[Get started with the Java SDK](sql-api-java-get-started.md)|
+|**Get started**|[Get started with the Java SDK](./create-sql-api-java.md)|
 |**Web app tutorial**|[Web application development with Azure Cosmos DB](sql-api-java-application.md)|
-|**Minimum supported runtime**|[Java Development Kit (JDK) 7+](/java/azure/jdk/?view=azure-java-stable)|
+|**Minimum supported runtime**|[Java Development Kit (JDK) 7+](/java/azure/jdk/)|
 
 ## Release notes
 
+### <a name="2.6.1"></a>2.6.1
+* Fixed a bug in handling a query through service interop.
+
+### <a name="2.6.0"></a>2.6.0
+* Added support for querying change feed from point in time.
+
 ### <a name="2.5.1"></a>2.5.1
-* Fixes master partition cache issue on documentCollection query.
+* Fixes primary partition cache issue on documentCollection query.
 
 ### <a name="2.5.0"></a>2.5.0
 * Added support for 449 retry custom configuration.
@@ -169,7 +176,7 @@ This is the original Azure Cosmos DB Sync Java SDK v2 for SQL API which supports
 * Fixed a few bugs in the session container that may cause an "Owner resource not found" exception for requests immediately after collection creation.
 
 ### <a name="1.9.5"></a>1.9.5
-* Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](sql-query-aggregates.md).
+* Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](sql-query-aggregate-functions.md).
 * Added support for change feed.
 * Added support for collection quota information through RequestOptions.setPopulateQuotaInfo.
 * Added support for stored procedure script logging through RequestOptions.setScriptLoggingEnabled.
@@ -227,7 +234,7 @@ This is the original Azure Cosmos DB Sync Java SDK v2 for SQL API which supports
 * Added time to live (TTL) support for documents.
 
 ### <a name="1.6.0"></a>1.6.0
-* Implemented [partitioned collections](partition-data.md) and [user-defined performance levels](performance-levels.md).
+* Implemented [partitioned collections](partitioning-overview.md) and [user-defined performance levels](performance-levels.md).
 
 ### <a name="1.5.1"></a>1.5.1
 * Fixed a bug in HashPartitionResolver to generate hash values in little-endian to be consistent with other SDKs.
@@ -265,6 +272,8 @@ Microsoft will provide notification at least **12 months** in advance of retirin
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.6.1](#2.6.1) |Dec 17, 2020 |--- |
+| [2.6.0](#2.6.0) |July 16, 2020 |--- |
 | [2.5.1](#2.5.1) |June 03, 2020 |--- |
 | [2.5.0](#2.5.0) |May 12, 2020 |--- |
 | [2.4.7](#2.4.7) |Feb 20, 2020 |--- |
@@ -326,4 +335,3 @@ Microsoft will provide notification at least **12 months** in advance of retirin
 
 ## See also
 To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page.
-

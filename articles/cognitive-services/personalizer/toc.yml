@@ -12,7 +12,7 @@
 - name: Quickstarts
   items:
   - name: Using SDK
-    href: sdk-learning-loop.md
+    href: ./quickstart-personalizer-sdk.md
 - name: Tutorials
   items:
   - name: Use Web app
@@ -88,27 +88,29 @@
     - name: .NET
       items:
       - name: Reference
-        href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/personalizer?view=azure-dotnet
+        href: /dotnet/api/overview/azure/cognitiveservices/client/personalizer
       - name: NuGet package
         href: https://go.microsoft.com/fwlink/?linkid=2092272
     - name: Go
       items:
       - name: SDK
-        href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/personalizer/v1.0/personalizer
+        href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview
     - name: Node.js
       items:
       - name: Reference
-        href: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest
+        href: /javascript/api/@azure/cognitiveservices-personalizer/
       - name: NPM
         href: https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0
     - name: Python
       items:
       - name: Reference
-        href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/personalizer?view=azure-python
+        href: /python/api/overview/azure/cognitiveservices/personalizer
       - name: Pypi package
         href: https://pypi.org/project/azure-cognitiveservices-personalizer/
 - name: Resources
   items:
+  - name: Support & help options
+    href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/personalizer/context/context
   - name: Troubleshooting
     href: troubleshooting.md
   - name: Regional availability
@@ -116,12 +118,8 @@
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Encryption
-    href: personalizer-encryption-of-data-at-rest.md
+    href: encrypt-data-at-rest.md
   - name: Azure Roadmap
     href: https://go.microsoft.com/fwlink/?linkid=2092153
   - name: Pricing
     href: https://go.microsoft.com/fwlink/?linkid=2092154
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/personalizer
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/921562-personalizer

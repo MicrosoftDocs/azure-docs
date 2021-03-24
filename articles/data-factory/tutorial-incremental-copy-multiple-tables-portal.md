@@ -1,21 +1,17 @@
 ---
 title: Incrementally copy multiple tables using Azure portal
 description: In this tutorial, you create an Azure data factory with a pipeline that loads delta data from multiple tables in a SQL Server database to a database in Azure SQL Database.
-services: data-factory
 ms.author: yexu
 author: dearandyxu
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 06/10/2020
+ms.date: 02/18/2021
 ---
 
 # Incrementally load data from multiple tables in SQL Server to a database in Azure SQL Database using the Azure portal
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 In this tutorial, you create an Azure data factory with a pipeline that loads delta data from multiple tables in a SQL Server database to a database in Azure SQL Database.    
 
@@ -163,8 +159,8 @@ AS
 
 BEGIN
 
-    UPDATE watermarktable
-    SET [WatermarkValue] = @LastModifiedtime 
+UPDATE watermarktable
+SET [WatermarkValue] = @LastModifiedtime 
 WHERE [TableName] = @TableName
 
 END
@@ -232,7 +228,7 @@ END
 ## Create a data factory
 
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
-2. On the left menu, select **Create a resource** > **Analytics** > **Data Factory**: 
+2. On the left menu, select **Create a resource** > **Integration** > **Data Factory**: 
    
    ![Data Factory selection in the "New" pane](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -253,13 +249,13 @@ END
 8. Click **Create**.      
 9. After the creation is complete, you see the **Data Factory** page as shown in the image.
    
-   ![Data factory home page](./media/doc-common-process/data-factory-home-page.png)
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Author & Monitor tile.":::
 10. Click **Author & Monitor** tile to launch the Azure Data Factory user interface (UI) in a separate tab.
 
 ## Create self-hosted integration runtime
 As you are moving data from a data store in a private network (on-premises) to an Azure data store, install a self-hosted integration runtime (IR) in your on-premises environment. The self-hosted IR moves data between your private network and Azure. 
 
-1. On the **Let's get started** page of Azure Data Factory UI, select the [Manage tab](https://docs.microsoft.com/azure/data-factory/author-management-hub) from the leftmost pane.
+1. On the **Let's get started** page of Azure Data Factory UI, select the [Manage tab](./author-management-hub.md) from the leftmost pane.
 
    ![The home page Manage button](media/doc-common-process/get-started-page-manage-button.png)
 
@@ -291,7 +287,7 @@ In this step, you link your SQL Server database to the data factory.
 
 1. In the **Connections** window, switch from **Integration Runtimes** tab to the **Linked Services** tab, and click **+ New**.
 
-   ![New linked service](./media/doc-common-process/new-linked-service.png)
+    :::image type="content" source="./media/doc-common-process/new-linked-service.png" alt-text="New linked service.":::
 1. In the **New Linked Service** window, select **SQL Server**, and click **Continue**. 
 
 1. In the **New Linked Service** window, do the following steps:
@@ -697,5 +693,3 @@ Advance to the following tutorial to learn about transforming data by using a Sp
 
 > [!div class="nextstepaction"]
 >[Incrementally load data from Azure SQL Database to Azure Blob storage by using Change Tracking technology](tutorial-incremental-copy-change-tracking-feature-portal.md)
-
-

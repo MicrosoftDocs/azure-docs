@@ -11,11 +11,16 @@ services: iot-edge
 ms.custom: mvc
 ---
 
-# Tutorial: Develop IoT Edge modules for Windows devices
+# Tutorial: Develop IoT Edge modules using Windows containers
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 Use Visual Studio to develop and deploy code to Windows devices running IoT Edge.
 
-In the quickstart, you created an IoT Edge device using a Windows virtual machine and deployed a pre-built module from the Azure Marketplace. This tutorial walks through what it takes to develop and deploy your own code to an IoT Edge device. This tutorial is a useful prerequisite for the other tutorials, which go into more detail about specific programming languages or Azure services.
+>[!NOTE]
+>IoT Edge 1.1 LTS is the last release channel that will support Windows containers. Starting with version 1.2, Windows containers are not supported. Consider using or moving to [IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md) to run IoT Edge on Windows devices.
+
+This tutorial walks through what it takes to develop and deploy your own code to an IoT Edge device. This tutorial is a useful prerequisite for the other tutorials, which go into more detail about specific programming languages or Azure services.
 
 This tutorial uses the example of deploying a **C# module to a Windows device**. This example was chosen because it's the most common development scenario. If you're interested in developing in a different language, or plan on deploying Azure services as modules, this tutorial will still be helpful to learn about the development tools. Once you understand the development concepts, then you can choose your preferred language or Azure service to dive into the details.
 
@@ -27,6 +32,24 @@ In this tutorial, you learn how to:
 > * Use the IoT Edge tools for Visual Studio to create a new project.
 > * Build your project as a container and store it in an Azure container registry.
 > * Deploy your code to an IoT Edge device.
+
+## Prerequisites
+
+A development machine:
+
+* Windows 10 with 1809 update or newer.
+* You can use your own computer or a virtual machine, depending on your development preferences.
+  * Make sure that your development machine supports nested virtualization. This capability is necessary for running a container engine, which you install in the next section.
+* Install [Git](https://git-scm.com/).
+
+An Azure IoT Edge device on Windows:
+
+* [Install and manage Azure IoT Edge with Windows containers](how-to-install-iot-edge-windows-on-windows.md).
+* We recommend that you don't run IoT Edge on your development machine, but instead use a separate device if possible. This distinction between development machine and IoT Edge device more accurately mirrors a true deployment scenario, and helps to keep the different concepts straight.
+
+Cloud resources:
+
+* A free or standard-tier [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -46,24 +69,6 @@ The following table lists the supported development scenarios for **Windows cont
 | **Languages** | C# (debugging not supported) | C <br> C# |
 | **More information** | [Azure IoT Edge for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge Tools for Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)<br>[Azure IoT Edge Tools for Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
 
-## Prerequisites
-
-A development machine:
-
-* Windows 10 with 1809 update or newer.
-* You can use your own computer or a virtual machine, depending on your development preferences.
-  * Make sure that your development machine supports nested virtualization. This capability is necessary for running a container engine, which you install in the next section.
-* Install [Git](https://git-scm.com/).
-
-An Azure IoT Edge device on Windows:
-
-* We recommend that you don't run IoT Edge on your development machine, but instead use a separate device. This distinction between development machine and IoT Edge device more accurately mirrors a true deployment scenario, and helps to keep the different concepts straight.
-* If you don't have a second device available, use the quickstart article to create an IoT Edge device in Azure with a [Windows virtual machine](quickstart.md).
-
-Cloud resources:
-
-* A free or standard-tier [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
-
 ## Install container engine
 
 IoT Edge modules are packaged as containers, so you need a container engine on your development machine to build and manage the containers. We recommend using Docker Desktop for development because of its many features and popularity as a container engine. With Docker Desktop on a Windows computer, you can switch between Linux containers and Windows containers so that you can easily develop modules for different types of IoT Edge devices.
@@ -82,13 +87,13 @@ This tutorial teaches the development steps for Visual Studio 2019. If you are u
 
 1. Prepare Visual Studio 2019 on your development machine.
 
-   * If you don't already have Visual Studio on your development machine, [Install Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) with the following workloads:
+   * If you don't already have Visual Studio on your development machine, [Install Visual Studio 2019](/visualstudio/install/install-visual-studio) with the following workloads:
 
       * Azure development
       * Desktop development with C++
       * .NET Core cross-platform development
 
-   * If you do already have Visual Studio 2019 on your development machine, follow the steps in [Modify Visual Studio](https://docs.microsoft.com/visualstudio/install/modify-visual-studio) to add the required workloads.
+   * If you do already have Visual Studio 2019 on your development machine, follow the steps in [Modify Visual Studio](/visualstudio/install/modify-visual-studio) to add the required workloads.
 
 2. Download and install the [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) extension for Visual Studio 2019.
 
@@ -176,17 +181,17 @@ The solution template that you created includes sample code for an IoT Edge modu
 
 Each module can have multiple *input* and *output* queues declared in their code. The IoT Edge hub running on the device routes messages from the output of one module into the input of one or more modules. The specific code for declaring inputs and outputs varies between languages, but the concept is the same across all modules. For more information about routing between modules, see [Declare routes](module-composition.md#declare-routes).
 
-The sample C# code that comes with the project template uses the [ModuleClient Class](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet) from the IoT Hub SDK for .NET.
+The sample C# code that comes with the project template uses the [ModuleClient Class](/dotnet/api/microsoft.azure.devices.client.moduleclient) from the IoT Hub SDK for .NET.
 
 1. In the **program.cs** file, find the **SetInputMessageHandlerAsync** method.
 
-2. The [SetInputMessageHandlerAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync?view=azure-dotnet) method sets up an input queue to receive incoming messages. Review this method and see how it initializes an input queue called **input1**.
+2. The [SetInputMessageHandlerAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync) method sets up an input queue to receive incoming messages. Review this method and see how it initializes an input queue called **input1**.
 
    ![Find the input name in the SetInputMessageHandlserAsync constructor](./media/tutorial-develop-for-windows/declare-input-queue.png)
 
 3. Next, find the **SendEventAsync** method.
 
-4. The [SendEventAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.sendeventasync?view=azure-dotnet) method processes received messages and sets up an output queue to pass them along. Review this method and see that it initializes an output queue called **output1**.
+4. The [SendEventAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.sendeventasync) method processes received messages and sets up an output queue to pass them along. Review this method and see that it initializes an output queue called **output1**.
 
    ![Find the output name in the SendEventAsync constructor](./media/tutorial-develop-for-windows/declare-output-queue.png)
 

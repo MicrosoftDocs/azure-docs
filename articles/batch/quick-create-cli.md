@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Run your first Batch job with the Azure CLI
-description: Quickly learn to create a Batch account and run a Batch job with the Azure CLI.
+description: This quickstart shows how to create a Batch account and run a Batch job with the Azure CLI.
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.custom: mvc, devx-track-azurecli
@@ -12,14 +12,11 @@ Get started with Azure Batch by using the Azure CLI to to create a Batch account
 
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. After completing this quickstart, you will understand the key concepts of the Batch service and be ready to try Batch with more realistic workloads at larger scale.
 
-## Prerequisites
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- If you choose to install and use the CLI locally, this quickstart requires that you run Azure CLI version 2.0.20 or later. To find the version, run `az --version`. If you need to install or upgrade, see
-  [Install Azure CLI](/cli/azure/install-azure-cli).
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+- This quickstart requires version 2.0.20 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 

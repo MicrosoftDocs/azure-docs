@@ -27,7 +27,7 @@ ms.custom: H1Hack27Feb2017
 This article describes how to perform initial setup, register your StorSimple file server, complete the device setup, and create and connect to SMB shares. This is the last article in the series of deployment tutorials required to completely deploy your virtual array as a file server or an iSCSI server.
 
 The setup and configuration process can take around 10 minutes to complete. The information in this article applies only to the deployment of the StorSimple Virtual Array. For the deployment of StorSimple 8000 series devices, go to:
-[Deploy your StorSimple 8000 series device running Update 2](storsimple-deployment-walkthrough-u2.md).
+[Deploy your StorSimple 8000 series device running Update 2](./storsimple-8000-deployment-walkthrough-u2.md).
 
 ## Setup prerequisites
 Before you configure and set up your StorSimple Virtual Array, make sure that:
@@ -115,7 +115,7 @@ Use the following step-by-step instructions to set up and configure your StorSim
     ![Screenshot of the All resources page of the Azure portal. A Device Manager service is highlighted.](./media/storsimple-virtual-array-deploy3-fs-setup/searchdevicemanagerservice1.png) 
 13. In the filtered list, select your StorSimple Device Manager service and then navigate to **Management > Devices**. In the **Devices** blade, verify that the device has successfully connected to the service and has the status **Ready to set up**.
     
-    ![Configure a file server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png)
+    ![Deploy](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png)
 
 ## Step 2: Configure the device as file server
 Perform the following steps in the [Azure portal](https://portal.azure.com/) to complete the required device setup.
@@ -126,7 +126,7 @@ Perform the following steps in the [Azure portal](https://portal.azure.com/) to 
    ![Configure a file server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png) 
 2. Click the device and you will see a banner message indicating that the device is ready to setup.
    
-    ![Configure a file server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs3m.png)
+    ![Configure a file server 2](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs3m.png)
 3. Click **Configure** on the command bar. This opens up the **Configure** blade. In the **Configure** blade, do the following:
    
    1. The file server name is automatically populated.
@@ -135,9 +135,9 @@ Perform the following steps in the [Azure portal](https://portal.azure.com/) to 
     
    3. A 256-bit AES key is used with the user-defined key for encryption. Specify a 32 character key and then reenter the key to confirm it. Record the key in a key management app for future reference.
     
-   4. Click **Configure required settings** to specify storage account credentials to be used with your device. Click **Add new** if there are no storage account credentials configured. **Ensure that the storage account you use supports block blobs. Page blobs are not supported.** More information about [blocks blobs and page blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+   4. Click **Configure required settings** to specify storage account credentials to be used with your device. Click **Add new** if there are no storage account credentials configured. **Ensure that the storage account you use supports block blobs. Page blobs are not supported.** More information about [blocks blobs and page blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
    
-      ![Configure a file server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
+      ![Configure a file server 3](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
 4. In the **Add a storage account credentials** blade, do the following: 
 
     1. Choose current subscription if the storage account is in the same subscription as the service. Specify other is the storage account is outside of the service subscription. 
@@ -150,19 +150,19 @@ Perform the following steps in the [Azure portal](https://portal.azure.com/) to 
     
     5. Click **Add** to add this storage account credential. 
    
-        ![Configure a file server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs8m.png)
+        ![Configure a file server 4](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs8m.png)
 
 5. Once the storage account credential is successfully created, the **Configure** blade will be updated to display the specified storage account credentials. Click **Configure**.
    
-   ![Configure a file server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs11m.png)
+   ![Configure a file server 5](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs11m.png)
    
    You will see a that a file server is being created. Once the file server is successfully created, you will be notified.
    
-   ![Configure a file server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs13m.png)
+   ![Configure a file server 5b](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs13m.png)
    
    The device status will also change to **Online**.
    
-   ![Configure a file server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs14m.png)
+   ![Configure a file server 5c](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs14m.png)
    
    You can proceed to add a share.
 
@@ -186,15 +186,15 @@ Perform the following steps in the [Azure portal](https://portal.azure.com/) to 
    
    5. Click **Add** to create the share. 
     
-       ![Add a share](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
+       ![Add a share 1](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
    
        You are notified that the share creation is in progress.
    
-       ![Add a share](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
+       ![Add a share 2](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
    
       After the share is created with the specified settings, the **Shares** blade will update to reflect the new share. By default, monitoring and backup are enabled for the share.
    
-      ![Add a share](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
+      ![Add a share 3](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
 
 ## Step 4: Connect to the share
 You will now need to connect to one or more shares that you created in the previous step. Perform these steps on your Windows Server host connected to your StorSimple Virtual Array.
@@ -210,4 +210,3 @@ You will now need to connect to one or more shares that you created in the previ
 
 ## Next steps
 Learn how to use the local web UI to [administer your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
-

@@ -188,7 +188,7 @@ After LUIS returns the JSON response, LUIS is done with this request. LUIS doesn
 * [How to train](luis-how-to-train.md)
 * [How to publish](luis-how-to-publish-app.md)
 * [How to test in LUIS portal](luis-interactive-test.md)
-* [Azure Bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
+* [Azure Bot](/azure/bot-service/)
 
 
 ## Next steps

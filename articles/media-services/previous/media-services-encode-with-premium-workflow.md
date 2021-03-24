@@ -3,19 +3,17 @@ title: Advanced encoding with Media Encoder Premium Workflow | Microsoft Docs
 description: Learn how to encode with Media Encoder Premium Workflow. Code samples are written in C# and use the Media Services SDK for .NET.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-
 ---
 # Advanced encoding with Media Encoder Premium Workflow
 
@@ -31,7 +29,7 @@ Microsoft Azure Media Services is introducing the **Media Encoder Premium Workfl
 
 The following topics outline details related to **Media Encoder Premium Workflow**:
 
-* [Formats Supported by the Media Encoder Premium Workflow](media-services-premium-workflow-encoder-formats.md) – Discusses the file formats and codecs supported by **Media Encoder Premium Workflow**.
+* [Formats Supported by the Media Encoder Premium Workflow](./media-services-encode-asset.md) – Discusses the file formats and codecs supported by **Media Encoder Premium Workflow**.
 * [Overview and comparison of Azure on-demand media encoders](media-services-encode-asset.md) compares the encoding capabilities of **Media Encoder Premium Workflow** and **Media Encoder Standard**.
 
 This article demonstrates how to encode with **Media Encoder Premium Workflow** using .NET.

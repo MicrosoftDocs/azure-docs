@@ -12,11 +12,12 @@ ms.custom: devx-track-csharp
 
 ---
 # Tutorial: Build a .NET console app to manage data in Azure Cosmos DB SQL API account
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
-> * [Java](sql-api-java-get-started.md)
-> * [Async Java](sql-api-async-java-get-started.md)
+> * [Java](./create-sql-api-java.md)
+> * [Async Java](./create-sql-api-java.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
 >
 
@@ -112,7 +113,7 @@ Great! Now that we finished the setup, let's start writing some code. For the co
     ```
 
    > [!NOTE]
-   > If you're familiar with the previous version of the .NET SDK, you may be familiar with the terms *collection* and *document*. Because Azure Cosmos DB supports multiple API models, version 3.0 of the .NET SDK uses the generic terms *container* and *item*. A *container* can be a collection, graph, or table. An *item* can be a document, edge/vertex, or row, and is the content inside a container. For more information, see [Work with databases, containers, and items in Azure Cosmos DB](databases-containers-items.md).
+   > If you're familiar with the previous version of the .NET SDK, you may be familiar with the terms *collection* and *document*. Because Azure Cosmos DB supports multiple API models, version 3.0 of the .NET SDK uses the generic terms *container* and *item*. A *container* can be a collection, graph, or table. An *item* can be a document, edge/vertex, or row, and is the content inside a container. For more information, see [Work with databases, containers, and items in Azure Cosmos DB](account-databases-containers-items.md).
 
 1. Open the [Azure portal](https://portal.azure.com). Find your Azure Cosmos DB account, and then select **Keys**.
 
@@ -152,7 +153,7 @@ Congratulations! You've successfully connected to an Azure Cosmos DB account.
 
 ## Step 4: Create a database
 
-A database is the logical container of items partitioned across containers. Either the `CreateDatabaseIfNotExistsAsync` or `CreateDatabaseAsync` method of the [CosmosClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclient) class can create a database.
+A database is the logical container of items partitioned across containers. Either the `CreateDatabaseIfNotExistsAsync` or `CreateDatabaseAsync` method of the [CosmosClient](/dotnet/api/microsoft.azure.cosmos.cosmosclient) class can create a database.
 
 1. Copy and paste the `CreateDatabaseAsync` method below your `GetStartedDemoAsync` method.
 
@@ -255,7 +256,7 @@ A database is the logical container of items partitioned across containers. Eith
 1. Select F5 to run your application.
 
    > [!NOTE]
-   > If you get a "503 service unavailable exception" error, it's possible that the required [ports](performance-tips.md#networking) for direct connectivity mode are blocked by a firewall. To fix this issue, either open the required ports or use the gateway mode connectivity as shown in the following code:
+   > If you get a "503 service unavailable exception" error, it's possible that the required [ports](sql-sdk-connection-modes.md#service-port-ranges) for direct connectivity mode are blocked by a firewall. To fix this issue, either open the required ports or use the gateway mode connectivity as shown in the following code:
    ```csharp
      // Create a new instance of the Cosmos Client in Gateway mode
      this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey, new CosmosClientOptions()
@@ -273,7 +274,7 @@ Congratulations! You've successfully created an Azure Cosmos database.
 >
 >
 
-A container can be created by using either the [**CreateContainerIfNotExistsAsync**](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Database_CreateContainerIfNotExistsAsync_Microsoft_Azure_Cosmos_ContainerProperties_System_Nullable_System_Int32__Microsoft_Azure_Cosmos_RequestOptions_System_Threading_CancellationToken_) or [**CreateContainerAsync**](/dotnet/api/microsoft.azure.cosmos.database.createcontainerasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Database_CreateContainerAsync_Microsoft_Azure_Cosmos_ContainerProperties_System_Nullable_System_Int32__Microsoft_Azure_Cosmos_RequestOptions_System_Threading_CancellationToken_) method in the `CosmosDatabase` class. A container consists of items (JSON documents if SQL API) and associated server-side application logic in JavaScript, for example, stored procedures, user-defined functions, and triggers.
+A container can be created by using either the [**CreateContainerIfNotExistsAsync**](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync#Microsoft_Azure_Cosmos_Database_CreateContainerIfNotExistsAsync_Microsoft_Azure_Cosmos_ContainerProperties_System_Nullable_System_Int32__Microsoft_Azure_Cosmos_RequestOptions_System_Threading_CancellationToken_) or [**CreateContainerAsync**](/dotnet/api/microsoft.azure.cosmos.database.createcontainerasync#Microsoft_Azure_Cosmos_Database_CreateContainerAsync_Microsoft_Azure_Cosmos_ContainerProperties_System_Nullable_System_Int32__Microsoft_Azure_Cosmos_RequestOptions_System_Threading_CancellationToken_) method in the `CosmosDatabase` class. A container consists of items (JSON documents if SQL API) and associated server-side application logic in JavaScript, for example, stored procedures, user-defined functions, and triggers.
 
 1. Copy and paste the `CreateContainerAsync` method below your `CreateDatabaseAsync` method. `CreateContainerAsync`  creates a new container with the ID `FamilyContainer` if it doesn't already exist, by using the ID specified from the `containerId` field partitioned by `LastName` property.
 
@@ -299,7 +300,7 @@ Congratulations! You've successfully created an Azure Cosmos container.
 
 ## <a id="CreateDoc"></a>Step 6: Add items to the container
 
-The [**CreateItemAsync**](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Container_CreateItemAsync__1___0_System_Nullable_Microsoft_Azure_Cosmos_PartitionKey__Microsoft_Azure_Cosmos_ItemRequestOptions_System_Threading_CancellationToken_) method of the `CosmosContainer` class can create an item. When using the SQL API, items are projected as documents, which are user-defined arbitrary JSON content. You can now insert an item into your Azure Cosmos container.
+The [**CreateItemAsync**](/dotnet/api/microsoft.azure.cosmos.container.createitemasync#Microsoft_Azure_Cosmos_Container_CreateItemAsync__1___0_System_Nullable_Microsoft_Azure_Cosmos_PartitionKey__Microsoft_Azure_Cosmos_ItemRequestOptions_System_Threading_CancellationToken_) method of the `CosmosContainer` class can create an item. When using the SQL API, items are projected as documents, which are user-defined arbitrary JSON content. You can now insert an item into your Azure Cosmos container.
 
 First, let's create a `Family` class that represents objects stored within Azure Cosmos DB in this sample. We'll also create `Parent`, `Child`, `Pet`, `Address` subclasses that are used within `Family`. The item must have an `Id` property serialized as `id` in JSON.
 
@@ -340,7 +341,7 @@ Congratulations! You've successfully created two Azure Cosmos items.
 
 ## <a id="Query"></a>Step 7: Query Azure Cosmos DB resources
 
-Azure Cosmos DB supports rich queries against JSON documents stored in each container. For more information, see [Getting started with SQL queries](sql-api-sql-query.md). The following sample code shows how to run a query against the items we inserted in the previous step.
+Azure Cosmos DB supports rich queries against JSON documents stored in each container. For more information, see [Getting started with SQL queries](./sql-query-getting-started.md). The following sample code shows how to run a query against the items we inserted in the previous step.
 
 1. Copy and paste the `QueryItemsAsync` method after your `AddItemsToContainerAsync` method.
 
@@ -492,8 +493,8 @@ That's it, build it, and you're on your way!
 
 * Want a more complex ASP.NET MVC tutorial? See [Tutorial: Develop an ASP.NET Core MVC web application with Azure Cosmos DB by using .NET SDK](sql-api-dotnet-application.md).
 * Want to do scale and performance testing with Azure Cosmos DB? See [Performance and scale testing with Azure Cosmos DB](performance-testing.md).
-* To learn how to monitor Azure Cosmos DB requests, usage, and storage, see [Monitor performance and storage metrics in Azure Cosmos DB](monitor-accounts.md).
+* To learn how to monitor Azure Cosmos DB requests, usage, and storage, see [Monitor performance and storage metrics in Azure Cosmos DB](./monitor-cosmos-db.md).
 * To run queries against our sample dataset, see the [Query Playground](https://www.documentdb.com/sql/demo).
-* To learn more about Azure Cosmos DB, see [Welcome to Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction).
+* To learn more about Azure Cosmos DB, see [Welcome to Azure Cosmos DB](./introduction.md).
 
 [cosmos-db-create-account]: create-sql-api-java.md#create-a-database-account

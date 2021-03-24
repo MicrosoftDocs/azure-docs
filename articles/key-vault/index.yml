@@ -21,9 +21,9 @@ highlightedContent:
     - title: Introduction to Azure Key Vault
       itemType: overview
       url: ./general/overview.md
-    - title: Important changes to soft delete
+    - title: Important updates to service
       itemType: whats-new
-      url: ./general/soft-delete-change.md
+      url: ./general/whats-new.md
     - title: Authentication
       itemType: overview
       url: ./general/authentication.md
@@ -110,16 +110,16 @@ conceptualContent:
         - url: ./general/client-libraries.md
           itemType: reference
           text:  Client libraries for Azure Key Vault
-        - url: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
+        - url: /dotnet/api/overview/azure/key-vault
           itemType: reference
           text:  .NET Client library
-        - url: /python/api/overview/azure/key-vault-index?view=azure-python
+        - url: /python/api/overview/azure/key-vault-index
           itemType: reference
           text:  Python Client library
         - url: https://azure.github.io/azure-sdk-for-java/keyvault.html
           itemType: reference
           text:  Java Client library
-        - url: /javascript/api/overview/azure/key-vault-index?view=azure-node-latest
+        - url: /javascript/api/overview/azure/key-vault-index
           itemType: reference
           text:  Node.js Client library
 
@@ -157,7 +157,7 @@ conceptualContent:
           text: Key Vault with Virtual Machine Scale Sets
     - title: Key Vault Integration
       links:
-        - url: https://docs.microsoft.com/azure/devops/pipelines/library/variable-groups?view=azure-devops&tabs=yaml#link-secrets-from-an-azure-key-vault
+        - url: /azure/devops/pipelines/library/variable-groups?tabs=yaml#link-secrets-from-an-azure-key-vault
           itemType: overview
           text: Azure Dev Ops - Reference Key Vault secrets in Azure Pipelines
         - url: ../app-service/app-service-key-vault-references.md
@@ -169,6 +169,6 @@ conceptualContent:
         - url: ../aks/developer-best-practices-pod-security.md#use-azure-key-vault-with-secrets-store-csi-driver
           itemType: overview
           text: Azure Kubernetes Service - Use Key Vault secrets, certificates, keys in AKS
-        - url: https://docs.microsoft.com/azure/databricks/security/secrets/secret-scopes
+        - url: /azure/databricks/security/secrets/secret-scopes
           itemType: overview
           text: Azure Databricks - Secrets Management with Key Vault

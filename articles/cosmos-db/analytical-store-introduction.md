@@ -1,19 +1,20 @@
 ---
-title: What is Azure Cosmos DB Analytical Store (Preview)?
+title: What is Azure Cosmos DB Analytical Store?
 description: Learn about Azure Cosmos DB transactional (row-based) and analytical(column-based) store. Benefits of analytical store, performance impact for large-scale workloads, and auto sync of data from transactional store to analytical store  
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 03/16/2021
 ms.author: rosouz
+ms.custom: "seo-nov-2020"
 ---
 
-# What is Azure Cosmos DB Analytical Store (Preview)?
+# What is Azure Cosmos DB analytical store?
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-> [!IMPORTANT]
-> Azure Cosmos DB analytical store is currently in preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Azure Cosmos DB analytical store is a fully isolated column store for enabling large-scale analytics against operational data in your Azure Cosmos DB, without any impact to your transactional workloads. 
 
-Azure Cosmos DB analytical store is a fully isolated column store for enabling large-scale analytics against operational data in your Azure Cosmos DB, without any impact to your transactional workloads.  
+Azure Cosmos DB transactional store is schema-agnostic, and it allows you to iterate on your transactional applications without having to deal with schema or index management. In contrast to this, Azure Cosmos DB analytical store is schematized to optimize for analytical query performance. This article describes in detailed about analytical storage.
 
 ## Challenges with large-scale analytics on operational data
 
@@ -27,7 +28,7 @@ The ETL pipelines also become complex when handling updates to the operational d
 
 Azure Cosmos DB analytical store addresses the complexity and latency challenges that occur with the traditional ETL pipelines. Azure Cosmos DB analytical store can automatically sync your operational data into a separate column store. Column store format is suitable for large-scale analytical queries to be performed in an optimized manner, resulting in improving the latency of such queries.
 
-Using Azure Synapse Link, you can now build no-ETL HTAP solutions by directly linking to Azure Cosmos DB analytical store from Synapse Analytics. It enables you to run near real-time large-scale analytics on your operational data.
+Using Azure Synapse Link, you can now build no-ETL HTAP solutions by directly linking to Azure Cosmos DB analytical store from Azure Synapse Analytics. It enables you to run near real-time large-scale analytics on your operational data.
 
 ## Features of analytical store 
 
@@ -59,32 +60,61 @@ Auto-Sync refers to the fully managed capability of Azure Cosmos DB where the in
 
 The auto-sync capability along with analytical store provides the following key benefits:
 
-#### Scalability & elasticity
+### Scalability & elasticity
 
 By using horizontal partitioning, Azure Cosmos DB transactional store can elastically scale the storage and throughput without any downtime. Horizontal partitioning in the transactional store provides scalability & elasticity in auto-sync to ensure data is synced to the analytical store in near real time. The data sync happens regardless of the transactional traffic throughput, whether it is 1000 operations/sec or 1 million operations/sec, and  it doesn't impact the provisioned throughput in the transactional store. 
 
-#### <a id="analytical-schema"></a>Automatically handle schema updates
+### <a id="analytical-schema"></a>Automatically handle schema updates
 
 Azure Cosmos DB transactional store is schema-agnostic, and it allows you to iterate on your transactional applications without having to deal with schema or index management. In contrast to this, Azure Cosmos DB analytical store is schematized to optimize for analytical query performance. With the auto-sync capability, Azure Cosmos DB manages the schema inference over the latest updates from the transactional store.  It also manages the schema representation in the analytical store out-of-the-box which, includes handling nested data types.
 
 As your schema evolves, and new properties are added over time, the analytical store automatically presents a unionized schema across all historical schemas in the transactional store.
 
-##### Schema constraints
+#### Schema constraints
 
 The following constraints are applicable on the operational data in Azure Cosmos DB when you enable analytical store to automatically infer and represent the schema correctly:
 
-* You can have a maximum of 200 properties at any nesting level in the schema and a maximum nesting depth of 5.
+* You can have a maximum of 1000 properties at any nesting level in the schema and a maximum nesting depth of 127.
+  * Only the first 1000 properties are represented in the analytical store.
+  * Only the first 127 nested levels are represented in the analytical store.
+
+* While JSON documents (and Cosmos DB collections/containers) are case sensitive from the uniqueness perspective, analytical store is not.
+
+  * **In the same document:** Properties names in the same level should be unique when compared case insensitively. For example, the following JSON document has "Name" and "name" in the same level. While it's a valid JSON document, it doesn't satisfy the uniqueness constraint and hence will not be fully represented in the analytical store. In this example, "Name" and "name" are the same when compared in a case insensitive manner. Only `"Name": "fred"` will be represented in analytical store, because it is the first occurrence. And `"name": "john"` won't be represented at all.
   
-  * An item with 201 properties at the top level doesn’t satisfy this constraint and hence it will not be represented in the analytical store.
-  * An item with more than five nested levels in the schema also doesn’t satisfy this constraint and hence it will not be represented in the analytical store. For example, the following item doesn't satisfy the requirement:
+  
+  ```json
+  {"id": 1, "Name": "fred", "name": "john"}
+  ```
+  
+  * **In different documents:** Properties in the same level and with the same name, but in different cases, will be represented within the same column, using the name format of the first occurrence. For example, the following JSON documents have `"Name"` and `"name"` in the same level. Since the first document format is `"Name"`, this is what will be used to represent the property name in analytical store. In other words, the column name in analytical store will be `"Name"`. Both `"fred"` and `"john"` will be represented, in the `"Name"` column.
 
-     `{"level1": {"level2":{"level3":{"level4":{"level5":{"too many":12}}}}}}`
 
-* Property names should be unique when compared case insensitively. For example, the following items do not satisfy this constraint and hence will not be represented in the analytical store:
+  ```json
+  {"id": 1, "Name": "fred"}
+  {"id": 2, "name": "john"}
+  ```
 
-  `{"Name": "fred"} {"name": "john"}` – "Name" and "name" are the same when compared in a case insensitive manner.
 
-##### Schema representation
+* The first document of the collection defines the initial analytical store schema.
+  * Properties in the first level of the document will be represented as columns.
+  * Documents with more properties than the initial schema will generate new columns in analytical store.
+  * Columns can't be removed.
+  * The deletion of all documents in a collection doesn't reset the analytical store schema.
+  * There is not schema versioning. The last version inferred from transactional store is what you will see in analytical store.
+
+* Currently we do not support Azure Synapse Spark reading column names that contain blanks (white spaces).
+
+* Expect different behavior in regard to explicit `null` values:
+  * Spark pools in Azure Synapse will read these values as `0` (zero).
+  * SQL serverless pools in Azure Synapse will read these values as `NULL` if the first document of the collection has, for the same property, a value with a datatype different of `integer`.
+  * SQL serverless pools in Azure Synapse will read these values as `0` (zero) if the first document of the collection has, for the same property, a value that is an `integer`.
+
+* Expect different behavior in regard to missing columns:
+  * Spark pools in Azure Synapse will represent these columns as `undefined`.
+  * SQL serverless pools in Azure Synapse will represent these columns as `NULL`.
+
+#### Schema representation
 
 There are two modes of schema representation in the analytical store. These modes have tradeoffs between the simplicity of a columnar representation, handling the polymorphic schemas, and simplicity of query experience:
 
@@ -100,7 +130,7 @@ The well-defined schema representation creates a simple tabular representation o
 
 * A property always has the same type across multiple items.
 
-  * For example, `{"a":123} {"a": "str"}` does not have a well-defined schema because `"a"` is sometimes a string and sometimes a number. In this case, the analytical store registers the data type of `“a”` as the data type of `“a”` in the first-occurring item in the lifetime of the container. Items where the data type of `“a”` differs will not be included in the analytical store.
+  * For example, `{"a":123} {"a": "str"}` does not have a well-defined schema because `"a"` is sometimes a string and sometimes a number. In this case, the analytical store registers the data type of `"a"` as the data type of `“a”` in the first-occurring item in the lifetime of the container. The document will still be included in analytical store, but items where the data type of `"a"` differs will not.
   
     This condition does not apply for null properties. For example, `{"a":123} {"a":null}` is still well defined.
 
@@ -110,6 +140,11 @@ The well-defined schema representation creates a simple tabular representation o
 
 > [!NOTE]
 > If the Azure Cosmos DB analytical store follows the well-defined schema representation and the specification above is violated by certain items, those items will not be included in the analytical store.
+
+* Expect different behavior in regard to different types in well defined schema:
+  * Spark pools in Azure Synapse will represent these values as `undefined`.
+  * SQL serverless pools in Azure Synapse will represent these values as `NULL`.
+
 
 **Full fidelity schema representation**
 
@@ -166,16 +201,16 @@ If you have a globally distributed Azure Cosmos DB account, after you enable ana
 
 ### Security
 
-Authentication with the analytical store is the same as the transactional store for a given database. You can use master or read-only keys for authentication. You can leverage linked service in Synapse Studio to prevent pasting the Azure Cosmos DB keys in the Spark notebooks. Access to this Linked Service is available to anyone who has access into the workspace.
+Authentication with the analytical store is the same as the transactional store for a given database. You can use primary or read-only keys for authentication. You can leverage linked service in Synapse Studio to prevent pasting the Azure Cosmos DB keys in the Spark notebooks. Access to this Linked Service is available to anyone who has access into the workspace.
 
 ### Support for multiple Azure Synapse Analytics runtimes
 
 The analytical store is optimized to provide scalability, elasticity, and performance for analytical workloads without any dependency on the compute run-times. The storage technology is self-managed to optimize your analytics workloads without manual efforts.
 
-By decoupling the analytical storage system from the analytical compute system, data in Azure Cosmos DB analytical store can be queried simultaneously from the different analytics runtimes supported by Azure Synapse Analytics. As of today, Synapse Analytics supports Apache Spark and SQL serverless with Azure Cosmos DB analytical store.
+By decoupling the analytical storage system from the analytical compute system, data in Azure Cosmos DB analytical store can be queried simultaneously from the different analytics runtimes supported by Azure Synapse Analytics. As of today, Azure Synapse Analytics supports Apache Spark and serverless SQL pool with Azure Cosmos DB analytical store.
 
 > [!NOTE]
-> You can only read from analytical store using Synapse Analytics run time. You can write the data back to your transactional store as a serving layer.
+> You can only read from analytical store using Azure Synapse Analytics run time. You can write the data back to your transactional store as a serving layer.
 
 ## <a id="analytical-store-pricing"></a> Pricing
 
@@ -185,10 +220,7 @@ Analytical store follows a consumption-based pricing model where you are charged
 
 * Analytical write operations: the fully managed synchronization of operational data updates to the analytical store from the transactional store (auto-sync)
 
-* Analytical read operations: the read operations performed against the analytical store from Synapse Analytics Spark and SQL serverless run times.
-
-> [!NOTE]
-> Azure Cosmos DB analytical store is currently available in public preview free of any charges.
+* Analytical read operations: the read operations performed against the analytical store from Azure Synapse Analytics Spark pool and serverless SQL pool run times.
 
 Analytical store pricing is separate from the transaction store pricing model. There is no concept of provisioned RUs in the analytical store. See [Azure Cosmos DB pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/), for full details on the pricing model for analytical store.
 

@@ -1,5 +1,5 @@
 ---
-title: Real-time data visualization of data frm Azure IoT Hub – Power BI
+title: Real-time data visualization of data from Azure IoT Hub – Power BI
 description: Use Power BI to visualize temperature and humidity data that is collected from the sensor and sent to your Azure IoT hub.
 author: robinsh
 keywords: real time data visualization, live data visualization, sensor data visualization
@@ -135,9 +135,9 @@ In the Stream Analytics job, select **Overview**, then select **Start** > **Now*
 
 ## Create and publish a Power BI report to visualize the data
 
-The following steps show you how to create and publish a report using the Power BI service. You can follow these steps, with some modification, if you want to use the "new look" in Power BI. To understand the differences and how to navigate in the "new look", see [The 'new look' of the Power BI service](https://docs.microsoft.com/power-bi/consumer/service-new-look).
+The following steps show you how to create and publish a report using the Power BI service. You can follow these steps, with some modification, if you want to use the "new look" in Power BI. To understand the differences and how to navigate in the "new look", see [The 'new look' of the Power BI service](/power-bi/consumer/service-new-look).
 
-1. Ensure the sample application is running on your device. If not, you can refer to the tutorials under [Setup your device](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started).
+1. Ensure the sample application is running on your device. If not, you can refer to the tutorials under [Setup your device](./iot-hub-raspberry-pi-kit-node-get-started.md).
 
 2. Sign in to your [Power BI](https://powerbi.microsoft.com/en-us/) account.
 

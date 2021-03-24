@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/20/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 
@@ -35,7 +35,7 @@ This FAQ is split into the following sections:
 
   > **A:** Yes. As long as password reset is enabled and they are licensed, users can go to the password reset registration portal (https://aka.ms/ssprsetup) to register their authentication information. Users can also register through the Access Panel (https://myapps.microsoft.com). To register through the Access Panel, they need to select their profile picture, select **Profile**, and then select the **Register for password reset** option.
   >
-  > If you enable [combined registration](concept-registration-mfa-sspr-combined.md), users can register for both SSPR and Azure Multi-Factor Authentication at the same time.
+  > If you enable [combined registration](concept-registration-mfa-sspr-combined.md), users can register for both SSPR and Azure AD Multi-Factor Authentication at the same time.
 * **Q:  If I enable password reset for a group and then decide to enable it for everyone are my users required re-register?**
 
   > **A:** No. Users who have populated authentication data are not required to re-register.
@@ -260,7 +260,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  What types of accounts does password writeback work for?**
 
-  > **A:** Password writeback works for user accounts that are synchronized from on-premises Active Directory to Azure AD, including federated, password hash synchronized, and Pass-Through Autentication Users.
+  > **A:** Password writeback works for user accounts that are synchronized from on-premises Active Directory to Azure AD, including federated, password hash synchronized, and Pass-Through Authentication Users.
   >
   >
 * **Q:  Does password writeback enforce my domain's password policies?**
@@ -286,4 +286,4 @@ This FAQ is split into the following sections:
 * [What is password writeback and why do I care about it?](./tutorial-enable-sspr-writeback.md)
 * [How do I report on activity in SSPR?](howto-sspr-reporting.md)
 * [What are all of the options in SSPR and what do they mean?](concept-sspr-howitworks.md)
-* [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
+* [I think something is broken. How do I troubleshoot SSPR?](./troubleshoot-sspr.md)

@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/30/2020
+ms.date: 03/22/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -21,10 +21,11 @@ In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Create a sign-up and sign-in user flow
+> * Enable self-service password reset
 > * Create a profile editing user flow
-> * Create a password reset user flow
 
-This tutorial shows you how to create some recommended user flows by using the Azure portal. If you're looking for information about how to set up a resource owner password credentials (ROPC) flow in your application, see [Configure the resource owner password credentials flow in Azure AD B2C](configure-ropc.md).
+
+This tutorial shows you how to create some recommended user flows by using the Azure portal. If you're looking for information about how to set up a resource owner password credentials (ROPC) flow in your application, see [Configure the resource owner password credentials flow in Azure AD B2C](add-ropc-policy.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -78,6 +79,27 @@ The sign-up and sign-in user flow handles both sign-up and sign-in experiences w
 1. Select your country and region, enter the name that you want displayed, enter a postal code, and then click **Create**. The token is returned to `https://jwt.ms` and should be displayed to you.
 1. You can now run the user flow again and you should be able to sign in with the account that you created. The returned token includes the claims that you selected of country/region, name, and postal code.
 
+> [!NOTE]
+> The "Run user flow" experience is not currently compatible with the SPA reply URL type using authorization code flow. To use the "Run user flow" experience with these kinds of apps, register a reply URL of type "Web" and enable the implicit flow as described [here](tutorial-register-spa.md).
+
+## Enable self-service password reset
+
+To enable [self-service password reset](add-password-reset-policy.md) for the sign-up or sign-in user flow:
+
+1. Select the sign-up or sign-in user flow  you created.
+1. Under **Settings** in the left menu, select **Properties**.
+1. Under **Password complexity**, select **Self-service password reset**.
+1. Select **Save**.
+
+### Test the user flow
+
+1. Select the user flow you created to open its overview page, then select **Run user flow**.
+1. For **Application**, select the web application named *webapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
+1. Select **Run user flow**.
+1. From the sign-up or sign-in page, select **Forgot your password?**.
+1. Verify the email address of the account that you previously created, and then select **Continue**.
+1. You now have the opportunity to change the password for the user. Change the password and select **Continue**. The token is returned to `https://jwt.ms` and should be displayed to you.
+
 ## Create a profile editing user flow
 
 If you want to enable users to edit their profile in your application, you use a profile editing user flow.
@@ -97,26 +119,6 @@ If you want to enable users to edit their profile in your application, you use a
 1. Click **Run user flow**, and then sign in with the account that you previously created.
 1. You now have the opportunity to change the display name and job title for the user. Click **Continue**. The token is returned to `https://jwt.ms` and should be displayed to you.
 
-## Create a password reset user flow
-
-To enable users of your application to reset their password, you use a password reset user flow.
-
-1. In the Azure AD B2C tenant overview menu, select **User flows**, and then select **New user flow**.
-1. On the **Create a user flow** page, select the **Password reset** user flow. 
-1. Under **Select a version**, select **Recommended**, and then select **Create**.
-1. Enter a **Name** for the user flow. For example, *passwordreset1*.
-1. For **Identity providers**, enable **Reset password using email address**.
-2. Under Application claims, click **Show more** and choose the claims that you want returned in the authorization tokens sent back to your application. For example, select **User's Object ID**.
-3. Click **OK**.
-4. Click **Create** to add the user flow. A prefix of *B2C_1* is automatically appended to the name.
-
-### Test the user flow
-
-1. Select the user flow you created to open its overview page, then select **Run user flow**.
-1. For **Application**, select the web application named *webapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
-1. Click **Run user flow**, verify the email address of the account that you previously created, and select **Continue**.
-1. You now have the opportunity to change the password for the user. Change the password and select **Continue**. The token is returned to `https://jwt.ms` and should be displayed to you.
-
 ## Next steps
 
 In this article, you learned how to:
@@ -126,7 +128,7 @@ In this article, you learned how to:
 > * Create a profile editing user flow
 > * Create a password reset user flow
 
-Next, learn about adding identity providers to your applications to enable user sign-in with providers like Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft, or Twitter.
+Next, learn how to use Azure AD B2C to sign in and sign up users in an application. Follow the ASP.NET web application linked below, or navigate to another application in the table of contents under **Authenticate users**.
 
 > [!div class="nextstepaction"]
-> [Add identity providers to your applications >](tutorial-add-identity-providers.md)
+> [Tutorial: Enable authentication in a web application using Azure AD B2C >](tutorial-web-app-dotnet.md)

@@ -3,7 +3,7 @@ title: Troubleshoot SAML-based single sign-on in Azure Active Directory
 description: Troubleshoot issues with an Azure AD app that's configured for SAML-based single sign-on.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,7 +13,7 @@ ms.author: kenwith
 ---
 
 # Troubleshoot SAML-based single sign-on in Azure Active Directory
-If you encounter a problem when configuring an application. Verify you have followed all the steps in the tutorial for the application. In the application’s configuration, you have inline documentation on how to configure the application. Also, you can access the [List of tutorials on how to integrate SaaS apps with Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) for a detail step-by-step guidance.
+If you encounter a problem when configuring an application. Verify you have followed all the steps in the tutorial for the application. In the application’s configuration, you have inline documentation on how to configure the application. Also, you can access the [List of tutorials on how to integrate SaaS apps with Azure Active Directory](../saas-apps/tutorial-list.md) for a detail step-by-step guidance.
 
 ## Can’t add another instance of the application
 To add a second instance of an application, you need to be able to:
@@ -48,7 +48,7 @@ If the values don’t match with the patterns pre-configured on Azure AD. You ca
 ## Where do I set the EntityID (User Identifier) format
 You won’t be able to select the EntityID (User Identifier) format that Azure AD sends to the application in the response after user authentication.
 
-Azure AD select the format for the NameID attribute (User Identifier) based on the value selected or the format requested by the application in the SAML AuthRequest. For more information visit the article [Single Sign-On SAML protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) under the section NameIDPolicy,
+Azure AD select the format for the NameID attribute (User Identifier) based on the value selected or the format requested by the application in the SAML AuthRequest. For more information visit the article [Single Sign-On SAML protocol](../develop/single-sign-on-saml-protocol.md#authnrequest) under the section NameIDPolicy,
 
 ## Can’t find the Azure AD metadata to complete the configuration with the application
 To download the application metadata or certificate from Azure AD, follow these steps:
@@ -65,7 +65,7 @@ To download the application metadata or certificate from Azure AD, follow these 
 Azure AD doesn’t provide a URL to get the metadata. The metadata can only be retrieved as a XML file.
 
 ## Customize SAML claims sent to an application
-To learn how to customize the SAML attribute claims sent to your application, see [Claims mapping in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) for more information.
+To learn how to customize the SAML attribute claims sent to your application, see [Claims mapping in Azure Active Directory](../develop/active-directory-claims-mapping.md) for more information.
 
 ## Next steps
 * [Quickstart Series on Application Management](view-applications-portal.md)

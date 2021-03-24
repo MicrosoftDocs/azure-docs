@@ -12,7 +12,7 @@ ms.author: yelevin
 ---
 # Connect data from Azure Web Application Firewall (WAF)
 
-Web applications are increasingly targeted by malicious attacks that exploit commonly known vulnerabilities. Azure Web Application Firewall (WAF) provides centralized protection of your web applications from common exploits and threats, such as code injection and cross-site scripting. Azure WAF can be deployed on the [Azure Application Gateway](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview) service, the [Azure Front Door](https://docs.microsoft.com/azure/web-application-firewall/afds/afds-overview) service, and through an [Azure Content Delivery Network (CDN)](https://docs.microsoft.com/azure/web-application-firewall/cdn/cdn-overview) WAF policy (the latter currently in public preview).
+Web applications are increasingly targeted by malicious attacks that exploit commonly known vulnerabilities. Azure Web Application Firewall (WAF) provides centralized protection of your web applications from common exploits and threats, such as code injection and cross-site scripting. Azure WAF can be deployed on the [Azure Application Gateway](../web-application-firewall/ag/ag-overview.md) service, the [Azure Front Door](../web-application-firewall/afds/afds-overview.md) service, and through an [Azure Content Delivery Network (CDN)](../web-application-firewall/cdn/cdn-overview.md) WAF policy (the latter currently in public preview).
 You can connect Azure WAF logs to Azure Sentinel, enabling you to view log data in workbooks, use it to create custom alerts, and incorporate it to improve your investigation.
 
 ## Prerequisites

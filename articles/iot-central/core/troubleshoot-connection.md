@@ -7,6 +7,7 @@ ms.author: dobett
 ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
+ms.custom: device-developer, devx-track-azurecli
 
 # As a device developer, I want to understand why data from my devices isn't showing up in IoT Central, and the steps I can take to rectify the issue.
 ---
@@ -31,11 +32,11 @@ This section helps you determine if your data is reaching IoT Central.
 
 If you haven't already done so, install the `az cli` tool and `azure-iot` extension.
 
-To learn how to install the `az cli`, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+To learn how to install the `az cli`, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-To [install](https://docs.microsoft.com/cli/azure/azure-cli-reference-for-IoT?view=azure-cli-latest#extension-reference-installation) the `azure-iot` extension, run the following command:
+To [install](/cli/azure/azure-cli-reference-for-IoT#extension-reference-installation) the `azure-iot` extension, run the following command:
 
-```cmd/bash
+```azurecli
 az extension add --name azure-iot
 ```
 
@@ -46,20 +47,20 @@ When you've installed the `azure-iot` extension, start your device to see if the
 
 Use the following commands to sign in the subscription where you have your IoT Central application:
 
-```cmd/bash
+```azurecli
 az login
 az set account --subscription <your-subscription-id>
 ```
 
 To monitor the telemetry your device is sending, use the following command:
 
-```cmd/bash
+```azurecli
 az iot central diagnostics monitor-events --app-id <app-id> --device-id <device-name>
 ```
 
 If the device has connected successfully to IoT Central, you see output similar to the following:
 
-```cmd/bash
+```output
 Monitoring telemetry.
 Filtering on device: device-001
 {
@@ -78,13 +79,13 @@ Filtering on device: device-001
 
 To monitor the property updates your device is exchanging with IoT Central, use the following preview command:
 
-```cmd/bash
+```azurecli
 az iot central diagnostics monitor-properties --app-id <app-id> --device-id <device-name>
 ```
 
 If the device successfully sends property updates, you see output similar to the following:
 
-```cmd/bash
+```output
 Changes in reported properties:
 version : 32
 {'state': 'true', 'name': {'value': {'value': 'Contoso'}, 'status': 'completed', 'desiredVersion': 7, 'ad': 'completed', 'av': 7, 'ac
@@ -102,7 +103,7 @@ If you're still not seeing any data appear on your terminal, it's likely that yo
 
 If your data is not appearing on the monitor, check the provisioning status of your device by running the following command:
 
-```cmd/bash
+```azurecli
 az iot central device registration-info --app-id <app-id> --device-id <device-name>
 ```
 
@@ -131,7 +132,7 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 | Provisioned | No immediately recognizable issue. | N/A |
 | Registered | The device has not yet connected to IoT Central. | Check your device logs for connectivity issues. |
 | Blocked | The device is blocked from connecting to IoT Central. | Device is blocked from connecting to the IoT Central application. Unblock the device in IoT Central and retry. To learn more, see [Block devices](concepts-get-connected.md#device-status-values). |
-| Unapproved | The device is not approved. | Device isn't approved to connect to the IoT Central application. Approve the device in IoT Central and retry. To learn more, see [Approve devices](concepts-get-connected.md#connect-without-registering-devices) |
+| Unapproved | The device is not approved. | Device isn't approved to connect to the IoT Central application. Approve the device in IoT Central and retry. To learn more, see [Approve devices](concepts-get-connected.md#device-registration) |
 | Unassociated | The device is not associated with a device template. | Associate the device with a device template so that IoT Central knows how to parse the data. |
 
 Learn more about [device status codes](concepts-get-connected.md#device-status-values).
@@ -152,7 +153,7 @@ If you are seeing issues related to your authentication flow:
 | 401 | The authorization token cannot be validated. For example, it has expired or doesn't apply to the request's URI. This error code is also returned to devices as part of the TPM attestation flow. | Ensure that your device has the correct credentials. |
 | 404 | The Device Provisioning Service instance, or a resource such as an enrollment doesn't exist. | [File a ticket with customer support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). |
 | 412 | The `ETag` in the request doesn't match the `ETag` of the existing resource, as per RFC7232. | [File a ticket with customer support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). |
-| 429 | Operations are being throttled by the service. For specific service limits, see [IoT Hub Device Provisioning Service limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits). | Reduce message frequency, split responsibilities among more devices. |
+| 429 | Operations are being throttled by the service. For specific service limits, see [IoT Hub Device Provisioning Service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-device-provisioning-service-limits). | Reduce message frequency, split responsibilities among more devices. |
 | 500 | An internal error occurred. | [File a ticket with customer support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) to see if they can help you further. |
 
 ## Payload shape issues
@@ -172,13 +173,13 @@ To detect which categories your issue is in, run the most appropriate command fo
 
 - To validate telemetry, use the preview command:
 
-    ```cmd/bash
+    ```azurecli
     az iot central diagnostics validate-messages --app-id <app-id> --device-id <device-name>
     ```
 
 - To validate property updates, use the preview command
 
-    ```cmd/bash
+    ```azurecli
     az iot central diagnostics validate-properties --app-id <app-id> --device-id <device-name>
     ```
 
@@ -186,7 +187,7 @@ You may be prompted to install the `uamqp` library the first time you run a `val
 
 The following output shows example error and warning messages from the validate command:
 
-```cmd/bash
+```output
 Validating telemetry.
 Filtering on device: v22upeoqx6.
 Exiting after 300 second(s), or 10 message(s) have been parsed (whichever happens first).

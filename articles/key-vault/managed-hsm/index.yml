@@ -52,6 +52,8 @@ landingContent:
         links:
           - text: Azure CLI
             url: quick-create-cli.md
+          - text: Azure PowerShell
+            url: quick-create-powershell.md
           - text: Azure Resource Manager
             url: quick-create-template.md
 
@@ -88,10 +90,10 @@ landingContent:
         links:
           - text: Key Vault overview
             url: ../general/overview.md
-          - text: Key vault basic concepts
+          - text: Basic concepts
             url: ../general/basic-concepts.md
+          - text: Security overview
+            url: ../general/security-overview.md
           - text: Soft-delete overview
             url: ../general/soft-delete-overview.md
-          - text: Security overview
-            url: ../general/overview-security.md
 

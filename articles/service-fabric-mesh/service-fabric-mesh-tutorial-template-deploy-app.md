@@ -1,15 +1,20 @@
 ---
 title: Tutorial- Deploy an app to Azure Service Fabric Mesh 
 description: In this tutorial, you learn how to deploy an application to Service Fabric Mesh using a template.
-author: dkkapur
+author: georgewallace
 ms.topic: tutorial
 ms.date: 01/11/2019
-ms.author: dekapur
-ms.custom: mvc, devcenter
+ms.author: gwallace
+ms.custom: mvc, devcenter, devx-track-azurecli
 #Customer intent: As a developer, I want learn how to create a Service Fabric Mesh app that communicates with another service, and then publish it to Azure.
 ---
 
 # Tutorial: Deploy an application to Service Fabric Mesh using a template
+
+> [!IMPORTANT]
+> The preview of Azure Service Fabric Mesh has been retired. New deployments will no longer be permitted through the Service Fabric Mesh API. Support for existing deployments will continue through April 28, 2021.
+> 
+> For details, see [Azure Service Fabric Mesh Preview Retirement](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 This tutorial is part one of a series. You'll learn how to deploy an Azure Service Fabric Mesh application using a template.  The application is composed of an ASP.NET web front-end service and an ASP.NET Core Web API back-end service, which are found in Docker Hub.  You pull the two container images from Docker Hub and then push them to your own private registry. You then create an Azure RM template for the application and deploy the application from your container registry to Service Fabric Mesh. When you're finished, you'll have a simple To Do List application running in Service Fabric Mesh.
 
@@ -99,6 +104,11 @@ When the registry is created, you'll see output similar to the following:
 This tutorial uses the To Do List sample application as an example.  The container images for the [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) and the [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) services can be found on Docker Hub. See [Build a Service Fabric Mesh web app](service-fabric-mesh-tutorial-create-dotnetcore.md) for information on how to build the application in Visual Studio. Service Fabric Mesh can run Windows or Linux Docker containers.  If you're working with Linux containers, select **Switch to Linux containers** in Docker.  If you're working with Windows containers, select **Switch to Windows containers** in Docker.
 
 To push an image to an ACR instance, you must first have a container image. If you don't yet have any local container images, use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to pull the [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) and [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) images from Docker Hub.
+
+>[!NOTE]
+> Effective November 2, 2020, [download rate limits apply](https://docs.docker.com/docker-hub/download-rate-limit/) to anonymous and authenticated requests to Docker Hub from Docker Free plan accounts and are enforced by IP address. 
+> 
+> These commands makes use of public images from Docker Hub. Please note that you may be rate limited. For more details, see [Authenticate with Docker Hub](../container-registry/buffer-gate-public-content.md#authenticate-with-docker-hub).
 
 Pull the Windows images:
 

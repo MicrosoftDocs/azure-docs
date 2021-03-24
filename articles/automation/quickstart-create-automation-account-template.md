@@ -3,17 +3,12 @@ title: "Quickstart: Create an Automation account - Azure template"
 titleSuffix: Azure Automation
 description: This quickstart shows how to create an Automation account by using the Azure Resource Manager template.
 services: automation
-documentationcenter: na
-author: mgoedtel
 Customer intent: I want to create an Automation account by using an Azure Resource Manager template so that I can automate processes with runbooks.
-ms.service: automation
-ms.devlang: na
 ms.topic: quickstart
 ms.workload: infrastructure-services
-ms.date: 07/23/2020
+ms.date: 01/07/2021
 ms.author: magoedte
 ms.custom: mvc,subject-armqs
-
 ---
 
 # Quickstart: Create an Automation account by using ARM template
@@ -40,7 +35,7 @@ This sample template performs the following:
 * Adds sample Automation runbooks to the account.
 
 >[!NOTE]
->Creation of the Automation Run As account is not supported when you're using an ARM template. To create a Run As account manually from the portal or with PowerShell, see [Manage Run As accounts](manage-runas-account.md).
+>Creation of the Automation Run As account is not supported when you're using an ARM template. To create a Run As account manually from the portal or with PowerShell, see [Create Run As account](create-run-as-account.md).
 
 After you complete these steps, you need to [configure diagnostic settings](automation-manage-send-joblogs-log-analytics.md) for your Automation account to send runbook job status and job streams to the linked Log Analytics workspace.
 
@@ -80,11 +75,11 @@ The JSON template specifies a default value for the other parameters that would 
 
 If you're new to Azure Automation and Azure Monitor, it's important that you understand the following configuration details. They can help you avoid errors when you try to create, configure, and use a Log Analytics workspace linked to your new Automation account.
 
-* Review [additional details](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) to fully understand workspace configuration options, such as access control mode, pricing tier, retention, and capacity reservation level.
+* Review [additional details](../azure-monitor/logs/resource-manager-workspace.md#create-a-log-analytics-workspace) to fully understand workspace configuration options, such as access control mode, pricing tier, retention, and capacity reservation level.
 
 * Review [workspace mappings](how-to/region-mappings.md) to specify the supported regions inline or in a parameter file. Only certain regions are supported for linking a Log Analytics workspace and an Automation account in your subscription.
 
-* If you're new to Azure Monitor logs and have not deployed a workspace already, you should review the [workspace design guidance](../azure-monitor/platform/design-logs-deployment.md). It will help you to learn about access control, and understand the design implementation strategies we recommend for your organization.
+* If you're new to Azure Monitor logs and have not deployed a workspace already, you should review the [workspace design guidance](../azure-monitor/logs/design-logs-deployment.md). It will help you to learn about access control, and understand the design implementation strategies we recommend for your organization.
 
 ## Deploy the template
 

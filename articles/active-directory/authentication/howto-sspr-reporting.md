@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 02/01/2019
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 
@@ -24,7 +24,7 @@ After deployment, many organizations want to know how or if self-service passwor
 The following questions can be answered by the reports that exist in the [Azure portal](https://portal.azure.com/):
 
 > [!NOTE]
-> You must be [a global administrator](../users-groups-roles/directory-assign-admin-roles.md), and you must opt-in for this data to be gathered on behalf of your organization. To opt in, you must visit the **Reporting** tab or the audit logs at least once. Until then, data is not collected for your organization.
+> You must be [a global administrator](../roles/permissions-reference.md), and you must opt-in for this data to be gathered on behalf of your organization. To opt in, you must visit the **Reporting** tab or the audit logs at least once. Until then, data is not collected for your organization.
 >
 
 * How many people have registered for password reset?
@@ -169,7 +169,7 @@ The following list explains this activity in detail:
 
 ## Next steps
 
-* [SSPR and MFA usage and insights reporting](howto-authentication-methods-usage-insights.md)
+* [SSPR and MFA usage and insights reporting](./howto-authentication-methods-activity.md)
 * [How do I complete a successful rollout of SSPR?](howto-sspr-deployment.md)
 * [Reset or change your password](../user-help/active-directory-passwords-update-your-own-password.md).
 * [Register for self-service password reset](../user-help/active-directory-passwords-reset-register.md).
@@ -179,7 +179,7 @@ The following list explains this activity in detail:
 * [What are the policy options with SSPR?](concept-sspr-policy.md)
 * [What is password writeback and why do I care about it?](./tutorial-enable-sspr-writeback.md)
 * [What are all of the options in SSPR and what do they mean?](concept-sspr-howitworks.md)
-* [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
+* [I think something is broken. How do I troubleshoot SSPR?](./troubleshoot-sspr.md)
 * [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)
 
 [Reporting]: ./media/howto-sspr-reporting/sspr-reporting.png "Example of SSPR activity audit logs in Azure AD"

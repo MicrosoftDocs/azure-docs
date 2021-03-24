@@ -15,9 +15,9 @@ ms.custom: mimckitt, devx-track-azurecli
 
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to use the Azure CLI to create and encrypt a virtual machine scale set. For more information on applying Azure Disk encryption to a virtual machine scale set, see [Azure Disk Encryption for Virtual Machine Scale Sets](disk-encryption-overview.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.31 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
+- This article requires version 2.0.31 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a scale set
 
@@ -134,7 +134,7 @@ az vmss encryption show --resource-group myResourceGroup --name myScaleSet
 
 When VM instances are encrypted, the status code reports *EncryptionState/encrypted*, as shown in the following example output:
 
-```bash
+```console
 [
   {
     "disks": [
@@ -161,7 +161,7 @@ When VM instances are encrypted, the status code reports *EncryptionState/encryp
 
 ## Disable encryption
 
-If you no longer wish to use encrypted VM instances disks, you can disable encryption with [az vmss encryption disable](/cli/azure/vmss/encryption?view=azure-cli-latest#az-vmss-encryption-disable) as follows:
+If you no longer wish to use encrypted VM instances disks, you can disable encryption with [az vmss encryption disable](/cli/azure/vmss/encryption#az-vmss-encryption-disable) as follows:
 
 ```azurecli-interactive
 az vmss encryption disable --resource-group myResourceGroup --name myScaleSet
