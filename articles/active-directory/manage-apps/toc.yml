@@ -51,8 +51,13 @@
       items:
       - name: Overview of App Proxy samples
         href: application-proxy-powershell-samples.md
-      - name: List info about App Proxy apps
+      - name: List basic info about App Proxy apps
         href: ./scripts/powershell-get-all-app-proxy-apps-basic.md
+      - name: List extended info about App Proxy apps
+        href: ./scripts/powershell-get-all-app-proxy-apps-extended.md
+
+
+
 
   - name: Concepts
     expanded: true
