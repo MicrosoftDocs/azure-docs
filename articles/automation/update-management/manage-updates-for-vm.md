@@ -4,9 +4,9 @@ description: This article tells how to use Update Management to manage updates a
 services: automation
 ms.subservice: update-management
 ms.topic: conceptual
-ms.date: 07/28/2020
-ms.custom: mvc
+ms.date: 01/27/2021
 ---
+
 # Manage updates and patches for your VMs
 
 Software updates in Azure Automation Update Management provides a set of tools and resources that can help manage the complex task of tracking and applying software updates to machines in Azure and hybrid cloud. An effective software update management process is necessary to maintain operational efficiency, overcome security issues, and reduce the risks of increased cyber security threats. However, because of the changing nature of technology and the continual appearance of new security threats, effective software update management requires consistent and continual attention.
@@ -29,11 +29,13 @@ Update Management uses a scope configuration within the workspace to target the 
 
 Before you deploy software updates to your machines, review the update compliance assessment results for enabled machines. For each software update, its compliance state is recorded and then after the evaluation is complete, it is collected and forwarded in bulk to Azure Monitor logs.
 
-On a Windows machine, the compliance scan is run every 12 hours by default. In addition to the scheduled scan, the scan for update compliance is initiated within 15 minutes of the Log Analytics agent for Windows being restarted, before update installation, and after update installation. It is also important to review our recommendations on how to [configure the Windows Update client](configure-wuagent.md) with Update Management to avoid any issues that prevents it from being managed correctly.
+On a Windows machine, the compliance scan is run every 12 hours by default, and is initiated within 15 minutes of the Log Analytics agent for Windows is restarted. The assessment data is then forwarded to the workspace and refreshes the **Updates** table. Before and after update installation, an update compliance scan is performed to identify missing updates, but the results are not used to update the assessment data in the table.
+
+It is important to review our recommendations on how to [configure the Windows Update client](configure-wuagent.md) with Update Management to avoid any issues that prevents it from being managed correctly.
 
 For a Linux machine, the compliance scan is performed every hour by default. If the Log Analytics agent for Linux is restarted, a compliance scan is initiated within 15 minutes.
 
-The compliance results are presented in Update Management for each machine assessed. For a new machine enabled for management, it can take up to 30 minutes for the dashboard to display updated data from it.
+The compliance results are presented in Update Management for each machine assessed. It can take up to 30 minutes for the dashboard to display updated data from a new machine enabled for management.
 
 Review [monitor software updates](view-update-assessments.md) to learn how to view compliance results.
 

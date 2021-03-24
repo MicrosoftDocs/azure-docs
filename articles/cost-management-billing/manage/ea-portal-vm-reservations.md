@@ -20,7 +20,7 @@ You can exchange a reservation for another reservation of the same type. It's al
 
 ### Partial refunds
 
-We’ll issue a partial refund when EA customers return reservations that were purchased using overage and not monetary commitment.
+We’ll issue a partial refund when EA customers return reservations that were purchased using overage and not Azure Prepayment (previously called monetary commitment).
 
 The refund will be displayed in the EA portal as a negative adjustment in the previous month and a positive adjustment in the current month. It will show up similarly to a reservations exchange. The credit memo will reference the original invoice number; therefore, to reconcile the initial purchase with the credit memo, please refer to the original invoice number.
 
@@ -60,7 +60,7 @@ Reserved instances can reduce your virtual machine costs up to 72 percent over P
 
 To purchase an Azure reserved virtual machine instance, an Enterprise Azure enrollment admin must enable the _Reserve Instance_ purchase option. The option is in the _Enrollment Detail_ section on the _Enrollment_ tab in the [Azure EA Portal](https://ea.azure.com/).
 
-Once the EA enrollment is enabled to add reserved instances, any account owner with an active subscription associated to the EA enrollment can buy a reserved virtual machine instance in the [Azure portal](https://aka.ms/reservations). For more information, see [Prepay for virtual machines and save money with Reserved Virtual Machine Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md).
+Once the EA enrollment is enabled to add reserved instances, any account owner with an active subscription associated to the EA enrollment can buy a reserved virtual machine instance in the [Azure portal](https://aka.ms/reservations). For more information, see [Prepay for virtual machines and save money with Reserved Virtual Machine Instances](../../virtual-machines/prepay-reserved-vm-instances.md).
 
 ### How to view reserved instance purchase details
 

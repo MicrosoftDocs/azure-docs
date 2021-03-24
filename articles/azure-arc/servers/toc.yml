@@ -27,10 +27,12 @@
       href: security-overview.md
 - name: How-to guides
   items:
-  - name: Connect to Azure Arc
+  - name: Deploy
     items:
     - name: Connected Machine agent overview
       href: agent-overview.md
+    - name: Plan for deployment
+      href: plan-at-scale-deployment.md
     - name: Connect machines to Azure Arc from the Azure portal
       href: onboard-portal.md
     - name: Connect machines at scale using a service principal
@@ -55,14 +57,18 @@
           href: manage-vm-extensions-powershell.md
         - name: Deploy extensions using ARM template
           href: manage-vm-extensions-template.md
+    - name: Use managed identities on server
+      href: managed-identity-authentication.md
     - name: Manage agent
       href: manage-agent.md
+    - name: Migrate machine across regions
+      href: manage-howto-migrate.md
   - name: Scenarios
     items:
     - name: Onboard to Azure Sentinel
       href: scenario-onboard-azure-sentinel.md
     - name: Onboard to Azure Security Center
-      href: /security-center/quickstart-onboard-machines.md
+      href: ../../security-center/quickstart-onboard-machines.md
   - name: Troubleshooting
     items:
     - name: Agent connection issues
@@ -79,6 +85,8 @@
       href: /powershell/module/az.connectedmachine
     - name: .NET
       href: /dotnet/api/overview/azure/hybridcompute/management
+    - name: Azure Stack HCI REST
+      href: /rest/api/stackhci
     - name: REST
       href: /rest/api/hybridcompute
     - name: Go
@@ -95,4 +103,4 @@
 - name: Resources
   items:
     - name: Azure Arc jumpstart
-      href: https://github.com/microsoft/azure_arc
+      href: https://azurearcjumpstart.io

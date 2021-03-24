@@ -46,19 +46,19 @@ To configure the integration of BorrowBox into Azure AD, you need to add BorrowB
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
-	![The Azure Active Directory button](common/select-azuread.png)
+    ![The Azure Active Directory button](common/select-azuread.png)
 
 2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+    ![The Enterprise applications blade](common/enterprise-applications.png)
 
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button](common/add-new-app.png)
+    ![The New application button](common/add-new-app.png)
 
 4. In the search box, type **BorrowBox**, select **BorrowBox** from result panel then click **Add** button to add the application.
 
-	 ![BorrowBox in the results list](common/search-new-app.png)
+    ![BorrowBox in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -90,7 +90,7 @@ To configure Azure AD single sign-on with BorrowBox, perform the following steps
 
 3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-	![Edit Basic SAML Configuration](common/edit-urls.png)
+    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 4. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
 
@@ -104,25 +104,25 @@ To configure Azure AD single sign-on with BorrowBox, perform the following steps
     `https://fe.bolindadigital.com/wldcs_bol_fo/b2i/mainPage.html?b2bSite=<ID>`
 
     > [!NOTE]
-	> The value is not real. Update the value with the actual Sign-on URL. Contact [BorrowBox Client support team](mailto:borrowbox@bolinda.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > The value is not real. Update the value with the actual Sign-on URL. Contact [BorrowBox Client support team](mailto:borrowbox@bolinda.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 6. Your BorrowBox application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. BorrowBox application expects **nameidentifier** to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
-	![image](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 7. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-	![The Certificate download link](common/metadataxml.png)
+    ![The Certificate download link](common/metadataxml.png)
 
 8. On the **Set up BorrowBox** section, copy the appropriate URL(s) as per your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	a. Login URL
+    a. Login URL
 
-	b. Azure Ad Identifier
+    b. Azure Ad Identifier
 
-	c. Logout URL
+    c. Logout URL
 
 ### Configure BorrowBox Single Sign-On
 
@@ -145,7 +145,7 @@ The objective of this section is to create a test user in the Azure portal calle
     ![The User dialog box](common/user-properties.png)
 
     a. In the **Name** field enter **BrittaSimon**.
-  
+
     b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
@@ -159,11 +159,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **BorrowBox**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
 2. In the applications list, select **BorrowBox**.
 
-	![The BorrowBox link in the Applications list](common/all-applications.png)
+    ![The BorrowBox link in the Applications list](common/all-applications.png)
 
 3. In the menu on the left, select **Users and groups**.
 

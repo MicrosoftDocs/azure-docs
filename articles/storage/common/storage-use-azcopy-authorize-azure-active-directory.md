@@ -4,7 +4,7 @@ description: You can provide authorization credentials for AzCopy operations by 
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/03/2020
+ms.date: 12/17/2020
 ms.author: normesta
 ms.subservice: common
 ---
@@ -37,7 +37,7 @@ These roles can be assigned to your security principal in any of these scopes:
 - Resource group
 - Subscription
 
-To learn how to verify and assign roles, see [Use the Azure portal to assign an Azure role for access to blob and queue data](./storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json).
+To learn how to verify and assign roles, see [Use the Azure portal to assign an Azure role for access to blob and queue data](./storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 > [!NOTE]
 > Keep in mind that Azure role assignments can take up to five minutes to propagate.
@@ -68,7 +68,7 @@ This command returns an authentication code and the URL of a website. Open the w
 
 A sign-in window will appear. In that window, sign into your Azure account by using your Azure account credentials. After you've successfully signed in, you can close the browser window and begin using AzCopy.
 
-<a id="service-principal"></a>
+<a id="managed-identity"></a>
 
 ## Authorize a managed identity
 
@@ -111,6 +111,8 @@ azcopy login --identity --identity-resource-id "<resource-id>"
 ```
 
 Replace the `<resource-id>` placeholder with the resource ID of the user-assigned managed identity.
+
+<a id="service-principal"></a>
 
 ## Authorize a service principal
 
@@ -176,8 +178,113 @@ Replace the `<path-to-certificate-file>` placeholder with the relative or fully 
 > [!NOTE]
 > Consider using a prompt as shown in this example. That way, your password won't appear in your console's command history. 
 
-<a id="managed-identity"></a>
+## Authorize without a secret store
 
+The `azcopy login` command retrieves an OAuth token and then places that token into a secret store on your system. If your operating system doesn't have a secret store such as a Linux *keyring*, the `azcopy login` command won't work because there is nowhere to place the token. 
+
+Instead of using the `azcopy login` command, you can set in-memory environment variables. Then run any AzCopy command. AzCopy will retrieve the Auth token required to complete the operation. After the operation completes, the token disappears from memory. 
+
+### Authorize a user identity
+
+After you've verified that your user identity has been given the necessary authorization level, type the following command, and then press the ENTER key.
+
+```bash
+export AZCOPY_AUTO_LOGIN_TYPE=DEVICE
+```
+
+Then, run any azcopy command (For example: `azcopy list https://contoso.blob.core.windows.net`).
+
+This command returns an authentication code and the URL of a website. Open the website, provide the code, and then choose the **Next** button.
+
+![Create a container](media/storage-use-azcopy-v10/azcopy-login.png)
+
+A sign-in window will appear. In that window, sign into your Azure account by using your Azure account credentials. After you've successfully signed in, the operation can complete.
+
+### Authorize by using a system-wide managed identity
+
+First, make sure that you've enabled a system-wide managed identity on your VM. See [System-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity).
+
+Type the following command, and then press the ENTER key.
+
+```bash
+export AZCOPY_AUTO_LOGIN_TYPE=MSI
+```
+
+Then, run any azcopy command (For example: `azcopy list https://contoso.blob.core.windows.net`).
+
+### Authorize by using a user-assigned managed identity
+
+First, make sure that you've enabled a user-assigned managed identity on your VM. See [User-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity).
+
+Type the following command, and then press the ENTER key.
+
+```bash
+export AZCOPY_AUTO_LOGIN_TYPE=MSI
+```
+
+Then, type any of the following commands, and then press the ENTER key.
+
+```bash
+export AZCOPY_MSI_CLIENT_ID=<client-id>
+```
+
+Replace the `<client-id>` placeholder with the client ID of the user-assigned managed identity.
+
+```bash
+export AZCOPY_MSI_OBJECT_ID=<object-id>
+```
+
+Replace the `<object-id>` placeholder with the object ID of the user-assigned managed identity.
+
+```bash
+export AZCOPY_MSI_RESOURCE_STRING=<resource-id>
+```
+
+Replace the `<resource-id>` placeholder with the resource ID of the user-assigned managed identity.
+
+After you set these variables, you can run any azcopy command (For example: `azcopy list https://contoso.blob.core.windows.net`).
+
+### Authorize a service principal
+
+You can sign into your account by using a client secret or by using the password of a certificate that is associated with your service principal's app registration.
+
+#### Authorize a service principal by using a client secret
+
+Type the following command, and then press the ENTER key.
+
+```bash
+export AZCOPY_AUTO_LOGIN_TYPE=SPN
+export AZCOPY_SPA_APPLICATION_ID=<application-id>
+export AZCOPY_SPA_CLIENT_SECRET=<client-secret>
+```
+
+Replace the `<application-id>` placeholder with the application ID of your service principal's app registration. Replace the `<client-secret>` placeholder with the client secret.
+
+> [!NOTE]
+> Consider using a prompt to collect the password from the user. That way, your password won't appear in your command history. 
+
+Then, run any azcopy command (For example: `azcopy list https://contoso.blob.core.windows.net`).
+
+#### Authorize a service principal by using a certificate
+
+If you prefer to use your own credentials for authorization, you can upload a certificate to your app registration, and then use that certificate to log in.
+
+In addition to uploading your certificate to your app registration, you'll also need to have a copy of the certificate saved to the machine or VM where AzCopy will be running. This copy of the certificate should be in .PFX or .PEM format, and must include the private key. The private key should be password-protected. 
+
+Type the following command, and then press the ENTER key.
+
+```bash
+export AZCOPY_AUTO_LOGIN_TYPE=SPN
+export AZCOPY_SPA_CERT_PATH=<path-to-certificate-file>
+export AZCOPY_SPA_CERT_PASSWORD=<certificate-password>
+```
+
+Replace the `<path-to-certificate-file>` placeholder with the relative or fully qualified path to the certificate file. AzCopy saves the path to this certificate but it doesn't save a copy of the certificate, so make sure to keep that certificate in place. Replace the `<certificate-password>` placeholder with the password of the certificate.
+
+> [!NOTE]
+> Consider using a prompt to collect the password from the user. That way, your password won't appear in your command history. 
+
+Then, run any azcopy command (For example: `azcopy list https://contoso.blob.core.windows.net`).
 
 ## Next steps
 

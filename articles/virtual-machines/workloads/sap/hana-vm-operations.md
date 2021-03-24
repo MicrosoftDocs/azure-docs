@@ -8,8 +8,7 @@ manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -42,7 +41,7 @@ The following sections describe basic setup considerations for deploying SAP HAN
 As documented in the [Azure virtual machines planning guide](./planning-guide.md), there are two basic methods for connecting into Azure VMs:
 
 - Connect through the internet and public endpoints on a Jump VM or on the VM that is running SAP HANA.
-- Connect through a [VPN](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) or Azure [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
+- Connect through a [VPN](../../../vpn-gateway/tutorial-site-to-site-portal.md) or Azure [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
 Site-to-site connectivity via VPN or ExpressRoute is necessary for production scenarios. This type of connection is also needed for non-production scenarios that feed into production scenarios where SAP software is being used. The following image shows an example of cross-site connectivity:
 
@@ -250,8 +249,8 @@ It is required to attach multiple Azure disks to the DT 2.0 VM and create a soft
 per VM. A single Azure disk cannot provide the throughput to reach the max VM limit in this regard. Azure Premium storage is mandatory to run DT 2.0. 
 
 - Details about available Azure disk types can be found [here](../../disks-types.md)
-- Details about creating software raid via mdadm can be found [here](../../linux/configure-raid.md)
-- Details about configuring LVM to create a striped volume for max throughput can be found [here](../../linux/configure-lvm.md)
+- Details about creating software raid via mdadm can be found [here](/previous-versions/azure/virtual-machines/linux/configure-raid)
+- Details about configuring LVM to create a striped volume for max throughput can be found [here](/previous-versions/azure/virtual-machines/linux/configure-lvm)
 
 Depending on size requirements, there are different options to reach the max throughput of a VM. Here are possible data volume disk configurations 
 for every DT 2.0 VM type to achieve the upper VM throughput limit. The E32sv3 VM should be considered as an entry level for smaller workloads. In case it
@@ -341,4 +340,3 @@ Get familiar with the articles as listed
 - [Deploy a SAP HANA scale-out system with standby node on Azure VMs by using Azure NetApp Files on Red Hat Enterprise Linux](./sap-hana-scale-out-standby-netapp-files-rhel.md)
 - [High availability of SAP HANA on Azure VMs on SUSE Linux Enterprise Server](./sap-hana-high-availability.md)
 - [High availability of SAP HANA on Azure VMs on Red Hat Enterprise Linux](./sap-hana-high-availability-rhel.md)
-

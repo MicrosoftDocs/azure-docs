@@ -10,7 +10,7 @@ ms.date: 11/02/2020
 ms.author: allensu
 
 ---
-# Quickstart: Create a Private Endpoint using Azure PowerShell
+# Quickstart: Create an Azure Private Endpoint using Azure PowerShell
 
 Get started with Azure Private Link by using a Private Endpoint to connect securely to an Azure web app.
 

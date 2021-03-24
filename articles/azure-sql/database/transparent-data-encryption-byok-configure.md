@@ -17,7 +17,7 @@ ms.date: 03/12/2019
 # PowerShell and the Azure CLI: Enable Transparent Data Encryption with customer-managed key from Azure Key Vault
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-This article walks through how to use a key from Azure Key Vault for Transparent Data Encryption (TDE) on Azure SQL Database or Azure Synapse Analytics (formerly SQL Data Warehouse). To learn more about the TDE with Azure Key Vault integration - Bring Your Own Key (BYOK) Support, visit [TDE with customer-managed keys in Azure Key Vault](transparent-data-encryption-byok-overview.md).
+This article walks through how to use a key from Azure Key Vault for Transparent Data Encryption (TDE) on Azure SQL Database or Azure Synapse Analytics. To learn more about the TDE with Azure Key Vault integration - Bring Your Own Key (BYOK) Support, visit [TDE with customer-managed keys in Azure Key Vault](transparent-data-encryption-byok-overview.md).
 
 > [!NOTE] 
 > Azure SQL now supports using a RSA key stored in a Managed HSM as TDE Protector. This feature is in **public preview**. Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using FIPS 140-2 Level 3 validated HSMs. Learn more about [Managed HSMs](../../key-vault/managed-hsm/index.yml).
@@ -41,7 +41,7 @@ This article walks through how to use a key from Azure Key Vault for Transparent
 
 For Az module installation instructions, see [Install Azure PowerShell](/powershell/azure/install-az-ps). For specific cmdlets, see [AzureRM.Sql](/powershell/module/AzureRM.Sql/).
 
-For specifics on Key Vault, see [PowerShell instructions from Key Vault](../../key-vault/secrets/quick-create-powershell.md) and [How to use Key Vault soft-delete with PowerShell](../../key-vault/general/soft-delete-powershell.md).
+For specifics on Key Vault, see [PowerShell instructions from Key Vault](../../key-vault/secrets/quick-create-powershell.md) and [How to use Key Vault soft-delete with PowerShell](../../key-vault/general/key-vault-recovery.md).
 
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager (RM) module is still supported, but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020.  The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
@@ -74,7 +74,7 @@ For adding permissions to your server on a Managed HSM, add the 'Managed HSM Cry
 
 ## Add the Key Vault key to the server and set the TDE Protector
 
-- Use the [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey?view=azps-2.4.0) cmdlet to retrieve the key ID from key vault
+- Use the [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) cmdlet to retrieve the key ID from key vault
 - Use the [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) cmdlet to add the key from the Key Vault to the server.
 - Use the [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlet to set the key as the TDE protector for all server resources.
 - Use the [Get-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) cmdlet to confirm that the TDE protector was configured as intended.
@@ -131,7 +131,7 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
 
 To install the required version of the Azure CLI (version 2.0 or later) and connect to your Azure subscription, see [Install and Configure the Azure Cross-Platform Command-Line Interface 2.0](/cli/azure/install-azure-cli).
 
-For specifics on Key Vault, see [Manage Key Vault using the CLI 2.0](../../key-vault/general/manage-with-cli2.md) and [How to use Key Vault soft-delete with the CLI](../../key-vault/general/soft-delete-cli.md).
+For specifics on Key Vault, see [Manage Key Vault using the CLI 2.0](../../key-vault/general/manage-with-cli2.md) and [How to use Key Vault soft-delete with the CLI](../../key-vault/general/key-vault-recovery.md).
 
 ## Assign an Azure AD identity to your server
 

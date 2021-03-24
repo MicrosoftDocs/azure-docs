@@ -2,7 +2,7 @@
 title: Save costs with Azure VMware Solution reserved instance
 description: Learn how to buy a reserved instance for Azure VMware Solution.
 ms.topic: how-to
-ms.date: 11/12/2020
+ms.date: 02/03/2021
 ---
 
 # Save costs with Azure VMware Solution
@@ -49,7 +49,7 @@ These requirements apply to buying a reserved dedicated host instance:
 
    | Field        |  Description |
    | ------------ | ------------ |
-   | Subscription | The subscription used to pay for the reservation. The payment method on the subscription is charged the costs for the reservation. The subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P), Microsoft Customer Agreement, or an individual subscription with pay-as-you-go rates (offer numbers: MS-AZR-0003P or MS-AZR-0023P). The charges are deducted from the monetary commitment balance, if available, or charged as overage. For a subscription with pay-as-you-go rates, the charges are billed to the subscription's credit card or an invoice payment method. |
+   | Subscription | The subscription used to pay for the reservation. The payment method on the subscription is charged the costs for the reservation. The subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P), Microsoft Customer Agreement, or an individual subscription with pay-as-you-go rates (offer numbers: MS-AZR-0003P or MS-AZR-0023P). The charges are deducted from the Azure Prepayment (previously called monetary commitment) balance, if available, or charged as overage. For a subscription with pay-as-you-go rates, the charges are billed to the subscription's credit card or an invoice payment method. |
    | Scope        | The reservation's scope can cover one subscription or multiple subscriptions (shared scope). If you select:<br><ul><li><b>Single resource group scope</b> - Applies the reservation discount to the matching resources in the selected resource group only.</li><li><b>Single subscription scope</b> - Applies the reservation discount to the matching resources in the selected subscription.</li><li><b>Shared scope</b> - Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context. For EA customers, the billing context is the enrollment. For individual subscriptions with pay-as-you-go rates, the billing scope is all eligible subscriptions created by the account administrator.</li></ul>       |
    | Region       | The Azure region that's covered by the reservation.   |
    | Host Size    | AV36    |
@@ -58,7 +58,7 @@ These requirements apply to buying a reserved dedicated host instance:
 
 ### Buy reserved instances for a CSP subscription
 
-CSPs that want to purchase reserved instances for their customers must use the **Admin On Behalf Of** (AOBO) procedure from the [Partner Center documentation](https://docs.microsoft.com/partner-center/azure-plan-manage). For more information, view the [Admin on behalf of (AOBO)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) video.
+CSPs that want to purchase reserved instances for their customers must use the **Admin On Behalf Of** (AOBO) procedure from the [Partner Center documentation](/partner-center/azure-plan-manage). For more information, view the [Admin on behalf of (AOBO)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) video.
 
 1. Sign in to [Partner Center](https://partner.microsoft.com).
 
@@ -108,7 +108,7 @@ You can make these changes to a reservation after purchase:
 
 You can also split a reservation into smaller chunks or merge reservations. None of the changes cause a new commercial transaction or change the end date of the reservation.
 
-For details about CSP-managed reservations, see [Sell Microsoft Azure reservations to customers using Partner Center, the Azure portal, or APIs](https://docs.microsoft.com/partner-center/azure-reservations).
+For details about CSP-managed reservations, see [Sell Microsoft Azure reservations to customers using Partner Center, the Azure portal, or APIs](/partner-center/azure-reservations).
 
 
 
@@ -126,4 +126,13 @@ For details about CSP-managed reservations, see [Sell Microsoft Azure reservatio
 
 You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
-CSPs can cancel, exchange, or refund reservations, with certain limitations, purchased for their customer. For more information, see [Manage, cancel, exchange, or refund Microsoft Azure reservations for customers](https://docs.microsoft.com/partner-center/azure-reservations-manage).
+CSPs can cancel, exchange, or refund reservations, with certain limitations, purchased for their customer. For more information, see [Manage, cancel, exchange, or refund Microsoft Azure reservations for customers](/partner-center/azure-reservations-manage).
+
+## Next steps
+
+Now that you've covered buying a reserved instance of Azure VMware Solution, you may want to learn about:
+
+- [Creating an Azure VMware Solution assessment](../migrate/how-to-create-azure-vmware-solution-assessment.md).
+- [Managing DHCP for Azure VMware Solution](manage-dhcp.md).
+- [Lifecycle management of Azure VMware Solution VMs](lifecycle-management-of-azure-vmware-solution-vms.md).
+ 

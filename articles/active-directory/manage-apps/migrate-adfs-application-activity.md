@@ -3,7 +3,7 @@ title: Use the activity report to move AD FS apps to Azure Active Directory | Mi
 description: The Active Directory Federation Services (AD FS) application activity report lets you quickly migrate applications from AD FS to Azure Active Directory (Azure AD). This migration tool for AD FS identifies compatibility with Azure AD and gives migration guidance.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
@@ -15,15 +15,16 @@ ms.author: kenwith
 ms.collection: M365-identity-device-management
 ---
 
-# Use the AD FS application activity report (preview) to migrate applications to Azure AD
+# Use the AD FS application activity report to migrate applications to Azure AD
 
 Many organizations use Active Directory Federation Services (AD FS) to provide single sign-on to cloud applications. There are significant benefits to moving your AD FS applications to Azure AD for authentication, especially in terms of cost management, risk management, productivity, compliance, and governance. But understanding which applications are compatible with Azure AD and identifying specific migration steps can be time consuming.
 
-The AD FS application activity report (preview) in the Azure portal lets you quickly identify which of your applications are capable of being migrated to Azure AD. It assesses all AD FS applications for compatibility with Azure AD, checks for any issues, and gives guidance on preparing individual applications for migration. With the AD FS application activity report, you can:
+The AD FS application activity report in the Azure portal lets you quickly identify which of your applications are capable of being migrated to Azure AD. It assesses all AD FS applications for compatibility with Azure AD, checks for any issues, and gives guidance on preparing individual applications for migration. With the AD FS application activity report, you can:
 
-* **Discover AD FS applications and scope your migration.** The AD FS application activity report lists all the AD FS applications in your organization and indicates their readiness for migration to Azure AD.
+* **Discover AD FS applications and scope your migration.** The AD FS application activity report lists all AD FS applications in your organization that have had an active user login in the last 30 days. The report indicates an apps readiness for migration to Azure AD. The report doesn't display Microsoft related relying parties in AD FS such as Office 365. For example, relying parties with name 'urn:federation:MicrosoftOnline'.
+
 * **Prioritize applications for migration.** Get the number of unique users who have signed in to the application in the past 1, 7, or 30 days to help determine the criticality or risk of migrating the application.
-* **Run migration tests and fix issues.** The reporting service automatically runs tests to determine if an application is ready to migrate. The results are displayed in the AD FS application activity report as a migration status. If potential migration issues are identified, you get specific guidance on how to address the issues.
+* **Run migration tests and fix issues.** The reporting service automatically runs tests to determine if an application is ready to migrate. The results are displayed in the AD FS application activity report as a migration status. If the AD FS configuration is not compatible with an Azure AD configuration, you get specific guidance on how to address the configuration in Azure AD.
 
 The AD FS application activity data is available to users who are assigned any of these admin roles: global administrator, report reader, security reader, application administrator, or cloud application administrator.
 
@@ -35,6 +36,9 @@ The AD FS application activity data is available to users who are assigned any o
    * [Learn more about Azure AD Connect Health](../hybrid/how-to-connect-health-adfs.md)
    * [Get started with setting up Azure AD Connect Health and install the AD FS agent](../hybrid/how-to-connect-health-agent-install.md)
 
+>[!IMPORTANT] 
+>There are a couple reasons you won't see all the applications you are expecting after you have installed Azure AD Connect Health. The AD FS application activity report only shows AD FS relying parties with user logins in the last 30 days. Also, the report won't display Microsoft related relying parties such as Office 365.
+
 ## Discover AD FS applications that can be migrated 
 
 The AD FS application activity report is available in the Azure portal under Azure AD **Usage & insights** reporting. The AD FS application activity report analyzes each AD FS application to determine if it can be migrated as-is, or if additional review is needed. 
@@ -43,7 +47,7 @@ The AD FS application activity report is available in the Azure portal under Azu
 
 2. Select **Azure Active Directory**, and then select **Enterprise applications**.
 
-3. Under **Activity**, select **Usage & Insights (Preview)**, and then select **AD FS application activity** to open a list of all AD FS applications in your organization.
+3. Under **Activity**, select **Usage & Insights**, and then select **AD FS application activity** to open a list of all AD FS applications in your organization.
 
    ![AD FS application activity](media/migrate-adfs-application-activity/adfs-application-activity.png)
 
@@ -116,6 +120,17 @@ The following table lists all claim rule tests that are performed on AD FS appli
 |EXTERNAL_ATTRIBUTE_STORE      | The issuance statement uses an attribute store different that Active Directory. Currently, Azure AD doesn’t source claims from stores different that Active Directory or Azure AD. If this result is blocking you from migrating applications to Azure AD, [let us know](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695717-allow-to-source-user-attributes-from-external-dire).          |
 |UNSUPPORTED_ISSUANCE_CLASS      | The issuance statement uses ADD to add claims to the incoming claim set. In Azure AD, this may be configured as multiple claim transformations.  For more information, see [Customize claims issued in the SAML token for enterprise applications](../develop/active-directory-claims-mapping.md).         |
 |UNSUPPORTED_ISSUANCE_TRANSFORMATION      | The issuance statement uses Regular Expressions to transform the value of the claim to be emitted. To achieve similar functionality in Azure AD, you can use pre-defined transformation such as Extract(), Trim(), ToLower, among others. For more information, see [Customize claims issued in the SAML token for enterprise applications](../develop/active-directory-saml-claims-customization.md).          |
+
+## Troubleshooting
+
+### Can't see all my AD FS applications in the report
+
+ If you have installed Azure AD Connect health but you still see the prompt to install it or you don't see all your AD FS applications in the report it may be that you don't have active AD FS applications or your AD FS applications are microsoft application.
+ 
+ The AD FS application activity report lists all the AD FS applications in your organization with active users sign-in in the last 30 days. Also, the report doesn't display microsoft related relying parties in AD FS such as Office 365. For example, relying parties with name 'urn:federation:MicrosoftOnline', 'microsoftonline', 'microsoft:winhello:cert:prov:server' won't show up in the list.
+
+
+
 
 
 ## Next steps

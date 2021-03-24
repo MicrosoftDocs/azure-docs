@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: jamesbak
 ---
@@ -23,18 +23,21 @@ You can associate a [security principal](../../role-based-access-control/overvie
 > [!NOTE]
 > ACLs apply only to security principals in the same tenant, and they don't apply to users who use Shared Key or shared access signature (SAS) token authentication. That's because no identity is associated with the caller and therefore security principal permission-based authorization cannot be performed.  
 
+<a id="set-access-control-lists"></a>
+
 ## How to set ACLs
 
 To set file and directory level permissions, see any of the following articles:
 
 | Environment | Article |
 |--------|-----------|
-|Azure Storage Explorer |[Use Azure Storage Explorer to manage directories, files, and ACLs in Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access)|
-|.NET |[Use .NET to manage directories, files, and ACLs in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-dotnet.md#manage-access-control-lists-acls)|
-|Java|[Use Java to manage directories, files, and ACLs in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-java.md#manage-access-control-lists-acls)|
-|Python|[Use Python to manage directories, files, and ACLs in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-python.md#manage-access-control-lists-acls)|
-|PowerShell|[Use PowerShell to manage directories, files, and ACLs in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-powershell.md#manage-access-control-lists-acls)|
-|Azure CLI|[Use Azure CLI to manage directories, files, and ACLs in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-cli.md#manage-access-control-lists-acls)|
+|Azure Storage Explorer |[Use Azure Storage Explorer to set ACLs in Azure Data Lake Storage Gen2](data-lake-storage-explorer-acl.md)|
+|.NET |[Use .NET to set ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-dotnet.md)|
+|Java|[Use Java to set ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-java.md)|
+|Python|[Use Python to set ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-python.md)|
+|JavaScript (Node.js)|[Use the JavaScript SDK in Node.js to set ACLs in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-javascript.md)|
+|PowerShell|[Use PowerShell to set ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-powershell.md)|
+|Azure CLI|[Use Azure CLI to set ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-cli.md)|
 |REST API |[Path - Update](/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
@@ -55,7 +58,7 @@ Both access ACLs and default ACLs have the same structure.
 
 ## Levels of permission
 
-The permissions on a container object are **Read**, **Write**, and **Execute**, and they can be used on files and directories as shown in the following table:
+The permissions on directories and files in a container, are **Read**, **Write**, and **Execute**, and they can be used on files and directories as shown in the following table:
 
 |            |    File     |   Directory |
 |------------|-------------|----------|
@@ -64,7 +67,7 @@ The permissions on a container object are **Read**, **Write**, and **Execute**, 
 | **Execute (X)** | Does not mean anything in the context of Data Lake Storage Gen2 | Required to traverse the child items of a directory |
 
 > [!NOTE]
-> If you are granting permissions by using only ACLs (no Azure RBAC), then to grant a security principal read or write access to a file, you'll need to give the security principal **Execute** permissions to the container, and to each folder in the hierarchy of folders that lead to the file.
+> If you are granting permissions by using only ACLs (no Azure RBAC), then to grant a security principal read or write access to a file, you'll need to give the security principal **Execute** permissions to the root folder of the container, and to each folder in the hierarchy of folders that lead to the file.
 
 ### Short forms for permissions
 
@@ -157,36 +160,36 @@ def access_check( user, desired_perms, path ) :
   # path is the file or directory
   # Note: the "sticky bit" isn't illustrated in this algorithm
   
-# Handle super users.
+  # Handle super users.
   if (is_superuser(user)) :
     return True
 
-# Handle the owning user. Note that mask isn't used.
-entry = get_acl_entry( path, OWNER )
-if (user == entry.identity)
-    return ( (desired_perms & entry.permissions) == desired_perms )
+  # Handle the owning user. Note that mask isn't used.
+  entry = get_acl_entry( path, OWNER )
+  if (user == entry.identity)
+      return ( (desired_perms & entry.permissions) == desired_perms )
 
-# Handle the named users. Note that mask IS used.
-entries = get_acl_entries( path, NAMED_USER )
-for entry in entries:
-    if (user == entry.identity ) :
-        mask = get_mask( path )
-        return ( (desired_perms & entry.permissions & mask) == desired_perms)
+  # Handle the named users. Note that mask IS used.
+  entries = get_acl_entries( path, NAMED_USER )
+  for entry in entries:
+      if (user == entry.identity ) :
+          mask = get_mask( path )
+          return ( (desired_perms & entry.permissions & mask) == desired_perms)
 
-# Handle named groups and owning group
-member_count = 0
-perms = 0
-entries = get_acl_entries( path, NAMED_GROUP | OWNING_GROUP )
-mask = get_mask( path )
-for entry in entries:
-if (user_is_member_of_group(user, entry.identity)) :
-    if ((desired_perms & entry.permissions & mask) == desired_perms)
-        return True 
+  # Handle named groups and owning group
+  member_count = 0
+  perms = 0
+  entries = get_acl_entries( path, NAMED_GROUP | OWNING_GROUP )
+  mask = get_mask( path )
+  for entry in entries:
+    if (user_is_member_of_group(user, entry.identity)) :
+        if ((desired_perms & entry.permissions & mask) == desired_perms)
+            return True 
         
-# Handle other
-perms = get_perms_for_other(path)
-mask = get_mask( path )
-return ( (desired_perms & perms & mask ) == desired_perms)
+  # Handle other
+  perms = get_perms_for_other(path)
+  mask = get_mask( path )
+  return ( (desired_perms & perms & mask ) == desired_perms)
 ```
 
 ### The mask
@@ -268,7 +271,7 @@ To learn how the system evaluates Azure RBAC and ACLs together to make authoriza
 
 ### What are the limits for Azure role assignments and ACL entries?
 
-The following table provides a summary view of the limits to consider while using Azure RBAC to manage "coarse-grained" permissions (permissions that apply to storage accounts or containers) and using ACLs to manage "fine-grained" permissions (permissions that apply to files and directories). Use security groups for ACL assignments. By using groups, you're less likely to exceed the maximum number of role assignments per subscription and the maximum number of ACl entries per file or directory. 
+The following table provides a summary view of the limits to consider while using Azure RBAC to manage "coarse-grained" permissions (permissions that apply to storage accounts or containers) and using ACLs to manage "fine-grained" permissions (permissions that apply to files and directories). Use security groups for ACL assignments. By using groups, you're less likely to exceed the maximum number of role assignments per subscription and the maximum number of ACL entries per file or directory. 
 
 [!INCLUDE [Security groups](../../../includes/azure-storage-data-lake-rbac-acl-limits.md)] 
 
@@ -278,7 +281,7 @@ Azure role assignments do inherit. Assignments flow from subscription, resource 
 
 ### Does Data Lake Storage Gen2 support inheritance of ACLs?
 
-Default ACLs can be used to set ACLs for new child subdirectories and files created under the parent directory. To update ACLs for existing child items, you will need to add, update, or remove ACLs recursively for the desired directory hierarchy. For more information, see [Set access control lists (ACLs) recursively for Azure Data Lake Storage Gen2](recursive-access-control-lists.md). 
+Default ACLs can be used to set ACLs for new child subdirectories and files created under the parent directory. To update ACLs for existing child items, you will need to add, update, or remove ACLs recursively for the desired directory hierarchy. For guidance, see the [How to set ACLs](#set-access-control-lists) section of this article. 
 
 ### Which permissions are required to recursively delete a directory and its contents?
 

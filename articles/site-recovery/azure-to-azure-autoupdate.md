@@ -64,7 +64,7 @@ When you enable replication for a VM either starting [from the VM view](azure-to
 > When you choose **Allow Site Recovery to manage**, the setting is applied to all VMs in the vault.
 
 > [!NOTE]
-> Either option notifies you of the automation account used for managing updates. If you're using this feature in a vault for the first time, a new automation account is created by default. Alternately, you can customize the setting, and choose an existing automation account. All subsequent takes to enable replication in the same vault will use the previously created automation account. Currently, the drop-down menu will only list automation accounts that are in the same Resource Group as the vault.
+> Either option notifies you of the automation account used for managing updates. If you're using this feature in a vault for the first time, a new automation account is created by default. Alternately, you can customize the setting, and choose an existing automation account. Once defined, all subsequent actions to enable replication in the same vault will use that selected automation account. Currently, the drop-down menu will only list automation accounts that are in the same Resource Group as the vault.
 
 > [!IMPORTANT]
 > The following script needs to be run in the context of an automation account.

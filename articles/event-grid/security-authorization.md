@@ -2,7 +2,7 @@
 title: Azure Event Grid security and authentication
 description: Describes Azure Event Grid and its concepts.
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 02/12/2021
 ---
 
 # Authorizing access to Event Grid resources
@@ -12,91 +12,37 @@ Azure Event Grid allows you to control the level of access given to different us
 > EventGrid doesn't support Azure RBAC for publishing events to Event Grid topics or domains. Use a Shared Access Signature (SAS) key or token to authenticate clients that publish events. For more information, see [Authenticate publishing clients](security-authenticate-publishing-clients.md). 
 
 ## Operation types
+For a list of operation supported by Azure Event Grid, run the following Azure CLI command: 
 
-Event Grid supports the following actions:
+```azurecli-interactive
+az provider operation show --namespace Microsoft.EventGrid
+```
 
-* Microsoft.EventGrid/*/read
-* Microsoft.EventGrid/*/write
-* Microsoft.EventGrid/*/delete
+The following operations return potentially secret information, which gets filtered out of normal read operations. It's recommended that you restrict access to these operations. 
+
 * Microsoft.EventGrid/eventSubscriptions/getFullUrl/action
 * Microsoft.EventGrid/topics/listKeys/action
 * Microsoft.EventGrid/topics/regenerateKey/action
 
-The last three operations return potentially secret information, which gets filtered out of normal read operations. It's recommended that you restrict access to these operations. 
 
 ## Built-in roles
+Event Grid provides the following three built-in roles. 
 
-Event Grid provides two built-in roles for managing event subscriptions. They're important when implementing [event domains](event-domains.md) because they give users the permissions they need to subscribe to topics in your event domain. These roles are focused on event subscriptions and don't grant access for actions such as creating topics.
+The Event Grid Subscription Reader and Event Grid Subscription Contributor roles are for managing event subscriptions. They're important when implementing [event domains](event-domains.md) because they give users the permissions they need to subscribe to topics in your event domain. These roles are focused on event subscriptions and don't grant access for actions such as creating topics.
 
-You can [assign these roles to a user or group](../role-based-access-control/quickstart-assign-role-user-portal.md).
+The Event Grid Contributor role allows you to create and manage Event Grid resources. 
 
-**EventGrid EventSubscription Contributor**: manage Event Grid subscription operations
 
-```json
-[
-  {
-    "Description": "Lets you manage EventGrid event subscription operations.",
-    "IsBuiltIn": true,
-    "Id": "428e0ff05e574d9ca2212c70d0e0a443",
-    "Name": "EventGrid EventSubscription Contributor",
-    "IsServiceRole": false,
-    "Permissions": [
-      {
-        "Actions": [
-          "Microsoft.Authorization/*/read",
-          "Microsoft.EventGrid/eventSubscriptions/*",
-          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
-          "Microsoft.Insights/alertRules/*",
-          "Microsoft.Resources/deployments/*",
-          "Microsoft.Resources/subscriptions/resourceGroups/read",
-          "Microsoft.Support/*"
-        ],
-        "NotActions": [],
-        "DataActions": [],
-        "NotDataActions": [],
-        "Condition": null
-      }
-    ],
-    "Scopes": [
-      "/"
-    ]
-  }
-]
-```
+| Role | Description |
+| ---- | ----------- | 
+| [Event Grid Subscription Reader](../role-based-access-control/built-in-roles.md#eventgrid-eventsubscription-reader) | Lets you manage Event Grid event subscription operations. |
+| [Event Grid Subscription Contributor](../role-based-access-control/built-in-roles.md#eventgrid-eventsubscription-contributor) | Lets you read Event Grid event subscriptions. |
+| [Event Grid Contributor](../role-based-access-control/built-in-roles.md#eventgrid-contributor) | Lets you create and manage Event Grid resources. |
 
-**EventGrid EventSubscription Reader**: read Event Grid subscriptions
 
-```json
-[
-  {
-    "Description": "Lets you read EventGrid event subscriptions.",
-    "IsBuiltIn": true,
-    "Id": "2414bbcf64974faf8c65045460748405",
-    "Name": "EventGrid EventSubscription Reader",
-    "IsServiceRole": false,
-    "Permissions": [
-      {
-        "Actions": [
-          "Microsoft.Authorization/*/read",
-          "Microsoft.EventGrid/eventSubscriptions/read",
-          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
-          "Microsoft.Resources/subscriptions/resourceGroups/read"
-        ],
-        "NotActions": [],
-        "DataActions": [],
-        "NotDataActions": []
-       }
-    ],
-    "Scopes": [
-      "/"
-    ]
-  }
-]
-```
+> [!NOTE]
+> Select links in the first column to navigate to an article that provides more details about the role. For instructions on how to assign users or groups to RBAC roles, see [this article](../role-based-access-control/quickstart-assign-role-user-portal.md).
+
 
 ## Custom roles
 
@@ -182,7 +128,7 @@ If you're using an event handler that isn't a WebHook (such as an event hub or q
 You must have the **Microsoft.EventGrid/EventSubscriptions/Write** permission on the resource that is the event source. You need this permission because you're writing a new subscription at the scope of the resource. The required resource differs based on whether you're subscribing to a system topic or custom topic. Both types are described in this section.
 
 ### System topics (Azure service publishers)
-For system topics, you need permission to write a new event subscription at the scope of the resource publishing the event. The format of the resource is:
+For system topics, if you are not the owner or contributor of the source resource, you need permission to write a new event subscription at the scope of the resource publishing the event. The format of the resource is:
 `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
 
 For example, to subscribe to an event on a storage account named **myacct**, you need the Microsoft.EventGrid/EventSubscriptions/Write permission on:

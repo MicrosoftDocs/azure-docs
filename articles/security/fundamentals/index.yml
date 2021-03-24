@@ -13,7 +13,7 @@ metadata:
   author: TerryLanfear
   ms.author: terrylan
   manager: rkarlin
-  ms.date: 10/28/2019
+  ms.date: 02/03/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -57,7 +57,7 @@ landingContent:
         links:
           - text: Management and monitoring
             url: management-monitoring-overview.md
-          - text: Advanced threat detection
+          - text: Threat protection
             url: threat-detection.md
 
   # Card

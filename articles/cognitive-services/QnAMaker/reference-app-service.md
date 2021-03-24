@@ -15,7 +15,7 @@ Each version of QnA Maker uses a different set of Azure resources (services). Th
 
 # [QnA Maker GA (stable release)](#tab/v1)
 
-QnA Maker uses the App Service to provide the query runtime used by the [generateAnswer API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/runtime/generateanswer).
+QnA Maker uses the App Service to provide the query runtime used by the [generateAnswer API](/rest/api/cognitiveservices/qnamaker4.0/runtime/generateanswer).
 
 These settings are available in the Azure portal, for the App Service. The settings are available by selecting **Settings**, then **Configuration**.
 
@@ -29,6 +29,7 @@ You can set an individual setting either through the Application Settings list, 
 |UserAppInsightsAppId|Chat log and telemetry|
 |UserAppInsightsKey|Chat log and telemetry|
 |UserAppInsightsName|Chat log and telemetry|
+|QNAMAKER_EXTENSION_VERSION|Always set to _latest_. This setting will initialize the QnAMaker Site Extension in the App Service.|
 
 You need to **restart** the service from the **Overview** page of the Azure portal, once you are done making changes.
 
@@ -46,7 +47,7 @@ Learn [how to add collaborators](./reference-role-based-access-control.md) to yo
 
 ## Change Azure Cognitive Search
 
-Learn [how to change the Cognitive Search service](./how-to/set-up-qnamaker-service-azure.md#configure-qna-maker-to-use-different-cognitive-search-resource) linked to your QnA Maker service.
+Learn [how to change the Cognitive Search service](./how-to/configure-QnA-Maker-resources.md#configure-qna-maker-to-use-different-cognitive-search-resource) linked to your QnA Maker service.
 
 ## Change default answer
 

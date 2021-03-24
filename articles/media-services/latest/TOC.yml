@@ -13,6 +13,8 @@
   items:
   - name: Set up your environment
     items:
+    - name: Find your tenant ID
+      href: how-to-set-azure-tenant.md
     - name: Find your Azure subscription
       href: how-to-set-azure-subscription.md
     - name: Create a Media Services account
@@ -21,12 +23,10 @@
       href: access-api-howto.md
     - name: Set up Azure Cloud Shell
       href: ../../cloud-shell/overview.md
-    - name: Develop with REST
+    - name: Connect to Media Services
       items:
-      - name: Connect with Postman
+      - name: Connect with REST and Postman
         href: media-rest-apis-with-postman.md
-    - name: Develop with SDKs
-      items:
       - name: Connect with Java
         href: configure-connect-java-howto.md
       - name: Connect with .NET 
@@ -44,7 +44,11 @@
     - name: Use portal to upload, encode, and stream content 
       href: manage-assets-quickstart.md
     - name: Use portal to encrypt content
-      href: encrypt-content-quickstart.md       
+      href: encrypt-content-quickstart.md
+  - name: Use an ARM template
+    items:
+    - name: Create an account with ARM
+      href: quickstart-arm-template-account.md    
 - name: Tutorials
   items:
   - name: .NET
@@ -66,6 +70,8 @@
       displayName: AAD, Active Directory
   - name: REST
     items:
+    - name: Enable trusted storage
+      href: tutorial-trusted-storage-rest.md
     - name: Encode and stream a remote file REST
       href: stream-files-tutorial-with-rest.md
     - name: Customer managed keys with REST API
@@ -78,6 +84,10 @@
     items:
     - name: Encode and stream a remote file Node.js
       href: stream-files-nodejs-quickstart.md
+  - name: Python
+    items:
+    - name: Python Basic Encoding
+      href: quickstart-basic-encoding-python.md
   - name: Azure portal
     items:
     - name: Customer managed keys or BYOK tutorial
@@ -107,6 +117,8 @@
     - name: Managed identities and media services
       displayName: content protection
       href: concept-managed-identities.md
+    - name: Trusted storage
+      href: concept-trusted-storage.md
     - name: Customer managed keys
       href: concept-use-customer-managed-keys-byok.md
   - name: Assets
@@ -202,18 +214,22 @@
       href: content-key-policy-concept.md                    
   - name: Monitoring
     items:
-    - name: Events with Event Grid
-      href: reacting-to-media-services-events.md  
-    - name: Event Grid schemas
-      href: media-services-event-schemas.md    
-    - name: Metrics and diagnostic logs
-      href: media-services-metrics-diagnostic-logs.md      
-    - name: Diagnostic logs schemas
-      href: media-services-diagnostic-logs-schema.md          
-  - name: Azure Media Player
+      - name: Monitor with Azure Monitor
+        items:
+        - name: Monitor Media Services
+          href: monitoring/monitor-media-services.md
+        - name: Monitoring Media Services data reference
+          href: monitoring/monitor-media-services-data-reference.md
+      - name: Monitor with Event Grid
+        items:
+        - name: Events with Event Grid
+          href: monitoring/reacting-to-media-services-events.md  
+        - name: Event Grid schemas
+          href: monitoring/media-services-event-schemas.md              
+  - name: Compatible players
     items:
-    - name: Azure Media Player overview
-      href: ../azure-media-player/azure-media-player-overview.md
+    - name: Media players for Media Services
+      href: media-players-overview.md
   - name: Developing with v3 APIs
     items:
     - name: Overview
@@ -236,6 +252,9 @@
     - name: Video on Demand
       displayName: failover, bcdr, HA, high availability
       href: media-services-high-availability-encoding.md
+  - name: Media Services architectures
+    displayName: architectures
+    href: architectures-concept.md
   - name: Troubleshooting
     items:
     - name: Frequently asked questions
@@ -251,16 +270,57 @@
         href: job-error-codes.md
     - name: Reset account credentials
       href: cli-reset-account-credentials.md       
-  - name: Migration from v2 to v3
+  - name: Migration guide
+    displayName: migration
     items:
-    - name: v2 vs v3
-      displayName: migrate, v2 to v3
-      href: media-services-v2-vs-v3.md
-    - name: Migration guidance
-      href: migrate-from-v2-to-v3.md 
-      displayName: naming      
+    - name: Migration guide introduction
+      href: migrate-v-2-v-3-migration-introduction.md
+      displayName: migration
+    - name: Step 1 - Benefits
+      href: migrate-v-2-v-3-migration-benefits.md
+      displayName: migration, benefits
+    - name: Step 2 - Differences
+      items:
+      - name: API access
+        href: migrate-v-2-v-3-differences-api-access.md
+        displayName: migration, api
+      - name: Feature gaps
+        href: migrate-v-2-v-3-differences-feature-gaps.md
+        displayName: migration, features
+      - name: Terminology and entity changes
+        href: migrate-v-2-v-3-differences-terminology.md
+        displayName: migration, entity, api
+    - name: Step 3 - SDK setup
+      href: migrate-v-2-v-3-migration-setup.md
+      displayName: migration, SDK`
+    - name: Step 4 - Scenario-based migration guidance
+      items:
+      - name: Encoding
+        href: migrate-v-2-v-3-migration-scenario-based-encoding.md
+        displayName: migration, encoding
+      - name: Live streaming
+        href: migrate-v-2-v-3-migration-scenario-based-live-streaming.md
+        displayName: migration, live streaming
+      - name: Packaging and delivery
+        href: migrate-v-2-v-3-migration-scenario-based-publishing.md
+        displayName: migration, packaging, delivery, publishing
+      - name: Content protection
+        href: migrate-v-2-v-3-migration-scenario-based-content-protection.md
+        displayName: migration, content protection, DRM, digital rights management
+      - name: Media Reserved Units (MRU)
+        href: migrate-v-2-v-3-migration-scenario-based-media-reserved-units.md
+        displayName: migration, media reserved units
+    - name: Samples comparison
+      href: migrate-v-2-v-3-migration-samples.md
+      displayName: migration, samples    
 - name: How-to guides
   items:
+  - name: Find your tenant and subscription
+    items:
+    - name: Find your tenant ID
+      href: how-to-set-azure-tenant.md
+    - name: Find your subscription ID
+      href: how-to-set-azure-subscription.md
   - name: Create assets and upload media
     items:
     - name: Create an asset
@@ -273,6 +333,8 @@
       href: how-to-create-transform.md
     - name: Create a basic audio transform with REST
       href: how-to-create-basic-audio-transform.md
+    - name: Create thumbnail sprites
+      href: how-to-create-thumbnail-sprites.md 
     - name: Create a copyAllBitrateNonInterleaved transform with REST
       href: how-to-create-copyallbitratenoninterleaved-transform.md
     - name: Copy videos without encoding with REST
@@ -332,15 +394,15 @@
   - name: Use Event Grid
     items:
     - name: Monitor events - Portal
-      href: monitor-events-portal-how-to.md
+      href: monitoring/monitor-events-portal-how-to.md
     - name: Monitor events - CLI
-      href: job-state-events-cli-how-to.md 
+      href: monitoring/job-state-events-cli-how-to.md 
   - name: Use Azure Monitor
     items:
     - name: Monitor metrics
-      href: media-services-metrics-howto.md
+      href: monitoring/media-services-metrics-howto.md
     - name: Monitor diagnostic logs
-      href: media-services-diagnostic-logs-howto.md
+      href: monitoring/media-services-diagnostic-logs-howto.md
   - name: Protect content
     items:
     - name: Get content key policy
@@ -417,7 +479,8 @@
     displayName: forums, twitter, feedback
     href: media-services-community.md
   - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/?category=web-mobile
+    displayName: azure updates
+    href: https://azure.microsoft.com/updates/?category=media
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/media-services/
   - name: Videos
@@ -448,5 +511,3 @@
     href: azure-clouds-regions.md
   - name: Regional code names and endpoints
     href: azure-regions-code-names.md
-  - name: Documentation updates
-    href: docs-release-notes.md

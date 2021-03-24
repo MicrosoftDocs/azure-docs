@@ -3,8 +3,9 @@ title: Deploy VMs and scale set instances to dedicated hosts using the CLI
 description: Deploy VMs and scale set instances to dedicated hosts using the Azure CLI.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: dedicated-hosts
 ms.topic: how-to
-ms.date: 09/25/2020
+ms.date: 11/12/2020
 ms.author: cynthn
 
 #Customer intent: As an IT administrator, I want to learn about more about using a dedicated host for my Azure virtual machines
@@ -15,7 +16,7 @@ ms.author: cynthn
 
 This article guides you through how to create an Azure [dedicated host](../dedicated-hosts.md) to host your virtual machines (VMs). 
 
-Make sure that you have installed Azure CLI version 2.0.70 or later, and signed in to an Azure account using `az login`. 
+Make sure that you have installed Azure CLI version 2.16.0 or later, and signed in to an Azure account using `az login`. 
 
 
 ## Limitations
@@ -62,14 +63,6 @@ az vm host group create \
 
 Add the `--automatic-placement true` parameter to have your VMs and scale set instances automatically placed on hosts, within a host group. For more information, see [Manual vs. automatic placement ](../dedicated-hosts.md#manual-vs-automatic-placement).
 
-> [!IMPORTANT]
-> Automatic placement is currently in public preview.
->
-> To participate in the preview, complete the preview onboarding survey at [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview).
->
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
->
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ### Other examples
 
@@ -130,16 +123,7 @@ To place the VM on a specific host, use `--host` instead of specifying the host 
 > [!WARNING]
 > If you create a virtual machine on a host which does not have enough resources, the virtual machine will be created in a FAILED state. 
 
-## Create a scale set (preview)
-
-> [!IMPORTANT]
-> Virtual Machine Scale Sets on Dedicated Hosts is currently in public preview.
->
-> To participate in the preview, complete the preview onboarding survey at [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview).
->
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
->
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## Create a scale set 
 
 When you deploy a scale set, you specify the host group.
 
@@ -277,10 +261,10 @@ az group export --name myDHResourceGroup > myDHResourceGroup.json
 
 This command creates the `myDHResourceGroup.json` file in your current working directory. When you create an environment from this template, you are prompted for all the resource names. You can populate these names in your template file by adding the `--include-parameter-default-value` parameter to the `az group export` command. Edit your JSON template to specify the resource names, or create a parameters.json file that specifies the resource names.
  
-To create an environment from your template, use [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create).
+To create an environment from your template, use [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create).
 
 ```azurecli-interactive
-az group deployment create \ 
+az deployment group create \ 
     --resource-group myNewResourceGroup \ 
     --template-file myDHResourceGroup.json 
 ```

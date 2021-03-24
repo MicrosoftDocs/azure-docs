@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 10/20/2020
+ms.date: 01/28/2021
 ms.author: curtand
 ms.reviewer: olhaun
 ---
@@ -28,6 +28,12 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and it's t
 **Q**: Is registering a device agreeing to give the company or service access to my device?
 
 **A**: Registering a device gives your device access to your organization's services and doesn't allow your organization access to your device.
+
+### Error adding account
+
+**Q**: When I try to add my account, I get an error message saying “The account you're trying to add is not valid at this time. Contact your admin to fix this issue (uniqueness validation).” What should I do?
+
+**A**: Reach out to your admin and let them know you’re prevented from adding your account to Authenticator because of a uniqueness validation issue. You’ll need to provide your sign-in username so that your admin can look you up in your organization.
 
 ### Legacy APNs support deprecated
 
@@ -57,7 +63,11 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and it's t
 
 **Q**: What data does the Authenticator store on my behalf and how can I delete it?
 
-**A**: The Authenticator app collects three types of information:<ul><li>Account info you provide when you add your account. This data can be removed by removing your account.</li><li>Diagnostic log data that stays only in the app until you select **Send Logs** the app's **Help** menu to send logs to Microsoft. These logs can contain personal data such as email addresses, server addresses, or IP addresses. They also can contain device data such as device name and operating system version. Any personal data collected is limited to info needed to help troubleshoot app issues. You can browse these log files in the app at any time to see the info being gathered. If you send your log files, Authentication app engineers will use them only to troubleshoot customer-reported issues.</li><li>Non-personally identifiable usage data, such "started add account flow/successfully added account," or "notification approved." This data is an integral part of our engineering decisions. Your usage helps us determine where we can improve the apps in ways that are important to you. You see a notification of this data collection when you use the app for the first time. It informs you then that it can be turned off on the app's **Settings** page. You can turn this setting on or off at any time.</li></ul>
+**A**: The Authenticator app collects three types of information:
+
+- Account info you provide when you add your account. This data can be removed by removing your account.
+- Diagnostic log data that stays only in the app until you **Send feedback** in the app's top menu to send logs to Microsoft. These logs can contain personal data such as email addresses, server addresses, or IP addresses. They also can contain device data such as device name and operating system version. Any personal data collected is limited to info needed to help troubleshoot app issues. You can browse these log files in the app at any time to see the info being gathered. If you send your log files, Authentication app engineers will use them only to troubleshoot customer-reported issues.
+- Non-personally identifiable usage data, such "started add account flow/successfully added account," or "notification approved." This data is an integral part of our engineering decisions. Your usage helps us determine where we can improve the apps in ways that are important to you. You see a notification of  this data collection when you use the app for the first time. It informs you that it can be turned off on the app's **Settings** page. You can turn this setting on or off at any time.
 
 ### Codes in the app
 
@@ -80,6 +90,7 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and it's t
 ### Device registration
 
 **Q**: What is device registration?
+
 **A**: Your org might require you to register the device to track access to secured resources, such as files and apps. They also might turn on Conditional Access to reduce the risk of unwanted access to those resources. You can unregister your device in **Settings**, but you may lose access to emails in Outlook, files in OneDrive, and you'll lose the ability to use phone sign-in.
 
 ### Verification codes when connected
@@ -92,7 +103,7 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and it's t
 
 **Q**: Why do I only get notifications when the app is open? When the app is closed, I don't get notifications.
 
-**A**: If you're getting notifications, but not an alert, even with your ringer on, you should check your app settings. Make sure the app is turned on to use sound or to vibrate for notifications. If you don't get notifications at all, you should check the following conditions:<ul><li>Is your phone in Do Not Disturb or Quiet mode? These modes can prevent apps from sending notifications.</li><li>Can you get notifications from other apps? If not, it could be a problem with the network connections on your phone, or the notifications channel from Android or Apple. You can try to resolve your network connections through your phone settings. You might need to talk to your service provider to help with the Android or Apple notifications channel.</li><li>Can you get notifications for some accounts on the app, but not others? If yes, remove the problematic account from your app, add it again allowing notifications, and see if that fixes the problem.</li></ul>If you tried all of these steps and are still having issues, we recommend sending your log files for diagnostics. Open the app, go to **Help**, and then select **Send logs**. After that, go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) and tell us the problem you're seeing and the steps you tried.
+**A**: If you're getting notifications, but not an alert, even with your ringer on, you should check your app settings. Make sure the app is turned on to use sound or to vibrate for notifications. If you don't get notifications at all, you should check the following conditions:<ul><li>Is your phone in Do Not Disturb or Quiet mode? These modes can prevent apps from sending notifications.</li><li>Can you get notifications from other apps? If not, it could be a problem with the network connections on your phone, or the notifications channel from Android or Apple. You can try to resolve your network connections through your phone settings. You might need to talk to your service provider to help with the Android or Apple notifications channel.</li><li>Can you get notifications for some accounts on the app, but not others? If yes, remove the problematic account from your app, add it again allowing notifications, and see if that fixes the problem.</li></ul>If you tried all of these steps and are still having issues, we recommend sending your log files for diagnostics. Open the app, go to app’s top-level menu, and then select **Send feedback**. After that, go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) and tell Microsoft the problem you're seeing and the steps you tried.
 
 ### Switch to push notifications
 
@@ -104,7 +115,7 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and it's t
 
 **Q**: Do notifications work for non-Microsoft accounts?
 
-**A**: No, notifications only work with Microsoft accounts and Azure Active Directory accounts. If your work or school uses Azure AD accounts, they can turn off this feature.
+**A**: No, notifications only work with Microsoft accounts and Azure Active Directory accounts. If your work or school uses Azure AD accounts, they are able to turn off this feature.
 
 ### Backup and recovery
 
@@ -128,7 +139,7 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and it's t
 
 **Q**: Why does the app request so many permissions?
 
-**A**: Here's the full list of permissions that might be asked for, and how they're used by the app. The specific permissions you see will depend on the type of phone you have.<ul><li>**Use biometric hardware.** Some work and school accounts require an additional PIN whenever you verify your identity. The app requires your consent to use biometric or facial recognition instead of entering the PIN.</li><li>**Camera.** Used to scan QR codes when you add a work, school, or non-Microsoft account.</li><li>**Contacts and phone.** The app requires this permission to search for work or school Microsoft accounts on your phone and add them to the app for you.</li><li>**SMS.** Used to make sure your phone number matches the number on record when you sign in with your personal Microsoft account for the first time. We send a text message to the phone on which you installed the app that includes a 6-8 digit verification code. You don't need to find this code and enter it because Authenticator finds it automatically in the text message.</li><li>**Draw over other apps.** The notification you get that verifies your identity is also displayed on any other running app.</li><li>**Receive data from the internet.** This permission is required for sending notifications.</li><li>**Prevent phone from sleeping.** If you register your device with your organization, your organization can change this policy on your phone.</li><li>**Control vibration.** You can choose whether you would like a vibration whenever you receive a notification to verify your identity.</li><li>**Use fingerprint hardware.** Some work and school accounts require an additional PIN whenever you verify your identity. To make the process easier, we allow you to use your fingerprint instead of entering the PIN.</li><li> **View network connections.** When you add a Microsoft account, the app requires network/internet connection.</li><li>**Read the contents of your storage**. This permission is only used when you report a technical problem through the app settings. Some information from your storage is collected to diagnose the issue.</li><li>**Full network access.** This permission is required for sending notifications to verify your identity.</li><li>**Run at startup.** If you restart your phone, this permission ensures that you continue you receive notifications to verify your identity.</li></ul>
+**A**: Here's the full list of permissions that might be asked for, and how they're used by the app. The specific permissions you see will depend on the type of phone you have.<ul><li>**Location**. Sometimes your organization wants to know your location before allowing you to access certain resources. The app will request this permission only if your organization has a policy requiring location.</li><li>**Use biometric hardware.** Some work and school accounts require an additional PIN whenever you verify your identity. The app requires your consent to use biometric or facial recognition instead of entering the PIN.</li><li>**Camera.** Used to scan QR codes when you add a work, school, or non-Microsoft account.</li><li>**Contacts and phone.** The app requires this permission to search for work or school Microsoft accounts on your phone and add them to the app for you.</li><li>**SMS.** Used to make sure your phone number matches the number on record when you sign in with your personal Microsoft account for the first time. We send a text message to the phone on which you installed the app that includes a 6-8 digit verification code. You don't need to find this code and enter it because Authenticator finds it automatically in the text message.</li><li>**Draw over other apps.** The notification you get that verifies your identity is also displayed on any other running app.</li><li>**Receive data from the internet.** This permission is required for sending notifications.</li><li>**Prevent phone from sleeping.** If you register your device with your organization, your organization can change this policy on your phone.</li><li>**Control vibration.** You can choose whether you would like a vibration whenever you receive a notification to verify your identity.</li><li>**Use fingerprint hardware.** Some work and school accounts require an additional PIN whenever you verify your identity. To make the process easier, we allow you to use your fingerprint instead of entering the PIN.</li><li> **View network connections.** When you add a Microsoft account, the app requires network/internet connection.</li><li>**Read the contents of your storage**. This permission is only used when you report a technical problem through the app settings. Some information from your storage is collected to diagnose the issue.</li><li>**Full network access.** This permission is required for sending notifications to verify your identity.</li><li>**Run at startup.** If you restart your phone, this permission ensures that you continue you receive notifications to verify your identity.</li></ul>
 
 ### Approve requests without unlocking
 
@@ -194,7 +205,70 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and it's t
 
 **Q**: My Apple Watch companion app crashed. Can I send you my crash logs so you can investigate?
 
-**A**: You first have to make sure you've chosen to share your analytics with us. If you're a TestFlight user, you're already signed up. Otherwise, you can go to **Settings > Privacy > Analytics** and select both the **Share iPhone & Watch analytics** and the **Share with App Developers** options.<br>After you sign up, you can try to reproduce your crash so your crash logs are automatically sent to us for investigation. However, if you can't reproduce your crash, you can manually copy your log files and send them to us.<ol><li>Open the Watch app on your phone, go to **Settings > General**, and then click **Copy Watch Analytics**.</li><li>Find the corresponding crash under **Settings > Privacy > Analytics > Analytics Data**, and then manually copy the entire text.</li><li>Open Authenticator on your phone and paste that copied text into the **Share with App Developers** text box on the **Send logs** page.</li></ol>
+**A**: You first have to make sure you've chosen to share your analytics with us. If you're a TestFlight user, you're already signed up. Otherwise, you can go to **Settings > Privacy > Analytics** and select both the **Share iPhone & Watch analytics** and the **Share with App Developers** options.<br>After you sign up, you can try to reproduce your crash so your crash logs are automatically sent to us for investigation. However, if you can't reproduce your crash, you can manually copy your log files and send them to us.<ol><li>Open the Watch app on your phone, go to **Settings > General**, and then click **Copy Watch Analytics**.</li><li>Find the corresponding crash under **Settings > Privacy > Analytics > Analytics Data**, and then manually copy the entire text.</li><li>Open Authenticator on your phone and paste that copied text into the **Describe the issue you are facing** box under **Having trouble?** on the **Send feedback** page. </li></ol>
+
+## Autofill with Authenticator
+
+**Q**: What is Autofill with Authenticator?
+
+**A**: The Authenticator app now securely stores and autofills passwords on apps and websites you visit on your phone. You can use Autofill to sync and autofill your passwords on your iOS and Android devices. After setting up the Authenticator app as an autofill provider on your phone, it offers to save your passwords when you enter them on a site or in an app sign-in page. The passwords are saved as part of [your personal Microsoft account](https://account.microsoft.com/account) and are also available when you sign in to Microsoft Edge with your personal Microsoft account.
+
+**Q**: What information can Authenticator autofill for me?
+
+**A**: Authenticator can autofill usernames and passwords on sites and apps you visit on your phone.
+
+**Q**: How do I turn on password autofill in Authenticator on my phone?
+
+**A**: Follow these steps:
+
+1. Open the Authenticator app.
+1. On the **Passwords** tab in Authenticator, select **Sign in with Microsoft** and sign in using [your Microsoft account](https://account.microsoft.com/account). This feature currently supports only Microsoft accounts and doesn't yet support work or school accounts.
+
+**Q**: How do I make Authenticator the default autofill provider on my phone?
+
+**A**: Follow these steps:
+
+1. Open the Authenticator app.
+1. On the **Passwords** tab inside the app, select **Sign in with Microsoft** and sign in using [your Microsoft account](https://account.microsoft.com/account).
+1. Do one of the following:
+
+   - On iOS, under **Settings**, select **How to turn on Autofill** in the Autofill settings section to learn how to set Authenticator as the default autofill provider.
+   - On Android, under **Settings**, select **Set as Autofill provider** in the Autofill settings section.
+
+**Q**: What if **Autofill** is not available for me in Settings?
+
+**A**: If Autofill is not available for you in Authenticator, it might be because autofill has not yet been allowed for your organization or account type. You can use this feature on a device where your work or school account isn’t added. To learn more on how to allow Autofill for your organization, see [Autofill for IT admins](#autofill-for-it-admins).
+
+**Q**: How do I stop syncing passwords?
+
+**A**: To stop syncing passwords in the Authenticator app, open **Settings** > **Autofill settings** > **Sync account**. On the next screen, you can select on **Stop sync and remove all autofill data**. This will remove passwords and other autofill data from the device. Removing autofill data doesn't affect multi-factor authentication.
+
+**Q**: How are my passwords protected by the Authenticator app?
+
+**A**: Authenticator app already provides a high level of security for multi-factor authentication and account management, and the same high security bar is also extended to managing your passwords.
+
+- **Strong authentication is needed by Authenticator app**: Signing into Authenticator requires a second factor. This means that your passwords inside Authenticator app are protected even if someone has your Microsoft account password.
+- **Autofill data is protected with biometrics and passcode**: Before you can autofill password on an app or site, Authenticator requires biometric or device passcode. This helps add extra security so that even if someone else has access to your device, they can't fill or see your password, because they’re unable to provide the biometric or device PIN input. Also, a user cannot open the Passwords page unless they provide biometric or PIN, even if they turn off App Lock in app settings.
+- **Encrypted Passwords on the device**: Passwords on device are encrypted, and encryption/decryption keys are never stored and always generated when needed. Passwords are only decrypted when user wants to, that is, during autofill or when user wants to see the password, both of which require biometric or PIN.
+- **Cloud and network security**: Your passwords on the cloud are encrypted and decrypted only when they reach your device. Passwords are synced over an SSL-protected HTTPS connection, which helps prevent an attacker from eavesdropping on sensitive data when it is being synced. We also ensure we check the sanity of data being synced over network using cryptographic hashed functions (specifically, hash-based message authentication code).
+
+## Autofill for IT admins
+
+**Q**: Will my employees or students get to use password autofill in Authenticator app?
+
+**A**: Yes, Autofill for your [personal Microsoft accounts](https://go.microsoft.com/fwlink/?linkid=2144423) now works for most enterprise users even when a work or school account is added to the Authenticator app. You can fill out a form to allow or deny Autofill for your organization and [send it to the Authenticator team](https://aka.ms/ConfigureAutofillInAuthenticator). Autofill is not currently available for work or school accounts.
+
+**Q**: Will my users’ work or school account password get automatically synced?
+
+**A**: No. Password autofill won't sync work or school account password for your users. When users visit a site or an app, Authenticator will offer to save the password for that site or app, and password is saved only when user chooses to.
+  
+**Q**: Can I allowlist only certain users of my organization for Autofill?
+
+**A**: No. Enterprises can only enable passwords autofill for all or none of their employees at this time.
+
+**Q**: What if my employee or student has multiple work or school accounts? For example, my employee has accounts from multiple enterprises or schools in their Microsoft Authenticator.
+
+**A**: All enterprises or schools added in the Authenticator app need to be allow-listed for Autofill in Authenticator for the app owner to be able to use it. The one exception to this restriction is when your employee or student adds their work or school account into Microsoft cloud-based multi-factor authentication as an [external or third-party account](user-help-auth-app-add-non-ms-account.md).
 
 ## Next steps
 

@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 02/26/2019
 ---
 # Use Resource Health to troubleshoot connectivity for Azure SQL Database and Azure SQL Managed Instance
@@ -55,7 +55,7 @@ You can access up to 14 days of health history in the Health History section of 
 
 ### Downtime reasons
 
-When your database experiences downtime, analysis is performed to determine a reason. When available, the downtime reason is reported in the Health History section of Resource Health. Downtime reasons are typically published 30 minutes after an event.
+When your database experiences downtime, analysis is performed to determine a reason. When available, the downtime reason is reported in the Health History section of Resource Health. Downtime reasons are typically published within 45 minutes after an event.
 
 #### Planned maintenance
 

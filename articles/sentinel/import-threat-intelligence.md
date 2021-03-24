@@ -32,7 +32,7 @@ You can integrate threat intelligence (TI) into Azure Sentinel through the follo
 - Use the built-in **Analytics** rule templates to generate security alerts and incidents using your imported threat intelligence.
 - Visualize key information about your threat intelligence in Azure Sentinel with the **Threat Intelligence workbook**.
 
-Threat Intelligence also provides useful context within other Azure Sentinel experiences such as **Hunting** and **Notebooks**, and while not covered in this article, these experiences are addressed in [this great blog post by Ian Hellen on Jupyter Notebooks in Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/using-threat-intelligence-in-your-jupyter-notebooks/ba-p/860239), which covers the use of CTI within Notebooks.
+Threat Intelligence also provides useful context within other Azure Sentinel experiences such as **Hunting** and **Notebooks**, and while not covered in this article, these experiences are addressed in [this great blog post by Ian Hellen on Jupyter Notebooks in Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/using-threat-intelligence-in-your-jupyter-notebooks/ba-p/860239), which covers the use of CTI within Notebooks.
 
 ## Azure Sentinel data connectors for threat intelligence
 
@@ -415,7 +415,7 @@ Let’s walk through how to find the threat intelligence workbook provided in Az
 
     :::image type="content" source="media/import-threat-intelligence/threat-intel-bar-chart.png" alt-text="Bar chart":::
 
-Workbooks provide powerful interactive dashboards that give you insights into all aspects of Azure Sentinel. There is a whole lot you can do with workbooks, and while the provided templates are a great starting point, you will likely want to dive in and customize these templates, or create new dashboards combining many different data sources so you can visualize your data in unique ways. Since Azure Sentinel workbooks are based on Azure Monitor workbooks, there is already extensive documentation available, and many more templates. A great place to start is this article on how to [Create interactive reports with Azure Monitor workbooks](../azure-monitor/platform/workbooks-overview.md). 
+Workbooks provide powerful interactive dashboards that give you insights into all aspects of Azure Sentinel. There is a whole lot you can do with workbooks, and while the provided templates are a great starting point, you will likely want to dive in and customize these templates, or create new dashboards combining many different data sources so you can visualize your data in unique ways. Since Azure Sentinel workbooks are based on Azure Monitor workbooks, there is already extensive documentation available, and many more templates. A great place to start is this article on how to [Create interactive reports with Azure Monitor workbooks](../azure-monitor/visualize/workbooks-overview.md). 
 
 There is also a rich community of [Azure Monitor workbooks on GitHub](https://github.com/microsoft/Application-Insights-Workbooks) where you can download additional templates and contribute your own templates.
 

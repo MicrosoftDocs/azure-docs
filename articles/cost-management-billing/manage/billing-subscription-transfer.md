@@ -8,9 +8,9 @@ tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/11/2020
+ms.date: 02/05/2021
 ms.author: banders
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ---
 
 # Transfer billing ownership of an Azure subscription to another account
@@ -61,16 +61,45 @@ Visual Studio and Microsoft Partner Network subscriptions have monthly recurring
 
 If you've accepted the billing ownership of an Azure subscription, we recommend you review these next steps:
 
-1. Review and update the Service Admin, Co-Admins, and Azure role assignments. To learn more, see [Add or change Azure subscription administrators](add-change-subscription-administrator.md) and [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+1. Review and update the Service Admin, Co-Admins, and Azure role assignments. To learn more, see [Add or change Azure subscription administrators](add-change-subscription-administrator.md) and [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 1. Update credentials associated with this subscription's services including:
    1. Management certificates that grant the user admin rights to subscription resources. For more information, see [Create and upload a management certificate for Azure](../../cloud-services/cloud-services-certs-create.md)
    1. Access keys for services like Storage. For more information, see [About Azure storage accounts](../../storage/common/storage-account-create.md)
    1. Remote Access credentials for services like Azure Virtual Machines.
 1. If you're working with a partner, consider updating the partner ID on the subscription. You can update the partner ID in the [Azure portal](https://portal.azure.com). For more information, see [Link a partner ID to your Azure accounts](link-partner-id.md)
 
+## Cancel a transfer request
+
+Only one transfer request is active at a time. A transfer request is valid for 15 days. After the 15 days, the transfer request expires.
+
+To cancel a transfer request:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Navigate to **Subscriptions** > Select the subscription that you sent a transfer request for then select **Transfer billing ownership**.
+1. At the bottom of the page, select **Cancel the transfer request**.
+
+:::image type="content" source="./media/billing-subscription-transfer/transfer-billing-owership-cancel-request.png" alt-text="Example showing the Transfer billing ownership window with the Cancel the transfer request option" lightbox="./media/billing-subscription-transfer/transfer-billing-owership-cancel-request.png" :::
+
 ## Troubleshooting
 
 Use the following troubleshooting information if you're having trouble transferring subscriptions.
+
+### Original Azure subscription billing owner leaves your organization
+
+> [!Note]
+> This section specifically applies to a billing account for a Microsoft Customer Agreement. Check if you have access to a [Microsoft Customer Agreement](mca-request-billing-ownership.md#check-for-access).
+
+It's possible that the original billing account owner who created an Azure account and an Azure subscription leaves your organization. If that situation happens, then their user identity is no longer in the organization's Azure Active Directory. Then the Azure subscription doesn't have a billing owner. This situation prevents anyone from performing billing operations to the account, including viewing, and paying bills. The subscription could go into a past-due state. Eventually the subscription could get disabled because of non-payment. Ultimately, the subscription could get deleted and it would affect every service that runs on the subscription.
+
+When a subscription no longer has a valid billing account owner, Azure sends an email to other Billing account owners, Service Administrators (if any), Co-Administrators (if any), and Subscription Owners informing them of the situation and provides them with a link to accept billing ownership of the subscription. Any one of the users can select the link to accept billing ownership. For more information about billing roles, see [Billing Roles](understand-mca-roles.md) and [Classic Roles and Azure RBAC Roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+
+Here's an example of what the email looks like.
+
+:::image type="content" source="./media/billing-subscription-transfer/orphaned-subscription-email.png" alt-text="Screenshot showing an example email to accept billing ownership." lightbox="./media/billing-subscription-transfer/orphaned-subscription-email.png" :::
+
+Additionally, Azure shows a banner in the subscription's details window in the Azure portal to Billing owners, Service Administrators, Co-Administrators, and Subscription Owners. Select the link in the banner to accept billing ownership.
+
+:::image type="content" source="./media/billing-subscription-transfer/orphaned-subscription-example.png" alt-text="Screenshot showing an example of a subscription without a valid billing owner." lightbox="./media/billing-subscription-transfer/orphaned-subscription-example.png" :::
 
 ### The "Transfer subscription" option is unavailable
 
@@ -92,4 +121,4 @@ If you have questions or need help,  [create a support request](https://go.micro
 
 ## Next steps
 
-- Review and update the Service Admin, Co-Admins, and Azure role assignments. To learn more, see [Add or change Azure subscription administrators](add-change-subscription-administrator.md) and [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+- Review and update the Service Admin, Co-Admins, and Azure role assignments. To learn more, see [Add or change Azure subscription administrators](add-change-subscription-administrator.md) and [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).

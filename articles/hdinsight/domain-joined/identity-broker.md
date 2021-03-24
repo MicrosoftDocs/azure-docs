@@ -2,9 +2,6 @@
 title: Azure HDInsight ID Broker (HIB)
 description: Learn about Azure HDInsight ID Broker to simplify authentication for domain-joined Apache Hadoop clusters.
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 11/03/2020
 ---
@@ -32,7 +29,7 @@ Use the following table to determine the best authentication option based on you
 
 The following diagram shows the modern OAuth-based authentication flow for all users, including federated users, after HDInsight ID Broker is enabled:
 
-:::image type="content" source="media/identity-broker/identity-broker-architecture.png" alt-text="Diagram that shows authentication flow with HDInsight ID Broker.":::
+:::image type="content" source="media/identity-broker/identity-broker-architecture.png" alt-text="Diagram that shows authentication flow with HDInsight ID Broker." border="false":::
 
 In this diagram, the client (that is, a browser or app) needs to acquire the OAuth token first. Then it presents the token to the gateway in an HTTP request. If you've already signed in to other Azure services, such as the Azure portal, you can sign in to your HDInsight cluster with a single sign-on experience.
 
@@ -40,8 +37,7 @@ There still might be many legacy applications that only support basic authentica
 
 The following diagram shows the basic authentication flow for federated users. First, the gateway attempts to complete the authentication by using [ROPC flow](../../active-directory/develop/v2-oauth-ropc.md). In case there are no password hashes synced to Azure AD, it falls back to discovering the AD FS endpoint and completes the authentication by accessing the AD FS endpoint.
 
-:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Diagram that shows architecture with basic authentication.":::
-
+:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Diagram that shows architecture with basic authentication." border="false":::
 
 ## Enable HDInsight ID Broker
 
@@ -53,7 +49,7 @@ To create an Enterprise Security Package cluster with HDInsight ID Broker enable
 
 The HDInsight ID Broker feature adds one extra VM to the cluster. This VM is the HDInsight ID Broker node, and it includes server components to support authentication. The HDInsight ID Broker node is domain joined to the Azure AD DS domain.
 
-![Diagram that shows option to enable HDInsight ID Broker.](./media/identity-broker/identity-broker-enable.png)
+:::image type="content" source="./media/identity-broker/identity-broker-enable.png" alt-text="Diagram that shows option to enable HDInsight ID Broker." border="true":::
 
 ### Use Azure Resource Manager templates
 
@@ -121,9 +117,9 @@ To troubleshoot authentication issues, see [this guide](./domain-joined-authenti
 
 In the HDInsight ID Broker setup, custom apps and clients that connect to the gateway can be updated to acquire the required OAuth token first. Follow the steps in [this document](../../storage/common/storage-auth-aad-app.md) to acquire the token with the following information:
 
-*	OAuth resource uri: `https://hib.azurehdinsight.net` 
+*    OAuth resource uri: `https://hib.azurehdinsight.net` 
 *   AppId: 7865c1d2-f040-46cc-875f-831a1ef6a28a
-*	Permission: (name: Cluster.ReadWrite, id: 8f89faa0-ffef-4007-974d-4989b39ad77d)
+*    Permission: (name: Cluster.ReadWrite, id: 8f89faa0-ffef-4007-974d-4989b39ad77d)
 
 After you acquire the OAuth token, use it in the authorization header of the HTTP request to the cluster gateway (for example, https://<clustername>-int.azurehdinsight.net). A sample curl command to Apache Livy API might look like this example:
     
@@ -135,13 +131,13 @@ For using Beeline and Livy, you can also follow the samples codes provided [here
 
 ## FAQ
 ### What app is created by HDInsight in AAD?
-For each cluster, a third party application will be registered in AAD with the cluster uri as the identifierUri (like https://clustername.azurehdinsight.net ).
+For each cluster, a third party application will be registered in AAD with the cluster uri as the identifierUri (like `https://clustername.azurehdinsight.net`).
 
 ### Why are users prompted for consent before using HIB enabled clusters?
 In AAD, consent is required for all third party applications before it can authenticate users or access data.
 
 ### Can the consent be approved programatically?
-Microsoft Graph api allows you to automate the consent, see the [API documentation](https://docs.microsoft.com/graph/api/resources/oauth2permissiongrant?view=graph-rest-1.0)
+Microsoft Graph api allows you to automate the consent, see the [API documentation](/graph/api/resources/oauth2permissiongrant)
 The sequence to automate the consent is:
 
 * Register an app and grant Application.ReadWrite.All permissions to the app, to access Microsoft Graph

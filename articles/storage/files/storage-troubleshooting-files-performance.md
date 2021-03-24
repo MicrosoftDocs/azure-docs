@@ -17,7 +17,7 @@ This article lists some common problems related to Azure file shares. It provide
 
 ### Cause 1: Share was throttled
 
-Requests are throttled when the I/O operations per second (IOPS), ingress, or egress limits for a file share are reached. To understand the limits for standard and premium file shares, see [File share and file scale targets](./storage-files-scale-targets.md#file-share-and-file-scale-targets).
+Requests are throttled when the I/O operations per second (IOPS), ingress, or egress limits for a file share are reached. To understand the limits for standard and premium file shares, see [File share and file scale targets](./storage-files-scale-targets.md#azure-file-share-scale-targets).
 
 To confirm whether your share is being throttled, you can access and use Azure metrics in the portal.
 
@@ -29,19 +29,34 @@ To confirm whether your share is being throttled, you can access and use Azure m
 
 1. Select **Transactions** as the metric.
 
-1. Add a filter for **Response type**, and then check to see whether any requests have either of the following response codes:
-   * **SuccessWithThrottling**: For Server Message Block (SMB)
-   * **ClientThrottlingError**: For REST
+1. Add a filter for **Response type**, and then check to see whether any requests have been throttled. 
 
-   ![Screenshot of the metrics options for premium file shares, showing a "Response type" property filter.](media/storage-troubleshooting-premium-fileshares/metrics.png)
+    For standard file shares, the following response types are logged if a request is throttled:
 
-   > [!NOTE]
-   > To receive an alert, see the ["How to create an alert if a file share is throttled"](#how-to-create-an-alert-if-a-file-share-is-throttled) section later in this article.
+    - SuccessWithThrottling
+    - SuccessWithShareIopsThrottling
+    - ClientShareIopsThrottlingError
+
+    For premium file shares, the following response types are logged if a request is throttled:
+
+    - SuccessWithShareEgressThrottling
+    - SuccessWithShareIngressThrottling
+    - SuccessWithShareIopsThrottling
+    - ClientShareEgressThrottlingError
+    - ClientShareIngressThrottlingError
+    - ClientShareIopsThrottlingError
+
+    To learn more about each response type, see [Metric dimensions](./storage-files-monitoring-reference.md#metrics-dimensions).
+
+    ![Screenshot of the metrics options for premium file shares, showing a "Response type" property filter.](media/storage-troubleshooting-premium-fileshares/metrics.png)
+
+    > [!NOTE]
+    > To receive an alert, see the ["How to create an alert if a file share is throttled"](#how-to-create-an-alert-if-a-file-share-is-throttled) section later in this article.
 
 ### Solution
 
 - If you're using a standard file share, enable [large file shares](./storage-files-how-to-create-large-file-share.md?tabs=azure-portal) on your storage account. Large file shares support up to 10,000 IOPS per share.
-- If you're using a premium file share, increase the provisioned file share size to increase the IOPS limit. To learn more, see the "Understanding provisioning for premium file shares" section in the [Azure Files planning guide](./storage-files-planning.md#understanding-provisioning-for-premium-file-shares).
+- If you're using a premium file share, increase the provisioned file share size to increase the IOPS limit. To learn more, see the [Understanding provisioning for premium file shares](./understanding-billing.md#provisioned-model).
 
 ### Cause 2: Metadata or namespace heavy workload
 
@@ -69,11 +84,12 @@ If the application that you're using is single-threaded, this setup can result i
 
 ### Cause
 
-The client virtual machine (VM) could be located in a different region than the file share.
+The client virtual machine (VM) could be located in a different region than the file share. Other reason for high latency could be due to the latency caused by the client or the network.
 
 ### Solution
 
 - Run the application from a VM that's located in the same region as the file share.
+- For your storage account, review transaction metrics **SuccessE2ELatency** and  **SuccessServerLatency** via **Azure Monitor** in Azure portal. A high difference between SuccessE2ELatency and SuccessServerLatency metrics values is an indication of latency that is likely caused by the network or the client. See [Transaction metrics](storage-files-monitoring-reference.md#transaction-metrics) in Azure Files Monitoring data reference.
 
 ## Client unable to achieve maximum throughput supported by the network
 
@@ -192,7 +208,7 @@ Recent changes to SMB Multichannel config settings without a remount.
 
 ### Cause  
 
-High number file change notification on file shares can result in significant high latencies. This typically occurs with web sites hosted on file shares with deep nested directory structure. A typical scenario is IIS hosted web application where file change notification is setup for each directory in the default configuration. Each change ([ReadDirectoryChangesW](https://docs.microsoft.com/windows/win32/api/winbase/nf-winbase-readdirectorychangesw)) on the share that SMB client is registered for  pushes a change notification from the file service to the client, which takes system resources, and issue worsens with the number of changes. This can cause share throttling and thus, result in higher client side latency. 
+High number file change notification on file shares can result in significant high latencies. This typically occurs with web sites hosted on file shares with deep nested directory structure. A typical scenario is IIS hosted web application where file change notification is setup for each directory in the default configuration. Each change ([ReadDirectoryChangesW](/windows/win32/api/winbase/nf-winbase-readdirectorychangesw)) on the share that SMB client is registered for  pushes a change notification from the file service to the client, which takes system resources, and issue worsens with the number of changes. This can cause share throttling and thus, result in higher client side latency. 
 
 To confirm, you can use Azure Metrics in the portal - 
 
@@ -214,48 +230,63 @@ To confirm, you can use Azure Metrics in the portal -
 
 ## How to create an alert if a file share is throttled
 
-1. In the Azure portal, go to your storage account.
-1. In the **Monitoring** section, select **Alerts**, and then select **New alert rule**.
-1. Select **Edit resource**, select the **File resource type** for the storage account, and then select **Done**. For example, if the storage account name is *contoso*, select the contoso/file resource.
-1. Select **Select Condition** to add a condition.
-1. In the list of signals that are supported for the storage account, select the **Transactions** metric.
-1. On the **Configure signal logic** pane, in the **Dimension name** drop-down list, select **Response type**.
-1. In the **Dimension values** drop-down list, select **SuccessWithThrottling** (for SMB) or **ClientThrottlingError** (for REST).
+1. Go to your **storage account** in the **Azure portal**.
+2. In the **Monitoring** section, click **Alerts**, and then click **+ New alert rule**.
+3. Click **Edit resource**, select the **File resource type** for the storage account and then click **Done**. For example, if the storage account name is `contoso`, select the `contoso/file` resource.
+4. Click **Add condition** to add a condition.
+5. You will see a list of signals supported for the storage account, select the **Transactions** metric.
+6. On the **Configure signal logic** blade, click the **Dimension name** drop-down and select **Response type**.
+7. Click the **Dimension values** drop-down and select the appropriate response types for your file share.
+
+    For standard file shares, select the following response types:
+
+    - SuccessWithThrottling
+    - SuccessWithShareIopsThrottling
+    - ClientShareIopsThrottlingError
+
+    For premium file shares, select the following response types:
+
+    - SuccessWithShareEgressThrottling
+    - SuccessWithShareIngressThrottling
+    - SuccessWithShareIopsThrottling
+    - ClientShareEgressThrottlingError
+    - ClientShareIngressThrottlingError
+    - ClientShareIopsThrottlingError
 
    > [!NOTE]
-   > If neither the **SuccessWithThrottling** nor the **ClientThrottlingError** dimension value is listed, this means that the resource has not been throttled. To add the dimension value, next to the **Dimension values** drop-down list, select **Add custom value**, enter **SuccessWithThrottling** or **ClientThrottlingError**, select **OK**, and then repeat step 7.
+   > If the response types are not listed in the **Dimension values** drop-down, this means the resource has not been throttled. To add the dimension values, next to the **Dimension values** drop-down list, select **Add custom value**, enter the respone type (for example, **SuccessWithThrottling**), select **OK**, and then repeat these steps to add all applicable response types for your file share.
 
-1. In the **Dimension name** drop-down list, select **File Share**.
-1. In the **Dimension values** drop-down list, select the file share or shares that you want to alert on.
+8. For **premium file shares**, click the **Dimension name** drop-down and select **File Share**. For **standard file shares**, skip to **step #10**.
 
    > [!NOTE]
-   > If the file share is a standard file share, select **All current and future values**. The dimension values drop-down list doesn't list the file shares, because per-share metrics aren't available for standard file shares. Throttling alerts for standard file shares is triggered if any file share within the storage account is throttled, and the alert doesn't identify which file share was throttled. Because per-share metrics aren't available for standard file shares, we recommend that you use one file share per storage account.
+   > If the file share is a standard file share, the **File Share** dimension will not list the file share(s) because per-share metrics are not available for standard file shares. Throttling alerts for standard file shares will be triggered if any file share within the storage account is throttled and the alert will not identify which file share was throttled. Since per-share metrics are not available for standard file shares, the recommendation is to have one file share per storage account.
 
-1. Define the alert parameters by entering the **Threshold value**, **Operator**, **Aggregation granularity**, and **Frequency of evaluation**, and then select **Done**.
+9. Click the **Dimension values** drop-down and select the file share(s) that you want to alert on.
+10. Define the **alert parameters** (threshold value, operator, aggregation granularity and frequency of evaluation) and click **Done**.
 
     > [!TIP]
-    > If you're using a static threshold, the metric chart can help you determine a reasonable threshold value if the file share is currently being throttled. If you're using a dynamic threshold, the metric chart displays the calculated thresholds based on recent data.
+    > If you are using a static threshold, the metric chart can help determine a reasonable threshold value if the file share is currently being throttled. If you are using a dynamic threshold, the metric chart will display the calculated thresholds based on recent data.
 
-1. Select **Select action group**, and then add an action group (for example, email or SMS) to the alert either by selecting an existing action group or by creating a new action group.
-1. Enter the alert details, such as **Alert rule name**, **Description**, and **Severity**.
-1. Select **Create alert rule** to create the alert.
+11. Click **Add action groups** to add an **action group** (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
+12. Fill in the **Alert details** like **Alert rule name**, **Description**, and **Severity**.
+13. Click **Create alert rule** to create the alert.
 
 To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 
 ## How to create alerts if a premium file share is trending toward being throttled
 
 1. In the Azure portal, go to your storage account.
-1. In the **Monitoring** section, select **Alerts**, and then select **New alert rule**.
-1. Select **Edit resource**, select the **File resource type** for the storage account, and then select **Done**. For example, if the storage account name is *contoso*, select the contoso/file resource.
-1. Select **Select Condition** to add a condition.
-1. In the list of signals that are supported for the storage account, select the **Egress** metric.
+2. In the **Monitoring** section, select **Alerts**, and then select **New alert rule**.
+3. Select **Edit resource**, select the **File resource type** for the storage account, and then select **Done**. For example, if the storage account name is *contoso*, select the contoso/file resource.
+4. Select **Select Condition** to add a condition.
+5. In the list of signals that are supported for the storage account, select the **Egress** metric.
 
    > [!NOTE]
    > You have to create three separate alerts to be alerted when the ingress, egress, or transaction values exceed the thresholds you set. This is because an alert is triggered only when all conditions are met. For example, if you put all the conditions in one alert, you would be alerted only if ingress, egress, and transactions exceed their threshold amounts.
 
-1. Scroll down. In the **Dimension name** drop-down list, select **File Share**.
-1. In the **Dimension values** drop-down list, select the file share or shares that you want to alert on.
-1. Define the alert parameters by selecting values in the **Operator**, **Threshold value**, **Aggregation granularity**, and **Frequency of evaluation** drop-down lists, and then select **Done**.
+6. Scroll down. In the **Dimension name** drop-down list, select **File Share**.
+7. In the **Dimension values** drop-down list, select the file share or shares that you want to alert on.
+8. Define the alert parameters by selecting values in the **Operator**, **Threshold value**, **Aggregation granularity**, and **Frequency of evaluation** drop-down lists, and then select **Done**.
 
    Egress, ingress, and transactions metrics are expressed per minute, though you're provisioned egress, ingress, and I/O per second. Therefore, for example, if your provisioned egress is 90&nbsp;mebibytes per second (MiB/s) and you want your threshold to be 80&nbsp;percent of provisioned egress, select the following alert parameters: 
    - For **Threshold value**: *75497472* 
@@ -266,9 +297,9 @@ To learn more about configuring alerts in Azure Monitor, see [Overview of alerts
    - For **Aggregation granularity**: *1 hour*
    - For **Frequency of evaluation**: *1 hour*
 
-1. Select **Select action group**, and then add an action group (for example, email or SMS) to the alert either by selecting an existing action group or by creating a new one.
-1. Enter the alert details, such as **Alert rule name**, **Description**, and **Severity**.
-1. Select **Create alert rule** to create the alert.
+9. Select **Add action groups**, and then add an action group (for example, email or SMS) to the alert either by selecting an existing action group or by creating a new one.
+10. Enter the alert details, such as **Alert rule name**, **Description**, and **Severity**.
+11. Select **Create alert rule** to create the alert.
 
     > [!NOTE]
     > - To be notified that your premium file share is close to being throttled *because of provisioned ingress*, follow the preceding instructions, but with the following change:

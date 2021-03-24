@@ -1,5 +1,5 @@
 ---
-title: Terminology - Azure Synapse Analytics (workspaces preview)
+title: Terminology - Azure Synapse Analytics
 description: Reference guide walking user through Azure Synapse Analytics 
 services: synapse-analytics 
 author: saveenr 
@@ -12,8 +12,6 @@ ms.reviewer: jrasnick
 ---
 
 # Azure Synapse Analytics terminology
-
-[!INCLUDE [preview](includes/note-preview.md)]
 
 This document guides you through the basic concepts of Azure Synapse Analytics.
 
@@ -31,12 +29,11 @@ A workspace can contain any number of **Linked service**, essentially connection
 
 **Synapse SQL** is the ability to do T-SQL based analytics in Synapse workspace. Synapse SQL has two consumption models: dedicated and serverless.  For the dedicated model, use **dedicated SQL pools**. A workspace can have any number of these pools. To use the serverless model, use the **serverless SQL pools**. Every workspace has one of these pools.
 
-* **SQL Request** - Operation such as a query run through dedicated SQL pool or serverless SQL pool.
-* **SQL script** - Set of SQL commands saved in a file. A SQL script can contain one or more SQL statements. It can be used to run SQL requests through dedicated SQL pool or serverless SQL pool.
+Inside Synapse Studio, you can work with SQL pools by creating and running **SQL scripts** .
 
 ## Apache Spark for Synapse
 
-To use Spark analytics, create and use **serverless Apache Spark pools** in your Synapse workspace. When you start using a Spark pool, the workspaces creates a **spark session** to handle the resources assosociated with that session. 
+To use Spark analytics, create and use **serverless Apache Spark pools** in your Synapse workspace. When you start using a Spark pool, the workspaces creates a **spark session** to handle the resources associated with that session. 
 
 There are two ways within Synapse to use Spark:
 * **Spark Notebooks** for doing data Data Science and Engineering use Scala, PySpark, C#, and SparkSQL
@@ -46,9 +43,9 @@ There are two ways within Synapse to use Spark:
 
 Pipelines are how Azure Synapse provides Data Integration - allowing you to move data between services and orchestrate activities.
 
-* **Data Flows** provide a no-codine experience for doing data transformation that uses Synapse Spark under-the-covers.
-* **Pipeline** - Logical grouping of activities that perform a task together.
-* **Activity** - Defines actions to perform on data such as copying data, running a Notebook or a SQL script.
+* **Pipeline** are logical grouping of activities that perform a task together.
+* **Activities** defines actions within a Pipeline to perform on data such as copying data, running a Notebook or a SQL script.
+* **Data Flows** are a specific kind of activity that provide a no-code experience for doing data transformation that uses Synapse Spark under-the-covers.
 * **Trigger** -  Executes a pipeline. It can be run manually or automatically (schedule, tumbling window or event-based)
 * **Integration dataset** -   Named view of data that simply points or references the data to be used in an activity as input and output. It belongs to a Linked Service.
 

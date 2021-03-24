@@ -83,7 +83,7 @@ You need a repository on GitHub to connect to Azure Static Web Apps. The followi
 1. Push your local repo up to GitHub.
 
    ```bash
-   git push --set-upstream origin master
+   git push --set-upstream origin main
    ```
 
 ## Deploy your web app
@@ -118,7 +118,7 @@ The following steps show you how to create a new static site app and deploy it t
 
 1. Select the **hugo-static-app** as the _Repository_ .
 
-1. For the _Branch_ select **master**.
+1. For the _Branch_ select **main**.
 
    :::image type="content" source="./media/publish-hugo/completed-github-info.png" alt-text="Completed GitHub information":::
 
@@ -171,7 +171,7 @@ jobs:
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
           app_location: "/" # App source code path
           api_location: "api" # Api source code path - optional
-          app_artifact_location: "public" # Built app content directory - optional
+          output_location: "public" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
         env:
           HUGO_VERSION: 0.58.0

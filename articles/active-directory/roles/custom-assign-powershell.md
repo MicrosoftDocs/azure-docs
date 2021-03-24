@@ -1,22 +1,22 @@
 ---
-title: Assign custom roles using Azure PowerShell - Azure AD | Microsoft Docs
-description: Manage members of an Azure AD administrator custom role with Azure PowerShell.
+title: Assign custom roles using Azure AD PowerShell - Azure AD | Microsoft Docs
+description: Manage members of an Azure AD administrator custom role with Azure AD PowerShell.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 # Assign custom roles with resource scope using PowerShell in Azure Active Directory
 
-This article describes how to create a role assignment at organization-wide scope in Azure Active Directory (Azure AD). Assigning a role at organization-wide scope grants access across the Azure AD organization. To create a role assignment with a scope of a single Azure AD resource, see [How to create a custom role and assign it at resource scope](custom-create.md).This article uses the [Azure Active Directory PowerShell Version 2](/powershell/module/azuread/?view=azureadps-2.0#directory_roles) module.
+This article describes how to create a role assignment at organization-wide scope in Azure Active Directory (Azure AD). Assigning a role at organization-wide scope grants access across the Azure AD organization. To create a role assignment with a scope of a single Azure AD resource, see [How to create a custom role and assign it at resource scope](custom-create.md). This article uses the [Azure Active Directory PowerShell Version 2](/powershell/module/azuread/#directory_roles) module.
 
 For more information about Azure AD admin roles, see [Assigning administrator roles in Azure Active Directory](permissions-reference.md).
 
@@ -26,26 +26,26 @@ Connect to your Azure AD organization using a global administrator account to as
 
 ## Prepare PowerShell
 
-Install the Azure AD PowerShell module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). Then import the Azure AD PowerShell preview module, using the following command:
+Install the Azure AD PowerShell module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview). Then import the Azure AD PowerShell preview module, using the following command:
 
 ``` PowerShell
-import-module azureadpreview
+Import-Module -Name AzureADPreview
 ```
 
 To verify that the module is ready to use, match the version returned by the following command to the one listed here:
 
 ``` PowerShell
-get-module azureadpreview
+Get-Module -Name AzureADPreview
   ModuleType Version      Name                         ExportedCommands
   ---------- ---------    ----                         ----------------
-  Binary     2.0.0.115    azureadpreview               {Add-AzureADMSAdministrati...}
+  Binary     2.0.0.115    AzureADPreview               {Add-AzureADMSAdministrati...}
 ```
 
-Now you can start using the cmdlets in the module. For a full description of the cmdlets in the Azure AD module, see the online reference documentation for [Azure AD preview module](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17).
+Now you can start using the cmdlets in the module. For a full description of the cmdlets in the Azure AD module, see the online reference documentation for [Azure AD preview module](https://www.powershellgallery.com/packages/AzureADPreview).
 
-## Assign a role to a user or service principal with resource scope
+## Assign a directory role to a user or service principal with resource scope
 
-1. Open the Azure AD preview PowerShell module.
+1. Load the Azure AD PowerShell (Preview) module.
 1. Sign in by executing the command `Connect-AzureAD`.
 1. Create a new role using the following PowerShell script.
 
@@ -63,13 +63,13 @@ $resourceScope = '/' + $appRegistration.objectId
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
-To assign the role to a service principal instead of a user, use the [Get-AzureADMSServicePrincipal cmdlet](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0).
+To assign the role to a service principal instead of a user, use the [Get-AzureADMSServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) cmdlet.
 
-## Operations on RoleDefinition
+## Role definitions
 
-Role definition objects contain the definition of the built-in or custom role, along with the permissions that are granted by that role assignment. This resource displays both custom role definitions and built-in directoryRoles (which are displayed in roleDefinition equivalent form). Today, an Azure AD organization can have a maximum of 30 unique custom RoleDefinitions defined.
+Role definition objects contain the definition of the built-in or custom role, along with the permissions that are granted by that role assignment. This resource displays both custom role definitions and built-in directory roles (which are displayed in roleDefinition equivalent form). Today, an Azure AD organization can have a maximum of 30 unique custom role definitions defined.
 
-### Create Operations on RoleDefinition
+### Create a role definition
 
 ``` PowerShell
 # Basic information
@@ -77,32 +77,32 @@ $description = "Can manage credentials of application registrations"
 $displayName = "Application Registration Credential Administrator"
 $templateId = (New-Guid).Guid
 
-# Set of actions to grant
-$allowedResourceAction =
-@(
-    "microsoft.directory/applications/standard/read",
-    "microsoft.directory/applications/credentials/update"
-)
-$rolePermissions = @{'allowedResourceActions'= $allowedResourceAction}
+# Set of actions to include
+$rolePermissions = @{
+    "allowedResourceActions" = @(
+        "microsoft.directory/applications/standard/read",
+        "microsoft.directory/applications/credentials/update"
+    )
+}
 
-# Create new custom admin role
+# Create new custom directory role
 $customAdmin = New-AzureADMSRoleDefinition -RolePermissions $rolePermissions -DisplayName $displayName -Description $description -TemplateId $templateId -IsEnabled $true
 ```
 
-### Read Operations on RoleDefinition
+### Read and list role definitions
 
 ``` PowerShell
 # Get all role definitions
 Get-AzureADMSRoleDefinitions
 
-# Get single role definition by objectId
+# Get single role definition by ID
 Get-AzureADMSRoleDefinition -Id 86593cfc-114b-4a15-9954-97c3494ef49b
 
 # Get single role definition by templateId
 Get-AzureADMSRoleDefinition -Filter "templateId eq 'c4e39bd9-1100-46d3-8c65-fb160da0071f'"
 ```
 
-### Update Operations on RoleDefinition
+### Update a role definition
 
 ``` PowerShell
 # Update role definition
@@ -111,18 +111,18 @@ Get-AzureADMSRoleDefinition -Filter "templateId eq 'c4e39bd9-1100-46d3-8c65-fb16
 Set-AzureADMSRoleDefinition -Id c4e39bd9-1100-46d3-8c65-fb160da0071f -DisplayName "Updated DisplayName"
 ```
 
-### Delete operations on RoleDefinition
+### Delete a role definition
 
 ``` PowerShell
 # Delete role definition
 Remove-AzureADMSRoleDefinitions -Id c4e39bd9-1100-46d3-8c65-fb160da0071f
 ```
 
-## Operations on RoleAssignment
+## Role assignments
 
-Role assignments contain information linking a given security principal (a user or application service principal) to a role definition. If required, you can add a scope of a single Azure AD resource for the assigned permissions.  Restricting the scope of permissions is supported for built-in and custom roles.
+Role assignments contain information linking a given security principal (a user or application service principal) to a role definition. If required, you can add a scope of a single Azure AD resource for the assigned permissions.  Restricting the scope of a role assignment is supported for built-in and custom roles.
 
-### Create Operations on RoleAssignment
+### Create a role assignment
 
 ``` PowerShell
 # Get the user and role definition you want to link
@@ -137,7 +137,7 @@ $resourceScope = '/' + $appRegistration.objectId
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
-### Read Operations on RoleAssignment
+### Read and list role assignments
 
 ``` PowerShell
 # Get role assignments for a given principal
@@ -147,7 +147,7 @@ Get-AzureADMSRoleAssignment -Filter "principalId eq '27c8ca78-ab1c-40ae-bd1b-eae
 Get-AzureADMSRoleAssignment -Filter "roleDefinitionId eq '355aed8a-864b-4e2b-b225-ea95482e7570'"
 ```
 
-### Delete Operations on RoleAssignment
+### Delete a role assignment
 
 ``` PowerShell
 # Delete role assignment
@@ -157,5 +157,5 @@ Remove-AzureADMSRoleAssignment -Id 'qiho4WOb9UKKgng_LbPV7tvKaKRCD61PkJeKMh7Y458-
 ## Next steps
 
 - Share with us on the [Azure AD administrative roles forum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
-- For more about roles and azure AD administrator role assignments, see [Assign administrator roles](permissions-reference.md)
+- For more about roles and Azure AD administrator role assignments, see [Assign administrator roles](permissions-reference.md)
 - For default user permissions, see a [comparison of default guest and member user permissions](../fundamentals/users-default-permissions.md)

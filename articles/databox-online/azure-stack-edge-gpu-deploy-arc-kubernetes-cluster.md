@@ -7,15 +7,17 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/01/2020
+ms.date: 03/05/2021
 ms.author: alkohli
 ---
 
 # Enable Azure Arc on Kubernetes cluster on your Azure Stack Edge Pro GPU device
 
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
+
 This article shows you how to enable Azure Arc on an existing Kubernetes cluster on your Azure Stack Edge Pro device. 
 
-This procedure is intended for those who have reviewed the [Kubernetes workloads on Azure Stack Edge Pro device](azure-stack-edge-gpu-kubernetes-workload-management.md) and are familiar with the concepts of [What is Azure Arc enabled Kubernetes (Preview)?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
+This procedure is intended for those who have reviewed the [Kubernetes workloads on Azure Stack Edge Pro device](azure-stack-edge-gpu-kubernetes-workload-management.md) and are familiar with the concepts of [What is Azure Arc enabled Kubernetes (Preview)?](../azure-arc/kubernetes/overview.md).
 
 
 ## Prerequisites
@@ -35,14 +37,13 @@ Before you can enable Azure Arc on Kubernetes cluster, make sure that you have c
 
 1. You have a  Windows client system that will be used to access the Azure Stack Edge Pro device.
   
-    - The client is running Windows PowerShell 5.0 or later. To download the latest version of Windows PowerShell, go to [Install Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+    - The client is running Windows PowerShell 5.0 or later. To download the latest version of Windows PowerShell, go to [Install Windows PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows).
     
     - You can have any other client with a [Supported operating system](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) as well. This article describes the procedure when using a Windows client. 
     
 1. You have completed the procedure described in [Access the Kubernetes cluster on Azure Stack Edge Pro device](azure-stack-edge-gpu-create-kubernetes-cluster.md). You have:
     
-    - Installed `kubectl` on the client  <!--and saved the `kubeconfig` file with the user configuration to C:\\Users\\&lt;username&gt;\\.kube. -->
-    
+    - Installed `kubectl` on the client.    
     - Make sure that the `kubectl` client version is skewed no more than one version from the Kubernetes master version running on your Azure Stack Edge Pro device. 
       - Use `kubectl version` to check the version of kubectl running on the client. Make a note of the full version.
       - In the local UI of your Azure Stack Edge Pro device, go to **Software update** and note the Kubernetes server version number. 
@@ -51,7 +52,6 @@ Before you can enable Azure Arc on Kubernetes cluster, make sure that you have c
       
       - Verify these two versions are compatible. 
 
-<!-- az cli version requirements-->
 
 ## Register Kubernetes resource providers
 
@@ -84,9 +84,9 @@ You can also register resource providers via the `az cli`. For more information,
 
 1. To create a service principal, use the following command via the `az cli`.
 
-    `az ad sp create-for-rbac --skip assignment --name "<Informative name for service principal>"`  
+    `az ad sp create-for-rbac --skip-assignment --name "<Informative name for service principal>"`  
 
-    For information on how to log into the `az cli`, [Start Cloud Shell in Azure portal](../cloud-shell/quickstart-powershell.md?view=azure-cli-latest#start-cloud-shell)
+    For information on how to log into the `az cli`, [Start Cloud Shell in Azure portal](../cloud-shell/quickstart-powershell.md#start-cloud-shell)
 
     Here is an example. 
     
@@ -125,7 +125,7 @@ You can also register resource providers via the `az cli`. For more information,
     }
     PS /home/user>
     ```
-    For more information on how to create service principal and perform the role assignment, see the steps in [Create an Azure Arc-enabled onboarding Service Principal](https://docs.microsoft.com/azure/azure-arc/kubernetes/create-onboarding-service-principal).
+    For more information on how to create service principal and perform the role assignment, see the steps in [Create an Azure Arc-enabled onboarding Service Principal](../azure-arc/kubernetes/create-onboarding-service-principal.md).
 
 
 ## Enable Arc on Kubernetes cluster
@@ -138,7 +138,10 @@ Follow these steps to configure the Kubernetes cluster for Azure Arc management:
 
     `Set-HcsKubernetesAzureArcAgent -SubscriptionId "<Your Azure Subscription Id>" -ResourceGroupName "<Resource Group Name>" -ResourceName "<Azure Arc resource name (shouldn't exist already)>" -Location "<Region associated with resource group>" -TenantId "<Tenant Id of service principal>" -ClientId "<App id of service principal>" -ClientSecret "<Password of service principal>"`
 
-    To deploy Azure Arc on Azure Stack Edge Pro device, make sure that you are using a [Supported region for Azure Arc](../azure-arc/kubernetes/overview.md#supported-regions). Azure Arc is currently in preview. You can also figure out the exact name of the region to pass in the cmdlet by using the `az account list-locations` command.
+
+    > [!NOTE]
+    > - To deploy Azure Arc on your device, make sure that you are using a [Supported region for Azure Arc](../azure-arc/kubernetes/overview.md#supported-regions). 
+    > - Use the `az account list-locations` command to figure out the exact location name to pass in the `Set-HcsKubernetesAzureArcAgent` cmdlet. Location names are typically formatted without any spaces.
     
     Here is an example:
    
@@ -218,7 +221,10 @@ To remove the Azure Arc management, follow these steps:
     `Remove-HcsKubernetesAzureArcAgent` 
 
 
+> [!NOTE]
+> By default, when resource `yamls` are deleted from the Git repository, the corresponding resources are not deleted from the Kubernetes cluster. You need to set `--sync-garbage-collection`  in Arc OperatorParams to allow the deletion of resources when deleted from git repository. For more information, see [Delete a configuration](../azure-arc/kubernetes/use-gitops-connected-cluster.md#additional-parameters)
+
 ## Next steps
 
 To understand how to run an Azure Arc deployment, see 
-[Deploy a stateless PHP Guestbook application with Redis via GitOps on an Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md)
+[Deploy a stateless PHP `Guestbook` application with Redis via GitOps on an Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md)

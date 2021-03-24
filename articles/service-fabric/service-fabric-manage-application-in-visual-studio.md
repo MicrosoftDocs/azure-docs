@@ -1,11 +1,8 @@
 ---
 title: Manage applications in Visual Studio 
 description: Use Visual Studio to create, develop, package, deploy, and debug your Azure Service Fabric applications and services.
-author: mikkelhegn
-
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: mikhegn
 ---
 # Use Visual Studio to simplify writing and managing your Service Fabric applications
 You can manage your Azure Service Fabric applications and services through Visual Studio. Once you've [set up your development environment](service-fabric-get-started.md), you can use Visual Studio to create Service Fabric applications, add services, or package, register, and deploy applications in your local development cluster.

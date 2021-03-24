@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 11/17/2020
+ms.date: 03/09/2021
 ms.author: aahi
 keywords: text mining, sentiment analysis, text analytics
 ms.custom: cog-serv-seo-aug-2020
@@ -18,9 +18,9 @@ ms.custom: cog-serv-seo-aug-2020
 
 The Text Analytics API is a cloud-based service that provides Natural Language Processing (NLP) features for text mining and text analysis, including: sentiment analysis, opinion mining, key phrase extraction, language detection, and named entity recognition.
 
-The API is a part of [Azure Cognitive Services](../index.yml), a collection of machine learning and AI algorithms in the cloud for your development projects. You can use these features with the [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/), or the [client library](quickstarts/text-analytics-sdk.md).
+The API is a part of [Azure Cognitive Services](../index.yml), a collection of machine learning and AI algorithms in the cloud for your development projects. You can use these features with the REST API [version 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V3-0/) or [version 3.1-preview](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/), or the [client library](quickstarts/client-libraries-rest-api.md).
 
-> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Understanding-Text-using-Cognitive-Services/player]
+> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Whats-New-in-Text-Analytics-Opinion-Mining-and-Async-API/player]
 
 ## Sentiment analysis
 
@@ -28,7 +28,7 @@ Use [sentiment analysis](how-tos/text-analytics-how-to-sentiment-analysis.md) an
 
 The feature provides sentiment labels (such as "negative", "neutral" and "positive") based on the highest confidence score found by the service at a sentence and document-level. This feature also returns confidence scores between 0 and 1 for each document & sentences within it for positive, neutral and negative sentiment. You can also be run the service on premises [using a container](how-tos/text-analytics-how-to-install-containers.md).
 
-Starting in the v3.1 preview, opinion mining is a feature of Sentiment Analysis. Also known as Aspect-based Sentiment Analysis in Natural Language Processing (NLP), this feature provides more granular information about the opinions related to aspects (such as the attributes of products or services) in text.
+Starting in the v3.1 preview, opinion mining is a feature of Sentiment Analysis. Also known as Aspect-based Sentiment Analysis in Natural Language Processing (NLP), this feature provides more granular information about the opinions related to words (such as the attributes of products or services) in text.
 
 ## Key phrase extraction
 
@@ -59,7 +59,7 @@ The `/analyze` endpoint enables you to use select features of the Text Analytics
 
 The workflow is simple: you submit data for analysis and handle outputs in your code. Analyzers are consumed as-is, with no additional configuration or customization.
 
-1. [Create an Azure resource](../cognitive-services-apis-create-account.md) for Text Analytics. Afterwards, [get the key](../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) generated for you to authenticate your requests.
+1. [Create an Azure resource](how-tos/text-analytics-how-to-call-api.md) for Text Analytics. Afterwards, [get the key](how-tos/text-analytics-how-to-call-api.md) generated for you to authenticate your requests.
 
 2. [Formulate a request](how-tos/text-analytics-how-to-call-api.md#json-schema) containing your data as raw unstructured text, in JSON.
 
@@ -77,11 +77,11 @@ You can start using the Text Analytics API in your processes, even if you don't 
 
 * Minimal programming required:
     * [Extract information in Excel using Text Analytics and Power Automate](tutorials/extract-excel-information.md)
-    * [Use the Text Analytics API and MS Flow to identify the sentiment of comments in a Yammer group](/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure?bc=%252f%252fazure%252fbread%252ftoc.json&toc=%252f%252fazure%252fcognitive-services%252ftext-analytics%252ftoc.json)
+    * [Use the Text Analytics API and MS Flow to identify the sentiment of comments in a Yammer group](/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure?bc=%2f%2fazure%2fbread%2ftoc.json&toc=%2f%2fazure%2fcognitive-services%2ftext-analytics%2ftoc.json)
     * [Integrate Power BI with the Text Analytics API to analyze customer feedback](tutorials/tutorial-power-bi-key-phrases.md)
 * Programming experience recommended:
-    * [Sentiment analysis on streaming data using Azure Databricks](/azure/databricks/scenarios/databricks-sentiment-analysis-cognitive-services?bc=%252f%252fazure%252fbread%252ftoc.json&toc=%252f%252fazure%252fcognitive-services%252ftext-analytics%252ftoc.json)
-    * [Build a Flask app to translate text, analyze sentiment, and synthesize speech](../translator/tutorial-build-flask-app-translation-synthesis.md?bc=%252f%252fazure%252fbread%252ftoc.json&toc=%252f%252fazure%252fcognitive-services%252ftext-analytics%252ftoc.json)
+    * [Sentiment analysis on streaming data using Azure Databricks](/azure/databricks/scenarios/databricks-sentiment-analysis-cognitive-services?bc=%2f%2fazure%2fbread%2ftoc.json&toc=%2f%2fazure%2fcognitive-services%2ftext-analytics%2ftoc.json)
+    * [Build a Flask app to translate text, analyze sentiment, and synthesize speech](../translator/tutorial-build-flask-app-translation-synthesis.md?bc=%2f%2fazure%2fbread%2ftoc.json&toc=%2f%2fazure%2fcognitive-services%2ftext-analytics%2ftoc.json)
 
 
 <a name="supported-languages"></a>
@@ -104,7 +104,7 @@ The Text Analytics API uses Unicode encoding for text representation and charact
 
 + [Create an Azure resource](../cognitive-services-apis-create-account.md) for Text Analytics to get a key and endpoint for your applications.
 
-+ Use the [quickstart](quickstarts/text-analytics-sdk.md) to start sending API calls. Learn how to submit text, choose an analysis, and view results with minimal code.
++ Use the [quickstart](quickstarts/client-libraries-rest-api.md) to start sending API calls. Learn how to submit text, choose an analysis, and view results with minimal code.
 
 + See [what's new in the Text Analytics API](whats-new.md) for information on new releases and features.
 

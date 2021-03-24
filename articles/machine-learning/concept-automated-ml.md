@@ -6,7 +6,6 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 10/27/2020
@@ -15,7 +14,7 @@ ms.custom: automl
 
 # What is automated machine learning (AutoML)?
 
-Automated machine learning, also referred to as automated ML or AutoML, is the process of automating the time consuming, iterative tasks of machine learning model development. It allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality. Automated ML is based on a breakthrough from our [Microsoft Research division](https://www.microsoft.com/research/project/automl/).
+Automated machine learning, also referred to as automated ML or AutoML, is the process of automating the time consuming, iterative tasks of machine learning model development. It allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality. Automated ML in Azure Machine Learning is based on a breakthrough from our [Microsoft Research division](https://www.microsoft.com/research/project/automl/).
 
 Traditional machine learning model development is resource-intensive, requiring significant domain knowledge and time to produce and compare dozens of models. With automated machine learning, you'll accelerate the time it takes to get production-ready ML models with great ease and efficiency.
 
@@ -62,7 +61,7 @@ Advanced forecasting configuration includes:
 
 See examples of regression and automated machine learning for predictions in these Python notebooks: [Sales Forecasting](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb), [Demand Forecasting](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb), and [Beverage Production Forecast](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb).
 
-## How AutoML works
+## How automated ML works
 
 During training, Azure Machine Learning creates a number of pipelines in parallel that try different algorithms and parameters for you. The service iterates through ML algorithms paired with feature selections, where each iteration produces a model with a training score. The higher the score, the better the model is considered to "fit" your data.  It will stop once it hits the exit criteria defined in the experiment. 
 
@@ -116,7 +115,7 @@ For automated machine learning experiments, featurization is applied automatical
 
 In every automated machine learning experiment, your data is automatically scaled or normalized to help algorithms perform well. During model training, one of the following scaling or normalization techniques will be applied to each model. Learn how AutoML helps [prevent over-fitting and imbalanced data](concept-manage-ml-pitfalls.md) in your models.
 
-|Scaling&nbsp;&&nbsp;normalization| Description |
+|Scaling&nbsp;&&nbsp;processing| Description |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | Standardize features by removing the mean and scaling to unit variance  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | Transforms features by scaling each feature by that column's minimum and maximum  |
@@ -204,7 +203,7 @@ For example, building a model __for each instance or individual__ in the followi
 
 Azure Machine Learning offers two experiences for working with automated ML:
 
-* For code experienced customers, [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 
+* For code experienced customers, [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro) 
 
 * For limited/no code experience customers, Azure Machine Learning studio at [https://ml.azure.com](https://ml.azure.com/)  
 
@@ -289,7 +288,7 @@ Review detailed code examples and use cases in the [GitHub notebook repository f
 
 ### Python SDK reference
 
-Deepen your expertise of SDK design patterns and class specifications with the [AutoML class reference documentation](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py). 
+Deepen your expertise of SDK design patterns and class specifications with the [AutoML class reference documentation](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
 
 > [!Note]
 > Automated machine learning capabilities are also available in other Microsoft solutions such as, 

@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   author: KumudD
   ms.author: kumud
-  ms.date: 08/28/2019
+  ms.date: 01/28/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -29,7 +29,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Virtual network FAQ
-            url: virtual-networks-overview.md
+            url: virtual-networks-faq.md
  
   # Card (optional)
   - title: Get started
@@ -51,9 +51,9 @@ landingContent:
       - linkListType: concept
         links:
           - text: Network security groups
-            url: security-overview.md
+            url: ./network-security-groups-overview.md
           - text: Application security groups
-            url: security-overview.md#application-security-groups 
+            url: ./network-security-groups-overview.md#application-security-groups 
           - text: Virtual network service endpoints
             url: virtual-network-service-endpoints-overview.md
           - text: Virtual network security FAQ
@@ -69,11 +69,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Secure and isolate access to Azure resources
-            url: https://docs.microsoft.com/learn/modules/secure-and-isolate-with-nsg-and-service-endpoints    
-      - linkListType: video
-        links:
-          - text: Securely access your Azure PaaS resources with Azure Private Link
-            url: https://www.youtube.com/watch?v=PWKM5KXjWno        
+            url: /learn/modules/secure-and-isolate-with-nsg-and-service-endpoints
        
   # Card
   - title: Connect virtual networks
@@ -101,7 +97,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Communicate across virtual network with peering
-            url: https://docs.microsoft.com/learn/modules/integrate-vnets-with-vnet-peering      
+            url: /learn/modules/integrate-vnets-with-vnet-peering
 
   # Card
   - title: Route network traffic
@@ -121,7 +117,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: IP address types and allocation methods
-            url: virtual-network-ip-addresses-overview-arm.md
+            url: ./public-ip-addresses.md
       - linkListType: how-to-guide
         links:
           - text: Create, change, or delete a public IP address
@@ -168,7 +164,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: IP address types and allocation methods
-            url: virtual-network-ip-addresses-overview-arm.md
+            url: ./public-ip-addresses.md
           - text: What is IPv6 for Azure virtual network?
             url: ipv6-overview.md
           - text: Public IP address prefix
@@ -197,6 +193,3 @@ landingContent:
 
 
             
-                
-
-

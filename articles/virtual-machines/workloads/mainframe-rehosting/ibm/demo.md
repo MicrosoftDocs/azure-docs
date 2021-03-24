@@ -1,9 +1,9 @@
 ---
 title: Set up an Application Developers Controlled Distribution (ADCD) in IBM zD&T v1 | Microsoft Docs
 description: Run an IBM Z Development and Test Environment (zD&T) environment on Azure Virtual Machines (VMs).
-services: virtual-machines-linux
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+services: virtual-machines
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
 documentationcenter:
 author: njray
 manager: edprice
@@ -52,7 +52,7 @@ Access to the ADCD media is required. The steps below assume you are an IBM cust
 
 4. Enter the part description or part number, and click **Finder**.
 
-5. Optionally, click the alphabetical order list to display and view theproduct by name.
+5. Optionally, click the alphabetical order list to display and view the product by name.
 
 6. Select **All Operating Systems** in the **Operating system field**, and **All Languages** in the **Languages field**. Then, click **Go**.
 
@@ -185,7 +185,7 @@ Congratulations! You are now running an IBM mainframe environment on Azure.
 ## Learn more
 
 - [Mainframe migration: myths and facts](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
-- [IBM DB2 pureScale on Azure](../../../linux/ibm-db2-purescale-azure.md)
+- [IBM DB2 pureScale on Azure](ibm-db2-purescale-azure.md)
 - [Troubleshooting](../../../troubleshooting/index.yml)
 - [Demystifying mainframe to Azure migration](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 

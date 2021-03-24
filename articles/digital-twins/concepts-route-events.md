@@ -56,7 +56,7 @@ To define an event route, developers first must define endpoints. An **endpoint*
 * Event Hub
 * Service Bus
 
-To create an endpoint, you can use the Azure Digital Twins [**control plane APIs**](how-to-manage-routes-apis-cli.md#create-an-endpoint-for-azure-digital-twins), [**CLI commands**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli), or the [**Azure portal**](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins). 
+To create an endpoint, you can use the Azure Digital Twins [REST APIs, CLI commands](how-to-manage-routes-apis-cli.md#create-an-endpoint-for-azure-digital-twins), or the [Azure portal](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins).
 
 When defining an endpoint, you'll need to provide:
 * The endpoint's name
@@ -72,15 +72,11 @@ The endpoint APIs that are available in control plane are:
 
 ## Create an event route
  
-To create an event route, you can use the Azure Digital Twins [**data plane APIs**](how-to-manage-routes-apis-cli.md#create-an-event-route), [**CLI commands**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli), or the [**Azure portal**](how-to-manage-routes-portal.md#create-an-event-route). 
+To create an event route, you can use the Azure Digital Twins [REST APIs, CLI commands](how-to-manage-routes-apis-cli.md#create-an-event-route), or the [Azure portal](how-to-manage-routes-portal.md#create-an-event-route).
 
-Here is an example of creating an event route within a client application, using the `CreateOrReplaceEventRouteAsync` [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) call: 
+Here is an example of creating an event route within a client application, using the `CreateOrReplaceEventRouteAsync` [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client) call: 
 
-```csharp
-string eventFilter = "$eventType = 'DigitalTwinTelemetryMessages' or $eventType = 'DigitalTwinLifecycleNotification'";
-var er = new DigitalTwinsEventRoute("endpointName", eventFilter);
-await client.CreateOrReplaceEventRouteAsync("routeName", er);
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/eventRoute_operations.cs" id="CreateEventRoute":::
 
 1. First, a `DigitalTwinsEventRoute` object is created, and the constructor takes the name of an endpoint. This `endpointName` field identifies an endpoint such as an Event Hub, Event Grid, or Service Bus. These endpoints must be created in your subscription and attached to Azure Digital Twins using control plane APIs before making this registration call.
 
@@ -90,8 +86,6 @@ await client.CreateOrReplaceEventRouteAsync("routeName", er);
 
 > [!TIP]
 > All SDK functions come in synchronous and asynchronous versions.
-
-Routes can be also created using the [Azure Digital Twins CLI](how-to-use-cli.md).
 
 ## Dead-letter events
 
@@ -105,7 +99,7 @@ If either of the conditions is met, the event is dropped or dead-lettered. By de
 Before setting the dead-letter location, you must have a storage account with a container. You provide the URL for this container when creating the endpoint. The dead-letter is provided as a container URL with a SAS token. That token needs only `write` permission for the destination container within the storage account. The fully formed URL will be in the format of:
 `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
 
-To learn more about SAS tokens, see: [*Grant limited access to Azure Storage resources using shared access signatures (SAS)*](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
+To learn more about SAS tokens, see: [*Grant limited access to Azure Storage resources using shared access signatures (SAS)*](../storage/common/storage-sas-overview.md)
 
 To learn how to set up an endpoint with dead-lettering, see [*How-to: Manage endpoints and routes in Azure Digital Twins (APIs and CLI)*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering).
 

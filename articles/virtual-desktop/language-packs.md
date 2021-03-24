@@ -3,7 +3,7 @@ title: Install language packs on Windows 10 VMs in Windows Virtual Desktop - Azu
 description: How to install language packs for Windows 10 multi-session VMs in Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 11/06/2020
+ms.date: 12/03/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -28,20 +28,27 @@ You need the following things to customize your Windows 10 Enterprise multi-sess
      
      - Language ISO:
         - [Windows 10, version 1903 or 1909 Language Pack ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
-        - [Windows 10, version 2004 Language Pack ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
+        - [Windows 10, version 2004 or 20H2 Language Pack ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
 
      - FOD Disk 1 ISO:
         - [Windows 10, version 1903 or 1909 FOD Disk 1 ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
-        - [Windows 10, version 2004 FOD Disk 1 ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
+        - [Windows 10, version 2004 or 20H2 FOD Disk 1 ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
         
      - Inbox Apps ISO:
         - [Windows 10, version 1903 or 1909 Inbox Apps ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_InboxApps.iso)
         - [Windows 10, version 2004 Inbox Apps ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_InboxApps.iso)
         - [Windows 10, version 20H2 Inbox Apps ISO](https://software-download.microsoft.com/download/pr/19041.508.200905-1327.vb_release_svc_prod1_amd64fre_InboxApps.iso)
      
-     - If you're using Windows 10, version 2004 or 20H2, you can use Local Experience Pack (LXP) ISOs to download new languages. Use the information in [Adding languages in Windows 10: known issues](/windows-hardware/manufacture/desktop/language-packs-known-issue) to figure out whether you should download version 9B or 9C:
-        - [Windows 10, version 2004 or 20H2 **9B** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_64_ARM64_MultiLang_LangPckAll_LIP_LXP_ONLY)
-        - [Windows 10, version 2004 or 20H2 **9C** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_32_64_ARM64_MultiLng_LngPkAll_LIP_9C_LXP_ONLY) 
+     - If you use Local Experience Pack (LXP) ISO files to localize your images, you will also need to download the appropriate LXP ISO for the best language experience
+        - If you're using Windows 10, version 1903 or 1909:
+          - [Windows 10, version 1903 or 1909 LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_1903_32_64_ARM64_MultiLng_LngPkAll_LXP_ONLY.iso)
+        - If you're using Windows 10, version 2004 or 20H2, use the information in [Adding languages in Windows 10: Known issues](/windows-hardware/manufacture/desktop/language-packs-known-issue) to figure out which of the following LXP ISOs is right for you:
+          - [Windows 10, version 2004 or 20H2 **9B** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_64_ARM64_MultiLang_LangPckAll_LIP_LXP_ONLY)
+          - [Windows 10, version 2004 or 20H2 **9C** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_32_64_ARM64_MultiLng_LngPkAll_LIP_9C_LXP_ONLY)
+          - [Windows 10, version 2004 or 20H2 **10C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2010C.iso)
+          - [Windows 10, version 2004 or 20H2 **11C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2011C.iso)
+          - [Windows 10, version 2004 or 20H2 **1C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2101C.iso)
+          - [Windows 10, version 2004 or 20H2 **2C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2102C.iso)
 
 - An Azure Files Share or a file share on a Windows File Server Virtual Machine
 
@@ -157,9 +164,6 @@ $LanguageList = Get-WinUserLanguageList
 $LanguageList.Add("zh-cn")
 Set-WinUserLanguageList $LanguageList -force
 ```
-
->[!IMPORTANT]
->Windows 10 Enterprise versions 1903 and 1909 don’t require the `Microsoft-Windows-Client-Language-Pack_x64_<language-code>.cab` package file.
 
 The script might take a while depending on the number of languages you need to install.
 

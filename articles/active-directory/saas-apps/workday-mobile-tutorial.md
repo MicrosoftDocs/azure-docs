@@ -28,13 +28,13 @@ In this tutorial, you’ll learn how to integrate Azure Active Directory (Azure 
 To get started:
 
 * Integrate Workday with Azure AD.
-* Read [Azure Active Directory single sign-on (SSO) integration with Workday](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-tutorial).
+* Read [Azure Active Directory single sign-on (SSO) integration with Workday](./workday-tutorial.md).
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD Conditional Access policies and Intune with Workday Mobile Application.
 
-For enabling single sign-on (SSO), you can configure Workday Federated application with Azure AD. For more information, see [Azure Active Directory single sign-on (SSO) integration with Workday](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-tutorial).
+For enabling single sign-on (SSO), you can configure Workday Federated application with Azure AD. For more information, see [Azure Active Directory single sign-on (SSO) integration with Workday](./workday-tutorial.md).
 
 > [!NOTE] 
 > Workday doesn't support the app protection policies of Intune. You must use mobile device management to use Conditional Access.
@@ -177,4 +177,3 @@ To ensure that iOS devices are only able to sign in through Workday managed by m
 6. Under **Platform**, choose **Android**.
 7. Under **Associated App**, choose the Workday for Android app that you added.
 8. Select **Configuration Settings**. Under **Configuration settings format**, select **Enter JSON Data**.
-

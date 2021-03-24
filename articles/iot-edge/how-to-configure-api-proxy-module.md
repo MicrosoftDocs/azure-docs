@@ -14,6 +14,8 @@ monikerRange: ">=iotedge-2020-11"
 
 # Configure the API proxy module for your gateway hierarchy scenario (Preview)
 
+[!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
+
 The API proxy module enables IoT Edge devices to send HTTP requests through gateways instead of making direct connections to cloud services. This article walks through the configuration options so that you can customize the module to support your gateway hierarchy requirements.
 
 >[!NOTE]

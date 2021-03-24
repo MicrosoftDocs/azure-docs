@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create, change, or delete an Azure public IP address prefix
 titlesuffix: Azure Virtual Network
 description: Learn about public IP address prefixes and how to create, change, or delete them. See where to find additional information.
@@ -56,6 +56,9 @@ Public IP address prefixes have a charge. For details, see [pricing](https://azu
 |CLI|[az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create)|
 |PowerShell|[New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix)|
 
+>[!NOTE]
+>In regions with availability zones, you can use PowerShell or CLI commands to create a public IP address prefix as either: non-zonal, associated with a specific zone, or to use zone-redundancy.  For API version 2020-08-01 or later, if a zone parameter is not provided, a non-zonal public IP address prefix is created. For versions of the API older than 2020-08-01, a zone-redundant public IP address prefix is created. 
+
 ## Create a static public IP address from a prefix
 Once you create a prefix, you must create static IP addresses from the prefix. In order to do this, follow steps below.
 
@@ -74,8 +77,8 @@ Alternatively you may use the CLI and PS commands below with the --public-ip-pre
 
 |Tool|Command|
 |---|---|
-|CLI|[az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create)|
-|PowerShell|[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress?view=azps-2.0.0)|
+|CLI|[az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create)|
+|PowerShell|[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)|
 
 ## View or delete a prefix
 

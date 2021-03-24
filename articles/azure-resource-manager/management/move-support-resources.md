@@ -2,7 +2,7 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 11/06/2020
+ms.date: 01/11/2021
 ---
 
 # Move operation support for resources
@@ -749,7 +749,7 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | availableskus | No | No |
-> | databoxedgedevices | Yes | Yes |
+> | databoxedgedevices | No | No |
 
 ## Microsoft.Databricks
 
@@ -845,7 +845,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | flexibleServers | Yes | Yes |
+> | flexibleServers | No | No |
 > | servers | Yes | Yes |
 
 ## Microsoft.DBforPostgreSQL
@@ -853,7 +853,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | flexibleServers | Yes | Yes |
+> | flexibleServers | No | No |
 > | servergroups | No | No |
 > | servers | Yes | Yes |
 > | serversv2 | Yes | Yes |
@@ -1021,7 +1021,7 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | hanainstances | No | No |
-> | sapmonitors | Yes | Yes |
+> | sapmonitors | No | No |
 
 ## Microsoft.HardwareSecurityModules
 
@@ -1418,7 +1418,7 @@ Jump to a resource provider namespace:
 > | networkinterfaces | Yes | Yes |
 > | networkprofiles | No | No |
 > | networksecuritygroups | Yes | Yes |
-> | networkwatchers | Yes | No |
+> | networkwatchers | No | No |
 > | networkwatchers / connectionmonitors | Yes | No |
 > | networkwatchers / flowlogs | Yes | No |
 > | networkwatchers / pingmeshes | Yes | No |
@@ -1907,9 +1907,9 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | workspaces | Yes | Yes |
-> | workspaces / bigdatapools | Yes | Yes |
-> | workspaces / sqlpools | Yes | Yes |
+> | workspaces | No | No |
+> | workspaces / bigdatapools | No | No |
+> | workspaces / sqlpools | No | No |
 
 ## Microsoft.TimeSeriesInsights
 

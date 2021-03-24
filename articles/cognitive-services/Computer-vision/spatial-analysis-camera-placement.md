@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/11/2020
+ms.date: 01/12/2021
 ms.author: aahi
 ---
 
@@ -48,7 +48,7 @@ The following illustration shows the elevation view for person walking direction
 
 ## Camera height
 
-Generally, cameras should be mounted 12-14 feet from the ground. When planning your camera mounting in this range, consider obstructions (for example: shelving, hanging lights, hanging signage, and displays) that might affect the camera view, and then adjust the height as necessary.
+Generally, cameras should be mounted 12-14 feet from the ground. For Face mask detection, we recommend cameras to be mounted 8-12 feet from the ground. When planning your camera mounting in this range, consider obstructions (for example: shelving, hanging lights, hanging signage, and displays) that might affect the camera view, and then adjust the height as necessary.
 
 ## Camera-to-focal-point distance
 
@@ -64,16 +64,16 @@ From above, it looks like this:
 
 ![How camera-to-focal-point-distance is measured from above](./media/spatial-analysis/camera-focal-point-above.png)
 
-Use the table below to determine the camera's distance from the focal point based on specific mounting heights. These distances are for optimal placement. Note that the table provides guidance below the 12'-14' recommendation since some ceilings can limit height.
+Use the table below to determine the camera's distance from the focal point based on specific mounting heights. These distances are for optimal placement. Note that the table provides guidance below the 12'-14' recommendation since some ceilings can limit height. For Face mask detection, recommended camera-to-focal-point distance (min/max) is 4’-10’ for camera height between 8’ to 12’.
 
 | Camera height | Camera-to-focal-point distance (min/max) |  
 | ------------- | ---------------------------------------- |  
-| 8'            | 10'-13'                                  |  
-| 10'           | 7'-13'                                   |  
-| 12'           | 10'-17'                                  |  
-| 14'           | 11'-18'                                  |  
-| 16'           | 12'-22'                                  |  
-| 20'           | 15'-30'                                  |  
+| 8'            | 4.6'-8'                                  |  
+| 10'           | 5.8'-10'                                 |  
+| 12'           | 7'-12'                                   |  
+| 14'           | 8'-14''                                  |  
+| 16'           | 9.2'-16'                                 |  
+| 20'           | 11.5'-20'                                |  
 
 The following illustration simulates camera views from the closest and farthest camera-to-focal-point distances.
 
@@ -87,15 +87,9 @@ This section describes acceptable camera angle mounting ranges. These mounting r
 
 ### Line configuration
 
-The following table shows recommendations for cameras configured for the **cognitiveservices.vision.spatialanalysis-personcrossingline** operation. 
+For the **cognitiveservices.vision.spatialanalysis-personcrossingline** operation, +/-5° is the optimal camera mounting angle to maximize accuracy.
 
-| Camera height | Camera-to-focal-point distance | Optimal camera mounting angle (min/max) |  
-| ------------- | ------------------------------ | ------------------------------------------ |  
-| 8'            | 9'                             | +/-40°                                     |  
-| 10'           | 10'                            | +/-30°                                     |  
-| 12'           | 13'                            | +/-20°                                     |  
-| 16'           | 18'                            | +/-10°                                     |  
-| 20'           | 22'                            | +/-10°                                     |  
+For Face mask detection, +/-30 degrees is the optimal camera mounting angle for camera height between 8’ to 12’.
 
 The following illustration simulates camera views using the leftmost (-) and rightmost (+) mounting angle recommendations for using **cognitiveservices.vision.spatialanalysis-personcrossingline** to do entrance counting in a door way.
 

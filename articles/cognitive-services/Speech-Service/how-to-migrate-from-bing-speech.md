@@ -77,7 +77,7 @@ To get started with the Speech SDK:
 
 Bing Speech customers should contact customer support by opening a [support ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). You can also contact us if your support need requires a [technical support plan](https://azure.microsoft.com/support/plans/).
 
-For Speech service, SDK, and API support, visit the Speech service [support page](../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext).
+For Speech service, SDK, and API support, visit the Speech service [support page](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
 
 ## Next steps
 

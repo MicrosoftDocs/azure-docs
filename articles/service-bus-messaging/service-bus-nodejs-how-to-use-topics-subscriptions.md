@@ -75,7 +75,7 @@ The following sample code shows you how to send a batch of messages to a Service
     				await sender.sendMessages(batch);
     
     				// then, create a new batch 
-    				batch = await sender.createBatch();
+    				batch = await sender.createMessageBatch();
      
     				// now, add the message failed to be added to the previous batch to this batch
     				if (!batch.tryAddMessage(messages[i])) {
@@ -203,4 +203,4 @@ See the following documentation and samples:
 
 - [Azure Service Bus client library for Python](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/README.md)
 - [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples). The **javascript** folder has JavaScript samples and the **typescript** has TypeScript samples. 
-- [azure-servicebus reference documentation](https://docs.microsoft.com/javascript/api/overview/azure/service-bus)
+- [azure-servicebus reference documentation](/javascript/api/overview/azure/service-bus)

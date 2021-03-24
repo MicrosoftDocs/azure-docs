@@ -40,14 +40,17 @@ Prerequisites for this tutorial are:
     > [!TIP]
     > You might be prompted to install Docker. Ignore this prompt.
 * [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.201-windows-x64-installer) on your development machine.
-* Complete the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup), and [set up the environment](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/detect-motion-emit-events-quickstart?branch=release-preview-media-services-lva#set-up-the-environment)
+* Complete the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup), and [set up the environment](./detect-motion-emit-events-quickstart.md?pivots=programming-language-csharp#set-up-your-development-environment)
 
 At the end of these steps, you'll have relevant Azure resources deployed in your Azure subscription:
 
 * Azure IoT Hub
 * Azure Storage account
 * Azure Media Services account
-* Linux VM in Azure, with the [IoT Edge runtime](../../iot-edge/how-to-install-iot-edge-linux.md) installed
+* Linux VM in Azure, with the [IoT Edge runtime](../../iot-edge/how-to-install-iot-edge.md) installed
+
+> [!TIP]
+> If you run into issues with Azure resources that get created, please view our **[troubleshooting guide](troubleshoot-how-to.md#common-error-resolutions)** to resolve some commonly encountered issues.
 
 ## Concepts
 
@@ -63,13 +66,13 @@ Alternatively, you can trigger recording only when an inferencing service detect
 The diagram is a pictorial representation of a [media graph](media-graph-concept.md) and additional modules that accomplish the desired scenario. Four IoT Edge modules are involved:
 
 * Live Video Analytics on an IoT Edge module.
-* An edge module running an AI model behind an HTTP endpoint. This AI module uses the [YOLO v3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) model, which can detect many types of objects.
+* An edge module running an AI model behind an HTTP endpoint. This AI module uses the [YOLOv3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) model, which can detect many types of objects.
 * A custom module to count and filter objects, which is referred to as an Object Counter in the diagram. You'll build an Object Counter and deploy it in this tutorial.
 * An [RTSP simulator module](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) to simulate an RTSP camera.
     
 As the diagram shows, you'll use an [RTSP source](media-graph-concept.md#rtsp-source) node in the media graph to capture the simulated live video of traffic on a highway and send that video to two paths:
 
-* The first path is to a [frame rate filter processor](media-graph-concept.md#frame-rate-filter-processor) node that outputs video frames at the specified (reduced) frame rate. Those video frames are sent to an HTTP extension node. The node then relays the frames, as images, to the AI module YOLO v3, which is an object detector. The node receives the results, which are the objects (vehicles in traffic) detected by the model. The HTTP extension node then publishes the results via the IoT Hub message sink node to the IoT Edge hub.
+* The first path is to a HTTP extension node. The node samples the video frames to a value set by you using the `samplingOptions` field and then relays the frames, as images, to the AI module YOLOv3, which is an object detector. The node receives the results, which are the objects (vehicles in traffic) detected by the model. The HTTP extension node then publishes the results via the IoT Hub message sink node to the IoT Edge hub.
 * The objectCounter module is set up to receive messages from the IoT Edge hub, which include the object detection results (vehicles in traffic). The module checks these messages and looks for objects of a certain type, which were configured via a setting. When such an object is found, this module sends a message to the IoT Edge hub. Those "object found" messages are then routed to the IoT Hub source node of the media graph. Upon receiving such a message, the IoT Hub source node in the media graph triggers the [signal gate processor](media-graph-concept.md#signal-gate-processor) node. The signal gate processor node then opens for a configured amount of time. Video flows through the gate to the asset sink node for that duration. That portion of the live stream is then recorded via the [asset sink](media-graph-concept.md#asset-sink) node to an [asset](terminology.md#asset) in your Azure Media Services account.
 
 ## Set up your development environment
@@ -112,8 +115,8 @@ You'll need the files for these steps.
     AAD_TENANT_ID="<AAD Tenant ID>"  
     AAD_SERVICE_PRINCIPAL_ID="<AAD SERVICE_PRINCIPAL ID>"  
     AAD_SERVICE_PRINCIPAL_SECRET="<AAD SERVICE_PRINCIPAL ID>"  
-    INPUT_VIDEO_FOLDER_ON_DEVICE="/home/lvaadmin/samples/input"  
-    OUTPUT_VIDEO_FOLDER_ON_DEVICE="/home/lvaadmin/samples/output"  
+    VIDEO_INPUT_FOLDER_ON_DEVICE="/home/lvaedgeuser/samples/input"  
+    VIDEO_OUTPUT_FOLDER_ON_DEVICE="/var/media"  
     APPDATA_FOLDER_ON_DEVICE="/var/local/mediaservices"
     CONTAINER_REGISTRY_USERNAME_myacr="<your container registry username>"  
     CONTAINER_REGISTRY_PASSWORD_myacr="<your container registry username>"      
@@ -163,6 +166,12 @@ This step creates the IoT Edge deployment manifest at src/edge/config/deployment
 
 If this is your first tutorial with Live Video Analytics on IoT Edge, Visual Studio Code prompts you to input the IoT Hub connection string. You can copy it from the appsettings.json file.
 
+> [!NOTE]
+> You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
+    ```
+    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+    ```
+
 Next, Visual Studio Code asks you to select an IoT Hub device. Select your IoT Edge device, which should be lva-sample-device.
 
 At this stage, the deployment of edge modules to your IoT Edge device has started.
@@ -181,6 +190,12 @@ To see the events from the objectCounter module and from the Live Video Analytic
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/quickstarts/start-monitoring-iothub-events.png" alt-text="Start monitoring built-in event endpoint":::
+
+    > [!NOTE]
+    > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
     
 ## Run the program
 
@@ -196,7 +211,7 @@ To see the events from the objectCounter module and from the Live Video Analytic
 1. <!--In Visual Studio Code, go-->Go to src/cloud-to-device-console-app/operations.json.
 1. Under the **GraphTopologySet** node, edit the following:
 
-    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json"`
+    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/evr-hubMessage-assets/2.0/topology.json"`
     
 1. Next, under the **GraphInstanceSet** and **GraphTopologyDelete** nodes, edit:
 
@@ -209,7 +224,7 @@ To see the events from the objectCounter module and from the Live Video Analytic
     Executing operation GraphTopologyList
     -----------------------  Request: GraphTopologyList  --------------------------------------------------
     {
-      "@apiVersion": "1.0"
+      "@apiVersion": "2.0"
     }
     ---------------  Response: GraphTopologyList - Status: 200  ---------------
     {
@@ -225,7 +240,7 @@ To see the events from the objectCounter module and from the Live Video Analytic
      
         ```
         {
-          "@apiVersion": "1.0",
+          "@apiVersion": "2.0",
           "name": "Sample-Graph-1",
           "properties": {
             "topologyName": "EVRtoAssetsOnObjDetect",
@@ -272,7 +287,7 @@ In the following messages, the application properties and the content of the bod
 
 ### MediaSessionEstablished event 
 
-When a media graph is instantiated, the RTSP source node attempts to connect to the RTSP server running on the RTSP simulator container. If successful, it prints this event. The event type is Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished.
+When a media graph is instantiated, the RTSP source node attempts to connect to the RTSP server running on the RTSP simulator container. If successful, it prints this event. The event type is **Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished**.
 
 ```
 [IoTHubMonitor] [5:53:17 PM] Message received from [lva-sample-device/lvaEdge]:
@@ -320,7 +335,7 @@ You might see more of these events show up as other trucks are detected in the v
 
 ### RecordingStarted event
 
-Almost immediately after the Object Counter sends the event, you'll see an event of type Microsoft.Media.Graph.Operational.RecordingStarted:
+Almost immediately after the Object Counter sends the event, you'll see an event of type **Microsoft.Media.Graph.Operational.RecordingStarted**:
 
 ```
 [IoTHubMonitor] [5:53:46 PM] Message received from [lva-sample-device/lvaEdge]:
@@ -343,7 +358,7 @@ The subject section in applicationProperties references the asset sink node in t
 
 ### RecordingAvailable event
 
-When the asset sink node has uploaded video to the asset, it emits this event of type Microsoft.Media.Graph.Operational.RecordingAvailable:
+When the asset sink node has uploaded video to the asset, it emits this event of type **Microsoft.Media.Graph.Operational.RecordingAvailable**:
 
 ```
 [IoTHubMonitor] [5:54:15 PM] Message received from [lva-sample-device/lvaEdge]:
@@ -366,7 +381,7 @@ This event indicates that enough data was written to the asset for players or cl
 
 ### RecordingStopped event
 
-If you examine the activation settings (maximumActivationTime) for the signal gate processor node in the [topology](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json), you'll see that the gate is set up to close after 30 seconds of video is sent through. Roughly 30 seconds after the RecordingStarted event, you should see an event of type Microsoft.Media.Graph.Operational.RecordingStopped. This event indicates that the asset sink node has stopped recording video to the asset.
+If you examine the activation settings (maximumActivationTime) for the signal gate processor node in the [topology](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json), you'll see that the gate is set up to close after 30 seconds of video is sent through. Roughly 30 seconds after the RecordingStarted event, you should see an event of type **Microsoft.Media.Graph.Operational.RecordingStopped**. This event indicates that the asset sink node has stopped recording video to the asset.
 
 ```
 [IoTHubMonitor] [5:54:15 PM] Message received from [lva-sample-device/lvaEdge]:
@@ -419,4 +434,4 @@ If you intend to try the other tutorials, hold on to the resources you created. 
 ## Next steps
 
 * Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) with support for RTSP instead of using the RTSP simulator. You can search for IP cameras with RTSP support on the [ONVIF conformant products page](https://www.onvif.org/conformant-products/) by looking for devices that conform with profiles G, S, or T.
-* Use an AMD64 or X64 Linux device (vs. using an Azure Linux VM). This device must be in the same network as the IP camera. Follow the instructions in [Install Azure IoT Edge runtime on Linux](../../iot-edge/how-to-install-iot-edge-linux.md). Then follow the instructions in the [Deploy your first IoT Edge module to a virtual Linux device](../../iot-edge/quickstart-linux.md) quickstart to register the device with Azure IoT Hub.
+* Use an AMD64 or X64 Linux device (vs. using an Azure Linux VM). This device must be in the same network as the IP camera. Follow the instructions in [Install Azure IoT Edge runtime on Linux](../../iot-edge/how-to-install-iot-edge.md). Then follow the instructions in the [Deploy your first IoT Edge module to a virtual Linux device](../../iot-edge/quickstart-linux.md) quickstart to register the device with Azure IoT Hub.

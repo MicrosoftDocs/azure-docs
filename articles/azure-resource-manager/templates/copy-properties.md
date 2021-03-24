@@ -1,14 +1,14 @@
 ---
 title: Define multiple instances of a property
-description: Use copy operation in an Azure Resource Manager template to iterate multiple times when creating a property on a resource.
+description: Use copy operation in an Azure Resource Manager template (ARM template) to iterate multiple times when creating a property on a resource.
 ms.topic: conceptual
 ms.date: 09/15/2020
 ---
 # Property iteration in ARM templates
 
-This article shows you how to create more than one instance of a property in your Azure Resource Manager template (ARM template). By adding the **copy** element to the properties section of a resource in your template, you can dynamically set the number of items for a property during deployment. You also avoid having to repeat template syntax.
+This article shows you how to create more than one instance of a property in your Azure Resource Manager template (ARM template). By adding the `copy` element to the properties section of a resource in your template, you can dynamically set the number of items for a property during deployment. You also avoid having to repeat template syntax.
 
-You can only use copy with top-level resources, even when applying copy to a property. To learn about changing a child resource to a top-level resource, see [Iteration for a child resource](copy-resources.md#iteration-for-a-child-resource).
+You can only use `copy` with top-level resources, even when applying `copy` to a property. To learn about changing a child resource to a top-level resource, see [Iteration for a child resource](copy-resources.md#iteration-for-a-child-resource).
 
 You can also use copy with [resources](copy-resources.md), [variables](copy-variables.md), and [outputs](copy-outputs.md).
 
@@ -19,18 +19,18 @@ The copy element has the following general format:
 ```json
 "copy": [
   {
-    "name": "<name-of-loop>",
+    "name": "<name-of-property>",
     "count": <number-of-iterations>,
     "input": <values-for-the-property>
   }
 ]
 ```
 
-For **name**, provide the name of the resource property that you want to create.
+For `name`, provide the name of the resource property that you want to create.
 
-The **count** property specifies the number of iterations you want for the property.
+The `count` property specifies the number of iterations you want for the property.
 
-The **input** property specifies the properties that you want to repeat. You create an array of elements constructed from the value in the **input** property.
+The `input` property specifies the properties that you want to repeat. You create an array of elements constructed from the value in the `input` property.
 
 ## Copy limits
 
@@ -47,7 +47,7 @@ Earlier versions of PowerShell, CLI, and the REST API don't support zero for cou
 
 ## Property iteration
 
-The following example shows how to apply `copy` to the dataDisks property on a virtual machine:
+The following example shows how to apply `copy` to the `dataDisks` property on a virtual machine:
 
 ```json
 {
@@ -58,7 +58,7 @@ The following example shows how to apply `copy` to the dataDisks property on a v
       "type": "int",
       "minValue": 0,
       "maxValue": 16,
-      "defaultValue": 16,
+      "defaultValue": 3,
       "metadata": {
         "description": "The number of dataDisks to create."
       }
@@ -91,7 +91,7 @@ The following example shows how to apply `copy` to the dataDisks property on a v
 }
 ```
 
-Notice that when using `copyIndex` inside a property iteration, you must provide the name of the iteration. Property iteration also supports an offset argument. The offset must come after the name of the iteration, such as copyIndex('dataDisks', 1).
+Notice that when using `copyIndex` inside a property iteration, you must provide the name of the iteration. Property iteration also supports an offset argument. The offset must come after the name of the iteration, such as `copyIndex('dataDisks', 1)`.
 
 Resource Manager expands the `copy` array during deployment. The name of the array becomes the name of the property. The input values become the object properties. The deployed template becomes:
 
@@ -182,7 +182,7 @@ The following example template creates a failover group for databases that are p
 }
 ```
 
-The copy element is an array so you can specify more than one property for the resource.
+The `copy` element is an array so you can specify more than one property for the resource.
 
 ```json
 {
@@ -254,11 +254,10 @@ The following example shows a common scenario for creating more than one value f
 
 ## Next steps
 
-* To go through a tutorial, see [Tutorial: create multiple resource instances using ARM templates](template-tutorial-create-multiple-instances.md).
+* To go through a tutorial, see [Tutorial: Create multiple resource instances with ARM templates](template-tutorial-create-multiple-instances.md).
 * For other uses of the copy element, see:
   * [Resource iteration in ARM templates](copy-resources.md)
   * [Variable iteration in ARM templates](copy-variables.md)
   * [Output iteration in ARM templates](copy-outputs.md)
-* If you want to learn about the sections of a template, see [Authoring ARM templates](template-syntax.md).
-* To learn how to deploy your template, see [Deploy an application with ARM template](deploy-powershell.md).
-
+* If you want to learn about the sections of a template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* To learn how to deploy your template, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).

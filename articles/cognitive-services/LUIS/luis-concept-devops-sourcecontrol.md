@@ -14,7 +14,7 @@ Software engineers who are developing a Language Understanding (LUIS) app can ap
 
 ## Source control and branch strategies for LUIS
 
-One of the key factors that the success of DevOps depends upon is [source control](/azure/devops/user-guide/source-control?view=azure-devops). A source control system allows developers to collaborate on code and to track changes. The use of branches allows developers to switch between different versions of the code base, and to work independently from other members of the team. When developers raise a [pull request](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) (PR) to propose updates from one branch to another, or when changes are merged, these can be the trigger for [automated builds](luis-concept-devops-automation.md) to build and continuously test code.
+One of the key factors that the success of DevOps depends upon is [source control](/azure/devops/user-guide/source-control). A source control system allows developers to collaborate on code and to track changes. The use of branches allows developers to switch between different versions of the code base, and to work independently from other members of the team. When developers raise a [pull request](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) (PR) to propose updates from one branch to another, or when changes are merged, these can be the trigger for [automated builds](luis-concept-devops-automation.md) to build and continuously test code.
 
 By using the concepts and guidance that are described in this document, you can develop a LUIS app while tracking changes in a source control system, and follow these software engineering best practices:
 
@@ -38,7 +38,7 @@ By using the concepts and guidance that are described in this document, you can 
 
 ## Source control
 
-To maintain the [App schema definition](./app-schema-definition.md) of a LUIS app in a source code management system, use the [LUDown format (`.lu`)](/azure/bot-service/file-format/bot-builder-lu-file-format?view=azure-bot-service-4.0)  representation of the app. `.lu` format is preferred to `.json` format because it's human readable, which makes it easier to make and review changes in PRs.
+To maintain the [App schema definition](./app-schema-definition.md) of a LUIS app in a source code management system, use the [LUDown format (`.lu`)](/azure/bot-service/file-format/bot-builder-lu-file-format)  representation of the app. `.lu` format is preferred to `.json` format because it's human readable, which makes it easier to make and review changes in PRs.
 
 ### Save a LUIS app using the LUDown format
 
@@ -68,7 +68,7 @@ The following types of files for your LUIS application should be maintained unde
 
 - [Unit Test definition files](luis-concept-devops-testing.md#writing-tests) (utterances and expected results)
 
-- [Batch test files](./luis-concept-batch-test.md#batch-file-format) (utterances and expected results) used for performance testing
+- [Batch test files](./luis-how-to-batch-test.md#batch-test-file) (utterances and expected results) used for performance testing
 
 ### Credentials and keys are not checked in
 
@@ -77,7 +77,7 @@ Do not include subscription keys or similar confidential values in files that yo
 - LUIS Authoring and Prediction keys
 - LUIS Authoring and Prediction endpoints
 - Azure subscription keys
-- Access tokens, such as the token for an Azure [service principal](/cli/azure/ad/sp?view=azure-cli-latest) used for automation authentication
+- Access tokens, such as the token for an Azure [service principal](/cli/azure/ad/sp) used for automation authentication
 
 #### Strategies for securely managing secrets
 
@@ -94,7 +94,7 @@ Whichever branching strategy you adopt, a key principle of all of them is that t
 
 To support independent working in branches with a LUIS project:
 
-- **The master branch has its own LUIS app.** This app represents the current state of your solution for your project and its current active version should always map to the `.lu` source that is in the master branch. All updates to the `.lu` source for this app should be reviewed and tested so that this app could be deployed to build environments such as Production at any time. When updates to the `.lu` are merged into master from a feature branch, you should create a new version in the LUIS app and [bump the version number](#versioning).
+- **The main branch has its own LUIS app.** This app represents the current state of your solution for your project and its current active version should always map to the `.lu` source that is in the main branch. All updates to the `.lu` source for this app should be reviewed and tested so that this app could be deployed to build environments such as Production at any time. When updates to the `.lu` are merged into main from a feature branch, you should create a new version in the LUIS app and [bump the version number](#versioning).
 
 - **Each feature branch must use its own instance of a LUIS app**. Developers work with this app in a feature branch without risk of affecting developers who are working in other branches. This 'dev branch' app is a working copy that should be deleted when the feature branch is deleted.
 
@@ -104,13 +104,13 @@ To support independent working in branches with a LUIS project:
 
 Developers can work on updates on a LUIS app independently from other branches by:
 
-1. Creating a feature branch from the main branch (depending on your branch strategy, usually master or develop).
+1. Creating a feature branch from the main branch (depending on your branch strategy, usually main or develop).
 
 1. [Create a new LUIS app in the LUIS portal](./luis-how-to-start-new-app.md) (the "*dev branch app*") solely to support the work in the feature branch.
 
    * If the `.lu` source for your solution already exists in your branch, because it was saved after work done in another branch earlier in the project, create your dev branch LUIS app by importing the `.lu` file.
 
-   * If you are starting work on a new project, you will not yet have the `.lu` source for your master LUIS app in the repo. You will create the `.lu` file by exporting your dev branch app from the portal when you have completed your feature branch work, and submit it as a part of your PR.
+   * If you are starting work on a new project, you will not yet have the `.lu` source for your main LUIS app in the repo. You will create the `.lu` file by exporting your dev branch app from the portal when you have completed your feature branch work, and submit it as a part of your PR.
 
 1. Work on the active version of your dev branch app to implement the required changes. We recommend that you work only in a single version of your dev branch app for all the feature branch work. If you create more than one version in your dev branch app, be careful to track which version contains the changes you want to check in when you raise your PR.
 
@@ -120,7 +120,7 @@ Developers can work on updates on a LUIS app independently from other branches b
 
 1. Check in your updates and invite peer review of your updates. If you're using GitHub, you'll raise a [pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests).
 
-1. When the changes are approved, merge the updates into the master branch. At this point, you will create a new [version](./luis-how-to-manage-versions.md) of the *master* LUIS app, using the updated `.lu` in master. See [Versioning](#versioning) for considerations on setting the version name.
+1. When the changes are approved, merge the updates into the main branch. At this point, you will create a new [version](./luis-how-to-manage-versions.md) of the *main* LUIS app, using the updated `.lu` in main. See [Versioning](#versioning) for considerations on setting the version name.
 
 1. When the feature branch is deleted, it's a good idea to delete the dev branch LUIS app you created for the feature branch work.
 
@@ -146,7 +146,7 @@ You can support multiple developers working on the same feature branch at the sa
 
 ### Incorporating changes from one branch to another with rebase or merge
 
-Some other developers on your team working in another branch may have made updates to the `.lu` source and merged them to the master branch after you created your feature branch. You may want to incorporate their changes into your working version before you continue to make own changes within your feature branch. You can do this by [rebase or merge to master](https://git-scm.com/book/en/v2/Git-Branching-Rebasing) in the same way as any other code asset. Since the LUIS app in LUDown format is human readable, it supports merging using standard merge tools.
+Some other developers on your team working in another branch may have made updates to the `.lu` source and merged them to the main branch after you created your feature branch. You may want to incorporate their changes into your working version before you continue to make own changes within your feature branch. You can do this by [rebase or merge to main](https://git-scm.com/book/en/v2/Git-Branching-Rebasing) in the same way as any other code asset. Since the LUIS app in LUDown format is human readable, it supports merging using standard merge tools.
 
 Follow these tips if you're rebasing your LUIS app in a feature branch:
 
@@ -158,7 +158,7 @@ Follow these tips if you're rebasing your LUIS app in a feature branch:
 
 ### Merge PRs
 
-After your PR is approved, you can merge your changes to your master branch. No special considerations apply to the LUDown source for a LUIS app: it's human readable and so supports merging using standard Merge tools. Any merge conflicts may be resolved in the same way as with other source files.
+After your PR is approved, you can merge your changes to your main branch. No special considerations apply to the LUDown source for a LUIS app: it's human readable and so supports merging using standard Merge tools. Any merge conflicts may be resolved in the same way as with other source files.
 
 After your PR has been merged, it's recommended to cleanup:
 
@@ -169,7 +169,7 @@ After your PR has been merged, it's recommended to cleanup:
 In the same way as with application code assets, you should write unit tests to accompany LUIS app updates. You should employ continuous integration workflows to test:
 
 - Updates in a PR before the PR is merged
-- The master branch LUIS app after a PR has been approved and the changes have been merged into master.
+- The main branch LUIS app after a PR has been approved and the changes have been merged into main.
 
 For more information on testing for LUIS DevOps, see [Testing for DevOps for LUIS](luis-concept-devops-testing.md). For more details on implementing workflows, see [Automation workflows for LUIS DevOps](luis-concept-devops-automation.md).
 
@@ -179,11 +179,11 @@ A LUIS app in LUDown format is human readable, which supports the communication 
 
 ## Versioning
 
-An application consists of multiple components that might include things such as a bot running in [Azure Bot Service](/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0), [QnA Maker](https://www.qnamaker.ai/), [Azure Speech service](../speech-service/overview.md), and more. To achieve the goal of loosely coupled applications, use [version control](/azure/devops/learn/git/what-is-version-control) so that each component of an application is versioned independently, allowing developers to detect breaking changes or updates just by looking at the version number. It's easier to version your LUIS app independently from other components if you maintain it in its own repo.
+An application consists of multiple components that might include things such as a bot running in [Azure Bot Service](/azure/bot-service/bot-service-overview-introduction), [QnA Maker](https://www.qnamaker.ai/), [Azure Speech service](../speech-service/overview.md), and more. To achieve the goal of loosely coupled applications, use [version control](/azure/devops/learn/git/what-is-version-control) so that each component of an application is versioned independently, allowing developers to detect breaking changes or updates just by looking at the version number. It's easier to version your LUIS app independently from other components if you maintain it in its own repo.
 
-The LUIS app for the master branch should have a versioning scheme applied. When you merge updates to the `.lu` for a LUIS app into master, you'll then import that updated source into a new version in the LUIS app for the master branch.
+The LUIS app for the main branch should have a versioning scheme applied. When you merge updates to the `.lu` for a LUIS app into main, you'll then import that updated source into a new version in the LUIS app for the main branch.
 
-It is recommended that you use a numeric versioning scheme for the master LUIS app version, for example:
+It is recommended that you use a numeric versioning scheme for the main LUIS app version, for example:
 
 `major.minor[.build[.revision]]`
 
@@ -195,7 +195,7 @@ The major / minor version can be used to indicate the scope of the changes to th
 * Minor Version: A backwards-compatible minor change, such as after significant new training
 * Build: No functionality change, just a different build.
 
-Once you've determined the version number for the latest revision of your master LUIS app, you need to build and test the new app version, and publish it to an endpoint where it can be used in different build environments, such as Quality Assurance or Production. It's highly recommended that you automate all these steps in a continuous integration (CI) workflow.
+Once you've determined the version number for the latest revision of your main LUIS app, you need to build and test the new app version, and publish it to an endpoint where it can be used in different build environments, such as Quality Assurance or Production. It's highly recommended that you automate all these steps in a continuous integration (CI) workflow.
 
 See:
 - [Automation workflows](luis-concept-devops-automation.md) for details on how to implement a CI workflow to test and release a LUIS app.
@@ -203,9 +203,9 @@ See:
 
 ### Versioning the 'feature branch' LUIS app
 
-When you are working with a 'dev branch' LUIS app that you've created to support work in a feature branch, you will be exporting your app when your work is complete and you will include the updated `'lu` in your PR. The branch in your repo, and the 'dev branch' LUIS app should be deleted after the PR is merged into master. Since this app exists solely to support the work in the feature branch, there's no particular versioning scheme you need to apply within this app.
+When you are working with a 'dev branch' LUIS app that you've created to support work in a feature branch, you will be exporting your app when your work is complete and you will include the updated `'lu` in your PR. The branch in your repo, and the 'dev branch' LUIS app should be deleted after the PR is merged into main. Since this app exists solely to support the work in the feature branch, there's no particular versioning scheme you need to apply within this app.
 
-When your changes in your PR are merged into master, that is when the versioning should be applied, so that all updates to master are versioned independently.
+When your changes in your PR are merged into main, that is when the versioning should be applied, so that all updates to main are versioned independently.
 
 ## Next steps
 

@@ -9,8 +9,8 @@ ms.topic: conceptual
 ms.reviewer: Blackmist
 ms.author: nigup
 author: nishankgu
-ms.date: 11/09/2020
-ms.custom: how-to, seodec18, devx-track-azurecli, contperfq2
+ms.date: 01/20/2020
+ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2
 
 ---
 
@@ -24,7 +24,7 @@ In this article, you learn how to manage access (authorization) to an Azure Mach
 >
 > * [Control access to Azure Kubernetes cluster resources](../aks/azure-ad-rbac.md)
 > * [Use Azure RBAC for Kubernetes authorization](../aks/manage-azure-rbac.md)
-> * [Use Azure RBAC for access to blob data](/azure/storage/common/storage-auth-aad-rbac-portal)
+> * [Use Azure RBAC for access to blob data](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!WARNING]
 > Applying some roles may limit UI functionality in Azure Machine Learning studio for other users. For example, if a user's role does not have the ability to create a compute instance, the option to create a compute instance will not be available in studio. This behavior is expected, and prevents the user from attempting operations that would return an access denied error.
@@ -158,6 +158,10 @@ You need to have permissions on the entire scope of your new role definition. Fo
 > [!NOTE]
 > Role updates can take 15 minutes to an hour to apply across all role assignments in that scope.
 
+## Use Azure Resource Manager templates for repeatability
+
+If you anticipate that you will need to recreate complex role assignments, an Azure Resource Manager template can be a big help. The [201-machine-learning-dependencies-role-assignment template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-dependencies-role-assignment) shows how role assignments can be specified in source code for reuse. 
+
 ## Common scenarios
 
 The following table is a summary of Azure Machine Learning activities and the permissions required to perform them at the least scope. For example, if an activity can be performed with a workspace scope (Column 4), then all higher scope with that permission will also work automatically:
@@ -172,7 +176,7 @@ The following table is a summary of Azure Machine Learning activities and the pe
 | Create new compute cluster | Not required | Not required | Owner, contributor, or custom role allowing: `/workspaces/computes/write` |
 | Create new compute instance | Not required | Not required | Owner, contributor, or custom role allowing: `/workspaces/computes/write` |
 | Submitting any type of run | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
-| Publishing a pipeline endpoint | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/pipelines/write", "/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
+| Publishing pipelines and endpoints | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
 | Deploying a registered model on an AKS/ACI resource | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
 | Scoring against a deployed AKS endpoint | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (when you are not using Azure Active Directory auth) OR `"/workspaces/read"` (when you are using token auth) |
 | Accessing storage using interactive notebooks | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*", "/workspaces/listKeys/action"` |
@@ -457,7 +461,7 @@ Here are a few things to be aware of while you use Azure role-based access contr
 - When there are two role assignments to the same Azure Active Directory user with conflicting sections of Actions/NotActions, your operations listed in NotActions from one role might not take effect if they are also listed as Actions in another role. To learn more about how Azure parses role assignments, read [How Azure RBAC determines if a user has access to a resource](../role-based-access-control/overview.md#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
 
 - To deploy your compute resources inside a VNet, you need to explicitly have permissions for the following actions:
-    - `Microsoft.Network/virtualNetworks/join/action` on the VNet resource.
+    - `Microsoft.Network/virtualNetworks/*/read` on the VNet resources.
     - `Microsoft.Network/virtualNetworks/subnet/join/action` on the subnet resource.
     
     For more information on Azure RBAC with networking, see the [Networking built-in roles](../role-based-access-control/built-in-roles.md#networking).

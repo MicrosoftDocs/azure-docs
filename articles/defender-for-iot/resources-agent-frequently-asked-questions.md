@@ -1,26 +1,13 @@
 ---
 title: Azure Defender for IoT agent frequently asked questions
 description: Find answers to the most frequently asked questions about Azure Defender for IoT agent.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: rkarlin
-manager: rkarlin
-editor: ''
-
-
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/07/2020
-ms.author: rkarlin
 ---
 
 # Azure Defender for IoT agent frequently asked questions
 
 This article provides a list of frequently asked questions and answers about the Defender for IoT agent.
-
 
 ## Do I have to install an embedded security agent?
 
@@ -38,7 +25,6 @@ Agent installation on your IoT devices isn't mandatory in order to enable Defend
 Defender for IoT agent provides device level threat coverage for device configuration, behavior, and access (by scanning the configuration), process & connectivity. The Defender for IoT security agent does not scan business-related data or activity.
 
 The Defender for IoT security agent is open source and available on GitHub in 32 bit and 64-bit Windows and Linux versions: https://github.com/Azure/Azure-IoT-Security.
-
 
 ## What are the dependencies and prerequisites of the agent?
 
@@ -84,13 +70,11 @@ The agent cannot be turned off.
 
 If the agent stops communicating or fails to send security messages, a **Device is silent** alert is generated.
 
-
-
 ## Next steps
 
 To learn more about how to get started with Defender for IoT, see the following articles:
 
 - Read the Defender for IoT [overview](overview.md)
-- Verify the [Service prerequisites](service-prerequisites.md)
-- Learn more about how to [Get started](getting-started.md)
+- Verify the [System prerequisites](quickstart-system-prerequisites.md)
+- Learn more about how to [Getting started with Defender for IoT](getting-started.md)
 - Understand [Defender for IoT security alerts](concept-security-alerts.md)

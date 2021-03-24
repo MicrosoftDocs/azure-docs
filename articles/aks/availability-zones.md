@@ -4,7 +4,7 @@ description: Learn how to create a cluster that distributes nodes across availab
 services: container-service
 ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
-ms.date: 09/04/2020
+ms.date: 03/16/2021
 
 ---
 
@@ -25,6 +25,7 @@ You need the Azure CLI version 2.0.76 or later installed and configured. Run `a
 AKS clusters can currently be created using availability zones in the following regions:
 
 * Australia East
+* Brazil South
 * Canada Central
 * Central US
 * East US 
@@ -33,10 +34,10 @@ AKS clusters can currently be created using availability zones in the following 
 * Germany West Central
 * Japan East
 * North Europe
-* South Africa North
-* South Central US
 * Southeast Asia
+* South Central US
 * UK South
+* US Gov Virginia
 * West Europe
 * West US 2
 
@@ -163,7 +164,7 @@ Name:       aks-nodepool1-28993262-vmss000004
 We now have two additional nodes in zones 1 and 2. You can deploy an application consisting of three replicas. We will use NGINX as an example:
 
 ```console
-kubectl create deployment nginx --image=nginx
+kubectl create deployment nginx --image=mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
 kubectl scale deployment nginx --replicas=3
 ```
 
@@ -198,9 +199,9 @@ This article detailed how to create an AKS cluster that uses availability zones.
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [az-aks-nodepool-add]: /cli/azure/ext/aks-preview/aks/nodepool#ext-aks-preview-az-aks-nodepool-add
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [vmss-zone-balancing]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing
 
 <!-- LINKS - external -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
-[kubectl-well_known_labels]: https://kubernetes.io/docs/reference/kubernetes-api/labels-annotations-taints/
+[kubectl-well_known_labels]: https://kubernetes.io/docs/reference/labels-annotations-taints/

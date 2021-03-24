@@ -163,6 +163,10 @@ After you create a new simulated device, the builder can use this device to cont
 
     :::image type="content" source="media/quick-create-simulated-device/configure-preview.png" alt-text="Screenshot showing a configured preview device":::
 
+## Clean up resources
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
+
 ## Next steps
 
 In this quickstart, you learned how to you create a **Sensor Controller** device template for an ESP32 device and add a simulated device to your application.

@@ -23,9 +23,9 @@ This article shows you how to use CAE-enabled APIs in your applications.
 
 ## Implementation considerations
 
-To use Continuous Access Evaluation, both your app and the resource API it's accessing must be CAE-enabled. However, preparing your code to use a CAE enabled resource will not prevent you from using APIs that are not CAE enabled. 
+To use Continuous Access Evaluation, both your app and the resource API it's accessing must be CAE-enabled. However, preparing your code to use a CAE enabled resource will not prevent you from using APIs that are not CAE enabled.
 
-If a resource API implements CAE and your application declares it can handle CAE, your app will get CAE tokens for that resource. For this reason, if you declare your app CAE ready, your application must handle the CAE claim challenge for all resource APIs that accept Microsoft Identity access tokens. If you do not handle CAE responses in these API calls, your app could end up in a loop retrying an API call with a token that is still in the returned lifespan of the token but has been revoked due to CAE. 
+If a resource API implements CAE and your application declares it can handle CAE, your app will get CAE tokens for that resource. For this reason, if you declare your app CAE ready, your application must handle the CAE claim challenge for all resource APIs that accept Microsoft Identity access tokens. If you do not handle CAE responses in these API calls, your app could end up in a loop retrying an API call with a token that is still in the returned lifespan of the token but has been revoked due to CAE.
 
 ## The code
 
@@ -36,9 +36,9 @@ For example:
 ```console
 HTTP 401; Unauthorized
 WWW-Authenticate=Bearer
- authorization_uri="https://login.windows.net/common/oauth2/authorize",
- error="insufficient_claims",
- claims="eyJhY2Nlc3NfdG9rZW4iOnsibmJmIjp7ImVzc2VudGlhbCI6dHJ1ZSwgInZhbHVlIjoiMTYwNDEwNjY1MSJ9fX0="
+  authorization_uri="https://login.windows.net/common/oauth2/authorize",
+  error="insufficient_claims",
+  claims="eyJhY2Nlc3NfdG9rZW4iOnsibmJmIjp7ImVzc2VudGlhbCI6dHJ1ZSwgInZhbHVlIjoiMTYwNDEwNjY1MSJ9fX0="
 ```
 
 Your app would check for:
@@ -53,7 +53,7 @@ When these conditions are met, the app can extract and decode the claims challen
 ```csharp
 if (APIresponse.IsSuccessStatusCode)
 {
-    // . . .
+    // ...
 }
 else
 {
@@ -95,7 +95,7 @@ catch (MsalUiRequiredException)
             .ExecuteAsync()
             .ConfigureAwait(false);
     }
-    // . . .
+    // ...
 ```
 
 Once your application is ready to handle the claim challenge returned by a CAE enabled resource, you can tell Microsoft Identity your app is CAE ready. To do this in your MSAL application, build your Public Client using the Client Capabilities of "cp1".
@@ -112,4 +112,4 @@ You can test your application by signing in a user to the application then using
 
 ## Next steps
 
-To learn more, see [Continuous access evaluation](/conditional-access/concept-continuous-access-evaluation.md).
+To learn more, see [Continuous access evaluation](../conditional-access/concept-continuous-access-evaluation.md).

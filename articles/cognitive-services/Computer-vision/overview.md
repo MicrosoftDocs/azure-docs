@@ -11,7 +11,7 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 11/23/2020
 ms.author: pafarley
-ms.custom: [seodec18, cog-serv-seo-aug-2020]
+ms.custom: [seodec18, cog-serv-seo-aug-2020, contperf-fy21q2]
 keywords: computer vision, computer vision applications, computer vision service
 #Customer intent: As a developer, I want to evaluate image processing functionality, so that I can determine if it will work for my information extraction or object detection scenarios.
 ---
@@ -24,9 +24,15 @@ Azure's Computer Vision service gives you access to advanced algorithms that pro
 
 You can create Computer Vision applications through a [client library SDK](./quickstarts-sdk/client-library.md) or by calling the [REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) directly. This page broadly covers what you can do with Computer Vision.
 
+This documentation contains the following types of articles:
+* The [quickstarts](./quickstarts-sdk/client-library.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
+* The [how-to guides](./Vision-API-How-to-Topics/HowToCallVisionAPI.md) contain instructions for using the service in more specific or customized ways.
+* The [conceptual articles](concept-recognizing-text.md) provide in-depth explanations of the service's functionality and features.
+* The [tutorials](./tutorials/storage-lab-tutorial.md) are longer guides that show you how to use this service as a component in broader business solutions.
+
 ## Optical Character Recognition (OCR)
 
-Computer Vision includes [Optical Character Recognition (OCR)](concept-recognizing-text.md) capabilities. You can use the new Read API to extract printed and handwritten text from images and documents. It uses the latest models and works with text on a variety of surfaces and backgrounds. These include receipts, posters, business cards, letters, and whiteboards. The two OCR APIs support extracting printed text in [several languages](./language-support.md). Follow a [quickstart](./quickstarts-sdk/client-library.md) to get started.
+Computer Vision includes [Optical Character Recognition (OCR)](concept-recognizing-text.md) capabilities. You can use the new Read API to extract printed and handwritten text from images and documents. It uses deep learning based models and works with text on a variety of surfaces and backgrounds. These include business documents, invoices, receipts, posters, business cards, letters, and whiteboards. The OCR APIs support extracting printed text in [several languages](./language-support.md). Follow a [quickstart](./quickstarts-sdk/client-library.md) to get started.
 
 ## Computer Vision for digital asset management
 
@@ -109,4 +115,4 @@ As with all of the Cognitive Services, developers using the Computer Vision serv
 
 Get started with Computer Vision by following the quickstart guide in your preferred development language:
 
-- [Quickstart: Computer Vision client library](./quickstarts-sdk/client-library.md)
+- [Quickstart: Computer Vision REST API or client libraries](./quickstarts-sdk/client-library.md)

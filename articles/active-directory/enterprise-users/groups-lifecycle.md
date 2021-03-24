@@ -8,9 +8,10 @@ manager: mtillman
 editor: ''
 
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/15/2020
+ms.date: 12/02/2020
 ms.author: curtand                   
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -38,7 +39,7 @@ For information on how to download and install the Azure AD PowerShell cmdlets, 
 
 ## Activity-based automatic renewal
 
-With Azure AD intelligence, groups are now automatically renewed based on whether they have been recently used. This feature eliminates the need for manual action by group owners, because it's based on user activity in groups across Microsoft 365 services like Outlook, SharePoint, or Teams. For example, if an owner or a group member does something like upload a document in SharePoint, visit a Teams channel, or send an email to the group in Outlook, the group is automatically renewed and the owner does not get any renewal notifications.
+With Azure AD intelligence, groups are now automatically renewed based on whether they have been recently used. This feature eliminates the need for manual action by group owners, because it's based on user activity in groups across Microsoft 365 services like Outlook, SharePoint, or Teams. For example, if an owner or a group member does something like upload a document in SharePoint, visit a Teams channel, or send an email to the group in Outlook, the group is automatically renewed around 35 days before the group expires and the owner does not get any renewal notifications.
 
 ### Activities that automatically renew group expiration
 
@@ -173,7 +174,7 @@ Here are examples of how you can use PowerShell cmdlets to configure the expirat
    Remove-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077"
    ```
   
-The following cmdlets can be used to configure the policy in more detail. For more information, see [PowerShell documentation](/powershell/module/azuread/?branch=master&view=azureadps-2.0-preview#groups).
+The following cmdlets can be used to configure the policy in more detail. For more information, see [PowerShell documentation](/powershell/module/azuread/?view=azureadps-2.0-preview#groups).
 
 - Get-AzureADMSGroupLifecyclePolicy
 - New-AzureADMSGroupLifecyclePolicy

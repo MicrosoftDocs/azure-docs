@@ -1,14 +1,15 @@
 ---
 title: User-defined functions in templates
-description: Describes how to define and use user-defined functions in an Azure Resource Manager template.
+description: Describes how to define and use user-defined functions in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
-ms.date: 03/09/2020
+ms.date: 02/11/2021
 ---
-# User-defined functions in Azure Resource Manager template
+
+# User-defined functions in ARM template
 
 Within your template, you can create your own functions. These functions are available for use in your template. User-defined functions are separate from the [standard template functions](template-functions.md) that are automatically available within your template. Create your own functions when you have complicated expressions that are used repeatedly in your template.
 
-This article describes how to add user-defined functions in your Azure Resource Manager template.
+This article describes how to add user-defined functions in your Azure Resource Manager template (ARM template).
 
 ## Define the function
 
@@ -38,7 +39,7 @@ Your functions require a namespace value to avoid naming conflicts with template
 
 ## Use the function
 
-The following example shows a template that includes a user-defined function. It uses that function to get a unique name for a storage account. The template has a parameter named **storageNamePrefix** that it passes as a parameter to the function.
+The following example shows a template that includes a user-defined function to get a unique name for a storage account. The template has a parameter named `storageNamePrefix` that is passed as a parameter to the function.
 
 ```json
 {
@@ -87,6 +88,12 @@ The following example shows a template that includes a user-defined function. It
 }
 ```
 
+During deployment, the `storageNamePrefix` parameter is passed to the function:
+
+* The template defines a parameter named `storageNamePrefix`.
+* The function uses `namePrefix` because you can only use parameters defined in the function. For more information, see [Limitations](#limitations).
+* In the template's `resources` section, the `name` element uses the function and passes the `storageNamePrefix` value to the function's `namePrefix`.
+
 ## Limitations
 
 When defining a user function, there are some restrictions:
@@ -97,8 +104,7 @@ When defining a user function, there are some restrictions:
 * The function can't use the [reference](template-functions-resource.md#reference) function or any of the [list](template-functions-resource.md#list) functions.
 * Parameters for the function can't have default values.
 
-
 ## Next steps
 
-* To learn about the available properties for user-defined functions, see [Understand the structure and syntax of Azure Resource Manager templates](template-syntax.md).
-* For a list of the available template functions, see [Azure Resource Manager template functions](template-functions.md).
+* To learn about the available properties for user-defined functions, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* For a list of the available template functions, see [ARM template functions](template-functions.md).

@@ -59,7 +59,7 @@ You can connect spatial anchors over multiple sessions. Using this method, you c
 
 To connect anchors over multiple sessions:
 
-1. The app creates some anchors in one CloudSpatialAnchorSession.
+1. The app creates some anchors (Anchors A and B) in one CloudSpatialAnchorSession.
 2. At a different time, the app locates one of these anchors (for example, Anchor A) by using a new CloudSpatialAnchorSession.
 3. Walk to a new location. The underlying mixed-reality or augmented-reality platform tracks the movement.
 4. Create Anchor C by using the same CloudSpatialAnchorSession. Anchors A, B, and C are now connected. The Spatial Anchors service maintains this relationship.

@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/30/2020
+ms.date: 01/22/2021
 ms.author: victorh
 ---
 
@@ -21,6 +21,9 @@ IP Groups allow you to group and manage IP addresses for Azure Firewall rules in
 An IP Group can have a single IP address, multiple IP addresses, or one or more IP address ranges.
 
 IP Groups can be reused in Azure Firewall DNAT, network, and application rules for multiple firewalls across regions and subscriptions in Azure. Group names must be unique. You can configure an IP Group in the Azure portal, Azure CLI, or REST API. A sample template is provided to help you get started.
+
+> [!NOTE]
+> IP Groups are not currently available in Azure national cloud environments.
 
 ## Sample format
 
@@ -71,13 +74,13 @@ You can have a maximum of 100 IP Groups per firewall with a maximum 5000 individ
 
 The following Azure PowerShell cmdlets can be used to create and manage IP Groups:
 
-- [New-AzIpGroup](/powershell/module/az.network/new-azipgroup?view=azps-3.4.0)
-- [Remove-AzIPGroup](/powershell/module/az.network/remove-azipgroup?view=azps-3.4.0)
-- [Get-AzIpGroup](/powershell/module/az.network/get-azipgroup?view=azps-3.4.0)
-- [Set-AzIpGroup](/powershell/module/az.network/set-azipgroup?view=azps-3.4.0)
-- [New-AzFirewallNetworkRule](/powershell/module/az.network/new-azfirewallnetworkrule?view=azps-3.4.0)
-- [New-AzFirewallApplicationRule](/powershell/module/az.network/new-azfirewallapplicationrule?view=azps-3.4.0)
-- [New-AzFirewallNatRule](/powershell/module/az.network/new-azfirewallnatrule?view=azps-3.4.0)
+- [New-AzIpGroup](/powershell/module/az.network/new-azipgroup)
+- [Remove-AzIPGroup](/powershell/module/az.network/remove-azipgroup)
+- [Get-AzIpGroup](/powershell/module/az.network/get-azipgroup)
+- [Set-AzIpGroup](/powershell/module/az.network/set-azipgroup)
+- [New-AzFirewallNetworkRule](/powershell/module/az.network/new-azfirewallnetworkrule)
+- [New-AzFirewallApplicationRule](/powershell/module/az.network/new-azfirewallapplicationrule)
+- [New-AzFirewallNatRule](/powershell/module/az.network/new-azfirewallnatrule)
 
 ## Next steps
 

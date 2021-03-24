@@ -204,7 +204,7 @@ IMSC1 captions can disappear after seeking within the current video/audio buffer
 
 ### Changes ###
 
-- [Change][Live captioning] Changed API name for CEA captions from 608 to 708. For more information, see [CEA708 Captions Settings](/javascript/api/azuremediaplayer/cea708captionssettings)-->
+- [Change][Live captioning] Changed API name for CEA captions from 608 to 708. For more information, see [CEA708 Captions Settings](/javascript/api/azuremediaplayer/amp.player.cea708captionssettings)-->
 
 ## 2.2.0 (Official Release) ##
 

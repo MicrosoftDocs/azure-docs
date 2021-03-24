@@ -46,7 +46,7 @@ When you upload videos using URL, you just need to provide a path to the locatio
 > [!TIP]
 > Use the `videoUrl` optional parameter of the upload video API.
 
-To see an example of how to upload videos using URL, check out [this example](upload-index-videos.md#code-sample). Or, you can use [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10) for a fast and reliable way to get your content to a storage account from which you can submit it to Video Indexer using [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-sas-overview).
+To see an example of how to upload videos using URL, check out [this example](upload-index-videos.md#code-sample). Or, you can use [AzCopy](../../storage/common/storage-use-azcopy-v10.md) for a fast and reliable way to get your content to a storage account from which you can submit it to Video Indexer using [SAS URL](../../storage/common/storage-sas-overview.md).
 
 ## Increase media reserved units if needed
 

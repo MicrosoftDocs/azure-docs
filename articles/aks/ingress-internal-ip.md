@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to install and configure an NGINX ingress controller for an internal, private network in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 08/17/2020
+ms.date: 03/16/2021
 
 ---
 
@@ -64,7 +64,8 @@ helm install nginx-ingress ingress-nginx/ingress-nginx \
     -f internal-ingress.yaml \
     --set controller.replicaCount=2 \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
-    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
+    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
 When the Kubernetes load balancer service is created for the NGINX ingress controller, your internal IP address is assigned. To get the public IP address, use the `kubectl get service` command.
@@ -227,7 +228,7 @@ ingress.extensions/hello-world-ingress created
 To test the routes for the ingress controller, browse to the two applications with a web client. If needed, you can quickly test this internal-only functionality from a pod on the AKS cluster. Create a test pod and attach a terminal session to it:
 
 ```console
-kubectl run -it --rm aks-ingress-test --image=debian --namespace ingress-basic
+kubectl run -it --rm aks-ingress-test --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --namespace ingress-basic
 ```
 
 Install `curl` in the pod using `apt-get`:

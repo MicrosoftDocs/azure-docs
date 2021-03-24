@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 02/07/2021
 ms.author: memildin
 
 ---
@@ -38,13 +38,13 @@ You'll learn how Security Center helps with these core aspects of container secu
 
 The following screenshot shows the asset inventory page and the various container resource types protected by Security Center.
 
-:::image type="content" source="./media/container-security/container-security-tab.png" alt-text="Container-related resources in Security Center's asset inventory page" lightbox="./media/container-security/container-security-tab.png":::
+:::image type="content" source="./media/container-security/inventory-container-resources.png" alt-text="Container-related resources in Security Center's asset inventory page" lightbox="./media/container-security/inventory-container-resources.png":::
 
 ## Vulnerability management - scanning container images
 
 To monitor images in your Azure Resource Manager-based Azure container registries, enable [Azure Defender for container registries](defender-for-container-registries-introduction.md). Security Center scans any images pulled within the last 30 days, pushed to your registry, or imported. The integrated scanner is provided by the industry-leading vulnerability scanning vendor, Qualys.
 
-When issues are found – by Qualys or Security Center – you'll get notified in the [Azure Defender dashboard](azure-defender-dashboard.md). For every vulnerability, Security Center provides actionable recommendations, along with a severity classification, and guidance for how to remediate the issue. For details of Security Center's recommendations for containers, see the [reference list of recommendations](recommendations-reference.md#recs-containers).
+When issues are found – by Qualys or Security Center – you'll get notified in the [Azure Defender dashboard](azure-defender-dashboard.md). For every vulnerability, Security Center provides actionable recommendations, along with a severity classification, and guidance for how to remediate the issue. For details of Security Center's recommendations for containers, see the [reference list of recommendations](recommendations-reference.md#recs-compute).
 
 Security Center filters and classifies findings from the scanner. When an image is healthy, Security Center marks it as such. Security Center generates security recommendations only for images that have issues to be resolved. By only notifying when there are problems, Security Center reduces the potential for unwanted informational alerts.
 
@@ -56,7 +56,7 @@ Azure Security Center identifies unmanaged containers hosted on IaaS Linux VMs, 
 
 Security Center includes the entire ruleset of the CIS Docker Benchmark and alerts you if your containers don't satisfy any of the controls. When it finds misconfigurations, Security Center generates security recommendations. Use Security Center's **recommendations page** to view recommendations and remediate issues. The CIS benchmark checks don't run on AKS-managed instances or Databricks-managed VMs.
 
-For details of the relevant Security Center recommendations that might appear for this feature, see the [container section](recommendations-reference.md#recs-containers) of the recommendations reference table.
+For details of the relevant Security Center recommendations that might appear for this feature, see the [compute section](recommendations-reference.md#recs-compute) of the recommendations reference table.
 
 When you're exploring the security issues of a VM, Security Center provides additional information about the containers on the machine. Such information includes the Docker version and the number of images running on the host. 
 
@@ -66,15 +66,29 @@ To monitor unmanaged containers hosted on IaaS Linux VMs, enable the optional [A
 ### Continuous monitoring of your Kubernetes clusters
 Security Center works together with Azure Kubernetes Service (AKS), Microsoft's managed container orchestration service for developing, deploying, and managing containerized applications.
 
-AKS provides security controls and visibility into the security posture of your clusters. Security Center uses these features to:
-* Constantly monitor the configuration of your AKS clusters
-* Generate security recommendations aligned with industry standards
+AKS provides security controls and visibility into the security posture of your clusters. Security Center uses these features to constantly monitor the configuration of your AKS clusters and generate security recommendations aligned with industry standards.
 
-For details of the relevant Security Center recommendations that might appear for this feature, see the [container section](recommendations-reference.md#recs-containers) of the recommendations reference table.
+This is a high-level diagram of the interaction between Azure Security Center, Azure Kubernetes Service, and Azure Policy:
+
+:::image type="content" source="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png" alt-text="High-level architecture of the interaction between Azure Security Center, Azure Kubernetes Service, and Azure Policy" lightbox="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png":::
+
+You can see that the items received and analyzed by Security Center include:
+
+- audit logs from the API server
+- raw security events from the Log Analytics agent
+
+    > [!NOTE]
+    > We don't currently support installation of the Log Analytics agent on Azure Kubernetes Service clusters that are running on virtual machine scale sets.
+
+- cluster configuration information from the AKS cluster
+- workload configuration from Azure Policy (via the **Azure Policy add-on for Kubernetes**)
+
+For details of the relevant Security Center recommendations that might appear for this feature, see the [compute section](recommendations-reference.md#recs-compute) of the recommendations reference table.
+
 
 ###  Workload protection best-practices using Kubernetes admission control
 
-For a bundle of recommendations to protect the workloads of your Kubernetes containers, install the  **Azure Policy add-on for Kubernetes**. You can also auto deploy this add-on as explained in [Enable auto provisioning of extensions](security-center-enable-data-collection.md#enable-auto-provisioning-of-extensions). When auto provisioning for the add-on is set to "on", the extension is enabled by default in all existing and future clusters (that meet the add-on installation requirements).
+For a bundle of recommendations to protect the workloads of your Kubernetes containers, install the  **Azure Policy add-on for Kubernetes**. You can also auto deploy this add-on as explained in [Enable auto provisioning of the Log Analytics agent and extensions](security-center-enable-data-collection.md#auto-provision-mma). When auto provisioning for the add-on is set to "on", the extension is enabled by default in all existing and future clusters (that meet the add-on installation requirements).
 
 As explained in [this Azure Policy for Kubernetes page](../governance/policy/concepts/policy-for-kubernetes.md), the add-on extends the open-source [Gatekeeper v3](https://github.com/open-policy-agent/gatekeeper) admission controller webhook for [Open Policy Agent](https://www.openpolicyagent.org/). Kubernetes admission controllers are plugins that enforce how your clusters are used. The add-on registers as a web hook to Kubernetes admission control and makes it possible to apply at-scale enforcements and safeguards on your clusters in a centralized, consistent manner. 
 

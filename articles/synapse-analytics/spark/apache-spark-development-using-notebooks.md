@@ -1,6 +1,6 @@
 ---
 title: Synapse Studio notebooks
-description: In this article, you learn how to create and develop Azure Synapse Studio (preview) notebooks to do data preparation and visualization.
+description: In this article, you learn how to create and develop Azure Synapse Studio notebooks to do data preparation and visualization.
 services: synapse analytics 
 author: ruixinxu 
 ms.service: synapse-analytics 
@@ -12,9 +12,9 @@ ms.reviewer:
 ms.custom: devx-track-python
 ---
 
-# Create, develop, and maintain Synapse Studio (preview) notebooks in Azure Synapse Analytics
+# Create, develop, and maintain Synapse Studio notebooks in Azure Synapse Analytics
 
-A Synapse Studio (preview) notebook is a web interface for you to create files that contain live code, visualizations, and narrative text. Notebooks are a good place to validate ideas and use quick experiments to get insights from your data. Notebooks are also widely used in data preparation, data visualization, machine learning, and other Big Data scenarios.
+A Synapse Studio notebook is a web interface for you to create files that contain live code, visualizations, and narrative text. Notebooks are a good place to validate ideas and use quick experiments to get insights from your data. Notebooks are also widely used in data preparation, data visualization, machine learning, and other Big Data scenarios.
 
 With an Azure Synapse Studio notebook, you can:
 
@@ -299,6 +299,8 @@ Not supported.
 
 You can use ```%run <notebook path>``` magic command to reference another notebook within current notebook's context. All the variables defined in the reference notebook are available in the current notebook. ```%run``` magic command supports nested calls but not support recursive calls. You will receive an exception if the statement depth is larger than five. ```%run``` command currently only supports to pass a notebook path as parameter. 
 
+Example: ``` %run /path/notebookA ```.
+
 ---
 
 
@@ -548,8 +550,8 @@ Using the following keystroke shortcuts, you can more easily navigate and run co
 
 ## Next steps
 - [Check out Synapse sample notebooks](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)
-- [Quickstart: Create an Apache Spark pool (preview) in Azure Synapse Analytics using web tools](../quickstart-apache-spark-notebook.md)
+- [Quickstart: Create an Apache Spark pool in Azure Synapse Analytics using web tools](../quickstart-apache-spark-notebook.md)
 - [What is Apache Spark in Azure Synapse Analytics](apache-spark-overview.md)
 - [Use .NET for Apache Spark with Azure Synapse Analytics](spark-dotnet.md)
-- [.NET for Apache Spark documentation](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [.NET for Apache Spark documentation](/dotnet/spark)
+- [Azure Synapse Analytics](../index.yml)

@@ -1,6 +1,6 @@
 ---
-title: Set up and use metrics and logs with an Azure IoT hub
-description: Learn how to set up and use metrics and logs with an Azure IoT hub. This will provide data to analyze to help diagnose problems your hub may be having.
+title: Tutorial - Set up and use metrics and logs with an Azure IoT hub
+description: Tutorial - Learn how to set up and use metrics and logs with an Azure IoT hub. This will provide data to analyze to help diagnose problems your hub may be having.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -34,9 +34,9 @@ In this tutorial, you perform the following tasks:
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* You need the .NET Core SDK 2.1 or greater on your development machine. You can download the .NET Core SDK for multiple platforms from [.NET](https://www.microsoft.com/net/download/all).
+- You need the .NET Core SDK 2.1 or greater on your development machine. You can download the .NET Core SDK for multiple platforms from [.NET](https://www.microsoft.com/net/download/all).
 
   You can verify the current version of C# on your development machine using the following command:
 
@@ -44,11 +44,11 @@ In this tutorial, you perform the following tasks:
   dotnet --version
   ```
 
-* An email account capable of receiving mail.
+- An email account capable of receiving mail.
 
-* Make sure that port 8883 is open in your firewall. The device sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+- Make sure that port 8883 is open in your firewall. The device sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Set up resources
 
@@ -211,7 +211,7 @@ To set up metric alerts:
 
 1. First configure the condition that the alert will trigger on.
 
-    1. Under **Condition**, select **Select condition**. On the **Configure signal logic** pane, type "telemetry" in the search box and select **Telemetry messages sent**.
+    1. Under **Condition**, select **Add condition**. On the **Configure signal logic** pane, type "telemetry" in the search box and select **Telemetry messages sent**.
 
        :::image type="content" source="media/tutorial-use-metrics-and-diags/configure-signal-logic-telemetry-messages-sent.png" alt-text="Screenshot showing selecting the metric.":::
 
@@ -237,7 +237,7 @@ To set up metric alerts:
 
 1. Now configure the action for the alert.
 
-    1. Back on the **Create alert rule** pane, under **Actions**, select **Select action group**. On the **Select an action group to attach to this alert rule** pane, select **Create action group**.
+    1. Back on the **Create alert rule** pane, under **Actions**, select **Add action groups**. On the **Select an action group to attach to this alert rule** pane, select **Create action group**.
 
     1. Under the **Basics** tab on the **Create action group** pane, give your action group a name and a display name.
 
@@ -305,7 +305,7 @@ With these settings, an alert will trigger and you'll get an email notification 
 
 ## Run the simulated device app
 
-In the [Set up resources](#set-up-resources) section, you registered a device identity to use to simulate using an IoT device. In this section, you download a .NET console app that simulates a device that sends device-to-cloud messages to an IoT Hub, configure it to send these messages to your IoT hub, and then run it. 
+In the [Set up resources](#set-up-resources) section, you registered a device identity to use to simulate using an IoT device. In this section, you download a .NET console app that simulates a device that sends device-to-cloud messages to an IoT Hub, configure it to send these messages to your IoT hub, and then run it.
 
 > [!IMPORTANT]
 >

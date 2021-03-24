@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 08/14/2020
+ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -332,9 +332,9 @@ Groups that are synchronized from on-premises Active Directory cannot have an ow
 > [!NOTE]
 > We recommend defining business policies that define how groups are created to ensure clear group ownership and accountability for regular review of membership. 
 
-### Review membership of exclusion groups in CA policies 
+### Review membership of exclusion groups in Conditional Access policies 
 
-There are times when Conditional Access (CA) policies designed to keep your network secure shouldn't apply to all users. For example, a CA policy that only allows users to sign in while on the corporate network may not apply to the Sales team, which travels extensively. In that case, the Sales team members would be put into a group and that group would be excluded from the CA policy. 
+There are times when Conditional Access policies designed to keep your network secure shouldn't apply to all users. For example, a Conditional Access policy that only allows users to sign in while on the corporate network may not apply to the Sales team, which travels extensively. In that case, the Sales team members would be put into a group and that group would be excluded from the Conditional Access policy. 
 
 Review such a group membership regularly as the exclusion represents a potential risk if the wrong members are excluded from the requirement.
 

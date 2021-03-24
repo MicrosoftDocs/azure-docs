@@ -48,7 +48,7 @@ Azure Machine Learning compute instance enables you to author, train, and deploy
 
 You can run Jupyter notebooks in [VS Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) using compute instance as the remote server with no SSH needed. You can also enable VS Code integration through [remote SSH extension](https://devblogs.microsoft.com/python/enhance-your-azure-machine-learning-experience-with-the-vs-code-extension/).
 
-You can [install packages](how-to-create-manage-compute-instance.md#install-packages) and [add kernels](how-to-create-manage-compute-instance.md#add-new-kernels) to your compute instance.  
+You can [install packages](how-to-access-terminal.md#install-packages) and [add kernels](how-to-access-terminal.md#add-new-kernels) to your compute instance.  
 
 Following tools and environments are already installed on the compute instance: 
 
@@ -74,7 +74,7 @@ Following tools and environments are already installed on the compute instance:
 |Anaconda Python||
 |Jupyter and extensions||
 |Jupyterlab and extensions||
-[Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)</br>from PyPI|Includes most of the azureml extra packages.  To see the full list, [open a terminal window on your compute instance](how-to-run-jupyter-notebooks.md#terminal) and run <br/> `conda list -n azureml_py36 azureml*` |
+[Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro)</br>from PyPI|Includes most of the azureml extra packages.  To see the full list, [open a terminal window on your compute instance](how-to-access-terminal.md) and run <br/> `conda list -n azureml_py36 azureml*` |
 |Other PyPI packages|`jupytext`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Conda packages|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |Deep learning packages|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
@@ -127,6 +127,11 @@ These actions can be controlled by Azure RBAC:
 * *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
 
+To create a compute instance you need to have permissions for the following actions:
+* *Microsoft.MachineLearningServices/workspaces/computes/write*
+* *Microsoft.MachineLearningServices/workspaces/checkComputeNameAvailability/action*
+
+
 ### <a name="create"></a>Create a compute instance
 
 In your workspace in Azure Machine Learning studio, [create a new compute instance](how-to-create-attach-compute-studio.md#compute-instance) from either the **Compute** section or in the **Notebooks** section when you are ready to run one of your notebooks. 
@@ -144,7 +149,7 @@ The dedicated cores per region per VM family quota and total regional quota, whi
 ### Create on behalf of (preview)
 
 As an administrator, you can create a compute instance on behalf of a data scientist and assign the instance to them with:
-* [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  For details on how to find the TenantID and ObjectID needed in this template, see [Find identity object IDs for authentication configuration](../healthcare-apis/find-identity-object-ids.md).  You can also find these values in the Azure Active Directory portal.
+* [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  For details on how to find the TenantID and ObjectID needed in this template, see [Find identity object IDs for authentication configuration](../healthcare-apis/fhir/find-identity-object-ids.md).  You can also find these values in the Azure Active Directory portal.
 * REST API
 
 The data scientist you create the compute instance for needs the following Azure RBAC permissions: 

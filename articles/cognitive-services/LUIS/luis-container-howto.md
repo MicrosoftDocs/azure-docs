@@ -9,7 +9,7 @@ ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 03/02/2021
 ms.author: aahi
 keywords: on-premises, Docker, container
 ---
@@ -368,9 +368,6 @@ The LUIS container sends billing information to Azure, using a _Cognitive Servic
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 For more information about these options, see [Configure containers](luis-container-configuration.md).
-
-<!--blogs/samples/video courses -->
-[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## Summary
 

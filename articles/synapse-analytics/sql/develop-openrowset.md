@@ -1,6 +1,6 @@
 ---
-title: How to use OPENROWSET in serverless SQL pool (preview)
-description: This article describes syntax of OPENROWSET in serverless SQL pool (preview) and explains how to use arguments.
+title: How to use OPENROWSET in serverless SQL pool
+description: This article describes syntax of OPENROWSET in serverless SQL pool and explains how to use arguments.
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -11,9 +11,9 @@ ms.author: fipopovi
 ms.reviewer: jrasnick
 ---
 
-# How to use OPENROWSET using serverless SQL pool (preview) in Azure Synapse Analytics
+# How to use OPENROWSET using serverless SQL pool in Azure Synapse Analytics
 
-The `OPENROWSET(BULK...)` function allows you to access files in Azure Storage. `OPENROWSET` function reads content of a remote data source (for example file) and returns the content as a set of rows. Within the serverless SQL pool (preview) resource, the OPENROWSET bulk rowset provider is accessed by calling the OPENROWSET function and specifying the BULK option.  
+The `OPENROWSET(BULK...)` function allows you to access files in Azure Storage. `OPENROWSET` function reads content of a remote data source (for example file) and returns the content as a set of rows. Within the serverless SQL pool resource, the OPENROWSET bulk rowset provider is accessed by calling the OPENROWSET function and specifying the BULK option.  
 
 The `OPENROWSET` function can be referenced in the `FROM` clause of a query as if it were a table name `OPENROWSET`. It supports bulk operations through a built-in BULK provider that enables data from a file to be read and returned as a rowset.
 
@@ -92,6 +92,7 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })
 [ , PARSER_VERSION = 'parser_version' ]
 [ , HEADER_ROW = { TRUE | FALSE } ]
 [ , DATAFILETYPE = { 'char' | 'widechar' } ]
+[ , CODEPAGE = { 'ACP' | 'OEM' | 'RAW' | 'code_page' } ]
 ```
 
 ## Arguments
@@ -116,7 +117,7 @@ Below you'll find the relevant <storage account path> values that will link to y
 | Azure Blob Storage         | wasb[s]  | \<container>@\<storage_account>.blob.core.windows.net/path/file |
 | Azure Data Lake Store Gen1 | http[s]  | \<storage_account>.azuredatalakestore.net/webhdfs/v1 |
 | Azure Data Lake Store Gen2 | http[s]  | \<storage_account>.dfs.core.windows.net /path/file   |
-| Azure Data Lake Store Gen2 | aufs[s]  | [\<file_system>@\<account_name>.dfs.core.windows.net/path/file](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md#uri-syntax)              |
+| Azure Data Lake Store Gen2 | abfs[s]  | [\<file_system>@\<account_name>.dfs.core.windows.net/path/file](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md#uri-syntax)              |
 ||||
 
 '\<storage_path>'
@@ -167,7 +168,7 @@ WITH (
 )
 ```
 
-json_path = [JSON path expression](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15) to column or nested property. Default [path mode](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15#PATHMODE) is lax.
+json_path = [JSON path expression](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true) to column or nested property. Default [path mode](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true#PATHMODE) is lax.
 
 > [!NOTE]
 > In strict mode query will fail with error if provided path does not exist. In lax mode query will succeed and JSON path expression will evaluate to NULL.
@@ -218,6 +219,7 @@ CSV parser version 1.0 specifics:
 CSV parser version 2.0 specifics:
 
 - Not all data types are supported.
+- Maximum character column length is 8000.
 - Maximum row size limit is 8 MB.
 - Following options aren't supported: DATA_COMPRESSION.
 - Quoted empty string ("") is interpreted as empty string.
@@ -232,6 +234,10 @@ Specifies whether CSV file contains header row. Default is FALSE. Supported in P
 DATAFILETYPE = { 'char' | 'widechar' }
 
 Specifies encoding: char is used for UTF8, widechar is used for UTF16 files.
+
+CODEPAGE = { 'ACP' | 'OEM' | 'RAW' | 'code_page' }
+
+Specifies the code page of the data in the data file. The default value is 65001 (UTF-8 encoding). See more details about this option [here](/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15#codepage).
 
 ## Fast delimited text parsing
 
@@ -367,7 +373,7 @@ WITH (
 
 ### Specify columns using JSON paths
 
-The following example shows how you can use [JSON path expressions](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15) in WITH clause and demonstrates difference between strict and lax path modes: 
+The following example shows how you can use [JSON path expressions](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true) in WITH clause and demonstrates difference between strict and lax path modes: 
 
 ```sql
 SELECT 

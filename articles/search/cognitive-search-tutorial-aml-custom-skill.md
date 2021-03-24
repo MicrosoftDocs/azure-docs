@@ -1,18 +1,18 @@
 ---
-title: "Tutorial: Create and deploy a custom skill with Azure Machine Learning"
+title: "Example: Create and deploy a custom skill with Azure Machine Learning"
 titleSuffix: Azure Cognitive Search
-description: This tutorial demonstrates how to use Azure Machine Learning to build and deploy a custom skill for Azure Cognitive Search's AI enrichment pipeline.
+description: This example demonstrates how to use Azure Machine Learning to build and deploy a custom skill for Azure Cognitive Search's AI enrichment pipeline.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 09/25/2020
 ---
 
-# Tutorial: Build and deploy a custom skill with Azure Machine Learning 
+# Example: Build and deploy a custom skill with Azure Machine Learning 
 
-In this tutorial, you will use the [hotel reviews dataset](https://www.kaggle.com/datafiniti/hotel-reviews) (distributed under the Creative Commons license [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)) to create a [custom skill](./cognitive-search-aml-skill.md) using Azure Machine Learning to extract aspect-based sentiment from the reviews. This allows for the assignment of positive and negative sentiment within the same review to be correctly ascribed to identified entities like staff, room, lobby, or pool.
+In this example, you will use the [hotel reviews dataset](https://www.kaggle.com/datafiniti/hotel-reviews) (distributed under the Creative Commons license [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)) to create a [custom skill](./cognitive-search-aml-skill.md) using Azure Machine Learning to extract aspect-based sentiment from the reviews. This allows for the assignment of positive and negative sentiment within the same review to be correctly ascribed to identified entities like staff, room, lobby, or pool.
 
 To train the aspect-based sentiment model in Azure Machine Learning, you will be using the [nlp recipes repository](https://github.com/microsoft/nlp-recipes/tree/master/examples/sentiment_analysis/absa). The model will then be deployed as an endpoint on an Azure Kubernetes cluster. Once deployed, the endpoint is added to the enrichment pipeline as an AML skill for use by the Cognitive Search service.
 

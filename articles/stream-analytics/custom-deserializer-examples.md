@@ -1,9 +1,8 @@
 ---
 title: Read input in any format using .NET custom deserializers in Azure Stream Analytics
 description: This article explains the serialization format and the interfaces that define custom .NET deserializers for Azure Stream Analytics cloud and edge jobs.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020

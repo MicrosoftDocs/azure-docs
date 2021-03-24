@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure traffic analytics | Microsoft Docs
 description: Learn how to analyze Azure network security group flow logs with traffic analytics.
 services: network-watcher
@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 06/15/2018
+ms.date: 01/04/2021
 ms.author: damendo
 ms.reviewer: vinigam
 ms.custom: references_regions
@@ -40,10 +40,10 @@ Azure virtual networks have NSG flow logs, which provide you information about i
 
 ## Key components
 
-- **Network security group (NSG)**: Contains a list of security rules that allow or deny network traffic to resources connected to an Azure Virtual Network. NSGs can be associated to subnets, individual VMs (classic), or individual network interfaces (NIC) attached to VMs (Resource Manager). For more information, see [Network security group overview](../virtual-network/network-security-groups-overview.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json).
+- **Network security group (NSG)**: Contains a list of security rules that allow or deny network traffic to resources connected to an Azure Virtual Network. NSGs can be associated to subnets, individual VMs (classic), or individual network interfaces (NIC) attached to VMs (Resource Manager). For more information, see [Network security group overview](../virtual-network/network-security-groups-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Network security group (NSG) flow logs**: Allow you to view information about ingress and egress IP traffic through a network security group. NSG flow logs are written in json format and show outbound and inbound flows on a per rule basis, the NIC the flow applies to, five-tuple information about the flow (source/destination IP address, source/destination port, and protocol), and if the traffic was allowed or denied. For more information about NSG flow logs, see [NSG flow logs](network-watcher-nsg-flow-logging-overview.md).
-- **Log Analytics**: An Azure service that collects monitoring data and stores the data in a central repository. This data can include events, performance data, or custom data provided through the Azure API. Once collected, the data is available for alerting, analysis, and export. Monitoring applications such as network performance monitor and traffic analytics are built using Azure Monitor logs as a foundation. For more information, see [Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json).
-- **Log Analytics workspace**: An instance of Azure Monitor logs, where the data pertaining to an Azure account, is stored. For more information about Log Analytics workspaces, see [Create a Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Log Analytics**: An Azure service that collects monitoring data and stores the data in a central repository. This data can include events, performance data, or custom data provided through the Azure API. Once collected, the data is available for alerting, analysis, and export. Monitoring applications such as network performance monitor and traffic analytics are built using Azure Monitor logs as a foundation. For more information, see [Azure Monitor logs](../azure-monitor/logs/log-query-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Log Analytics workspace**: An instance of Azure Monitor logs, where the data pertaining to an Azure account, is stored. For more information about Log Analytics workspaces, see [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Network Watcher**: A regional service that enables you to monitor and diagnose conditions at a network scenario level in Azure. You can turn NSG flow logs on and off with Network Watcher. For more information, see [Network Watcher](network-watcher-monitoring-overview.md).
 
 ## How traffic analytics works
@@ -67,33 +67,35 @@ You can use traffic analytics for NSGs in any of the following supported regions
       Central US  
       China East 2  
       China North 2  
+	  East Asia 	  
    :::column-end:::
    :::column span="":::
-      East Asia  
       East US  
       East US 2  
       East US 2 EUAP  
       France Central  
-      Japan East  
+      Germany West Central
+	  Japan East  
       Japan West  
       Korea Central  
       Korea South  
       North Central US  
+	  North Europe 	  
    :::column-end:::
    :::column span="":::
-      North Europe  
       South Africa North  
       South Central US  
       South India  
       Southeast Asia  
       Switzerland North  
       Switzerland West  
-      UK South  
-      UK West  
+	  UAE North  
+	  UK South  
+      UK West   
       USGov Arizona  
+	  USGov Texas
    :::column-end:::
    :::column span="":::
-      USGov Texas  
       USGov Virginia  
       USNat East  
       USNat West  
@@ -139,15 +141,16 @@ The Log Analytics workspace must exist in the following regions:
       Switzerland North  
       Switzerland West  
       UAE Central  
-      UK South  
-      UK West  
+	  UAE North  
+	  UK South  
+      UK West   
       USGov Arizona  
       USGov Virginia  
-      USNat East  
-      USNat West  
+      USNat East   
    :::column-end:::
    :::column span="":::
-      USSec East  
+      USNat West   
+	  USSec East  
       USSec West  
       West Central US  
       West Europe  
@@ -228,7 +231,7 @@ Select the following options, as shown in the picture:
 4. Set **Retention** to the number of days you want to store data for. If you want to store the data forever, set the value to *0*. You incur Azure Storage fees for the storage account. 
 5. Select *On* for **Traffic Analytics Status**.
 6. Select processing interval. Based on your choice, flow logs will be collected from storage account and processed by Traffic Analytics. You can choose processing interval of every 1 hour or every 10 mins. 
-7. Select an existing Log Analytics (OMS) Workspace, or select **Create New Workspace** to create a new one. A Log Analytics workspace is used by Traffic Analytics  to store the aggregated and indexed data that is then used to generate the analytics. If you select an existing workspace, it must exist in one of the [supported regions](#supported-regions-log-analytics-workspaces) and have been upgraded to the new query language. If you do not wish to upgrade an existing workspace, or do not have a workspace in a supported region, create a new one. For more information about query languages, see [Azure Log Analytics upgrade to new log search](../azure-monitor/log-query/log-query-overview.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json).
+7. Select an existing Log Analytics (OMS) Workspace, or select **Create New Workspace** to create a new one. A Log Analytics workspace is used by Traffic Analytics  to store the aggregated and indexed data that is then used to generate the analytics. If you select an existing workspace, it must exist in one of the [supported regions](#supported-regions-log-analytics-workspaces) and have been upgraded to the new query language. If you do not wish to upgrade an existing workspace, or do not have a workspace in a supported region, create a new one. For more information about query languages, see [Azure Log Analytics upgrade to new log search](../azure-monitor/logs/log-query-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 > [!NOTE]
 >The log analytics workspace hosting the traffic analytics solution and the NSGs do not have to be in the same region. For example, you may have traffic analytics in a workspace in the West Europe region, while you may have NSGs in East US and West US. Multiple NSGs can be configured in the same workspace.
@@ -265,7 +268,7 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
 - Statistics of blocked traffic.
     - Why is a host blocking a significant volume of benign traffic? This behavior requires further investigation and probably optimization of configuration
 - Statistics of malicious allowed/blocked traffic
-  - Why is a host receiving malicious traffic and why flows from malicious source is allowed? This behavior requires further investigation and probably optimization of configuration.
+  - Why is a host receiving malicious traffic and why are flows from malicious sources allowed? This behavior requires further investigation and probably optimization of configuration.
 
     Select **See all**, under **Host**, as shown in the following picture:
 

@@ -1,9 +1,6 @@
 ---
 title: Apache Spark & Apache Kafka with Cosmos DB - Azure HDInsight
-description: Learn how to use Apache Spark Structured Streaming to read data from Apache Kafka and then store it into Azure Cosmos DB. In this example, you stream data using a Jupyter notebook from Spark on HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
+description: Learn how to use Apache Spark Structured Streaming to read data from Apache Kafka and then store it into Azure Cosmos DB. In this example, you stream data using a Jupyter Notebook from Spark on HDInsight.
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
@@ -29,7 +26,7 @@ Spark structured streaming is a stream processing engine built on Spark SQL. It 
 
 Apache Kafka on HDInsight doesn't provide access to the Kafka brokers over the public internet. Anything that talks to Kafka must be in the same Azure virtual network as the nodes in the Kafka cluster. For this example, both the Kafka and Spark clusters are located in an Azure virtual network. The following diagram shows how communication flows between the clusters:
 
-![Diagram of Spark and Kafka clusters in an Azure virtual network](./media/apache-kafka-spark-structured-streaming-cosmosdb/apache-spark-kafka-vnet.png)
+:::image type="content" source="./media/apache-kafka-spark-structured-streaming-cosmosdb/apache-spark-kafka-vnet.png" alt-text="Diagram of Spark and Kafka clusters in an Azure virtual network" border="false":::
 
 > [!NOTE]  
 > The Kafka service is limited to communication within the virtual network. Other services on the cluster, such as SSH and Ambari, can be accessed over the internet. For more information on the public ports available with HDInsight, see [Ports and URIs used by HDInsight](hdinsight-hadoop-port-settings-for-services.md).
@@ -71,7 +68,7 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
     |Ssh User Name|The SSH user to create for the Spark and Kafka clusters.|
     |Ssh Password|The password for the SSH user for the Spark and Kafka clusters.|
 
-    ![HDInsight custom deployment values](./media/apache-kafka-spark-structured-streaming-cosmosdb/hdi-custom-parameters.png)
+    :::image type="content" source="./media/apache-kafka-spark-structured-streaming-cosmosdb/hdi-custom-parameters.png" alt-text="HDInsight custom deployment values":::
 
 1. Read the **Terms and Conditions**, and then select **I agree to the terms and conditions stated above**.
 
@@ -92,7 +89,7 @@ resourceGroupName='myresourcegroup'
 name='mycosmosaccount'
 
 # WARNING: If you change the databaseName or collectionName
-#          then you must update the values in the Jupyter notebook
+#          then you must update the values in the Jupyter Notebook
 databaseName='kafkadata'
 collectionName='kafkacollection'
 
@@ -129,7 +126,7 @@ The code for the example described in this document is available at [https://git
 
 Use the following steps to upload the notebooks from the project to your Spark on HDInsight cluster:
 
-1. In your web browser, connect to the Jupyter notebook on your Spark cluster. In the following URL, replace `CLUSTERNAME` with the name of your __Spark__ cluster:
+1. In your web browser, connect to the Jupyter Notebook on your Spark cluster. In the following URL, replace `CLUSTERNAME` with the name of your __Spark__ cluster:
 
     ```http
     https://CLUSTERNAME.azurehdinsight.net/jupyter

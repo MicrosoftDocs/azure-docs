@@ -2,13 +2,13 @@
 title: How to deploy the Form Recognizer sample labeling tool
 titleSuffix: Azure Cognitive Services
 description: Learn the different ways you can deploy the Form Recognizer sample labeling tool to help with supervised learning.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 04/14/2020
-ms.author: pafarley
+ms.date: 02/11/2021
+ms.author: lajanuar
 ---
 
 # Deploy the sample labeling tool
@@ -27,7 +27,7 @@ The fastest way to start labeling data is to run the sample labeling tool locall
 
 ## Deploy with Azure Container Instances (ACI)
 
-Before we get started, it's important to note that there are two ways to deploy the sample labeling tool to an Azure Container Instance (ACI). Both options are used to run the sample labeling tool with ACI: 
+Before we get started, it's important to note that there are two ways to deploy the sample labeling tool to an Azure Container Instance (ACI). Both options are used to run the sample labeling tool with ACI:
 
 * [Using the Azure portal](#azure-portal)
 * [Using the Azure CLI](#azure-cli)
@@ -37,16 +37,16 @@ Before we get started, it's important to note that there are two ways to deploy 
 Follow these steps to create a new resource using the Azure portal: 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/signin/index/).
-2. Select **Create a resource**. 
-3. Next, select **Web App**. 
+2. Select **Create a resource**.
+3. Next, select **Web App**.
 
    > [!div class="mx-imgBorder"]
-   > ![Select web app](./media/quickstarts/formre-create-web-app.png)
-   
-4. First, make sure that the **Basics** tab is selected. Now, you're going to need to provide some information: 
+   > ![Select web app](./media/quickstarts/create-web-app.png)
+
+4. First, make sure that the **Basics** tab is selected. Now, you're going to need to provide some information:
 
    > [!div class="mx-imgBorder"]
-   > ![Select Basics](./media/quickstarts/formre-select-basics.png)
+   > ![Select Basics](./media/quickstarts/select-basics.png)
    * Subscription - Select an existing Azure subscription
    * Resource Group - You can reuse an existing resource group or create a new one for this project. Creating a new resource group is recommended.
    * Name - Give your web app a name. 
@@ -56,45 +56,50 @@ Follow these steps to create a new resource using the Azure portal:
    * Linux Plan - Select a pricing tier/plan for your app service. 
 
    > [!div class="mx-imgBorder"]
-   > ![Configure your web app](./media/quickstarts/formre-select-docker-linux.png)
+   > ![Configure your web app](./media/quickstarts/select-docker.png)
 
-5. Next, select the **Docker** tab. 
+5. Next, select the **Docker** tab.
 
    > [!div class="mx-imgBorder"]
-   > ![Select Docker](./media/quickstarts/formre-select-docker.png)
+   > ![Select Docker](./media/quickstarts/select-docker.png)
 
 6. Now let's configure your Docker container. All fields are required unless otherwise noted:
+<!-- markdownlint-disable MD025 -->
+# [v2.1 preview](#tab/v2-1)
 
-    # [v2.0](#tab/v2-0)  
-   * Options - Select **Single Container**
-   * Image Source - Select **Private Registry** 
-   * Server URL - Set this to `https://mcr.microsoft.com`
-   * Username (Optional) - Create a username. 
-   * Password (Optional) - Create a secure password that you'll remember.
-   * Image and tag - Set this to `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
-   * Continuous Deployment - Set this to **On** if you want to receive automatic updates when the development team makes changes to the sample labeling tool.
-   * Startup command - Set this to `./run.sh eula=accept`
+* Options - Select **Single Container**
+* Image Source - Select **Private Registry** 
+* Server URL - Set this to `https://mcr.microsoft.com`
+* Username (Optional) - Create a username. 
+* Password (Optional) - Create a secure password that you'll remember.
+* Image and tag - Set this to `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview`
+* Continuous Deployment - Set this to **On** if you want to receive automatic updates when the development team makes changes to the sample labeling tool.
+* Startup command - Set this to `./run.sh eula=accept`
 
-    # [v2.1 preview](#tab/v2-1) 
-   * Options - Select **Single Container**
-   * Image Source - Select **Private Registry** 
-   * Server URL - Set this to `https://mcr.microsoft.com`
-   * Username (Optional) - Create a username. 
-   * Password (Optional) - Create a secure password that you'll remember.
-   * Image and tag - Set this to `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview`
-   * Continuous Deployment - Set this to **On** if you want to receive automatic updates when the development team makes changes to the sample labeling tool.
-   * Startup command - Set this to `./run.sh eula=accept`
-    
-    ---
+# [v2.0](#tab/v2-0)  
+
+* Options - Select **Single Container**
+* Image Source - Select **Private Registry** 
+* Server URL - Set this to `https://mcr.microsoft.com`
+* Username (Optional) - Create a username. 
+* Password (Optional) - Create a secure password that you'll remember.
+* Image and tag - Set this to `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
+* Continuous Deployment - Set this to **On** if you want to receive automatic updates when the development team makes changes to the sample labeling tool.
+* Startup command - Set this to `./run.sh eula=accept`
+
+ ---
 
    > [!div class="mx-imgBorder"]
-   > ![Configure Docker](./media/quickstarts/formre-configure-docker.png)
+   > ![Configure Docker](./media/quickstarts/configure-docker.png)
 
 7. That's it. Next, select **Review + Create**, then **Create** to deploy your web app. When complete, you can access your web app at the URL provided in the **Overview** for your resource.
 
 > [!NOTE]
-> When creating your web app, you can also configure authorization/authentication. This is not necessary to get started. 
+> When creating your web app, you can also configure authorization/authentication. This is not necessary to get started.
 
+> [!IMPORTANT]
+> You may need to enable TLS for your web app in order to view it at its `https` address. Follow the instructions in [Enable a TLS endpoint](../../container-instances/container-instances-container-group-ssl.md) to set up a sidecar container than enables TLS/SSL for your web app.
+<!-- markdownlint-disable MD001 -->
 ### Azure CLI
 
 As an alternative to using the Azure portal, you can create a resource using the Azure CLI. Before you continue, you'll need to install the [Azure CLI](/cli/azure/install-azure-cli). You can skip this step if you're already working with the Azure CLI. 
@@ -103,13 +108,33 @@ There's a few things you need know about this command:
 
 * `DNS_NAME_LABEL=aci-demo-$RANDOM` generates a random DNS name. 
 * This sample assumes that you have a resource group that you can use to create a resource. Replace `<resource_group_name>` with a valid resource group associated with your subscription. 
-* You'll need to specify where you want to create the resource. Replace `<region name>` with your desired region for the web app. 
+* You'll need to specify where you want to create the resource. Replace `<region name>` with your desired region for the web app.
 * This command automatically accepts EULA.
 
-From the Azure CLI, run this command to create a web app resource for the sample labeling tool: 
+From the Azure CLI, run this command to create a web app resource for the sample labeling tool:
+
+<!-- markdownlint-disable MD024 -->
+# [v2.1 preview](#tab/v2-1)
+
+```azurecli
+DNS_NAME_LABEL=aci-demo-$RANDOM
+
+az container create \
+  --resource-group <resource_group_name> \
+  --name <name> \
+  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview \
+  --ports 3000 \
+  --dns-name-label $DNS_NAME_LABEL \
+  --location <region name> \
+  --cpu 2 \
+  --memory 8 \
+  --command-line "./run.sh eula=accept"
+
+```
+
+# [v2.0](#tab/v2-0)
 
 
-# [v2.0](#tab/v2-0)   
 ```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
 
@@ -124,21 +149,7 @@ az container create \
   --memory 8 \
   --command-line "./run.sh eula=accept"
 ``` 
-# [v2.1 preview](#tab/v2-1)    
-```azurecli
-DNS_NAME_LABEL=aci-demo-$RANDOM
 
-az container create \
-  --resource-group <resource_group_name> \
-  --name <name> \
-  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview \
-  --ports 3000 \
-  --dns-name-label $DNS_NAME_LABEL \
-  --location <region name> \
-  --cpu 2 \
-  --memory 8 \
-  --command-line "./run.sh eula=accept"
-```
 
 ---
 

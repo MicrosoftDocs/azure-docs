@@ -3,7 +3,7 @@ title: Windows Virtual Desktop host pool service updates - Azure
 description: How to create a validation host pool to monitor service updates before rolling out updates to production.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 03/13/2020
+ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -60,6 +60,20 @@ The results from the cmdlet should look similar to this output:
     LoadBalancerType    : BreadthFirst
     ValidationEnvironment : True
 ```
+
+## Enable your validation environment with the Azure portal
+
+You can also use the Azure portal to enable your validation environment.
+
+To use the Azure portal to configure your validation host pool:
+
+1. Sign in to the Azure portal at <https://portal.azure.com>.
+2. Search for and select **Windows Virtual Desktop**.
+3. In the Windows Virtual Desktop page, select **Host pools**.
+4. Select the name of the host pool you want to edit.
+5. Select **Properties**.
+6. In the validation environment field, select **Yes** to enable the validation environment.
+7. Select **Save**. This will apply the new settings.
 
 ## Update schedule
 

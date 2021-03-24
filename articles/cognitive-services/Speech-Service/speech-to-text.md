@@ -17,7 +17,7 @@ keywords: speech to text, speech to text software
 # What is speech-to-text?
 
 In this overview, you learn about the benefits and capabilities of the speech-to-text service.
-Speech-to-text, also known as speech recognition, enables real-time transcription of audio streams into text. Your applications, tools, or devices can consume, display, and take action on this text as command input. This service is powered by the same recognition technology that Microsoft uses for Cortana and Office products. It seamlessly works with the <a href="./speech-translation.md" target="_blank">translation <span class="docon docon-navigate-external x-hidden-focus"></span></a> and <a href="./text-to-speech.md" target="_blank">text-to-speech <span class="docon docon-navigate-external x-hidden-focus"></span></a> service offerings. For a full list of available speech-to-text languages, see [supported languages](language-support.md#speech-to-text).
+Speech-to-text, also known as speech recognition, enables real-time transcription of audio streams into text. Your applications, tools, or devices can consume, display, and take action on this text as command input. This service is powered by the same recognition technology that Microsoft uses for Cortana and Office products. It seamlessly works with the <a href="./speech-translation.md" target="_blank">translation </a> and <a href="./text-to-speech.md" target="_blank">text-to-speech </a> service offerings. For a full list of available speech-to-text languages, see [supported languages](language-support.md#speech-to-text).
 
 The speech-to-text service defaults to using the Universal language model. This model was trained using Microsoft-owned data and is deployed in the cloud. It's optimal for conversational and dictation scenarios. When using speech-to-text for recognition and transcription in a unique environment, you can create and train custom acoustic, language, and pronunciation models. Customization is helpful for addressing ambient noise or industry-specific vocabulary.
 
@@ -43,7 +43,7 @@ Sample code for the Speech SDK is available on GitHub. These samples cover commo
 
 ## Customization
 
-In addition to the standard Speech service model, you can create custom models. Customization helps to overcome speech recognition barriers such as speaking style, vocabulary and background noise, see [Custom Speech](how-to-custom-speech.md). Customization options vary by language/locale, see [supported languages](./language-support.md) to verify support.
+In addition to the standard Speech service model, you can create custom models. Customization helps to overcome speech recognition barriers such as speaking style, vocabulary and background noise, see [Custom Speech](./custom-speech-overview.md). Customization options vary by language/locale, see [supported languages](./language-support.md) to verify support.
 
 ## Batch transcription
 

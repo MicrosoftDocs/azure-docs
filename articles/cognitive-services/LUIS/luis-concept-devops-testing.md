@@ -13,7 +13,7 @@ Software engineers who are developing a Language Understanding (LUIS) app can ap
 
 In agile software development methodologies, testing plays an integral role in building quality software. Every significant change to a LUIS app should be accompanied by tests designed to test the new functionality the developer is building into the app. These tests are checked into your source code repository along with the `.lu` source of your LUIS app. The implementation of the change is finished when the app satisfies the tests.
 
-Tests are a critical part of [CI/CD workflows](luis-concept-devops-automation.md). When changes to a LUIS app are proposed in a pull request (PR) or after changes are merged into your master branch, then CI workflows should run the tests to verify that the updates haven't caused any regressions.
+Tests are a critical part of [CI/CD workflows](luis-concept-devops-automation.md). When changes to a LUIS app are proposed in a pull request (PR) or after changes are merged into your main branch, then CI workflows should run the tests to verify that the updates haven't caused any regressions.
 
 ## How to do Unit testing and Batch testing
 
@@ -23,7 +23,7 @@ There are two different kinds of testing for a LUIS app that you need to perform
 This kind of testing is similar to [Interactive testing](./luis-concept-test.md) that you can do in the [LUIS portal](https://www.luis.ai/).
 
 - **Batch tests** - Batch testing is a comprehensive test on your current trained model to measure its performance. Unlike unit tests, batch testing isn't pass|fail testing. The expectation with batch testing is not that every test will return the expected intent and expected entities. Instead, a batch test helps you view the accuracy of each intent and entity in your app and helps you to compare over time as you make improvements.  
-This kind of testing is the same as the [Batch testing](./luis-concept-batch-test.md) that you can perform interactively in the LUIS portal.
+This kind of testing is the same as the [Batch testing](./luis-how-to-batch-test.md) that you can perform interactively in the LUIS portal.
 
 You can employ unit testing from the beginning of your project. Batch testing is only really of value once you've developed the schema of your LUIS app and you're working on improving its accuracy.
 
@@ -37,7 +37,7 @@ When you write a set of tests, for each test you need to define:
 * Expected intent
 * Expected entities.
 
-Use the LUIS [batch file syntax](./luis-concept-batch-test.md#batch-syntax-template-for-intents-with-entities) to define a group of tests in a JSON-formatted file. For example:
+Use the LUIS [batch file syntax](./luis-how-to-batch-test.md#batch-syntax-template-for-intents-with-entities) to define a group of tests in a JSON-formatted file. For example:
 
 ```JSON
 [
@@ -80,7 +80,7 @@ In unit tests, it's a good idea to test that your key entities have been returne
 
 #### Designing Batch tests
 
-Batch test sets should contain a large number of test cases, designed to test across all intents and all entities in your LUIS app. See [Batch testing in the LUIS portal](./luis-concept-batch-test.md) for information on defining a batch test set.
+Batch test sets should contain a large number of test cases, designed to test across all intents and all entities in your LUIS app. See [Batch testing in the LUIS portal](./luis-how-to-batch-test.md) for information on defining a batch test set.
 
 ### Running tests
 
@@ -88,7 +88,7 @@ The LUIS portal offers features to help with interactive testing:
 
 * [**Interactive testing**](./luis-concept-test.md) allows you to submit a sample utterance and get a response of LUIS-recognized intents and entities. You verify the success of the test by visual inspection.
 
-* [**Batch testing**](./luis-concept-batch-test.md) uses a batch test file as input to validate your active trained version to measure its prediction accuracy. A batch test helps you view the accuracy of each intent and entity in your active version, displaying results with a chart.
+* [**Batch testing**](./luis-how-to-batch-test.md) uses a batch test file as input to validate your active trained version to measure its prediction accuracy. A batch test helps you view the accuracy of each intent and entity in your active version, displaying results with a chart.
 
 #### Running tests in an automated build workflow
 
@@ -118,7 +118,7 @@ You can use the [NLU.DevOps](https://github.com/microsoft/NLU.DevOps) package to
 You can also use the NLU.DevOps package to run batch tests at the command line.
 
 * Use the NLU.DevOps [test command](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Test.md) to submit tests from a test file to an endpoint and to capture the actual prediction results in a file, same as with unit tests.
-* Use the NLU.DevOps [compare command](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md) in [Performance test mode](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md#performance-test-mode) to measure the performance of your app You can also compare the performance of your app against a baseline performance benchmark, for example, the results from the latest commit to master or the current release. In Performance test mode, the `compare` command generates NUnit test output and [batch test results](./luis-glossary.md#batch-test) in JSON format.
+* Use the NLU.DevOps [compare command](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md) in [Performance test mode](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md#performance-test-mode) to measure the performance of your app You can also compare the performance of your app against a baseline performance benchmark, for example, the results from the latest commit to main or the current release. In Performance test mode, the `compare` command generates NUnit test output and [batch test results](./luis-glossary.md#batch-test) in JSON format.
 
 ## LUIS non-deterministic training and the effect on testing
 

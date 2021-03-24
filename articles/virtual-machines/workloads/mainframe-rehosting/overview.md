@@ -1,7 +1,8 @@
 ---
 title: Mainframe rehosting on Azure virtual machines
 description: Rehost your mainframe workloads such as IBM Z-based systems using virtual machines (VMs) on Microsoft Azure.
-services: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
 documentationcenter:
 author: njray
 manager: edprice
@@ -9,7 +10,6 @@ editor: edprice
 ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
-ms.service: multiple
 ---
 
 # Mainframe rehosting on Azure virtual machines
@@ -65,7 +65,7 @@ To get started:
 
 The IBM DB2 pureScale environment provides a database cluster for Azure. It's not identical to the original environment, but it delivers similar availability and scale as IBM DB2 for z/OS running in a Parallel Sysplex setup.
 
-To get started, see [IBM DB2 pureScale on Azure](../../linux/ibm-db2-purescale-azure.md).
+To get started, see [IBM DB2 pureScale on Azure](.//ibm/ibm-db2-purescale-azure.md).
 
 ## Considerations
 

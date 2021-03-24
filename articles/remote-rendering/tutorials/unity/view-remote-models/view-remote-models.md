@@ -28,10 +28,7 @@ For this tutorial you need:
 * Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * The latest version of Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
 * GIT [(download)](https://git-scm.com/downloads)
-* Unity, the most recent version of 2019.3, we recommend using Unity Hub for this [(download)](https://unity3d.com/get-unity/download)
-  * Install these modules in Unity:
-    * **UWP** - Universal Windows Platform Build Support
-    * **IL2CPP** - Windows Build Support (IL2CPP)
+* Unity (see [system requirements](../../../overview/system-requirements.md#unity) for supported versions)
 * Intermediate knowledge of Unity and the C# language (for example: creating scripts and objects, using prefabs, configuring Unity events, etc.)
 
 ## Provision an Azure Remote Rendering (ARR) instance
@@ -50,43 +47,9 @@ In this example, we'll assume the project is being created in a folder called **
 
 ## Include the Azure Remote Rendering package
 
-You need to modify the file `Packages/manifest.json` that is located in your Unity project folder. Open the file in a text editor and add the following lines to the top of your manifest:
+[Follow the instructions](../../../how-tos/unity/install-remote-rendering-unity-package.md) on how to add the Azure Remote Rendering package to a Unity Project.
 
-```json
-{
-    "scopedRegistries": [
-    {
-        "name": "Azure Mixed Reality Services",
-        "url": "https://api.bintray.com/npm/microsoft/AzureMixedReality-NPM/",
-        "scopes": ["com.microsoft.azure"]
-    }
-    ],
-    "dependencies": {
-        "com.unity.render-pipelines.universal": "7.3.1",
-        "com.microsoft.azure.remote-rendering": "0.1.31",
-        ...existing dependencies...
-    }
-}
-```
 
-After you modify and save the manifest, Unity will automatically refresh. Confirm the packages have been loaded in the *Project* window:
-
-:::image type="content" source="./media/confirm-packages.png" alt-text="confirm package imports":::
-
-If your packages aren't loading, check your Unity console for errors. If you don't have any errors and still don't see any packages under the **Packages** folder, check the package visibility toggle button.\
-![Screenshot with an arrow pointing at the package visibility toggle button.](./media/unity-package-visibility.png)
-
-## Ensure you have the latest version of the package
-
-The following steps ensure that your project is using the latest version of the remote-rendering package.
-
-1. In the Unity Editor's top menu, open *Window->Package Manager*.
-1. Select the package **Microsoft Azure Remote Rendering**.
-1. On the package manager page for the **Microsoft Azure Remote Rendering** package, see if the **Update** button is available. If it is, click it to update the package to the latest available version:\
-![The ARR package in the package manager](./media/package-manager.png)
-1. Updating the package may occasionally lead to console errors. If this occurs, try closing and reopening the project.
-1. When the package is up to date, the Package Manager will show **Up to date** instead of an Update button.\
-![Up to date package](./media/package-up-to-date.png)
 ## Configure the camera
 
 1. Select the **Main Camera** node.
@@ -175,7 +138,7 @@ Your project should look like this:
 
 1. Open **RemoteRenderingCoordinator** in your code editor and replace its entire content with the code below:
 
-```csharp
+```cs
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -215,7 +178,7 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     public static RemoteRenderingCoordinator instance;
 
     // AccountDomain must be '<region>.mixedreality.azure.com' - if no '<region>' is specified, connections will fail
-    // For most people '<region>' is either 'westus2' or 'westeurope'
+    // The list of regions is available at https://docs.microsoft.com/azure/remote-rendering/reference/regions
     [SerializeField]
     private string accountDomain = "westus2.mixedreality.azure.com";
     public string AccountDomain
@@ -231,6 +194,14 @@ public class RemoteRenderingCoordinator : MonoBehaviour
         get => accountId.Trim();
         set => accountId = value;
     }
+
+    [SerializeField]
+    private string accountAuthenticationDomain = "<enter your account authentication domain here>";
+    public string AccountAuthenticationDomain
+    {
+        get => accountAuthenticationDomain.Trim();
+        set => accountAuthenticationDomain = value;
+    }   
 
     [SerializeField]
     private string accountKey = "<enter your account key here>";
@@ -279,7 +250,7 @@ public class RemoteRenderingCoordinator : MonoBehaviour
         }
     }
 
-    public delegate Task<AzureFrontendAccountInfo> AccountInfoGetter();
+    public delegate Task<SessionConfiguration> AccountInfoGetter();
 
     public static AccountInfoGetter ARRCredentialGetter
     {
@@ -304,7 +275,7 @@ public class RemoteRenderingCoordinator : MonoBehaviour
 
     public static event Action<RemoteRenderingState> CoordinatorStateChange;
 
-    public static AzureSession CurrentSession => instance?.ARRSessionService?.CurrentActiveSession;
+    public static RenderingSession CurrentSession => instance?.ARRSessionService?.CurrentActiveSession;
 
     private ARRServiceUnity arrSessionService;
 
@@ -318,10 +289,10 @@ public class RemoteRenderingCoordinator : MonoBehaviour
         }
     }
 
-    private async Task<AzureFrontendAccountInfo> GetDevelopmentCredentials()
+    private async Task<SessionConfiguration> GetDevelopmentCredentials()
     {
         Debug.LogWarning("Using development credentials! Not recommended for production.");
-        return await Task.FromResult(new AzureFrontendAccountInfo(AccountDomain, AccountId, AccountKey));
+        return await Task.FromResult(new SessionConfiguration(AccountAuthenticationDomain, AccountDomain, AccountId, AccountKey));
     }
 
     /// <summary>
@@ -449,8 +420,8 @@ public class RemoteRenderingCoordinator : MonoBehaviour
 
     private async Task<bool> IsSessionAvailable(string sessionID)
     {
-        var allSessions = await ARRSessionService.Frontend.GetCurrentRenderingSessionsAsync().AsTask();
-        return allSessions.Any(x => x.Id == sessionID && (x.Status == RenderingSessionStatus.Ready || x.Status == RenderingSessionStatus.Starting));
+        var allSessions = await ARRSessionService.Client.GetCurrentRenderingSessionsAsync();
+        return allSessions.SessionProperties.Any(x => x.Id == sessionID && (x.Status == RenderingSessionStatus.Ready || x.Status == RenderingSessionStatus.Starting));
     }
 
     /// <summary>
@@ -468,11 +439,11 @@ public class RemoteRenderingCoordinator : MonoBehaviour
 
     /// <summary>
     /// The session must have its runtime pump updated.
-    /// The Actions.Update() will push messages to the server, receive messages, and update the frame-buffer with the remotely rendered content.
+    /// The Connection.Update() will push messages to the server, receive messages, and update the frame-buffer with the remotely rendered content.
     /// </summary>
     private void LateUpdate()
     {
-        ARRSessionService?.CurrentActiveSession?.Actions?.Update();
+        ARRSessionService?.CurrentActiveSession?.Connection?.Update();
     }
 
     /// <summary>
@@ -482,17 +453,17 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     /// <param name="progress">A call back method that accepts a float progress value [0->1]</param>
     /// <param name="parent">The parent Transform for this remote entity</param>
     /// <returns>An awaitable Remote Rendering Entity</returns>
-    public async Task<Entity> LoadModel(string modelPath, Transform parent = null, ProgressHandler progress = null)
+    public async Task<Entity> LoadModel(string modelPath, Transform parent = null, Action<float> progress = null)
     {
         //Implement me
         return null;
     }
 
-    private async void OnRemoteSessionStatusChanged(ARRServiceUnity caller, AzureSession session)
+    private async void OnRemoteSessionStatusChanged(ARRServiceUnity caller, RenderingSession session)
     {
-        var properties = await session.GetPropertiesAsync().AsTask();
+        var properties = await session.GetPropertiesAsync();
 
-        switch (properties.Status)
+        switch (properties.SessionProperties.Status)
         {
             case RenderingSessionStatus.Error:
             case RenderingSessionStatus.Expired:
@@ -535,7 +506,7 @@ The remote rendering coordinator and its required script (*ARRServiceUnity*) are
 1. Add the *RemoteRenderingCoordinator* script to the **RemoteRenderingCoordinator** GameObject.\
 ![Add RemoteRenderingCoordinator component](./media/add-coordinator-script.png)
 1. Confirm the *ARRServiceUnity* script, appearing as *Service* in the inspector, is automatically added to the GameObject. In case you're wondering, this is a result having `[RequireComponent(typeof(ARRServiceUnity))]` at the top of the **RemoteRenderingCoordinator** script.
-1. Add your Azure Remote Rendering credentials and your Account Domain to the coordinator script:\
+1. Add your Azure Remote Rendering credentials, your Account Authentication Domain, and the Account Domain to the coordinator script:\
 ![Add your credentials](./media/configure-coordinator-script.png)
 
 ## Initialize Azure Remote Rendering
@@ -553,7 +524,7 @@ When entering the **NotAuthorized** state, **CheckAuthorization** is called, whi
 
 1. Replace the contents of **InitializeARR** and **InitializeSessionService** with the completed code below:
 
- ```csharp
+ ```cs
 /// <summary>
 /// Initializes ARR, associating the main camera
 /// Note: This must be called on the main Unity thread
@@ -611,7 +582,7 @@ The state machine will now progress to either **ConnectingToNewRemoteSession** o
 
 1. To join a new session, modify the code to replace the **JoinRemoteSession( )** and **StopRemoteSession( )** methods with the completed examples below:
 
-```csharp
+```cs
 /// <summary>
 /// Attempts to join an existing session or start a new session
 /// </summary>
@@ -627,7 +598,7 @@ public async void JoinRemoteSession()
     else
     {
         CurrentCoordinatorState = RemoteRenderingState.ConnectingToNewRemoteSession;
-        joinResult = await ARRSessionService.StartSession(new RenderingSessionCreationParams(renderingSessionVmSize, maxLeaseHours, maxLeaseMinutes));
+        joinResult = await ARRSessionService.StartSession(new RenderingSessionCreationOptions(renderingSessionVmSize, (int)maxLeaseHours, (int)maxLeaseMinutes));
     }
 
     if (joinResult.Status == RenderingSessionStatus.Ready || joinResult.Status == RenderingSessionStatus.Starting)
@@ -669,7 +640,7 @@ The application also needs to listen for events about the connection between the
  1. Replace the **ConnectRuntimeToRemoteSession( )** and **DisconnectRuntimeFromRemoteSession( )** methods with the completed versions below.
  1. It's important to take note of the Unity method **LateUpdate** and that it's updating the current active session. This allows the current session to send/receive messages and update the frame buffer with the frames received from the remote session. It's critical to ARR functioning correctly.
 
-```csharp
+```cs
 /// <summary>
 /// Connects the local runtime to the current active session, if there's a session available
 /// </summary>
@@ -685,7 +656,7 @@ public void ConnectRuntimeToRemoteSession()
     //This session is set when connecting to a new or existing session
 
     ARRSessionService.CurrentActiveSession.ConnectionStatusChanged += OnLocalRuntimeStatusChanged;
-    ARRSessionService.CurrentActiveSession.ConnectToRuntime(new ConnectToRuntimeParams());
+    ARRSessionService.CurrentActiveSession.ConnectAsync(new RendererInitOptions());
     CurrentCoordinatorState = RemoteRenderingState.ConnectingToRuntime;
 }
 
@@ -697,18 +668,18 @@ public void DisconnectRuntimeFromRemoteSession()
         return;
     }
 
-    ARRSessionService.CurrentActiveSession.DisconnectFromRuntime();
+    ARRSessionService.CurrentActiveSession.Disconnect();
     ARRSessionService.CurrentActiveSession.ConnectionStatusChanged -= OnLocalRuntimeStatusChanged;
     CurrentCoordinatorState = RemoteRenderingState.RemoteSessionReady;
 }
 
 /// <summary>
 /// The session must have its runtime pump updated.
-/// The Actions.Update() will push messages to the server, receive messages, and update the frame-buffer with the remotely rendered content.
+/// The Connection.Update() will push messages to the server, receive messages, and update the frame-buffer with the remotely rendered content.
 /// </summary>
 private void LateUpdate()
 {
-    ARRSessionService?.CurrentActiveSession?.Actions?.Update();
+    ARRSessionService?.CurrentActiveSession?.Connection?.Update();
 }
 ```
 
@@ -725,7 +696,7 @@ The **LoadModel** method is designed to accept a model path, progress handler, a
 
 1. Replace the **LoadModel** method entirely with the code below:
 
-    ```csharp
+    ```cs
     /// <summary>
     /// Loads a model into the remote session for rendering
     /// </summary>
@@ -733,10 +704,10 @@ The **LoadModel** method is designed to accept a model path, progress handler, a
     /// <param name="parent">The parent Transform for this remote entity</param>
     /// <param name="progress">A call back method that accepts a float progress value [0->1]</param>
     /// <returns>An awaitable Remote Rendering Entity</returns>
-    public async Task<Entity> LoadModel(string modelPath, Transform parent = null, ProgressHandler progress = null)
+    public async Task<Entity> LoadModel(string modelPath, Transform parent = null, Action<float> progress = null)
     {
         //Create a root object to parent a loaded model to
-        var modelEntity = ARRSessionService.CurrentActiveSession.Actions.CreateEntity();
+        var modelEntity = ARRSessionService.CurrentActiveSession.Connection.CreateEntity();
 
         //Get the game object representation of this entity
         var modelGameObject = modelEntity.GetOrCreateGameObject(UnityCreationMode.DoNotCreateUnityComponents);
@@ -765,11 +736,9 @@ The **LoadModel** method is designed to accept a model path, progress handler, a
     #endif
 
         //Load a model that will be parented to the entity
-        var loadModelParams = new LoadModelFromSASParams(modelPath, modelEntity);
-        var loadModelAsync = ARRSessionService.CurrentActiveSession.Actions.LoadModelFromSASAsync(loadModelParams);
-        if(progress != null)
-            loadModelAsync.ProgressUpdated += progress;
-        var result = await loadModelAsync.AsTask();
+        var loadModelParams = new LoadModelFromSasOptions(modelPath, modelEntity);
+        var loadModelAsync = ARRSessionService.CurrentActiveSession.Connection.LoadModelFromSasAsync(loadModelParams, progress);
+        var result = await loadModelAsync;
         return modelEntity;
     }
     ```
@@ -791,7 +760,7 @@ We now have all the code required to view a remotely rendered model, all four of
 
 1. Add the following code to the **RemoteRenderingCoordinator** class, just below the **LoadModel** method is fine:
 
-    ```csharp
+    ```cs
     private bool loadingTestModel = false;
     [ContextMenu("Load Test Model")]
     public async void LoadTestModel()

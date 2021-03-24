@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
-ms.author: jmartens
-author: j-martens
+ms.author: luquinta
+author: luisquintanilla
 ms.date: 11/16/2020
 # As a data scientist, I want to connect to an Azure Machine Learning compute instance in Visual Studio Code to access my resources and run my code.
 ---
@@ -37,7 +37,7 @@ To connect to a compute instance:
 1. When the integrated notebook experience loads, select **Jupyter Server**.
 
     > [!div class="mx-imgBorder"]
-    > ![Launch Azure Machine Learning remote Jupyter notebook server dropdown](media/how-to-set-up-vs-code-remote/launch-server-selection-dropdown.png)
+    > ![Launch Azure Machine Learning remote Jupyter Notebook server dropdown](media/how-to-set-up-vs-code-remote/launch-server-selection-dropdown.png)
 
     Alternatively, you also use the command palette:
 
@@ -54,7 +54,7 @@ To connect to a compute instance:
 > [!IMPORTANT]
 > You **MUST** run a cell in order to establish the connection.
 
-At this point, you can continue to run cells in your Jupyter notebook.
+At this point, you can continue to run cells in your Jupyter Notebook.
 
 > [!TIP]
 > You can also work with Python script files (.py) containing Jupyter-like code cells. For more information, see the [Visual Studio Code Python interactive documentation](https://code.visualstudio.com/docs/python/jupyter-support-py).

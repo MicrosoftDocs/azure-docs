@@ -93,6 +93,8 @@ If you create users in your:
 
 On-premises UPNs that are different from Azure AD UPNs are not supported on Azure AD joined devices. If your users use an on-premises UPN, you should plan to switch to using their primary UPN in Azure AD.
 
+UPN changes are only supported starting Windows 10 2004 update. Users on devices with this update will not have any issues after changing their UPNs. For devices prior to Windows 10 2004 update, users would have SSO and Conditional Access issues on their devices. They need to sign in to Windows through the "Other user" tile using their new UPN to resolve this issue. 
+
 ## Assess your device management
 
 ### Supported devices

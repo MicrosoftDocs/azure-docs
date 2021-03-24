@@ -123,6 +123,18 @@ spec:
         claimName: azure-managed-disk
 ```
 
+For mounting a volume in a Windows container, specify the drive letter and path. For example:
+
+```yaml
+...      
+       volumeMounts:
+        - mountPath: "d:"
+          name: volume
+        - mountPath: "c:\k"
+          name: k-dir
+...
+```
+
 ## Next steps
 
 For associated best practices, see [Best practices for storage and backups in AKS][operator-best-practices-storage].

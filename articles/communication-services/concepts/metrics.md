@@ -7,13 +7,13 @@ manager: jken
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 05/19/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
 # Metrics overview
 
-Azure Communication Services currently provides metrics for Chat and SMS. [Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md) can be used to plot your own charts, investigate abnormalities in your metric values, and understand your API traffic by using the metrics data that Chat and SMS requests emit.
+Azure Communication Services currently provides metrics for Chat and SMS. [Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md) can be used to plot your own charts, investigate abnormalities in your metric values, and understand your API traffic by using the metrics data that Chat and SMS requests emit.
 
 ## Where to find Metrics
 
@@ -25,7 +25,7 @@ There are two types of requests that are represented within Communication Servic
 
 Both Chat and SMS API request metrics contain three dimensions that you can use to filter your metrics data. These dimensions can be aggregated together using the `Count` aggregation type and support all standard Azure Aggregation time series including `Sum`, `Average`, `Min`, and `Max`.
 
-More information on supported aggregation types and time series aggregations can be found [Advanced features of Azure Metrics Explorer](../../azure-monitor/platform/metrics-charts.md#changing-aggregation)
+More information on supported aggregation types and time series aggregations can be found [Advanced features of Azure Metrics Explorer](../../azure-monitor/essentials/metrics-charts.md#aggregation)
 
 - **Operation** - All operations or routes that can be called on the ACS Chat gateway.
 - **Status Code** - The status code response sent after the request.
@@ -72,6 +72,19 @@ The following operations are available on SMS API request metrics:
 
 :::image type="content" source="./media/sms-metric.png" alt-text="SMS API Request Metric.":::
 
+### Authentication API requests
+
+The following operations are available on Authentication API request metrics:
+
+| Operation / Route    | Description                                                                                    |
+| -------------------- | ---------------------------------------------------------------------------------------------- |
+| CreateIdentity       | Creates an identity representing a single user. |
+| DeleteIdentity       | Deletes an identity. |
+| CreateToken          | Creates an access token. |
+| RevokeToken          | Revokes all access tokens created for an identity before a time given. |
+
+:::image type="content" source="./media/acs-auth-metrics.png" alt-text="Authentication Request Metric.":::
+
 ## Next Steps
 
-- Learn more about [Data Platform Metrics](../../azure-monitor/platform/data-platform-metrics.md)
+- Learn more about [Data Platform Metrics](../../azure-monitor/essentials/data-platform-metrics.md)

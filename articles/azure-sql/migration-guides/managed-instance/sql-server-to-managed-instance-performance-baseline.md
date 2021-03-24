@@ -1,8 +1,8 @@
 ---
-title: "SQL Server to SQL Managed Instance - Performance analysis"
+title: "SQL Server to Azure SQL Managed Instance: Performance analysis"
 description: Learn to create and compare a performance baseline when migrating your SQL Server databases to Azure SQL Managed Instance. 
-ms.service: sql-database
-ms.subservice: migration
+ms.service: sql-managed-instance
+ms.subservice: migration-guide
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
@@ -11,7 +11,7 @@ ms.author: sstein
 ms.reviewer: mokabiru
 ms.date: 11/06/2020
 ---
-# Migration performance: SQL Server to SQL Managed Instance performance analysis
+# Migration performance: SQL Server to  Azure SQL Managed Instance performance analysis
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
 
 Create a performance baseline to compare the performance of your workload on a SQL Managed Instance with your original workload running on SQL Server. 
@@ -80,4 +80,4 @@ For more information to optimize your new Azure SQL Managed Instance environment
 - [How to identify why workload performance on Azure SQL Managed Instance is different than SQL Server?](https://medium.com/azure-sqldb-managed-instance/what-to-do-when-azure-sql-managed-instance-is-slower-than-sql-server-dd39942aaadd)
 - [Key causes of performance differences between SQL Managed Instance and SQL Server](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/)
 - [Storage performance best practices and considerations for Azure SQL Managed Instance (General Purpose)](https://techcommunity.microsoft.com/t5/datacat/storage-performance-best-practices-and-considerations-for-azure/ba-p/305525)
-- [Real-time performance monitoring for Azure SQL Managed Instance (this is archived, is this the intended target?)](https://docs.microsoft.com/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance)
+- [Real-time performance monitoring for Azure SQL Managed Instance (this is archived, is this the intended target?)](/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance)

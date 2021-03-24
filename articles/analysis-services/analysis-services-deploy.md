@@ -4,7 +4,7 @@ description: Learn how to deploy a tabular model to an Azure Analysis Services s
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -58,4 +58,4 @@ If deployment fails on a table, it's likely because your server couldn't connect
 
 Now that you have your tabular model deployed to your server, you're ready to connect to it. You can [connect to it with SQL Server Management Studio (SSMS)](analysis-services-manage.md) to manage it. And, you can [connect to it using a client tool](analysis-services-connect.md) like Power BI, Power BI Desktop, or Excel, and start creating reports.   
 
-To learn about advanced deployment methods, see [Tabular model solution deployment](/analysis-services/deployment/tabular-model-solution-deployment?view=azure-analysis-services-current).
+To learn about advanced deployment methods, see [Tabular model solution deployment](/analysis-services/deployment/tabular-model-solution-deployment?view=azure-analysis-services-current&preserve-view=true).

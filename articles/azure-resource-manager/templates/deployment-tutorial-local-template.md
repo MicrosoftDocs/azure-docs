@@ -1,17 +1,17 @@
 ---
 title: Tutorial - Deploy a local Azure Resource Manager template
-description: Learn how to deploy an Azure Resource Manager template from your local computer
-ms.date: 05/20/2020
+description: Learn how to deploy an Azure Resource Manager template (ARM template) from your local computer
+ms.date: 02/10/2021
 ms.topic: tutorial
-ms.author: jgao 
+ms.author: jgao
 ms.custom:
 ---
 
-# Tutorial: Deploy a local Azure Resource Manager template
+# Tutorial: Deploy a local ARM template
 
-Learn how to deploy an Azure Resource Manager template from your local machine. It takes about **8 minutes** to complete.
+Learn how to deploy an Azure Resource Manager template (ARM template) from your local machine. It takes about **8 minutes** to complete.
 
-This tutorial is the first of a series. As you progress through the series, you modularize the template by creating a linked template, you store the linked template in a storage account, and secure the linked template by using SAS token, and you learn how to create a DevOp pipeline to deploy templates. This series focuses on template deployment.  If you want to learn template development, see the [beginner tutorials](./template-tutorial-create-first-template.md).
+This tutorial is the first of a series. As you progress through the series, you modularize the template by creating a linked template, you store the linked template in a storage account, and secure the linked template by using SAS token, and you learn how to create a DevOps pipeline to deploy templates. This series focuses on template deployment. If you want to learn template development, see the [beginner tutorials](./template-tutorial-create-first-template.md).
 
 ## Get tools
 
@@ -24,23 +24,24 @@ You  need either Azure PowerShell or Azure CLI to deploy the template. For the i
 - [Install Azure PowerShell](/powershell/azure/install-az-ps)
 - [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows)
 - [Install Azure CLI on Linux](/cli/azure/install-azure-cli-linux)
+- [Install Azure CLI on macOS](/cli/azure/install-azure-cli-macos)
 
 After installing either Azure PowerShell or Azure CLI, make sure you sign in for the first time. For help, see [Sign in - PowerShell](/powershell/azure/install-az-ps#sign-in) or [Sign in - Azure CLI](/cli/azure/get-started-with-azure-cli#sign-in).
 
 ### Editor (Optional)
 
-Templates are JSON files. To review/edit templates, you need a good JSON editor. We recommend Visual Studio Code with the Resource Manager Tools extension. If you need to install these tools, see [Quickstart: Create Azure Resource Manager templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+Templates are JSON files. To review/edit templates, you need a good JSON editor. We recommend Visual Studio Code with the Resource Manager Tools extension. If you need to install these tools, see [Quickstart: Create ARM templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## Review template
 
-The template deploys a storage account, app service plan, and web app. If you are interested in creating the template, you can go through [tutorial about Quickstart templates](template-tutorial-quickstart-template.md). However it's not required for completing this tutorial.
+The template deploys a storage account, app service plan, and web app. If you're interested in creating the template, you can go through [tutorial about Quickstart templates](template-tutorial-quickstart-template.md). However it's not required for completing this tutorial.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/local-template/azuredeploy.json":::
 
 > [!IMPORTANT]
-> Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only. The name must be unique. In the template, the storage account name is the project name with "store" appended, and the project name must be between 3 and 11 characters. So the project name must meet the storage account name requirements and has less than 11 characters.
+> Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only. The name must be unique. In the template, the storage account name is the project name with **store** appended, and the project name must be between 3 and 11 characters. So the project name must meet the storage account name requirements and has less than 11 characters.
 
-Save a copy of the template to your local computer with the .json extension, for example, azuredeploy.json. You deploy this template later in the tutorial.
+Save a copy of the template to your local computer with the _.json_ extension, for example, _azuredeploy.json_. You deploy this template later in the tutorial.
 
 ## Sign in to Azure
 
@@ -60,7 +61,7 @@ az login
 
 ---
 
-If you have multiple Azure subscriptions, select the subscription you want to use:
+If you have multiple Azure subscriptions, select the subscription you want to use. Replace `[SubscriptionID/SubscriptionName]` and the square brackets `[]` with your subscription information:
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -124,7 +125,7 @@ New-AzResourceGroupDeployment `
   -verbose
 ```
 
-To learn more about deploying template by using Azure PowerShell, see [Deploy resources with Resource Manager templates and Azure PowerShell](./deploy-powershell.md).
+To learn more about deploying template by using Azure PowerShell, see [Deploy resources with ARM templates and Azure PowerShell](./deploy-powershell.md).
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -143,7 +144,7 @@ az deployment group create \
   --verbose
 ```
 
-To learn more about deploying template by using Azure CLI, see [Deploy resources with Resource Manager templates and Azure CLI](./deploy-cli.md).
+To learn more about deploying template by using Azure CLI, see [Deploy resources with ARM templates and Azure CLI](./deploy-cli.md).
 
 ---
 

@@ -9,14 +9,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 11/25/2020
+ms.date: 01/15/2021
 ms.custom: designer
 ---
 
 # Tutorial: Deploy a machine learning model with the designer
 
 
-You can deploy the predictive model developed in [part one of the tutorial](tutorial-designer-automobile-price-train-score.md) to give others a chance to use it. In part one, you trained your model. Now, it's time to generate new predictions based on user input. In this part of the tutorial, you will:
+You can deploy the predictive model developed in [part one of the tutorial](tutorial-designer-automobile-price-train-score.md) to give others a chance to use it. In part one, you trained your model. Now, it's time to generate predictions based on user input. In this part of the tutorial, you will:
 
 > [!div class="checklist"]
 > * Create a real-time inference pipeline.
@@ -38,7 +38,7 @@ To deploy your pipeline, you must first convert the training pipeline into a rea
 
 1. Above the pipeline canvas, select **Create inference pipeline** > **Real-time inference pipeline**.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png"alt-text="Screenshot showing where to find the create pipeline button":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png" alt-text="Screenshot showing where to find the create pipeline button":::
 
     Your pipeline should now look like this: 
 
@@ -93,25 +93,62 @@ After your AKS service has finished provisioning, return to the real-time infere
 
 1. Select the AKS cluster you created.
 
-1. Select **Deploy**.
+    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png" alt-text="Screenshot showing how to set up a new real-time endpoint":::
+
+    You can also change **Advanced** setting for your real-time endpoint.
     
-    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="Screenshot showing how to set up a new real-time endpoint":::
+    |Advanced setting|Description|
+    |---|---|
+    |Enable Application Insights diagnostics and data collection| Whether to enable Azure Application Insights to collect data from the deployed endpoints. </br> By default: false |
+    |Scoring timeout| A timeout in milliseconds to enforce for scoring calls to the web service.</br>By default: 60000|
+    |Auto scale enabled|   Whether to enable autoscaling for the web service.</br>By default: true|
+    |Min replicas| The minimum number of containers to use when autoscaling this web service.</br>By default: 1|
+    |Max replicas| The maximum number of containers to use when autoscaling this web service.</br> By default: 10|
+    |Target utilization|The target utilization (in percent out of 100) that the autoscaler should attempt to maintain for this web service.</br> By default: 70|
+    |Refresh period|How often (in seconds) the autoscaler attempts to scale this web service.</br> By default: 1|
+    |CPU reserve capacity|The number of CPU cores to allocate for this web service.</br> By default: 0.1|
+    |Memory reserve capacity|The amount of memory (in GB) to allocate for this web service.</br> By default: 0.5|
+        
+
+1. Select **Deploy**. 
 
     A success notification above the canvas appears after deployment finishes. It might take a few minutes.
 
-## View the real-time endpoint
+> [!TIP]
+> You can also deploy to **Azure Container Instance** (ACI) if you select **Azure Container Instance** for **Compute type** in the real-time endpoint setting box.
+> Azure Container Instance is used for testing or development. Use ACI for low-scale CPU-based workloads that require less than 48 GB of RAM.
+
+## Test the real-time endpoint
 
 After deployment finishes, you can view your real-time endpoint by going to the **Endpoints** page.
 
 1. On the **Endpoints** page, select the endpoint you deployed.
 
-1. In the **Details** tab, you can see more information such as the REST URI, status, and tags.
+    In the **Details** tab, you can see more information such as the REST URI, Swagger definition, status, and tags.
 
-1. In the **Consume** tab, you can find security keys and set authentication methods.
+    In the **Consume** tab, you can find sample consumption code, security keys, and set authentication methods.
 
-1. In the **Deployment logs** tab, you can find the detailed deployment logs of your real-time endpoint. 
+    In the **Deployment logs** tab, you can find the detailed deployment logs of your real-time endpoint.
+
+1. To test your endpoint, go to the **Test** tab. From here, you can enter test data and select **Test** verify the output of your endpoint.
 
 For more information on consuming your web service, see [Consume a model deployed as a webservice](how-to-consume-web-service.md)
+
+## Limitations
+
+If you make some modifications in your training pipeline, you should resubmit the training pipeline, **Update** the inference pipeline and run the inference pipeline again.
+
+Note that only trained models will be updated in the inference pipeline, while data transformation will not be updated.
+
+To use the updated transformation in inference pipeline, you need to register the transformation output of the transformation module as dataset.
+
+![Screenshot showing how to register transformation dataset](./media/tutorial-designer-automobile-price-deploy/register-transformation-dataset.png)
+
+Then manually replace the **TD-** module in inference pipeline with the registered dataset.
+
+![Screenshot showing how to replace transformation module](./media/tutorial-designer-automobile-price-deploy/replace-td-module.png)
+
+Then you can submit the inference pipeline with the updated model and transformation, and deploy.
 
 ## Clean up resources
 
@@ -119,7 +156,7 @@ For more information on consuming your web service, see [Consume a model deploye
 
 ## Next steps
 
-In this tutorial, you learned the key steps in how to create, deploy, and consume a machine learning model in the designer. To learn more about how you can use the designer to solve other types of problems, see our other sample pipelines.
+In this tutorial, you learned the key steps in how to create, deploy, and consume a machine learning model in the designer. To learn more about how you can use the designer see the following links:
 
-> [!div class="nextstepaction"]
-> [Designer samples](samples-designer.md)
++ [Designer samples](samples-designer.md): Learn how to use the designer to solve other types of problems.
++ [Use Azure Machine Learning studio in an Azure virtual network](how-to-enable-studio-virtual-network.md).

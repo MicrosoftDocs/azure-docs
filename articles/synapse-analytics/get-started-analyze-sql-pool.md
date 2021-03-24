@@ -9,17 +9,33 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
-ms.date: 11/17/2020 
+ms.date: 03/18/2020 
 ---
 
 # Analyze data with dedicated SQL pools
 
-Azure Synapse Analytics provides you with the capability to analyze data with a dedicated SQL pool. In this tutorial, you'll use the NYC Taxi data to explore a dedicted SQL pool's capabilities.
+In this tutorial, you'll use the NYC Taxi data to explore a dedicated SQL pool's capabilities.
 
+## Create a dedicated SQL pool
+
+1. In Synapse Studio, on the left-side pane, select **Manage** > **SQL pools**.
+1. Select **New**
+1. For **SQL pool name** select **SQLPOOL1**
+1. For **Performance level** choose **DW100C**
+1. Select **Review + create** > **Create**. Your dedicated SQL pool will be ready in a few minutes. 
+
+Your dedicated SQL pool is associated with a SQL database that's also called **SQLPOOL1**.
+1. Navigate to **Data** > **Workspace**.
+1. You should see a database named **SQLPOOL1**. If you do not see it, click **Refresh**.
+
+A dedicated SQL pool consumes billable resources as long as it's active. You can pause the pool later to reduce costs.
+
+> [!NOTE] 
+> When creating a new dedicated SQL pool (formerly SQL DW) in your workspace, the dedicated SQL pool provisioning page will open. Provisioning will take place on the logical SQL server.
 ## Load the NYC Taxi Data into SQLPOOL1
 
-1. In Synapse Studio, navigate to the **Develop** hub and then create new SQL script
-1. Select the pool 'SQLPOOL1' (pool created in [STEP 1](https://docs.microsoft.com/azure/synapse-analytics/get-started-create-workspace#create-a-sql-pool) of this tutorial) in 'Connect to' section of the script.
+1. In Synapse Studio, navigate to the **Develop** hub, click the **+** button to add new resource, then create new SQL script.
+1. Select the pool 'SQLPOOL1' (pool created in [STEP 1](./get-started-create-workspace.md) of this tutorial) in 'Connect to' drop down list above the script.
 1. Enter the following code:
     ```
     CREATE TABLE [dbo].[Trip]
@@ -66,16 +82,17 @@ Azure Synapse Analytics provides you with the capability to analyze data with a 
     )
     OPTION (LABEL = 'COPY : Load [dbo].[Trip] - Taxi dataset');
     ```
-1. This script will finish in around 60 seconds. It loads 2 million rows of NYC Taxi data into a table called **dbo.Trip**
+1. Click the Run button to execute the script.
+1. This script will finish in less than 60 seconds. It loads 2 million rows of NYC Taxi data into a table called **dbo.Trip**.
 
 ## Explore the NYC Taxi data in the dedicated SQL pool
 
 1. In Synapse Studio, go to the **Data** hub.
-1. Go to **SQLPOOL1** > **Tables**. You'll see several tables loaded.
-1. Right-click the **dbo.Trip** table and select **New SQL Script** > **Select TOP 100 Rows**.
-1. Wait while a new SQL script is created and runs.
-1. Notice that at the top of the SQL script **Connect to** is automatically set to the SQL pool called **SQLPOOL1**.
-1. Replace the text of the SQL script with this code and run it.
+1. Go to **SQLPOOL1** > **Tables**. 
+3. Right-click the **dbo.Trip** table and select **New SQL Script** > **Select TOP 100 Rows**.
+4. Wait while a new SQL script is created and runs.
+5. Notice that at the top of the SQL script **Connect to** is automatically set to the SQL pool called **SQLPOOL1**.
+6. Replace the text of the SQL script with this code and run it.
 
     ```sql
     SELECT PassengerCount,
@@ -84,16 +101,16 @@ Azure Synapse Analytics provides you with the capability to analyze data with a 
     FROM  dbo.Trip
     WHERE TripDistanceMiles > 0 AND PassengerCount > 0
     GROUP BY PassengerCount
-    ORDER BY PassengerCount
+    ORDER BY PassengerCount;
     ```
 
     This query shows how the total trip distances and average trip distance relate to the number of passengers.
 1. In the SQL script result window, change the **View** to **Chart** to see a visualization of the results as a line chart.
-
-
+    
+    > [!NOTE]
+    > A workspace enabled dedicated SQL pool (formerly SQL DW) can be identified via the tool tip in the Data hub.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Analyze using Spark](get-started-analyze-spark.md)
-
+> [Analyze data in an Azure Storage account](get-started-analyze-storage.md)

@@ -36,7 +36,7 @@ Security Center's protection layer based on Azure Resource Manager is currently 
 
 Security Center offers an additional layer of protection by using Azure Resource Manager events, which is considered to be the control plane for Azure. By analyzing the Azure Resource Manager records, Security Center detects unusual or potentially harmful operations in the Azure subscription environment.
 
-For a list of the Azure Resource Manager (Preview) alerts, see the [Reference table of alerts](alerts-reference.md#alerts-azureresourceman).
+For a list of the Azure Defender for Resource Manager alerts, see the [Reference table of alerts](alerts-reference.md#alerts-resourcemanager).
 
 
 >[!NOTE]
@@ -84,7 +84,7 @@ Distributed denial of service (DDoS) attacks are known to be easy to execute. Th
 
 A DDoS attack attempts to exhaust an application's resources, making the application unavailable to legitimate users. DDoS attacks can target any endpoint that can be reached through the internet.
 
-To defend against DDoS attacks, purchase a license for Azure DDoS Protection and ensure you're following application design best practices. DDoS Protection provides different service tiers. For more information, see [Azure DDoS Protection overview](../virtual-network/ddos-protection-overview.md).
+To defend against DDoS attacks, purchase a license for Azure DDoS Protection and ensure you're following application design best practices. DDoS Protection provides different service tiers. For more information, see [Azure DDoS Protection overview](../ddos-protection/ddos-protection-overview.md).
 
 For a list of the Azure DDoS Protection alerts, see the [Reference table of alerts](alerts-reference.md#alerts-azureddos).
 

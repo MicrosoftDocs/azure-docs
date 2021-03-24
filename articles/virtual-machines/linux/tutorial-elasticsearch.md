@@ -1,12 +1,13 @@
 ---
 title: Deploy ElasticSearch on a development virtual machine in Azure 
 description: Tutorial - Install the Elastic Stack onto a development Linux VM in Azure
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: virtual-machines
 author: rloutlaw
 manager: justhe
 tags: azure-resource-manager
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
@@ -30,9 +31,9 @@ In this tutorial you learn how to:
 
  This deployment is suitable for basic development with the Elastic Stack. For more on the Elastic Stack, including recommendations for a production environment, see the [Elastic documentation](https://www.elastic.co/guide/index.html) and the [Azure Architecture Center](/azure/architecture/elasticsearch/).
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
+- This article requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 

@@ -171,7 +171,7 @@ final_df.describe()
 
 ## Configure workspace
 
-Create a workspace object from the existing workspace. A [Workspace](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) is a class that accepts your Azure subscription and resource information. It also creates a cloud resource to monitor and track your model runs. `Workspace.from_config()` reads the file **config.json** and loads the authentication details into an object named `ws`. `ws` is used throughout the rest of the code in this tutorial.
+Create a workspace object from the existing workspace. A [Workspace](/python/api/azureml-core/azureml.core.workspace.workspace) is a class that accepts your Azure subscription and resource information. It also creates a cloud resource to monitor and track your model runs. `Workspace.from_config()` reads the file **config.json** and loads the authentication details into an object named `ws`. `ws` is used throughout the rest of the code in this tutorial.
 
 ```python
 from azureml.core.workspace import Workspace
@@ -206,7 +206,7 @@ Define the experiment parameter and model settings for training. View the full l
 
 |Property| Value in this tutorial |Description|
 |----|----|---|
-|**iteration_timeout_minutes**|2|Time limit in minutes for each iteration. Reduce this value to decrease total runtime.|
+|**iteration_timeout_minutes**|10|Time limit in minutes for each iteration. Increase this value for larger datasets that need more time for each iteration.|
 |**experiment_timeout_hours**|0.3|Maximum amount of time in hours that all iterations combined can take before the experiment terminates.|
 |**enable_early_stopping**|True|Flag to enable early termination if the score is not improving in the short term.|
 |**primary_metric**| spearman_correlation | Metric that you want to optimize. The best-fit model will be chosen based on this metric.|
@@ -218,7 +218,7 @@ Define the experiment parameter and model settings for training. View the full l
 import logging
 
 automl_settings = {
-    "iteration_timeout_minutes": 2,
+    "iteration_timeout_minutes": 10,
     "experiment_timeout_hours": 0.3,
     "enable_early_stopping": True,
     "primary_metric": 'spearman_correlation',
@@ -254,7 +254,7 @@ After starting the experiment, the output shown updates live as the experiment r
 
 ```python
 from azureml.core.experiment import Experiment
-experiment = Experiment(ws, "taxi-experiment")
+experiment = Experiment(ws, "Tutorial-NYCTaxi")
 local_run = experiment.submit(automl_config, show_output=True)
 ```
 
@@ -301,7 +301,7 @@ BEST: The best observed score thus far.
 
 ## Explore the results
 
-Explore the results of automatic training with a [Jupyter widget](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py). The widget allows you to see a graph and table of all individual run iterations, along with training accuracy metrics and metadata. Additionally, you can filter on different accuracy metrics than your primary metric with the dropdown selector.
+Explore the results of automatic training with a [Jupyter widget](/python/api/azureml-widgets/azureml.widgets). The widget allows you to see a graph and table of all individual run iterations, along with training accuracy metrics and metadata. Additionally, you can filter on different accuracy metrics than your primary metric with the dropdown selector.
 
 ```python
 from azureml.widgets import RunDetails

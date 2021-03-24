@@ -4,8 +4,9 @@ description: How to deploy enterprise Java applications by using Red Hat JBoss E
 author: theresa-nguyen
 ms.author: bicnguy
 ms.topic: quickstart
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: redhat
+ms.collection: linux
 ms.assetid: 8a4df7bf-be49-4198-800e-db381cda98f5
 ms.date: 10/30/2020
 ---
@@ -26,7 +27,7 @@ JBoss EAP and RHEL include everything that you need to build, run, deploy, and m
 
   If you don't have EAP entitlement, obtain a [JBoss EAP evaluation subscription](https://access.redhat.com/products/red-hat-jboss-enterprise-application-platform/evaluation) before you get started. To create a new Red Hat subscription, go to [Red Hat Customer Portal](https://access.redhat.com/) and set up an account.
 
-* The [Azure CLI](https://docs.microsoft.com/cli/azure/overview).
+* The [Azure CLI](/cli/azure/overview).
 
 * RHEL options. Choose pay-as-you-go (PAYG) or bring-your-own-subscription (BYOS). With BYOS, you need to activate your [Red Hat Cloud Access](https://access.redhat.com/) RHEL Gold Image before you deploy the Quickstart template.
 
@@ -147,7 +148,7 @@ For details on PAYG VM pricing, see [Red Hat Enterprise Linux pricing](https://a
 To use BYOS for RHEL OS, you need to have a valid Red Hat subscription with entitlements to use RHEL OS in Azure. Complete the following prerequisites before you deploy the RHEL OS with the BYOS model:
 
 1. Ensure that you have RHEL OS and JBoss EAP entitlements attached to your Red Hat subscription.
-2. Authorize your Azure subscription ID to use RHEL BYOS images. Follow the [Red Hat Subscription Management documentation](https://access.redhat.com/documentation/en/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/con-enable-subs) to complete the process, which includes these steps:
+2. Authorize your Azure subscription ID to use RHEL BYOS images. Follow the [Red Hat Subscription Management documentation](https://access.redhat.com/documentation/red_hat_subscription_management/1/) to complete the process, which includes these steps:
 
    1. Enable Microsoft Azure as a provider in your Red Hat Cloud Access Dashboard.
 
@@ -155,13 +156,13 @@ To use BYOS for RHEL OS, you need to have a valid Red Hat subscription with enti
 
    1. Enable new products for Cloud Access on Microsoft Azure.
     
-   1. Activate Red Hat Gold Images for your Azure subscription. For more information, see [Red Hat Gold Images on Microsoft Azure](https://access.redhat.com/documentation/en/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/using_red_hat_gold_images#con-gold-image-azure).
+   1. Activate Red Hat Gold Images for your Azure subscription. For more information, see [Red Hat Gold Images on Microsoft Azure](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/cloud-access-gold-images_cloud-access#proc_using-gold-images-azure_cloud-access).
 
    1. Wait for Red Hat Gold Images to be available in your Azure subscription. These images are typically available within three hours of submission.
     
-3. Accept the Azure Marketplace terms and conditions for RHEL BYOS images. You can complete this process by running the following Azure CLI commands. For more information, see the [RHEL BYOS Gold Images in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/byos) documentation. It's important that you're running the latest Azure CLI version.
+3. Accept the Azure Marketplace terms and conditions for RHEL BYOS images. You can complete this process by running the following Azure CLI commands. For more information, see the [RHEL BYOS Gold Images in Azure](./byos.md) documentation. It's important that you're running the latest Azure CLI version.
 
-   1. Open an Azure CLI session and authenticate with your Azure account. For assistance, see [Sign in with Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli).
+   1. Open an Azure CLI session and authenticate with your Azure account. For assistance, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
    1. Verify that the RHEL BYOS images are available in your subscription by running the following CLI command. If you don't get any results here, ensure that your Azure subscription is activated for RHEL BYOS images.
    
@@ -198,7 +199,7 @@ You can deploy the template in the following ways:
   New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateUri <raw link to the template which can be obtained from github>
   ```
  
-  For information on installing and configuring Azure PowerShell, see the [PowerShell documentation](https://docs.microsoft.com/powershell/azure/).  
+  For information on installing and configuring Azure PowerShell, see the [PowerShell documentation](/powershell/azure/).  
 
 - **Azure CLI**. Deploy the template by running the following commands:
 
@@ -207,10 +208,10 @@ You can deploy the template in the following ways:
   ```
 
   ```
-  az group deployment create --resource-group <my-resource-group> --template-uri <raw link to the template which can be obtained from github>
+  az deployment group create --resource-group <my-resource-group> --template-uri <raw link to the template which can be obtained from github>
   ```
 
-  For details on installing and configuring the Azure CLI, see [Install the CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+  For details on installing and configuring the Azure CLI, see [Install the CLI](/cli/azure/install-azure-cli).
 
 - **Azure portal**. You can deploy to the Azure portal by going to the Azure Quickstart templates as noted in the next section. After you're in the Quickstart, select the **Deploy to Azure** or **Browse on GitHub** button.
 
@@ -226,10 +227,10 @@ You can start by using one of the following Quickstart templates for JBoss EAP o
 
 ## Resource links
 
-* [Azure Hybrid Benefit](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing)
-* [Configure a Java app for Azure App Service](https://docs.microsoft.com/azure/app-service/configure-language-java)
+* [Azure Hybrid Benefit](../../windows/hybrid-use-benefit-licensing.md)
+* [Configure a Java app for Azure App Service](../../../app-service/configure-language-java.md)
 * [JBoss EAP on Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)
-* [JBoss EAP on Azure App Service Linux](https://docs.microsoft.com/azure/app-service/quickstart-java)
+* [JBoss EAP on Azure App Service Linux](../../../app-service/quickstart-java.md)
 * [Deploy JBoss EAP on Azure App Service](https://github.com/JasonFreeberg/jboss-on-app-service)
 
 ## Next steps
@@ -237,6 +238,6 @@ You can start by using one of the following Quickstart templates for JBoss EAP o
 * Learn more about [JBoss EAP 7.2](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.2/).
 * Learn more about [JBoss EAP 7.3](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.3/).
 * Learn more about [Red Hat Subscription Management](https://access.redhat.com/products/red-hat-subscription-management).
-* Learn about [Red Hat workloads on Azure](https://aka.ms/rhel-docs).
+* Learn about [Red Hat workloads on Azure](./overview.md).
 * Deploy [JBoss EAP on an RHEL VM or virtual machine scale set from Azure Marketplace](https://aka.ms/AMP-JBoss-EAP).
 * Deploy [JBoss EAP on an RHEL VM or virtual machine scale set from  Azure Quickstart templates](https://aka.ms/Quickstart-JBoss-EAP).

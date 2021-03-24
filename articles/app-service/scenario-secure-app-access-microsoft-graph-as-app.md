@@ -8,9 +8,10 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/09/2020
+ms.date: 01/28/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
+ms.custom: azureday1
 #Customer intent: As an application developer, I want to learn how to access data in Microsoft Graph by using managed identities.
 ---
 
@@ -20,7 +21,7 @@ Learn how to access Microsoft Graph from a web app running on Azure App Service.
 
 :::image type="content" alt-text="Diagram that shows accessing Microsoft Graph." source="./media/scenario-secure-app-access-microsoft-graph/web-app-access-graph.svg" border="false":::
 
-You want to call Microsoft Graph for the web app. A safe way to give your web app access to data is to use a [system-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview). A managed identity from Azure Active Directory allows App Service to access resources through role-based access control (RBAC), without requiring app credentials. After assigning a managed identity to your web app, Azure takes care of the creation and distribution of a certificate. You don't have to worry about managing secrets or app credentials.
+You want to call Microsoft Graph for the web app. A safe way to give your web app access to data is to use a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md). A managed identity from Azure Active Directory allows App Service to access resources through role-based access control (RBAC), without requiring app credentials. After assigning a managed identity to your web app, Azure takes care of the creation and distribution of a certificate. You don't have to worry about managing secrets or app credentials.
 
 In this tutorial, you learn how to:
 
@@ -68,7 +69,8 @@ $PermissionName = "User.Read.All"
 Connect-AzureAD -TenantId $TenantID
 
 # Get the service principal for Microsoft Graph.
-$GraphServicePrincipal = Get-AzureADServicePrincipal -SearchString "Microsoft Graph"
+# First result should be AppId 00000003-0000-0000-c000-000000000000
+$GraphServicePrincipal = Get-AzureADServicePrincipal -SearchString "Microsoft Graph" | Select-Object -first 1
 
 # Assign permissions to the managed identity service principal.
 $AppRole = $GraphServicePrincipal.AppRoles | `
@@ -91,7 +93,7 @@ graphResourceId=$(az ad sp list --display-name "Microsoft Graph" --query [0].obj
 
 appRoleId=$(az ad sp list --display-name "Microsoft Graph" --query "[0].appRoles[?value=='User.Read.All' && contains(allowedMemberTypes, 'Application')].id" --output tsv)
 
-uri=https://graph.microsoft.com/v1.0/servicePrincipals/$spID/appRoleAssignments
+uri=https://graph.microsoft.com/v1.0/servicePrincipals/$spId/appRoleAssignments
 
 body="{'principalId':'$spId','resourceId':'$graphResourceId','appRoleId':'$appRoleId'}"
 
@@ -118,9 +120,11 @@ In **Overview**, select **Permissions**, and you'll see the added permissions fo
 
 The [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class is used to get a token credential for your code to authorize requests to Microsoft Graph. Create an instance of the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class, which uses the managed identity to fetch tokens and attach them to the service client. The following code example gets the authenticated token credential and uses it to create a service client object, which gets the users in the group.
 
-### Install the Microsoft.Graph client library package
+To see this code as part of a sample application, see the [sample on GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/3-WebApp-graphapi-managed-identity).
 
-Install the [Microsoft.Graph NuGet package](https://www.nuget.org/packages/Microsoft.Graph) in your project by using the .NET Core command-line interface or the Package Manager Console in Visual Studio.
+### Install the Microsoft.Identity.Web.MicrosoftGraph client library package
+
+Install the [Microsoft.Identity.Web.MicrosoftGraph NuGet package](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) in your project by using the .NET Core command-line interface or the Package Manager Console in Visual Studio.
 
 # [Command line](#tab/command-line)
 
@@ -129,7 +133,7 @@ Open a command line, and switch to the directory that contains your project file
 Run the install commands.
 
 ```dotnetcli
-dotnet add package Microsoft.Graph
+dotnet add package Microsoft.Identity.Web.MicrosoftGraph
 ```
 
 # [Package Manager](#tab/package-manager)
@@ -138,7 +142,7 @@ Open the project/solution in Visual Studio, and open the console by using the **
 
 Run the install commands.
 ```powershell
-Install-Package Microsoft.Graph
+Install-Package Microsoft.Identity.Web.MicrosoftGraph
 ```
 
 ---

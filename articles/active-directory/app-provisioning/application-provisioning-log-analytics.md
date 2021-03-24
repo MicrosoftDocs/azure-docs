@@ -3,7 +3,7 @@ title: Understand how Provisioning integrates with Azure Monitor logs in Azure A
 description: Understand how Provisioning integrates with Azure Monitor logs in Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
@@ -19,7 +19,7 @@ Provisioning integrates with Azure Monitor logs and Log Analytics. With Azure mo
 
 ## Enabling provisioning logs
 
-You should already be familiar with Azure monitoring and Log Analytics. If not, jump over to learn about them and then come back to learn about application provisioning logs. To learn more about Azure monitoring, see [Azure Monitor overview](../../azure-monitor/overview.md). To learn more about Azure Monitor logs and Log Analytics, see [Overview of log queries in Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
+You should already be familiar with Azure monitoring and Log Analytics. If not, jump over to learn about them and then come back to learn about application provisioning logs. To learn more about Azure monitoring, see [Azure Monitor overview](../../azure-monitor/overview.md). To learn more about Azure Monitor logs and Log Analytics, see [Overview of log queries in Azure Monitor](../../azure-monitor/logs/log-query-overview.md).
 
 Once you've configured Azure monitoring, you can enable logs for application provisioning. The option is located on the **Diagnostics settings** page.
 
@@ -31,7 +31,7 @@ Once you've configured Azure monitoring, you can enable logs for application pro
 > If you have just recently provisioned a workspace, it can take some time before you can send logs to it. If you receive an error that the subscription is not registered to use *microsoft.insights* then check back after a few minutes.
  
 ## Understanding the data
-The underlying data stream that Provisioning sends log viewers is almost identical. Azure Monitor logs gets nearly the same stream as the Azure portal UI and Azure API. There are only a few **differences** in the log fields as outlined in the following table. To learn more about these fields, see [List provisioningObjectSummary](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http&preserve-view=true).
+The underlying data stream that Provisioning sends log viewers is almost identical. Azure Monitor logs gets nearly the same stream as the Azure portal UI and Azure API. There are only a few **differences** in the log fields as outlined in the following table. To learn more about these fields, see [List provisioningObjectSummary](/graph/api/provisioningobjectsummary-list?preserve-view=true&tabs=http&view=graph-rest-beta).
 
 |Azure Monitor logs   |Azure portal UI   |Azure API |
 |----------|-----------|------------|
@@ -42,7 +42,7 @@ The underlying data stream that Provisioning sends log viewers is almost identic
 
 ## Azure Monitor workbooks
 
-Azure Monitor workbooks provide a flexible canvas for data analysis. They also provide for the creation of rich visual reports within the Azure portal. To learn more, see [Azure Monitor Workbooks overview](../../azure-monitor/platform/workbooks-overview.md).
+Azure Monitor workbooks provide a flexible canvas for data analysis. They also provide for the creation of rich visual reports within the Azure portal. To learn more, see [Azure Monitor Workbooks overview](../../azure-monitor/visualize/workbooks-overview.md).
 
 Application provisioning comes with a set of pre-built workbooks. You can find them on the Workbooks page. To view the data, you'll need to ensure that all the filters (timeRange, jobID, appName) are populated. You'll also need to make sure you've provisioned an app, otherwise there won't be any data in the logs.
 
@@ -52,7 +52,7 @@ Application provisioning comes with a set of pre-built workbooks. You can find t
 
 ## Custom queries
 
-You can create custom queries and show the data on Azure dashboards. To learn how, see [Create and share dashboards of Log Analytics data](../../azure-monitor/log-query/get-started-queries.md). Also, be sure to check out [Overview of log queries in Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
+You can create custom queries and show the data on Azure dashboards. To learn how, see [Create and share dashboards of Log Analytics data](../../azure-monitor/logs/get-started-queries.md). Also, be sure to check out [Overview of log queries in Azure Monitor](../../azure-monitor/logs/log-query-overview.md).
 
 Here are some samples to get started with application provisioning.
 
@@ -91,7 +91,7 @@ AADProvisioningLogs
 
 Azure Monitor lets you configure custom alerts so that you can get notified about key events related to Provisioning. For example, you might want to receive an alert on spikes in failures. Or perhaps spikes in disables or deletes. Another example of where you might want to be alerted is a lack of any provisioning, which indicates something is wrong.
 
-To learn more about alerts, see [Respond to events with Azure Monitor Alerts](../../azure-monitor/learn/tutorial-response.md).
+To learn more about alerts, see [Respond to events with Azure Monitor Alerts](../../azure-monitor/alerts/tutorial-response.md).
 
 Alert when there's a spike in failures. Replace the jobID with the jobID for your application.
 
@@ -113,7 +113,7 @@ We're taking an open source and community-based approach to application provisio
 ## Next steps
 
 - [Log analytics](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md)
-- [Get started with queries in Azure Monitor logs](../../azure-monitor/log-query/get-started-queries.md)
-- [Create and manage alert groups in the Azure portal](../../azure-monitor/platform/action-groups.md)
+- [Get started with queries in Azure Monitor logs](../../azure-monitor/logs/get-started-queries.md)
+- [Create and manage alert groups in the Azure portal](../../azure-monitor/alerts/action-groups.md)
 - [Install and use the log analytics views for Azure Active Directory](../reports-monitoring/howto-install-use-log-analytics-views.md)
-- [Provisioning logs API](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta.md&preserve-view=true)
+- [Provisioning logs API](/graph/api/resources/provisioningobjectsummary?preserve-view=true&view=graph-rest-beta)

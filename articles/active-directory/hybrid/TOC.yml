@@ -40,6 +40,8 @@
        href: whatis-phs.md
      - name: How password hash synchronization works
        href: how-to-connect-password-hash-synchronization.md
+     - name: Selective password hash synchronization
+       href: how-to-connect-selective-password-hash-synchronization.md
    - name: Pass-through authentication
      items:
      - name: What is pass-through authentication?
@@ -133,6 +135,8 @@
       href: how-to-connect-install-existing-tenant.md
     - name: Post installation tasks
       href: how-to-connect-post-installation.md
+    - name: Uninstall Azure AD Connect
+      href: how-to-connect-uninstall.md
   - name: Plan and design
     items:
     - name: Design concepts
@@ -256,6 +260,8 @@
       href: how-to-connect-health-adfs.md
     - name: Risky IP report for Azure AD Connect Health with AD FS
       href: how-to-connect-health-adfs-risky-ip.md
+    - name: AD FS Sign-Ins in Azure AD with Connect Health
+      href: how-to-connect-health-ad-fs-sign-in.md
     - name: Use Azure AD Connect Health for sync
       href: how-to-connect-health-sync.md
     - name: Use Azure AD Connect Health with AD DS
@@ -306,6 +312,8 @@
       href: whatis-aadc-admin-agent.md
     - name: What is the ADConnectivityTools PowerShell module?
       href: how-to-connect-adconnectivitytools.md
+    - name: Azure AD Connect Single Object Sync 
+      href: how-to-connect-single-object-sync.md
     - name: Connectivity
       href: tshoot-connect-connectivity.md
     - name: Errors during synchronization
@@ -334,6 +342,8 @@
       href: tshoot-connect-install-issues.md
     - name: UPN changes
       href: howto-troubleshoot-upn-changes.md
+    - name: End-to-end troubleshooting of objects and attributes
+      href: https://docs.microsoft.com/troubleshoot/azure/active-directory/troubleshoot-aad-connect-objects-attributes
 - name: Reference
   items:
   - name: Hybrid Identity Required Ports and Protocols

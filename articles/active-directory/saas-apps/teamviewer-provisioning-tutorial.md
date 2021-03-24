@@ -30,7 +30,7 @@ This tutorial describes the steps you need to perform in both TeamViewer and Azu
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
-* A user account in Azure AD with [permission](../users-groups-roles/directory-assign-admin-roles.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
+* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
 * A valid [Tensor license](https://www.teamviewer.com/de/teamviewer-tensor/) for TeamViewer.
 * A valid custom identifier from the [Single Sign-On](https://community.teamviewer.com/t5/Knowledge-Base/Single-Sign-On-with-Azure-Active-Directory/ta-p/60209#toc-hId--473669723) configuration available.
 

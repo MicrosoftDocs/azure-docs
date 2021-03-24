@@ -55,7 +55,7 @@
     - name: Licenses
       href: concept-mfa-licensing.md
     - name: MFA for Office 365
-      href: /office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide
+      href: /office365/admin/security-and-compliance/set-up-multi-factor-authentication
     - name: FAQ
       href: multi-factor-authentication-faq.md
   - name: Password protection
@@ -154,9 +154,13 @@
       href: howto-password-ban-bad-on-premises-faq.md
     - name: Agent version history
       href: howto-password-ban-bad-on-premises-agent-versions.md
-  - name: Use SMS-based authentication (preview)
+  - name: Use a Temporary Access Pass (Preview)
+    href: howto-authentication-temporary-access-pass.md
+  - name: Use SMS-based authentication
     href: howto-authentication-sms-signin.md
-  - name: Use email address sign-in (preview)
+  - name: Two-way SMS unsupported
+    href: how-to-authentication-two-way-sms-unsupported.md
+  - name: Use email address sign-in
     href: howto-authentication-use-email-signin.md
   - name: Azure AD smart lockout
     href: howto-password-smart-lockout.md
@@ -171,8 +175,8 @@
         href: active-directory-certificate-based-authentication-ios.md
   - name: Reporting
     items:
-    - name: Usage and insights
-      href: howto-authentication-methods-usage-insights.md
+    - name: Authentication methods activity
+      href: howto-authentication-methods-activity.md
     - name: SSPR Reports
       href: howto-sspr-reporting.md
     - name: MFA Reports
@@ -244,7 +248,9 @@
   - name: Microsoft Graph REST API beta
     href: /graph/api/resources/authenticationmethods-overview?view=graph-rest-beta
   - name: Service limits and restrictions
-    href: ../users-groups-roles/directory-service-limits-restrictions.md
+    href: ../enterprise-users/directory-service-limits-restrictions.md
+  - name: FIDO2 compatibility
+    href: fido2-compatibility.md
 - name: Resources
   items:
   - name: Azure feedback forum

@@ -9,13 +9,13 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/14/2020
+ms.date: 03/11/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
 # Migrate users to Azure AD B2C
 
-Migrating from another identity provider to Azure Active Directory B2C (Azure AD B2C) might also require migrating existing user accounts. Two migration methods are discussed here, *pre migration* and *seamless migration*. With either approach, you're required to write an application or script that uses the [Microsoft Graph API](manage-user-accounts-graph-api.md) to create user accounts in Azure AD B2C.
+Migrating from another identity provider to Azure Active Directory B2C (Azure AD B2C) might also require migrating existing user accounts. Two migration methods are discussed here, *pre migration* and *seamless migration*. With either approach, you're required to write an application or script that uses the [Microsoft Graph API](microsoft-graph-operations.md) to create user accounts in Azure AD B2C.
 
 ## Pre migration
 
@@ -29,7 +29,7 @@ Use the pre migration flow in either of these two situations:
 - You have access to a user's plaintext credentials (their username and password).
 - The credentials are encrypted, but you can decrypt them.
 
-For information about programmatically creating user accounts, see [Manage Azure AD B2C user accounts with Microsoft Graph](manage-user-accounts-graph-api.md).
+For information about programmatically creating user accounts, see [Manage Azure AD B2C user accounts with Microsoft Graph](microsoft-graph-operations.md).
 
 ## Seamless migration
 
@@ -45,7 +45,7 @@ The seamless migration flow thus has two phases: *pre migration* and *set creden
 ### Phase 1: Pre migration
 
 1. Your migration application reads the user accounts from the old identity provider.
-1. The migration application creates corresponding user accounts in your Azure AD B2C directory, but *does not set passwords*.
+1. The migration application creates corresponding user accounts in your Azure AD B2C directory, but *set random passwords* you generate.
 
 ### Phase 2: Set credentials
 
@@ -85,14 +85,14 @@ Not all information in the legacy identity provider should be migrated to your A
 
 Before you start the migration process, take the opportunity to clean up your directory.
 
-- Identify the set of user attributes to be stored in Azure AD B2C, and migrate only what you need. If necessary, you can create [custom attributes](custom-policy-custom-attributes.md) to store more data about a user.
+- Identify the set of user attributes to be stored in Azure AD B2C, and migrate only what you need. If necessary, you can create [custom attributes](user-flow-custom-attributes.md) to store more data about a user.
 - If you're migrating from an environment with multiple authentication sources (for example, each application has its own user directory), migrate to a unified account in Azure AD B2C.
 - If multiple applications have different usernames, you can store all of them in an Azure AD B2C user account by using the identities collection. With regard to the password, let the user choose one and set it in the directory. For example, with the seamless migration, only the chosen password should be stored in the Azure AD B2C account.
 - Remove unused user accounts before migration, or do not migrate stale accounts.
 
 ### Password policy
 
-If the accounts you're migrating have weaker password strength than the [strong password strength](../active-directory/authentication/concept-sspr-policy.md) enforced by Azure AD B2C, you can disable the strong password requirement. For more information, see [Password policy property](manage-user-accounts-graph-api.md#password-policy-property).
+If the accounts you're migrating have weaker password strength than the [strong password strength](../active-directory/authentication/concept-sspr-policy.md) enforced by Azure AD B2C, you can disable the strong password requirement. For more information, see [Password policy property](user-profile-attributes.md#password-policy-attribute).
 
 ## Next steps
 

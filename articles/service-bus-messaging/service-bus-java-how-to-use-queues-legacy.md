@@ -13,7 +13,8 @@ ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-
 In this tutorial, you learn how to create Java applications to send messages to and receive messages from an Azure Service Bus queue. 
 
 > [!WARNING]
->  This quickstart uses the current generally available (GA) azure-servicebus package. For a quickstart that uses the new azure-messaging-servicebus package that's in **preview**, see [Send and receive messages using azure-messaging-servicebus](service-bus-java-how-to-use-queues.md). 
+>  This quickstart uses the old `azure-servicebus` packages. For a quickstart that uses the latest `azure-messaging-servicebus` package, see [Send and receive messages using `azure-messaging-servicebus`](service-bus-java-how-to-use-queues.md). 
+
 
 ## Prerequisites
 1. An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
@@ -57,12 +58,12 @@ To send messages to a Service Bus Queue, your application instantiates a **Queue
 
 ```java
 public void run() throws Exception {
-	// Create a QueueClient instance and then asynchronously send messages.
-	// Close the sender once the send operation is complete.
-	QueueClient sendClient = new QueueClient(new ConnectionStringBuilder(ConnectionString, QueueName), ReceiveMode.PEEKLOCK);
-	this.sendMessageAsync(sendClient).thenRunAsync(() -> sendClient.closeAsync());
+    // Create a QueueClient instance and then asynchronously send messages.
+    // Close the sender once the send operation is complete.
+    QueueClient sendClient = new QueueClient(new ConnectionStringBuilder(ConnectionString, QueueName), ReceiveMode.PEEKLOCK);
+    this.sendMessageAsync(sendClient).thenRunAsync(() -> sendClient.closeAsync());
 
-	sendClient.close();
+    sendClient.close();
 }
 
     CompletableFuture<Void> sendMessagesAsync(QueueClient sendClient) {
@@ -146,7 +147,7 @@ calls **complete()** automatically as the callback returns normally and calls
 
 ```java
     public void run() throws Exception {
-	    // Create a QueueClient instance for receiving using the connection string builder
+        // Create a QueueClient instance for receiving using the connection string builder
         // We set the receive mode to "PeekLock", meaning the message is delivered
         // under a lock and must be acknowledged ("completed") to be removed from the queue
         QueueClient receiveClient = new QueueClient(new ConnectionStringBuilder(ConnectionString, QueueName), ReceiveMode.PEEKLOCK);
@@ -158,9 +159,9 @@ calls **complete()** automatically as the callback returns normally and calls
     void registerReceiver(QueueClient queueClient) throws Exception {
         // register the RegisterMessageHandler callback
         queueClient.registerMessageHandler(new IMessageHandler() {
-		// callback invoked when the message handler loop has obtained a message
+            // callback invoked when the message handler loop has obtained a message
             public CompletableFuture<Void> onMessageAsync(IMessage message) {
-			// receives message is passed to callback
+            // receives message is passed to callback
                 if (message.getLabel() != null &&
                     message.getContentType() != null &&
                     message.getLabel().contentEquals("Scientist") &&
@@ -170,7 +171,7 @@ calls **complete()** automatically as the callback returns normally and calls
                         Map scientist = GSON.fromJson(new String(body, UTF_8), Map.class);
 
                         System.out.printf(
-                          	"\n\t\t\t\tMessage received: \n\t\t\t\t\t\tMessageId = %s, \n\t\t\t\t\t\tSequenceNumber = %s, \n\t\t\t\t\t\tEnqueuedTimeUtc = %s," +
+                            "\n\t\t\t\tMessage received: \n\t\t\t\t\t\tMessageId = %s, \n\t\t\t\t\t\tSequenceNumber = %s, \n\t\t\t\t\t\tEnqueuedTimeUtc = %s," +
                             "\n\t\t\t\t\t\tExpiresAtUtc = %s, \n\t\t\t\t\t\tContentType = \"%s\",  \n\t\t\t\t\t\tContent: [ firstName = %s, name = %s ]\n",
                             message.getMessageId(),
                             message.getSequenceNumber(),
@@ -181,14 +182,14 @@ calls **complete()** automatically as the callback returns normally and calls
                             scientist != null ? scientist.get("name") : "");
                     }
                     return CompletableFuture.completedFuture(null);
-		        }
+                }
 
                 // callback invoked when the message handler has an exception to report
                 public void notifyException(Throwable throwable, ExceptionPhase exceptionPhase) {
-			        System.out.printf(exceptionPhase + "-" + throwable.getMessage());
-		        }
+                    System.out.printf(exceptionPhase + "-" + throwable.getMessage());
+                }
         },
-	    // 1 concurrent call, messages are auto-completed, auto-renew duration
+        // 1 concurrent call, messages are auto-completed, auto-renew duration
         new MessageHandlerOptions(1, true, Duration.ofMinutes(1)));
     }
 
@@ -225,10 +226,9 @@ constant across delivery attempts.
 > You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). The Service Bus Explorer allows users to connect to a Service Bus namespace and administer messaging entities in an easy manner. The tool provides advanced features like import/export functionality or the ability to test topic, queues, subscriptions, relay services, notification hubs and events hubs. 
 
 ## Next Steps
-You can find Java samples on GitHub in the [azure-service-bus repository](https://github.com/Azure/azure-service-bus/tree/master/samples/Java).
+You can find Java samples on GitHub in the [`azure-service-bus` repository](https://github.com/Azure/azure-service-bus/tree/master/samples/Java).
 
-
-[Azure SDK for Java]: /azure/developer/java/sdk/java-sdk-azure-get-started
+[Azure SDK for Java]: /azure/developer/java/sdk/get-started
 [Azure Toolkit for Eclipse]: /azure/developer/java/toolkit-for-eclipse/installation
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage

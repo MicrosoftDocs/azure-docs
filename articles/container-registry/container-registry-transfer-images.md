@@ -307,7 +307,7 @@ az storage blob list \
 
 ## Transfer blob (optional) 
 
-Use the AzCopy tool or other methods to [transfer blob data](../storage/common/storage-use-azcopy-blobs.md#copy-blobs-between-storage-accounts) from the source storage account to the target storage account.
+Use the AzCopy tool or other methods to [transfer blob data](../storage/common/storage-use-azcopy-v10.md#transfer-data) from the source storage account to the target storage account.
 
 For example, the following [`azcopy copy`](../storage/common/storage-ref-azcopy-copy.md) command copies myblob from the *transfer* container in the source account to the *transfer* container in the target account. If the blob exists in the target account, it's overwritten. Authentication uses SAS tokens with appropriate permissions for the source and target containers. (Steps to create tokens are not shown.)
 
@@ -363,6 +363,7 @@ IMPORT_RUN_RES_ID=$(az deployment group show \
   --name importPipelineRun \
   --query 'properties.outputResources[0].id' \
   --output tsv)
+```
 
 When deployment completes successfully, verify artifact import by listing the repositories in the target container registry. For example, run [az acr repository list][az-acr-repository-list]:
 
@@ -421,7 +422,8 @@ az resource delete \
   * Not all artifacts, or none, are transferred. Confirm spelling of artifacts in export run, and name of blob in export and import runs. Confirm you are transferring a maximum of 50 artifacts.
   * Pipeline run might not have completed. An export or import run can take some time. 
   * For other pipeline issues, provide the deployment [correlation ID](../azure-resource-manager/templates/deployment-history.md) of the export run or import run to the Azure Container Registry team.
-
+* **Problems pulling the image in a physically isolated environment**
+  * If you see errors regarding foreign layers or attempts to resolve mcr.microsoft.com when attempting to pull an image in a physically isolated environment, your image manifest likely has non-distributable layers. Due to the nature of a physically isolated environment, these images will often fail to pull. You can confirm that this is the case by checking the image manifest for any references to external registries. If this is the case, you will need to push the non-distributable layers to your public cloud ACR prior to deploying an export pipeline-run for that image. For guidance on how to do this, see [How do I push non-distributable layers to a registry?](./container-registry-faq.md#how-do-i-push-non-distributable-layers-to-a-registry)
 
 ## Next steps
 

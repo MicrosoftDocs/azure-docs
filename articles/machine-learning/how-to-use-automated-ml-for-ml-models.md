@@ -8,7 +8,7 @@ ms.subservice: core
 ms.author: nibaccam
 author: aniththa
 ms.reviewer: nibaccam
-ms.date: 07/10/2020
+ms.date: 12/20/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
 ---
@@ -32,7 +32,7 @@ For a Python code-based experience, [configure your automated machine learning e
 
 ## Get started
 
-1. Sign in to Azure Machine Learning at https://ml.azure.com. 
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com). 
 
 1. Select your subscription and workspace. 
 
@@ -86,7 +86,7 @@ Otherwise, you'll see a list of your recent automated machine learning experimen
         Select **Next**.
 1. Select your newly created dataset once it appears. You are also able to view a preview of the dataset and sample statistics. 
 
-1. On the **Configure run** form, enter a unique experiment name.
+1. On the **Configure run** form, select **Create new** and enter **Tutorial-automl-deploy** for the experiment name.
 
 1. Select a target column; this is the column that you would like to do predictions on.
 
@@ -131,7 +131,7 @@ Otherwise, you'll see a list of your recent automated machine learning experimen
     ------|------
     Primary metric| Main metric used for scoring your model. [Learn more about model metrics](how-to-configure-auto-train.md#primary-metric).
     Explain best model | Select to enable or disable, in order to show explanations for the recommended best model. <br> This functionality is not currently available for [certain forecasting algorithms](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model). 
-    Blocked algorithm| Select algorithms you want to exclude from the training job. <br><br> Allowing algorithms is only available for [SDK experiments](how-to-configure-auto-train.md#supported-models). <br> See the [supported models for each task type](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels?preserve-view=true&view=azure-ml-py).
+    Blocked algorithm| Select algorithms you want to exclude from the training job. <br><br> Allowing algorithms is only available for [SDK experiments](how-to-configure-auto-train.md#supported-models). <br> See the [supported models for each task type](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels).
     Exit criterion| When any of these criteria are met, the training job is stopped. <br> *Training job time (hours)*: How long to allow the training job to run. <br> *Metric score threshold*:  Minimum metric score for all pipelines. This ensures that if you have a defined target metric you want to reach, you do not spend more time on the training job than necessary.
     Validation| Select one of the cross validation options to use in the training job. <br> [Learn more about cross validation](how-to-configure-cross-validation-data-splits.md#prerequisites).<br> <br>Forecasting only supports k-fold cross validation.
     Concurrency| *Max concurrent iterations*: Maximum number of pipelines (iterations) to test in the training job. The job will not run more than the specified number of iterations. Learn more about how automated ML performs [multiple child runs on clusters](how-to-configure-auto-train.md#multiple-child-runs-on-clusters).
@@ -159,7 +159,7 @@ Impute with| Select what value to impute missing values with in your data.
 Select **Finish** to run your experiment. The experiment preparing process can take up to 10 minutes. Training jobs can take an additional 2-3 minutes more for each pipeline to finish running.
 
 > [!NOTE]
-> The algorithms automated ML employs have inherent randomness that can cause slight variation in a recommended models final metrics score, like accuracy. Automated ML also performs operations on data such as train-test split, train-validation split or cross-validation when necessary. So if you run an experiment with the same configuration settings and primary metric multiple times, you'll likely see variation in each experiments final metrics score due to these factors. 
+> The algorithms automated ML employs have inherent randomness that can cause slight variation in a recommended model's final metrics score, like accuracy. Automated ML also performs operations on data such as train-test split, train-validation split or cross-validation when necessary. So if you run an experiment with the same configuration settings and primary metric multiple times, you'll likely see variation in each experiments final metrics score due to these factors. 
 
 ### View experiment details
 
@@ -167,7 +167,7 @@ The **Run Detail** screen opens to the **Details** tab. This screen shows you a 
 
 The **Models** tab contains a list of the models created ordered by the metric score. By default, the model that scores the highest based on the chosen metric is at the top of the list. As the training job tries out more models, they are added to the list. Use this to get a quick comparison of the metrics for the models produced so far.
 
-[![Run details dashboard](media/how-to-use-automated-ml-for-ml-models/run-details.png)](media/how-to-use-automated-ml-for-ml-models/run-details-expanded.png#lightbox)
+![Run detail](./media/how-to-use-automated-ml-for-ml-models/explore-models.gif)
 
 ### View training run details
 
@@ -175,9 +175,29 @@ Drill down on any of the completed models to see training run details, like a mo
 
 [![Iteration details](media/how-to-use-automated-ml-for-ml-models/iteration-details.png)](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
 
+## Model explanations
+
+To better understand your model, see which data features (raw or engineered) influenced the model's predictions with the model explanations dashboard. 
+
+The model explanations dashboard provides an overall analysis of the trained model along with its predictions and explanations. It also lets you drill into an individual data point and its individual feature importances. [Learn more about the explanation dashboard visualizations and specific plots](how-to-machine-learning-interpretability-aml.md#visualizations).
+
+To get explanations for a particular model, 
+
+1. On the **Models** tab, select the model you want to use. 
+1. Select the **Explain model** button and provide a compute that can be used to generate the explanations.
+1. Check the **Child runs** tab for the status. 
+1. Once complete, navigate to the **Explanations (preview)** tab which contains the explanations dashboard. 
+
+    ![Model explanation dashboard](media/how-to-use-automated-ml-for-ml-models/model-explanation-dashboard.png)
+
 ## Deploy your model
 
 Once you have the best model at hand, it is time to deploy it as a web service to predict on new data.
+
+>[!TIP]
+> If you are looking to deploy a model that was generated via the `automl` package with the Python SDK, you must [register your model](how-to-deploy-and-where.md?tabs=python#register-a-model-from-an-azure-ml-training-run-1) to the workspace. 
+>
+> Once you're model is registered, find it in the studio by selecting **Models** on the left pane. Once you open your model, you can select the **Deploy** button at the top of the screen, and then follow the instructions as described in **step 2** of the **Deploy your model** section.
 
 Automated ML helps you with deploying the model without writing code:
 
@@ -211,10 +231,10 @@ Automated ML helps you with deploying the model without writing code:
 1. Select **Deploy**. Deployment can take about 20 minutes to complete.
     Once deployment begins, the **Model summary** tab appears. See the deployment progress under the **Deploy status** section. 
 
-Now you have an operational web service to generate predictions! You can test the predictions by querying the service from [Power BI's built in Azure Machine Learning support](how-to-consume-web-service.md#consume-the-service-from-power-bi).
+Now you have an operational web service to generate predictions! You can test the predictions by querying the service from [Power BI's built in Azure Machine Learning support](/power-bi/connect-data/service-aml-integrate?context=azure%2fmachine-learning%2fcontext%2fml-context).
 
 ## Next steps
 
-* [Learn how to consume a web service](./how-to-consume-web-service.md).
+* [Learn how to consume a web service](how-to-consume-web-service.md).
 * [Understand automated machine learning results](how-to-understand-automated-ml.md).
 * [Learn more about automated machine learning](concept-automated-ml.md) and Azure Machine Learning.

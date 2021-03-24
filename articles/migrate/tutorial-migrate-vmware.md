@@ -1,6 +1,9 @@
 ---
 title: Migrate VMware VMs agentless Azure Migrate Server Migration
 description: Learn how to run an agentless migration of VMware VMs with Azure Migrate.
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
@@ -33,24 +36,8 @@ Before you begin this tutorial, you should:
 
 1. [Complete the first tutorial](./tutorial-discover-vmware.md) to prepare Azure and VMware for migration.
 2. We recommend that you complete the second tutorial to [assess VMware VMs](./tutorial-assess-vmware-azure-vm.md) before migrating them to Azure, but you don't have to. 
-
-
-## Add the Azure Migrate Server Migration tool
-
-If you didn't set up an Azure Migrate project yet, [do that](how-to-add-tool-first-time.md) before you add the tool. If you have a project set up, add the tool as follows:
-
-1. In the Azure Migrate project, click **Overview**. 
-2. In **Discover, assess, and migration servers**, click **Assess and migrate servers**.
-
-     ![Assess and migrate servers](./media/tutorial-migrate-vmware/assess-migrate.png)
-
-3. In **Migration tools**, select **Click here to add a migration tool when you are ready to migrate**.
-
-    ![Select a tool](./media/tutorial-migrate-vmware/select-migration-tool.png)
-
-4. In the tools list, select **Azure Migrate: Server Migration** > **Add tool**
-
-    ![Server Migration tool](./media/tutorial-migrate-vmware/server-migration-tool.png)
+3. Go to the already created project or [create a new project](./create-manage-projects.md)
+4. Verify permissions for your Azure account - Your Azure account needs permissions to create a VM, and write to an Azure managed disk.
 
 ## Set up the Azure Migrate appliance
 
@@ -65,7 +52,7 @@ After creating the appliance, you check that it can connect to Azure Migrate:Ser
 
 After setting up the appliance and completing discovery, you can begin replication of VMware VMs to Azure. 
 
-- You can run up to 300 replications simultaneously.
+- You can run up to 500 replications simultaneously.
 - In the portal, you can select up to 10 VMs at once for migration. To migrate more machines, add them to groups in batches of 10.
 
 Enable replication as follows:
@@ -93,32 +80,39 @@ Enable replication as follows:
     -  Availability Zone to pin the migrated machine to a specific Availability Zone in the region. Use this option to distribute servers that form a multi-node application tier across Availability Zones. If you select this option, you'll need to specify the Availability Zone to use for each of the selected machine in the Compute tab. This option is only available if the target region selected for the migration supports Availability Zones
     -  Availability Set to place the migrated machine in an Availability Set. The target Resource Group that was selected must have one or more availability sets in order to use this option.
     - No infrastructure redundancy required option if you don't need either of these availability configurations for the migrated machines.
+9. In **Disk encryption type**, select:
+    - Encryption-at-rest with platform-managed key
+    - Encryption-at-rest with customer-managed key
+    - Double encryption with platform-managed and customer-managed keys
 
-9. In **Azure Hybrid Benefit**:
+   > [!NOTE]
+   > To replicate VMs with CMK, you'll need to [create a disk encryption set](https://go.microsoft.com/fwlink/?linkid=2151800) under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE.
+  
+10. In **Azure Hybrid Benefit**:
 
     - Select **No** if you don't want to apply Azure Hybrid Benefit. Then click **Next**.
     - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating. Then click **Next**.
 
     ![Target settings](./media/tutorial-migrate-vmware/target-settings.png)
 
-10. In **Compute**, In Compute, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
+11. In **Compute**, In Compute, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
 
     - **VM size**: If you're using assessment recommendations, the VM size dropdown shows the recommended size. Otherwise Azure Migrate picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**. 
     - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer. 
     - **Availability Zone**: Specify the Availability Zone to use.
     - **Availability Set**: Specify the Availability Set to use.
 
-> [!NOTE]
->If you want to select a different availability option for a sets of virtual machines, go to step 1 and repeat the steps by selecting different availability options after starting replication for one set of virtual machines.
+    > [!NOTE]
+    > If you want to select a different availability option for a sets of virtual machines, go to step 1 and repeat the steps by selecting different availability options after starting replication for one set of virtual machines.
 
 
- ![VM compute settings](./media/tutorial-migrate-vmware/compute-settings.png)
 
-11. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium-managed disks) in Azure. Then click **Next**.
+
+12. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium-managed disks) in Azure. Then click **Next**.
    
     ![Screenshot shows the Disks tab of the Replicate dialog box.](./media/tutorial-migrate-vmware/disks.png)
 
-12. In **Review and start replication**, review the settings, and click **Replicate** to start the initial replication for the servers.
+13. In **Review and start replication**, review the settings, and click **Replicate** to start the initial replication for the servers.
 
 > [!NOTE]
 > You can update replication settings any time before replication starts (**Manage** > **Replicating machines**). You can't change settings after replication starts.
@@ -190,7 +184,7 @@ After you've verified that the test migration works as expected, you can migrate
 ## Complete the migration
 
 1. After the migration is done, right-click the VM > **Stop Replication**. This stops replication for the on-premises machine, and cleans up replication state information for the VM.
-2. Install the Azure VM [Windows](../virtual-machines/extensions/agent-windows.md) or [Linux](../virtual-machines/extensions/agent-linux.md) agent on the migrated machines.
+2. We automatically install the VM agent for Windows VMs and Linux during migration. Review the Azure VM Linux agent [requirements](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#requirements) on the migrated machines if the machine has Linux OS to ensure Linux VM agent installation is done properly. 
 3. Perform any post-migration app tweaks, such as updating database connection strings, and web server configurations.
 4. Perform final application and migration acceptance testing on the migrated application now running in Azure.
 5. Cut over traffic to the migrated Azure VM instance.
@@ -203,6 +197,8 @@ After you've verified that the test migration works as expected, you can migrate
 - For increased resilience:
     - Keep data secure by backing up Azure VMs using the Azure Backup service. [Learn more](../backup/quick-backup-vm-portal.md).
     - Keep workloads running and continuously available by replicating Azure VMs to a secondary region with Site Recovery. [Learn more](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
+- For increased performance:
+    - By default, data disks are created with host caching set to "None". Review and adjust data disk caching to your workload needs. [Learn more](../virtual-machines/premium-storage-performance.md#disk-caching).  
 - For increased security:
     - Lock down and limit inbound traffic access with [Azure Security Center - Just in time administration](../security-center/security-center-just-in-time.md).
     - Restrict network traffic to management endpoints with [Network Security Groups](../virtual-network/network-security-groups-overview.md).

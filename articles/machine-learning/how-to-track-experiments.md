@@ -32,26 +32,59 @@ Logs can help you diagnose errors and warnings, or track performance metrics lik
 
 ## Data types
 
-You can log multiple data types including scalar values, lists, tables, images, directories, and more. For more information, and Python code examples for different data types, see the [Run class reference page](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py).
+You can log multiple data types including scalar values, lists, tables, images, directories, and more. For more information, and Python code examples for different data types, see the [Run class reference page](/python/api/azureml-core/azureml.core.run%28class%29).
+
+### Logging run metrics 
+
+Use the following methods in the logging APIs to influence the metrics visualizations. Note the [service limits](https://docs.microsoft.com/azure/machine-learning/resource-limits-quotas-capacity#metrics) for these logged metrics. 
+
+|Logged Value|Example code| Format in portal|
+|----|----|----|
+|Log an array of numeric values| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|single-variable line chart|
+|Log a single numeric value with the same metric name repeatedly used (like from within a for loop)| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| Single-variable line chart|
+|Log a row with 2 numerical columns repeatedly|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Two-variable line chart|
+|Log table with 2 numerical columns|`run.log_table(name='Sine Wave', value=sines)`|Two-variable line chart|
+|Log image|`run.log_image(name='food', path='./breadpudding.jpg', plot=None, description='desert')`|Use this method to log an image file or a matplotlib plot to the run. These images will be visible and comparable in the run record|
+
+### Logging with MLflow
+Use MLFlowLogger to log metrics.
+
+```python
+from azureml.core import Run
+# connect to the workspace from within your running code
+run = Run.get_context()
+ws = run.experiment.workspace
+
+# workspace has associated ml-flow-tracking-uri
+mlflow_url = ws.get_mlflow_tracking_uri()
+
+#Example: PyTorch Lightning
+from pytorch_lightning.loggers import MLFlowLogger
+
+mlf_logger = MLFlowLogger(experiment_name=run.experiment.name, tracking_uri=mlflow_url)
+mlf_logger._run_id = run.id
+```
 
 ## Interactive logging session
 
-Interactive logging sessions are typically used in notebook environments. The method [Experiment.start_logging()](/python/api/azureml-core/azureml.core.experiment%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truestart-logging--args----kwargs-) starts an interactive logging session. Any metrics logged during the session are added to the run record in the experiment. The method [run.complete()](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truecomplete--set-status-true-) ends the sessions and marks the run as completed.
+Interactive logging sessions are typically used in notebook environments. The method [Experiment.start_logging()](/python/api/azureml-core/azureml.core.experiment%28class%29#start-logging--args----kwargs-) starts an interactive logging session. Any metrics logged during the session are added to the run record in the experiment. The method [run.complete()](/python/api/azureml-core/azureml.core.run%28class%29#complete--set-status-true-) ends the sessions and marks the run as completed.
 
 ## ScriptRun logs
 
-In this section, you learn how to add logging code inside of runs created when configured with ScriptRunConfig. You can use the [**ScriptRunConfig**](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) class to encapsulate scripts and environments for repeatable runs. You can also use this option to show a visual Jupyter Notebooks widget for monitoring.
+In this section, you learn how to add logging code inside of runs created when configured with ScriptRunConfig. You can use the [**ScriptRunConfig**](/python/api/azureml-core/azureml.core.scriptrunconfig) class to encapsulate scripts and environments for repeatable runs. You can also use this option to show a visual Jupyter Notebooks widget for monitoring.
 
-This example performs a parameter sweep over alpha values and captures the results using the [run.log()](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truelog-name--value--description----) method.
+This example performs a parameter sweep over alpha values and captures the results using the [run.log()](/python/api/azureml-core/azureml.core.run%28class%29#log-name--value--description----) method.
 
 1. Create a training script that includes the logging logic, `train.py`.
 
-   [!code-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train.py)]
+   [!code-python[](~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train.py)]
 
 
 1. Submit the ```train.py``` script to run in a user-managed environment. The entire script folder is submitted for training.
 
    [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb?name=src)]
+
+
    [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb?name=run)]
 
     The `show_output` parameter turns on verbose logging, which lets you see details from the training process as well as information about any remote resources or compute targets. Use the following code to turn on verbose logging when you submit the experiment.

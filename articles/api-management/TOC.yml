@@ -27,8 +27,10 @@
       - name: 1 - Import your first API
         href: import-and-publish.md
       - name: 2 - Create and publish a product
+        displayName: Azure CLI, az apim product
         href: api-management-howto-add-products.md
       - name: 3 - Mock API responses
+        displayName: Azure CLI, az apim api operation
         href: mock-api-responses.md
       - name: 4 - Protect your API
         href: transform-api.md
@@ -37,11 +39,15 @@
       - name: 6 - Debug your APIs
         href: api-management-howto-api-inspector.md
       - name: 7 - Add revisions
+        displayName: Azure CLI, az apim api release
         href: api-management-get-started-revise-api.md
       - name: 8 - Add multiple versions
+        displayName: Azure CLI, az apim api versionset
         href: api-management-get-started-publish-versions.md
       - name: 9 - Customize developer portal
         href: api-management-howto-developer-portal-customize.md
+      - name: 10 - Manage APIs in Visual Studio Code
+        href: visual-studio-code-tutorial.md
 - name: Samples
   items:
       - name: Policies
@@ -58,10 +64,16 @@
               href: api-management-howto-policies.md
             - name: Policy reference index
               href: api-management-policies.md
+            - name: Error handling
+              href: api-management-error-handling-policies.md 
       - name: Security
         items:
+            - name: Security controls by Azure Policy
+              href: ./security-controls-policy.md
             - name: Security baseline
               href: security-baseline.md
+      - name: Backends
+        href: backends.md 
       - name: Subscriptions
         href: api-management-subscriptions.md
       - name: Versions
@@ -70,8 +82,6 @@
         href: api-management-revisions.md
       - name: Manage using automation
         href: automation-manage-api-management.md
-      - name: Error handling
-        href: api-management-error-handling-policies.md
       - name: API import restrictions
         href: api-management-api-import-restrictions.md
       - name: Self-hosted gateway overview
@@ -80,6 +90,10 @@
         href: observability.md
       - name: CI/CD using ARM templates
         href: devops-api-development-templates.md
+      - name: Soft-delete
+        href: soft-delete.md
+
+
 
 - name: How-to guides
   items:
@@ -99,14 +113,16 @@
               href: import-function-app-as-api.md
             - name: Import a Logic App
               href: import-logic-app-as-api.md
-            - name: Import a Service Fabric app
-              href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
             - name: Edit an API
               href: edit-api.md
+            - name: Configure Service Fabric backend
+              href: how-to-configure-service-fabric-backend.md
       - name: Provision and scale
         items:
             - name: Capacity metric
               href: api-management-capacity.md
+            - name: Plan and manage costs
+              href: plan-manage-costs.md
             - name: Upgrade and scale
               href: upgrade-and-scale.md
             - name: Configure autoscale
@@ -215,7 +231,8 @@
               href: api-management-sample-flexible-throttling.md
             - name: Using external services
               href: api-management-sample-send-request.md
-            - name: Manage secrets using properties
+            - name: Manage secrets using named values
+              displayName: Azure CLI, az apim nv
               href: api-management-howto-properties.md
             - name: Access restriction policies
               href: api-management-access-restriction-policies.md
@@ -231,6 +248,8 @@
               href: api-management-transformation-policies.md
             - name: Distributed Application Runtime (Dapr) integration policies
               href: api-management-dapr-policies.md
+            - name: Validation policies
+              href: validation-policies.md  
       - name: Manage in production
         items:
             - name: Export APIs to the Power Platform
@@ -239,6 +258,8 @@
               href: api-management-howto-create-groups.md
             - name: Retrieve IP addresses
               href: api-management-howto-ip-addresses.md
+            - name: Get API analytics
+              href: howto-use-analytics.md
             - name: Log events to Azure Event Hubs
               href: api-management-howto-log-event-hubs.md
             - name: Log requests with Azure Application Insights
@@ -265,6 +286,8 @@
                     href: ../service-fabric/service-fabric-api-management-overview.md
                   - name: Tutorial
                     href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
+            - name: Diagnose issues in production
+              href: diagnose-solve-problems.md
 - name: Reference
   items:
       - name: Azure CLI
@@ -304,5 +327,9 @@
         href: /azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json
       - name: API implementation guidance
         href: /azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json
-      - name: Troubleshoot failed to update hostnames error
-        href: api-management-troubleshoot-cannot-add-custom-domain.md
+      - name: Troubleshooting
+        items:
+          - name: Troubleshoot failed to update hostnames error
+            href: api-management-troubleshoot-cannot-add-custom-domain.md
+          - name: Troubleshoot response timeouts and errors
+            href: troubleshoot-response-timeout-and-errors.md

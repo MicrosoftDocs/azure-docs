@@ -1,9 +1,6 @@
 ---
 title: Azure HDInsight business continuity architectures
 description: This article discusses the different possible business continuity architectures for HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 keywords: hadoop high availability
 ms.service: hdinsight
 ms.topic: conceptual
@@ -193,7 +190,7 @@ Ranger Metastore replication:
 
 Ranger Metastore is used to persistently store and serve Ranger policies for controlling data authorization. We recommend that you maintain independent Ranger policies in primary and secondary and maintain the secondary as a read replica.
   
-If the requirement is to keep Ranger policies in sync between primary and secondary, use [Ranger Import/Export](https://cwiki.apache.org/confluence/display/RANGER/User+Guide+For+Import-Export#:~:text=Ranger%20has%20introduced%20a%20new,can%20import%20and%20export%20policies.&text=Also%20can%20export%2Fimport%20a,repositories\)%20via%20Ranger%20Admin%20UI) to periodically back-up and import Ranger policies from primary to secondary.
+If the requirement is to keep Ranger policies in sync between primary and secondary, use [Ranger Import/Export](https://cwiki.apache.org/confluence/display/RANGER/User+Guide+For+Import-Export) to periodically back-up and import Ranger policies from primary to secondary.
 
 Replicating Ranger policies between primary and secondary can cause the secondary to become write-enabled, which can lead to inadvertent writes on the secondary leading to data inconsistencies.  
 

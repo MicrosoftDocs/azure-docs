@@ -36,7 +36,7 @@
         href: connect-ios.md
       - name: Connect with the Microsoft Store client
         href: connect-microsoft-store.md
-      - name: Connect with Linux devices
+      - name: Connect with thin clients
         href: linux-overview.md
   - name: Configure device redirections
     href: configure-device-redirections.md
@@ -66,6 +66,8 @@
         href: create-profile-container-adds.md
       - name: Use Azure Files and AD DS
         href: create-file-share.md
+      - name: Install Office with FSLogix app containers
+        href: fslogix-office-app-rule-editor.md
   - name: Configure host pool settings
     items:
       - name: RDP properties
@@ -92,8 +94,20 @@
           href: diagnostics-log-analytics.md
   - name: Publish built-in apps
     href: publish-apps.md
-  - name: Set up MSIX app attach
-    href: app-attach.md
+  - name: Use MSIX app attach
+    items:
+        - name: Set up MSIX app attach with the Azure portal
+          href: app-attach-azure-portal.md
+        - name: Set up MSIX app attach with PowerShell
+          href: app-attach-powershell.md
+        - name: Create PowerShell scripts
+          href: app-attach.md
+        - name: Prepare an MSIX image
+          href: app-attach-image-prep.md
+        - name: Set up a file share
+          href: app-attach-file-share.md
+        - name: Set up the MSIXMGR tool
+          href: app-attach-msixmgr.md
   - name: Use Microsoft Teams
     href: teams-on-wvd.md
   - name: Set up Azure AD Multi-Factor Authentication
@@ -106,14 +120,24 @@
     href: azure-advisor.md
   - name: Resolve recommendations
     href: azure-advisor-recommendations.md
+  - name: Use Azure Monitor for Windows Virtual Desktop
+    href: azure-monitor.md
   - name: Set up a disaster recovery plan
     href: disaster-recovery.md
+  - name: Set up the KDC proxy
+    href: key-distribution-center-proxy.md
+  - name: Set up the RD Gateway role
+    href: rd-gateway-role.md
 - name: Concepts
   items:
+  - name: Built-in roles
+    href: rbac.md
   - name: Authentication
     href: authentication.md
   - name: Windows Virtual Desktop environment
     href: environment-setup.md
+  - name: Windows Virtual Desktop Agent
+    href: agent-overview.md
   - name: Network connectivity
     items:
       - name: Understanding network connectivity
@@ -122,7 +146,7 @@
         href: shortpath.md
       - name: Implement Quality of Service (QoS)
         href: rdp-quality-of-service-qos.md
-      - name: Safe URL list
+      - name: Required URL list
         href: safe-url-list.md
       - name: Bandwidth considerations
         href: rdp-bandwidth.md
@@ -150,8 +174,14 @@
         href: app-attach-glossary.md
       - name: FAQ
         href: app-attach-faq.md
+  - name: Azure Monitor glossary
+    href: azure-monitor-glossary.md
   - name: Data locations
     href: data-locations.md
+  - name: Security
+    items:
+      - name: Security baseline
+        href: security-baseline.md
 - name: Troubleshoot
   items:
   - name: Troubleshooting overview, feedback, and support
@@ -164,12 +194,16 @@
     href: troubleshoot-vm-configuration.md
   - name: Remote Desktop service connections
     href: troubleshoot-service-connection.md
+  - name: Windows Virtual Desktop Agent
+    href: troubleshoot-agent.md
   - name: Remote Desktop client issues
     href: troubleshoot-client.md
   - name: Windows Virtual Desktop PowerShell
     href: troubleshoot-powershell.md
   - name: Diagnosing graphics performance issues
     href: remotefx-graphics-performance-counters.md
+  - name: Azure Monitor
+    href: troubleshoot-azure-monitor.md
 - name: Reference
   items:
   - name: Security best practices
@@ -181,7 +215,7 @@
   - name: Virtual machine sizing guidance
     href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
   - name: Azure command-line interface (CLI)
-    href: /cli/azure/ext/desktopvirtualization/?view=azure-cli-latest
+    href: /cli/azure/ext/desktopvirtualization/
   - name: Azure example scenarios
     href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop
   - name: Email discovery
@@ -189,7 +223,7 @@
 - name: Resources
   items:
   - name: PowerShell
-    href: /powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization
+    href: /powershell/module/az.desktopvirtualization/#desktopvirtualization
   - name: REST API reference
     href: /rest/api/desktopvirtualization/
   - name: Experience estimator
@@ -208,3 +242,5 @@
     href: https://aka.ms/wvdroadmap
   - name: Azure Resource Manager templates
     href: https://github.com/Azure/RDS-Templates/tree/master/wvd-templates
+  - name: Azure compliance offerings
+    href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/

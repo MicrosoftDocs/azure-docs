@@ -232,21 +232,14 @@ Use disclosure as an opportunity to fail gracefully.
 - [Providing opportunities to learn more about how the voice was made](#providing-opportunities-to-learn-more-about-how-the-voice-was-made)
 - [Handoff to human](#conversational-transparency)
 
-
-
 ## Additional resources
 - [Microsoft Bot Guidelines](https://www.microsoft.com/research/uploads/prod/2018/11/Bot_Guidelines_Nov_2018.pdf)
 - [Cortana Design Guidelines](/cortana/voice-commands/voicecommand-design-guidelines)
 - [Microsoft Windows UWP Speech Design Guidelines](/windows/uwp/design/input/speech-interactions)
 - [Microsoft Windows Mixed Reality Voice Commanding Guidelines](/windows/mixed-reality/voice-design#top-things-users-should-know-about-speech-in-mixed-reality)
 
-## Reference docs
+## See also
 
-* [Disclosure for Voice Talent](/legal/cognitive-services/speech-service/disclosure-voice-talent)
+* [Disclosure for Voice Talent](/legal/cognitive-services/speech-service/disclosure-voice-talent?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext)
 * [Guidelines for Responsible Deployment of Synthetic Voice Technology](concepts-guidelines-responsible-deployment-synthetic.md)
-* [Gating Overview](concepts-gating-overview.md)
 * [How to Disclose](concepts-disclosure-guidelines.md)
-
-## Next steps
-
-* [Disclosure for Voice Talent](/legal/cognitive-services/speech-service/disclosure-voice-talent)

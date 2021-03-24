@@ -145,7 +145,7 @@ This cmdlet will set the following permissions:
 
  
 ### Configure MS-DS-Consistency-Guid Permissions 
-To set permissions for the AD DS Connector account when using the ms-Ds-Consistency-Guid attribute as the source anchor (also known as “Let Azure manage the source anchor for me” option) , run: 
+To set permissions for the AD DS Connector account when using the ms-Ds-Consistency-Guid attribute as the source anchor (also known as “Let Azure manage the source anchor for me” option), run: 
 
 ``` powershell
 Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 

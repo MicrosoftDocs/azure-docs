@@ -288,7 +288,7 @@ If your Azure AD application reads and writes data in Microsoft Azure AD, it wil
 Your company's users can be assigned the following roles and permissions for the commercial marketplace program on Partner Center:
 
 - **Owner**
-  - "This is the person who first created the account and has complete access to it, including the ability to create and edit all account users and change all financial and account settings. An account usually has only one owner."
+  - This is the person who first created the account and has complete access to it, including the ability to create and edit all account users and change all financial and account settings. An account usually has only one owner.
 - **Manager**
   - Can access all Microsoft account features except tax and payout settings
   - Can manage users, roles, and work accounts (tenants)

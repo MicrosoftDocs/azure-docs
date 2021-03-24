@@ -2,7 +2,7 @@
 title: Secure WebHook delivery with Azure AD in Azure Event Grid
 description: Describes how to deliver events to HTTPS endpoints protected by Azure Active Directory using Azure Event Grid
 ms.topic: how-to
-ms.date: 10/05/2020
+ms.date: 02/03/2021
 ---
 
 # Publish events to Azure Active Directory protected endpoints
@@ -21,7 +21,7 @@ Begin by creating an Azure AD Application for your protected endpoint. See https
 This section shows you how to enable Event Grid to use your Azure AD application. 
 
 > [!NOTE]
-> You must be a member of the [Azure AD Application Administrator role](../active-directory/roles/permissions-reference.md#available-roles) to execute this script.
+> You must be a member of the [Azure AD Application Administrator role](../active-directory/roles/permissions-reference.md#all-roles) to execute this script.
 
 ### Connect to your Azure tenant
 First, connect to your Azure tenant using the `Connect-AzureAD` command. 
@@ -87,6 +87,7 @@ Write-Host $myAppRoles
 if ($myAppRoles -match $eventGridRoleName)
 {
     Write-Host "The Azure Event Grid role is already defined.`n"
+    $myServicePrincipal = Get-AzureADServicePrincipal -Filter ("appId eq '" + $myApp.AppId + "'")
 } else
 {
     $myServicePrincipal = Get-AzureADServicePrincipal -Filter ("appId eq '" + $myApp.AppId + "'")

@@ -7,7 +7,7 @@
   - name: Compare messaging services
     href: ../event-grid/compare-messaging-services.md
     maintainContext: true
-  - name: Use Service Bus with Java Message Service (JMS) 2.0 (preview)
+  - name: Use Service Bus with Java Message Service (JMS) 2.0
     href: how-to-use-java-message-service-20.md
 - name: Quickstarts
   items:
@@ -90,12 +90,32 @@
     href: service-bus-samples.md
 - name: Concepts
   items:
+  - name: Queues, topics, and subscriptions
+    href: service-bus-queues-topics-subscriptions.md
+  - name: Topic filters and actions
+    href: topic-filters.md
   - name: Premium messaging
     href: service-bus-premium-messaging.md
   - name: Compare Azure Queues and Service Bus queues
     href: service-bus-azure-and-service-bus-queues-compared-contrasted.md
   - name: Optimize performance
     href: service-bus-performance-improvements.md
+  - name: Federation 
+    items:
+      - name: Message replication and cross-region federation
+        href: service-bus-federation-overview.md
+      - name: Message replication tasks and applications
+        href: service-bus-federation-replicator-functions.md
+      - name: Message replication task patterns
+        href: service-bus-federation-patterns.md
+      - name: Configured replication tasks
+        href: service-bus-federation-configuration.md
+      - name: Replicate events between Service Bus entities
+        href: https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopy
+      - name: Replicate messages to Event Hubs
+        href: https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopyToEventHub
+      - name: Acquire messages from Event Hubs
+        href: https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus
   - name: Geo-disaster recovery and geo-replication
     href: service-bus-geo-dr.md
   - name: Asynchronous messaging and high availability
@@ -128,22 +148,26 @@
       href: ./security-controls-policy.md
     - name: Network security
       href: network-security.md
+  - name: Integration with other services
+    items:
+    - name: Azure Service Bus and Azure Event Grid integration
+      href: service-bus-to-event-grid-integration-concept.md
 - name: How-to guides
   items:
-  - name: Move across regions
-    href: move-across-regions.md
-  - name: Migrate from Azure Service Manager (classic) APIs to Resource Manager APIs
-    href: deprecate-service-bus-management.md
-  - name: Create a namespace
-    href: service-bus-create-namespace-portal.md
   - name: Develop
     items:
+    - name: Create a namespace
+      href: service-bus-create-namespace-portal.md
+    - name: Set subscription filters and actions
+      href: service-bus-filter-examples.md    
     - name: Message handling
       items:
       - name: Queues, topics, and subscriptions
         href: service-bus-queues-topics-subscriptions.md
-      - name: Java message service (JMS) 2.0 entities (preview)
+      - name: Java message service (JMS) 2.0 entities
         href: java-message-service-20-entities.md
+      - name: Java Message Service (JMS) Developer guide.md
+        href: jms-developer-guide.md
       - name: Messages, payloads, and serialization
         href: service-bus-messages-payloads.md
       - name: Message transfers, locks, and settlement
@@ -152,10 +176,6 @@
         href: message-sequencing.md
       - name: Message expiration (Time to Live)
         href: message-expiration.md
-      - name: Message handling using Azure Event Grid
-        href: service-bus-to-event-grid-integration-concept.md
-    - name: Topic filters and actions
-      href: topic-filters.md
     - name: Migrate from Standard to Premium namespaces
       href: service-bus-migrate-standard-premium.md
     - name: Partitioned queues and topics
@@ -194,30 +214,36 @@
         href: service-bus-auto-forwarding.md
       - name: Transaction processing
         href: service-bus-transactions.md
-    - name: End-to-end tracing and diagnostics
-      href: service-bus-end-to-end-tracing.md
     - name: Build a multi-tier Service Bus application
       href: service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
   - name: Migrate
     items:
     - name: Migrate from ActiveMQ to Azure Service Bus
       href: migrate-jms-activemq-to-servicebus.md
+    - name: Migrate from Azure Service Manager (classic) APIs to Resource Manager APIs
+      href: deprecate-service-bus-management.md
+  - name: Monitor
+    items:
+    - name: End-to-end tracing and diagnostics
+      href: service-bus-end-to-end-tracing.md
+    - name: Diagnostic logs
+      href: service-bus-diagnostic-logs.md
+    - name: Azure Monitor metrics
+      href: service-bus-metrics-azure-monitor.md   
   - name: Integrate
     items:
     - name: Integrate with RabbitMQ
       href: service-bus-integrate-with-rabbitmq.md
   - name: Manage
     items:
+    - name: Move across regions
+      href: move-across-regions.md
     - name: Automatically update messaging units 
       href: automate-update-messaging-units.md
     - name: Use Azure PowerShell to provision entities
       href: service-bus-manage-with-ps.md
-    - name: Monitor Service Bus with Azure Monitor
-      href: service-bus-metrics-azure-monitor.md
     - name: Service Bus management libraries
       href: service-bus-management-libraries.md
-    - name: Resource logs
-      href: service-bus-diagnostic-logs.md
     - name: Suspend and reactivate messaging entities
       href: entity-suspend.md
     - name: Use Service Bus Explorer to perform data operations on Service Bus
@@ -256,35 +282,35 @@
     - name: Migrate from Microsoft.Azure.ServiceBus to Azure.Messaging.ServiceBus
       href: https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md
     - name: Azure.Messaging.ServiceBus (.NET Standard - latest)
-      href: https://docs.microsoft.com/dotnet/api/azure.messaging.servicebus
+      href: /dotnet/api/azure.messaging.servicebus
     - name: Microsoft.Azure.ServiceBus (.NET Standard)
-      href: https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus
+      href: /dotnet/api/microsoft.azure.servicebus
     - name: Microsoft.ServiceBus.Messaging (.NET Framework)
-      href: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging
+      href: /dotnet/api/microsoft.servicebus.messaging
   - name: Java
     items: 
     - name: Migrate from azure-servicebus to azure-messaging-servicebus
       href: https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/migration-guide.md
     - name: azure-messaging-servicebus (latest)
-      href: https://docs.microsoft.com/java/api/overview/azure/servicebus?view=azure-java-preview
+      href: /java/api/overview/azure/servicebus?view=azure-java-preview
     - name: azure-servicebus  
-      href: https://docs.microsoft.com/java/api/overview/azure/servicebus
+      href: /java/api/overview/azure/servicebus
   - name: Python
     items: 
     - name: Migrate from azure-servicebus version 0.50 to version 7
       href: https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/servicebus/azure-servicebus/migration_guide.md
     - name: azure-servicebus version 7
-      href: https://docs.microsoft.com/python/api/overview/azure/servicebus?view=azure-python-preview
+      href: /python/api/overview/azure/servicebus?view=azure-python-preview
     - name: azure-servicebus version 0.50
-      href: https://docs.microsoft.com/python/api/overview/azure/servicebus
+      href: /python/api/overview/azure/servicebus
   - name: JavaScript
     items:
     - name: Migrate from version 1 to version 7
       href: https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/migrationguide.md
     - name: azure/service-bus version 7 
-      href: https://docs.microsoft.com/javascript/api/overview/azure/service-bus?view=azure-node--preview
+      href: /javascript/api/overview/azure/service-bus?view=azure-node--preview
     - name: azure/service-bus version 1 
-      href: https://docs.microsoft.com/javascript/api/overview/azure/service-bus?view=azure-node-latest
+      href: /javascript/api/overview/azure/service-bus
   - name: PHP
     href: https://github.com/Azure/azure-sdk-for-php
   - name: Ruby

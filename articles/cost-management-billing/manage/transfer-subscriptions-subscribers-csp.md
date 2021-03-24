@@ -6,7 +6,7 @@ ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 02/11/2021
 ms.author: banders
 ---
 
@@ -31,6 +31,7 @@ When the request is approved, the CSP can then provide a combined invoice to the
 
 To transfer any other Azure subscriptions to a CSP partner, the subscriber needs to move resources from source subscriptions to CSP subscriptions. Use the following guidance to move resources between subscriptions.
 
+1. Establish a [reseller relationship](/partner-center/request-a-relationship-with-a-customer) with the customer. Review the [CSP Regional Authorization Overview](/partner-center/regional-authorization-overview) to ensure both customer and Partner tenant are within the same authorized regions.
 1. Work with your CSP partner to create target Azure CSP subscriptions.
 1. Ensure that the source and target CSP subscriptions are in the same Azure Active Directory (Azure AD) tenant.  
     You can't change the Azure AD tenant for an Azure CSP subscription. Instead, you must add or associate the source subscription to the CSP Azure AD tenant. For more information, see [Associate or add an Azure subscription to your Azure Active Directory tenant](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).

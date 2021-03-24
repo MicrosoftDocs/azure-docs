@@ -18,6 +18,9 @@
           href: get-started-cli.md
 - name: Concepts
   items:
+    - name: Configuration
+      href: configuration.md
+      displayName: Routing
     - name: API support with Azure Functions
       href: apis.md
     - name: Routes
@@ -42,6 +45,8 @@
       href: application-settings.md
     - name: Configure front-end frameworks and libraries
       href: front-end-frameworks.md
+    - name: Reset deployment tokens
+      href: deployment-token-management.md
 - name: Tutorials
   items:
     - name: Publish from a static site generator
@@ -68,9 +73,13 @@
   items:
     - name: Build your skills with Microsoft Learn
       items:
-        - name: Publish an Angular, React, Svelte, or Vue JavaScript app and API
+        - name: Publish an Angular, React, Svelte, or Vue JavaScript app
           href: /learn/modules/publish-app-service-static-web-app-api
+        - name: Publish an API
+          href: /learn/modules/publish-static-web-app-api-preview-url
         - name: Create and publish a static web app with Gatsby
           href: /learn/modules/create-deploy-static-webapp-gatsby-app-service
+        - name: Create and publish a static web app with Blazor
+          href: /learn/modules/publish-app-service-static-web-app-api-dotnet
     - name: Quotas
       href: quotas.md

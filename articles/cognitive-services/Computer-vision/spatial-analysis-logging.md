@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/11/2020
+ms.date: 01/12/2021
 ms.author: aahi
 ---
 
@@ -55,7 +55,7 @@ After setting up Azure Monitor, you will need to create credentials that enable 
 
 ```bash
 # Find your Azure IoT Hub resource ID by running this command. The resource ID  should start with something like 
-# "/subscriptions/b60d6458-1234-4be4-9885-c7e73af9ced8/resourceGroups/...”
+# "/subscriptions/b60d6458-1234-4be4-9885-c7e73af9ced8/resourceGroups/..."
 az iot hub list
 
 # Create a Service Principal with `Monitoring Metrics Publisher` role in the IoTHub resource:
@@ -63,7 +63,7 @@ az iot hub list
 az ad sp create-for-rbac --role="Monitoring Metrics Publisher" --name "<principal name>" --scopes="<resource ID of IoT Hub>"
 ```
 
-In the deployment manifest for your [Azure Stack Edge device](https://go.microsoft.com/fwlink/?linkid=2142179) or other [desktop machine](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json), look for the *telegraf* module, and replace the following values with the Service Principal information from the previous step and redeploy.
+In the deployment manifest for your [Azure Stack Edge device](https://go.microsoft.com/fwlink/?linkid=2142179), [desktop machine](https://go.microsoft.com/fwlink/?linkid=2152270), or [Azure VM with GPU](https://go.microsoft.com/fwlink/?linkid=2152189), look for the *telegraf* module, and replace the following values with the Service Principal information from the previous step and redeploy.
 
 ```json
 
@@ -75,19 +75,19 @@ In the deployment manifest for your [Azure Stack Edge device](https://go.microso
 "type": "docker",
 "env": {
     "AZURE_TENANT_ID": {
-    	"value": "<Tenant Id>"
+        "value": "<Tenant Id>"
     },
     "AZURE_CLIENT_ID": {
-    	"value": "Application Id"
+        "value": "Application Id"
     },
     "AZURE_CLIENT_SECRET": {
-    	"value": "<Password>"
+        "value": "<Password>"
     },
     "region": {
-    	"value": "<Region>"
+        "value": "<Region>"
     },
     "resource_id": {
-    	"value": "/subscriptions/{subscriptionId}/resourceGroups/{resoureGroupName}/providers/Microsoft.Devices/IotHubs/{IotHub}"
+        "value": "/subscriptions/{subscriptionId}/resourceGroups/{resoureGroupName}/providers/Microsoft.Devices/IotHubs/{IotHub}"
     },
 ...
 ```
@@ -100,18 +100,18 @@ Once the telegraf module is deployed, the reported metrics can be accessed eithe
 
 | Event Name | Description|
 |------|---------|
-|archon_exit 	|Sent when a user changes the spatial analysis module status from *running* to *stopped*.  |
-|archon_error 	|Sent when any of the processes inside the container crash. This is a critical error.  |
-|InputRate 	|The rate at which the graph processes video input. Reported every 5 minutes. | 
-|OutputRate 	|The rate at which the graph outputs AI insights. Reported every 5 minutes. |
+|archon_exit     |Sent when a user changes the spatial analysis module status from *running* to *stopped*.  |
+|archon_error     |Sent when any of the processes inside the container crash. This is a critical error.  |
+|InputRate     |The rate at which the graph processes video input. Reported every 5 minutes. | 
+|OutputRate     |The rate at which the graph outputs AI insights. Reported every 5 minutes. |
 |archon_allGraphsStarted | Sent when all graphs have finished starting up. |
-|archon_configchange 	| Sent when a graph configuration has changed. |
-|archon_graphCreationFailed 	|Sent when the graph with the reported `graphId` fails to start. |
-|archon_graphCreationSuccess 	|Sent when the graph with the reported `graphId` starts successfully. |
-|archon_graphCleanup 	| Sent when the graph with the reported `graphId` cleans up and exits. |
-|archon_graphHeartbeat 	|Heartbeat sent every minute for every graph of a skill. |
+|archon_configchange     | Sent when a graph configuration has changed. |
+|archon_graphCreationFailed     |Sent when the graph with the reported `graphId` fails to start. |
+|archon_graphCreationSuccess     |Sent when the graph with the reported `graphId` starts successfully. |
+|archon_graphCleanup     | Sent when the graph with the reported `graphId` cleans up and exits. |
+|archon_graphHeartbeat     |Heartbeat sent every minute for every graph of a skill. |
 |archon_apiKeyAuthFail |Sent when the Computer Vision resource key fails to authenticate the container for more than 24 hours, due to the following reasons: Out of Quota, Invalid, Offline. |
-|VideoIngesterHeartbeat 	|Sent every hour to indicate that video is streamed from the Video source, with the number of errors in that hour. Reported for each graph. |
+|VideoIngesterHeartbeat     |Sent every hour to indicate that video is streamed from the Video source, with the number of errors in that hour. Reported for each graph. |
 |VideoIngesterState | Reports *Stopped* or *Started* for video streaming. Reported for each graph. |
 
 ##  Troubleshooting an IoT Edge Device
@@ -124,7 +124,7 @@ You can use `iotedge` command line tool to check the status and logs of the runn
 
 ## Collect log files with the diagnostics container
 
-Spatial analysis generates Docker debugging logs that you can use to diagnose runtime issues, or include in support tickets. The spatial analysis diagnostics module is available in the Microsoft Container Registry for you to download. In the manifest deployment file for your [Azure Stack Edge Device](https://go.microsoft.com/fwlink/?linkid=2142179) or other [desktop machine](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json), look for the *diagnostics* module.
+Spatial analysis generates Docker debugging logs that you can use to diagnose runtime issues, or include in support tickets. The spatial analysis diagnostics module is available in the Microsoft Container Registry for you to download. In the manifest deployment file for your [Azure Stack Edge Device](https://go.microsoft.com/fwlink/?linkid=2142179), [desktop machine](https://go.microsoft.com/fwlink/?linkid=2152270), or [Azure VM with GPU](https://go.microsoft.com/fwlink/?linkid=2152189) look for the *diagnostics* module.
 
 In the "env" section add the following configuration:
 
@@ -140,14 +140,14 @@ To optimize logs uploaded to a remote endpoint, such as Azure Blob Storage, we r
 
 ```json
 {
-	"HostConfig": {
-		"LogConfig": {
-			"Config": {
-				"max-size": "500m",
-				"max-file": "1000"
-			}
-		}
-	}
+    "HostConfig": {
+        "LogConfig": {
+            "Config": {
+                "max-size": "500m",
+                "max-file": "1000"
+            }
+        }
+    }
 }
 ```
 
@@ -160,20 +160,20 @@ It can also be set through the IoT Edge Module Twin document either globally, fo
 
 ```json
 {
-	"version": 1,
-	"properties": {
-		"desired": {
-			"globalSettings": {
-				"platformLogLevel": "verbose"
-			},
-			"graphs": {
-				"samplegraph": {
-					"nodeLogLevel": "verbose",
-					"platformLogLevel": "verbose"
-				}
-			}
-		}
-	}
+    "version": 1,
+    "properties": {
+        "desired": {
+            "globalSettings": {
+                "platformLogLevel": "verbose"
+            },
+            "graphs": {
+                "samplegraph": {
+                    "nodeLogLevel": "verbose",
+                    "platformLogLevel": "verbose"
+                }
+            }
+        }
+    }
 }
 ```
 
@@ -183,13 +183,13 @@ It can also be set through the IoT Edge Module Twin document either globally, fo
 > The `diagnostics` module does not affect the logging content, it is only assists in collecting, filtering, and uploading existing logs.
 > You must have Docker API version 1.40 or higher to use this module.
 
-The sample deployment manifest file for your [Azure Stack Edge device](https://go.microsoft.com/fwlink/?linkid=2142179) or other [desktop machine](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)  includes a module named `diagnostics` that collects and uploads logs. This module is disabled by default and should be enabled through the IoT Edge module configuration when you need to access logs. 
+The sample deployment manifest file for your [Azure Stack Edge device](https://go.microsoft.com/fwlink/?linkid=2142179), [desktop machine](https://go.microsoft.com/fwlink/?linkid=2152270), or [Azure VM with GPU](https://go.microsoft.com/fwlink/?linkid=2152189) includes a module named `diagnostics` that collects and uploads logs. This module is disabled by default and should be enabled through the IoT Edge module configuration when you need to access logs. 
 
 The `diagnostics` collection is on-demand and controlled via an IoT Edge direct method, and can send logs to an Azure Blob Storage.
 
 ### Configure diagnostics upload targets
 
-From the IoT Edge portal, select your device and then the **diagnostics** module. In the sample Deployment manifest file for your [Azure Stack Edge device](https://go.microsoft.com/fwlink/?linkid=2142179) or other [desktop machines](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json), look for the **Environment Variables** section for diagnostics, named `env`, and add the following information:
+From the IoT Edge portal, select your device and then the **diagnostics** module. In the sample Deployment manifest file for your [Azure Stack Edge device](https://go.microsoft.com/fwlink/?linkid=2142179), [desktop machines](https://go.microsoft.com/fwlink/?linkid=2152270), or [Azure VM with GPU](https://go.microsoft.com/fwlink/?linkid=2152189) look for the **Environment Variables** section for diagnostics, named `env`, and add the following information:
 
 **Configure Upload to Azure Blob Storage**
 
@@ -199,9 +199,9 @@ From the IoT Edge portal, select your device and then the **diagnostics** module
 
 ```json
 "env":{
-	"IOTEDGE_WORKLOADURI":"fd://iotedge.socket",
-	"AZURE_STORAGE_CONNECTION_STRING":"XXXXXX",   //from the Azure Blob Storage account
-	"ARCHON_LOG_LEVEL":"info"
+    "IOTEDGE_WORKLOADURI":"fd://iotedge.socket",
+    "AZURE_STORAGE_CONNECTION_STRING":"XXXXXX",   //from the Azure Blob Storage account
+    "ARCHON_LOG_LEVEL":"info"
 }
 ```
 
@@ -259,11 +259,11 @@ The following table lists the attributes in the query response.
 
 ```json
 {
-	"StartTime": -1,
-	"EndTime": -1,
-	"ContainerId": "5fa17e4d8056e8d16a5a998318716a77becc01b36fde25b3de9fde98a64bf29b",
-	"DoPost": false,
-	"Filters": null
+    "StartTime": -1,
+    "EndTime": -1,
+    "ContainerId": "5fa17e4d8056e8d16a5a998318716a77becc01b36fde25b3de9fde98a64bf29b",
+    "DoPost": false,
+    "Filters": null
 }
 ```
 
@@ -271,25 +271,25 @@ The following table lists the attributes in the query response.
 
 ```json
 {
-	"status": 200,
-	"payload": {
-		"DoPost": false,
-		"TimeFilter": [-1, 1581310339411],
-		"ValueFilters": {},
-		"Metas": {
-			"TimeStamp": "2020-02-10T04:52:19.4365389+00:00",
-			"ContainerId": "5fa17e4d8056e8d16a5a998318716a77becc01b36fde25b3de9fde98a64bf29b",
-			"FetchCounter": 61,
-			"FetchSizeInByte": 20470,
-			"MatchCounter": 61,
-			"MatchSizeInByte": 20470,
-			"FilterCount": 61,
-			"FilterSizeInByte": 20470,
-			"FetchLogsDurationInMiliSec": 0,
-			"PaseLogsDurationInMiliSec": 0,
-			"PostLogsDurationInMiliSec": 0
-		}
-	}
+    "status": 200,
+    "payload": {
+        "DoPost": false,
+        "TimeFilter": [-1, 1581310339411],
+        "ValueFilters": {},
+        "Metas": {
+            "TimeStamp": "2020-02-10T04:52:19.4365389+00:00",
+            "ContainerId": "5fa17e4d8056e8d16a5a998318716a77becc01b36fde25b3de9fde98a64bf29b",
+            "FetchCounter": 61,
+            "FetchSizeInByte": 20470,
+            "MatchCounter": 61,
+            "MatchSizeInByte": 20470,
+            "FilterCount": 61,
+            "FilterSizeInByte": 20470,
+            "FetchLogsDurationInMiliSec": 0,
+            "PaseLogsDurationInMiliSec": 0,
+            "PostLogsDurationInMiliSec": 0
+        }
+    }
 }
 ```
 
@@ -328,7 +328,7 @@ Remotely, connect from a Windows client. After the Kubernetes cluster is created
 
 2. Assign a variable for the device IP address. For example, `$ip = "<device-ip-address>"`.
 
-3. Use the following command to add the IP address of your device to the client’s trusted hosts list. 
+3. Use the following command to add the IP address of your device to the client's trusted hosts list. 
 
     ```powershell
     Set-Item WSMan:\localhost\Client\TrustedHosts $ip -Concatenate -Force
@@ -358,7 +358,7 @@ After the Kubernetes cluster is created, you can use the `kubectl` command line 
     New-HcsKubernetesUser -UserName
     ```
 
-3. Add the *config* file to the *.kube* folder in your user profile on the local machine.	
+3. Add the *config* file to the *.kube* folder in your user profile on the local machine.    
 
 4. Associate the namespace with the user you created.
 
@@ -367,14 +367,14 @@ After the Kubernetes cluster is created, you can use the `kubectl` command line 
     ```
 
 5. Install `kubectl` on your Windows client using the following command:
-	
+    
     ```powershell
     curl https://storage.googleapis.com/kubernetesrelease/release/v1.15.2/bin/windows/amd64/kubectl.exe -O kubectl.exe
     ```
 
 6. Add a DNS entry to the hosts file on your system. 
-	1. Run Notepad as administrator and open the *hosts* file located at `C:\windows\system32\drivers\etc\hosts`. 
-	2. Create an entry in the hosts file with the device IP address and DNS domain you got from the **Device** page in the local UI. The endpoint you should use will look similar to: `https://compute.asedevice.microsoftdatabox.com/10.100.10.10`.
+    1. Run Notepad as administrator and open the *hosts* file located at `C:\windows\system32\drivers\etc\hosts`. 
+    2. Create an entry in the hosts file with the device IP address and DNS domain you got from the **Device** page in the local UI. The endpoint you should use will look similar to: `https://compute.asedevice.microsoftdatabox.com/10.100.10.10`.
 
 7. Verify you can connect to the Kubernetes pods.
 
@@ -395,6 +395,34 @@ kubectl logs <pod-name> -n <namespace> --all-containers
 |`Get-HcsKubernetesUserConfig -AseUser`     | Generates a Kubernetes configuration file. When using the command, copy the information into a file named *config*. Do not save the file with a file extension.        |
 | `Get-HcsApplianceInfo` | Returns information about your device. |
 | `Enable-HcsSupportAccess` | Generates access credentials to start a support session. |
+
+
+## How to file a support ticket for spatial analysis 
+
+If you need more support in finding a solution to a problem you're having with the spatial analysis container, follow these steps to fill out and submit a support ticket. Our team will get back to you with additional guidance. 
+
+### Fill out the basics 
+Create a new support ticket at the [New support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) page. Follow the prompts to fill in the following parameters:
+
+![Support basics](./media/support-ticket-page-1-final.png)
+
+1. Set **Issue Type** to be `Technical`.
+2. Select the subscription that you are utilizing to deploy the spatial analysis container.
+3. Select `My services` and select `Cognitive Services` as the the service.
+4. Select the resource that you are utilizing to deploy the spatial analysis container.
+5. Write a brief description detailing the problem you are facing. 
+6. Select `Spatial Analysis` as your problem type.
+7. Select the appropriate subtype from the drop down.
+8. Select **Next: Solutions** to move on to the next page.
+
+### Recommended solutions
+The next stage will offer recommended solutions for the problem type that you selected. These solutions will solve the most common problems, but if it isn't useful for your solution, select **Next: Details** to go to the next step.
+
+### Details
+On this page, add some additional details about the problem you've been facing. Be sure to include as much detail as possible, as this will help our engineers better narrow down the issue. Include your preferred contact method and the severity of the issue so we can contact you appropriately, and select **Next: Review + create** to move to the next step. 
+
+### Review and create 
+Review the details of your support request to ensure everything is accurate and represents the problem effectively. Once you are ready, select **Create** to send the ticket to our team! You will receive an email confirmation once your ticket is received, and our team will work to get back to you as soon as possible. You can view the status of your ticket in the Azure portal.
 
 ## Next steps
 

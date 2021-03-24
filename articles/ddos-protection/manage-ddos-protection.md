@@ -72,6 +72,10 @@ You cannot move a virtual network to another resource group or subscription when
 4. Select **DDoS protection**, under **SETTINGS**.
 5. Select **Standard**. Under **DDoS protection plan**, select an existing DDoS protection plan, or the plan you created in step 1, and then select **Save**. The plan you select can be in the same, or different subscription than the virtual network, but both subscriptions must be associated to the same Azure Active Directory tenant.
 
+### Enable DDoS protection for all virtual networks
+
+This [policy](https://aka.ms/ddosvnetpolicy) will detect any virtual networks in a defined scope that do not have DDoS Protection Standard enabled, then optionally create a remediation task that will create the association to protect the VNet. For detailed step-by-step instructions on how to deploy this policy, see https://aka.ms/ddosvnetpolicy-techcommunity.
+
 ## Validate and test
 
 First, check the details of your DDoS protection plan:
@@ -81,6 +85,11 @@ First, check the details of your DDoS protection plan:
 3. Select your DDoS protection plan from the list.
 
 The _MyVnet_ virtual network should be listed. 
+
+### View protected resources
+Under **Protected resources**, you can view your protected virtual networks and public IP addresses, or add more virtual networks to your DDoS protection plan:
+
+![View protected resources](./media/manage-ddos-protection/ddos-protected-resources.png)
 
 ## Clean up resources
 
@@ -100,7 +109,7 @@ You can keep your resources for the next tutorial. If no longer needed, delete t
 To disable DDoS protection for a virtual network: 
 
 1. Enter the name of the virtual network you want to disable DDoS protection standard for in the **Search resources, services, and docs box** at the top of the portal. When the name of the virtual network appears in the search results, select it.
-2. Select **Under DDoS Protection Standard**, select **Disable**.
+2. Under **DDoS Protection Standard**, select **Disable**.
 
 If you want to delete a DDoS protection plan, you must first dissociate all virtual networks from it. 
 
@@ -109,4 +118,4 @@ If you want to delete a DDoS protection plan, you must first dissociate all virt
 To learn how to view and configure telemetry for your DDoS protection plan, continue to the tutorials.
 
 > [!div class="nextstepaction"]
-> [View and configure DDoS protection telemetry](telemetry-monitoring-alerting.md)
+> [View and configure DDoS protection telemetry](telemetry.md)

@@ -1,19 +1,20 @@
 ---
 title: Power BI and serverless SQL pool to analyze Azure Cosmos DB data with Synapse Link
-description: Learn how to build a Synapse SQL serverless database and views over Synapse Link for Azure Cosmos DB, query the Azure Cosmos DB containers and then build a model with Power BI over those views.
+description: Learn how to build a serverless SQL pool database and views over Synapse Link for Azure Cosmos DB, query the Azure Cosmos DB containers and then build a model with Power BI over those views.
 author: ArnoMicrosoft
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/30/2020
 ms.author: acomet
+ms.custom: synapse-cosmos-db
 ---
 
-# Use Power BI and serverless Synapse SQL pool to analyze Azure Cosmos DB data with Synapse Link (preview) 
+# Use Power BI and serverless Synapse SQL pool to analyze Azure Cosmos DB data with Synapse Link 
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 In this article, you learn how to build a serverless SQL pool database and views over Synapse Link for Azure Cosmos DB. You will query the Azure Cosmos DB containers and then build a model with Power BI over those views to reflect that query.
 
-In this scenario, you will use dummy data about Surface product sales in a partner retail store. You will analyze the revenue per store based on the proximity to large households and the impact of advertising for a specific week. In this article, you create two views named **RetailSales** and **StoreDemographics** and a query between them. You can get the sample product data from this [GitHub](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData) repo.
+In this scenario, you will use dummy data about Surface product sales in a partner retail store. You will analyze the revenue per store based on the proximity to large households and the impact of advertising for a specific week. In this article, you create two views named **RetailSales** and **StoreDemographics** and a query between them. You can get the sample product data from this [GitHub](https://github.com/Azure-Samples/Synapse/tree/main/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData) repo.
 
 ## Prerequisites
 
@@ -25,7 +26,7 @@ Make sure to create the following resources before you start:
 
 * Create a database within the Azure Cosmos account and two containers that have [analytical store enabled.](configure-synapse-link.md#create-analytical-ttl)
 
-* Load products data into the Azure Cosmos containers as described in this [batch data ingestion](https://github.com/Azure-Samples/Synapse/blob/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/spark-notebooks/pyspark/1CosmoDBSynapseSparkBatchIngestion.ipynb) notebook.
+* Load products data into the Azure Cosmos containers as described in this [batch data ingestion](https://github.com/Azure-Samples/Synapse/blob/main/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/spark-notebooks/pyspark/1CosmoDBSynapseSparkBatchIngestion.ipynb) notebook.
 
 * [Create a Synapse workspace](../synapse-analytics/quickstart-create-workspace.md) named **SynapseLinkBI**.
 
@@ -41,7 +42,7 @@ Every workspace comes with a serverless SQL endpoint. After creating a SQL scrip
 
 :::image type="content" source="./media/synapse-link-power-bi/enable-sql-on-demand-endpoint.png" alt-text="Enable the SQL script to use the serverless SQL endpoint in the workspace":::
 
-Create a new database, named **RetailCosmosDB**, and a SQL view over the Synapse Link enabled containers. The following command shows how to create a database:
+Creating views in the **master** or **default** databases is not recommended or supported. Create a new database, named **RetailCosmosDB**, and a SQL view over the Synapse Link enabled containers. The following command shows how to create a database:
 
 ```sql
 -- Create database
@@ -50,7 +51,7 @@ Create database RetailCosmosDB
 
 Next, create multiple views across different Synapse Link enabled Azure Cosmos containers. Views will allow you to use T-SQL to join and query Azure Cosmos DB data sitting in different containers.  Make sure to select the **RetailCosmosDB** database when creating the views.
 
-The following scripts show how to create views on each container. For simplicity, let’s use the [automatic schema inference](analytical-store-introduction.md#analytical-schema) feature of Synapse SQL serverless over Synapse Link enabled containers:
+The following scripts show how to create views on each container. For simplicity, let’s use the [automatic schema inference](analytical-store-introduction.md#analytical-schema) feature of serverless SQL pool over Synapse Link enabled containers:
 
 
 ### RetailSales view:

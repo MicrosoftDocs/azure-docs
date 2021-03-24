@@ -66,6 +66,8 @@ The new server created by point-in-time restore has the same server admin login 
 
 The new server created during a restore does not have the firewall rules or VNet service endpoints that existed on the original server. These rules need to be set up separately for this new server.
 
+If your source PostgreSQL server is encrypted with customer-managed keys, please see the [documentation](concepts-data-encryption-postgresql.md) for additional considerations.
+
 ## Geo restore
 
 If you configured your server for geographically redundant backups, a new server can be created from the backup of that existing server. This new server can be created in any region that Azure Database for PostgreSQL is available.  
@@ -113,6 +115,8 @@ If you configured your server for geographically redundant backups, a new server
 The new server created by geo restore has the same server admin login name and password that was valid for the existing server at the time the restore was initiated. The password can be changed from the new server's **Overview** page.
 
 The new server created during a restore does not have the firewall rules or VNet service endpoints that existed on the original server. These rules need to be set up separately for this new server.
+
+If your source PostgreSQL server is encrypted with customer-managed keys, please see the [documentation](concepts-data-encryption-postgresql.md) for additional considerations.
 
 
 ## Next steps

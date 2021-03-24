@@ -210,6 +210,7 @@ You can also customize the warm-up behavior with one or both of the following [a
 
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: The path to ping to warm up your site. Add this app setting by specifying a custom path that begins with a slash as the value. An example is `/statuscheck`. The default value is `/`. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Valid HTTP response codes for the warm-up operation. Add this app setting with a comma-separated list of HTTP codes. An example is `200,202` . If the returned status code isn't in the list, the warmup and swap operations are stopped. By default, all response codes are valid.
+- `WEBSITE_WARMUP_PATH`: A relative path on the site that should be pinged whenever the site restarts (not only during slot swaps). Example values include `/statuscheck` or the root path, `/`.
 
 > [!NOTE]
 > The `<applicationInitialization>` configuration element is part of each app start-up, whereas the two warm-up behavior app settings apply only to slot swaps.
@@ -218,7 +219,7 @@ If you have any problems, see [Troubleshoot swaps](#troubleshoot-swaps).
 
 ## Monitor a swap
 
-If the [swap operation](#AboutConfiguration) takes a long time to complete, you can get information on the swap operation in the [activity log](../azure-monitor/platform/platform-logs-overview.md).
+If the [swap operation](#AboutConfiguration) takes a long time to complete, you can get information on the swap operation in the [activity log](../azure-monitor/essentials/platform-logs-overview.md).
 
 On your app's resource page in the portal, in the left pane, select **Activity log**.
 

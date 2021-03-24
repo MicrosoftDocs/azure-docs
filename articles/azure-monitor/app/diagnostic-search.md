@@ -10,7 +10,7 @@ ms.date: 07/30/2019
 
 Search is a feature of [Application Insights](./app-insights-overview.md) that you use to find and explore individual telemetry items, such as page views, exceptions, or web requests. And you can view log traces and events that you have coded.
 
-(For more complex queries over your data, use [Analytics](../log-query/get-started-portal.md).)
+(For more complex queries over your data, use [Analytics](../logs/log-analytics-tutorial.md).)
 
 ## Where do you see Search?
 
@@ -77,7 +77,7 @@ To find all the items with the same property value, either type it into the sear
 ## Search the data
 
 > [!NOTE]
-> To write more complex queries, open [**Logs (Analytics)**](../log-query/get-started-portal.md) from the top of the Search blade.
+> To write more complex queries, open [**Logs (Analytics)**](../logs/log-analytics-tutorial.md) from the top of the Search blade.
 >
 
 You can search for terms in any of the property values. This is useful if you have written [custom events](./api-custom-events-metrics.md) with property values.
@@ -141,8 +141,7 @@ We don't log the POST data automatically, but you can use [TrackTrace or log cal
 
 ## <a name="add"></a>Next steps
 
-* [Write complex queries in Analytics](../log-query/get-started-portal.md)
+* [Write complex queries in Analytics](../logs/log-analytics-tutorial.md)
 * [Send logs and custom telemetry to Application Insights](./asp-net-trace-logs.md)
 * [Set up availability and responsiveness tests](./monitor-web-app-availability.md)
 * [Troubleshooting](../faq.md)
-

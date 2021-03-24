@@ -51,7 +51,7 @@ We recommend that you use simulation exercises as a normal part of your service 
 
 ## Alerts during an attack
 
-Azure DDoS Protection Standard identifies and mitigates DDoS attacks without any user intervention. To get notified when there’s an active mitigation for a protected public IP, you can [configure an alert](telemetry-monitoring-alerting.md) on the metric **Under DDoS attack or not**. You can choose to create alerts for the other DDoS metrics to understand the scale of the attack, traffic being dropped, and other details.
+Azure DDoS Protection Standard identifies and mitigates DDoS attacks without any user intervention. To get notified when there’s an active mitigation for a protected public IP, you can [configure alerts](alerts.md).
 
 ### When to contact Microsoft support
 

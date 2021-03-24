@@ -37,7 +37,7 @@ This guide describes the basic steps required to create a device, module, or IoT
 To build an IoT Plug and Play device, module, or IoT Edge module, follow these steps:
 
 1. Ensure your device is using either the MQTT or MQTT over WebSockets protocol to connect to Azure IoT Hub.
-1. Create a [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) model to describe your device. To learn more, see [Understand components in IoT Plug and Play models](concepts-components.md).
+1. Create a [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) model to describe your device. To learn more, see [Understand components in IoT Plug and Play models](concepts-modeling-guide.md).
 1. Update your device or module to announce the `model-id` as part of the device connection.
 1. Implement telemetry, properties, and commands using the [IoT Plug and Play conventions](concepts-convention.md)
 
@@ -45,7 +45,7 @@ Once your device or module implementation is ready, use the [Azure IoT explorer]
 
 :::zone pivot="programming-language-ansi-c"
 
-[!INCLUDE [iot-pnp-device-devguide-csharp](../../includes/iot-pnp-device-devguide-c.md)]
+[!INCLUDE [iot-pnp-device-devguide-c](../../includes/iot-pnp-device-devguide-c.md)]
 
 :::zone-end
 
@@ -78,8 +78,8 @@ Once your device or module implementation is ready, use the [Azure IoT explorer]
 Now that you've learned about IoT Plug and Play device development, here are some additional resources:
 
 - [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl)
-- [C device SDK](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
-- [IoT REST API](https://docs.microsoft.com/rest/api/iothub/device)
-- [Model components](concepts-components.md)
+- [C device SDK](/azure/iot-hub/iot-c-sdk-ref/)
+- [IoT REST API](/rest/api/iothub/device)
+- [Understand components in IoT Plug and Play models](concepts-modeling-guide.md)
 - [Install and use the DTDL authoring tools](howto-use-dtdl-authoring-tools.md)
 - [IoT Plug and Play service developer guide](concepts-developer-guide-service.md)

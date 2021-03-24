@@ -94,8 +94,6 @@
         href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Performance and scalability checklist
       href: storage-performance-checklist.md
-  - name: Concurrency
-    href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Monitor and troubleshoot
     items:
     - name: Monitor Queue storage
@@ -121,6 +119,8 @@
       href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Upgrade a storage account
       href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Recover a deleted storage account
+      href: ../common/storage-account-recover.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Secure queue data
     items:
     - name: Authorize access to queue data
@@ -236,7 +236,7 @@
     - name: Monitor (classic)
       items:
       - name: Monitor in the Azure portal (classic)
-        href: ../common/storage-monitor-storage-account.md??toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        href: ../common/manage-storage-analytics-logs.md??toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Troubleshoot
     items:
     - name: Latency issues
@@ -261,7 +261,7 @@
     - name: Get started with Storage Explorer
       href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Storage Explorer release notes
-      href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      href: https://github.com/microsoft/AzureStorageExplorer/releases
     - name: Troubleshoot Storage Explorer
       href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Storage Explorer accessibility
@@ -279,17 +279,17 @@
   - name: NuGet packages (.NET)
     items:
     - name: Microsoft.Azure.Storage.Common (version 11.x)
-      href: https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/
+      href: https://www.nuget.org/packages/microsoft.azure.storage.common/
     - name: Azure.Storage.Common (version 12.x)
       href: https://www.nuget.org/packages/Azure.Storage.Common/
     - name: Microsoft.Azure.Storage.Queue (version 11.x)
-      href: https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/
+      href: https://www.nuget.org/packages/microsoft.azure.storage.queue/
     - name: Azure.Storage.Queue (version 12.x)
-      href: https://www.nuget.org/packages/Azure.Storage.Queues/
+      href: https://www.nuget.org/packages/azure.storage.queues/
     - name: Azure Configuration Manager
-      href: https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/
+      href: https://www.nuget.org/packages/microsoft.azure.configurationmanager/
     - name: Storage Resource Provider library
-      href: https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/
+      href: https://www.nuget.org/packages/microsoft.azure.management.storage/
   - name: Source code
     items:
     - name: .NET

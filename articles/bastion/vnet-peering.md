@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 11/05/2020
+ms.date: 12/09/2020
 ms.author: cherylmc
 
 ---
@@ -37,11 +37,17 @@ This figure shows the architecture of an Azure Bastion deployment in a hub-and-s
 **Steps:**
 
 1. Connect to the Azure portal using any HTML5 browser.
-1. Select the virtual machine to connect to.
-1. Azure Bastion is seamlessly detected across the peered VNet.
-1. With a single click, the RDP/SSH session opens in the browser. For RDP and SSH concurrent session limits, see [RDP and SSH sessions](bastion-faq.md#limits).
+2. Ensure you have **read** access to both the target VM and the peered VNet. Additionally, check under IAM that you have read access to the following resources:
+   * Reader role on the virtual machine.
+   * Reader role on the NIC with private IP of the virtual machine.
+   * Reader role on the Azure Bastion resource.
+   * Reader Role on the Virtual Network (Not needed if there is no peered virtual network).
+3. To see Bastion in the **Connect** drop down menu, you must select the subs you have access to in **Subscription > global subscription**.
+4. Select the virtual machine to connect to.
+5. Azure Bastion is seamlessly detected across the peered VNet.
+6. With a single click, the RDP/SSH session opens in the browser. For RDP and SSH concurrent session limits, see [RDP and SSH sessions](bastion-faq.md#limits).
 
-   :::image type="content" source="../../includes/media/bastion-vm-rdp/connect-vm.png" alt-text="Connect":::
+  :::image type="content" source="../../includes/media/bastion-vm-rdp/connect-vm.png" alt-text="Connect":::
 
    For more information about connecting to a VM via Azure Bastion, see:
 

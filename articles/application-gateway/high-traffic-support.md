@@ -18,7 +18,7 @@ You can use Application Gateway with Web Application Firewall (WAF) for a scalab
 
 It is important that you scale your Application Gateway according to your traffic and with a bit of a buffer so that you are prepared for any traffic surges or spikes and minimizing the impact that it may have in your QoS. The following suggestions help you set up Application Gateway with WAF to handle extra traffic.
 
-Please check the [metrics documentation](./application-gateway-metrics.md) for the complete list of metrics offered by Application Gateway. See [visualize metrics](./application-gateway-metrics.md#metrics-visualization) in the Azure portal and the [Azure monitor documentation](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric) on how to set alerts for metrics.
+Please check the [metrics documentation](./application-gateway-metrics.md) for the complete list of metrics offered by Application Gateway. See [visualize metrics](./application-gateway-metrics.md#metrics-visualization) in the Azure portal and the [Azure monitor documentation](../azure-monitor/alerts/alerts-metric.md) on how to set alerts for metrics.
 
 ## Scaling for Application Gateway v1 SKU (Standard/WAF SKU)
 
@@ -60,7 +60,7 @@ Check your Compute Unit metric for the past one month. Compute unit metric is a 
 
 ## Monitoring and alerting
 
-To get notified of any traffic or utilization anomalies, you can set up alerts on certain metrics. See [metrics documentation](./application-gateway-metrics.md) for the complete list of metrics offered by Application Gateway. See [visualize metrics](./application-gateway-metrics.md#metrics-visualization) in the Azure portal and the [Azure monitor documentation](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric) on how to set alerts for metrics.
+To get notified of any traffic or utilization anomalies, you can set up alerts on certain metrics. See [metrics documentation](./application-gateway-metrics.md) for the complete list of metrics offered by Application Gateway. See [visualize metrics](./application-gateway-metrics.md#metrics-visualization) in the Azure portal and the [Azure monitor documentation](../azure-monitor/alerts/alerts-metric.md) on how to set alerts for metrics.
 
 ## Alerts for Application Gateway v1 SKU (Standard/WAF)
 

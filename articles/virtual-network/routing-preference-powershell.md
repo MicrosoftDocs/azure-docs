@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/18/2020
+ms.date: 02/22/2021
 ms.author: mnayak
 ---
 # Configure routing preference for a public IP address using Azure PowerShell
@@ -27,21 +27,10 @@ This article shows you how to configure routing preference via ISP network (**In
 
 By default, the routing preference for public IP address is set to the Microsoft global network for all Azure services and can be associated with any Azure service.
 
-> [!IMPORTANT]
-> Routing preference is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 6.9.0 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
-
-## Register the feature for your subscription
-The Routing Preference feature is currently in preview. Register the feature for your subscription as follows:
-```azurepowershell
-Register-AzProviderFeature -FeatureName AllowRoutingPreferenceFeature -ProviderNamespace Microsoft.Network
-```
 
 ## Create a resource group
 

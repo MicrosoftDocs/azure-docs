@@ -33,18 +33,12 @@ landingContent:
         links:
           - text: Development lifecycle
             url: concepts/development-lifecycle-knowledge-base.md
-          - text: Data sources
-            url: concepts/knowledge-base.md
       - linkListType: video
         links:
           - text: Build a bot in minutes
             url: https://channel9.msdn.com/Shows/AI-Show/Build-a-Bot-in-Minutes-with-QnA-Maker
   - title: Create and edit knowledge base
     linkLists:
-      - linkListType: concept
-        links:
-          - text: What is a knowledge base
-            url: concepts/knowledge-base.md
       - linkListType: get-started
         links:
           - text: "Quickstart: Create a new knowledge base"
@@ -55,7 +49,7 @@ landingContent:
         links:
           - text: Use follow-up prompts to create multiple turns of a conversation
             url: how-to/multiturn-conversation.md
-          - text: Add chit-chit
+          - text: Add chit-chat
             url: how-to/chit-chat-knowledge-base.md
           - text: Add a secured SharePoint data source
             url: how-to/add-sharepoint-datasources.md
@@ -66,9 +60,7 @@ landingContent:
         links:
           - text: "Quickstart: With Postman or cURL"
             url: quickstarts/get-answer-from-knowledge-base-using-url-tool.md
-          - text: "Quickstart: Using REST and cURL"
-            url: quickstarts/quickstart-rest-curl.md
-          - text: "Quickstart: Using SDK"
+          - text: "Quickstart: Using SDK and REST API"
             url: quickstarts/quickstart-sdk.md
       - linkListType: how-to-guide
         links:
@@ -103,11 +95,11 @@ landingContent:
         links:
 
           - text: "Portal: Create an Azure Bot service bot"
-            url: tutorials/create-qna-bot.md
+            url: ./quickstarts/create-publish-knowledge-base.md#create-a-bot
           - text: "Power apps: Create a QnA Maker powered bot"
             url: tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
           - text: "Bot Framework: Dispatch between LUIS and QnA Maker apps"
-            url: https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=cs
+            url: /azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs
           - text: Other bot samples
             url: https://github.com/Microsoft/BotBuilder-Samples/blob/master/README.md
 
@@ -118,15 +110,15 @@ landingContent:
           - text: Limits of knowledge base
             url: limits.md
           - text: Authoring APIs
-            url: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase
+            url: /rest/api/cognitiveservices/qnamaker/knowledgebase
           - text: Generate Answer APIs
-            url: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/Runtime
+            url: /rest/api/cognitiveservices/qnamaker4.0/Runtime
           - text: .Net SDK reference documentation
-            url: https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet
+            url: /dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker
           - text: Azure PowerShell
-            url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.6.0#cognitive_services
+            url: /powershell/module/az.cognitiveservices/#cognitive_services
           - text: Azure Command-Line Interface (CLI)
-            url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
+            url: /cli/azure/cognitiveservices#az-cognitiveservices-list
 
   - title: Help and feedback
     linkLists:

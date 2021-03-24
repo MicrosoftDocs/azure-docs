@@ -2,8 +2,7 @@
 title: Considerations for Azure Virtual Machines DBMS deployment for SAP workload | Microsoft Docs
 description: Considerations for Azure Virtual Machines DBMS deployment for SAP workload
 author: msjuergent
-ms.service: virtual-machines
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 09/20/2020
 ms.author: juergent
@@ -156,8 +155,8 @@ If your IOPS requirement exceeds what a single VHD can provide, balance the numb
 >
 > Only MDADM and Logical Volume Manager (LVM) are supported to build a software RAID on Linux. For more information, see:
 >
-> - [Configure software RAID on Linux](../../linux/configure-raid.md) using MDADM
-> - [Configure LVM on a Linux VM in Azure](../../linux/configure-lvm.md) using LVM
+> - [Configure software RAID on Linux](/previous-versions/azure/virtual-machines/linux/configure-raid) using MDADM
+> - [Configure LVM on a Linux VM in Azure](/previous-versions/azure/virtual-machines/linux/configure-lvm) using LVM
 >
 >
 
@@ -262,7 +261,7 @@ There are other redundancy methods. For more information, see [Azure Storage rep
 
 
 ## VM node resiliency
-Azure offers several different SLAs for VMs. For more information, see the most recent release of [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). Because the DBMS layer is critical to availability in an SAP system, you need to understand availability sets, Availability Zones, and maintenance events. For more information on these concepts, see [Manage the availability of Windows virtual machines in Azure](../../manage-availability.md) and [Manage the availability of Linux virtual machines in Azure](../../manage-availability.md).
+Azure offers several different SLAs for VMs. For more information, see the most recent release of [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). Because the DBMS layer is critical to availability in an SAP system, you need to understand availability sets, Availability Zones, and maintenance events. For more information on these concepts, see [Manage the availability of Windows virtual machines in Azure](../../availability.md) and [Manage the availability of Linux virtual machines in Azure](../../availability.md).
 
 The minimum recommendation for production DBMS scenarios with an SAP workload is to:
 

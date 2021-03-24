@@ -164,7 +164,7 @@ Add the following dependencies in the pom.xml file.
     <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-messaging-eventhubs-checkpointstore-blob</artifactId>
-        <version>1.1.1</version>
+        <version>1.5.0</version>
     </dependency>
 </dependencies>
 ```

@@ -2,7 +2,7 @@
 title: Back up Azure VMware Solution VMs with Azure Backup Server
 description: Configure your Azure VMware Solution environment to back up virtual machines by using Azure Backup Server.
 ms.topic: how-to
-ms.date: 06/09/2020
+ms.date: 02/04/2021
 ---
 
 # Back up Azure VMware Solution VMs with Azure Backup Server
@@ -68,7 +68,7 @@ VMware 6.7 onwards had TLS enabled as the communication protocol.
 
 1. Copy the following registry settings, and paste them into Notepad. Then save the file as TLS.REG without the .txt extension.
 
-   ```text
+   ```
    
    Windows Registry Editor Version 5.00
    
@@ -351,7 +351,7 @@ You can restore individual files from a protected VM recovery point. This featur
 
 ## Next steps
 
-For troubleshooting issues when setting up backups, review the troubleshooting guide for Azure Backup Server.
+Now that you've covered backing up your Azure VMware Solution VMs with Azure Backup Server, you may want to learn about: 
 
-> [!div class="nextstepaction"]
-> [Troubleshooting guide for Azure Backup Server](../backup/backup-azure-mabs-troubleshoot.md)
+- [Troubleshooting when setting up backups in Azure Backup Server](../backup/backup-azure-mabs-troubleshoot.md).
+- [Lifecycle management of Azure VMware Solution VMs](lifecycle-management-of-azure-vmware-solution-vms.md).

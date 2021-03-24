@@ -1,16 +1,11 @@
 ---
 title: Onboard a management group to Azure Security Center
 description: Learn how to use a supplied Azure Policy definition to enable Azure Security Center for all the subscriptions in a management group.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.devlang: na
-ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/10/2020
+ms.topic: how-to
+ms.date: 03/11/2021
 ms.author: memildin
 
 ---
@@ -56,7 +51,7 @@ There are a variety of ways you might choose to modify the Azure Policy definiti
     The supplied definition, defines *either* of the 'pricing' settings below as compliant. Meaning that a subscription set to 'standard' or 'free' is compliant.
 
     > [!TIP]
-    > When an Azure Defender plan is enabled, it's described as being on the 'Standard' setting. When it's disabled, it's 'Free'. [Learn more about Azure Defender plans](security-center-pricing.md).
+    > When an Azure Defender plan is enabled, it's described in a policy definition as being on the 'Standard' setting. When it's disabled, it's 'Free'. To learn about the differences between these plans, see [Security Center free vs Azure Defender enabled](security-center-pricing.md). 
 
     ```
     "existenceCondition": {
@@ -94,4 +89,4 @@ There are a variety of ways you might choose to modify the Azure Policy definiti
 Now that you've onboarded an entire management group, enable the advanced protections of Azure Defender. 
 
 > [!div class="nextstepaction"]
-> [Enable Azure Defender](security-center-pricing.md)
+> [Enable Azure Defender](enable-azure-defender.md)

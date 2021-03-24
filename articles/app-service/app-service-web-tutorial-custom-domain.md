@@ -8,6 +8,10 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 08/25/2020
 ms.custom: mvc, seodec18
+adobe-target: true
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./app-service-web-tutorial-custom-domain-uiex
 ---
 
 # Tutorial: Map an existing custom DNS name to Azure App Service
@@ -69,7 +73,7 @@ You see the management page of the App Service app.
 
 1. The app's current tier is highlighted by a blue border. Check to make sure that the app isn't in the **F1** tier. Custom DNS isn't supported in the **F1** tier.
 
-   ![Screenshot that shows Recommended pricing tiers.](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
+   ![Screenshot that shows recommended pricing tiers.](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
 1. If the App Service plan isn't in the **F1** tier, close the **Scale up** page and skip to [Map a CNAME record](#map-a-cname-record).
 
@@ -136,7 +140,7 @@ After you add the CNAME and TXT records, the DNS records page looks like the fol
 
 1. In the left pane of the app page in the Azure portal, select **Custom domains**.
 
-    ![Screenshot that shows the Custom domains menu.](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
+    ![Screenshot that shows the custom domains menu.](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
 1. On the **Custom domains** page of the app, add the fully qualified custom DNS name (`www.contoso.com`) to the list.
 
@@ -177,7 +181,7 @@ To map an A record, you need the app's external IP address. You can find this IP
 
 1. In the left pane of the app page in the Azure portal, select **Custom domains**.
 
-   ![Screenshot that shows the Custom domains menu.](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
+   ![Screenshot that shows the custom domains menu.](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
 1. On the **Custom Domains** page, copy the app's IP address.
 
@@ -202,7 +206,7 @@ To map an A record to an app, usually to the root domain, create two records:
 > | Record type | Host | Value |
 > | - | - | - |
 > | A | `www` | IP address from [Copy the app's IP address](#info) |
-> | TXT | `asuid.www` | `<app-name>.azurewebsites.net` |
+> | TXT | `asuid.www` | [The verification ID you got earlier](#get-a-domain-verification-id) |
 >
 
 After the records are added, the DNS records page looks like the following example:
@@ -269,7 +273,7 @@ You can now add any subdomain that matches the wildcard name to the app (for exa
 
 1. In the left pane of the app page in the Azure portal, select **Custom domains**.
 
-    ![Screenshot that shows the Custom domains menu.](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
+    ![Screenshot that shows the custom domains menu.](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
 1. Select **Add custom domain**.
 
@@ -300,22 +304,22 @@ Browse to the DNS names that you configured earlier (for example, `contoso.com`,
 
 ## Resolve 404 "Not Found"
 
-If you receive an HTTP 404 (Not Found) error when you browse to the URL of your custom domain, verify that your domain resolves to your app's IP address by using <a href="https://www.whatsmydns.net/" target="_blank">WhatsmyDNS.net</a>. If not, it might be because of one of the following reasons:
-
-- The custom domain configured is missing an A record or a CNAME record.
-- The browser client has cached the old IP address of your domain. Clear the cache, and test DNS resolution again. On a Windows machine, you clear the cache with `ipconfig /flushdns`.
-
-<a name="virtualdir" aria-hidden="true"></a>
+If you receive an HTTP 404 (Not Found) error when you browse to the URL of your custom domain, verify that your domain resolves to your app's IP address by using <a href="https://www.nslookup.io/" target="_blank">nslookup.io</a>. If not, verify that the A and CNAME records are configured correctly using the same site. If it resolves the IP correctly, but you're still getting a 404, then your browser may have cached the old IP address of your domain. Clear the cache, and test DNS resolution again. On a Windows machine, you clear the cache with `ipconfig /flushdns`.
 
 ## Migrate an active domain
 
 To migrate a live site and its DNS domain name to App Service with no downtime, see [Migrate an active DNS name to Azure App Service](manage-custom-dns-migrate-domain.md).
 
+<a name="virtualdir" aria-hidden="true"></a>
+
 ## Redirect to a custom directory
 
 By default, App Service directs web requests to the root directory of your app code. But certain web frameworks don't start in the root directory. For example, [Laravel](https://laravel.com/) starts in the `public` subdirectory. To continue the `contoso.com` DNS example, such an app is accessible at `http://contoso.com/public`, but you want to direct `http://contoso.com` to the `public` directory instead. This step doesn't involve DNS resolution but is about customizing the virtual directory.
 
-To do customize a virtual directory, select **Application settings** in the left pane of your web app page.
+To do customize a virtual directory for Windows apps, select **Application settings** in the left pane of your web app page. 
+
+> [!NOTE]
+> Linux apps don't have this page. To change the site root for Linux apps, see the language-specific configuration guides ([PHP](configure-language-php.md?pivots=platform-linux#change-site-root), for example).
 
 At the bottom of the page, the root virtual directory `/` points to `site\wwwroot` by default, which is the root directory of your app code. Change it to point to the `site\wwwroot\public` instead, for example, and save your changes.
 

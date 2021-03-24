@@ -8,7 +8,7 @@ ms.topic: conceptual
 ---
 # Deploy a Windows Hybrid Runbook Worker
 
-You can use the user Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on the Azure or non-Azure machine, including servers registered with [Azure Arc enabled servers](../azure-arc/servers/overview.md). From the machine or server that's hosting the role, you can run runbooks directly it and against resources in the environment to manage those local resources.
+You can use the user Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on an Azure or non-Azure machine, including servers registered with [Azure Arc enabled servers](../azure-arc/servers/overview.md). From the machine or server that's hosting the role, you can run runbooks directly against it and against resources in the environment to manage those local resources.
 
 Azure Automation stores and manages runbooks and then delivers them to one or more designated machines. This article describes how to deploy a user Hybrid Runbook Worker on a Windows machine, how to remove the worker, and how to remove a Hybrid Runbook Worker group.
 
@@ -20,20 +20,20 @@ Before you start, make sure that you have the following.
 
 ### A Log Analytics workspace
 
-The Hybrid Runbook Worker role depends on an Azure Monitor Log Analytics workspace to install and configure the role. You can create it through [Azure Resource Manager](../azure-monitor/samples/resource-manager-workspace.md#create-a-log-analytics-workspace), through [PowerShell](../azure-monitor/scripts/powershell-sample-create-workspace.md?toc=/powershell/module/toc.json), or in the [Azure portal](../azure-monitor/learn/quick-create-workspace.md).
+The Hybrid Runbook Worker role depends on an Azure Monitor Log Analytics workspace to install and configure the role. You can create it through [Azure Resource Manager](../azure-monitor/logs/resource-manager-workspace.md#create-a-log-analytics-workspace), through [PowerShell](../azure-monitor/logs/powershell-sample-create-workspace.md?toc=/powershell/module/toc.json), or in the [Azure portal](../azure-monitor/logs/quick-create-workspace.md).
 
-If you don't have an Azure Monitor Log Analytics workspace, review the [Azure Monitor Log design guidance](../azure-monitor/platform/design-logs-deployment.md) before you create the workspace.
+If you don't have an Azure Monitor Log Analytics workspace, review the [Azure Monitor Log design guidance](../azure-monitor/logs/design-logs-deployment.md) before you create the workspace.
 
 ### Log Analytics agent
 
-The Hybrid Runbook Worker role requires the [Log Analytics agent](../azure-monitor/platform/log-analytics-agent.md) for the supported Windows operating system. For servers or machines hosted outside of Azure, you can install the Log Analytics agent using [Azure Arc enabled servers](../azure-arc/servers/overview.md).
+The Hybrid Runbook Worker role requires the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) for the supported Windows operating system. For servers or machines hosted outside of Azure, you can install the Log Analytics agent using [Azure Arc enabled servers](../azure-arc/servers/overview.md).
 
 ### Supported Windows operating system
 
 The Hybrid Runbook Worker feature supports the following operating systems:
 
-* Windows Server 2019
-* Windows Server 2016, version 1709 and 1803
+* Windows Server 2019 (including Server Core)
+* Windows Server 2016, version 1709 and 1803 (excluding Server Core)
 * Windows Server 2012, 2012 R2
 * Windows Server 2008 SP2 (x64), 2008 R2
 * Windows 10 Enterprise (including multi-session) and Pro
@@ -59,7 +59,7 @@ For networking requirements for the Hybrid Runbook Worker, see [Configuring your
 You can add the worker machine to a Hybrid Runbook Worker group in one of your Automation accounts. For machines hosting the system Hybrid Runbook worker managed by Update Management, they can be added to a Hybrid Runbook Worker group. But you must use the same Automation account for both Update Management and the Hybrid Runbook Worker group membership.
 
 >[!NOTE]
->Azure Automation [Update Management](update-management/update-mgmt-overview.md) automatically installs the system Hybrid Runbook Worker on an Azure or non-Azure machine that's enabled for Update Management. However, this worker is not registered with any Hybrid Runbook Worker groups in your Automation account. To run your runbooks on those machines, you need to add them to a Hybrid Runbook Worker group. Follow step 6 under the section [Manual deployment](#manual-deployment) to add it to a group.
+>Azure Automation [Update Management](./update-management/overview.md) automatically installs the system Hybrid Runbook Worker on an Azure or non-Azure machine that's enabled for Update Management. However, this worker is not registered with any Hybrid Runbook Worker groups in your Automation account. To run your runbooks on those machines, you need to add them to a Hybrid Runbook Worker group. Follow step 6 under the section [Manual deployment](#manual-deployment) to add it to a group.
 
 ## Enable for management with Azure Automation State Configuration
 

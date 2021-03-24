@@ -4,7 +4,7 @@ description: The Azure Bastion security baseline provides procedural guidance an
 author: msmbaldwin
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 11/20/2020
+ms.date: 02/12/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
@@ -20,7 +20,7 @@ To see how Azure Bastion completely maps to the Azure Security Benchmark, see th
 
 ## Network Security
 
-*For more information, see the [Azure Security Benchmark: Network Security](/azure/security/benchmarks/security-controls-v2-network-security).*
+*For more information, see the [Azure Security Benchmark: Network Security](../security/benchmarks/security-controls-v2-network-security.md).*
 
 ### NS-1: Implement security for internal traffic
 
@@ -61,13 +61,17 @@ Connectivity to Gateway Manager and Azure service tag is protected (locked down)
 
 ## Identity Management
 
-*For more information, see the [Azure Security Benchmark: Identity Management](/azure/security/benchmarks/security-controls-v2-identity-management).*
+*For more information, see the [Azure Security Benchmark: Identity Management](../security/benchmarks/security-controls-v2-identity-management.md).*
 
 ### IM-1: Standardize Azure Active Directory as the central identity and authentication system
 
 **Guidance**: Azure Bastion is integrated with Azure Active Directory (Azure AD) which is Azure's default identity and access management service. Users can access the Azure portal using Azure AD authentication to manage Azure Bastion service (create, update, and delete Bastion resources).
 
-Connecting to virtual machines using Azure Bastion relies on either an SSH key or username/password, and currently does not support the use of Azure AD credentials.
+Connecting to virtual machines using Azure Bastion relies on either an SSH key or username/password, and currently does not support the use of Azure AD credentials. 
+
+You can store your SSH keys as Azure Key Vault secrets and use these secrets to connect to your virtual machines using Azure Bastion. You can control user access to these secrets by [assigning Key Vault access policies](../key-vault/general/assign-access-policy-portal.md) either on individual users or Azure AD groups. Your users will need the following permissions to use this method to connect to a virtual machine:
+- **Get** access to the secrets stored in the chosen Azure Key Vault
+- **List** access to the secrets stored in the chosen Azure Key Vault
 
 In addition to an SSH key or username/password, when connecting to virtual machines using Azure Bastion your user will need the following role assignments:
 - Reader role on the target virtual machine
@@ -104,7 +108,8 @@ For more information, see the following references:
 
 ### IM-4: Use strong authentication controls for all Azure Active Directory based access
 
-**Guidance**: Azure Bastion is integrated with Azure Active Directory (Azure AD) for access and management of the service. Configure Azure Multi-Factor Authentication for your Azure AD tenant. Azure AD supports strong authentication controls through multi-factor authentication (MFA) and strong passwordless methods.  
+**Guidance**: Azure Bastion is integrated with Azure Active Directory (Azure AD) for access and management of the service. Configure Azure Active Directory Multi-Factor Authentication for your Azure AD tenant. Azure AD supports strong authentication controls through multi-factor authentication (MFA) and strong passwordless methods.
+  
 - Multi-factor authentication: Enable Azure AD MFA and follow Azure Security Center identity and access management recommendations for your MFA setup. MFA can be enforced on all users, select users, or at the per-user level based on sign-in conditions and risk factors. 
 
 - Passwordless authentication: Three passwordless authentication options are available: Windows Hello for Business, Microsoft Authenticator app,  and on-premises authentication methods such as smart cards. 
@@ -147,7 +152,7 @@ Customer can also use different role-based access control policies at domain joi
 
 ## Privileged Access
 
-*For more information, see the [Azure Security Benchmark: Privileged Access](/azure/security/benchmarks/security-controls-v2-privileged-access).*
+*For more information, see the [Azure Security Benchmark: Privileged Access](../security/benchmarks/security-controls-v2-privileged-access.md).*
 
 ### PA-2: Restrict administrative access to business-critical systems
 
@@ -191,7 +196,7 @@ In addition, Azure Privileged Identity Management can also be configured to aler
 
 You should ensure that the credentials (such as password, certificate, or smart card) for emergency access accounts are kept secure and known only to individuals who are authorized to use them only in an emergency.
 
-- [Manage emergency access accounts in Azure AD](/azure/active-directory/users-groups-roles/directory-emergency-access)
+- [Manage emergency access accounts in Azure AD](../active-directory/roles/security-emergency-access.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -213,9 +218,9 @@ You should ensure that the credentials (such as password, certificate, or smart 
 
 **Guidance**: Secured, isolated workstations are critically important for the security of sensitive roles like administrators, developers, and critical service operators. Depending on your requirements, you can use highly secured user workstations for performing administrative management tasks with your Azure Bastion resources in production environments. Use Azure Active Directory, Microsoft Defender Advanced Threat Protection (ATP), and/or Microsoft Intune to deploy a secure and managed user workstation for administrative tasks. The secured workstations can be centrally managed to enforce secured configuration, including strong authentication, software and hardware baselines, and restricted logical and network access. 
 
-- [Understand privileged access workstations](../active-directory/devices/concept-azure-managed-workstation.md)
+- [Understand privileged access workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-- [Deploy a privileged access workstation](../active-directory/devices/howto-azure-managed-workstation.md)
+- [Deploy a privileged access workstation](/security/compass/privileged-access-deployment)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -244,7 +249,7 @@ For more information, see the following references:
 
 ## Asset Management
 
-*For more information, see the [Azure Security Benchmark: Asset Management](/azure/security/benchmarks/security-controls-v2-asset-management).*
+*For more information, see the [Azure Security Benchmark: Asset Management](../security/benchmarks/security-controls-v2-asset-management.md).*
 
 ### AM-1: Ensure security team has visibility into risks for assets
 
@@ -272,7 +277,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 
 - [Azure Security Center asset inventory management](../security-center/asset-inventory.md)
 
-- [For more information about tagging assets, see the resource naming and tagging decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+- [For more information about tagging assets, see the resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
 **Azure Security Center monitoring**: Yes
 
@@ -298,7 +303,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 
 - [Delete of force-disconnect a remote session](session-monitoring.md#view)
 
-- [Azure network CLI](https://docs.microsoft.com/powershell/module/az.network/?view=azps-5.1.0#networking&amp;preserve-view=true)
+- [Azure network CLI](/powershell/module/az.network/?preserve-view=true&view=azps-5.1.0#networking)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -316,7 +321,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 
 ## Logging and Threat Detection
 
-*For more information, see the [Azure Security Benchmark: Logging and Threat Detection](/azure/security/benchmarks/security-controls-v2-logging-threat-protection).*
+*For more information, see the [Azure Security Benchmark: Logging and Threat Detection](../security/benchmarks/security-controls-v2-data-protection.md).*
 
 ### LT-2: Enable threat detection for Azure identity and access management
 
@@ -339,7 +344,7 @@ Azure Security Center can also alert on certain suspicious activities such as an
 
 - [Enable Azure Identity Protection](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Threat protection in Azure Security Center](/azure/security-center/threat-protection)
+- [Threat protection in Azure Security Center](../security-center/azure-defender.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -369,11 +374,11 @@ Enable and collect network security group (NSG) resource logs and NSG flow logs 
 
 **Guidance**: Activity logs, which are automatically available, contain all write operations (PUT, POST, DELETE) for your Azure Bastion resources except read operations (GET). Activity logs can be used to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Understand logging and different log types in Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Understand logging and different log types in Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
-- [Enable Azure resource logs for Azure Bastion ](diagnostic-logs.md)
+- [Enable Azure resource logs for Azure Bastion](diagnostic-logs.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -389,7 +394,7 @@ In addition, enable and onboard data to Azure Sentinel or a third-party SIEM.
 
 Many organizations choose to use Azure Sentinel for “hot” data that is used frequently and Azure Storage for “cold” data that is used less frequently.
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -403,9 +408,9 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 
 In Azure Monitor, you can set your Log Analytics workspace retention period according to your organization's compliance regulations.
 
-- [How to configure Log Analytics Workspace Retention Period](../azure-monitor/platform/manage-cost-storage.md)
+- [How to configure Log Analytics Workspace Retention Period](../azure-monitor/logs/manage-cost-storage.md)
 
-- [Storing resource logs in an Azure Storage Account](/azure/azure-monitor/platform/resource-logs-collect-storage)
+- [Storing resource logs in an Azure Storage Account](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 - [Enable and work with Azure Bastions logs](diagnostic-logs.md)
 
@@ -415,7 +420,7 @@ In Azure Monitor, you can set your Log Analytics workspace retention period acco
 
 ## Incident Response
 
-*For more information, see the [Azure Security Benchmark: Incident Response](/azure/security/benchmarks/security-controls-v2-incident-response).*
+*For more information, see the [Azure Security Benchmark: Incident Response](../security/benchmarks/security-controls-v2-incident-response.md).*
 
 ### IR-1: Preparation – update incident response process for Azure
 
@@ -497,7 +502,7 @@ Additionally, mark resources using tags and create a naming system to identify a
 
 - [Security alerts in Azure Security Center](../security-center/security-center-alerts-overview.md)
 
-- [Use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags)
+- [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -520,13 +525,13 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 
 ## Posture and Vulnerability Management
 
-*For more information, see the [Azure Security Benchmark: Posture and Vulnerability Management](/azure/security/benchmarks/security-controls-v2-vulnerability-management).*
+*For more information, see the [Azure Security Benchmark: Posture and Vulnerability Management](../security/benchmarks/security-controls-v2-posture-vulnerability-management.md).*
 
 ### PV-1: Establish secure configurations for Azure services 
 
 **Guidance**: Define and implement standard security configurations for Azure Bastion with Azure Policy. Use Azure Policy aliases in the "Microsoft.Network" namespace to create custom policies to audit or enforce the network configuration of your Azure Bastion. Customers can also establish secure configurations by leveraging Azure Blueprints or ARM templates to deploy Bastion resources securely and consistently.
 
-- [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -542,7 +547,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 
 **Guidance**: Define and implement standard security configurations for Azure Bastion with Azure Policy. Use Azure Policy aliases in the "Microsoft.Network" namespace to create custom policies to audit or enforce the network configuration of your Bastion resources.
 
-- [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -568,7 +573,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 
 ## Governance and Strategy
 
-*For more information, see the [Azure Security Benchmark: Governance and Strategy](/azure/security/benchmarks/security-controls-v2-governance-strategy).*
+*For more information, see the [Azure Security Benchmark: Governance and Strategy](../security/benchmarks/security-controls-v2-governance-strategy.md).*
 
 ### GS-1: Define asset management and data protection strategy 
 
@@ -593,15 +598,15 @@ This strategy should include documented guidance, policy, and standards for the 
 -	Appropriate cryptographic standards
 
 For more information, see the following references:
-- [Azure Security Architecture Recommendation - Storage, data, and encryption](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
+- [Azure Security Architecture Recommendation - Storage, data, and encryption](/azure/architecture/framework/security/storage-data-encryption?bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Azure Security Fundamentals - Azure Data security, encryption, and storage](../security/fundamentals/encryption-overview.md)
 
-- [Cloud Adoption Framework - Azure data security and encryption best practices](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
+- [Cloud Adoption Framework - Azure data security and encryption best practices](../security/fundamentals/data-encryption-best-practices.md?bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
-- [Azure Security Benchmark - Asset management](/azure/security/benchmarks/security-benchmark-v2-asset-management)
+- [Azure Security Benchmark - Asset management](../security/benchmarks/security-controls-v2-asset-management.md)
 
-- [Azure Security Benchmark - Data Protection](/azure/security/benchmarks/security-benchmark-v2-data-protection)
+- [Azure Security Benchmark - Data Protection](../security/benchmarks/security-controls-v2-data-protection.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -629,7 +634,7 @@ Ensure that the segmentation strategy is implemented consistently across control
 
 **Guidance**: Continuously measure and mitigate risks to your individual assets and the environment they are hosted in. Prioritize high value assets and highly-exposed attack surfaces, such as published applications, network ingress and egress points, user and administrator endpoints, etc.
 
-- [Azure Security Benchmark - Posture and vulnerability management](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
+- [Azure Security Benchmark - Posture and vulnerability management](../security/benchmarks/security-controls-v2-posture-vulnerability-management.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -670,7 +675,7 @@ This strategy should include documented guidance, policy, and standards for the 
 For more information, see the following references:
 - [Azure Security Best Practice 11 - Architecture. Single unified security strategy](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Azure Security Benchmark - Network Security](/azure/security/benchmarks/security-benchmark-v2-network-security)
+- [Azure Security Benchmark - Network Security](../security/benchmarks/security-controls-v2-network-security.md)
 
 - [Azure network security overview](../security/fundamentals/network-overview.md)
 
@@ -698,9 +703,9 @@ This strategy should include documented guidance, policy, and standards for the 
 
 For more information, see the following references:
 
-- [Azure Security Benchmark - Identity management](/azure/security/benchmarks/security-benchmark-v2-identity-management)
+- [Azure Security Benchmark - Identity management](../security/benchmarks/security-controls-v2-identity-management.md)
 
-- [Azure Security Benchmark - Privileged access](/azure/security/benchmarks/security-benchmark-v2-privileged-access)
+- [Azure Security Benchmark - Privileged access](../security/benchmarks/security-controls-v2-privileged-access.md)
 
 - [Azure Security Best Practice 11 - Architecture. Single unified security strategy](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
@@ -732,9 +737,9 @@ This strategy should include documented guidance, policy, and standards for the 
 
 For more information, see the following references:
 
-- [Azure Security Benchmark - Logging and threat detection](/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
+- [Azure Security Benchmark - Logging and threat detection](../security/benchmarks/security-controls-v2-logging-threat-detection.md)
 
-- [Azure Security Benchmark - Incident response](/azure/security/benchmarks/security-benchmark-v2-incident-response)
+- [Azure Security Benchmark - Incident response](../security/benchmarks/security-controls-v2-incident-response.md)
 
 - [Azure Security Best Practice 4 - Process. Update Incident Response Processes for Cloud](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
@@ -748,5 +753,5 @@ For more information, see the following references:
 
 ## Next steps
 
-- See the [Azure Security Benchmark V2 overview](/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure Security Benchmark V2 overview](../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)

@@ -3,7 +3,7 @@ title: Frequently asked questions
 description: Answers for frequently asked questions related to the Azure Container Registry service 
 author: sajayantony
 ms.topic: article
-ms.date: 09/18/2020
+ms.date: 03/15/2021
 ms.author: sajaya
 ---
 
@@ -106,6 +106,7 @@ It takes some time to propagate firewall rule changes. After you change firewall
 - [How do I grant access to pull or push images without permission to manage the registry resource?](#how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource)
 - [How do I enable automatic image quarantine for a registry?](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
 - [How do I enable anonymous pull access?](#how-do-i-enable-anonymous-pull-access)
+- [How do I push non-distributable layers to a registry?](#how-do-i-push-non-distributable-layers-to-a-registry)
 
 ### How do I access Docker Registry HTTP API V2?
 
@@ -255,11 +256,50 @@ Image quarantine is currently a preview feature of ACR. You can enable the quara
 
 ### How do I enable anonymous pull access?
 
-Setting up an Azure container registry for anonymous (public) pull access is currently a preview feature. If you have any [scope map (user) or token resources](./container-registry-repository-scoped-permissions.md) in your registry, please delete them before raising a support ticket (system scope maps can be ignored). To enable public access, please open a support ticket at https://aka.ms/acr/support/create-ticket. For details, see the [Azure Feedback Forum](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
+Setting up an Azure container registry for anonymous (unauthenticated) pull access is currently a preview feature, available in the Standard and Premium [service tiers](container-registry-skus.md). 
+
+To enable anonymous pull access, update a registry using the Azure CLI (version 2.21.0 or later) and pass the `--anonymous-pull-enabled` parameter to the [az acr update](/cli/azure/acr#az_acr_update) command:
+
+```azurecli
+az acr update --name myregistry --anonymous-pull-enabled
+``` 
+
+You many disable anonymous pull access at any time by setting `--anonymous-pull-enabled` to `false`.
 
 > [!NOTE]
-> * Only the APIs required to pull a known image can be accessed anonymously. No other APIs for operations like tag list or repository list are accessible anonymously.
 > * Before attempting an anonymous pull operation, run `docker logout` to ensure that you clear any existing Docker credentials.
+> * Only data-plane operations are available to unauthenticated clients.
+> * The registry may throttle a high rate of unauthenticated requests.
+
+> [!WARNING]
+> Anonymous pull access currently applies to all repositories in the registry. If you manage repository access using [repository-scoped tokens](container-registry-repository-scoped-permissions.md), be aware that all users may pull from those repositories in a registry enabled for anonymous pull. We recommend deleting tokens when anonymous pull access is enabled.
+
+### How do I push non-distributable layers to a registry?
+
+A non-distributable layer in a manifest contains a URL parameter that content may be fetched from. Some possible use cases for enabling non-distributable layer pushes are for network restricted registries, air-gapped registries with restricted access, or for registries with no internet connectivity.
+
+For example, if you have NSG rules set up so that a VM can pull images only from your Azure container registry, Docker will pull failures for foreign/non-distributable layers. For example, a Windows Server Core image would contain foreign layer references to Azure container registry in its manifest and would fail to pull in this scenario.
+
+To enable pushing of non-distributable layers:
+
+1. Edit the `daemon.json` file, which is located in `/etc/docker/` on Linux hosts and at `C:\ProgramData\docker\config\daemon.json` on Windows Server. Assuming the file was previously empty, add the following contents:
+
+   ```json
+   {
+     "allow-nondistributable-artifacts": ["myregistry.azurecr.io"]
+   }
+   ```
+   > [!NOTE]
+   > The value is an array of registry addresses, separated by commas.
+
+2. Save and exit the file.
+
+3. Restart Docker.
+
+When you push images to the registries in the list, their non-distributable layers are pushed to the registry.
+
+> [!WARNING]
+> Non-distributable artifacts typically have restrictions on how and where they can be distributed and shared. Use this feature only to push artifacts to private registries. Ensure that you are in compliance with any terms that cover redistributing non-distributable artifacts.
 
 ## Diagnostics and health checks
 

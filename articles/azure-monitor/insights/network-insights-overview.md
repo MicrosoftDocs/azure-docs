@@ -1,7 +1,6 @@
 ---
 title: Azure Monitor for Networks
 description: An overview of Azure Monitor for Networks, which provides a comprehensive view of health and metrics for all deployed network resources without any configuration.
-ms.subservice: 
 ms.topic: conceptual
 author: KumudD
 ms.author: kumud
@@ -10,7 +9,8 @@ ms.date: 11/25/2020
 ---
 
 # Azure Monitor for Networks
-Azure Monitor for Networks provides a comprehensive view of [health](../../service-health/resource-health-checks-resource-types.md) and [metrics](../platform/metrics-supported.md) for all deployed network resources, without requiring  any configuration. It also provides access to network monitoring capabilities like [Connection Monitor](../../network-watcher/connection-monitor-preview.md), [flow logging for network security groups (NSGs)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md), and [Traffic Analytics](../../network-watcher/traffic-analytics.md). And it provides other network [diagnostic](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) features.
+
+Azure Monitor for Networks provides a comprehensive view of [health](../../service-health/resource-health-checks-resource-types.md) and [metrics](../essentials/metrics-supported.md) for all deployed network resources, without requiring  any configuration. It also provides access to network monitoring capabilities like [Connection Monitor](../../network-watcher/connection-monitor-overview.md), [flow logging for network security groups (NSGs)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md), and [Traffic Analytics](../../network-watcher/traffic-analytics.md). And it provides other network [diagnostic](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) features.
 
 Azure Monitor for Networks is structured around these key components of monitoring:
 - [Network health and metrics](#networkhealth)
@@ -22,7 +22,7 @@ Azure Monitor for Networks is structured around these key components of monitori
 
 The Azure Monitor for Networks **Overview** page provides an easy way to visualize the inventory of your networking resources, together with resource health and alerts. It's divided into four key functional areas: search and filtering, resource health and metrics, alerts, and dependency view.
 
-[![Screenshot that shows the Overview page](media/network-insights-overview/overview.png)](media/network-insights-overview/overview.png)#lightbox)
+[![Screenshot that shows the Overview page](media/network-insights-overview/overview.png)](media/network-insights-overview/overview.png#lightbox)
 
 ### Search and filtering
 You can customize the resource health and alerts view by using filters like **Subscription**, **Resource Group**, and **Type**.
@@ -104,10 +104,12 @@ Diagnostic Toolkit provides access to all the diagnostic features available for 
 
 ![Screenshot that shows the Diagnostic Toolkit tab.](media/network-insights-overview/azure-monitor-for-networks-diagnostic-toolkit.png)
 
+## Onboarded resources 
+
+Onboarded resources have built-in workbooks, and dependency views. Currently onboarded resources are Virtual WAN, Application Gateway, Load Balancer, and ExpressRoute.
+
 ## Troubleshooting 
-
 For general troubleshooting guidance, see the dedicated workbook-based insights [troubleshooting article](troubleshoot-workbooks.md).
-
 This section will help you diagnose and troubleshoot some common problems you might encounter when you use Azure Monitor for Networks. 
 
 ### How do I resolve performance problems or failures?
@@ -115,33 +117,33 @@ This section will help you diagnose and troubleshoot some common problems you mi
 To learn about troubleshooting any networking-related problems you identify with Azure Monitor for Networks, see the troubleshooting documentation for the malfunctioning resource. 
 
 Here are some links to troubleshooting articles for frequently used services. For more troubleshooting articles about these services, see the other articles in the Troubleshooting section of the table of contents for the service.
-* [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-peering-issues)
-* [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/create-gateway-internal-load-balancer-app-service-environment)
-* [Azure VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-troubleshoot)
-* [Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-expressroute-overview) 
-* [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-troubleshoot) 
+* [Azure Virtual Network](../../virtual-network/virtual-network-troubleshoot-peering-issues.md)
+* [Azure Application Gateway](../../application-gateway/create-gateway-internal-load-balancer-app-service-environment.md)
+* [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-troubleshoot.md)
+* [Azure ExpressRoute](../../expressroute/expressroute-troubleshooting-expressroute-overview.md) 
+* [Azure Load Balancer](../../load-balancer/load-balancer-troubleshoot.md) 
 
 ### Why don't I see the resources for all the subscriptions I've selected?
 
-Network Insights can show resources for only five subscriptions at a time. 
+Azure Monitor for Networks can show resources for only five subscriptions at a time. 
 
-### How do I make changes or add visualizations to Network Insights?
+### How do I make changes or add visualizations to Azure Monitor for Networks?
 
 To make changes, select **Edit Mode** to modify the workbook. You can then save your changes as a new workbook that's tied to a designated subscription and resource group.
 
 ### What's the time grain after I pin any part of the workbooks?
 
-Network Insights uses the **Auto** time grain, so the time grain is based on the selected time range.
+Azure Monitor for Networks uses the **Auto** time grain, so the time grain is based on the selected time range.
 
 ### What's the time range when any part of a workbook is pinned?
 
 The time range depends on the dashboard settings.
 
-### What if I want to see other data or make my own visualizations? How can I make changes to Network Insights?
+### What if I want to see other data or make my own visualizations? How can I make changes to Azure Monitor for Networks?
 
 You can edit the workbook you see in any side-panel or detailed metric view by using the edit mode. You can then save your changes as a new workbook.
 
 ## Next steps
 
 - Learn more about network monitoring: [What is Azure Network Watcher?](../../network-watcher/network-watcher-monitoring-overview.md)
-- Learn the scenarios workbooks are designed to support, how to create reports and customize existing reports, and more: [Create interactive reports with Azure Monitor workbooks](../platform/workbooks-overview.md)
+- Learn the scenarios workbooks are designed to support, how to create reports and customize existing reports, and more: [Create interactive reports with Azure Monitor workbooks](../visualize/workbooks-overview.md)

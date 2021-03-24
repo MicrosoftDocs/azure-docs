@@ -3,7 +3,7 @@ title: 'ML Studio (classic): Net# custom neural networks - Azure'
 description: Syntax guide for the Net# neural networks specification language. Learn how to create custom neural network models in Azure Machine Learning Studio (classic).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: reference
 
 author: likebupt
@@ -220,7 +220,7 @@ There are two sets of properties that control padding, the properties being mutu
 
 For more information about convolutional networks and their applications, see these articles:
 
-+ [http://deeplearning.net/tutorial/lenet.html](http://deeplearning.net/tutorial/lenet.html)
++ [http://d2l.ai/chapter_convolutional-neural-networks/lenet.html ](http://d2l.ai/chapter_convolutional-neural-networks/lenet.html )
 + [https://research.microsoft.com/pubs/68920/icdar03.pdf](https://research.microsoft.com/pubs/68920/icdar03.pdf)
 
 ## Pooling bundles

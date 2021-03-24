@@ -12,7 +12,7 @@ ms.custom: "include file"
 ---
 
 ## Prerequisites
-If you don't have an [Azure subscription](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+If you don't have an [Azure subscription](../articles/guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
 ## Create a Service Bus namespace
 Follow instructions in this tutorial: [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions to the topic](../articles/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md) to do the following tasks:
@@ -37,4 +37,3 @@ In this step, you use a sample application to send messages to the Service Bus t
 5. Build and run the program to send 5 test messages (`const int numberOfMessages = 5;`) to the Service Bus topic. 
 
     :::image type="content" source="./media/service-bus-event-grid-prerequisites/console-app-output.png" alt-text="Console app output":::
-    

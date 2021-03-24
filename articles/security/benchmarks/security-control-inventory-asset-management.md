@@ -26,7 +26,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 - [How to create queries with Azure Resource Graph](../../governance/resource-graph/first-query-portal.md)
 
-- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription)
 
 - [Understand Azure RBAC](../../role-based-access-control/overview.md)
 
@@ -96,7 +96,7 @@ Use Azure Security Center's File Integrity Monitoring (Change Tracking) and virt
 
 - [How to use File Integrity Monitoring](../../security-center/security-center-file-integrity-monitoring.md)
 
-- [Understand Azure Change Tracking](../../automation/change-tracking.md)
+- [Understand Azure Change Tracking](../../automation/change-tracking/overview.md)
 
 - [How to enable Azure virtual machine inventory](../../automation/automation-tutorial-installed-software.md)
 
@@ -152,7 +152,7 @@ Use Azure Conditional Access to limit users' ability to interact with Azure Reso
 
 Depending on the type of scripts, you may use operating system specific configurations or third-party resources to limit users' ability to execute scripts within Azure compute resources.  You can also leverage Azure Security Center Adaptive Application Controls to ensure that only authorized software executes and all unauthorized software is blocked from executing on Azure Virtual Machines.
 
-- [How to control PowerShell script execution in Windows Environments](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
+- [How to control PowerShell script execution in Windows Environments](/powershell/module/microsoft.powershell.security/set-executionpolicy)
 
 - [How to use Azure Security Center Adaptive Application Controls](../../security-center/security-center-adaptive-application.md)
 

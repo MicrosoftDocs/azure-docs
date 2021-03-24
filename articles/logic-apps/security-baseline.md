@@ -96,7 +96,7 @@ Use Azure Security Center Adaptive Network Hardening to recommend NSG configurat
 
 - [How to restrict inbound IP addresses](logic-apps-securing-a-logic-app.md#restrict-inbound-ip-addresses)
 
-- [How to configure DDoS protection](../virtual-network/manage-ddos-protection.md)
+- [How to configure DDoS protection](../ddos-protection/manage-ddos-protection.md)
 
 - [How to deploy Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -214,9 +214,9 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 **Guidance**: Use the Azure Activity log to monitor network resource configurations and detect changes for network resources related to your Azure Logic Apps instances. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
-- [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -240,7 +240,7 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 Alternatively, you may enable and on-board data to Azure Sentinel or a third-party SIEM. 
 
-- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
+- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 - [How to set up Azure Monitor logs and collect diagnostics data for Azure Logic Apps](monitor-logic-apps-log-analytics.md)
 
@@ -256,7 +256,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 Alternatively, you may enable and on-board data to Azure Sentinel or a third-party SIEM. 
 
-- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
+- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 - [How to set up Azure Monitor logs and collect diagnostics data for Azure Logic Apps](monitor-logic-apps-log-analytics.md)
 
@@ -282,7 +282,7 @@ In Azure Monitor, set log retention period for logs associated with your Azure L
 
 - [How to monitor run status, review trigger history, and set up alerts for Azure Logic Apps](monitor-logic-apps.md)
 
-- [How to set log retention parameters](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [How to set log retention parameters](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center monitoring**: Yes
 
@@ -298,9 +298,9 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 - [How to set up Azure Monitor logs and collect diagnostics data for Azure Logic Apps](monitor-logic-apps-log-analytics.md)
 
-- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
+- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
-- [How to collect and analyze Azure activity logs in Log Analytics in Azure Monitor](../azure-monitor/platform/activity-log.md)
+- [How to collect and analyze Azure activity logs in Log Analytics in Azure Monitor](../azure-monitor/essentials/activity-log.md)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
@@ -318,7 +318,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel.
 
 - [How to manage alerts in Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [How to alert on log analytics log data](../azure-monitor/learn/tutorial-response.md)
+- [How to alert on log analytics log data](../azure-monitor/alerts/tutorial-response.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -442,7 +442,7 @@ For connectors that use Azure Active Directory (Azure AD) OAuth, creating a conn
 
 **Guidance**: Use privileged access workstations (PAW) with Multi-Factor Authentication (MFA) configured to log into and configure Azure resources.
 
-- [Learn about Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Learn about Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -683,7 +683,7 @@ When you create an integration service environment (ISE) for hosting your logic 
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place in Azure Logic Apps as well as other critical or related resources.
 
-- [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Yes
 

@@ -2,8 +2,7 @@
 title: 'Quickstart: Create an Ubuntu Data Science Virtual Machine'
 titleSuffix: Azure Data Science Virtual Machine 
 description: Configure and create a Data Science Virtual Machine for Linux (Ubuntu) to do analytics and machine learning.
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 
 author: lobrien
 ms.author: laobri
@@ -71,8 +70,6 @@ You can access the Ubuntu DSVM in one of three ways:
   * SSH for terminal sessions
   * X2Go for graphical sessions
   * JupyterHub and JupyterLab for Jupyter notebooks
-
-You can also attach a Data Science Virtual Machine to Azure Notebooks to run Jupyter notebooks on the VM and bypass the limitations of the free service tier. For more information, see [Manage and configure Azure Notebooks projects](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ### SSH
 

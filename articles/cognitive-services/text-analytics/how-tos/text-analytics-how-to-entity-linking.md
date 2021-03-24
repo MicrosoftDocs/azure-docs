@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 11/19/2020
+ms.date: 03/15/2021
 ms.author: aahi
 ---
 
@@ -27,13 +27,11 @@ Named Entity Recognition (NER) is the ability to identify different entities in 
 
 ## Personally Identifiable Information (PII)
 
-The PII feature is part of NER and it can identify and redact sensitive entities in text that are associated with an individual person such as: phone number, email address, mailing address, passport number.  
+The PII feature is part of NER and it can identify and redact sensitive entities in text that are associated with an individual person such as: phone number, email address, mailing address, passport number.
 
 ## Named Entity Recognition features and versions
 
-[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
-
-| Feature                                                         | NER v3.0 | NER v3.1-preview.3 |
+| Feature                                                         | NER v3.0 | NER v3.1-preview.4 |
 |-----------------------------------------------------------------|--------|----------|
 | Methods for single, and batch requests                          | X      | X        |
 | Expanded entity recognition across several categories           | X      | X        |
@@ -45,12 +43,12 @@ See [language support](../language-support.md) for information.
 
 Named Entity Recognition v3 provides expanded detection across multiple types. Currently, NER v3.0 can recognize entities in the [general entity category](../named-entity-types.md).
 
-Named Entity Recognition v3.1-preview.3 includes the detection capabilities of v3.0, and: 
-* The ability to detect personal information (`PII`) using the `v3.1-preview.3/entities/recognition/pii` endpoint. 
+Named Entity Recognition v3.1-preview.4 includes the detection capabilities of v3.0, and: 
+* The ability to detect personal information (`PII`) using the `v3.1-preview.4/entities/recognition/pii` endpoint. 
 * An optional `domain=phi` parameter to detect confidential health information (`PHI`).
 * [Asynchronous operation](text-analytics-how-to-call-api.md) using the `/analyze` endpoint.
 
-For more information, see the [entity categories](../named-entity-types.md) article, and [request endpoints](#request-endpoints) section below. 
+For more information, see the [entity categories](../named-entity-types.md) article, and [request endpoints](#request-endpoints) section below. For more information on confidence scores, see the [Text Analytics transparency note](/legal/cognitive-services/text-analytics/transparency-note?context=/azure/cognitive-services/text-analytics/context/context). 
 
 ## Sending a REST API request
 
@@ -70,30 +68,42 @@ Create a POST request. You can [use Postman](text-analytics-how-to-call-api.md) 
 
 ### Request endpoints
 
-#### [Version 3.1-preview.3](#tab/version-3-preview)
+#### [Version 3.1-preview](#tab/version-3-preview)
 
-Named Entity Recognition `v3.1-preview.3` uses separate endpoints for NER, PII, and entity linking requests. Use a URL format below based on your request.
+Named Entity Recognition `v3.1-preview.4` uses separate endpoints for NER, PII, and entity linking requests. Use a URL format below based on your request.
 
 **Entity linking**
-* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/linking`
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/entities/linking`
 
-[Named Entity Recognition version 3.1-preview reference for `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesLinking)
+[Named Entity Recognition version 3.1-preview reference for `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-4/operations/EntitiesLinking)
 
 **Named Entity Recognition**
-* General entities - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/general`
+* General entities - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/entities/recognition/general`
 
-[Named Entity Recognition version 3.1-preview reference for `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesRecognitionGeneral)
+[Named Entity Recognition version 3.1-preview reference for `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-4/operations/EntitiesRecognitionGeneral)
 
 **Personally Identifiable Information (PII)**
-* Personal (`PII`) information - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/pii`
+* Personal (`PII`) information - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/entities/recognition/pii`
 
 You can also use the optional `domain=phi` parameter to detect health (`PHI`) information in text. 
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/pii?domain=phi`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/entities/recognition/pii?domain=phi`
 
-Starting in `v3.1-preview.3`, The JSON response includes a `redactedText` property, which contains the modified input text where the detected PII entities are replaced by an `*` for each character in the entities.
+Starting in `v3.1-preview.4`, The JSON response includes a `redactedText` property, which contains the modified input text where the detected PII entities are replaced by an `*` for each character in the entities.
 
-[Named Entity Recognition version 3.1-preview reference for `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesRecognitionPii)
+[Named Entity Recognition version 3.1-preview reference for `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-4/operations/EntitiesRecognitionPii)
+
+The API will attempt to detect the [listed entity categories](../named-entity-types.md?tabs=personal) for a given document language. If you want to specify which entities will be detected and returned, use the optional pii-categories parameter with the appropriate entity categories. This parameter can also let you detect entities that aren't enabled by default for your document language. For example, a French driver's license number that might occur in English text.
+
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/entities/recognition/pii?piiCategories=[FRDriversLicenseNumber]`
+
+**Asynchronous operation**
+
+Starting in `v3.1-preview.4`, You can send NER and entity linking requests asynchronously using the `/analyze` endpoint.
+
+* Asynchronous operation - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/analyze`
+
+See [How to call the Text Analytics API](text-analytics-how-to-call-api.md) for information on sending asynchronous requests.
 
 #### [Version 3.0](#tab/version-3)
 
@@ -113,7 +123,11 @@ Named Entity Recognition v3 uses separate endpoints for NER and entity linking r
 
 Set a request header to include your Text Analytics API key. In the request body, provide the JSON documents you prepared.
 
-### Example NER request 
+## Example requests
+
+#### [Version 3.1-preview](#tab/version-3-preview)
+
+### Example synchronous NER request 
 
 The following JSON is an example of content you might send to the API. The request format is the same for both versions of the API.
 
@@ -127,8 +141,64 @@ The following JSON is an example of content you might send to the API. The reque
     }
   ]
 }
-
 ```
+
+### Example asynchronous NER request
+
+If you use the `/analyze` endpoint for [asynchronous operation](text-analytics-how-to-call-api.md), you will get a response containing the tasks you sent to the API.
+
+```json
+{
+    "displayName": "My Job",
+    "analysisInput": {
+        "documents": [
+            {
+                "id": "doc1",
+                "text": "It's incredibly sunny outside! I'm so happy"
+            },
+            {
+                "id": "doc2",
+                "text": "Pike place market is my favorite Seattle attraction."
+            }
+        ]
+    },
+    "tasks": {
+        "entityRecognitionTasks": [
+            {
+                "parameters": {
+                    "model-version": "latest",
+                    "stringIndexType": "TextElements_v8"
+                }
+            }
+        ],
+        "entityRecognitionPiiTasks": [{
+            "parameters": {
+                "model-version": "latest"
+            }
+        }]
+    }
+}
+```
+
+#### [Version 3.0](#tab/version-3)
+
+### Example synchronous NER request 
+
+Version 3.0 only includes synchronous operation. The following JSON is an example of content you might send to the API. The request format is the same for both versions of the API.
+
+```json
+{
+  "documents": [
+    {
+        "id": "1",
+        "language": "en",
+        "text": "Our tour guide took us up the Space Needle during our trip to Seattle last week."
+    }
+  ]
+}
+```
+
+---
 
 ## Post the request
 
@@ -144,11 +214,68 @@ Output is returned immediately. You can stream the results to an application tha
 
 ### Example responses
 
-Version 3 provides separate endpoints for general NER, PII, and entity linking. The responses for both operations are below. 
+Version 3 provides separate endpoints for general NER, PII, and entity linking. Version 3.1-pareview includes an asynchronous Analyze mode. The responses for these operations are below. 
 
 #### [Version 3.1-preview](#tab/version-3-preview)
 
+### Synchronous example results
+
+Example of a general NER response:
+
+```json
+{
+  "documents": [
+    {
+      "id": "1",
+      "entities": [
+        {
+          "text": "tour guide",
+          "category": "PersonType",
+          "offset": 4,
+          "length": 10,
+          "confidenceScore": 0.45
+        },
+        {
+          "text": "Space Needle",
+          "category": "Location",
+          "offset": 30,
+          "length": 12,
+          "confidenceScore": 0.38
+        },
+        {
+          "text": "trip",
+          "category": "Event",
+          "offset": 54,
+          "length": 4,
+          "confidenceScore": 0.78
+        },
+        {
+          "text": "Seattle",
+          "category": "Location",
+          "subcategory": "GPE",
+          "offset": 62,
+          "length": 7,
+          "confidenceScore": 0.78
+        },
+        {
+          "text": "last week",
+          "category": "DateTime",
+          "subcategory": "DateRange",
+          "offset": 70,
+          "length": 9,
+          "confidenceScore": 0.8
+        }
+      ],
+      "warnings": []
+    }
+  ],
+  "errors": [],
+  "modelVersion": "2020-04-01"
+}
+```
+
 Example of a PII response:
+
 ```json
 {
   "documents": [
@@ -235,6 +362,58 @@ Example of an Entity linking response:
 }
 ```
 
+### Example asynchronous result
+
+```json
+{
+  "displayName": "My Analyze Job",
+  "jobId": "dbec96a8-ea22-4ad1-8c99-280b211eb59e_637408224000000000",
+  "lastUpdateDateTime": "2020-11-13T04:01:14Z",
+  "createdDateTime": "2020-11-13T04:01:13Z",
+  "expirationDateTime": "2020-11-14T04:01:13Z",
+  "status": "running",
+  "errors": [],
+  "tasks": {
+      "details": {
+          "name": "My Analyze Job",
+          "lastUpdateDateTime": "2020-11-13T04:01:14Z"
+      },
+      "completed": 1,
+      "failed": 0,
+      "inProgress": 2,
+      "total": 3,
+      "keyPhraseExtractionTasks": [
+          {
+              "name": "My Analyze Job",
+              "lastUpdateDateTime": "2020-11-13T04:01:14.3763516Z",
+              "results": {
+                  "inTerminalState": true,
+                  "documents": [
+                      {
+                          "id": "doc1",
+                          "keyPhrases": [
+                              "sunny outside"
+                          ],
+                          "warnings": []
+                      },
+                      {
+                          "id": "doc2",
+                          "keyPhrases": [
+                              "favorite Seattle attraction",
+                              "Pike place market"
+                          ],
+                          "warnings": []
+                      }
+                  ],
+                  "errors": [],
+                  "modelVersion": "2020-07-01"
+              }
+          }
+      ]
+  }
+}
+```
+
 
 #### [Version 3.0](#tab/version-3)
 
@@ -305,5 +484,5 @@ In this article, you learned concepts and workflow for entity linking using Text
 ## Next steps
 
 * [Text Analytics overview](../overview.md)
-* [Using the Text Analytics client library](../quickstarts/text-analytics-sdk.md)
+* [Using the Text Analytics client library](../quickstarts/client-libraries-rest-api.md)
 * [What's new](../whats-new.md)

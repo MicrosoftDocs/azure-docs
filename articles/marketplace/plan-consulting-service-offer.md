@@ -22,16 +22,55 @@ Consulting service offers are published as **Contact me** listings. This means t
 
 ## Primary products and online stores
 
-Each consulting service offer should focus on a Microsoft product, called **primary product**. The primary product you select in Partner Center determines whether your offer will be published to Microsoft AppSource or Azure Marketplace.
+Each consulting service must focus on one of these Microsoft products, called the **primary product** of the offer:
 
-* If the primary product of your consulting service is Azure, the offer will be listed in Azure Marketplace.
-* If the primary product is not Azure, the offer will be listed in AppSource.
+:::row:::
+    :::column:::
+        Azure
+
+        Dynamics 365 Business Central
+
+        Dynamics 365 Commerce
+
+        Dynamics 365 Customer Insights
+
+        Dynamics 365 Customer Service
+
+        Dynamics 365 Field Service
+
+        Dynamics 365 Finance
+
+        Dynamics 365 Marketing
+    :::column-end:::
+    :::column:::
+        Dynamics 365 Project Service Automation
+
+        Dynamics 365 Sales
+
+        Dynamics 365 Supply Chain Management
+
+        Microsoft 365
+
+        Power Apps
+
+        Power Automate
+
+        Power BI
+
+        Power Virtual Agents
+    :::column-end:::
+:::row-end:::
+
+The primary product you select in Partner Center determines whether your offer will be published to Microsoft AppSource or Azure Marketplace.
+
+* If the primary product of your consulting service is Azure, the offer will be listed on Azure Marketplace.
+* If the primary product is not Azure, the offer will be listed on AppSource.
 
 To learn more about the differences between AppSource and Azure Marketplace, see [Commercial marketplace online stores](./overview.md#commercial-marketplace-online-stores).
 
 ## Eligibility requirements
 
-To demonstrate to customers your expertise in a field, you must meet a set of eligibility requirements before publishing a consulting service offer. The requirements depend on the product at the core of your offer. The complete list of eligibility requirements for each primary product is in the [certification policies for consulting services](https://docs.microsoft.com/legal/marketplace/certification-policies#800-consulting-services).
+To demonstrate to customers your expertise in a field, you must meet a set of eligibility requirements before publishing a consulting service offer. The requirements depend on the product at the core of your offer. The complete list of eligibility requirements for each primary product is in the [certification policies for consulting services](/legal/marketplace/certification-policies#800-consulting-services).
 
 > [!NOTE]
 > For some primary products, you must have a Gold or Silver Microsoft competency in your solution area. For more information, see [Microsoft Partner Network Competencies](https://partner.microsoft.com/membership/competencies).
@@ -86,6 +125,7 @@ To help create your offer more easily, prepare some of these items ahead of time
 |Getting Started with Azure IoT in Manufacturing |Manufacturing IoT: 2-Day Assessment |
 |Workshop on Smart Toasters |Smart Toasters: 1-Week Workshop |
 |SQL Server Migration PoC by Contoso |SQL Migration: 3-Wk Proof of Concept |
+| | |
 
 **Search results summary**: Describe the purpose or goal of your offer in 200 characters or less. This summary is used in the commercial marketplace listing search results. It shouldn’t be identical to the title. Consider including your top SEO keywords.
 
@@ -100,6 +140,7 @@ When writing the description, follow these criteria, according to your service t
 |Implementation |Include a detailed agenda for implementations longer than a day, and describe what engineering changes, technical artifacts, or other artifacts a customer can expect as outcomes of the engagement. |
 |Proof of concept |Describe what engineering changes, technical artifacts, or other artifacts a customer can expect as outcomes of the engagement. |
 |Workshop |Include a detailed daily, weekly, or monthly agenda depending on the duration of your offer. Articulate the learning goals or other deliverables of your workshop. |
+| | |
 
 Here are some tips for writing your description:
 
@@ -137,6 +178,11 @@ Follow these guidelines for your logos:
 **Marketplace media – screenshots**: Add at least one and up to five images that demonstrate your offer. All images must be 1280 x 720 pixels in size and in .PNG format.
 
 **Marketplace media – videos** (optional): you can add up to four videos that demonstrate your offer. The videos must be hosted on YouTube or Vimeo and have a thumbnail (1280 x 720 PNG file).
+
+## Pricing and availability
+
+Your consulting service offer can be made available in one or more countries or regions. In Partner Center, you can decide the price for each market you select. For the complete list of supported markets and currencies, see [Geographic availability and currency support for the commercial marketplace](./marketplace-geo-availability-currencies.md).
+
 
 ## Next steps
 

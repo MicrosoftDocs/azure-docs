@@ -1,5 +1,5 @@
 ---
-title: Plan and troubleshoot Azure User Principle name (UPN) changes
+title: Plan and troubleshoot Azure User Principal name (UPN) changes
 description: Understand known issues and mitigations for UPN changes
 
 services: active-directory
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Plan and troubleshoot User Principal Name changes in Azure Active Directory
 
-A User Principal Name (UPN) is an attribute that is an internet communication standard for user accounts. A UPN consists of a UPN prefix (the user account name) and a UPN suffix (a DNS domain name). The prefix joins the suffix using the "@" symbol. For example, someone@example.com. A UPN must be unique among all security principal objects within a directory forest. 
+A User Principal Name (UPN) is an attribute that is an internet communication standard for user accounts. A UPN consists of a UPN prefix (the user account name) and a UPN suffix (a DNS domain name). The prefix joins the suffix using the "\@" symbol. For example, someone@example.com. A UPN must be unique among all security principal objects within a directory forest. 
 
 **This article assumes you're using UPN as the user identifier. It addresses planning for UPN changes, and recovering from issues that may result from UPN changes.**
 
@@ -132,7 +132,7 @@ Users may experience single sign-on issues with applications that depend on Azur
 The issues mentioned on this section have been fixed on the Windows 10 May 2020 update (2004).
 
 **Workaround** <br>
-Allow enough time for the UPN change to sync to Azure AD. Once you verify that the new UPN is reflected on the Azure AD Portal, ask the user to select the "Other user" tile to sign in with their new UPN. You can also verify through [PowerShell](/powershell/module/azuread/get-azureaduser?view=azureadps-2.0). After signing in with their new UPN, references to the old UPN might still appear on the "Access work or school" Windows setting.
+Allow enough time for the UPN change to sync to Azure AD. Once you verify that the new UPN is reflected on the Azure AD Portal, ask the user to select the "Other user" tile to sign in with their new UPN. You can also verify through [PowerShell](/powershell/module/azuread/get-azureaduser). After signing in with their new UPN, references to the old UPN might still appear on the "Access work or school" Windows setting.
 
 ![Screenshot of verified domains](./media/howto-troubleshoot-upn-changes/other-user.png)
 
@@ -173,7 +173,7 @@ The [Microsoft Authenticator app](../user-help/user-help-auth-app-overview.md) h
 
 * Multi-factor authentication via a push notification or verification code
 
-* Act as an Authentication Broker on iOS and Android devices to provide single sign-on for applications that use [Brokered authentication](../develop/brokered-auth.md)
+* Act as an Authentication Broker on iOS and Android devices to provide single sign-on for applications that use [Brokered authentication](../develop/msal-android-single-sign-on.md)
 
 * Device registration (also known as Workplace Join) to Azure AD, which is a requirement for other features like Intune App Protection and Device Enrolment/Management,
 

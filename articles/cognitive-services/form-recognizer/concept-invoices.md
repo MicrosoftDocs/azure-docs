@@ -3,25 +3,25 @@ title: Invoices - Form Recognizer
 titleSuffix: Azure Cognitive Services
 description: Learn concepts related to invoice analysis with the Form Recognizer API - usage and limits.
 services: cognitive-services
-author: PatrickFarley
+author: laujan
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 11/18/2020
-ms.author: pafarley
+ms.date: 03/15/2021
+ms.author: lajanuar
 ---
 
 # Form Recognizer prebuilt invoice model
 
-Azure Form Recognizer can analyze and extract information from sales invoices using its prebuilt invoice models. The Invoice API enables customers to take invoices in a variety of formats and return structured data to automate the invoice processing. It combines our powerful [Optical Character Recognition (OCR)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) capabilities with invoice understanding deep learning models to extract key information from invoices in English. It extracts the text, tables, and information such as customer, vendor, invoice ID, invoice due date, total, invoice amount due, tax amount, ship to, bill to, and more. The prebuilt Invoice API is publicly available in the Form Recognizer v2.1 preview.
+Azure Form Recognizer can analyze and extract information from sales invoices using its prebuilt invoice models. The Invoice API enables customers to take invoices in a variety of formats and return structured data to automate the invoice processing. It combines our powerful [Optical Character Recognition (OCR)](../computer-vision/concept-recognizing-text.md) capabilities with invoice understanding deep learning models to extract key information from invoices in English. It extracts the text, tables, and information such as customer, vendor, invoice ID, invoice due date, total, invoice amount due, tax amount, ship to, bill to, line items and more. The prebuilt Invoice API is publicly available in the Form Recognizer v2.1 preview.
 
 ## What does the Invoice service do?
 
-The Invoice API extracts key fields from invoices and returns them in an organized structured JSON response. Invoices can be from a variety of formats and quality, including  phone-captured images, scanned documents, and digital PDFs. The invoice API will extract the structured output from all of these invoices. 
+The Invoice API extracts key fields and line items from invoices and returns them in an organized structured JSON response. Invoices can be from a variety of formats and quality, including  phone-captured images, scanned documents, and digital PDFs. The invoice API will extract the structured output from all of these invoices. 
 
-![Contoso invoice example](./media/invoice-example.jpg)
+![Contoso invoice example](./media/invoice-example-new.jpg)
 
 ## Try it out
 
@@ -30,55 +30,54 @@ To try out the Form Recognizer Invoice Service, go to the online Sample UI Tool:
 > [!div class="nextstepaction"]
 > [Try Prebuilt Models](https://fott-preview.azurewebsites.net/)
 
-You will need an Azure subscription ([create one for free](https://azure.microsoft.com/free/cognitive-services)) and a [Form Recognzier resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer Invoice service. 
+You will need an Azure subscription ([create one for free](https://azure.microsoft.com/free/cognitive-services)) and a [Form Recognizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer Invoice service. 
 
-![Analyzed invoice example](./media/analyze-invoice.png)
+:::image type="content" source="media/analyze-invoice-new.png" alt-text="Analyzed invoice example" lightbox="media/analyze-invoice-new.png":::
 
+### Input requirements
 
-### Input requirements 
-
-[!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
+[!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
 ## The Analyze Invoice operation
 
-The [Analyze Invoice](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeInvoiceAsync) operation takes an image or PDF of an invoice as the input and extracts the values of interest. The call returns a response header field called `Operation-Location`. The `Operation-Location` value is a URL that contains the Result ID to be used in the next step.
+The [Analyze Invoice](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5ed8c9843c2794cbb1a96291) operation takes an image or PDF of an invoice as the input and extracts the values of interest. The call returns a response header field called `Operation-Location`. The `Operation-Location` value is a URL that contains the Result ID to be used in the next step.
 
 |Response header| Result URL |
 |:-----|:----|
-|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.2/prebuilt/invoice/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
+|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.3/prebuilt/invoice/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
 
 ## The Get Analyze Invoice Result operation
 
-The second step is to call the [Get Analyze Invoice Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeInvoiceResult) operation. This operation takes as input the Result ID that was created by the Analyze Invoice operation. It returns a JSON response that contains a **status** field with the following possible values. You call this operation iteratively until it returns with the **succeeded** value. Use an interval of 3 to 5 seconds to avoid exceeding the requests per second (RPS) rate.
+The second step is to call the [Get Analyze Invoice Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5ed8c9acb78c40a2533aee83) operation. This operation takes as input the Result ID that was created by the Analyze Invoice operation. It returns a JSON response that contains a **status** field with the following possible values. You call this operation iteratively until it returns with the **succeeded** value. Use an interval of 3 to 5 seconds to avoid exceeding the requests per second (RPS) rate.
 
 |Field| Type | Possible values |
 |:-----|:----:|:----|
 |status | string | notStarted: The analysis operation has not started.<br /><br />running: The analysis operation is in progress.<br /><br />failed: The analysis operation has failed.<br /><br />succeeded: The analysis operation has succeeded.|
 
-When the **status** field has the **succeeded** value, the JSON response will include the invoice understanding results, tables extracted and optional text recognition results, if requested. The invoice understanding result is organized as a dictionary of named field values, where each value contains the extracted text, normalized value, bounding box, confidence and corresponding word elements. The text recognition result is organized as a hierarchy of lines and words, with text, bounding box and confidence information.
+When the **status** field has the **succeeded** value, the JSON response will include the invoice understanding results, tables extracted and optional text recognition results, if requested. The invoice understanding result is organized as a dictionary of named field values, where each value contains the extracted text, normalized value, bounding box, confidence and corresponding word elements. It also includes the line items extracted where each line item contains the amount, description, unitPrice, quantity etc. The text recognition result is organized as a hierarchy of lines and words, with text, bounding box and confidence information.
 
 ### Sample JSON output
 
 The response to the Get Analyze Invoice Result operation will be the structured representation of the invoice with all the information extracted. 
-See here for a [sample invoice file](./media/sample-invoice.jpg) and its structured output [sample invoice output](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/curl/form-recognizer/sample-invoice-output.json).
+See here for a [sample invoice file](media/sample-invoice.jpg) and its structured output [sample invoice output](media/invoice-example-new.jpg).
 
 The JSON output has 3 parts: 
 * `"readResults"` node contains all of the recognized text and selection marks. Text is organized by page, then by line, then by individual words. 
 * `"pageResults"` node contains the tables and cells extracted with their bounding boxes, confidence and a reference to the lines and words in "readResults".
-* `"documentResults"` node contains the invoice specific values that the model discovered. This is where you'll find all the fields from the invoice such as invoice ID, ship to, bill to, customer, total and lots more.
+* `"documentResults"` node contains the invoice specific values and line items that the model discovered. This is where you'll find all the fields from the invoice such as invoice ID, ship to, bill to, customer, total, line items and lots more.
 
 ## Example output
 
-The Invoice service will extract the text, tables and 26 invoice fields. Following are the fields extracted from an invoice in the JSON output response (the output below uses this [sample invoice](./media/sample-invoice.jpg))  
+The Invoice service will extract the text, tables and 26 invoice fields. Following are the fields extracted from an invoice in the JSON output response (the output below uses this [sample invoice](media/sample-invoice.jpg)).
 
 |Name| Type | Description | Text | Value (standardized output) |
 |:-----|:----|:----|:----| :----|
 | CustomerName | string | Customer being invoiced | Microsoft Corp |  |
 | CustomerId | string | Reference ID for the customer | CID-12345 |  |
-| PurchaseOrder | string | A purchase order reference number | PO-3333 | |  |
-| InvoiceId | string | Id for this specific invoice (often "Invoice Number") | INV-100 | |  |
-| InvoiceDate | date | Date the invoice was issued | 11/15/2019 | 
-| DueDate | date | Date payment for this invoice is due | 12/15/2019 | 2019-12-15 | 2019-11-15 |
+| PurchaseOrder | string | A purchase order reference number | PO-3333 | | 
+| InvoiceId | string | ID for this specific invoice (often "Invoice Number") | INV-100 | | 
+| InvoiceDate | date | Date the invoice was issued | 11/15/2019 | 2019-11-15 | 
+| DueDate | date | Date payment for this invoice is due | 12/15/2019 | 2019-12-15 |
 | VendorName | string | Vendor who has created this invoice | CONTOSO LTD. | |
 | VendorAddress | string | Mailing address for the Vendor | 123 456th St New York, NY, 10001 | |
 | VendorAddressRecipient | string | Name associated with the VendorAddress | Contoso Headquarters | |
@@ -100,14 +99,27 @@ The Invoice service will extract the text, tables and 26 invoice fields. Followi
 | ServiceEndDate | date | End date for the service period (for example, a utility bill service period) | 11/14/2019 | 2019-11-14 |
 | PreviousUnpaidBalance | number | Explicit previously unpaid balance | $500.00 | 500 |
 
+Following are the line items extracted from an invoice in the JSON output response (the output below uses this [sample invoice](./media/sample-invoice.jpg))  
+
+|Name| Type | Description | Text (line item #1) | Value (standardized output) |
+|:-----|:----|:----|:----| :----|
+| Items | string | Full string text line of the line item | 3/4/2021 A123 Consulting Services 2 hours $30.00 10% $60.00 | |
+| Amount | number | The amount of the line item | $60.00 | 100 |
+| Description | string | The text description for the invoice line item | Consulting service | Consulting service |
+| Quantity | number | The quantity for this invoice line item | 2 | 2 |
+| UnitPrice | number | The net or gross price (depending on the gross invoice setting of the invoice) of one unit of this item | $30.00 | 30 |
+| ProductCode | string| Product code, product number, or SKU associated with the specific line item | A123 | |
+| Unit | string| The unit of the line item e.g kg, lb etc. | hours | |
+| Date | date| Date corresponding to each line item. Often this is a date the line item was shipped | 3/4/2021| 2021-03-04 |
+| Tax | number | Tax associated with each line item. Possible values include tax amount, tax %, and tax Y/N | 10% | |
+
 
 ## Next steps
 
 - Try your own invoices and samples in the [Form Recognizer Sample UI](https://fott-preview.azurewebsites.net/).
-- Complete a [Form Recognizer client library quickstart](quickstarts/client-library.md) to get started writing an invoice processing app with Form Recognizer in the language of your choice.
-- Or, follow the [Extract invoice data](./quickstarts/python-invoices.md) quickstart to implement invoice data extraction using Python and the REST API.
+- Complete a [Form Recognizer quickstart](quickstarts/client-library.md) to get started writing an invoice processing app with Form Recognizer in the development language of your choice.
+
 ## See also
 
 * [What is Form Recognizer?](./overview.md)
-* [REST API reference docs](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeInvoiceAsync)
-
+* [REST API reference docs](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5ed8c9843c2794cbb1a96291)

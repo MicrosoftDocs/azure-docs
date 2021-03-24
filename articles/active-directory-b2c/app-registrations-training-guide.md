@@ -59,12 +59,13 @@ In the legacy experience, apps were always created as customer-facing applicatio
 > [!NOTE]
 > This option is required to be able to run Azure AD B2C user flows to authenticate users for this application. Learn [how to register an application for use with user flows.](tutorial-register-applications.md)
 
-You can also use this option  to use Azure AD B2C as a SAML service provider. [Learn more](identity-provider-adfs2016-custom.md).
+You can also use this option  to use Azure AD B2C as a SAML service provider. [Learn more](identity-provider-adfs.md).
 
 ## Applications for DevOps scenarios
+
 You can use the other account types to create an app to manage your DevOps scenarios, like using Microsoft Graph to upload Identity Experience Framework policies or provision users. Learn [how register a Microsoft Graph application to manage Azure AD B2C resources](microsoft-graph-get-started.md).
 
-You might not see all Microsoft Graph permissions, because many of these permissions don't apply to Azure B2C consumer users. [Read more about managing users using Microsoft Graph](manage-user-accounts-graph-api.md).
+You might not see all Microsoft Graph permissions, because many of these permissions don't apply to Azure B2C consumer users. [Read more about managing users using Microsoft Graph](microsoft-graph-operations.md).
 
 ## Admin consent and offline_access+openid scopes
 <!-- Azure AD B2C doesn't support user consent. That is, when a user signs into an application, the user doesn't see a screen requesting consent for the application permissions. All permissions have to be granted through admin consent.  -->
@@ -93,7 +94,7 @@ In the new experience, instead of **Keys**, you use the **Certificates & secrets
 ## Features not applicable in Azure AD B2C tenants
 The following Azure AD app registrations capabilities are not applicable to or available in Azure AD B2C tenants:
 - **Roles and administrators** - Not currently available for Azure AD B2C.
-- **Branding** - UI/UX customization is configured in the **Company branding** experience or as part of a user flow. Learn to [customize the user interface in Azure Active Directory B2C](customize-ui-overview.md).
+- **Branding** - UI/UX customization is configured in the **Company branding** experience or as part of a user flow. Learn to [customize the user interface in Azure Active Directory B2C](customize-ui-with-html.md).
 - **Publisher domain verification** - Your app is registered on *.onmicrosoft.com*, which isn't a verified domain. Additionally, the publisher domain is primarily used for granting user consent, which doesn't apply to Azure AD B2C apps for user authentication. [Learn more about publisher domain](../active-directory/develop/howto-configure-publisher-domain.md).
 - **Token configuration** - The token is configured as part of a user flow rather than an app.
 - The **Quickstarts** experience is currently not available for Azure AD B2C tenants.
@@ -112,5 +113,5 @@ To get started with the new app registration experience:
 * Learn [how to register a web API](add-web-api-application.md).
 * Learn [how to register a native client application](add-native-application.md).
 * Learn [how register a Microsoft Graph application to manage Azure AD B2C resources](microsoft-graph-get-started.md).
-* Learn [how to use Azure AD B2C as a SAML Service Provider.](identity-provider-adfs2016-custom.md)
+* Learn [how to use Azure AD B2C as a SAML Service Provider.](identity-provider-adfs.md)
 * Learn about [application types](application-types.md).

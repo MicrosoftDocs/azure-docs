@@ -1,6 +1,6 @@
 ---
-title: Update device firmware through Azure IoT Hub | Microsoft Docs
-description: Learn how to implement a device firmware update process that can be triggered from a back-end application connected to your IoT hub.
+title: Tutorial - Update device firmware through Azure IoT Hub | Microsoft Docs
+description: Tutorial - Learn how to implement a device firmware update process that can be triggered from a back-end application connected to your IoT hub.
 services: iot-hub
 author: wesmc7777
 ms.author: wesmc
@@ -29,11 +29,9 @@ In this tutorial, you complete the following tasks:
 > * Simulate the firmware update process on a device.
 > * Receive status updates from the device as the firmware update progresses.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Prerequisites
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 The two sample applications you run in this quickstart are written using Node.js. You need Node.js v10.x.x or later on your development machine.
 
@@ -65,11 +63,11 @@ az extension add --name azure-iot
 # Create a resource group
 az group create --name tutorial-iot-hub-rg --location $location
 
-# Create your free-tier IoT Hub. You can only have one free IoT Hub per subscription
-az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku F1
+# Create a free-tier IoT Hub. You can have only one free IoT Hub per subscription. Free tier hubs can have only 2 partitions.
+az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --partition-count 2 --sku F1
 
 # Make a note of the service connection string, you need it later
-az iot hub show-connection-string --name $hubname --policy-name service -o table
+az iot hub connection-string show --name $hubname --policy-name service -o table
 
 ```
 
@@ -83,10 +81,10 @@ hubname=tutorial-iot-hub
 az iot hub device-identity create --device-id MyFirmwareUpdateDevice --hub-name $hubname --resource-group tutorial-iot-hub-rg
 
 # Add a device type tag
-az iot hub device-twin update --device-id MyFirmwareUpdateDevice --hub-name $hubname --set tags='{"devicetype":"chiller"}'
+az iot hub device-twin update --device-id MyFirmwareUpdateDevice --hub-name $hubname --set tags='{"device type":"chiller"}'
 
 # Retrieve the device connection string, you need this later
-az iot hub device-identity show-connection-string --device-id MyFirmwareUpdateDevice --hub-name $hubname --resource-group tutorial-iot-hub-rg -o table
+az iot hub device-identity connection-string show --device-id MyFirmwareUpdateDevice --hub-name $hubname --resource-group tutorial-iot-hub-rg -o table
 
 ```
 
@@ -95,7 +93,7 @@ az iot hub device-identity show-connection-string --device-id MyFirmwareUpdateDe
 
 ## Start the firmware update
 
-You create an [automatic device management configuration](iot-hub-automatic-device-management.md#create-a-configuration) in the back-end application to begin the firmware update process on all devices tagged with a **devicetype** of chiller. In this section, you see how to:
+You create an [automatic device management configuration](iot-hub-automatic-device-management.md#create-a-configuration) in the back-end application to begin the firmware update process on all devices tagged with a **device type** of chiller. In this section, you see how to:
 
 * Create a configuration from a back-end application.
 * Monitor the job to completion.

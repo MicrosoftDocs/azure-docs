@@ -17,7 +17,7 @@ This quickstart describes the steps to create an Azure Synapse workspace by usin
 ## Create a Synapse workspace
 
 1. Open the [Azure portal](https://portal.azure.com), and at the top search for **Synapse**.
-1. In the search results, under **Services**, select **Azure Synapse Analytics (workspaces preview)**.
+1. In the search results, under **Services**, select **Azure Synapse Analytics**.
 1. Select **Add** to create a workspace.
 1. In the **Basics** tab, give the workspace a unique name. We'll use **mysworkspace** in this document
 1. You need an ADLSGEN2 account to create a workspace. The simplest choice is to create a new one. If you want to re-use an existing one you'll need to perform some additional configuration. 
@@ -28,6 +28,10 @@ This quickstart describes the steps to create an Azure Synapse workspace by usin
 1. Your Azure Synapse workspace will use this storage account as the "primary" storage account and the container to store workspace data. The workspace stores data in Apache Spark tables. It stores Spark application logs under a folder called **/synapse/workspacename**.
 1. Select **Review + create** > **Create**. Your workspace is ready in a few minutes.
 
+> [!NOTE]
+> After creating your Azure Synapse workspace, you will not be able to move the workspace to another Azure Active Directory tenant. If you do so through subscription migration or other actions, you may lose access to the artifacts within the workspace.
+> Additionally, you currently cannot create a Synapse Analytics workspace in a [Cloud Solution Provider (CSP)](/partner-center/csp-overview) subscription.
+
 ## Open Synapse Studio
 
 After your Azure Synapse workspace is created, you have two ways to open Synapse Studio:
@@ -35,7 +39,7 @@ After your Azure Synapse workspace is created, you have two ways to open Synapse
 * Open your Synapse workspace in the [Azure portal](https://portal.azure.com). On the top of the **Overview** section, select **Launch Synapse Studio**.
 * Go to the `https://web.azuresynapse.net` and sign in to your workspace.
 
-## Prepare an existing storage account for use with Synapse Analytics
+## Prepare an existing storage account for use with Azure Synapse Analytics
 
 1. Open the [Azure portal](https://portal.azure.com).
 1. Navigate to an existing ADLSGEN2 storage account

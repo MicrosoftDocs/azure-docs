@@ -10,14 +10,14 @@ ms.date: 09/22/2020
 ms.author: cherylmc
 ---
 
-# Azure Monitor Insights for Virtual WAN (Preview)
+# Azure Monitor Insights for Virtual WAN
 
 [Azure Monitor Insights](../azure-monitor/insights/network-insights-overview.md) for Azure Virtual WAN gives users and operators the ability to view the state and status of a virtual WAN, presented via an autodiscovered topological map. Resource state and status overlays on the map give you a snapshot view of the overall health of the virtual WAN. You can navigate resources on the map via one-click access to the resource configuration pages of the Virtual WAN portal.
 
 Virtual WAN resource-level metrics are collected and presented via a pre-packaged Virtual WAN metrics workbook. The workbook shows the metrics at virtual WAN, hub, gateway, and connection levels. This article walks you through the steps to use Azure Monitor Insights for Virtual WAN to view your Virtual WAN topology and metrics all in a single place.
 
 > [!NOTE]
-> The **Insights** menu option in the Virtual WAN portal is currently being rolled out. While this menu is being rolled out, you can access the Virtual WAN Topology and Metrics Workbook by using Azure Monitor for Networks. For more information, see [Azure Monitor for Networks](../azure-monitor/insights/network-insights-overview.md). 
+> The **Insights** menu option is in the Virtual WAN portal under **Monitoring**. You can also access the Virtual WAN Topology and Metrics Workbook by using Azure Monitor for Networks. For more information, see [Azure Monitor for Networks](../azure-monitor/insights/network-insights-overview.md). 
 >
 
 ## Before you begin
@@ -83,5 +83,5 @@ You can select **View detailed metrics** to access the detailed **Metrics** page
 
 ## Next steps
 
-* To learn more, see [Metrics in Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).
+* To learn more, see [Metrics in Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md).
 * For a full description of all the Virtual WAN metrics, see [Virtual WAN logs and metrics](logs-metrics.md).

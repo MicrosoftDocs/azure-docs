@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Explore and Analyze data lakes with serverless Synapse SQL'
-description: This tutorial shows you how to easily perform exploratory data analysis combining different Azure Open Datasets using serverless SQL pool (preview) and visualize the results in Synapse Studio for Azure Synapse Analytics.
+title: 'Tutorial: Use serverless SQL pool to analyze Azure Open Datasets in Azure Synapse Studio'
+description: This tutorial shows you how to easily perform exploratory data analysis combining different Azure Open Datasets using serverless SQL pool and visualize the results in Azure Synapse Studio.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -11,7 +11,7 @@ ms.author: stefanazaric
 ms.reviewer: jrasnick 
 ---
 
-# Tutorial: Explore and Analyze data lakes with serverless SQL pool (preview)
+# Tutorial: Explore and Analyze data lakes with serverless SQL pool
 
 In this tutorial, you learn how to perform exploratory data analysis. You'll combine different Azure Open Datasets using serverless SQL pool. You'll then visualize the results in Synapse Studio for Azure Synapse Analytics.
 
@@ -33,8 +33,8 @@ SELECT TOP 100 * FROM
 
 [New York City (NYC) Taxi dataset](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) includes:
 
-- Pickup and drop-off dates and times.
-- Pick up and drop-off locations. 
+- Pick-up and drop-off dates and times.
+- Pick-up and drop-off locations. 
 - Trip distances.
 - Itemized fares.
 - Rate types.

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 09/02/2020
+ms.date: 12/21/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro in datacenter so I can use it to transfer data to Azure.  
 ---
@@ -154,14 +154,14 @@ Locate the components for installing the rail kit assembly:
 
 Route the cables and then cable your device. The following procedures explain how to cable your Azure Stack Edge Pro device for power and network.
 
-Before you start cabling your device, you need the following:
+Before you start cabling your device, you need the following things:
 
 - Your Azure Stack Edge Pro physical device, unpacked, and rack mounted.
 - Two power cables.
 - At least one 1-GbE RJ-45 network cable to connect to the management interface. There are two 1-GbE network interfaces, one management and one data, on the device.
 - One 25-GbE SFP+ copper cable for each data network interface to be configured. At least one data network interface from among PORT 2, PORT 3, PORT 4, PORT 5, or PORT 6 needs to be connected to the Internet (with connectivity to Azure).  
 - Access to two power distribution units (recommended).
-- At least one 1-GbE network switch to connect a 1-GbE network interface to the Internet for data. The local web UI will not be accessible if the connected switch is not at least 1-GbE. If using 25/10 GbE interface for data, you will need a 25-GbE or a 10-GbE switch. 
+- At least one 1-GbE network switch to connect a 1-GbE network interface to the Internet for data. The local web UI will not be accessible if the connected switch is not at least 1 GbE. If using 25/10-GbE interface for data, you will need a 25-GbE or 10-GbE switch.
 
 > [!NOTE]
 > - If you are connecting only one data network interface, we recommend that you use a 25/10-GbE network interface such as PORT 3, PORT 4, PORT 5, or PORT 6 to send data to Azure. 
@@ -181,14 +181,14 @@ On your Azure Stack Edge Pro device:
     - Four 25-Gbps interfaces that can also serve as 10-Gbps interfaces.
     - A baseboard management controller (BMC).
 
-- The back plane has two network cards corresponding to the 6 ports:
+- The back plane has two network cards corresponding to the six ports:
 
-    - **Custom Microsoft Qlogic Cavium 25G NDC adapter** - Port 1 through port 4.
+    - **Custom Microsoft `Qlogic` Cavium 25G NDC adapter** - Port 1 through port 4.
     - **Mellanox dual port 25G ConnectX-4 channel network adapter** - Port 5 and port 6.
 
 For a full list of supported cables, switches, and transceivers for these network cards, go to:
 
-- [Qlogic Cavium 25G NDC adapter interoperability matrix](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
+- [`Qlogic` Cavium 25G NDC adapter interoperability matrix](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
 - [Mellanox dual port 25G ConnectX-4 channel network adapter compatible products](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).  
 
  
@@ -196,15 +196,15 @@ Take the following steps to cable your device for power and network.
 
 1. Identify the various ports on the back plane of your device. You may have received one of the following devices from the factory depending on the number of GPUs in your device.
 
-    - Device with 2 Peripheral Component Interconnect (PCI) slots and one GPU
+    - Device with two Peripheral Component Interconnect (PCI) slots and one GPU
 
         ![Back plane of a cabled device](./media/azure-stack-edge-gpu-deploy-install/ase-two-pci-slots.png)
 
-    - Device with 3 PCI slots and one GPU
+    - Device with three PCI slots and one GPU
 
         ![Back plane of a cabled device 2](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-one-gpu.png)
 
-    - Device with 3 PCI slots and two GPU
+    - Device with three PCI slots and two GPUs
 
         ![Back plane of a cabled device 3](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-two-gpu.png)
 
@@ -223,7 +223,7 @@ Take the following steps to cable your device for power and network.
 7. Connect one or more of PORT 2, PORT 3, PORT 4, PORT 5, or PORT 6 to the datacenter network/Internet.
 
     - If connecting PORT 2, use the 1-GbE RJ-45 network cable.
-    - For the 10/25-GbE network interfaces, use the SFP+ copper cables.
+    - For the 10/25-GbE network interfaces, use the SFP+ copper cables or fiber. If using fiber, use an optical to SFP adapter.
 
 ## Next steps
 

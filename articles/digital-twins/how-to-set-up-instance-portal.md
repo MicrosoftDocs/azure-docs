@@ -8,7 +8,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: contperfq2
+ms.custom: contperf-fy21q2
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -41,19 +41,30 @@ Search for *Azure Digital Twins* in the search box, and choose the **Azure Digit
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Selecting 'Create' from the Azure Digital Twins service page":::
 
-On the following *Create Resource* page, fill in the values given below:
+On the following **Create Resource** page, fill in the values given below:
 * **Subscription**: The Azure subscription you're using
   - **Resource group**: A resource group in which to deploy the instance. If you don't already have an existing resource group in mind, you can create one here by selecting the *Create new* link and entering a name for a new resource group
 * **Location**: An Azure Digital Twins-enabled region for the deployment. For more details on regional support, visit [*Azure products available by region (Azure Digital Twins)*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
-* **Resource name**: A name for your Azure Digital Twins instance. The name of the new instance must be unique within the region for your subscription (meaning that if your subscription has another Azure Digital Twins instance in the region that's already using the name you choose, you'll be asked to pick a different name).
+* **Resource name**: A name for your Azure Digital Twins instance. If your subscription has another Azure Digital Twins instance in the region that's
+  already using the specified name, you'll be asked to pick a different name.
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Filling in the described values to create an Azure Digital Twins resource":::
 
-When finished, select _Review + create_. This will take you to a summary page, where you can review the instance details you entered and hit _Create_. 
+When you're finished, you can select **Review + create** if you don't want to configure any more settings for your instance. This will take you to a summary page, where you can review the instance details you've entered and finish with **Create**. 
+
+If you do want to configure more details for your instance, the next section describes the remaining setup tabs.
+
+### Additional setup options
+
+Here are the additional options you can configure during setup, using the other tabs in the **Create Resource** process.
+
+* **Networking**: In this tab, you can enable private endpoints with [Azure Private Link](../private-link/private-link-overview.md) to eliminate public network exposure to your instance. For instructions, see [*How-to: Enable private access with Private Link (preview)*](./how-to-enable-private-link-portal.md#add-a-private-endpoint-during-instance-creation).
+* **Advanced**: In this tab, you can enable a [system-managed identity](../active-directory/managed-identities-azure-resources/overview.md) for your instance that can be used when forwarding events to [endpoints](concepts-route-events.md). For instructions, see [*How-to: Enable managed identities for routing events (preview)*](./how-to-enable-managed-identities-portal.md#add-a-system-managed-identity-during-instance-creation).
+* **Tags**: In this tab, you can add tags to your instance to help you organize it among your Azure resources. For more about Azure resource tags, see [*Tag resources, resource groups, and subscriptions for logical organization*](../azure-resource-manager/management/tag-resources.md).
 
 ### Verify success and collect important values
 
-After pushing *Create*, you can view the status of your instance's deployment in your Azure notifications along the portal icon bar. The notification will indicate when deployment has succeeded, and you'll be able to select the _Go to resource_ button to view your created instance.
+After finishing your instance setup by selecting **Create**, you can view the status of your instance's deployment in your Azure notifications along the portal icon bar. The notification will indicate when deployment has succeeded, and you'll be able to select the _Go to resource_ button to view your created instance.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/notifications-deployment.png" alt-text="View of Azure notifications showing a successful deployment and highlighting the 'Go to resource' button":::
 
@@ -72,13 +83,13 @@ You now have an Azure Digital Twins instance ready to go. Next, you'll give the 
 
 [!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
 
-First, open the page for your Azure Digital Twins instance in the Azure portal. From the instance's menu, select *Access control (IAM)*. Select the  *Add* button under *Add a role assignment*.
+First, open the page for your Azure Digital Twins instance in the Azure portal. From the instance's menu, select *Access control (IAM)*. Select the  **+ Add** button to add a new role assignment.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Selecting to add a role assignment from the 'Access control (IAM)' page":::
 
 On the following *Add role assignment* page, fill in the values (must be completed by a user with [sufficient permissions](#prerequisites-permission-requirements) in the Azure subscription):
 * **Role**: Select *Azure Digital Twins Data Owner* from the dropdown menu
-* **Assign access to**: Select *Azure AD user, group or service principal* from the dropdown menu
+* **Assign access to**: Use *User, group or service principal*
 * **Select**: Search for the name or email address of the user to assign. When you select the result, the user will show up in a *Selected members* section.
 
 :::row:::
@@ -102,7 +113,7 @@ You now have an Azure Digital Twins instance ready to go, and have assigned perm
 ## Next steps
 
 Test out individual REST API calls on your instance using the Azure Digital Twins CLI commands: 
-* [az dt reference](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)
+* [az dt reference](/cli/azure/ext/azure-iot/dt)
 * [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md)
 
 Or, see how to connect a client application to your instance with authentication code:

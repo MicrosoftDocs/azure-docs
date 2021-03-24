@@ -49,9 +49,12 @@ When your application is migrated, in the **Admin Credentials** section, the **A
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
-* A user account in Azure AD with [permission](../users-groups-roles/directory-assign-admin-roles.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
+* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
 * A [SolarWinds Service Desk tenant](https://www.samanage.com/pricing/) with the Professional package.
 * A user account in SolarWinds Service Desk with admin permissions.
+
+> [!Note]
+> Roles should not be manually edited in Azure Active Directory when doing role imports.
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).

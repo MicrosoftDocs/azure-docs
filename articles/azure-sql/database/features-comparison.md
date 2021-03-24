@@ -8,10 +8,10 @@ ms.subservice: features
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: bonova, sstein
-ms.date: 11/10/2020
+author: danimir
+ms.author: danil
+ms.reviewer: bonova, sstein, danil
+ms.date: 03/08/2021
 ---
 
 # Features comparison: Azure SQL Database and Azure SQL Managed Instance
@@ -25,7 +25,11 @@ Azure SQL Database and SQL Managed Instance share a common code base with the la
 - Security features - [Application roles](/sql/relational-databases/security/authentication-access/application-roles), [Dynamic data masking](/sql/relational-databases/security/dynamic-data-masking) ([see getting started guide](dynamic-data-masking-overview.md)), [Row Level Security](/sql/relational-databases/security/row-level-security), and Threat detection - see getting started guides for [SQL Database](threat-detection-configure.md) and [SQL Managed Instance](../managed-instance/threat-detection-configure.md).
 - Multi-model capabilities - [Graph processing](/sql/relational-databases/graphs/sql-graph-overview), [JSON data](/sql/relational-databases/json/json-data-sql-server) ([see getting started guide](json-features.md)), [OPENXML](/sql/t-sql/functions/openxml-transact-sql), [Spatial](/sql/relational-databases/spatial/spatial-data-sql-server), [OPENJSON](/sql/t-sql/functions/openjson-transact-sql), and [XML indexes](/sql/t-sql/statements/create-xml-index-transact-sql).
 
-Azure manages your databases and guarantees their high-availability. Some features that might affect high-availability or can't be used in PaaS world have limited functionalities in SQL Database and SQL Managed Instance. These features are described in the tables below. If you need more details about the differences, you can find them in the separate pages for [Azure SQL Database](../managed-instance/transact-sql-tsql-differences-sql-server.md) or [Azure SQL Managed Instance](../managed-instance/transact-sql-tsql-differences-sql-server.md).
+Azure manages your databases and guarantees their high-availability. Some features that might affect high-availability or can't be used in PaaS world have limited functionalities in SQL Database and SQL Managed Instance. These features are described in the tables below.
+
+If you need more details about the differences, you can find them in the separate pages:
+- [Azure SQL Database vs. SQL Server differences](transact-sql-tsql-differences-sql-server.md)
+- [Azure SQL Managed Instance vs. SQL Server differences](../managed-instance/transact-sql-tsql-differences-sql-server.md)
 
 ## Features of SQL Database and SQL Managed Instance
 
@@ -43,10 +47,10 @@ The following table lists the major features of SQL Server and provides informat
 | [BULK INSERT statement](/sql/relational-databases/import-export/import-bulk-data-by-using-bulk-insert-or-openrowset-bulk-sql-server) | Yes, but just from Azure Blob storage as a source. | Yes, but just from Azure Blob Storage as a source - see [differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#bulk-insert--openrowset). |
 | [Certificates and asymmetric keys](/sql/relational-databases/security/sql-server-certificates-and-asymmetric-keys) | Yes, without access to file system for `BACKUP` and `CREATE` operations. | Yes, without access to file system for `BACKUP` and `CREATE` operations - see [certificate differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#certificates). |
 | [Change data capture - CDC](/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | No | Yes |
-| [Collation - server/instance](/sql/relational-databases/collations/set-or-change-the-server-collation) | No, default server collation `SQL_Latin1_General_CP1_CI_AS` is always used. | Yes, can be set when the [instance is created](../managed-instance/scripts/create-powershell-azure-resource-manager-template.md) and can't be updated later. |
+| [Collation - server/instance](/sql/relational-databases/collations/set-or-change-the-server-collation) | No, default server collation `SQL_Latin1_General_CP1_CI_AS` is always used. | Yes, can be set when the [instance is created](../managed-instance/create-template-quickstart.md) and can't be updated later. |
 | [Columnstore indexes](/sql/relational-databases/indexes/columnstore-indexes-overview) | Yes - [Premium tier, Standard tier - S3 and above, General Purpose tier, Business Critical, and HyperScale tiers](/sql/relational-databases/indexes/columnstore-indexes-overview) |Yes |
 | [Common language runtime - CLR](/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | No | Yes, but without access to file system in `CREATE ASSEMBLY` statement - see [CLR differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#clr) |
-| [Credentials](/sql/relational-databases/security/authentication-access/credentials-database-engine) | Yes, but only [database scoped credentials](/sql/t-sql/statements/create-database-scoped-credential-transact-sql). | Yes, but only **Azure Key Vault** and `SHARED ACCESS SIGNATURE` are supported see [details](../managed-instance/transact-sql-tsql-differences-sql-server.md#credential) |
+| [Credentials](/sql/relational-databases/security/authentication-access/credentials-database-engine) | Yes, but only [database scoped credentials](/sql/t-sql/statements/create-database-scoped-credential-transact-sql). | Yes, but only **Azure Key Vault** and `SHARED ACCESS SIGNATURE` are supported - see [details](../managed-instance/transact-sql-tsql-differences-sql-server.md#credential) |
 | [Cross-database/three-part name queries](/sql/relational-databases/linked-servers/linked-servers-database-engine) | No - see [Elastic queries](elastic-query-overview.md) | Yes, plus [Elastic queries](elastic-query-overview.md) |
 | [Cross-database transactions](/sql/relational-databases/linked-servers/linked-servers-database-engine) | No | Yes, within the instance. See [Linked server differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers) for cross-instance queries. |
 | [Database mail - DbMail](/sql/relational-databases/database-mail/database-mail) | No | Yes |
@@ -59,6 +63,7 @@ The following table lists the major features of SQL Server and provides informat
 | [Distributed transactions - MS DTC](/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | No - see [Elastic transactions](elastic-transactions-overview.md) |  No - see [Linked server differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers). Try to consolidate databases from several distributed SQL Server instances into one SQL Managed Instance during migration. |
 | [DML triggers](/sql/relational-databases/triggers/create-dml-triggers) | Most - see individual statements |  Yes |
 | [DMVs](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | Most - see individual DMVs |  Yes - see [T-SQL differences](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
+| [Elastic query](elastic-query-overview.md) (in public preview) | Yes, with required RDBMS type. | Yes, with required RDBMS type. |
 | [Event notifications](/sql/relational-databases/service-broker/event-notifications) | No - see [Alerts](alerts-insights-configure-portal.md) | No |
 | [Expressions](/sql/t-sql/language-elements/expressions-transact-sql) |Yes | Yes |
 | [Extended events (XEvent)](/sql/relational-databases/extended-events/extended-events) | Some - see [Extended events in SQL Database](xevent-db-diff-from-svr.md) | Yes - see [Extended events differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#extended-events) |
@@ -71,7 +76,7 @@ The following table lists the major features of SQL Server and provides informat
 | [Language elements](/sql/t-sql/language-elements/language-elements-transact-sql) | Most - see individual elements |  Yes - see [T-SQL differences](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
 | [Linked servers](/sql/relational-databases/linked-servers/linked-servers-database-engine) | No - see [Elastic query](elastic-query-horizontal-partitioning.md) | Yes. Only to [SQL Server and SQL Database](../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers) without distributed transactions. |
 | [Linked servers](/sql/relational-databases/linked-servers/linked-servers-database-engine) that read from files (CSV, Excel)| No. Use [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) or [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) as an alternative for CSV format. | No. Use [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) or [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) as an alternative for CSV format. Track these requests on [SQL Managed Instance feedback item](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|
-| [Log shipping](/sql/database-engine/log-shipping/about-log-shipping-sql-server) | [High availability](high-availability-sla.md) is included with every database. Disaster recovery is discussed in [Overview of business continuity](business-continuity-high-availability-disaster-recover-hadr-overview.md). | Natively built in as a part of Azure Data Migration Service migration process. Not available as High availability solution, because other [High availability](high-availability-sla.md) methods are included with every database and it is not recommended to use Log-shipping as HA alternative. Disaster recovery is discussed in [Overview of business continuity](business-continuity-high-availability-disaster-recover-hadr-overview.md). Not available as a replication mechanism between databases - use secondary replicas on [Business Critical tier](service-tier-business-critical.md), [auto-failover groups](auto-failover-group-overview.md), or [transactional replication](../managed-instance/replication-transactional-overview.md) as the alternatives. |
+| [Log shipping](/sql/database-engine/log-shipping/about-log-shipping-sql-server) | [High availability](high-availability-sla.md) is included with every database. Disaster recovery is discussed in [Overview of business continuity](business-continuity-high-availability-disaster-recover-hadr-overview.md). | Natively built in as a part of [Azure Data Migration Service (DMS)](../../dms/tutorial-sql-server-to-managed-instance.md) migration process. Natively built for custom data migration projects as an external [Log Replay Service (LRS)](../managed-instance/log-replay-service-migrate.md).<br /> Not available as High availability solution, because other [High availability](high-availability-sla.md) methods are included with every database and it is not recommended to use Log-shipping as HA alternative. Disaster recovery is discussed in [Overview of business continuity](business-continuity-high-availability-disaster-recover-hadr-overview.md). Not available as a replication mechanism between databases - use secondary replicas on [Business Critical tier](service-tier-business-critical.md), [auto-failover groups](auto-failover-group-overview.md), or [transactional replication](../managed-instance/replication-transactional-overview.md) as the alternatives. |
 | [Logins and users](/sql/relational-databases/security/authentication-access/principals-database-engine) | Yes, but `CREATE` and `ALTER` login statements do not offer all the options (no Windows and server-level Azure Active Directory logins). `EXECUTE AS LOGIN` is not supported - use `EXECUTE AS USER` instead.  | Yes, with some [differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#logins-and-users). Windows logins are not supported and they should be replaced with Azure Active Directory logins. |
 | [Minimal logging in bulk import](/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | No, only Full Recovery model is supported. | No, only Full Recovery model is supported. |
 | [Modifying system data](/sql/relational-databases/databases/system-databases) | No | Yes |
@@ -80,7 +85,7 @@ The following table lists the major features of SQL Server and provides informat
 | [OPENQUERY](/sql/t-sql/functions/openquery-transact-sql)|No|Yes, only to SQL Database, SQL Managed Instance and SQL Server. See [T-SQL differences](../managed-instance/transact-sql-tsql-differences-sql-server.md)|
 | [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql)|Yes, only to import from Azure Blob storage. |Yes, only to SQL Database, SQL Managed Instance and SQL Server, and to import from Azure Blob storage. See [T-SQL differences](../managed-instance/transact-sql-tsql-differences-sql-server.md)|
 | [Operators](/sql/t-sql/language-elements/operators-transact-sql) | Most - see individual operators |Yes - see [T-SQL differences](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
-| [Polybase](/sql/relational-databases/polybase/polybase-guide) | No. You can query data in the files placed on Azure Blob Storage using `OPENROWSET` function. | No. You can query data in the files placed on Azure Blob Storage using `OPENROWSET` function. |
+| [Polybase](/sql/relational-databases/polybase/polybase-guide) | No. You can query data in the files placed on Azure Blob Storage using `OPENROWSET` function or use [an external table that references a serverless SQL pool in Synapse Analytics](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/). | No. You can query data in the files placed on Azure Blob Storage using `OPENROWSET` function, [a linked server that references a serverless SQL pool in Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/), or an external table (in public preview) that references [a serverless SQL pool in Synapse Analytics](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/) or SQL Server. |
 | [Query Notifications](/sql/relational-databases/native-client/features/working-with-query-notifications) | No | Yes |
 | [Machine Learning Services](/sql/advanced-analytics/what-is-sql-server-machine-learning)(_Formerly R Services_)| Yes, in [public preview](/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  | No |
 | [Recovery models](/sql/relational-databases/backup-restore/recovery-models-sql-server) | Only Full Recovery that guarantees high availability is supported. Simple and Bulk Logged recovery models are not available. | Only Full Recovery that guarantees high availability is supported. Simple and Bulk Logged recovery models are not available. |
@@ -122,6 +127,7 @@ The Azure platform provides a number of PaaS capabilities that are added as an a
 | [Azure Resource Health](../../service-health/resource-health-overview.md) | Yes | No |
 | Backup retention | Yes. 7 days default, max 35 days. | Yes. 7 days default, max 35 days. |
 | [Data Migration Service (DMS)](/sql/dma/dma-overview) | Yes | Yes |
+| [Elastic jobs](elastic-jobs-overview.md) | Yes - see [Elastic jobs (preview)](elastic-jobs-overview.md) | No ([SQL Agent](../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent) can be used instead). |
 | File system access | No. Use [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) or [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) to access and load data from Azure Blob Storage as an alternative. | No. Use [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) or [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) to access and load data from Azure Blob Storage as an alternative. |
 | [Geo-restore](recovery-using-backups.md#geo-restore) | Yes | Yes |
 | [Hyperscale architecture](service-tier-hyperscale.md) | Yes | No |
@@ -141,7 +147,7 @@ The Azure platform provides a number of PaaS capabilities that are added as an a
 | [Query Performance Insights (QPI)](query-performance-insight-use.md) | Yes | No. Use built-in reports in SQL Server Management Studio and Azure Data Studio. |
 | [VNet](../../virtual-network/virtual-networks-overview.md) | Partial, it enables restricted access using [VNet Endpoints](vnet-service-endpoint-rule-overview.md) | Yes, SQL Managed Instance is injected in customer's VNet. See [subnet](../managed-instance/transact-sql-tsql-differences-sql-server.md#subnet) and [VNet](../managed-instance/transact-sql-tsql-differences-sql-server.md#vnet) |
 | VNet Service endpoint | [Yes](vnet-service-endpoint-rule-overview.md) | No |
-| VNet Global peering | Yes, using [Private IP and service endpoints](vnet-service-endpoint-rule-overview.md) | No, [SQL Managed Instance is not supported](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) due to [load balancer constraint in VNet global peering](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
+| VNet Global peering | Yes, using [Private IP and service endpoints](vnet-service-endpoint-rule-overview.md) | Yes, using [Virtual network peering](https://techcommunity.microsoft.com/t5/azure-sql/new-feature-global-vnet-peering-support-for-azure-sql-managed/ba-p/1746913). |
 
 ## Tools
 
@@ -152,7 +158,7 @@ Azure SQL Database and Azure SQL Managed Instance support various data tools tha
 | Azure portal | Yes | Yes |
 | Azure CLI | Yes | Yes|
 | [Azure Data Studio](/sql/azure-data-studio/what-is) | Yes | Yes |
-| Azure Powershell | Yes | Yes |
+| Azure PowerShell | Yes | Yes |
 | [BACPAC file (export)](/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Yes - see [SQL Database export](database-export.md) | Yes - see [SQL Managed Instance export](database-export.md) |
 | [BACPAC file (import)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Yes - see [SQL Database import](database-import.md) | Yes - see [SQL Managed Instance import](database-import.md) |
 | [Data Quality Services (DQS)](/sql/data-quality-services/data-quality-services) | No | No |
@@ -162,7 +168,7 @@ Azure SQL Database and Azure SQL Managed Instance support various data tools tha
 | [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) | Yes | Yes [version 18.0 and higher](/sql/ssms/download-sql-server-management-studio-ssms) |
 | [SQL Server PowerShell](/sql/relational-databases/scripting/sql-server-powershell) | Yes | Yes |
 | [SQL Server Profiler](/sql/tools/sql-server-profiler/sql-server-profiler) | No - see [Extended events](xevent-db-diff-from-svr.md) | Yes |
-| [System Center Operations Manager (SCOM)](/system-center/scom/welcome) | [Yes](https://www.microsoft.com/download/details.aspx?id=38829) | Yes, [in preview](https://www.microsoft.com/download/details.aspx?id=38829) |
+| [System Center Operations Manager (SCOM)](/system-center/scom/welcome) | [Yes](https://www.microsoft.com/download/details.aspx?id=38829) | [Yes](https://www.microsoft.com/en-us/download/details.aspx?id=101203) |
 
 ## Migration methods
 

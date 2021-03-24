@@ -4,7 +4,7 @@ description: How to troubleshoot when a user sees a consent prompt for an applic
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-mgmt

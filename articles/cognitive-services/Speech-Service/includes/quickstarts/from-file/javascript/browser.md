@@ -1,8 +1,8 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/03/2020
+ms.date: 12/29/2020
 ms.author: trbye
 ms.custom: devx-track-js
 ---
@@ -12,7 +12,7 @@ ms.custom: devx-track-js
 Before you get started:
 
 > [!div class="checklist"]
-> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Create an Azure Speech resource <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Create an Azure Speech resource </a>
 > * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md)
 
 ## Start with some boilerplate code

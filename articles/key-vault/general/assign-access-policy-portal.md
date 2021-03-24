@@ -52,7 +52,6 @@ For more information on creating groups in Azure Active Directory through the Az
 
 ## Next steps
 
-- [Azure Key Vault security: Identity and access management](overview-security.md#identity-and-access-management)
+- [Azure Key Vault security: Identity and access management](security-overview.md#identity-management)
 - [Secure your key vault](secure-your-key-vault.md).
 - [Azure Key Vault developer's guide](developers-guide.md)
-- [Azure Key Vault best practices](best-practices.md)

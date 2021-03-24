@@ -4,8 +4,12 @@ description: Learn how to run web apps in Azure App Service by deploying your fi
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
 ms.date: 11/23/2020
-ms.custom: "devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperfq1"
+ms.custom: "devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1"
 zone_pivot_groups: app-service-platform-windows-linux
+adobe-target: true
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./quickstart-dotnetcore-uiex
 ---
 
 # Quickstart: Create an ASP.NET Core web app in Azure
@@ -182,7 +186,7 @@ Advance to the next article to learn how to create a .NET Core app and connect i
 ::: zone-end  
 
 ::: zone pivot="platform-linux"
-[App Service on Linux](overview.md#app-service-on-linux) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to create a [.NET Core](/aspnet/core/) app on App Service on Linux. You create the app using the [Azure CLI](/cli/azure/get-started-with-azure-cli), and you use Git to deploy the .NET Core code to the app.
+[App Service on Linux](overview.md#app-service-on-linux) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to create a [.NET Core](/aspnet/core/) app and deploy to a Linux hosted App Service using the [Azure CLI](/cli/azure/get-started-with-azure-cli).
 
 ![Sample app running in Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
@@ -253,7 +257,7 @@ az login
 Deploy the code in your local folder (*hellodotnetcore*) using the `az webapp up` command:
 
 ```azurecli
-az webapp up --sku F1 --name <app-name> --os-type linux
+az webapp up --sku F1 --name <app-name>
 ```
 
 - If the `az` command isn't recognized, be sure you have the Azure CLI installed as described in [Set up your initial environment](#set-up-your-initial-environment).
@@ -317,7 +321,7 @@ await context.Response.WriteAsync("Hello Azure!");
 Save your changes, then redeploy the app using the `az webapp up` command again:
 
 ```azurecli
-az webapp up
+az webapp up --os-type linux
 ```
 
 This command uses values that are cached locally in the *.azure/config* file, including the app name, resource group, and App Service plan.

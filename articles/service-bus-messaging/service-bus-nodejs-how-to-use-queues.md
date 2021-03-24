@@ -1,6 +1,6 @@
 ---
 title: How to use azure/service-bus queues in JavaScript
-description: Learn how to write a JavaScript program that uses the latest preview version of @azure/service-bus package to send messages to and receive messages from a Service Bus queue.
+description: Learn how to write a JavaScript program that uses the latest version of @azure/service-bus package to send messages to and receive messages from a Service Bus queue.
 author: spelluru
 ms.devlang: nodejs
 ms.topic: quickstart
@@ -69,7 +69,7 @@ The following sample code shows you how to send a message to a queue.
     		// create a batch object
     		let batch = await sender.createMessageBatch(); 
     		for (let i = 0; i < messages.length; i++) {
-    			// for each message in the arry			
+    			// for each message in the array			
     
     			// try to add the message to the batch
     			if (!batch.tryAddMessage(messages[i])) {			
@@ -78,7 +78,7 @@ The following sample code shows you how to send a message to a queue.
     				await sender.sendMessages(batch);
     
     				// then, create a new batch 
-    				batch = await sender.createBatch();
+    				batch = await sender.createMessageBatch();
      
     				// now, add the message failed to be added to the previous batch to this batch
     				if (!batch.tryAddMessage(messages[i])) {
@@ -200,6 +200,7 @@ Select the queue on this **Overview** page to navigate to the **Service Bus Queu
 ## Next steps
 See the following documentation and samples: 
 
-- [Azure Service Bus client library for Python](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/README.md)
-- [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples). The **javascript** folder has JavaScript samples and the **typescript** has TypeScript samples. 
-- [azure-servicebus reference documentation](https://docs.microsoft.com/javascript/api/overview/azure/service-bus)
+- [Azure Service Bus client library for JavaScript](https://www.npmjs.com/package/@azure/service-bus)
+- [JavaScript samples](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
+- [TypeScript samples](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
+- [API reference documentation](/javascript/api/overview/azure/service-bus)

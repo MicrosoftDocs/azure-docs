@@ -7,12 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 03/17/2021
 ms.author: alkohli
+ms.custom: "contperf-fy21q3"
 ---
 # System requirements for Azure Stack Edge Pro with GPU 
 
-This article describes the important system requirements for your Microsoft Azure Stack Edge Pro solution and for the clients connecting to Azure Stack Edge Pro. We recommend that you review the information carefully before you deploy your Azure Stack Edge Pro. You can refer back to this information as necessary during the deployment and subsequent operation.
+This article describes the important system requirements for your Microsoft Azure Stack Edge Pro GPU solution and for the clients connecting to Azure Stack Edge Pro. We recommend that you review the information carefully before you deploy your Azure Stack Edge Pro. You can refer back to this information as necessary during the deployment and subsequent operation.
 
 The system requirements for the Azure Stack Edge Pro include:
 
@@ -33,7 +34,7 @@ The system requirements for the Azure Stack Edge Pro include:
 
 ## Supported Edge storage accounts
 
-The following Edge storage accounts are supported with REST interface of the device. The Edge storage accounts are created on the device. For more information, see [Edge storage accounts](azure-stack-edge-j-series-manage-storage-accounts.md#about-edge-storage-accounts).
+The following Edge storage accounts are supported with REST interface of the device. The Edge storage accounts are created on the device. For more information, see [Edge storage accounts](azure-stack-edge-gpu-manage-storage-accounts.md#about-edge-storage-accounts).
 
 |Type  |Storage account  |Comments  |
 |---------|---------|---------|
@@ -78,7 +79,7 @@ Use the following table for port configuration for the servers hosting Azure IoT
 |----------|-----------|------------|----------|----------|
 | TCP 443 (HTTPS)| Out       | WAN        | Yes      | Outbound open for IoT Edge   provisioning. This configuration is required when using manual scripts or Azure IoT Device Provisioning Service (DPS).|
 
-For complete information, go to [Firewall and port configuration rules for IoT Edge deployment](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
+For complete information, go to [Firewall and port configuration rules for IoT Edge deployment](../iot-edge/troubleshoot.md).
 
 ## URL patterns for firewall rules
 
