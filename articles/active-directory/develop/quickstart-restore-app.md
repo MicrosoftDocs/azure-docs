@@ -17,11 +17,11 @@ ms.custom: aaddev
 ---
 
 # Restore or remove a recently deleted application with the Microsoft identity platform
-After you delete an app registration, the app remains in a suspended state for 30 days. During that 30-day window, the app registration can be restored, along with all its properties. After that 30-day window passes, app registrations cannot be restored and the permanent deletion process may be automatically started.
+After you delete an app registration, the app remains in a suspended state for 30 days. During that 30-day window, the app registration can be restored, along with all its properties. After that 30-day window passes, app registrations cannot be restored and the permanent deletion process may be automatically started.  This functionality only applies to applications associated to a directory.  It is not available for applications from a personal Microsoft account, which cannot be restored.
 
 You can view your deleted applications, restore a deleted application, or permanently delete an application using the App registrations experience under Azure Active Directory (Azure AD) in the Azure portal.
 
-Note that neither you or Microsoft customer support can restore a permanently deleted application.
+Note that neither you nor Microsoft customer support can restore a permanently deleted application or an application deleted more than 30 days ago.
 
 ## Required permissions
 You must have one of the following roles to permanently delete applications.
