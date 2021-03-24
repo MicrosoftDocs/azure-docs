@@ -43,7 +43,6 @@ landingContent:
             url: create-update-group.md
           - text: Deploy an update
             url: deploy-update.md
-    linkLists:
     - linkListType: concept
       links:
         - text: How device update uses Plug and Play
