@@ -22,6 +22,9 @@ A redirect URI, or reply URL, is the location where the authorization server sen
 
 * The redirect URI is case-sensitive. Its case must match the case of the URL path of your running application. For example, if your application includes as part of its path `.../abc/response-oidc`,  do not specify `.../ABC/response-oidc` in the redirect URI. Because the web browser treats paths as case-sensitive, cookies associated with `.../abc/response-oidc` may be excluded if redirected to the case-mismatched `.../ABC/response-oidc` URL.
 
+[!NOTE]
+For redirect URI containing hostnames without a path segment such as https://contoso.com or http://localhost:7071, a trailing slash will be appended when getting a response post authentication (Eg. https://contoso.com/ or http://localhost:7071/. This is specific when using response mode of query or fragment. In case we have a path segment such as https://contoso.com/test, this behavior does not apply. 
+
 ## Maximum number of redirect URIs
 
 This table shows the maximum number of redirect URIs you can add to an app registration in the Microsoft identity platform.
