@@ -197,7 +197,7 @@ To log debug information for a nested template, use the **debugSetting** element
 ```json
 {
   "type": "Microsoft.Resources/deployments",
-  "apiVersion": "2016-09-01",
+  "apiVersion": "2020-10-01",
   "name": "nestedTemplate",
   "properties": {
     "mode": "Incremental",
