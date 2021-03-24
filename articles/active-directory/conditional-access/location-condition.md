@@ -15,7 +15,7 @@ ms.reviewer: calebb
 
 ms.collection: M365-identity-device-management
 
-ms.custom: contperfq4
+ms.custom: contperf-fy20q4
 ---
 # Using the location condition in a Conditional Access policy 
 
@@ -193,6 +193,9 @@ When a cloud proxy is in place, a policy that is used to require a hybrid Azure 
 ### API support and PowerShell
 
 A preview version of the Graph API for named locations is available, for more information see the [namedLocation API](/graph/api/resources/namedlocation?view=graph-rest-beta).
+
+> [!NOTE]
+> Named locations that you create by using PowerShell display only in Named locations (preview). You can't see named locations in the old view.  
 
 ## Next steps
 

@@ -29,3 +29,4 @@ When working with custom IPsec policies, keep in mind the following requirements
 | IPsec Encryption | GCMAES256, GCMAES128, AES256, AES128, None |
 | IPsec Integrity | GCMAES256, GCMAES128, SHA256 |
 | PFS Group | ECP384, ECP256, PFS24, PFS14, None |
+| SA Lifetime |integer; min. 300/ default 27000 seconds |

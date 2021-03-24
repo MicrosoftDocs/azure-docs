@@ -1,9 +1,6 @@
 ---
 title: Install Jupyter locally and connect to Spark in Azure HDInsight
 description: Learn how to install Jupyter Notebook locally on your computer and connect it to an Apache Spark cluster.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-python
@@ -37,12 +34,7 @@ Download the [Anaconda installer](https://www.anaconda.com/download/) for your p
 
 ## Install Spark magic
 
-1. Enter one of the commands below to install Spark magic. See also, [sparkmagic documentation](https://github.com/jupyter-incubator/sparkmagic#installation).
-
-    |Cluster version | Install command |
-    |---|---|
-    |v3.6 and v3.5 |`pip install sparkmagic==0.13.1`|
-    |v3.4|`pip install sparkmagic==0.2.3`|
+1. Enter the command `pip install sparkmagic==0.13.1` to install Spark magic for HDInsight clusters version 3.6 and 4.0. See also, [sparkmagic documentation](https://github.com/jupyter-incubator/sparkmagic#installation).
 
 1. Ensure `ipywidgets` is properly installed by running the following command:
 
@@ -145,7 +137,7 @@ In this section, you configure the Spark magic that you installed earlier to con
 
     a. Create a new notebook. From the right-hand corner, select **New**. You should see the default kernel **Python 2** or **Python 3** and the kernels you installed. The actual values may vary depending on your installation choices.  Select **PySpark**.
 
-    ![Available kernels in Jupyter Notebook](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Kernels in Jupyter Notebook")
+    :::image type="content" source="./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png " alt-text="Available kernels in Jupyter Notebook" border="true":::
 
     > [!IMPORTANT]  
     > After selecting **New** review your shell for any errors.  If you see the error `TypeError: __init__() got an unexpected keyword argument 'io_loop'` you may be experiencing a known issue with certain versions of Tornado.  If so, stop the kernel and then downgrade your Tornado installation with the following command: `pip install tornado==4.5.3`.

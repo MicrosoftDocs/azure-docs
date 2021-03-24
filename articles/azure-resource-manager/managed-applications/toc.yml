@@ -179,5 +179,7 @@
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Resource Manager template best practices
     href: https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md
+  - name: Microsoft Q&A
+    href: /answers/topics/azure-managed-applications.html
   - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-managedapps
+    href: https://stackoverflow.com/questions/tagged/azure-managed-app

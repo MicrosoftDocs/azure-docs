@@ -147,13 +147,13 @@ In this section, you query Avro data and export it to a CSV file in Azure Blob s
         */
         
         @cnt =
-        	SELECT message["message"] AS iotmessage,
-        		   message["event"] AS msgevent,
-        		   message["object"] AS msgobject,
-        		   message["status"] AS msgstatus,
-        		   message["host"] AS msghost
-        	FROM @jsonify;
-        	
+            SELECT message["message"] AS iotmessage,
+                message["event"] AS msgevent,
+                message["object"] AS msgobject,
+                message["status"] AS msgstatus,
+                message["host"] AS msghost
+            FROM @jsonify;
+            
         OUTPUT @cnt TO @output_file USING Outputters.Text();
     ```
 

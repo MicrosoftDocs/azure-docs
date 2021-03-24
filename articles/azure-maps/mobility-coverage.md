@@ -1,22 +1,28 @@
 ---
-title: Mobility (transit) coverage
-description: Learn which level of coverage the Azure Maps Mobility service provides in which regions for public transit features, such as routing and service alerts.
+title: Mobility (transit) coverage in Microsoft Azure Maps Mobility services (Preview) 
+description: Learn which level of coverage the Azure Maps Mobility services (Preview) provides in which regions for public transit features, such as routing and service alerts.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/23/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ---
 
-# Azure Maps Mobility coverage
+# Azure Maps Mobility services (Preview) coverage
 
-The Azure Maps [Mobility service](/rest/api/maps/mobility) improves the development time for applications with public transit features, such as transit routing and search for nearby public transit stops. Users can retrieve detailed information about transit stops, lines, and schedules. The Mobility service also allows users to retrieve stop and line geometries, alerts for stops, lines, and service areas, and real-time public transit arrivals and service alerts. Additionally, the Mobility service provides routing capabilities with multimodal trip planning options. Multimodal trip planning incorporates walking, bicycling, and public transit options, all into one trip. Users can also access detailed multimodal step-by-step itineraries. 
+> [!IMPORTANT]
+> Azure Maps Mobility services are currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
+The Azure Maps [Mobility services](/rest/api/maps/mobility) improves the development time for applications with public transit features, such as transit routing and search for nearby public transit stops. Users can retrieve detailed information about transit stops, lines, and schedules. The Mobility services also allow users to retrieve stop and line geometries, alerts for stops, lines, and service areas, and real-time public transit arrivals and service alerts. Additionally, the Mobility services provide routing capabilities with multimodal trip planning options. Multimodal trip planning incorporates walking, bicycling, and public transit options, all into one trip. Users can also access detailed multimodal step-by-step itineraries.
 
 Azure Maps doesn't provide the same level of information and accuracy for all cities and countries/regions. The ability to call public transit data depends on the metro area. In addition, the map data may not include all public transit options and agencies that serve the metro area.
 
-The following table provides coverage information for Azure Maps Mobility service.
+The following table provides coverage information for Azure Maps Mobility services.
 
 | Symbol | Meaning |
 |--------|---------|
@@ -27,23 +33,25 @@ The following table provides coverage information for Azure Maps Mobility serv
 | Country/region |  City (Metro Area) |
 |----------------|---------|
 | Antigua and Barbuda | Antigua and Barbuda* |
-| Argentina       | <p>Bahía Blanca, Buenos Aires, Caleta Olivia, Catamarca, Chivilcoy, Comodoro Rivadavia, Córdoba, Corrientes, General Pico, La Rioja, Mar del Plata, Mendoza, Miramar, Necochea, Neuquén,Oberá,Olavarría, Paraná, Posadas, Rio Tercero, Rosario, Salta, San Carlos de Bariloche, San Luis, San Pedro, Santa Fe, Tandil, Ushuaia, Victoria, Viedma, Villa María</p>|
+| Argentina       | <p>Azul, Bahía Blanca, Buenos Aires, Caleta Olivia, Catamarca, Chivilcoy, Comodoro Rivadavia, Concordia, Córdoba, Corrientes, General Pico, Gualeguaychu, La Rioja, Mar del Plata, Mendoza, Miramar, Necochea, Neuquén,Oberá,Olavarría, Paraná, Posadas, Rafaela, Rio Tercero, Rosario, Salta, San Carlos de Bariloche, San Luis, San Miguel de Tucumán, San Pedro, Santa Fe, Tandil, Ushuaia, Victoria, Viedma, Villa María</p>|
 | Barbados       |  Barbados* |
-| Brazil         | <p>Angra dos Reis, Anápolis, Apucarana, Aracaju, Araraquara, Araxa, Araçatuba, Bage, Barretos, Bauru, Bebedouro, Belem, Belo Horizonte, Blumenau, Boa Vista, Brasilia, Caldas Novas, Campina Grande, Campinas, Campo Belo, Campo Grande, Caraguatatuba, Caratinga, Cascavel, Cataguases, Caxias, Leopoldina e Região, Catalão, Caxias do Sul, Chapecó, Cianorte, Conselheiro Lafaiete, Corumbá, Criciúma, Cruzeiro do Sul, Cuiabá, Curitiba, Curitibanos, Curvelo, Diamantina, Divinópolis, Dourados, Estrela, Feira de Santana, Fernando de Noronha, Florianópolis, Fortaleza, Foz do Iguaçu, Franca, Garanhuns, Goiania, Governador Valadares, Guarapuava, Imperatriz, Ipatinga, Irati, Itabira, Itabuna, Itajaí, Itajuba, Ituiutaba, Jaguarao, Jaraguá do Sul, Joao Pessoa, Joinville, Juazeiro do Norte, Juiz de Fora, Jundiaí, Lages, Lavras e Regiao, Lucas do Rio Verde, Londrina, Macapa, Macaé, Maceió, Mafra e Rio Negro, Manaus, Manhuacu, Maringá, Marília, Monte Carmelo, Montes Claros, Mossoró, Natal, Osorio, Ourinhos, Ouro Preto, Palmas, Paracatu, Paranaguá, Parnaíba, Passo Fundo, Passos, Patos de Minas, Patrocínio, Pelotas, Piracicaba, Pirapora, Pocos de Caldas, Ponta Grossa, Porto Alegre, Porto Ferreira, Porto Seguro, Porto Velho, Praia Grande, Recife, Ribeirão Preto, Rio, Rio Branco, Rio Verde, Rondonópolis, Salinas, Salvador, Santa Cruz do Sul, Santa Maria, Santa Rita do Sapucaí, Santarem, Santos, Sao Gabriel do Oeste, Sao Joao del Rei, Tiradentes e Regiao, Sao Jose do Rio Preto, Sao Mateus, Sao Paulo, Sorocaba, São Carlos, São Francisco do Sul, São José dos Campos, São Lourenço, São Luís, Taubaté, Telemaco Borba, Teofilo Otoni, Teresina, Toledo , Três Lagoas, Tucurui, Ubatuba, Uberaba, Uberlândia, Ubá, Uruguaiana, Varginha, Vicosa, Videira & Fraiburgo, Vitória, Vitória da Conquista, Volta Redonda, Votuporanga </p>|
-| Canada | Banff (AB), Brandon (MB), Calgary (AB), Comox Valley (BC), Cowichan Valley (BC), Edmonton (AB), Fort St. John, Fredericton (NB), Greater Sudbury (ON), Greater Vancouver (BC), Halifax (NS), Kamloops (BC), Kelowna (BC), Kingston (ON), London (ON), Moncton (NB), Montreal (QC), Nanaimo (BC), Ottawa (ON), Prince George (BC), Québec City (QC), Red Deer (AB), Regina (SK), Rimouski (QC), Saskatoon (SK), Sherbrooke (QC), Squamish (BC), St. John's (NL), Sunshine Coast, Thunder Bay (ON), Toronto (ON), Victoria (BC), Whistler (BC), Windsor (ON), Winnipeg (MB), Woodstock</p>|
+| Brazil         | <p>Angra dos Reis, Anápolis, Apucarana, Aracaju, Araraquara, Araxa, Araçatuba, Atibaia, Bage, Barretos, Bauru, Bebedouro, Belem, Belo Horizonte, Blumenau, Boa Vista, Botucatu, Brasilia, Caldas Novas, Campina Grande, Campinas, Campo Belo, Campo Grande, Caraguatatuba, Caratinga, Cascavel, Cataguases, Caxias, Leopoldina e Região, Catalão, Caxias do Sul, Chapecó, Cianorte, Conselheiro Lafaiete, Corumbá, Criciúma, Cruzeiro do Sul, Cuiabá, Curitiba, Curitibanos, Curvelo, Diamantina, Divinópolis, Dourados, Estrela, Feira de Santana, Fernando de Noronha, Florianópolis, Fortaleza, Foz do Iguaçu, Franca, Garanhuns, Goiania, Governador Valadares, Guarapuava, Imperatriz, Ipatinga, Irati, Itabira, Itabuna, Itajaí, Itajuba, Ituiutaba, Jaguarao, Jaraguá do Sul, Joao Pessoa, Joinville, Juazeiro do Norte, Juiz de Fora, Jundiaí, Lages, Lavras e Regiao, Lucas do Rio Verde, Londrina, Macapa, Macaé, Maceió, Mafra e Rio Negro, Manaus, Manhuacu, Maringá, Marília, Monte Carmelo, Montes Claros, Mossoró, Natal, Osorio, Ourinhos, Ouro Preto, Palmas, Paracatu, Paranaguá, Parnaíba, Passo Fundo, Passos, Pato Branco, Patos de Minas, Patrocínio, Pelotas, Picos, Piracicaba, Pirapora, Pocos de Caldas, Ponta Grossa, Porto Alegre, Porto Ferreira, Porto Seguro, Porto Velho, Praia Grande, Recife, Ribeirão Preto, Rio, Rio Branco, Rio Verde, Rondonópolis, Salinas, Salvador, Santa Cruz do Sul, Santa Maria, Santa Rita do Sapucaí, Santarem, Santiago del Estero, Santos, Sao Gabriel do Oeste, Sao Joao del Rei, Tiradentes e Regiao, Sao Jose do Rio Preto, Sao Mateus, Sao Paulo, Sorocaba, São Carlos, São Francisco do Sul, São José dos Campos, São Lourenço, São Luís, Taubaté, Telemaco Borba, Teofilo Otoni, Teresina, Toledo , Três Lagoas, Tucurui, Ubatuba, Uberaba, Uberlândia, Ubá, Uruguaiana, Varginha, Vicosa, Videira & Fraiburgo, Vitória, Vitória da Conquista, Volta Redonda, Votuporanga </p>|
+| Canada | Banff (AB), Brandon (MB), Calgary (AB), Chatham-Kent (ON), Comox Valley (BC), Cowichan Valley (BC), Cranbrook (BC),Edmonton (AB), Fort St. John, Fredericton (NB), Greater Sudbury (ON), Greater Vancouver (BC), Halifax (NS), Kamloops (BC), Kelowna - Vernon (BC), Kingston (ON), London (ON), Moncton (NB), Montreal (QC), Nanaimo (BC), Ottawa (ON), Prince George (BC), Québec City (QC), Red Deer (AB), Regina (SK), Rimouski (QC), Saskatoon (SK), Sherbrooke (QC), Southwest British Columbia (BC), Squamish (BC), St. John's (NL), Sunshine Coast, Thunder Bay (ON), Toronto (ON), Victoria (BC), West Kootenay (BC), Whistler (BC), Windsor (ON), Winnipeg (MB), Woodstock</p>|
 | Chile  | <p>Antofagasta, Arica, Aysén, Chillán, Concepción, Constitución, Copiapó, Curicó, Iquique, La Serena y Coquimbo, Linares, Los Angeles (Chile), Los Lagos, Punta Arenas, Rancagua, Santiago, Talca, Temuco, Valdivia, Valparaíso, Viña del Mar</p>|
 | Colombia | <p>Barranquilla, Bogotá, Bucaramanga, Cali, Cartagena, Ibagué, Medellín, Pasto, Popayán, Santa Marta, Sincelejo, Valledupar</p>|  
 | Costa Rica | San José|
 | Dominican Republic | Santo Domingo |
-| Ecuador | Cuenca, Guayaquil, Loja, Manta|
-| Mexico | Aguascalientes, Mexico City, Guadalajara, Lion, Merida, Monterrey, Puebla, Querétaro, San Luis Potosi, Torreon|
+| Ecuador | Cuenca, Guayaquil, Loja, Manta, Milagro|
+| El Salvador | San Salvador |
+ | Guatemala | Ciudad de Guatemala (GT) |
+| Mexico | Acapulco, Aguascalientes, Cancun, Durango, Mexico City, Guadalajara, Lion, Merida, Monterrey, Puebla, Puerto Vallarta, Querétaro, San Luis Potosi, Tijuana, Torreon|
 | Nicaragua | Managua |
 | Panama | Panama*|
 | Peru | Cusco, Lima |
 | Puerto Rico | San Juan |
 | Suriname | Paramaribo |
-| Uruguay | Montevideo, Punta del Este, Salto |
-| United States of America | <p>Albany (NY), Albuquerque (NM), Anchorage (AK), Ann Arbor (MI)  Appleton-Oshkosh-Neenah (WI), Asheville (NC), Athens (GA), Athens (OH), Atlanta (GA), Austin (TX), Bakersfield (CA), Baltimore (MD), Bend-Redmond (OR), Berkshire County (MA), Birmingham (AL), Bloomington (IN), Boise (ID), Boston (MA), Boulder (CO), Bowling Green (KY), Brevard County (FL), Buffalo (NY), Butte (MT), Cape Cod (MA), Centre County (PA), Champaign-Urbana (IL), Charleston (SC), Charleston (WV), Charlotte (NC), Charlottesville (VA), Chattanooga (TN), Cheyenne (WY), Chicago (IL), Cincinnati (OH), Citrus County (FL), Cleveland (OH), Coachella Valley (CA), Colorado Springs (CO), Columbia (TN), Columbia (SC), Columbus (OH), Corpus Christi (TX), Dallas/Forth Worth (TX), Dayton (OH), Delaware, Denver (CO), Des Moines (IA), Detroit (MI), Duluth (MN), El Paso (TX), Eugene (OR), Fairbanks (AK), Fargo (ND), Fayetteville (NC), Flagstaff (AZ), Flint (MI) Fort Collins (CO), Fort Wayne (IN), Fresno (CA), Gainesville (FL), Grand Forks (ND), Grand Rapids (MI), Green Bay (WI), Greensboro (NC), Greenville (SC), Gunnison (CO), Hampton Roads (VA), Hanford (CA), Hartford (CT), Hernando County (FL), Hinesville (GA), Honolulu (HI), Houston (TX), Humboldt County (CA), Huntsville (AL), Indianapolis (IN), Ithaca (NY), Jackson (MS), Jackson (TN), Jacksonville - St. John's County (FL), Johnson city (TN), Jonesboro (AR), Joplin (MO), Juneau (AK), Kalamazoo (MI), Kalispell (MT), Kansas City (MO), Kauai (HI), Ketchum (ID), Knoxville (TN), Lafayette (IN), Lancaster (PA), Lansing (MI), Laredo (TX), Las Vegas (NV), Lawrence (KS), Lee County (FL), Lexington (KY), Lincoln County (OR), Little Rock (AR), Los Angeles (CA), Louisville (KY), Lubbock (TX), Madison (WI), Manchester (NH), McAllen (TX), Memphis (TN), Miami (FL), Milwaukee-Waukesha (WI), Minneapolis-St. Paul (MN), Missoula (MT), Modesto (USA), Moline (IL), Monroe County (PA), Montgomery (AL), Morgantown (WV), Nashville (TN), Navajo Nation), New Haven (CT), New Orleans (LA), NYC-NJ Area(NY), Ocala (FL), Okaloosa County (FL), Oklahoma City (OK), Omaha (NE), Orlando (FL), Palm Desert (CA), Panama City (FL), Pensacola (FL), Peoria (IL), Philadelphia (PA), Phoenix (AZ), Pittsburgh (PA), Portland (ME), Portland (OR), Racine (WI), Raleigh (NC), Redding (CA), Reno & Lake Tahoe (NV), Richmond (VA), Roanoke Valley (VA - Lynchburg), Rochester (NY), Rocky Mount (NC), Rocky Mountain National Park (CO), Rogue Valley (OR), Roseburg (OR), Roseville (CA), Sacramento (CA), Salem (OR), Salt Lake City (UT), San Antonio (TX), San Diego (CA), San Luis Obispo (CA), Santa Barbara (CA), Santa Fe (NM), Sarasota (FL), Savannah (GA), Seacoast Region (NH), Seattle-Tacoma-Bellevue (WA), SF Bay Area (CA), SF-San Jose Area (CA), Sioux City (IA), Sioux Falls (SD), Sitka (AK), Spokane (WA), Springfield (MA), South Bend (IN), Springfield (IL), Springfield (Mass), St. George (UT), St. Louis (MO), Stockton (CA), Syracuse-Utica (NY), Tallahassee (FL), Tampa-St. Petersburg (FL), Terre Haute (IN), Toledo (OH), Topeka (KS), Traverse City (MI), Tucson (AZ), Tulsa (OK), Vermont, Victorville (CA), Volusia County (FL), Waco (TX), Washington (DC), Waterbury (CT), Wichita (KS), Wichita Falls (TX) Wilmington (NC), Yakima (WA), Youngstown (OH), York County (PA), Yuma County (AZ)</p>|
+| Uruguay | Montevideo, Paysandu, Punta del Este, Salto |
+| United States of America | <p>Albany (GA), Albany (NY), Albuquerque (NM), Anchorage (AK), Ann Arbor (MI)  Appleton-Oshkosh-Neenah (WI), Asheville (NC), Athens (GA), Athens (OH), Atlanta (GA), Austin (TX), Bakersfield (CA), Baltimore (MD), Bend-Redmond (OR), Berkshire County (MA), Birmingham (AL), Bloomington (IN), Boise (ID), Boston (MA), Boulder (CO), Bowling Green (KY), Brevard County (FL), Buffalo (NY), Butte (MT), Cape Cod (MA), Centre County (PA), Champaign-Urbana (IL), Charleston (SC), Charleston (WV), Charlotte (NC), Charlottesville (VA), Chattanooga (TN), Cheyenne (WY), Chicago (IL), Cincinnati (OH), Citrus County (FL), Cleveland (OH), Coachella Valley (CA), Colorado Springs (CO), Columbia (TN), Columbia (SC), Columbus (OH), Corpus Christi (TX), Dallas/Forth Worth (TX), Dayton (OH), Delaware, Denver (CO), Des Moines (IA), Detroit (MI), Duluth (MN), El Paso (TX), Eugene (OR), Fairbanks (AK), Fargo (ND), Fayetteville (NC), Flagstaff (AZ), Flint (MI) Fort Collins (CO), Fort Wayne (IN), Fresno (CA), Gainesville (FL), Grand Forks (ND), Grand Rapids (MI), Green Bay (WI), Greensboro (NC), Greenville (SC), Gunnison (CO), Hampton Roads (VA), Hanford (CA), Hartford (CT), Hernando County (FL), Hinesville (GA), Honolulu (HI), Houston (TX), Humboldt County (CA), Huntsville (AL), Indianapolis (IN), Ithaca (NY), Jackson (MS), Jackson (TN), Jacksonville - St. John's County (FL), Johnson city (TN), Jonesboro (AR), Joplin (MO), Juneau (AK), Kalamazoo (MI), Kalispell (MT), Kansas City (MO), Kauai (HI), Ketchum (ID), Knoxville (TN), Lafayette (IN), Lancaster (PA), Lansing (MI), Laredo (TX), Las Vegas (NV), Lawrence (KS), Lee County (FL), Lexington (KY), Lincoln County (OR), Little Rock (AR), Los Angeles (CA), Louisville (KY), Lubbock (TX), Madison (WI), Manchester (NH), McAllen (TX), Memphis (TN), Miami (FL), Milwaukee-Waukesha (WI), Minneapolis-St. Paul (MN), Missoula (MT), Modesto (USA), Moline (IL), Monroe County (PA), Montgomery (AL), Morgantown (WV), Nashville (TN), Navajo Nation), New Haven (CT), New Orleans (LA), NYC-NJ Area(NY), Ocala (FL), Okaloosa County (FL), Oklahoma City (OK), Omaha (NE), Orlando (FL), Palm Desert (CA), Panama City (FL), Pensacola (FL), Peoria (IL), Philadelphia (PA), Phoenix (AZ), Pittsburgh (PA), Portland (ME), Portland (OR), Racine (WI), Raleigh (NC), Redding (CA), Reno & Lake Tahoe (NV), Richmond (VA), Roanoke Valley (VA - Lynchburg), Rochester (NY), Rockford (IL), Rocky Mount (NC), Rocky Mountain National Park (CO), Rogue Valley (OR), Roseburg (OR), Roseville (CA), Sacramento (CA), Salem (OR), Salt Lake City (UT), San Antonio (TX), San Diego (CA), San Luis Obispo (CA), Santa Barbara (CA), Santa Fe (NM), Sarasota (FL), Savannah (GA), Seacoast Region (NH), Seattle-Tacoma-Bellevue (WA), SF Bay Area (CA), SF-San Jose Area (CA), Sioux City (IA), Sioux Falls (SD), Sitka (AK), Spokane (WA), Springfield (MA), South Bend (IN), Springfield (IL), Springfield (Mass), St. George (UT), St. Louis (MO), Stockton (CA), Syracuse-Utica (NY), Tallahassee (FL), Tampa-St. Petersburg (FL), Terre Haute (IN), Toledo (OH), Topeka (KS), Traverse City (MI), Tucson (AZ), Tulsa (OK), Vermont, Victorville (CA), Volusia County (FL), Waco (TX), Washington (DC), Waterbury (CT), Wichita (KS), Wichita Falls (TX) Wilmington (NC), Yakima (WA), Youngstown (OH), York County (PA), Yuma County (AZ)</p>|
 | +U.S. Virgin Islands | U.S. Virgin Islands* |
 | Venezuela | Caracas |
 
@@ -53,20 +61,21 @@ The following table provides coverage information for Azure Maps Mobility serv
 |--------|---------|
 | Australia | <p>Adelaide, Alice Springs, Bowen, Brisbane, Bundaberg QLD, Burnie, Cairns, Canberra, Darwin, Gladstone, Hobart, Innisfail, Launceston, Mackay, Magnetic Island, Maryborough-Hervey Bay, Melbourne, New South Wales, Perth, RockHampton, South East Queensland, Sydney, Toowoomba, Townsville, Victoria, Warwick, Yeppoon</p> |
 | Brunei | Bandar Seri Begawan |
-| China | <p> Changchun, Changsha, Chengdu, Chongqing, Dalian, Datong, Dongguan, Hangzhou, Jiangyin, Jinan, Nanjing, Nantong, Ningbo, Pingdingshan, Qingdao, Shenyang, Suzhou, Tangshan, Tianjin, Weifang, Wuhan, Wuxi, Yantai, Yixing, Zhuhai, Shanghai, Beijing, Guangzhou, Shenzhen, Zhengzhou</P>|
+| China | <p> Changchun, Changsha, Chengdu, Chongqing, Dalian, Datong, Dongguan, Hangzhou, Harbin, Jiangyin, Jinan, Nanjing, Nantong, Ningbo, Pingdingshan, Qingdao, Shenyang, Suzhou, Tangshan, Tianjin, Weifang, Wuhan, Wuxi, Yantai, Yixing, Zhuhai, Shanghai, Beijing, Guangzhou, Shenzhen, Zhengzhou</P>|
 | Hong Kong SAR | Hong Kong SAR*|
 | Macao SAR | Macao SAR*|
 | Maldives | Male |
 | India | Ahmedabad, Bengaluru, Delhi, Hyderabad, Mumbai, Mysuru, Pune|
 | Indonesia | Bandung, Banjarmasin, Banyuwangi, Batam, Denpasar, Jakarta, Kediri, Malang, Palembang, Semarang, Surabaya, Surakarta, Yogyakarta |
 | Japan | Hokkaido, Shizuoka Prefecture, Tokyo, Wakkanai, Yamanashi Prefecture |
-| Malaysia | Ipoh, Johar Bahru, Kuala Lumpur, Penang |
+| Malaysia | Ipoh, Johar Bahru, Kuala Lumpur, Kuantan, Penang |
 | New Zealand | Auckland, Christchurch, Dunedin, Queenstown, Timaru, Wellington|
 | Philippines | Manila |
 | Singapore | Singapore* |
 | South Korea | Busan, Seoul |
 | Taiwan | Changhua County, Taipei |
 | Thailand | Bangkok, Chiang Mai |
+| Uzbekistan | Samarkand |
 | Vietnam | Hanoi, Ho Chi Minh City |
 
 ## Europe
@@ -86,12 +95,12 @@ The following table provides coverage information for Azure Maps Mobility serv
 | Denmark   | Denmark* |
 | Estonia   | Estonia* |
 | Finland   | Hämeenlinna, Helsinki, Joensuu, Jyväskylä, Kajaani, Kouvola - Kotka, Kuopio, Lappeenranta, Mikkeli, Oulu, Pori, Rovaniemi, Seinäjoki, Tampere, Turku, Vaasa|
-| France    | <p>Amberieu-en-Bugey, Amiens, Angers, Annecy, Annonay, Arras, Aubenas, Bayonne, Besançon, Blois, Bordeaux, Boulogne sur Mer, Brest, Briançon, cannes, Châlons-en-Champagne,   Chartres, Clermont-Ferrand, Colmar, Côte d’Azur, Dax, Dijon, Grenoble, Haguenau, La Rochelle, Le Mans, Lens, Lille, Lorient, Lyon,MACS, Marseille & Provence, Metz, Millau, Mont-de-Marsan, Montpellier, Mulhouse, Nancy, Nantes, Nice, Nimes, Normandy, Nyons, Paris, Poitiers, Privas, Quimper, Rennes, Saint Malo, Saint-Étienne, Saint-Nazaire, Saintes, Sarrebourg, Sete, Strasbourg, Tarbes, Toulouse, Tours</P> |
+| France    | <p>Amberieu-en-Bugey, Amiens, Angers, Annecy, Annonay, Arras, Aubenas, Bayonne, Besançon, Blois, Bordeaux, Boulogne sur Mer, Brest, Briançon, cannes, Châlons-en-Champagne,   Chartres, Clermont-Ferrand, Colmar, Côte d’Azur, Dax, Dijon, Grenoble, Haguenau, La Rochelle, Le Mans, Lens, Lille, Lorient, Lyon, MACS, Marseille & Provence, Metz, Millau, Mont-de-Marsan, Montpellier, Mulhouse, Nancy, Nantes, Nice, Nice Côte d’Azur, Nimes, Normandy, Nyons, Paris, Poitiers, Privas, Quimper, Rennes, Saint Malo, Saint-Étienne, Saint-Nazaire, Saintes, Sarrebourg, Sete, Strasbourg, Tarbes, Toulouse, Tours</P> |
 | +French Guiana | Cayenne |
 | +New Caledonia | Nouméa  |
 | Georgia | Tbilisi |
 | Germany | <p>Berlin, Brandenburg, Bremen & Niedersachsen, Cologne, Eisenach, Frankfurt, Hamburg, Karlsruhe, Mainz, München - Munich, Rhein-Neckar Region, Rhein-Ruhr Region, Stuttgart, Titisee-Neustadt, Ulm</P> |
-| Greece | <p>Athens, Arta, Amorgos, Chania, Corfu, Chios Kos, Heraklion, Ioannina, Kavala, Kalamata, Khios, Komotini, Kos, Larissa, Meganisi, Milos, Mykonos, Patra, Rethimno, Rhodes, Santorini, Serres, Syros, Tinos, Thessaloniki, Veria, Volos, Xanthi </P> |
+| Greece | <p>Agrinio, Aigio, Athens, Arta, Amorgos, Chania, Corfu, Chios Kos, Heraklion, Ioannina, Kavala, Kalamata, Khios, Komotini, Kos, Larissa, Meganisi, Milos, Mykonos, Patra, Rethimno, Rhodes, Santorini, Serres, Syros, Tinos, Thessaloniki, Veria, Volos, Xanthi </P> |
 | Hungary | Budapest, Gyor, Miskolc, Nograd County, Pesc, Szeged, Székesfehérvár |
 | Iceland | Ísland - Iceland* |
 | Ireland | Ireland* |
@@ -104,18 +113,18 @@ The following table provides coverage information for Azure Maps Mobility serv
 | Montenegro | Podgorica |
 | Netherlands | Netherlands* |
 | Norway | Norway* |
-| Poland | <p>Wrocław, Białystok, Bydgoszcz, Elbląg, Gorzow, Kętrzyna, Krakow, Leszno, Lodz, Lublin, Mrągowo, Olsztyn, Poznań, Rzeszów, Sanok, Starachowice, Świonujście, Szczecin, Tricity, Warsaw, Wodzisław Śląski, Wrocław, Zakopane</p> |
+| Poland | <p>Wrocław, Białystok, Bydgoszcz, Elbląg, Elk, Gorzow, Kętrzyna, Krakow, Leszno, Lodz, Lublin, Mrągowo, Olsztyn, Poznań, Rzeszów, Sanok, Starachowice, Świonujście, Szczecin, Tricity, Warsaw, Wodzisław Śląski, Wrocław, Zakopane</p> |
 | Portugal | Bragança, Coimbra, Funchal, Leiria, Lisboa, Portimao, Porto|
 | Malta | Malta* |
 | Romania | <p>Alba Iulia, Arad, Bistrița, Brăila, Braşov, Bucharest, Buzau, Cluj Napoca, Constanța, Craiova, Deva, Focșani, Galati, Iaşi, Miercurea Ciuc, Oradea, Piatra Neamt, Pitești, Ploieşti, Reșița, Satu Mare, Sibiu, Suceava, Targu Mures, Timisoara, Tulcea, Zalau</p> | 
-| Russia  | Kaliningrad, Rostov-on-Don, Volgograd, Yekaterinburg, Kazan, Kirov, Krasnodar, Moscow, Nalchik, Nizhny Novgorod, Novosibirsk, Noyabrsk, Omsk, Oryol, Perm, St Petersburg, Tver, Tomsk |
+| Russia  | Kaliningrad, Rostov-on-Don, Volgograd, Yekaterinburg, Kazan, Kirov, Krasnodar, Moscow, Nalchik, Nizhny Novgorod, Novosibirsk, Noyabrsk, Omsk, Oryol, Perm, St Petersburg, Pyatigorsk, Tver, Tomsk |
 | Serbia  | Beograd, Kragujevac, Nis, Novi Sad, Valjevo, Subotica | 
 | Slovakia | Banská Bystrica, Bratislava, Kosice, Presov, Prievidza, Ruzomberok a Liptovsky Mikulas, Stará Ľubovňa, Trencin |
 | Slovenia | Koper, Ljubljana |
 | Spain    | <p>Albacete, Corunna, Alicante, Almería, Asturias, Avila, Badajoz, Bay of Cadiz, Barcelona, Bilbao, Burgos, Caceres, Campo de Gibraltar, Castellon de la Plana, Ceuta, Ciudad Real, Cordoba, Cuenca, El Hierro, Ferrol, Fuerteventura, Gran Canaria, Granada, Huelva, Huesca, Ibiza, Jaén - Úbeda, La Gomera, La Palma, Lanzarote, León, Lleida, Logroño, Lugo, Madrid, Malaga, Mallorca - Majorca, Melilla, Menorca, Merida, Murcia, Ourense, Palencia, Pamplona, Salamanca, San Sebastian, Santander, Santiago de Compostela, Segovia, Seville, Soria, Tarragona - Reus, Tenerife, Toledo, Valencia, Valladolid, Vigo, Vitoria-Gasteiz, Zaragoza - Saragossa</p> |
 | Sweden | Goteborg/Gothenburg/Jonkoping, Malmö kommun - Malmö, Norrköping och Linköping, Stockholm, Sundsvall |
 | Switzerland | Basel, Geneva, Yverdon-les-Bains, Zurich | 
-| Turkey | Adana-Mersin, Ankara, Antalya, Balıkesir, Bilecik, Bolu, Bursa, Denizli, Duzce, Elazig, Eskisehir, Istanbul, Izmir-Aydin, Kahramanmaras, Kayseri, Konya, Malatya, Muğla, Samsun, Şanlıurfa, Trabzon |
+| Turkey | Adana-Mersin, Ankara, Antalya, Balıkesir, Bilecik, Bolu, Bursa, Çorum, Denizli, Duzce, Edirne, Elazig, Eskisehir, Istanbul, Izmir-Aydin, Kahramanmaras, Kayseri, Konya, Malatya, Muğla, Samsun, Şanlıurfa, Trabzon |
 | United Kingdom | East Anglia, East Midlands, London and South East, North East, North West, Northern Ireland, Scotland, South West, Wales, West Midlands, Yorkshire |
 | Ukraine | Kharkiv, Zhytomyr, Kyiv, Lviv, Chernivtsi |
 
@@ -130,7 +139,7 @@ The following table provides coverage information for Azure Maps Mobility serv
 | Israel| Israel*  |
 | Kenya | Nairobi  |
 | Madagascar | Antananarivo |
-| Morocco | Casablanca, Khouribga, Tétouan|
+| Morocco | Casablanca, Essaouira, Khouribga, Tétouan|
 | Qatar| Doha|
 | Saudi Arabia | Thuwal |
 | Senegal | Dakar |
@@ -141,17 +150,17 @@ The following table provides coverage information for Azure Maps Mobility serv
 
 ## Next steps
 
-Learn how to request transit data using Mobility Service:
+Learn how to request transit data using Mobility services (Preview):
 
 > [!div class="nextstepaction"]
 > [How to request transit data](how-to-request-transit-data.md)
 
-Learn how to request real-time data using Mobility Service:
+Learn how to request real-time data using Mobility services (Preview):
 
 > [!div class="nextstepaction"]
 > [How to request real-time data](how-to-request-real-time-data.md)
 
-Explore the Azure Maps Mobility Service API documentation
+Explore the Azure Maps Mobility services (Preview) API documentation
 
 > [!div class="nextstepaction"]
-> [Mobility Service API documentation](/rest/api/maps/mobility)
+> [Mobility services API documentation](/rest/api/maps/mobility)

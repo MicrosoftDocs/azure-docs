@@ -6,8 +6,7 @@ documentationcenter:
 author: msjuergent
 manager: juergent
 editor: 
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
@@ -99,7 +98,7 @@ Information about the table consistency check can also be found on the SAP websi
 
 ### Pros and cons of HANA backup versus storage snapshot
 
-SAP doesn&#39;t give preference to either HANA backup versus storage snapshot. It lists their pros and cons, so one can determine which to use depending on the situation and available storage technology (see [Planning Your Backup and Recovery Strategy](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm)).
+SAP doesn&#39;t give preference to either HANA backup versus storage snapshot. It lists their pros and cons, so one can determine which to use depending on the situation and available storage technology (see [Planning Your Backup and Recovery Strategy](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/ef085cd5949c40b788bba8fd3c65743e.html)).
 
 On Azure, be aware of the fact that the Azure blob snapshot feature doesn&#39;t provide file system consistency across multiple disks (see [Using blob snapshots with PowerShell](/archive/blogs/cie/using-blob-snapshots-with-powershell)). 
 

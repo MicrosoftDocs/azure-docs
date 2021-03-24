@@ -7,17 +7,22 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/02/2020
+ms.date: 02/22/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro device so I can use it to transform the data before sending it to Azure.
 ---
 
 # Deploy VMs on your Azure Stack Edge Pro GPU device via the Azure portal
 
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
+
 You can create and manage virtual machines (VMs) on an Azure Stack Edge device using Azure portal, templates, Azure PowerShell cmdlets and via Azure CLI/Python scripts. This article describes how to create and manage a VM on your Azure Stack Edge device using the Azure portal. 
 
 This article applies to Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices. 
 
+> [!IMPORTANT] 
+> We recommend that you enable multifactor authentication for the user who manages VMs that are deployed on your device from the cloud.
+        
 ## VM deployment workflow
 
 The high-level summary of the deployment workflow is as follows:
@@ -119,7 +124,7 @@ Follow these steps to create a VM after you have created a VM image.
     |---------|---------|
     |Virtual machine name     |         |
     |Image     | Select from the VM images available on the device.        |
-    |Size     | Choose from the [Supported VM sizes](azure-stack-edge-gpu-deploy-virtual-machine-templates.md#supported-vm-sizes).        |
+    |Size     | Choose from the [Supported VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md).        |
     |Username     | Use the default username *azureuser*.        |
     |Authentication type    | Choose from SSH public key or a user-defined password.       |
     |Password     | Enter a password to sign into the virtual machine. The password must be at least 12 characters long and meet the defined [Complexity requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).        |

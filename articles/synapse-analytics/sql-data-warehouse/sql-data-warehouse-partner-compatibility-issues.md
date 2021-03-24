@@ -50,5 +50,5 @@ For more details about using TDC files, contact Tableau support.
 
 ## See also
 
-* [T-SQL language elements for dedicated SQL pool in Azure Synapse Analytics.](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-* [T-SQL statements supported for dedicated SQL pool in Azure Synapse Analytics.](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements)
+* [T-SQL language elements for dedicated SQL pool in Azure Synapse Analytics.](./sql-data-warehouse-reference-tsql-language-elements.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)
+* [T-SQL statements supported for dedicated SQL pool in Azure Synapse Analytics.](./sql-data-warehouse-reference-tsql-statements.md)

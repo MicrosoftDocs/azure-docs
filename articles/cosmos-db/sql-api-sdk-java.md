@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 08/12/2020
+ms.date: 12/18/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
 ---
@@ -38,16 +38,22 @@ This is the original Azure Cosmos DB Sync Java SDK v2 for SQL API which supports
 > This is *not* the latest Java SDK for Azure Cosmos DB! Consider using [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) for your project. To upgrade, follow the instructions in the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide and the [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) guide. 
 >
 
-| |  |
+| | Links |
 |---|---|
 |**SDK Download**|[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)|
 |**API documentation**|[Java API reference documentation](/java/api/com.microsoft.azure.documentdb)|
 |**Contribute to SDK**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
 |**Get started**|[Get started with the Java SDK](./create-sql-api-java.md)|
 |**Web app tutorial**|[Web application development with Azure Cosmos DB](sql-api-java-application.md)|
-|**Minimum supported runtime**|[Java Development Kit (JDK) 7+](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)|
+|**Minimum supported runtime**|[Java Development Kit (JDK) 7+](/java/azure/jdk/)|
 
 ## Release notes
+
+### <a name="2.6.1"></a>2.6.1
+* Fixed a bug in handling a query through service interop.
+
+### <a name="2.6.0"></a>2.6.0
+* Added support for querying change feed from point in time.
 
 ### <a name="2.5.1"></a>2.5.1
 * Fixes primary partition cache issue on documentCollection query.
@@ -266,6 +272,8 @@ Microsoft will provide notification at least **12 months** in advance of retirin
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.6.1](#2.6.1) |Dec 17, 2020 |--- |
+| [2.6.0](#2.6.0) |July 16, 2020 |--- |
 | [2.5.1](#2.5.1) |June 03, 2020 |--- |
 | [2.5.0](#2.5.0) |May 12, 2020 |--- |
 | [2.4.7](#2.4.7) |Feb 20, 2020 |--- |

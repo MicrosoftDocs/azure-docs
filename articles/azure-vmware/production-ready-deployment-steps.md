@@ -2,18 +2,17 @@
 title: Planning the Azure VMware Solution deployment
 description: This article outlines an Azure VMware Solution deployment workflow.  The final result is an environment ready for virtual machine (VM) creation and migration.
 ms.topic: tutorial
-ms.date: 10/16/2020
+ms.date: 03/17/2021
 ---
 
 # Planning the Azure VMware Solution deployment
 
-This article provides you the planning process to identify and collect data used during the deployment. As you plan your deployment, make sure to document the information you gather for easy reference during the deployment.
+This article provides you the planning process to identify and collect the information you'll use during the deployment. As you plan your deployment, make sure to document the information you gather for easy reference during the deployment.
 
-The processes of this quick start result in a production-ready environment for creating virtual machines (VMs) and migration. 
+The steps outlined in this quick start give you a production-ready environment for creating virtual machines (VMs) and migration. 
 
 >[!IMPORTANT]
 >Before you create your Azure VMware Solution resource, follow the [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md) article to submit a support ticket to have your hosts allocated. Once the support team receives your request, it takes up to five business days to confirm your request and allocate your hosts. If you have an existing Azure VMware Solution private cloud and want more hosts allocated, you'll go through the same process. 
-
 
 ## Subscription
 
@@ -41,45 +40,44 @@ Define the resource name you'll use during deployment.  The resource name is a f
 
 Identify the size hosts that you want to use when deploying Azure VMware Solution.  For a complete list, see the [Azure VMware Solution private clouds and clusters](concepts-private-clouds-clusters.md#hosts) documentation.
 
-## Number of hosts
+## Number of clusters and hosts
 
-Define the number of hosts that you want to deploy into the Azure VMware Solution private cloud.  The minimum number of hosts is three, and the maximum is 16 per cluster.  For more information, see the [Azure VMware Solution private cloud and clusters](concepts-private-clouds-clusters.md#clusters) documentation.
+The first Azure VMware Solution deployment you do will consist of a private cloud containing a single cluster. For your deployment, you'll need to define the number of hosts you want to deploy to the first cluster.
 
-You can always extend the cluster later if you need to go beyond the initial deployment number.
+>[!NOTE]
+>The minimum number of hosts per cluster is three, and the maximum is 16. The maximum number of clusters per private cloud is four. 
 
-## vCenter admin password
-Define the vCenter admin password.  During the deployment, you'll create a vCenter admin password. The password is to the cloudadmin@vsphere.local admin account during the vCenter build. You'll use it to sign in to vCenter.
+For more information, see the [Azure VMware Solution private cloud and clusters](concepts-private-clouds-clusters.md#clusters) documentation.
 
-## NSX-T admin password
-Define the NSX-T admin password.  During the deployment, you'll create an NSX-T admin password. The password is assigned to the admin user in the NSX account during the NSX build. You'll use it to log into NSX-T Manager.
+>[!TIP]
+>You can always extend the cluster and add additional clusters later if you need to go beyond the initial deployment number.
 
-## IP address segment
+## IP address segment for private cloud management
 
-The first step in planning the deployment is to plan out the IP segmentation.  Azure VMware Solution ingests a /22 network that you provide. Then carves it up into smaller segments and then uses those IP segments for vCenter, VMware HCX, NSX-T, and vMotion.
+The first step in planning the deployment is to plan out the IP segmentation. Azure VMware Solution requires a /22 CIDR network. This address space is carved up into smaller network segments (subnets) and used for Azure VMware Solution management segments, including vCenter, VMware HCX, NSX-T, and vMotion functionality. The visualization below highlights where this segment will be used.
 
-Azure VMware Solution connects to your Microsoft Azure Virtual Network via an internal ExpressRoute circuit. In most cases, it connects to your data center via ExpressRoute Global Reach. 
-
-Azure VMware Solution, your existing Azure environment, and your on-premises environment all exchange routes (typically). That being the case, the /22 CIDR network address block you define in this step shouldn't overlap anything you already have on-premises or Azure.
+This /22 CIDR network address block shouldn't overlap with any existing network segment you already have on-premises or in Azure.
 
 **Example:** 10.0.0.0/22
 
-For more information, see the [Network planning checklist](tutorial-network-checklist.md#routing-and-subnet-considerations).
+For a detailed breakdown of how the /22 CIDR network is broken down per private cloud [Network planning checklist](tutorial-network-checklist.md#routing-and-subnet-considerations).
 
 :::image type="content" source="media/pre-deployment/management-vmotion-vsan-network-ip-diagram.png" alt-text="Identify - IP address segment" border="false":::  
 
 ## IP address segment for virtual machine workloads
 
-Identify an IP segment to create your first network (NSX segment) in your private cloud.  In other words, you want to create a network segment on Azure VMware Solution so you can deploy VMs onto Azure VMware Solution.   
+Like with any VMware environment, the virtual machines must connect to a network segment. In Azure VMware Solution, there are two types of segments, L2 extended segments (discussed later) and NSX-T network segments. As the production deployment of Azure VMware Solution expands, there is often a combination of L2 extended segments from on-premises and local NSX-T network segments. To plan the initial deployment, In Azure VMware Solution, identify a single network segment (IP network). This network must not overlap with any network segments on-premises or within the rest of Azure and must not be within the /22 network segment defined earlier.
 
-Even if you only plan on extending L2 networks, create a network segment that will validate the environment.
+This network segment is used primarily for testing purposes during the initial deployment.
 
-Remember, any IP segments created must be unique across your Azure and on-premises footprint.  
-
+>[!NOTE]
+>This network or networks will not be needed during the deployment. They get created as a post-deployment step.
+  
 **Example:** 10.0.4.0/24
 
 :::image type="content" source="media/pre-deployment/nsx-segment-diagram.png" alt-text="Identify - IP address segment for virtual machine workloads" border="false":::     
 
-## (Optional) Extend networks
+## (Optional) Extend your networks
 
 You can extend network segments from on-premises to Azure VMware Solution, and if you do, identify those networks now.  
 
@@ -88,28 +86,39 @@ Keep in mind that:
 - If you plan to extend networks from on-premises, those networks must connect to a [vSphere Distributed Switch (vDS)](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-B15C6A13-797E-4BCB-B9D9-5CBC5A60C3A6.html) in your on-premises VMware environment.  
 - If the network(s) you wish to extend live on a [vSphere Standard Switch](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-350344DE-483A-42ED-B0E2-C811EE927D59.html), then they can't be extended.
 
-## Azure Virtual Network to attach Azure VMware Solution
-
-To access your Azure VMware Solution private cloud, the ExpressRoute circuit, which comes with Azure VMware Solution, must attach to an Azure Virtual Network.  During deployment, you can define a new virtual network or choose an existing one.
-
-The ExpressRoute circuit from Azure VMware Solution connects to an ExpressRoute gateway in the Azure Virtual Network that you define in this step.  
-
->[!IMPORTANT]
->You can use an existing ExpressRoute Gateway to connect to Azure VMware Solution as long as it does not exceed the limit of four ExpressRoute circuits per virtual network.  However, to access Azure VMware Solution from on-premises through ExpressRoute, you must have ExpressRoute Global Reach since the ExpressRoute gateway does not provide transitive routing between its connected circuits.  
-
-If you want to connect the ExpressRoute circuit from Azure VMware Solution to an existing ExpressRoute gateway, you can do it after deployment.  
-
-So, in summary, do you want to connect Azure VMware Solution to an existing Express Route Gateway?  
-
-* **Yes** = Identify the virtual network that doesn't get used during deployment.
-* **No** = Identify an existing virtual network or create a new one during deployment.
-
-Either way, document what you want to do in this step.
-
 >[!NOTE]
->This virtual network is seen by your on-premises environment and Azure VMware Solution, so make sure whatever IP segment you use in this virtual network and subnets do not overlap.
+>These networks are extended as a final step of the configuration, not during deployment.
+
+## Attach Azure Virtual Network to Azure VMware Solution
+
+To provide connectivity to Azure VMware Solution, an ExpressRoute is built from Azure VMware Solution private cloud to an ExpressRoute virtual network gateway.
+
+You can use an *existing* OR *new* ExpressRoute virtual network gateway.
 
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="Identity - Azure Virtual Network to attach Azure VMware Solution" border="false":::
+
+### Use an existing ExpressRoute virtual network gateway
+
+If you plan to use an *existing* ExpressRoute virtual network gateway, the Azure VMware Solution ExpressRoute circuit is established as a post-deployment step. In this case, leave the **Virtual Network** field blank.
+
+As a general recommendation, it's acceptable to use an existing ExpressRoute virtual network gateway. For planning purposes, make note of which ExpressRoute virtual network gateway you'll use and then continue to the next step.
+
+### Create a new ExpressRoute virtual network gateway
+
+When you create a *new* ExpressRoute virtual network gateway, you can use an existing Azure Virtual Network or create a new one.  
+
+- For an existing Azure Virtual network:
+   1. Identify an Azure Virtual network where there are no pre-existing ExpressRoute virtual network gateways.
+   2. Prior to deployment, create a [GatewaySubnet](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-gateway-subnet) in the Azure Virtual Network.
+
+- For a new Azure Virtual Network, you can create it in advance or during deployment. Select the **Create new** link under the **Virtual Network** list.
+
+The below image shows the **Create a private cloud** deployment screen with the **Virtual Network** field highlighted.
+
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-deployment-screen-vnet-circle.png" alt-text="Screenshot of the Azure VMware Solution deployment screen with Virtual Network field highlighted.":::
+
+>[!NOTE]
+>Any virtual network that is going to be used or created may be seen by your on-premises environment and Azure VMware Solution, so make sure whatever IP segment you use in this virtual network and subnets do not overlap.
 
 ## VMware HCX Network Segments
 

@@ -4,20 +4,23 @@ description: Walk through the platform-supported migration of resources from cla
 author: tanmaygore
 manager: vashan
 ms.service: virtual-machines
+ms.subservice: classic-to-arm-migration
 ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
 
 ---
-# Platform-supported migration of IaaS resources from classic to Azure Resource Manager in Linux
+# Platform-supported migration of IaaS resources from classic to Azure Resource Manager
 
 > [!IMPORTANT]
 > Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on March 1, 2023. [Learn more]( https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](classic-vm-deprecation.md#how-does-this-affect-me).
 
 
 
-This article describes how to migrate infrastructure as a service (IaaS) resources from the Classic to Resource Manager deployment models and details how to connect resources from the two deployment models that coexist in your subscription by using virtual network site-to-site gateways. You can read more about [Azure Resource Manager features and benefits](../azure-resource-manager/management/overview.md). 
+This article provides overview on platform-supported migration tool, how to migrate resources from the Azure Service Manager (ASM) aka Classic to Resource Manager (ARM) deployment models and details how to connect resources from the two deployment models that coexist in your subscription by using virtual network site-to-site gateways. You can read more about [Azure Resource Manager features and benefits](../azure-resource-manager/management/overview.md). 
+
+ASM supports two different compute products, Azure Virtual Machines (classic) aka IaaS VMs & [Azure Cloud Services (classic)](../cloud-services/index.yml) aka PaaS VMs or Web/Worker Roles. This document only talks about migrating Azure Virtual Machines (classic).
 
 ## Goal for migration
 Resource Manager enables deploying complex applications through templates, configures virtual machines by using VM extensions, and incorporates access management and tagging. Azure Resource Manager includes scalable, parallel deployment for virtual machines into availability sets. The new deployment model also provides lifecycle management of compute, network, and storage independently. Finally, there’s a focus on enabling security by default with the enforcement of virtual machines in a virtual network.
@@ -32,7 +35,7 @@ Almost all the features from the classic deployment model are supported for comp
 * Storage Accounts
 * Virtual Networks
 * VPN Gateways
-* Express Route Gateways _(in the same subscription as Virtual Network only)_
+* [Express Route Gateways](../expressroute/expressroute-howto-move-arm.md) _(in the same subscription as Virtual Network only)_
 * Network Security Groups
 * Route Tables
 * Reserved IPs

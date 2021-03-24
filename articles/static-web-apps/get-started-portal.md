@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Building your first static web app with Azure Static Web Apps using the Azure portal"
-description: Learn to build an Azure Static Web Apps instance with the Azure portal.
+description: Learn to deploy a static site to Azure Static Web Apps with the Azure portal.
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
@@ -9,7 +9,7 @@ ms.date: 09/03/2020
 ms.author: cshoe
 ---
 
-# Quickstart: Building your first static web app in the Azure portal
+# Quickstart: Building your first static site in the Azure portal
 
 Azure Static Web Apps publishes a website to a production environment by building apps from a GitHub repository. In this quickstart, you deploy a web application to Azure Static Web apps using the Azure portal.
 
@@ -50,7 +50,7 @@ After you sign in with GitHub, enter the repository information.
 
 1. Select your preferred _Organization_
 1. Select **my-first-web-static-app** from the _Repository_ drop-down
-1. Select **master** from the _Branch_ drop-down
+1. Select **main** from the _Branch_ drop-down
 
 > [!NOTE]
 > If you don't see any repositories, you may need to authorize Azure Static Web Apps in GitHub. Browse to your GitHub repository and go to **Settings > Applications > Authorized OAuth Apps**, select **Azure Static Web Apps**, and then select **Grant**. For organization repositories, you must be an owner of the organization to grant the permissions.
@@ -110,9 +110,9 @@ If you're not going to continue to use this application, you can delete the Azur
 
 1. Open the [Azure portal](https://portal.azure.com)
 1. Search for **my-first-web-static-app** from the top search bar
-1. Select on the app name
-1. Select on the **Delete** button
-1. Select **Yes** to confirm the delete action
+1. Select the app name
+1. Select the **Delete** button
+1. Select **Yes** to confirm the delete action (this action may take a few moments to complete)
 
 ## Next steps
 

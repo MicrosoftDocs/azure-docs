@@ -1,15 +1,15 @@
 ---
 title: VM extension management with Azure Arc enabled servers
 description: Azure Arc enabled servers can manage deployment of virtual machine extensions that provide post-deployment configuration and automation tasks with non-Azure VMs.
-ms.date: 11/06/2020
+ms.date: 03/22/2021
 ms.topic: conceptual
 ---
 
 # Virtual machine extension management with Azure Arc enabled servers
 
-Virtual machine (VM) extensions are small applications that provide post-deployment configuration and automation tasks on Azure VMs. For example, if a virtual machine requires software installation, anti-virus protection, or to run a script inside of it, a VM extension can be used.
+Virtual machine (VM) extensions are small applications that provide post-deployment configuration and automation tasks on Azure VMs. For example, if a virtual machine requires software installation, anti-virus protection, or to run a script in it, a VM extension can be used.
 
-Azure Arc enabled servers enables you to deploy Azure VM extensions to non-Azure Windows and Linux VMs, simplifying the management of your hybrid machine on-premises, edge, and other cloud environments through their lifecycle. VM extensions can be managed using the following methods on your hybrid machines or servers managed by Arc enabled servers:
+Azure Arc enabled servers enables you to deploy Azure VM extensions to non-Azure Windows and Linux VMs, simplifying the management of your hybrid machine through their lifecycle. VM extensions can be managed using the following methods on your hybrid machines or servers managed by Arc enabled servers:
 
 - The [Azure portal](manage-vm-extensions-portal.md)
 - The [Azure CLI](manage-vm-extensions-cli.md)
@@ -20,11 +20,9 @@ Azure Arc enabled servers enables you to deploy Azure VM extensions to non-Azure
 
 Azure Arc enabled servers VM extension support provides the following key benefits:
 
-- Use [Azure Automation State Configuration](../../automation/automation-dsc-overview.md) to centrally store configurations and maintain the desired state of hybrid connected machines enabled through the DSC VM extension.
+- Collect log data for analysis with [Logs in Azure Monitor](../../azure-monitor/logs/data-platform-logs.md) by enabling the Log Analytics agent VM extension. This is useful for doing complex analysis across data from different kinds of sources.
 
-- Collect log data for analysis with [Logs in Azure Monitor](../../azure-monitor/platform/data-platform-logs.md) enabled through the Log Analytics agent VM extension. This is useful for performing complex analysis across data from a variety of sources.
-
-- With [Azure Monitor for VMs](../../azure-monitor/insights/vminsights-overview.md), analyzes the performance of your Windows and Linux VMs, and monitor their processes and dependencies on other resources and external processes. This is achieved through enabling both the Log Analytics agent and Dependency agent VM extensions.
+- With [Azure Monitor for VMs](../../azure-monitor/vm/vminsights-overview.md), analyzes the performance of your Windows and Linux VMs, and monitor their processes and dependencies on other resources and external processes. This is achieved through enabling both the Log Analytics agent and Dependency agent VM extensions.
 
 - Download and execute scripts on hybrid connected machines using the Custom Script Extension. This extension is useful for post deployment configuration, software installation, or any other configuration or management tasks.
 
@@ -38,20 +36,32 @@ VM extension functionality is available only in the list of [supported regions](
 
 In this release, we support the following VM extensions on Windows and Linux machines.
 
-|Extension |OS |Publisher |Additional information |
-|----------|---|----------|-----------------------|
-|CustomScriptExtension |Windows |Microsoft.Compute |[Windows Custom Script Extension](../../virtual-machines/extensions/custom-script-windows.md)|
-|DSC |Windows |Microsoft.PowerShell|[Windows PowerShell DSC Extension](../../virtual-machines/extensions/dsc-windows.md)|
-|Log Analytics agent |Windows |Microsoft.EnterpriseCloud.Monitoring |[Log Analytics VM extension for Windows](../../virtual-machines/extensions/oms-windows.md)|
-|Microsoft Dependency agent | Windows |Microsoft.Compute | [Dependency agent virtual machine extension for Windows](../../virtual-machines/extensions/agent-dependency-windows.md)|
-|Key Vault | Windows | Microsoft.Compute | [Key Vault virtual machine extension for Windows](../../virtual-machines/extensions/key-vault-windows.md) |
-|CustomScript|Linux |Microsoft.Azure.Extension |[Linux Custom Script Extension Version 2](../../virtual-machines/extensions/custom-script-linux.md) |
-|DSC |Linux |Microsoft.OSTCExtensions |[PowerShell DSC Extension for Linux](../../virtual-machines/extensions/dsc-linux.md) |
-|Log Analytics agent |Linux |Microsoft.EnterpriseCloud.Monitoring |[Log Analytics VM extension for Linux](../../virtual-machines/extensions/oms-linux.md) |
-|Microsoft Dependency agent | Linux |Microsoft.Compute | [Dependency agent virtual machine extension for Linux](../../virtual-machines/extensions/agent-dependency-linux.md) |
-|Key Vault | Linux | Microsoft.Compute | [Key Vault virtual machine extension for Linux](../../virtual-machines/extensions/key-vault-linux.md) |
-
 To learn about the Azure Connected Machine agent package and details about the Extension agent component, see [Agent overview](agent-overview.md#agent-component-details).
+
+> [!NOTE]
+> Recently support for the DSC VM extension was removed for Arc enabled servers. Alternatively, we recommend using the Custom Script Extension to manage the post-deployment configuration of your server or machine.
+
+### Windows extensions
+
+|Extension |Publisher |Type |Additional information |
+|----------|----------|-----|-----------------------|
+|Azure Defender integrated vulnerability scanner |Qualys |WindowsAgent.AzureSecurityCenter |[Azure Defender’s integrated vulnerability assessment solution for Azure and hybrid machines](../../security-center/deploy-vulnerability-assessment-vm.md)|
+|Custom Script extension |Microsoft.Compute | CustomScriptExtension |[Windows Custom Script Extension](../../virtual-machines/extensions/custom-script-windows.md)|
+|Log Analytics agent |Microsoft.EnterpriseCloud.Monitoring |MicrosoftMonitoringAgent |[Log Analytics VM extension for Windows](../../virtual-machines/extensions/oms-windows.md)|
+|Azure Monitor for VMs (insights) |Microsoft.Azure.Monitoring.DependencyAgent |DependencyAgentWindows | [Dependency agent virtual machine extension for Windows](../../virtual-machines/extensions/agent-dependency-windows.md)|
+|Azure Key Vault Certificate Sync | Microsoft.Azure.Key.Vault |KeyVaultForWindows | [Key Vault virtual machine extension for Windows](../../virtual-machines/extensions/key-vault-windows.md) |
+|Azure Monitor Agent |Microsoft.Azure.Monitor |AzureMonitorWindowsAgent |[Install the Azure Monitor agent (preview)](../../azure-monitor/agents/azure-monitor-agent-install.md) |
+
+### Linux extensions
+
+|Extension |Publisher |Type |Additional information |
+|----------|----------|-----|-----------------------|
+|Azure Defender integrated vulnerability scanner |Qualys |LinuxAgent.AzureSecurityCenter |[Azure Defender’s integrated vulnerability assessment solution for Azure and hybrid machines](../../security-center/deploy-vulnerability-assessment-vm.md)|
+|Custom Script extension |Microsoft.Azure.Extensions |CustomScript |[Linux Custom Script Extension Version 2](../../virtual-machines/extensions/custom-script-linux.md) |
+|Log Analytics agent |Microsoft.EnterpriseCloud.Monitoring |OmsAgentForLinux |[Log Analytics VM extension for Linux](../../virtual-machines/extensions/oms-linux.md) |
+|Azure Monitor for VMs (insights) |Microsoft.Azure.Monitoring.DependencyAgent |DependencyAgentLinux |[Dependency agent virtual machine extension for Linux](../../virtual-machines/extensions/agent-dependency-linux.md) |
+|Azure Key Vault Certificate Sync | Microsoft.Azure.Key.Vault |KeyVaultForLinux | [Key Vault virtual machine extension for Linux](../../virtual-machines/extensions/key-vault-linux.md) |
+|Azure Monitor Agent |Microsoft.Azure.Monitor |AzureMonitorLinuxAgent |[Install the Azure Monitor agent (preview)](../../azure-monitor/agents/azure-monitor-agent-install.md) |
 
 ## Prerequisites
 
@@ -60,7 +70,9 @@ This feature depends on the following Azure resource providers in your subscript
 - **Microsoft.HybridCompute**
 - **Microsoft.GuestConfiguration**
 
-If they are not already registered, follow the steps under [Register Azure resource providers](agent-overview.md#register-azure-resource-providers).
+If they aren't already registered, follow the steps under [Register Azure resource providers](agent-overview.md#register-azure-resource-providers).
+
+Be sure to review the documentation for each VM extension referenced in the previous table to understand if it has any network or system requirements. This can help you avoid experiencing any connectivity issues with an Azure service or feature that relies on that VM extension.
 
 ### Log Analytics VM extension
 
@@ -68,7 +80,7 @@ The Log Analytics agent VM extension for Linux requires Python 2.x is installed 
 
 ### Azure Key Vault VM extension (preview)
 
-The Key Vault VM extension (preview) does not support the following Linux operating systems:
+The Key Vault VM extension (preview) doesn't support the following Linux operating systems:
 
 - CentOS Linux 7 (x64)
 - Red Hat Enterprise Linux (RHEL) 7 (x64)

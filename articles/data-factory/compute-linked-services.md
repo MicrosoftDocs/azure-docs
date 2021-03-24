@@ -1,14 +1,10 @@
 ---
 title: Compute environments supported by Azure Data Factory 
 description: Compute environments that can be used with Azure Data Factory pipelines (such as Azure HDInsight) to transform or process data.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-manager: anandsub
 ms.date: 05/08/2019
 ---
 
@@ -125,8 +121,8 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
 | connectVia                   | The Integration Runtime to be used to dispatch the activities to this HDInsight linked service. For on-demand HDInsight linked service, it only supports Azure Integration Runtime. If not specified, it uses the default Azure Integration Runtime. | No       |
 | clusterUserName                   | The username to access the cluster. | No       |
 | clusterPassword                   | The password in type of secure string to access the cluster. | No       |
-| clusterSshUserName         | The username to SSH remotely connects to cluster’s node (for Linux). | No       |
-| clusterSshPassword         | The password in type of secure string to SSH remotely connect cluster’s node (for Linux). | No       |
+| clusterSshUserName         | The username to SSH remotely connects to cluster's node (for Linux). | No       |
+| clusterSshPassword         | The password in type of secure string to SSH remotely connect cluster's node (for Linux). | No       |
 | scriptActions | Specify script for [HDInsight cluster customizations](../hdinsight/hdinsight-hadoop-customize-cluster-linux.md) during on-demand cluster creation. <br />Currently, Azure Data Factory's User Interface authoring tool supports specifying only 1 script action, but you can get through this limitation in the JSON (specify multiple script actions in the JSON). | No |
 
 
@@ -249,7 +245,7 @@ If you want to create D4 sized head nodes and worker nodes, specify **Standard_D
 "dataNodeSize": "Standard_D4",
 ```
 
-If you specify a wrong value for these properties, you may receive the following **error:** Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'PreClusterCreationValidationFailure'. When you receive this error, ensure that you are using the **CMDLET & APIS** name from the table in the [Sizes of Virtual Machines](../virtual-machines/sizes.md) article.  	 	
+If you specify a wrong value for these properties, you may receive the following **error:** Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'PreClusterCreationValidationFailure'. When you receive this error, ensure that you are using the **CMDLET & APIS** name from the table in the [Sizes of Virtual Machines](../virtual-machines/sizes.md) article.
 
 ### Bring your own compute environment
 In this type of configuration, users can register an already existing computing environment as a linked service in Data Factory. The computing environment is managed by the user and the Data Factory service uses it to execute the activities.
@@ -323,6 +319,9 @@ See following articles if you are new to Azure Batch service:
 * [New-AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) cmdlet to create an Azure Batch account (or) [Azure portal](../batch/batch-account-create-portal.md) to create the Azure Batch account using Azure portal. See [Using PowerShell to manage Azure Batch Account](/archive/blogs/windowshpc/using-azure-powershell-to-manage-azure-batch-account) article for detailed instructions on using the cmdlet.
 * [New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) cmdlet to create an Azure Batch pool.
 
+> [!IMPORTANT]
+> When creating a new Azure Batch pool, ‘VirtualMachineConfiguration’ must be used and NOT ‘CloudServiceConfiguration'. For more details refer [Azure Batch Pool migration guidance](../batch/batch-pool-cloud-service-to-virtual-machine-configuration.md). 
+
 ### Example
 
 ```json
@@ -393,7 +392,7 @@ You create an Azure Machine Learning Studio (classic) linked service to register
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | Type                   | The type property should be set to: **AzureML**. | Yes                                      |
 | mlEndpoint             | The batch scoring URL.                   | Yes                                      |
-| apiKey                 | The published workspace model’s API.     | Yes                                      |
+| apiKey                 | The published workspace model's API.     | Yes                                      |
 | updateResourceEndpoint | The Update Resource URL for an Azure Machine Learning Studio (classic) Web Service endpoint used to update the predictive Web Service with trained model file | No                                       |
 | servicePrincipalId     | Specify the application's client ID.     | Required if updateResourceEndpoint is specified |
 | servicePrincipalKey    | Specify the application's key.           | Required if updateResourceEndpoint is specified |
@@ -441,7 +440,7 @@ You create an Azure Machine Learning linked service to connect an Azure Machine 
 | mlWorkspaceName        | Azure Machine Learning workspace name | Yes  |
 | servicePrincipalId     | Specify the application's client ID.     | No |
 | servicePrincipalKey    | Specify the application's key.           | No |
-| tenant                 | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Required if updateResourceEndpoint is specified | No |
+| tenant                 | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Required if updateResourceEndpoint is specified |
 | connectVia             | The Integration Runtime to be used to dispatch the activities to this linked service. You can use Azure Integration Runtime or Self-hosted Integration Runtime. If not specified, it uses the default Azure Integration Runtime. | No |
 
 ## Azure Data Lake Analytics linked service
@@ -543,12 +542,12 @@ You can create **Azure Databricks linked service** to register Databricks worksp
 | name                 | Name of the Linked Service               | Yes   |
 | type                 | The type property should be set to: **Azure Databricks**. | Yes                                      |
 | domain               | Specify the Azure Region accordingly based on the region of the Databricks workspace. Example: https://eastus.azuredatabricks.net | Yes                                 |
-| accessToken          | Access token is required for Data Factory to authenticate to Azure Databricks. Access token needs to be generated from the databricks workspace. More detailed steps to find the access token can be found [here](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)  | No                                       |
+| accessToken          | Access token is required for Data Factory to authenticate to Azure Databricks. Access token needs to be generated from the databricks workspace. More detailed steps to find the access token can be found [here](/azure/databricks/dev-tools/api/latest/authentication#generate-token)  | No                                       |
 | MSI          | Use Data Factory's managed identity (system-assigned) to authenticate to Azure Databricks. You do not need Access Token when using 'MSI' authentication  | No                                       |
 | existingClusterId    | Cluster ID of an existing cluster to run all jobs on this. This should be an already created Interactive Cluster. You may need to manually restart the cluster if it stops responding. Databricks suggest running jobs on new clusters for greater reliability. You can find the Cluster ID of an Interactive Cluster on Databricks workspace -> Clusters -> Interactive Cluster Name -> Configuration -> Tags. [More details](https://docs.databricks.com/user-guide/clusters/tags.html) | No 
 | instancePoolId    | Instance Pool ID of an existing pool in databricks workspace.  | No  |
 | newClusterVersion    | The Spark version of the cluster. It creates a job cluster in databricks. | No  |
-| newClusterNumOfWorker| Number of worker nodes that this cluster should have. A cluster has one Spark Driver and num_workers Executors for a total of num_workers + 1 Spark nodes. A string formatted Int32, like “1” means numOfWorker is 1 or “1:10” means autoscale from 1 as min and 10 as max.  | No                |
+| newClusterNumOfWorker| Number of worker nodes that this cluster should have. A cluster has one Spark Driver and num_workers Executors for a total of num_workers + 1 Spark nodes. A string formatted Int32, like "1" means numOfWorker is 1 or "1:10" means autoscale from 1 as min and 10 as max.  | No                |
 | newClusterNodeType   | This field encodes, through a single value, the resources available to each of the Spark nodes in this cluster. For example, the Spark nodes can be provisioned and optimized for memory or compute intensive workloads. This field is required for new cluster                | No               |
 | newClusterSparkConf  | a set of optional, user-specified Spark configuration key-value pairs. Users can also pass in a string of extra JVM options to the driver and the executors via spark.driver.extraJavaOptions and spark.executor.extraJavaOptions respectively. | No  |
 | newClusterInitScripts| a set of optional, user-defined initialization scripts for the new cluster. Specifying the DBFS path to the init scripts. | No  |

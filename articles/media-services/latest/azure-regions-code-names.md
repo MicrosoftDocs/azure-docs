@@ -1,6 +1,6 @@
 ---
-title: Clouds and regions in which Azure Media Services v3 is available
-description: This article talks about the URLs used for endpoints and code for regions.  
+title: Clouds and regions for Azure Media Services v3
+description: This article talks about the URLs used for endpoints and code for regions.
 services: media-services
 author: IngridAtMicrosoft
 manager: femila

@@ -1,9 +1,9 @@
 ---
-title: 'Tutorial: Route electric vehicles by using Azure Notebooks (Python) | Microsoft Azure Maps'
+title: 'Tutorial: Route electric vehicles by using Azure Notebooks (Python) with Microsoft Azure Maps'
 description: Tutorial on how to route electric vehicles by using Microsoft Azure Maps routing APIs and Azure Notebooks
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 11/12/2019
+ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -22,7 +22,7 @@ In this tutorial, you walk help a driver whose electric vehicle battery is low. 
 In this tutorial, you will:
 
 > [!div class="checklist"]
-> *	Create and run a Jupyter Notebook file on [Azure Notebooks](../notebooks/index.yml) in the cloud.
+> *	Create and run a Jupyter Notebook file on [Azure Notebooks](https://notebooks.azure.com) in the cloud.
 > *	Call Azure Maps REST APIs in Python.
 > *	Search for a reachable range based on the electric vehicle's consumption model.
 > *	Search for electric vehicle charging stations within the reachable range, or isochrone.
@@ -44,7 +44,7 @@ For more information on authentication in Azure Maps, see [manage authentication
 
 To follow along with this tutorial, you need to create an Azure Notebooks project and download and run the Jupyter Notebook file. The Jupyter Notebook file contains Python code, which implements the scenario in this tutorial. To create an Azure Notebooks project and upload the Jupyter Notebook document to it, do the following steps:
 
-1. Go to [Azure Notebooks](https://notebooks.azure.com) and sign in. For more information, see [Quickstart: Sign in and set a user ID](../notebooks/quickstart-sign-in-azure-notebooks.md).
+1. Go to [Azure Notebooks](https://notebooks.azure.com) and sign in. For more information, see [Quickstart: Sign in and set a user ID](https://notebooks.azure.com).
 1. At the top of your public profile page, select **My Projects**.
 
     ![The My Projects button](./media/tutorial-ev-routing/myproject.png)
@@ -166,11 +166,11 @@ for loc in range(len(searchPolyResponse["results"])):
                 reachableLocations.append(location)
 ```
 
-## Upload the reachable range and charging points to Azure Maps Data Service
+## Upload the reachable range and charging points to Azure Maps Data service (Preview)
 
-On a map, you'll want to visualize the charging stations and the boundary for the maximum reachable range of the electric vehicle. To do so, upload the boundary data and charging stations data as geojson objects to Azure Maps Data Service. Use the [Data Upload API](/rest/api/maps/data/uploadpreview). 
+On a map, you'll want to visualize the charging stations and the boundary for the maximum reachable range of the electric vehicle. To do so, upload the boundary data and charging stations data as geojson objects to Azure Maps Data service (Preview). Use the [Data Upload API](/rest/api/maps/data/uploadpreview). 
 
-To upload the boundary and charging point data to Azure Maps Data Service, run the following two cells:
+To upload the boundary and charging point data to Azure Maps Data service, run the following two cells:
 
 ```python
 rangeData = {
@@ -189,7 +189,7 @@ rangeData = {
   ]
 }
 
-# Upload the range data to Azure Maps Data Service.
+# Upload the range data to Azure Maps Data service (Preview).
 uploadRangeResponse = await session.post("https://atlas.microsoft.com/mapData/upload?subscription-key={}&api-version=1.0&dataFormat=geojson".format(subscriptionKey), json = rangeData)
 
 rangeUdidRequest = uploadRangeResponse.headers["Location"]+"&subscription-key={}".format(subscriptionKey)
@@ -218,7 +218,7 @@ poiData = {
   ]
 }
 
-# Upload the electric vehicle charging station data to Azure Maps Data Service.
+# Upload the electric vehicle charging station data to Azure Maps Data service (Preview).
 uploadPOIsResponse = await session.post("https://atlas.microsoft.com/mapData/upload?subscription-key={}&api-version=1.0&dataFormat=geojson".format(subscriptionKey), json = poiData)
 
 poiUdidRequest = uploadPOIsResponse.headers["Location"]+"&subscription-key={}".format(subscriptionKey)
@@ -331,12 +331,12 @@ routeData = {
 
 ## Visualize the route
 
-To help visualize the route, you first upload the route data as a geojson object to Azure Maps Data Service. To do so, use the Azure Maps [Data Upload API](/rest/api/maps/data/uploadpreview). Then, call the rendering service, [Get Map Image API](/rest/api/maps/render/getmapimage), to render the route on the map, and visualize it.
+To help visualize the route, you first upload the route data as a geojson object to Azure Maps Data service (Preview). To do so, use the Azure Maps [Data Upload API](/rest/api/maps/data/uploadpreview). Then, call the rendering service, [Get Map Image API](/rest/api/maps/render/getmapimage), to render the route on the map, and visualize it.
 
 To get an image for the rendered route on the map, run the following script:
 
 ```python
-# Upload the route data to Azure Maps Data Service.
+# Upload the route data to Azure Maps Data service (Preview).
 routeUploadRequest = await session.post("https://atlas.microsoft.com/mapData/upload?subscription-key={}&api-version=1.0&dataFormat=geojson".format(subscriptionKey), json = routeData)
 
 udidRequestURI = routeUploadRequest.headers["Location"]+"&subscription-key={}".format(subscriptionKey)
@@ -394,9 +394,13 @@ To explore the Azure Maps APIs that are used in this tutorial, see:
 * [Get Route Directions](/rest/api/maps/route/getroutedirections)
 * [Azure Maps REST APIs](./consumption-model.md)
 
+## Clean up resources
+
+There are no resources that require cleanup.
+
 ## Next steps
 
 To learn more about Azure Notebooks, see
 
 > [!div class="nextstepaction"]
-> [Azure Notebooks](../notebooks/index.yml)
+> [Azure Notebooks](https://notebooks.azure.com)

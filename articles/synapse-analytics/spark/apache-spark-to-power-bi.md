@@ -17,7 +17,7 @@ Organizations often need to process large volumes of data before serving to key 
 
 ## Before you begin
 - [Azure Synapse Analytics workspace](../quickstart-create-workspace.md) with an ADLS Gen2 storage account configured as the default storage. 
-- Power BI workspace and Power BI Desktop to visualize data. For details, see [create a Power BI workspace](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces) and [install Power BI desktop](https://powerbi.microsoft.com/downloads/)
+- Power BI workspace and Power BI Desktop to visualize data. For details, see [create a Power BI workspace](/power-bi/service-create-the-new-workspaces) and [install Power BI desktop](https://powerbi.microsoft.com/downloads/)
 - Linked service to connect your Azure Synapse Analytics and Power BI workspaces. For details, see [link to a Power BI workspace](../quickstart-power-bi.md)
 - Serverless Apache Spark pool in your Synapse Analytics workspace. For details, see [create a serverless Apache Spark pool](../quickstart-create-apache-spark-pool-studio.md)
   
@@ -84,7 +84,7 @@ To query your Apache Spark table using your serverless SQL pool:
 Next, we will connect our serverless SQL pool to our Power BI workspace. Once you have connected your workspace, you will be able to create Power BI reports both directly from Azure Synapse Analytics as well as from Power BI desktop.
 
 >[!Note]
-> Before you begin, you will need to set up a linked service to your [Power BI workspace](../quickstart-power-bi.md) and download the [Power BI desktop](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces).  
+> Before you begin, you will need to set up a linked service to your [Power BI workspace](../quickstart-power-bi.md) and download the [Power BI desktop](/power-bi/service-create-the-new-workspaces).  
 
 To connect our serverless SQL pool to our Power BI workspace:
 

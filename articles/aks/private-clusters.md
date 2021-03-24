@@ -3,7 +3,7 @@ title: Create a private Azure Kubernetes Service cluster
 description: Learn how to create a private Azure Kubernetes Service (AKS) cluster
 services: container-service
 ms.topic: article
-ms.date: 7/17/2020
+ms.date: 3/5/2021
 
 ---
 
@@ -23,6 +23,8 @@ Private cluster is available in public regions, Azure Government, and Azure Chin
 ## Prerequisites
 
 * The Azure CLI version 2.2.0 or later
+* The Private Link service is supported on Standard Azure Load Balancer only. Basic Azure Load Balancer isn't supported.  
+* To use a custom DNS server, add the Azure DNS IP 168.63.129.16 as the upstream DNS server in the custom DNS server.
 
 ## Create a private AKS cluster
 
@@ -60,6 +62,31 @@ Where `--enable-private-cluster` is a mandatory flag for a private cluster.
 > [!NOTE]
 > If the Docker bridge address CIDR (172.17.0.1/16) clashes with the subnet CIDR, change the Docker bridge address appropriately.
 
+## Configure Private DNS Zone 
+
+The following parameters can be leveraged to configure Private DNS Zone.
+
+- "System" is the default value. If the --private-dns-zone argument is omitted, AKS will create a Private DNS Zone in the Node Resource Group.
+- "None" means AKS will not create a Private DNS Zone.  This requires you to Bring Your Own DNS Server and configure the DNS resolution for the Private FQDN.  If you don't configure DNS resolution, DNS is only resolvable within the agent nodes and will cause cluster issues after deployment. 
+- "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID" requires you to create a Private DNS Zone in this format for azure global cloud: `privatelink.<region>.azmk8s.io`. You will need the Resource Id of that Private DNS Zone going forward.  Additionally, you will need a user assigned identity or service principal with at least the `private dns zone contributor`  and `vnet contributor` roles.
+- "fqdn-subdomain" can be utilized with "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID" only to provide subdomain capabilities to `privatelink.<region>.azmk8s.io`
+
+### Prerequisites
+
+* The AKS Preview version 0.5.3 or later
+* The api version 2020-11-01 or later
+
+### Create a private AKS cluster with Private DNS Zone (Preview)
+
+```azurecli-interactive
+az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone [system|none]
+```
+
+### Create a private AKS cluster with a Custom Private DNS Zone (Preview)
+
+```azurecli-interactive
+az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <custom private dns zone ResourceId> --fqdn-subdomain <subdomain-name>
+```
 ## Options for connecting to the private cluster
 
 The API server endpoint has no public IP address. To manage the API server, you'll need to use a VM that has access to the AKS cluster's Azure Virtual Network (VNet). There are several options for establishing network connectivity to the private cluster.
@@ -96,32 +123,27 @@ As mentioned, virtual network peering is one way to access your private cluster.
 
 3. In scenarios where the VNet containing your cluster has custom DNS settings (4), cluster deployment fails unless the private DNS zone is linked to the VNet that contains the custom DNS resolvers (5). This link can be created manually after the private zone is created during cluster provisioning or via automation upon detection of creation of the zone using event-based deployment mechanisms (for example, Azure Event Grid and Azure Functions).
 
-## Dependencies  
-
-* The Private Link service is supported on Standard Azure Load Balancer only. Basic Azure Load Balancer isn't supported.  
-* To use a custom DNS server, add the Azure DNS IP 168.63.129.16 as the upstream DNS server in the custom DNS server.
+> [!NOTE]
+> If you are using [Bring Your Own Route Table with kubenet](./configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) and Bring Your Own DNS with Private Cluster, the cluster creation will fail. You will need to associate the [RouteTable](./configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) in the node resource group to the subnet after the cluster creation failed, in order to make the creation successful.
 
 ## Limitations 
 * IP authorized ranges can't be applied to the private api server endpoint, they only apply to the public API server
-* [Availability Zones][availability-zones] are currently supported for certain regions. 
 * [Azure Private Link service limitations][private-link-service] apply to private clusters.
-* No support for Azure DevOps Microsoft-hosted Agents with private clusters. Consider to use [Self-hosted Agents][devops-agents]. 
+* No support for Azure DevOps Microsoft-hosted Agents with private clusters. Consider to use [Self-hosted Agents](/azure/devops/pipelines/agents/agents?tabs=browser). 
 * For customers that need to enable Azure Container Registry to work with private AKS, the Container Registry virtual network must be peered with the agent cluster virtual network.
-* No current support for Azure Dev Spaces
 * No support for converting existing AKS clusters into private clusters
 * Deleting or modifying the private endpoint in the customer subnet will cause the cluster to stop functioning. 
-* Azure Monitor for containers Live Data isn't currently supported.
-* Uptime SLA isn't currently supported.
-
+* After customers have updated the A record on their own DNS servers, those Pods would still resolve apiserver FQDN to the older IP after migration until they're restarted. Customers need to restart hostNetwork Pods and default-DNSPolicy Pods after control plane migration.
+* In the case of maintenance on the control plane, your [AKS IP](./limit-egress-traffic.md) might change. In this case you must update the A record pointing to the API server private IP on your custom DNS server and restart any custom pods or deployments using hostNetwork.
 
 <!-- LINKS - internal -->
-[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register
-[az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [private-link-service]: ../private-link/private-link-service-overview.md#limitations
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
 [azure-bastion]: ../bastion/tutorial-create-host-portal.md
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md
-[devops-agents]: /azure/devops/pipelines/agents/agents?view=azure-devops
+[devops-agents]: /azure/devops/pipelines/agents/agents
 [availability-zones]: availability-zones.md

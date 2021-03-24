@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, sstein
-ms.date: 07/28/2020
+ms.date: 12/9/2020
 ---
 # Elastic pools help you manage and scale multiple databases in Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -68,58 +68,30 @@ This example is ideal for the following reasons:
 - The peak utilization for each database occurs at different points in time.
 - eDTUs are shared between many databases.
 
-The price of a pool is a function of the pool eDTUs. While the eDTU unit price for a pool is 1.5x greater than the DTU unit price for a single database, **pool eDTUs can be shared by many databases and fewer total eDTUs are needed**. These distinctions in pricing and eDTU sharing are the basis of the price savings potential that pools can provide.
+In the DTU purchasing model, the price of a pool is a function of the pool eDTUs. While the eDTU unit price for a pool is 1.5x greater than the DTU unit price for a single database, **pool eDTUs can be shared by many databases and fewer total eDTUs are needed**. These distinctions in pricing and eDTU sharing are the basis of the price savings potential that pools can provide.
 
-The following rules of thumb related to database count and database utilization help to ensure that a pool delivers reduced cost compared to using compute sizes for single databases.
-
-### Minimum number of databases
-
-If the aggregate amount of resources for single databases is more than 1.5x the resources needed for the pool, then an elastic pool is more cost effective.
-
-***DTU-based purchasing model example***
-At least two S3 databases or at least 15 S0 databases are needed for a 100 eDTU pool to be more cost-effective than using compute sizes for single databases.
-
-### Maximum number of concurrently peaking databases
-
-By sharing resources, not all databases in a pool can simultaneously use resources up to the limit available for single databases. The fewer databases that concurrently peak, the lower the pool resources can be set and the more cost-effective the pool becomes. In general, not more than 2/3 (or 67%) of the databases in the pool should simultaneously peak to their resources limit.
-
-***DTU-based purchasing model example***
-To reduce costs for three S3 databases in a 200 eDTU pool, at most two of these databases can simultaneously peak in their utilization. Otherwise, if more than two of these four S3 databases simultaneously peak, the pool would have to be sized to more than 200 eDTUs. If the pool is resized to more than 200 eDTUs, more S3 databases would need to be added to the pool to keep costs lower than compute sizes for single databases.
-
-Note this example doesn't consider utilization of other databases in the pool. If all databases have some utilization at any given point in time, then less than 2/3 (or 67%) of the databases can peak simultaneously.
-
-### Resource utilization per database
-
-A large difference between the peak and average utilization of a database indicates prolonged periods of low utilization and short periods of high utilization. This utilization pattern is ideal for sharing resources across databases. A database should be considered for a pool when its peak utilization is about 1.5 times greater than its average utilization.
-
-***DTU-based purchasing model example***
-An S3 database that peaks to 100 DTUs and on average uses 67 DTUs or less is a good candidate for sharing eDTUs in a pool. Alternatively, an S1 database that peaks to 20 DTUs and on average uses 13 DTUs or less is a good candidate for a pool.
+In the vCore purchasing model, the vCore unit price for elastic pools is the same as the vCore unit price for single databases.
 
 ## How do I choose the correct pool size
 
 The best size for a pool depends on the aggregate resources needed for all databases in the pool. This involves determining the following:
 
-- Maximum resources utilized by all databases in the pool (either maximum DTUs or maximum vCores depending on your choice of purchasing model).
+- Maximum compute resources utilized by all databases in the pool.  Compute resources are indexed by either eDTUs or vCores depending on your choice of purchasing model.
 - Maximum storage bytes utilized by all databases in the pool.
 
-For available service tiers and limits for each resource model, see the [DTU-based purchasing model](service-tiers-dtu.md) or the [vCore-based purchasing model](service-tiers-vcore.md).
+For service tiers and resource limits in each purchasing model, see the [DTU-based purchasing model](service-tiers-dtu.md) or the [vCore-based purchasing model](service-tiers-vcore.md).
 
 The following steps can help you estimate whether a pool is more cost-effective than single databases:
 
 1. Estimate the eDTUs or vCores needed for the pool as follows:
-
-For DTU-based purchasing model:
-
-MAX(<*Total number of DBs* X *average DTU utilization per DB*>, <*Number of concurrently peaking DBs* X *Peak DTU utilization per DB*>)
-
-For vCore-based purchasing model:
-
-MAX(<*Total number of DBs* X *average vCore utilization per DB*>, <*Number of concurrently peaking DBs* X *Peak vCore utilization per DB*>)
-
-2. Estimate the storage space needed for the pool by adding the number of bytes needed for all the databases in the pool. Then determine the eDTU pool size that provides this amount of storage.
+   - For the DTU-based purchasing model:
+     - MAX(<*Total number of DBs* &times; *Average DTU utilization per DB*>, <*Number of concurrently peaking DBs* &times; *Peak DTU utilization per DB*>)
+   - For the vCore-based purchasing model:
+     - MAX(<*Total number of DBs* &times; *Average vCore utilization per DB*>, <*Number of concurrently peaking DBs* &times; *Peak vCore utilization per DB*>)
+2. Estimate the total storage space needed for the pool by adding the data size needed for all the databases in the pool. For the DTU purchasing model, then determine the eDTU pool size that provides this amount of storage.
 3. For the DTU-based purchasing model, take the larger of the eDTU estimates from Step 1 and Step 2. For the vCore-based purchasing model, take the vCore estimate from Step 1.
 4. See the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/) and find the smallest pool size that is greater than the estimate from Step 3.
-5. Compare the pool price from Step 5 to the price of using the appropriate compute sizes for single databases.
+5. Compare the pool price from Step 4 to the price of using the appropriate compute sizes for single databases.
 
 > [!IMPORTANT]
 > If the number of databases in a pool approaches the maximum supported, make sure to consider [Resource management in dense elastic pools](elastic-pool-resource-management.md).
@@ -173,34 +145,7 @@ When you have completed configuring the pool, you can click 'Apply', name the po
 
 In the Azure portal, you can monitor the utilization of an elastic pool and the databases within that pool. You can also make a set of changes to your elastic pool and submit all changes at the same time. These changes include adding or removing databases, changing your elastic pool settings, or changing your database settings.
 
-To start monitoring your elastic pool, find and open an elastic pool in the portal. You'll first see a screen that gives you an overview of the status of your elastic pool. This includes:
-
-- Monitoring charts showing resources usage of the elastic pool
-- Recent alerts and recommendations, if available, for the elastic pool
-
-The following graphic shows an example elastic pool:
-
-![Pool view](./media/elastic-pool-overview/basic.png)
-
-If you want more information about the pool you can click on any of the available information in this overview. Clicking on the **Resource utilization** chart will take you to the Azure Monitoring view where you can customize the metrics and time window shown in the chart. Clicking on any available notifications will take you to a blade that shows the full details of that alert or recommendation.
-
-If you would like to monitor the databases inside your pool, you can click on **Database resource utilization** in the **Monitoring** section of the resource menu on the left.
-
-![Database resource utilization page](./media/elastic-pool-overview/db-utilization.png)
-
-### To customize the chart display
-
-You can edit the chart and the metric page to display other metrics such as CPU percentage, data IO percentage, and log IO percentage used.
-
-On the **Edit Chart** form, you can select a fixed time range or click **custom** to select any 24-hour window in the last two weeks, and then select the resources to monitor.
-
-### To select databases to monitor
-
-By default, the chart in the **Database Resource Utilization** blade will show the top 5 databases by DTU or CPU (depending on your service tier). You can switch up the databases in this chart by selecting and unselecting databases from the list below the chart via the checkboxes on the left.
-
-You can also select more metrics to view side by side in this database table to get a more complete view of your databases performance.
-
-For more information, see [create SQL Database alerts in Azure portal](alerts-insights-configure-portal.md).
+You can use the built-in [performance monitoring](./performance-guidance.md) and [alerting tools](./alerts-insights-configure-portal.md), combined with performance ratings.  Additionally, SQL Database can [emit metrics and resource logs](./metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-portal) for easier monitoring.
 
 ## Customer case studies
 

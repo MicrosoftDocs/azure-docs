@@ -1,5 +1,5 @@
 ---
-title: Restore an existing dedicated SQL pool
+title: Restore an existing dedicated SQL pool (formerly SQL DW)
 description: How-to guide for restoring an existing dedicated SQL pool in Azure Synapse Analytics.
 services: synapse-analytics
 author: anumjs

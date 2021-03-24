@@ -73,7 +73,10 @@ For Windows 10 devices on version 1703 or earlier, if your organization requires
 
 Beginning with Windows 10 1803, even if a hybrid Azure AD join attempt by a device in a federated domain through AD FS fails, and if Azure AD Connect is configured to sync the computer/device objects to Azure AD, the device will try to complete the hybrid Azure AD join by using the synced computer/device.
 
-To verify if the device is able to access the above Microsoft resources under the system account, you can use [Test Device Registration Connectivity](https://gallery.technet.microsoft.com/Test-Device-Registration-3dc944c0) script.
+> [!NOTE]
+> To get device registration sync join to succeed, as part of the device registration configuration, do not exclude the default device attributes from your Azure AD Connect sync configuration. To learn more about default device attributes synced to Azure AD, see [Attributes synchronized by Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-attributes-synchronized#windows-10).
+
+To verify if the device is able to access the above Microsoft resources under the system account, you can use [Test Device Registration Connectivity](/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/) script.
 
 ## Verify configuration steps
 
@@ -167,7 +170,7 @@ In the preceding script, `$verifiedDomain = "contoso.com"` is a placeholder. Rep
 
 For more information about verified domain names, see [Add a custom domain name to Azure Active Directory](../fundamentals/add-custom-domain.md).
 
-To get a list of your verified company domains, you can use the [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain?view=azureadps-2.0) cmdlet.
+To get a list of your verified company domains, you can use the [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain) cmdlet.
 
 ![List of company domains](./media/hybrid-azuread-join-manual/01.png)
 
@@ -326,7 +329,7 @@ In the preceding claim, `<verified-domain-name>` is a placeholder. Replace it wi
 
 For more information about verified domain names, see [Add a custom domain name to Azure Active Directory](../fundamentals/add-custom-domain.md).  
 
-To get a list of your verified company domains, you can use the [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0) cmdlet.
+To get a list of your verified company domains, you can use the [Get-MsolDomain](/powershell/module/msonline/get-msoldomain) cmdlet.
 
 ![List of company domains](./media/hybrid-azuread-join-manual/01.png)
 
@@ -569,7 +572,7 @@ Here are 3 ways to locate and verify the device state:
 
 ### Using PowerShell
 
-Verify the device registration state in your Azure tenant by using **[Get-MsolDevice](/powershell/module/msonline/get-msoldevice)**. This cmdlet is in the [Azure Active Directory PowerShell module](/powershell/azure/active-directory/install-msonlinev1?view=azureadps-2.0).
+Verify the device registration state in your Azure tenant by using **[Get-MsolDevice](/powershell/module/msonline/get-msoldevice)**. This cmdlet is in the [Azure Active Directory PowerShell module](/powershell/azure/active-directory/install-msonlinev1).
 
 When you use the **Get-MSolDevice** cmdlet to check the service details:
 

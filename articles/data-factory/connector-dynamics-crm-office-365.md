@@ -1,20 +1,16 @@
 ---
 title: Copy data in Dynamics (Common Data Service)
-description: Learn how to copy data from Microsoft Dynamics CRM or Microsoft Dynamics 365 (Common Data Service) to supported sink data stores or from supported source data stores to Dynamics CRM or Dynamics 365 by using a copy activity in a data factory pipeline.
-services: data-factory
-documentationcenter: ''
+description: Learn how to copy data from Microsoft Dynamics CRM or Microsoft Dynamics 365 (Common Data Service/Microsoft Dataverse) to supported sink data stores or from supported source data stores to Dynamics CRM or Dynamics 365 by using a copy activity in a data factory pipeline.
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 09/23/2020
+ms.date: 03/17/2021
 ---
 
-# Copy data from and to Dynamics 365 (Common Data Service) or Dynamics CRM by using Azure Data Factory
+# Copy data from and to Dynamics 365 (Common Data Service/Microsoft Dataverse) or Dynamics CRM by using Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use a copy activity in Azure Data Factory to copy data from and to Microsoft Dynamics 365 and Microsoft Dynamics CRM. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of a copy activity.
@@ -26,7 +22,7 @@ This connector is supported for the following activities:
 - [Copy activity](copy-activity-overview.md) with [supported source and sink matrix](copy-activity-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)
 
-You can copy data from Dynamics 365 (Common Data Service) or Dynamics CRM to any supported sink data store. You also can copy data from any supported source data store to Dynamics 365 (Common Data Service) or Dynamics CRM. For a list of data stores that a copy activity supports as sources and sinks, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+You can copy data from Dynamics 365 (Common Data Service/Microsoft Dataverse) or Dynamics CRM to any supported sink data store. You also can copy data from any supported source data store to Dynamics 365 (Common Data Service) or Dynamics CRM. For a list of data stores that a copy activity supports as sources and sinks, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 This Dynamics connector supports Dynamics versions 7 through 9 for both online and on-premises. More specifically:
 
@@ -51,10 +47,10 @@ For Dynamics 365 specifically, the following application types are supported:
 
 This connector doesn't support other application types like Finance, Operations, and Talent.
 
-This Dynamics connector is built on top of [Dynamics XRM tooling](/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools).
-
 >[!TIP]
 >To copy data from Dynamics 365 Finance and Operations, you can use the [Dynamics AX connector](connector-dynamics-ax.md).
+
+This Dynamics connector is built on top of [Dynamics XRM tooling](/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools).
 
 ## Prerequisites
 
@@ -83,7 +79,7 @@ The following properties are supported for the Dynamics linked service.
 | servicePrincipalCredential | The service-principal credential. <br/><br/>When you use "ServicePrincipalKey" as the credential type, `servicePrincipalCredential` can be a string that Azure Data Factory encrypts upon linked service deployment. Or it can be a reference to a secret in Azure Key Vault. <br/><br/>When you use "ServicePrincipalCert" as the credential, `servicePrincipalCredential` must be a reference to a certificate in Azure Key Vault. | Yes when authentication is "AADServicePrincipal" |
 | username | The username to connect to Dynamics. | Yes when authentication is "Office365" |
 | password | The password for the user account you specified as the username. Mark this field with "SecureString" to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes when authentication is "Office365" |
-| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. If no value is specified, the property uses the default Azure integration runtime. | No for source, and yes for sink if the source linked service doesn't have an integration runtime |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. If no value is specified, the property uses the default Azure integration runtime. | No |
 
 >[!NOTE]
 >The Dynamics connector formerly used the optional **organizationName** property to identify your Dynamics CRM or Dynamics 365 online instance. While that property still works, we suggest you specify the new **serviceUri** property instead to gain better performance for instance discovery.
@@ -179,7 +175,7 @@ Additional properties that compare to Dynamics online are **hostName** and **por
 | authenticationType | The authentication type to connect to the Dynamics server. Specify "Ifd" for Dynamics on-premises with IFD. | Yes. |
 | username | The username to connect to Dynamics. | Yes. |
 | password | The password for the user account you specified for the username. You can mark this field with "SecureString" to store it securely in Data Factory. Or you can store a password in Key Vault and let the copy activity pull from there when it does data copy. Learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes. |
-| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. If no value is specified, the property uses the default Azure integration runtime. | No for source and yes for sink. |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. If no value is specified, the property uses the default Azure integration runtime. | No |
 
 #### Example: Dynamics on-premises with IFD using IFD authentication
 
@@ -322,6 +318,7 @@ To copy data to Dynamics, the copy activity **sink** section supports the follow
 | alternateKeyName | The alternate key name defined on your entity to do an upsert. | No. |
 | writeBatchSize | The row count of data written to Dynamics in each batch. | No. The default value is 10. |
 | ignoreNullValues | Whether to ignore null values from input data other than key fields during a write operation.<br/><br/>Valid values are **TRUE** and **FALSE**:<ul><li>**TRUE**: Leave the data in the destination object unchanged when you do an upsert or update operation. Insert a defined default value when you do an insert operation.</li><li>**FALSE**: Update the data in the destination object to a null value when you do an upsert or update operation. Insert a null value when you do an insert operation.</li></ul> | No. The default value is **FALSE**. |
+| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
 
 >[!NOTE]
 >The default value for both the sink **writeBatchSize** and the copy activity **[parallelCopies](copy-activity-performance-features.md#parallel-copy)** for the Dynamics sink is 10. Therefore, 100 records are concurrently submitted by default to Dynamics.
@@ -362,6 +359,32 @@ The optimal combination of **writeBatchSize** and **parallelCopies** depends on 
         }
     }
 ]
+```
+
+## Retrieving data from views
+
+To retrieve data from Dynamics views, you need to get the saved query of the view, and use the query to get the data.
+
+There are two entities which store different types of view: "saved query" stores system view and "user query" stores user view. To get the information of the views, refer to the following FetchXML query and replace the "TARGETENTITY" with `savedquery` or `userquery`. Each entity type has more available attributes that you can add to the query based on your need. Learn more about [savedquery entity](https://docs.microsoft.com/dynamics365/customer-engagement/web-api/savedquery) and [userquery entity](https://docs.microsoft.com/dynamics365/customer-engagement/web-api/userquery).
+
+```xml
+<fetch top="5000" >
+  <entity name="<TARGETENTITY>">
+    <attribute name="name" />
+    <attribute name="fetchxml" />
+    <attribute name="returnedtypecode" />
+    <attribute name="querytype" />
+  </entity>
+</fetch>
+```
+
+You can also add filters to filter the views. For example, add the following filter to get a view named "My Active Accounts" in account entity.
+
+```xml
+<filter type="and" >
+    <condition attribute="returnedtypecode" operator="eq" value="1" />
+    <condition attribute="name" operator="eq" value="My Active Accounts" />
+</filter>
 ```
 
 ## Data type mapping for Dynamics

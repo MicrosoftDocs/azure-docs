@@ -24,7 +24,7 @@ As you would expect, dedicated SQL pool supports transactions as part of the dat
 
 Dedicated SQL pool implements ACID transactions. The isolation level of the transactional support is default to READ UNCOMMITTED.  You can change it to READ COMMITTED SNAPSHOT ISOLATION by turning ON the READ_COMMITTED_SNAPSHOT database option for a user database when connected to the master database.  
 
-Once enabled, all transactions in this database are executed under READ COMMITTED SNAPSHOT ISOLATION and setting READ UNCOMMITTED on session level will not be honored. Check [ALTER DATABASE SET options (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest&preserve-view=true) for details.
+Once enabled, all transactions in this database are executed under READ COMMITTED SNAPSHOT ISOLATION and setting READ UNCOMMITTED on session level will not be honored. Check [ALTER DATABASE SET options (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?preserve-view=true&view=azure-sqldw-latest) for details.
 
 ## Transaction size
 A single data modification transaction is limited in size. The limit is applied per distribution. As such, the total allocation can be calculated by multiplying the limit by the distribution count. 
@@ -200,4 +200,4 @@ Dedicated SQL pool does have a few other restrictions that relate to transaction
 
 ## Next steps
 
-To learn more about optimizing transactions, see [Transactions best practices](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Additional best practices guides are also provided for [Dedicated SQL pool](best-practices-sql-pool.md) and [serverless SQL pool](best-practices-sql-on-demand.md).
+To learn more about optimizing transactions, see [Transactions best practices](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Additional best practices guides are also provided for [Dedicated SQL pool](best-practices-dedicated-sql-pool.md) and [serverless SQL pool](best-practices-serverless-sql-pool.md).

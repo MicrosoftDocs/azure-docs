@@ -1,54 +1,51 @@
 ---
-title: Passwordless security key sign-in (preview) - Azure Active Directory
-description: Enable passwordless security key sign-in to Azure AD using FIDO2 security keys (preview)
+title: Passwordless security key sign-in - Azure Active Directory
+description: Enable passwordless security key sign-in to Azure AD using FIDO2 security keys
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 09/14/2020
+ms.date: 02/22/2021
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 
 ms.collection: M365-identity-device-management
 ---
-# Enable passwordless security key sign-in (preview)
+# Enable passwordless security key sign-in 
 
 For enterprises that use passwords today and have a shared PC environment, security keys provide a seamless way for workers to authenticate without entering a username or password. Security keys provide improved productivity for workers, and have better security.
 
 This document focuses on enabling security key based passwordless authentication. At the end of this article, you will be able to sign in to web-based applications with your Azure AD account using a FIDO2 security key.
 
-> [!NOTE]
-> FIDO2 security keys are a public preview feature of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Requirements
 
 - [Azure AD Multi-Factor Authentication](howto-mfa-getstarted.md)
-- Enable [Combined security information registration preview](concept-registration-mfa-sspr-combined.md)
+- Enable [Combined security information registration](concept-registration-mfa-sspr-combined.md)
 - Compatible [FIDO2 security keys](concept-authentication-passwordless.md#fido2-security-keys)
 - WebAuthN requires Windows 10 version 1903 or higher**
 
 To use security keys for logging in to web apps and services, you must have a browser that supports the WebAuthN protocol. These include Microsoft Edge, Chrome, Firefox, and Safari.
 
-## Prepare devices for preview
+## Prepare devices
 
-Azure AD joined devices that you pilot with must run Windows 10 version 1909 or higher. The best experience is on Windows 10 version 1903 or higher.
+For Azure AD joined devices the best experience is on Windows 10 version 1903 or higher.
 
-Hybrid Azure AD joined devices must run Windows 10 version 2004 or newer.
+Hybrid Azure AD joined devices must run Windows 10 version 2004 or higher.
 
 ## Enable passwordless authentication method
 
 ### Enable the combined registration experience
 
-Registration features for passwordless authentication methods rely on the combined registration feature. Follow the steps in the article [Enable combined security information registration (preview)](howto-registration-mfa-sspr-combined.md), to enable combined registration.
+Registration features for passwordless authentication methods rely on the combined registration feature. Follow the steps in the article [Enable combined security information registration](howto-registration-mfa-sspr-combined.md), to enable combined registration.
 
 ### Enable FIDO2 security key method
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Browse to **Azure Active Directory** > **Security** > **Authentication methods** > **Authentication method policy (Preview)**.
+1. Browse to **Azure Active Directory** > **Security** > **Authentication methods** > **Authentication method policy**.
 1. Under the method **FIDO2 Security Key**, choose the following options:
    1. **Enable** - Yes or No
    1. **Target** - All users or Select users
@@ -76,19 +73,19 @@ In the example below a user has already provisioned their FIDO2 security key. Th
 
 ## Troubleshooting and feedback
 
-If you'd like to share feedback or encounter issues while previewing this feature, share via the Windows Feedback Hub app using the following steps:
+If you'd like to share feedback or encounter issues with this feature, share via the Windows Feedback Hub app using the following steps:
 
 1. Launch **Feedback Hub** and make sure you're signed in.
 1. Submit feedback under the following categorization:
    - Category: Security and Privacy
    - Subcategory: FIDO
-1. To capture logs, use the option to **Recreate my Problem**
+1. To capture logs, use the option to **Recreate my Problem**.
 
 ## Known issues
 
 ### Security key provisioning
 
-Administrator provisioning and de-provisioning of security keys is not available in the public preview.
+Administrator provisioning and de-provisioning of security keys is not available.
 
 ### UPN changes
 

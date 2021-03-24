@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
-ms.date: 09/23/2020
+ms.date: 03/08/2021
 
 ms.author: mimart
 author: msmimart
@@ -20,8 +20,9 @@ ms.collection: M365-identity-device-management
 
 These frequently asked questions (FAQs) about Azure Active Directory (Azure AD) business-to-business (B2B) collaboration are periodically updated to include new topics.
 
-   > [!IMPORTANT]
-   > **Starting March 31, 2021**, Microsoft will no longer support the redemption of invitations by creating unmanaged Azure AD accounts and tenants for B2B collaboration scenarios. In preparation, we encourage customers to opt into [email one-time passcode authentication](one-time-passcode.md). We welcome your feedback on this public preview feature and are excited to create even more ways to collaborate.
+> [!IMPORTANT]
+> - **Starting January 4, 2021**, Google is [deprecating WebView sign-in support](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). If you’re using Google federation or self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](google-federation.md#deprecation-of-webview-sign-in-support).
+> - **Starting October 2021**, Microsoft will no longer support the redemption of invitations by creating unmanaged Azure AD accounts and tenants for B2B collaboration scenarios. In preparation, we encourage customers to opt into [email one-time passcode authentication](one-time-passcode.md). We welcome your feedback on this public preview feature and are excited to create even more ways to collaborate.
 
 ### Can we customize our sign-in page so it's more intuitive for our B2B collaboration guest users?
 Absolutely! See our [blog post about this feature](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). For more information about how to customize your organization's sign-in page, see [Add company branding to sign in and Access Panel pages](../fundamentals/customize-branding.md).
@@ -79,6 +80,7 @@ Yes. Multi-factor authentication and consumer email accounts are both supported 
 ### Do you support password reset for Azure AD B2B collaboration users?
 If your Azure AD tenant is the home directory for a user, you can [reset the user's password](../fundamentals/active-directory-users-reset-password-azure-portal.md) from the Azure portal. But you can't directly reset a password for a guest user who signs in with an account that's managed by another Azure AD directory or external identity provider. Only the guest user or an administrator in the user’s home directory can reset the password. Here are some examples of how password reset works for guest users:
  
+* Guest users in an Azure AD tenant that are marked "Guest" (UserType==Guest) cannot register for SSPR through [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). These type of guest user can only perform SSPR through [https://aka.ms/sspr](https://aka.ms/sspr). 
 * Guest users who sign in with a Microsoft account (for example guestuser@live.com) can reset their own passwords using Microsoft account self-service password reset (SSPR). See [How to reset your Microsoft account password](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password).
 * Guest users who sign in with a Google account or another external identity provider can reset their own passwords using their identity provider’s SSPR method. For example, a guest user with the Google account guestuser@gmail.com can reset their password by following the instructions in [Change or reset your password](https://support.google.com/accounts/answer/41078).
 * If the identity tenant is a just-in-time (JIT) or "viral" tenant (meaning it's a separate, unmanaged Azure tenant), only the guest user can reset their password. Sometimes an organization will [take over management of viral tenants](../enterprise-users/domains-admin-takeover.md) that are created when employees use their work email addresses to sign up for services. After the organization takes over a viral tenant, only an administrator in that organization can reset the user's password or enable SSPR. If necessary, as the inviting organization, you can remove the guest user account from your directory and resend an invitation.

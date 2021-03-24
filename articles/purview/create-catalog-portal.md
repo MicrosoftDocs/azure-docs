@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Create an Azure Purview account in the Azure portal (preview)'
 description: This Quickstart describes how to create an Azure Purview account and configure permissions to begin using it.
-author: hophan
-ms.author: hophan
+author: nayenama
+ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: quickstart
@@ -20,7 +20,68 @@ In this quickstart, you create an Azure Purview account.
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Your own [Azure Active Directory tenant](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
+* Your own [Azure Active Directory tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
+
+* Your account must have permission to create resources in the subscription
+
+* If you have **Azure Policy** blocking all applications from creating **Storage account** and **EventHub namespace**, you need to make policy exception using tag, which can be entered during the process of creating a Purview account. The main reason is that for each Purview Account created, it needs to create a managed Resource Group and within this resource group, a Storage account and an
+EventHub namespace.
+
+    > [!important]
+    > You don't have to follow this step if you don't have Azure Policy or an existing Azure Policy is not blocking the creation of **Storage account** and **EventHub namespace**.
+
+    1. Navigate to the Azure portal and search for **Policy**
+    1. Follow [Create a custom policy definition](../governance/policy/tutorials/create-custom-policy-definition.md) or modify existing policy to add two exceptions with `not` operator and `resourceBypass` tag:
+
+        ```json
+        {
+          "mode": "All",
+          "policyRule": {
+            "if": {
+              "anyOf": [
+              {
+                "allOf": [
+                {
+                  "field": "type",
+                  "equals": "Microsoft.Storage/storageAccounts"
+                },
+                {
+                  "not": {
+                    "field": "tags['<resourceBypass>']",
+                    "exists": true
+                  }
+                }]
+              },
+              {
+                "allOf": [
+                {
+                  "field": "type",
+                  "equals": "Microsoft.EventHub/namespaces"
+                },
+                {
+                  "not": {
+                    "field": "tags['<resourceBypass>']",
+                    "exists": true
+                  }
+                }]
+              }]
+            },
+            "then": {
+              "effect": "deny"
+            }
+          },
+          "parameters": {}
+        }
+        ```
+        
+        > [!Note]
+        > The tag could be anything beside `resourceBypass` and it's up to you to define value when creating Purview in latter steps as long as the policy can detect the tag.
+
+        :::image type="content" source="./media/create-catalog-portal/policy-definition.png" alt-text="Screenshot showing how to create policy definition.":::
+
+    1. [Create a policy assignment](../governance/policy/assign-policy-portal.md) using the custom policy created.
+
+        [ ![Screenshot showing how to create policy assignment](./media/create-catalog-portal/policy-assignment.png)](./media/create-catalog-portal/policy-assignment.png#lightbox)
 
 ## Sign in to Azure
 
@@ -51,14 +112,26 @@ If necessary, follow these steps to configure your subscription to enable Azure 
 
    :::image type="content" source="./media/create-catalog-portal/add-purview-instance.png" alt-text="Screenshot showing how to create an Azure Purview account instance in the Azure portal.":::
 
+    > [!Note] 
+    > Azure Purview does not support moving its account across regions. You can find out more information about this in [Azure supported services page](../azure-resource-manager/management/region-move-support.md).
+
 1. On the **Basics** tab, do the following:
     1. Select a **Resource group**.
     1. Enter a **Purview account name** for your catalog. Spaces and symbols aren't allowed.
     1. Choose a  **Location**, and then select **Next: Configuration**.
 1. On the **Configuration** tab, select the desired **Platform size** - the allowed values are 4 capacity units (CU) and 16 CU. Select **Next: Tags**.
-1. On the **Tags** tab, you can optionally add one or more tags. These tags are for use only in the Azure portal, not Azure Purview.
+1. On the **Tags** tab, you can optionally add one or more tags. These tags are for use only in the Azure portal, not Azure Purview. 
+
+    > [!Note] 
+    > If you have **Azure Policy** and need to add exception as in **Prerequisites**, you need to add the correct tag. For example, you can add `resourceBypass` tag:
+    > :::image type="content" source="./media/create-catalog-portal/add-purview-tag.png" alt-text="Add tag to Purview account.":::
+
 1. Select **Review & Create**, and then select **Create**. It takes a few minutes to complete the creation. The newly created Azure Purview account instance appears in the list on your **Purview accounts** page.
 1. When the new account provisioning is complete select **Go to resource**.
+
+    > [!Note]
+    > If the provisioning failed with `Conflict` status, that means there is an Azure policy blocking Purview from creating a **Storage account** and **EventHub namespace**. You need to go through the **Prerequisites** steps to add exceptions.
+    > :::image type="content" source="./media/create-catalog-portal/purview-conflict-error.png" alt-text="Purview conflict error message":::
 
 1. Select **Launch purview account**.
 
@@ -82,7 +155,7 @@ If upon clicking Add you see two choices showing both marked (disabled) then thi
 
 1. Select **Add role assignment**.
 
-1. For the Role type in **Purview Data Curator Role** or **Purview Data Source Administrator Role** depending on what the Service Principal is going to be used for (please see [Catalog Permissions](catalog-permissions.md) for details).
+1. For the Role type in **Purview Data Curator Role** or **Purview Data Source Administrator Role** depending on what the security principal is going to be used for (please see [Catalog Permissions](catalog-permissions.md) and [Application and service principal objects in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md) for details).
 
 1. For **Assign access to** leave the default, **User, group, or service principal**.
 

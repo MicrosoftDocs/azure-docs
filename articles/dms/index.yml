@@ -56,29 +56,25 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Migrate to SQL DB single database - online
-            url: tutorial-sql-server-azure-sql-online.md
-          - text: Migrate to SQL DB single database - offline
+          - text: Migrate to Azure SQL Database
             url: tutorial-sql-server-to-azure-sql.md
-          - text: Migrate to SQL DB managed instance - online
+          - text: Migrate to Azure SQL Managed Instance (online)
             url: tutorial-sql-server-managed-instance-online.md
-          - text: Migrate to SQL DB managed instance - offline
+          - text: Migrate to SQL Managed Instance (offline)
             url: tutorial-sql-server-to-managed-instance.md
-          - text: Migrate RDS SQL Server to SQL DB single database / managed instance - online
-            url: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
       - linkListType: reference
         links:
-          - text: Known issues - Online migration to SQL DB single database
+          - text: Known issues - Online migration to SQL Database
             url: known-issues-azure-sql-online.md
-          - text: Known issues - Online migration to SQL DB managed instance
+          - text: Known issues - Online migration to SQL Managed Instance
             url: known-issues-azure-sql-db-managed-instance-online.md
-          - text: Network topologies for SQL DB managed instance migrations
+          - text: Network topologies for SQL Managed Instance migrations
             url: resource-network-topologies.md
-          - text: Custom roles for online migrations from SQL Server to SQL DB managed instance
+          - text: Custom roles for online migrations from SQL Server to SQL Managed Instance
             url: resource-custom-roles-sql-db-managed-instance.md            
       - linkListType: video
         links:
-          - text: Migrate SQL Server 2008 to SQL DB managed instance
+          - text: Migrate SQL Server 2008 to SQL Managed Instance
             url: https://azure.microsoft.com/resources/videos/how-to-migrate-sql-server-2008-or-r2-to-azure-sqldbmi/
 # Card 3
   - title: Migrate open-source databases to Azure

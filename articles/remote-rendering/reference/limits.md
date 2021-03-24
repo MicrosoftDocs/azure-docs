@@ -14,8 +14,8 @@ A number of features have size, count, or other limitations.
 ## Azure Frontend
 
 The following limitations apply to the frontend API (C++ and C#):
-* Total [AzureFrontend](/dotnet/api/microsoft.azure.remoterendering.azurefrontend) instances per process: 16.
-* Total [AzureSession](/dotnet/api/microsoft.azure.remoterendering.azuresession) instances per [AzureFrontend](/dotnet/api/microsoft.azure.remoterendering.azurefrontend): 16.
+* Total [RemoteRenderingClient](/dotnet/api/microsoft.azure.remoterendering.remoterenderingclient) instances per process: 16.
+* Total [RenderingSession](/dotnet/api/microsoft.azure.remoterendering.renderingsession) instances per [RemoteRenderingClient](/dotnet/api/microsoft.azure.remoterendering.remoterenderingclient): 16.
 
 ## Objects
 
@@ -31,7 +31,7 @@ The following limitations apply to the frontend API (C++ and C#):
 
 ### Overall number of polygons
 
-The allowable number of polygons for all loaded models depends on the size of the VM as passed to [the session management REST API](../how-tos/session-rest-api.md#create-a-session):
+The allowable number of polygons for all loaded models depends on the size of the VM as passed to [the session management REST API](../how-tos/session-rest-api.md):
 
 | Server size | Maximum number of polygons |
 |:--------|:------------------|

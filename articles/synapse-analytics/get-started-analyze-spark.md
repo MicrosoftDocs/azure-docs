@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Get started analyzing with Spark' 
-description: In this tutorial, you'll learn to analyze data with Apache Spark
+description: In this tutorial, you'll learn to analyze data with Apache Spark.
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
@@ -9,59 +9,60 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
-ms.date: 07/20/2020 
+ms.date: 12/31/2020
 ---
 
 # Analyze with Apache Spark
 
-## Analyze NYC Taxi data in blob storage using Spark
-
 In this tutorial, you'll learn the basic steps to load and analyze data with Apache Spark for Azure Synapse.
 
-1. In the **Data** hub, click on **Add a new resource**(plus button above **Linked**) >> **Browse Samples**. 
-1. Find **NYC Taxi & Limousine Commission - yellow taxi trip records** and click on it. 
-1. On the bottom of the page press **Continue** and after that **Add dataset**. 
-1. Now in **Data** hub under **Linked** right-click on **Azure Blob Storage >> Sample Datasets >> nyc_tlc_yellow** and select **New notebook**
-1. This will create a new Notebook with the following code:
+## Create a serverless Apache Spark pool
+
+1. In Synapse Studio, on the left-side pane, select **Manage** > **Apache Spark pools**.
+1. Select **New** 
+1. For **Apache Spark pool name** enter **Spark1**.
+1. For **Node size** enter **Small**.
+1. For **Number of nodes** Set the minimum to 3 and the maximum to 3
+1. Select **Review + create** > **Create**. Your Apache Spark pool will be ready in a few seconds.
+
+## Understanding serverless Apache Spark pools
+
+A serverless Spark pool is a way of indicating how a user wants to work with Spark. When you start using a pool a Spark session is created if needed. The pool controls how many Spark resources will be used by that session and how long the session well last before it automatically pauses. You pay for spark resources used during that session not for the pool itself. In this way a Spark pool lets you work with Spark, without having to worry managing clusters. This is similar to how a serverless SQL pool works.
+
+## Analyze NYC Taxi data in blob storage using Spark
+
+1. In Synapse Studio go to the **Develop** hub
+2. Create a newnNotebook with the default language set to **PySpark (Python)**.
+3. Create a new code cell and paste the following code into that cell.
     ```
     from azureml.opendatasets import NycTlcYellow
 
     data = NycTlcYellow()
-    data_df = data.to_spark_dataframe()
-    display(data_df.limit(10))
+    df = data.to_spark_dataframe()
+    # Display 10 rows
+    display(df.limit(10))
     ```
-1. In the notebook, choose a serverless Spark pool in the **Attach to** menu
-1. Select **Run** on the cell
+1. In the notebook, in the **Attach to** menu, choose the **Spark1** serverless Spark pool that we created earlier.
+1. Select **Run** on the cell. Synapse will start a new Spark session to run this cell if needed. If a new Spark session is needed, initially it will take about two seconds to be created. 
 1. If you just want to see the schema of the dataframe run a cell with the following code:
-    ```
-    data_df.printSchema()
+
+    ```py
+    df.printSchema()
     ```
 
 ## Load the NYC Taxi data into the Spark nyctaxi database
 
-We have data available in a table in **SQLPOOL1**. Load it into a Spark database named **nyctaxi**.
+Data is available via the dataframe named **data**. Load it into a Spark database named **nyctaxi**.
 
-1. In Synapse Studio, go to the **Develop** hub.
-1. Select **+** > **Notebook**.
-1. On the top of the notebook, set the **Attach to** value to **Spark1**.
-1. Select **Add code** to add a notebook code cell, and then paste the following text:
+1. Add a new to the notebook, and then enter the following code:
 
-    ```scala
-    %%spark
-    spark.sql("CREATE DATABASE IF NOT EXISTS nyctaxi")
-    val df = spark.read.sqlanalytics("SQLPOOL1.dbo.Trip") 
+    ```py
     df.write.mode("overwrite").saveAsTable("nyctaxi.trip")
     ```
-
-1. Go to the **Data** hub, right-click **Databases**, and then select **Refresh**. You should see these databases:
-
-    - **SQLPOOL1 (SQL)**
-    - **nyctaxi (Spark)**
-
 ## Analyze the NYC Taxi data using Spark and notebooks
 
 1. Return to your notebook.
-1. Create a new code cell and enter the following text. Then run the cell to show the NYC Taxi data we loaded into the **nyctaxi** Spark database.
+1. Create a new code cell and enter the following code. 
 
    ```py
    %%pyspark
@@ -69,7 +70,8 @@ We have data available in a table in **SQLPOOL1**. Load it into a Spark database
    display(df)
    ```
 
-1. Run the following code to do the same analysis that we did earlier with the dedicated SQL pool **SQLPOOL1**. This code saves the results of the analysis into a table called **nyctaxi.passengercountstats** and visualizes the results.
+1. Run the cell to show the NYC Taxi data we loaded into the **nyctaxi** Spark database.
+1. Create a new code cell and enter the following code. Then run the cell to do the same analysis that we did earlier with the dedicated SQL pool **SQLPOOL1**. This code saves and displays the results of the analysis into a table called **nyctaxi.passengercountstats**.
 
    ```py
    %%pyspark
@@ -89,26 +91,7 @@ We have data available in a table in **SQLPOOL1**. Load it into a Spark database
 1. In the cell results, select **Chart** to see the data visualized.
 
 
-
-
-
-## Load data from a Spark table into a dedicated SQL pool table
-
-Earlier we copied data from the dedicated SQL pool table **SQLPOOL1.dbo.Trip** into the Spark table **nyctaxi.trip**. Then, using
-Spark, we aggregated the data into the Spark table **nyctaxi.passengercountstats**. Now we'll copy the data
-from **nyctaxi.passengercountstats** into a dedicated SQL pool table called **SQLPOOL1.dbo.PassengerCountStats**.
-
-Run the following cell in your notebook. It copies the aggregated Spark table back into the dedicated SQL pool table.
-
-```scala
-%%spark
-val df = spark.sql("SELECT * FROM nyctaxi.passengercountstats")
-df.write.sqlanalytics("SQLPOOL1.dbo.PassengerCountStats", Constants.INTERNAL )
-```
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Analyze data with serverless SQL pool](get-started-analyze-sql-on-demand.md)
-
-
+> [Analyze data with dedicated SQL pool](get-started-analyze-sql-pool.md)

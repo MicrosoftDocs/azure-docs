@@ -9,8 +9,8 @@ ms.devlang:
 ms.topic: how-to
 author: stevestein
 ms.author: sashan
-ms.reviewer: 
-ms.date: 10/30/2020
+ms.reviewer: wiassaf
+ms.date: 03/10/2021
 ---
 # Copy a transactionally consistent copy of a database in Azure SQL Database
 
@@ -92,7 +92,7 @@ Log in to the master database with the server administrator login or the login t
 This command copies Database1 to a new database named Database2 on the same server. Depending on the size of your database, the copying operation might take some time to complete.
 
    ```sql
-   -- execute on the master database to start copying
+   -- Execute on the master database to start copying
    CREATE DATABASE Database2 AS COPY OF Database1;
    ```
 
@@ -105,10 +105,10 @@ This command copies Database1 to a new database named Database2 in an elastic po
 Database1 can be a single or pooled database. Copying between different tier pools is supported, but some cross-tier copies will not succeed. For example, you can copy a single or elastic standard db into a general purpose pool, but you can't copy a standard elastic db into a premium pool. 
 
    ```sql
-   -- execute on the master database to start copying
+   -- Execute on the master database to start copying
    CREATE DATABASE "Database2"
    AS COPY OF "Database1"
-   (SERVICE_OBJECTIVE = ELASTIC_POOL( name = "pool1" ) ) ;
+   (SERVICE_OBJECTIVE = ELASTIC_POOL( name = "pool1" ) );
    ```
 
 ### Copy to a different server
@@ -129,6 +129,48 @@ CREATE DATABASE Database2 AS COPY OF server1.Database1;
 
 You can use the steps in the [Copy a SQL Database to a different server](#copy-to-a-different-server) section to copy your database to a server in a different subscription using T-SQL. Make sure you use a login that has the same name and password as the database owner of the source database. Additionally, the login must be a member of the `dbmanager` role or a server administrator, on both source and target servers.
 
+```sql
+--Step# 1
+--Create login and user in the master database of the source server.
+
+CREATE LOGIN loginname WITH PASSWORD = 'xxxxxxxxx'
+GO
+CREATE USER [loginname] FOR LOGIN [loginname] WITH DEFAULT_SCHEMA=[dbo];
+GO
+ALTER ROLE dbmanager ADD MEMBER loginname;
+GO
+
+--Step# 2
+--Create the user in the source database and grant dbowner permission to the database.
+
+CREATE USER [loginname] FOR LOGIN [loginname] WITH DEFAULT_SCHEMA=[dbo];
+GO
+ALTER ROLE db_owner ADD MEMBER loginname;
+GO
+
+--Step# 3
+--Capture the SID of the user "loginname" from master database
+
+SELECT [sid] FROM sysusers WHERE [name] = 'loginname';
+
+--Step# 4
+--Connect to Destination server.
+--Create login and user in the master database, same as of the source server.
+
+CREATE LOGIN loginname WITH PASSWORD = 'xxxxxxxxx', SID = [SID of loginname login on source server];
+GO
+CREATE USER [loginname] FOR LOGIN [loginname] WITH DEFAULT_SCHEMA=[dbo];
+GO
+ALTER ROLE dbmanager ADD MEMBER loginname;
+GO
+
+--Step# 5
+--Execute the copy of database script from the destination server using the credentials created
+
+CREATE DATABASE new_database_name
+AS COPY OF source_server_name.source_database_name;
+```
+
 > [!NOTE]
 > The [Azure portal](https://portal.azure.com), PowerShell, and the Azure CLI do not support database copy to a different subscription.
 
@@ -146,9 +188,9 @@ Monitor the copying process by querying the [sys.databases](/sql/relational-data
 > If you decide to cancel the copying while it is in progress, execute the [DROP DATABASE](/sql/t-sql/statements/drop-database-transact-sql) statement on the new database.
 
 > [!IMPORTANT]
-> If you need to create a copy with a substantially smaller service objective than the source, the target database may not have sufficient resources to complete the seeding process and it can cause the copy operaion to fail. In this scenario use a geo-restore request to create a copy in a different server and/or a different region. See [Recover an Azure SQL Database using database backups](recovery-using-backups.md#geo-restore) for more information.
+> If you need to create a copy with a substantially smaller service objective than the source, the target database may not have sufficient resources to complete the seeding process and it can cause the copy operation to fail. In this scenario use a geo-restore request to create a copy in a different server and/or a different region. See [Recover an Azure SQL Database using database backups](recovery-using-backups.md#geo-restore) for more information.
 
-## Azure roles to manage database copy
+## Azure RBAC roles and permissions to manage database copy
 
 To create a database copy, you will need to be in the following roles
 

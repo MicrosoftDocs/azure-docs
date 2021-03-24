@@ -46,6 +46,9 @@ You need the following things to customize your Windows 10 Enterprise multi-sess
           - [Windows 10, version 2004 or 20H2 **9B** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_64_ARM64_MultiLang_LangPckAll_LIP_LXP_ONLY)
           - [Windows 10, version 2004 or 20H2 **9C** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_32_64_ARM64_MultiLng_LngPkAll_LIP_9C_LXP_ONLY)
           - [Windows 10, version 2004 or 20H2 **10C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2010C.iso)
+          - [Windows 10, version 2004 or 20H2 **11C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2011C.iso)
+          - [Windows 10, version 2004 or 20H2 **1C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2101C.iso)
+          - [Windows 10, version 2004 or 20H2 **2C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2102C.iso)
 
 - An Azure Files Share or a file share on a Windows File Server Virtual Machine
 
@@ -161,9 +164,6 @@ $LanguageList = Get-WinUserLanguageList
 $LanguageList.Add("zh-cn")
 Set-WinUserLanguageList $LanguageList -force
 ```
-
->[!IMPORTANT]
->Windows 10 Enterprise versions 1903 and 1909 don’t require the `Microsoft-Windows-Client-Language-Pack_x64_<language-code>.cab` package file.
 
 The script might take a while depending on the number of languages you need to install.
 

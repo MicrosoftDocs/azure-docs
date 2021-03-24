@@ -63,10 +63,10 @@ _**Solution:**_ Use appropriate patterns and best practices
 SNAT exhaustion can also be amplified with other anti-patterns in the underlying application. Review these additional patterns and best practices to improve the scale and reliability of your service.
 
 - Explore impact of reducing [TCP idle timeout](nat-gateway-resource.md#timers) to lower values including default idle timeout of 4 minutes to free up SNAT port inventory earlier.
-- Consider [asynchronous polling patterns](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply) for long-running operations to free up connection resources for other operations.
+- Consider [asynchronous polling patterns](/azure/architecture/patterns/async-request-reply) for long-running operations to free up connection resources for other operations.
 - Long-lived flows (for example reused TCP connections) should use TCP keepalives or application layer keepalives to avoid intermediate systems timing out. Increasing the idle timeout is a last resort and may not resolve the root cause. A long timeout can cause low rate failures when timeout expires and introduce delay and unnecessary failures.
-- Graceful [retry patterns](https://docs.microsoft.com/azure/architecture/patterns/retry) should be used to avoid aggressive retries/bursts during transient failure or failure recovery.
-Creating a new TCP connection for every HTTP operation (also known as "atomic connections") is an anti-pattern.  Atomic connections will prevent your application from scaling well and waste resources.  Always pipeline multiple operations into the same connection.  Your application will benefit in transaction speed and resource costs.  When your application uses transport layer encryption (for example TLS), there's a significant cost associated with the processing of new connections.  Review [Azure Cloud Design Patterns](https://docs.microsoft.com/azure/architecture/patterns/) for additional best practice patterns.
+- Graceful [retry patterns](/azure/architecture/patterns/retry) should be used to avoid aggressive retries/bursts during transient failure or failure recovery.
+Creating a new TCP connection for every HTTP operation (also known as "atomic connections") is an anti-pattern.  Atomic connections will prevent your application from scaling well and waste resources.  Always pipeline multiple operations into the same connection.  Your application will benefit in transaction speed and resource costs.  When your application uses transport layer encryption (for example TLS), there's a significant cost associated with the processing of new connections.  Review [Azure Cloud Design Patterns](/azure/architecture/patterns/) for additional best practice patterns.
 
 #### Additional possible mitigations
 
@@ -91,7 +91,7 @@ The following table can be used a starting point for which tools to use to start
 | Operating system | Generic TCP connection test | TCP application layer test | UDP |
 |---|---|---|---|
 | Linux | nc (generic connection test) | curl (TCP application layer test) | application specific |
-| Windows | [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) | PowerShell [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) | application specific |
+| Windows | [PsPing](/sysinternals/downloads/psping) | PowerShell [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) | application specific |
 
 ### Connectivity failures
 
@@ -108,7 +108,7 @@ Use tools like the following to validation connectivity. [ICMP ping isn't suppor
 | Operating system | Generic TCP connection test | TCP application layer test | UDP |
 |---|---|---|---|
 | Linux | nc (generic connection test) | curl (TCP application layer test) | application specific |
-| Windows | [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) | PowerShell [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) | application specific |
+| Windows | [PsPing](/sysinternals/downloads/psping) | PowerShell [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) | application specific |
 
 #### Configuration
 
@@ -197,4 +197,3 @@ If you are still having trouble, open a support case for further troubleshooting
 * Learn about [NAT gateway resource](nat-gateway-resource.md)
 * Learn about [metrics and alerts for NAT gateway resources](nat-metrics.md).
 * [Tell us what to build next for Virtual Network NAT in UserVoice](https://aka.ms/natuservoice).
-

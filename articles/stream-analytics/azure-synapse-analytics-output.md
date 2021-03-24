@@ -1,9 +1,8 @@
 ---
 title: Azure Synapse Analytics output from Azure Stream Analytics
 description: This article describes Azure Synapse Analytics as output for Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
@@ -34,9 +33,5 @@ The following table lists the property names and their descriptions for creating
 
 ## Next steps
 
+* [Use managed identities to access Azure SQL Database or Azure Synapse Analytics from an Azure Stream Analytics job (Preview)](sql-database-output-managed-identity.md)
 * [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)
-* [Quickstart: Create an Azure Stream Analytics job using the Azure CLI](quick-create-azure-cli.md)
-* [Quickstart: Create an Azure Stream Analytics job by using an ARM template](quick-create-azure-resource-manager.md)
-* [Quickstart: Create a Stream Analytics job using Azure PowerShell](stream-analytics-quick-create-powershell.md)
-* [Quickstart: Create an Azure Stream Analytics job by using Visual Studio](stream-analytics-quick-create-vs.md)
-* [Quickstart: Create an Azure Stream Analytics job in Visual Studio Code](quick-create-visual-studio-code.md)

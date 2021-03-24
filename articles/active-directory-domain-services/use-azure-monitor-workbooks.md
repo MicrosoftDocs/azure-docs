@@ -1,7 +1,7 @@
 ---
 title: Use Azure Monitor Workbooks with Azure AD Domain Services | Microsoft Docs
 description: Learn how to use Azure Monitor Workbooks to review security audits and understand issues in an Azure Active Directory Domain Services managed domain.
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 
 ms.service: active-directory
@@ -9,7 +9,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: joflore
+ms.author: justinha
 
 ---
 # Review security audit events in Azure Active Directory Domain Services using Azure Monitor Workbooks
@@ -42,7 +42,7 @@ Azure AD DS includes the following two workbook templates:
 * Security overview report
 * Account activity report
 
-For more information about how to edit and manage workbooks, see [Azure Monitor Workbooks overview](../azure-monitor/platform/workbooks-overview.md).
+For more information about how to edit and manage workbooks, see [Azure Monitor Workbooks overview](../azure-monitor/visualize/workbooks-overview.md).
 
 ## Use the security overview report workbook
 

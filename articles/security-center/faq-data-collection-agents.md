@@ -25,11 +25,11 @@ Security Center collects data from your Azure virtual machines (VMs), Virtual ma
 
 No. Workspaces created by Security Center, while configured for Azure Monitor logs per node billing, don't incur Azure Monitor logs charges. Security Center billing is always based on your Security Center security policy and the solutions installed on a workspace:
 
-- **Azure Defender off** – Security Center enables the 'SecurityCenterFree' solution on the default workspace. You won't be billed if Azure Defender is off.
+- **Azure Defender off** – Security Center enables the "SecurityCenterFree" solution on the default workspace. You won't be billed if Azure Defender is off.
 
-- **Azure Defender on** – Security Center enables the 'Security' solution on the default workspace.
+- **Azure Defender on** – Security Center enables the "Security" solution on the default workspace.
 
-For more information on pricing, see [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/).
+For pricing details in your currency of choice and according to your region, see [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/).
 
 > [!NOTE]
 > The log analytics pricing tier of workspaces created by Security Center does not affect Security Center billing.
@@ -39,7 +39,7 @@ For more information on pricing, see [Security Center pricing](https://azure.mic
 
 ## What is the Log Analytics agent?
 
-To monitor for security vulnerabilities and threats, Azure Security Center depends on the [Log Analytics Agent](../azure-monitor/platform/log-analytics-agent.md) - this is the same agent used by the Azure Monitor service. 
+To monitor for security vulnerabilities and threats, Azure Security Center depends on the [Log Analytics Agent](../azure-monitor/agents/log-analytics-agent.md) - this is the same agent used by the Azure Monitor service. 
 
 The agent is sometimes referred to as the Microsoft Monitoring Agent (or "MMA"). 
 
@@ -47,9 +47,9 @@ The agent collects various security-related configuration details and event logs
 
 Ensure your machines are running one of the supported operating systems for the agent as described on the following pages:
 
-* [Log Analytics agent for Windows supported operating systems](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
+* [Log Analytics agent for Windows supported operating systems](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
 
-* [Log Analytics agent for Linux supported operating systems](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
+* [Log Analytics agent for Linux supported operating systems](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
 
 Learn more about the [data collected by the Log Analytics agent](security-center-enable-data-collection.md).
 
@@ -107,7 +107,7 @@ To select an existing Log Analytics workspace:
 
 1. From Security Center's menu, select **Pricing & settings**.
 1. Select the relevant subscription.
-1. Open the **Auto provisioning** page, s
+1. Open the **Auto provisioning** page.
 1. For the Log Analytics agent, select **Edit configuration**. 
 
     :::image type="content" source="./media/security-center-enable-data-collection/edit-configuration-auto-deploy-agent.png" alt-text="The configuration of the Log Analytics agent to use when using auto deploy" lightbox="./media/security-center-enable-data-collection/edit-configuration-auto-deploy-agent.png":::
@@ -142,7 +142,7 @@ If the Log Analytics agent is installed directly on the VM (not as an Azure exte
 
 The agent installed will continue to report to its already configured workspace(s), and in addition will report to the workspace configured in Security Center (Multi-homing is supported on Windows machines).
 
-If the configured workspace is a user workspace (not Security Center's default workspace), you will need to install the "Security/"SecurityCenterFree" solution on it for Security Center to start processing events from VMs and computers reporting to that workspace.
+If the configured workspace is a user workspace (not Security Center's default workspace), you will need to install the "Security" or "SecurityCenterFree" solution on it for Security Center to start processing events from VMs and computers reporting to that workspace.
 
 For Linux machines, Agent multi-homing is not yet supported - hence, if an existing agent installation is detected, automatic provisioning will not occur and the machine's configuration will not be altered.
 
@@ -203,7 +203,7 @@ When migration is complete, Security Center can't collect security data from the
 
 Manually install the Log Analytics agent extension so Security Center can collect security data from your VMs and provide recommendations and alerts. See [agent installation for Windows VM](../virtual-machines/extensions/oms-windows.md) or [agent installation for Linux VM](../virtual-machines/extensions/oms-linux.md) for guidance on installation.
 
-You can connect the agent to any existing custom workspace or Security Center created workspace. If a custom workspace does not have the 'Security' or 'SecurityCenterFree' solutions enabled, then you will need to apply a solution. To apply, select the custom workspace or subscription and apply a pricing tier via the **Security policy – Pricing tier** page.
+You can connect the agent to any existing custom workspace or Security Center created workspace. If a custom workspace does not have the "Security" or "SecurityCenterFree" solutions enabled, then you will need to apply a solution. To apply, select the custom workspace or subscription and apply a pricing tier via the **Security policy – Pricing tier** page.
 
 :::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="Enable or disable Azure Defender":::
 
@@ -251,7 +251,7 @@ You can enable data collection for your Azure subscription in the Security polic
 
 ## What happens when data collection is enabled?
 
-When automatic provisioning is enabled, Security Center provisions the Log Analytics agent on all supported Azure VMs and any new ones that are created. Automatic provisioning is recommended but manual agent installation is also available. [Learn how to install the Log Analytics agent extension](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension). 
+When automatic provisioning is enabled, Security Center provisions the Log Analytics agent on all supported Azure VMs and any new ones that are created. Automatic provisioning is recommended but manual agent installation is also available. [Learn how to install the Log Analytics agent extension](../azure-monitor/vm/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension). 
 
 The agent enables the process creation event 4688 and the *CommandLine* field inside event 4688. New processes created on the VM are recorded by EventLog and monitored by Security Center's detection services. For more information on the details recorded for each new process, see [description fields in 4688](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields). The agent also collects the 4688 events created on the VM and stores them in search.
 
@@ -263,7 +263,7 @@ When Security Center detects suspicious activity on the VM, the customer is noti
 ## Will Security Center work using an OMS gateway?
 
 Yes. Azure Security Center leverages Azure Monitor to collect data from Azure VMs and servers, using the Log Analytics agent.
-To collect the data, each VM and server must connect to the Internet using HTTPS. The connection can be direct, using a proxy, or through the [OMS Gateway](../azure-monitor/platform/gateway.md).
+To collect the data, each VM and server must connect to the Internet using HTTPS. The connection can be direct, using a proxy, or through the [OMS Gateway](../azure-monitor/agents/gateway.md).
 
 
 ## Does the Monitoring Agent impact the performance of my servers?

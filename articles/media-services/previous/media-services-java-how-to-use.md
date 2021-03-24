@@ -3,18 +3,17 @@ title: Get started using the Java SDK for Azure Media Services | Microsoft Docs
 description: This tutorial walks you through the steps of implementing a basic Video-on-Demand (VoD) content delivery service with Azure Media Services (AMS) application using Java.
 services: media-services
 documentationcenter: java
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: johndeu
-
 ms.assetid: b884bd61-dbdb-42ea-b170-8fb02e7fded7
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-java
 ---
 
@@ -23,7 +22,7 @@ ms.custom: devx-track-java
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
+> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 This tutorial walks you through the steps of implementing a basic video content delivery service with Azure Media Services using the Java client SDK.
 
@@ -47,7 +46,7 @@ For example, if your build tool is `gradle`, add the following dependency to you
 >Starting with `azure-media` package version `0.9.8`, the SDK added support for Azure Active Directory (AAD) authentication and removed support for  Azure Access Control Service (ACS) authentication. We recommend that you migrate to the Azure AD authentication model as soon as possible. For details on migration,  read the article [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md).
 
 >[!NOTE]
->You can find the source code of the Azure Media Services Java SDK in our [GitHub repository](https://github.com/Azure/azure-sdk-for-java/tree/0.9/services/azure-media). Make sure to switch to the 0.9 branch, and not the master branch. 
+>You can find the source code of the Azure Media Services Java SDK in our [GitHub repository](https://github.com/Azure/azure-sdk-for-java/tree/0.9/services/azure-media). Make sure to switch to the 0.9 branch, and not the main branch. 
 
 ## How to: Use Azure Media Services with Java
 

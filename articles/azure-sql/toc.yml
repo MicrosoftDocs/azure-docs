@@ -35,7 +35,16 @@
       href: database/features-comparison.md
     - name: Multi-model features
       href: multi-model-features.md
-
+    - name: Scheduled maintenance
+      items:
+      - name: Maintenance window
+        href: database/maintenance-window.md
+      - name: Configure maintenance window
+        href: database/maintenance-window-configure.md
+      - name: Maintenance window FAQ
+        href: database/maintenance-window-faq.yml
+      - name: Advance notifications
+        href: database/advance-notifications.md
     - name: In-memory OLTP
       href: in-memory-oltp-overview.md
     - name: Temporal tables
@@ -58,6 +67,8 @@
         href: ./database/security-controls-policy.md
       - name: Security baseline
         href: database/security-baseline.md
+      - name: Always Encrypted
+        href: database/always-encrypted-landing.yml
       - name: Azure Defender for SQL
         href: database/azure-defender-for-sql.md
       - name: Advanced Threat Protection
@@ -70,8 +81,10 @@
         items:
         - name: SQL Vulnerability Assessment
           href: database/sql-vulnerability-assessment.md
-        - name: Vulnerability assessment rules
+        - name: Vulnerability Assessment rules
           href: database/sql-database-vulnerability-assessment-rules.md
+        - name: Vulnerability Assessment rules changelog
+          href: database/sql-database-vulnerability-assessment-rules-changelog.md
         - name: Store vulnerability scans in storage
           href: database/sql-database-vulnerability-assessment-storage.md
       - name: Logins, user accounts, roles, and permissions
@@ -145,8 +158,27 @@
     items:
     - name: Request quota increases
       href: database/quota-increase-request.md
-    - name: Job automation
+    - name: Job automation with elastic jobs
       href: database/job-automation-overview.md
+    - name: Job automation with SQL Agent 
+      href: database/job-automation-managed-instances.md
+    - name: Connect and query from apps
+      items:
+      - name: .NET with Visual Studio
+        href: database/connect-query-dotnet-visual-studio.md
+      - name: .NET Core
+        href: database/connect-query-dotnet-core.md
+      - name: Go
+        href: database/connect-query-go.md
+      - name: Node.js
+        href: database/connect-query-nodejs.md
+      - name: PHP
+        href: database/connect-query-php.md
+      - name: Python
+        href: database/connect-query-python.md
+      - name: Ruby
+        href: database/connect-query-ruby.md
+
 
     - name: Business continuity  
       items: 
@@ -186,7 +218,9 @@
       - name: Application and database tuning guidance
         href: database/performance-guidance.md
       - name: Use DMVs to monitor performance
-        href: database/monitoring-with-dmvs.md 
+        href: database/monitoring-with-dmvs.md
+      - name: Understand and resolve blocking
+        href: database/understand-resolve-blocking.md 
       - name: Log diagnostic telemetry
         href: database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md
       - name: In-memory OLTP
@@ -264,6 +298,8 @@
         href: database/service-tier-hyperscale.md
       - name: Hyperscale FAQ
         href: database/service-tier-hyperscale-frequently-asked-questions-faq.md
+    - name: Plan and manage costs 
+      href: database/cost-management.md
 
   - name: Quickstarts
     href: database/quickstart-content-reference-guide.md
@@ -304,14 +340,16 @@
           href: database/active-geo-replication-configure-portal.md         
     - name: Security
       items:
+      - name: Always Encrypted with secure enclaves
+        href: database/always-encrypted-enclaves-getting-started.md
       - name: Configure security
         href: database/secure-database-tutorial.md
+      - name: Create users using service principals
+        href: database/authentication-aad-service-principal-tutorial.md
       - name: Rotate TDE BYOK keys
         href: database/transparent-data-encryption-byok-key-rotation.md
       - name: Remove TDE protector
         href: database/transparent-data-encryption-byok-remove-tde-protector.md
-      - name: Create users using service principals
-        href: database/authentication-aad-service-principal-tutorial.md
     - name: Move data
       items: 
       - name: Migrate using DMS
@@ -323,14 +361,26 @@
 
   - name: Migration guides
     items: 
+    - name: From Access
+      href: migration-guides/database/access-to-sql-database-guide.md
     - name: From DB2
       href: migration-guides/database/db2-to-sql-database-guide.md
+    - name: From Oracle
+      href: migration-guides/database/oracle-to-sql-database-guide.md
+    - name: From MySQL
+      href: migration-guides/database/mysql-to-sql-database-guide.md
+    - name: From SAP ASE 
+      href: migration-guides/database/sap-ase-to-sql-database.md
     - name: From SQL Server
       items: 
       - name: Overview
         href: migration-guides/database/sql-server-to-sql-database-overview.md
       - name: Migrate
         href: migration-guides/database/sql-server-to-sql-database-guide.md
+      - name: Assessment rules 
+        href: migration-guides/database/sql-server-to-sql-database-assessment-rules.md
+
+
 
   - name: Concepts
     items:
@@ -388,7 +438,20 @@
         href: database/sql-data-sync-troubleshoot.md
 
     - name: Security
-      items: 
+      items:
+        - name: Always Encrypted
+          href: database/always-encrypted-landing.yml
+        - name: Always Encrypted with secure enclaves
+          href: database/always-encrypted-with-secure-enclaves-landing.yml
+          items:
+          - name: Configure and use Always Encrypted with secure enclaves >
+            href: /sql/relational-databases/security/encryption/configure-always-encrypted-enclaves
+          - name: Plan for Intel SGX enclaves and attestation
+            href: database/always-encrypted-enclaves-plan.md
+          - name: Enable Intel SGX
+            href: database/always-encrypted-enclaves-enable-sgx.md
+          - name: Configure Azure Attestation
+            href: database/always-encrypted-enclaves-configure-attestation.md
         - name: Azure SQL Auditing
           href: database/auditing-overview.md
         - name: Audit log format
@@ -439,14 +502,8 @@
           href: database/connect-query-vscode.md
       - name: Connect and query from apps
         items:
-        - name: .NET with Visual Studio
-          href: database/connect-query-dotnet-visual-studio.md
-        - name: .NET Core
-          href: database/connect-query-dotnet-core.md
         - name: .NET with Active Directory MFA
           href: database/active-directory-interactive-connect-azure-sql-db.md
-        - name: Go
-          href: database/connect-query-go.md
         - name: Java
           href: database/connect-query-java.md
         - name: Java with Spring Data JDBC
@@ -455,14 +512,6 @@
           href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
         - name: Java with Spring Data R2DBC
           href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
-        - name: Node.js
-          href: database/connect-query-nodejs.md
-        - name: PHP
-          href: database/connect-query-php.md
-        - name: Python
-          href: database/connect-query-python.md
-        - name: Ruby
-          href: database/connect-query-ruby.md
         - name: R
           href: database/connect-query-r.md
 
@@ -752,6 +801,8 @@
     items: 
     - name: From DB2
       href: migration-guides/managed-instance/db2-to-managed-instance-guide.md
+    - name: From Oracle
+      href: migration-guides/managed-instance/oracle-to-managed-instance-guide.md
     - name: From SQL Server
       items: 
       - name: Overview
@@ -760,7 +811,10 @@
         href: migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
       - name: Performance baseline
         href: migration-guides/managed-instance/sql-server-to-managed-instance-performance-baseline.md
-        
+      - name: Assessment rules 
+        href: migration-guides/managed-instance/sql-server-to-sql-managed-instance-assessment-rules.md
+
+
   - name: Concepts
     items:
     - name: Resource limits
@@ -907,8 +961,8 @@
             href: /sql/machine-learning/r/operationalizing-your-r-code?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
           - name: Convert R code for SQL Server
             href: /sql/machine-learning/r/converting-r-code-for-use-in-sql-server?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
-          - name: Create a stored procedure using sqlrutils
-            href: /sql/machine-learning/r/how-to-create-a-stored-procedure-using-sqlrutils?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
+          - name: Create a stored procedure using sqlrutils 
+            href: /machine-learning-server/r-reference/sqlrutils/how-to-create-a-stored-procedure-from-r
         - name: Predictions
           items:
           - name: Native scoring with PREDICT T-SQL
@@ -959,11 +1013,13 @@
       - name: Database mail
         href: /sql/relational-databases/database-mail/database-mail?toc=%2fazure%2fazure-sql%2ftoc.json
     - name: Security
-      items: 
-      - name: Secure public endpoints
-        href: managed-instance/public-endpoint-overview.md
+      items:
+      - name: Always Encrypted
+        href: database/always-encrypted-landing.yml
       - name: Auditing
         href: managed-instance/auditing-configure.md
+      - name: Secure public endpoints
+        href: managed-instance/public-endpoint-overview.md
       - name: Server trust groups
         href: managed-instance/server-trust-group-overview.md
 
@@ -991,6 +1047,8 @@
       href: managed-instance/virtual-cluster-delete.md
     - name: Configure custom DNS
       href: managed-instance/custom-dns-configure.md
+    - name: Sync DNS configuration
+      href: managed-instance/synchronize-vnet-dns-servers-setting-on-virtual-cluster.md
     - name: Sync network configuration
       href: managed-instance/azure-app-sync-network-configuration.md
     - name: Find management endpoint IP address
@@ -1005,6 +1063,8 @@
       href: managed-instance/alerts-create.md
     - name: Manually initiate a failover on managed instance
       href: managed-instance/user-initiated-failover.md
+    - name: Migrate database using Log Replay Service
+      href: managed-instance/log-replay-service-migrate.md
 
   - name: Samples
     items:
@@ -1236,6 +1296,8 @@
         href: virtual-machines/linux/rhel-high-availability-stonith-tutorial.md
       - name: Configure availability group listener for SQL Server on RHEL virtual machines in Azure
         href: virtual-machines/linux/rhel-high-availability-listener-tutorial.md
+      - name: Setup Always On availability group with DH2i DxEnterprise
+        href: virtual-machines/linux/dh2i-high-availability-tutorial.md
     - name: Resources
       items:
       - name: FAQ
@@ -1255,10 +1317,13 @@
     items: 
       - name: Overview
         href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview.md 
-      - name: From SQL Server
-        href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide.md
       - name: From DB2
         href: migration-guides/virtual-machines/db2-to-sql-on-azure-vm-guide.md
+      - name: From Oracle
+        href: migration-guides/virtual-machines/oracle-to-sql-on-azure-vm-guide.md
+      - name: From SQL Server
+        href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide.md
+
         
 - name: Reference
   items:

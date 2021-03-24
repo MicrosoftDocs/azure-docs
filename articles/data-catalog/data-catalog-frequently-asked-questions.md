@@ -8,6 +8,9 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ---
 # Azure Data Catalog frequently asked questions
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+
 This article provides answers to frequently asked questions related to the Azure Data Catalog service.
 
 ## What is Azure Data Catalog?

@@ -1,19 +1,18 @@
 ---
 title: Live streaming using Azure Media Services to create multi-bitrate streams | Microsoft Docs
-description: This topic describes how to set up a Channel that receives a single bitrate live stream from an on-premises encoder and then performs live encoding to adaptive bitrate stream with Media Services. 
+description: This topic describes how to set up a Channel that receives a single bitrate live stream from an on-premises encoder and then performs live encoding to adaptive bitrate stream with Media Services.
 services: media-services
 documentationcenter: ''
-author: anilmur
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: 30ce6556-b0ff-46d8-a15d-5f10e4c360e2
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 03/10/2021
 ms.author: anilmur
 ms.reviewer: juliako
 ---

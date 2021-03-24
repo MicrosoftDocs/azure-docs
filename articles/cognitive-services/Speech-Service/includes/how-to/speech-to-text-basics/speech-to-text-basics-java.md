@@ -21,8 +21,8 @@ This article assumes that you have an Azure account and Speech service subscript
 
 Before you can do anything, you'll need to install the Speech SDK. Depending on your platform, use the following instructions:
 
-* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=jre&pivots=programming-language-java" target="_blank">Java Runtime <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=android&pivots=programming-language-java" target="_blank">Android <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=jre&pivots=programming-language-java" target="_blank">Java Runtime </a>
+* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=android&pivots=programming-language-java" target="_blank">Android </a>
 
 ## Create a speech configuration
 
@@ -52,7 +52,7 @@ There are a few other ways that you can initialize a [`SpeechConfig`](/java/api/
 
 ## Recognize from microphone
 
-To recognize speech using your device microphone, create an `AudioConfig` using `fromDefaultMicrophoneInput()`. Then initialize a[`SpeechRecognizer`](/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer), passing your `audioConfig` and `config`.
+To recognize speech using your device microphone, create an `AudioConfig` using `fromDefaultMicrophoneInput()`. Then initialize a [`SpeechRecognizer`](/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer), passing your `audioConfig` and `config`.
 
 ```java
 import com.microsoft.cognitiveservices.speech.*;
@@ -109,7 +109,7 @@ public class Program {
 
 ## Error handling
 
-The previous examples simply get the recognized text using `result.getText()`, but to handle errors and other responses, you'll need to write some code to handle the result. The following  example evaluates [`result.getReason()`](/java/api/com.microsoft.cognitiveservices.speech.resultreason&preserve-view=true) and:
+The previous examples simply get the recognized text using `result.getText()`, but to handle errors and other responses, you'll need to write some code to handle the result. The following  example evaluates [`result.getReason()`](/java/api/com.microsoft.cognitiveservices.speech.recognitionresult.getreason) and:
 
 * Prints the recognition result: `ResultReason.RecognizedSpeech`
 * If there is no recognition match, inform the user: `ResultReason.NoMatch`
@@ -234,10 +234,14 @@ config.setSpeechRecognitionLanguage("fr-FR");
 
 ## Improve recognition accuracy
 
-There are a few ways to improve recognition accuracy with the Speech SDK. Let's take a look at Phrase Lists. Phrase Lists are used to identify known phrases in audio data, like a person's name or a specific location. Single words or complete phrases can be added to a Phrase List. During recognition, an entry in a phrase list is used if an exact match for the entire phrase is included in the audio. If an exact match to the phrase is not found, recognition is not assisted.
+Phrase Lists are used to identify known phrases in audio data, like a person's name or a specific location. By providing a list of phrases, you improve the accuracy of speech recognition.
+
+As an example, if you have a command "Move to" and a possible destination of "Ward" that may be spoken, you can add an entry of "Move to Ward". Adding a phrase will increase the probability that when the audio is recognized that "Move to Ward" will be recognized instead of "Move toward"
+
+Single words or complete phrases can be added to a Phrase List. During recognition, an entry in a phrase list is used to boost recognition of the words and phrases in the list even when the entries appear in the middle of the utterance. 
 
 > [!IMPORTANT]
-> The Phrase List feature is only available in English.
+> The Phrase List feature is available in the following languages: en-US, de-DE, en-AU, en-CA, en-GB, es-ES, es-MX, fr-CA, fr-FR, it-IT, ja-JP, ko-KR, pt-BR, zh-CN
 
 To use a phrase list, first create a [`PhraseListGrammar`](/java/api/com.microsoft.cognitiveservices.speech.phraselistgrammar) object, then add specific words and phrases with [`AddPhrase`](/java/api/com.microsoft.cognitiveservices.speech.phraselistgrammar.addphrase#com_microsoft_cognitiveservices_speech_PhraseListGrammar_addPhrase_String_).
 

@@ -3,7 +3,7 @@ title: Managing access to apps using Azure AD
 description: Describes how Azure Active Directory enables organizations to specify the apps to which each user has access.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity

@@ -8,9 +8,8 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 09/22/2020
-
-ms.custom: contperfq1
+ms.date: 01/14/2020
+ms.custom: contperf-fy21q1,contperfq1
 ---
 
 # Deep learning vs. machine learning in Azure Machine Learning
@@ -53,6 +52,16 @@ The following table compares the two techniques in more detail:
 |  **Execution time** | Takes comparatively little time to train, ranging from a few seconds to a few hours. | Usually takes a long time to train because a deep learning algorithm involves many layers. |
 |  **Output** | The output is usually a numerical value, like a score or a classification. | The output can have multiple formats, like a text, a score or a sound. |
 
+## What is transfer learning
+
+Training deep learning models often requires large amounts of training data, high-end compute resources (GPU, TPU), and a longer training time. In scenarios when you don't have any of these available to you, you can shortcut the training process using a technique known as *transfer learning.*
+
+Transfer learning is a technique that applies knowledge gained from solving one problem to a different but related problem.
+
+Due to the structure of neural networks, the first set of layers usually contain lower-level features, whereas the final set of layers contains higher-level feature that are closer to the domain in question. By repurposing the final layers for use in a new domain or problem, you can significantly reduce the amount of time, data, and compute resources needed to train the new model. For example, if you already have a model that recognizes cars, you can repurpose that model using transfer learning to also recognize trucks, motorcycles, and other kinds of vehicles.
+
+Learn how to apply transfer learning for image classification using an open-source framework in Azure Machine Learning : [Train a deep learning PyTorch model using transfer learning](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri).
+
 ## Deep learning use cases
 
 Because of the artificial neural network structure, deep learning excels at identifying patterns in unstructured data such as images, sound, video, and text. For this reason, deep learning is rapidly transforming many industries, including healthcare, energy, finance, and transportation. These industries are now rethinking traditional business processes. 
@@ -68,8 +77,6 @@ Named-entity recognition is a deep learning method that takes a piece of text as
 Deep learning has been applied in many object detection use cases. Object detection comprises two parts: image classification and then image localization. Image _classification_ identifies the image's objects, such as cars or people. Image _localization_ provides the specific location of these objects. 
 
 Object detection is already used in industries such as gaming, retail, tourism, and self-driving cars.
-
-Learn how to use an image classification model from an open-source framework in Azure Machine Learning: [Classify images by using a Pytorch model](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri)
 
 ### Image caption generation
 
@@ -103,7 +110,7 @@ The feedforward neural network is the most simple type of artificial neural netw
 
 Recurrent neural networks are a widely used artificial neural network. These networks save the output of a layer and feed it back to the input layer to help predict the layer's outcome. Recurrent neural networks have great learning abilities. They're widely used for complex tasks such as time series forecasting, learning handwriting, and recognizing language.
 
-### Convolutional neural networks
+### Convolutional neural network
 
 A convolutional neural network is a particularly effective artificial neural network, and it presents a unique architecture. Layers are organized in three dimensions: width, height, and depth. The neurons in one layer connect not to all the neurons in the next layer, but only to a small region of the layer's neurons. The final output is reduced to a single vector of probability scores, organized along the depth dimension. 
 
@@ -118,4 +125,4 @@ The following articles show you more options for using open-source deep learning
 
 - [Classify handwritten digits by using a TensorFlow estimator and Keras](./how-to-train-keras.md?WT.mc_id=docs-article-lazzeri)
 
-- [Classify handwritten digits by using a Chainer model](./how-to-set-up-training-targets.md)
+- [Classify handwritten digits by using a Chainer model](./how-to-set-up-training-targets.md?WT.mc_id=docs-article-lazzeri)

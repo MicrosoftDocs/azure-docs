@@ -2,7 +2,7 @@
 title: Monitor availability and responsiveness of any web site | Microsoft Docs
 description: Set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly.
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 03/10/2021
 
 ms.reviewer: sdash
 ---
@@ -19,9 +19,12 @@ There are three types of availability tests:
 
 * [URL ping test](#create-a-url-ping-test): a simple test that you can create in the Azure portal.
 * [Multi-step web test](availability-multistep.md): A recording of a sequence of web requests, which can be played back to test more complex scenarios. Multi-step web tests are created in Visual Studio Enterprise and uploaded to the portal for execution.
-* [Custom Track Availability Tests](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): If you decide to create a custom application to run availability tests, the `TrackAvailability()` method can be used to send the results to Application Insights.
+* [Custom Track Availability Tests](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability): If you decide to create a custom application to run availability tests, the `TrackAvailability()` method can be used to send the results to Application Insights.
 
 **You can create up to 100 availability tests per Application Insights resource.**
+
+> [!IMPORTANT]
+> Both, [URL ping test](#create-a-url-ping-test) and [multi-step web test](availability-multistep.md) rely on the public internet DNS infrastructure to resolve the domain names of the tested endpoints. This means that if you are using Private DNS, you must either ensure that every domain name of your test is also resolvable by the public domain name servers or, when it is not possible, you can use [custom track availability tests](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) instead.
 
 ## Create an Application Insights resource
 
@@ -65,7 +68,6 @@ To create your first availability request, open the Availability pane and select
 |Setting| Explanation
 |----|----|----|
 |**Near-realtime (Preview)** | We recommend using Near-realtime alerts. Configuring this type of alert is done after your availability test is created.  |
-|**Classic** | We no longer recommended using classic alerts for new availability tests.|
 |**Alert location threshold**|We recommend a minimum of 3/5 locations. The optimal relationship between alert location threshold and the number of test locations is **alert location threshold** = **number of test locations - 2, with a minimum of five test locations.**|
 
 ### Location population tags
@@ -81,20 +83,6 @@ The following population tags can be used for the geo-location attribute when de
 | USGov Texas    | usgov-tx-azr        |
 | USDoD East     | usgov-ddeast-azr    |
 | USDoD Central  | usgov-ddcentral-azr |
-
-#### US Sec
-
-| Display Name | Population Name |
-|--------------|-----------------|
-| USSec West   | ussec-west-azr  |
-| USSec East   | ussec-east-azr  |
-
-#### US Nat
-
-| Display Name | Population Name |
-|--------------|-----------------|
-| USNat East   | usnat-east-azr  |
-| USNat West   | usnat-west-azr  |
 
 #### Azure
 
@@ -158,7 +146,7 @@ Click on the exception row to see the details of the server-side exception that 
 
 ![Server-side diagnostics](./media/monitor-web-app-availability/open-instance-4.png)
 
-In addition to the raw results, you can also view two key Availability metrics in [Metrics Explorer](../platform/metrics-getting-started.md):
+In addition to the raw results, you can also view two key Availability metrics in [Metrics Explorer](../essentials/metrics-getting-started.md):
 
 1. Availability: Percentage of the tests that were successful, across all test executions.
 2. Test Duration: Average test duration across all test executions.
@@ -166,7 +154,7 @@ In addition to the raw results, you can also view two key Availability metrics i
 ## Automation
 
 * [Use PowerShell scripts to set up an availability test](./powershell.md#add-an-availability-test) automatically.
-* Set up a [webhook](../platform/alerts-webhooks.md) that is called when an alert is raised.
+* Set up a [webhook](../alerts/alerts-webhooks.md) that is called when an alert is raised.
 
 ## Troubleshooting
 

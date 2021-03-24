@@ -155,6 +155,6 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure CLI developer reference
-            url: /rest/api/postgresql/
-          - text: REST API developer reference
             url: /cli/azure/postgres
+          - text: REST API developer reference
+            url: /rest/api/postgresql/

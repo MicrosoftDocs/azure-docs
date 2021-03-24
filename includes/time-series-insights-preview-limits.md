@@ -27,7 +27,7 @@ Azure Time Series Insights property limits have increased to 1,000 for warm stor
 
 * The best practices and general guidance for event sources can be found [here](../articles/time-series-insights/concepts-streaming-ingestion-event-sources.md#streaming-ingestion-best-practices)
 
-* By default, Azure Time Series Insights Gen2 can ingest incoming data at a rate of **up to 1 megabyte per second (MBps) per Azure Time Series Insights Gen2 environment**. There are additional limitations [per hub partition](../articles/time-series-insights/concepts-streaming-ingress-throughput-limits.md#hub-partitions-and-per-partition-limits). Rates of up to 8 MBps can be provided by submitting a support ticket through the Azure portal. To learn more, read [Streaming Ingestion Throughput Limits](../articles/time-series-insights/concepts-streaming-ingress-throughput-limits.md).
+* By default, Azure Time Series Insights Gen2 can ingest incoming data at a rate of **up to 1 megabyte per second (MBps) per Azure Time Series Insights Gen2 environment**. There are additional limitations [per hub partition](../articles/time-series-insights/concepts-streaming-ingress-throughput-limits.md#hub-partitions-and-per-partition-limits). Rates of up to 2 MBps can be provided by submitting a support ticket through the Azure portal. To learn more, read [Streaming Ingestion Throughput Limits](../articles/time-series-insights/concepts-streaming-ingress-throughput-limits.md).
 
 ### API limits
 

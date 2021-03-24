@@ -2,18 +2,20 @@
 title: Configure Azure Key Vault firewalls and virtual networks - Azure Key Vault 
 description: Step-by-step instructions to configure Key Vault firewalls and virtual networks
 services: key-vault
-author: ShaneBala-keyvault
-manager: ravijan
+author: msmbaldwin
+manager: rkarlin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 10/01/2020
-ms.author: sudbalas 
+ms.author: mbaldwin 
 ms.custom: devx-track-azurecli
 ---
 # Configure Azure Key Vault firewalls and virtual networks
 
 This article will provide you with guidance on how to configure the Azure Key Vault firewall. This document will cover the different configurations for the Key Vault firewall in detail, and provide step-by-step instructions on how to configure Azure Key Vault to work with other applications and Azure services.
+
+For more information, see [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md).
 
 ## Firewall Settings
 
@@ -31,7 +33,7 @@ To determine if a service you are trying to use is on the trusted service list, 
 
 ### Key Vault Firewall Enabled (IPv4 Addresses and Ranges - Static IPs)
 
-If you would like to authorize a particular service to access key vault through the Key Vault Firewall, you can add it's IP Address to the key vault firewall allow list. This configuration is best for services that use static IP addresses or well-known ranges.
+If you would like to authorize a particular service to access key vault through the Key Vault Firewall, you can add it's IP Address to the key vault firewall allow list. This configuration is best for services that use static IP addresses or well-known ranges. There is a limit of 1000 CIDR ranges for this case.
 
 To allow an IP Address or range of an Azure resource, such as a Web App or Logic App, perform the following steps.
 
@@ -161,10 +163,10 @@ Here's how to configure Key Vault firewalls and virtual networks by using PowerS
 
 ## References
 * ARM Template Reference: [Azure Key Vault ARM Template Reference](/azure/templates/Microsoft.KeyVault/vaults)
-* Azure CLI commands: [az keyvault network-rule](/cli/azure/keyvault/network-rule?view=azure-cli-latest)
+* Azure CLI commands: [az keyvault network-rule](/cli/azure/keyvault/network-rule)
 * Azure PowerShell cmdlets: [Get-AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault), [Add-AzKeyVaultNetworkRule](/powershell/module/az.KeyVault/Add-azKeyVaultNetworkRule), [Remove-AzKeyVaultNetworkRule](/powershell/module/az.KeyVault/Remove-azKeyVaultNetworkRule), [Update-AzKeyVaultNetworkRuleSet](/powershell/module/az.KeyVault/Update-azKeyVaultNetworkRuleSet)
 
 ## Next steps
 
 * [Virtual network service endpoints for Key Vault](overview-vnet-service-endpoints.md)
-* [Secure your key vault](secure-your-key-vault.md)
+* [Azure Key Vault security overview](security-overview.md)

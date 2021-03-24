@@ -1,5 +1,5 @@
 ---
-title: Use CLI to create filters with Azure Media Services| Microsoft Docs
+title: Use CLI to create filters with Azure Media Services
 description: This article shows how to use CLI to create filters with Azure Media Services v3.
 services: media-services
 documentationcenter: ''
@@ -21,22 +21,20 @@ ms.custom: seodec18, devx-track-azurecli
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-When delivering your content to customers (streaming Live events or Video on Demand), your client might need more flexibility than what's described in the default asset's manifest file. Azure Media Services enables you to define account filters and asset filters for your content. 
+When delivering your content to customers (streaming Live events or Video on Demand), your client might need more flexibility than what's described in the default asset's manifest file. Azure Media Services enables you to define account filters and asset filters for your content.
 
 For detailed description of this feature and scenarios where it is used, see [Dynamic Manifests](filters-dynamic-manifest-overview.md) and [Filters](filters-concept.md).
 
-This topic shows how to configure a filter for a Video on-Demand asset and use CLI for Media Services v3 to create [Account Filters](/cli/azure/ams/account-filter?view=azure-cli-latest) and [Asset Filters](/cli/azure/ams/asset-filter?view=azure-cli-latest). 
+This topic shows how to configure a filter for a Video on-Demand asset and use CLI for Media Services v3 to create [Account Filters](/cli/azure/ams/account-filter) and [Asset Filters](/cli/azure/ams/asset-filter).
 
 > [!NOTE]
 > Make sure to review [presentationTimeRange](filters-concept.md#presentationtimerange).
 
-## Prerequisites 
+## Prerequisites
 
-- [Create a Media Services account](./create-account-howto.md). Make sure to remember the resource group name and the Media Services account name. 
+- [Create a Media Services account](./create-account-howto.md). Make sure to remember the resource group name and the Media Services account name.
 
-[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
-
-## Define a filter 
+## Define a filter
 
 The following example defines the track selection conditions that are added to the final manifest. This filter includes any audio tracks that are EC-3 and any video tracks that have bitrate in the 0-1000000 range.
 
@@ -78,7 +76,7 @@ The following example defines the track selection conditions that are added to t
 
 ## Create account filters
 
-The following [az ams account-filter](/cli/azure/ams/account-filter?view=azure-cli-latest) command creates an account filter with filter track selections that were [defined earlier](#define-a-filter). 
+The following [az ams account-filter](/cli/azure/ams/account-filter) command creates an account filter with filter track selections that were [defined earlier](#define-a-filter).
 
 The command allows you to pass an optional `--tracks` parameter that contains JSON representing the track selections.  Use @{file} to load JSON from a file. If you are using the Azure CLI locally, specify the whole file path:
 
@@ -90,7 +88,7 @@ Also, see [JSON examples for filters](/rest/api/media/accountfilters/createorupd
 
 ## Create asset filters
 
-The following [az ams asset-filter](/cli/azure/ams/asset-filter?view=azure-cli-latest) command creates an asset filter with filter track selections that were [defined earlier](#define-a-filter). 
+The following [az ams asset-filter](/cli/azure/ams/asset-filter) command creates an asset filter with filter track selections that were [defined earlier](#define-a-filter). 
 
 ```azurecli
 az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --asset-name assetName --tracks @tracks.json
@@ -126,8 +124,8 @@ The following table shows some examples of URLs with filters:
 
 ## Next step
 
-[Stream videos](stream-files-tutorial-with-api.md) 
+[Stream videos](stream-files-tutorial-with-api.md)
 
 ## See also
 
-[Azure CLI](/cli/azure/ams?view=azure-cli-latest)
+[Azure CLI](/cli/azure/ams)

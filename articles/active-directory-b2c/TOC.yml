@@ -26,11 +26,7 @@
     href: tutorial-register-applications.md
   - name: 3 - Create user flows
     href: tutorial-create-user-flows.md
-  - name: Add identity providers
-    href: tutorial-add-identity-providers.md
-  - name: Customize the UI
-    href: tutorial-customize-ui.md
-  - name: Authenticate users
+  - name: 4 - Authenticate users
     items:
     - name: ASP.NET
       href: tutorial-web-app-dotnet.md
@@ -41,7 +37,7 @@
     - name: Python
       href: tutorial-web-app-python.md
       displayName: flask
-  - name: Grant API access
+  - name: 5 - Grant API access
     items:
     - name: ASP.NET
       href: tutorial-web-api-dotnet.md
@@ -95,8 +91,6 @@
     href: user-overview.md
   - name: User profile attributes
     href: user-profile-attributes.md
-  - name: SSO sessions
-    href: session-overview.md
   - name: Identity Protection and Conditional Access
     href: conditional-access-identity-protection-overview.md
 - name: How-to guides
@@ -107,9 +101,14 @@
       href: tutorial-register-applications.md
     - name: Register a single-page application (SPA)
       href: tutorial-register-spa.md
-    - name: Register a SAML service provider
-      href: connect-with-saml-service-providers.md
-      displayName: SP, RP, service provider, connect
+    - name: SAML application
+      items:
+      - name: Configure a SAML application
+        href: saml-service-provider.md
+        displayName: SP, service provider
+      - name: Configure SAML application options
+        href: saml-service-provider-options.md
+        displayName: SP, service provider 
     - name: Register a Microsoft Graph application
       href: microsoft-graph-get-started.md
       displayName: migrate, migration, microsoft graph
@@ -121,157 +120,148 @@
       href: signin-appauth-ios.md
     - name: Android using App Auth
       href: signin-appauth-android.md
-  - name: User flow
+  - name: Create a flow
     items:
-    - name: Create a flow
+    - name: Sign-up or sign-in policy
+      href: add-sign-up-and-sign-in-policy.md
+    - name: Sign-in policy
+      href: add-sign-in-policy.md
+    - name: Password reset policies
       items:
-      - name: Sign-up or sign-in
-        href: tutorial-create-user-flows.md
-      - name: Resource owner password credentials
-        href: configure-ropc.md
-      - name: Set up self-serve password reset
-        href: user-flow-self-service-password-reset.md
-    - name: Add Conditional Access
-      href: conditional-access-user-flow.md
-    - name: UX customization
+      - name: Self-service password reset
+        href: add-password-reset-policy.md
+      - name: Self-service password change
+        href: add-password-change-policy.md
+      - name: Force password reset
+        href: force-password-reset.md
+    - name: Profile editing policy
+      href: add-profile-editing-policy.md
+    - name: Resource owner password credentials policy
+      href: add-ropc-policy.md
+      displayName: ROPC
+    - name: Set up self-serve password reset policy (Deprecated)
+      href: user-flow-self-service-password-reset.md
+    - name: Phone sign-up & sign-in
+      href: phone-authentication-user-flows.md
+  - name: Identity providers
+    items:
+    - name: Local account identity provider
+      href: identity-provider-local.md
+      displayName: Username, Email, Phone authorization, Phone sing-in
+    - name: Add an identity provider
+      href: add-identity-provider.md
+    - name: AD FS
+      href: identity-provider-adfs.md
+      displayName: AD-FS, ADFS
+    - name: Amazon
+      href: identity-provider-amazon.md
+    - name: Apple (Preview)
+      href: identity-provider-apple-id.md 
+    - name: Azure AD (Single-tenant)
+      href: identity-provider-azure-ad-single-tenant.md
+    - name: Azure AD (Multi-tenant)
+      href: identity-provider-azure-ad-multi-tenant.md
+    - name: Azure AD B2C
+      href: identity-provider-azure-ad-b2c.md
+    - name: Facebook
+      href: identity-provider-facebook.md
+    - name: Generic OpenId Connect
+      href: identity-provider-generic-openid-connect.md
+    - name: Generic SAML identity provider
       items:
-      - name: Customize the UI
-        href: customize-ui-overview.md
-      - name: JavaScript and page layouts
-        href: user-flow-javascript-overview.md
-      - name: Customize language
-        href: user-flow-language-customization.md
-      - name: Password complexity
-        href: user-flow-password-complexity.md
-      - name: Disable email verification
-        href: user-flow-disable-email-verification.md
-      - name: Enable MFA
-        href: custom-policy-multi-factor-authentication.md
-        displayName: multi-factor auth
-    - name: External identity providers
-      items:
-      - name: Amazon
-        href: identity-provider-amazon.md
-      - name: Azure AD (Single-tenant)
-        href: identity-provider-azure-ad-single-tenant.md
-      - name: Microsoft Account
-        href: identity-provider-microsoft-account.md
-      - name: Facebook
-        href: identity-provider-facebook.md
-      - name: GitHub
-        href: identity-provider-github.md
-      - name: Google
-        href: identity-provider-google.md
-      - name: LinkedIn
-        href: identity-provider-linkedin.md
-      - name: QQ
-        href: identity-provider-qq.md
-      - name: Twitter
-        href: identity-provider-twitter.md
-      - name: WeChat
-        href: identity-provider-wechat.md
-      - name: Weibo
-        href: identity-provider-weibo.md
-      - name: Generic identity provider
-        href: identity-provider-generic-openid-connect.md
-    - name: Tokens and session management
-      items:
-      - name: Configure tokens
-        href: configure-tokens.md
-      - name: Configure session behavior
-        href: session-behavior.md
-    - name: Configure age gating
-      href: basic-age-gating.md
-    - name: Define custom attributes
-      href: user-flow-custom-attributes.md
-    - name: API connectors (preview)
-      items:
-      - name: Overview
-        href: api-connectors-overview.md
-      - name: Add an API connector
-        href: add-api-connector.md
-    - name: Pass through external IdP token
+      - name: Configure a SAML identity provider
+        href: identity-provider-generic-saml.md
+      - name: Configure SAML identity provider options
+        href: identity-provider-generic-saml-options.md
+    - name: GitHub
+      href: identity-provider-github.md
+    - name: Google
+      href: identity-provider-google.md
+    - name: ID.me
+      href: identity-provider-id-me.md
+    - name: LinkedIn
+      href: identity-provider-linkedin.md
+    - name: Microsoft Account
+      href: identity-provider-microsoft-account.md
+    - name: QQ
+      href: identity-provider-qq.md
+    - name: Salesforce
+      href: identity-provider-salesforce.md
+    - name: Salesforce (SAML)
+      href: identity-provider-salesforce-saml.md
+    - name: Twitter
+      href: identity-provider-twitter.md
+    - name: WeChat
+      href: identity-provider-wechat.md
+    - name: Weibo
+      href: identity-provider-weibo.md
+    - name: Pass through identity provider token
       href: idp-pass-through-user-flow.md
-  - name: Identity Protection and Conditional Access
-    href: conditional-access-identity-protection-setup.md
+  - name: UX customization
+    items:
+    - name: Configure user input
+      href: configure-user-input.md
+    - name: Customize the UI 
+      displayName: company branding
+      href: customize-ui.md
+    - name: Customize the UI with HTML template
+      displayName: content definitions
+      href: customize-ui-with-html.md
+    - name: JavaScript and page layouts
+      href: javascript-and-page-layout.md
+    - name: Embedded sign-in with iframe
+      displayName: iframe
+      href: embedded-login.md
+    - name: Customize language
+      href: language-customization.md
+      displayName: localization
+    - name: Password complexity
+      href: password-complexity.md
+    - name: Disable email verification
+      href: disable-email-verification.md
+    - name: Enable MFA
+      href: multi-factor-authentication.md
+      displayName: multi-factor auth
+    - name: Set up direct sign-in
+      href: direct-signin.md
+  - name: Tokens and session management
+    items:
+    - name: Configure session behavior
+      href: session-behavior.md
+      displayName: SSO, KMSI, Keep me signed in
+    - name: Configure tokens
+      href: configure-tokens.md
+  - name: Define custom attributes
+    href: user-flow-custom-attributes.md
+  - name: Risk-based authentication
+    items:
+    - name: Investigate risk with Identity Protection
+      href: identity-protection-investigate-risk.md
+    - name: Configure Conditional Access
+      href: conditional-access-user-flow.md
+  - name: Configure age gating
+    href: age-gating.md
+  - name: API connectors (preview)
+    items:
+    - name: Overview
+      href: api-connectors-overview.md
+    - name: Add an API connector
+      href: add-api-connector.md
   - name: Custom policy
     items:
-    - name: Create a policy
+    - name: Custom policy overview
+      href: custom-policy-trust-frameworks.md
+    - name: Get started with custom policies
+      href: custom-policy-get-started.md
+    - name: Custom email verification
       items:
-      - name: Get started with custom policies
-        href: custom-policy-get-started.md
-      - name: Resource owner password credentials
-        href: ropc-custom.md
-        displayName: ropc
-      - name: Enable keep me signed in
-        href: custom-policy-keep-me-signed-in.md
-        displayName: kmsi
-      - name: Password change
-        href: custom-policy-password-change.md
-      - name: Phone sign-up & sign-in
-        href: phone-authentication.md
-        displayName: otp, passwordless, phone number
-    - name: UX customization
-      items:
-      - name: Configure user input
-        href: custom-policy-configure-user-input.md
-        displayName: ui, ux
-      - name: Customize the UI
-        href: custom-policy-ui-customization.md
-        displayName: ux, input, cors, html, css
-      - name: Customize language
-        href: custom-policy-localization.md
-      - name: Custom email verification
-        items:
-        - name: Mailjet
-          href: custom-email-mailjet.md
-        - name: SendGrid
-          href: custom-email-sendgrid.md
-        displayName: verification
-      - name: Disable email verification
-        href: custom-policy-disable-email-verification.md
-      - name: Enable JavaScript
-        href: javascript-samples.md
-      - name: Password complexity
-        href: custom-policy-password-complexity.md
-    - name: External identity providers
-      items:
-      - name: OIDC/OAuth providers
-        items:
-        - name: Amazon
-          href: identity-provider-amazon-custom.md
-        - name: Azure AD (Single-tenant)
-          href: identity-provider-azure-ad-single-tenant-custom.md
-        - name: Azure AD (Multi-tenant)
-          href: identity-provider-azure-ad-multi-tenant-custom.md
-        - name: Google
-          href: identity-provider-google-custom.md
-        - name: LinkedIn
-          href: identity-provider-linkedin-custom.md
-        - name: Microsoft Account
-          href: identity-provider-microsoft-account-custom.md
-        - name: Twitter
-          href: identity-provider-twitter-custom.md
-      - name: SAML providers
-        items:
-        - name: AD FS
-          href: identity-provider-adfs2016-custom.md
-          displayName: SAML
-        - name: Salesforce
-          href: identity-provider-salesforce-custom.md
-          displayName: SAML
-    - name: Tokens and session management
-      items:
-      - name: Customize tokens
-        href: configure-tokens-custom-policy.md
-      - name: Configure session behavior
-        href: session-behavior-custom-policy.md
-    - name: Pass through external IdP token
-      href: idp-pass-through-custom.md
-    - name: Adaptive experience
-      items:
-      - name: Set up direct sign-in
-        href: direct-signin.md
+      - name: Mailjet
+        href: custom-email-mailjet.md
+        displayName: Custom email, Custom verification email, Verification email
+      - name: SendGrid
+        href: custom-email-sendgrid.md
+        displayName: Custom email, Custom verification email, Verification email
+      displayName: verification
     - name: Add your own business logic
       items:
       - name: Integrate REST API
@@ -284,22 +274,16 @@
         displayName: rest claims exchange
       - name: Secure REST API
         href: secure-rest-api.md
-    - name: Define custom attributes
-      href: custom-policy-custom-attributes.md
     - name: Troubleshooting
       items:
       - name: Collect logs using Application Insights
         href: troubleshoot-with-application-insights.md
-        displayName: troubleshooting
+        displayName: troubleshooting, app insights
       - name: Policy validation
         href: troubleshoot-custom-policies.md
         displayName: troubleshooting
-    - name: Usage analytics
-      href: analytics-with-application-insights.md
     - name: Reference
       items:
-      - name: Trust Framework definition
-        href: custom-policy-trust-frameworks.md
       - name: TrustFrameworkPolicy
         href: trustframeworkpolicy.md
       - name: BuildingBlocks
@@ -345,15 +329,11 @@
       - name: ClaimsProviders
         href: claimsproviders.md
         items:
-        - name: TechnicalProfiles
+        - name: Technical Profiles
           href: technicalprofiles.md
           items:
-          - name: About technical profiles
-            href: technical-profiles-overview.md
           - name: About validation technical profiles
             href: validation-technical-profile.md
-          - name: Application Insights
-            href: application-insights-technical-profile.md
           - name: Azure Active Directory
             href: active-directory-technical-profile.md
           - name: Azure AD Multi-Factor Authentication
@@ -363,9 +343,6 @@
             href: aad-sspr-technical-profile.md
           - name: Claims transformation
             href: claims-transformation-technical-profile.md
-          - name: Conditional Access 
-            href: conditional-access-technical-profile.md
-            displayName: ca
           - name: ID token hint
             href: id-token-hint.md
           - name: JWT token issuer
@@ -400,6 +377,8 @@
         href: relyingparty.md
       - name: Claim resolvers
         href: claim-resolver-overview.md
+  - name: UserInfo endpoint
+    href: userinfo-endpoint.md
   - name: Partner integration
     items:
     - name: Azure AD B2C partner gallery
@@ -416,14 +395,20 @@
       href: partner-itsme.md
     - name: Jumio
       href: partner-jumio.md
+    - name: Keyless
+      href: partner-keyless.md
     - name: LexisNexis
       href: partner-lexisnexis.md
+    - name: Microsoft Dynamics 365 Fraud Protection
+      href: partner-dynamics-365-fraud-protection.md
     - name: N8 Identity
       href: partner-n8identity.md
     - name: Nevis
       href: partner-nevis.md
     - name: Onfido
       href: partner-onfido.md
+    - name: Ping Identity
+      href: partner-ping-identity.md
     - name: Saviynt
       href: partner-saviynt.md
     - name: Strata
@@ -436,35 +421,48 @@
       href: partner-typingdna.md
     - name: WhoIAM
       href: partner-whoiam.md
-  - name: Use b2clogin.com
+    - name: Zscaler
+      href: partner-zscaler.md
+  - name: Domain name
     items:
     - name: b2clogin.com overview
       href: b2clogin.md
-    - name: Migrate web API to b2clogin.com
+    - name: Configure a custom domain
+      href: custom-domain.md
+    - name: Configure web API domains 
       href: multiple-token-endpoints.md
       displayName: migrate, b2clogin, owin
   - name: Automation
     items:
-    - name: Azure Monitor
-      href: azure-monitor.md
-      displayName: log, logs, logging, usage, events
-    - name: Manage users - Microsoft Graph
-      href: manage-user-accounts-graph-api.md
-      displayName: account, accounts
+    - name: Microsoft Graph API
+      href: microsoft-graph-operations.md
+      displayName: account, accounts, msgraph, ms graph, graph
     - name: Deploy with Azure Pipelines
       href: deploy-custom-policies-devops.md
       displayName: azure devops, ci/cd, cicd, custom policy, policies
     - name: Manage policies with PowerShell
       href: manage-custom-policies-powershell.md
       displayName: scripting, scripts, psh, custom policy
-  - name: Audit logs
-    href: view-audit-logs.md
   - name: Manage users - Azure portal
     href: manage-users-portal.md
     displayName: create users, add users, delete users
   - name: Secure API Management API
     href: secure-api-management.md
     displayName: apim, api management, migrate, b2clogin.com
+  - name: Logs and monitoring
+    items:
+    - name: Audit logs
+      href: view-audit-logs.md
+      displayName: log, logs, logging, usage, events, reports, reporting
+    - name: Azure Monitor
+      href: azure-monitor.md
+      displayName: log, logs, logging, usage, events, reports, reporting, dashboard
+    - name: Usage analytics
+      href: analytics-with-application-insights.md
+      displayName: application insights, app insights, reports, reporting
+    - name: Secure phone-based MFA
+      href: phone-based-mfa.md
+      displayName: multi-factor authentication, Azure Monitor, Log Analytics, reports, reporting, dashboard
   - name: Compliance
     items:
     - name: User access
@@ -479,12 +477,14 @@
       href: user-migration.md
 - name: Reference
   items:
+  - name: Service limits and restrictions
+    href: service-limits.md
   - name: App registrations
     href: app-registrations-training-guide.md
   - name: Billing model
     href: billing.md
   - name: Code samples
-    href: https://azure.microsoft.com/resources/samples/?service=active-directory-b2c
+    href: /samples/browse/?terms=b2c
   - name: Cookie definitions
     href: cookie-definitions.md
     displayName: cookies, SameSite
@@ -494,12 +494,23 @@
     href: extensions-app.md
   - name: Custom policy (IEF) release notes
     href: custom-policy-developer-notes.md
-  - name: Microsoft Graph API operations
-    href: microsoft-graph-operations.md
   - name: Page layout versions
     href: page-layout.md
+    displayName: Page version
   - name: Region availability & data residency
     href: data-residency.md
+  - name: Build for resilience
+    items:
+    - name: Azure AD B2C introduction to resilience
+      href: ../active-directory/fundamentals/resilience-b2c.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+    - name: End-user experience
+      href: ../active-directory/fundamentals/resilient-end-user-experience.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+    - name: Interfaces with external processes
+      href: ../active-directory/fundamentals/resilient-external-processes.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+    - name: Azure AD B2C developer best practices
+      href: ../active-directory/fundamentals/resilience-b2c-developer-best-practices.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+    - name: Monitoring and analytics
+      href: ../active-directory/fundamentals/resilience-with-monitoring-alerting.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
   - name: Threat management
     href: threat-management.md
     displayName: security
@@ -526,7 +537,7 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-ad-b2c+identity-experience-framework
   - name: Support
-    href: support-options.md
+    href: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
     displayName: technical
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c
+    href: azure-ad-external-identities-videos.md

@@ -6,11 +6,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/11/2019
+ms.date: 03/05/2021
 ms.author: alkohli
 ---
 
 # Open a support ticket for Azure Stack Edge Pro and Azure Data Box Gateway
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-databox-gateway-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-databox-gateway-sku.md)]
 
 This article applies to Azure Stack Edge Pro and Azure Data Box Gateway both of which are managed by the Azure Stack Edge Pro / Azure Data Box Gateway service. If you encounter any issues with your service, you can create a service request for technical support. This article walks you through:
 
@@ -19,7 +21,7 @@ This article applies to Azure Stack Edge Pro and Azure Data Box Gateway both of 
 
 ## Create a support request
 
-Perform the following steps to create a support request:
+Do the following steps to create a support request:
 
 1. Go to your Azure Stack Edge Pro or Data Box Gateway order. Navigate to **Support + troubleshooting** section and then select **New support request**.
 
@@ -29,7 +31,7 @@ Perform the following steps to create a support request:
     2. Choose your **Subscription**.
     3. Under **Service**, check **My Services**. From the dropdown list, select **Azure Stack Edge Pro and Data Box Gateway**.
     4. Select your **Resource**. This corresponds to the name of your order.
-    5. Provide a brief **Summary** of the issue you are experiencing. 
+    5. Give a brief **Summary** of the issue you are experiencing. 
     6. Select your **Problem type**.
     7. Based on the problem type you selected, choose a corresponding **Problem subtype**.
     8. Select **Next: Solutions >>**.
@@ -46,7 +48,7 @@ Perform the following steps to create a support request:
     6. From the dropdown list, select the **Severity**.
     7. Specify a **Preferred contact method**.
     8. The **Response hours** are automatically selected based on your subscription plan.
-    9. Provide the language your prefer for Support.
+    9. Provide the language you prefer for Support.
     10. In the **Contact information**, provide your name, email, phone, optional contact, country/region. Microsoft Support uses this information to reach out to you for further information, diagnosis, and resolution. 
     11. Select **Next: Review + Create >>**.
 
@@ -56,7 +58,7 @@ Perform the following steps to create a support request:
 
     ![Problem 2](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-support-request-3.png)
 
-    After you have created the Support ticket, a Support engineer will contact you as soon as possible to proceed with your request.
+    After you create the Support ticket, a Support engineer will contact you as soon as possible to proceed with your request.
 
 ## Get hardware support
 
@@ -68,12 +70,12 @@ This information only applies to Azure Stack device. The process to report hardw
 
     After you have created the Support ticket, a Support engineer will contact you as soon as possible to proceed with your request.
 
-2. If Microsoft Support determines that this is a hardware issue, then one of the following action occurs:
+2. If Microsoft Support determines that this is a hardware issue, then one of the following actions occurs:
 
-    * A Field Replacement Unit (FRU) for the failed hardware part is sent. Currently, power supply units and hard drives are the only supported FRUs.
+    * A Field Replacement Unit (FRU) for the failed hardware part is sent. Currently, power supply units and solid-state drives are the only supported FRUs.
     * Only FRUs are replaced within the next business day, everything else requires a full system replacement (FSR) to be shipped.
 
-3. If a Support ticket is raised before 4:30 pm local time (Monday to Friday), an onsite technician is dispatched the next business day to your location to perform  a FRU or a full device replacement.
+3. If it is determined that a FRU replacement is needed by 1 PM local time (Monday to Friday), an onsite technician is dispatched the next business day to your location to perform a FRU replacement. A full system replacement typically will take much longer because the parts are shipped from our factory and could be subject to transportation and customs delays.
 
 ## Manage a support request
 
@@ -94,4 +96,4 @@ After creating a support ticket, you can manage the lifecycle of the ticket from
 ## Next steps
 
 Learn how to [Troubleshoot issues related to Azure Stack Edge Pro](azure-stack-edge-troubleshoot.md).
-Learn how to [Troubleshoot issues related to Data Box Gateway](data-box-gateway-troubleshoot.md).
+Learn how to [Troubleshoot issues related to Data Box Gateway](../databox-gateway/data-box-gateway-troubleshoot.md).

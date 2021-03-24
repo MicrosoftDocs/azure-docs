@@ -15,12 +15,27 @@ This article shows the Azure Cosmos DB Emulator release notes with a list of fea
 
 ## Download
 
-| | |
+| |Links |
 |---------|---------|
 |**MSI download**|[Microsoft Download Center](https://aka.ms/cosmosdb-emulator)|
-|**Get started**|[Develop locally with Azure Cosmos Emulator](local-emulator.md)|
+|**Get started**|[Develop locally with Azure Cosmos DB Emulator](local-emulator.md)|
 
 ## Release notes
+
+### 2.11.11 (22 February 2021)
+
+ - This release updates the local Data Explorer content to latest Azure portal version.
+
+
+### 2.11.10 (5 January 2021)
+
+ - This release updates the local Data Explorer content to latest Azure portal version and adds a new public option, "/ExportPemCert", which allows the emulator user to directly export the public emulator's certificate as a .PEM file.
+
+### 2.11.9 (3 December 2020)
+
+ - This release addresses couple issues with the Azure Cosmos DB Emulator functionality in addition to the general content update reflecting the latest features and improvements in Azure Cosmos DB:
+ * Fix for an issue where large document payload requests fail when using Direct mode and Java client applications.
+ * Fix for a connectivity issue with MongoDB endpoint version 3.6 when targeted by .NET based applications.
 
 ### 2.11.8 (6 November 2020)
 
@@ -72,7 +87,7 @@ This release adds two new Cosmos emulator startup options:
 
 ### 2.4.6
 
-- This release provides parity with the features in the Azure Cosmos service as of July 2019, with the exceptions noted in [Develop locally with Azure Cosmos Emulator](local-emulator.md). It also fixes several bugs related to emulator shut down when invoked via command line and internal IP address overrides for SDK clients using direct mode connectivity.
+- This release provides parity with the features in the Azure Cosmos service as of July 2019, with the exceptions noted in [Develop locally with Azure Cosmos DB Emulator](local-emulator.md). It also fixes several bugs related to emulator shut down when invoked via command line and internal IP address overrides for SDK clients using direct mode connectivity.
 
 ### 2.4.3
 

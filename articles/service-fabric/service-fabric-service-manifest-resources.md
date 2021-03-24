@@ -4,7 +4,7 @@ description: How to describe endpoint resources in a service manifest, including
 
 ms.topic: conceptual
 ms.date: 09/16/2020
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ---
 # Specify resources in a service manifest
 ## Overview

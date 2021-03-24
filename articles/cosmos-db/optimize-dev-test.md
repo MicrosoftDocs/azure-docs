@@ -32,7 +32,7 @@ Free tier lasts indefinitely for the lifetime of the account and comes with all 
 
 ## Azure free account
 
-Azure Cosmos DB is included in the [Azure free account](https://azure.microsoft.com/free), which offers Azure credits and resources for free for a certain time period. Specifically for Azure Cosmos DB, this free account offers 5-GB storage and 400 RUs of provisioned throughput for the entire year. This experience enables any developer to easily test the features of Azure Cosmos DB or integrate it with other Azure services at zero cost. With Azure free account, you get a $200 credit to spend in the first 30 days. You won’t be charged, even if you start using the services until you choose to upgrade. To get started, visit [Azure free account](https://azure.microsoft.com/free) page.
+Azure Cosmos DB is included in the [Azure free account](https://azure.microsoft.com/free), which offers Azure credits and resources for free for a certain time period. Specifically for Azure Cosmos DB, this free account offers 25-GB storage and 400 RUs of provisioned throughput for the entire year. This experience enables any developer to easily test the features of Azure Cosmos DB or integrate it with other Azure services at zero cost. With Azure free account, you get a $200 credit to spend in the first 30 days. You won’t be charged, even if you start using the services until you choose to upgrade. To get started, visit [Azure free account](https://azure.microsoft.com/free) page.
 
 ## Azure Cosmos DB serverless
 

@@ -28,7 +28,7 @@ This tutorial covers the following tasks:
 
 Before you start with this tutorial, make sure to meet the following requirements:
 
-- A Synapse Studio workspace. For instructions, see [Create a Synapse Studio workspace](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace).
+- A Synapse Studio workspace. For instructions, see [Create a Synapse Studio workspace](../../machine-learning/how-to-manage-workspace.md#create-a-workspace).
 
 - An Apache Spark pool.
 
@@ -151,6 +151,42 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
    ![failed job info](./media/how-to-monitor-spark-applications/failed-job-info.png)
 
+## Compare Apache Spark applications
+
+There are two ways to compare applications. You can compare by choose a **Compare Application**, or click the **Compare in notebook** button to view it in the notebook.
+
+### Compare by choose an application
+
+Click on **Compare applications** button and choose an application to compare performance, you can intuitively see the difference between the two applications.
+
+![compare applications](./media/how-to-monitor-spark-applications/compare-applications.png)
+
+![details compare applications](./media/how-to-monitor-spark-applications/details-compare-applications.png)
+
+1. Use the mouse to hover on an application, and then the **Compare applications** icon is displayed.
+
+2. Click on the **Compare applications** icon, and the Compare applications page will pop up.
+
+3. Click on **Choose application** button to open **Choose comparison application** page.
+
+4. When choosing the comparison application, you need to either enter the application URL, or choose from the recurring list. Then, click **OK** button. 
+
+   ![choose comparison application](./media/how-to-monitor-spark-applications/choose-comparison-application.png)
+
+5. The comparison result will be displayed on the compare applications page.
+
+   ![comparison result](./media/how-to-monitor-spark-applications/comparison-result.png)
+
+### Compare by Compare in notebook
+
+Click the **Compare in Notebook** button on the **Compare applications** page to open the notebook. The default name of the .ipynb file is **Recurrent Application Analytics**.
+
+![compare in notebook](./media/how-to-monitor-spark-applications/compare-in-notebook.png)
+
+In the Notebook: Recurrent Application Analytics file, you can run it directly after setting the Spark pool and Language.
+
+![recurrent application analytics](./media/how-to-monitor-spark-applications/recurrent-application-analytics.png)
+
 ## Next steps
 
-For more information on monitoring pipeline runs, see the [Monitor pipeline runs using Synapse Studio](how-to-monitor-pipeline-runs.md) article.  
+For more information on monitoring pipeline runs, see the [Monitor pipeline runs using Synapse Studio](how-to-monitor-pipeline-runs.md) article.

@@ -20,17 +20,18 @@ The Speech service SDK **Compressed Audio Input Stream** API provides a way to s
 
 Platform | Languages | Supported GStreamer version
 | :--- | ---: | :---:
-Windows (excluding UWP)  | C++, C#, Java, Python | [1.15.1](https://gstreamer.freedesktop.org/data/pkg/windows/1.15.1/)
+Windows (excluding UWP)  | C++, C#, Java, Python | [1.18.3](https://gstreamer.freedesktop.org/data/pkg/windows/1.18.3/)
 Linux  | C++, C#, Java, Python | [supported Linux distributions and target architectures](~/articles/cognitive-services/speech-service/speech-sdk.md)
-Android  | Java | [1.14.4](https://gstreamer.freedesktop.org/data/pkg/android/1.14.4/)
+Android  | Java | [1.18.3](https://gstreamer.freedesktop.org/data/pkg/android/1.18.3/)
 
 ## Speech SDK version required for compressed audio input
 * Speech SDK version 1.10.0 or later is required for RHEL 8 and CentOS 8
 * Speech SDK version 1.11.0 or later is required for for Windows.
+* Speech SDK version 1.16.0 or later for latest gstreamer on Windows and Android.
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
-## Prerequisites
+## GStreamer required to handle compressed audio
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/csharp/prerequisites.md)]

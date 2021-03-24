@@ -28,7 +28,7 @@ Before reading this article, you should be familiar with this [Overview of rever
 In Azure DNS, compute resources (such as virtual machines, virtual machine scale sets, or Service Fabric clusters) are exposed via a PublicIpAddress resource. Reverse DNS lookups are configured using the 'ReverseFqdn' property of the PublicIpAddress.
 
 
-Reverse DNS is not currently supported for the Azure App Service.
+Reverse DNS is not currently supported for the Azure App Service and Application Gateway.
 
 ## Validation of reverse DNS records
 

@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Azure Stack Edge documentation - Online transfer # < 60 chars
-summary: Use Azure Stack Edge devices for high-performance over-the-network data transfers. Use compute acceleration hardware equipped Azure Stack Edge Pro devices to filter, analyze, and transform your data before it moves to Azure. # < 160 chars
+title: Azure Stack Edge documentation  # < 60 chars
+summary: Use Azure Stack Edge devices to deliver Azure capabilities such as compute, storage, networking, and hardware-accelerated machine learning to any edge location. # < 160 chars
 
 metadata:
-  title: Azure Stack Edge documentation - Online transfer # Required; page title displayed in search results. Include the brand. < 60 chars.
+  title: Azure Stack Edge documentation  # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Azure Stack Edge Documentation for high-performance over-the-network data transfer to Azure. # Required; article description that is displayed in search results. < 160 chars.
   services: databox
   ms.service: databox #Required; service per approved list. service slug assigned to your service by ACOM.
@@ -31,8 +31,8 @@ landingContent:
             url: azure-stack-edge-overview.md
           - text: What is Azure Stack Edge R?
             url: azure-stack-edge-j-series-overview.md 
-          - text: What is Azure Stack Edge Mini?
-            url: azure-stack-edge-k-series-overview.md   
+          - text: What is Azure Stack Edge Mini R?
+            url: azure-stack-edge-mini-r-overview.md   
       - linkListType: architecture
         links:
           - text: Choose Azure data transfer options
@@ -41,8 +41,8 @@ landingContent:
             url: ../storage/common/storage-solution-large-dataset-low-network.md#offline-transfer-or-network-transfer
       - linkListType: whats-new
         links:
-          - text: 2011 release notes
-            url: azure-stack-edge-gpu-2011-release-notes.md
+          - text: 2101 release notes
+            url: azure-stack-edge-gpu-2101-release-notes.md
 
   # Card
   - title: "Requirements and limits"
@@ -93,7 +93,7 @@ landingContent:
           - text: Edge compute
             url: azure-stack-edge-manage-compute.md
           - text: Edge storage accounts
-            url: azure-stack-edge-j-series-manage-storage-accounts.md
+            url: azure-stack-edge-gpu-manage-storage-accounts.md
 
   # Card
   - title: Troubleshoot

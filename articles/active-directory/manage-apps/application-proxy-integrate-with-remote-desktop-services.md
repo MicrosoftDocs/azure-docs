@@ -3,7 +3,7 @@ title: Publish Remote Desktop with Azure Active Directory Application Proxy
 description: Covers how to configure App Proxy with Remote Desktop Services (RDS)
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -37,18 +37,13 @@ In an RDS deployment, the RD Web role and the RD Gateway role run on Internet-fa
 ## Requirements
 
 - Both the RD Web and RD Gateway endpoints must be located on the same machine, and with a common root. RD Web and RD Gateway are published as a single application with Application Proxy so that you can have a single sign-on experience between the two applications.
-
-- You should already have [deployed RDS](/windows-server/remote/remote-desktop-services/rds-in-azure), and [enabled Application Proxy](application-proxy-add-on-premises-application.md).
-
+- You should already have [deployed RDS](/windows-server/remote/remote-desktop-services/rds-in-azure), and [enabled Application Proxy](application-proxy-add-on-premises-application.md). Ensure you have satisfied the pre-requisites to enable Application Proxy, such as installing the connector, opening required ports and URLS, and enabling TLS 1.2 on the server.
 - Your end users must use a compatible browser to connect to RD Web or the RD Web client. For more details see [Support for client configurations](#support-for-other-client-configurations).
-
 - When publishing RD Web, it is recommended to use the same internal and external FQDN. If the internal and external FQDNs are different then you should disable Request Header Translation to avoid the client receiving invalid links.
-
 - If you are using RD Web on Internet Explorer, you will need to enable the RDS ActiveX add-on.
-
 - If you are using the RD Web client, you will need to use the Application Proxy [connector version 1.5.1975 or later](./application-proxy-release-version-history.md).
-
 - For the Azure AD pre-authentication flow, users can only connect to resources published to them in the **RemoteApp and Desktops** pane. Users can't connect to a desktop using the **Connect to a remote PC** pane.
+- If you are using Windows Server 2019, you may need to disable HTTP2 protocol. For more information, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md).
 
 ## Deploy the joint RDS and Application Proxy scenario
 
@@ -57,7 +52,7 @@ After setting up RDS and Azure AD Application Proxy for your environment, follow
 ### Publish the RD host endpoint
 
 1. [Publish a new Application Proxy application](application-proxy-add-on-premises-application.md) with the following values:
-   - Internal URL: `https://\<rdhost\>.com/`, where `\<rdhost\>` is the common root that RD Web and RD Gateway share.
+   - Internal URL: `https://<rdhost>.com/`, where `<rdhost>` is the common root that RD Web and RD Gateway share.
    - External URL: This field is automatically populated based on the name of the application, but you can modify it. Your users will go to this URL when they access RDS.
    - Preauthentication method: Azure Active Directory
    - Translate URL headers: No
@@ -69,7 +64,7 @@ After setting up RDS and Azure AD Application Proxy for your environment, follow
 
 4. Select **Azure Active Directory**, and then **App Registrations**. Choose your app from the list.
 5. Under **Manage**, select **Branding**.
-6. Update the **Home page URL** field to point to your RD Web endpoint (like `https://\<rdhost\>.com/RDWeb`).
+6. Update the **Home page URL** field to point to your RD Web endpoint (like `https://<rdhost>.com/RDWeb`).
 
 ### Direct RDS traffic to Application Proxy
 

@@ -1,7 +1,7 @@
 ---
 title: 'Set up web endpoints (Preview)'                             
 titleSuffix: Azure Cognitive Services
-description: set up web endpoints for custom commands 
+description: set up web endpoints for custom commands
 services: cognitive-services
 author: xiaojul
 manager: yetian
@@ -18,7 +18,7 @@ In this article, you will learn how to setup web endpoints in a Custom Commands 
 
 - Set up web endpoints in Custom Commands application
 - Call web endpoints in Custom Commands application
-- Receive the web endpoints response 
+- Receive the web endpoints response
 - Integrate the web endpoints response into a custom JSON payload, send, and visualize it from a C# UWP Speech SDK client application
 
 ## Prerequisites
@@ -32,7 +32,7 @@ In this article, you will learn how to setup web endpoints in a Custom Commands 
 
 ## Setup web endpoints
 
-1. Open the Custom Commands application you previously created. 
+1. Open the Custom Commands application you previously created.
 1. Go to "Web endpoints", click "New web endpoint".
 
    > [!div class="mx-imgBorder"]
@@ -58,7 +58,7 @@ In this article, you will learn how to setup web endpoints in a Custom Commands 
 1. Go to **TurnOnOff** command, select **ConfirmationResponse** under completion rule, then select **Add an action**.
 1. Under **New Action-Type**, select **Call web endpoint**
 1. In **Edit Action - Endpoints**, select **UpdateDeviceState**, which is the web endpoint we created.  
-1. In **Configuration**, put the following values: 
+1. In **Configuration**, put the following values:
    > [!div class="mx-imgBorder"]
    > ![Call web endpoints action parameters](media/custom-commands/setup-web-endpoint-edit-action-parameters.png)
 
@@ -72,16 +72,16 @@ In this article, you will learn how to setup web endpoints in a Custom Commands 
     > - The suggested query parameters are only needed for the example endpoint
 
 1. In **On Success - Action to execute**, select **Send speech response**.
-    
+
     In **Simple editor**, enter `{SubjectDevice} is {OnOff}`.
-   
+
    > [!div class="mx-imgBorder"]
    > ![Screenshot that shows the On Success - Action to execute screen.](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
 
    | Setting | Suggested value | Description |
    | ------- | --------------- | ----------- |
    | Action to execute | Send speech response | Action to execute if the request to web endpoint succeeds |
-   
+
    > [!NOTE]
    > - You can also directly access the fields in the http response by using `{YourWebEndpointName.FieldName}`. For example: `{UpdateDeviceState.TV}`
 
@@ -98,7 +98,7 @@ In this article, you will learn how to setup web endpoints in a Custom Commands 
 
    > [!NOTE]
    > - `{WebEndpointErrorMessage}` is optional. You are free to remove it if you don't want to expose any error message.
-   > - Within our example endpoint, we send back http response with detailed error messages for common errors such as missing header parameters. 
+   > - Within our example endpoint, we send back http response with detailed error messages for common errors such as missing header parameters.
 
 ### Try it out in test portal
 - On Success response\
@@ -116,7 +116,7 @@ In [How-to: Send activity to client application (Preview)](./how-to-custom-comma
 However, in most of the cases you only want to send activity to the client application when the call to the web endpoint is successful. In this example, this is when the device's state is successfully updated.
 
 1. Delete the **Send activity to client** action you previously added.
-1. Edit call web endpoint: 
+1. Edit call web endpoint:
     1. In **Configuration**, make sure **Query Parameters** is `item={SubjectDevice}&&value={OnOff}`
     1. In **On Success**, change **Action to execute** to **Send activity to client**
     1. Copy the JSON below to the **Activity Content**
@@ -130,7 +130,6 @@ However, in most of the cases you only want to send activity to the client appli
       }
     }
    ```
-   
 Now you only send activity to client when the request to web endpoint is successful.
 
 ### Create visuals for syncing device state
@@ -144,7 +143,7 @@ Add the following XML to `MainPage.xaml` above the `"EnableMicrophoneButton"` bl
         .........../>
 ```
 
-### Sync device state 
+### Sync device state
 
 In `MainPage.xaml.cs`, add the reference `using Windows.Web.Http;`. Add the following code to the `MainPage` class. This method will send a GET request to the example endpoint, and extract the current device state for your app. Make sure to change `<your_app_name>` to what you used in the **header** in Custom Command Web endpoint
 
@@ -154,7 +153,7 @@ private async void SyncDeviceState_ButtonClicked(object sender, RoutedEventArgs 
     //Create an HTTP client object
     var httpClient = new HttpClient();
 
-    //Add a user-agent header to the GET request. 
+    //Add a user-agent header to the GET request.
     var your_app_name = "<your-app-name>";
 
     Uri endpoint = new Uri("https://webendpointexample.azurewebsites.net/api/DeviceState");

@@ -20,7 +20,7 @@ ms.custom: aaddev, devx-track-js
 
 # Initialize client applications using MSAL.js
 
-This article describes initializing Microsoft Authentication Library for JavaScript (MSAL.js) with an instance of a user-agent application.
+This article describes initializing the Microsoft Authentication Library for JavaScript (MSAL.js) with an instance of a user-agent application.
 
 The user-agent application is a form of public client application in which the client code is executed in a user-agent such as a web browser. Such clients do not store secrets because the browser context is openly accessible.
 
@@ -151,9 +151,9 @@ This MSAL.js 2.x code sample on GitHub demonstrates instantiation of a [PublicCl
 <!-- LINKS - External -->
 [msal-browser]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-browser/
 [msal-core]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-core/
-[msal-js-acquiretokenredirect]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-core/classes/_useragentapplication_.useragentapplication.html#acquiretokenredirect
-[msal-js-configuration]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-core/modules/_configuration_.html
-[msal-js-handleredirectpromise]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-browser/classes/_src_app_publicclientapplication_.publicclientapplication.html#handleredirectpromise
-[msal-js-loginredirect]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-core/classes/_useragentapplication_.useragentapplication.html#loginredirect
-[msal-js-publicclientapplication]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-browser/classes/_src_app_publicclientapplication_.publicclientapplication.html
-[msal-js-useragentapplication]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-core/modules/_useragentapplication_.html
+[msal-js-acquiretokenredirect]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal.useragentapplication.html#acquiretokenredirect
+[msal-js-configuration]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/modules/_azure_msal.html#configuration
+[msal-js-handleredirectpromise]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_browser.publicclientapplication.html#handleredirectpromise
+[msal-js-loginredirect]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal.useragentapplication.html#loginredirect
+[msal-js-publicclientapplication]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_browser.publicclientapplication.html
+[msal-js-useragentapplication]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal.useragentapplication.html

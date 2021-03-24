@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 11/06/2020
+ms.date: 02/16/2021
 ms.author: victorh
 ---
 
@@ -59,6 +59,9 @@ $azFw | Set-AzFirewall
 ## DNS proxy
 
 You can configure Azure Firewall to act as a DNS proxy. A DNS proxy is an intermediary for DNS requests from client virtual machines to a DNS server. If you configure a custom DNS server, then enable DNS proxy to avoid a DNS resolution mismatch, and enable FQDN (fully qualified domain name) filtering in the network rules.
+
+:::image type="content" source="media/dns-settings/dns-proxy-2.png" alt-text="D N S proxy configuration using a custom D N S server.":::
+
 
 If you don't enable DNS proxy, then DNS requests from the client might travel to a DNS server at a different time or return a different response compared to that of the firewall. DNS proxy puts Azure Firewall in the path of the client requests to avoid inconsistency.
 

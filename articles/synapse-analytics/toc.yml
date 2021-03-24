@@ -1,6 +1,6 @@
 - name: Azure Synapse Analytics
   href: index.yml
-- name: Switch to dedicated SQL pool (formerly SQL DW)
+- name: Switch to dedicated SQL pool (formerly SQL DW) >
   href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md
 - name: Overview
   items:
@@ -20,14 +20,14 @@
   - name: 1 Create a Synapse workspace
     href: get-started-create-workspace.md
     displayName: get, started
-  - name: 2 Analyze using a dedicated SQL pool
-    href: get-started-analyze-sql-pool.md
+  - name: 2 Analyze using serverless SQL pool
+    href: get-started-analyze-sql-on-demand.md
     displayName: get, started
   - name: 3 Analyze using Spark
     href: get-started-analyze-spark.md
     displayName: get, started
-  - name: 4 Analyze using serverless SQL pool
-    href: get-started-analyze-sql-on-demand.md
+  - name: 4 Analyze using a dedicated SQL pool
+    href: get-started-analyze-sql-pool.md
     displayName: get, started
   - name: 5 Analyze data in a storage account
     href: get-started-analyze-storage.md
@@ -50,17 +50,19 @@
   #   items:
   - name: Quickstarts
     items:
-    - name: Create a workspace using Azure portal
-      href: quickstart-create-workspace.md
-      displayName: quickstart
-    - name: Create a workspace using Azure CLI
-      href: quickstart-create-workspace-cli.md
-      displayName: quickstart
-    - name: Create a workspace using Azure PowerShell
-      href: quickstart-create-workspace-powershell.md
-      displayName: quickstart
-    - name: Deploy with a template
-      href: quickstart-deployment-template-workspaces.md
+    - name: Create a workspace
+      items:
+      - name: Azure portal
+        href: quickstart-create-workspace.md
+        displayName: quickstart
+      - name: Azure CLI
+        href: quickstart-create-workspace-cli.md
+        displayName: quickstart
+      - name: Azure PowerShell
+        href: quickstart-create-workspace-powershell.md
+        displayName: quickstart
+      - name: ARM template
+        href: quickstart-deployment-template-workspaces.md
       displayName: quickstart
     - name: Link a Power BI workspace
       href: quickstart-power-bi.md
@@ -90,8 +92,8 @@
         - name: SQL script
           href: ./sql/author-sql-script.md
           displayname: author
-        - name: Mapping Data Flow
-          href: ../data-factory/concepts-data-flow-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Data Flow
+          href: concepts-data-flow-overview.md
     - name: Maintenance schedule
       href: ./sql-data-warehouse/maintenance-scheduling.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Source control
@@ -100,14 +102,18 @@
       href: ./cicd/continuous-integration-deployment.md
     - name: Security
       items:
-      - name: Security baseline
-        href: security-baseline.md
+      # - name: Security baseline
+      #   href: security-baseline.md
+      - name: Security Controls by Azure Policy
+        href: ./security-controls-policy.md
       - name: Encryption
         href: ./security/workspaces-encryption.md
       - name: Network Security
         items: 
         - name: Synapse workspace IP firewall rules
           href: ./security/synapse-workspace-ip-firewall.md
+        - name: Connectivity settings
+          href: ./security/connectivity-settings.md
         - name: Synapse workspace Managed virtual network
           href: ./security/synapse-workspace-managed-vnet.md
           displayname: vnet
@@ -117,6 +123,8 @@
           href: ./security/workspace-data-exfiltration-protection.md
         - name: Synapse workspace with private link hubs
           href: ./security/synapse-private-link-hubs.md
+        - name: Connect to a secured storage account
+          href: ./security/connect-to-a-secure-storage-account.md
       - name: Authentication and pass-through
         items:
         - name: Azure Active Directory
@@ -185,6 +193,10 @@
         href: troubleshoot/workspaces-created-by-sdk.md
       - name: Troubleshoot reading UTF-8 text
         href: troubleshoot/reading-utf8-text.md
+- name: Migration guides
+  items:
+  - name: Migrate to a dedicated SQL pool
+    href: migration-guides/migrate-to-synapse-analytics-guide.md
 - name: Synapse SQL
   items:
   - name: Overview
@@ -209,9 +221,9 @@
     - name: Cost management for serverless SQL pool
       href: sql/data-processed.md
     - name: Best practices serverless SQL pool
-      href: sql/best-practices-sql-on-demand.md
+      href: sql/best-practices-serverless-sql-pool.md
     - name: Best practices dedicated SQL pools
-      href: sql/best-practices-sql-pool.md
+      href: sql/best-practices-dedicated-sql-pool.md
   - name: Quickstarts
     items:
     - name: Use serverless SQL pool
@@ -340,15 +352,12 @@
         - name: Stored procedures
           href: sql/develop-stored-procedures.md
         - name: Transactions
-          href: sql/develop-transactions.md
-        - name: Transactions
           items:
-          - name: Serverless SQL pool
+          - name: Dedicated SQL pool transactions
+            href: sql/develop-transactions.md
+          - name: Dedicated SQL pool best practices transactions
             displayname: Transaction, best, practices
             href: sql/develop-transaction-best-practices.md
-          - name: Dedicated SQL pool
-            displayname: Transactions, best, practices
-            href: ./sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: User-defined schemas
           href: sql/develop-user-defined-schemas.md
         - name: Variable assignment
@@ -382,7 +391,7 @@
     - name: Security 
       items:
       - name: Database access control
-        href: ../sql-database/sql-database-control-access.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: ../azure-sql/database/logins-create-manage.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json
       - name: Data security
         items:
         - name: Column-level security
@@ -392,9 +401,9 @@
       - name: Data Encryption
         items:
         - name: Transparent Data Encryption overview
-          href: ../sql-database/transparent-data-encryption-azure-sql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: ../azure-sql/database/transparent-data-encryption-tde-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json
         - name: TDE with bring your own key
-          href: ../sql-database/transparent-data-encryption-byok-azure-sql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: ../azure-sql/database/transparent-data-encryption-byok-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json
           displayname: transparent, data, encryption
       # - name: Advanced Data Security
       #   items:
@@ -435,7 +444,7 @@
       items:
       - name: Create restore points
         href: ./backuprestore/sqlpool-create-restore-point.md
-      - name: Restore a Synapse SQL pool
+      - name: Restore a dedicated SQL pool
         href: ./backuprestore/restore-sql-pool.md
     - name: Manage and monitor
       items:
@@ -466,9 +475,9 @@
         - name: Azure Data Lake Storage
           href: ./sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Data Factory
-          href: /azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: ../data-factory/load-azure-sql-data-warehouse.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json
         - name: Azure Databricks
-          href: /azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: /azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json
         - name: SSIS
           href: /sql/integration-services/load-data-to-sql-data-warehouse
           displayname: integration, services
@@ -522,7 +531,7 @@
         items:
         - name: Add an Azure Stream Analytics job
           href: ./sql-data-warehouse/sql-data-warehouse-integrate-azure-stream-analytics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Tools to connect to Synapse workspaces
+    - name: Connect with tools and applications
       items:
       - name: Overview
         href: sql/connect-overview.md
@@ -530,14 +539,20 @@
         href: sql/get-started-azure-data-studio.md
       - name: Connection strings
         href: sql/connection-strings.md
-      - name: Query with sqlcmd
-        href: sql/get-started-connect-sqlcmd.md
       - name: Query with SSMS
         href: sql/get-started-ssms.md
-      - name: Query with Visual Studio
-        href: sql/get-started-visual-studio.md
       - name: Connect to Power BI Desktop
         href: sql/get-started-power-bi-professional.md
+      - name: Query with Visual Studio SSDT
+        href: sql/get-started-visual-studio.md
+      - name: Query using .NET Core
+        href: ../azure-sql/database/connect-query-dotnet-core.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Query using Visual Studio .NET
+        href: ../azure-sql/database/connect-query-dotnet-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Query using Python
+        href: ../azure-sql/database/connect-query-python.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Query with sqlcmd
+        href: sql/get-started-connect-sqlcmd.md
 - name: Apache Spark
   items:
   - name: Overview
@@ -562,10 +577,16 @@
       href: ./spark/apache-spark-machine-learning-mllib-notebook.md
     - name: Submit Spark job definitions
       href: ./spark/apache-spark-job-definitions.md
+    - name: Connect and monitor Azure Synapse Spark Application level metrics
+      href: ./spark/connect-monitor-azure-synapse-spark-application-level-metrics.md
+    - name: Monitor Apache Spark Application-level metrics with Prometheus and Grafana
+      href: ./spark/use-prometheus-grafana-to-monitor-apache-spark-application-level-metrics.md
   - name: Concepts
     items:
     - name: Apache Spark 
       href: ./spark/apache-spark-concepts.md
+    - name: Apache Spark pool configurations
+      href: ./spark/apache-spark-pool-configurations.md
     - name: Delta Lake
       href: ./spark/apache-spark-what-is-delta-lake.md
     - name: Apache Spark autoscale behavior
@@ -576,15 +597,25 @@
       href: ./spark/apache-spark-machine-learning-concept.md
     - name: Notebooks
       href: ./spark/apache-spark-notebook-concept.md
+    - name: Package management
+      href: ./spark/apache-spark-azure-portal-add-libraries.md
     - name: Monitoring tools
       href: monitoring/how-to-monitor-spark-applications.md
   - name: How-to guides
     items:
     - name: Work with Delta Lake 
       href: ./spark/apache-spark-delta-lake-overview.md
-    - name: Manage libraries
-      href: ./spark/apache-spark-azure-portal-add-libraries.md
-    - name: Use notebooks
+    - name: Manage packages
+      items:
+      - name: Manage Python packages
+        href: ./spark/apache-spark-manage-python-packages.md
+      - name: Manage Scala packages
+        href: ./spark/apache-spark-manage-scala-packages.md
+      - name: Troubleshoot Python package installation errors 
+        href: ./spark/apache-spark-troubleshoot-library-errors.md
+      - name: Create a Conda private channel
+        href: ./spark/apache-spark-custom-conda-channel.md
+    - name: Use notebooks and IDE tools
       items:
       - name: Manage notebooks
         href: ./spark/apache-spark-development-using-notebooks.md
@@ -686,10 +717,12 @@
       href: ../data-factory/concepts-pipeline-execution-triggers.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Integration runtime
       href: ../data-factory/concepts-integration-runtime.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    - name: Differences from Azure Data Factory
+      href: ./data-integration/concepts-data-factory-differences.md
     - name: Data flows
       items:
-      - name: Mapping data flow overview
-        href: ../data-factory/concepts-data-flow-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Data flow overview
+        href: concepts-data-flow-overview.md
       - name: Debug mode
         href: ../data-factory/concepts-data-flow-debug-mode.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Schema drift
@@ -706,8 +739,6 @@
         href: ../data-factory/concepts-data-flow-expression-builder.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Expression language
         href: ../data-factory/data-flow-expression-functions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - name: Differences from Azure Data Factory
-        href: ./data-integration/concepts-data-factory-differences.md
   - name: How-to guides
     items:
     - name: Author
@@ -755,7 +786,7 @@
       - name: Azure SQL Database
         href: ../data-factory/connector-azure-sql-database.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Azure SQL Managed Instance
-        href: ../data-factory/connector-azure-sql-database-managed-instance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: ../data-factory/connector-azure-sql-managed-instance.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json
       - name: Azure Synapse Analytics
         href: ../data-factory/connector-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Azure Table Storage
@@ -1116,29 +1147,46 @@
   - name: Tutorials
     items:
     - name: Visualize data with Apache Spark
+      displayname: machine learning
       href: ./spark/apache-spark-data-visualization-tutorial.md
-      displayname: machine learning
     - name: Use the scoring wizard for dedicated SQL pools
+      displayname: machine learning
       href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
+    - name: Train a model code-free with automated ML
       displayname: machine learning
-    - name: Train a model code-free with Azure AutoML
       href: ./machine-learning/tutorial-automl.md
-    - name: Train a model in Python with Azure AutoML
+    - name: Train a model in Python with automated ML
+      displayname: machine learning
       href: ./spark/apache-spark-azure-machine-learning-tutorial.md
-      displayname: machine learning
     - name: Create a model with Apache Spark MLlib
-      href: ./spark/apache-spark-machine-learning-mllib-notebook.md
       displayname: machine learning
+      href: ./spark/apache-spark-machine-learning-mllib-notebook.md
+    - name: Configure Cognitive Services for Azure Synapse
+      href: ./machine-learning/tutorial-configure-cognitive-services-synapse.md
     - name: Sentiment analysis with Cognitive Services
       href: ./machine-learning/tutorial-cognitive-services-sentiment.md
     - name: Anomaly detection with Cognitive Services
       href: ./machine-learning/tutorial-cognitive-services-anomaly.md
-    - name: Configure Cognitive Services for Azure Synapse
-      href: ./machine-learning/tutorial-configure-cognitive-services-synapse.md
+    - name: Build machine learning applications using Microsoft Machine Learning for Apache Spark (Preview)
+      href: ./machine-learning/tutorial-build-applications-use-mmlspark.md
+- name: Data Catalog and Governance
+  items:
+  - name: Quickstarts
+    items:
+    - name: Connect an Azure Purview Account
+      href: ./catalog-and-governance/quickstart-connect-azure-purview.md
+  - name: How-to guides
+    items:
+    - name: Discover, connect and explore data in Synapse using Azure Purview
+      href: ./catalog-and-governance/how-to-discover-connect-analyze-azure-purview.md
+- name: How-to
+  items:
+  - name: Plan and manage costs
+    href: plan-manage-costs.md
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/ext/synapse/?view=azure-cli-latest
+    href: /cli/azure/ext/synapse/
   - name: Database collation types
     href: sql/reference-collation-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: Go
@@ -1171,7 +1219,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=databases
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html
+    href: /answers/topics/azure-synapse-analytics.html
   - name: Feature requests
     href: https://feedback.azure.com/forums/307516-sql-data-warehouse/
   - name: Pricing
@@ -1179,7 +1227,7 @@
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Questions & Answers
-    href: https://docs.microsoft.com/answers/questions/topics/single/25423.html
+    href: /answers/questions/topics/single/25423.html
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=sql-data-warehouse
   - name: Stack Overflow

@@ -2,9 +2,8 @@
 title: Azure security baseline for Azure Migrate
 description: The Azure Migrate security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
 author: msmbaldwin
-ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 12/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
@@ -37,11 +36,11 @@ AD) as the default identity and access management service. You should
 standardize Azure AD to govern your organization’s identity and access
 management in:
 
- Microsoft Cloud resources, such as the
+- Microsoft Cloud resources, such as the
      Azure portal, Azure Storage, Azure Virtual Machine (Linux and Windows),
      Azure Key Vault, PaaS, and SaaS applications.
 
- Your organization's resources, such as
+- Your organization's resources, such as
      applications on Azure or your corporate network resources.
 
 Securing Azure AD should be a high priority in your organization’s
@@ -63,7 +62,7 @@ their external identity.
 
 - [What is the identity secure score in Azure Active Directory](../active-directory/fundamentals/identity-secure-score.md)
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -73,21 +72,21 @@ their external identity.
 
 - [Understand Application SSO with Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
 ### IM-4: Use strong authentication controls for all Azure Active Directory based access
 
-**Guidance**: Azure Migrate uses Azure Active Directory that supports strong authentication controls through multi-factor authentication (MFA), and strong passwordless methods.
+**Guidance**: Azure Migrate uses Azure Active Directory that supports strong authentication controls through multifactor authentication, and strong passwordless methods.
 
-Multi-factor authentication - Enable Azure AD MFA and follow Azure Security Center Identity and Access Management recommendations for some best practices in your MFA setup. MFA can be enforced on all, select users or at the per-user level based on sign-in conditions and risk factors.
+Multifactor authentication - Enable Azure AD multifactor authentication and follow Azure Security Center Identity and Access Management recommendations for some best practices in your multifactor authentication setup. Multifactor authentication can be enforced on all, select users or at the per-user level based on sign-in conditions and risk factors.
 
 Passwordless authentication – Three passwordless authentication options are available: Windows Hello for Business, Microsoft Authenticator app, and on-premises authentication methods such as smart cards.
 
 For administrator and privileged users, ensure the highest level of the strong authentication method is used, followed by rolling out the appropriate strong authentication policy to other users.
 
-- [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md) 
+- [How to enable multifactor authentication in Azure](../active-directory/authentication/howto-mfa-getstarted.md) 
 
 - [Introduction to passwordless authentication options for Azure Active Directory](../active-directory/authentication/concept-authentication-passwordless.md) 
 
@@ -103,13 +102,13 @@ For administrator and privileged users, ensure the highest level of the strong a
 
 **Guidance**: Azure Migrate is integrated with Azure Active Directory in which provides the following data sources:
 
-Sign-ins - The sign-ins report provides information about the usage of managed applications and user sign-in activities.
+- Sign-ins - The sign-ins report provides information about the usage of managed applications and user sign-in activities.
 
-Audit logs - Provides traceability through logs for all changes done by various features within Azure AD. Examples of audit logs include changes made to any resources within Azure AD like adding or removing users, apps, groups, roles and policies.
+- Audit logs - Provides traceability through logs for all changes done by various features within Azure AD. Examples of audit logs include changes made to any resources within Azure AD like adding or removing users, apps, groups, roles and policies.
 
-Risky sign-ins - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone      who is not the legitimate owner of a user account.
+- Risky sign-ins - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone      who is not the legitimate owner of a user account.
 
-Users flagged for risk - A risky user is an indicator for a user account that might have been compromised.
+- Users flagged for risk - A risky user is an indicator for a user account that might have been compromised.
 
 These data sources can be integrated with Azure Monitor, Azure Sentinel or third-party SIEM systems.
 
@@ -167,7 +166,7 @@ Some Azure services support local users and roles which not managed through Azur
 
 - [How to use Azure AD identity and access reviews](../active-directory/governance/access-reviews-overview.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -183,13 +182,28 @@ You should ensure that the credentials (such as password, certificate, or smart 
 
 **Responsibility**: Customer
 
+### PA-5: Automate entitlement management 
+
+**Guidance**: Azure
+Migrate is integrated with Azure Active Directory to manage its resources. Use
+Azure AD entitlement management features to automate access request workflows,
+including access assignments, reviews, and expiration. Dual or multi-stage
+approval is also supported.
+
+- [What are Azure AD access reviews](../active-directory/governance/access-reviews-overview.md) 
+- [What is Azure AD entitlement management](../active-directory/governance/entitlement-management-overview.md)
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Customer
+
 ### PA-6: Use privileged access workstations
 
 **Guidance**: Secured, isolated workstations are critically important for the security of sensitive roles like administrators, developers, and critical service operators. Use highly secured user workstations and/or Azure Bastion for administrative tasks. Use Azure Active Directory, Microsoft Defender Advanced Threat Protection (ATP), and/or Microsoft Intune to deploy a secure and managed user workstation for administrative tasks. The secured workstations can be centrally managed to enforce secured configuration including strong authentication, software and hardware baselines, restricted logical and network access.
 
-- [Understand privileged access workstations](../active-directory/devices/concept-azure-managed-workstation.md) 
+- [Understand privileged access workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) 
 
-- [Deploy a privileged access workstation](../active-directory/devices/howto-azure-managed-workstation.md)
+- [Deploy a privileged access workstation](/security/compass/privileged-access-deployment)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -201,9 +215,9 @@ You should ensure that the credentials (such as password, certificate, or smart 
 
 Use built-in roles to allocate permission and only create custom role when required.
 
-- [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) 
+- [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md)
 
-- [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md) 
+- [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md) 
 
 - [How to use Azure AD identity and access reviews](../active-directory/governance/access-reviews-overview.md)
 
@@ -219,7 +233,7 @@ Use built-in roles to allocate permission and only create custom role when requi
 
 **Guidance**: The Server Migration tool in Azure Migrate replicates data from the disks of servers being migrated to storage accounts and managed disks in your Azure subscription. Data handling is transient till it is written to storage accounts or managed disks in the subscription, and is not persisted in Azure Migrate
 
-Protect sensitive data stored on storage accounts and managed disks by restricting access using Azure Role Based Access Control (Azure RBAC)and network-based access controls, and specific controls in Azure services (such as Storage Service Encryption for Managed Disks). 
+Protect sensitive data stored on storage accounts and managed disks by restricting access using Azure Role Based Access Control (Azure RBAC) and network-based access controls, and specific controls in Azure services (such as Storage Service Encryption for Managed Disks). 
 
 For the underlying platform, which is managed by Microsoft, Microsoft treats all customer content as sensitive and guards against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented some default data protection controls and capabilities.
 
@@ -230,26 +244,6 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
-
-### DP-4: Encrypt sensitive information in transit
-
-**Guidance**: To complement access controls, data in transit should be protected against ‘out of band’ attacks (e.g. traffic capture) using encryption to ensure that attackers cannot easily read or modify the data.
-
-Azure Migrate supports data encryption in transit with TLS v1.2 or greater.
-
-While this is optional for traffic on private networks, this is critical for traffic on external and public networks. For HTTP traffic, ensure that any clients (including the Azure Migrate appliance and other machines on which you’ve installed Azure Migrate software) connecting to your Azure resources can negotiate TLS v1.2 or greater. For remote management, use SSH (for Linux) or RDP/TLS (for Windows) instead of an unencrypted protocol. Obsoleted SSL, TLS, and SSH versions and protocols, and weak ciphers should be disabled.
-
-By default, Azure provides encryption for data in transit between Azure data centers.
-
-- [Understand encryption in transit with Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit) 
-
-- [Information on TLS Security](/security/engineering/solving-tls1-problem) 
-
-- [Double encryption for Azure data in transit](../security/fundamentals/double-encryption.md#data-in-transit)
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Shared
 
 ### DP-5: Encrypt sensitive data at rest
 
@@ -317,22 +311,14 @@ Azure Migrate does not allow running an application or installation of software 
 
 **Responsibility**: Customer
 
-### AM-4: Ensure security of asset lifecycle management
-
-**Guidance**: Not applicable. Azure Migrate cannot be used for ensuring security of assets in a lifecycle management process. It is the customer's responsibility to maintain attributes and network configurations of assets which are considered high-impact. It is recommended that the customer create a process to capture the attribute and network-configuration changes, measure the change-impact and create remediation tasks, as applicable.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
 ### AM-5: Limit users' ability to interact with Azure Resource Manager
 
 **Guidance**: Use Azure Conditional Access to limit users'
-ability to interact with Azure Resources Manager by configuring "Block
+ability to interact with Azure Resource Manager by configuring "Block
 access" for the "Microsoft Azure Management" App.
 
 How to configure
-- [Conditional Access to block access to Azure Resources Manager](../role-based-access-control/conditional-access-azure-management.md)
+- [Conditional Access to block access to Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -340,7 +326,7 @@ How to configure
 
 ## Logging and Threat Detection
 
-*For more information, see the [Azure Security Benchmark: Logging and Threat Detection](/azure/security/benchmarks/security-controls-v2-logging-threat-detection).*
+*For more information, see the [Azure Security Benchmark: Logging and Threat Detection](../security/benchmarks/security-controls-v2-logging-threat-detection.md).*
 
 ### LT-2: Enable threat detection for Azure identity and access management
 
@@ -354,7 +340,7 @@ Audit logs - Provides traceability through logs for all changes done by various 
 
 - Users flagged for risk - A risky user is an indicator for a user account that might have been compromised.
 
-Azure Security Center can also alert on certain suspicious activities such as excessive number of failed authentication attempts, deprecated accounts in the subscription. In addition to the basic security hygiene monitoring, Azure Security Center’s Threat Protection module can also collect more in-depth security alerts from individual Azure compute resources (virtual machines, containers, app service), data resources (SQL DB and storage), and Azure service layers. This capability allows you have visibility on account anomalies inside the individual resources.
+Azure Security Center can also alert on certain suspicious activities such as excessive number of failed authentication attempts, deprecated accounts in the subscription. In addition to the basic security hygiene monitoring, Azure Security Center’s Threat Protection module can also collect more in-depth security alerts from individual Azure compute resources (virtual machines, containers, app service), data resources (SQL DB and storage), and Azure service layers. This capability allows you to have visibility on account anomalies inside the individual resources.
 
 - [Audit activity reports in the Azure Active Directory](../active-directory/reports-monitoring/concept-audit-logs.md) 
 
@@ -368,15 +354,15 @@ Azure Security Center can also alert on certain suspicious activities such as ex
 
 ### LT-4: Enable logging for Azure resources
 
-**Guidance**: Activity logs, which are automatically available, contain all write operations (PUT, POST, DELETE) for your Azure Migrate resources except read operations (GET). Activity logs can be used to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
+**Guidance**: Azure Migrate currently does not produce Azure resource logs.
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+Activity logs, which are automatically available, contain all write operations (PUT, POST, DELETE) for your Azure Migrate resources except read operations (GET). Activity logs can be used to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
 
-- [Understand logging and different log types in Azure](../azure-monitor/platform/platform-logs-overview.md) 
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-Azure Migrate currently does not produce Azure resource logs.
+- [Understand logging and different log types in Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -390,11 +376,11 @@ In addition, enable and onboard data to Azure Sentinel or a third-party SIEM.
 
 Many organizations choose to use Azure Sentinel for “hot” data that is used frequently and Azure Storage for “cold” data that is used less frequently.
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -426,11 +412,11 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 
 ### IR-3: Detection and analysis – create incidents based on high quality alerts
 
-**Guidance**: Ensure you have a process to create high quality alerts and measure the quality of alerts. This allows you to learn lessons from past incidents and prioritize alerts for analysts, so they don’t waste time on false positives. 
+**Guidance**: Ensure you have a process to create high-quality alerts and measure the quality of alerts. This allows you to learn lessons from past incidents and prioritize alerts for analysts, so they don’t waste time on false positives. 
 
-High quality alerts can be built based on experience from past incidents, validated community sources, and tools designed to generate and clean up alerts by fusing and correlating diverse signal sources. 
+High-quality alerts can be built based on experience from past incidents, validated community sources, and tools designed to generate and clean up alerts by fusing and correlating diverse signal sources. 
 
-Azure Security Center provides high quality alerts across many Azure assets. You can use the ASC data connector to stream the alerts to Azure Sentinel. Azure Sentinel lets you create advanced alert rules to generate incidents automatically for an investigation. 
+Azure Security Center provides high-quality alerts across many Azure assets. You can use the ASC data connector to stream the alerts to Azure Sentinel. Azure Sentinel lets you create advanced alert rules to generate incidents automatically for an investigation. 
 
 Export your Azure Security Center alerts and recommendations using the export feature to help identify risks to Azure resources. Export alerts and recommendations either manually or in an ongoing, continuous fashion.
 
@@ -476,7 +462,7 @@ Azure Sentinel provides extensive data analytics across virtually any log source
 
 **Guidance**: Provide context to analysts on which incidents to focus on first based on alert severity and asset sensitivity. 
 
-Azure Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert, as well as the confidence level that there was malicious intent behind the activity that led to the alert.
+Azure Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytics used to issue the alert, as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
 Additionally, mark resources using tags and create a naming system to identify and categorize Azure resources, especially those processing sensitive data.  It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
 
@@ -505,7 +491,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 
 ## Posture and Vulnerability Management
 
-*For more information, see the [Azure Security Benchmark: Posture and Vulnerability Management](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management).*
+*For more information, see the [Azure Security Benchmark: Posture and Vulnerability Management](../security/benchmarks/security-controls-v2-posture-vulnerability-management.md).*
 
 ### PV-8: Conduct regular attack simulation
 
@@ -542,7 +528,7 @@ This strategy should include documented guidance, policy, and standards for the 
 
 -	Required access control strategy in accordance with organizational data classification
 
--	Use of Azure native and third party data protection capabilities
+-	Use of Azure native and third-party data protection capabilities
 
 -	Data encryption requirements for in-transit and at-rest use cases
 
@@ -555,9 +541,9 @@ For more information, see the following references:
 
 - [Cloud Adoption Framework - Azure data security and encryption best practices](../security/fundamentals/data-encryption-best-practices.md?bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
-- [Azure Security Benchmark - Asset management](/azure/security/benchmarks/security-controls-v2-asset-management)
+- [Azure Security Benchmark - Asset management](../security/benchmarks/security-controls-v2-asset-management.md)
 
-- [Azure Security Benchmark - Data Protection](/azure/security/benchmarks/security-controls-v2-data-protection)
+- [Azure Security Benchmark - Data Protection](../security/benchmarks/security-controls-v2-data-protection.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -585,7 +571,7 @@ Ensure that the segmentation strategy is implemented consistently across control
 
 **Guidance**: Continuously measure and mitigate risks to your individual assets and the environment they are hosted in. Prioritize high value assets and highly-exposed attack surfaces, such as published applications, network ingress and egress points, user and administrator endpoints, etc.
 
-- [Azure Security Benchmark - Posture and vulnerability management](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)
+- [Azure Security Benchmark - Posture and vulnerability management](../security/benchmarks/security-controls-v2-posture-vulnerability-management.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -626,7 +612,7 @@ This strategy should include documented guidance, policy, and standards for the 
 For more information, see the following references:
 - [Azure Security Best Practice 11 - Architecture. Single unified security strategy](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Azure Security Benchmark - Network Security](/azure/security/benchmarks/security-controls-v2-network-security)
+- [Azure Security Benchmark - Network Security](../security/benchmarks/security-controls-v2-network-security.md)
 
 - [Azure network security overview](../security/fundamentals/network-overview.md)
 
@@ -654,9 +640,9 @@ This strategy should include documented guidance, policy, and standards for the 
 
 For more information, see the following references:
 
-- [Azure Security Benchmark - Identity management](/azure/security/benchmarks/security-controls-v2-identity-management)
+- [Azure Security Benchmark - Identity management](../security/benchmarks/security-controls-v2-identity-management.md)
 
-- [Azure Security Benchmark - Privileged access](/azure/security/benchmarks/security-controls-v2-privileged-access)
+- [Azure Security Benchmark - Privileged access](../security/benchmarks/security-controls-v2-privileged-access.md)
 
 - [Azure Security Best Practice 11 - Architecture. Single unified security strategy](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
@@ -668,7 +654,7 @@ For more information, see the following references:
 
 ### GS-7: Define logging and threat response strategy
 
-**Guidance**: Establish a logging and threat response strategy to rapidly detect and remediate threats while meeting compliance requirements. Prioritize providing analysts with high quality alerts and seamless experiences so that they can focus on threats rather than integration and manual steps. 
+**Guidance**: Establish a logging and threat response strategy to rapidly detect and remediate threats while meeting compliance requirements. Prioritize providing analysts with high-quality alerts and seamless experiences so that they can focus on threats rather than integration and manual steps. 
 
 This strategy should include documented guidance, policy, and standards for the following elements: 
 
@@ -688,9 +674,9 @@ This strategy should include documented guidance, policy, and standards for the 
 
 For more information, see the following references:
 
-- [Azure Security Benchmark - Logging and threat detection](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
+- [Azure Security Benchmark - Logging and threat detection](../security/benchmarks/security-controls-v2-logging-threat-detection.md)
 
-- [Azure Security Benchmark - Incident response](/azure/security/benchmarks/security-controls-v2-incident-response)
+- [Azure Security Benchmark - Incident response](../security/benchmarks/security-controls-v2-incident-response.md)
 
 - [Azure Security Best Practice 4 - Process. Update Incident Response Processes for Cloud](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 

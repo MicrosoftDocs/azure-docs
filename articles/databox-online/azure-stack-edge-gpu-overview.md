@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 09/23/2020
+ms.date: 01/18/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge Pro is and how it works so I can use it to process and transform data before sending to Azure.
 ---
@@ -48,7 +48,7 @@ Azure Stack Edge Pro has the following capabilities:
 |Data refresh     | Ability to refresh local files with the latest from cloud.|
 |Encryption    | BitLocker support to locally encrypt data and secure data transfer to cloud over *https*.|
 |Bandwidth throttling| Throttle to limit bandwidth usage during peak hours.|
-<!--|ExpressRoute | Added security through ExpressRoute. Use peering configuration where traffic from local devices to the cloud storage endpoints travels over the ExpressRoute. For more information, see [ExpressRoute overview](../expressroute/expressroute-introduction.md).-->
+<!--|ExpressRoute | Added security through ExpressRoute. Use peering configuration where traffic from local devices to the cloud storage endpoints travels over the ExpressRoute. For more information, see [ExpressRoute overview](../expressroute/expressroute-introduction.md).|-->
 
 ## Components
 
@@ -68,11 +68,13 @@ The Azure Stack Edge Pro solution comprises of Azure Stack Edge resource, Azure 
 
 Azure Stack Edge Pro physical device, Azure resource, and target storage account to which you transfer data do not all have to be in the same region.
 
-- **Resource availability** - For this preview release, the resource is available in East US, West EU, and South East Asia regions.
+- **Resource availability** - For this release, the resource is available in East US, West EU, and South East Asia regions.
 
 - **Device availability** - For a list of all the countries/regions where the Azure Stack Edge Pro device is available, go to **Availability** section in the **Azure Stack Edge Pro** tab for [Azure Stack Edge Pro pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro).
     
 - **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions. The regions where the storage accounts store Azure Stack Edge Pro data should be located close to where the device is located for optimum performance. A storage account located far from the device results in long latencies and slower performance.
+
+Azure Stack Edge service is a non-regional service. For more information, see [Regions and Availability Zones in Azure](https://docs.microsoft.com/azure/availability-zones/az-overview). Azure Stack Edge service does not have dependency on a specific Azure region, making it resilient to zone-wide outages and region-wide outages.
 
 ## Next steps
 

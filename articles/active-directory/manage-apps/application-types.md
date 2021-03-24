@@ -3,12 +3,12 @@ title: Viewing apps using your Azure Active Directory tenant for identity manage
 description: Understand how to view all applications using your Azure Active Directory tenant for identity management.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 07/11/2017
+ms.topic: reference
+ms.date: 01/07/2021
 ms.author: kenwith
 ---
 
@@ -26,7 +26,7 @@ When filtered to **All Applications**, the **All Applications** **List** shows e
 - When you add a new application registration by creating a custom-developed application using the [Application Registry](../develop/quickstart-register-app.md)
 - When you add a new application registration by creating a custom-developed application using the [V2.0 Application Registration portal](../develop/quickstart-register-app.md)
 - When you add an application, you’re developing using Visual Studio’s [ASP.NET Authentication Methods](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) or [Connected Services](https://devblogs.microsoft.com/visualstudio/connecting-to-cloud-services/)
-- When you create a service principal object using the [Azure AD PowerShell Module](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
+- When you create a service principal object using the [Azure AD PowerShell Module](/powershell/azure/active-directory/install-adv2)
 - When you [consent to an application](../develop/howto-convert-app-to-be-multi-tenant.md) as an administrator to use data in your tenant
 - When a [user consents to an application](../develop/howto-convert-app-to-be-multi-tenant.md) to use data in your tenant
 - When you enable certain services that store data in your tenant. One example is Password Reset, which is modeled as a service principal to store your password reset policy securely.

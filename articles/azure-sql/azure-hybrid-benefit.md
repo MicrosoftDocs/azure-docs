@@ -5,12 +5,12 @@ description: Use existing SQL Server licenses for Azure SQL Database and SQL Man
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: features
-ms.custom: sqldbrb=4, devx-track-azurecli
+ms.custom: sqldbrb=4
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
-ms.date: 11/13/2019
+ms.date: 02/16/2021
 ---
 # Azure Hybrid Benefit - Azure SQL Database & SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -46,7 +46,6 @@ To set or update the license type by using PowerShell:
 To set or update the license type by using the Azure CLI:
 
 - [az sql db create](/cli/azure/sql/db#az-sql-db-create)
-- [az sql db update](/cli/azure/sql/db#az-sql-db-update)
 - [az sql mi create](/cli/azure/sql/mi#az-sql-mi-create)
 - [az sql mi update](/cli/azure/sql/mi#az-sql-mi-update)
 
@@ -79,12 +78,12 @@ Azure Hybrid Benefit for SQL Server differs from license mobility in two key are
 
 #### What are the specific rights of the Azure Hybrid Benefit for SQL Server?
 
-SQL Database customers have the following rights associated with Azure Hybrid Benefit for SQL Server:
+SQL Database and SQL Managed Instance customers have the following rights associated with Azure Hybrid Benefit for SQL Server:
 
 |License footprint|What does Azure Hybrid Benefit for SQL Server get you?|
 |---|---|
-|SQL Server Enterprise Edition core customers with SA|<li>Can pay base rate on either General Purpose or Business Critical SKU</li><br><li>1 core on-premises = 4 cores in General Purpose SKU</li><br><li>1 core on-premises = 1 core in Business Critical SKU</li>|
-|SQL Server Standard Edition core customers with SA|<li>Can pay base rate on General Purpose SKU only</li><br><li>1 core on-premises = 1 core in General Purpose SKU</li>|
+|SQL Server Enterprise Edition core customers with SA|<li>Can pay base rate on Hyperscale, General Purpose, or Business Critical SKU</li><br><li>1 core on-premises = 4 cores in Hyperscale SKU</li><br><li>1 core on-premises = 4 cores in General Purpose SKU</li><br><li>1 core on-premises = 1 core in Business Critical SKU</li>|
+|SQL Server Standard Edition core customers with SA|<li>Can pay base rate on Hyperscale, General Purpose, or Business Critical SKU</li><br><li>1 core on-premises = 1 core in Hyperscale SKU</li><br><li>1 core on-premises = 1 core in General Purpose SKU</li><br><li>4 core on-premises = 1 core in Business Critical SKU</li>|
 |||
 
 

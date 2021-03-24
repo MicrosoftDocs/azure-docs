@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-#Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform.
 ---
 
 # Scenario: Desktop app that calls web APIs
@@ -27,6 +27,7 @@ If you haven't already, create your first application by completing a quickstart
 - [Quickstart: Acquire a token and call Microsoft Graph API from a Windows desktop app](./quickstart-v2-windows-desktop.md)
 - [Quickstart: Acquire a token and call Microsoft Graph API from a UWP app](./quickstart-v2-uwp.md)
 - [Quickstart: Acquire a token and call Microsoft Graph API from a macOS native app](./quickstart-v2-ios.md)
+- [Quickstart: Acquire a token and call Microsoft Graph API from an Node.js & Electron app](./quickstart-v2-nodejs-desktop.md)
 
 ## Overview
 
@@ -36,6 +37,7 @@ You write a desktop application, and you want to sign in users to your applicati
 
   - If your desktop application supports graphical controls, for instance, if it's a Windows.Form application, a WPF application, or a macOS native application.
   - Or, if it's a .NET Core application and you agree to have the authentication interaction with Azure Active Directory (Azure AD) happen in the system browser.
+  - Or, if it's a Node.js Electron application, which runs on a Chromium instance.
 
 - For Windows hosted applications, it's also possible for applications running on computers joined to a Windows domain or Azure AD joined to acquire a token silently by using Integrated Windows Authentication.
 - Finally, and although it's not recommended, you can use a username and a password in public client applications. It's still needed in some scenarios like DevOps. Using it imposes constraints on your application. For instance, it can't sign in a user who needs to perform [multi-factor authentication](../authentication/concept-mfa-howitworks.md) (conditional access). Also, your application won't benefit from single sign-on (SSO).

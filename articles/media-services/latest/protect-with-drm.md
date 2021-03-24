@@ -1,29 +1,26 @@
 ---
-title: Azure Media Services DRM encryption and license delivery service
-titleSuffix: Azure Media Services
+title: Media Services DRM encryption and license delivery
 description: Learn how to use DRM dynamic encryption and license delivery service to deliver streams encrypted with Microsoft PlayReady, Google Widevine, or Apple FairPlay licenses.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/31/2020
+ms.date: 03/17/2021
 ms.author: inhenkel
 ms.custom: seodec18
-
 ---
 # Tutorial: Use DRM dynamic encryption and license delivery service
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 > [!NOTE]
-> Even though this tutorial uses the [.NET SDK](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) examples, the general steps are the same for [REST API](/rest/api/media/liveevents), [CLI](/cli/azure/ams/live-event?view=azure-cli-latest), or other supported [SDKs](media-services-apis-overview.md#sdks).
+> Even though this tutorial uses the [.NET SDK](/dotnet/api/microsoft.azure.management.media.models.liveevent) examples, the general steps are the same for [REST API](/rest/api/media/liveevents), [CLI](/cli/azure/ams/live-event), or other supported [SDKs](media-services-apis-overview.md#sdks).
 
 You can use Azure Media Services to deliver your streams encrypted with Microsoft PlayReady, Google Widevine, or Apple FairPlay licenses. For in-depth explanation, see [Content protection with dynamic encryption](content-protection-overview.md).
 
@@ -100,7 +97,7 @@ In this tutorial, we create the job's input based on a file that's ingested dire
 
 ## Wait for the Job to complete
 
-The job takes some time to complete. When it does, you want to be notified. The code sample below shows how to poll the service for the status of the **Job**. Polling isn't a recommended best practice for production apps because of potential latency. Polling can be throttled if overused on an account. Developers should instead use Event Grid. See [Route events to a custom web endpoint](job-state-events-cli-how-to.md).
+The job takes some time to complete. When it does, you want to be notified. The code sample below shows how to poll the service for the status of the **Job**. Polling isn't a recommended best practice for production apps because of potential latency. Polling can be throttled if overused on an account. Developers should instead use Event Grid. See [Route events to a custom web endpoint](monitoring/job-state-events-cli-how-to.md).
 
 The **Job** usually goes through the following states: **Scheduled**, **Queued**, **Processing**, **Finished** (the final state). If the job has come across an error, you get the **Error** state. If the job is in the process of being canceled, you get **Canceling** and **Canceled** when it's done.
 

@@ -6,7 +6,6 @@ documentationcenter: CloudFoundry
 author: ruyakubu
 manager: brunoborges
 editor: ruyakubu
-
 ms.assetid:
 ms.author: ruyakubu
 ms.date: 09/13/2018
@@ -38,11 +37,13 @@ For more information, see [Use SSH keys with Windows on Azure](../virtual-machin
 
 > [!NOTE]
 >
-> To create a service principal, you need owner account permission. You also can write a script to automate creating the service principal. For example, you can use the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest).
+> To create a service principal, you need owner account permission. You also can write a script to automate creating the service principal. For example, you can use the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp).
 
 1. Sign in to your Azure account.
 
-    `az login`
+    ```azurecli
+    az login
+    ```
 
     ![Azure CLI login](media/deploy/az-login-output.png )
  
@@ -50,11 +51,15 @@ For more information, see [Use SSH keys with Windows on Azure](../virtual-machin
 
 2. Set your default subscription for this configuration.
 
-    `az account set -s {id}`
+    ```azurecli
+    az account set -s {id}
+    ```
 
 3. Create an Azure Active Directory application for your PCF. Specify a unique alphanumeric password. Store the password as your **clientSecret** to use later.
 
-    `az ad app create --display-name "Svc Principal for OpsManager" --password {enter-your-password} --homepage "{enter-your-homepage}" --identifier-uris {enter-your-homepage}`
+    ```azurecli
+    az ad app create --display-name "Svc Principal for OpsManager" --password {enter-your-password} --homepage "{enter-your-homepage}" --identifier-uris {enter-your-homepage}
+    ```
 
     Copy the "appId" value in the output as your **clientID** to use later.
 
@@ -64,21 +69,29 @@ For more information, see [Use SSH keys with Windows on Azure](../virtual-machin
 
 4. Create a service principal with your new app ID.
 
-    `az ad sp create --id {appId}`
+    ```azurecli
+    az ad sp create --id {appId}
+    ```
 
 5. Set the permission role of your service principal as a Contributor.
 
-    `az role assignment create --assignee "{enter-your-homepage}" --role "Contributor"`
+    ```azurecli
+    az role assignment create --assignee "{enter-your-homepage}" --role "Contributor"
+    ```
 
     Or you also can use
 
-    `az role assignment create --assignee {service-principal-name} --role "Contributor"`
+    ```azurecli
+    az role assignment create --assignee {service-principal-name} --role "Contributor"
+    ```
 
     ![Service principal role assignment](media/deploy/svc-princ.png )
 
 6. Verify that you can successfully sign in to your service principal by using the app ID, password, and tenant ID.
 
-    `az login --service-principal -u {appId} -p {your-password}  --tenant {tenantId}`
+    ```azurecli
+    az login --service-principal -u {appId} -p {your-password}  --tenant {tenantId}
+    ```
 
 7. Create a .json file in the following format. Use the **subscription ID**, **tenantID**, **clientID**, and **clientSecret** values you copied previously. Save the file.
 

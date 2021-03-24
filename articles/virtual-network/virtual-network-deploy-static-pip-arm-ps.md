@@ -16,9 +16,11 @@ ms.author: allensu
 
 # Create a virtual machine with a static public IP address using PowerShell
 
+
+You can create a virtual machine with a static public IP address. A public IP address enables you to communicate to a virtual machine from the internet. Assign a static public IP address, rather than a dynamic address, to ensure that the address never changes. Learn more about [static public IP addresses](./public-ip-addresses.md#allocation-method). To change a public IP address assigned to an existing virtual machine from dynamic to static, or to work with private IP addresses, see [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md). Public IP addresses have a [nominal charge](https://azure.microsoft.com/pricing/details/ip-addresses), and there is a [limit](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) to the number of public IP addresses that you can use per subscription.
+
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-You can create a virtual machine with a static public IP address. A public IP address enables you to communicate to a virtual machine from the internet. Assign a static public IP address, rather than a dynamic address, to ensure that the address never changes. Learn more about [static public IP addresses](virtual-network-ip-addresses-overview-arm.md#allocation-method). To change a public IP address assigned to an existing virtual machine from dynamic to static, or to work with private IP addresses, see [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md). Public IP addresses have a [nominal charge](https://azure.microsoft.com/pricing/details/ip-addresses), and there is a [limit](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) to the number of public IP addresses that you can use per subscription.
 
 ## Create a virtual machine
 
@@ -42,7 +44,7 @@ You can complete the following steps from your local computer or by using the Az
      -AllocationMethod "Static"
    ```
 
-   If the public IP address must be a standard SKU, you have to [create a public IP address](virtual-network-public-ip-address.md#create-a-public-ip-address), [create a network interface](virtual-network-network-interface.md#create-a-network-interface), [assign the public IP address to the network interface](virtual-network-network-interface-addresses.md#add-ip-addresses), and then [create a virtual machine with the network interface](virtual-network-network-interface-vm.md#add-existing-network-interfaces-to-a-new-vm), in separate steps. Learn more about [Public IP address SKUs](virtual-network-ip-addresses-overview-arm.md#sku). If the virtual machine will be added to the back-end pool of a public Azure Load Balancer, the SKU of the virtual machine's public IP address must match the SKU of the load balancer's public IP address. For details, see [Azure Load Balancer](../load-balancer/skus.md).
+   If the public IP address must be a standard SKU, you have to [create a public IP address](virtual-network-public-ip-address.md#create-a-public-ip-address), [create a network interface](virtual-network-network-interface.md#create-a-network-interface), [assign the public IP address to the network interface](virtual-network-network-interface-addresses.md#add-ip-addresses), and then [create a virtual machine with the network interface](virtual-network-network-interface-vm.md#add-existing-network-interfaces-to-a-new-vm), in separate steps. Learn more about [Public IP address SKUs](./public-ip-addresses.md#sku). If the virtual machine will be added to the back-end pool of a public Azure Load Balancer, the SKU of the virtual machine's public IP address must match the SKU of the load balancer's public IP address. For details, see [Azure Load Balancer](../load-balancer/skus.md).
 
 4. View the public IP address assigned and confirm that it was created as a static address, with [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress):
 
@@ -69,7 +71,7 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## Next steps
 
-- Learn more about [public IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) in Azure
+- Learn more about [public IP addresses](./public-ip-addresses.md#public-ip-addresses) in Azure
 - Learn more about all [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address)
-- Learn more about [private IP addresses](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) and assigning a [static private IP address](virtual-network-network-interface-addresses.md#add-ip-addresses) to an Azure virtual machine
+- Learn more about [private IP addresses](./private-ip-addresses.md) and assigning a [static private IP address](virtual-network-network-interface-addresses.md#add-ip-addresses) to an Azure virtual machine
 - Learn more about creating [Linux](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Windows](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machines

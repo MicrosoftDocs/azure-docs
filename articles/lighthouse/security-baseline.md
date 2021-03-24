@@ -204,9 +204,9 @@ You should ensure that the credentials (such as password, certificate, or smart 
 
 **Guidance**: Secured, isolated workstations are critically important for the security of sensitive roles like administrators, developers, and critical service operators. Depending on your requirements, you can use highly secured user workstations and/or Azure Bastion for performing administrative tasks with Azure Lighthouse in production environments. Use Azure Active Directory, Microsoft Defender Advanced Threat Protection (ATP), and/or Microsoft Intune to deploy a secure and managed user workstation for administrative tasks. The secured workstations can be centrally managed to enforce secured configuration, including strong authentication, software and hardware baselines, and restricted logical and network access. 
 
-- [Understand privileged access workstations](../active-directory/devices/concept-azure-managed-workstation.md)
+- [Understand privileged access workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-- [Deploy a privileged access workstation](../active-directory/devices/howto-azure-managed-workstation.md)
+- [Deploy a privileged access workstation](/security/compass/privileged-access-deployment)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -304,7 +304,7 @@ If a service provider wants to allow their security team to review delegated cus
 
 ## Logging and Threat Detection
 
-*For more information, see the [Azure Security Benchmark: Logging and Threat Detection](/azure/security/benchmarks/security-controls-v2-logging-threat-protection).*
+*For more information, see the [Azure Security Benchmark: Logging and Threat Detection](../security/benchmarks/security-controls-v2-logging-threat-detection.md).*
 
 ### LT-1: Enable threat detection for Azure resources
 
@@ -358,9 +358,9 @@ With Azure Lighthouse, you can use Azure Monitor Logs in a scalable way across t
 
 Customers who have delegated subscriptions for Azure Lighthouse can view Azure Activity log data to see all actions taken. This gives customers full visibility into operations that service providers are performing, along with operations done by users within the customer's own Azure Active Directory (Azure AD) tenant.
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Understand logging and different log types in Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Understand logging and different log types in Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 - [Monitor delegated resources at scale](how-to/monitor-at-scale.md)
 
@@ -384,7 +384,7 @@ Customers who have delegated subscriptions for Azure Lighthouse can view Azure A
 
 Many organizations choose to use Azure Sentinel for “hot” data that is used frequently and Azure Storage for “cold” data that is used less frequently.
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Monitor delegated resources at scale](how-to/monitor-at-scale.md)
 
@@ -402,9 +402,9 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 
 In Azure Monitor, you can set your Log Analytics workspace retention period according to your organization's compliance regulations. Use Azure Storage, Data Lake or Log Analytics workspace accounts for long-term and archival storage.
 
-- [Change the data retention period in Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Change the data retention period in Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [How to configure retention policy for Azure Storage account logs](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [How to configure retention policy for Azure Storage account logs](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 - [Azure Security Center alerts and recommendations export](../security-center/continuous-export.md)
 configure  and the customer is unable to set any log retention.
@@ -522,7 +522,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 
 ## Posture and Vulnerability Management
 
-*For more information, see the [Azure Security Benchmark: Posture and Vulnerability Management](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management).*
+*For more information, see the [Azure Security Benchmark: Posture and Vulnerability Management](../security/benchmarks/security-controls-v2-posture-vulnerability-management.md).*
 
 ### PV-1: Establish secure configurations for Azure services 
 
@@ -614,9 +614,9 @@ For more information, see the following references:
 
 - [Cloud Adoption Framework - Azure data security and encryption best practices](../security/fundamentals/data-encryption-best-practices.md?bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
-- [Azure Security Benchmark - Asset management](/azure/security/benchmarks/security-controls-v2-incident-response)
+- [Azure Security Benchmark - Asset management](../security/benchmarks/security-controls-v2-incident-response.md)
 
-- [Azure Security Benchmark - Data Protection](/azure/security/benchmarks/security-controls-v2-data-protection)
+- [Azure Security Benchmark - Data Protection](../security/benchmarks/security-controls-v2-data-protection.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -644,7 +644,7 @@ Ensure that the segmentation strategy is implemented consistently across control
 
 **Guidance**: Continuously measure and mitigate risks to your individual assets and the environment they are hosted in. Prioritize high value assets and highly-exposed attack surfaces, such as published applications, network ingress and egress points, user and administrator endpoints, etc.
 
-- [Azure Security Benchmark - Posture and vulnerability management](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)
+- [Azure Security Benchmark - Posture and vulnerability management](../security/benchmarks/security-controls-v2-posture-vulnerability-management.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -677,7 +677,7 @@ This strategy should include documented guidance, policy, and standards for the 
 -	Remediation strategy in different threat and attack scenarios
 
 -	Internet edge and ingress and egress strategy
-/azure/security/benchmarks/security-controls-v2-logging-threat-protection
+/azure/security/benchmarks/security-controls-v2-logging-threat-detection
 -	Hybrid cloud and on-premises interconnectivity strategy
 
 -	Up-to-date network security artifacts (e.g. network diagrams, reference network architecture)
@@ -685,7 +685,7 @@ This strategy should include documented guidance, policy, and standards for the 
 For more information, see the following references:
 - [Azure Security Best Practice 11 - Architecture. Single unified security strategy](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Azure Security Benchmark - Network Security](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
+- [Azure Security Benchmark - Network Security](../security/benchmarks/security-controls-v2-logging-threat-detection.md)
 
 - [Azure network security overview](../security/fundamentals/network-overview.md)
 
@@ -713,9 +713,9 @@ This strategy should include documented guidance, policy, and standards for the 
 
 For more information, see the following references:
 
-- [Azure Security Benchmark - Identity management](/azure/security/benchmarks/security-controls-v2-identity-management)
+- [Azure Security Benchmark - Identity management](../security/benchmarks/security-controls-v2-identity-management.md)
 
-- [Azure Security Benchmark - Privileged access](/azure/security/benchmarks/security-controls-v2-privileged-access)
+- [Azure Security Benchmark - Privileged access](../security/benchmarks/security-controls-v2-privileged-access.md)
 
 - [Azure Security Best Practice 11 - Architecture. Single unified security strategy](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
@@ -747,9 +747,9 @@ This strategy should include documented guidance, policy, and standards for the 
 
 For more information, see the following references:
 
-- [Azure Security Benchmark - Logging and threat detection](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
+- [Azure Security Benchmark - Logging and threat detection](../security/benchmarks/security-controls-v2-logging-threat-detection.md)
 
-- [Azure Security Benchmark - Incident response](/azure/security/benchmarks/security-benchmark-v2-incident-response)
+- [Azure Security Benchmark - Incident response](../security/benchmarks/security-controls-v2-incident-response.md)
 
 - [Azure Security Best Practice 4 - Process. Update Incident Response Processes for Cloud](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 

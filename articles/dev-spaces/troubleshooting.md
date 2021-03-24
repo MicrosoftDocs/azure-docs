@@ -20,7 +20,7 @@ To troubleshoot problems more effectively, it may help to create more detailed l
 
 For Visual Studio, set the `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` environment variable to 1. Be sure to restart Visual Studio for the environment variable to take effect. Once enabled, detailed logs are written to your `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` directory.
 
-In the CLI, you can output more information during command execution by using the `--verbose` switch. You can also browse more detailed logs in `%TEMP%\Azure Dev Spaces`. On a Mac, the *TEMP* directory can be found by running `echo $TMPDIR` from a terminal window. On a Linux computer, the *TEMP* directory is usually `/tmp`. In addition, verify that logging is enabled in your [Azure CLI configuration file](/cli/azure/azure-cli-configuration?view=azure-cli-latest#cli-configuration-values-and-environment-variables).
+In the CLI, you can output more information during command execution by using the `--verbose` switch. You can also browse more detailed logs in `%TEMP%\Azure Dev Spaces`. On a Mac, the *TEMP* directory can be found by running `echo $TMPDIR` from a terminal window. On a Linux computer, the *TEMP* directory is usually `/tmp`. In addition, verify that logging is enabled in your [Azure CLI configuration file](/cli/azure/azure-cli-configuration#cli-configuration-values-and-environment-variables).
 
 Azure Dev Spaces also works best when debugging a single instance, or pod. The `azds.yaml` file contains a setting, *replicaCount*, that indicates the number of pods that Kubernetes runs for your service. If you change the *replicaCount* to configure your application to run multiple pods for a given service, the debugger attaches to the first pod, when listed alphabetically. The debugger attaches to a different pod when the original pod recycles, possibly resulting in unexpected behavior.
 
@@ -85,7 +85,7 @@ azure-cli                         2.0.60 *
 
 Despite the error message when running `az aks use-dev-spaces` with a version of the Azure CLI before 2.0.63, the installation does succeed. You can continue to use `azds` without any issues.
 
-To fix this issue, update your installation of the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) to 2.0.63 or later. This update will resolve the error message you receive when running `az aks use-dev-spaces`. Alternatively, you can continue to use your current version of the Azure CLI and the Azure Dev Spaces CLI.
+To fix this issue, update your installation of the [Azure CLI](/cli/azure/install-azure-cli) to 2.0.63 or later. This update will resolve the error message you receive when running `az aks use-dev-spaces`. Alternatively, you can continue to use your current version of the Azure CLI and the Azure Dev Spaces CLI.
 
 ### Error "Unable to reach kube-apiserver"
 

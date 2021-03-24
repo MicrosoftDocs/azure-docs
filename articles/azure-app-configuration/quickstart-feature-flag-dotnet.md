@@ -3,8 +3,7 @@ title: Quickstart for adding feature flags to .NET Framework apps | Microsoft Do
 description: A quickstart for adding feature flags to .NET Framework apps and managing them in Azure App Configuration
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 ms.assetid: 
 ms.service: azure-app-configuration
@@ -14,7 +13,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 10/19/2020
-ms.author: lcozzens
+ms.author: alkemper
 
 #Customer intent: As a .NET Framework developer, I want to use feature flags to control feature availability quickly and confidently.
 ---

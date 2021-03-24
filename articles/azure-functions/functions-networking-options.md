@@ -1,12 +1,12 @@
 ---
 title: Azure Functions networking options
 description: An overview of all networking options available in Azure Functions.
-author: jeffhollan
+author: cachai2
 ms.topic: conceptual
-ms.date: 10/27/2020
-ms.author: jehollan
-
+ms.date: 1/21/2021
+ms.author: cachai
 ---
+
 # Azure Functions networking options
 
 This article describes the networking features available across the hosting options for Azure Functions. All the following networking options give you some ability to access resources without using internet-routable addresses or to restrict internet access to a function app.
@@ -16,9 +16,9 @@ The hosting models have different levels of network isolation available. Choosin
 You can host function apps in a couple of ways:
 
 * You can choose from plan options that run on a multitenant infrastructure, with various levels of virtual network connectivity and scaling options:
-    * The [Consumption plan](functions-scale.md#consumption-plan) scales dynamically in response to load and offers minimal network isolation options.
-    * The [Premium plan](functions-scale.md#premium-plan) also scales dynamically and offers more comprehensive network isolation.
-    * The Azure [App Service plan](functions-scale.md#app-service-plan) operates at a fixed scale and offers  network isolation similar to the Premium plan.
+    * The [Consumption plan](consumption-plan.md) scales dynamically in response to load and offers minimal network isolation options.
+    * The [Premium plan](functions-premium-plan.md) also scales dynamically and offers more comprehensive network isolation.
+    * The Azure [App Service plan](dedicated-plan.md) operates at a fixed scale and offers  network isolation similar to the Premium plan.
 * You can run functions in an [App Service Environment](../app-service/environment/intro.md). This method deploys your function into your virtual network and offers full network control and isolation.
 
 ## Matrix of networking features
@@ -29,7 +29,7 @@ You can host function apps in a couple of ways:
 
 You can use access restrictions to define a priority-ordered list of IP addresses that are allowed or denied access to your app. The list can include IPv4 and IPv6 addresses, or specific virtual network subnets using [service endpoints](#use-service-endpoints). When there are one or more entries, an implicit "deny all" exists at the end of the list. IP restrictions work with all function-hosting options.
 
-Access restrictions are available in the [Premium](functions-premium-plan.md), [Consumption](functions-scale.md#consumption-plan), and [App Service](functions-scale.md#app-service-plan).
+Access restrictions are available in the [Premium](functions-premium-plan.md), [Consumption](consumption-plan.md), and [App Service](dedicated-plan.md).
 
 > [!NOTE]
 > With network restrictions in place, you can deploy only from within your virtual network, or when you've put the IP address of the machine you're using to access the Azure portal on the Safe Recipients list. However, you can still manage the function using the portal.
@@ -76,37 +76,15 @@ To learn how to set up virtual network integration, see [Integrate a function ap
 
 ## Connect to service endpoint secured resources
 
-To provide a higher level of security, you can restrict a number of Azure services to a virtual network by using service endpoints. You must then integrate your function app with that virtual network to access the resource. This configuration is supported on all plans that support virtual network integration.
+To provide a higher level of security, you can restrict a number of Azure services to a virtual network by using service endpoints. You must then integrate your function app with that virtual network to access the resource. This configuration is supported on all [plans](functions-scale.md#networking-features) that support virtual network integration.
 
 To learn more, see [Virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
 
-## Restrict your storage account to a virtual network (preview)
+## Restrict your storage account to a virtual network 
 
-When you create a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage.  You can replace this storage account with one that is secured with service endpoints or private endpoint.  This preview feature currently only works with Windows Premium plans in West Europe.  To set up a function with a storage account restricted to a private network:
+When you create a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. You can replace this storage account with one that is secured with service endpoints or private endpoint. 
 
-> [!NOTE]
-> Restricting the storage account only currently works for Premium functions using Windows in West Europe
-
-1. Create a function with a storage account that does not have service endpoints enabled.
-1. Configure the function to connect to your virtual network.
-1. Create or configure a different storage account.  This will be the storage account we secure with service endpoints and connect our function.
-1. [Create a file share](../storage/files/storage-how-to-create-file-share.md#create-file-share) in the secured storage account.
-1. Enable service endpoints or private endpoint for the storage account.  
-    * If using private endpoint connections, the storage account will need a private endpoint for the `file` and `blob` subresources.  If using certain capabilities like Durable Functions, you will also need `queue` and `table` accessible through a private endpoint connection.
-    * If using service endpoints, enable the subnet dedicated to your function apps for storage accounts.
-1. (Optional) Copy the file and blob content from the function app storage account to the secured storage account and file share.
-1. Copy the connection string for this storage account.
-1. Update the **Application Settings** under **Configuration** for the function app to the following:
-    - `AzureWebJobsStorage` to the connection string for the secured storage account.
-    - `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` to the connection string for the secured storage account.
-    - `WEBSITE_CONTENTSHARE` to the name of the file share created in the secured storage account.
-    - Create a new setting with the name `WEBSITE_CONTENTOVERVNET` and value of `1`.
-    - If the storage account is using private endpoint connections, verify or add the following settings
-        - `WEBSITE_VNET_ROUTE_ALL` with a value of `1`.
-        - `WEBSITE_DNS_SERVER` with a value of `168.63.129.16` 
-1. Save the application settings.  
-
-The function app will restart and will now be connected to a secured storage account.
+This feature currently works for all Windows virtual network-supported SKUs in the Dedicated (App Service) plan and for the Premium plan. The Consumption plan isn't supported. To learn how to set up a function with a storage account restricted to a private network, see [Restrict your storage account to a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network).
 
 ## Use Key Vault references
 
@@ -171,6 +149,8 @@ To learn more, see the [App Service documentation for Hybrid Connections](../app
 Outbound IP restrictions are available in a Premium plan, App Service plan, or App Service Environment. You can configure outbound restrictions for the virtual network where your App Service Environment is deployed.
 
 When you integrate a function app in a Premium plan or an App Service plan with a virtual network, the app can still make outbound calls to the internet by default. By adding the application setting `WEBSITE_VNET_ROUTE_ALL=1`, you force all outbound traffic to be sent into your virtual network, where network security group rules can be used to restrict traffic.
+
+To learn how to control the outbound IP using a virtual network, see [Tutorial: Control Azure Functions outbound IP with an Azure virtual network NAT gateway](functions-how-to-use-nat-gateway.md). 
 
 ## Automation
 The following APIs let you programmatically manage regional virtual network integrations:

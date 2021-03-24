@@ -1,32 +1,29 @@
 ---
 title: Copy data in bulk using Azure portal
 description: Use Azure Data Factory and Copy Activity to copy data from a source data store to a destination data store in bulk.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services 
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 11/09/2020
+ms.date: 01/29/2021
 ---
 
 # Copy multiple tables in bulk by using Azure Data Factory in the Azure portal
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This tutorial demonstrates **copying a number of tables from Azure SQL Database to Azure Synapse Analytics (formerly SQL DW)**. You can apply the same pattern in other copy scenarios as well. For example, copying tables from SQL Server/Oracle to Azure SQL Database/Azure Synapse Analytics (formerly SQL DW)/Azure Blob, copying different paths from Blob to Azure SQL Database tables.
+This tutorial demonstrates **copying a number of tables from Azure SQL Database to Azure Synapse Analytics**. You can apply the same pattern in other copy scenarios as well. For example, copying tables from SQL Server/Oracle to Azure SQL Database/Azure Synapse Analytics /Azure Blob, copying different paths from Blob to Azure SQL Database tables.
 
 > [!NOTE]
-> - If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md).
+> If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md).
 
 At a high level, this tutorial involves following steps:
 
 > [!div class="checklist"]
 > * Create a data factory.
-> * Create Azure SQL Database, Azure Synapse Analytics (formerly SQL DW), and Azure Storage linked services.
+> * Create Azure SQL Database, Azure Synapse Analytics, and Azure Storage linked services.
 > * Create Azure SQL Database and Azure Synapse Analytics datasets.
 > * Create a pipeline to look up the tables to be copied and another pipeline to perform the actual copy operation. 
 > * Start a pipeline run.
@@ -46,24 +43,12 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 * **Azure Storage account**. The Azure Storage account is used as staging blob storage in the bulk copy operation. 
-* **Azure SQL Database**. This database contains the source data. 
-* **Azure Synapse Analytics (formerly SQL DW)**. This data warehouse holds the data copied over from the SQL Database. 
-
-### Prepare SQL Database and Azure Synapse Analytics (formerly SQL DW)
-
-**Prepare the source Azure SQL Database**:
-
-Create a database in SQL Database with Adventure Works LT sample data following [Create a database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) article. This tutorial copies all the tables from this sample database to an Azure Synapse Analytics.
-
-**Prepare the sink Azure Synapse Analytics (formerly SQL DW)**:
-
-1. If you don't have an Azure Synapse Analytics workspace, see the [Get started with Azure Synapse Analytics](..\synapse-analytics\get-started.md) article for steps to create one.
-
-1. Create corresponding table schemas in Azure Synapse Analytics. You use Azure Data Factory to migrate/copy data in a later step.
+* **Azure SQL Database**. This database contains the source data. Create a database in SQL Database with Adventure Works LT sample data following [Create a database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) article. This tutorial copies all the tables from this sample database to an Azure Synapse Analytics.
+* **Azure Synapse Analytics**. This data warehouse holds the data copied over from the SQL Database. If you don't have an Azure Synapse Analytics workspace, see the [Get started with Azure Synapse Analytics](..\synapse-analytics\get-started.md) article for steps to create one.
 
 ## Azure services to access SQL server
 
-For both SQL Database and Azure Synapse Analytics (formerly SQL DW), allow Azure services to access SQL server. Ensure that **Allow Azure services and resources to access this server** setting is turned **ON** for your server. This setting allows the Data Factory service to read data from your Azure SQL Database and write data to your Azure Synapse Analytics. 
+For both SQL Database and Azure Synapse Analytics, allow Azure services to access SQL server. Ensure that **Allow Azure services and resources to access this server** setting is turned **ON** for your server. This setting allows the Data Factory service to read data from your Azure SQL Database and write data to your Azure Synapse Analytics. 
 
 To verify and turn on this setting, go to your server > Security > Firewalls and virtual networks > set the **Allow Azure services and resources to access this server** to **ON**.
 
@@ -94,14 +79,12 @@ To verify and turn on this setting, go to your server > Security > Firewalls and
 1. After the creation is complete, select **Go to resource** to navigate to the **Data Factory** page. 
    
 1. Click **Author & Monitor** tile to launch the Data Factory UI application in a separate tab.
-1. On the **Let's get started** page, switch to the **Author** tab in the left panel as shown in the following image:
 
-     ![Get started page](./media/doc-common-process/get-started-page-author-button.png)
 
 ## Create linked services
 You create linked services to link your data stores and computes to a data factory. A linked service has the connection information that the Data Factory service uses to connect to the data store at runtime. 
 
-In this tutorial, you link your Azure SQL Database, Azure Synapse Analytics (formerly SQL DW), and Azure Blob Storage data stores to your data factory. The Azure SQL Database is the source data store. The Azure Synapse Analytics is the sink/destination data store. The Azure Blob Storage is to stage the data before the data is loaded into Azure Synapse Analytics by using PolyBase. 
+In this tutorial, you link your Azure SQL Database, Azure Synapse Analytics, and Azure Blob Storage data stores to your data factory. The Azure SQL Database is the source data store. The Azure Synapse Analytics is the sink/destination data store. The Azure Blob Storage is to stage the data before the data is loaded into Azure Synapse Analytics by using PolyBase. 
 
 ### Create the source Azure SQL Database linked service
 In this step, you create a linked service to link your database in Azure SQL Database to the data factory. 
@@ -110,7 +93,7 @@ In this step, you create a linked service to link your database in Azure SQL Dat
 
 1. On the Linked services page, select **+New** to create a new linked service.
 
-   ![New linked service](./media/doc-common-process/new-linked-service.png)
+   :::image type="content" source="./media/doc-common-process/new-linked-service.png" alt-text="New linked service.":::
 1. In the **New Linked Service** window, select **Azure SQL Database**, and click **Continue**. 
 1. In the **New Linked Service (Azure SQL Database)** window, do the following steps: 
 
@@ -132,8 +115,8 @@ In this step, you create a linked service to link your database in Azure SQL Dat
 ### Create the sink Azure Synapse Analytics linked service
 
 1. In the **Connections** tab, click **+ New** on the toolbar again. 
-1. In the **New Linked Service** window, select **Azure Synapse Analytics (formerly SQL DW)**, and click **Continue**. 
-1. In the **New Linked Service (Azure Synapse Analytics (formerly SQL DW))** window, do the following steps: 
+1. In the **New Linked Service** window, select **Azure Synapse Analytics**, and click **Continue**. 
+1. In the **New Linked Service (Azure Synapse Analytics)** window, do the following steps: 
    
     a. Enter **AzureSqlDWLinkedService** for **Name**.
      
@@ -172,7 +155,9 @@ In this tutorial, the source and destination SQL tables are not hard-coded in th
 
 ### Create a dataset for source SQL Database
 
-1. Click **+ (plus)** in the left pane, and then click **Dataset**. 
+1. Select **Author** tab from the left pane.
+
+1. Select the **+** (plus) in the left pane, and then select **Dataset**. 
 
     ![New dataset menu](./media/tutorial-bulk-copy-portal/new-dataset-menu.png)
 1. In the **New Dataset** window, select **Azure SQL Database**, and then click **Continue**. 
@@ -182,10 +167,10 @@ In this tutorial, the source and destination SQL tables are not hard-coded in th
 1. Switch to the **Connection** tab, select any table for **Table**. This table is a dummy table. You specify a query on the source dataset when creating a pipeline. The query is used to extract data from your database. Alternatively, you can click **Edit** check box, and enter **dbo.dummyName** as the table name. 
  
 
-### Create a dataset for sink Azure Synapse Analytics (formerly SQL DW)
+### Create a dataset for sink Azure Synapse Analytics 
 
 1. Click **+ (plus)** in the left pane, and click **Dataset**. 
-1. In the **New Dataset** window, select **Azure Synapse Analytics (formerly SQL DW)**, and then click **Continue**.
+1. In the **New Dataset** window, select **Azure Synapse Analytics**, and then click **Continue**.
 1. In the **Set properties** window, under **Name**, enter **AzureSqlDWDataset**. Under **Linked service**, select **AzureSqlDWLinkedService**. Then click **OK**.
 1. Switch to the **Parameters** tab, click **+ New**, and enter **DWTableName** for the parameter name. Click **+ New** again, and enter **DWSchema** for the parameter name. If you copy/paste this name from the page, ensure that there's no **trailing space character** at the end of *DWTableName* and *DWSchema*. 
 1. Switch to the **Connection** tab, 
@@ -236,6 +221,7 @@ The  **IterateAndCopySQLTables** pipeline takes a list of tables as a parameter.
     ![Foreach parameter builder](./media/tutorial-bulk-copy-portal/for-each-parameter-builder.png)
     
     d. Switch to **Activities** tab, click the **pencil icon** to add a child activity to the **ForEach** activity.
+    
     ![Foreach activity builder](./media/tutorial-bulk-copy-portal/for-each-activity-builder.png)
 
 1. In the **Activities** toolbox, expand **Move & Transfer**, and drag-drop **Copy data** activity into the pipeline designer surface. Notice the breadcrumb menu at the top. The **IterateAndCopySQLTable** is the pipeline name and **IterateSQLTables** is the ForEach activity name. The designer is in the activity scope. To switch back to the pipeline editor from the ForEach editor, you can click the link in the breadcrumb menu. 
@@ -252,7 +238,6 @@ The  **IterateAndCopySQLTables** pipeline takes a list of tables as a parameter.
         SELECT * FROM [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]
         ``` 
 
-
 1. Switch to the **Sink** tab, and do the following steps: 
 
     1. Select **AzureSqlDWDataset** for **Sink Dataset**.
@@ -260,6 +245,7 @@ The  **IterateAndCopySQLTables** pipeline takes a list of tables as a parameter.
     1. Click the input box for the VALUE of DWSchema parameter -> select the **Add dynamic content** below, enter `@item().TABLE_SCHEMA` expression as script, -> select **Finish**.
     1. For Copy method, select **PolyBase**. 
     1. Clear the **Use type default** option. 
+    1. For Table option, the default setting is "None". If you don’t have tables pre-created in the sink Azure Synapse Analytics, enable **Auto create table** option, copy activity will then automatically create tables for you based on the source data. For details, refer to [Auto create sink tables](copy-activity-overview.md#auto-create-sink-tables). 
     1. Click the **Pre-copy Script** input box -> select the **Add dynamic content** below -> enter the following expression as script -> select **Finish**. 
 
         ```sql
@@ -267,12 +253,13 @@ The  **IterateAndCopySQLTables** pipeline takes a list of tables as a parameter.
         ```
 
         ![Copy sink settings](./media/tutorial-bulk-copy-portal/copy-sink-settings.png)
+
 1. Switch to the **Settings** tab, and do the following steps: 
 
     1. Select the checkbox for **Enable Staging**.
     1. Select **AzureStorageLinkedService** for **Store Account Linked Service**.
 
-1. To validate the pipeline settings, click **Validate** on the top pipeline tool bar. Make sure that there's no validation error. To close the **Pipeline Validation Report**, click **>>**.
+1. To validate the pipeline settings, click **Validate** on the top pipeline tool bar. Make sure that there's no validation error. To close the **Pipeline Validation Report**, click the double angle brackets **>>**.
 
 ### Create the pipeline GetTableListAndTriggerCopyData
 
@@ -280,6 +267,8 @@ This pipeline does two actions:
 
 * Looks up the Azure SQL Database system table to get the list of tables to be copied.
 * Triggers the pipeline "IterateAndCopySQLTables" to do the actual data copy.
+
+Here are the steps to create the pipeline:
 
 1. In the left pane, click **+ (plus)**, and click **Pipeline**.
 1. In the General panel under **Properties**, change the name of the pipeline to **GetTableListAndTriggerCopyData**. 
@@ -395,7 +384,7 @@ You performed the following steps in this tutorial:
 
 > [!div class="checklist"]
 > * Create a data factory.
-> * Create Azure SQL Database, Azure Synapse Analytics (formerly SQL DW), and Azure Storage linked services.
+> * Create Azure SQL Database, Azure Synapse Analytics, and Azure Storage linked services.
 > * Create Azure SQL Database and Azure Synapse Analytics datasets.
 > * Create a  pipeline to look up the tables to be copied and another pipeline to perform the actual copy operation. 
 > * Start a pipeline run.

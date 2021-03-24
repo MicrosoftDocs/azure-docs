@@ -2,8 +2,8 @@
 title: Key concepts for administering Azure VMware Solution by CloudSimple
 titleSuffix: Azure VMware Solution by CloudSimple 
 description: Describes key concepts for administering Azure VMware Solutions by CloudSimple
-author: sharaths-cs 
-ms.author: b-shsury 
+author: Ajayan1008 
+ms.author: v-hborys 
 ms.date: 04/24/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 

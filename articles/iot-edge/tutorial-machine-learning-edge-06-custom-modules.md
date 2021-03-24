@@ -12,6 +12,8 @@ ms.custom: devx-track-csharp
 ---
 # Tutorial: Create and deploy custom IoT Edge modules
 
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+
 In this article, we create three IoT Edge modules that receive messages from leaf IoT devices, run the data through your machine learning model, and then forward insights to IoT Hub.
 
 IoT Edge hub facilitates module to module communication. Using the IoT Edge hub as a message broker keeps modules independent from each other. Modules only need to specify the inputs on which they accept messages and the outputs to which they write messages.
@@ -45,6 +47,15 @@ The following diagram shows the modules, inputs, outputs, and the IoT Edge Hub r
 ![IoT Edge three modules architecture diagram](media/tutorial-machine-learning-edge-06-custom-modules/modules-diagram.png)
 
 The steps in this article are typically performed by a cloud developer.
+
+In this section of the tutorial, you learn how to:
+
+> [!div class="checklist"]
+>
+> * Create an IoT Edge module from custom code.
+> * Generate a Docker image from your custom module.
+> * Reconfigure IoT Hub routing to support your custom modules.
+> * Build, publish, and deploy your custom modules.
 
 ## Prerequisites
 

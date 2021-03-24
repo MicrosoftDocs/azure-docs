@@ -1,7 +1,7 @@
 ---
 title: Use MSAL in a national cloud app | Azure
 titleSuffix: Microsoft identity platform
-description: Microsoft Authentication Library (MSAL) enables application developers to acquire tokens in order to call secured web APIs. These web APIs can be Microsoft Graph, other Microsoft APIs, partner web APIs, or your own web API. MSAL supports multiple application architectures and platforms.
+description: The Microsoft Authentication Library (MSAL) enables application developers to acquire tokens in order to call secured web APIs. These web APIs can be Microsoft Graph, other Microsoft APIs, partner web APIs, or your own web API. MSAL supports multiple application architectures and platforms.
 services: active-directory
 author: negoe
 manager: CelesteDG
@@ -37,7 +37,7 @@ Before you start, make sure that you meet these prerequisites.
 
 ### Choose the appropriate identities
 
-[Azure Government](../../azure-government/index.yml) applications can use Azure AD Government identities and Azure AD Public identities to authenticate users. Because you can use any of these identities, you need to decide which authority endpoint you should choose for your scenario:
+[Azure Government](../../azure-government/index.yml) applications can use Azure AD Government identities and Azure AD Public identities to authenticate users. Because you can use any of these identities, decide which authority endpoint you should choose for your scenario:
 
 - Azure AD Public: Commonly used if your organization already has an Azure AD Public tenant to support Microsoft 365 (Public or GCC) or another application.
 - Azure AD Government: Commonly used if your organization already has an Azure AD Government tenant to support Office 365 (GCC High or DoD) or is creating a new tenant in Azure AD Government.
@@ -67,19 +67,21 @@ To enable your MSAL.js application for sovereign clouds:
 
 ### Step 1: Register your application
 
-1. Sign in to the [Azure portal](https://portal.azure.us/).
+1. Sign in to the <a href="https://portal.azure.us/" target="_blank">Azure portal</a>.
 
    To find Azure portal endpoints for other national clouds, see [App registration endpoints](authentication-national-cloud.md#app-registration-endpoints).
 
-1. If your account gives you access to more than one tenant, select your account in the upper-right corner, and set your portal session to the desired Azure AD tenant.
-1. Go to the [App registrations](https://aka.ms/ra/ff) page on the Microsoft identity platform for developers.
-1. When the **Register an application** page appears, enter a name for your application.
+1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+1. Search for and select **Azure Active Directory**.
+1. Under **Manage**, select **App registrations** > **New registration**.
+1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.
 1. Under **Supported account types**, select **Accounts in any organizational directory**.
 1. In the **Redirect URI** section, select the **Web** platform and set the value to the application's URL based on your web server. See the next sections for instructions on how to set and obtain the redirect URL in Visual Studio and Node.
 1. Select **Register**.
-1. On the app **Overview** page, note down the **Application (client) ID** value.
-1. This tutorial requires you to enable the [implicit grant flow](v2-oauth2-implicit-grant-flow.md). In the left pane of the registered application, select **Authentication**.
-1. In **Advanced settings**, under **Implicit grant**, select the **ID tokens** and **Access tokens** check boxes. ID tokens and access tokens are required because this app needs to sign in users and call an API.
+1. On the **Overview** page, note down the **Application (client) ID** value for later use.
+    This tutorial requires you to enable the [implicit grant flow](v2-oauth2-implicit-grant-flow.md). 
+1. Under **Manage**, select **Authentication**.
+1. Under **Implicit grant and hybrid flows**, select **ID tokens** and **Access tokens**. ID tokens and access tokens are required because this app needs to sign in users and call an API.
 1. Select **Save**.
 
 ### Step 2:  Set up your web server or project

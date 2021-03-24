@@ -9,8 +9,7 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: 2ce38add-1078-4bb9-a1da-6f407a9bc910
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services

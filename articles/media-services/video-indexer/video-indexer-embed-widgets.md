@@ -8,7 +8,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 08/10/2020
+ms.date: 01/25/2021
 ms.author: juliako
 ms.custom: devx-track-js
 ---
@@ -298,6 +298,10 @@ See the [code samples](https://github.com/Azure-Samples/media-services-video-ind
 | `embed-both-widgets`              | Embed VI Player and Insights and communicate between them.                      |
 | `url-generator`                   | Generates widgets custom embed URL based on user-specified options.             |
 | `html5-player`                    | Embed VI Insights with a default HTML5 video player.                           |
+
+## Supported browsers
+
+For more information, see [supported browsers](video-indexer-overview.md#supported-browsers).
 
 ## Next steps
 

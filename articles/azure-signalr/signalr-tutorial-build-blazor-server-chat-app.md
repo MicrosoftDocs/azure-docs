@@ -428,7 +428,6 @@ From Visual Studio 2019 version 16.2.0, Azure SignalR Service is build-in web ap
 >    "Azure": {
 >      "SignalR": {
 >        "Enabled": true,
->        "ServerStickyMode": "Required",
 >        "ConnectionString": <your-connection-string>
 >      }
 >    }

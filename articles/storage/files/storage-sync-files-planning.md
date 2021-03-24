@@ -1,10 +1,10 @@
 ---
 title: Planning for an Azure File Sync deployment | Microsoft Docs
-description: Plan for a deployment with Azure File Sync, a service that allows you to cache a number of Azure file shares on an on-premises Windows Server or cloud VM.
+description: Plan for a deployment with Azure File Sync, a service that allows you to cache several Azure file shares on an on-premises Windows Server or cloud VM.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/15/2020
+ms.date: 01/29/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
@@ -17,7 +17,7 @@ ms.custom: references_regions
         [![Interview and demo introducing Azure File Sync - click to play!](./media/storage-sync-files-planning/azure-file-sync-interview-video-snapshot.png)](https://www.youtube.com/watch?v=nfWLO7F52-s)
     :::column-end:::
     :::column:::
-        Azure File Sync is a service that allows you to cache a number of Azure file shares on an on-premises Windows Server or cloud VM. 
+        Azure File Sync is a service that allows you to cache several Azure file shares on an on-premises Windows Server or cloud VM. 
         
         This article introduces you to Azure File Sync concepts and features. Once you are familiar with Azure File Sync, consider following the [Azure File Sync deployment guide](storage-sync-files-deployment-guide.md) to try out this service.        
     :::column-end:::
@@ -46,14 +46,20 @@ Before you can create a sync group in a Storage Sync Service, you must first reg
 
 A sync group contains one cloud endpoint, or Azure file share, and at least one server endpoint. The server endpoint object contains the settings that configure the **cloud tiering** capability, which provides the caching capability of Azure File Sync. In order to sync with an Azure file share, the storage account containing the Azure file share must be in the same Azure region as the Storage Sync Service.
 
-### Management guidance
-When deploying Azure File Sync, we recommend:
+> [!Important]  
+> You can make changes to the namespace of any cloud endpoint or server endpoint in the sync group and have your files synced to the other endpoints in the sync group. If you make a change to the cloud endpoint (Azure file share) directly, changes first need to be discovered by an Azure File Sync change detection job. A change detection job is initiated for a cloud endpoint only once every 24 hours. For more information, see [Azure Files frequently asked questions](storage-files-faq.md#afs-change-detection).
 
-- Deploying Azure file shares 1:1 with Windows file shares. The server endpoint object gives you a great degree of flexibility on how you set up the sync topology on the server-side of the sync relationship. To simplify management, make the path of the server endpoint match the path of the Windows file share. 
+### Consider the count of Storage Sync Services needed
+A previous section discusses the core resource to configure for Azure File Sync: a *Storage Sync Service*. A Windows Server can only be registered to one Storage Sync Service. So it is often best to only deploy a single Storage Sync Service and register all servers that it. 
 
-- Use as few Storage Sync Services as possible. This will simplify management when you have sync groups that contain multiple server endpoints, since a Windows Server can only be registered to one Storage Sync Service at a time. 
+Create multiple Storage Sync Services only if you have:
+* distinct sets of servers that must never exchange data with one another. In this case, you want to design the system to exclude certain sets of servers to sync with an Azure file share that is already in use as a cloud endpoint in a sync group in a different Storage Sync Service. Another way to look at this is that Windows Servers registered to different storage sync service cannot sync with the same Azure file share.
+* a need to have more registered servers or sync groups than a single Storage Sync Service can support. Review the [Azure File Sync scale targets](storage-files-scale-targets.md#azure-file-sync-scale-targets) for more details.
 
-- Paying attention to a storage account's IOPS limitations when deploying Azure file shares. Ideally, you would map file shares 1:1 with storage accounts, however this may not always be possible due to various limits and restrictions, both from your organization and from Azure. When it is not possible to have only one file share deployed in one storage account, consider which shares will be highly active and which shares will be less active to ensure that the hottest file shares don't get put in the same storage account together.
+## Plan for balanced sync topologies
+Before you deploy any resources, it is important to plan out what you will sync on a local server, with which Azure file share. Making a plan will help you determine how many storage accounts, Azure file shares, and sync resources you will need. These considerations are still relevant, even if your data doesn't currently reside on a Windows Server or the server you want to use long term. The [migration section](#migration) can help determine appropriate migration paths for your situation.
+
+[!INCLUDE [storage-files-migration-namespace-mapping](../../../includes/storage-files-migration-namespace-mapping.md)]
 
 ## Windows file server considerations
 To enable the sync capability on Windows Server, you must install the Azure File Sync downloadable agent. The Azure File Sync agent provides two main components: `FileSyncSvc.exe`, the background Windows service that is responsible for monitoring changes on the server endpoints and initiating sync sessions, and `StorageSync.sys`, a file system filter that enables cloud tiering and fast disaster recovery.  
@@ -178,7 +184,7 @@ Windows Server Failover Clustering is supported by Azure File Sync for the "File
 
 ### Data Deduplication
 **Windows Server 2016 and Windows Server 2019**   
-Data Deduplication is supported on volumes with cloud tiering enabled on Windows Server 2016 and Windows Server 2019. Enabling Data Deduplication on a volume with cloud tiering enabled lets you cache more files on-premises without provisioning more storage. 
+Data Deduplication is supported irrespective of whether cloud tiering is enabled or disabled on one or more server endpoints on the volume for Windows Server 2016 and Windows Server 2019. Enabling Data Deduplication on a volume with cloud tiering enabled lets you cache more files on-premises without provisioning more storage. 
 
 When Data Deduplication is enabled on a volume with cloud tiering enabled, Dedup optimized files within the server endpoint location will be tiered similar to a normal file based on the cloud tiering policy settings. Once the Dedup optimized files have been tiered, the Data Deduplication garbage collection job will run automatically to reclaim disk space by removing unnecessary chunks that are no longer referenced by other files on the volume.
 
@@ -195,7 +201,7 @@ Azure File Sync does not support Data Deduplication and cloud tiering on the sam
 - If Data Deduplication is enabled on a volume after cloud tiering is enabled, the initial Deduplication optimization job will optimize files on the volume that are not already tiered and will have the following impact on cloud tiering:
     - Free space policy will continue to tier files as per the free space on the volume by using the heatmap.
     - Date policy will skip tiering of files that may have been otherwise eligible for tiering due to the Deduplication optimization job accessing the files.
-- For ongoing Deduplication optimization jobs, cloud tiering with date policy will get delayed by the Data Deduplication [MinimumFileAgeDays](/powershell/module/deduplication/set-dedupvolume?view=win10-ps) setting, if the file is not already tiered. 
+- For ongoing Deduplication optimization jobs, cloud tiering with date policy will get delayed by the Data Deduplication [MinimumFileAgeDays](/powershell/module/deduplication/set-dedupvolume) setting, if the file is not already tiered. 
     - Example: If the MinimumFileAgeDays setting is seven days and cloud tiering date policy is 30 days, the date policy will tier files after 37 days.
     - Note: Once a file is tiered by Azure File Sync, the Deduplication optimization job will skip the file.
 - If a server running Windows Server 2012 R2 with the Azure File Sync agent installed is upgraded to Windows Server 2016 or Windows Server 2019, the following steps must be performed to support Data Deduplication and cloud tiering on the same volume:  
@@ -231,6 +237,16 @@ If cloud tiering is enabled on a server endpoint, files that are tiered are skip
 
 ### Other Hierarchical Storage Management (HSM) solutions
 No other HSM solutions should be used with Azure File Sync.
+
+## Performance and Scalability
+
+Since the Azure File Sync agent runs on a Windows Server machine that connects to the Azure file shares, the effective sync performance depends upon a number of factors in your infrastructure: Windows Server and the underlying disk configuration, network bandwidth between the server and the Azure storage, file size, total dataset size, and the activity on the dataset. Since Azure File Sync works on the file level, the performance characteristics of an Azure File Sync-based solution is better measured in the number of objects (files and directories) processed per second.
+
+Changes made to the Azure file share by using the Azure portal or SMB are not immediately detected and replicated like changes to the server endpoint. Azure Files does not yet have change notifications or journaling, so there's no way to automatically initiate a sync session when files are changed. On Windows Server, Azure File Sync uses [Windows USN journaling](/windows/win32/fileio/change-journals) to automatically initiate a sync session when files change
+
+To detect changes to the Azure file share, Azure File Sync has a scheduled job called a change detection job. A change detection job enumerates every file in the file share, and then compares it to the sync version for that file. When the change detection job determines that files have changed, Azure File Sync initiates a sync session. The change detection job is initiated every 24 hours. Because the change detection job works by enumerating every file in the Azure file share, change detection takes longer in larger namespaces than in smaller namespaces. For large namespaces, it might take longer than once every 24 hours to determine which files have changed.
+
+For more information, see [Azure File Sync performance metrics](storage-files-scale-targets.md#azure-file-sync-performance-metrics) and [Azure File Sync scale targets](storage-files-scale-targets.md#azure-file-sync-scale-targets)
 
 ## Identity
 Azure File Sync works with your standard AD-based identity without any special setup beyond setting up sync. When you are using Azure File Sync, the general expectation is that most accesses go through the Azure File Sync caching servers, rather than through the Azure file share. Since the server endpoints are located on Windows Server, and Windows Server has supported AD and Windows-style ACLs for a long time, nothing is needed beyond ensuring the Windows file servers registered with the Storage Sync Service are domain joined. Azure File Sync will store ACLs on the files in the Azure file share, and will replicate them to all server endpoints.
@@ -294,48 +310,16 @@ For more information about encryption in transit, see [requiring secure transfer
 [!INCLUDE [storage-files-tiers-large-file-share-availability](../../../includes/storage-files-tiers-large-file-share-availability.md)]
 
 ## Azure file sync region availability
-Azure File Sync is available in the following regions:
 
-| Azure cloud | Geographic region | Azure region | Region code |
-|-------------|-------------------|--------------|-------------|
-| Public | Asia | East Asia | `eastasia` |
-| Public | Asia | Southeast Asia | `southeastasia` |
-| Public | Australia | Australia East | `australiaeast` |
-| Public | Australia | Australia Southeast | `australiasoutheast` |
-| Public | Brazil | Brazil South | `brazilsouth` |
-| Public | Canada | Canada Central | `canadacentral` |
-| Public | Canada | Canada East | `canadaeast` |
-| Public | Europe | North Europe | `northeurope` |
-| Public | Europe | West Europe | `westeurope` |
-| Public | France | France Central | `francecentral` |
-| Public | France | France South* | `francesouth` |
-| Public | India | Central India | `centralindia` |
-| Public | India | South India | `southindia` |
-| Public | Japan | Japan East | `japaneast` |
-| Public | Japan | Japan West | `japanwest` |
-| Public | Korea | Korea Central | `koreacentral` |
-| Public | Korea | Korea South | `koreasouth` |
-| Public | South Africa | South Africa North | `southafricanorth` |
-| Public | South Africa | South Africa West* | `southafricawest` |
-| Public | UAE | UAE Central* | `uaecentral` |
-| Public | UAE | UAE North | `uaenorth` |
-| Public | UK | UK South | `uksouth` |
-| Public | UK | UK West | `ukwest` |
-| Public | US | Central US | `centralus` |
-| Public | US | East US | `eastus` |
-| Public | US | East US 2 | `eastus2` |
-| Public | US | North Central US | `northcentralus` |
-| Public | US | South Central US | `southcentralus` |
-| Public | US | West Central US | `westcentralus` |
-| Public | US | West US | `westus` |
-| Public | US | West US 2 | `westus2` |
-| US Gov | US | US Gov Arizona | `usgovarizona` |
-| US Gov | US | US Gov Texas | `usgovtexas` |
-| US Gov | US | US Gov Virginia | `usgovvirginia` |
+For regional availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage).
 
-Azure File Sync supports syncing only with an Azure file share that's in the same region as the Storage Sync Service.
+The following regions require you to request access to Azure Storage before you can use Azure File Sync with them:
 
-For the regions marked with asterisks, you must contact Azure Support to request access to Azure Storage in those regions. The process is outlined in [this document](https://azure.microsoft.com/global-infrastructure/geographies/).
+- France South
+- South Africa West
+- UAE Central
+
+To request access for these regions, follow the process in [this document](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 ## Redundancy
 [!INCLUDE [storage-files-redundancy-overview](../../../includes/storage-files-redundancy-overview.md)]
@@ -344,15 +328,9 @@ For the regions marked with asterisks, you must contact Azure Support to request
 > Geo-redundant and Geo-zone redundant storage have the capability to manually failover storage to the secondary region. We recommend that you do not do this outside of a disaster when you are using Azure File Sync because of the increased likelihood of data loss. In the event of a disaster where you would like to initiate a manual failover of storage, you will need to open up a support case with Microsoft to get Azure File Sync to resume sync with the secondary endpoint.
 
 ## Migration
-If you have an existing Windows file server, Azure File Sync can be directly installed in place, without the need to move data over to a new server. If you are planning to migrate to a new Windows file server as a part of adopting Azure File Sync, there are several possible approaches to move data over:
+If you have an existing Windows file server 2012R2 or newer, Azure File Sync can be directly installed in place, without the need to move data over to a new server. If you are planning to migrate to a new Windows file server as a part of adopting Azure File Sync, or if your data is currently located on Network Attached Storage (NAS)  there are several possible migration approaches to use Azure File Sync with this data. Which migration approach you should choose, depends on where your data currently resides. 
 
-- Create server endpoints for your old file share and your new file share and let Azure File Sync synchronize the data between the server endpoints. The advantage to this approach is that it makes it very easy to oversubscribe the storage on your new file server, since Azure File Sync is cloud tiering aware. When you are ready, you can cut over end users to the file share on the new server and remove the old file share's server endpoint.
-
-- Create a server endpoint only on the new file server, and copy data into from the old file share using `robocopy`. Depending on the topology of file shares on your new server (how many shares you have on each volume, how free each volume is, etc.), you may need to temporarily provision additional storage as it is expected that `robocopy` from your old server to your new server within your on-premises datacenter will complete faster than Azure File Sync will move data into Azure.
-
-It is also possible to use Data Box to migrate data into an Azure File Sync deployment. Most of the time, when customers want to use Data Box to ingest data, they do so because they think it will increase the speed of their deployment or because it will help with constrained bandwidth scenarios. While it's true that using a Data Box to ingest data into your Azure File Sync deployment will decrease bandwidth utilization, it will likely be faster for most scenarios to pursue an online data upload through one of the methods described above. To learn more about how to use Data Box to ingest data into your Azure File Sync deployment, see [Migrate data into Azure File Sync with Azure Data Box](storage-sync-offline-data-transfer.md).
-
-A common mistake customers make when migrating data into their new Azure File Sync deployment is to copy data directly into the Azure file share, rather than on their Windows file servers. Although Azure File Sync will identify all of the new files on the Azure file share, and sync them back to your Windows file shares, this is generally considerably slower than loading data through the Windows file server. When using Azure copy tools, such as AzCopy, it is important to use the latest version. Check the [file copy tools table](storage-files-migration-overview.md#file-copy-tools) to get an overview of Azure copy tools to ensure you can copy all of the important metadata of a file such as timestamps and ACLs.
+Check out the [Azure File Sync and Azure file share migration overview](storage-files-migration-overview.md) article where you can find detailed guidance for your scenario.
 
 ## Antivirus
 Because antivirus works by scanning files for known malicious code, an antivirus product might cause the recall of tiered files, resulting in high egress charges. In versions 4.0 and above of the Azure File Sync agent, tiered files have the secure Windows attribute FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS set. We recommend consulting with your software vendor to learn how to configure their solution to skip reading files with this attribute set (many do it automatically). 
@@ -367,6 +345,9 @@ If cloud tiering is enabled, solutions that directly back up the server endpoint
 
 If you prefer to use an on-premises backup solution, backups should be performed on a server in the sync group that has cloud tiering disabled. When performing a restore, use the volume-level or file-level restore options. Files restored using the file-level restore option will be synced to all endpoints in the sync group and existing files will be replaced with the version restored from backup.  Volume-level restores will not replace newer file versions in the Azure file share or other server endpoints.
 
+> [!WARNING]
+> Robocopy /B switch is not supported with Azure File Sync. Using the Robocopy /B switch with an Azure File Sync server endpoint as the source may lead to file corruption.
+
 > [!Note]  
 > Bare-metal (BMR) restore can cause unexpected results and is not currently supported.
 
@@ -379,6 +360,6 @@ If you prefer to use an on-premises backup solution, backups should be performed
 ## Next steps
 * [Consider firewall and proxy settings](storage-sync-files-firewall-and-proxy.md)
 * [Planning for an Azure Files deployment](storage-files-planning.md)
-* [Deploy Azure Files](storage-files-deployment-guide.md)
+* [Deploy Azure Files](./storage-how-to-create-file-share.md)
 * [Deploy Azure File Sync](storage-sync-files-deployment-guide.md)
 * [Monitor Azure File Sync](storage-sync-files-monitoring.md)

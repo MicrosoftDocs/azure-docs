@@ -39,7 +39,7 @@ Creating an Azure SignalR Service instance with a user-assigned identity require
 
 4. On the **User assigned** tab, select **Add**.
 
-5. Search for the identity that you created earlier and select it. Select **Add**.
+5. Search for the identity that you created earlier and selects it. Select **Add**.
 
     :::image type="content" source="media/signalr-howto-use-managed-identity/user-identity-portal.png" alt-text="Add a user-assigned identity in the portal":::
 
@@ -51,7 +51,10 @@ Azure SignalR Service is a fully managed service, so you can't use a managed ide
 
 1. Add a system-assigned identity or user-assigned identity.
 
-2. Configure upstream settings and use **ManagedIdentity** as the **Auth** settings. To learn how to create upstream settings with authentication, see [Upstream settings](concept-upstream.md).
+2. Add one Upstream Setting and click any asterisk to get into a detailed page as shown below.
+    :::image type="content" source="media/signalr-howto-use-managed-identity/pre-msi-settings.png" alt-text="pre-msi-setting":::
+    
+    :::image type="content" source="media/signalr-howto-use-managed-identity/msi-settings.png" alt-text="msi-setting":::
 
 3. In the managed identity authentication settings, for **Resource**, you can specify the target resource. The resource will become an `aud` claim in the obtained access token, which can be used as a part of validation in your upstream endpoints. The resource can be one of the following:
     - Empty
@@ -71,6 +74,38 @@ To validate access tokens, your app should also validate the audience and the si
 The Azure Active Directory (Azure AD) middleware has built-in capabilities for validating access tokens. You can browse through our [samples](../active-directory/develop/sample-v2-code.md) to find one in the language of your choice.
 
 We provide libraries and code samples that show how to handle token validation. There are also several open-source partner libraries available for JSON Web Token (JWT) validation. There's at least one option for almost every platform and language out there. For more information about Azure AD authentication libraries and code samples, see [Microsoft identity platform authentication libraries](../active-directory/develop/reference-v2-libraries.md).
+
+#### Authentication in Function App
+
+Setting access token validation in Function App is easy and efficient without code works.
+
+1. In the **Authentication / Authorization** page, switch **App Service Authentication** to **On**.
+
+2. Select **Log in with Azure Active Directory** in **Action to take when request is not authenticated**.
+
+3. In the Authentication Provider, click into **Azure Active Directory**
+
+4. In the new page. Select **Express** and **Create New AD App** and then click **OK**
+    :::image type="content" source="media/signalr-howto-use-managed-identity/function-aad.png" alt-text="Function Aad":::
+
+5. Navigate to SignalR Service and follow [steps](howto-use-managed-identity.md#add-a-system-assigned-identity) to add a system-assigned identity or user-assigned identity.
+
+6. Get into **Upstream settings** in SignalR Service and choose **Use Managed Identity** and **Select from existing Applications**. Select the application you created previously.
+
+After these settings, the Function App will reject requests without an access token in the header.
+
+## Use a managed identity for Key Vault reference
+
+SignalR Service can access Key Vault to get secret using the managed identity.
+
+1. Add a system-assigned identity or user-assigned identity for Azure SignalR Service.
+
+2. Grant secret read permission for the managed identity in the Access policies in the Key Vault. See [Assign a Key Vault access policy using the Azure portal](../key-vault/general/assign-access-policy-portal.md)
+
+Currently, this feature can be used in the following scenarios:
+
+- [Reference secret in Upstream URL Pattern](./concept-upstream.md#key-vault-secret-reference-in-url-template-settings)
+
 
 ## Next steps
 

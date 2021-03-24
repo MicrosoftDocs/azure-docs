@@ -161,7 +161,7 @@ The [Document CRUD Samples](https://github.com/Azure/azure-documentdb-java/blob/
 | [Read document only if document has changed](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/documentcrud/sync/DocumentCRUDQuickstart.java#L266-L300) | AccessCondition.setType<br>AccessCondition.setCondition |
 
 ## Indexing examples
-The [Collection CRUD Samples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java) file shows how to perform the following tasks. To learn about indexing in Azure Cosmos DB before running the following samples, see [indexing policies](index-policy.md), [indexing types](index-overview.md#index-kinds), and [indexing paths](index-policy.md#include-exclude-paths) conceptual articles. 
+The [Collection CRUD Samples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java) file shows how to perform the following tasks. To learn about indexing in Azure Cosmos DB before running the following samples, see [indexing policies](index-policy.md), [indexing types](index-overview.md#index-types), and [indexing paths](index-policy.md#include-exclude-paths) conceptual articles. 
 
 | Task | API reference |
 | --- | --- |

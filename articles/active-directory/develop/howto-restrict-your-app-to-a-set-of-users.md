@@ -5,7 +5,6 @@ description: Learn how to restrict access to your apps registered in Azure AD to
 services: active-directory
 author: kalyankrishna1
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
@@ -30,8 +29,8 @@ Tenant administrators and developers can restrict an app to a specific set of us
 
 The option to restrict an app to a specific set of users or security groups in a tenant works with the following types of applications:
 
-- Applications configured for federated single sign-on with SAML-based authentication
-- Application proxy applications that use Azure AD pre-authentication
+- Applications configured for federated single sign-on with SAML-based authentication.
+- Application proxy applications that use Azure AD pre-authentication.
 - Applications built directly on the Azure AD application platform that use OAuth 2.0/OpenID Connect authentication after a user or admin has consented to that application.
 
      > [!NOTE]
@@ -43,56 +42,46 @@ There are two ways to create an application with enabled user assignment. One re
 
 ### Enterprise applications (requires the Global Administrator role)
 
-1. Go to the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator**.
-1. On the top bar, select the signed-in account. 
-1. Under **Directory**, select the Azure AD tenant where the app will be registered.
-1. In the navigation on the left, select **Azure Active Directory**. If Azure Active Directory is not available in the navigation pane, follow these steps:
-
-    1. Select **All services** at the top of the main left-hand navigation menu.
-    1. Type in **Azure Active Directory** in the filter search box, and then select the **Azure Active Directory** item from the result.
-
-1. In the **Azure Active Directory** pane, select **Enterprise Applications** from the **Azure Active Directory** left-hand navigation menu.
-1. Select **All Applications** to view a list of all your applications.
-
-     If you do not see the application you want show up here, use the various filters at the top of the **All applications** list to restrict the list or scroll down the list to locate your application.
-
-1. Select the application you want to assign a user or security group to from the list.
-1. On the application's **Overview** page, select **Properties** from the application’s left-hand navigation menu.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a> as a **Global Administrator**.
+1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+1. Search for and select **Azure Active Directory**.
+1. Under **Manage**, select **Enterprise Applications** > **All applications**.
+1. Select the application you want to assign a user or a security group to from the list. 
+    Use the filters at the top of the window to search for a specific application.
+1. On the application's **Overview** page, under **Manage**, select **Properties**.
 1. Locate the setting **User assignment required?** and set it to **Yes**. When this option is set to **Yes**, users in the tenant must first be assigned to this application or they won't be able to sign-in to this application.
-1. Select **Save** to save this configuration change.
+1. Select **Save**.
 
 ### App registration
 
-1. Go to the [**Azure portal**](https://portal.azure.com/).
-1. On the top bar, select the signed-in account. 
-1. Under **Directory**, select the Azure AD tenant where the app will be registered.
-1. In the navigation on the left, select **Azure Active Directory**.
-1. In the **Azure Active Directory** pane, select **App Registrations** from the **Azure Active Directory** left-hand navigation menu.
-1. Create or select the app you want to manage. You need to be **Owner** of this app registration.
-1. On the application's **Overview** page, follow the **Managed application in local directory** link under the essentials in the top of the page. This will take you to the _managed Enterprise Application_ of your app registration.
-1. From the navigation blade on the left, select **Properties**.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
+1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+1. Search for and select **Azure Active Directory**.
+1. Under **Manage**, select **App registrations**.
+1. Create or select the app you want to manage. You need to be the **Owner** of this application.
+1. On the application's **Overview** page, select the **Managed application in local directory** link in the **Essentials** section.
+1. Under **Manage**, select **Properties**.
 1. Locate the setting **User assignment required?** and set it to **Yes**. When this option is set to **Yes**, users in the tenant must first be assigned to this application or they won't be able to sign-in to this application.
-1. Select **Save** to save this configuration change.
+1. Select **Save**.
 
 ## Assign users and groups to the app
 
 Once you've configured your app to enable user assignment, you can go ahead and assign users and groups to the app.
 
-1. Select the **Users and groups** pane in the application’s left-hand navigation menu.
-1. At the top of the **Users and groups** list, select the **Add user** button to open the **Add Assignment** pane.
-1. Select the **Users** selector from the **Add Assignment** pane. 
+1. Under **Manage**, select the **Users and groups** > **Add user/group** .
+1. Select the **Users** selector. 
 
      A list of users and security groups will be shown along with a textbox to search and locate a certain user or group. This screen allows you to select multiple users and groups in one go.
 
-1. Once you are done selecting the users and groups, press the **Select** button on bottom to move to the next part.
+1. Once you are done selecting the users and groups, select **Select**.
 1. (Optional) If you have defined App roles in your application, you can use the **Select role** option to assign the selected users and groups to one of the application's roles. 
-1. Press the **Assign** button on the bottom to finish the assignments of users and groups to the app. 
+1. Select **Assign** to complete the assignments of users and groups to the app. 
 1. Confirm that the users and groups you added are showing up in the updated **Users and groups** list.
 
 ## More information
 
 - [How to: Add app roles in your application](./howto-add-app-roles-in-azure-ad-apps.md)
 - [Add authorization using app roles & roles claims to an ASP.NET Core web app](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
-- [Using Security Groups and Application Roles in your apps (Video)](https://www.youtube.com/watch?v=V8VUPixLSiM)
+- [Using Security Groups and Application Roles in your apps (Video)](https://www.youtube.com/watch?v=LRoc-na27l0)
 - [Azure Active Directory, now with Group Claims and Application Roles](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
 - [Azure Active Directory app manifest](./reference-app-manifest.md)

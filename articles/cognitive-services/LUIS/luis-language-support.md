@@ -27,12 +27,12 @@ LUIS understands utterances in the following languages:
 
 | Language |Locale  |  Prebuilt domain | Prebuilt entity | Phrase list recommendations | **[Text analytics](../text-analytics/language-support.md)<br>(Sentiment and<br>Keywords)|
 |--|--|:--:|:--:|:--:|:--:|
-| English (United States) |`en-US` | ✔ | ✔  |✔|✔|
 | Arabic (preview - modern standard Arabic) |`ar-AR`|-|-|-|-|
 | *[Chinese](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
 | Dutch |`nl-NL` |✔|-|-|✔|
-| French (France) |`fr-FR` |✔| ✔ |✔ |✔|
+| English (United States) |`en-US` | ✔ | ✔  |✔|✔|
 | French (Canada) |`fr-CA` |-|-|-|✔|
+| French (France) |`fr-FR` |✔| ✔ |✔ |✔|
 | German |`de-DE` |✔| ✔ |✔ |✔|
 | Gujarati | `gu-IN`|-|-|-|-|
 | Hindi | `hi-IN`|-|✔|-|-|
@@ -41,8 +41,8 @@ LUIS understands utterances in the following languages:
 | Korean |`ko-KR` |✔|-|-|Key phrase only|
 | Marathi | `mr-IN`|-|-|-|-|
 | Portuguese (Brazil) |`pt-BR` |✔| ✔ |✔ |not all sub-cultures|
+| Spanish (Mexico)|`es-MX` |-|✔|✔|✔|
 | Spanish (Spain) |`es-ES` |✔| ✔ |✔|✔|
-| Spanish (Mexico)|`es-MX` |-|-|✔|✔|
 | Tamil | `ta-IN`|-|-|-|-|
 | Telugu | `te-IN`|-|-|-|-|
 | Turkish | `tr-TR` |✔|✔|-|Sentiment only|

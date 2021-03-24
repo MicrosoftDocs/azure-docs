@@ -1,9 +1,8 @@
 ---
 title: Service Bus queues output from Azure Stream Analytics
 description: This article describes Service Bus queues as output for Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
@@ -65,9 +64,9 @@ The following image is of the expected output message properties inspected in Ev
 
 ## System properties
 
-You can attach query columns as [system properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet&preserve-view=true#properties) to your outgoing service bus Queue or Topic messages.
+You can attach query columns as [system properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#properties) to your outgoing service bus Queue or Topic messages.
 
-These columns don't go into the payload instead the corresponding BrokeredMessage [system property](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet&preserve-view=true#properties) is populated with the query column values.
+These columns don't go into the payload instead the corresponding BrokeredMessage [system property](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#properties) is populated with the query column values.
 These system properties are supported - `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc`.
 
 String values of these columns are parsed as corresponding system property value type and any parsing failures are treated as data errors.

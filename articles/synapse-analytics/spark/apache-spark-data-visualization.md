@@ -221,7 +221,7 @@ You can visit the Azure Synapse Analytics Runtime [documentation](./spark/../apa
 ## Connect to Power BI using Apache Spark & SQL On-Demand
 Azure Synapse Analytics integrates deeply with Power BI allowing data engineers to build analytics solutions.
 
-Azure Synapse Analytics allows the different workspace computational engines to share databases and tables between its Spark pools and serverless SQL pool. Using the [shared metadata model](https://docs.microsoft.com/azure/synapse-analytics/metadata/overview),you can query your Apache Spark tables using SQL on-demand. Once done, you can connect your SQL on-demand endpoint to Power BI to easily query your synced Spark tables.
+Azure Synapse Analytics allows the different workspace computational engines to share databases and tables between its Spark pools and serverless SQL pool. Using the [shared metadata model](../metadata/overview.md),you can query your Apache Spark tables using SQL on-demand. Once done, you can connect your SQL on-demand endpoint to Power BI to easily query your synced Spark tables.
 
 
 ## Next steps

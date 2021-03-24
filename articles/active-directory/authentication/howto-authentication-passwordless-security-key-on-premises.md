@@ -1,26 +1,23 @@
 ---
-title: Passwordless security key sign-in to on-premises resources (preview) - Azure Active Directory
-description: Learn how to enable passwordless security key sign-in to on-premises resources using Azure Active Directory (preview)
+title: Passwordless security key sign-in to on-premises resources - Azure Active Directory
+description: Learn how to enable passwordless security key sign-in to on-premises resources using Azure Active Directory
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 03/09/2020
+ms.date: 02/22/2021
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 
 ms.collection: M365-identity-device-management
 ---
-# Enable passwordless security key sign-in to on-premises resources with Azure Active Directory (preview)
+# Enable passwordless security key sign-in to on-premises resources with Azure Active Directory 
 
 This document focuses on enabling passwordless authentication to on-premises resources for environments with both **Azure AD joined** and **hybrid Azure AD joined** Windows 10 devices. This functionality provides seamless single sign-on (SSO) to on-premises resources using Microsoft-compatible security keys.
-
-> [!NOTE]
-> FIDO2 security keys are a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## SSO to on-premises resources using FIDO2 keys
 
@@ -39,7 +36,7 @@ An Azure AD Kerberos Server object is created in your on-premises Active Directo
 
 ## Requirements
 
-Organizations must complete the steps to [Enable passwordless security key sign to Windows 10 devices (preview)](howto-authentication-passwordless-security-key.md) before completing the steps in this article.
+Organizations must complete the steps to [Enable passwordless security key sign to Windows 10 devices](howto-authentication-passwordless-security-key.md) before completing the steps in this article.
 
 Organizations must also meet the following software requirements.
 
@@ -153,13 +150,13 @@ Sign in with FIDO is blocked if your password has expired. The expectation is fo
 
 ## Troubleshooting and feedback
 
-If you'd like to share feedback or encounter issues while previewing this feature, share via the Windows Feedback Hub app using the following steps:
+If you'd like to share feedback or encounter issues with this feature, share via the Windows Feedback Hub app using the following steps:
 
 1. Launch **Feedback Hub** and make sure you're signed in.
 1. Submit feedback under the following categorization:
    - Category: Security and Privacy
    - Subcategory: FIDO
-1. To capture logs, use the option to **Recreate my Problem**
+1. To capture logs, use the option to **Recreate my Problem**.
 
 ## Frequently asked questions
 

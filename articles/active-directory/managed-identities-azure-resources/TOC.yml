@@ -128,17 +128,21 @@
       href: how-to-view-managed-identity-service-principal-cli.md
     - name: PowerShell
       href: how-to-view-managed-identity-service-principal-powershell.md
+  - name: Assign a managed identity to an app role
+    items:
+    - name: PowerShell
+      href: how-to-assign-app-role-managed-identity-powershell.md
 
 - name: Reference
   items:
   - name: .NET
-    href: /dotnet/api/overview/azure/identity-readme?view=azure-dotnet
+    href: /dotnet/api/overview/azure/identity-readme
   - name: Java
-    href: /java/api/overview/azure/identity-readme?view=azure-java-stable
+    href: /java/api/overview/azure/identity-readme
   - name: JavaScript
-    href: /javascript/api/overview/azure/identity-readme?view=azure-node-latest
+    href: /javascript/api/overview/azure/identity-readme
   - name: Python
-    href: /python/api/overview/azure/identity-readme?view=azure-python
+    href: /python/api/overview/azure/identity-readme
   - name: Go
     href: https://golang.org/doc/
 - name: Resources

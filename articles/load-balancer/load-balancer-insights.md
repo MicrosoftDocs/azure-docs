@@ -35,7 +35,7 @@ For Standard Load Balancers, your backend pool resources are color-coded with He
 
 ## Metrics dashboard
 
-From the Insights blade of your Load Balancer, you can select More Detailed Metrics to view a pre-configured [Azure Monitor Workbook](../azure-monitor/platform/workbooks-overview.md) containing metrics visuals  relevant to specific aspects of your Load Balancer. This dashboard will show the Load Balancer status and links to relevant documentation at the top of the page.
+From the Insights blade of your Load Balancer, you can select More Detailed Metrics to view a pre-configured [Azure Monitor Workbook](../azure-monitor/visualize/workbooks-overview.md) containing metrics visuals  relevant to specific aspects of your Load Balancer. This dashboard will show the Load Balancer status and links to relevant documentation at the top of the page.
 
 At first you'll be presented with the Overview tab. You can navigate through the available tabs each of which contain visuals relevant to a specific aspect of your Load Balancer. Explicit guidance for each is available in the dashboard at the bottom of each tab.
 
@@ -63,7 +63,7 @@ The Data Throughput tab allows you to review your inbound and outbound throughpu
 ### Flow Distribution
 The Flow Distribution Tab will help you visualize and manage the number of flows your backend instances are receiving and producing. It shows the Flow Creation Rate and Flow Count for inbound and outbound traffic as well as the Network Traffic each VM and virtual machine scale set instance is receiving. 
 
-These views can give you feedback on whether your Load Balancer configuration or traffic patterns are leading to imbalanced traffic. For example, if you have session affinity configured and a single client is making a disproportionate number of requests. It will also let you know if you are approaching the [per VM flow limit](../virtual-network/virtual-machine-network-throughput.md#flow-limits-and-recommendations) for your machine size.
+These views can give you feedback on whether your Load Balancer configuration or traffic patterns are leading to imbalanced traffic. For example, if you have session affinity configured and a single client is making a disproportionate number of requests. It will also let you know if you are approaching the [per VM flow limit](../virtual-network/virtual-machine-network-throughput.md#flow-limits-and-active-connections-recommendations) for your machine size.
 
 ### Connection Monitors
 The Connection Monitors tab will show you the round-trip latency on a global map for all of the [Connection Monitors](../network-watcher/connection-monitor.md)  you've configured. These visuals provide useful information for services with strict latency requirements. To meet your requirements you may need to add additional regional deployments or  move to a [cross-regional load balancing](./cross-region-overview.md) model
@@ -75,4 +75,4 @@ The Metric Definitions tab contains all the information shown in the [Multi-dime
 * Review the dashboard and provide feedback using the below link if there is anything that can be improved
 * [Review the metrics documentation to ensure you understand how each metric is calculated](./load-balancer-standard-diagnostics.md#multi-dimensional-metrics)
 * [Create Connection Monitors for your Load Balancer](../network-watcher/connection-monitor.md)
-* [Create your own workbooks](../azure-monitor/platform/workbooks-overview.md), you can take inspiration by clicking on the edit button in your detailed metrics dashboard
+* [Create your own workbooks](../azure-monitor/visualize/workbooks-overview.md), you can take inspiration by clicking on the edit button in your detailed metrics dashboard

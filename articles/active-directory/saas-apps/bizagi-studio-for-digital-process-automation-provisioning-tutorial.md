@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configure Bizagi Studio for Digital Process Automation for automatic user provisioning with Azure Active Directory | Microsoft Docs'
-description: Learn how to automatically provision and de-provision user accounts from Azure AD to Bizagi Studio for Digital Process Automation.
+description: Learn how to automatically provision and deprovision user accounts from Azure AD to Bizagi Studio for Digital Process Automation.
 services: active-directory
 documentationcenter: ''
 author: Zhchia
@@ -20,103 +20,104 @@ ms.author: Zhchia
 
 # Tutorial: Configure Bizagi Studio for Digital Process Automation for automatic user provisioning
 
-This tutorial describes the steps you need to perform in both Bizagi Studio for Digital Process Automation and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Bizagi Studio for Digital Process Automation](https://www.bizagi.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md). 
+This tutorial describes the steps you need to perform in both Bizagi Studio for Digital Process Automation and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured to do so, Azure AD automatically provisions and deprovisions users and groups to [Bizagi Studio for Digital Process Automation](https://www.bizagi.com/) by using the Azure AD provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
-## Capabilities Supported
+## Capabilities supported
 > [!div class="checklist"]
 > * Create users in Bizagi Studio for Digital Process Automation
-> * Remove users in Bizagi Studio for Digital Process Automation when they do not require access anymore
+> * Remove users in Bizagi Studio for Digital Process Automation when they don't require access anymore
 > * Keep user attributes synchronized between Azure AD and Bizagi Studio for Digital Process Automation
-> * [Single sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/bizagi-studio-for-digital-process-automation-tutorial) to Bizagi Studio for Digital Process Automation (recommended)
+> * [Single sign-on](./bizagi-studio-for-digital-process-automation-tutorial.md) to Bizagi Studio for Digital Process Automation (recommended)
 
 ## Prerequisites
 
-The scenario outlined in this tutorial assumes that you already have the following prerequisites:
+The scenario outlined in this tutorial assumes that you already have the following:
 
-* [An Azure AD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
-* A user account in Azure AD with [permission](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
-* Bizagi Studio for Digital Process Automation version 11.2.4.2X or higher.
+* [An Azure AD tenant](../develop/quickstart-create-new-tenant.md). 
+* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning. Examples include application administrator, cloud application administrator, application owner, or global administrator. 
+* Bizagi Studio for Digital Process Automation version 11.2.4.2X or later.
 
-## Step 1. Plan your provisioning deployment
-1. Learn about [how the provisioning service works](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-2. Determine who will be in [scope for provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-3. Determine what data to [map between Azure AD and Bizagi Studio for Digital Process Automation](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
+## Plan your provisioning deployment
+Follow these steps for planning:
 
-## Step 2. Configure Bizagi Studio for Digital Process Automation to support provisioning with Azure AD
+1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
+2. Determine who will be [in scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+3. Determine what data to [map between Azure AD and Bizagi Studio for Digital Process Automation](../app-provisioning/customize-application-attributes.md). 
+
+## Configure to support provisioning with Azure AD
+To configure Bizagi Studio for Digital Process Automation to support provisioning with Azure AD, follow these steps:
+
+1. Sign in to your work portal as a user with **Admin permissions**.
+
+2. Go to **Admin** > **Security** > **OAuth 2 Applications**.
+
+   ![Screenshot of Bizagi, with OAuth 2 Applications highlighted.](media/bizagi-studio-for-digital-process-automation-provisioning-tutorial/admin.png)
+
+3. Select **Add**.
+4. For **Grant Type**, select **Bearer token**. For **Allowed Scope**, select **API** and **USER SYNC**. Then select **Save**.
+
+   ![Screenshot of Register Application, with Grant Type and Allowed Scope highlighted.](media/bizagi-studio-for-digital-process-automation-provisioning-tutorial/token.png)
+
+5. Copy and save the **Client Secret**. In the Azure portal, for your Bizagi Studio for Digital Process Automation application, on the **Provisioning** tab, the client secret value is entered in the **Secret Token** field.
+
+   ![Screenshot of Oauth, with Client Secret highlighed.](media/bizagi-studio-for-digital-process-automation-provisioning-tutorial/secret.png)
+
+## Add the application from the Azure AD gallery
+
+To start managing provisioning to Bizagi Studio for Digital Process Automation, add the app from the Azure AD application gallery. If you have previously set up Bizagi Studio for Digital Process Automation for single sign-on, you can use the same application. When you're initially testing the integration, however, you should create a separate app. For more information, see [Quickstart: Add an application to your Azure Active Directory (Azure AD) tenant](../manage-apps/add-application-portal.md). 
+
+## Define who is in scope for provisioning 
+
+With the Azure AD provisioning service, you can scope who is provisioned based on assignment to the application, based on attributes of the user and group, or both. If you scope based on assignment, see the steps in [Assign or unassign users, and groups, for an app using the Graph API](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you scope based solely on attributes of the user or group, you can use a scoping filter. For more information, see [Attribute-based application provisioning with scoping filters](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
+
+Note the following points about scoping:
+
+* When you're assigning users and groups to Bizagi Studio for Digital Process Automation, you must select a role other than **Default Access**. Users with the default access role are excluded from provisioning, and are marked in the provisioning logs as will be marked as not effectively entitled. If the only role available on the application is the default access role, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add more roles. 
+
+* Start small. Test with a small set of users and groups before rolling out to everyone. When the scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When the scope is set to all users and groups, you can specify an [attribute-based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
 
-1. Login to your work portal as a user with **Admin permissions**.
+## Configure automatic user provisioning 
 
-2. Navigate to **Admin -> Security -> Oauth 2 Applications**.
+This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and groups. You're doing this in your test app, based on user and group assignments in Azure AD.
 
-   ![settings](media/bizagi-studio-for-digital-process-automation-provisioning-tutorial/admin.png)
+### Configure automatic user provisioning for Bizagi Studio for Digital Process Automation in Azure AD
 
-3. Click on the Add button.
-4. Choose **Bearer token** in Grant Type. Choose **API** and **USER SYNC** in Allowed scope and click Save.
+1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications** > **All applications**.
 
-   ![api](media/bizagi-studio-for-digital-process-automation-provisioning-tutorial/token.png)
-
-5. Copy and save the **Client Secret**. This value will be entered in the **Secret Token** field in the Provisioning tab of your Bizagi Studio for Digital Process Automation application in the Azure portal.
-
-   ![token](media/bizagi-studio-for-digital-process-automation-provisioning-tutorial/secret.png)
-
-## Step 3. Add Bizagi Studio for Digital Process Automation from the Azure AD application gallery
-
-Add Bizagi Studio for Digital Process Automation from the Azure AD application gallery to start managing provisioning to Bizagi Studio for Digital Process Automation. If you have previously setup Bizagi Studio for Digital Process Automation for SSO, you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
-
-## Step 4. Define who will be in scope for provisioning 
-
-The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
-
-* When assigning users and groups to Bizagi Studio for Digital Process Automation, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) to add additional roles. 
-
-* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
-
-
-## Step 5. Configure automatic user provisioning to Bizagi Studio for Digital Process Automation 
-
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in TestApp based on user and/or group assignments in Azure AD.
-
-### To configure automatic user provisioning for Bizagi Studio for Digital Process Automation in Azure AD:
-
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
-
-	![Enterprise applications blade](common/enterprise-applications.png)
+	![Screenshot of the Azure portal, with Enterprise applications and All applications highlighted.](common/enterprise-applications.png)
 
 2. In the applications list, select **Bizagi Studio for Digital Process Automation**.
 
-	![The Bizagi Studio for Digital Process Automation link in the Applications list](common/all-applications.png)
-
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of Manage options, with Provisioning highlighted.](common/provisioning.png)
 
-4. Set the **Provisioning Mode** to **Automatic**.
+4. Set **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab automatic](common/provisioning-automatic.png)
+	![Screenshotof Provisioning Mode control, with Automatic highlighted.](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input your Bizagi Studio for Digital Process Automation Tenant URL and Secret Token. 
+5. In the **Admin Credentials** section, enter your tenant URL and secret token for Bizagi Studio for Digital Process Automation. 
 
-      * **Tenant URL:** Enter the Bizagi SCIM endpoint with this structure: 
-         <Your_Bizagi_Project>/scim/v2/
-         Example: `https://my-company.bizagi.com/scim/v2/`
+      * **Tenant URL:** Enter the Bizagi SCIM endpoint, with the following structure:  `<Your_Bizagi_Project>/scim/v2/`.
+         For example: `https://my-company.bizagi.com/scim/v2/`.
 
-      * **Secret token:** This value is retrieved earlier from Step 2.
+      * **Secret token:** This value is retrieved from the step discussed earlier in this article.
 
-      Click **Test Connection** to ensure Azure AD can connect to Bizagi Studio for Digital Process Automation. If the connection fails, ensure your Bizagi Studio for Digital Process Automation account has Admin permissions and try again.
+      To ensure that Azure AD can connect to Bizagi Studio for Digital Process Automation, select **Test Connection**. If the connection fails, ensure that your Bizagi Studio for Digital Process Automation account has administrator permissions, and try again.
 
-   ![Token](common/provisioning-testconnection-tenanturltoken.png)
+   ![Screenshot of Admin Credentials, with Test Connection highlighted.](common/provisioning-testconnection-tenanturltoken.png)
 
-6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
+6. For **Notification Email**, enter the email address of a person or group who should receive the provisioning error notifications. Select the option to **Send an email notification when a failure occurs**.
 
-	![Notification Email](common/provisioning-notification-email.png)
+	![Screenshot of Notification Email options.](common/provisioning-notification-email.png)
 
 7. Select **Save**.
 
-8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Bizagi Studio for Digital Process Automation**.
+8. In the **Mappings** section, select **Synchronize Azure Active Directory Users to Bizagi Studio for Digital Process Automation**.
 
-9. Review the user attributes that are synchronized from Azure AD to Bizagi Studio for Digital Process Automation in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Bizagi Studio for Digital Process Automation for update operations. If you choose to change the [matching target attribute](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), you will need to ensure that the Bizagi Studio for Digital Process Automation API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
+9. In the **Attribute-Mapping** section, review the user attributes that are synchronized from Azure AD to Bizagi Studio for Digital Process Automation. The attributes selected as **Matching** properties are used to match the user accounts in Bizagi Studio for Digital Process Automation for update operations. If you change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you must ensure that the Bizagi Studio for Digital Process Automation API supports filtering users based on that attribute. Select **Save** to commit any changes.
 
    |Attribute|Type|Supported for filtering|
    |---|---|---|
@@ -127,35 +128,44 @@ This section guides you through the steps to configure the Azure AD provisioning
    |name.familyName|String|
    |name.formatted|String|
    |phoneNumbers[type eq "mobile"].value|String|
+
+   Custom extension attributes can be added by navigating to **Show advanced options > Edit attribute list for Bizagi**. The custom extension attributes must be prefixed with **urn:ietf:params:scim:schemas:extension:bizagi:2.0:UserProperties:**. For example, if custom extension attribute is **IdentificationNumber**, the attribute must be added as **urn:ietf:params:scim:schemas:extension:bizagi:2.0:UserProperties:IdentificationNumber**. Select **Save** to commit any changes.
    
-10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+	![Edit attribute list.](media/bizagi-studio-for-digital-process-automation-provisioning-tutorial/edit.png)  
 
-11. To enable the Azure AD provisioning service for Bizagi Studio for Digital Process Automation, change the **Provisioning Status** to **On** in the **Settings** section.
+   More information on how to add custom attributes can be found in [Customize Application Attributes](../app-provisioning/customize-application-attributes.md).
 
-	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
+> [!NOTE]
+> Only basic type properties are supported (for example, String, Integer, Boolean, DateTime, etc). The properties linked to parametric tables or multiple types are not supported yet.
 
-12. Define the users and/or groups that you would like to provision to Bizagi Studio for Digital Process Automation by choosing the desired values in **Scope** in the **Settings** section.
+10. To configure scoping filters, see the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-	![Provisioning Scope](common/provisioning-scope.png)
+11. To enable the Azure AD provisioning service for Bizagi Studio for Digital Process Automation, in the **Settings** section, change the **Provisioning Status** to **On**.
 
-13. When you are ready to provision, click **Save**.
+	![Screenshot of Provisioning Status toggle.](common/provisioning-toggle-on.png)
 
-	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
+12. Define the users and groups that you want to provision to Bizagi Studio for Digital Process Automation. In the **Settings** section, choose the desired values in **Scope**.
+
+	![Screenshot of Scope options.](common/provisioning-scope.png)
+
+13. When you're ready to provision, select **Save**.
+
+	![Screenshot of Save control.](common/provisioning-configuration-save.png)
 
 This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. 
 
-## Step 6. Monitor your deployment
-Once you've configured provisioning, use the following resources to monitor your deployment:
+## Monitor your deployment
+After you've configured provisioning, use the following resources to monitor your deployment:
 
-1. Use the [provisioning logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) to determine which users have been provisioned successfully or unsuccessfully
-2. Check the [progress bar](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) to see the status of the provisioning cycle and how close it is to completion
-3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
+- Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully.
+- Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle, and how close it is to completion.
+- If the provisioning configuration is in an unhealthy state, the application will go into quarantine. For more information, see [Application provisioning in quarantine status](../app-provisioning/application-provisioning-quarantine-status.md).  
 
 ## Additional resources
 
-* [Managing user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 
-* [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
+* [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)

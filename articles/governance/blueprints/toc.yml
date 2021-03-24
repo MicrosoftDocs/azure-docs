@@ -42,6 +42,14 @@
   - name: Azure Security Benchmark
     displayName: standards, azure, benchmark
     href: ./samples/azure-security-benchmark.md
+  - name: Azure Security Benchmark Foundation
+    items:
+    - name: Overview
+      displayName: standards, azure, benchmark, foundation
+      href: ./samples/azure-security-benchmark-foundation/index.md
+    - name: Steps to deploy
+      displayName: standards, azure, benchmark, foundation, deploy
+      href: ./samples/azure-security-benchmark-foundation/deploy.md
   - name: Australian Government ISM PROTECTED
     items:
     - name: Overview
@@ -64,7 +72,10 @@
     - name: Steps to deploy
       displayName: standards, canada, federal, pbmm
       href: ./samples/canada-federal-pbmm/deploy.md
-  - name: CIS Microsoft Azure Foundations Benchmark
+  - name: CIS Microsoft Azure Foundations Benchmark v1.3.0
+    displayName: standards, cis
+    href: ./samples/cis-azure-1-3-0.md
+  - name: CIS Microsoft Azure Foundations Benchmark v1.1.0
     displayName: standards, cis
     href: ./samples/cis-azure-1-1-0.md
   - name: DoD Impact Level 4
@@ -126,16 +137,8 @@
       displayName: standards, irs, 1075
       href: ./samples/irs-1075/deploy.md
   - name: ISO 27001
-    items:
-    - name: Overview
-      displayName: standards, iso, 27001
-      href: ./samples/iso27001/index.md
-    - name: Control mapping
-      displayName: standards, iso, 27001
-      href: ./samples/iso27001/control-mapping.md
-    - name: Steps to deploy
-      displayName: standards, iso, 27001
-      href: ./samples/iso27001/deploy.md
+    displayName: standards, iso, 27001, 2013
+    href: ./samples/iso-27001-2013.md
   - name: ISO 27001 - Shared Services
     items:
     - name: Overview
@@ -169,6 +172,9 @@
     - name: Steps to deploy
       displayName: standards, Media
       href: ./samples/media/deploy.md
+  - name: New Zealand ISM Restricted
+    displayName: standards, NZISM
+    href: ./samples/new-zealand-ism.md
   - name: NIST SP 800-53 R4
     displayName: standards, nist, 800-53, rev 4
     href: ./samples/nist-sp-800-53-r4.md

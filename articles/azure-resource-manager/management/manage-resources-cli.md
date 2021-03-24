@@ -37,14 +37,14 @@ az storage account show --resource-group $resourceGroupName --name $storageAccou
 
 ### Deploy a template
 
-The following script creates deploy a Quickstart template to create a storage account. For more information, see [Quickstart: Create Azure Resource Manager templates by using Visual Studio Code](../templates/quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell).
+The following script creates deploy a Quickstart template to create a storage account. For more information, see [Quickstart: Create ARM templates with Visual Studio Code](../templates/quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell).
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
 echo "Enter the location (i.e. centralus):" &&
 read location &&
-az group deployment create --resource-group $resourceGroupName --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
+az deployment group create --resource-group $resourceGroupName --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
 ```
 
 For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../templates/deploy-cli.md).

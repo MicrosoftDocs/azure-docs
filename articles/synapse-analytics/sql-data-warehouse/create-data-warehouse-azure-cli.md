@@ -2,12 +2,12 @@
 title: 'Quickstart: Create a Synapse SQL pool with Azure CLI'
 description: Quickly create a Synapse SQL pool with a server-level firewall rule using the Azure CLI.
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw 
 ms.date: 11/20/2020
-ms.author: Kevin
+ms.author: gaursa
 ms.custom: azure-synapse
 ---
 # Quickstart: Create a Synapse SQL pool with Azure CLI
@@ -128,4 +128,4 @@ az group delete --ResourceGroupName MyResourceGroup
 
 ## Next steps
 
-You've now created a SQL pool, created a firewall rule, and connected to your SQL pool. To learn more, continue to the [Load data into SQL pool](load-data-from-azure-blob-storage-using-polybase.md) article.
+You've now created a SQL pool, created a firewall rule, and connected to your SQL pool. To learn more, continue to the [Load data into SQL pool](./load-data-from-azure-blob-storage-using-copy.md) article.

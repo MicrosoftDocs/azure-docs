@@ -5,9 +5,9 @@ author: ccompy
 
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
-ms.date: 5/10/2020
+ms.date: 9/22/2020
 ms.author: ccompy
-ms.custom: seodec18, devx-track-azurecli
+ms.custom: seodec18
 ---
 # Use an App Service Environment
 
@@ -191,7 +191,7 @@ If you integrate with Log Analytics, you can see the logs by selecting **Logs** 
 
 **Creating an alert**
 
-To create an alert against your logs, follow the instructions in [Create, view, and manage log alerts using Azure Monitor](../../azure-monitor/platform/alerts-log.md). In brief:
+To create an alert against your logs, follow the instructions in [Create, view, and manage log alerts using Azure Monitor](../../azure-monitor/alerts/alerts-log.md). In brief:
 
 * Open the Alerts page in your ASE portal
 * Select **New alert rule**
@@ -298,4 +298,4 @@ For more specific examples, use: az find "az appservice ase"
 [AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md
-[logalerts]: ../../azure-monitor/platform/alerts-log.md
+[logalerts]: ../../azure-monitor/alerts/alerts-log.md

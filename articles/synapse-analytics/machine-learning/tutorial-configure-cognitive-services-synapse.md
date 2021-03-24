@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Pre-requisites for Cognitive Services in Azure Synapse'
-description: Tutorial for how configure the pre-requisites for using Cognitive Services in Azure Synapse
+title: 'Tutorial: Prerequisites for Cognitive Services in Azure Synapse Analytics'
+description: Learn how to configure the prerequisites for using Cognitive Services in Azure Synapse.
 services: synapse-analytics
 ms.service: synapse-analytics 
 ms.subservice: machine-learning
@@ -12,63 +12,66 @@ author: nelgson
 ms.author: negust
 ---
 
-# Tutorial: Pre-requisites for using Cognitive Services in Azure Synapse
+# Tutorial: Prerequisites for using Cognitive Services in Azure Synapse Analytics
 
-In this tutorial, you will learn how set up the pre-requisites for securely leveraging Cognitive Services in Azure Synapse.
+In this tutorial, you'll learn how set up the prerequisites for securely using Azure Cognitive Services in Azure Synapse Analytics.
 
 This tutorial covers:
 > [!div class="checklist"]
-> - Create a Cognitive Services resources. For example Text Analytics or Anomaly Detector.
-> - Store authentication key to Cognitive Services resources as secrets in Azure Key vault and configure access for Azure Synapse workspace.
-> - Create Azure Key vault linked service in your Azure Synapse Analytics workspace.
+> - Create a Cognitive Services resource like Text Analytics or Anomaly Detector.
+> - Store an authentication key to Cognitive Services resources as secrets in Azure Key Vault, and configure access for an Azure Synapse Analytics workspace.
+> - Create an Azure Key Vault linked service in your Azure Synapse Analytics workspace.
 
 If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
 
 ## Prerequisites
 
-- [Azure Synapse Analytics workspace](../get-started-create-workspace.md) with an ADLS Gen2 storage account configured as the default storage. You need to be the **Storage Blob Data Contributor** of the ADLS Gen2 filesystem that you work with.
+- [Azure Synapse Analytics workspace](../get-started-create-workspace.md) with an Azure Data Lake Storage Gen2 storage account configured as the default storage. You need to be the *Storage Blob Data Contributor* of the Azure Data Lake Storage Gen2 file system that you work with.
 
 ## Sign in to the Azure portal
 
-Sign in to the [Azure portal](https://portal.azure.com/)
+Sign in to the [Azure portal](https://portal.azure.com/).
 
-## Create a Cognitive Services Resource
+## Create a Cognitive Services resource
 
-[Azure Cognitive Services](https://go.microsoft.com/fwlink/?linkid=2147492) include many different types of services. Below are some examples that are used in the Synapse tutorials.
+[Azure Cognitive Services](../../cognitive-services/index.yml) includes many types of services. Text Analytics and Anomaly Detector are two examples in the Azure Synapse tutorials.
 
-### Create an Anomaly Detector resource
-Create an [Anomaly Detector](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) in Azure portal.
+You can create a [Text Analytics](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) resource in the Azure portal:
 
-![Create anomaly detector](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00a.png)
+![Screenshot that shows Text Analytics in the portal, with the Create button.](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00b.png)
 
-### Create a Text Analytics resource
-Create a [Text Analytics](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) resource in Azure portal.
+You can create an [Anomaly Detector](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) resource in the Azure portal:
 
-![Create text Analytics](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00b.png)
+![Screenshot that shows Anomaly Detector in the portal, with the Create button.](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00a.png)
 
-## Create Key Vault and configure secrets and access
+## Create a key vault and configure secrets and access
 
-1. Create a [Key Vault](https://ms.portal.azure.com/#create/Microsoft.KeyVault) in Azure portal.
-2. Go to **Key Vault -> Access policies**, and grant the [Azure Synapse workspace MSI](https://docs.microsoft.com/azure/synapse-analytics/security/synapse-workspace-managed-identity) permissions to read secrets from Azure Key Vault.
+1. Create a [key vault](https://ms.portal.azure.com/#create/Microsoft.KeyVault) in the Azure portal.
+2. Go to **Key Vault** > **Access policies**, and grant the [Azure Synapse workspace MSI](../security/synapse-workspace-managed-identity.md) permissions to read secrets from Azure Key Vault.
 
->Make sure that the policy changes are saved. This step is easy to miss.
+   > [!NOTE]
+   > Make sure that the policy changes are saved. This step is easy to miss.
 
-![Add access policy](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00c.png)
+   ![Screenshot that shows selections for adding an access policy.](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00c.png)
 
-3. Go to your Cognitive Service resource, for example **Anomaly Detector -> Keys and Endpoint**, copy either of the two keys to the clipboard.
+3. Go to your Cognitive Services resource. For example, go to **Anomaly Detector** > **Keys and Endpoint**. Then copy either of the two keys to the clipboard.
 
-4. Go to **Key Vault -> Secret** to create a new secret. Specify the name of the secret, and then paste the key from the previous step into the "Value" field. Finally, click **Create**.
+4. Go to **Key Vault** > **Secret** to create a new secret. Specify the name of the secret, and then paste the key from the previous step into the **Value** field. Finally, select **Create**.
 
-![Create secret](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00d.png)
+   ![Screenshot that shows selections for creating a secret.](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00d.png)
 
-> Make sure you remember or note down this secret name! You will use it later when you connect to Cognitive Services from Azure Synapse Studio.
+   > [!IMPORTANT]
+   > Make sure you remember or note down this secret name. You'll use it later when you connect to Cognitive Services from Azure Synapse Studio.
 
-## Create Azure Keyvault Linked Service in Azure Synapse
+## Create an Azure Key Vault linked service in Azure Synapse
 
-1. Open your workspace in Azure Synapse Studio. Navigate to **Manage -> Linked Services**. Create ab "Azure Key Vault" linked service pointing to the Key Vault we just created. Then, verify the connection by clicking "Test connection" button and checking if it is green. If anything works fine, click "Create" first and then click "Publish all" to save your change.
-![Linked service](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00e.png)
+1. Open your workspace in Azure Synapse Studio. 
+2. Go to **Manage** > **Linked Services**. Create an **Azure Key Vault** linked service by pointing to the key vault that you just created. 
+3. Verify the connection by selecting the **Test connection** button. If the connection is green, select **Create** and then select **Publish all** to save your change.
 
-You are now ready to continue with one of the tutorials for using the Azure Cognitive Services experience in Azure Synapse Studio.
+![Screenshot that shows Azure Key Vault as a new linked service.](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00e.png)
+
+You're now ready to continue with one of the tutorials for using the Azure Cognitive Services experience in Azure Synapse Studio.
 
 ## Next steps
 

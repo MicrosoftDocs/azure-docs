@@ -1,22 +1,11 @@
 ---
-title: "Quickstart: Create custom alerts"
-description: Understand, create and assign custom device alerts for the Azure Defender for IoT security service.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-
-ms.devlang: na
+title: Create custom alerts
+description: Understand, create, and assign custom device alerts for the Azure Defender for IoT security service.
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/04/2020
-ms.author: mlottner
 ---
 
-# Quickstart: Create custom alerts
+# Create custom alerts
 
 Using custom security groups and alerts, takes full advantage of the end-to-end security information and categorical device knowledge to ensure better security across your IoT solution.
 
@@ -61,17 +50,23 @@ Use security groups to group your devices into logical categories. After creatin
 
 ## Customize an alert
 
-1. Open your IoT Hub and select **Settings** from the **Security** menu. 
-1. Click on **Custom alerts**.
+1. Open your IoT Hub and select **Settings** from the **Security** menu.
+
+1. Select on **Custom alerts**.
+
 1. Choose a security group you wish to apply the customization to.
-1. Click **Add a custom alert**.
+
+1. Select **Add a custom alert**.
+
 1. Select a custom alert from the dropdown list.
-1. Edit the required properties, click **OK**.
-1. Make sure to click **SAVE**. Without saving the new alert, the alert is deleted the next time you close IoT Hub.
+
+1. Edit the required properties, select **OK**.
+
+1. Make sure to select **SAVE**. Without saving the new alert, the alert is deleted the next time you close IoT Hub.
 
 ## Alerts available for customization
 
-Defender for IoT offers a large number of alerts which can be customized according to your specific needs. Review the [customizable alert table](concept-customizable-security-alerts.md) for alert severity, data source, description and our suggested remediation steps if and when each alert is received.
+Defender for IoT offers a large number of alerts, which can be customized according to your specific needs. Review the [customizable alert table](concept-customizable-security-alerts.md) for alert severity, data source, description, and our suggested remediation steps if and when each alert is received.
 
 ## Next steps
 

@@ -6,11 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: jmartens
-author: nishankgu
-ms.author: nigup
+author: SimranArora904
+ms.author: siarora
 ms.date: 12/1/2020
 ms.topic: conceptual
-ms.custom: troubleshooting,contperfq4, contperfq2
+ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
 ---
 
 # Manage and increase quotas for resources with Azure Machine Learning
@@ -24,7 +24,7 @@ Azure uses limits and quotas to prevent budget overruns due to fraud, and to hon
 > + Requesting quota increases.
 > + Private endpoint and DNS quotas.
 
-Along with managing quotas, you can learn how to [plan and manage costs for Azure Machine Learning](concept-plan-manage-cost.md).
+Along with managing quotas, you can learn how to [plan and manage costs for Azure Machine Learning](concept-plan-manage-cost.md) or learn about the [service limits in Azure Machine Learning](resource-limits-quotas-capacity.md).
 
 ## Special considerations
 
@@ -48,7 +48,9 @@ In this section, you learn about the default and maximum quota limits for the fo
 + Azure Storage
 
 > [!IMPORTANT]
-> Limits are subject to change. For the latest information, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md) for all of Azure.
+> Limits are subject to change. For the latest information, see  [Service limits in Azure Machine Learning](resource-limits-quotas-capacity.md).
+
+
 
 ### Azure Machine Learning assets
 The following limits on assets apply on a per-workspace basis. 
@@ -62,10 +64,10 @@ The following limits on assets apply on a per-workspace basis.
 
 In addition, the maximum **run time** is 30 days and the maximum number of **metrics logged per run** is 1 million.
 
-#### Azure Machine Learning compute
-[Azure Machine Learning compute](concept-compute-target.md#azure-machine-learning-compute-managed) has a default quota limit on both the number of cores and the number of unique compute resources allowed per region in a subscription. This quota is separate from the VM core quota from the previous section.
+### Azure Machine Learning Compute
+[Azure Machine Learning Compute](concept-compute-target.md#azure-machine-learning-compute-managed) has a default quota limit on both the number of cores (split by each VM Family and cumulative total cores) as well as the number of unique compute resources allowed per region in a subscription. This quota is separate from the VM core quota listed in the previous section as it applies only to the managed compute resources of Azure Machine Learning.
 
-[Request a quota increase](#request-quota-increases) to raise the limits in this section up to the maximum limit shown in the table.
+[Request a quota increase](#request-quota-increases) to raise the limits for various VM family core quotas, total subscription core quotas and resources in this section.
 
 Available resources:
 + **Dedicated cores per region** have a default limit of 24 to 300, depending on your subscription offer type. You can increase the number of dedicated cores per subscription for each VM family. Specialized VM families like NCv2, NCv3, or ND series start with a default of zero cores.
@@ -74,12 +76,19 @@ Available resources:
 
 + **Clusters per region** have a default limit of 200. These are shared between a training cluster and a compute instance. (A compute instance is considered a single-node cluster for quota purposes.)
 
-The following table shows additional limits that you can't exceed.
+> [!TIP]
+> To learn more about which VM family to request a quota increase for, check out [virtual machine sizes in Azure](../virtual-machines/sizes.md). For instance GPU VM families start with an "N" in their family name (eg. NCv3 series)
 
-| **Resource** | **Maximum limit** |
+The following table shows additional limits in the platform. Please reach out to the AzureML product team through a **technical** support ticket to request an exception.
+
+| **Resource or Action** | **Maximum limit** |
 | --- | --- |
 | Workspaces per resource group | 800 |
-| Nodes in a single Azure Machine Learning compute (AmlCompute) resource | 100 nodes |
+| Nodes in a single Azure Machine Learning Compute (AmlCompute) **cluster** setup as a non communication-enabled pool (i.e. cannot run MPI jobs) | 100 nodes but configurable up to 65000 nodes |
+| Nodes in a single Parallel Run Step **run** on an Azure Machine Learning Compute (AmlCompute) cluster | 100 nodes but configurable up to 65000 nodes if your cluster is setup to scale per above |
+| Nodes in a single Azure Machine Learning Compute (AmlCompute) **cluster** setup as a communication-enabled pool | 300 nodes but configurable up to 4000 nodes |
+| Nodes in a single Azure Machine Learning Compute (AmlCompute) **cluster** setup as a communication-enabled pool on an RDMA enabled VM Family | 100 nodes |
+| Nodes in a single MPI **run** on an Azure Machine Learning Compute (AmlCompute) cluster | 100 nodes but can be increased to 300 nodes |
 | GPU MPI processes per node | 1-4 |
 | GPU workers per node | 1-4 |
 | Job lifetime | 21 days<sup>1</sup> |
@@ -175,7 +184,6 @@ Azure Machine Learning creates resources in your (customer) subscription, but so
  In the following scenarios, you might need to request a quota allowance in the Microsoft-owned subscription:
 
 * Azure Private Link enabled workspace with a customer-managed key (CMK)
-* Azure Container Registry for the workspace behind your virtual network
 * Attaching a Private Link enabled Azure Kubernetes Service cluster to your workspace
 
 To request an allowance for these scenarios, use the following steps:
@@ -198,3 +206,4 @@ To request an allowance for these scenarios, use the following steps:
 ## Next steps
 
 + [Plan and manage costs for Azure Machine Learning](concept-plan-manage-cost.md)
++ [Service limits in Azure Machine Learning](resource-limits-quotas-capacity.md)

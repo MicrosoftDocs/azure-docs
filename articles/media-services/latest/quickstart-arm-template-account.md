@@ -1,6 +1,6 @@
 ---
 title: Media Services account ARM template
-titleSuffix: Azure Media Services
+: Azure Media Services
 description: This article shows you how to use an ARM template to create a media services account.
 services: media-services
 documentationcenter: ''
@@ -38,7 +38,7 @@ Readers who are experienced with ARM templates can continue to the [deployment s
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-If you have never deployed an ARM template before, it is helpful to read about [Azure ARM templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/) and go through the [tutorial](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell).
+If you have never deployed an ARM template before, it is helpful to read about [Azure ARM templates](../../azure-resource-manager/templates/index.yml) and go through the [tutorial](../../azure-resource-manager/templates/template-tutorial-create-first-template.md?tabs=azure-powershell).
 
 ## Review the template
 
@@ -115,8 +115,8 @@ The syntax for the JSON code fence is:
 
 Three Azure resource types are defined in the template:
 
-- [Microsoft.Media/mediaservices](https://docs.microsoft.com/azure/templates/microsoft.media/mediaservices): create a Media Services account
-- [Microsoft.Storage/storageAccounts](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts): create a storage account
+- [Microsoft.Media/mediaservices](/azure/templates/microsoft.media/mediaservices): create a Media Services account
+- [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts): create a storage account
 
 ## Set the account
 
@@ -274,4 +274,4 @@ az group delete --name {name of the resource group}
 To learn more about using an ARM template by following the process of creating a template with parameters, variables and more, try
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create and deploy your first ARM template](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [Tutorial: Create and deploy your first ARM template](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)

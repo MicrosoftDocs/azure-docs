@@ -14,8 +14,6 @@
     href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
   - name: Quotas and limits
     href: speech-services-quotas-and-limits.md
-  - name: What's new in docs? 
-    href: whats-new.md
 - name: Speech-to-text
   items:
     - name: Speech-to-text documentation
@@ -37,30 +35,34 @@
           href: how-to-automatic-language-detection.md
         - name: Use the batch transcription API
           href: batch-transcription.md
+        - name: Migrate from v2.0 to v3.0
+          href: migrate-v2-to-v3.md
         - name: Assess pronunciation
           href: how-to-pronunciation-assessment.md
+        - name: Customization
+          items:
+            - name: What is Custom Speech?
+              href: custom-speech-overview.md
+            - name: Test a model using audio files in Speech Studio
+              href: quickstarts/speech-studio-test-model.md
+            - name: Prepare data for Custom Speech
+              href: how-to-custom-speech-test-and-train.md
+            - name: Inspect Custom Speech data
+              href: how-to-custom-speech-inspect-data.md
+            - name: Evaluate and improve Custom Speech accuracy
+              href: how-to-custom-speech-evaluate-data.md
+            - name: Train and deploy a Custom Speech model
+              href: how-to-custom-speech-train-model.md
+            - name: CI/CD for Custom Speech
+              href: how-to-custom-speech-continuous-integration-continuous-deployment.md
+            - name: Create human-labeled transcriptions
+              href: how-to-custom-speech-human-labeled-transcriptions.md
+            - name: Model and Endpoint Lifecycle
+              href: how-to-custom-speech-model-and-endpoint-lifecycle.md
     - name: Tutorials
       items:
         - name: Improve accuracy with tenant models
           href: tutorial-tenant-model.md
-    - name: Customization
-      items:
-        - name: What is Custom Speech?
-          href: custom-speech-overview.md
-        - name: Test a model using audio files in Speech Studio
-          href: quickstarts/speech-studio-test-model.md
-        - name: Prepare data for Custom Speech
-          href: how-to-custom-speech-test-and-train.md
-        - name: Inspect Custom Speech data
-          href: how-to-custom-speech-inspect-data.md
-        - name: Evaluate and improve Custom Speech accuracy
-          href: how-to-custom-speech-evaluate-data.md
-        - name: Train and deploy a Custom Speech model
-          href: how-to-custom-speech-train-model.md
-        - name: CI/CD for Custom Speech
-          href: how-to-custom-speech-continuous-integration-continuous-deployment.md
-        - name: Create human-labeled transcriptions
-          href: how-to-custom-speech-human-labeled-transcriptions.md
     - name: Reference
       items:
         - name: C++
@@ -69,6 +71,9 @@
         - name: 'C#'
           displayName: CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation
           href: /dotnet/api/microsoft.cognitiveservices.speech
+        - name: 'Go'
+          displayName: Go SDK, Go dev kit,reference,reference docs,ref documentation
+          href: https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go          
         - name: Java
           displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
           href: /java/api/com.microsoft.cognitiveservices.speech
@@ -109,37 +114,53 @@
           href: speech-synthesis-markup.md
         - name: Synthesize speech with Long Audio API
           href: long-audio-api.md
-    - name: Customization
-      items:
-        - name: Responsible deployment
+        - name: Get facial pose events for lip-sync
+          href: how-to-speech-synthesis-viseme.md
+        - name: Customization
           items:
-            - name: Gating of Custom Voice
-              href: concepts-gating-overview.md
-            - name: Deployment of synthetic technology
-              href: concepts-guidelines-responsible-deployment-synthetic.md
-            - name: Disclosure for voice talent
-              href: /legal/cognitive-services/speech-service/disclosure-voice-talent
-            - name: Disclosure design guidelines
-              href: concepts-disclosure-guidelines.md
-            - name: Disclosure design patterns
-              href: concepts-disclosure-patterns.md
-            - name: Code of conduct
-              href: /legal/cognitive-services/speech-service/tts-code-of-conduct
-        - name: Custom Voice portal
-          items:
-            - name: Get started with Custom Voice
-              displayName: 'custom voice, neural voice'
-              href: how-to-custom-voice.md
-            - name: Prepare data
-              href: how-to-custom-voice-prepare-data.md
-            - name: Create and use Custom Voice models
-              href: how-to-custom-voice-create-voice.md
-            - name: Record voice samples
-              href: record-custom-voice-samples.md
-        - name: Audio Content Creation
-          items:
+            - name: Custom Voice portal
+              items:
+                - name: What is Custom Neural Voice?
+                  href: custom-neural-voice.md
+                - name: Get started with Custom Voice
+                  displayName: 'custom voice, neural voice'
+                  href: how-to-custom-voice.md
+                - name: Prepare data
+                  href: how-to-custom-voice-prepare-data.md
+                - name: Create and use Custom Voice models
+                  href: how-to-custom-voice-create-voice.md
+                - name: Record voice samples
+                  href: record-custom-voice-samples.md
             - name: Audio Content Creation
-              href: how-to-audio-content-creation.md
+              items:
+                - name: Audio Content Creation
+                  href: how-to-audio-content-creation.md
+    - name: Responsible use of AI
+      items:
+        - name: Custom Neural Voice
+          items:
+            - name: Transparency Note
+              items:
+                - name: Use cases for Custom Neural Voice
+                  href: /legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
+                - name: Characteristics and limitations
+                  href: /legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
+            - name: Integration and responsible use
+              items:
+                - name: Limited access
+                  href: /legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
+                - name: Responsible deployment of synthetic speech
+                  href: concepts-guidelines-responsible-deployment-synthetic.md
+                - name: Disclosure for voice talent
+                  href: /legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context
+                - name: Disclosure design guidelines
+                  href: concepts-disclosure-guidelines.md
+                - name: Disclosure design patterns
+                  href: concepts-disclosure-patterns.md
+                - name: Code of conduct
+                  href: /legal/cognitive-services/speech-service/tts-code-of-conduct?context=/azure/cognitive-services/speech-service/context/context
+            - name: Data, privacy and security
+              href: /legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
     - name: Reference
       items:
         - name: C++
@@ -273,7 +294,7 @@
     - name: Speaker Recognition overview
       href: speaker-recognition-overview.md
     - name: Speaker Recognition quickstart
-      href: get-started-speaker-recognition.md 
+      href: get-started-speaker-recognition.md
     - name: Reference
       items:
         - name: Speaker Recognition REST API
@@ -361,25 +382,13 @@
               href: custom-commands.md
             - name: Quickstarts
               items:
-                - name: Build a Custom Commands app
+                - name: Create a Custom Commands app
                   href: quickstart-custom-commands-application.md
             - name: How-to guides
               items:
-                - name: Develop
-                  items:
-                    - name: Create application with simple commands  
-                      href: how-to-custom-commands-create-application-with-simple-commands.md
-                    - name: Add parameters to commands
-                      href: how-to-custom-commands-add-parameters-to-commands.md
-                    - name: Add configurations to commands parameters
-                      href: how-to-custom-commands-add-parameter-configuration.md
-                    - name: Add interaction rules
-                      href: how-to-custom-commands-add-interaction-rules.md
-                    - name: Add language generation templates for speech responses
-                      href: how-to-custom-commands-add-language-generation-templates.md
-                    - name: Use Custom Voice
-                      href: how-to-custom-commands-use-custom-voice.md
-                - name: Integrate
+                - name: Develop and customize Custom Commands apps
+                  href: how-to-develop-custom-commands-application.md
+                - name: Integrate with client applications
                   items:
                     - name: Integrate with a client app using Speech SDK
                       href: how-to-custom-commands-setup-speech-sdk.md
@@ -393,26 +402,18 @@
                       href: how-to-custom-commands-update-command-from-client.md
                     - name: Update a command from a web endpoint
                       href: how-to-custom-commands-update-command-from-web-endpoint.md
-                - name: Deploy
-                  items:
-                    - name: Continuous Deployment with Azure DevOps
-                      href: how-to-custom-commands-deploy-cicd.md
-                - name: Test
-                  items:
-                  - name: Test your Custom Commands app
-                    href: how-to-custom-commands-developer-flow-test.md
-                - name: Debug
-                  items:
-                  - name: Debug errors when authoring the app
-                    href: how-to-custom-commands-debug-build-time.md
-                  - name: Debug errors when running the app
-                    href: how-to-custom-commands-debug-runtime.md
-                - name: References
-                  items:
-                    - name: Custom Commands concepts
-                      href: custom-commands-references.md
+                - name: Continuous Deployment with Azure DevOps
+                  href: how-to-custom-commands-deploy-cicd.md
+                - name: Test Custom Commands applications
+                  href: how-to-custom-commands-developer-flow-test.md
+                - name: Debug errors when authoring the app
+                  href: how-to-custom-commands-debug-build-time.md
+                - name: Debug errors when running the app
+                  href: how-to-custom-commands-debug-runtime.md
             - name: Resources
               items:
+                - name: Custom Commands concepts
+                  href: custom-commands-references.md
                 - name: Custom Commands Samples (GitHub)
                   href: https://aka.ms/speech/cc-samples
                 - name: Voice Assistants Samples (GitHub)
@@ -485,11 +486,19 @@
     displayName: SPX
     items:
       - name: Speech CLI overview
-        displayName: What is SPX?
+        displayName: What is SPX?, spx, spx overview
         href: spx-overview.md
-      - name: Speech CLI Basics
-        displayName: SPX basics
+      - name: Speech CLI quickstart
+        displayName: spx basics, spx quickstart, spx get started, speech cli get started
         href: spx-basics.md
+      - name: How-to guides
+        items:
+        - name: Speech CLI configuration options
+          displayName: SPX configuration options, speech cli config, speech cli data store, data store, datastore, speech cli datastore
+          href: spx-data-store-configuration.md
+        - name: Speech CLI batch operations
+          displayName: spx batch, spx batch operations, speech batch, speech cli speech to text batch, speech cli tex to speech batch
+          href: spx-batch-operations.md
   - name: Speech Studio
     items:
       - name: Speech Studio overview
@@ -502,6 +511,8 @@
       href: how-to-use-logging.md
     - name: Track memory usage
       href: how-to-track-speech-sdk-memory-usage.md
+    - name: Enable private endpoint
+      href: speech-services-private-link.md
     - name: Configure OpenSSL for Linux
       displayName: memory usage, memory consumption, object logging, object tracking, memory, openssl
       href: how-to-configure-openssl-linux.md
@@ -523,7 +534,8 @@
           href: speech-container-howto-on-premises.md
         - name: Speech containers on Azure container instances
           displayName: 'ACI,azure container instances,container instances,containers'
-          href: deploy-speech-on-container-instances.md
+          maintainContext: true
+          href: ../containers/azure-container-instance-recipe.md
         - name: Containers FAQ
           href: speech-container-faq.md
         - name: Cognitive Services containers documentation

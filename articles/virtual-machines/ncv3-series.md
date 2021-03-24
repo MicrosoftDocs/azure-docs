@@ -1,9 +1,9 @@
 ---
 title: NCv3-series - Azure Virtual Machines
 description: Specifications for the NCv3-series VMs.
-ms.subservice: sizes
 author: vikancha-MSFT
 ms.service: virtual-machines
+ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
@@ -18,6 +18,9 @@ NCv3-series VMs are powered by NVIDIA Tesla V100 GPUs. These GPUs can provide 1.
 [Live Migration](maintenance-and-updates.md): Not Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Not Supported<br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
+Nvidia NVLink Interconnect: Not Supported<br>
 
 > [!IMPORTANT]
 > For this VM series, the vCPU (core) quota in your subscription is initially set to 0 in each region. [Request a vCPU quota increase](../azure-portal/supportability/resource-manager-core-quotas-request.md) for this series in an [available region](https://azure.microsoft.com/regions/services/). These SKUs aren't available to trial or Visual Studio Subscriber Azure subscriptions. Your subscription level might not support selecting or deploying these SKUs. 

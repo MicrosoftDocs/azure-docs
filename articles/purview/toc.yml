@@ -28,7 +28,8 @@ items:
       href: tutorial-import-create-glossary-terms.md
   - name: Register and scan an on-prem SQL server
     href: register-scan-on-premises-sql-server.md
-#- name: Samples
+  - name: Call the REST APIs for the catalog
+    href: tutorial-using-rest-apis.md
 - name: Concepts
   items:
   - name: Use Purview Studio
@@ -36,7 +37,7 @@ items:
   - name: Deployment best practices
     href: deployment-best-practices.md
   - name: Azure Purview limits
-    href: how-to-manage-quotas.md 
+    href: how-to-manage-quotas.md
   - name: How scans detect deleted assets
     href: concept-detect-deleted-assets.md
   - name: Understanding resource sets
@@ -48,13 +49,15 @@ items:
   - name: Catalog permissions
     href: catalog-permissions.md
   - name: Catalog search
-    href: concept-search.md   
+    href: concept-search.md
   - name: Business glossary
     href: concept-business-glossary.md 
   - name: Data insights
     href: concept-insights.md
+  - name: Supported Browsers
+    href: supported-browsers.md
   - name: Frequently asked questions
-    href: frequently-asked-questions.md    
+    href: frequently-asked-questions.md
 - name: How-to guides
   items:
   - name: Register & scan
@@ -67,13 +70,15 @@ items:
     - name: Manage integration runtimes
       href: manage-integration-runtimes.md
     - name: Troubleshoot connection issues
-      href: troubleshoot-connections.md        
+      href: troubleshoot-connections.md
     - name: Sources
       items:
       - name: Manage data sources
         href: manage-data-sources.md
       - name: Purview connectors overview
         href: purview-connector-overview.md
+      - name: Azure Multiple Source
+        href: register-scan-azure-multiple-sources.md
       - name: Azure Blob Storage
         href: register-scan-azure-blob-storage-source.md
         displayName: Register and scan azure blob storage
@@ -92,26 +97,37 @@ items:
       - name: Azure SQL Database
         href: register-scan-azure-sql-database.md
         displayName: Register and scan Azure SQL DB
-      - name: Azure SQL DB with a firewall
-        href: scan-sqlresource-firewall.md
-        displayName: Register and scan Azure SQL DB with a firewall
       - name: Azure SQL Database Managed Instance
         href: register-scan-azure-sql-database-managed-instance.md
         displayName: Register and scan Azure SQL DB Managed Instance
       - name: Azure Synapse Analytics
         href: register-scan-azure-synapse-analytics.md
-      - name: Power BI tenant - Portal
-        href: register-scan-power-bi-tenant.md
-      - name: Power BI tenant - PowerShell
-        href: powershell-register-scan-power-bi.md
       - name: On-premises SQL server
         href: register-scan-on-premises-sql-server.md
+      - name: Oracle
+        href: register-scan-oracle-source.md
+      - name: Power BI tenant - Portal
+        href: register-scan-power-bi-tenant.md
+      - name: SAP ECC 
+        href: register-scan-sapecc-source.md
+      - name: SAP S/4HANA 
+        href: register-scan-saps4hana-source.md
+      - name: Teradata 
+        href: register-scan-teradata-source.md
+      - name: Amazon S3
+        href: register-scan-amazon-s3.md
+      # - name: Power BI tenant - PowerShell
+        # href: powershell-register-scan-power-bi.md
   - name: Business glossary
     items:
     - name: Create, import, & export glossary terms
       href: how-to-create-import-export-glossary.md
     - name: Manage term templates
-      href: how-to-manage-term-templates.md
+      href: how-to-manage-term-templates.md  
+  - name: Bulk edit
+    items:
+    - name: Bulk edit assets to tag annotations and contacts 
+      href: how-to-bulk-edit-assets.md
   - name: Classify
     items: 
     - name: Create custom classification & classification rule
@@ -123,9 +139,9 @@ items:
   - name: Search & browse
     items:
     - name: Browse Data Catalog
-      href: how-to-browse-catalog.md  
+      href: how-to-browse-catalog.md
     - name: Search Data Catalog
-      href: how-to-search-catalog.md  
+      href: how-to-search-catalog.md
   - name: Lineage 
     items:
     - name: Lineage user guide
@@ -134,22 +150,32 @@ items:
       href: how-to-link-azure-data-factory.md
     - name: Azure Data Share lineage
       href: how-to-link-azure-data-share.md
+  - name: Monitor
+    items:
+    - name: Monitor with Azure Monitor
+      href: how-to-monitor-with-azure-monitor.md
   - name: Insights
     items:
     - name: View asset insights
-      href: asset-insights.md       
+      href: asset-insights.md
     - name: View glossary insights
-      href: glossary-insights.md 
+      href: glossary-insights.md
     - name: View scan insights
-      href: scan-insights.md 
+      href: scan-insights.md
     - name: View classification insights
       href: classification-insights.md
     - name: View sensitivity label insights
       href: sensitivity-insights.md
     - name: View file extension insights
       href: file-extension-insights.md
+  - name: Security & Networking
+    items:
+    - name: Manage Private endpoints
+      href: catalog-private-link.md
 - name: Reference
   items:
     - name: Supported classifications
       href: supported-classifications.md
+    - name: ABAP function deployment guide
+      href: abap-functions-deployment-guide.md
 #- name: Resources

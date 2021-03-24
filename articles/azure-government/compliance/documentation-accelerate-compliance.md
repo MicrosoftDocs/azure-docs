@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/27/2020
+ms.date: 01/05/2021
 ms.author: todorb
 
 ---
@@ -70,7 +70,6 @@ For a list of existing Azure Marketplace offerings in this space, visit [this pa
  > [!NOTE]
 >The information provided here will allow partners and customers to sign up and learn about the compliance program. The program is designed to help Azure and Azure Government customers successfully prepare their environments for authorization and request a FedRAMP ATO. This information does not constitute an offer of any kind, and submitting the forms below in no way guarantees participation in the program. At this time, the program details shared with partners and customers are notional and subject to change without notice.
 
- * Are you a customer looking for compliance help on Azure and don't know where to start? Fill out our [form](https://aka.ms/azcl).
  * Free [training on FedRAMP](https://www.fedramp.gov/learning/).
  * FedRAMP [templates](https://www.fedramp.gov/templates/) to help you with program requirements.
  * Get familiar with the [FedRAMP Marketplace](https://marketplace.fedramp.gov/#/products).
@@ -79,4 +78,4 @@ For a list of existing Azure Marketplace offerings in this space, visit [this pa
  * To learn how Azure Blueprints help you when using Azure Policy review the [blog post](https://azure.microsoft.com/blog/new-azure-blueprint-simplifies-compliance-with-nist-sp-800-53/).
  
 ## Next steps
-Review the documentation above. If you are still facing issues reach out to [Azure Compliance Acceleration Program](mailto:azcl@microsoft.com).
+Review the documentation above. If you are still facing issues reach out to [Azure Government Partner Inquiries](mailto:azgovpartinf@microsoft.com).

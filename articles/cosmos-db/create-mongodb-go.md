@@ -17,7 +17,7 @@ ms.date: 04/24/2020
 > * [.NET](create-mongodb-dotnet.md)
 > * [Java](create-mongodb-java.md)
 > * [Node.js](create-mongodb-nodejs.md)
-> * [Python](create-mongodb-flask.md)
+> * [Python](./mongodb-introduction.md)
 > * [Xamarin](create-mongodb-xamarin.md)
 > * [Golang](create-mongodb-go.md)
 >  
@@ -273,7 +273,7 @@ The `--kind MongoDB` parameter enables MongoDB client connections.
 When the Azure Cosmos DB account is created, the Azure CLI shows information similar to the following example. 
 
 > [!NOTE]
-> This example uses JSON as the Azure CLI output format, which is the default. To use another output format, see [Output formats for Azure CLI commands](/cli/azure/format-output-azure-cli).
+> This example uses JSON as the Azure CLI output format, which is the default. To use another output format, see [Output formats for Azure CLI commands](/cli/azure/format-output-azure-cli). 
 
 ```json
 {
@@ -327,7 +327,7 @@ The Azure CLI outputs information similar to the following example.
 ### Export the connection string, MongoDB database and collection names as environment variables. 
 
 ```bash
-export MONGODB_CONNECTION_STRING="mongodb://<COSMOSDB_ACCOUNT_NAME>:<COSMOSDB_PASSWORD>@<COSMOSDB_ACCOUNT_NAME>.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@<COSMOSDB_ACCOUNT_NAME>@"
+export MONGODB_CONNECTION_STRING="mongodb://<COSMOSDB_ACCOUNT_NAME>:<COSMOSDB_PASSWORD>@<COSMOSDB_ACCOUNT_NAME>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@<COSMOSDB_ACCOUNT_NAME>@"
 ```
 
 > [!NOTE] 

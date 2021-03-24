@@ -65,7 +65,7 @@ Live Video Analytics on IoT Edge supports the following types of nodes within a 
 
 #### RTSP source 
 
-An RTSP source node enables you to ingest media from a [RTSP](https://tools.ietf.org/html/rfc2326 server). Surveillance and IP-based cameras transmit their data in a protocol called RTSP (real-time-streaming-protocol) which is different than other types of devices like phones and video cameras. This protocol is used for establishing and controlling the media sessions between a server (the camera) and a client. The RTSP source node in a media graph acts as a client and can establish a session with an RTSP server. Many devices such as most [IP cameras](https://en.wikipedia.org/wiki/IP_camera) have a built-in RTSP server. [ONVIF](https://www.onvif.org/) mandates RTSP to be supported in its definition of [Profiles G, S & T](https://www.onvif.org/wp-content/uploads/2019/12/ONVIF_Profile_Feature_overview_v2-3.pdf) compliant devices. The RTSP source node requires you to specify an RTSP URL, along with credentials to enable an authenticated connection.
+An RTSP source node enables you to ingest media from a [RTSP](https://tools.ietf.org/html/rfc2326) server. Surveillance and IP-based cameras transmit their data in a protocol called RTSP (real-time-streaming-protocol) which is different than other types of devices like phones and video cameras. This protocol is used for establishing and controlling the media sessions between a server (the camera) and a client. The RTSP source node in a media graph acts as a client and can establish a session with an RTSP server. Many devices such as most [IP cameras](https://en.wikipedia.org/wiki/IP_camera) have a built-in RTSP server. [ONVIF](https://www.onvif.org/) mandates RTSP to be supported in its definition of [Profiles G, S & T](https://www.onvif.org/wp-content/uploads/2019/12/ONVIF_Profile_Feature_overview_v2-3.pdf) compliant devices. The RTSP source node requires you to specify an RTSP URL, along with credentials to enable an authenticated connection.
 
 #### IoT Hub message source 
 
@@ -82,6 +82,8 @@ The motion detection processor node enables you to detect motion in live video. 
 #### Frame rate filter processor  
 
 The frame rate filter processor node enables you to sample frames from the incoming video stream at a specified rate. This enables you to reduce the number of frames sent to down-stream components (such as HTTP extension processor node) for further processing.
+>[!WARNING]
+> This processor is **deprecated** in the latest release of Live Video Analytics on IoT Edge module. Frame Rate management is now supported within the graph extension processors itself.
 
 #### HTTP extension processor
 
@@ -103,8 +105,9 @@ An asset sink node enables you to write media (video and/or audio) data to an Az
 
 #### File sink  
 
-The file sink node enables you to write media (video and/or audio) data to a location on the local file system of the IoT Edge device. There can only be one file sink node in a media graph, and it must be downstream of a signal gate processor node. This limits the duration of the output files to values specified in the signal gate processor node properties.
-
+The file sink node enables you to write media (video and/or audio) data to a location on the local file system of the IoT Edge device. There can only be one file sink node in a media graph, and it must be downstream of a signal gate processor node. This limits the duration of the output files to values specified in the signal gate processor node properties. To ensure that that your edge device does not run out of disk space, you can also set the maximum size that the Live Video Analytics on IoT Edge module can use to store data.  
+> [!NOTE]
+If the File Sink gets full, the Live Video Analytics on IoT Edge module will start deleting the oldest data and replace it with the new one.
 #### IoT Hub message sink  
 
 An IoT Hub message sink node enables you to publish events to IoT Edge hub. The IoT Edge hub can then route the data to other modules or apps on the edge device, or to IoT Hub in the cloud (per routes specified in the deployment manifest). The IoT Hub message sink node can accept events from upstream processors such as a motion detection processor node, or from an external inference service via a HTTP extension processor node.

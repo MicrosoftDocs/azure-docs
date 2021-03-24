@@ -7,13 +7,16 @@ manager: jken
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 09/30/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
 # SMS client library overview
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
+
+[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 Azure Communication Services SMS client libraries can be used to add SMS messaging to your applications.
 
@@ -43,4 +46,4 @@ The following documents may be interesting to you:
 
 - Familiarize yourself with general [SMS concepts](../telephony-sms/concepts.md)
 - Get an SMS capable [phone number](../../quickstarts/telephony-sms/get-phone-number.md)
-- [Plan your SMS solution](../telephony-sms/plan-solution.md)
+- [Phone number types in Azure Communication Services](../telephony-sms/plan-solution.md)

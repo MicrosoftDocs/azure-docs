@@ -44,6 +44,23 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
+- id: programming-languages-set-cusvis
+# Owner: pafarley
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-rest-api
+    title: REST API
 - id: programming-languages-set-two
 # Owner: erhopf
   title: Programming languages
@@ -139,7 +156,7 @@ groups:
     title: C++
 - id: programming-languages-text-analytics
   title: Programming languages
-  prompt: Choose a programming language.
+  prompt: Choose one of the client library languages or REST API.
   pivots:
   - id: programming-language-csharp
     title: C#
@@ -149,8 +166,8 @@ groups:
     title: JavaScript
   - id: programming-language-java
     title: Java
-  - id: programming-language-other
-    title: Other languages...
+  - id: rest-api
+    title: REST API
 - id: programming-languages-set-ten
 # Owner: aahill
   title: Programming languages
@@ -164,6 +181,21 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
+- id: programming-languages-set-formre
+# Owner: pafarley
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-rest-api
+    title: REST API
 - id: programming-languages-set-eleven
 # Owner: aahill
   title: Programming languages
@@ -175,6 +207,19 @@ groups:
     title: Java
   - id: programming-language-python
     title: Python
+- id: programming-languages-set-conmod
+# Owner: pafarley
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-rest-api
+    title: REST API
 - id: programming-languages-set-fifteen
 # Owner: aahill
   title: Programming languages
@@ -230,8 +275,10 @@ groups:
     title: Go
   - id: programming-language-java
     title: Java
-  - id: programming-language-javascript
-    title: JavaScript
+  - id: programming-language-nodejs
+    title: Node.js
+  - id: programming-language-browserjs
+    title: JavaScript (browser)
   - id: programming-languages-objectivec-swift
     title: Objective-C/Swift
   - id: programming-language-python
@@ -317,6 +364,42 @@ groups:
     title: Python
   - id: programming-language-typescript
     title: TypeScript
+- id: programming-languages-set-functions-temp
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+- id: programming-languages-set-functions-full
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-powershell
+    title: PowerShell
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-typescript
+    title: TypeScript
+  - id: programming-language-other
+    title: Other
+- id: development-environment-functions
+  title: Development environment
+  prompt: Choose a development environment
+  pivots:
+  - id: development-environment-vscode
+    title: Visual Studio Code
+  - id: development-environment-cli
+    title: Command line
+  - id: development-environment-vs
+    title: Visual Studio
 - id: programming-languages-metrics-monitor
   title: Programming languages
   prompt: Choose a programming language.
@@ -357,6 +440,18 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
+- id: programming-languages-set-luis
+  title: Programming languages
+  prompt: Make a selection
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: rest-api
+    title: REST API
 - id: java-build-tools-set
   title: Build tools
   prompt: Choose a build tool
@@ -435,6 +530,20 @@ groups:
     title: Go
   - id: programming-language-python
     title: Python
+- id: programming-languages-set-face
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-rest-api
+    title: REST API
 - id: programming-languages-set-two-with-js
 # Owner: erhopf
   title: Programming languages
@@ -783,6 +892,40 @@ groups:
     title: Python
   - id: programming-language-swift
     title: Swift
+- id: acs-js-csharp-java-python-swift-android
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-swift
+    title: Swift
+  - id: programming-language-android
+    title: Android
+- id: acs-web-ios-android
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: platform-web
+    title: Web
+  - id: platform-ios
+    title: iOS
+  - id: platform-android
+    title: Android
+- id: acs-web-ios
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: platform-web
+    title: Web
+  - id: platform-ios
+    title: iOS
 - id: acs-js-csharp-ios-android-python
   title: Programming languages
   prompt: Choose a programming language
@@ -831,6 +974,14 @@ groups:
     title: Android
   - id: platform-ios
     title: iOS
+- id: acs-plat-ios-android
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: platform-android
+    title: Android
+  - id: platform-ios
+    title: iOS    
 - id: acs-plat-azp-js
   title: Platform
   prompt: Choose a platform
@@ -845,6 +996,8 @@ groups:
   pivots:
   - id: platform-azp
     title: Azure portal
+  - id: platform-azcli
+    title: Azure CLI
   - id: platform-net
     title: .NET
 - id: acs-plat-azp-arm-net-python-go-powershell
@@ -872,6 +1025,14 @@ groups:
     title: Azure Arc
   - id: azure-portal
     title: Security Center's portal pages
+- id: manage-asc-initiatives
+  title: Manage Security Center initiatives
+  prompt: How will you manage your Security Center initiatives?
+  pivots:
+  - id: azure-portal
+    title: In the Azure portal
+  - id: rest-api
+    title: With the REST APIs
 # Owner: mikeray
 - id: client-operating-system-macos-and-linux-windows-powershell
   title: Operating system / Console
@@ -883,15 +1044,6 @@ groups:
     title: Windows command shell
   - id: client-operating-system-powershell
     title: PowerShell
-# Owner: heidist
-- id: URL-test-interface-rest-apis
-  title: URL Test tool for REST APIs
-  prompt: Choose one of the following
-  pivots:
-  - id: url-test-tool-rest-postman
-    title: Postman
-  - id: url-test-tool-rest-vscode-ext
-    title: Visual Studio Code
 # Owner: erhopf
 - id: ad-quickstart-one
   title: Programming languages
@@ -913,4 +1065,77 @@ groups:
     title: Python
   - id: programming-languages-objectivec-swift
     title: Objective-C/Swift
-  
+# Owner: mimart
+- id: b2c-policy-type
+  title: Azure AD B2C policy type
+  prompt: Choose a policy type
+  pivots:
+  - id: b2c-user-flow
+    title: User flow
+  - id: b2c-custom-policy
+    title: Custom policy    
+# Owner: mbullwin
+- id: anomaly-detector-quickstart
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: rest-api
+    title: REST
+# Owner: diberry
+- id: app-service-webjob
+  title: WebJob types
+  prompt: Choose a type of WebJob
+  pivots:
+  - id: webjob-type-continuous
+    title: Continuous
+  - id: webjob-type-scheduled
+    title: Scheduled
+  - id: webjob-type-manual
+    title: Manual
+# Owner: mbullwin
+- id: qnamaker-quickstart
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: rest
+    title: REST
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-ruby
+    title: Ruby
+- id: azure-maps-android
+# Owner: richbrun
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-java-android
+    title: Java (Android)
+  - id: programming-language-kotlin
+    title: Kotlin (Android)
+- id: immersive-reader-how-to-guides
+# Owner: erhopf
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-javascript
+    title: Node.js 
+  - id: programming-language-python
+    title: Python 
+  - id: programming-language-android
+    title: Android 
+  - id: programming-language-ios 
+    title: iOS

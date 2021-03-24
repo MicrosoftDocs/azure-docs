@@ -3,7 +3,7 @@ title: Header-based authentication with PingAccess for Azure AD Application Prox
 description: Publish applications with PingAccess and App Proxy to support header-based authentication.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -171,19 +171,20 @@ Optional claims allows you to add standard-but-not-included-by-default claims th
 You can configure optional claims for your application by modifying the application manifest. For more info, see the [Understanding the Azure AD application manifest article](../develop/reference-app-manifest.md)
 
 Example to include email address into the access_token that PingAccess will consume:
-```
-    "optionalClaims": {
-        "idToken": [],
-        "accessToken": [
-            {
-                "name": "email",
-                "source": null,
-                "essential": false,
-                "additionalProperties": []
-            }
-        ],
-        "saml2Token": []
-    },
+
+```json
+    "optionalClaims": {
+        "idToken": [],
+        "accessToken": [
+            {
+                "name": "email",
+                "source": null,
+                "essential": false,
+                "additionalProperties": []
+            }
+        ],
+        "saml2Token": []
+    },
 ```
 
 ### Use of claims mapping policy (optional)

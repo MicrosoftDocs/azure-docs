@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/06/2019
+ms.date: 12/28/2020
 ms.author: jeedes
 ---
 
@@ -21,7 +21,6 @@ In this tutorial, you'll learn how to integrate Appinux with Azure Active Direct
 * Enable your users to be automatically signed-in to Appinux with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -36,15 +35,13 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Appinux supports **SP** initiated SSO
 
-
 * Appinux supports **Just In Time** user provisioning
-
 
 ## Adding Appinux from the gallery
 
 To configure the integration of Appinux into Azure AD, you need to add Appinux from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
@@ -52,11 +49,11 @@ To configure the integration of Appinux into Azure AD, you need to add Appinux f
 1. Select **Appinux** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
 
-## Configure and test Azure AD single sign-on for Appinux
+## Configure and test Azure AD SSO for Appinux
 
 Configure and test Azure AD SSO with Appinux using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Appinux.
 
-To configure and test Azure AD SSO with Appinux, complete the following building blocks:
+To configure and test Azure AD SSO with Appinux, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
@@ -69,9 +66,9 @@ To configure and test Azure AD SSO with Appinux, complete the following building
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Appinux** application integration page, find the **Manage** section and select **single sign-on**.
+1. In the Azure portal, on the **Appinux** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -105,6 +102,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| `wanshort` | `http://appinux.com/windowsaccountname2` | `extractmailprefix([userprincipalname])` |
 	| `nameidentifier` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.employeeid` |
 
+    > [!NOTE]
+    > Appinux expects roles for users assigned to the application. Please set up these roles in Azure AD so that users can be assigned the appropriate roles. To understand how to configure roles in Azure AD, see [here](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview).
+
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
@@ -132,15 +132,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **Appinux**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-
-   ![The "Users and groups" link](common/users-groups-blade.png)
-
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-
-	![The Add User link](common/add-assign-user.png)
-
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. If you have setup the roles as explained in the above, you can select it from the **Select a role** dropdown.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure Appinux SSO
@@ -156,16 +150,15 @@ In this section, a user called Britta Simon is created in Appinux. Appinux suppo
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-When you click the Appinux tile in the Access Panel, you should be automatically signed in to the Appinux for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+* Click on **Test this application** in Azure portal. This will redirect to Appinux Sign-on URL where you can initiate the login flow. 
 
-## Additional resources
+* Go to Appinux Sign-on URL directly and initiate the login flow from there.
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
+* You can use Microsoft My Apps. When you click the Appinux tile in the My Apps, this will redirect to Appinux Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
+## Next steps
 
-- [Try Appinux with Azure AD](https://aad.portal.azure.com/)
+Once you configure Appinux you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
