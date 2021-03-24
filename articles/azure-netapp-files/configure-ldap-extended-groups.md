@@ -1,6 +1,6 @@
 ---
-title: Configure LDAP with extended groups for Azure NetApp Files NFS volume access | Microsoft Docs
-description: Describes the considerations and steps for enabling LDAP with extended groups when you create an NFS volume.  
+title: Configure ADDS LDAP with extended groups for Azure NetApp Files NFS volume access | Microsoft Docs
+description: Describes the considerations and steps for enabling LDAP with extended groups when you create an NFS volume by using Azure NetApp Files.  
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
