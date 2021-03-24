@@ -106,13 +106,13 @@ For Office Add-ins that you are submitting to Microsoft AppSource, you have to l
 
 The formatting requirements for this image differ depending on the add-in type. The following table lists the requirements for the icon image, by add-in type.
 
-|**Outlook add-ins**|**Task pane and content add-ins**|
+||Outlook add-ins|Task pane and content add-ins|
 |:-----|:-----|:-----|
-|Accepted formats|.bmp, .gif, .exif, .jpg, .png, and .tiff|.bmp, .gif, .exif, .jpg, .png, and .tiff|
-|Source location|The image specified must be secured with HTTPS.|The image specified does not have to be secured with HTTPS.|
-|Size|For best appearance, make your icon 64 x 64 pixels. There is no specific size limit, but Outlook will resize the icon to 64 x 64 if necessary. This might result in a less-than-optimal icon display. |Must be 32 x 32 pixels.|
-|Display location|Exchange Administration Center|Office client interface. The Insertion dialog, MRU list, or context box.|
-|Localization| [IconUrl element](/office/dev/add-ins/reference/manifest/iconurl) supports culture-specific images in the manifest.| [IconUrl element](/office/dev/add-ins/reference/manifest/iconurl) supports culture-specific images in the manifest.|
+|**Accepted formats**|.bmp, .gif, .exif, .jpg, .png, and .tiff|.bmp, .gif, .exif, .jpg, .png, and .tiff|
+|**Source location**|The image specified must be secured with HTTPS.|The image specified does not have to be secured with HTTPS.|
+|**Size**|For best appearance, make your icon 64 x 64 pixels. There is no specific size limit, but Outlook will resize the icon to 64 x 64 if necessary. This might result in a less-than-optimal icon display. |Must be 32 x 32 pixels.|
+|**Display location**|Exchange Administration Center|Office client interface. The Insertion dialog, MRU list, or context box.|
+|**Localization**| [IconUrl element](/office/dev/add-ins/reference/manifest/iconurl) supports culture-specific images in the manifest.| [IconUrl element](/office/dev/add-ins/reference/manifest/iconurl) supports culture-specific images in the manifest.|
 
 You should also link to a version of your icon that can be used on high DPI screens by including the [HighResolutionIconUrl element](/office/dev/add-ins/reference/manifest/highresolutioniconurl) in the manifest. For Outlook add-ins, this image must be 128 x 128 pixels. For task pane and content add-ins, we recommend the image be at least 64 x 64 pixels. All other formatting requirements are the same as those listed in the previous table for the IconUrl element.
 
