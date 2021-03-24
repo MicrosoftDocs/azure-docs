@@ -14,18 +14,18 @@ ms.author: thvankra
 
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
-The Cassandra API in Azure Cosmos DB is a compatibility layer that provides [wire protocol support](cassandra-support.md) for the open-source Apache Cassandra database. It's powered by [Azure Cosmos DB](./introduction.md).
+The Cassandra API in [Azure Cosmos DB](./introduction.md) is a compatibility layer that provides [wire protocol support](cassandra-support.md) for the open-source Apache Cassandra database.
 
 This article describes common errors and solutions for applications that use the Azure Cosmos DB Cassandra API. If your error isn't listed and you experience an error when you execute a [supported operation in Cassandra](cassandra-support.md), but the error isn't present when using native Apache Cassandra, [create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 >[!NOTE]
->As a fully-managed cloud native service, Azure Cosmos DB provides [guarantees on availability, throughput, and consistency](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/) for the Cassandra API. The Cassandra API also facilitates zero-maintenance platform operations and zero-downtime patching.
+>As a fully managed cloud-native service, Azure Cosmos DB provides [guarantees on availability, throughput, and consistency](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/) for the Cassandra API. The Cassandra API also facilitates zero-maintenance platform operations and zero-downtime patching.
 >
->These guarantees aren't possible in legacy implementations of Apache Cassandra, so many of the Cassandra API backend operations differ from Apache Cassandra. We recommend particular settings and approaches to help avoid common errors.
+>These guarantees aren't possible in previous implementations of Apache Cassandra, so many of the Cassandra API back-end operations differ from Apache Cassandra. We recommend particular settings and approaches to help avoid common errors.
 
 ## NoNodeAvailableException
 
-This error is a top-level wrapper exception with a large number of possible causes and inner exceptions, many of which can be client-related.
+This error is a top-level wrapper exception with a large number of possible causes and inner exceptions, many of which can be client related.
 
 Common causes and solutions:
 
@@ -35,7 +35,7 @@ Common causes and solutions:
 
 ## Can't connect to a host
 
-You might see this error: "Cannot connect to any host, scheduling retry in 600000 milliseconds".
+You might see this error: "Cannot connect to any host, scheduling retry in 600000 milliseconds."
 
 This error might be caused by source network address translation (SNAT) exhaustion on the client side. Follow the steps at [SNAT for outbound connections](../load-balancer/load-balancer-outbound-connections.md) to rule out this issue.
 
@@ -101,7 +101,7 @@ When you run `select count(*) from table` or similar for a large number of rows,
 
 If you're using a local CQLSH client, change the `--connect-timeout` or `--request-timeout` settings. See [cqlsh: the CQL shell](https://cassandra.apache.org/doc/latest/tools/cqlsh.html).
 
-If the count still times out, you can get a count of records from the Azure Cosmos DB backend telemetry by going to the metrics tab in the Azure portal, selecting the metric `document count`, and then adding a filter for the database or collection (the analog of the table in Azure Cosmos DB). You can then hover over the resulting graph for the point in time at which you want a count of the number of records.
+If the count still times out, you can get a count of records from the Azure Cosmos DB back-end telemetry by going to the metrics tab in the Azure portal, selecting the metric `document count`, and then adding a filter for the database or collection (the analog of the table in Azure Cosmos DB). You can then hover over the resulting graph for the point in time at which you want a count of the number of records.
 
 :::image type="content" source="./media/cassandra-troubleshoot/metrics.png" alt-text="metrics view":::
 
@@ -109,7 +109,7 @@ If the count still times out, you can get a count of records from the Azure Cosm
 
 ### Version 3.x
 
-For version 3.x of the Java driver, configure the reconnection policy when you create a Cluster object:
+For version 3.x of the Java driver, configure the reconnection policy when you create a cluster object:
 
 ```java
 import com.datastax.driver.core.policies.ConstantReconnectionPolicy;
@@ -140,7 +140,7 @@ datastax-java-driver {
 
 ### Version 3.x
 
-For version 3.x of the Java driver, set keep-alive when you create a Cluster object, and then ensure that keep-alive is [enabled in the operating system](https://knowledgebase.progress.com/articles/Article/configure-OS-TCP-KEEPALIVE-000080089):
+For version 3.x of the Java driver, set keep-alive when you create a cluster object, and then ensure that keep-alive is [enabled in the operating system](https://knowledgebase.progress.com/articles/Article/configure-OS-TCP-KEEPALIVE-000080089):
 
 ```java
 import java.net.SocketOptions;
