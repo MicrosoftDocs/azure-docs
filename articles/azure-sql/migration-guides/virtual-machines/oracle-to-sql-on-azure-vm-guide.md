@@ -166,7 +166,7 @@ To convert the schema, follow these steps:
    ![Screenshot that shows how to convert the schema.](./media/oracle-to-sql-on-azure-vm-guide/convert-schema.png)
 
 1. After the schema conversion is complete, compare the schemas and review the structure to identify potential problems:
-=======
+
 1. After the schema conversion is complete, review the converted objects and compare them to the original objects to identify potential problems. Use the recommendations to address any problems:
 
    ![Screenshot that shows a comparison of two schemas.](./media/oracle-to-sql-on-azure-vm-guide/table-mapping.png)
