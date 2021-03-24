@@ -68,6 +68,9 @@ Prepare your Blob storage and your SQL Database for the tutorial by performing t
 
 2. Allow Azure services to access SQL Server. Verify that the setting **Allow Azure services and resources to access this server** is enabled for your server that's running SQL Database. This setting lets Data Factory write data to your database instance. To verify and turn on this setting, go to logical SQL server > Security > Firewalls and virtual networks > set the **Allow Azure services and resources to access this server** option to **ON**.
 
+> [!NOTE]
+> This will enable network access to your SQL Server from any Azure resource, not just those in your subscription. More on Azure SQL Server Firewall rules vist: https://docs.microsoft.com/en-us/azure/azure-sql/database/firewall-configure.  You can use Private endpoints to connect to PaaS services without using public IPs: https://docs.microsoft.com/en-us/azure/private-link/private-endpoint-overview
+
 ## Create a data factory
 
 1. On the left menu, select **Create a resource** > **Integration** > **Data Factory**:
