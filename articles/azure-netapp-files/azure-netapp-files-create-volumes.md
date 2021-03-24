@@ -107,7 +107,7 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMB3
 
         Additional configurations are required if you use Kerberos with NFSv4.1. Follow the instructions in [Configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md).
 
-    * If you want to enable Active Directory LDAP users and extended groups (up to 1024 groups) to access the volume, select the **LDAP** option. Follow instructions in [Configure LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md) to complete the required configurations. 
+    * If you want to enable Active Directory LDAP users and extended groups (up to 1024 groups) to access the volume, select the **LDAP** option. Follow instructions in [Configure ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md) to complete the required configurations. 
  
     * Optionally, [configure export policy for the NFS volume](azure-netapp-files-configure-export-policy.md).
 
