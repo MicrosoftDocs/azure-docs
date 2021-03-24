@@ -89,6 +89,9 @@ Take note of the two properties listed below:
 
 ## Set up verifiable credentials Preview
 
+> [!Note]
+> While in Preview a P2 license is required. Please follow the [How to create a free developer account](#) if you do not have one. 
+
 Now we need to take the last step to set up your tenant for verifiable credentials.
 
 1. From the Azure portal, search for **verifiable credentials**. 

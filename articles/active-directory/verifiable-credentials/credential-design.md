@@ -19,7 +19,99 @@ ms.author: barclayn
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+Verifiable Credentials are made up of two components, the rules and display files. Your organization is able to create, customize and submit these files within the Azure Portal in order to issue Verifiable Credentials.  
+
 Verifiable Credentials offer a limited set of options that can be used to reflect your brand. This article provides instructions how to customize your credentials, and best practices for designing credentials that look great once issued to users.
+
+## Create a credential rules file
+
+The rules file is a simple JSON file that describes important properties of verifiable credentials. In particular it describes how claims are used to populate your Verifiable Credentials. The rules file has the following structure.
+
+
+    ```json
+    {
+      "attestations": {
+        "idTokens": [
+          {
+            "mapping": {
+              "firstName": { "claim": "given_name" },
+              "lastName": { "claim": "family_name" }
+            },
+            "configuration": "https://dIdPlayground.b2clogin.com/dIdPlayground.onmicrosoft.com/B2C_1_sisu/v2.0/.well-known/openid-configuration",
+            "client_id": "8d5b446e-22b2-4e01-bb2e-9070f6b20c90",
+            "redirect_uri": "vcclient://openid/",
+             "scope": "openid profile"
+          }
+        ]
+      },
+      "validityInterval": 2592000,
+      "vc": {
+        "type": ["VerifiedCredentialNinja"]
+      }
+    }
+    ```
+
+| Property | Description |
+| -------- | ----------- |
+| `vc.type` | An array of strings indicating the schema(s) that your Verifiable Credential satisfies. See the section below. |
+| `validityInterval` | A time duration, in seconds, representing the lifetime of your Verifiable Credentials. After this time period elapses, the Verifiable Credential will no longer be valid. Omitting this value means that each Verifiable Credential will remain valid until is it explicitly revoked. |
+| `attestations.idTokens` | An array of OpenID Connect identity providers that are supported for sourcing user information. |
+| `...mapping` | An object that describes how claims in each ID token are mapped to attributes in the resulting Verifiable Credential. |
+| `...mapping.{attribute-name}` | The attribute that should be populated in the resulting Verifiable Credential. |
+| `...mapping.{attribute-name}.claim` | The claim in ID tokens whose value should be used to populate the attribute. |
+| `...configuration` | The location of your identity provider's configuration document. This URL must adhere to the [OpenID Connect standard for identity provider metadata](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata). The configuration document must include the `issuer`, `authorization_endpoint`, `token_endpoint`, and `jwks_uri` fields. |
+| `...client_id` | The client ID obtained during the client registration process. |
+| `...scopes` | A space delimited list of scopes the IDP needs to be able to return the correct claims in the ID token. |
+| `...redirect_uri` | Must always use the value `portableidentity://verify`. |
+
+
+To issue verifiable credentials, you need to construct your own rules file. Begin with the example given above, and change the following values.
+
+<div class="step">
+<div class="numberCircle">1</div>
+<div class="singleline-step">
+Modify the `credentialIssuer` value to use your Azure AD tenant ID.
+</div>
+</div>
+
+<div class="step">
+<div class="numberCircle">2</div>
+<div class="singleline-step">
+Modify the `vc.type` value to reflect the type of your credential. See the section below.
+</div>
+</div>
+
+<div class="step">
+<div class="numberCircle">3</div>
+<div class="multiline-step">
+Modify the `mapping` section, so that claims from your identitiy provider are mapped to attributes of your Verifiable Credential.
+</div>
+</div>
+
+<div class="step">
+<div class="numberCircle">4</div>
+<div class="singleline-step">
+Modify the `configuration` and `client_id` values to the values you prepared in the section above.
+</div>
+</div>
+
+
+## Choose credential type(s)
+
+All Verifiable Credentials must declare their "type" in their rules file. The type of a credential distinguishes your Verifiable Credentials from credentials issued by other organizations and ensures interoperability between issuers and verifiers. To indicate a credential type, you must provide one or more credential types that the credential satisfies. Each type is represented by a unique string - often a URI will be used to ensure global uniqueness. The URI does not need to be addressable; it is treated as a string. 
+
+As an example, a diploma credential issued by Contoso University might declare the following types:
+
+| Type | Purpose |
+| ---- | ------- |
+| `https://schema.org/EducationalCredential` | Declares that diplomas issued by Contoso University contain attributes defined by schema.org's `EducationaCredential` object. |
+| `https://schemas.ed.gov/universityDiploma2020` | Declares that diplomas issued by Contoso University contain attributes defined by the United States department of education. |
+| `https://schemas.contoso.edu/diploma2020` | Declares that diplomas issued by Contoso University contain attributes defined by Contoso University. |
+
+By declaring all three types, Contoso University's diplomas can be used to satisfy different requests from verifiers. A bank can request a set of `EducationCredential`s from a user, and the diploma can be used to satisfy the request. But the Contoso University Alumni Association can request a credential of type `https://schemas.contoso.edu/diploma2020`, and the diploma will also satisfy the request.
+
+To ensure interoperability of your credentials, it's recommended that you work closely with related organizations to define credential types, schemas, and URIs for use in your industry. Many industry bodies provide guidance on the structure of official documents that can be repurposed for defining the contents of Verifiable Credentials. You should also work closely with the verifiers of your credentials to understand how they intend to request and consume your Verifiable Credentials.
+
 
 ## Cards in Microsoft Authenticator
 
