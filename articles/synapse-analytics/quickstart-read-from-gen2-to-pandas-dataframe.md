@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Read data from ADLSGen2 to Pandas dataframe in Azure Synapse'
-description: Read data from an Azure Data Lake Storage Gen2 account into a Pandas dataframe using Python in Synapse Studio.
+title: 'Quickstart: Read data from ADLS Gen2 to Pandas dataframe'
+description: Read data from an Azure Data Lake Storage Gen2 account into a Pandas dataframe using Python in Synapse Studio in Azure Synapse Analytics.
 
 services: synapse-analytics
 ms.service: synapse-analytics 
@@ -13,20 +13,20 @@ author: garyericson
 ms.author: garye
 ---
 
-# Quickstart: Read data from ADLS Gen2 storage into a Pandas dataframe
+# Quickstart: Read data from ADLS Gen2 to Pandas dataframe in Azure Synapse Analytics
 
-In this quickstart, you'll learn how to easily use Python to read data from an Azure Data Lake Storage (ADLS) Gen2  into a Pandas dataframe in Azure Synapse.
+In this quickstart, you'll learn how to easily use Python to read data from an Azure Data Lake Storage (ADLS) Gen2 into a Pandas dataframe in Azure Synapse.
 
 From a Synapse Studio notebook, you'll:
 
-- connect to a container in an ADLS Gen2 storage account that is linked to your Azure Synapse workspace
+- connect to a container in Data Lake Storage Gen2 that is linked to your Azure Synapse workspace
 - read the data from a PySpark Notebook using `spark.read.load`
 - convert the data to a Pandas dataframe using `.toPandas()`
 
 ## Prerequisites
 
 - Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
-- Synapse Analytics workspace with an ADLS Gen2 storage account configured as the default storage - You need to be the **Storage Blob Data Contributor** of the ADLS Gen2 filesystem that you work with. For details on how to create a workspace, see [Creating a Synapse workspace](get-started-create-workspace.md).
+- Synapse Analytics workspace with Data Lake Storage Gen2 configured as the default storage - You need to be the **Storage Blob Data Contributor** of the Data Lake Storage Gen2 filesystem that you work with. For details on how to create a workspace, see [Creating a Synapse workspace](get-started-create-workspace.md).
 - Apache Spark pool in your workspace - See [Create a serverless Apache Spark pool](get-started-analyze-spark.md#create-a-serverless-apache-spark-pool).
 
 ## Sign in to the Azure portal
@@ -35,7 +35,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Upload sample data to blob storage
 
-1. In the Azure portal, create a container in the same ADLS Gen2 storage account used by Synapse Studio. You can skip this step if you want to use the default linked storage account in your Azure Synapse workspace.
+1. In the Azure portal, create a container in the same Data Lake Storage Gen2 used by Synapse Studio. You can skip this step if you want to use the default linked storage account in your Azure Synapse workspace.
 
 1. Download the sample file [RetailSales.csv](https://github.com/Azure-Samples/Synapse/blob/main/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData/RetailSales.csv) and upload it to blob storage in the container. For more details on working with blob storage, see [Quickstart - Create a blob with the Azure portal](/azure/storage/blobs/storage-quickstart-blobs-portal).
 
