@@ -2,7 +2,7 @@
 title: Choose VM sizes and images for pools
 description: How to choose from the available VM sizes and OS versions for compute nodes in Azure Batch pools
 ms.topic: conceptual
-ms.date: 03/08/2021
+ms.date: 03/18/2021
 ms.custom: seodec18
 
 ---
@@ -28,7 +28,7 @@ Batch pools in the Virtual Machine configuration support almost all [VM sizes](.
 | A | All sizes *except* Standard_A0, Standard_A8, Standard_A9, Standard_A10, Standard_A11 |
 | Av2 | All sizes |
 | B | Not supported |
-| DC | Not supported |
+| DCsv2 | All sizes |
 | Dv2, DSv2 | All sizes |
 | Dv3, Dsv3 | All sizes |
 | Dav4, Dasv4 | All sizes |
@@ -44,6 +44,7 @@ Batch pools in the Virtual Machine configuration support almost all [VM sizes](.
 | H | All sizes |
 | HB | All sizes |
 | HBv2 | All sizes |
+| HBv3 | Standard_HB120rs_v3 (other sizes not yet available) |
 | HC | All sizes |
 | Ls | All sizes |
 | Lsv2 | All sizes |
