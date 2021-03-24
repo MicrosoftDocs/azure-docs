@@ -20,7 +20,7 @@ There are two types of logs: connectivity log and messaging log.
 
 ### Connectivity logs
 
-Connectivity logs provide detailed information for Azure Web PubSub hub connections. For example, basic information (user ID, connection ID and so on) and event information (connect, disconnect, and abort event, and so on). That's why the connectivity log is helpful to troubleshoot connection-related issues. 
+Connectivity logs provide detailed information for Azure Web PubSub hub connections. For example, basic information (user ID, connection ID, and so on) and event information (connect, disconnect, and abort event, and so on). That's why the connectivity log is helpful to troubleshoot connection-related issues. 
 
 ### Messaging logs
 
@@ -72,7 +72,7 @@ After the Azure Web PubSub service is GA, the live trace tool will also support 
 
 ## Capture diagnostic logs with Azure Monitor
 
-You could also capture and store the diagnostic logs with [Azure Monitor](https://azure.microsoft.com/services/monitor/), [Azure Storage](https://docs.microsoft.com/azure/azure-monitor/essentials/resource-logs#send-to-azure-storage), and [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/essentials/resource-logs#send-to-log-analytics-workspace). Comparing with the live trace tool, this option enables you to store the log data and complete further analysis with raw logs. 
+You could also capture and store the diagnostic logs with [Azure Monitor](https://azure.microsoft.com/services/monitor/), [Azure Storage](https://docs.microsoft.com/azure/azure-monitor/essentials/resource-logs#send-to-azure-storage), and [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/essentials/resource-logs#send-to-log-analytics-workspace). Comparing with the live trace tool, this option enables you to store the log data and complete further analysis with diagnostic logs. 
 
 This option is not available right now, and will be released later.
 
