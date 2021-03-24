@@ -89,7 +89,7 @@ Now that the new certificate has been imported and configured in AD FS, you need
 2. Expand **Service** and then select **Certificates**.
 3. Click the secondary token signing certificate.
 4. In the **Actions** pane, click **Set As Primary**. Click Yes at the confirmation prompt.
-5. Once you promoted the new certificate as the primary certificate, you should remove the old certificate because it can still be used. See the [Remove your old certificates](#remove-your-old-certificates-1) section below.  
+5. Once you promoted the new certificate as the primary certificate, you should remove the old certificate because it can still be used. See the [Remove your old certificates](#remove-your-old-certificates) section below.  
 
 ### To configure the second certificate as a secondary certificate
 Now that you have added the first certificate and made it primary and removed the old one, import the second certificate.  Then you must configure the certificate as the secondary AD FS token signing certificate
