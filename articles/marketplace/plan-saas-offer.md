@@ -12,7 +12,7 @@ ms.date: 08/30/2020
 
 # How to plan a SaaS offer for the commercial marketplace
 
-This article explains the different options and requirements for publishing software as a service (SaaS) offers to the Microsoft commercial marketplace. SaaS offers let you deliver and license software solutions to your customers via online subscriptions. As a SaaS publisher, you manage and pay for the infrastructure required to support your customers' use of your offer. This article will help you prepare your offer for publishing to the commercial marketplace with Partner Center.
+This article explains the different options and requirements for publishing software as a service (SaaS) offers to the Microsoft commercial marketplace. SaaS offers to let you deliver and license software solutions to your customers via online subscriptions. As a SaaS publisher, you manage and pay for the infrastructure required to support your customers' use of your offer. This article will help you prepare your offer for publishing to the commercial marketplace with Partner Center.
 
 ## Listing options
 
@@ -145,7 +145,7 @@ Integration with the Microsoft 365 platform allows your SaaS offer to provide co
 
 For linked products, search on AppSource will show single icon for both SaaS and all linked consumption clients. The customer can navigate between the product detail pages of the SaaS offer and the related consumption clients.  
 
-Microsoft 365 Admin users can review and deploy both the SaaS and linked consumption clients within the same process through an integrated and connected experience within the Microsoft 365 admin center. To learn more, see [Test and deploy Microsoft 365 Apps - Microsoft 365 admin](/microsoft-365/admin/manage/test-and-deploy-microsoft-365-apps?view=o365-worldwide). 
+Microsoft 365 Admin users can review and deploy both the SaaS and linked consumption clients within the same process through an integrated and connected experience within the Microsoft 365 admin center. To learn more, see [Test and deploy Microsoft 365 Apps - Microsoft 365 admin](/microsoft-365/admin/manage/test-and-deploy-microsoft-365-apps?view=o365-worldwide&preserve-view=true). 
 
 Following scenarios are not supported by the unified delivery described above through the Microsoft 365 admin center, however, AppSource discovery as a single solution is supported for all cases: 
 
@@ -156,9 +156,6 @@ Following scenarios are not supported by the unified delivery described above th
 - The SaaS offer is linked to consumption clients, but AAD App ID provided for Microsoft Graph API integration is shared by multiple SaaS offers. 
 
  
-
-
-
 ## Offer listing details
 
 When you [create a new SaaS offer](create-new-saas-offer.md) in Partner Center, you will enter text, images, optional videos, and other details on the **Offer listing** page. This is the information that customers will see when they discover your offer listing in the commercial marketplace, as shown in the following example.
