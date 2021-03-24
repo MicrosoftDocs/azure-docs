@@ -35,7 +35,7 @@ To complete this tutorial's steps, you need to have access to a resource group f
 
 
 ## Basics tab > Workspace details
-1. In the **Basics** tab, under **Workspace details**, fill in the following fields:
+Fill in the following fields:
       1. **Workspace name** - Pick any globally unique name. In this tutorial, we'll use **myworkspace**.
       1. **Region** - Pick any region.
       1. **Select Data Lake Storage Gen 2**
