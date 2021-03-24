@@ -27,7 +27,7 @@ This page lists major changes made to AzAcSnap to provide new functionality or r
 
 AzAcSnap v5.0 Preview (Build:20210318.30771) has been released with the following fixes and improvements:
 
-- Removed the need to add the AZACSNAP user into the SAP HANA Tenant DBs, see the [Enable communication with SAP HANA](azacsnap-installation#enable-communication-with-sap-hana) section.
+- Removed the need to add the AZACSNAP user into the SAP HANA Tenant DBs, see the [Enable communication with SAP HANA](azacsnap-installation.md#enable-communication-with-sap-hana) section.
 - Fix to allow a [restore](azacsnap-cmd-ref-restore.md) with volumes configured with Manual QOS.
 - Added mutex control to throttle SSH connections for Azure Large Instance.
 - Fix installer for handling path names with spaces and other related issues.
