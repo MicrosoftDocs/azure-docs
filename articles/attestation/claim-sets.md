@@ -32,6 +32,16 @@ Below claims can be used by policy authors to define authorization rules in a cu
 - **x-ms-sgx-mrenclave**: hex encoded value of the “mrenclave” field of the quote
 - **x-ms-sgx-svn**: security version number encoded in the quote 
 
+Below claims are considered deprecated but are fully supported and will continue to be included in the future. It is recommended to use the non-deprecated claim names.
+
+Deprecated claim | Recommended claim
+--- | --- 
+$is-debuggable | x-ms-sgx-is-debuggable
+$product-id | x-ms-sgx-product-id
+$sgx-mrsigner | x-ms-sgx-mrsigner
+$sgx-mrenclave | x-ms-sgx-mrenclave
+$svn | x-ms-sgx-svn
+
 ### TPM attestation
 
 Claims issued by Azure Attestation for TPM attestation. The availability of the claims is dependent on the evidence provided for attestation.
@@ -106,11 +116,10 @@ Below claims are considered deprecated but are fully supported and will continue
 Deprecated claim | Recommended claim
 --- | --- 
 $is-debuggable | x-ms-sgx-is-debuggable
+$product-id | x-ms-sgx-product-id
 $sgx-mrsigner | x-ms-sgx-mrsigner
 $sgx-mrenclave | x-ms-sgx-mrenclave
-$product-id | x-ms-sgx-product-id
 $svn | x-ms-sgx-svn
-$tee | x-ms-attestation-type
 maa-ehd | x-ms-sgx-ehd
 aas-ehd | x-ms-sgx-ehd
 maa-attestationcollateral | x-ms-sgx-collateral
