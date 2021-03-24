@@ -1,41 +1,71 @@
 ---
 title: "Quickstart: Create a C# ASP.NET Core app"
-description: Learn how to run web apps in Azure App Service by deploying your first ASP.NET core app.
+description: Learn how to run web apps in Azure App Service by deploying your first ASP.NET app.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
-ms.date: 11/23/2020
+ms.date: 03/24/2021
 ms.custom: "devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1"
-zone_pivot_groups: app-service-platform-windows-linux
+zone_pivot_groups: app-service-ide
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-dotnetcore-uiex
 ---
 
-# Quickstart: Create an ASP.NET Core web app in Azure
+# Quickstart: Create an ASP.NET web app in Azure
 
-::: zone pivot="platform-windows"  
-
-In this quickstart, you'll learn how to create and deploy your first ASP.NET Core web app to [Azure App Service](overview.md). App Service supports .NET 5.0 apps.
-
-When you're finished, you'll have an Azure resource group consisting of an App Service hosting plan and an App Service with a deployed web application.
+In this quickstart, you'll learn how to create and deploy your first ASP.NET web app to [Azure App Service](overview.md). App Service supports .NET Core 3.1, .NET 5.0, and .NET Framework 4.8 apps. When you're finished, you'll have an Azure resource group consisting of an App Service hosting plan and an App Service with a deployed web application.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
-- Install <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> with the **ASP.NET and web development** workload.
+::: zone pivot="development-environment-vs"
 
-  If you've installed Visual Studio 2019 already:
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
+- <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio 2019</a> with the **ASP.NET and web development** workload.
 
-  - Install the latest updates in Visual Studio by selecting **Help** > **Check for Updates**. The latest updates contain the .NET 5.0 SDK.
+  If you've already installed Visual Studio 2019:
+
+  - Install the latest updates in Visual Studio by selecting **Help** > **Check for Updates**.
   - Add the workload by selecting **Tools** > **Get Tools and Features**.
 
+::: zone-end
 
-## Create an ASP.NET Core web app
+::: zone pivot="development-environment-vscode"
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
+- <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio Code</a>.
+- The <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack" target="_blank">Azure Tools</a> extension.
+
+::: zone-end
+
+::: zone pivot="development-environment-cli"
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
+- The <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a>.
+
+::: zone-end
+
+## Create an ASP.NET web app
+
+::: zone pivot="development-environment-vs"
+
+::: zone-end
+
+::: zone pivot="development-environment-vscode"
+
+::: zone-end
+
+::: zone pivot="development-environment-cli"
+
+::: zone-end
+
+## Publish your web app
+
+::: zone pivot="development-environment-vs"
 
 Create an ASP.NET Core web app in Visual Studio by following these steps:
 
-# [.NET Core 3.1](#tab/netcore31)
+## [.NET Core 3.1](#tab/netcore31)
 
 1. Open Visual Studio and select **Create a new project**.
 
@@ -47,13 +77,13 @@ Create an ASP.NET Core web app in Visual Studio by following these steps:
 
 1. You can deploy any type of ASP.NET Core web app to Azure, but for this quickstart, choose the **Web Application** template. Make sure **Authentication** is set to **No Authentication**, and that no other option is selected. Then, select **Create**.
 
-   ![Create a new ASP.NET Core web app](./media/quickstart-dotnetcore/create-aspnet-core-web-app.png) 
-   
+   ![Create a new ASP.NET Core web app](./media/quickstart-dotnetcore/create-aspnet-core-web-app.png)
+
 1. From the Visual Studio menu, select **Debug** > **Start Without Debugging** to run your web app locally.
 
    ![Web app running locally](./media/quickstart-dotnetcore/web-app-running-locally.png)
 
-# [.NET 5.0](#tab/net50)
+## [.NET 5.0](#tab/net50)
 
 1. Open Visual Studio and select **Create a new project**.
 
@@ -67,17 +97,27 @@ Create an ASP.NET Core web app in Visual Studio by following these steps:
 
 1. You can deploy any type of ASP.NET Core web app to Azure, but for this quickstart, choose the **ASP.NET Core Web App** template. Make sure **Authentication** is set to **No Authentication**, and that no other option is selected. Then, select **Create**.
 
-   ![Create a new ASP.NET Core web app](./media/quickstart-dotnetcore/create-aspnet-core-web-app-5.png) 
-   
+   ![Create a new ASP.NET Core web app](./media/quickstart-dotnetcore/create-aspnet-core-web-app-5.png)
+
 1. From the Visual Studio menu, select **Debug** > **Start Without Debugging** to run your web app locally.
 
    ![Web app running locally](./media/quickstart-dotnetcore/web-app-running-locally.png)
 
+## [.NET 5.0](#tab/netframework48)
+
 ---
 
-## Publish your web app
+::: zone-end
 
-To publish your web app, you must first create and configure a new App Service that you can publish your app to. 
+::: zone pivot="development-environment-vscode"
+
+::: zone-end
+
+::: zone pivot="development-environment-cli"
+
+::: zone-end
+
+To publish your web app, you must first create and configure a new App Service that you can publish your app to.
 
 As part of setting up the App Service, you'll create:
 
@@ -86,7 +126,7 @@ As part of setting up the App Service, you'll create:
 
 Follow these steps to create your App Service and publish your web app:
 
-1. In **Solution Explorer**, right-click the **myFirstAzureWebApp** project and select **Publish**. 
+1. In **Solution Explorer**, right-click the **myFirstAzureWebApp** project and select **Publish**.
 
 1. In **Publish**, select **Azure** and click **Next**.
 
@@ -100,18 +140,18 @@ Follow these steps to create your App Service and publish your web app:
 
 1. For **Subscription**, accept the subscription that is listed or select a new one from the drop-down list.
 
-1. For **Resource group**, select **New**. In **New resource group name**, enter *myResourceGroup* and select **OK**. 
+1. For **Resource group**, select **New**. In **New resource group name**, enter *myResourceGroup* and select **OK**.
 
-1. For **Hosting Plan**, select **New**. 
+1. For **Hosting Plan**, select **New**.
 
 1. In the **Hosting Plan: Create new** dialog, enter the values specified in the following table:
 
-   | Setting  | Suggested Value | Description |
-   | -------- | --------------- | ----------- |
-   | **Hosting Plan**  | *myFirstAzureWebAppPlan* | Name of the App Service plan. |
-   | **Location**      | *West Europe* | The datacenter where the web app is hosted. |
-   | **Size**          | *Free* | [Pricing tier](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) determines hosting features. |
-   
+   | Setting          | Suggested Value          | Description                                                           |
+   |------------------|--------------------------|-----------------------------------------------------------------------|
+   | **Hosting Plan** | *myFirstAzureWebAppPlan* | Name of the App Service plan.                                         |
+   | **Location**     | *West Europe*            | The datacenter where the web app is hosted.                           |
+   | **Size**         | *Free*                   | [Pricing tier][app-service-pricing-tier] determines hosting features. |
+
    ![Create new Hosting Plan](./media/quickstart-dotnetcore/create-new-hosting-plan-vs2019.png)
 
 1. In **Name**, enter a unique app name that includes only the valid characters are `a-z`, `A-Z`, `0-9`, and `-`. You can accept the automatically generated unique name. The URL of the web app is `http://<app-name>.azurewebsites.net`, where `<app-name>` is your app name.
@@ -131,6 +171,18 @@ Follow these steps to create your App Service and publish your web app:
 **Congratulations!** Your ASP.NET Core web app is running live in Azure App Service.
 
 ## Update the app and redeploy
+
+::: zone pivot="development-environment-vs"
+
+::: zone-end
+
+::: zone pivot="development-environment-vscode"
+
+::: zone-end
+
+::: zone pivot="development-environment-cli"
+
+::: zone-end
 
 Follow these steps to update and redeploy your web app:
 
@@ -156,6 +208,18 @@ Follow these steps to update and redeploy your web app:
     ![Updated ASP.NET web app running in Azure](./media/quickstart-dotnetcore/updated-web-app-running-live.png)
 
 ## Manage the Azure app
+
+::: zone pivot="development-environment-vs"
+
+::: zone-end
+
+::: zone pivot="development-environment-vscode"
+
+::: zone-end
+
+::: zone pivot="development-environment-cli"
+
+::: zone-end
 
 To manage your web app, go to the [Azure portal](https://portal.azure.com), and search for and select **App Services**.
 
@@ -183,9 +247,21 @@ Advance to the next article to learn how to create a .NET Core app and connect i
 > [!div class="nextstepaction"]
 > [Configure ASP.NET Core app](configure-language-dotnetcore.md)
 
-::: zone-end  
+::: zone-end
+
+
+
+
+
+STARTS LINUX PIVOT
+
+
+
+
+
 
 ::: zone pivot="platform-linux"
+
 [App Service on Linux](overview.md#app-service-on-linux) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to create a [.NET Core](/aspnet/core/) app and deploy to a Linux hosted App Service using the [Azure CLI](/cli/azure/get-started-with-azure-cli).
 
 ![Sample app running in Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
@@ -210,11 +286,30 @@ To complete this quickstart:
 * <a href="https://dotnet.microsoft.com/download/dotnet/5.0" target="_blank">Install the latest .NET 5.0 SDK</a>.
 * <a href="/cli/azure/install-azure-cli" target="_blank">Install the latest Azure CLI</a>.
 
+# [.NET Framework 4.8](#tab/netframework48)
+
+To complete this quickstart:
+
+* <a href="https://dotnet.microsoft.com/download/dotnet-framework/net48" target="_blank">Install the latest .NET Framework 4.8 Developer Pack</a>.
+* <a href="/cli/azure/install-azure-cli" target="_blank">Install the latest Azure CLI</a>.
+
 ---
 
 [Having issues? Let us know.](https://aka.ms/DotNetAppServiceLinuxQuickStart)
 
 ## Create the app locally
+
+::: zone pivot="development-environment-vs"
+
+::: zone-end
+
+::: zone pivot="development-environment-vscode"
+
+::: zone-end
+
+::: zone pivot="development-environment-cli"
+
+::: zone-end
 
 In a terminal window on your machine, create a directory named `hellodotnetcore` and change the current directory to it.
 
@@ -231,7 +326,19 @@ dotnet new web
 
 ## Run the app locally
 
-Run the application locally so that you see how it should look when you deploy it to Azure. 
+::: zone pivot="development-environment-vs"
+
+::: zone-end
+
+::: zone pivot="development-environment-vscode"
+
+::: zone-end
+
+::: zone pivot="development-environment-cli"
+
+::: zone-end
+
+Run the application locally so that you see how it should look when you deploy it to Azure.
 
 ```bash
 dotnet run
@@ -246,6 +353,19 @@ You see the **Hello World** message from the sample app displayed in the page.
 [Having issues? Let us know.](https://aka.ms/DotNetAppServiceLinuxQuickStart)
 
 ## Sign into Azure
+
+::: zone pivot="development-environment-vs"
+
+::: zone-end
+
+::: zone pivot="development-environment-vscode"
+
+::: zone-end
+
+::: zone pivot="development-environment-cli"
+
+::: zone-end
+
 In your terminal window, log into Azure with the following command:
 
 ```azurecli
@@ -253,6 +373,18 @@ az login
 ```
 
 ## Deploy the app
+
+::: zone pivot="development-environment-vs"
+
+::: zone-end
+
+::: zone pivot="development-environment-vscode"
+
+::: zone-end
+
+::: zone pivot="development-environment-cli"
+
+::: zone-end
 
 Deploy the code in your local folder (*hellodotnetcore*) using the `az webapp up` command:
 
@@ -296,6 +428,18 @@ The command may take a few minutes to complete. While running, it provides messa
 
 ## Browse to the app
 
+::: zone pivot="development-environment-vs"
+
+::: zone-end
+
+::: zone pivot="development-environment-vscode"
+
+::: zone-end
+
+::: zone pivot="development-environment-cli"
+
+::: zone-end
+
 Browse to the deployed application using your web browser.
 
 ```bash
@@ -311,6 +455,18 @@ The .NET Core sample code is running in App Service on Linux with a built-in ima
 [Having issues? Let us know.](https://aka.ms/DotNetAppServiceLinuxQuickStart)
 
 ## Update and redeploy the code
+
+::: zone pivot="development-environment-vs"
+
+::: zone-end
+
+::: zone pivot="development-environment-vscode"
+
+::: zone-end
+
+::: zone pivot="development-environment-cli"
+
+::: zone-end
 
 In the local directory, open the _Startup.cs_ file. Make a small change to the text in the method call `context.Response.WriteAsync`:
 
@@ -334,23 +490,47 @@ Once deployment has completed, switch back to the browser window that opened in 
 
 ## Manage your new Azure app
 
+::: zone pivot="development-environment-vs"
+
+::: zone-end
+
+::: zone pivot="development-environment-vscode"
+
+::: zone-end
+
+::: zone pivot="development-environment-cli"
+
+::: zone-end
+
 Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the app you created.
 
 From the left menu, click **App Services**, and then click the name of your Azure app.
 
 :::image type="content" source="./media/quickstart-dotnetcore/portal-app-service-list-up.png" alt-text="Screenshot of the App Services page showing an example Azure app selected.":::
 
-You see your app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete. 
+You see your app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete.
 
 ![App Service page in Azure portal](media/quickstart-dotnetcore/portal-app-overview-up.png)
 
-The left menu provides different pages for configuring your app. 
+The left menu provides different pages for configuring your app.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 [Having issues? Let us know.](https://aka.ms/DotNetAppServiceLinuxQuickStart)
 
 ## Next steps
+
+::: zone pivot="development-environment-vs"
+
+::: zone-end
+
+::: zone pivot="development-environment-vscode"
+
+::: zone-end
+
+::: zone pivot="development-environment-cli"
+
+::: zone-end
 
 > [!div class="nextstepaction"]
 > [Tutorial: ASP.NET Core app with SQL Database](tutorial-dotnetcore-sqldb-app.md)
@@ -359,3 +539,6 @@ The left menu provides different pages for configuring your app.
 > [Configure ASP.NET Core app](configure-language-dotnetcore.md)
 
 ::: zone-end
+
+
+[app-service-pricing-tier]: https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
