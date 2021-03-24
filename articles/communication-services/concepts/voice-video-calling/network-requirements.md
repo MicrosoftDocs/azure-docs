@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 ---
 
 
-# Ensuring high-quality media in Azure Communication Services
+# Ensure high-quality media in Azure Communication Services
 
 This document provides an overview of the factors and best practices that should be considered when building high-quality multimedia communication experiences with Azure Communication Services.
 
@@ -35,25 +35,25 @@ Ensure that your network is configured to support the bandwidth required by conc
 
 Below are the bandwidth requirements for the JavaScript client libraries:
 
-| Bandwidth | Scenarios |
-| :-- | :-- |
-| 40  kbps  | Peer-to-peer audio calling  |
-| 500 kbps  | Peer-to-peer audio calling and screen sharing |
-| 500 kbps  | Peer-to-peer quality video calling 360p at 30fps        |
-|1.2 Mbps   |	Peer-to-peer HD quality video calling with resolution of HD 720p at 30fps |
-|500 kbps   | Group video calling 360p at 30fps   |
-|1.2 Mbps   | HD Group video calling with resolution of HD 720p at 30fps  | 
+|Bandwidth|Scenarios|
+|:--|:--|
+|40  kbps|Peer-to-peer audio calling|
+|500 kbps|Peer-to-peer audio calling and screen sharing|
+|500 kbps|Peer-to-peer quality video calling 360p at 30fps|
+|1.2 Mbps|Peer-to-peer HD quality video calling with resolution of HD 720p at 30fps|
+|500 kbps|Group video calling 360p at 30fps|
+|1.2 Mbps|HD Group video calling with resolution of HD 720p at 30fps| 
 
 Below are the bandwidth requirements for the native Android and iOS client libraries:
-| Bandwidth | Scenarios |
-| :--       | :--       |
-| 30 kbps	  | Peer-to-peer audio calling  |
-| 130 kbps  |	Peer-to-peer audio calling and screen sharing |
-| 500 kbps  |	Peer-to-peer quality video calling 360p at 30fps  |
-| 1.2 Mbps  |	Peer-to-peer HD quality video calling with resolution of HD 720p at 30fps |
-| 1.5 Mbps  |	Peer-to-peer HD quality video calling with resolution of HD 1080p at 30fps  |
-| 500kbps/1Mbps |	Group video calling |
-| 1Mbps/2Mbps |	HD Group video calling (540p videos on 1080p screen)|
+|Bandwidth|Scenarios|
+|:--|:--|
+|30 kbps|Peer-to-peer audio calling |
+|130 kbps|Peer-to-peer audio calling and screen sharing|
+|500 kbps|Peer-to-peer quality video calling 360p at 30fps|
+|1.2 Mbps|Peer-to-peer HD quality video calling with resolution of HD 720p at 30fps|
+|1.5 Mbps|Peer-to-peer HD quality video calling with resolution of HD 1080p at 30fps |
+|500kbps/1Mbps|Group video calling|
+|1Mbps/2Mbps|HD Group video calling (540p videos on 1080p screen)|
 
 ### Firewall(s) configuration
 
@@ -85,7 +85,15 @@ Validate NAT pool size | Validate the network address translation (NAT) pool siz
 
 
 
-### Operating system and Browsers (for Javascript client libraries)
+### Operating system and Browsers (for JavaScript client libraries)
 
 Azure Communication Services voice/video client libraries support certain operating systems and browsers.
 Learn about the operating systems and browsers that the calling client libraries support in the [calling conceptual documentation](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features).
+
+# Next steps
+
+The following documents may be interesting to you:
+
+- Learn more about [calling lubruaries](../concepts/voice-video-calling/calling-sdk-features.md)
+- Learn about [Client-server architecture](./client-and-server-architecture.md)
+- Learn about [Call flow topologies](./detailed-call-flows.md)
