@@ -10,7 +10,7 @@ ms.date: 02/07/2021
 
 # Assessment Overview (migrate to Azure SQL)
 
-This article provides an overview of assessments for migrating on-premises SQL Server instances from a VMware environment to Azure SQL databases or Managed Instances using the [Azure Migrate: Discovery and assessment tool](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-server-assessment-tool).
+This article provides an overview of assessments for migrating on-premises SQL Server instances from a VMware environment to Azure SQL databases or Managed Instances using the [Azure Migrate: Discovery and assessment tool](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-discovery-and-assessment-tool).
 
 ## What's an assessment?
 An assessment with the Discovery and assessment tool is a point in time snapshot of data and measures the readiness and estimates the effect of migrating on-premises servers to Azure.
