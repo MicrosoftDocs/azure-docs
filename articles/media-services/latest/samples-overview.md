@@ -46,11 +46,11 @@ You'll find description and links to the samples you may be looking for in each 
 ## [Node.JS](#tab/node/)
 |Folder|Description|
 |---|---|
-|[HelloWorld-ListAssets/index.ts](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/HelloWorld-ListAssets) |How to connect and list assets |
-|[Live/index.ts](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/Live)| How to do basic live streaming. **WARNING**, make sure to check that all resources are cleaned up and no longer billing in portal when using live.|
-|[StreamFilesSample/index.ts](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/StreamFilesSample)| How to upload a local file or encoding from a source URL, how to use storage SDK to download content, and how to stream to a player. |
-|[StreamFilesWithDRMSample/index.ts](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/StreamFilesWithDRMSample)| How to encode and stream using Widevine and PlayReady DRM |
-|VideoIndexerSample/index.ts| How to use the Video and Audio Analyzer presets to generate metadata and insights from a video or audio file. |
+|[HelloWorld-ListAssets](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/HelloWorld-ListAssets) |How to connect and list assets |
+|[Live](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/Live)| How to do basic live streaming. **WARNING**, make sure to check that all resources are cleaned up and no longer billing in portal when using live.|
+|[StreamFilesSample](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/StreamFilesSample)| How to upload a local file or encoding from a source URL, how to use storage SDK to download content, and how to stream to a player. |
+|[StreamFilesWithDRMSample](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/StreamFilesWithDRMSample)| How to encode and stream using Widevine and PlayReady DRM |
+|[VideoIndexerSample](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/VideoIndexerSample)| How to use the Video and Audio Analyzer presets to generate metadata and insights from a video or audio file. |
 
 ## [Python](#tab/python)
 
