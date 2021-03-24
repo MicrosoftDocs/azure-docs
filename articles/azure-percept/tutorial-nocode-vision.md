@@ -102,7 +102,7 @@ Before training your model, add labels to your images.
 
 1. On the left-hand side of the **Custom Vision** page, click **Untagged** under **Tags** to view the images you just collected in the previous step. Select one or more of your untagged images.
 
-1. In the **Image Detail** window, click on the image to begin tagging. If you selected object detection as your project type, you must also draw a [bounding box](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector#upload-and-tag-images) around specific objects you would like to tag. Adjust the bounding box as needed. Type your object tag and click **+** to apply the tag. For example, if you were creating a vision solution that would notify you when a store shelf needs restocking, add the tag "Empty Shelf" to images of empty shelves, and add the tag "Full Shelf" to images of fully-stocked shelves. Repeat for all untagged images.
+1. In the **Image Detail** window, click on the image to begin tagging. If you selected object detection as your project type, you must also draw a [bounding box](../cognitive-services/custom-vision-service/get-started-build-detector.md#upload-and-tag-images) around specific objects you would like to tag. Adjust the bounding box as needed. Type your object tag and click **+** to apply the tag. For example, if you were creating a vision solution that would notify you when a store shelf needs restocking, add the tag "Empty Shelf" to images of empty shelves, and add the tag "Full Shelf" to images of fully-stocked shelves. Repeat for all untagged images.
 
     :::image type="content" source="./media/tutorial-nocode-vision/image-tagging.png" alt-text="Image tagging screen in Custom Vision.":::
 
@@ -112,7 +112,7 @@ Before training your model, add labels to your images.
 
     :::image type="content" source="./media/tutorial-nocode-vision/train-model.png" alt-text="Training image selection with train button highlighted.":::
 
-1. When the training has completed, your screen will show your model performance. For more information about evaluating these results, please see the [model evaluation documentation](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector#evaluate-the-detector). After training, you may also wish to [test your model](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/test-your-model) on additional images and retrain as necessary. Each time you train your model, it will be saved as a new iteration. Reference the [Custom Vision documentation](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier) for additional information on how to improve model performance.
+1. When the training has completed, your screen will show your model performance. For more information about evaluating these results, please see the [model evaluation documentation](../cognitive-services/custom-vision-service/get-started-build-detector.md#evaluate-the-detector). After training, you may also wish to [test your model](../cognitive-services/custom-vision-service/test-your-model.md) on additional images and retrain as necessary. Each time you train your model, it will be saved as a new iteration. Reference the [Custom Vision documentation](../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md) for additional information on how to improve model performance.
 
     :::image type="content" source="./media/tutorial-nocode-vision/iteration.png" alt-text="Model training results.":::
 
@@ -139,7 +139,7 @@ After closing this window, you may go back and edit your vision project anytime 
 
 ## Improve your model by setting up retraining
 
-After you have trained your model and deployed it to the device, you can improve model performance by setting up retraining parameters to capture more training data. This feature is used to improve a trained model's performance by giving you the ability to capture images based on a probability range. For example, you can set your device to only capture training images when the probability is low. Here is some [additional guidance](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier) on adding more images and balancing training data.
+After you have trained your model and deployed it to the device, you can improve model performance by setting up retraining parameters to capture more training data. This feature is used to improve a trained model's performance by giving you the ability to capture images based on a probability range. For example, you can set your device to only capture training images when the probability is low. Here is some [additional guidance](../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md) on adding more images and balancing training data.
 
 1. To set up retraining, go back to your **Project**, then to **Project Summary**
 1. In the **Image capture** tab, select **Automatic image capture** and **Set up retraining**.

@@ -140,7 +140,7 @@ We use subscription key and authoring key interchangably. For more details on au
 
 - The value of QNA_MAKER_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Go to the QnA Maker resource in the Azure portal and click on **Keys and Endpoint** to locate authoring (subscription) key and QnA Maker Endpoint.
 
- ![QnA Maker Runtime Endpoint](../media/keys-endpoint.png)
+ ![QnA Maker Authoring Endpoint](../media/keys-endpoint.png)
 
 - The value of QNA_MAKER_RUNTIME_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.azurewebsites.net`.  
       
@@ -157,7 +157,7 @@ We use subscription key and authoring key interchangably. For more details on au
 
 - The value of QNA_MAKER_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Go to the QnA Maker resource in the Azure portal and click on **Keys and Endpoint** to locate authoring(subscription) key and QnA Maker Endpoint.
 
- ![QnA Maker Runtime Endpoint](../media/keys-endpoint.png)
+ ![QnA Maker Authoring Endpoint](../media/keys-endpoint.png)
 
 - For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../key-vault/general/overview.md) provides secure key storage.
 
