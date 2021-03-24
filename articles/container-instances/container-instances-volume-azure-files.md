@@ -2,7 +2,7 @@
 title: Mount Azure Files volume to container group
 description: Learn how to mount an Azure Files volume to persist state with Azure Container Instances
 ms.topic: article
-ms.date: 07/02/2020
+ms.date: 03/24/2021
 ms.custom: mvc, devx-track-azurecli
 ---
 
@@ -10,10 +10,14 @@ ms.custom: mvc, devx-track-azurecli
 
 By default, Azure Container Instances are stateless. If the container is restarted, crashes, or stops, all of its state is lost. To persist state beyond the lifetime of the container, you must mount a volume from an external store. As shown in this article, Azure Container Instances can mount an Azure file share created with [Azure Files](../storage/files/storage-files-introduction.md). Azure Files offers fully managed file shares hosted in Azure Storage that are accessible via the industry standard Server Message Block (SMB) protocol. Using an Azure file share with Azure Container Instances provides file-sharing features similar to using an Azure file share with Azure virtual machines.
 
+## Limitations
+
+* You can only mount Azure Files shares to Linux containers. Review more platform differences in the [overview](container-instances-overview.md#linux-and-windows-containers#linux-and-windows-containers).
+* File share storage requires the Linux container to run as *root*.
+* Azure Files currently only supports CIFS volume mounts.
+
 > [!NOTE]
-> Mounting an Azure Files share is currently restricted to Linux containers. Find current platform differences in the [overview](container-instances-overview.md#linux-and-windows-containers).
->
-> Mounting an Azure Files share to a container instance is similar to a Docker [bind mount](https://docs.docker.com/storage/bind-mounts/). Be aware that if you mount a share into a container directory in which files or directories exist, these files or directories are obscured by the mount and are not accessible while the container runs.
+> Mounting an Azure Files share to a container instance is similar to a Docker [bind mount](https://docs.docker.com/storage/bind-mounts/). If you mount a share into a container directory in which files or directories exist, the mount obscures files or directories, making them inaccessible while the container runs.
 >
 
 > [!IMPORTANT]
