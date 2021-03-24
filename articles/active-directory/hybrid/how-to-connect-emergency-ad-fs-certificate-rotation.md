@@ -61,19 +61,13 @@ The AutoCertificateRollover property describes whether AD FS is configured to re
 ## Generating new self-signed certificate if AutoCertificateRollover is set to TRUE
 In this section, you will be creating **two** token-signing certificates.  The first will use the **-urgent** flag, which will replace the current primary certificate immediately.  The second will be used for the secondary certificate.  You can use the following steps to generate a new self-signed token signing and token decryption certificates.
 
-1. Ensure that you are logged on to the primary AD FS server.
-2. Open Windows PowerShell as an administrator. 
-3. Check to make sure that your AutoCertificateRollover is set to True.
+ 1. Ensure that you are logged on to the primary AD FS server.
+ 2. Open Windows PowerShell as an administrator. 
+ 3. Check to make sure that your AutoCertificateRollover is set to True.
 `PS C:\>Get-AdfsProperties | FL AutoCert*, Certificate*`
- If it is not, you can set it with this command:
-`PS C:\>Set-ADFSProperties -AutoCertificateRollover $true`
-4. To generate a new token signing certificate: `Update-ADFSCertificate –CertificateType token-signing -Urgent`.
-5. Verify the update by running the following command again: `Get-ADFSCertificate –CertificateType token-signing`
-6. To generate a new token signing certificate: `Update-ADFSCertificate –CertificateType token-signing`.
-
->[!IMPORTANT]
->You need to allow enough time for your federation partners to consume your new certificate (either they pull your federation metadata or you send them the public key of your new certificate) prior to promoting it to the primary certificate.
-
+ 4. To generate a new token signing certificate: `Update-ADFSCertificate –CertificateType token-signing -Urgent`.
+ 5. Verify the update by running the following command again: `Get-ADFSCertificate –CertificateType token-signing`
+ 6. To generate a new token signing certificate: `Update-ADFSCertificate –CertificateType token-signing`.
 
 
 ## Generating new certificates manually if AutoCertificateRollover is set to FALSE
@@ -95,13 +89,7 @@ Now that the new certificate has been imported and configured in AD FS, you need
 2. Expand **Service** and then select **Certificates**.
 3. Click the secondary token signing certificate.
 4. In the **Actions** pane, click **Set As Primary**. Click Yes at the confirmation prompt.
-
-### Remove your old certificates
-Once you use `Update-ADFSCertificate –CertificateType <type> -Urgent` the new certificate will become the primary certificate.  However, we still want to remove the old certificate because it can still be used.  To do this, follow the steps below:
-
-1. Ensure that you are logged on to the primary AD FS server.
-2. Open Windows PowerShell as an administrator. 
-4. To remove the old token signing certificate: `Remove-ADFSCertificate –CertificateType token-signing -thumbprint <thumbprint>`.
+5. Once you promoted the new certificate as the primary certificate, you should remove the old certificate because it can still be used. See the [Remove your old certificates](#remove-your-old-certificates-1) section below.  
 
 ### To configure the second certificate as a secondary certificate
 Now that you have added the first certificate and made it primary and removed the old one, import the second certificate.  Then you must configure the certificate as the secondary AD FS token signing certificate
@@ -127,10 +115,15 @@ To update the certificate information in Azure AD, run the following command: `U
 > If you see an error when running this command, run the following command: Update-MsolFederatedDomain –SupportMultipleDomain, and then enter the domain name when prompted.
 
 ## Replace SSL certificates
-For information on updating and replaceing the SSL certificates, see [Replacing the SSL certificate for AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap#replacing-the-ssl-certificate-for-ad-fs)
+In the event that you need to replace your token-signing certificate because of a compromise, you should also revoke and replace the SSL certificates for AD FS and your WAP servers.  
+
+Revoking your SSL certificates must be done at the certificate authority (CA) that issued the certificate.  These certificates are often issued by 3rd party providers such as GoDaddy.  For an example, see (Revoke a certificate | SSL Certificates - GoDaddy Help US).  For more information see [How Certificate Revocation Works](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee619754(v=ws.10)?redirectedfrom=MSDN).
+
+Once the old SSL certificate has been revoked and a new one issued, you can replaceing the SSL certificates. For more information see [Replacing the SSL certificate for AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap#replacing-the-ssl-certificate-for-ad-fs).
+
 
 ## Remove your old certificates
-Once you use `Update-ADFSCertificate –CertificateType <type> -Urgent` the new certificate will become the primary certificate.  However, we still want to remove the old certificate because it can still be used.  To do this, follow the steps below:
+Once you have replaced your old certificates, you should remove the old certificate because it can still be used. . To do this, follow the steps below:.  To do this, follow the steps below:
 
 1. Ensure that you are logged on to the primary AD FS server.
 2. Open Windows PowerShell as an administrator. 
