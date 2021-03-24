@@ -477,18 +477,22 @@ Your logic app is now ready to receive messages from your SAP system.
 If you receive a **500 Bad Gateway** error with a message similar to **service 'sapgw00' unknown**, replace your gateway service name in your API connection and trigger configuration with its port number. In the following example error, `sapgw00` needs to be replaced with a real port number, for example, `3300`. 
 
 ```json
-"body": {
-   "error": {
-      "code": 500,
-      "source": "EXAMPLE-FLOW-NAME.eastus.environments.microsoftazurelogicapps.net",
-      "clientRequestId": "00000000-0000-0000-0000-000000000000",
-      "message": "BadGateway",
-      "innerError": {
-         "error": {
-            "code": "UnhandledException",
-            "message": "\nERROR service 'sapgw00' unknown\nTIME Wed Nov 11 19:37:50 2020\nRELEASE 721\nCOMPONENT NI (network interface)\nVERSION 40\nRC -3\nMODULE ninti.c\nLINE 933\nDETAIL NiPGetServByName: 'sapgw00' not found\nSYSTEM CALL getaddrinfo\nCOUNTER 1\n\nRETURN CODE: 20"
-         }
-      }
+{
+	"body": {
+		"error": {
+			"code": 500,
+			"source": "EXAMPLE-FLOW-NAME.eastus.environments.microsoftazurelogicapps.net",
+			"clientRequestId": "00000000-0000-0000-0000-000000000000",
+			"message": "BadGateway",
+			"innerError": {
+				"error": {
+					"code": "UnhandledException",
+					"message": "\nERROR service 'sapgw00' unknown\nTIME Wed Nov 11 19:37:50 2020\nRELEASE 721\nCOMPONENT NI (network interface)\nVERSION 40\nRC -3\nMODULE ninti.c\nLINE 933\nDETAIL NiPGetServByName: 'sapgw00' not found\nSYSTEM CALL getaddrinfo\nCOUNTER 1\n\nRETURN CODE: 20"
+				}
+			}
+		}
+	}
+}
 ```
 
 #### Parameters
