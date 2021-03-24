@@ -35,7 +35,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Upload sample data to blob storage
 
-1. In the Azure portal, create a container in the same ADLS Gen2 storage account used by Synapse Studio.
+1. In the Azure portal, create a container in the same ADLS Gen2 storage account used by Synapse Studio. You can skip this step if you want to use the default linked storage account in your Azure Synapse workspace.
 
 1. Download the sample file [RetailSales.csv](https://github.com/Azure-Samples/Synapse/blob/main/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData/RetailSales.csv) and upload it to blob storage in the container. For more details on working with blob storage, see [Quickstart - Create a blob with the Azure portal](/azure/storage/blobs/storage-quickstart-blobs-portal).
 
