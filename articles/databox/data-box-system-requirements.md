@@ -35,7 +35,7 @@ The software requirements include supported operating systems, file transfer pro
 
 > [!IMPORTANT] 
 > * Connection to Data Box shares is not supported via REST for export orders.
->* For NFS shares, copying data into Data Box from an Advanced Interactive Executive (AIX) host using the IBM Database 2 (DB2) Export tool is not supported.
+> * For NFS shares, copying data into Data Box from an Advanced Interactive Executive (AIX) host using the IBM Database 2 (DB2) Export tool is not supported.
 
 ### Supported storage accounts
 
