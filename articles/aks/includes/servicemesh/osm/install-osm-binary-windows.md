@@ -3,7 +3,7 @@ author: phillipgibson
 
 ms.topic: include
 ms.date: 03/15/2021
-ms.author: phillipgibson
+ms.author: pgibson
 ---
 
 ## Download and install the OSM client binary
@@ -15,7 +15,7 @@ In a PowerShell-based shell on Windows, use `Invoke-WebRequest` to download the 
 $OSM_VERSION="v0.8.0"
 
 [Net.ServicePointManager]::SecurityProtocol = "tls12"
-$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -URI "https://github.com/openservicemesh/osm/releases/download/$OSM_VERSION/oms-$OSM_VERSION-windows-amd64.zip" -OutFile "osm-$OSM_VERSION.zip"
+$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -URI "https://github.com/openservicemesh/osm/releases/download/$OSM_VERSION/osm-$OSM_VERSION-windows-amd64.zip" -OutFile "osm-$OSM_VERSION.zip"
 Expand-Archive -Path "osm-$OSM_VERSION.zip" -DestinationPath .
 ```
 
