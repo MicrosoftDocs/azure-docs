@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 03/23/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
@@ -131,6 +131,10 @@ private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container
 }
 ```
 
+# [Python v12](#tab/python)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/python/python-v12/list_blobs.py" id="Snippet_ListBlobs":::
+
 ---
 
 The sample output is similar to:
@@ -217,6 +221,10 @@ private static async Task ListBlobsHierarchicalListingAsync(CloudBlobContainer c
     }
 }
 ```
+
+# [Python v12](#tab/python)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/python/python-v12/list_blobs.py" id="Snippet_WalkHierarchy":::
 
 ---
 
