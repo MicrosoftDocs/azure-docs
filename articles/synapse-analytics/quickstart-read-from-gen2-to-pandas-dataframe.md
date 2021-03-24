@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Read data from Gen2 storage into a Pandas dataframe'  
+title: 'Quickstart: Read data from ADLSGen2 to Pandas dataframe in Azure Synapse'
 description: Read data from an Azure Data Lake Storage Gen2 account into a Pandas dataframe using Python in Synapse Studio.
 
 services: synapse-analytics
@@ -15,12 +15,12 @@ ms.author: garye
 
 # Quickstart: Read data from ADLS Gen2 storage into a Pandas dataframe
 
-In this quickstart, you'll learn how to use Python to read data from an Azure Data Lake Storage (ADLS) Gen2 data source into a Pandas dataframe.
+In this quickstart, you'll learn how to easily use Python to read data from an Azure Data Lake Storage (ADLS) Gen2  into a Pandas dataframe in Azure Synapse.
 
 From a Synapse Studio notebook, you'll:
 
-- connect to a container in an ADLS Gen2 storage account
-- read the data in Python using `spark.read.load`
+- connect to a container in an ADLS Gen2 storage account that is linked to your Azure Synapse workspace
+- read the data from a PySpark Notebook using `spark.read.load`
 - convert the data to a Pandas dataframe using `.toPandas()`
 
 ## Prerequisites
@@ -35,7 +35,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Upload sample data to blob storage
 
-1. In the Azure portal, create a container in the same ADLS Gen2 storage account used by Synapse Studio.
+1. In the Azure portal, create a container in the same ADLS Gen2 storage account used by Synapse Studio. You can skip this step if you want to use the default linked storage account in your Azure Synapse workspace.
 
 1. Download the sample file [RetailSales.csv](https://github.com/Azure-Samples/Synapse/blob/main/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData/RetailSales.csv) and upload it to blob storage in the container. For more details on working with blob storage, see [Quickstart - Create a blob with the Azure portal](/azure/storage/blobs/storage-quickstart-blobs-portal).
 
@@ -45,7 +45,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. In the left pane, click **Data** and select the **Linked** tab.
 
-1. Click **+** and select "Connect to external data".
+1. If you want to attach a new storage account, click **+** and select "Connect to external data". You don't need to perform this step if you just want to use the default data lake storage account in your workspace.
 
 1. In the **Connect to external data** pane, select "Azure Data Lake Storage Gen2" and click **Continue**.
 
