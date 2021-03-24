@@ -28,9 +28,9 @@ Open your terminal or command window create a new directory for your app, and na
 mkdir calling-quickstart && cd calling-quickstart
 ```
 ### Install the package
-Use the `npm install` command to install the Azure Communication Services Calling client library for JavaScript.
+Use the `npm install` command to install the Azure Communication Services Calling SDK for JavaScript.
 
-This quickstart used Azure Communication Calling Client Library `1.0.0.beta-6`. 
+This quickstart used Azure Communication Calling SDK `1.0.0.beta-6`. 
 
 ```console
 npm install @azure/communication-common --save
@@ -119,11 +119,11 @@ let rendererRemote;
 ```
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services Calling client library:
+The following classes and interfaces handle some of the major features of the Azure Communication Services Calling SDK:
 
 | Name      | Description | 
 | :---        |    :----   |
-| CallClient  | The CallClient is the main entry point to the Calling client library.      |
+| CallClient  | The CallClient is the main entry point to the Calling SDK.      |
 | CallAgent  | The CallAgent is used to start and manage calls.        |
 | DeviceManager | The DeviceManager is used to manage media devices.    |
 | AzureCommunicationTokenCredential | The AzureCommunicationTokenCredential class implements the CommunicationTokenCredential interface which is used to instantiate the CallAgent.        |
@@ -330,6 +330,8 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 ## Next steps
 For more information, see the following articles:
-- Check out our [web calling sample](../../samples/web-calling-sample.md)
-- Learn about [calling client library capabilities](./calling-client-samples.md?pivots=platform-web)
-- Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md)
+
+- Check out our [web calling sample](https://docs.microsoft.com/azure/communication-services/samples/web-calling-sample)
+- Learn about [Calling SDK capabilities](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/calling-client-samples?pivots=platform-web)
+- Learn more about [how calling works](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/about-call-types)
+
