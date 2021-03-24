@@ -71,7 +71,7 @@ Browsers: Chrome
 Under investigation.
 
 ### If the video signal was stopped while the call is in connecting state, the video will not be send after the call started 
-Mobile browsers are sensitive to any changes made while being in the “connecting state”. At this time we encourage developers build their apps in a way to prevent end user to make any changes. Otherwise you experience maybe degraded in following scenarios: 
+Mobile browsers are sensitive to any changes made while being in the “connecting state”. We encourage developers build their apps in a way that doesn't require video to be configured while connecting. This issue may cause degraded video performance in the following scenarios: 
  1. If you start with audio and then start and stop video while the call is in `Connecting` state
  2. If you start with audio and then start and stop video while the call is in the lobby
 
@@ -79,5 +79,5 @@ Mobile browsers are sensitive to any changes made while being in the “connecti
 #### Possible causes
 Under investigation
 
-####  Sometimes it takes a long time to render remote participant videos
+###  Sometimes it takes a long time to render remote participant videos
 This issue has been observed when, during an ongoing group call, User A sends video and then User B joins the call. Sometimes User B doesn't see video from User A, or User A's video begins rendering after a long delay. This could be caused by a network environment that requires further configuration. Refer to the (network requirements)[./concepts/voice-video-calling/network-requirements] documentation for network configuration guidance.
