@@ -55,9 +55,32 @@
         href: ./scripts/powershell-get-all-app-proxy-apps-basic.md
       - name: List extended info about App Proxy apps
         href: ./scripts/powershell-get-all-app-proxy-apps-extended.md
-
-
-
+      - name: List App Proxy apps by connector group
+        href: ./scripts/powershell-get-all-app-proxy-apps-by-connector-group.md
+      - name:
+        href: 
+      - name:
+        href: 
+      - name:
+        href: 
+      - name:
+        href: 
+      - name:
+        href: 
+      - name:
+        href: 
+      - name:
+        href: 
+      - name:
+        href: 
+      - name:
+        href: 
+      - name:
+        href: 
+      - name:
+        href: 
+      - name:
+        href: 
 
   - name: Concepts
     expanded: true
