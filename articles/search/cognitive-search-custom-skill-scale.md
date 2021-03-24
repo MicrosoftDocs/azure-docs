@@ -22,7 +22,7 @@ Custom skills are web APIs that implement a specific interface. A custom skill c
 
 + Review the [custom skill interface](cognitive-search-custom-skill-interface.md) for an introduction into the input/output interface that a custom skill should implement.
 
-+ Set up your environment. You could start with [this tutorial end-to-end](/python/tutorial-vs-code-serverless-python-01) to set up serverless Azure Function using Visual Studio Code and Python extensions.
++ Set up your environment. You could start with [this tutorial end-to-end](/azure/azure-functions/create-first-function-vs-code-python) to set up serverless Azure Function using Visual Studio Code and Python extensions.
 
 ## Skillset configuration
 
