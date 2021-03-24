@@ -133,6 +133,8 @@
           href: how-to-enable-system-assigned-managed-identity.md
         - name: Create roles and permissions
           href: how-to-permissions.md
+        - name: Enable end-to-end Transport Layer Security
+          href: how-to-enable-end-to-end-tls.md
     - name: Automate
       items:
         - name: CI/CD with Azure DevOps
