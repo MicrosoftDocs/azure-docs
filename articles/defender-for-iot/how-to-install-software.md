@@ -1,12 +1,8 @@
 ---
 title: Defender for IoT installation
 description: Learn how to install a sensor and the on-premises management console for Azure Defender for IoT.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/2/2020
 ms.topic: how-to
-ms.service: azure
 ---
 
 # Defender for IoT installation
@@ -343,7 +339,7 @@ To install:
    | **appliance hostname:** | - |
    | **DNS:** | - |
    | **default gateway IP address:** | - |
-   | **input interfaces:** |  The system generates the list of input interfaces for you. To mirror the input interfaces, copy all the items presented in the list with a comma separator.You do not have to configure the bridge interface. This option is used for special use cases only. |
+   | **input interfaces:** |  The system generates the list of input interfaces for you. To mirror the input interfaces, copy all the items presented in the list with a comma separator. You do not have to configure the bridge interface. This option is used for special use cases only. |
 
 1. After about 10 minutes, the two sets of credentials appear. One is for a **CyberX** user, and one is for a **Support** user.  
 
@@ -692,9 +688,9 @@ To install:
 
 1. Sign-in credentials are automatically generated and presented. Copy the username and password in a safe place, because they're required for sign-in and administration.
 
-    - **Support**: The administrative user for user management.
+      - **Support**: The administrative user for user management.
 
-    - **CyberX**: The equivalent of root for accessing the appliance.
+      - **CyberX**: The equivalent of root for accessing the appliance.
 
 1. The appliance restarts.
 
@@ -846,9 +842,10 @@ To install the software:
 
 1. Sign-in credentials are automatically generated and presented. Keep these credentials in a safe place, because they're required for sign-in and administration.
 
-  - **Support**: The administrative user for user management.
-
-  - **CyberX**: The equivalent of root for accessing the appliance.
+    | Username | Description |
+    |--|--|
+    | Support | The administrative user for user management. |
+    | CyberX | The equivalent of root for accessing the appliance. |
 
 1. The appliance restarts.
 

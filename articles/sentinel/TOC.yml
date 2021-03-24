@@ -21,7 +21,7 @@
     href: tutorial-monitor-your-data.md
   - name: Investigate incidents
     href: tutorial-investigate-cases.md
-  - name: Respond to threats
+  - name: Use automation to respond to threats
     href: tutorial-respond-threats-playbook.md
   - name: Create KQL queries (Learn module)
     href: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
@@ -37,6 +37,14 @@
       href: resource-context-rbac.md
   - name: Advanced multistage attack detection
     href: fusion.md
+  - name: Automation (SOAR)
+    items:
+    - name: SOAR in Azure Sentinel
+      href: automation-in-azure-sentinel.md
+    - name: Automation rules for incident handling
+      href: automate-incident-handling-with-automation-rules.md
+    - name: Advanced automation with playbooks
+      href: automate-responses-with-playbooks.md
   - name: Identify advanced threats with UEBA
     href: identify-threats-with-entity-behavior-analytics.md
   - name: Import threat intelligence into Azure Sentinel
@@ -315,6 +323,8 @@
       href: /azure/azure-monitor/logs/query-optimization
   - name: UEBA enrichments
     href: ueba-enrichments.md
+  - name: CEF log field mapping
+    href: cef-name-mapping.md
 - name: Resources
   items:
   - name: Useful resources

@@ -1,6 +1,31 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-machines/linux/tutorial-govern-resources.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/tutorial-govern-resources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/copy-vm.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/copy-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/mount-azure-file-storage-on-linux-using-smb.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/mount-azure-file-storage-on-linux-using-smb",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/nested-virtualization.md",
+      "redirect_url": "https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/tutorial-govern-resources.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/tutorial-govern-resources",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/spring-cloud/spring-cloud-howto-access-data-plane-azure-ad-rbac.md",
       "redirect_url": "/azure/spring-cloud/spring-cloud-overview",
       "redirect_document_id": false
@@ -13210,6 +13235,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-vmware/concepts-role-based-access-control.md",
+      "redirect_url": "/azure/azure-vmware/concepts-identity",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-vmware/deploy-traffic-manager-to-balance-avs-workloads.md",
       "redirect_url": "/azure/azure-vmware/deploy-traffic-manager-balance-workloads",
       "redirect_document_id": false
@@ -13261,7 +13291,12 @@
     },
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/baremetal-infrastructure-portal.md",
-      "redirect_url": "/azure/baremetal-infrastructure/workloads/sap/baremetal-infrastructure-portal",
+      "redirect_url": "/azure/baremetal-infrastructure/connect-baremetal-infrastructure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/baremetal-infrastructure/workloads/sap/baremetal-overview-architecture.md", 
+      "redirect_url": "/azure/baremetal-infrastructure/concepts-baremetal-infrastructure-overview",
       "redirect_document_id": false
     },
     {
@@ -15960,6 +15995,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cost-management-billing/manage/create-subscription-template.md",
+      "redirect_url": "/azure/cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/billing/billing-set-up-alerts.md",
       "redirect_url": "/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending",
       "redirect_document_id": false
@@ -16922,6 +16962,11 @@
     {
       "source_path_from_root": "/articles/databox-online/data-box-edge-limits.md",
       "redirect_url": "/azure/databox-online/azure-stack-edge-limits",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-k-series-overview.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-mini-r-overview",
       "redirect_document_id": false
     },
     {
@@ -24530,6 +24575,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-pnp/concepts-components.md",
+      "redirect_url": "/azure/iot-pnp/concepts-modeling-guide",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/container-instances/container-instances-jenkins.md",
       "redirect_url": "/azure/jenkins/container-instances-jenkins",
       "redirect_document_id": false
@@ -28316,7 +28366,17 @@
     },
     {
       "source_path_from_root": "/articles/marketplace/partner-center-portal/commercial-marketplace-co-sell.md",
-      "redirect_url": "/azure/marketplace/commercial-marketplace-co-sell",
+      "redirect_url": "/azure/marketplace/co-sell-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/marketplace-co-sell.md",
+      "redirect_url": "/azure/marketplace/co-sell-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/commercial-marketplace-co-sell.md",
+      "redirect_url": "/azure/marketplace/co-sell-configure",
       "redirect_document_id": false
     },
     {
@@ -29582,141 +29642,6 @@
     {
       "source_path_from_root": "/articles/media-services/previous/media-services-upload-files-with-aspera.md",
       "redirect_url": "/azure/media-services",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/previous/media-services-azure-media-clipper-getting-started.md",
-      "redirect_url": "/azure/media-services/latest",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/previous/media-services-azure-media-clipper-keyboard-shortcuts.md",
-      "redirect_url": "/azure/media-services/latest",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/previous/media-services-azure-media-clipper-load-assets.md",
-      "redirect_url": "/azure/media-services/latest",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/previous/media-services-azure-media-clipper-localization.md",
-      "redirect_url": "/azure/media-services/latest",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/previous/media-services-azure-media-clipper-overview.md",
-      "redirect_url": "/azure/media-services/latest",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/previous/media-services-azure-media-clipper-portal.md",
-      "redirect_url": "/azure/media-services/latest",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/previous/media-services-azure-media-clipper-submit-job.md",
-      "redirect_url": "/azure/media-services/latest",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/latest/access-api-cli-how-to.md",
-      "redirect_url": "/azure/media-services/latest/access-api-howto",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/latest/access-api-portal.md",
-      "redirect_url": "/azure/media-services/latest/access-api-howto",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/latest/intelligence-concept.md",
-      "redirect_url": "/azure/media-services/latest/analyzing-video-audio-files-concept",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/media-services/latest/scripts/cli-create-asset.md",
-      "redirect_url": "/azure/media-services/latest/cli-create-asset",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/latest/scripts/cli-create-jobs.md",
-      "redirect_url": "/azure/media-services/latest/cli-create-jobs",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/latest/scripts/cli-create-transform.md",
-      "redirect_url": "/azure/media-services/latest/cli-create-transform",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/latest/scripts/cli-publish-asset.md",
-      "redirect_url": "/azure/media-services/latest/cli-publish-asset",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/latest/scripts/cli-reset-account-credentials.md",
-      "redirect_url": "/azure/media-services/latest/cli-reset-account-credentials",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/latest/scripts/cli-upload-file-asset.md",
-      "redirect_url": "/azure/media-services/latest/cli-upload-file-asset",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/latest/cae-experimental.md",
-      "redirect_url": "/azure/media-services/latest/content-aware-encoding",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/media-services/latest/create-account-cli-quickstart.md",
-      "redirect_url": "/azure/media-services/latest/create-account-cli-how-to",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/latest/scripts/cli-create-account.md",
-      "redirect_url": "/azure/media-services/latest/create-account-cli-how-to",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/latest/scripts/cli-samples.md",
-      "redirect_url": "/azure/media-services/latest/create-account-cli-how-to",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/media-services/latest/create-account-cli-how-to.md",
-      "redirect_url": "/azure/media-services/latest/create-account-howto",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/latest/create-account-portal.md",
-      "redirect_url": "/azure/media-services/latest/create-account-howto",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/latest/cli-create-transform.md",
-      "redirect_url": "/azure/media-services/latest/how-to-create-transform",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/latest/scripts/cli-create-event-grid.md",
-      "redirect_url": "/azure/media-services/latest/job-state-events-cli-how-to",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/latest/developers-guide.md",
-      "redirect_url": "/azure/media-services/latest/media-services-apis-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/latest/origin-error-codes.md",
-      "redirect_url": "/azure/media-services/latest/streaming-endpoint-error-codes",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/latest/transform-concept.md",
-      "redirect_url": "/azure/media-services/latest/transforms-jobs-concept",
       "redirect_document_id": false
     },
     {
@@ -31673,6 +31598,11 @@
       "source_path_from_root": "/articles/scheduler/get-started-portal.md",
       "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
       "redirect_document_id": ""
+    },
+    {
+      "source_path_from_root": "/articles/search/search-filters-language.md",
+      "redirect_url": "/azure/search/search-language-support",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/search/semantic-how-to-query-response.md",
@@ -36772,6 +36702,22 @@
     {
       "source_path_from_root": "/articles/stream-analytics/vs-code-how-to.md",
       "redirect_url": "/azure/stream-analytics/vscode-explore-jobs",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/synapse-analytics/sql/best-practices-sql-pool.md",
+      "redirect_url": "/azure/synapse-analytics/sql/best-practices-dedicated-sql-pool",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices.md",
+      "redirect_url": "/azure/synapse-analytics/sql/best-practices-dedicated-sql-pool",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/synapse-analytics/sql/best-practices-sql-on-demand.md",
+      "redirect_url": "/azure/synapse-analytics/sql/best-practices-serverless-sql-pool",
       "redirect_document_id": false
     },
     {
@@ -46210,8 +46156,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/media-services/latest/media-services-high-availability-streaming.md",
-      "redirect_url": "articles/media-services/latest/media-services-high-availability-encoding",
+      "source_path_from_root": "/articles/migrate/tutorial-containerize-aspnet-kubernetes.md",
+      "redirect_url": "tutorial-app-containerization-aspnet-kubernetes",
       "redirect_document_id": false
     },
     {
@@ -46452,11 +46398,6 @@
     {
       "source_path_from_root": "/articles/resource-mover/move-region-powershell.md",
       "redirect_url": "tutorial-move-region-powershell",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/latest/upload-files-rest-how-to.md",
-      "redirect_url": "how-to-upload-media?tabs=rest",
       "redirect_document_id": false
     },
     {
@@ -53620,6 +53561,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/manage-apps/non-gallery-apps.md",
+      "redirect_url": "/azure/active-directory/manage-apps/plan-an-application-integration",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/application-provisioning-config-problem-wrong-users-provisioned.md",
       "redirect_url": "/azure/active-directory/manage-apps/add-application-portal-assign-users",
       "redirect_document_id": true
@@ -53901,27 +53847,32 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/application-sign-in-problem-custom-dev.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-problem-federated-sso-gallery",
-      "redirect_document_id": true
+      "redirect_url": "/troubleshoot/azure/active-directory/troubleshoot-sign-in-saml-based-apps",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-sign-in-problem-federated-sso-gallery.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-problem-federated-sso-gallery",
+      "redirect_url": "/troubleshoot/azure/active-directory/troubleshoot-sign-in-saml-based-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-sign-in-problem-federated-sso-gallery.md",
+      "redirect_url": "/troubleshoot/azure/active-directory/troubleshoot-sign-in-saml-based-apps",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-sign-in-problem-federated-sso-non-gallery.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-problem-federated-sso-gallery",
+      "redirect_url": "/troubleshoot/azure/active-directory/troubleshoot-sign-in-saml-based-apps",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/manage-apps/application-sign-in-problem-custom-dev.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-problem-federated-sso-gallery",
+      "redirect_url": "/troubleshoot/azure/active-directory/troubleshoot-sign-in-saml-based-apps",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/manage-apps/application-sign-in-problem-federated-sso-non-gallery.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-problem-federated-sso-gallery",
+      "redirect_url": "/troubleshoot/azure/active-directory/troubleshoot-sign-in-saml-based-apps",
       "redirect_document_id": false
     },
     {
@@ -62140,16 +62091,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/media-services/latest/media-services-v2-vs-v3.md",
-      "redirect_url": "/azure/media-services/latest/migrate-v-2-v-3-migration-introduction",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/media-services/latest/migrate-from-v2-to-v3.md",
-      "redirect_url": "/azure/media-services/latest/migrate-v-2-v-3-migration-introduction",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/cognitive-services/QnAMaker/Quickstarts/quickstart-rest-curl.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/quickstart-sdk",
       "redirect_document_id": false
@@ -63485,6 +63426,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/communication-services/concepts/event-handling.md",
+      "redirect_url": "/azure/event-grid/event-schema-communication-services",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-monitor/app/change-analysis.md#visualizations-for-application-change-analysis",
       "redirect_url": "/articles/azure-monitor/app/change-analysis-visualizations",
       "redirect_document_id": false
@@ -64574,13 +64520,13 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/media-services/media-services-diagnostic-logs-schema.md",
-      "redirect_url": "/azure/media-services/monitoring/monitor-media-services-data-reference",
-      "redirect_document_id": false
+    "source_path": "articles/azure-monitor/app/visual-studio-trends.md",
+    "redirect_url": "/azure/azure-monitor/app/visual-studio",
+    "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/media-services/media-services-metrics-diagnostic-logs.md",
-      "redirect_url": "/azure/media-services/monitoring/monitor-media-services-data-reference",
+      "source_path_from_root": "/articles/cognitive-services/translator/custom-translator/glossary.md",
+      "redirect_url": "/azure/cognitive-services/translator/custom-translator/terminology",
       "redirect_document_id": false
     }
   ]

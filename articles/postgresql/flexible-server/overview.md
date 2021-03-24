@@ -6,7 +6,7 @@ ms.author: sunila
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 03/03/2021
+ms.date: 03/17/2021
 ---
 
 # Azure Database for PostgreSQL - Flexible Server
@@ -96,6 +96,8 @@ One of the advantage of running your workload in Azure is it's global reach. The
 | East US | :heavy_check_mark: | :heavy_check_mark: | 
 | Southeast Asia | :heavy_check_mark: | :heavy_check_mark: |
 | Japan East | :heavy_check_mark: | :heavy_check_mark: | 
+| Australia East | :heavy_check_mark: | :heavy_check_mark: | 
+| Canada Central | :heavy_check_mark: | :heavy_check_mark: | 
 
 We continue to add more regions for flexible server.
 

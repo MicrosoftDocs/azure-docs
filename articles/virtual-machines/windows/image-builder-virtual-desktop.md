@@ -34,7 +34,7 @@ This article is intended to be a copy and paste exercise.
 ## Tips for building Windows images 
 
 - VM Size - the default VM size is a `Standard_D1_v2`, which is not suitable for Windows. Use a `Standard_D2_v2` or greater.
-- This example uses the [PowerShell customizer scripts](../linux/image-builder-json.md). You need to use these settings or the build will hang.
+- This example uses the [PowerShell customizer scripts](../linux/image-builder-json.md). You need to use these settings or the build will stop responding.
 
     ```json
       "runElevated": true,

@@ -7,7 +7,7 @@ manager: jken
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 09/30/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
@@ -22,7 +22,7 @@ Get started with Azure Communication Services by using Azure Event Grid to handl
 
 ## About Azure Event Grid
 
-[Azure Event Grid](../../../event-grid/overview.md) is a cloud-based eventing service. In this article, you'll learn how to subscribe to events for [communication service events](../../concepts/event-handling.md), and trigger an event to view the result. Typically, you send events to an endpoint that processes the event data and takes actions. In this article, we'll send the events to a web app that collects and displays the messages.
+[Azure Event Grid](../../../event-grid/overview.md) is a cloud-based eventing service. In this article, you'll learn how to subscribe to events for [communication service events](../../../event-grid/event-schema-communication-services.md), and trigger an event to view the result. Typically, you send events to an endpoint that processes the event data and takes actions. In this article, we'll send the events to a web app that collects and displays the messages.
 
 ## Prerequisites
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -63,7 +63,7 @@ You can subscribe to specific events to tell Event Grid which of the SMS events 
 
 If you're prompted to provide a **System Topic Name**, feel free to provide a unique string. This field has no impact on your experience and is used for internal telemetry purposes.
 
-Check out the full list of [events supported by Azure Communication Services](../../concepts/event-handling.md).
+Check out the full list of [events supported by Azure Communication Services](https://docs.microsoft.com/azure/event-grid/event-schema-communication-services).
 
 :::image type="content" source="./media/handle-sms-events/select-events-create-eventsub.png" alt-text="Screenshot showing the SMS Received and SMS Delivery Report Received event types being selected.":::
 
@@ -88,7 +88,7 @@ To view event triggers, we must generate events in the first place.
 - `SMS Received` events are generated when the Communication Services phone number receives a text message. To trigger an event, just send a message from your phone to the phone number attached to your Communication Services resource.
 - `SMS Delivery Report Received` events are generated when you send an SMS to a user using a Communication Services phone number. To trigger an event, you are required to enable `Delivery Report` in the options of the [sent SMS](../telephony-sms/send.md). Try sending a message to your phone with `Delivery Report`. Completing this action incurs a small cost of a few USD cents or less in your Azure account.
 
-Check out the full list of [events supported by Azure Communication Services](../../concepts/event-handling.md).
+Check out the full list of [events supported by Azure Communication Services](https://docs.microsoft.com/azure/event-grid/event-schema-communication-services).
 
 ### Receiving SMS events
 
@@ -98,7 +98,7 @@ Once you complete either action above you will notice that `SMS Received` and `S
 
 :::image type="content" source="./media/handle-sms-events/sms-delivery-report-received.png" alt-text="Screenshot showing the Event Grid Schema for an SMS Delivery Report Event.":::
 
-Learn more about the [event schemas and other eventing concepts](../../concepts/event-handling.md).
+Learn more about the [event schemas and other eventing concepts](https://docs.microsoft.com/azure/event-grid/event-schema-communication-services).
 
 ## Clean up resources
 
@@ -113,5 +113,5 @@ In this quickstart, you learned how to consume SMS events. You can receive SMS m
 
 You may also want to:
 
- - [Learn about event handling concepts](../../concepts/event-handling.md)
+ - [Learn about event handling concepts](../../../event-grid/event-schema-communication-services.md)
  - [Learn about Event Grid](../../../event-grid/overview.md)

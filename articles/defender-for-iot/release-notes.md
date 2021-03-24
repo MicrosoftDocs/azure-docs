@@ -1,19 +1,8 @@
 ---
 title: What's new in Azure Defender for IoT 
 description: This article lets you know what's new in the latest release of Defender for IoT.
- 
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/14/2021
-ms.author: shhazam
 ---
 
 # What's new in Azure Defender for IoT?
@@ -50,7 +39,7 @@ A new device builder module is available. The module, referred to as a micro-age
 - **Security posture management** – proactively monitor the security posture of your IoT devices.
 - **Continuous, real-time IoT/OT threat detection** - detect threats such as botnets, brute force attempts, crypto miners, and suspicious network activity
 
-The deprecated security module documentation will be moved to the *Agent-based solution for device builders>Classic* folder.
+The deprecated Defender-IoT-micro-agent documentation will be moved to the *Agent-based solution for device builders>Classic* folder.
 
 This feature set is available with the current public preview cloud release.
 
