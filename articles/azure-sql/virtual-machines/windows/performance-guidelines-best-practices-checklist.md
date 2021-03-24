@@ -35,9 +35,10 @@ There is typically a trade-off between optimizing for costs and optimizing for p
 The following is a quick checklist of VM size best practices for running your SQL Server on Azure VM: 
 
 - Use VM sizes with 4 or more vCPU like the [Standard_M8-4ms](/../../virtual-machines/m-series), the [E4ds_v4](../../../virtual-machines/edv4-edsv4-series.md#edv4-series), or the [DS12_v2](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) or higher. 
-- Use [memory optimized](../../../virtual-machines/sizes-memory.md) virtual machine sizes for the best performance of SQL Server workloads. <br/><br/> - The [DSv2 11-15](../../../virtual-machines/dv2-dsv2-series-memory.md), [Edsv4](../../../virtual-machines/edv4-edsv4-series.md) series, the [M-](../../../virtual-machines/m-series.md), and the [Mv2-](../../../virtual-machines/mv2-series.md) series offer the optimal memory-to-vCore ratio required for OLTP workloads. Both M series VMs offer the highest memory-to-vCore ratio required for mission critical workloads and is also ideal for data warehouse workloads. 
+- Use [memory optimized](../../../virtual-machines/sizes-memory.md) virtual machine sizes for the best performance of SQL Server workloads. 
+- The [DSv2 11-15](../../../virtual-machines/dv2-dsv2-series-memory.md), [Edsv4](../../../virtual-machines/edv4-edsv4-series.md) series, the [M-](../../../virtual-machines/m-series.md), and the [Mv2-](../../../virtual-machines/mv2-series.md) series offer the optimal memory-to-vCore ratio required for OLTP workloads. Both M series VMs offer the highest memory-to-vCore ratio required for mission critical workloads and are also ideal for data warehouse workloads. 
 - Consider a higher memory-to-vCore ratio for mission critical and data warehouse workloads. 
-- Leverage the Azure Virtual Machine marketplace images as the SQL Server settings and storage options are configured for optimal SQL Server performance. 
+- Use the Azure Virtual Machine marketplace images as the SQL Server settings and storage options are configured for optimal SQL Server performance. 
 - Collect the target workload's performance characteristics and use them to determine the appropriate VM size for your business.|
 
 To learn more, see the comprehensive [VM size best practices](performance-guidelines-best-practices-vm-size.md). 
@@ -47,11 +48,11 @@ To learn more, see the comprehensive [VM size best practices](performance-guidel
 The following is a quick checklist of storage configuration best practices for running your SQL Server on Azure VM: 
 
 - Monitor the application and [determine storage bandwidth and latency requirements](../../../virtual-machines/premium-storage-performance#counters-to-measure-application-performance-requirements.md) for SQL Server data, log, and tempdb files before choosing the disk type. 
-- To optimize storage performance, plan for highest uncached IOPS available and leverage data caching as a performance feature for data reads while avoiding [virtual machine and disks capping](../../../virtual-machines/premium-storage-performance.md#capping).
+- To optimize storage performance, plan for highest uncached IOPS available and use data caching as a performance feature for data reads while avoiding [virtual machine and disks capping](../../../virtual-machines/premium-storage-performance.md#capping).
 - Place data, log, and tempdb files on separate drives.
     - For the data drive, only use [premium P30 and P40 disks](../../../virtual-machines/disks-types.md#premium-ssd) to ensure the availability of cache support
-    - For the log drive plan for capacity and test performance versus cost while evaluating the [premium P30 - P80 disks](../../../virtual-machines/disks-types#premium-ssd)
-      - If 1-ms storage latencies are required, leverage [Ultra SSD Disks](../../../virtual-machines/disks-types#ultra-disk) for the transaction log. 
+    - For the log drive plan for capacity and test performance versus cost while evaluating the [premium P30 - P80 disks](../../../virtual-machines/disks-types#premium-ssd).
+      - If 1-ms storage latencies are required, use [Ultra SSD Disks](../../../virtual-machines/disks-types#ultra-disk) for the transaction log. 
       - For M-series virtual machine deployments consider [write accelerator](../../../virtual-machines/how-to-enable-write-accelerator) over using Ultra SSD disks.
     - Place [tempdb](/sql/relational-databases/databases/tempdb-database) on the local ephemeral SSD D:\ drive for most SQL Server workloads after choosing the optimal VM size. 
       - If the capacity of the local drive is not enough for tempdb, see [Data file caching policies](#data-file-caching-policies) for more information.
@@ -60,11 +61,11 @@ The following is a quick checklist of storage configuration best practices for r
 - Set [host caching](../../../virtual-machines/disks-performance#virtual-machine-uncached-vs-cached-limits.md) to none for log file disks.
     - Do not enable read/write caching on disks that contain SQL Server files. 
     - Always stop the SQL Server service before changing the cache settings of your disk.
-- For development and test workloads, and long-term backup archival consider leveraging standard storage. It is not recommended to use Standard HDD/SDD for production workloads.
+- For development and test workloads, and long-term backup archival consider using standard storage. It is not recommended to use Standard HDD/SDD for production workloads.
 - [Credit-based Disk Bursting](../../../virtual-machines/disk-bursting#credit-based-bursting) (P1-P20) should only be considered for smaller dev/test workloads and departmental systems.
 - Provision the storage account in the same region as the SQL Server VM. 
-- Disable Azure geo-redundant storage (geo-replication) and leverage LRS (local redundant storage) on the storage account.
-- Format your data disk to use 64-KB allocation unit size for all data files placed on a drive other than the temporary D:\ drive (which has a default of 4-KB). SQL Server VMs deployed through Azure Marketplace come with data disks formatted with allocation unit size and interleave for the storage pool set to 64-KB. 
+- Disable Azure geo-redundant storage (geo-replication) and use LRS (local redundant storage) on the storage account.
+- Format your data disk to use 64-KB allocation unit size for all data files placed on a drive other than the temporary D:\ drive (which has a default of 4 KB). SQL Server VMs deployed through Azure Marketplace come with data disks formatted with allocation unit size and interleave for the storage pool set to 64 KB. 
 
 To learn more, see the comprehensive [Storage best practices](performance-guidelines-best-practices-storage.md). 
 
@@ -73,7 +74,7 @@ To learn more, see the comprehensive [Storage best practices](performance-guidel
 
 The following is a quick checklist of best practices for SQL Server and Azure-specific configurations when running your SQL Server on Azure VM: 
 
-- Register with the [SQL Server IaaS extension](sql-agent-extension-manually-register-single-vm.md). 
+- Register with the [SQL Server IaaS extension](sql-agent-extension-manually-register-single-vm.md) to unlock a number of [feature benefits](sql-server-iaas-agent-extension-automate-management.md#feature-benefits). 
 - Enable database page compression.
 - Enable instant file initialization for data files.
 - Limit autogrowth of the database.

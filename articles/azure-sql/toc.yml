@@ -1126,12 +1126,8 @@
             href: virtual-machines/windows/performance-guidelines-best-practices-checklist.md
           - name: VM size
             href: virtual-machines/windows/performance-guidelines-best-practices-vm-size.md
-          - name: Disks
-            href: virtual-machines/windows/performance-guidelines-best-practices-disks.md
           - name: Storage
             href: virtual-machines/windows/performance-guidelines-best-practices-storage.md
-          - name: SQL & Azure feature specific
-            href: virtual-machines/windows/performance-guidelines-best-practices-feature-specific.md
           - name: Collect baseline 
             href: virtual-machines/windows/performance-guidelines-best-practices-collect-baseline.md
       - name: Management

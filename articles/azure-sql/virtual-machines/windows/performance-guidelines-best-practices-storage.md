@@ -30,24 +30,24 @@ To lean more, see the other articles in this series: [Checklist](performance-gui
 Review the following checklist for a brief overview of the storage best practices that the rest of the article covers in greater detail: 
 
 - Monitor the application and [determine storage bandwidth and latency requirements](../../../virtual-machines/premium-storage-performance#counters-to-measure-application-performance-requirements.md) for SQL Server data, log, and tempdb files before choosing the disk type. 
-- To optimize storage performance, plan for highest uncached IOPS available and leverage data caching as a performance feature for data reads while avoiding [virtual machine and disks capping](../../../virtual-machines/premium-storage-performance.md#capping).
+- To optimize storage performance, plan for highest uncached IOPS available and use data caching as a performance feature for data reads while avoiding [virtual machine and disks capping](../../../virtual-machines/premium-storage-performance.md#capping).
 - Place data, log, and tempdb files on separate drives.
     - For the data drive, only use [premium P30 and P40 disks](../../../virtual-machines/disks-types.md#premium-ssd) to ensure the availability of cache support
     - For the log drive plan for capacity and test performance versus cost while evaluating the [premium P30 - P80 disks](../../../virtual-machines/disks-types#premium-ssd)
-      - If 1-ms storage latencies are required, leverage [Ultra SSD Disks](../../../virtual-machines/disks-types#ultra-disk) for the transaction log. 
+      - If 1-ms storage latencies are required, use [Ultra SSD Disks](../../../virtual-machines/disks-types#ultra-disk) for the transaction log. 
       - For M-series virtual machine deployments consider [write accelerator](../../../virtual-machines/how-to-enable-write-accelerator) over using Ultra SSD disks.
-    - Place [tempdb](/sql/relational-databases/databases/tempdb-database) on the local ephemeral SSD D:\ drive for most SQL Server workloads after choosing the optimal VM size. 
+    - Place [tempdb](/sql/relational-databases/databases/tempdb-database) on the local ephemeral SSD `D:\` drive for most SQL Server workloads after choosing the optimal VM size. 
       - If the capacity of the local drive is not enough for tempdb, see [Data file caching policies](#data-file-caching-policies) for more information.
 - Stripe multiple Azure data disks using [Storage Spaces](/windows-server/storage/storage-spaces/overview) to increase I/O bandwidth up to the target virtual machine's IOPS and throughput limits.
 - Set [host caching](../../../virtual-machines/disks-performance#virtual-machine-uncached-vs-cached-limits.md) to read-only for data file disks.
 - Set [host caching](../../../virtual-machines/disks-performance#virtual-machine-uncached-vs-cached-limits.md) to none for log file disks.
     - Do not enable read/write caching on disks that contain SQL Server files. 
     - Always stop the SQL Server service before changing the cache settings of your disk.
-- For development and test workloads, and long-term backup archival consider leveraging standard storage. It is not recommended to use Standard HDD/SDD for production workloads.
+- For development and test workloads, and long-term backup archival consider using standard storage. It is not recommended to use Standard HDD/SDD for production workloads.
 - [Credit-based Disk Bursting](../../../virtual-machines/disk-bursting#credit-based-bursting) (P1-P20) should only be considered for smaller dev/test workloads and departmental systems.
 - Provision the storage account in the same region as the SQL Server VM. 
-- Disable Azure geo-redundant storage (geo-replication) and leverage LRS (local redundant storage) on the storage account.
-- Format your data disk to use 64-KB allocation unit size for all data files placed on a drive other than the temporary D:\ drive (which has a default of 4-KB). SQL Server VMs deployed through Azure Marketplace come with data disks formatted with allocation unit size and interleave for the storage pool set to 64-KB. 
+- Disable Azure geo-redundant storage (geo-replication) and use LRS (local redundant storage) on the storage account.
+- Format your data disk to use 64-KB allocation unit size for all data files placed on a drive other than the temporary `D:\` drive (which has a default of 4 KB). SQL Server VMs deployed through Azure Marketplace come with data disks formatted with allocation unit size and interleave for the storage pool set to 64 KB. 
 
 To compare the storage checklist with the others, see the comprehensive [Performance best practices checklist](performance-guidelines-best-practices-checklist.md). 
 
@@ -57,22 +57,22 @@ To find the most effective configuration for SQL Server workloads on an Azure VM
 
 Choose a VM size with enough storage scalability for your workload and a mixture of disks (usually in a storage pool) that meet the capacity and performance requirements of your business. 
 
-The type of disk depends on both the file type thats hosted on the disk and your peak performance requirements.
+The type of disk depends on both the file type that's hosted on the disk and your peak performance requirements.
 
 > [!TIP]
-> Provisioning a SQL Server VM through the Azure portal helps guide you through the storage configuration process and implements most storage best practices such as creating separate storage pools for your data and log files, targeting tempdb to the D:\ drive, and enabling the optimal caching policy. For more information about provisioning and configuring storage, see [SQL VM storage configuration](storage-configuration.md). 
+> Provisioning a SQL Server VM through the Azure portal helps guide you through the storage configuration process and implements most storage best practices such as creating separate storage pools for your data and log files, targeting tempdb to the `D:\` drive, and enabling the optimal caching policy. For more information about provisioning and configuring storage, see [SQL VM storage configuration](storage-configuration.md). 
 
 ## VM disk types
 
 You have a choice in the performance level for your disks. The types of managed disks available as underlying storage (listed by increasing performance capabilities) are standard hard disk drives (HDD), standard SSDs, premium solid-state drives (SSD), and Ultra Disks. 
 
-The performance of the disk increases with the capacity, grouped by [premium disk labels](../../../virtual-machines/disks-types.md#premium-ssd) such as the P1 with 4GiB of space and 120 IOPS to the P80 with 32TiB of storage and 20,000 IOPS. Premium storage supports a storage cache that helps improve read and write performance for some workloads. For more information, see [Managed disks overview](../../../virtual-machines/managed-disks-overview.md). 
+The performance of the disk increases with the capacity, grouped by [premium disk labels](../../../virtual-machines/disks-types.md#premium-ssd) such as the P1 with 4 GiB of space and 120 IOPS to the P80 with 32 TiB of storage and 20,000 IOPS. Premium storage supports a storage cache that helps improve read and write performance for some workloads. For more information, see [Managed disks overview](../../../virtual-machines/managed-disks-overview.md). 
 
 There are also three main [disk types](../../../virtual-machines/managed-disks-overview.md#disk-roles) to consider for your SQL Server on Azure VM -  an OS disk, a temporary disk, and your data disks. Carefully choose what is stored on the operating system drive `(C:\)` and the ephemeral temporary drive `(D:\)`. 
 
 ### Operating system disk
 
-An operating system disk is a VHD that can be booted and mounted as a running version of an operating system and is labeled as the `C:\` drive. When you create an Azure virtual machine, the platform will attach at least one disk to the VM for the operating system disk. This will be the default location for application installs and file configuration. 
+An operating system disk is a VHD that can be booted and mounted as a running version of an operating system and is labeled as the `C:\` drive. When you create an Azure virtual machine, the platform will attach at least one disk to the VM for the operating system disk. The `C:\` drive is the default location for application installs and file configuration. 
 
 For production SQL Server environments, do not use the operating system disk for data files, log files, error logs. 
 
@@ -82,23 +82,23 @@ Many Azure virtual machines contain another disk type called the temporary disk 
 
 The temporary storage drive is not persisted to remote storage and therefore should not store user database files, transaction log files, or anything that must be preserved. 
 
-Place tempdb on the local temporary SSD D:\ drive for SQL Server workloads unless consumption of local cache is a concern. To learn more, see [tempdb data caching policies](performance-guidelines-best-practices-storage.md#data-file-caching-policies)
+Place tempdb on the local temporary SSD `D:\` drive for SQL Server workloads unless consumption of local cache is a concern. To learn more, see [tempdb data caching policies](performance-guidelines-best-practices-storage.md#data-file-caching-policies)
 
 ### Data disks
 
 Data disks are remote storage disks that are often created in [storage pools](/windows-server/storage/storage-spaces/overview) in order to exceed the capacity and performance that any single disk could offer to the virtual machine.
 
-Attach the minimum number of disks that satisfies the IOPS, throughput, and capacity requirements of your workload. Do not to exceed the maximum number of data disks of the smallest virtual machine you plan to resize to.
+Attach the minimum number of disks that satisfies the IOPS, throughput, and capacity requirements of your workload. Do not exceed the maximum number of data disks of the smallest virtual machine you plan to resize to.
 
 Place data and log files on data disks provisioned to best suit performance requirements. 
 
-Format your data disk to use 64-KB allocation unit size for all data files placed on a drive other than the temporary D:\ drive (which has a default of 4-KB). SQL Server VMs deployed through Azure Marketplace come with data disks formatted with allocation unit size and interleave for the storage pool set to 64-KB. 
+Format your data disk to use 64-KB allocation unit size for all data files placed on a drive other than the temporary `D:\` drive (which has a default of 4 KB). SQL Server VMs deployed through Azure Marketplace come with data disks formatted with allocation unit size and interleave for the storage pool set to 64 KB. 
 
 ## Premium disks
 
 Use premium SSD disks for data and log files for production SQL Server workloads. Premium SSD IOPS and bandwidth varies based on the [disk size and type](../../../virtual-machines/disks-types.md). 
 
-For production workloads, leverage the P30 and/or P40 disks for SQL Server data files to ensure caching support and leverage the P30 up to P80 for SQL Server transaction log files.  For the best total cost of ownership, start with P30s (5000 IOPS/200 MBPS) for data and log files and only choose higher capacities when you need to control the virtual machine disk count.
+For production workloads, use the P30 and/or P40 disks for SQL Server data files to ensure caching support and use the P30 up to P80 for SQL Server transaction log files.  For the best total cost of ownership, start with P30s (5000 IOPS/200 MBPS) for data and log files and only choose higher capacities when you need to control the virtual machine disk count.
 
 For OLTP workloads, match the target IOPS per disk (or storage pool) with your performance requirements using workloads at peak times and the `avg. disk reads/sec` + `avg. disk writes/sec` performance counters. For data warehouse and reporting workloads, match the target throughput using workloads at peak times and the `disk read bytes/sec` + `disk write bytes/sec`. 
 
@@ -106,7 +106,7 @@ Use Storage Spaces to achieve optimal performance, configure two pools, one for 
 
 The [provisioned IOPS and throughput](../../../virtual-machines/disks-types#premium-ssd) per disk that is used as part of your storage pool. The combined IOPS and throughput capabilities of the disks is the maximum capability up to the throughput limits of the virtual machine.
 
-The best practice is to use the least amount of disks possible while meeting the minimal requirements for IOPS (and throughput) and capacity. However, the balance of price and performance tends to be better with a large number of small disks rather than a small number of large disks.
+The best practice is to use the least number of disks possible while meeting the minimal requirements for IOPS (and throughput) and capacity. However, the balance of price and performance tends to be better with a large number of small disks rather than a small number of large disks.
 
 ### Scaling premium disks
 
@@ -114,7 +114,7 @@ When an Azure Managed Disk is first deployed, the performance tier for that disk
 
 Changing the performance tier allows administrators to prepare for and meet higher demand without relying on [disk bursting](../../../virtual-machines/disk-bursting#credit-based-bursting). 
 
-Use the higher performance for as long as needed where billing is designed to meet the storage performance tier. Upgrade the tier to match the performance requirements without increasing the capacity. Return to the original tier when the additional performance is no longer required.
+Use the higher performance for as long as needed where billing is designed to meet the storage performance tier. Upgrade the tier to match the performance requirements without increasing the capacity. Return to the original tier when the extra performance is no longer required.
 
 This cost-effective and temporary expansion of performance is a strong use case for targeted events such as shopping, performance testing, training events and other brief windows where greater performance is needed only for a short term. 
 
@@ -122,7 +122,7 @@ For more information, see [Performance tiers for managed disks](../../../virtual
 
 ## Ultra-Disk SSD
 
-If there is a need for sub-millisecond response times with reduced latency consider leveraging [Ultra-Disk SSD](../../../virtual-machines/disks-types.md#ultra-disk) for the SQL Server log drive, or even the data drive for applications that are extremely sensitive to I/O latency. 
+If there is a need for submillisecond response times with reduced latency consider using [Ultra-Disk SSD](../../../virtual-machines/disks-types.md#ultra-disk) for the SQL Server log drive, or even the data drive for applications that are extremely sensitive to I/O latency. 
 
 Ultra-Disk SSD can be configured where capacity and IOPS can scale independently. With Ultra-Disk SSD administrators can provision a disk with the capacity, IOPS, and throughput requirements based on application needs. 
 
@@ -130,7 +130,7 @@ Ultra disk is not supported on all VM series and has other limitations such as r
 
 ## Standard HDDs and SSDs
 
-[Standard HDDs](../../../virtual-machines/disks-types.md#standard-hdd) and SSDs have varying latencies and bandwidth and are only recommended for dev/test workloads. Production workloads should use premium SSDs. If you are using Standard SSD (dev/test scenarios), the recommendation is to add the maximum number of data disks supported by your [VM size](../../../virtual-machines/sizes.md?toc=/azure/virtual-machines/windows/toc.json) and leverage disk striping with Storage Spaces for the best performance.
+[Standard HDDs](../../../virtual-machines/disks-types.md#standard-hdd) and SSDs have varying latencies and bandwidth and are only recommended for dev/test workloads. Production workloads should use premium SSDs. If you are using Standard SSD (dev/test scenarios), the recommendation is to add the maximum number of data disks supported by your [VM size](../../../virtual-machines/sizes.md?toc=/azure/virtual-machines/windows/toc.json) and use disk striping with Storage Spaces for the best performance.
 
 ## Caching
 
@@ -147,7 +147,7 @@ Reads and writes to the Azure BlobCache (cached IOPS and throughput) do not coun
 
 ### Uncached throughput
 
-The max uncached disk IOPS and throughput is the maximum remote storage limit that the virtual machine can handle. This limit is defined at the virtual machine and is not a limit of the underlying disk storage. This limit applies only to I/O against data drives remotely attached to the VM, not the local I/O against the temp drive (D drive) or the OS drive.
+The max uncached disk IOPS and throughput is the maximum remote storage limit that the virtual machine can handle. This limit is defined at the virtual machine and is not a limit of the underlying disk storage. This limit applies only to I/O against data drives remotely attached to the VM, not the local I/O against the temp drive (`D:\` drive) or the OS drive.
 
 The amount of uncached IOPS and throughput that is available for a VM can be verified in the documentation for your virtual machine.
 
@@ -155,7 +155,7 @@ For example, the [M-series](../../../virtual-machines/m-series.md) documentation
 
 ![M-series Uncached Disk Throughput](./media/performance-guidelines-best-practices/M-Series_table.png)
 
-Likewise, you can see that the Standard_M32ts supports 20000 uncached disk IOPS and 500 MBps uncached disk throughput. This limit is governed at the virtual machine level despite the configuration of the underlying premium disk storage.
+Likewise, you can see that the Standard_M32ts supports 20,000 uncached disk IOPS and 500-MBps uncached disk throughput. This limit is governed at the virtual machine level regardless of the underlying premium disk storage.
 
 For more information, see [uncached and cached limits](../../../virtual-machines/linux/disk-performance-linux.md#virtual-machine-uncached-vs-cached-limits).
 
@@ -168,15 +168,15 @@ The max cached and temp storage throughput limit governs the I/O against the loc
 
 When caching is enabled on premium storage, virtual machines can scale beyond the limitations of the remote storage uncached VM IOPS and throughput limits.  
 
-Only certain virtual machines support both premium storage and premium storage caching which should be verified in the virtual machine documentation. For example, the [M-series](../../../virtual-machines/m-series.md) documentation indicates that both premium storage, and premium storage caching is supported: 
+Only certain virtual machines support both premium storage and premium storage caching (which needs to be verified in the virtual machine documentation). For example, the [M-series](../../../virtual-machines/m-series.md) documentation indicates that both premium storage, and premium storage caching is supported: 
 
 ![M-Series Premium Storage Support](./media/performance-guidelines-best-practices/M-Series_table_premium_support.png)
 
-The limits of the cache will vary based on the virtual machine size. For example, the Standard_M8ms VM supports 10000 cached disk IOPS and 1000 MBps cached disk throughput with a total cache size of 793 Gib. Similarly, the Standard_M32ts VM supports 40000 cached disk IOPS and 400 MBps cached disk throughput with a total cache size of 3174 GiB. 
+The limits of the cache will vary based on the virtual machine size. For example, the Standard_M8ms VM supports 10000 cached disk IOPS and 1000-MBps cached disk throughput with a total cache size of 793 GiB. Similarly, the Standard_M32ts VM supports 40000 cached disk IOPS and 400-MBps cached disk throughput with a total cache size of 3174 GiB. 
 
 ![M-series Cached Disk Throughput](./media/performance-guidelines-best-practices/M-Series_table_cached_temp.png)
 
-You can manually enable host caching on an existing VM. Stop all application workloads and the SQL Server services before any changes are made to your virtual machine's caching policy. Changing any of the virtual machine cache settings results in the target disk being detached and re-attached after the settings are applied.
+You can manually enable host caching on an existing VM. Stop all application workloads and the SQL Server services before any changes are made to your virtual machine's caching policy. Changing any of the virtual machine cache settings results in the target disk being detached and reattached after the settings are applied.
 
 ### Data file caching policies
 
@@ -186,10 +186,10 @@ The following table provides a summary of the recommended caching policies based
 
 |SQL Server disk |Recommendation |
 |---------|---------|
-| **Data disk** | Enable `Read-only` caching for the disks hosting SQL Server data files. <br/> Reads from cache will be faster than the uncached reads from the data disk. <br/> Uncached IOPS and throughput plus Cached IOPS and throughput will yield the total possible performance available from the virtual machine within the VMs limits, but actual performance will vary based on the workload's ability to leverage the cache (cache hit ratio). <br/>|
+| **Data disk** | Enable `Read-only` caching for the disks hosting SQL Server data files. <br/> Reads from cache will be faster than the uncached reads from the data disk. <br/> Uncached IOPS and throughput plus Cached IOPS and throughput will yield the total possible performance available from the virtual machine within the VMs limits, but actual performance will vary based on the workload's ability to use the cache (cache hit ratio). <br/>|
 |**Transaction log disk**|Set the caching policy to `None` for disks hosting the transaction log.  There is no performance benefit to enabling caching for the Transaction log disk, and in fact having either `Read-only` or `Read/Write` caching enabled on the log drive can degrade performance of the writes against the drive and decrease the amount of cache available for reads on the data drive.  |
 |**Operating OS disk** | The default caching policy could be `read-only` or `Read/write` for the OS drive. <br/> It is not recommended to change the caching level of the OS drive.  |
-| **tempdb**| If tempdb cannot be placed on the ephemeral drive D:/ due to capacity reasons, either resize the virtual machine to get a larger ephemeral drive or place tempdb on a separate data drive with `Read-only` caching configured. <br/> The virtual machine cache and ephemeral drive both leverage the local SSD, so keep this in mind when sizing as tempdb I/O will count against the cached IOPS and throughput virtual machine limits when hosted on the ephemeral drive.| 
+| **tempdb**| If tempdb cannot be placed on the ephemeral drive `D:\` due to capacity reasons, either resize the virtual machine to get a larger ephemeral drive or place tempdb on a separate data drive with `Read-only` caching configured. <br/> The virtual machine cache and ephemeral drive both use the local SSD, so keep this in mind when sizing as tempdb I/O will count against the cached IOPS and throughput virtual machine limits when hosted on the ephemeral drive.| 
 | | | 
 
 
@@ -200,7 +200,7 @@ To learn more, see [Disk caching](../../../virtual-machines/premium-storage-perf
 
 Analyze the throughput and bandwidth required for your SQL data files to determine the number of data disks, including the log file and tempdb. Throughput and bandwidth limits vary by VM size. To learn more, see [VM Size](../../../virtual-machines/sizes.md)
 
-Add additional data disks and use disk striping for more throughput. For example, an application that needs 12,000 IOPS and 180 MBs/ throughput can leverage three striped P30 disks to deliver 15,000 IOPS and 600 MB/s throughput. 
+Add additional data disks and use disk striping for more throughput. For example, an application that needs 12,000 IOPS and 180 MBs/ throughput can use three striped P30 disks to deliver 15,000 IOPS and 600-MB/s throughput. 
 
 To configure disk striping, see [disk striping](storage-configuration.md#disk-striping). 
 
@@ -208,19 +208,19 @@ To configure disk striping, see [disk striping](storage-configuration.md#disk-st
 
 There are throughput limits at both the disk and virtual machine level. The maximum IOPS limits per VM and per disk differ and are independent of each other.
 
-Applications that consume resources beyond these limits will be throttled. Select a virtual machine and disk size in a disk stripe that meets application requirements and will not face capping limitations. To address capping, leverage caching, or tune the application so that less throughput is required.
+Applications that consume resources beyond these limits will be throttled. Select a virtual machine and disk size in a disk stripe that meets application requirements and will not face capping limitations. To address capping, use caching, or tune the application so that less throughput is required.
 
 For example, an application that needs 12,000 IOPS and 180 MB/s can: 
 - Use the [Standard_M32ms](../../../virtual-machines/m-series.md) which has a max uncached disk throughput of 20,000 IOPS and 500 MBps.
-- Stripe three P30 disks to deliver 15,000 IOPS and 600 MB/s throughput.
-- Use a [Standard_M16ms](../../../virtual-machines/m-series.md) virtual machine and leverage host caching to utilize local cache over consuming throughput. 
+- Stripe three P30 disks to deliver 15,000 IOPS and 600-MB/s throughput.
+- Use a [Standard_M16ms](../../../virtual-machines/m-series.md) virtual machine and use host caching to utilize local cache over consuming throughput. 
 
 Virtual machines configured to scale up during times of high utilization should provision storage with enough IOPS and throughput to support the maximum size VM while keeping the overall number of disks less than or equal to the maximum number supported by the smallest VM SKU targeted to be used.
 
-For more information on capping limitations and leveraging caching to avoid capping, see [Disk IO capping](../../../virtual-machines/disks-performance.md).
+For more information on capping limitations and using caching to avoid capping, see [Disk IO capping](../../../virtual-machines/disks-performance.md).
 
 > [!NOTE] 
-> Some capping may be still result in satisfactory performance to users; tune and maintain workloads rather than resize to a larger VM to balance managing cost and performance for the business. 
+> Some capping may still result in satisfactory performance to users; tune and maintain workloads rather than resize to a larger VM to balance managing cost and performance for the business. 
 
 
 ## Write Acceleration
@@ -262,10 +262,10 @@ To assess storage needs, and determine how well storage is performing, you need 
 
 I/O unit sizes influence IOPS and throughput capabilities as smaller I/O sizes yield higher IOPS and larger I/O sizes yield higher throughput. SQL Server chooses the optimal I/O size automatically. For more information about, see [Optimize IOPS, throughput, and latency for your applications](../../../virtual-machines/premium-storage-performance.md#optimize-iops-throughput-and-latency-at-a-glance). 
 
-There are specific Azure Monitor metrics that are invaluable for discovering capping at the virtual machine and disk level as well as the consumption and the health of the AzureBlob cache. To identify key counters to add to your monitoring solution and Azure Portal dashboard, see [Storage utilization metrics](../../../virtual-machines/disks-metrics#storage-io-utilization-metrics.md). 
+There are specific Azure Monitor metrics that are invaluable for discovering capping at the virtual machine and disk level as well as the consumption and the health of the AzureBlob cache. To identify key counters to add to your monitoring solution and Azure portal dashboard, see [Storage utilization metrics](../../../virtual-machines/disks-metrics#storage-io-utilization-metrics.md). 
 
 > [!NOTE]
-> Azure Monitor does not currently offer disk-level metrics for the ephemeral temp drive (D:\). VM Cached IOPS Consumed Percentage and VM Cached Bandwidth Consumed Percentage will reflect IOPS and throughput from both the ephemeral temp drive (D:\) and host caching together.
+> Azure Monitor does not currently offer disk-level metrics for the ephemeral temp drive ``(D:\)``. VM Cached IOPS Consumed Percentage and VM Cached Bandwidth Consumed Percentage will reflect IOPS and throughput from both the ephemeral temp drive ``(D:\)`` and host caching together.
 
 
 ## Next steps
