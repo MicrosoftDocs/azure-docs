@@ -19,7 +19,7 @@ An advantage of the Azure Identity client library is that it enables you to use 
 
 ## Prerequisites
 
- - Azure CLI. [Installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli)
+ - Azure CLI. [Installation guide](/cli/azure/install-azure-cli)
  - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free)
 
 ## Setting Up

@@ -132,8 +132,8 @@
       href: core/concepts-architecture.md
     - name: Device developer guide
       href: core/overview-iot-central-developer.md
-    - name: Solution builder guide
-      href: core/overview-iot-central-solution-builder.md
+    - name: Admin guide
+      href: core/overview-iot-central-admin.md
     - name: Operator guide
       href: core/overview-iot-central-operator.md
     - name: What are application templates?

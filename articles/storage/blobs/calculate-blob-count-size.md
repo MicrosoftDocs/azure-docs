@@ -39,7 +39,7 @@ When you have an inventory report to analyze, grant yourself blob read access to
 
 ## Create an Azure Synapse workspace
 
-Next, [create an Azure Synapse workspace](/azure/synapse-analytics/get-started-create-workspace) where you will execute a SQL query to report the inventory results.
+Next, [create an Azure Synapse workspace](../../synapse-analytics/get-started-create-workspace.md) where you will execute a SQL query to report the inventory results.
 
 ## Create the SQL query
 
@@ -54,7 +54,7 @@ After you create your Azure Synapse workspace, do the following steps.
 
 ## Run the SQL query
 
-1. Add the following SQL query in your Azure Synapse workspace to [read the inventory CSV file](/azure/synapse-analytics/sql/query-single-csv-file#read-a-csv-file).
+1. Add the following SQL query in your Azure Synapse workspace to [read the inventory CSV file](../../synapse-analytics/sql/query-single-csv-file.md#read-a-csv-file).
 
     For the `bulk` parameter, use the URL of the inventory report CSV file that you want to analyze.
 
