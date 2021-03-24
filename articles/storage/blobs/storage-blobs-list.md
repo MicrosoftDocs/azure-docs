@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/23/2021
+ms.date: 03/24/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
@@ -47,7 +47,7 @@ The overloads for these methods provide additional options for managing how blob
 
 This article shows how to list blobs using the [Azure Storage client library for Python](/azure/developer/python/sdk/storage/overview).
 
-- [ContainerClient.list_blobs](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient?view=storage-py-v12#list-blobs-name-starts-with-none--include-none----kwargs-)
+- [ContainerClient.list_blobs](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient#list-blobs-name-starts-with-none--include-none----kwargs-)
 
 ---
 
@@ -73,7 +73,7 @@ Specify the **Metadata** value for the [BlobListingDetails](/dotnet/api/microsof
 
 # [Python v12](#tab/python)
 
-Specify `metadata` for the `include=` parameter when calling [list_blobs](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient?view=storage-py-v12#list-blobs-name-starts-with-none--include-none----kwargs-).
+Specify `metadata` for the `include=` parameter when calling [list_blobs](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient#list-blobs-name-starts-with-none--include-none----kwargs-).
 
 ---
 
@@ -81,7 +81,7 @@ Specify `metadata` for the `include=` parameter when calling [list_blobs](/azure
 
 To list blob versions or snapshots with the .NET v12 client library, specify the [BlobStates](/dotnet/api/azure.storage.blobs.models.blobstates) parameter with the **Version** or **Snapshot** field. Versions and snapshots are listed from oldest to newest. For more information about listing versions, see [List blob versions](versioning-enable.md#list-blob-versions).
 
-To list the number of snapshots with the Python v12 client library, specify `num_snapshots` in the `include=` parameter when calling [list_blobs](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient?view=storage-py-v12#list-blobs-name-starts-with-none--include-none----kwargs-).
+To list the number of snapshots with the Python v12 client library, specify `num_snapshots` in the `include=` parameter when calling [list_blobs](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient#list-blobs-name-starts-with-none--include-none----kwargs-).
 
 ### Flat listing versus hierarchical listing
 
