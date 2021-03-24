@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn the cluster operator best practices for how to manage cluster security and upgrades in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: conceptual
-ms.date: 03/09/2021
+ms.date: 03/24/2021
 
 ---
 
@@ -102,7 +102,6 @@ AppArmor profiles are added using the `apparmor_parser` command.
 1. From your local machine, create a pod manifest named *aks-apparmor.yaml*. This manifest:
     * Defines an annotation for `container.apparmor.security.beta.kubernetes`.
     * References the *deny-write* profile created in the previous steps.
-1. Paste the following content:
 
     ```yaml
     apiVersion: v1
@@ -114,24 +113,18 @@ AppArmor profiles are added using the `apparmor_parser` command.
     spec:
       containers:
       - name: hello
-        image: busybox
+        image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
         command: [ "sh", "-c", "echo 'Hello AppArmor!' && sleep 1h" ]
     ```
 
-1. Deploy the sample pod using the [kubectl apply][kubectl-apply] command:
-
-    ```console
-    kubectl apply -f aks-apparmor.yaml
-    ```
-
-1. With the pod deployed, use the [kubectl exec][kubectl-exec] command to write to a file. 
-    * The command can't be executed, as shown in the following example output:
+1. With the pod deployed, use verify the *hello-apparmor* pod shows as *blocked*:
 
     ```
-    $ kubectl exec hello-apparmor touch /tmp/test
+    $ kubectl get pods
 
-    touch: /tmp/test: Permission denied
-    command terminated with exit code 1
+    NAME             READY   STATUS    RESTARTS   AGE
+    aks-ssh          1/1     Running   0          4m2s
+    hello-apparmor   0/1     Blocked   0          50s
     ```
 
 For more information about AppArmor, see [AppArmor profiles in Kubernetes][k8s-apparmor].
@@ -159,10 +152,9 @@ To see seccomp in action, create a filter that prevents changing permissions on 
     }
     ```
 
-1. From your local machine, create a pod manifest named *aks-seccomp.yaml*. This manifest:
-      * Defines an annotation for `seccomp.security.alpha.kubernetes.io`.
-      * References the *prevent-chmod* filter created in the previous step.
-5. Paste the following content:
+1. From your local machine, create a pod manifest named *aks-seccomp.yaml*. Paste the following content. This manifest:
+    * Defines an annotation for `seccomp.security.alpha.kubernetes.io`.
+    * References the *prevent-chmod* filter created in the previous step.
 
     ```yaml
     apiVersion: v1
@@ -174,7 +166,7 @@ To see seccomp in action, create a filter that prevents changing permissions on 
     spec:
       containers:
       - name: chmod
-        image: busybox
+        image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
         command:
           - "chmod"
         args:
@@ -189,9 +181,7 @@ To see seccomp in action, create a filter that prevents changing permissions on 
     kubectl apply -f ./aks-seccomp.yaml
     ```
 
-1. View the status of the pods using the [kubectl get pods][kubectl-get] command. 
-1. The pod reports an error. 
-    * The `chmod` command is prevented from running by the seccomp filter, as shown in the following example output:
+1. View the status of the pods using the [kubectl get pods][kubectl-get] command. The pod reports an error. The `chmod` command is prevented from running by the seccomp filter, as shown in the following example output:
 
     ```
     $ kubectl get pods

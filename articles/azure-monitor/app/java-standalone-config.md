@@ -58,7 +58,8 @@ Connection string is required. You can find your connection string in your Appli
 }
 ```
 
-You can also set the connection string using the environment variable `APPLICATIONINSIGHTS_CONNECTION_STRING`.
+You can also set the connection string using the environment variable `APPLICATIONINSIGHTS_CONNECTION_STRING`
+(which will then take precedence if the connection string is also specified in the json configuration).
 
 Not setting the connection string will disable the Java agent.
 
@@ -78,7 +79,8 @@ If you want to set the cloud role name:
 
 If cloud role name is not set, the Application Insights resource's name will be used to label the component on the application map.
 
-You can also set the cloud role name using the environment variable `APPLICATIONINSIGHTS_ROLE_NAME`.
+You can also set the cloud role name using the environment variable `APPLICATIONINSIGHTS_ROLE_NAME`
+(which will then take precedence if the cloud role name is also specified in the json configuration).
 
 ## Cloud role instance
 
@@ -95,7 +97,8 @@ If you want to set the cloud role instance to something different rather than th
 }
 ```
 
-You can also set the cloud role instance using the environment variable `APPLICATIONINSIGHTS_ROLE_INSTANCE`.
+You can also set the cloud role instance using the environment variable `APPLICATIONINSIGHTS_ROLE_INSTANCE`
+(which will then take precedence if the cloud role instance is also specified in the json configuration).
 
 ## Sampling
 
@@ -114,10 +117,23 @@ Here is an example how to set the sampling to capture approximately **1/3 of all
 }
 ```
 
-You can also set the sampling percentage using the environment variable `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE`.
+You can also set the sampling percentage using the environment variable `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE`
+(which will then take precedence if the sampling percentage is also specified in the json configuration).
 
 > [!NOTE]
 > For the sampling percentage, choose a percentage that is close to 100/N where N is an integer. Currently sampling doesn't support other values.
+
+## Sampling overrides (preview)
+
+This feature is in preview, starting from 3.0.3-BETA.2.
+
+Sampling overrides allow you to override the [default sampling percentage](#sampling), for example:
+* Set the sampling percentage to 0 (or some small value) for noisy health checks.
+* Set the sampling percentage to 0 (or some small value) for noisy dependency calls.
+* Set the sampling percentage to 100 for an important request type (e.g. `/login`)
+  even though you have the default sampling configured to something lower.
+
+For more information, check out the [sampling overrides](./java-standalone-sampling-overrides.md) documentation.
 
 ## JMX metrics
 
@@ -175,19 +191,28 @@ This feature is in preview.
 It allows you to configure rules that will be applied to request, dependency and trace telemetry, for example:
  * Mask sensitive data
  * Conditionally add custom dimensions
- * Update the telemetry name used for aggregation and display
+ * Update the span name, which is used to aggregate similar telemetry in the Azure portal.
+ * Drop specific span attributes to control ingestion costs.
 
 For more information, check out the [telemetry processor](./java-standalone-telemetry-processors.md) documentation.
+
+> [!NOTE]
+> If you are looking to drop specific (whole) spans for controlling ingestion cost,
+> see [sampling overrides](./java-standalone-sampling-overrides.md).
 
 ## Auto-collected logging
 
 Log4j, Logback, and java.util.logging are auto-instrumented, and logging performed via these logging frameworks
 is auto-collected.
 
-Logging is only captured if it first meets the logging frameworks' configured threshold,
-and second also meets the Application Insights configured threshold.
+Logging is only captured if it first meets the level that is configured for the logging framework,
+and second, also meets the level that is configured for Application Insights.
 
-The default Application Insights threshold is `INFO`. If you want to change this level:
+For example, if your logging framework is configured to log `WARN` (and above) from package `com.example`,
+and Application Insights is configured to capture `INFO` (and above),
+then Application Insights will only capture `WARN` (and above) from package `com.example`.
+
+The default level configured for Application Insights is `INFO`. If you want to change this level:
 
 ```json
 {
@@ -199,7 +224,8 @@ The default Application Insights threshold is `INFO`. If you want to change this
 }
 ```
 
-You can also set the threshold using the environment variable `APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL`.
+You can also set the level using the environment variable `APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL`
+(which will then take precedence if the level is also specified in the json configuration).
 
 These are the valid `level` values that you can specify in the `applicationinsights.json` file, and how they correspond to logging levels in different logging frameworks:
 
@@ -378,7 +404,8 @@ and the console, corresponding to this configuration:
 
 `maxHistory` is the number of rolled over log files that are retained (in addition to the current log file).
 
-Starting from version 3.0.2, you can also set the self-diagnostics `level` using the environment variable `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL`.
+Starting from version 3.0.2, you can also set the self-diagnostics `level` using the environment variable `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL`
+(which will then take precedence if the self-diagnostics `level` is also specified in the json configuration).
 
 ## An example
 

@@ -80,8 +80,10 @@
       href: ../../postgresql/concept-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Synapse Analytics
       href: prepay-sql-data-warehouse-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Azure Storage
+    - name: Azure Blob storage
       href: ../../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Azure Files
+      href: ../../storage/files/files-reserve-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Cosmos DB
       href: ../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Databricks
@@ -124,6 +126,8 @@
       href: reservation-renew.md?toc=/azure/cost-management-billing/reservations/toc.json
   - name: Troubleshoot
     items:
+    - name: Find a reservation purchaser from Azure logs
+      href: find-reservation-purchaser-from-logs.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Troubleshoot transfers between tenants
       href: troubleshoot-reservation-transfers-between-tenants.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: No eligible subscriptions

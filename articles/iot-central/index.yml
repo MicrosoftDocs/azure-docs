@@ -84,6 +84,10 @@ landingContent:
             url: /rest/api/iotcentral/
   - title: Manage your devices
     linkLists:
+      - linkListType: overview
+        links:
+          - text: Overview for operators
+            url: core/overview-iot-central-operator.md
       - linkListType: tutorial
         links:
           - text: Use device groups

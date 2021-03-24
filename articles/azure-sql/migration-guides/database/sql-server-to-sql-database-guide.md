@@ -1,5 +1,5 @@
 ---
-title: "SQL Server to SQL Database: Migration guide"
+title: "SQL Server to Azure SQL Database: Migration guide"
 description: Follow this guide to migrate your SQL Server databases to Azure SQL Database. 
 ms.service: sql-database
 ms.subservice: migration-guide
@@ -9,9 +9,9 @@ ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
-ms.date: 11/06/2020
+ms.date: 03/19/2021
 ---
-# Migration guide: SQL Server to SQL Database
+# Migration guide: SQL Server to Azure SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
 
 This guide helps you migrate your SQL Server instance to Azure SQL Database. 
@@ -24,7 +24,7 @@ You can migrate SQL Server running on-premises or on:
 - Compute Engine (Google Cloud Platform - GCP)  
 - Cloud SQL for SQL Server (Google Cloud Platform – GCP) 
 
-For more migration information, see the [migration overview](sql-server-to-sql-database-overview.md). For other scenarios, see the [Database Migration Guide](https://datamigration.microsoft.com/).
+For more migration information, see the [migration overview](sql-server-to-sql-database-overview.md). For other migration guides, see [Database Migration](https://docs.microsoft.com/data-migration). 
 
 :::image type="content" source="media/sql-server-to-database-overview/migration-process-flow-small.png" alt-text="Migration process flow":::
 
@@ -32,9 +32,11 @@ For more migration information, see the [migration overview](sql-server-to-sql-d
 
 To migrate your SQL Server to Azure SQL Database, make sure you have the following prerequisites: 
 
-- A chosen [migration method](sql-server-to-sql-database-overview.md#compare-migration-options) and corresponding tools 
-- [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) installed on a machine that can connect to your source SQL Server
-- A target [Azure SQL Database](../../database/single-database-create-quickstart.md)
+- A chosen [migration method](sql-server-to-sql-database-overview.md#compare-migration-options) and corresponding tools .
+- [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) installed on a machine that can connect to your source SQL Server.
+- A target [Azure SQL Database](../../database/single-database-create-quickstart.md). 
+- Connectivity and proper permissions to access both source and target. 
+
 
 
 ## Pre-migration
@@ -177,9 +179,6 @@ The test approach for database migration consists of the following activities:
 1. **Set up test environment**: The test environment should contain a copy of the source database and the target database. Be sure to isolate the test environment.
 1. **Run validation tests**: Run the validation tests against the source and the target, and then analyze the results.
 1. **Run performance tests**: Run performance test against the source and the target, and then analyze and compare the results.
-
-   > [!NOTE]
-   > For assistance developing and running post-migration validation tests, consider the Data Quality Solution available from the partner [QuerySurge](https://www.querysurge.com/company/partners/microsoft). 
 
 
 ## Leverage advanced features 

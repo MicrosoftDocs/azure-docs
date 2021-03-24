@@ -6,7 +6,7 @@ author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 9/1/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
@@ -110,6 +110,17 @@ string threadId = "<THREAD_ID>";
 ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(threadId: threadId);
 ```
 
+## List all chat threads
+Use `GetChatThreads` to retrieve all the chat threads that the user is part of.
+
+```csharp
+AsyncPageable<ChatThreadItem> chatThreadItems = chatClient.GetChatThreadsAsync();
+await foreach (ChatThreadItem chatThreadItem in chatThreadItems)
+{
+    Console.WriteLine($"{ chatThreadItem.Id}");
+}
+```
+
 ## Send a message to a chat thread
 
 Use `SendMessage` to send a message to a thread.
@@ -120,16 +131,6 @@ Use `SendMessage` to send a message to a thread.
 
 ```csharp
 var messageId = await chatThreadClient.SendMessageAsync(content:"hello world", type: ChatMessageType.Text);
-```
-## Get a message
-
-Use `GetMessage` to retrieve a message from the service.
-`messageId` is the unique ID of the message.
-
-`ChatMessage` is the response returned from getting a message, it contains an ID, which is the unique identifier of the message, among other fields. Please refer to Azure.Communication.Chat.ChatMessage
-
-```csharp
-ChatMessage chatMessage = await chatThreadClient.GetMessageAsync(messageId: messageId);
 ```
 
 ## Receive chat messages from a chat thread
@@ -162,25 +163,6 @@ await foreach (ChatMessage message in allMessages)
 
 For more details, see [Message Types](../../../concepts/chat/concepts.md#message-types).
 
-## Update a message
-
-You can update a message that has already been sent by invoking `UpdateMessage` on `ChatThreadClient`.
-
-```csharp
-string id = "id-of-message-to-edit";
-string content = "updated content";
-await chatThreadClient.UpdateMessageAsync(messageId: id, content: content);
-```
-
-## Deleting a message
-
-You can delete a message by invoking `DeleteMessage` on `ChatThreadClient`.
-
-```csharp
-string id = "id-of-message-to-delete";
-await chatThreadClient.DeleteMessageAsync(messageId: id);
-```
-
 ## Add a user as a participant to the chat thread
 
 Once a thread is created, you can then add and remove users from it. By adding users, you give them access to be able to send messages to the thread, and add/remove other participant. Before calling `AddParticipants`, ensure that you have acquired a new access token and identity for that user. The user will need that access token in order to initialize their chat client.
@@ -204,14 +186,6 @@ var participants = new[]
 
 await chatThreadClient.AddParticipantsAsync(participants: participants);
 ```
-## Remove user from a chat thread
-
-Similar to adding a user to a thread, you can remove users from a chat thread. To do that, you need to track the identity `CommunicationUser` of the participant you have added.
-
-```csharp
-var gloria = new CommunicationUserIdentifier(id: "<Access_ID_For_Gloria>");
-await chatThreadClient.RemoveParticipantAsync(identifier: gloria);
-```
 
 ## Get thread participants
 
@@ -225,14 +199,6 @@ await foreach (ChatParticipant participant in allParticipants)
 }
 ```
 
-## Send typing notification
-
-Use `SendTypingNotification` to indicate that the user is typing a response in the thread.
-
-```csharp
-await chatThreadClient.SendTypingNotificationAsync();
-```
-
 ## Send read receipt
 
 Use `SendReadReceipt` to notify other participants that the message is read by the user.
@@ -241,17 +207,6 @@ Use `SendReadReceipt` to notify other participants that the message is read by t
 await chatThreadClient.SendReadReceiptAsync(messageId: messageId);
 ```
 
-## Get read receipts
-
-Use `GetReadReceipts` to check the status of messages to see which ones are read by other participants of a chat thread.
-
-```csharp
-AsyncPageable<ChatMessageReadReceipt> allReadReceipts = chatThreadClient.GetReadReceiptsAsync();
-await foreach (ChatMessageReadReceipt readReceipt in allReadReceipts)
-{
-    Console.WriteLine($"{readReceipt.ChatMessageId}:{((CommunicationUserIdentifier)readReceipt.Sender).Id}:{readReceipt.ReadOn}");
-}
-```
 ## Run the code
 
 Run the application from your application directory with the `dotnet run` command.

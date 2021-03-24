@@ -350,6 +350,7 @@ FOR_EACH filter IN (a, b, c)
         IF key CONTAINS filter
             FAIL_MATCH
 ```
+See [Limitations](#limitations) section for current limitation of this operator.
 
 ## StringBeginsWith
 The **StringBeginsWith** operator evaluates to true if the **key** value **begins with** any of the specified **filter** values. In the following example, it checks whether the value of the `key1` attribute in the `data` section begins with `event` or `grid`. For example, `event hubs` begins with `event`.  
@@ -629,6 +630,7 @@ Advanced filtering has the following limitations:
 * 5 advanced filters and 25 filter values across all the filters per event grid subscription
 * 512 characters per string value
 * Five values for **in** and **not in** operators
+* The `StringNotContains` operator is currently not available in the portal.
 * Keys with **`.` (dot)** character in them. For example: `http://schemas.microsoft.com/claims/authnclassreference` or `john.doe@contoso.com`. Currently, there's no support for escape characters in keys. 
 
 The same key can be used in more than one filter.

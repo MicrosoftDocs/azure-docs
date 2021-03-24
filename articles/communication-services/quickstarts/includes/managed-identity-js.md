@@ -15,7 +15,7 @@ Add the following `import` directives to your code to use the Azure Identity and
 
 ```typescript
 import { DefaultAzureCredential } from "@azure/identity";
-import { CommunicationIdentityClient } from "@azure/communication-identity";
+import { CommunicationIdentityClient, CommunicationUserToken } from "@azure/communication-identity";
 import { SmsClient, SmsSendRequest } from "@azure/communication-sms";
 ```
 
@@ -31,7 +31,7 @@ The following code example shows how to create a service client object with mana
 export async function createIdentityAndIssueToken(resourceEndpoint: string): Promise<CommunicationUserToken> {
      let credential = new DefaultAzureCredential();
      const client = new CommunicationIdentityClient(resourceEndpoint, credential);
-     return await client.createUserWithToken(["chat"]);
+     return await client.createUserAndToken(["chat"]);
 }
 ```
 

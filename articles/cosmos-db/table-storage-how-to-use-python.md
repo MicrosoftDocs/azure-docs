@@ -35,9 +35,9 @@ While working through the scenarios in this sample, you may want to refer to the
 
 You need the following to complete this sample successfully:
 
-* [Python](https://www.python.org/downloads/) 2.7, 3.3, 3.4, 3.5, or 3.6
+* [Python](https://www.python.org/downloads/) 2.7 or 3.6+.
 * [Azure Cosmos DB Table SDK for Python](https://pypi.python.org/pypi/azure-cosmosdb-table/). This SDK connects with both Azure Table storage and the Azure Cosmos DB Table API.
-* [Azure Storage account](../storage/common/storage-account-create.md) or [Azure Cosmos DB account](https://azure.microsoft.com/try/cosmosdb/)
+* [Azure Storage account](../storage/common/storage-account-create.md) or [Azure Cosmos DB account](https://azure.microsoft.com/try/cosmosdb/).
 
 ## Create an Azure service account
 

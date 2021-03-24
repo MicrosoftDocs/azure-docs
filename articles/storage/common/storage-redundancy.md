@@ -29,6 +29,9 @@ Data in an Azure Storage account is always replicated three times in the primary
 - **Locally redundant storage (LRS)** copies your data synchronously three times within a single physical location in the primary region. LRS is the least expensive replication option, but is not recommended for applications requiring high availability.
 - **Zone-redundant storage (ZRS)** copies your data synchronously across three Azure availability zones in the primary region. For applications requiring high availability, Microsoft recommends using ZRS in the primary region, and also replicating to a secondary region.
 
+> [!NOTE]
+> Microsoft recommends using ZRS in the primary region for Azure Data Lake Storage Gen2 workloads.
+
 ### Locally-redundant storage
 
 Locally redundant storage (LRS) replicates your data three times within a single data center in the primary region. LRS provides at least 99.999999999% (11 nines) durability of objects over a given year.

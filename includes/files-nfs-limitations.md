@@ -19,6 +19,7 @@ While in preview, NFS has the following limitations:
 - Only available for the premium tier.
 - NFS shares only accept numeric UID/GID. To avoid your clients sending alphanumeric UID/GID, you should disable ID mapping.
 - Shares can only be mounted from one storage account on an individual VM, when using private links. Attempting to mount shares from other storage accounts will fail.
+- It is best to rely on the permissions assigned to primary group. Sometimes, permissions allocated to the non-primary group of the user may result in access denied due to a known bug.
 
 ### Azure Storage features not yet supported
 
