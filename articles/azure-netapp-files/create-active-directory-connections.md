@@ -252,7 +252,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
 
 ## <a name="shared_ad"></a>Map multiple NetApp accounts in the same subscription and region to an AD connection  
 
-The Shared AD feature enables all NetApp accounts to share an Active Directory connection created by one of the NetApp accounts that belong to the same subscription and the same region. For example, using this feature, all NetApp accounts in the same subscription and region can use the common Active Directory configuration to create an [SMB volume](azure-netapp-files-create-volumes-smb.md), a [NFSv4.1 Kerberos volume](configure-kerberos-encryption.md), or a [dual-protocol volume](create-volumes-dual-protocol.md). When you use this feature, the AD connection will be visible in all NetApp accounts that are under the same subscription and same region.   
+The Shared AD feature enables all NetApp accounts to share an Active Directory (AD) connection created by one of the NetApp accounts that belong to the same subscription and the same region. For example, using this feature, all NetApp accounts in the same subscription and region can use the common AD configuration to create an [SMB volume](azure-netapp-files-create-volumes-smb.md), a [NFSv4.1 Kerberos volume](configure-kerberos-encryption.md), or a [dual-protocol volume](create-volumes-dual-protocol.md). When you use this feature, the AD connection will be visible in all NetApp accounts that are under the same subscription and same region.   
 
 This feature is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. There’s no UI control required. 
 
