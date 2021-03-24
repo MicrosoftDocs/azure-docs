@@ -24,7 +24,7 @@ Claims generated in the process of attesting enclaves using Microsoft Azure Atte
 
 ### SGX attestation
 
-Below claims can be used by policy authors to define authorization rules in a custom policy for SGX attestation.
+Claims to be used by policy authors to define authorization rules in an SGX attestation policy:
 
 - **x-ms-sgx-is-debuggable**: A Boolean, which indicates whether or not the enclave has debugging enabled or not
 - **x-ms-sgx-product-id**: Product id value of the SGX enclave 
@@ -44,7 +44,7 @@ $svn | x-ms-sgx-svn
 
 ### TPM attestation
 
-Claims issued by Azure Attestation for TPM attestation. The availability of the claims is dependent on the evidence provided for attestation.
+Claims to be used by policy authors to define authorization rules in a TPM attestation policy:
 
 - **aikValidated**: Boolean value containing information if the Attestation Identity Key (AIK) cert has been validated or not
 - **aikPubHash**:  String containing the base64(SHA256(AIK public key in DER format))
@@ -59,7 +59,7 @@ Claims issued by Azure Attestation for TPM attestation. The availability of the 
 
 ### VBS attestation
 
-Claims issued by Azure Attestation for VBS attestation is in addition to the claims made available for TPM attestation. The availability of the claims is dependent on the evidence provided for attestation.
+In addition to the TPM attestation policy claims, below claims can be used by policy authors to define authorization rules in a VBS attestation policy.
 
 - **enclaveAuthorId**:  String value containing the Base64Url encoded value of the enclave author id-The author identifier of the primary module for the enclave
 - **enclaveImageId**:  String value containing the Base64Url encoded value of the enclave Image id-The image identifier of the primary module for the enclave
