@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page 
   author: shortpatti 
   ms.author: v-patsho 
-  ms.date: 03/22/2021 
+  ms.date: 03/26/2021 
 
 # card 1
 landingContent:
@@ -40,7 +40,7 @@ landingContent:
 # faq card
   - title: FAQ
     linkLists:
-      - linkListType: 
+      - linkListType: reference
         links:
         - text: General
           url: /azure/azure-vmware/faq#general
