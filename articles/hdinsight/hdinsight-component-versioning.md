@@ -16,12 +16,12 @@ HDInsight bundles Apache Hadoop environment components and HDInsight platform in
 
 This table lists the versions of HDInsight that are available in the Azure portal and other deployment methods like PowerShell, CLI and the .NET SDK.
 
-| HDInsight version | VM OS | Release date | Support expiration date | Retirement date | High availability |
-| --- | --- | --- | --- | --- | --- |
-| [HDInsight 4.0](hdinsight-40-component-versioning.md) |Ubuntu 16.0.4 LTS |September 24, 2018 | | |Yes |
-| [HDInsight 3.6](hdinsight-36-component-versioning.md) |Ubuntu 16.0.4 LTS |April 4, 2017      | *June 30, 2021 |June 30, 2021 |Yes |
+| HDInsight version | VM OS | Release date| Support type | Support expiration date | Retirement date | High availability |
+| --- | --- | --- | --- | --- | --- | ---|
+| [HDInsight 4.0](hdinsight-40-component-versioning.md) |Ubuntu 16.0.4 LTS |September 24, 2018 | [Standard](hdinsight-component-versioning.md#support-options-for-hdnsight-versions) | | |Yes |
+| [HDInsight 3.6](hdinsight-36-component-versioning.md) |Ubuntu 16.0.4 LTS |April 4, 2017      | [Basic](hdinsight-component-versioning.md#support-options-for-hdnsight-versions) | Standard support expiration - June 30, 2021 <br> Basic support expiration - March 31, 2022 |April 1, 2022 |Yes |
 
-*We are extending the support timeframe for certain HDInsight 3.6 cluster types. See [HDInsight 3.6 component versions](hdinsight-36-component-versioning.md).
+*Starting July 1st, 2021 Microsoft will offer Basic support for certain HDI 3.6 cluster types. See [HDInsight 3.6 component versions](hdinsight-36-component-versioning.md).
 
 ## Release notes
 
@@ -29,9 +29,13 @@ For additional release notes on the latest versions of HDInsight, see [HDInsight
 
 ## Support options for HDInsight versions
 
-HDInsight offers Standard support which is defined as a time period that an HDInsight version is supported by Microsoft Customer Service and Support.
+Support is defined as a time period that an HDInsight version is supported by Microsoft Customer Service and Support. HDInsight offers two types of support: 
+- **Standard support** is a time period in which Microsoft provides updates and support on HDInsight clusters.  
+    We recommend building solutions using the most recent fully supported version. 
+- **Basic support** is a time period in which Microsoft will provide limited servicing to HDInsight Resource provider. HDInsight images and OSS components will not be serviced.   Only critical security fixes will be patched on HDInsight clusters.  
+  Microsoft does not encourage creating new clusters or building any fresh solutions when a version is in Basic support. We recommend migrating existing clusters to the most recent fully supported version. 
 
-**Support expiration** means that Microsoft no longer provides support for the specific HDInsight version. And it's no longer available through the Azure portal for cluster creation.
+**Support expiration** means that Microsoft no longer provides support for the specific HDInsight version. And it may no longer available through the Azure portal for cluster creation.
 
 **Retirement** means that existing clusters of an HDInsight version continue to run as is. New clusters of this version can't be created through any means, which includes the CLI and SDKs. Other control plane features, such as manual scaling and autoscaling, are not guaranteed to work after retirement date. Support isn't available for retired versions.
 
