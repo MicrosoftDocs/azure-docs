@@ -31,11 +31,13 @@ Batch pools in the Virtual Machine configuration support almost all [VM sizes](.
 | DCsv2 | All sizes |
 | Dv2, DSv2 | All sizes |
 | Dv3, Dsv3 | All sizes |
-| Dav4, Dasv4 | All sizes |
+| Dav4 | All sizes |
+| Dasv4 | All sizes |
 | Ddv4, Ddsv4 |  All sizes |
 | Dv4, Dsv4 | Not supported |
 | Ev3, Esv3 | All sizes, except for E64is_v3 |
-| Eav4, Easv4 | All sizes |
+| Eav4 | All sizes |
+| Easv4 | All sizes |
 | Edv4, Edsv4 |  All sizes |
 | Ev4, Esv4 | Not supported |
 | F, Fs | All sizes |
@@ -53,7 +55,7 @@ Batch pools in the Virtual Machine configuration support almost all [VM sizes](.
 | NC | All sizes |
 | NCv2 | All sizes |
 | NCv3 | All sizes |
-| NCasT4_v3 | All sizes |
+| NCasT4_v3 | None - not yet available |
 | ND | All sizes |
 | NDv2 | None - not yet available |
 | NV | All sizes |
@@ -97,6 +99,8 @@ Use one of the following APIs to return a list of Windows and Linux VM images cu
 - Batch Service REST API: [List Supported Images](/rest/api/batchservice/account/listsupportedimages)
 - PowerShell: [Get-AzBatchSupportedImage](/powershell/module/az.batch/get-azbatchsupportedimage)
 - Azure CLI: [az batch pool supported-images](/cli/azure/batch/pool/supported-images)
+
+It is strongly recommended to avoid images with impending Batch support end of life (EOL) dates. These dates can be discovered via the [`ListSupportedImages` API](https://docs.microsoft.com/rest/api/batchservice/account/listsupportedimages), [PowerShell](https://docs.microsoft.com/powershell/module/az.batch/get-azbatchsupportedimage), or [Azure CLI](https://docs.microsoft.com/cli/azure/batch/pool/supported-images). Please see the [Batch best practices guide](best-practices.md) for more information regarding Batch pool VM image selection.
 
 ## Next steps
 

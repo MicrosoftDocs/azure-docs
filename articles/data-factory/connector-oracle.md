@@ -4,7 +4,7 @@ description: Learn how to copy data from supported source stores to an Oracle da
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/20/2021
+ms.date: 03/17/2021
 ms.author: jingwang
 ---
 
@@ -259,6 +259,7 @@ To copy data to Oracle, set the sink type in the copy activity to `OracleSink`. 
 | writeBatchSize | Inserts data into the SQL table when the buffer size reaches `writeBatchSize`.<br/>Allowed values are Integer (number of rows). |No (default is 10,000) |
 | writeBatchTimeout | The wait time for the batch insert operation to complete before it times out.<br/>Allowed values are Timespan. An example is 00:30:00 (30 minutes). | No |
 | preCopyScript | Specify a SQL query for the copy activity to run before writing data into Oracle in each run. You can use this property to clean up the preloaded data. | No |
+| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
 
 **Example:**
 

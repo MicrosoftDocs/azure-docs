@@ -11,7 +11,7 @@ ms.author: inhenkel
 
 | Feature | UAE Central | UAE North |
 | --- | :---: | :---: |
-| [Azure EventGrid](../reacting-to-media-services-events.md) |![Azure EventGrid UAE Central general availability](../media/azure-clouds-regions/ga.svg)  |![Azure EventGrid UAE North general availability](../media/azure-clouds-regions/ga.svg) |
+| [Azure EventGrid](../monitoring/reacting-to-media-services-events.md) |![Azure EventGrid UAE Central general availability](../media/azure-clouds-regions/ga.svg)  |![Azure EventGrid UAE North general availability](../media/azure-clouds-regions/ga.svg) |
 | [VideoAnalyzerPreset](../analyzing-video-audio-files-concept.md) |![VideoAnalyzerPreset UAE Central general availability](../media/azure-clouds-regions/ga.svg)  | ![VideoAnalyzerPreset UAE North general availability](../media/azure-clouds-regions/ga.svg) |
 | [AudioAnalyzerPreset](../analyzing-video-audio-files-concept.md) |![AudioAnalyzerPreset UAE Central general availability](../media/azure-clouds-regions/ga.svg)  | ![AudioAnalyzerPreset UAE North general availability](../media/azure-clouds-regions/ga.svg) |
 | [StandardEncoderPreset](../encoding-concept.md) |![StandardEncoderPreset UAE Central general availability](../media/azure-clouds-regions/ga.svg)  | ![StandardEncoderPreset UAE North general availability](../media/azure-clouds-regions/ga.svg) |

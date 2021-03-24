@@ -27,7 +27,7 @@ The following tables list the [Live Event](live-events-outputs-concept.md) error
 
 When you subscribe to the [Event Grid](../../event-grid/index.yml) events for a
 live event, you may see one of the following errors from the
-[LiveEventConnectionRejected](media-services-event-schemas.md\#liveeventconnectionrejected)
+[LiveEventConnectionRejected](monitoring/media-services-event-schemas.md\#liveeventconnectionrejected)
 event.
 > [!div class="mx-tdCol2BreakAll"]
 >| Error | Information |
@@ -69,7 +69,7 @@ event.
 ## LiveEventEncoderDisconnected
 
 You may see one of the following errors from the
-[LiveEventEncoderDisconnected](media-services-event-schemas.md\#liveeventencoderdisconnected)
+[LiveEventEncoderDisconnected](monitoring/media-services-event-schemas.md\#liveeventencoderdisconnected)
 event.
 
 > [!div class="mx-tdCol2BreakAll"]

@@ -111,6 +111,8 @@ If you selected to create a new backup policy, fill in the policy settings.
 4. In **Retention range**, specify how long you want to keep your daily or weekly backup points.
 5. In **Retention of monthly backup point** and **Retention of yearly backup point**, specify whether you want to keep a monthly or yearly backup of your daily or weekly backups.
 6. Select **OK** to save the policy.
+    > [!NOTE]
+    > To store the restore point collection (RPC), the Backup service creates a separate resource group (RG). This RG is different than RG of the VM. [Learn more](backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines).
 
     ![New backup policy](./media/backup-azure-arm-vms-prepare/new-policy.png)
 
