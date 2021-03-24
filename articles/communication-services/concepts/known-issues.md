@@ -84,5 +84,3 @@ Under investigation
 
 ####  Sometimes it takes a long time to render remote participant videos
 This issue has been observed when, during an ongoing group call, User A sends video and then User B joins the call. Sometimes User B doesn't see video from User A, or User A's video begins rendering after a long delay. This could be caused by a network environment that requires further configuration. Refer to the (network requirements)[./concepts/voice-video-calling/network-requirements] documentation for network configuration guidance.
-
-#### Possible causes
