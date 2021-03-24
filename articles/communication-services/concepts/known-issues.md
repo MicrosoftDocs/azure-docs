@@ -1,7 +1,7 @@
 ---
 title: Azure Communication Services - FAQ / Known issues
 description: Learn more about Azure Communication Services
-author: mikben
+author: rinarish
 manager: jken
 services: azure-communication-services
 
@@ -11,16 +11,21 @@ ms.topic: troubleshooting
 ms.service: azure-communication-services
 ---
 
-# VoIP limitations / known issues 
+# Known issues 
 This article provides information about limitations and known issues related to Azure Communication Services.
 
-## JavaScript client library limitations 
+> [!IMPORTANT]
+> There are multiple factors that can affect the quality of your calling experience. Refer to the [network requirements](./voice-video-calling/network-requirements) documentation to learn more about Communication Services network configuration and testing best practices.
 
-### Ensuring high-quality multimedia experiences
-There are multiple factors that can affect the quality of your calling experience. Ensure that your solution is being used on supported operating systems and test the end-to-end connectivity of your network configuration. Refer to the [network requirements](./voice-video-calling/network-requirements) documentation to learn more about Communication Services network configuration and testing best practices.
 
-### After refreshing the page the call disconnects on web
-When refreshing pages, the Communication Services client library may not be able to inform the Communication Services media service that it's about to disconnect. The Communication Services media service will then time out. When those timeouts get raised, the media endpoint is disconnected. We encourage developers build experiences that don't require end-users to refresh the page of your application while participating in a call. If a refresh does happen, the best way to handle it is to track and reuse the same Communication Services user ID between refreshes, and select the stream with the highest numerical ID.
+## JavaScript client library known issues 
+
+This section provides information about known issues associated with JavaScript voice and video calling client libraries in Azure Communication Services.
+
+### After refreshing the page, the call disconnects on web
+When refreshing pages, the Communication Services client library may not be able to inform the Communication Services media service that it's about to disconnect. The Communication Services media service will then time out. When those timeouts get raised, the media endpoint is disconnected. 
+
+We encourage developers build experiences that don't require end-users to refresh the page of your application while participating in a call. If a refresh does happen, the best way to handle it is to track and reuse the same Communication Services user ID between refreshes, and select the stream with the highest numerical ID.
 
 ### It's not possible to render multiple previews from multiple devices on web
 This is a known limitation. Refer to the [calling client library overview](./voice-video-calling/calling-sdk-features) for more information.
@@ -32,14 +37,9 @@ If you're using Safari on MacOS, your app may not be able to enumerate/select sp
 
 ### Audio connectivity is lost when receiving SMS messages or calls during an ongoing VoIP call
 Mobile browsers don't maintain connectivity while in the background state. This can lead to a degraded call experience if the VoIP call was interrupted by text message or incoming PSTN call that pushes your application into the background.
-Platform: web
+
+Platform: Web
 Browser: Safari, Chrome
-
-
-
-## JavaScript client library known issues
-
-This section provides information about known issues associated with voice and video calling client libraries in Azure Communication Services.
 
 ### Repeatedly switching video devices may cause video streaming to temporarily stop
 
@@ -52,18 +52,23 @@ Streaming from and switching between media devices is computationally intensive.
 Currently, there is no ability to use the headset connected via Bluetooth on Safari. Your Bluetooth device will not be listed in available microphone options and other participants will not be able to hear you if you try using Bluetooth over Safari.
 
 #### Possible causes
-This is a known iOS operating system limitation.
-With Safari on iOS/iPad, your app may have trouble enumerating/selecting mic/speaker devices (e.g. Bluetooth). This is a known operating system limitation. You may only see one device in this scenario.
-With Safari on MacOS, your app may have trouble enumerating/selecting speaker devices through the Communication Services Device Manager. In this scenario, your device selection should be updated via the operating system.
+This is a known iOS operating system limitation. 
+
+With Safari on **iOS/iPad**, your app may have trouble enumerating/selecting mic/speaker devices (e.g. Bluetooth). This is a known operating system limitation. You may only see one device in this scenario. 
+
+With Safari on **MacOS**, your app may have trouble enumerating/selecting speaker devices through the Communication Services Device Manager. In this scenario, your device selection should be updated via the operating system.
 
 ### Rotation of a device can create poor video quality
 We encourage developers to build their app in a way that does not require rotation of multimedia devices. Users may experience degraded video quality when devices are rotated.
-Devices that are known to have this problem include the Pixel 5, Pixel 3a, iPad 8, and iPad X.
-Applications running on Android or Chrome may also experience this issue.
+
+Devices affected: Pixel 5, Pixel 3a, iPad 8, and iPad X.
+Browsers: Chrome
+Platforms: iOS, Android
 
 
 ### Camera switching makes the screen freeze 
 When a Communication Services user joins a call using WebRTC and then hits the camera switch button, the UI may become completely unresponsive until the application is refreshed.
+
 Devices affected: Pixel 4a
 Browsers: Chrome
 
@@ -71,7 +76,8 @@ Browsers: Chrome
 Under investigation.
 
 ### If the video signal was stopped while the call is in connecting state, the video will not be send after the call started 
-Mobile browsers are sensitive to any changes made while being in the “connecting state”. We encourage developers build their apps in a way that doesn't require video to be configured while connecting. This issue may cause degraded video performance in the following scenarios: 
+Mobile browsers are sensitive to any changes made while being in the `connecting` state. We encourage developers to build their apps in a way that doesn't require video to be configured while connecting. This issue may cause degraded video performance in the following scenarios:
+
  1. If you start with audio and then start and stop video while the call is in `Connecting` state
  2. If you start with audio and then start and stop video while the call is in the lobby
 
