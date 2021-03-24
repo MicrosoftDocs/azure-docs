@@ -31,13 +31,16 @@ To migrate your Oracle schema to SQL Server on Azure Virtual Machines, you need:
 
 ## Pre-migration
 
-To prepare to migrate to the cloud, verify that your source environment is supported and that you've addressed any prerequisites. This will help to ensure an efficient and successful migration.
+To prepare to migrate to the cloud, verify that your source environment is supported and that you've addressed any prerequisites. Doing so will help to ensure an efficient and successful migration.
 
-This part of the process involves conducting an inventory of the databases that you need to migrate, assessing those databases for potential migration problems or blockers, and then resolving any problems that you uncover. 
+This part of the process involves: 
+- Conducting an inventory of the databases that you need to migrate.
+- Assessing those databases for potential migration problems or blockers. 
+- Resolving any problems that you uncover. 
 
 ### Discover
 
-Use [MAP Toolkit](https://go.microsoft.com/fwlink/?LinkID=316883) to identify existing data sources and details about the features your business is using to get a better understanding of the migration and plan for it. This process involves scanning the network to identify your organization's Oracle instances and the versions and features you're using.
+Use [MAP Toolkit](https://go.microsoft.com/fwlink/?LinkID=316883) to identify existing data sources and details about the features your business is using. Doing so will give you a better understanding of the migration and help you plan for it. This process involves scanning the network to identify your organization's Oracle instances and the versions and features you're using.
 
 To use MAP Toolkit to do an inventory scan, follow these steps: 
 
@@ -49,7 +52,7 @@ To use MAP Toolkit to do an inventory scan, follow these steps:
 
    ![Screenshot that shows the Create/Select database option.](./media/oracle-to-sql-on-azure-vm-guide/select-database.png)
 
-1. Select **Create an inventory database**, enter a name for the new inventory database you're creating, provide a brief description, and then select **OK**: 
+1. Select **Create an inventory database**. Enter a name for the new inventory database you're creating, provide a brief description, and then select **OK**: 
 
    :::image type="content" source="media/oracle-to-sql-on-azure-vm-guide/create-inventory-database.png" alt-text="Screenshot that shows the interface for creating an inventory database.":::
 
@@ -123,7 +126,7 @@ To create an assessment, follow these steps:
 
 1. Review the HTML report for conversion statistics, errors, and warnings. Analyze it to understand conversion problems and resolutions.
 
-    You can also open the report in Excel to get an inventory of Oracle objects and the effort required to perform schema conversions. The default location for the report is the report folder in SSMAProjects. 
+    You can also open the report in Excel to get an inventory of Oracle objects and the effort required to complete schema conversions. The default location for the report is the report folder in SSMAProjects. 
 
    For example: `drive:\<username>\Documents\SSMAProjects\MyOracleMigration\report\report_2016_11_12T02_47_55\`
 
@@ -180,7 +183,7 @@ To convert the schema, follow these steps:
 
 ## Migrate
 
-After you have the necessary prerequisites in place and have completed the tasks associated with the pre-migration stage, you're ready to perform the schema and data migration. Migration involves two steps: publishing the schema and migrating the data. 
+After you have the necessary prerequisites in place and have completed the tasks associated with the pre-migration stage, you're ready to start the schema and data migration. Migration involves two steps: publishing the schema and migrating the data. 
 
 
 To publish your schema and migrate the data, follow these steps: 
@@ -201,7 +204,7 @@ To publish your schema and migrate the data, follow these steps:
 
    ![Screenshot that shows the Migrate Data command.](./media/oracle-to-sql-on-azure-vm-guide/migrate-data.png)
 
-1. Provide connection details for Oracle and SQL Server on Azure Virtual Macines in the dialog box.
+1. Provide connection details for Oracle and SQL Server on Azure Virtual Machines in the dialog box.
 1. After the migration completes, view the **Data Migration Report**:
 
     ![Screenshot that shows the Data Migration Report.](./media/oracle-to-sql-on-azure-vm-guide/data-migration-report.png)
@@ -224,7 +227,7 @@ After you complete the migration stage, you need to complete a series of post-mi
 
 After the data is migrated to the target environment, all the applications that previously consumed the source need to start consuming the target. Making those changes might require changes to the applications.
 
-[Data Access Migration Toolkit](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit) is an extension for Visual Studio Code that allows you to analyze your Java source code and detect data access API calls and queries. The toolkit provides a single-pane view of what needs to be addressed to support the new database back end. To learn more, see [Migrate your Java application from Oracle](https://techcommunity.microsoft.com/t5/microsoft-data-migration/migrate-your-java-applications-from-oracle-to-sql-server-with/ba-p/368727). 
+[Data Access Migration Toolkit](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit) is an extension for Visual Studio Code. It allows you to analyze your Java source code and detect data access API calls and queries. The toolkit provides a single-pane view of what needs to be addressed to support the new database back end. To learn more, see [Migrate your Java application from Oracle](https://techcommunity.microsoft.com/t5/microsoft-data-migration/migrate-your-java-applications-from-oracle-to-sql-server-with/ba-p/368727). 
 
 ### Perform tests
 
@@ -243,7 +246,7 @@ To test your database migration, complete these activities:
 The post-migration phase is crucial for reconciling any data accuracy problems and verifying completeness. It's also critical for addressing performance issues with the workload.
 
 > [!Note]
-> For more details about these problems and specific steps to mitigate them, see the [Post-migration validation and optimization guide](/sql/relational-databases/post-migration-validation-and-optimization-guide).
+> For more information about these problems and specific steps to mitigate them, see the [Post-migration validation and optimization guide](/sql/relational-databases/post-migration-validation-and-optimization-guide).
 
 
 ## Migration resources 
@@ -254,33 +257,37 @@ For more help with completing this migration scenario, see the following resourc
 | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Data Workload Assessment Model and Tool](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | This tool provides suggested best-fit target platforms, cloud readiness, and application/database remediation levels for a given workload. It offers simple one-click calculation and report generation that helps to accelerate large estate assessments by providing an automated and uniform target-platform decision process.                                                          |
 | [Oracle Inventory Script Artifacts](https://github.com/Microsoft/DataMigrationTeam/tree/master/Oracle%20Inventory%20Script%20Artifacts)                 | This asset includes a PL/SQL query that targets Oracle system tables and provides a count of objects by schema type, object type, and status. It also provides a rough estimate of raw data in each schema and the sizing of tables in each schema, with results stored in a CSV format.                                                                                                               |
-| [Automate SSMA Oracle Assessment Collection & Consolidation](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Automate%20SSMA%20Oracle%20Assessment%20Collection%20%26%20Consolidation)                                             | This set of resource uses a .csv file as entry (sources.csv in the project folders) to produce the xml files that are needed to run SSMA assessment in console mode. The source.csv is provided by the customer based on an inventory of existing Oracle instances. The output files are AssessmentReportGeneration_source_1.xml, ServersConnectionFile.xml, and VariableValueFile.xml.|
-| [SSMA for Oracle Common Errors and how to fix them](https://aka.ms/dmj-wp-ssma-oracle-errors)                                                           | With Oracle, you can assign a non-scalar condition in the WHERE clause. However, SQL Server doesn’t support this type of condition. As a result, SQL Server Migration Assistant (SSMA) for Oracle doesn’t convert queries with a non-scalar condition in the WHERE clause, instead generating an error O2SS0001. This white paper provides more details on the issue and ways to resolve it.          |
-| [Oracle to SQL Server Migration Handbook](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20SQL%20Server%20Migration%20Handbook.pdf)                | This document focuses on the tasks associated with migrating an Oracle schema to the latest version of SQL Server. If the migration requires changes to features/functionality, then the possible impact of each change on the applications that use the database must be considered carefully.                                                     |
+| [Automate SSMA Oracle Assessment Collection & Consolidation](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Automate%20SSMA%20Oracle%20Assessment%20Collection%20%26%20Consolidation)                                             | This set of resources uses a .csv file as entry (sources.csv in the project folders) to produce the XML files that you need to run an SSMA assessment in console mode. You provide the source.csv file by taking an inventory of existing Oracle instances. The output files are AssessmentReportGeneration_source_1.xml, ServersConnectionFile.xml, and VariableValueFile.xml.|
+| [SSMA issues and possible remedies when migrating Oracle databases](https://aka.ms/dmj-wp-ssma-oracle-errors)                                                           | With Oracle, you can assign a non-scalar condition in a WHERE clause. SQL Server doesn’t support this type of condition. So SQL Server Migration Assistant (SSMA) for Oracle doesn’t convert queries that have a non-scalar condition in the WHERE clause. Instead, it generates an error: O2SS0001. This white paper provides details on the problem and ways to resolve it.          |
+| [Oracle to SQL Server Migration Handbook](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20SQL%20Server%20Migration%20Handbook.pdf)                | This document focuses on the tasks associated with migrating an Oracle schema to the latest version of SQL Server. If the migration requires changes to features/functionality, you need to carefully consider the possible effect of each change on the applications that use the database.                                                     |
 
-These resources were developed as part of the Data SQL Ninja Program, which is sponsored by the Azure Data Group engineering team. The core charter of the Data SQL Ninja program is to unblock and accelerate complex modernization and compete data platform migration opportunities to Microsoft's Azure Data platform. If you think your organization would be interested in participating in the Data SQL Ninja program, please contact your account team and ask them to submit a nomination.
+These resources were developed as part of the Data SQL Ninja program, which is sponsored by the Azure Data Group engineering team. The core charter of the Data SQL Ninja program is to: 
+- Unblock and accelerate complex modernization.
+- Compete data platform migration opportunities to the Azure data platform. 
+
+If you think your organization would be interested in participating in the Data SQL Ninja program, contact your account team and ask them to submit a nomination.
 
 ## Next steps
 
-- To check the availability of services applicable to SQL Server see the [Azure Global infrastructure center](https://azure.microsoft.com/global-infrastructure/services/?regions=all&amp;products=synapse-analytics,virtual-machines,sql-database)
+- To check the availability of services applicable to SQL Server, see the [Azure Global infrastructure center](https://azure.microsoft.com/global-infrastructure/services/?regions=all&amp;products=synapse-analytics,virtual-machines,sql-database).
 
-- For a matrix of the Microsoft and third-party services and tools that are available to assist you with various database and data migration scenarios as well as specialty tasks, see the article [Service and tools for data migration.](../../../dms/dms-tools-matrix.md)
+- For a matrix of the Microsoft and third-party services and tools that are available to help you with various database and data migration scenarios and specialized tasks, see [Service and tools for data migration](../../../dms/dms-tools-matrix.md).
 
 - To learn more about Azure SQL see:
    - [Deployment options](../../azure-sql-iaas-vs-paas-what-is-overview.md)
-   - [SQL Server on Azure VMs](../../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
-   - [Azure total Cost of Ownership Calculator](https://azure.microsoft.com/pricing/tco/calculator/) 
+   - [SQL Server on Azure Virtual Machines](../../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
+   - [Azure total Cost of Ownership Calculator](https://azure.microsoft.com/pricing/tco/calculator/)
 
 
-- To learn more about the framework and adoption cycle for Cloud migrations, see
+- To learn more about the framework and adoption cycle for cloud migrations, see:
    -  [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
-   -  [Best practices for costing and sizing workloads migrate to Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
+   -  [Best practices to cost and size workloads migrated to Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
 
-- For information about licensing, see
+- For information about licensing, see:
    - [Bring your own license with the Azure Hybrid Benefit](../../virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md)
    - [Get free extended support for SQL Server 2008 and SQL Server 2008 R2](../../virtual-machines/windows/sql-server-2008-extend-end-of-support.md)
 
 
-- To assess the Application access layer, see [Data Access Migration Toolkit (Preview)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)
-- For details on how to perform Data Access Layer A/B testing see [Database Experimentation Assistant](/sql/dea/database-experimentation-assistant-overview).
+- To assess the application access layer, use [Data Access Migration Toolkit Preview](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit).
+- For details on how to do data access layer A/B testing, see [Overview of Database Experimentation Assistant](/sql/dea/database-experimentation-assistant-overview).
 
