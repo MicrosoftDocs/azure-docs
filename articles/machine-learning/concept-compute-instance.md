@@ -164,7 +164,7 @@ The data scientist can start, stop, and restart the compute instance. They can u
 * RStudio
 * Integrated notebooks
 
-## <a name="compute-target"></a>Compute target
+## Compute target
 
 Compute instances can be used as a [training compute target](concept-compute-target.md#train) similar to Azure Machine Learning compute training clusters. 
 
@@ -176,8 +176,8 @@ A compute instance:
 
 You can use compute instance as a local inferencing deployment target for test/debug scenarios.
 
-> [!CAUTION]
-> The compute instance has 120GB OS disk. If you are running out of disk space, clear sufficient space before attempting to stop/restart compute instance.
+> [!TIP]
+> The compute instance has 120GB OS disk. If you run out of disk space, clear sufficient space before attempting to stop/restart the compute instance.
 
 
 ## <a name="notebookvm"></a>What happened to Notebook VM?
