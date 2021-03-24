@@ -83,7 +83,7 @@ If you’re creating a transactable offer, you'll need to gather the following i
   The Azure AD application ID is associated with your publisher ID in your Partner Center account. You must use the same application ID for all offers in that account.
 
   > [!NOTE]
-  > If the publisher has two or more different accounts in Partner Center, two or more different Azure AD app IDs should be used, each for one of the accounts.
+  > If the publisher has two or more different accounts in Partner Center, the Azure AD app registration details can be used in one account only. Using the same tenant ID, app ID pair for an offer under a different publisher account is not supported.
 
 ## Test drives
 You can choose to enable a test drive for your SaaS app. Test drives give customers access to a preconfigured environment for a fixed number of hours. You can enable test drives for any publishing option, however this feature has additional requirements. To learn more about test drives, see [What is a test drive?](what-is-test-drive.md). For information about configuring different kinds of test drives, see [Test drive technical configuration](test-drive-technical-configuration.md).
