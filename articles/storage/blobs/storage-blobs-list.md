@@ -43,6 +43,10 @@ To list the blobs in a container, call one of these methods:
 
 The overloads for these methods provide additional options for managing how blobs are returned by the listing operation. These options are described in the following sections.
 
+# [Python v12](#tab/python)
+
+- [ContainerClient.list_blobs](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient?view=storage-py-v12#list-blobs-name-starts-with-none--include-none----kwargs-)
+
 ---
 
 ### Manage how many results are returned
@@ -133,7 +137,7 @@ private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container
 
 # [Python v12](#tab/python)
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/python/python-v12/list_blobs.py" id="Snippet_ListBlobs":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/list_blobs.py" id="Snippet_ListBlobs":::
 
 ---
 
@@ -224,7 +228,7 @@ private static async Task ListBlobsHierarchicalListingAsync(CloudBlobContainer c
 
 # [Python v12](#tab/python)
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/python/python-v12/list_blobs.py" id="Snippet_WalkHierarchy":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/list_blobs.py" id="Snippet_WalkHierarchy":::
 
 ---
 
