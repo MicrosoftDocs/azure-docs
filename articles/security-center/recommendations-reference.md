@@ -4,7 +4,7 @@ description: This article lists Azure Security Center's security recommendations
 author: memildin
 ms.service: security-center
 ms.topic: reference
-ms.date: 03/14/2021
+ms.date: 03/22/2021
 ms.author: memildin
 ms.custom: generated
 ---
@@ -55,6 +55,10 @@ impact on your secure score.
 ## <a name='recs-identityandaccess'></a>IdentityAndAccess recommendations
 
 [!INCLUDE [asc-recs-identityandaccess](../../includes/asc-recs-identityandaccess.md)]
+
+## <a name='recs-iot'></a>IoT recommendations
+
+[!INCLUDE [asc-recs-iot](../../includes/asc-recs-iot.md)]
 
 ## <a name='recs-networking'></a>Networking recommendations
 

@@ -21,11 +21,11 @@ Hive provides two execution engines: Apache Hadoop MapReduce and Apache TEZ. Tez
 
 1. In the Hive **Configs** tab, type **execution engine** in the filter box.
 
-    ![Apache Ambari Search execution engine](./media/optimize-hive-ambari/ambari-search-execution.png)
+    :::image type="content" source="./media/optimize-hive-ambari/ambari-search-execution.png" alt-text="Apache Ambari Search execution engine" border="true":::
 
 1. The **Optimization** property's default value is **Tez**.
 
-    ![Optimization - Apache Tez engine](./media/optimize-hive-ambari/optimization-apache-tez.png)
+    :::image type="content" source="./media/optimize-hive-ambari/optimization-apache-tez.png" alt-text="Optimization - Apache Tez engine" border="true":::
 
 ## Tune mappers
 
@@ -42,7 +42,7 @@ For example, to set four mapper tasks for a data size of 128 MB, you would set b
 
 1. Set both parameters to **33,554,432** bytes (32 MB).
 
-    ![Apache Ambari Tez grouping sizes](./media/optimize-hive-ambari/apache-tez-grouping-size.png)
+    :::image type="content" source="./media/optimize-hive-ambari/apache-tez-grouping-size.png" alt-text="Apache Ambari Tez grouping sizes" border="true":::
 
 These changes  affect all Tez jobs across the server. To get an optimal result, choose appropriate parameter values.
 
@@ -58,11 +58,11 @@ The `hive.exec.reducers.bytes.per.reducer` parameter specifies the number of byt
 
 1. To modify the parameter, navigate to the Hive **Configs** tab and find the **Data per Reducer** parameter on the Settings page.
 
-    ![Apache Ambari Data per Reducer](./media/optimize-hive-ambari/ambari-data-per-reducer.png)
+    :::image type="content" source="./media/optimize-hive-ambari/ambari-data-per-reducer.png" alt-text="Apache Ambari Data per Reducer" border="true":::
 
 1. Select **Edit** to modify the value to 128 MB (134,217,728 bytes), and then press **Enter** to save.
 
-    ![Ambari Data per Reducer - edited](./media/optimize-hive-ambari/data-per-reducer-edited.png)
+    :::image type="content" source="./media/optimize-hive-ambari/data-per-reducer-edited.png" alt-text="Ambari Data per Reducer - edited" border="true":::
   
     Given an input size of 1,024 MB, with 128 MB of data per reducer, there are  eight reducers (1024/128).
 
@@ -76,7 +76,7 @@ A Hive query is executed in one or more stages. If the independent stages can be
 
 1. To limit the number of jobs to run in parallel, modify the `hive.exec.parallel.thread.number` property. The default value is 8.
 
-    ![Apache Hive exec parallel display](./media/optimize-hive-ambari/apache-hive-exec-parallel.png)
+    :::image type="content" source="./media/optimize-hive-ambari/apache-hive-exec-parallel.png" alt-text="Apache Hive exec parallel display" border="true":::
 
 ## Enable vectorization
 
@@ -86,7 +86,7 @@ Hive processes data row by row. Vectorization directs Hive to process data in bl
 
 1. To enable vectorized execution for the reduce side of the query, set the `hive.vectorized.execution.reduce.enabled` parameter to true. The default value is false.
 
-    ![Apache Hive vectorized execution](./media/optimize-hive-ambari/hive-vectorized-execution.png)
+    :::image type="content" source="./media/optimize-hive-ambari/hive-vectorized-execution.png" alt-text="Apache Hive vectorized execution" border="true":::
 
 ## Enable cost-based optimization (CBO)
 
@@ -94,7 +94,7 @@ By default, Hive follows a set of rules to find one optimal query execution plan
 
 To enable CBO, navigate to **Hive** > **Configs** > **Settings** and find **Enable Cost Based Optimizer**, then switch the toggle button to **On**.
 
-![HDInsight cost-based optimizer](./media/optimize-hive-ambari/hdinsight-cbo-config.png)
+:::image type="content" source="./media/optimize-hive-ambari/hdinsight-cbo-config.png" alt-text="HDInsight cost-based optimizer" border="true":::
 
 The following additional configuration parameters increase Hive query performance when CBO is enabled:
 
@@ -102,19 +102,19 @@ The following additional configuration parameters increase Hive query performanc
 
     When set to true, Hive uses statistics stored in its metastore to answer simple queries like `count(*)`.
 
-    ![Apache Hive compute query using stats](./media/optimize-hive-ambari/hive-compute-query-using-stats.png)
+    :::image type="content" source="./media/optimize-hive-ambari/hive-compute-query-using-stats.png" alt-text="Apache Hive compute query using stats" border="true":::
 
 * `hive.stats.fetch.column.stats`
 
     Column statistics are created when CBO is enabled. Hive uses column statistics, which are stored in metastore, to optimize queries. Fetching column statistics for each column takes longer when the number of columns is high. When set to false, this setting disables fetching column statistics from the metastore.
 
-    ![Apache Hive stats set column stats](./media/optimize-hive-ambari/hive-stats-fetch-column-stats.png)
+    :::image type="content" source="./media/optimize-hive-ambari/hive-stats-fetch-column-stats.png" alt-text="Apache Hive stats set column stats" border="true":::
 
 * `hive.stats.fetch.partition.stats`
 
     Basic partition statistics such as number of rows, data size, and file size are stored in metastore. If set to true, the partition stats are fetched from metastore. When false, the file size is fetched from the file system. And the number of rows is fetched from the row schema.
 
-    ![Hive stats set partition stats](./media/optimize-hive-ambari/hive-stats-fetch-partition-stats.png)
+    :::image type="content" source="./media/optimize-hive-ambari/hive-stats-fetch-partition-stats.png" alt-text="Hive stats set partition stats" border="true":::
 
 ## Enable intermediate compression
 
@@ -135,7 +135,7 @@ As a general rule, having the compression method splittable is important, otherw
 
 1. To enable intermediate compression, navigate to the Hive **Configs** tab, and then set the `hive.exec.compress.intermediate` parameter to true. The default value is false.
 
-    ![`Hive exec compress intermediate`](./media/optimize-hive-ambari/hive-exec-compress-intermediate.png)
+    :::image type="content" source="./media/optimize-hive-ambari/hive-exec-compress-intermediate.png" alt-text="`Hive exec compress intermediate`" border="true":::
 
     > [!NOTE]  
     > To compress intermediate files, choose a compression codec with lower CPU cost, even if the codec doesn't have a high compression output.
@@ -152,7 +152,7 @@ As a general rule, having the compression method splittable is important, otherw
 
     d. Select **Add**.
 
-    ![`Apache Hive custom property add`](./media/optimize-hive-ambari/hive-custom-property.png)
+    :::image type="content" source="./media/optimize-hive-ambari/hive-custom-property.png" alt-text="`Apache Hive custom property add`" border="true":::
 
     This setting will compress the intermediate file using Snappy compression. Once the property is added, it appears in the Custom hive-site pane.
 
@@ -167,7 +167,7 @@ The final Hive output can also be compressed.
 
 1. To choose the output compression codec, add the `mapred.output.compression.codec` custom property to the Custom hive-site pane, as described in the previous section's step 3.
 
-    ![Apache Hive custom property add2](./media/optimize-hive-ambari/hive-custom-property2.png)
+    :::image type="content" source="./media/optimize-hive-ambari/hive-custom-property2.png" alt-text="Apache Hive custom property add2" border="true":::
 
 ## Enable speculative execution
 
@@ -177,7 +177,7 @@ Speculative execution shouldn't be turned on for long-running MapReduce tasks wi
 
 * To enable speculative execution, navigate to the Hive **Configs** tab, and then set the `hive.mapred.reduce.tasks.speculative.execution` parameter to true. The default value is false.
 
-    ![`Hive mapred reduce tasks speculative execution`](./media/optimize-hive-ambari/hive-mapred-reduce-tasks-speculative-execution.png)
+    :::image type="content" source="./media/optimize-hive-ambari/hive-mapred-reduce-tasks-speculative-execution.png" alt-text="`Hive mapred reduce tasks speculative execution`" border="true":::
 
 ## Tune dynamic partitions
 
@@ -197,7 +197,7 @@ Local mode enables Hive to do all tasks of a job on a single machine. Or sometim
 
 To enable local mode, add the `hive.exec.mode.local.auto` parameter to the Custom hive-site panel, as explained in step 3 of the [Enable intermediate compression](#enable-intermediate-compression) section.
 
-![Apache Hive exec mode local auto](./media/optimize-hive-ambari/hive-exec-mode-local-auto.png)
+:::image type="content" source="./media/optimize-hive-ambari/hive-exec-mode-local-auto.png" alt-text="Apache Hive exec mode local auto" border="true":::
 
 ## Set single MapReduce MultiGROUP BY
 
@@ -205,7 +205,7 @@ When this property is set to true, a MultiGROUP BY query with common group-by ke
 
 To enable this behavior, add the `hive.multigroupby.singlereducer` parameter to the Custom hive-site pane, as explained in step 3 of the [Enable intermediate compression](#enable-intermediate-compression) section.
 
-![Hive set single MapReduce MultiGROUP BY](./media/optimize-hive-ambari/hive-multigroupby-singlereducer.png)
+:::image type="content" source="./media/optimize-hive-ambari/hive-multigroupby-singlereducer.png" alt-text="Hive set single MapReduce MultiGROUP BY" border="true":::
 
 ## Additional Hive optimizations
 
