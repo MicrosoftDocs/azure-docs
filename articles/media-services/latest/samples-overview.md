@@ -1,6 +1,6 @@
 ---
 title: Media Services v3 samples  
-description: This article contains a list of all the samples available for Media Services v3 organized by method and SDK.  Samples include .NET, Node.JS, Python as well as REST with Postman and CLI. 
+description: This article contains a list of all the samples available for Media Services v3 organized by method and SDK.  Samples include .NET, Node.JS, and Python as well as REST with Postman.
 services: media-services
 author: IngridAtMicrosoft
 manager: femila
@@ -9,6 +9,7 @@ ms.topic: overview
 ms.date: 03/24/2021
 ms.author: inhenkel
 ---
+
 # Media Services v3 samples
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
