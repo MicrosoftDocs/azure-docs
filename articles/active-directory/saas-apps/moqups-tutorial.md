@@ -124,7 +124,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Moqups SSO
 
-To configure single sign-on on **Moqups** side, you need to send the **App Federation Metadata Url** to [Moqups support team](mailto:support@moqups.com). They set this setting to have the SAML SSO connection set properly on both sides.
+1. Sign in to the Moqups website as an administrator.
+
+1.  Go to the **Account** and select the **Integration** tab.
+
+1. In the **SAML Authentication** section, paste the **App Federation Metadata Url** value, which you have copied from the Azure portal.
+
+    ![Screenshot for Configuration section.](./media/moqups-tutorial/saml-authentication.png)
+
+1. Click on the **Configure** button.
 
 ### Create Moqups test user
 

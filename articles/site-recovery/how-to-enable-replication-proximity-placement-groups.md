@@ -157,7 +157,7 @@ $RecoveryReplicaDiskAccountType = $OSdisk.Sku.Name
 $OSDiskReplicationConfig = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $EastUSCacheStorageAccount.Id -DiskId $OSdiskId -RecoveryResourceGroupId $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType $RecoveryReplicaDiskAccountType -RecoveryTargetDiskAccountType $RecoveryOSDiskAccountType
 
 $diskconfigs = @()
-$diskconfigs.Add($OSDiskReplicationConfig)
+$diskconfigs += $OSDiskReplicationConfig
 
 #Data disk
 
@@ -171,7 +171,7 @@ Foreach( $disk in $VM.StorageProfile.DataDisks)
     $DataDisk1ReplicationConfig  = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $EastUSCacheStorageAccount.Id `
          -DiskId $dataDiskId1 -RecoveryResourceGroupId $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType $RecoveryReplicaDiskAccountType `
          -RecoveryTargetDiskAccountType $RecoveryTargetDiskAccountType
-    $diskconfigs.Add($DataDisk1ReplicationConfig)
+    $diskconfigs += $DataDisk1ReplicationConfig
 }
 
 #Start replication by creating replication protected item. Using a GUID for the name of the replication protected item to ensure uniqueness of name.

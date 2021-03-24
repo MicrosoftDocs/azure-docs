@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.date: 3/2/2021
 ms.author: rahugup
 ---
-# Containerize Java web applications and migrate to Azure Kubernetes Service
+# Java web app containerization and migration to Azure Kubernetes Service
 
 In this article, you'll learn how to containerize Java web applications (running on Apache Tomcat) and migrate them to [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) using the Azure Migrate: App Containerization tool. The containerization process doesn’t require access to your codebase and provides an easy way to containerize existing applications. The tool works by using the running state of the applications on a server to determine the application components and helps you package them in a container image. The containerized application can then be deployed on Azure Kubernetes Service (AKS).
 
@@ -98,7 +98,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 3. Run the installation script using the command
 
    ```powershell
-   .\App ContainerizationInstaller.ps1
+   .\AppContainerizationInstaller.ps1
    ```
 
 ## Launch the App Containerization tool
