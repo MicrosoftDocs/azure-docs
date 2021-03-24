@@ -824,18 +824,18 @@ Under this condition, you will be prompted with the **Try Now** option when you 
 ## SQL insights (preview)
 
 ### What versions of SQL Server are supported?
-See [Supported versions](insights/sql-insights-overview.md#supported-versions) for supported versions of SQL.
+We support SQL Server 2012 and all newer versions. See [Supported versions](insights/sql-insights-overview.md#supported-versions) for more details.
 
 ### What SQL resource types are supported?
-- Azure SQL Database 
-   - Elastic pools are not supported, but individual databases within elastic pools are supported
-   - Databases on Basic, S0, S1, and S2 [service tiers](../azure-sql/database/resource-limits-dtu-single-databases) are not supported
-- Azure SQL Managed Instance 
-- SQL Server on Azure Virtual Machines (both [Windows](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms) and [Linux](../azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md#create))
-- Azure virtual machines that SQL Server is installed on
+- Azure SQL Database
+- Azure SQL Managed Instance
+- SQL Server on Azure Virtual Machines (SQL Server running on virtual machines registered with the [SQL virtual machine](../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md) provider)
+- Azure VMs (SQL Server running on virtual machines not registered with the [SQL virtual machine](../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md) provider)
+
+See [Supported versions](insights/sql-insights-overview.md#supported-versions) for more details and for details about scenarios with no support or limited support.
 
 ### What operating systems for the virtual machine running SQL Server are supported?
-See the [Windows](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms) and [Linux](../azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md#create) documentation for SQL Server on Azure Virtual Machines for details about the supported operating systems.
+We support all operating systems specified by the [Windows](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms) and [Linux](../azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md#create) documentation for SQL Server on Azure Virtual Machines.
 
 ### What operating system for the monitoring virtual machine are supported?
 Ubuntu 18.04 is currently the only operating system supported for the monitoring virtual machine.
