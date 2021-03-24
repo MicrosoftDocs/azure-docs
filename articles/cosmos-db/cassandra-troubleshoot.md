@@ -29,7 +29,7 @@ This error is a top-level wrapper exception with a large number of possible caus
 
 Common causes and solutions:
 
-- **Idle timeout of Azure LoadBalancers**: This issue might also manifest as `ClosedConnectionException`. To resolve the issue, set the keep-alive setting in the driver (see [Enable keep-alive for Java driver](#enable-keep---alive-for-the-java-driver)) and increase keep-alive settings in your operating system, or [adjust idle timeout in Azure Load Balancer](../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal).
+- **Idle timeout of Azure LoadBalancers**: This issue might also manifest as `ClosedConnectionException`. To resolve the issue, set the keep-alive setting in the driver (see [Enable keep-alive for the Java driver](#enable-keep-alive-for-the-java-driver)) and increase keep-alive settings in your operating system, or [adjust idle timeout in Azure Load Balancer](../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal).
 
 - **Client application resource exhaustion**: Ensure that client machines have sufficient resources to complete the request.
 
@@ -39,7 +39,7 @@ You might see this error: "Cannot connect to any host, scheduling retry in 60000
 
 This error might be caused by source network address translation (SNAT) exhaustion on the client side. Follow the steps at [SNAT for outbound connections](../load-balancer/load-balancer-outbound-connections.md) to rule out this issue.
 
-The error might also be an idle timeout issue where the Azure load balancer has four minutes of idle timeout by default. See [Load balancer idle timeout](../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal). [Enable keep-alive from the Java driver settings](#enable-keep---alive-for-the-java-driver) and set the `keepAlive` interval on the operating system to less than four minutes.
+The error might also be an idle timeout issue where the Azure load balancer has four minutes of idle timeout by default. See [Load balancer idle timeout](../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal). [Enable keep-alive for the Java driver](#enable-keep-alive-for-the-java-driver) and set the `keepAlive` interval on the operating system to less than four minutes.
 
 ## OverloadedException (Java)
 
