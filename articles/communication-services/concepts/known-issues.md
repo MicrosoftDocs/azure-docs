@@ -75,7 +75,7 @@ Browsers: Chrome
 #### Possible causes
 Under investigation.
 
-### If the video signal was stopped while the call is in connecting state, the video will not be send after the call started 
+### If the video signal was stopped while the call is in "connecting" state, the video will not be sent after the call started 
 Mobile browsers are sensitive to any changes made while being in the `connecting` state. We encourage developers to build their apps in a way that doesn't require video to be configured while connecting. This issue may cause degraded video performance in the following scenarios:
 
  1. If you start with audio and then start and stop video while the call is in `connecting` state
