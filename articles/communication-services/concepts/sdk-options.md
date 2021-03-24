@@ -51,7 +51,7 @@ Publishing locations for individual client library packages are detailed below.
 
 
 ## REST API Throttles
-Certain REST APIs and correponsding SDK methods have throttle limits you should be mindful. Exceeding these throttle limits will trigger a _429 - Too Many Requests_ error response. These limits can be increased through [a request to Azure Support](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+Certain REST APIs and corresponding SDK methods have throttle limits you should be mindful of. Exceeding these throttle limits will trigger a  `429 - Too Many Requests` error response. These limits can be increased through [a request to Azure Support](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 | API                                                                                                                          | Throttle            |
 |------------------------------------------------------------------------------------------------------------------------------|---------------------|
