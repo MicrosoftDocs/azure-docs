@@ -20,15 +20,8 @@ The form requests information about you, your company, and the user scenario for
 > * The Azure resource you use to run the container must have been created with the approved Azure subscription ID. 
 > * Check your email (both inbox and junk folders) for updates on the status of your application from Microsoft.
 
-Once approved, you will be sent an email with the credentials to access the private container registry.  Use the docker login command with credentials provided in your onboarding email to connect to our private container registry for Cognitive Services containers.
-
-
-```Docker
-docker login containerpreview.azurecr.io -u <username> -p <password>
-```
-
-Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download this container image from our private container registry.
+Once approved, use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download this container image from the Microsoft public container registry.
 
 ```
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-healthcare:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare:latest
 ```
