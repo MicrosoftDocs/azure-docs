@@ -3,7 +3,7 @@ title: Edge Secured-core Certification Requirements
 description: Edge Secured-core Certification program requirements
 author: cbroad
 ms.author: cbroad
-ms.topic: overview 
+ms.topic: conceptual 
 ms.date: 03/15/2021
 ms.custom: Edge Secured-core Certification Requirements
 ms.service: iot-pnp

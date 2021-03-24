@@ -3,7 +3,7 @@ title: IoT Plug and Play Certification Requirements
 description: IoT Plug and Play Certification program requirements
 author: cbroad
 ms.author: cbroad
-ms.topic: overview 
+ms.topic: conceptual 
 ms.date: 03/15/2021
 ms.custom: IoT Plug and Play Certification Requirements
 ms.service: iot-pnp

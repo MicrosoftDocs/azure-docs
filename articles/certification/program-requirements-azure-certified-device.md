@@ -3,7 +3,7 @@ title: Azure Certified Device Requirements
 description: Azure Certified Device program requirements
 author: cbroad
 ms.author: cbroad
-ms.topic: overview 
+ms.topic: conceptual 
 ms.date: 03/15/2021
 ms.custom: Azure Certified Device Certification Requirements
 ms.service: iot-pnp

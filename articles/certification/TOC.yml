@@ -2,7 +2,6 @@
   href: index.yml
 
 - name: Overview
-  expanded: true
   items:
   - name: What is the Azure Certified Device program?
     href: overview.md
@@ -10,15 +9,15 @@
 - name: Tutorials
   expanded: true
   items:
-  - name: Selecting the right certification
+  - name: 1 - Selecting the right certification
     href: tutorial-00-selecting-your-certification.md
-  - name: Creating your project
+  - name: 2 - Creating your project
     href: tutorial-01-creating-your-project.md
-  - name: Adding device details
+  - name: 3 - Adding device details
     href: tutorial-02-adding-device-details.md
-  - name: Testing your device
+  - name: 4 - Testing your device
     href: tutorial-03-testing-your-device.md
-  - name: Publishing your device
+  - name: 5 - Publishing your device
     href: tutorial-04-publishing-your-device.md
 
 - name: Program Requirements
