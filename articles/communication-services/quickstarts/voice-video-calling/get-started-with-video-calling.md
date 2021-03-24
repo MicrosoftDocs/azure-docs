@@ -30,7 +30,7 @@ mkdir calling-quickstart && cd calling-quickstart
 ### Install the package
 Use the `npm install` command to install the Azure Communication Services Calling client library for JavaScript.
 
-This quickstart used Azure Communication Calling Client Library `1.0.0.beta-6`. 
+This quickstart used Azure Communication Calling Client Library `1.0.0.beta-10`. 
 
 ```console
 npm install @azure/communication-common --save
@@ -100,7 +100,7 @@ Here's the code:
 Create a file in the root directory of your project called `client.js` to contain the application logic for this quickstart. Add the following code to import the calling client and get references to the DOM elements.
 
 ```JavaScript
-import { CallClient, CallAgent, Renderer, LocalVideoStream } from "@azure/communication-calling";
+import { CallClient, CallAgent, VideoStreamRenderer, LocalVideoStream } from "@azure/communication-calling";
 import { AzureCommunicationTokenCredential } from '@azure/communication-common';
 
 let call;
@@ -130,8 +130,8 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Authenticate the client and access DeviceManager
 
-You need to replace <USER_ACCESS_TOKEN> with a valid user access token for your resource. Refer to the user access token documentation if you don't already have a token available. Using the CallClient, initialize a CallAgent instance with a CommunicationUserCredential which will enable us to make and receive calls. 
-To access the DeviceManager a callAgent instance must first be created. You can then use the `getDeviceManager` method on the `CallClient` instance to get the `DeviceManager`.
+You need to replace <USER_ACCESS_TOKEN> with a valid user access token for your resource. Refer to the user access token documentation if you don't already have a token available. Using the `CallClient`, initialize a `CallAgent` instance with a `CommunicationUserCredential` which will enable us to make and receive calls. 
+To access the `DeviceManager` a callAgent instance must first be created. You can then use the `getDeviceManager` method on the `CallClient` instance to get the `DeviceManager`.
 
 Add the following code to `client.js`:
 
@@ -150,7 +150,7 @@ init();
 
 Add an event listener to initiate a call when the `callButton` is clicked:
 
-First you have to enumerate local cameras using the deviceManager getCameraList API. In this quickstart we're using the first camera in the collection. Once the desired camera is selected, a LocalVideoStream instance will be constructed and passed within videoOptions as an item within the localVideoStream array to the call method. Once your call connects it will automatically start sending a video stream to the other participant. 
+First you have to enumerate local cameras using the deviceManager `getCameraList` API. In this quickstart we're using the first camera in the collection. Once the desired camera is selected, a LocalVideoStream instance will be constructed and passed within `videoOptions` as an item within the localVideoStream array to the call method. Once your call connects it will automatically start sending a video stream to the other participant. 
 
 ```JavaScript
 callButton.addEventListener("click", async () => {
@@ -175,11 +175,11 @@ callButton.addEventListener("click", async () => {
     callButton.disabled = true;
 });
 ```  
-To render a `LocalVideoStream`, you need to create a new instance of `Renderer`, and then create a new RendererView instance using the asynchronous `createView` method. You may then attach `view.target` to any UI element. 
+To render a `LocalVideoStream`, you need to create a new instance of `VideoStreamRenderer`, and then create a new `VideoStreamRendererView` instance using the asynchronous `createView` method. You may then attach `view.target` to any UI element. 
 
 ```JavaScript
 async function localVideoView() {
-    rendererLocal = new Renderer(localVideoStream);
+    rendererLocal = new VideoStreamRenderer(localVideoStream);
     const view = await rendererLocal.createView();
     document.getElementById("myVideo").appendChild(view.target);
 }
@@ -227,11 +227,11 @@ function handleVideoStream(remoteVideoStream) {
     }
 }
 ```
-To render a `RemoteVideoStream`, you need to create a new instance of `Renderer`, and then create a new `RendererView` instance using the asynchronous `createView` method. You may then attach `view.target` to any UI element. 
+To render a `RemoteVideoStream`, you need to create a new instance of `VideoStreamRenderer`, and then create a new `VideoStreamRendererView` instance using the asynchronous `createView` method. You may then attach `view.target` to any UI element. 
 
 ```JavaScript
 async function remoteVideoView(remoteVideoStream) {
-    rendererRemote = new Renderer(remoteVideoStream);
+    rendererRemote = new VideoStreamRenderer(remoteVideoStream);
     const view = await rendererRemote.createView();
     document.getElementById("remoteVideo").appendChild(view.target);
 }
