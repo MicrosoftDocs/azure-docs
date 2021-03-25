@@ -21,7 +21,7 @@ Be sure to complete the steps in the [Quickstart: Create an Android app](quick-a
 
 ## Set map style in the layout
 
-You can set a map style in the layout file for your activity class when adding the map control. The following code sets the center location, zoom level and map style.
+You can set a map style in the layout file for your activity class when adding the map control. The following code sets the center location, zoom level, and map style.
 
 ```XML
 <com.microsoft.azure.maps.mapcontrol.MapControl
@@ -78,7 +78,7 @@ The following screenshot shows the above code displaying a map with the satellit
 
 ## Setting the map camera
 
-The map camera controls the what part of the map is displayed in the map. The camera can be in the layout our programmatically in code. When setting it in code, there are two main methods for setting the position of the map; using center and zoom, or passing in a bounding box. The following code shows how to set all optional camera options when using `center` and `zoom`.
+The map camera controls which part of the world is displayed in the map viewport. The camera can be in the layout our programmatically in code. When setting it in code, there are two main methods for setting the position of the map; using center and zoom, or passing in a bounding box. The following code shows how to set all optional camera options when using `center` and `zoom`.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -194,7 +194,7 @@ map.setCamera(
 
 ::: zone-end
 
-Note that the aspect ratio of a bounding box may not be the same as the aspect ratio of the map, as such the map will often show the full bounding box area, but will often only be tight vertically or horizontally.
+The aspect ratio of a bounding box may not be the same as the aspect ratio of the map, as such the map will often show the full bounding box area, but will often only be tight vertically or horizontally.
 
 ## Next steps
 

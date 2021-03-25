@@ -45,15 +45,15 @@ The following code shows how to add the `OnClick`, `OnFeatureClick`, and `OnCame
 map.events.add((OnClick) (lat, lon) -> {
     //Map clicked.
 
-    //Return a boolean indicating if event should be consumed or continue bubble up.
-    return false;
+    //Return true indicating if event should be consumed and not passed further to other listeners registered afterwards, false otherwise.
+    return true;
 });
 
 map.events.add((OnFeatureClick) (features) -> {
     //Feature clicked.
 
-    //Return a boolean indicating if event should be consumed or continue bubble up.
-    return false;
+    //Return true indicating if event should be consumed and not passed further to other listeners registered afterwards, false otherwise.
+    return true;
 });
 
 map.events.add((OnCameraMove) () -> {
@@ -69,14 +69,14 @@ map.events.add((OnCameraMove) () -> {
 map.events.add(OnClick { lat: Double, lon: Double -> 
     //Map clicked.
 
-    //Return a boolean indicating if event should be consumed or continue bubble up.
+    //Return true indicating if event should be consumed and not passed further to other listeners registered afterwards, false otherwise.
     return false
 })
 
 map.events.add(OnFeatureClick { features: List<Feature?>? -> 
     //Feature clicked.
 
-    //Return a boolean indicating if event should be consumed or continue bubble up.
+    //Return true indicating if event should be consumed and not passed further to other listeners registered afterwards, false otherwise.
     return false
 })
 
@@ -111,16 +111,16 @@ map.layers.add(layer);
 map.events.add((OnFeatureClick) (features) -> {
     //One or more features clicked.
 
-    //Return a boolean indicating if event should be consumed or continue bubble up.
-    return false;
+    //Return true indicating if event should be consumed and not passed further to other listeners registered afterwards, false otherwise.
+    return true;
 }, layer);
 
 //Add a long feature click event to the map and pass the layer ID to limit the event to the specified layer.
 map.events.add((OnLongFeatureClick) (features) -> {
     //One or more features long clicked.
 
-    //Return a boolean indicating if event should be consumed or continue bubble up.
-    return false;
+    //Return true indicating if event should be consumed and not passed further to other listeners registered afterwards, false otherwise.
+    return true;
 }, layer);
 ```
 
@@ -145,7 +145,7 @@ map.events.add(
     OnFeatureClick { features: List<Feature?>? -> 
         //One or more features clicked.
 
-        //Return a boolean indicating if event should be consumed or continue bubble up.
+        //Return true indicating if event should be consumed and not passed further to other listeners registered afterwards, false otherwise.
         return false
     },
     layer
@@ -156,7 +156,7 @@ map.events.add(
     OnLongFeatureClick { features: List<Feature?>? -> 
          //One or more features long clicked.
 
-        //Return a boolean indicating if event should be consumed or continue bubble up.
+        //Return true indicating if event should be consumed and not passed further to other listeners registered afterwards, false otherwise.
         return false
     },
     layer

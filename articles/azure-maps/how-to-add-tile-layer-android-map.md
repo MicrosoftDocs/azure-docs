@@ -19,7 +19,7 @@ A Tile layer loads in tiles from a server. These images can be pre-rendered and 
 
 * X, Y, Zoom notation - Based on the zoom level, x is the column and y is the row position of the tile in the tile grid.
 * Quadkey notation - Combination x, y, zoom information into a single string value that is a unique identifier for a tile.
-* Bounding Box - Bounding box coordinates can be used to specify an image in the format `{west},{south},{east},{north}`, which is commonly used by [Web Mapping Services (WMS)](https://www.opengeospatial.org/standards/wms).
+* Bounding Box - Bounding box coordinates can be used to specify an image in the format `{west},{south},{east},{north}`, which is commonly used by [web-mapping Services (WMS)](https://www.opengeospatial.org/standards/wms).
 
 > [!TIP]
 > A TileLayer is a great way to visualize large data sets on the map. Not only can a tile layer be generated from an image, but vector data can also be rendered as a tile layer too. By rendering vector data as a tile layer, the map control only needs to load the tiles, which can be much smaller in file size than the vector data they represent. This technique is used by many who need to render millions of rows of data on the map.
@@ -78,9 +78,9 @@ The following screenshot shows the above code displaying a tile layer of nautica
 
 ![Android map displaying tile layer](media/how-to-add-tile-layer-android-map/xyz-tile-layer-android.png)
 
-## Add an OGC web mapping service (WMS)
+## Add an OGC web-mapping service (WMS)
 
-A web mapping service (WMTS) is an Open Geospatial Consortium (OGC) standard for serving images of map data. There are many open data sets available in this format that you can use with Azure Maps. This type of service can be used with a tile layer if the service supports the `EPSG:3857` coordinate reference system (CRS). When using a WMS service, set the width and hight parameters to the same value that is supported by the service, be sure to set this same value in the `tileSize` option. In the formatted URL, set the `BBOX` parameter of the service with the `{bbox-epsg-3857}` placeholder.
+A web-mapping service (WMTS) is an Open Geospatial Consortium (OGC) standard for serving images of map data. There are many open data sets available in this format that you can use with Azure Maps. This type of service can be used with a tile layer if the service supports the `EPSG:3857` coordinate reference system (CRS). When using a WMS service, set the width and height parameters to the same value that is supported by the service, be sure to set this same value in the `tileSize` option. In the formatted URL, set the `BBOX` parameter of the service with the `{bbox-epsg-3857}` placeholder.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -108,13 +108,13 @@ map.layers.add(layer, "labels")
 
 ::: zone-end
 
-The following screenshot shows the above code overlaying a web mapping service of geological data from the [U.S. Geological Survey (USGS)](https://mrdata.usgs.gov/) on top of a map, below the labels.
+The following screenshot shows the above code overlaying a web-mapping service of geological data from the [U.S. Geological Survey (USGS)](https://mrdata.usgs.gov/) on top of a map, below the labels.
 
 ![Android map displaying WMS tile layer](media/how-to-add-tile-layer-android-map/android-tile-layer-wms.jpg)
 
-## Add an OGC web mapping tile service (WMTS)
+## Add an OGC web-mapping tile service (WMTS)
 
-A web mapping tile service (WMTS) is an Open Geospatial Consortium (OGC) standard for serving tiled based overlays for maps. There are many open data sets available in this format that you can use with Azure Maps. This type of service can be used with a tile layer if the service supports the `EPSG:3857` or `GoogleMapsCompatible` coordinate reference system (CRS). When using a WMTS service, set the width and hight parameters to the same value that is supported by the service, be sure to set this same value in the `tileSize` option. In the formatted URL, replace the following placeholders accordingly:
+A web-mapping tile service (WMTS) is an Open Geospatial Consortium (OGC) standard for serving tiled based overlays for maps. There are many open data sets available in this format that you can use with Azure Maps. This type of service can be used with a tile layer if the service supports the `EPSG:3857` or `GoogleMapsCompatible` coordinate reference system (CRS). When using a WMTS service, set the width and height parameters to the same value that is supported by the service, be sure to set this same value in the `tileSize` option. In the formatted URL, replace the following placeholders accordingly:
 
 * {TileMatrix} => {z}
 * {TileRow} => {y}
@@ -150,7 +150,7 @@ map.layers.add(layer, "transit")
 
 ::: zone-end
 
-The following screenshot shows the above code overlaying a web mapping tile service of imagery from the [U.S. Geological Survey (USGS) National Map](https://viewer.nationalmap.gov/services/) on top of a map, below the roads and labels.
+The following screenshot shows the above code overlaying a web-mapping tile service of imagery from the [U.S. Geological Survey (USGS) National Map](https://viewer.nationalmap.gov/services/) on top of a map, below the roads and labels.
 
 ![Android map displaying WMTS tile layer](media/how-to-add-tile-layer-android-map/android-tile-layer-wmts.jpg)
 
