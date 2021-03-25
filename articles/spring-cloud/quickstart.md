@@ -344,6 +344,7 @@ Start with [Spring Initializr](https://start.spring.io/#!type=maven-project&lang
 ```url
 https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.4.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client
 ```
+Note that this example uses Java version 8.  If you want to use Java ll, change the option under **Project Metadata**.
 
   ![Initializr page](media/spring-cloud-quickstart-java/initializr-page.png)
 
@@ -408,7 +409,7 @@ The following procedure builds and deploys the application using the Azure CLI. 
     az extension add --name spring-cloud
     ```
     
-1. Create the app with public endpoint assigned:
+1. Create the app with public endpoint assigned.  If you are using Java 11, include the `--runtime-version=Java_11`option.
 
     ```azurecli
     az spring-cloud app create -n hellospring -s <service instance name> -g <resource group name> --assign-endpoint true
