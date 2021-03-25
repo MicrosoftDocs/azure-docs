@@ -107,7 +107,7 @@ There are two methods to deploy a Hybrid Runbook Worker. You can import and run 
 ### Importing a runbook from the Runbook Gallery
 
 The import procedure is described in detail in [Import a PowerShell runbook from GitHub with the Azure portal](automation-runbook-gallery.md#import-a-powershell-runbook-from-github-with-the-azure-portal). The name of the runbook to import is **Create Automation Linux HybridWorker**.
-automation-runbook-gallery#import-a-powershell-runbook-from-the-runbook-gallery-with-the-azure-portal
+
 The runbook uses the following parameters.
 
 | Parameter | Status | Description |
