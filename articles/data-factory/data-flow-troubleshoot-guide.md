@@ -364,7 +364,7 @@ You may encounter the following issues before the improvement, but after the imp
 #### Scenario 1: Encounter the unexpected Row-Delimiter issue. 
 
  You are affected if you are in the following conditions:
- - Using the Delimited Text / CDM with Multiline setting set to True as the source. 
+ - Using the Delimited Text/CDM with Multiline setting set to True as the source. 
  - The first row has more than 128 characters. 
  - The row delimiter in data files is not `\n`.
 
@@ -379,14 +379,14 @@ You may encounter the following issues before the improvement, but after the imp
     `C1, C2, {long first row}, C128\r\n `<br/>
     `V1, V2, {values………………….}, V128\r\n `<br/>
  
-   Before the improvement, the parsed column result is: <br/>
-   `C1 C2 {long first row} C128 \r` <br/>
-   `V1 V2 {values………………….} V128 \r`<br/> 
+   Before the improvement, the parsed column result is:<br/>
+   `C1 C2 {long first row} C128`**`\r`**<br/>
+   `V1 V2 {values………………….} V128`**`\r`**<br/> 
    
    > [!NOTE]
    > `\r` will be a part of the column value. 
 
-   After the improvement, the parsed column result should be: <br/>
+   After the improvement, the parsed column result should be:<br/>
    `C1 C2 {long first row} C128`<br/>
    `V1 V2 {values………………….} V128`<br/>
   
@@ -407,10 +407,10 @@ You may encounter the following issues before the improvement, but after the imp
  For the following column：<br/>
   **`A\r\n`**`, B, C\r\n`<br/>
 
- Before the improvement, the parsed column result is: <br/>
-  **`A\n`**` B C` <br/>
+ Before the improvement, the parsed column result is:<br/>
+  **`A\n`**` B C`<br/>
 
- After the improvement, the parsed column result should be: <br/>
+ After the improvement, the parsed column result should be:<br/>
   **`A\r\n`**` B C`<br/>  
 
 #### Scenario 3: Encounter an issue of incorrectly writing column values containing '\n'. 
@@ -426,15 +426,15 @@ You may encounter the following issues before the improvement, but after the imp
  
  The following example shows you one pipeline behavior change after the improvement:
 
- **Example**: <br/>
+ **Example**:<br/>
 
- For the following column: <br/>
+ For the following column:<br/>
  **`A\n`**` B C`<br/>
 
- Before the improvement, the CSV sink is: <br/>
+ Before the improvement, the CSV sink is:<br/>
   **`A\r\n`**`, B, C\r\n\` <br/>
 
- After the improvement, the CSV sink should be: <br/>
+ After the improvement, the CSV sink should be:<br/>
   **`A\n`**`, B, C\r\n`<br/>
 
 #### Scenario 4: Encounter an issue of incorrectly reading empty string as NULL. 
@@ -446,7 +446,7 @@ You may encounter the following issues before the improvement, but after the imp
  
  Before the improvement, the column value of unquoted empty string is read as NULL. 
 
- After the improvement, the empty string will not be parsed as a null value. 
+ After the improvement, empty string will not be parsed as null value. 
  
  The following example shows you one pipeline behavior change after the improvement:
 
@@ -455,10 +455,10 @@ You may encounter the following issues before the improvement, but after the imp
  For the following column:<br/>
   `A, ,B, `<br/>
 
- Before the improvement, the parsed column result is: <br/>
-  `A null B null` <br/>
+ Before the improvement, the parsed column result is:<br/>
+  `A null B null`<br/>
 
- After the improvement, the parsed column result should be: <br/>
+ After the improvement, the parsed column result should be:<br/>
   `A "" (empty string) B "" (empty string)`<br/>
 
 
