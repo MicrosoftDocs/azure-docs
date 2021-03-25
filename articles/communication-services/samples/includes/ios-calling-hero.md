@@ -14,7 +14,7 @@ ms.author: mikben
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-The Azure Communication Services **Group Calling Hero Sample for iOS** demonstrates how the Communication Services Calling iOS client library can be used to build a group calling experience that includes voice and video. In this sample quickstart, you will learn how to set up and run the sample. An overview of the sample is provided for context.
+The Azure Communication Services **Group Calling Hero Sample for iOS** demonstrates how the Communication Services Calling iOS SDK can be used to build a group calling experience that includes voice and video. In this sample quickstart, you will learn how to set up and run the sample. An overview of the sample is provided for context.
 
 ## Download code
 
@@ -22,7 +22,7 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 
 ## Overview
 
-The sample is a native iOS application that uses the Azure Communication Services iOS client libraries to build a calling experience that features both voice and video calling. The application uses a server-side component to provision access tokens that are then used to initialize the Azure Communication Services client library. To configure this server-side component, feel free to follow the [Trusted Service with Azure Functions](../../tutorials/trusted-service-tutorial.md) tutorial.
+The sample is a native iOS application that uses the Azure Communication Services iOS SDKs to build a calling experience that features both voice and video calling. The application uses a server-side component to provision access tokens that are then used to initialize the Azure Communication Services SDK. To configure this server-side component, feel free to follow the [Trusted Service with Azure Functions](../../tutorials/trusted-service-tutorial.md) tutorial.
 
 Here's what the sample looks like:
 
@@ -98,7 +98,7 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 For more information, see the following articles:
 
-- Familiarize yourself with [using the calling client library](../../quickstarts/voice-video-calling/calling-client-samples.md)
+- Familiarize yourself with [using the Calling SDK](../../quickstarts/voice-video-calling/calling-client-samples.md)
 - Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md)
 
 ### Additional reading
