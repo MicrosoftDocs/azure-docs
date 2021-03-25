@@ -8,7 +8,7 @@ ms.date: 02/18/2021
 
 # Deploy to an IoT Edge for Linux on Windows (EFLOW) device
 
-In this article, you'll learn how to deploy Live Video Analytics on an edge device that has [IoT Edge for Linux on Windows (EFLOW)](https://docs.microsoft.com/azure/iot-edge/iot-edge-for-linux-on-windows). Once you have finished following the steps in this document, you will be able to run a [media graph](media-graph-concept.md) that detects motion in a video and emits such events to the IoT hub in the cloud. You can then switch out the media graph for advanced scenarios and bring the power of Live Video Analytics to your Windows-based IoT Edge device.
+In this article, you'll learn how to deploy Live Video Analytics on an edge device that has [IoT Edge for Linux on Windows (EFLOW)](../../iot-edge/iot-edge-for-linux-on-windows.md). Once you have finished following the steps in this document, you will be able to run a [media graph](media-graph-concept.md) that detects motion in a video and emits such events to the IoT hub in the cloud. You can then switch out the media graph for advanced scenarios and bring the power of Live Video Analytics to your Windows-based IoT Edge device.
 
 ## Prerequisites 
 
@@ -17,7 +17,7 @@ In this article, you'll learn how to deploy Live Video Analytics on an edge devi
     > [!NOTE]
     > You will need an Azure subscription with permissions for creating service principals (**owner role** provides this). If you do not have the right permissions, reach out to your account administrator to grant you the right permissions.
 * [Visual Studio Code](https://code.visualstudio.com/) on your development machine. Make sure you have the [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
-* Read [What is EFLOW](https://aka.ms/AzEFLOW-docs).
+* Read [What is EFLOW](../../iot-edge/iot-edge-for-linux-on-windows.md).
 
 ## Deployment steps
 
@@ -25,9 +25,9 @@ The following depicts the overall flow of the document and in 5 simple steps you
 
 :::image type="content" source="./media/deploy-iot-edge-linux-on-windows/eflow.png" alt-text="IoT Edge for Linux on Windows (EFLOW) diagram":::
 
-1. [Install EFLOW](https://aka.ms/AzEFLOW-install) on your Windows device. 
+1. [Install EFLOW](../../iot-edge/how-to-install-iot-edge-on-windows.md) on your Windows device. 
 
-    1. If you are using your Windows PC, then on the [Windows Admin Center](https://docs.microsoft.com/windows-server/manage/windows-admin-center/overview) start page, under the list of connections, you will see a local host connection representing the PC where you running Windows Admin Center. 
+    1. If you are using your Windows PC, then on the [Windows Admin Center](/windows-server/manage/windows-admin-center/overview) start page, under the list of connections, you will see a local host connection representing the PC where you running Windows Admin Center. 
     1. Any additional servers, PCs, or clusters that you manage will also show up here.
     1. You can use Windows Admin Center to install and manage Azure EFLOW on either your local device or remote managed devices. In this guide, the local host connection served as the target device for the deployment of Azure IoT Edge for Linux on Windows. Hence you see the localhost also listed as an IoT Edge device.
 
@@ -106,4 +106,3 @@ The following depicts the overall flow of the document and in 5 simple steps you
 * Run [AI on Live Video](use-your-model-quickstart.md#overview) (you can skip the prerequisite setup as it has already been done above)
 * Use our [VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.live-video-analytics-edge) to view additional media graphs.
 * Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera)  that supports RTSP instead of using the RTSP simulator. You can find IP cameras that support RTSP on the [ONVIF conformant products](https://www.onvif.org/conformant-products/) page. Look for devices that conform with profiles G, S, or T.
-
