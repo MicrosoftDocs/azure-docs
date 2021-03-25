@@ -99,13 +99,13 @@ To use MAP Toolkit to do an inventory scan, follow these steps:
 
 ### Assess
 
-After you identify the data sources, use the [SQL Server Migration Assistant (SSMA) for Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258) to assess the Oracle instances migrating to the SQL Server VM. The assistant will help you understand the gaps between the source and destination databases. You can review database objects and data, assess databases for migration, migrate database objects to SQL Server, and then migrate data to SQL Server.
+After you identify the data sources, use [SQL Server Migration Assistant (SSMA) for Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258) to assess the Oracle instances migrating to the SQL Server VM. The assistant will help you understand the gaps between the source and destination databases. You can review database objects and data, assess databases for migration, migrate database objects to SQL Server, and then migrate data to SQL Server.
 
 To create an assessment, follow these steps: 
 
 
-1. Open the [SQL Server Migration Assistant (SSMA) for Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258). 
-1. On the **File**, select **New Project**. 
+1. Open [SQL Server Migration Assistant (SSMA) for Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258). 
+1. On the **File** menu, select **New Project**. 
 1. Provide a project name and a location for your project, and then select a SQL Server migration target from the list. Select **OK**: 
 
    ![Screenshot that shows the New Project dialog box.](./media/oracle-to-sql-on-azure-vm-guide/new-project.png)
@@ -165,7 +165,6 @@ To convert the schema, follow these steps:
 
    ![Screenshot that shows how to convert the schema.](./media/oracle-to-sql-on-azure-vm-guide/convert-schema.png)
 
-1. After the schema conversion is complete, compare the schemas and review the structure to identify potential problems:
 
 1. After the schema conversion is complete, review the converted objects and compare them to the original objects to identify potential problems. Use the recommendations to address any problems:
 
@@ -175,10 +174,10 @@ To convert the schema, follow these steps:
 
    ![Screenshot that shows Transact-SQL, stored procedures, and a warning.](./media/oracle-to-sql-on-azure-vm-guide/procedure-comparison.png)
 
-   You can save the project locally for an offline schema remediation exercise. To do so, select **Save Project** in the **File** menu. Saving the project locally lets you evaluate the source and target schemas offline and perform remediation before you publish the schema to SQL Server.
+   You can save the project locally for an offline schema remediation exercise. To do so, select **Save Project** on the **File** menu. Saving the project locally lets you evaluate the source and target schemas offline and perform remediation before you publish the schema to SQL Server.
 
-1. Select **Review results** in the Output pane, and review errors in the **Error list** pane. 
-1. Save the project locally for an offline schema remediation exercise. Select **Save Project** from the **File** menu. This gives you an opportunity to evaluate the source and target schemas offline and perform remediation before you can publish the schema to SQL Server on Azure VM.
+1. Select **Review results** in the **Output** pane, and then review errors in the **Error list** pane. 
+1. Save the project locally for an offline schema remediation exercise. Select **Save Project** on the **File** menu. This gives you an opportunity to evaluate the source and target schemas offline and perform remediation before you publish the schema to SQL Server on Azure Virtual Machines.
 
 
 ## Migrate
@@ -200,7 +199,7 @@ To publish your schema and migrate the data, follow these steps:
 
 1. Migrate the data: right-click the database or object that you want to migrate in **Oracle Metadata Explorer** and select **Migrate Data**. Alternatively, you can select **Migrate Data** in the top menu.
 
-   To migrate data for an entire database, select the check box next to the database name. To migrate data from individual tables, expand the database, expand **Tables**, and then select the check box next to the table. To omit data from individual tables, clear appropriate the check boxes:
+   To migrate data for an entire database, select the check box next to the database name. To migrate data from individual tables, expand the database, expand **Tables**, and then select the check box next to the table. To omit data from individual tables, clear appropriate the check boxes.
 
    ![Screenshot that shows the Migrate Data command.](./media/oracle-to-sql-on-azure-vm-guide/migrate-data.png)
 
@@ -209,10 +208,10 @@ To publish your schema and migrate the data, follow these steps:
 
     ![Screenshot that shows the Data Migration Report.](./media/oracle-to-sql-on-azure-vm-guide/data-migration-report.png)
 
-1. Connect to your SQL Server on Azure VM instance by using [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms). Validate the migration by reviewing the data and schema:
+1. Connect to your SQL Server on Azure Virtual Machines instance by using [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms). Validate the migration by reviewing the data and schema:
+
 
    ![Screenshot that shows a SQL Server instance in SSMA.](./media/oracle-to-sql-on-azure-vm-guide/validate-in-ssms.png)
-
 
 Instead of using SSMA, you could use SQL Server Integration Services (SSIS) to migrate the data. To learn more, see: 
 - The article [SQL Server Integration Services](https://docs.microsoft.com//sql/integration-services/sql-server-integration-services).
@@ -221,7 +220,7 @@ Instead of using SSMA, you could use SQL Server Integration Services (SSIS) to m
 
 ## Post-migration 
 
-After you complete the migration stage, you need to complete a series of post-migration tasks to ensure that everything is functioning as smoothly and efficiently as possible.
+After you complete the migration stage, you need to complete a series of post-migration tasks to ensure that everything is running as smoothly and efficiently as possible.
 
 ### Remediate applications
 
@@ -271,9 +270,9 @@ If you think your organization would be interested in participating in the Data 
 
 - To check the availability of services applicable to SQL Server, see the [Azure Global infrastructure center](https://azure.microsoft.com/global-infrastructure/services/?regions=all&amp;products=synapse-analytics,virtual-machines,sql-database).
 
-- For a matrix of the Microsoft and third-party services and tools that are available to help you with various database and data migration scenarios and specialized tasks, see [Service and tools for data migration](../../../dms/dms-tools-matrix.md).
+- For a matrix of the Microsoft and third-party services and tools that are available to help you with various database and data migration scenarios and specialized tasks, see [Services and tools for data migration](../../../dms/dms-tools-matrix.md).
 
-- To learn more about Azure SQL see:
+- To learn more about Azure SQL, see:
    - [Deployment options](../../azure-sql-iaas-vs-paas-what-is-overview.md)
    - [SQL Server on Azure Virtual Machines](../../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
    - [Azure total Cost of Ownership Calculator](https://azure.microsoft.com/pricing/tco/calculator/)
@@ -287,7 +286,7 @@ If you think your organization would be interested in participating in the Data 
    - [Bring your own license with the Azure Hybrid Benefit](../../virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md)
    - [Get free extended support for SQL Server 2008 and SQL Server 2008 R2](../../virtual-machines/windows/sql-server-2008-extend-end-of-support.md)
 
-
 - To assess the application access layer, use [Data Access Migration Toolkit Preview](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit).
 - For details on how to do data access layer A/B testing, see [Overview of Database Experimentation Assistant](/sql/dea/database-experimentation-assistant-overview).
+
 
