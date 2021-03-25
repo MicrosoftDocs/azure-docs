@@ -17,15 +17,19 @@
   items:
   - name: Ethics & responsible use
     href: ethics-responsible-use.md
-- name: Tutorials
+- name: How-to guides
   items:
-  - name: Use Web app
-    href: tutorial-use-personalizer-web-app.md
-  - name: Use Chat bot
-    href: tutorial-use-personalizer-chat-bot.md
-  - name: Use Azure Notebook
-    href: tutorial-use-azure-notebook-generate-loop-data.md
-    displayName: jupyter, notebook, python, cell, graph, chart, aggregate, model update frequency
+  - name: Create Personalizer Resource
+    href: how-to-create-resource.md
+  - name: Configure Personalizer
+    href: how-to-settings.md
+    displayName: azure, portal, settings, evaluation, offline, policy, export, model, configure
+  - name: Use Apprentice mode
+    href: how-to-learning-behavior.md
+  - name: Manage model and learning settings
+    href: how-to-manage-model.md
+  - name: Analyze with an offline evaluation
+    href: how-to-offline-evaluation.md
 - name: Concepts
   items:
   - name: How Personalizer works
@@ -66,19 +70,15 @@
       href: concept-feature-evaluation.md
   - name: Scalability and performance
     href: concepts-scalability-performance.md
-- name: How-to guides
+- name: Tutorials
   items:
-  - name: Create Personalizer Resource
-    href: how-to-create-resource.md
-  - name: Configure Personalizer
-    href: how-to-settings.md
-    displayName: azure, portal, settings, evaluation, offline, policy, export, model, configure
-  - name: Use Apprentice mode
-    href: how-to-learning-behavior.md
-  - name: Manage model and learning settings
-    href: how-to-manage-model.md
-  - name: Analyze with an offline evaluation
-    href: how-to-offline-evaluation.md
+  - name: Use Web app
+    href: tutorial-use-personalizer-web-app.md
+  - name: Use Chat bot
+    href: tutorial-use-personalizer-chat-bot.md
+  - name: Use Azure Notebook
+    href: tutorial-use-azure-notebook-generate-loop-data.md
+    displayName: jupyter, notebook, python, cell, graph, chart, aggregate, model update frequency
 - name: Reference
   items:
   - name: Personalizer REST API
