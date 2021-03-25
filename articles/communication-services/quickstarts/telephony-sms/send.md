@@ -25,19 +25,19 @@ zone_pivot_groups: acs-js-csharp-java-python
 > For more information, see **[Phone number types](../../concepts/telephony-sms/plan-solution.md)**.
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Send SMS with .NET client library](./includes/send-sms-net.md)]
+[!INCLUDE [Send SMS with .NET SDK](./includes/send-sms-net.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [Send SMS with JavaScript client library](./includes/send-sms-js.md)]
+[!INCLUDE [Send SMS with JavaScript SDK](./includes/send-sms-js.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [Send SMS with Python client library](./includes/send-sms-python.md)]
+[!INCLUDE [Send SMS with Python SDK](./includes/send-sms-python.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [Send SMS with Java client library](./includes/send-sms-java.md)]
+[!INCLUDE [Send SMS with Java SDK](./includes/send-sms-java.md)]
 ::: zone-end
 
 ## Troubleshooting

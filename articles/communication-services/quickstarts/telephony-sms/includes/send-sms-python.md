@@ -13,7 +13,7 @@ ms.custom: include file
 ms.author: lakshmans
 ---
 
-Get started with Azure Communication Services by using the Communication Services Python SMS client library to send SMS messages.
+Get started with Azure Communication Services by using the Communication Services Python SMS SDK to send SMS messages.
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -58,7 +58,7 @@ except Exception as ex:
 
 ### Install the package
 
-While still in the application directory, install the Azure Communication Services SMS client library for Python package by using the `pip install` command.
+While still in the application directory, install the Azure Communication Services SMS SDK for Python package by using the `pip install` command.
 
 ```console
 pip install azure-communication-sms --pre
@@ -66,7 +66,7 @@ pip install azure-communication-sms --pre
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services SMS client library for Python.
+The following classes and interfaces handle some of the major features of the Azure Communication Services SMS SDK for Python.
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
@@ -75,16 +75,14 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Authenticate the client
 
-Instantiate an **SmsClient** with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage you resource's connection string](../../create-communication-resource.md#store-your-connection-string).
+Instantiate an **SmsClient** with your connection string. Learn how to [manage you resource's connection string](../../create-communication-resource.md#store-your-connection-string).
 
 ```python
-# This code demonstrates how to fetch your connection string
-# from an environment variable.
-connection_string = os.getenv('COMMUNICATION_SERVICES_CONNECTION_STRING')
-
 # Create the SmsClient object which will be used to send SMS messages
-sms_client = SmsClient.from_connection_string(connection_string)
+sms_client = SmsClient.from_connection_string(<connection_string>)
 ```
+For simplicity we are using connection strings in this quickstart, but in production environments we recommend using [managed identities](../../../quickstarts/managed-identity.md) because they are more secure and manageable at scale.
+
 
 ## Send a 1:1 SMS Message
 
@@ -103,6 +101,9 @@ sms_responses = sms_client.send(
 ```
 
 You should replace `<from-phone-number>` with an SMS enabled phone number associated with your communication service and `<to-phone-number>` with the phone number you wish to send a message to. 
+
+> [!WARNING]
+> Note that phone numbers should be provided in E.164 international standard format. (e.g.: +12223334444).
 
 ## Send a 1:N SMS Message
 
@@ -129,9 +130,31 @@ The `enable_delivery_report` parameter is an optional parameter that you can use
 The `tag` parameter is an optional parameter that you can use to configure custom tagging.
 
 ## Run the code
-
 Run the application from your application directory with the `python` command.
 
 ```console
 python send-sms.py
+```
+
+The complete Python script should look something like:
+
+```python
+
+import os
+from azure.communication.sms import SmsClient
+
+try:
+    # Create the SmsClient object which will be used to send SMS messages
+    sms_client = SmsClient.from_connection_string("<connection string>")
+    # calling send() with sms values
+    sms_responses = sms_client.send(
+       from_="<from-phone-number>",
+       to="<to-phone-number>",
+       message="Hello World via SMS",
+       enable_delivery_report=True, # optional property
+       tag="custom-tag") # optional property
+
+except Exception as ex:
+    print('Exception:')
+    print(ex)
 ```
