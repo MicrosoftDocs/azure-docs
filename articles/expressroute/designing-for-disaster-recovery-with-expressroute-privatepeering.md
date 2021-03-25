@@ -38,7 +38,7 @@ However, if you load balance traffic across geo-redundant parallel paths, regard
 
 ### Same metro
 
-[Many metros](expressroute-locations-providers.md#global-commercial-azure) have two ExpressRoute locations. An example would be *Amsterdam* and *Amsterdam2*. When designing redundancy, you could build two parallel paths to Azure vith both locations in the same metro. The advantage of this design is when application failover happens, end-to-end latency between your on-premises applications and Microsoft stays approximately the same. However, if there is a natural disaster such as earthquake, connectivity for both paths may no longer be available.
+[Many metros](expressroute-locations-providers.md#global-commercial-azure) have two ExpressRoute locations. An example would be *Amsterdam* and *Amsterdam2*. When designing redundancy, you could build two parallel paths to Azure with both locations in the same metro. The advantage of this design is when application failover happens, end-to-end latency between your on-premises applications and Microsoft stays approximately the same. However, if there is a natural disaster such as an earthquake, connectivity for both paths may no longer be available.
 
 ### Different metros
 
