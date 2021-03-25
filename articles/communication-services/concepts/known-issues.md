@@ -23,7 +23,7 @@ This article provides information about limitations and known issues related to 
 This section provides information about known issues associated with JavaScript voice and video calling client libraries in Azure Communication Services.
 
 ### After refreshing the page, user is not removed from the call immediately 
-When refreshing pages, the Communication Services client library may not be able to inform the Communication Services media service that it's about to disconnect. The Communication Services media service will then time out. When those timeouts get raised, the media endpoint is disconnected. 
+If user is in a call and decides to refresh the page, the Communication Services client library may not be able to inform the Communication Services media service that it's about to disconnect. The Communication Services media service will not remove such user immediately from the call but it will wait for a user to rejoin assuming problems with network connectivity. User will be removed from the call after media service will timeout```
 
 We encourage developers build experiences that don't require end-users to refresh the page of your application while participating in a call. If a refresh does happen, the best way to handle it is to track and reuse the same Communication Services user ID between refreshes, and select the stream with the highest numerical ID.
 
