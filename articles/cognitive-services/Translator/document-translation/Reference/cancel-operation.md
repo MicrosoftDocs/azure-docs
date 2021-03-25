@@ -137,7 +137,7 @@ The following information is returned in a successful response.
   <tr>
     <td>summary.success</p></td>
     <td>integer</td>
-    <td>Number of successes.</td>
+    <td>Count of documents successfully translated.</td>
   </tr>
   <tr>
     <td>summary.inProgress</p></td>
