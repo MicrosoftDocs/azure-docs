@@ -13,7 +13,7 @@ ms.topic: how-to
 
 The API Management developer portal supports programmatic access to content. It allows you to import data to or export from an API Management service through the [content management REST API](developer-portal-content-management-api.md). The REST API access works for both managed and self-hosted portals.
 
-You can use the API to automate migration of content between two API Management services - for example, a service in the test environment and a service in the production environment. The [`scripts.v2/migrate.js` script](https://github.com/Azure/api-management-developer-portal/blob/master/scripts.v2/migrate.js) in the API Management developer portal GitHub repo simplifies this automation process.
+You can use the API to automate migration of content between two API Management services - for example, a service in the test environment and a service in the production environment. The `scripts.v2/migrate.js` script in the API Management developer portal [GitHub repo](https://github.com/Azure/api-management-developer-portal/blob/master/scripts.v2/migrate.js) simplifies this automation process.
 
 > [!WARNING]
 > The script removes contents of the developer portal in your destination API Management service. If you're concerned about it, make sure you perform a backup.
@@ -31,8 +31,11 @@ The script performs the following steps:
 After the script is successfully executed, the target API Management service should contain the same portal content as the source service and you'll be able to see it as an administrator.
 
 * If you're using a managed portal, you can set the script to auto-publish the destination portal to make the migrated version automatically available to the visitors. 
-* If you're using a self-hosted portal, you need to publish the destination portal manually. You can follow the publishing and hosting instructions from [the general self-hosted portal tutorial](dev-portal-self-host-portal.md).
+* If you're using a self-hosted portal, you need to publish the destination portal manually. Follow the publishing and hosting instructions in the tutorial to [set up a self-hosted developer portal](dev-portal-self-host-portal.md).
 
 ## Next steps
 
-- [Content management API](developer-portal-content-management-api.md)
+Learn more about the developer portal:
+
+- [Azure API Management developer portal overview](api-management-howto-developer-portal.md)
+- [Self-host the developer portal](developer-portal-self-host.md)

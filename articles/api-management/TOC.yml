@@ -171,78 +171,78 @@
               items:
                   - name: Understand the developer portal
                     href: api-management-howto-developer-portal.md
-                  - name: Self-hosting the portal
-                    href: dev-portal-self-host-portal.md
-                  - name: Enable CAPTCHA
-                    href: dev-portal-enable-captcha.md
-                  - name: Migrate portal between services
-                    href: dev-portal-migrate-portal-between-services.md
-                  - name: Content management API
-                    href: dev-portal-content-management-api.md
-                  - name: Implement widgets
-                    href: dev-portal-implement-widgets.md
-                  - name: Widget contribution guidelines
-                    href: dev-portal-widget-contribution-guidelines.md
-                  - name: Use community widgets
-                    href: dev-portal-use-community-widgets.md
-                  - name: Testing the developer portal
-                    href: dev-portal-testing.md
+                  - name: Migrate from deprecated to new developer portal
+                    href: developer-portal-deprecated-migration.md
+                  - name: Move portal between services
+                    hewd: developer-portal-migrate-between-services.md
+                  - name: Authenticate with Azure AD
+                    href: api-management-howto-aad.md
+                  - name: Authenticate with Azure AD B2C
+                    href: api-management-howto-aad-b2c.md
+                  - name: Delegated authentication
+                    href: api-management-howto-setup-delegation.md
+                  - name: E-mail notifications and templates
+                    href: api-management-howto-configure-notifications.md
+                  - name: Enable console OAuth support
+                    href: api-management-howto-oauth2.md 
                   - name: Integrate Application Insights
-                    href: dev-portal-integrate-application-insights.md
+                    href: developer-portal-integrate-application-insights.md
                   - name: Integrate Google Tag Manager
-                    href: dev-portal-integrate-google-tag-manager.md
-                  - name: Move from managed to self-hosted
-                    href: dev-portal-move-managed-self-hosted.md
-                  - name: Alternative processes for self-hosted portal
-                    href: dev-portal-alternative-processes-self-hosted-portal.md
-                  - name: Architectural concepts
-                    href: dev-portal-architectural-concepts.md
-                  - name: FAQ
-                    href: dev-portal-faq.md
-                  - name: Single Sign-On (SSO) authentication
-                    href: dev-portal-sso-authentication.md
-                  - name: Configuring OAuth 2.0
-                    href: dev-portal-configure-oauth-2-0.md
-            - name: Migrate from deprecated to new developer portal
-              href: developer-portal-deprecated-migration.md
-            - name: Authenticate with Azure AD
-              href: api-management-howto-aad.md
-            - name: Authenticate with Azure AD B2C
-              href: api-management-howto-aad-b2c.md
-            - name: Delegated authentication
-              href: api-management-howto-setup-delegation.md
-            - name: E-mail notifications and templates
-              href: api-management-howto-configure-notifications.md
-            - name: Enable console OAuth support
-              href: api-management-howto-oauth2.md
-            - name: Deprecated portal - customize the portal
-              href: api-management-customize-styles.md
-            - name: Deprecated portal - modify pages and layouts
-              href: api-management-modify-content-layout.md
-            - name: Deprecated portal - customize with templates
-              href: api-management-developer-portal-templates.md
-      - name: Deprecated portal templates
-        items:
-            - name: Data model reference
-              href: api-management-template-data-model-reference.md
-            - name: Page controls
-              href: api-management-page-controls.md
-            - name: Templates
-              href: api-management-developer-portal-templates-reference.md
-            - name: APIs
-              href: api-management-api-templates.md
-            - name: Products
-              href: api-management-product-templates.md
-            - name: Applications
-              href: api-management-application-templates.md
-            - name: Issues
-              href: api-management-issue-templates.md
-            - name: User profile
-              href: api-management-user-profile-templates.md
-            - name: Pages
-              href: api-management-page-templates.md
-            - name: Template resources
-              href: api-management-template-resources.md
+                    href: developer-portal-integrate-google-tag-manager.md
+            - name: Self-host developer portal 
+              items:  
+                - name: Self-hosted portal - create
+                  href: developer-portal-self-host.md
+                - name: Self-hosted portal - enable CAPTCHA
+                  href: developer-portal-enable-captcha.md
+                - name: Alternative processes to self-host
+                  href: developer-portal-alternative-processes-self-host.md
+                - name: Self-hosted portal - content management API
+                  href: developer-portal-content-management-api.md
+                - name: Self-hosted portal - implement widgets
+                  href: developer-portal-implement-widgets.md
+                - name: Self-hosted portal - contribute widgets
+                  href: developer-portal-widget-contribution-guidelines.md
+                - name: Self-hosted portal - use community widgets
+                  href: developer-portal-use-community-widgets.md
+                - name: Self-hosted portal - test
+                  href: developer-portal-testing.md
+                - name: Move from managed to self-hosted portal
+                  href: developer-portal-move-managed-self-hosted.md
+                - name: Self-hosted portal - SSO authentication
+                  href: developer-portal-sso-authentication.md
+                - name: Self-hosted portal - configure OAuth 2.0
+                  href: developer-portal-configure-oauth-2-0.md
+            - name: Deprecated portal
+              items:
+                - name: Deprecated portal - customize the portal
+                  href: api-management-customize-styles.md
+                - name: Deprecated portal - modify pages and layouts
+                  href: api-management-modify-content-layout.md
+                - name: Deprecated portal - customize with templates
+                  href: api-management-developer-portal-templates.md
+            - name: Deprecated portal templates
+              items:
+                - name: Data model reference
+                  href: api-management-template-data-model-reference.md
+                - name: Page controls
+                  href: api-management-page-controls.md
+                - name: Templates
+                  href: api-management-developer-portal-templates-reference.md
+                - name: APIs
+                  href: api-management-api-templates.md
+                - name: Products
+                  href: api-management-product-templates.md
+                - name: Applications
+                  href: api-management-application-templates.md
+                - name: Issues
+                  href: api-management-issue-templates.md
+                - name: User profile
+                  href: api-management-user-profile-templates.md
+                - name: Pages
+                  href: api-management-page-templates.md
+                - name: Template resources
+                  href: api-management-template-resources.md
       - name: Define policies
         items:
             - name: Set or edit policies

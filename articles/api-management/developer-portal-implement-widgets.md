@@ -318,4 +318,11 @@ Allow the session id to be configured through a widget editor:
 
 ## Next steps
 
-[Contribute widgets](developer-portal-widget-contribution-guidelines.md) - we welcome and encourage community contributions.
+
+Learn more about the developer portal:
+
+- [Azure API Management developer portal overview](api-management-howto-developer-portal.md)
+
+- [Contribute widgets](developer-portal-widget-contribution-guidelines.md) - we welcome and encourage community contributions.
+
+- See [Use community widgets](developer-portal-use-community-widgets.md) to learn how to use widgets contributed by the community.

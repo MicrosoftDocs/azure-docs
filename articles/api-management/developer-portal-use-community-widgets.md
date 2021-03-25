@@ -18,6 +18,8 @@ All developers place their community-contributed widgets in the `/community/widg
 
 ## Inject and use external widgets
 
+1. Set up a [local environment](developer-portal-self-host.md#set-up-local-environment) for the latest release of the developer portal.
+
 1. Go to the widget's folder in the `/community/widgets` directory. Read the widget's description in the `readme.md` file.
 
 1. Register the widget in the portal's modules:
@@ -63,8 +65,13 @@ All developers place their community-contributed widgets in the `/community/widg
 You can see the widget in the **Community** category in the widget selector.
 
 :::image type="content" source="media/developer-portal-community-widgets/widget-selector.png" alt-text="Use widget selector":::
-![Widget selector](media/developer-portal-use-community-widgets/widget-selector.png)
+
 
 ## Next steps
 
-- [Test the self-hosted portal](developer-portal-testing.md)
+
+Learn more about the developer portal:
+
+- [Azure API Management developer portal overview](api-management-howto-developer-portal.md)
+
+- [Contribute widgets](developer-portal-widget-contribution-guidelines.md)

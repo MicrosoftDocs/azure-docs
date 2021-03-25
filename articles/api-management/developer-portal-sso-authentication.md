@@ -1,25 +1,27 @@
 ---
-title: Single sign-on (SSO) authentication
+title: Single sign-on (SSO) authentication to developer portal
 titleSuffix: Azure API Management
-description: Learn how to use single sign-on (SSO) authentication with your self-hosted developer portal.
-author: erikadoyle
+description: Learn how to use single sign-on (SSO) authentication with your self-hosted developer portal in Azure API Management.
+author: dlepow
 ms.author: apimpm
-ms.date: 11/30/2020
+ms.date: 03/25/2021
 ms.service: api-management
 ms.topic: how-to
 ---
 
-# Single sign-on (SSO) authentication
+# Single sign-on (SSO) authentication to self-hosted developer portal
 
-Among other authentication methods, the Developer portal supports Single sign-on (SSO). In order to authenticate with this method you need to make a call to `/signin-sso` with the token in the query parameter:
-```
+Among other authentication methods, the developer portal supports single sign-on (SSO). To authenticate with this method,you need to make a call to `/signin-sso` with the token in the query parameter:
+
+```html
 https://contoso.com/signin-sso?token=[user-specific token]
 ```
-You can generate *user-specific token* (including admin tokens) using [Get Shared Access Token](/rest/api/apimanagement/2019-12-01/user/getsharedaccesstoken) operation of [API Management REST API](/rest/api/apimanagement/apimanagementrest/api-management-rest).
+
+You can generate *user-specific tokens* (including admin tokens) using the [Get Shared Access Token](/rest/api/apimanagement/2019-12-01/user/getsharedaccesstoken) operation of the [API Management REST API](/rest/api/apimanagement/apimanagementrest/api-management-rest).
 
 > [!NOTE]
 > The token must be URL-encoded.
 
 ## Next steps
 
-- [Configuring OAuth 2.0](dev-portal-configure-oauth-2-0.md)
+- [Configure OAuth 2.0](developer-portal-configure-oauth-2-0.md)

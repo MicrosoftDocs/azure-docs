@@ -112,4 +112,8 @@ You can also front the files with a Content Delivery Network (CDN) to reduce pag
 
 ## Next steps
 
+Learn more about the developer portal:
+
+- [Azure API Management developer portal overview](api-management-howto-developer-portal.md)
+
 - [Architectural concepts for the developer portal](developer-portal-architectural-concepts.md)

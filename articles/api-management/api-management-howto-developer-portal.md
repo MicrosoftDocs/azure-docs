@@ -201,7 +201,7 @@ If your local version of the developer portal cannot save or retrieve informatio
 
 ### How can I remove the developer portal content provisioned to my API Management service?
 
-Provide the required parameters in the `scripts.v2/cleanup.bet` script in the developer portal [GitHub repository](https://github.com/Azure/api-management-developer-portal) and execute it:
+Provide the required parameters in the `scripts.v2/cleanup.bat` script in the developer portal [GitHub repository](https://github.com/Azure/api-management-developer-portal), and run the script
 
 ```sh
 cd scripts.v2

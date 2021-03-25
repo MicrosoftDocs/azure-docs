@@ -81,4 +81,8 @@ Follow these steps to plug Application Insights into your managed or self-hosted
 
 ## Next steps
 
-- [Integrate Google Tag Manager](developer-portal-integrate-google-tag-manager.md)
+Learn more about the developer portal:
+
+- [Azure API Management developer portal overview](api-management-howto-developer-portal.md)
+- [Move from managed to self-hosted developer portal](developer-portal-move-managed-self-hosted.md)
+- [Self-host the developer portal](developer-portal-self-host.md)

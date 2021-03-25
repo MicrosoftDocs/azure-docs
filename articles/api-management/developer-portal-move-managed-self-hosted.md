@@ -24,4 +24,7 @@ The conversion process is almost identical to [setting up a generic self-hosted 
 
 ## Next steps
 
-- [Alternative processes for self-hosted portal](developer-portal-alternative-processes-self-host.md)
+Learn more about the developer portal:
+
+- [Azure API Management developer portal overview](api-management-howto-developer-portal.md)
+- [Self-host the developer portal](developer-portal-self-host.md)

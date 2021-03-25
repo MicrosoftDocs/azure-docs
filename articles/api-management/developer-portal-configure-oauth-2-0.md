@@ -1,17 +1,17 @@
 ---
-title: Configure OAuth 2.0
+title: Configure OAuth 2.0 for self-hosted developer portal
 titleSuffix: Azure API Management
-description: Learn how to configure OAuth 2.0 to work with your self-hosted portal.
-author: erikadoyle
+description: Learn how to configure OAuth 2.0 to work with your self-hosted developer portal in Azure API Management.
+author: dlepow
 ms.author: apimpm
-ms.date: 11/30/2020
+ms.date: 03/25/2021
 ms.service: api-management
 ms.topic: how-to
 ---
 
-# Configure OAuth 2.0
+# Configure OAuth 2.0 for self-hosted developer portal
 
-This article provides an example of what your Azure Active Directory endpoints and scope will look like as well as the callback URLs.
+This article provides an example of what your Azure Active Directory endpoints and scope will look like as well as the callback URLs when configuring OAuth 2.0 for a sel-hosted developer portal..
 
 ## Azure Active Directory example
 
@@ -27,7 +27,7 @@ This article provides an example of what your Azure Active Directory endpoints a
 
 `https://graph.microsoft.com/.default`
 
-<img width="657" alt="oauth-config-example" src="https://user-images.githubusercontent.com/2320302/86863788-bef07d00-c080-11ea-98a9-f35ed4f77fd7.png">
+:::image type="content" source="media/developer-portal-configure-oauth-2-0/configure-oauth.png" alt-text="OAuth configuration example":::
 
 ## Callback URLs
 
@@ -40,8 +40,6 @@ This article provides an example of what your Azure Active Directory endpoints a
 `/signin-oauth/implicit/callback`
 
 ## Next steps
-
-This article is the last step in the process of creating a self-hosted developer portal. I you'd like to learn more about general information about the developer portal, see these articles:
 
 - [Migrate to the new developer portal](developer-portal-deprecated-migration.md)
 

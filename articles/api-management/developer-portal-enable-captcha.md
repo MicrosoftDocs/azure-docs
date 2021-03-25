@@ -43,4 +43,7 @@ The portal domain's first and second levels need to match the domain set up in t
 
 ## Next steps
 
-- [Migrate portal between services](developer-portal-migrate-between-services.md)
+Learn more about the developer portal:
+
+- [Azure API Management developer portal overview](api-management-howto-developer-portal.md)
+- [Self-host the developer portal](developer-portal-self-host.md)

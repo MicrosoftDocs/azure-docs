@@ -2,7 +2,7 @@
 title: Content management API for developer portal
 titleSuffix: Azure API Management
 description: Learn about the content management API and how it's used to save and retrieve content for the API Management developer portal.
-author: erikadoyle
+author: dlepow
 ms.author: apimpm
 ms.date: 03/25/2021
 ms.service: api-management
@@ -11,7 +11,7 @@ ms.topic: conceptual
 
 # Content management API for the developer portal
 
-The API Management developer portal is a static web application that relies on the content management API to save and retrieve content. Classic content management systems store content in form of HTML. Developer portal outputs structured JSON. Every element, from a page layout to a hyperlink, has a strictly defined contract. This approach lets the developer portal:
+The API Management developer portal is a static web application that relies on the content management API to save and retrieve content. Classic content management systems store content in the form of HTML. The developer portal outputs structured JSON. Every element, from a page layout to a hyperlink, has a strictly defined contract. This approach lets the developer portal:
 
 - Abstract data from its representation.
 
@@ -29,7 +29,7 @@ The content management API is an endpoint in the [Azure API Management REST API]
 > [!NOTE]
 > The developer portal comes with the following content types built-in that you can't change or remove: *Pages*, *Layouts*, *Blog posts*, *Blobs*, *URLs*, *Design blocks*, *Styles*, *Documents*. You can only carry out a GET operation on them.
 >
-> Also, custom content types ids need to start with the `c-` prefix.
+> Also, custom content types Ids need to start with the `c-` prefix.
 
 ## Authentication
 
@@ -74,4 +74,6 @@ GET /contentTypes/page/contentItems?$orderby=en_us/title desc
 ```
 ## Next steps
 
-- [Implement widgets](developer-portal-implement-widgets.md)
+Learn more about the developer portal:
+
+- [Azure API Management developer portal overview](api-management-howto-developer-portal.md)

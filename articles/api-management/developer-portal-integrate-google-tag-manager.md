@@ -83,3 +83,4 @@ Follow these steps to plug Google Tag Manager into your managed or self-hosted d
 ## Next steps
 
 - [Move from managed to self-hosted developer portal](developer-portal-move-managed-self-hosted.md)
+- [Self-host the developer portal](developer-portal-self-host.md)

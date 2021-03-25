@@ -397,4 +397,5 @@ Update the developer portal URL in any template that has a link in the footer:
 ## Next steps
 
 - [Enable CAPTCHA](developer-portal-enable-captcha.md)
-- Learn about [Alternative processes for self-hosted portal](developer-portal-alternative-processes-self-hosted-portal.md)
+- Learn about [Alternative processes for self-hosted portal](developer-portal-alternative-processes-self-host.md)
+- Learn about the [content management API](developer-portal-content-management-api.md)
