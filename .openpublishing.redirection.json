@@ -851,6 +851,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory-b2c/create-user-flow.md",
+      "redirect_url": "/azure/active-directory-b2c/add-sign-up-and-sign-in-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/phone-authentication.md",
+      "redirect_url": "/azure/active-directory-b2c/phone-authentication-user-flows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/ropc-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/add-ropc-policy",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory-b2c/custom-policy-manage-sso-and-token-config.md",
       "redirect_url": "/azure/active-directory-b2c/configure-tokens-custom-policy",
       "redirect_document_id": false
