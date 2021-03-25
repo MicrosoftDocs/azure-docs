@@ -14,7 +14,7 @@ ms.author: duau
 # ExpressRoute connectivity partners and peering locations
 
 > [!div class="op_single_selector"]
-> * [Locations By Provider](expressroute-locations.md)
+> * Locations By Provider
 > * [Providers By Location](expressroute-locations-providers.md)
 
 
