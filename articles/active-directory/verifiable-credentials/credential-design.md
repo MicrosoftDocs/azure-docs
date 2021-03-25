@@ -23,29 +23,43 @@ Verifiable Credentials are made up of two components, the rules and display file
 
 ## Rules File: Requirements from the user
 
-There are currently 4 inputs that that are available in order for the Verifiable Credential Issuing service to insert a claim and sign it with your DID. 
+The rules file is a simple JSON file that describes important properties of verifiable credentials. In particular it describes how claims are used to populate your Verifiable Credentials. 
+
+There are currently 3 input types that that are available to configure in the rules file. These types are used by the Verifiable Credential Issuing service to insert claims into a Verifiable Credential and attest to that information with your DID. The following are the 4 types with explanations. 
 
 - ID Token
-- Verifiable Credentials 
+- Verifiable Credentials via a Verifiable Presentation 
 - Self Issued Claims
-- Hard Coded Claims
+
 
 **ID Token:** The Sample App and Tutorial use the ID Token. When this option is selected, you will need to provide an Open ID Connect configuration URI and include the claims that should be included in the VC. The user will be promoted to 'Sign In' on the Authenticator app in order to meet this requirement and add the associated claims from their account. 
 
-// insert image 
+  ![ID Token](media/credential-design/id_token.png)
 
 **Verifiable Credentials:** The end result of an issuance flow is to produce a Verifiable Credential but you may also ask the user to Present a Verifiable Credential in order to issue one. The Rules File is able to take specific claims from the presented Verifiable Credential and include those claims in the newly issued Verifiable Credential from your organization. 
 
-// insert image 
+![ID Token](media/credential-design/vc_for_vc.png)
 
-**Self Issued Claims:** When this option is selected, the user will be able to directly type information into Authenticator 
+**Self Issued Claims:** When this option is selected, the user will be able to directly type information into Authenticator. 
 
-// insert image 
+![ID Token](media/credential-design/self_issued.png)
 
-The rules file is a simple JSON file that describes important properties of verifiable credentials. In particular it describes how claims are used to populate your Verifiable Credentials. The rules file has the following structure.
+**Static Claims:** Additionally we are able declare a static claim in the Rules file, however this input does not come from the user. The Issuer defines a static claim in the Rules file and would look like any other claim in the Verifiable Credential. Simply add a credentialSubject after vc.type and declare the attribute and the claim. 
+
+```json
+"vc": {
+    "type": [ "StaticClaimCredential" ],
+    "credentialSubject": {
+      "staticClaim": true
+    },
+  }
+}
+```
 
 
-    ```json
+## Input Type: ID Token
+
+```json
     {
       "attestations": {
         "idTokens": [
@@ -57,42 +71,31 @@ The rules file is a simple JSON file that describes important properties of veri
             "configuration": "https://dIdPlayground.b2clogin.com/dIdPlayground.onmicrosoft.com/B2C_1_sisu/v2.0/.well-known/openid-configuration",
             "client_id": "8d5b446e-22b2-4e01-bb2e-9070f6b20c90",
             "redirect_uri": "vcclient://openid/",
-             "scope": "openid profile"
+            "scope": "openid profile"
           }
         ]
       },
       "validityInterval": 2592000,
       "vc": {
-        "type": ["VerifiedCredentialNinja"]
+        "type": ["https://schema.org/EducationalCredential", "https://schemas.ed.gov/universityDiploma2020", "https://schemas.contoso.edu/diploma2020" ]
       }
     }
-    ```
+```
 
 | Property | Description |
 | -------- | ----------- |
-| `vc.type` | An array of strings indicating the schema(s) that your Verifiable Credential satisfies. See the section below. |
-| `validityInterval` | A time duration, in seconds, representing the lifetime of your Verifiable Credentials. After this time period elapses, the Verifiable Credential will no longer be valid. Omitting this value means that each Verifiable Credential will remain valid until is it explicitly revoked. |
 | `attestations.idTokens` | An array of OpenID Connect identity providers that are supported for sourcing user information. |
 | `...mapping` | An object that describes how claims in each ID token are mapped to attributes in the resulting Verifiable Credential. |
 | `...mapping.{attribute-name}` | The attribute that should be populated in the resulting Verifiable Credential. |
 | `...mapping.{attribute-name}.claim` | The claim in ID tokens whose value should be used to populate the attribute. |
 | `...configuration` | The location of your identity provider's configuration document. This URL must adhere to the [OpenID Connect standard for identity provider metadata](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata). The configuration document must include the `issuer`, `authorization_endpoint`, `token_endpoint`, and `jwks_uri` fields. |
 | `...client_id` | The client ID obtained during the client registration process. |
-| `...scopes` | A space delimited list of scopes the IDP needs to be able to return the correct claims in the ID token. |
-| `...redirect_uri` | Must always use the value `portableidentity://verify`. |
+| `...scope` | A space delimited list of scopes the IDP needs to be able to return the correct claims in the ID token. |
+| `...redirect_uri` | Must always use the value `vcclient://openid/`. |
+| `validityInterval` | A time duration, in seconds, representing the lifetime of your Verifiable Credentials. After this time period elapses, the Verifiable Credential will no longer be valid. Omitting this value means that each Verifiable Credential will remain valid until is it explicitly revoked. |
+| `vc.type` | An array of strings indicating the schema(s) that your Verifiable Credential satisfies. See the section below. |
 
-
-To issue verifiable credentials, you need to construct your own rules file. Begin with the example given above, and change the following values.
-
-1. Modify the `credentialIssuer` value to use your Azure AD tenant ID.
-
-2. Modify the `vc.type` value to reflect the type of your credential. See the section below.
-
-3. Modify the `mapping` section, so that claims from your identitiy provider are mapped to attributes of your Verifiable Credential.
-
-4. Modify the `configuration` and `client_id` values to the values you prepared in the section above.
-
-## Choose credential type(s)
+## Choose credential type(s) 
 
 All Verifiable Credentials must declare their "type" in their rules file. The type of a credential distinguishes your Verifiable Credentials from credentials issued by other organizations and ensures interoperability between issuers and verifiers. To indicate a credential type, you must provide one or more credential types that the credential satisfies. Each type is represented by a unique string - often a URI will be used to ensure global uniqueness. The URI does not need to be addressable; it is treated as a string. 
 
@@ -108,8 +111,98 @@ By declaring all three types, Contoso University's diplomas can be used to satis
 
 To ensure interoperability of your credentials, it's recommended that you work closely with related organizations to define credential types, schemas, and URIs for use in your industry. Many industry bodies provide guidance on the structure of official documents that can be repurposed for defining the contents of Verifiable Credentials. You should also work closely with the verifiers of your credentials to understand how they intend to request and consume your Verifiable Credentials.
 
+## Input Type: Verifiable Credential
 
-## Cards in Microsoft Authenticator
+>[!note]
+  >Rules files that ask for a Verifiable Credential does not use the Presentation Exchange format for requesting credentials. This will be updated when the Issuing Service supports the standard, Credential Manifest. 
+
+```json
+{
+    "attestations": {
+      "presentations": [
+        {
+          "mapping": {
+            "first_name": {
+              "claim": "$.vc.credentialSubject.firstName",
+            },
+            "last_name": {
+              "claim": "$.vc.credentialSubject.lastName",
+              "indexed": true
+            }
+          },
+          "credentialType": "VerifiedCredentialNinja",
+          "contracts": [
+            "https://beta.did.msidentity.com/v1.0/3c32ed40-8a10-465b-8ba4-0b1e86882668/verifiableCredential/contracts/VerifiedCredentialNinja"
+          ],
+          "issuers": [
+            {
+              "iss": "did:ion:123"
+            }
+          ]
+        }
+      ]
+    },
+    "validityInterval": 25920000,
+    "vc": {
+      "type": [
+        "ProofOfNinjaNinja"
+      ],
+    }
+  }
+  ```
+
+| Property | Description |
+| -------- | ----------- |
+| `attestations.presentations` | An array of OpenID Connect identity providers that are supported for sourcing user information. |
+| `...mapping` | An object that describes how claims in each presented Verifiable Credential are mapped to attributes in the resulting Verifiable Credential. |
+| `...mapping.{attribute-name}` | The attribute that should be populated in the resulting Verifiable Credential. |
+| `...mapping.{attribute-name}.claim` | The claim in the Verifiable Credential whose value should be used to populate the attribute. |
+| `...mapping.{attribute-name}.index` | Only one can be enabled per Verifiable Credential to save for revoke. |
+| `credentialType` | The credentialType of the Verifiable Credential you are asking the user to present. |
+| `contracts` | The URI of the contract in the Verifiable Credential Service portal. |
+| `issuers.iss` | The issuer DID for the Verifiable Credential being asked of the user. |
+| `validityInterval` | A time duration, in seconds, representing the lifetime of your Verifiable Credentials. After this time period elapses, the Verifiable Credential will no longer be valid. Omitting this value means that each Verifiable Credential will remain valid until is it explicitly revoked. |
+| `vc.type` | An array of strings indicating the schema(s) that your Verifiable Credential satisfies. |
+
+
+## Input Type: Self Attested Claims
+
+```json
+{
+  "attestations": {
+    "selfIssued": {
+      "mapping": {
+        "alias": {
+          "claim": "name",
+          "indexed": true
+        }
+      },
+    },
+    "validityInterval": 25920000,
+    "vc": {
+      "type": [
+        "ProofOfNinjaNinja"
+      ],
+    }
+  }
+
+
+
+```
+| Property | Description |
+| -------- | ----------- |
+| `attestations.selfIssued` | An array of self issued claims that require input from the user. |
+| `...mapping` | An object that describes how self issued claims are mapped to attributes in the resulting Verifiable Credential. |
+| `...mapping.alias` | The attribute that should be populated in the resulting Verifiable Credential. |
+| `...mapping.alias.claim` | The claim in the Verifiable Credential whose value should be used to populate the attribute. |
+| `...mapping.{attribute-name}.index` | Only one can be enabled per Verifiable Credential to save for revoke. |
+| `validityInterval` | A time duration, in seconds, representing the lifetime of your Verifiable Credentials. After this time period elapses, the Verifiable Credential will no longer be valid. Omitting this value means that each Verifiable Credential will remain valid until is it explicitly revoked. |
+| `vc.type` | An array of strings indicating the schema(s) that your Verifiable Credential satisfies. |
+
+
+
+
+## Display File: Verifiable Credentials in Microsoft Authenticator
 
 Verifiable Credentials offer a limited set of options that can be used to reflect your brand. This article provides instructions how to customize your credentials, and best practices for designing credentials that look great once issued to users.
 
@@ -151,19 +244,7 @@ The display file has the following structure.
         "vc.credentialSubject.name": {
           "type": "String",
           "label": "Name"
-        },
-        "vc.credentialSubject.major": {
-            "type": "String",
-            "label": "Major"
-          },
-          "vc.credentialSubject.date": {
-            "type": "String",
-            "label": "Date Issued"
-          },
-          "vc.credentialSubject.studentId": {
-            "type": "String",
-            "label": "Student ID Number"
-          }
+        }
       }
     }
 }
@@ -176,38 +257,12 @@ The display file has the following structure.
 | `card.issuedBy` | Displays the name of the issuing organization to the user. Recommended maximum length of 40 characters. |
 | `card.backgroundColor` | Determines the background color of the card, in hex format. A subtle gradient will be applied to all cards. |
 | `card.textColor` | Determines the text color of the card, in hex format. Recommended to use black or white. |
-| `card.logo` | A logo that is displayed on the card. The URL provided must be publicly addressable. Recommended maximum height of 50 px, and maximum width of 200 px. | 
+| `card.logo` | A logo that is displayed on the card. The URL provided must be publicly addressable. Recommended maximum height of 36 px, and maximum width of 100 px. | 
 | `card.description` | Supplemental text displayed alongside each card. Can be used for any purpose. Recommended maximum length of 100 characters. |
 | `consent.title` | Supplemental text displayed when a card is being issued. Used to provide details about the issuance process. Recommended length of 100 characters. |
 | `consent.instructions` | Supplemental text displayed when a card is being issued. Used to provide details about the issuance process. Recommended length of 100 characters. |
 | `claims` | Allows you to provide labels for attributes included in each credential. |
 | `claims.{attribute}` | Indicates the attribute of the credential to which the label applies. |
-| `claims.{attribute}.label` | The value that should be used as a label for the attribute. Recommended maximum length of 40 characters. |
+| `claims.{attribute}.label` | The value that should be used as a label for the attribute which will show up in Authenticator. Recommended maximum length of 40 characters. |
 
-To issue verifiable credentials, you need to construct your own display file. Begin with the example given above, and change the following values.
 
-1. Modify all values in the `card` and `consent` sections to your desired values.
-2. For each attribute you declared in the `mapping` section of your rules file, add an entry in the `claims` section of your display file. Each entry provides a label that should be used for the corresponding attribute in your Verifiable Credential.
-3. Provide a temporary value for the `contract`. After creating your credential in the Azure portal, you will need to replace this value with the **Issue Credential URL** generated by the Azure portal.
-
-## Upload the display file
-
-Once you've constructed your display file, you must upload the file to your Azure Blob Storage account to be used by the issuer service when issuing Verifiable Credentials.
-
-1. Upload your rules file with a `.json` extension to the same Azure Storage container where you uploaded your rules file. Once uploaded, copy the URL to your display file blob from the Azure portal. The URL should be similar to `https://mystorage.blob.core.windows.net/mycontainer/MyCredentialDisplayFile.json`, without any spaces or special characters.
-
-2.  In the Azure portal, navigate to the **Verifiable Credentials (Preview)** blade in your Azure AD tenant. In the same **Add a credential** step, paste the URL to your display file in the **Card Structure** section. You must also provide the subscription ID for your Azure subscription, and the resource group in which you created your Azure Blob Storage account.
-
-  ![upload rules file](media/credential-design/admin-screenshot-upload-rules.png)
-
-3. Select **Create** to finish creating your Verifiable Credential. Once you've created the credential, locate the **Issue credential URL** and the **Issuer Identifier** for your credential. Copy their values - you'll need them later in the tutorial.
-
-   ![Copy details](media/credential-design/admin-screenshot-created-credential.png)
-
-You've now successfully defined the properties and contents of your Verifiable Credential. If you'd like to reference a working example of a display file, see our [code sample on GitHub](https://github.com/Azure-Samples/active-directory-verifiable-credentials).
-
-To check if your rules and display file have been uploaded correctly, you can click on the Issuer credential URL link that will open a JSON file in a new tab if successful. If the issuer service cannot access your files, you should receive an error message.
-
-## Next steps
-
-- When your credential has been created and you've copied the necessary values, you can continue to review [manage credential revocation](credential-revoke.md).
