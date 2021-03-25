@@ -446,7 +446,7 @@ You may encounter the following issues before the improvement, but after the imp
  
  Before the improvement, the column value of unquoted empty string is read as NULL. 
 
- After the improvement, empty string will not be parsed as null value. 
+ After the improvement, empty string will not be parsed as NULL value. 
  
  The following example shows you one pipeline behavior change after the improvement:
 
