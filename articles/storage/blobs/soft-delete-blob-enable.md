@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 03/24/2021
 ms.author: tamram
 ms.subservice: blobs 
 ms.custom: "devx-track-azurecli, devx-track-csharp"
@@ -17,6 +17,8 @@ ms.custom: "devx-track-azurecli, devx-track-csharp"
 
 
 Soft deleted objects are invisible unless explicitly listed.
+
+Blob soft delete protects an individual blob and its versions, snapshots, and metadata from accidental deletes or overwrites by maintaining the deleted data in the system for a specified period of time. During the retention period, you can restore the blob to its state at deletion. After the retention period has expired, the blob is permanently deleted.
 
 
 Blob soft delete protects your data from being accidentally or erroneously modified or deleted. When blob soft delete is enabled for a storage account, blobs, blob versions, and snapshots in that storage account may be recovered after they are deleted, within a retention period that you specify.
@@ -35,11 +37,11 @@ Enable soft delete for blobs on your storage account by using Azure portal:
 
 1. In the [Azure portal](https://portal.azure.com/), navigate to your storage account.
 1. Locate the **Data Protection** option under **Blob service**.
-1. Set the **Blob soft delete** property to *Enabled*.
-1. Under **Retention policies**, specify how long soft-deleted blobs are retained by Azure Storage.
+1. Select **Turn on soft delete for blobs**.
+1. Specify a retention period between 1 and 365 days. Microsoft recommends a minimum retention period of seven days.
 1. Save your changes.
 
-![Screenshot of the Azure Portal with the Data Protection blob service elected.](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-configuration.png)
+![Screenshot showing how to enable soft delete in the Azure portal](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-configuration.png)
 
 To view soft deleted blobs, select the **Show deleted blobs** checkbox.
 

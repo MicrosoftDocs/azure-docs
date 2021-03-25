@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 03/24/2021
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -18,30 +18,42 @@ Blob soft delete protects an individual blob and its versions, snapshots, and me
 
 ## Recommended data protection configuration
 
-For end to end protection for your blob data, Microsoft recommends enabling all of the following data protection features:
+For optimal protection for your blob data, Microsoft recommends enabling all of the following data protection features:
 
 - Container soft delete, to restore a container that has been deleted. To learn how to enable container soft delete, see [Enable and manage soft delete for containers](soft-delete-container-enable.md).
 - Blob versioning, to automatically maintain previous versions of a blob. When blob versioning is enabled, you can restore an earlier version of a blob to recover your data if it is erroneously modified or deleted. To learn how to enable blob versioning, see [Enable and manage blob versioning](versioning-enable.md).
 - Blob soft delete, to restore a blob or version that has been deleted. To learn how to enable blob soft delete, see [Enable and manage soft delete for blobs](soft-delete-blob-enable.md).
 
+For more information, see [Data protection overview](data-protection-overview.md).
+
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## How blob soft delete works
 
-When you enable blob soft delete for a storage account, you specify a retention period for deleted objects. The retention period indicates the amount of time that soft-deleted data is stored and available for recovery and may be between 1 and 365 days. When a blob is subsequently deleted or overwritten, the clock starts on the retention period.
+When you enable blob soft delete for a storage account, you specify a retention period for deleted objects of between 1 and 365 days. The retention period indicates how long blob data remains available after it is deleted or overwritten. The clock starts on the retention period as soon as a blob is deleted or overwritten.
 
-While the retention period is active, you can restore a deleted blob by calling the [Undelete Blob](/rest/api/storageservices/undelete-blob). The following diagram shows how a deleted blob can be restored when blob soft delete is enabled:
+While the retention period is active, you can restore a deleted blob, version, or snapshot by calling the [Undelete Blob](/rest/api/storageservices/undelete-blob) operation. The following diagram shows how a deleted blob can be restored when blob soft delete is enabled:
 
 :::image type="content" source="media/soft-delete-blob-overview/blob-soft-delete-diagram.png" alt-text="Diagram showing how a soft-deleted blob may be restored":::
 
-You can change the soft delete retention period at any time. An updated retention period applies only to newly deleted data. Previously deleted data expires based on the retention period that was configured when that data was deleted. Attempting to delete a soft deleted object does not affect its expiry time.
+You can change the soft delete retention period at any time. An updated retention period applies only to data that was deleted after the retention period was changed. Any data that was deleted before the retention period was changed is subject to the retention period that was in effect when it was deleted.
 
-If you disable soft delete, you can continue to access and recover soft deleted data in your storage account that was saved while the feature was enabled.
+If you disable soft delete, you can continue to access and recover soft deleted data in your storage account that was saved while the feature was enabled, until the soft delete retention period has elapsed.
 
 Blob soft delete is available for both new and existing general-purpose v2, general-purpose v1, and Blob storage accounts. Both standard and premium account types are supported. Blob soft delete is available for all storage tiers including hot, cool, and archive. Soft delete is available for unmanaged disks, which are page blobs under the covers, but is not available for managed disks.
 
+Attempting to delete a soft deleted object does not affect its expiry time.
+
 > [!NOTE]
-> You can use blob soft delete only to restore an individual blob. To restore a container and its contents, container soft delete must also be enabled for the storage account. Microsoft recommends enabling container soft delete and blob versioning together with blob soft delete for optimal data protection.
+> You can use blob soft delete only to restore an individual blob. To restore a container and its contents, container soft delete must also be enabled for the storage account. Microsoft recommends enabling container soft delete and blob versioning together with blob soft delete to ensure complete protection for blob data.
+
+### Soft delete with delete operations
+
+
+
+### Soft delete with overwrite operations
+
+
 
 ## Blob soft delete and versioning
 
@@ -51,9 +63,15 @@ The behavior of blob soft delete is slightly different depending on whether blob
 
 If blob versioning and blob soft delete are both enabled on the storage account, then deleting or overwriting a blob creates a new version. The new version is not soft-deleted and is not removed when the soft-delete retention period expires. The blob can be restored from the version at any point.
 
-For more information about using blob versioning and soft delete together, see [Blob versioning and soft delete](versioning-overview.md#blob-versioning-and-soft-delete).
+Microsoft recommends enabling both versioning and blob soft delete. For more information about using blob versioning and soft delete together, see [Blob versioning and soft delete](versioning-overview.md#blob-versioning-and-soft-delete).
 
 ### Blob soft delete without versioning enabled
+
+If blob soft delete is enabled and blob versioning is not enabled, then deleting a blob marks that blob as soft-deleted. Uploading a blob with the same name as the deleted blob creates a soft-deleted snapshot of the deleted blob.
+
+An overwrite operation 
+
+Overwriting a blob with a blob of the same name creates a soft-deleted snapshot. 
 
 If data in an existing blob or snapshot is deleted while blob soft delete is enabled but blob versioning is not enabled, then a soft-deleted snapshot is generated to save the state of the blob prior to deletion. After the specified retention period has expired, the soft-deleted snapshot is permanently deleted.
 
