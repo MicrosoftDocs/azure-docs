@@ -367,6 +367,8 @@
           href: how-to-create-overlay.md
         - name: Generate thumbnails with .NET
           href: media-services-generate-thumbnails-dotnet.md
+        - name: Crop videos with .NET
+          href: crop-howto.md
       - name: With CLI
         displayName: encode, encoding, custom, transform
         href: custom-preset-cli-howto.md
