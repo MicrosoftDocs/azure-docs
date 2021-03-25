@@ -1,7 +1,7 @@
 ---
 title: Failover & disaster recovery
 titleSuffix: Azure Machine Learning
-description: Learn how to make your Azure Machine Learning resources more resilient to outages by using a high-availability configuration.
+description: Learn how to plan for disaster recovery and maintain business continuity for Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -135,7 +135,7 @@ By keeping your data storage isolated from the default storage the workspace use
 * Make use of geo-replication for data storage accounts and maximize your uptime.
 
 ### Create a dedicated Cosmos DB instance for use with your workspace
-Azure Machine Learning stores metadata in an Azure Cosmos DB instance. This instance is associated with a Microsoft subscription managed by Azure Machine Learning. All the data stored in Azure Cosmos DB is encrypted at rest with Microsoft-managed keys. You can [create](https://docs.microsoft.com/en-us/azure/machine-learning/concept-data-encryption#azure-cosmos-db) a dedicated Cosmos DB instance for use with your workspace. We recommend this approach if you want to store your data, such as run history information, outside of the multi-tenant Cosmos DB instance hosted in our Microsoft subscription. Since you will be the owner of the Cosmos DB instance, you have the ability to configure the Cosmod DB instance in a high available configuration. See [High availability with Azure Cosmos DB](../cosmos-db/high-availability.md).
+Azure Machine Learning stores metadata in an Azure Cosmos DB instance. This instance is associated with a Microsoft subscription managed by Azure Machine Learning. All the data stored in Azure Cosmos DB is encrypted at rest with Microsoft-managed keys. You can [create](https://docs.microsoft.com/azure/machine-learning/concept-data-encryption#azure-cosmos-db) a dedicated Cosmos DB instance for use with your workspace. We recommend this approach if you want to store your data, such as run history information, outside of the multi-tenant Cosmos DB instance hosted in our Microsoft subscription. Since you will be the owner of the Cosmos DB instance, you have the ability to configure the Cosmod DB instance in a high available configuration. See [High availability with Azure Cosmos DB](../cosmos-db/high-availability.md).
 
 ### Manage machine learning artifacts as code
 
@@ -149,12 +149,12 @@ Runs in Azure Machine Learning are defined by a run specification. This specific
       > Pipelines created in studio designer cannot currently be exported as code.
 
 * Manage configurations as code.
-    * Avoid hardcoded references to the workspace. Instead, configure a reference to the workspace instance using a [config file](how-to-configure-environment.md#workspace) and use [Workspace.from_config()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#remarks) to initialize the workspace. To automate the process, use the [Azure CLI extension for machine learning](reference-azure-machine-learning-cli.md) command [az ml folder attach](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/folder#ext_azure_cli_ml_az_ml_folder_attach).
-    * Use run submission helpers such as [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) and [Pipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline(class)?view=azure-ml-py).
-    * Use [Environments.save_to_directory()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py#save-to-directory-path--overwrite-false-) to save your environment definitions.
+    * Avoid hardcoded references to the workspace. Instead, configure a reference to the workspace instance using a [config file](how-to-configure-environment.md#workspace) and use [Workspace.from_config()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace#remarks) to initialize the workspace. To automate the process, use the [Azure CLI extension for machine learning](reference-azure-machine-learning-cli.md) command [az ml folder attach](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/folder#ext_azure_cli_ml_az_ml_folder_attach).
+    * Use run submission helpers such as [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig) and [Pipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline(class)).
+    * Use [Environments.save_to_directory()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)#save-to-directory-path--overwrite-false-) to save your environment definitions.
     * Use a Dockerfile if you use custom Docker images.
-    * Use the [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py) class to define the collection of data [paths](https://docs.microsoft.com/python/api/azureml-core/azureml.data.datapath?view=azure-ml-py) used by your solution.
-    * Use the [Inferenceconfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) class to deploy models as inference endpoints.
+    * Use the [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)) class to define the collection of data [paths](https://docs.microsoft.com/python/api/azureml-core/azureml.data.datapath) used by your solution.
+    * Use the [Inferenceconfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig) class to deploy models as inference endpoints.
 
 ## Initiate a failover
 
