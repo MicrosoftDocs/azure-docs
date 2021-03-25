@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/23/2021
+ms.date: 03/25/2021
 ms.author: alkohli
 
 # Customer intent: As an IT admin, I want to save time and avoid Support calls during deployment of Azure Stack Edge devices by verifying network settings in advance.
@@ -24,7 +24,22 @@ You'll use the Azure Stack Network Readiness Checker, a PowerShell tool that run
 
 ## About the tool
 
-The Network Readiness Checker includes the following tests. You can choose which tests to run.
+The Azure Stack Network Readiness Checker can check whether a network meets the following prerequisites:
+
+- The Domain Name System (DNS) server is available and functioning.
+
+- The Network Time Protocol (NTP) server is available and functioning.
+ 
+- Azure endpoints are available and respond on HTTP, with or without a proxy server.
+
+- The Windows Update server - either the customer-provided Windows Server Update services (WSUS) server or the public Windows Update server - is available and functioning.
+
+- There are no overlapping IP addresses for Edge Compute.<!--Is "Edge Compute" a thing? Should this be "Edge computing"? When is "Edge" used without "Azure Stack"?-->
+
+- DNS resource records registration for Azure Stack Edge is functioning correctly.
+
+
+<!--The Network Readiness Checker includes the following tests. You can choose which tests to run.
 
 |Test               |Network checks| 
 |-------------------|-------------|
@@ -34,9 +49,9 @@ The Network Readiness Checker includes the following tests. You can choose which
 |TimeServer         |(Recommended) Verifies that Network Time Protocol (NTP) servers respond with system time on UDP port 123 and that the response message meets NTP requirements so that network clients can use the system time.|
 |DuplicateIP        |Checks for IP address conflicts between the Azure Stack Edge device and other devices on the network, and for conflicts within the IP address pool that's used for Kubernetes in Azure Stack Edge.|
 |Proxy              |(Optional) If you're using a proxy server, verifies that the web proxy server is accessible, that proxy server credentials work, and that the Secure Sockets Layer (SSL) tunnel isn't terminated at the proxy.|
-|AzureEndpoint      |Tests endpoints for the Azure Resource Manager login, Azure Resource Manager, Blob storage, COMPUTE?, and the Windows Update server.<!--Basing this on sample data below, correlated with endpoints shown in Device settings in the portal. Please revise as needed.--> |
+|AzureEndpoint      |Tests endpoints for the Azure Resource Manager login, Azure Resource Manager, Blob storage, COMPUTE?, and the Windows Update server. |
 |WindowsUpdateServer|(Optional) Verifies that the Windows Update Server or Windows Update for Business Server is accessible over HTTPS.|
-|DnsRegistration    |WHICH DNS SETTINGS? - Endpoint certs match DNS name? DNS records?|
+|DnsRegistration    |WHICH DNS SETTINGS? - Endpoint certs match DNS name? DNS records?|-->
 
 ## Prerequisites
 
