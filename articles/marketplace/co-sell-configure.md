@@ -12,7 +12,7 @@ ms.date: 3/17/2021
 
 # Configure co-sell for a commercial marketplace offer
 
-This article describes how to configure the **Co-sell with Microsoft** tab for a commercial marketplace offer. Providing information on this tab is entirely optional but it is required to achieve [Co-sell Ready and IP Co-sell Incentivized status](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status). The information you provide will be used by Microsoft sales teams to learn more about your offer when evaluating its fit for customer needs. This information is not available directly to customers. For more information about co-sell, see [Co-sell with Microsoft sellers and partners overview](marketplace-co-sell.md) and [Co-sell with Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
+This article describes how to configure the **Co-sell with Microsoft** tab for a commercial marketplace offer. Providing information on this tab is entirely optional but it is required to achieve [Co-sell Ready and IP Co-sell Incentivized status](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). The information you provide will be used by Microsoft sales teams to learn more about your offer when evaluating its fit for customer needs. This information is not available directly to customers. For more information about co-sell, see [Co-sell with Microsoft sellers and partners overview](marketplace-co-sell.md) and [Co-sell with Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
 
 The Co-sell option is available for the following offer types.
 

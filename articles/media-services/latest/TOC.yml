@@ -329,6 +329,8 @@
       href: how-to-create-asset.md
     - name: Upload media
       href: how-to-upload-media.md
+    - name: Manage multiple storage accounts
+      href: media-services-managing-multiple-storage-accounts.md
   - name: Create transforms and jobs
     items:
     - name: Create transforms
@@ -341,13 +343,15 @@
       href: how-to-create-copyallbitratenoninterleaved-transform.md
     - name: Copy videos without encoding with REST
       href: how-to-create-copy-video-audio-transform.md
-    - name: Create jobs
+    - name: Create jobs with .NET
       href: cli-create-jobs.md
     - name: Create job input with a local file and .NET
       displayName: upload
       href: job-input-from-local-file-how-to.md
     - name: Jobs with multiple transform outputs
       href: job-multiple-transform-outputs.md
+    - name: Stitch two or more video files with .NET
+      href: stitch-howto.md
   - name: Encode content 
     items:
     - name: HTTPS as job input
@@ -365,6 +369,8 @@
           href: how-to-create-overlay.md
         - name: Generate thumbnails with .NET
           href: media-services-generate-thumbnails-dotnet.md
+        - name: Crop videos with .NET
+          href: crop-howto.md
       - name: With CLI
         displayName: encode, encoding, custom, transform
         href: custom-preset-cli-howto.md
@@ -415,6 +421,12 @@
       href: offline-widevine-for-android.md
     - name: Offline PlayReady for Windows 10
       href: offline-plaready-streaming-for-windows-10.md     
+  - name: Use Azure Functions
+    items:
+    - name: With .NET
+      items:
+      - name: Use Azure Functions .NET
+        href: media-services-dotnet-how-to-use-azure-functions.md
   - name: Create filters
     items:
     - name: With .NET
@@ -438,6 +450,10 @@
       href: download-results-howto.md
     - name: Signal descriptive audio
       href: signal-descriptive-audio-howto.md
+  - name: Security
+    items:
+    - name: Roll storage access keys
+      href: media-services-roll-storage-access-keys.md
   - name: Use media players
     items:
     - name: Azure Media Player full set up
@@ -446,6 +462,8 @@
       href: how-to-video-js-player.md
     - name: Use the Shaka video player
       href: how-to-shaka-player.md
+    - name: Pass authentication tokens
+      href: media-services-pass-authentication-tokens.md
 - name: Reference
   items:
   - name: OpenAPI Specification (Swagger)
