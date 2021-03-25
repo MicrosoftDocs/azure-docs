@@ -122,20 +122,20 @@
     items:
     - name: General
       href: /azure/azure-vmware/faq#general
+    - name: Customer communication
+      href: /azure/azure-vmware/faq#customer-communication
+    - name: Azure VMware Solution and VMware software
+      href: /azure/azure-vmware/faq#azure-vmware-solution-and-vmware-software
     - name: Compute, network, storage, and backup
       href: /azure/azure-vmware/faq#compute,-network,-storage,-and-backup
     - name: Hosts, clusters, and private clouds
       href: /azure/azure-vmware/faq#hosts,-clusters,-and-private-clouds
-    - name: Azure VMware Solution and VMware software
-      href: /azure/azure-vmware/faq#azure-vmware-solution-and-vmware-software
     - name: Connectivity
       href: /azure/azure-vmware/faq#connectivity
     - name: Accounts and privileges
       href: /azure/azure-vmware/faq#accounts-and-privileges
     - name: Billing and support
       href: /azure/azure-vmware/faq#billing-and-support
-    - name: Customer communication
-      href: /azure/azure-vmware/faq#customer-communication
   - name: Videos 
     items:
     - name: Playlist
