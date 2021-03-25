@@ -15,11 +15,11 @@ ms.author: garye
 
 # Quickstart: Read data from ADLS Gen2 to Pandas dataframe in Azure Synapse Analytics
 
-In this quickstart, you'll learn how to easily use Python to read data from an Azure Data Lake Storage (ADLS) Gen2 into a Pandas dataframe in Azure Synapse.
+In this quickstart, you'll learn how to easily use Python to read data from an Azure Data Lake Storage (ADLS) Gen2 into a Pandas dataframe in Azure Synapse Analytics.
 
 From a Synapse Studio notebook, you'll:
 
-- connect to a container in Data Lake Storage Gen2 that is linked to your Azure Synapse workspace
+- connect to a container in Data Lake Storage Gen2 that is linked to your Azure Synapse Analytics workspace
 - read the data from a PySpark Notebook using `spark.read.load`
 - convert the data to a Pandas dataframe using `.toPandas()`
 
@@ -33,39 +33,25 @@ From a Synapse Studio notebook, you'll:
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 
-## Upload sample data to blob storage
+## Upload sample data to ADLS Gen2
 
-1. In the Azure portal, create a container in the same Data Lake Storage Gen2 used by Synapse Studio. You can skip this step if you want to use the default linked storage account in your Azure Synapse workspace.
+1. In the Azure portal, create a container in the same Data Lake Storage Gen2 used by Synapse Studio. You can skip this step if you want to use the default linked storage account in your Azure Synapse Analytics workspace.
 
-1. Download the sample file [RetailSales.csv](https://github.com/Azure-Samples/Synapse/blob/main/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData/RetailSales.csv) and upload it to blob storage in the container. For more details on working with blob storage, see [Quickstart - Create a blob with the Azure portal](/azure/storage/blobs/storage-quickstart-blobs-portal).
+1. In Synapse Studio, click **Data**, select the **Linked** tab, and select the container under **Azure Data Lake Storage Gen2**.
 
-## Connect to storage in Synapse Studio
+1. Download the sample file [RetailSales.csv](https://github.com/Azure-Samples/Synapse/blob/main/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData/RetailSales.csv) and upload it to the container.
 
-1. Open [Synapse Studio](https://ms.web.azuresynapse.net/) and open your workspace.
+1. Select the uploaded file, click **Properties**, and copy the **ABFSS Path** value.
 
-1. In the left pane, click **Data** and select the **Linked** tab.
+## Read data from ADLS Gen2 into a Pandas dataframe
 
-1. If you want to attach a new storage account, click **+** and select "Connect to external data". You don't need to perform this step if you just want to use the default data lake storage account in your workspace.
+1. In the left pane, click **Develop**.
 
-1. In the **Connect to external data** pane, select "Azure Data Lake Storage Gen2" and click **Continue**.
+1. Click **+** and select "Notebook" to create a new notebook.
 
-1. Specify a name, select your Azure subscription and storage account name, and click **Create**.
+1. In **Attach to**, select your Apache Spark Pool. If you don't have one, click **Create Apache Spark pool**.
 
-1. In the **Data** pane, click the elipsis (...) next to **Azure Data Lake Storage Gen2** and select "Refresh" to display the storage account you just created.
-
-1. Expand **Azure Data Lake Storage Gen2**, expand the storage account you created, select your container, select "RetailSales.csv", and click **Properties**.
-
-1. In the **Properties** pane, copy the **ABFSS Path** value.
-
-## Use Python to read into a dataframe
-
-1. In the left pane, select **Develop**.
-
-1. Click **+** and select "Notebook".
-
-1. In **Attach to**, select your Apache Spark Pool.
-
-1. In the code cell, paste the following Python code, inserting the ABFSS path you copied earlier:
+1. In the notebook code cell, paste the following Python code, inserting the ABFSS path you copied earlier:
 
    ```python
    %%pyspark
@@ -80,10 +66,10 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Run the cell.
 
-After a few minutes the data displayed should look similar to the following.
+After a few minutes the text displayed should look similar to the following.
 
 ```text
-Command executed in 25s 324ms by garye on 03-23-2021 17:40:23.481 -07:00
+Command executed in 25s 324ms by gary on 03-23-2021 17:40:23.481 -07:00
 
 Job execution Succeeded Spark 2 executors 8 cores
 
