@@ -4,6 +4,8 @@
   items:
   - name: About Azure Video Analyzer
     href: overview.md
+  - name: Terminology
+    href: terminology.md
 - name: Resources
   items:
   - name: Azure roadmap
