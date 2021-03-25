@@ -23,7 +23,6 @@ Frontline worker management empowers the frontline workforce by making the follo
 - Streamlining common IT tasks with My Staff
 - Easy onboarding of frontline workers through simplified authentication
 - Seamless provisioning of shared devices and offboarding of frontline workers
-- Easy setup of Managed Home Screen on dedicated devices in multi-app kiosk mode
 
 ## Delegated user management through My Staff
 
@@ -37,22 +36,13 @@ My Staff also enables frontline managers to register their team members' phone n
 
 ![SMS sign-in](media/concept-fundamentals-flw/sms-signin.png)
 
+Frontline managers can also use Managed Home Screen (MHS) application to allow workers to have access to a specific set of applications on their Intune-enrolled Android dedicated devices. The dedicated devices are enrolled with [Azure AD shared device mode](../develop/msal-shared-devices.md). When configured in multi-app kiosk mode in the Microsoft Endpoint Manager (MEM) console, MHS is automatically launched as the default home screen on the device and appears to the end user as the *only* home screen. For detailed information, see [How to setup Microsoft Managed Home Screen on Dedicated devices in multi-app kiosk mode](https://techcommunity.microsoft.com/t5/intune-customer-success/how-to-setup-microsoft-managed-home-screen-on-dedicated-devices/ba-p/1388060).
+
 ## Secure offboarding of frontline workers from shared devices
 
-Many companies use shared devices so frontline workers can do inventory management and point-of-sale transactions, without the IT burden of provisioning and tracking individual devices. With shared device sign-out, it's easy for a frontline worker to securely sign out of all apps on any shared device before handing it back to a hub or passing it off to a teammate on the next shift. Microsoft Teams, that is currently supported on shared devices, allows workers to view tasks that are assigned to them, and even have secure voice communication through the walkie-talkie capability in Teams. Once a worker signs out of a shared device, Intune and Azure AD clear all of the company data so the device can safely be handed off to the next associate. You can choose to integrate this capability into all your line-of-business [iOS](../develop/msal-ios-shared-devices.md) and [Android](../develop/msal-android-shared-devices.md) apps using the [Microsoft Authentication Library](../develop/msal-overview.md).
+Many companies use shared devices so frontline workers can do inventory management and point-of-sale transactions, without the IT burden of provisioning and tracking individual devices. With shared device sign-out, it's easy for a frontline worker to securely sign out of all apps on any shared device before handing it back to a hub or passing it off to a teammate on the next shift. Microsoft Teams is one of the apps that is currently supported on shared devices and it allows frontline workers to view tasks that are assigned to them. Once a worker signs out of a shared device, Intune and Azure AD clear all of the company data so the device can safely be handed off to the next associate. You can choose to integrate this capability into all your line-of-business [iOS](../develop/msal-ios-shared-devices.md) and [Android](../develop/msal-android-shared-devices.md) apps using the [Microsoft Authentication Library](../develop/msal-overview.md).
 
 ![Shared device sign-out](media/concept-fundamentals-flw/shared-device-signout.png)
-
-## Easy setup of Managed Home Screen on dedicated devices
-
-Microsoft Endpoint Manager (MEM) customers using [Microsoft Intune](https://play.google.com/store/apps/details?id=com.microsoft.intune) can enroll their Android devices as Android Enterprise (AE) dedicated devices. These are corporate-owned devices that aren't associated with any particular user and are often used to complete specific tasks. The dedicated devices are enrolled with [Azure AD shared device mode](../develop/msal-shared-devices.md).
-
-Managed Home Screen (MHS) is an Android application available for use through [Managed Google Play](/mem/intune/enrollment/connect-intune-android-enterprise). Companies use MHS when they want their end users to have access to a specific set of applications on their Intune-enrolled dedicated devices. When configured in multi-app kiosk mode in the MEM console, MHS is automatically launched as the default home screen on the device and appears to the end user as the only home screen. This configuration prevents devices from being misused and allows you to completely customize the home screen experience. Regardless of what is already installed on the device, you can pick which apps and system settings you want your users to access from MHS to ensure the content they access is relevant to their tasks. 
-
-![Managed Home Screen](media/concept-fundamentals-flw/managed-home-screen.png)
-
-Learn more on how to [configure the Microsoft Managed Home Screen app for Android Enterprise](/mem/intune/apps/app-configuration-managed-home-screen-app).
-For detailed information, see [How to setup Microsoft Managed Home Screen on Dedicated devices in multi-app kiosk mode](https://techcommunity.microsoft.com/t5/intune-customer-success/how-to-setup-microsoft-managed-home-screen-on-dedicated-devices/ba-p/1388060).
 
 ## Next steps
 
