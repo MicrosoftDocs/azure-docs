@@ -29,7 +29,7 @@ This article describes how the [Azure Backup service](./backup-overview.md) rest
   - [Geo-redundant storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage) is the default and recommended replication option. GRS replicates your data to a secondary region (hundreds of miles away from the primary location of the source data). GRS costs more than LRS, but GRS provides a higher level of durability for your data, even if there's a regional outage.
   - [Zone-redundant storage (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replicates your data in [availability zones](../availability-zones/az-overview.md#availability-zones), guaranteeing data residency and resiliency in the same region. ZRS has no downtime. So your critical workloads that require [data residency](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/), and must have no downtime, can be backed up in ZRS.
 
-- **Cross-Region Restore (CRR)**: As one of the [restore options](./backup-azure-arm-restore-vms.md#restore-options), Cross Region Restore (CRR) allows you to restore Azure VMs in a secondary region, which is an [Azure paired region](../best-practices-availability-paired-regions.md#what-are-paired-regions).
+- **Cross-Region Restore (CRR)**: As one of the [restore options](./backup-azure-arm-restore-vms.md#restore-options), Cross Region Restore (CRR) allows you to restore Azure VMs in a secondary region, which is an [Azure paired region](../best-practices-availability-paired-regions.md#what-are-paired-regions) You can restore your data in the secondary region at anytime,  during partial or full outages, or any other time you choose. 
 
 ## Restore scenarios
 
@@ -45,6 +45,6 @@ This article describes how the [Azure Backup service](./backup-overview.md) rest
 
 ## Next steps
 
-- [Frequently asked questions about VM restore](./backup-azure-vm-backup-faq.md#restore)
+- [Frequently asked questions about VM restore](/azure/backup/backup-azure-vm-backup-faq#restore)
 - [Supported restore methods](./backup-support-matrix-iaas.md#supported-restore-methods)
 - [Troubleshoot restore issues](./backup-azure-vms-troubleshoot.md#restore)

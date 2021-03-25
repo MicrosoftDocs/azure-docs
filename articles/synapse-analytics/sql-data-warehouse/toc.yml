@@ -1,6 +1,6 @@
 - name: Dedicated SQL pool (formerly SQL DW)
   href: sql-data-warehouse-overview-what-is.md
-- name: Switch to Azure Synapse 
+- name: Switch to Azure Synapse > 
   href: ../overview-what-is.md
 - name: Overview
   items:
@@ -13,7 +13,7 @@
   - name: Cheat sheet
     href: cheat-sheet.md
   - name: Best practices
-    href: sql-data-warehouse-best-practices.md
+    href: ../sql/best-practices-dedicated-sql-pool.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
   - name: Capacity limits
     href: sql-data-warehouse-service-capacity-limits.md
   - name: FAQ
@@ -366,6 +366,8 @@
       href: sql-data-warehouse-restore-deleted-dw.md
     - name: Restore from a geo-backup 
       href: sql-data-warehouse-restore-from-geo-backup.md 
+    - name: Disable geo-backups
+      href: disable-geo-backup.md
   - name: Integrate
     items:
     - name: Use machine learning

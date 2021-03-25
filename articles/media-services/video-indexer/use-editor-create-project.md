@@ -15,7 +15,7 @@ ms.author: juliako
 
 # Add video clips to your projects
 
-Video Indexer website, enables you to use your videos' deep insights to: find the right media content, locate the parts that you’re interested in, and use the results to create an entirely new project. 
+The [Video Indexer](https://www.videoindexer.ai/) website enables you to use your video's deep insights to: find the right media content, locate the parts that you’re interested in, and use the results to create an entirely new project. 
 
 Once created, the project can be rendered and downloaded from Video Indexer and be used in your own editing applications or downstream workflows.
 

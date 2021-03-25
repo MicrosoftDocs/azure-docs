@@ -1,5 +1,6 @@
 ---
-title: Configure desktop apps that call web APIs - Microsoft identity platform | Azure
+title: Configure desktop apps that call web APIs | Azure
+titleSuffix: Microsoft identity platform 
 description: Learn how to configure the code of a desktop app that calls web APIs
 services: active-directory
 author: jmprieur
@@ -12,23 +13,18 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-#Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform.
 ---
 
 # Desktop app that calls web APIs: Code configuration
 
 Now that you've created your application, you'll learn how to configure the code with the application's coordinates.
 
-## Microsoft Authentication Libraries
+## Microsoft libraries supporting desktop apps
 
-The following Microsoft Authentication Libraries (MSALs) support desktop applications.
+The following Microsoft libraries support desktop apps:
 
-  Microsoft Authentication Library | Description
-  ------------ | ----------
-  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Supports building a desktop application in multiple platforms, such as Linux, Windows, and macOS.
-  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Supports building a desktop application in multiple platforms.
-  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Supports building a desktop application in multiple platforms.
-  ![MSAL iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL iOS | Supports desktop applications that run on macOS only.
+[!INCLUDE [active-directory-develop-libraries-desktop](../../../includes/active-directory-develop-libraries-desktop.md)]
 
 ## Public client application
 
@@ -189,19 +185,6 @@ PublicClientApplication pca = PublicClientApplication.builder(CLIENT_ID)
         .build();
 ```
 
-# [Python](#tab/python)
-
-```Python
-config = json.load(open(sys.argv[1]))
-
-app = msal.PublicClientApplication(
-    config["client_id"], authority=config["authority"],
-    # token_cache=...  # Default cache is in memory only.
-                       # You can learn how to use SerializableTokenCache from
-                       # https://msal-python.rtfd.io/en/latest/#msal.SerializableTokenCache
-    )
-```
-
 # [MacOS](#tab/macOS)
 
 The following code instantiates a public client application and signs in users in the Microsoft Azure public cloud with a work or school account or a personal Microsoft account.
@@ -254,6 +237,69 @@ let authority = try? MSALAADAuthority(cloudInstance: .usGovernmentCloudInstance,
 let config = MSALPublicClientApplicationConfig(clientId: "<your-client-id-here>", redirectUri: "<your-redirect-uri-here>", authority: authority)
 if let application = try? MSALPublicClientApplication(configuration: config) { /* Use application */}
 ```
+
+# [Node.js](#tab/nodejs)
+
+Configuration parameters can be loaded from many sources, like a JSON file or from environment variables. Below, an *.env* file is used. 
+
+```Text
+# Credentials
+CLIENT_ID=Enter_the_Application_Id_Here
+TENANT_ID=Enter_the_Tenant_Info_Here
+
+# Configuration
+REDIRECT_URI=msal://redirect
+
+# Endpoints
+AAD_ENDPOINT_HOST=Enter_the_Cloud_Instance_Id_Here
+GRAPH_ENDPOINT_HOST=Enter_the_Graph_Endpoint_Here
+
+# RESOURCES
+GRAPH_ME_ENDPOINT=v1.0/me
+GRAPH_MAIL_ENDPOINT=v1.0/me/messages
+
+# SCOPES
+GRAPH_SCOPES=User.Read Mail.Read
+```
+
+Load the *.env* file to environment variables. MSAL Node can be initialized minimally as below. See the available [configuration options](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/configuration.md).  
+
+```JavaScript
+const { PublicClientApplication } = require('@azure/msal-node');
+
+const MSAL_CONFIG = {
+    auth: {
+        clientId: process.env.CLIENT_ID,
+        authority: `${process.env.AAD_ENDPOINT_HOST}${process.env.TENANT_ID}`,
+        redirectUri: process.env.REDIRECT_URI,
+    },
+    system: {
+        loggerOptions: {
+            loggerCallback(loglevel, message, containsPii) {
+                console.log(message);
+            },
+            piiLoggingEnabled: false,
+            logLevel: LogLevel.Verbose,
+        }
+    }
+};
+
+clientApplication = new PublicClientApplication(MSAL_CONFIG);
+```
+
+# [Python](#tab/python)
+
+```Python
+config = json.load(open(sys.argv[1]))
+
+app = msal.PublicClientApplication(
+    config["client_id"], authority=config["authority"],
+    # token_cache=...  # Default cache is in memory only.
+                       # You can learn how to use SerializableTokenCache from
+                       # https://msal-python.rtfd.io/en/latest/#msal.SerializableTokenCache
+    )
+```
+
 ---
 
 ## Next steps

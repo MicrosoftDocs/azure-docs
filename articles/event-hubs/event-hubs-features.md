@@ -2,7 +2,7 @@
 title: Overview of features - Azure Event Hubs | Microsoft Docs
 description: This article provides details about features and terminology of Azure Event Hubs. 
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 03/15/2021
 ---
 
 # Features and terminology in Azure Event Hubs
@@ -42,7 +42,35 @@ Event Hubs ensures that all events sharing a partition key value are stored toge
 
 ### Event Retention
 
-Published events are removed from an Event Hub based on a configurable, timed-based retention policy. The default value and shortest possible retention period is 1 day (24 hours). For Event Hubs Standard, the maximum retention period is 7 days. For Event Hubs Dedicated, the maximum retention period is 90 days.
+Published events are removed from an Event Hub based on a configurable, timed-based retention policy. Here are a few important points:
+
+- The **default** value and **shortest** possible retention period is **1 day (24 hours)**.
+- For Event Hubs **Standard**, the maximum retention period is **7 days**. 
+- For Event Hubs **Dedicated**, the maximum retention period is **90 days**.
+- If you change the retention period, it applies to all messages including messages that are already in the event hub. 
+
+Event Hubs retains events for a configured retention time that applies across
+all partitions. Events are automatically removed when the retention period has
+been reached. If you specify a retention period of one day, the event will
+become unavailable exactly 24 hours after it has been accepted. You cannot
+explicitly delete events. 
+
+If you need to archive events beyond the allowed
+retention period, you can have them [automatically stored in Azure Storage or
+Azure Data Lake by turning on the Event Hubs Capture
+feature](event-hubs-capture-overview.md), and if you need
+to search or analyze such deep archives, you can [easily import them into Azure
+Synapse](store-captured-data-data-warehouse.md) or other
+similar stores and analytics platforms. 
+
+The reason for Event Hubs' limit on data retention based on time is to prevent
+large volumes of historic customer data getting trapped in a deep store that is
+only indexed by a timestamp and only allows for sequential access. The
+architectural philosophy here is that historic data needs richer indexing and
+more direct access than the real-time eventing interface that Event Hubs or
+Kafka provide. Event stream engines are not well suited to play the role of data
+lakes or long-term archives for event sourcing. 
+ 
 
 > [!NOTE]
 > Event Hubs is a real-time event stream engine and is not designed to be used instead of a database and/or as a 
@@ -52,7 +80,7 @@ Published events are removed from an Event Hub based on a configurable, timed-ba
 >
 > [Event Hubs Capture](event-hubs-capture-overview.md) integrates directly with Azure Blob Storage and Azure Data Lake Storage and, through that integration, also enables [flowing events directly into Azure Synapse](store-captured-data-data-warehouse.md).
 >
-> If you want to use the [Event Sourcing](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) pattern for your application, you should align your snapshot strategy with the retention limits of Event Hubs. Do not aim to rebuild materialized views from raw events starting at the beginning of time. You would surely come to regret such a strategy once your application is in production for a while and is well used, and your projection builder has to churn through years of change events while trying to catch up to the latest and ongoing changes. 
+> If you want to use the [Event Sourcing](/azure/architecture/patterns/event-sourcing) pattern for your application, you should align your snapshot strategy with the retention limits of Event Hubs. Do not aim to rebuild materialized views from raw events starting at the beginning of time. You would surely come to regret such a strategy once your application is in production for a while and is well used, and your projection builder has to churn through years of change events while trying to catch up to the latest and ongoing changes. 
 
 
 ### Publisher policy
@@ -114,6 +142,9 @@ An *offset* is the position of an event within a partition. You can think of an 
 
 If a reader disconnects from a partition, when it reconnects it begins reading at the checkpoint that was previously submitted by the last reader of that partition in that consumer group. When the reader connects, it passes the offset to the event hub to specify the location at which to start reading. In this way, you can use checkpointing to both mark events as "complete" by downstream applications, and to provide resiliency if a failover between readers running on different machines occurs. It is possible to return to older data by specifying a lower offset from this checkpointing process. Through this mechanism, checkpointing enables both failover resiliency and event stream replay.
 
+> [!IMPORTANT]
+> Offsets are provided by the Event Hubs service. It is the responsibility of the consumer to checkpoint as events are processed.
+
 > [!NOTE]
 > If you are using Azure Blob Storage as the checkpoint store in an environment that supports a different version of Storage Blob SDK than those typically available on Azure, you'll need to use code to change the Storage service API version to the specific version supported by that environment. For example, if you are running [Event Hubs on an Azure Stack Hub version 2002](/azure-stack/user/event-hubs-overview), the highest available version for the Storage service is version 2017-11-09. In this case, you need to use code to target the Storage service API version to 2017-11-09. For an example on how to target a specific Storage API version, see these samples on GitHub: 
 > - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/). 
@@ -155,7 +186,7 @@ For more information about Event Hubs, visit the following links:
     - [.NET](event-hubs-dotnet-standard-getstarted-send.md)
     - [Java](event-hubs-java-get-started-send.md)
     - [Python](event-hubs-python-get-started-send.md)
-    - [JavaScript](event-hubs-java-get-started-send.md)
+    - [JavaScript](event-hubs-node-get-started-send.md)
 * [Event Hubs programming guide](event-hubs-programming-guide.md)
 * [Availability and consistency in Event Hubs](event-hubs-availability-and-consistency.md)
 * [Event Hubs FAQ](event-hubs-faq.md)

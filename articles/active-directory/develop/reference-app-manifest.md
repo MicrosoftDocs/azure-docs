@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/15/2020
+ms.date: 02/02/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
@@ -22,13 +22,13 @@ The application manifest contains a definition of all the attributes of an appli
 You can configure an app's attributes through the Azure portal or programmatically using [REST API](/graph/api/resources/application) or [PowerShell](/powershell/module/azuread#applications). However, there are some scenarios where you'll need to edit the app manifest to configure an app's attribute. These scenarios include:
 
 * If you registered the app as Azure AD multi-tenant and personal Microsoft accounts, you can't change the supported Microsoft accounts in the UI. Instead, you must use the application manifest editor to change the supported account type.
-* If you need to define permissions and roles that your app supports, you must modify the application manifest.
+* To define permissions and roles that your app supports, you must modify the application manifest.
 
 ## Configure the app manifest
 
 To configure the application manifest:
 
-1. Go to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>. Search for and select the **Azure Active Directory** service.
+1. Go to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>. Search for and select the **Azure Active Directory** service.
 1. Select **App registrations**.
 1. Select the app you want to configure.
 1. From the app's **Overview** page, select the **Manifest** section. A web-based manifest editor opens, allowing you to edit the manifest within the portal. Optionally, you can select **Download** to edit the manifest locally, and then use **Upload** to reapply it to your application.
@@ -168,7 +168,8 @@ Configures the `groups` claim issued in a user or OAuth 2.0 access token that th
 - `"None"`
 - `"SecurityGroup"` (for security groups and Azure AD roles)
 - `"ApplicationGroup"` (this option includes only groups that are assigned to the application)
-- `"All"` (this will get all of the security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of.
+- `"DirectoryRole"` (gets the Azure AD directory roles the user is a member of)
+- `"All"` (this will get all of the security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of).
 
 Example:
 
@@ -445,7 +446,7 @@ The verified publisher domain for the application. Read-only.
 Example:
 
 ```json
-    "publisherDomain": "https://www.contoso.com",
+    "publisherDomain": "{tenant}.onmicrosoft.com",
 ```
 
 ### replyUrlsWithType attribute
@@ -614,7 +615,7 @@ Use the following comments section to provide feedback that helps refine and sha
 [ADD-UPD-RMV-APP]:quickstart-v1-integrate-apps-with-azure-ad.md
 [AZURE-PORTAL]: https://portal.azure.com
 [DEV-GUIDE-TO-AUTH-WITH-ARM]: http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/
-[GRAPH-API]: active-directory-graph-api.md
+[GRAPH-API]: /graph/migrate-azure-ad-graph-planning-checklist
 [IMPLICIT-GRANT]:v1-oauth2-implicit-grant-flow.md
 [INTEGRATING-APPLICATIONS-AAD]: ./quickstart-register-app.md
 [O365-PERM-DETAILS]: /graph/permissions-reference

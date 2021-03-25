@@ -1,12 +1,8 @@
 ---
 title: Key advantages
 description: Learn about basic Defender for IoT concepts.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/13/2020
 ms.topic: article
-ms.service: azure
 ---
 
 # Basic concepts 
@@ -15,9 +11,9 @@ This article describes key advantages of Azure Defender for IoT.
 
 ## Rapid non-invasive deployment and passive monitoring
 
-Defender for IoT sensors connect to a SPAN port or network TAP and immediately begin collecting ICS network traffic via passive (agentless) monitoring. Deep packet inspection (DPI) is used to dissect traffic from both serial and Ethernet control network equipment. Defender for IoT has zero impact on OT networks because it isn't placed in the data path and doesn't actively scan OT devices. 
+Defender for IoT sensors connects to switch SPAN (Mirror) ports, and network TAPs and immediately begin collecting ICS network traffic via passive (agentless) monitoring. Deep packet inspection (DPI) is used to dissect traffic from both serial and Ethernet control network equipment. Defender for IoT has zero impact on OT networks because it isn't placed in the data path and doesn't actively scan OT devices. 
 
-To deliver instant snapshots of detailed asset information, Defender for IoT sensor supplements passive monitoring with an optional active component. This component uses safe, vendor-approved commands to query both Windows and controller devices for asset details, as often or as infrequently as you want.
+To deliver instant snapshots of detailed Windows device information, Defender for IoT sensor can be configured to supplement passive monitoring with an optional active component. This component uses safe, vendor-approved commands to query Windows devices for device details, as often or as infrequently as you want.
 
 ## Embedded knowledge of ICS protocols, devices, and applications
 
@@ -29,7 +25,7 @@ Engines identify security issues via continuous monitoring and five analytics en
 
 - **Protocol violation detection**: Identifies the use of packet structures and field values that violate ICS protocol specifications.
 
-- **Policy violation detection**: Identifies policy violations such as unauthorized use of function codes, access to specific objects, or changes to asset configuration.
+- **Policy violation detection**: Identifies policy violations such as unauthorized use of function codes, access to specific objects, or changes to device configuration.
 
 - **Industrial malware detection**: Identifies behaviors that indicate the presence of known malware such as Conficker, Black Energy, Havex, WannaCry, and NotPetya.
 
@@ -68,7 +64,7 @@ Defender for IoT provides a consolidated view of all your devices. It also provi
 
 Defender for IoT enables the effective management of multiple deployments and a comprehensive unified view of the network. Defender for IoT optimizes alert handling and control of operational network security.
 
-The on-premises management console is a web-based administrative platform that lets you monitor and control the activities of global sensor installations. In addition to managing the data received from deployed sensors, the on-premises management console seamlessly integrates data from a variety of business resources: CMDBs, DNS, firewalls, Web APIs, and more.
+The on-premises management console is a web-based administrative platform that lets you monitor and control the activities of global sensor installations. In addition to managing the data received from deployed sensors, the on-premises management console seamlessly integrates data from various business resources: CMDBs, DNS, firewalls, Web APIs, and more.
 
 :::image type="content" source="media/concept-air-gapped-networks/site-management-alert-screen.png" alt-text="On-premises management console display.":::
 
@@ -92,7 +88,7 @@ Integrations reduce complexity and eliminate IT and OT silos by integrating them
 
 ## Complete protocol support
 
-In addition to embedded protocol support, you can secure IoT and ICS devices running proprietary and custom protocols, or protocols that deviate from any standard. By using the Horizon Open Development Environment (ODE) SDK, developers can create dissector plug-ins that decode network traffic based on defined protocols. Services analyze traffic to provide complete monitoring, alerting, and reporting. Use Horizon to:
+In addition to embedded protocol support, you can secure IoT and ICS devices running proprietary and custom protocols, or protocols that deviate from any standard. By using the Horizon Open Development Environment (ODE) SDK, developers can create dissector plug-ins that decode network traffic based on defined protocols. Services analyzes traffic to provide complete monitoring, alerting, and reporting. Use Horizon to:
 
 - Expand visibility and control without the need to upgrade to new versions.
 

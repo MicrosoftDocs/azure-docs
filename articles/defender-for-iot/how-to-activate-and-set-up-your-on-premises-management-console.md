@@ -1,12 +1,8 @@
 ---
 title: Activate and set up your on-premises management console 
-description: Management console activation and setup ensures that sensors are registered with Azure and send information to the on-premises management console, and that the on-premises management console carries out management tasks on connected sensors.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
-ms.date: 1/12/2021
+description: Activating the management console ensures that sensors are registered with Azure and send information to the on-premises management console, and that the on-premises management console carries out management tasks on connected sensors.
+ms.date: 3/18/2021
 ms.topic: how-to
-ms.service: azure
 ---
 
 # Activate and set up your on-premises management console 
@@ -25,24 +21,32 @@ Activation and setup of the on-premises management console ensures that:
 
 To sign in to the management console:
 
-- Open a web browser and enter the IP address and password that you received for the on-premises management console during the system installation. If you forgot your password, select **Recover Password** and see [Password recovery](how-to-manage-the-on-premises-management-console.md#password-recovery).
+1. Navigate to the IP address you received for the on-premises management console during the system installation.
+ 
+1. Enter the username and password you received for the on-premises management console during the system installation. 
 
-## Upload an activation file
 
-After first-time sign-in, activate the on-premises management console by downloading an activation file from the **Pricing** page of the Azure Defender for IoT portal. This file contains the aggregate committed devices defined during the onboarding process. **Committed devices** indicates the number of devices that Defender for IoT will monitor per subscription.
+If you forgot your password, select the **Recover Password**  option, and see [Password recovery](how-to-manage-the-on-premises-management-console.md#password-recovery) for instructions on how to recover your password.
 
-To upload an activation file:
+## Get and upload an activation file
 
-1. Go to the Defender for IoT **Pricing** page.
+After you sign in for the first time, you will need to activate the on-premises management console by getting, and uploading an activation file. 
+
+To get an activation file:
+
+1. Navigate to the **Pricing** page of the Azure Defender for IoT portal. 
+1. Select the subscription to associate the on-premises management console to.
 1. Select the **Download the activation file for the management console** tab. The activation file is downloaded.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/cloud_download_opm_activation_file.png" alt-text="Download the activation file.":::
 
-1. Select **System Settings** from the management console.
-1. Select **Activation**.
-1. Select **Choose a File** and select the file that you saved.
+To upload an activation file:
 
-After initial activation, the number of monitored devices might exceed the number of committed devices defined during onboarding. This might happen, for example, if you connect more sensors to the management console. If there's a discrepancy between the number of monitored devices and the number of committed devices, a warning appears in the management console. If this happens, you should upload a new activation file.
+1. Navigate to the **System Settings** page on the on-premises management console.
+1. Select the **Activation** icon :::image type="icon" source="media/how-to-manage-sensors-from-the-on-premises-management-console/activation-icon.png" border="false":::.
+1. Select **Choose a File**, and select the file that downloaded.
+
+After initial activation, the number of monitored devices can exceed the number of committed devices defined during onboarding. This occurs if you connect more sensors to the management console. If there's a discrepancy between the number of monitored devices, and the number of committed devices, a warning will appear on the management console. If this happens, upload a new activation file.
 
 ## Set up a certificate
 
@@ -68,7 +72,7 @@ To upload a certificate:
 
 1. When you're prompted after sign-in, define a certificate name.
 1. Upload the CRT and key files.
-1. Enter a passphrase and upload a PEM file if required.
+1. Enter a passphrase and upload a PEM file if necessary.
 
 You might need to refresh your screen after you upload the CA-signed certificate.
 
@@ -142,13 +146,13 @@ To set up tunneling on the sensor:
 
 ## Set up a site
 
-The default enterprise map provides an overall view of your assets according to several levels of geographical locations.
+The default enterprise map provides an overall view of your devices according to several levels of geographical locations.
 
-The view of your assets might be required where the organizational structure and user permissions are complex. In these cases, site setup might be determined by a global organizational structure, in addition to the standard site or zone structure.
+The view of your devices might be required where the organizational structure and user permissions are complex. In these cases, site setup might be determined by a global organizational structure, in addition to the standard site or zone structure.
 
 To support this environment, you need to create a global business topology that's based on your organization's business units, regions, sites, and zones. You also need to define user access permissions around these entities by using access groups.
 
-Access groups enable better control over where users manage and analyze assets in the Defender for IoT platform.
+Access groups enable better control over where users manage and analyze devices in the Defender for IoT platform.
 
 ### How it works
 
@@ -210,7 +214,7 @@ To delete a site:
 
 ## Create enterprise zones
 
-Zones are logical entities that enable you to divide assets within a site into groups according to various characteristics. For example, you can create groups for production lines, substations, site areas, or types of assets. You can define zones based on any characteristic that's suitable for your organization.
+Zones are logical entities that enable you to divide devices within a site into groups according to various characteristics. For example, you can create groups for production lines, substations, site areas, or types of devices. You can define zones based on any characteristic that's suitable for your organization.
 
 You configure zones as a part of the site configuration process.
 
@@ -226,7 +230,7 @@ The following table describes the parameters in the **Site Management** window.
 | Connectivity | The sensor connectivity status. The status can be **Connected** or **Disconnected**. |
 | Last Upgrade | The date of the last upgrade. |
 | Upgrade Progress | The progress bar shows the status of the upgrade process, as follows:<br />- Uploading package<br />- Preparing to install<br />- Stopping processes<br />- Backing up data<br />- Taking snapshot<br />- Updating configuration<br />- Updating dependencies<br />- Updating libraries<br />- Patching databases<br />- Starting processes<br />- Validating system sanity<br />- Validation succeeded<br />- Success<br />- Failure<br />- Upgrade started<br />- Starting installation<br /></br >For details about upgrading, refer to [Microsoft Support](https://support.microsoft.com/) for help. |
-| Assets | The number of OT assets that the sensor monitors. |
+| Devices | The number of OT devices that the sensor monitors. |
 | Alerts | The number of alerts on the sensor. |
 | :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/assign-icon.png" border="false"::: | Enables assigning a sensor to zones. |
 | :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/delete-icon.png" border="false":::| Enables deleting a disconnected sensor from the site. |

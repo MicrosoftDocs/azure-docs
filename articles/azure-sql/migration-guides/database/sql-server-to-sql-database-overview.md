@@ -1,5 +1,5 @@
 ---
-title: "SQL Server to SQL Database: Migration overview"
+title: "SQL Server to Azure SQL Database: Migration overview"
 description: Learn about the different tools and options available to migrate your SQL Server databases to Azure SQL Database.
 ms.service: sql-database
 ms.subservice: migration-guide
@@ -11,7 +11,7 @@ ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
 ---
-# Migration overview: SQL Server to SQL Database
+# Migration overview: SQL Server to Azure SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
 
 Learn about different migration options and considerations to migrate your SQL Server to Azure SQL Database. 
@@ -24,7 +24,7 @@ You can migrate SQL Server running on-premises or on:
 - Compute Engine (Google Cloud Platform - GCP)  
 - Cloud SQL for SQL Server (Google Cloud Platform – GCP) 
 
-For other scenarios, see the [Database Migration Guide](https://datamigration.microsoft.com/). 
+For other migration guides, see [Database Migration](https://docs.microsoft.com/data-migration). 
 
 ## Overview
 
@@ -52,7 +52,7 @@ Different tools are available for different workloads and user preferences. Some
 
 ## Choose appropriate target
 
-Consider general guidelines to help you choose the right deployment model and service tier of Azure SQL Database. You can choose compute and storage resources during deployment and then change them afterwards using the  [Azure portal](../../database/scale-resources.md)  without incurring downtime for your application.
+Consider general guidelines to help you choose the right deployment model and service tier of Azure SQL Database. You can choose compute and storage resources during deployment and then [change them afterwards using the Azure portal](../../database/scale-resources.md) without incurring downtime for your application.
 
 
 **Deployment models**: Understand your application workload and the usage pattern to decide between a single database or elastic pool. 
@@ -98,6 +98,7 @@ The following table lists the recommended migration tools:
 
 |Technology | Description|
 |---------|---------|
+| [Azure Migrate](/azure/migrate/how-to-create-azure-sql-assessment) | Azure Migrate for Azure SQL allows you to discover and assess your SQL data estate at scale when on VMware,  providing Azure SQL deployment recommendations, target sizing, and monthly estimates. | 
 |[Data Migration Assistant (DMA)](/sql/dma/dma-migrateonpremsqltosqldb)|The Data Migration Assistant is a desktop tool that provides seamless assessments of SQL Server and migrations to Azure SQL Database (both schema and data). The tool can be installed on a server on-premises or on your local machine that has connectivity to your source databases. The migration process is a logical data movement between objects in the source and target database. </br> - Migrate single databases (both schema and data)|
 |[Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-azure-sql.md)|A first party Azure service that can migrate your SQL Server databases to Azure SQL Database using the Azure portal or automated with PowerShell. Azure DMS requires you to select a preferred Azure Virtual Network (VNet) during provisioning to ensure there is connectivity to your source SQL Server databases. </br> - Migrate single databases or at scale. |
 | | |
@@ -160,7 +161,7 @@ Manual setup of SQL Server high availability features like Always On failover cl
 Beyond the high availability architecture that is included in SQL Database, there is also the [auto-failover groups](../../database/auto-failover-group-overview.md) feature that allows you to manage the replication and failover of databases in a managed instance to another region. 
 
 #### SQL Agent jobs
-SQL Agent jobs are not directly supported in Azure SQL Database and will need to be deployed to [Elastic Database Jobs (Preview)](../../database/job-automation-overview.md#elastic-database-jobs-preview).
+SQL Agent jobs are not directly supported in Azure SQL Database and will need to be deployed to [Elastic Database Jobs (Preview)](../../database/job-automation-overview.md).
 
 #### Logins and groups
 Move SQL logins from the source SQL Server to Azure SQL Database using Database Migration Service (DMS) in offline mode.  Use the **Selected logins** blade in the **Migration Wizard** to migrate logins to your target SQL Database. 
@@ -205,7 +206,7 @@ These resources were developed as part of the Data SQL Ninja Program, which is s
 
 ## Next steps
 
-To start migrating your SQL Server to Azure SQL Database, see the [SQL Server to SQL Database migration guide](sql-server-to-sql-database-guide.md).
+To start migrating your SQL Server to SQL Database, see the [SQL Server to Azure SQL Database migration guide](sql-server-to-sql-database-guide.md).
 
 - For a matrix of the Microsoft and third-party services and tools that are available to assist you with various database and data migration scenarios as well as specialty tasks, see [Service and tools for data migration](../../../dms/dms-tools-matrix.md).
 

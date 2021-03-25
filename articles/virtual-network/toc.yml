@@ -25,10 +25,12 @@
     href: tutorial-restrict-network-access-to-resources.md
   - name: Connect virtual networks
     href: tutorial-connect-virtual-networks-portal.md
-  - name: Create NAT gateway
-    href: quickstart-create-nat-gateway-portal.md
   - name: Create and validate NAT gateway
-    href: tutorial-create-validate-nat-gateway-portal.md
+    href: tutorial-create-nat-gateway-portal.md
+  - name: Integrate NAT gateway public load balancer
+    href: tutorial-nat-gateway-load-balancer-public-portal.md
+  - name: Integrate NAT gateway internal load balancer
+    href: tutorial-nat-gateway-load-balancer-internal-portal.md
 - name: Samples
   items:
   - name: Azure CLI
@@ -98,7 +100,9 @@
     - name: Public IPv6 address prefix
       href: ipv6-public-ip-address-prefix.md
     - name: Routing preference
-      href: routing-preference-overview.md 
+      href: routing-preference-overview.md
+    - name: Routing preference Unmetered
+      href: routing-preference-unmetered.md   
     - name: Public IP security baseline
       href: public-ip-security-baseline.md
   - name: Security
@@ -274,6 +278,10 @@
             href: configure-routing-preference-virtual-machine-powershell.md
           - name: Azure CLI
             href: configure-routing-preference-virtual-machine-cli.md
+        - name: Configure mixed Routing Preference for a VM
+          href: routing-preference-mixed-network-adapter-portal.md
+        - name: Configure Routing Preference for an AKS cluster
+          href: routing-preference-azure-kubernetes-service-cli.md
 
   - name: Security
     items:
@@ -382,31 +390,37 @@
       href: virtual-machine-network-throughput.md
   - name: Move across regions
     items:
-    - name: Network security groups - Portal
-      href: move-across-regions-nsg-portal.md
-    - name: Network security groups - PowerShell
-      href: move-across-regions-nsg-powershell.md
-    - name: Virtual networks - Portal
-      href: move-across-regions-vnet-portal.md
-    - name: Virtual networks - PowerShell
-      href: move-across-regions-vnet-powershell.md
-    - name: Public IPs - Portal
-      href: move-across-regions-publicip-portal.md
-    - name: Public IPs - PowerShell
-      href: move-across-regions-publicip-powershell.md
+    - name: Network security groups (NSG)
+      href: ../resource-mover/tutorial-move-region-virtual-machines.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+    - name: Virtual networks
+      href: ../resource-mover/tutorial-move-region-virtual-machines.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+    - name: Network interfaces (NICs)
+      href: ../resource-mover/tutorial-move-region-virtual-machines.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+    - name: Public IPs
+      href: ../resource-mover/tutorial-move-region-virtual-machines.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+    - name: Manual move
+      items:
+      - name: Network security groups - Portal
+        href: move-across-regions-nsg-portal.md
+      - name: Network security groups - PowerShell
+        href: move-across-regions-nsg-powershell.md
+      - name: Virtual networks - Portal
+        href: move-across-regions-vnet-portal.md
+      - name: Virtual networks - PowerShell
+        href: move-across-regions-vnet-powershell.md
+      - name: Public IPs - Portal
+        href: move-across-regions-publicip-portal.md
+      - name: Public IPs - PowerShell
+        href: move-across-regions-publicip-powershell.md
   - name: NAT
     items:
-    - name: Create NAT gateway - PowerShell
-      href: quickstart-create-nat-gateway-powershell.md
-    - name: Create NAT gateway - CLI
-      href: quickstart-create-nat-gateway-cli.md
+    - name: Create and validate NAT gateway - PowerShell
+      href: tutorial-create-nat-gateway-powershell.md
+    - name: Create and validate NAT gateway - CLI
+      href: tutorial-create-nat-gateway-cli.md
     - name: Create NAT gateway - ARM template
       displayname: Resource Manager
       href: quickstart-create-nat-gateway-template.md
-    - name: Create and validate NAT gateway - PowerShell
-      href: tutorial-create-validate-nat-gateway-powershell.md
-    - name: Create and validate NAT gateway - CLI
-      href: tutorial-create-validate-nat-gateway-cli.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot virtual network peering issues

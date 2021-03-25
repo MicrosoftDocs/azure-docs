@@ -126,7 +126,7 @@ If the certificate issued is in 'disabled' status in the Azure portal, proceed t
  ![Certificate operation](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
 
 Error message 'Please perform a merge to complete this certificate request.'
-   You would need to merge the CSR signed by the CA to complete this request. Learn more [here](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-signing-request)
+   You would need to merge the CSR signed by the CA to complete this request. Learn more [here](./create-certificate-signing-request.md)
 
 For more information, see the [Certificate operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate) and [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy).
 

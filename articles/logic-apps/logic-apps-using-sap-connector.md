@@ -7,223 +7,239 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 07/21/2020
+ms.date: 03/24/2021
 tags: connectors
 ---
 
 # Connect to SAP systems from Azure Logic Apps
 
-> [!IMPORTANT]
-> The earlier SAP Application Server and SAP Message Server connectors are deprecated on February 29, 2020. 
-> The current SAP connector consolidates these previous SAP connectors so that you don't have to change 
-> the connection type, is fully compatible with previous connectors, provides many additional capabilities, 
-> and continues to use the SAP .Net connector library (SAP NCo).
->
-> For logic apps that use the older connectors, please [migrate to the latest connector](#migrate) 
-> before the deprecation date. Otherwise, these logic apps will experience execution failures and 
-> won't be able to send messages to your SAP system.
-
-This article shows how you can access your on-premises SAP resources from inside a logic app by using the SAP connector. The connector works with SAP's classic releases such as R/3 and ECC systems on-premises. The connector also enables integration with SAP's newer HANA-based SAP systems, such as S/4 HANA, whether they're hosted on-premises or in the cloud. The SAP connector supports message or data integration to and from SAP NetWeaver-based systems through Intermediate Document (IDoc), Business Application Programming Interface (BAPI), or Remote Function Call (RFC).
-
-The SAP connector uses the [SAP .NET Connector (NCo) library](https://support.sap.com/en/product/connectors/msnet.html) and provides these actions:
-
-* **Send message to SAP**: Send IDoc over tRFC, call BAPI functions over RFC, or call RFC/tRFC in SAP systems.
-
-* **When a message is received from SAP**: Receive IDoc over tRFC, call BAPI functions over tRFC, or call RFC/tRFC in SAP systems.
-
-* **Generate schemas**: Generate schemas for the SAP artifacts for IDoc, BAPI, or RFC.
-
-For these operations, the SAP connector supports basic authentication through usernames and passwords. The connector also supports [Secure Network Communications (SNC)](https://help.sap.com/doc/saphelp_nw70/7.0.31/e6/56f466e99a11d1a5b00000e835363f/content.htm?no_cache=true). SNC can be used for SAP NetWeaver single sign-on (SSO) or for additional security capabilities provided by an external security product.
-
-This article shows how to create example logic apps that integrate with SAP while covering the previously described integration scenarios. For logic apps that use the older SAP connectors, this article shows how to migrate your logic apps to the latest SAP connector.
-
-<a name="pre-reqs"></a>
+This article explains how you can access your SAP resources from Logic Apps using the [SAP connector](/connectors/sap/).
 
 ## Prerequisites
 
-To follow along with this article, you need these items:
-
 * An Azure subscription. If you don't have an Azure subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* The logic app from where you want to access your SAP system and a trigger that starts your logic app's workflow. If you're new to logic apps, see [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* A logic app from which you want to access your SAP resources. If you're new to Logic Apps, see the [Logic Apps service overview](../logic-apps/logic-apps-overview.md) and the [quickstart for creating your first logic app in the Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-* Your [SAP application server](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) or [SAP message server](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm).
+    * If you've used a previous version of the SAP connector that has been deprecated, you must [migrate to the current connector](#migrate-to-current-connector) before you can connect to your SAP server.
 
-* Message content that you send to your SAP server, such as a sample IDoc file, must be in XML format and include the namespace for the SAP action you want to use.
+    * If you're running your logic app in multi-tenant Azure, see the [multi-tenant prerequisites](#multi-tenant-azure-prerequisites).
 
-* To use the **When a message is received from SAP** trigger, you also need to perform these setup steps:
-  
-  > [!NOTE]
-  > This trigger uses the same URI location to both renew and unsubscribe from a webhook subscription. The renewal operation uses the HTTP `PATCH` method, while the unsubscribe operation uses the HTTP `DELETE` method. This behavior might make a renewal operation appear as an unsubscribe operation in your trigger's history, but the operation is still a renewal because the trigger uses `PATCH` as the HTTP method, not `DELETE`.
+    * If you're running your logic app in a Premium-level [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), see the [ISE prerequisites](#ise-prerequisites).
 
-  * Set up your SAP gateway security permissions with this setting:
+* An [SAP application server](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) or [SAP message server](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm) that you want to access from Logic Apps. For information about what SAP servers and SAP actions you can use with the connector, see [SAP compatibility](#sap-compatibility).
 
+* Message content to send to your SAP server, such as a sample IDoc file. This content must be in XML format and include the namespace of the SAP action you want to use. You can [send IDocs with a flat file schema by wrapping them in an XML envelope](#send-flat-file-idocs).
+
+* If you want to use the **When a message is received from SAP** trigger, you must also do the following:
+
+    * Set up your SAP gateway security permissions with this setting: 
     `"TP=Microsoft.PowerBI.EnterpriseGateway HOST=<gateway-server-IP-address> ACCESS=*"`
 
-  * Set up your SAP gateway security logging, which helps find Access Control List (ACL) errors and isn't enabled by default. Otherwise, you get the following error:
-
+    * Set up your SAP gateway security logging to help find Access Control List (ACL). For more information, see the [SAP help topic for setting up gateway logging](https://help.sap.com/erp_hcm_ias2_2015_02/helpdata/en/48/b2a710ca1c3079e10000000a42189b/frameset.htm). Otherwise, you will receive this error:
     `"Registration of tp Microsoft.PowerBI.EnterpriseGateway from host <host-name> not allowed"`
 
-    For more information, see the SAP help topic, [Setting up gateway logging](https://help.sap.com/erp_hcm_ias2_2015_02/helpdata/en/48/b2a710ca1c3079e10000000a42189b/frameset.htm).
+    > [!NOTE]
+    > This trigger uses the same URI location to both renew and unsubscribe from a webhook subscription. The renewal operation uses the HTTP `PATCH` method, while the unsubscribe operation uses the HTTP `DELETE` method. This behavior might make a renewal operation appear as an unsubscribe operation in your trigger's history, but the operation is still a renewal because the trigger uses `PATCH` as the HTTP method, not `DELETE`.
 
-<a name="multi-tenant"></a>
+### SAP compatibility
+
+The SAP connector is compatible with the following types of SAP systems:
+
+* On-premises and cloud-based HANA-based SAP systems, such as S/4 HANA.
+
+* Classic on-premises SAP systems, such as R/3 and ECC.
+
+The SAP connector supports the following message and data integration types from SAP NetWeaver-based systems:
+
+* Intermediate Document (IDoc)
+
+* Business Application Programming Interface (BAPI)
+
+* Remote Function Call (RFC) and Transactional RFC (tRFC)
+
+The SAP connector uses the [SAP .NET Connector (NCo) library](https://support.sap.com/en/product/connectors/msnet.html). You can use the following SAP actions and trigger with the connector:
+
+* **Send message to SAP** to [send IDocs over tRFC](#send-idoc-action) action, which you can use to:
+
+    * [Call BAPI functions over RFC](#call-bapi-action)
+
+    * Call RFC/tRFC in SAP systems
+
+    * Create or close stateful sessions
+
+    * Commit or roll back BAPI transactions
+
+    * Confirm a transaction identifier
+
+    * Send IDocs, get an IDoc's status from its number, and get a list of IDocs for a transaction
+
+    * Read an SAP table
+
+* **When a message is received from SAP** trigger, which you can use to:
+
+    * Receive IDocs over tRFC
+
+    * Call BAPI functions over tRFC
+
+    * Call RFC/tRFC in SAP systems
+
+* **Generate schemas** action, which you can use to generate schemas for the SAP artifacts for IDoc, BAPI, or RFC.
+
+To use these SAP actions, you need to first authenticate your connection with a username and password. The SAP connector also supports [Secure Network Communications (SNC)](https://help.sap.com/doc/saphelp_nw70/7.0.31/e6/56f466e99a11d1a5b00000e835363f/content.htm?no_cache=true). You can use SNC for SAP NetWeaver single sign-on (SSO), or for additional security capabilities from external products. If you use SNC, see the [SNC prerequisites](#snc-prerequisites).
+
+### Migrate to current connector
+
+The previous SAP Application Server and SAP Message server connectors were deprecated February 29, 2020. To migrate to the current SAP connector, follow these steps:
+
+1. Update your [on-premises data gateway](https://www.microsoft.com/download/details.aspx?id=53127) to the current version. For more information, see [Install an on-premises data gateway for Azure Logic Apps](../logic-apps/logic-apps-gateway-install.md).
+
+1. In your logic app that uses the deprecated SAP connector, delete the **Send to SAP** action.
+
+1. Add the **Send message to SAP** action from the current SAP connector.
+
+1. Reconnect to your SAP system in the new action.
+
+1. Save your logic app.
 
 ### Multi-tenant Azure prerequisites
 
-These prerequisites apply when your logic apps run in multi-tenant Azure, and you want to use the managed SAP connector, which doesn't run natively in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Otherwise, if you're using a Premium-level ISE and want to use the SAP connector that runs natively in the ISE, see [Integration service environment (ISE) prerequisites](#sap-ise).
+These prerequisites apply if your logic app runs in multi-tenant Azure. The managed SAP connector doesn't run natively in an [ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
-The managed (non-ISE) SAP connector integrates with on-premises SAP systems through the [on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md). For example, in send message scenarios, when a message is sent from a logic app to an SAP system, the data gateway acts as an RFC client and forwards the requests received from the logic app to SAP. Likewise, in receive message scenarios, the data gateway acts as an RFC server that receives requests from SAP and forwards them to the logic app.
+> [!TIP]
+> If you're using a Premium-level ISE, you can use the SAP ISE connector instead of the managed SAP connector. For more information, see the [ISE prerequisites](#ise-prerequisites).
 
-* [Download and install the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) on your local computer. Then, [create an Azure gateway resource](../logic-apps/logic-apps-gateway-connection.md#create-azure-gateway-resource) for that gateway in the Azure portal. The gateway helps you securely access on-premises data and resources.
+The managed SAP connector integrates with SAP systems through your [on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md). For example, in send message scenarios, when a message is sent from a logic app to an SAP system, the data gateway acts as an RFC client and forwards the requests received from the logic app to SAP. Likewise, in receive message scenarios, the data gateway acts as an RFC server that receives requests from SAP and forwards them to the logic app.
 
-  As a best practice, make sure to use a supported version of the on-premises data gateway. Microsoft releases a new version every month. Currently, Microsoft supports the last six versions. If you experience an issue with your gateway, try [upgrading to the latest version](https://aka.ms/on-premises-data-gateway-installer), which might include updates to resolve your problem.
+* [Download and install the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) on a host computer or virtual machine that exists in the same virtual network as the SAP system to which you're connecting.
 
-* [Download and install the latest SAP client library](#sap-client-library-prerequisites) on the same computer as the on-premises data gateway.
+* [Create an Azure gateway resource](../logic-apps/logic-apps-gateway-connection.md#create-azure-gateway-resource) for your on-premises data gateway in the Azure portal. This gateway helps you securely access on-premises data and resources. Make sure to use a supported version of the gateway.
 
-<a name="sap-ise"></a>
+    * If you experience an issue with your gateway, try [upgrading to the latest version](https://aka.ms/on-premises-data-gateway-installer), which might include updates to resolve your problem.
 
-### Integration service environment (ISE) prerequisites
+* [Download and install the latest SAP client library](#sap-client-library-prerequisites) on the same local computer as your on-premises data gateway.
 
-These prerequisites apply when your logic apps run in a Premium-level (not Developer-level) [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), and you want to use the SAP connector that runs natively in an ISE. An ISE provides access to resources that are protected by an Azure virtual network and offers other ISE-native connectors that let logic apps directly access on-premises resources without using on-premises data gateway.
+### ISE prerequisites
 
-> [!NOTE]
-> Although the SAP ISE connector is visible inside a Developer-level ISE, 
-> attempts to install the connector won't succeed.
+These prerequisites apply if you're running your logic app in a Premium-level ISE. However, they don't apply to logic apps running in a Developer-level ISE. An ISE provides access to resources that are protected by an Azure virtual network and offers other ISE-native connectors that let logic apps directly access on-premises resources without using on-premises data gateway.
 
-1. If you don't already have an Azure Storage account and a blob container, create that container by using either the [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
+1. If you don't already have an Azure Storage account with a blob container, create a container using either the [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
 
 1. [Download and install the latest SAP client library](#sap-client-library-prerequisites) on your local computer. You should have the following assembly files:
 
    * libicudecnumber.dll
+
    * rscp4n.dll
+
    * sapnco.dll
+
    * sapnco_utils.dll
 
-1. Create a .zip file that includes these assemblies and upload this package to your blob container in Azure Storage.
+1. Create a .zip file that includes these assembly files. Upload the package to your blob container in Azure Storage.
 
 1. In either the Azure portal or Azure Storage Explorer, browse to the container location where you uploaded the .zip file.
 
-1. Copy the URL for that location, making sure that you include the Shared Access Signature (SAS) token.
+1. Copy the URL of the container location. Make sure to include the Shared Access Signature (SAS) token, so the SAS token is authorized. Otherwise, deployment for the SAP ISE connector fails.
 
-   Otherwise, the SAS token doesn't get authorized, and deployment for the SAP ISE connector will fail.
-
-1. Before you can use the SAP ISE connector, you need to install and deploy the connector in your ISE.
+1. Install and deploy the SAP connector in your ISE. For more information, see [Add ISE connectors](../logic-apps/add-artifacts-integration-service-environment-ise.md#add-ise-connectors-environment).
 
    1. In the [Azure portal](https://portal.azure.com), find and open your ISE.
-   
-   1. On the ISE menu, select **Managed connectors** > **Add**. From the connectors list, find and select **SAP**.
-   
-   1. On the **Add a new managed connector** pane, in the **SAP package** box, paste the URL for the .zip file that has the SAP assemblies. *Make sure that you include the SAS token.*
 
-   1. When you're done, select **Create**.
+   1. On the ISE menu, select **Managed connectors** &gt; **Add**. From the connectors list, find and select **SAP**.
 
-   For more information, see [Add ISE connectors](../logic-apps/add-artifacts-integration-service-environment-ise.md#add-ise-connectors-environment).
+   1. On the **Add a new managed connector** pane, in the **SAP package** box, paste the URL for the .zip file that has the SAP assemblies. Again, make sure to include the SAS token.
+ 
+  1. Select **Create** to finish creating your  ISE connector.
 
-1. If your SAP instance and ISE are in different virtual networks, you also need to [peer those networks](../virtual-network/tutorial-connect-virtual-networks-portal.md) so that your ISE's virtual network is connected to your SAP instance's virtual network.
-
-<a name="sap-client-library-prerequisites"></a>
+1. If your SAP instance and ISE are in different virtual networks, you also need to [peer those networks](../virtual-network/tutorial-connect-virtual-networks-portal.md) so they are connected.
 
 ### SAP client library prerequisites
 
-* Make sure that you install the latest version, [SAP Connector (NCo 3.0) for Microsoft .NET 3.0.22.0 compiled with .NET Framework 4.0  - Windows 64-bit (x64)](https://support.sap.com/en/product/connectors/msnet.html). Earlier versions can result in compatibility problems. For more information, see [SAP client library versions](#sap-library-versions).
+These are the prerequisites for the SAP client library that you're using with the connector.
 
-* By default, the SAP installer puts the assembly files in the default installation folder. You need to copy these assembly files to another location, based on your scenario as follows:
+* Make sure that you install the latest version, [SAP Connector (NCo 3.0) for Microsoft .NET 3.0.22.0 compiled with .NET Framework 4.0  - Windows 64-bit (x64)](https://support.sap.com/en/product/connectors/msnet.html). Earlier versions of SAP NCo might experience issues when more than one IDoc message is sent at the same time. This condition blocks all later messages sent to the SAP destination, which causes the messages to time out.
 
-  * For logic apps that run in an ISE, follow the steps described in the [integration service environment prerequisites](#sap-ise). For logic apps that run in multi-tenant Azure and use the on-premises data gateway, copy the assembly files from the default installation folder to the data gateway installation folder. If you run into problems with the data gateway, review the following issues:
+* You must have the 64-bit version of the SAP client library installed, because the data gateway only runs on 64-bit systems. Installing the unsupported 32-bit version results in a "bad image" error.
 
-  * You must install the 64-bit version for the SAP client library because the data gateway runs only on 64-bit systems. Otherwise, you get a "bad image" error because the data gateway host service doesn't support 32-bit assemblies.
+* Copy the assembly files from the default installation folder to another location, based on your scenario as follows.
 
-  * If your SAP connection fails with the error message "Please check your account info and/or permissions and try again", the assembly files might be in the wrong location. Make sure that you copied the assembly files to the data gateway installation folder.
+    * For logic apps running in an ISE, follow the [ISE prerequisites](#ise-prerequisites) instead.
 
-    To help you troubleshoot, [use the .NET assembly binding log viewer](/dotnet/framework/tools/fuslogvw-exe-assembly-binding-log-viewer), which lets you check that the assembly files are in the correct location. Optionally, you can select the **Global Assembly Cache registration** option when you install the SAP client library.
+    * For logic apps running in multi-tenant Azure and using your on-premises data gateway, copy the assembly files to the data gateway installation folder. 
 
-<a name="sap-library-versions"></a>
+        
+        * If your SAP connection fails with the error message, **Please check your account info and/or permissions and try again**, make sure you copied the assembly files to the data gateway installation folder.
+        
+        * Troubleshoot further issues using the [.NET assembly binding log viewer](/dotnet/framework/tools/fuslogvw-exe-assembly-binding-log-viewer). This tool lets you check that your assembly files are in the correct location. 
+        
+        * Optionally, select the **Global Assembly Cache registration** option when you install the SAP client library.
 
-#### SAP client library versions
+Note the following relationships between the SAP client library, the .NET Framework, the .NET runtime, and the gateway:
 
-Earlier SAP NCo versions might become deadlocked when more than one IDoc message is sent at the same time. This condition blocks all later messages that are sent to the SAP destination, which causes the messages to time out.
+* Both the Microsoft SAP Adapter and the gateway host service use .NET Framework 4.7.2.
 
-Here are the relationships between the SAP client library, the .NET Framework, the .NET runtime, and the gateway:
-
-* Both the Microsoft SAP Adapter and the gateway host service use .NET Framework 4.5.
-
-* The SAP NCo for .NET Framework 4.0 works with processes that use .NET runtime 4.0 to 4.7.1.
+* The SAP NCo for .NET Framework 4.0 works with processes that use .NET runtime 4.0 to 4.8.
 
 * The SAP NCo for .NET Framework 2.0 works with processes that use .NET runtime 2.0 to 3.5, but no longer works with the latest gateway.
 
-### Secure Network Communications prerequisites
+### SNC prerequisites
 
-If you use the on-premises data gateway with the optional Secure Network Communications (SNC), which is supported only in multi-tenant Azure, you also need to configure these settings:
+If you use an on-premises data gateway with optional SNC, which is only supported in multi-tenant Azure, you must configure these additional settings.
 
-* If you use SNC with Single Sign On (SSO), make sure the data gateway is running as a user that's mapped against the SAP user. To change the default account, select **Change account**, and enter the user credentials.
+If you're using SNC with SSO, make sure the data gateway service is running as a user who is mapped against the SAP user. To change the default account, select **Change account**, and enter the user credentials.
 
-  ![Change data gateway account](./media/logic-apps-using-sap-connector/gateway-account.png)
+![Screenshot of On-premises data gateway settings in the Azure Portal, showing Service Settings page with button to change the gateway service account selected.](./media/logic-apps-using-sap-connector/gateway-account.png)
 
-* If you enable SNC with an external security product, copy the SNC library or files on the same computer where the data gateway is installed. Some examples of SNC products include [sapseculib](https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm), Kerberos, and NTLM.
+If you're enabling SNC through an external security product, copy the SNC library or files on the same computer where your data gateway is installed. Some examples of SNC products include [sapseculib](https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm), Kerberos, and NTLM. For more information about enabling SNC for the data gateway, see [Enable Secure Network Communications](#enable-secure-network-communications).
 
-For more information about enabling SNC for the data gateway, see [Enable Secure Network Communications](#secure-network-communications).
+## Send IDoc messages to SAP server
 
-<a name="migrate"></a>
+Follow these examples to create a logic app that sends an IDoc message to an SAP server and returns a response:
 
-## Migrate to current connector
+1. [Create a logic app that is triggered by an HTTP request.](#create-http-request-trigger)
 
-To migrate from an earlier managed (non-ISE) SAP connector to the current managed SAP connector, follow these steps:
+1. [Create an action in your workflow to send a message to SAP.](#create-sap-action-to-send-message)
 
-1. If you haven't done so already, update your [on-premises data gateway](https://www.microsoft.com/download/details.aspx?id=53127) so that you have the latest version. For more information, see [Install an on-premises data gateway for Azure Logic Apps](../logic-apps/logic-apps-gateway-install.md).
+1. [Create an HTTP response action in your workflow.](#create-http-response-action)
 
-1. In the logic app that uses the older SAP connector, delete the **Send to SAP** action.
+1. [Create a remote function call (RFC) request-response pattern, if you're using an RFC to receive replies from SAP ABAP.](#create-rfc-request-response)
 
-1. From the latest SAP connector, add the **Send message to SAP** action. Before you can use this action, recreate the connection to your SAP system.
+1. [Test your logic app.](#test-logic-app)
 
-1. When you're done, save your logic app.
-
-<a name="add-trigger"></a>
-
-## Send message to SAP
-
-This example uses a logic app that you can trigger with an HTTP request. The logic app sends an IDoc to an SAP server and returns a response to the requestor that called the logic app.
-
-### Add an HTTP Request trigger
-
-In Azure Logic Apps, every logic app must start with a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts), which fires when a specific event happens or when a specific condition is met. Each time the trigger fires, the Logic Apps engine creates a logic app instance and starts running your app's workflow.
+### Create HTTP request trigger
 
 > [!NOTE]
-> When a logic app receives IDoc packets from SAP, the [request trigger](../connectors/connectors-native-reqres.md) doesn't support the "plain" XML schema generated by SAP's WE60 IDoc documentation. However, the "plain" XML schema is supported for scenarios that send messages from logic apps *to* SAP. 
-> You can use the request trigger with SAP's IDoc XML, but not with IDoc over RFC. Or, you can transform the XML to the necessary format. 
+> When a logic app receives IDocs from SAP, the [request trigger](../connectors/connectors-native-reqres.md) now supports the SAP plain XML format. To receive IDocs as plain XML, use the trigger **When a message is received from SAP**. Set the parameter **IDOC Format** to **SapPlainXml**.
 
-In this example, you create a logic app with an endpoint in Azure so that you can send *HTTP POST requests* to your logic app. When your logic app receives these HTTP requests, the trigger fires and runs the next step in your workflow.
+First, create a logic app with an endpoint in Azure to send *HTTP POST* requests to your logic app. When your logic app receives these HTTP requests, the [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) fires and runs the next step in your workflow.
 
-1. In the [Azure portal](https://portal.azure.com), create a blank logic app, which opens the Logic App Designer.
+1. In the [Azure portal](https://portal.azure.com), create a blank logic app, which opens the **Logic Apps Designer**.
 
 1. In the search box, enter `http request` as your filter. From the **Triggers** list, select **When a HTTP request is received**.
 
-   ![Add HTTP Request trigger](./media/logic-apps-using-sap-connector/add-http-trigger-logic-app.png)
+   ![Screenshot of Logic Apps Designer, showing a new HTTP request trigger being added to the logic app.](./media/logic-apps-using-sap-connector/add-http-trigger-logic-app.png)
 
-1. Now save your logic app so that you can generate an endpoint URL for your logic app. On the designer toolbar, select **Save**.
+1. Save your logic app so that you can generate an endpoint URL for your logic app. On the designer toolbar, select **Save**. The endpoint URL now appears in your trigger. 
 
-   The endpoint URL now appears in your trigger, for example:
+   ![Screenshot of Logic Apps Designer, showing HTTP request trigger with generated POST URL being copied.](./media/logic-apps-using-sap-connector/generate-http-endpoint-url.png)
 
-   ![Generate URL for endpoint](./media/logic-apps-using-sap-connector/generate-http-endpoint-url.png)
+### Create SAP action to send message
 
-<a name="add-action"></a>
+Next, create an action to send your IDoc message to SAP when your [HTTP request trigger](#create-http-request-trigger) fires.
 
-### Add an SAP action
+1. In the Logic Apps Designer, under the trigger, select **New step**.
 
-In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) is a step in your workflow that follows a trigger or another action. If you haven't added a trigger to your logic app yet and want to follow this example, [add the trigger described in this section](#add-trigger).
-
-1. In the Logic App Designer, under the trigger, select **New step**.
-
-   ![Add new step to logic app](./media/logic-apps-using-sap-connector/add-sap-action-logic-app.png)
+   ![Screenshot of Logic Apps Designer, showing logic app being edited to add a new step.](./media/logic-apps-using-sap-connector/add-sap-action-logic-app.png)
 
 1. In the search box, enter `sap` as your filter. From the **Actions** list, select **Send message to SAP**.
   
-   ![Select "Send message to SAP" action](media/logic-apps-using-sap-connector/select-sap-send-action.png)
+   ![Screenshot of Logic Apps Designer, showing selection of "Send message to SAP" action.](media/logic-apps-using-sap-connector/select-sap-send-action.png)
 
    Or, you can select the **Enterprise** tab, and select the SAP action.
 
-   ![Select "Send message to SAP" action from Enterprise tab](media/logic-apps-using-sap-connector/select-sap-send-action-ent-tab.png)
+   ![Screenshot of Logic Apps Designer, showing selection of "Send message to SAP" action under Enterprise tab.](media/logic-apps-using-sap-connector/select-sap-send-action-ent-tab.png)
 
-1. If your connection already exists, continue with the next step so you can set up your SAP action. However, if you're prompted for connection details, provide the information so that you can create a connection to your on-premises SAP server.
+1. If your connection already exists, continue to the next step. If you're prompted to create a new connection, provide the following information to connect to your on-premises SAP server.
 
    1. Provide a name for the connection.
 
@@ -233,7 +249,7 @@ In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-
    
       1. Under **Connection Gateway**, select your data gateway resource in Azure.
 
-   1. Continue providing information about the connection. For the **Logon Type** property, follow the step based on whether the property is set to **Application Server** or **Group**:
+   1. Continue providing connection information. For the **Logon Type** property, follow the step based on whether the property is set to **Application Server** or **Group**:
    
       * For **Application Server**, these properties, which usually appear optional, are required:
 
@@ -248,6 +264,14 @@ In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-
    1. When you're finished, select **Create**.
 
       Logic Apps sets up and tests your connection to make sure that the connection works properly.
+
+    > [!NOTE]
+
+    > If you receive the following error, there is a problem with your installation of the SAP NCo client library: 
+    >
+    > **Test connection failed. Error 'Failed to process request. Error details: 'could not load file or assembly 'sapnco, Version=3.0.0.42, Culture=neutral, PublicKeyToken 50436dca5c7f7d23' or one of its dependencies. The system cannot find the file specified.'.'**
+    >
+    > Make sure to [install the required version of the SAP NCo client library and meet all other prerequisites](#sap-client-library-prerequisites).
 
 1. Now find and select an action from your SAP server.
 
@@ -279,13 +303,44 @@ In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-
 
 1. Save your logic app. On the designer toolbar, select **Save**.
 
-<a name="add-response"></a>
+#### Send flat file IDocs
 
-### Add an HTTP response action
+You can use IDocs with a flat file schema if you wrap them in an XML envelope. To send a flat file IDoc, use the generic instructions to [create an SAP action to send your IDoc message](#create-sap-action-to-send-message) with the following changes.
+
+1. For the **Send message to SAP** action, use SAP action URI `http://microsoft.lobservices.sap/2007/03/Idoc/SendIdoc`.
+
+1. Format your input message with an XML envelope. For an example, see the following example message:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<SendIdoc xmlns="http://Microsoft.LobServices.Sap/2007/03/Idoc/">
+  <idocData>EDI_DC    300                      ORDERS052SAPMSS    LIMSFTABCSWI                                                                                           ED  93AORDERSOLP     VLTRFC    KUMSFTABCSWI                                                                                           13561                       231054476                                                                           20190523085430ORDERSORDERS05          US
+E2EDK01005300                1     E2EDK010050     1       USD                                                                        Z4O14506907554
+E2EDK03   300                2     E2EDK03   0     2   02220190523
+E2EDKA1   300                3     E2EDKA1   0     2   RE                  MSFTASWI
+E2EDKA1   300                4     E2EDKA1   0     2   US                  MSFTASWI
+E2EDKA1   300                5     E2EDKA1   0     2   WE                  MSFTASWILIC
+E2EDKA1   300                6     E2EDKA1   0     2   Z1 KKKKKKK                           ABC YYYYYYYYYYY ZZ                                                                                                                          BBBBBBBBBBBBBBBB 11                                                                                      ttttttttttt                                 6666              US                                                                                                999 999 99 99                                                                                                                SSSSSSS SSS SSSSSS                                                                                                                                SSSSSSS SSS SSSSSS
+E2EDKA1   300                7     E2EDKA1   0     2   Z2 KKKKKKK                           BBBBBBBBBBBBBBBB DDDDDDDD ZZ                                                                                                                EEEEEEEEEEE 86                                                                                           rrrrrrrr                                    8888              US                                                                                                999 999 99 99                                                                                                                NNNNNN NNNNNN                                                                                                                                     NNNNNN NNNNNN
+E2EDK02   300                8     E2EDK02   0     2   901Z
+E2EDK02   300                9     E2EDK02   0     2   90399680096ZZS2002
+E2EDK02   300                10    E2EDK02   0     2   902S
+E2EDKT1   300                11    E2EDKT1   0     2   Z1EME
+E2EDKT2   300                12    E2EDKT2   0     3   xxx@xxx-xx.xx
+E2EDKT1   300                13    E2EDKT1   0     2   Z2EME
+E2EDKT2   300                14    E2EDKT2   0     3   x.xxxxxx@xxxxxxxx-xxxxxxxxxx.xx
+E2EDP01001300                15    E2EDP010010     2   10         1              EA                          999.9
+E2EDP19   300                16    E2EDP19   0     3   00AAAA-11111</idocData>
+</SendIdoc>
+```
+
+
+
+### Create HTTP response action
 
 Now add a response action to your logic app's workflow and include the output from the SAP action. That way, your logic app returns the results from your SAP server to the original requestor.
 
-1. In the Logic App Designer, under the SAP action, select **New step**.
+1. In the Logic Apps Designer, under the SAP action, select **New step**.
 
 1. In the search box, enter `response` as your filter. From the **Actions** list, select **Response**.
 
@@ -295,7 +350,7 @@ Now add a response action to your logic app's workflow and include the output fr
 
 1. Save your logic app.
 
-#### Add RFC request-response
+#### Create RFC request-response
 
 > [!NOTE]
 > The SAP trigger receives IDocs over tRFC, which doesn't have a response parameter by design. 
@@ -305,6 +360,7 @@ You must create a request and response pattern if you need to receive replies by
 To implement a request and response pattern, you must first discover the RFC schema using the [`generate schema` command](#generate-schemas-for-artifacts-in-sap). The generated schema has two possible root nodes: 
 
 1. The request node, which is the call that you receive from SAP.
+
 1. The response node, which is your reply back to SAP.
 
 In the following example, a request and response pattern is generated from the `STFC_CONNECTION` RFC module. The request XML is parsed to extract a node value in which SAP requests `<ECHOTEXT>`. The response inserts the current timestamp as a dynamic value. You receive a similar response when you send a `STFC_CONNECTION` RFC from a logic app to SAP.
@@ -318,7 +374,7 @@ In the following example, a request and response pattern is generated from the `
 
 ```
 
-### Test your logic app
+### Test logic app
 
 1. If your logic app isn't already enabled, on your logic app menu, select **Overview**. On the toolbar, select **Enable**.
 
@@ -350,15 +406,13 @@ Include your message content with your request. To the send the request, you can
 
 You've now created a logic app that can communicate with your SAP server. Now that you've set up an SAP connection for your logic app, you can explore other available SAP actions, such as BAPI and RFC.
 
-<a name="receive-from-sap"></a>
-
 ## Receive message from SAP
 
 This example uses a logic app that triggers when the app receives a message from an SAP system.
 
 ### Add an SAP trigger
 
-1. In the Azure portal, create a blank logic app, which opens the Logic App Designer.
+1. In the Azure portal, create a blank logic app, which opens the Logic Apps Designer.
 
 1. In the search box, enter `sap` as your filter. From the **Triggers** list, select **When a message is received from SAP**.
 
@@ -418,20 +472,34 @@ Your logic app is now ready to receive messages from your SAP system.
 
 > [!NOTE]
 > The SAP trigger isn't a polling trigger but is a webhook-based trigger instead. 
-> If you're using the data gateway, the trigger is called from the data gateway 
-> only when a message exists, so no polling is necessary.
+> If you're using the data gateway, the trigger is called from the data gateway only when a message exists, so no polling is necessary.
 
-<a name="parameters"></a>
+If you receive a **500 Bad Gateway** error with a message similar to **service 'sapgw00' unknown**, replace your gateway service name in your API connection and trigger configuration with its port number. In the following example error, `sapgw00` needs to be replaced with a real port number, for example, `3300`. 
+
+```json
+"body": {
+   "error": {
+      "code": 500,
+      "source": "EXAMPLE-FLOW-NAME.eastus.environments.microsoftazurelogicapps.net",
+      "clientRequestId": "00000000-0000-0000-0000-000000000000",
+      "message": "BadGateway",
+      "innerError": {
+         "error": {
+            "code": "UnhandledException",
+            "message": "\nERROR service 'sapgw00' unknown\nTIME Wed Nov 11 19:37:50 2020\nRELEASE 721\nCOMPONENT NI (network interface)\nVERSION 40\nRC -3\nMODULE ninti.c\nLINE 933\nDETAIL NiPGetServByName: 'sapgw00' not found\nSYSTEM CALL getaddrinfo\nCOUNTER 1\n\nRETURN CODE: 20"
+         }
+      }
+```
 
 #### Parameters
 
 Along with simple string and number inputs, the SAP connector accepts the following table parameters (`Type=ITAB` inputs):
 
 * Table direction parameters, both input and output, for older SAP releases.
-* Changing parameters, which replace the table direction parameters for newer SAP releases.
-* Hierarchical table parameters
 
-<a name="filter-with-sap-actions"></a>
+* Changing parameters, which replace the table direction parameters for newer SAP releases.
+
+* Hierarchical table parameters
 
 #### Filter with SAP actions
 
@@ -439,7 +507,7 @@ You can optionally filter the messages that your logic app receives from your SA
 
 When you set up the array filter, the trigger only receives messages from the specified SAP action types and rejects all other messages from your SAP server. However, this filter doesn't affect whether the typing of the received payload is weak or strong.
 
-Any SAP action filtering happens at the level of the SAP adapter for your on-premises data gateway. For more information, see [how to send test IDocs to Logic Apps from SAP](#send-idocs-from-sap).
+Any SAP action filtering happens at the level of the SAP adapter for your on-premises data gateway. For more information, see [how to send test IDocs to Logic Apps from SAP](#test-sending-idocs-from-sap).
 
 If you can't send IDoc packets from SAP to your logic app's trigger, see the Transactional RFC (tRFC) call rejection message in the SAP tRFC dialog box (T-code SM58). In the SAP interface, you might get the following error messages, which are clipped due to the substring limits on the **Status Text** field.
 
@@ -452,34 +520,79 @@ If you can't send IDoc packets from SAP to your logic app's trigger, see the Tra
 * `The segment or group definition E2EDK36001 was not found in the IDoc meta`: Expected failures happen with other errors, such as the failure to generate an IDoc XML payload because its segments are not released by SAP, so the segment type metadata required for conversion is missing. 
 
   * To have these segments released by SAP, contact the ABAP engineer for your SAP system.
+### Asynchronous request-reply for triggers
 
-<a name="find-extended-error-logs"></a>
+The SAP connector supports Azure's [asynchronous request-reply pattern](/azure/architecture/patterns/async-request-reply) for Logic Apps triggers. You can use this pattern to create successful requests that would have otherwise failed with the default synchronous request-reply pattern. 
+
+> [!TIP]
+> In logic apps with multiple response actions, all response actions must use the same request-reply pattern. For example, if your logic app uses a switch control with multiple possible response actions, you must configure all the response actions to use the same request-reply pattern, either synchronous or asynchronous. 
+
+Enabling asynchronous response for your response action allows your logic app to respond with a `202 Accepted` reply when a request has been accepted for processing. The reply contains a location header that you can use to retrieve the final state of your request.
+
+To configure an asynchronous request-reply pattern for your logic app using the SAP connector:
+
+1. Open your logic app in the **Logic Apps Designer**.
+
+1. Confirm that the SAP connector is the trigger for your logic app.
+
+1. Open your logic app's **Response** action. In the action's title bar, select the menu (**...**) &gt; **Settings**.
+
+1. In the **Settings** for your response action, turn on the toggle under **Asynchronous Response**. Select done.
+
+1. Save the changes to your logic app.
 
 ## Find extended error logs
 
-For full error messages, check your SAP adapter's extended logs. 
+For full error messages, check your SAP adapter's extended logs. You can also [enable an extended log file for the SAP connector](#extended-sap-logging-in-on-premises-data-gateway).
 
-For on-premises data gateway releases from June 2020 and later, you can [enable gateway logs in the app settings](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app).
+For on-premises data gateway releases from June 2020 and later, you can [enable gateway logs in the app settings](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app). 
 
-For on-premises data gateway releases from April 2020 and earlier, logs are disabled by default. To retrieve extended logs, follow these steps:
+* The default logging level is **Warning**.
 
-1. In your on-premises data gateway installation folder, open the `Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config` file. 
+* If you enable  **Additional logging** in the **Diagnostics** settings of the on-premises data gateway app, the logging level is increased to **Informational**.
 
-1. For the **SapExtendedTracing** setting, change the value from **False** to **True**.
+* To increase the logging level to **Verbose**, update the following setting in your configuration file. Typically, the configuration file is located at `C:\Program Files\On-premises data gateway\Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config`.
 
-1. Optionally, for fewer events, change the **SapTracingLevel** value from **Informational** (default) to **Error** or **Warning**. Or, for more events, change **Informational** to **Verbose**.
+```json
+<setting name="SapTraceLevel" serializeAs="String">
+   <value>Verbose</value>
+</setting>
+```
 
-1. Save the configuration file.
+For on-premises data gateway releases from April 2020 and earlier, logs are disabled by default.
 
-1. Restart your data gateway. Open your on-premises data gateway installer app, and go to the **Service Settings** menu. Under **Restart the gateway**,  select **Restart now**.
+### Extended SAP logging in on-premises data gateway
 
-1. Reproduce your issue.
+If you use an [on-premises data gateway for Logic Apps](../logic-apps/logic-apps-gateway-install.md), you can configure an extended log file for the SAP connector. You can use your on-premises data gateway to redirect Event Tracing for Windows (ETW) events into rotating log files that are included in your gateway's logging .zip files. 
 
-1. Export your gateway logs. In your data gateway installer app, go to the **Diagnostics** menu. Under **Gateway logs**, select **Export logs**. These files include SAP logs organized by date. Depending on log size, multiple log files might exist for a single date.
+You can [export all of your gateway's configuration and service logs](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app) to a .zip file in from the gateway app's settings.
 
-1. In the configuration file, revert the **SapExtendedTracing** setting to **False**.
+> [!NOTE]
+> Extended logging might affect your logic apps' performance when always enabled. It's a best practice to turn off extended log files after you're finished with analyzing and troubleshooting an issue.
 
-1. Restart the gateway service.
+#### Capture ETW events
+
+Optionally, advanced users can capture ETW events directly. You can then [consume your data in Azure Diagnostics in Event Hubs](../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md) or [collect your data to Azure Monitor Logs](/azure/azure-monitor/agents/diagnostics-extension-logs). For more information, see the [best practices for collecting and storing data](/azure/architecture/best-practices/monitoring#collecting-and-storing-data). You can use [PerfView](https://github.com/Microsoft/perfview/blob/master/README.md) to work with the resulting ETL files, or you can write your own program. This walkthrough uses PerfView:
+
+1. In the PerfView menu, select **Collect** &gt; **Collect** to capture the events.
+
+1. In the **Additional Provider** field, enter `*Microsoft-LobAdapter` to specify the SAP provider to capture SAP adapter events. If you don't specify this information, your trace only includes general ETW events.
+
+1. Keep the other default settings. If you want, you can change the file name or location in the **Data File** field.
+
+1. Select **Start Collection** to begin your trace.
+
+1. After you've reproduced your issue or collected enough analysis data, select **Stop Collection**.
+
+To share your data with another party, such as Azure support engineers, compress the ETL file.
+
+To view the content of your trace:
+
+1. In PerfView, select **File** &gt; **Open** and select the ETL file you just generated.
+
+1. In the PerfView sidebar, the **Events** section under your ETL file.
+
+1. Under **Filter**, filter by `Microsoft-LobAdapter` to only see relevant events and gateway processes.
 
 ### Test your logic app
 
@@ -488,8 +601,6 @@ For on-premises data gateway releases from April 2020 and earlier, logs are disa
 1. On the logic app menu, select **Overview**. Review the **Runs history** for any new runs for your logic app.
 
 1. Open the most recent run, which shows the message sent from your SAP system in the trigger outputs section.
-
-<a name="send-idocs-from-sap"></a>
 
 ### Test sending IDocs from SAP
 
@@ -523,6 +634,14 @@ To send IDocs from SAP to your logic app, you need the following minimum configu
     * For your **RFC Destination**, enter a name.
     
     * On the **Technical Settings** tab, for **Activation Type**, select **Registered Server Program**. For your **Program ID**, enter a value. In SAP, your logic app's trigger will be registered by using this identifier.
+
+    > [!IMPORTANT]
+    > The SAP **Program ID** is case-sensitive. Make sure you consistently use the same case format for your **Program ID** when you configure your logic app and SAP server. Otherwise, you might receive the following errors in the tRFC Monitor (T-Code SM58) when you attempt to send an IDoc to SAP:
+    >
+    > * **Function IDOC_INBOUND_ASYNCHRONOUS not found**
+    > * **Non-ABAP RFC client (partner type) not supported**
+    >
+    > For more information from SAP, see the following notes (login required) <https://launchpad.support.sap.com/#/notes/2399329> and <https://launchpad.support.sap.com/#/notes/353597>.
     
     * On the **Unicode** tab, for **Communication Type with Target System**, select **Unicode**.
 
@@ -634,11 +753,27 @@ You can set up SAP to [send IDocs in packets](https://help.sap.com/viewer/8f3819
 
 Here's an example that shows how to extract individual IDocs from a packet by using the [`xpath()` function](./workflow-definition-language-functions-reference.md#xpath):
 
-1. Before you start, you need a logic app with an SAP trigger. If you don't already have this logic app, follow the previous steps in this topic to [set up a logic app with an SAP trigger](#receive-from-sap).
+1. Before you start, you need a logic app with an SAP trigger. If you don't already have this in your logic app, follow the previous steps in this topic to [set up a logic app with an SAP trigger](#receive-message-from-sap).
+
+    > [!IMPORTANT]
+    > The SAP **Program ID** is case-sensitive. Make sure you consistently use the same case format for your **Program ID** when you configure your logic app and SAP server. Otherwise, you might receive the following errors in the tRFC Monitor (T-Code SM58) when you attempt to send an IDoc to SAP:
+    >
+    > * **Function IDOC_INBOUND_ASYNCHRONOUS not found**
+    > * **Non-ABAP RFC client (partner type) not supported**
+    >
+    > For more information from SAP, see the following notes (login required) <https://launchpad.support.sap.com/#/notes/2399329> and <https://launchpad.support.sap.com/#/notes/353597>.
 
    For example:
 
    ![Add SAP trigger to logic app](./media/logic-apps-using-sap-connector/first-step-trigger.png)
+
+1. [Add a response action to your logic app](/azure/connectors/connectors-native-reqres#add-a-response-action) to reply immediately with the status of your SAP request. It's a best practice to add this action immediately after your trigger, to free up the communication channel with your SAP server. Choose one of the following status codes (`statusCode`) to use in your response action:
+
+    * **202 Accepted**, which means the request has been accepted for processing but the processing isn't complete yet.
+
+    * **204 No Content**, which means the server has successfully fulfilled the request and there is no additional content to send in the response payload body. 
+
+    * **200 OK**. This status code always contains a payload, even if the server generates a payload body of zero length. 
 
 1. Get the root namespace from the XML IDoc that your logic app receives from SAP. To extract this namespace from the XML document, add a step that creates a local string variable and stores that namespace by using an `xpath()` expression:
 
@@ -658,7 +793,7 @@ Here's an example that shows how to extract individual IDocs from a packet by us
 
    Each IDoc must include the root namespace, which is the reason why the file content is wrapped inside a `<Receive></Receive` element along with the root namespace before sending the IDoc to the downstream app, or SFTP server in this case.
 
-You can use the quickstart template for this pattern by selecting this template in the Logic App Designer when you create a new logic app.
+You can use the quickstart template for this pattern by selecting this template in the Logic Apps Designer when you create a new logic app.
 
 ![Select batch logic app template](./media/logic-apps-using-sap-connector/select-batch-logic-app-template.png)
 
@@ -669,6 +804,7 @@ This example uses a logic app that you can trigger with an HTTP request. To gene
 This SAP action returns an [XML schema](#sample-xml-schemas), not the contents or data of the XML document itself. Schemas returned in the response are uploaded to an integration account by using the Azure Resource Manager connector. Schemas contain the following parts:
 
 * The request message's structure. Use this information to form your BAPI `get` list.
+
 * The response message's structure. Use this information to parse the response. 
 
 To send the request message, use the generic SAP action **Send message to SAP**, or the targeted **Call BAPI** actions.
@@ -678,10 +814,15 @@ To send the request message, use the generic SAP action **Send message to SAP**,
 If you're learning how to generate an XML schema for use in creating a sample document, see the following samples. These examples show how you can work with many types of payloads, including:
 
 * [RFC requests](#xml-samples-for-rfc-requests)
+
 * [BAPI requests](#xml-samples-for-bapi-requests)
+
 * [IDoc requests](#xml-samples-for-idoc-requests)
+
 * Simple or complex XML schema data types
+
 * Table parameters
+
 * Optional XML behaviors
 
 You can begin your XML schema with an optional XML prolog. The SAP connector works with or without the XML prolog.
@@ -760,14 +901,11 @@ The following example includes prefixes for the namespaces. You can declare all 
 
 #### XML samples for BAPI requests
 
-> [!TIP]
-> If you're using the Logic Apps designer to edit your BAPI request, you can use the following search functions: 
-> 
-> * Select an object in the designer to see a drop-down menu of available methods.
-> * Filter business object types by keyword using the searchable list provided by the BAPI API call.
+The following XML samples are example requests to [call the BAPI method](#call-bapi-action).
 
 > [!NOTE]
 > SAP makes business objects available to external systems by describing them in response to RFC `RPY_BOR_TREE_INIT`, which Logic Apps issues with no input filter. Logic Apps inspects the output table `BOR_TREE`. The `SHORT_TEXT` field is used for names of business objects. Business objects not returned by SAP in the output table aren't accessible to Logic Apps.
+> 
 > If you use custom business objects, you must make sure to publish and release these business objects in SAP. Otherwise, SAP doesn't list your custom business objects in the output table `BOR_TREE`. You can't access your custom business objects in Logic Apps until you expose the business objects from SAP. 
 
 The following example gets a list of banks using the BAPI method `GETLIST`. This sample contains the business object for a bank, `BUS1011`. 
@@ -928,7 +1066,7 @@ The following example is an alternative method to set the transaction identifier
 
 ### Add an HTTP Request trigger
 
-1. In the Azure portal, create a blank logic app, which opens the Logic App Designer.
+1. In the Azure portal, create a blank logic app, which opens the Logic Apps Designer.
 
 1. In the search box, enter `http request` as your filter. From the **Triggers** list, select **When a HTTP request is received**.
 
@@ -943,7 +1081,7 @@ On the designer toolbar, select **Save**.
 
 ### Add an SAP action to generate schemas
 
-1. In the Logic App Designer, under the trigger, select **New step**.
+1. In the Logic Apps Designer, under the trigger, select **New step**.
 
    ![Add new step to logic app](./media/logic-apps-using-sap-connector/add-sap-action-logic-app.png)
 
@@ -1011,7 +1149,7 @@ On the designer toolbar, select **Save**.
 
 Optionally, you can download or store the generated schemas in repositories, such as a blob, storage, or integration account. Integration accounts provide a first-class experience with other XML actions, so this example shows how to upload schemas to an integration account for the same logic app by using the Azure Resource Manager connector.
 
-1. In the Logic App Designer, under the trigger, select **New step**.
+1. In the Logic Apps Designer, under the trigger, select **New step**.
 
 1. In the search box, enter `Resource Manager` as your filter. Select **Create or update a resource**.
 
@@ -1051,15 +1189,13 @@ Optionally, you can download or store the generated schemas in repositories, suc
 
 1. After a successful run, go to the integration account, and check that the generated schemas exist.
 
-<a name="secure-network-communications"></a>
-
 ## Enable Secure Network Communications
 
-Before you start, make sure that you met the previously listed [prerequisites](#pre-reqs), which apply only when you use the data gateway and your logic apps run in multi-tenant Azure:
+Before you start, make sure that you met the previously listed [prerequisites](#prerequisites), which apply only when you use the data gateway and your logic apps run in multi-tenant Azure:
 
 * Make sure the on-premises data gateway is installed on a computer that's in the same network as your SAP system.
 
-* For Single Sign On (SSO), the data gateway is running as a user that's mapped to an SAP user.
+* For SSO, the data gateway is running as a user that's mapped to an SAP user.
 
 * The SNC library that provides the additional security functions is installed on the same machine as the data gateway. Some examples include [sapseculib](https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm), Kerberos, and NTLM.
 
@@ -1078,8 +1214,6 @@ Before you start, make sure that you met the previously listed [prerequisites](#
 
    > [!NOTE]
    > Don't set the environment variables SNC_LIB and SNC_LIB_64 on the machine where you have the data gateway and the SNC library. If set, they take precedence over the SNC library value passed through the connector.
-
-<a name="safe-typing"></a>
 
 ## Safe typing
 
@@ -1172,40 +1306,107 @@ If you experience an issue with duplicate IDocs being sent to SAP from your logi
 > If confirmation for a transaction identifier fails, this failure indicates that communcation with the SAP system failed before SAP was able to acknowledge the confirmation.
 
 1. In the Logic Apps designer, add the action **Initialize variable** to your logic app. 
+
 1. In the editor for the action **Initialize variable**, configure the following settings. Then, save your changes.
+
     1. For **Name**, enter a name for your variable. For example, `IDOCtransferID`.
-    2. For **Type**, select **String** as the variable type.
-    3. For **Value**, select the text box **Enter initial value** to open the dynamic content menu. Select the **Expressions** tab. In the list of functions, enter the function `guid()`. Then, select **OK** to save your changes. The **Value** field is now set to the `guid()` function, which generates a GUID.
+
+    1. For **Type**, select **String** as the variable type.
+
+    1. For **Value**, select the text box **Enter initial value** to open the dynamic content menu. Select the **Expressions** tab. In the list of functions, enter the function `guid()`. Then, select **OK** to save your changes. The **Value** field is now set to the `guid()` function, which generates a GUID.
+
 1. After the **Initialize variable** action, add the action **Send IDOC**.
+
 1. In the editor for the action **Send IDOC**, configure the following settings. Then, save your changes.
+
     1. For **IDOC type** select your message type, and for **Input IDOC message**, specify your message.
+
     1. For **SAP release version**, select your SAP configuration's values.
+
     1. For **Record types version**, select your SAP configuration's values.
+
     1. For **Confirm TID**, select **No**.
+
     1. Select **Add new parameter list** > **Transaction ID GUID**. Select the text box to open the dynamic content menu. Under the **Variables** tab, select the name of the variable that you created. For example, `IDOCtransferID`.
-1. On the title bar of the action **Send IDOC**, select **...** > **Settings**. For **Retry Policy**, select **None** > **Done**.
+
+1. On the title bar of the action **Send IDOC**, select **...** > **Settings**. For **Retry Policy**, it's recommended to select **Default** &gt; **Done**. However, you can instead configure a custom policy for your specific needs. For custom policies, it's recommended to configure at least one retry to overcome temporary network outages.
+
 1. After the action **Send IDOC**, add the action **Confirm transaction ID**.
+
 1. In the editor for the action **Confirm transaction ID**, configure the following settings. Then, save your changes.
+
     1. For **Transaction ID**, enter the name of your variable again. For example, `IDOCtransferID`.
+
+1. Optionally, validate the deduplication in your test environment. Repeat the **Send IDOC** action with the same **Transaction ID** GUID that you used in the previous step. When you send the same IDoc twice, you can validate that SAP is able to identify the duplication of the tRFC call and resolve the two calls to a single inbound IDoc message.
 
 ## Known issues and limitations
 
-Here are the currently known issues and limitations for the managed (non-ISE) SAP connector:
+Here are the currently known issues and limitations for the managed (non-ISE) SAP connector: 
 
-* The SAP trigger doesn't support data gateway clusters. In some failover cases, the data gateway node that communicates with the SAP system might differ from the active node, which results in unexpected behavior. For send scenarios, data gateway clusters are supported.
+* In general, the SAP trigger doesn't support data gateway clusters. In some failover cases, the data gateway node that communicates with the SAP system might differ from the active node, which results in unexpected behavior.
+
+  * For send scenarios, data gateway clusters in failover mode are supported. 
+
+  * Data gateway clusters in load balancing mode aren't supported by stateful SAP actions. These actions include **Create stateful session**, **Commit BAPI transaction**, **Rollback BAPI transaction**, **Close stateful session**, and all actions that specify a **Session ID** value. Stateful communications must remain on the same data gateway cluster node. 
+
+  * For stateful SAP actions, use the data gateway either in non-cluster mode or in a cluster that's set up for failover only.
 
 * The SAP connector currently doesn't support SAP router strings. The on-premises data gateway must exist on the same LAN as the SAP system you want to connect.
 
+
 ## Connector reference
 
-For more technical details about this connector, such as triggers, actions, and limits as described by the connector's Swagger file, see the [connector's reference page](/connectors/sap/).
+For more technical details about this connector, such as triggers, actions, and limits as described by the connector's Swagger file, see the [connector's reference page](/connectors/sap/). Additional documentation for Logic Apps is provided for the following actions:
+
+* [Call BAPI](#call-bapi-action)
+
+* [Send IDOC](#send-idoc-action)
 
 > [!NOTE]
 > For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
 > this connector's ISE-labeled version uses the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
 
+### Call BAPI action
+
+The [Call BAPI (`CallBapi`)](
+https://docs.microsoft.com/connectors/sap/#call-bapi-(preview)) action calls the BAPI method on your SAP server. 
+
+You must use the following parameters with your call: 
+
+* **Business Object** (`businessObject`), which is a searchable drop-down menu.
+
+* **Method** (`method`), which populates the available methods after you've selected a **Business Object**. The available methods vary depending on the selected **Business Object**.
+
+* **Input BAPI parameters** (`body`), in which you call the XML document that contains the BAPI method input parameter values for the call, or the URI of the storage blob that contains your BAPI parameters.
+
+For detailed examples of how to use the Call BAPI action, see the [XML samples of BAPI requests](#xml-samples-for-bapi-requests).
+
+> [!TIP]
+> If you're using the Logic Apps designer to edit your BAPI request, you can use the following search functions: 
+> 
+> * Select an object in the designer to see a drop-down menu of available methods.
+> * Filter business object types by keyword using the searchable list provided by the BAPI API call.
+
+### Send IDoc action
+
+The [Send IDoc (`SendIDoc`)](/connectors/sap/) action sends the IDoc message to your SAP server.
+
+You must use the following parameters with your call: 
+
+* **IDOC type with optional extension** (`idocType`), which is a searchable drop-down menu.
+
+    * The optional parameter **SAP release version** (`releaseVersion`) populates values after you select the IDoc type, and depends on the selected IDoc type.
+
+* **Input IDOC message** (`body`), in which you call the XML document containing the IDoc payload, or the URI of the storage blob that contains your IDoc XML document. This document must comply with either the SAP IDOC XML schema according to the WE60 IDoc Documentation, or the generated schema for the matching SAP IDoc action URI.
+
+For detailed examples of how to use the Send IDoc action, see the [walkthrough for sending IDoc messages to your SAP server](#send-idoc-messages-to-sap-server).
+
+For how to use optional parameter **Confirm TID** (`confirmTid`), see the [walkthrough for confirming the transaction explicitly](#confirm-transaction-explicitly).
+
 ## Next steps
 
 * [Connect to on-premises systems](../logic-apps/logic-apps-gateway-connection.md) from Azure Logic Apps.
+
 * Learn how to validate, transform, and use other message operations with the [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md).
+
 * Learn about other [Logic Apps connectors](../connectors/apis-list.md).

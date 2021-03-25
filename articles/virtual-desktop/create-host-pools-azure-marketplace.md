@@ -3,7 +3,8 @@ title: Windows Virtual Desktop host pool Azure portal - Azure
 description: How to create a Windows Virtual Desktop host pool by using the Azure portal.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 09/14/2020
+ms.custom: references_regions
+ms.date: 03/10/2021
 ms.author: helohr
 manager: lizross
 ---
@@ -61,6 +62,9 @@ To start creating your new host pool:
 
      > [!div class="mx-imgBorder"]
      > ![A screenshot of the Azure portal showing the Location field with the East US location selected. Next to the field is text that says, "Metadata will be stored in East US."](media/portal-location-field.png)
+  
+   >[!NOTE]
+   > If you want to create your host pool in [a supported region](data-locations.md) outside the US, you'll need to re-register the resource provider. After re-registering, you should see the other regions in the drop-down for selecting the location. Learn how to re-register at our [Host pool creation](troubleshoot-set-up-issues.md#i-only-see-us-when-setting-the-location-for-my-service-objects) troubleshooting article.
 
 8. Under Host pool type, select whether your host pool will be **Personal** or **Pooled**.
 
@@ -91,18 +95,16 @@ To set up your virtual machine within the host pool setup process:
 
 1. Under **Resource group**, choose the resource group where you want to create the virtual machines. This can be a different resource group than the one you used for the host pool.
 
-2. Choose the **Virtual machine location** where you want to create the virtual machines. They can be the same or different from the region you selected for the host pool.
+2. After that, provide a **Name prefix** to name the virtual machines the setup process creates. The suffix will be `-` with numbers starting from 0.
 
-3. Next, choose the **Virtual machine size** you want to use. You can either keep the default size as-is or select **Change size** to change the size. If you select **Change size**, in the window that appears, choose the size of the virtual machine suitable for your workload.
+3. Choose the **Virtual machine location** where you want to create the virtual machines. They can be the same or different from the region you selected for the host pool.
+   
+4. Next, choose the availability option that best suit your needs. To learn more about which option is right for you, see [Availability options for virtual machines in Azure](../virtual-machines/availability.md) and [our FAQ](faq.md#which-availability-option-is-best-for-me).
+   
+   > [!div class="mx-imgBorder"]
+   > [A screenshot of the availability zone drop-down menu. The "availability zone" option is highlighted.](media/availability-zone.png)
 
-4. Under **Number of VMs**, provide the number of VMs you want to create for your host pool.
-
-    >[!NOTE]
-    >The setup process can create up to 400 VMs while setting up your host pool, and each VM setup process creates four objects in your resource group. Since the creation process doesn't check your subscription quota, make sure the number of VMs you enter is within the Azure VM and API limits for your resource group and subscription. You can add more VMs after you finish creating your host pool.
-
-5. After that, provide a **Name prefix** to name the virtual machines the setup process creates. The suffix will be `-` with numbers starting from 0.
-
-6. Next, choose the image that needs to be used to create the virtual machine. You can choose either **Gallery** or **Storage blob**.
+5. Next, choose the image that needs to be used to create the virtual machine. You can choose either **Gallery** or **Storage blob**.
 
     - If you choose **Gallery**, select one of the recommended images from the drop-down menu:
 
@@ -112,23 +114,30 @@ To set up your virtual machine within the host pool setup process:
       - Windows 10 Enterprise multi-session, Version 2004
       - Windows 10 Enterprise multi-session, Version 2004 + Microsoft 365 Apps
 
-     If you don't see the image you want, select **Browse all images and disks**, which lets you select either another image in your gallery or an image provided by Microsoft and other publishers.
+      If you don't see the image you want, select **See all images**, which lets you select either another image in your gallery or an image provided by Microsoft and other publishers. Make sure that the image you choose is one of the [supported OS images](overview.md#supported-virtual-machine-os-images).
 
-     > [!div class="mx-imgBorder"]
-     > ![A screenshot of the Marketplace with a list of images from Microsoft displayed.](media/marketplace-images.png)
+      > [!div class="mx-imgBorder"]
+      > ![A screenshot of the Marketplace with a list of images from Microsoft displayed.](media/marketplace-images.png)
 
-     You can also go to **My Items** and choose a custom image you've already uploaded.
+      You can also go to **My Items** and choose a custom image you've already uploaded.
 
-     > [!div class="mx-imgBorder"]
-     > ![A screenshot of the My Items tab.](media/my-items.png)
+      > [!div class="mx-imgBorder"]
+      > ![A screenshot of the My Items tab.](media/my-items.png)
 
-    - If you choose **Storage Blob**, you can leverage your own image build through Hyper-V or on an Azure VM. All you have to do is enter the location of the image in the storage blob as a URI.
+    - If you choose **Storage Blob**, you can use your own image build through Hyper-V or on an Azure VM. All you have to do is enter the location of the image in the storage blob as a URI.
+   
+   The image's location is independent of the availability option, but the image’s zone resiliency determines whether that image can be used with availability zone. If you select an availability zone while creating your image, make sure you're using an image from the gallery with zone resiliency enabled. To learn more about which zone resiliency option you should use, see [the FAQ](faq.md#which-availability-option-is-best-for-me).
 
-7. Choose what kind of OS disks you want your VMs to use: Standard SSD, Premium SSD, or Standard HDD.
+6. After that, choose the **Virtual machine size** you want to use. You can either keep the default size as-is or select **Change size** to change the size. If you select **Change size**, in the window that appears, choose the size of the virtual machine suitable for your workload.
 
-8. Under Network and security, select the **Virtual network** and **Subnet** where you want to put the virtual machines you create. Make sure the virtual network can connect to the domain controller, since you'll need to join the virtual machines inside the virtual network to the domain. The DNS servers of the virtual network you selected should be configured to use the IP of the domain controller.
+7. Under **Number of VMs**, provide the number of VMs you want to create for your host pool.
 
-9. Next, select whether you want a public IP for the virtual machines. We recommend you select **No** because a private IP is more secure.
+    >[!NOTE]
+    >The setup process can create up to 400 VMs while setting up your host pool, and each VM setup process creates four objects in your resource group. Since the creation process doesn't check your subscription quota, make sure the number of VMs you enter is within the Azure VM and API limits for your resource group and subscription. You can add more VMs after you finish creating your host pool.
+
+8. Choose what kind of OS disks you want your VMs to use: Standard SSD, Premium SSD, or Standard HDD.
+
+9. Under Network and security, select the **Virtual network** and **Subnet** where you want to put the virtual machines you create. Make sure the virtual network can connect to the domain controller, since you'll need to join the virtual machines inside the virtual network to the domain. The DNS servers of the virtual network you selected should be configured to use the IP of the domain controller.
 
 10. Select what kind of security group you want: **Basic**, **Advanced**, or **None**.
 
@@ -144,9 +153,9 @@ To set up your virtual machine within the host pool setup process:
 
 11. After that, select whether you want the virtual machines to be joined to a specific domain and organizational unit. If you choose **Yes**, specify the domain to join. You can optionally add a specific organizational unit you want the virtual machines to be in. If you choose **No**, the VMs will be joined to the domain matching the suffix of the **AD domain join UPN**.
 
-  - When specifying an OU, make sure you use the full path (Distinguished Name) and without quotation marks.
+    - When you specify an OU, make sure you use the full path (Distinguished Name) and without quotation marks.
 
-12. Under Administrator account, enter the credentials for the Active Directory Domain admin of the virtual network you selected. This account can't have multi-factored authentication (MFA) enabled. When joining to an Azure Active Directory Domain Services (Azure AD DS) domain, the account must be part of the Azure AD DC Administrators group and the account password must work in Azure AD DS.
+12. Under Domain Administrator account, enter the credentials for the Active Directory Domain admin of the virtual network you selected. This account can't have multi-factored authentication (MFA) enabled. When joining to an Azure Active Directory Domain Services (Azure AD DS) domain, the account must be part of the Azure AD DC Administrators group and the account password must work in Azure AD DS.
 
 13. Select **Next: Workspace >**.
 

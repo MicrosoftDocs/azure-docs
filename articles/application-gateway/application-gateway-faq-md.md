@@ -452,7 +452,7 @@ In the portal, on the menu blade of an application gateway, select **Activity Lo
 
 ### Can I set alerts with Application Gateway?
 
-Yes. In Application Gateway, alerts are configured on metrics. For more information, see [Application Gateway metrics](./application-gateway-metrics.md) and [Receive alert notifications](../azure-monitor/platform/alerts-overview.md).
+Yes. In Application Gateway, alerts are configured on metrics. For more information, see [Application Gateway metrics](./application-gateway-metrics.md) and [Receive alert notifications](../azure-monitor/alerts/alerts-overview.md).
 
 ### How do I analyze traffic statistics for Application Gateway?
 
@@ -468,9 +468,9 @@ Usually, you see an unknown status when access to the backend is blocked by a ne
 
 Due to current platform limitations, if you have an NSG on the Application Gateway v2 (Standard_v2, WAF_v2) subnet and if you have enabled NSG flow logs on it, you will see nondeterministic behavior and this scenario is currently not supported.
 
-### Does Application Gateway store customer data?
+### Where does Application Gateway store customer data?
 
-No, Application Gateway does not store customer data.
+Application Gateway does not move or store customer data out of the region it's deployed in.
 
 ## Next steps
 

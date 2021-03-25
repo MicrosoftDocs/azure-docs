@@ -18,7 +18,7 @@ The most common PowerShell modules are provided by default in each Automation ac
 
 To avoid impacting your runbooks and the processes they automate, be sure to test and validate as you make updates. If you don't have a dedicated Automation account intended for this purpose, consider creating one so that you can test many different scenarios during the development of your runbooks. This testing should include iterative changes, such as updating the PowerShell modules.
 
-Make sure that your Automation account has an [Azure Run As account credential](manage-runas-account.md) created.
+Make sure that your Automation account has an [Azure Run As account](automation-security-overview.md#run-as-accounts) created.
 
 If you develop your scripts locally, it's recommended to have the same module versions locally that you have in your Automation account when testing to ensure that you receive the same results. After the results are validated and you've applied any changes required, you can move the changes to production.
 
@@ -33,7 +33,7 @@ The **Update-AutomationAzureModulesForAccount** runbook supports updating the Az
 
 ## Use update runbook code as a regular PowerShell script
 
-You can use the runbook code as a regular PowerShell script instead of a runbook. To do this, sign in to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.7.0) cmdlet first, then pass `-Login $false` to the script.
+You can use the runbook code as a regular PowerShell script instead of a runbook. To do this, sign in to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet first, then pass `-Login $false` to the script.
 
 ## Use the update runbook on sovereign clouds
 

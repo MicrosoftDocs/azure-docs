@@ -1,17 +1,17 @@
 ---
-title: Create Azure subscriptions programatically
+title: Create Azure subscriptions programmatically
 description: This article helps you understand options available to programmatically create Azure subscriptions.
 author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/13/2021
+ms.date: 03/11/2021
 ms.reviewer: andalmia
 ms.author: banders 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
-# Create Azure subscriptions programatically
+# Create Azure subscriptions programmatically
 
 This article helps you understand options available to programmatically create Azure subscriptions.
 
@@ -21,7 +21,7 @@ Using various REST APIs you can create a subscription for the following Azure ag
 - Microsoft Customer Agreement (MCA)
 - Microsoft Partner Agreement (MPA)
 
-You can’t programmatically create additional subscriptions for other agreement types with REST APIs.
+You can't programmatically create additional subscriptions for other agreement types with REST APIs.
 
 Requirements and details to create subscriptions differ for different agreements and API versions. See the following articles that apply to your situation:
 
@@ -31,9 +31,9 @@ Latest APIs:
 - [Create MCA subscriptions](programmatically-create-subscription-microsoft-customer-agreement.md)
 - [Create MPA subscriptions](programmatically-create-subscription-microsoft-partner-agreement.md)
 
-If you’re still using [preview APIs](programmatically-create-subscription-preview.md), you can continue to create subscriptions with them. 
+These articles also show how to create subscriptions with an Azure Resource Manager template (ARM template). An ARM template helps automate the subscription creation process.
 
-And, you can [create subscriptions with an ARM template](create-subscription-template.md). An ARM template helps automate the subscription creation process with REST APIs. 
+If you're still using [preview APIs](programmatically-create-subscription-preview.md), you can continue to create subscriptions with them. 
 
 ## Next steps
 

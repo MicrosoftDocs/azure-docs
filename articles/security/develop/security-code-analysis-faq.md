@@ -4,7 +4,7 @@ description: Learn about the Microsoft Security Code Analysis extension by revie
 author: sukhans
 manager: sukhans
 ms.author: terrylan
-ms.date: 07/31/2019
+ms.date: 03/22/2021
 ms.topic: article
 ms.service: security
 services: azure
@@ -16,6 +16,10 @@ ms.workload: na
 ---
 
 # Frequently asked questions
+
+> [!Note]
+> Effective March 1, 2022, the Microsoft Security Code Analysis (MSCA) extension will be retired. Existing MSCA customers will retain their access to MSCA through March 1, 2022. Please refer to the [OWASP Source Code Analysis Tools](https://owasp.org/www-community/Source_Code_Analysis_Tools) for alternative options in Azure DevOps. For customers planning to migrate to GitHub, you can check out [GitHub Advanced Security](https://docs.github.com/github/getting-started-with-github/about-github-advanced-security).
+
 Got questions? Check out the following FAQ for more information.
 
 ## General FAQ
@@ -159,7 +163,7 @@ The following resources help you securely manage secrets and access sensitive in
  - [Azure AD Managed Service Identity (MSI)](https://azure.microsoft.com/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/)
  - [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md)
  - [Managed identities in Azure App Service and Azure Functions](../../app-service/overview-managed-identity.md)
- - [AppAuthentication library](../../key-vault/general/service-to-service-authentication.md)
+ - [AppAuthentication library](/dotnet/api/overview/azure/service-to-service-authentication)
 
 
 For more information, see the blog post [Managing Secrets Securely in the Cloud](https://devblogs.microsoft.com/visualstudio/managing-secrets-securely-in-the-cloud/).

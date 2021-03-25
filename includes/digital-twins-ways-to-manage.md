@@ -7,7 +7,7 @@ ms.date: 11/11/2020
 ms.author: baanders
 ---
 
-This article highlights how to complete different management operations using the [Azure Digital Twins .NET (C#) **SDK**](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true). You can also craft these same management calls using the other language SDKs described in [*How-to: Use the Azure Digital Twins APIs and SDKs*](../articles/digital-twins/how-to-use-apis-sdks.md).
+This article highlights how to complete different management operations using the [Azure Digital Twins .NET (C#) **SDK**](/dotnet/api/overview/azure/digitaltwins/management). You can also craft these same management calls using the other language SDKs described in [*How-to: Use the Azure Digital Twins APIs and SDKs*](../articles/digital-twins/how-to-use-apis-sdks.md).
 
 > [!TIP] 
 > Remember that all SDK methods come in synchronous and asynchronous versions. For paging calls, the async methods return `AsyncPageable<T>` while the synchronous versions return `Pageable<T>`.

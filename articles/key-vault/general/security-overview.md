@@ -13,15 +13,14 @@ ms.author: mbaldwin
 #Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
 ---
 
-# Azure Key Vault security overview
+# Azure Key Vault security
 
 You use Azure Key Vault to protect encryption keys and secrets like certificates, connection strings, and passwords in the cloud. When storing sensitive and business critical data, you need to take steps to maximize the security of your vaults and the data stored in them.
 
-This article provides an overview of security features and best practices for Azure Key Vault. For a comprehensive list of recommendations, based on the [Azure Security Benchmark](../../security/benchmarks/introduction.md), see the [Security baseline for Azure Key Vault](security-baseline.md).
+This article provides an overview of security features and best practices for Azure Key Vault. 
 
-## General guidance
-
-Our recommendation is to use a vault per application per environment (Development, Pre-Production and Production). This helps you not share secrets across environments and also reduces the threat in case of a breach.
+> [!NOTE]
+> For a comprehensive list of Azure Key Vault security recommendations see the [Security baseline for Azure Key Vault](security-baseline.md).
 
 ## Network security
 
@@ -106,20 +105,9 @@ Azure Key Vault soft-delete and purge protection allows you to recover deleted v
 
 You should also take regular back ups of your vault on update/delete/create of objects within a Vault.  
 
-Azure PowerShell backup commands:
-
-* [Backup Certificate](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultCertificate)
-* [Backup Key](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultKey)
-* [Backup Secret](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultSecret)
-
-Azure CLI backup commands
-
-* [Backup Certificate](/cli/azure/keyvault/certificate#az-keyvault-certificate-backup)
-* [Backup Key](/cli/azure/keyvault/key#az-keyvault-key-backup)
-* [Backup Secret](/cli/azure/keyvault/secret#az-keyvault-secret-backup)
-
-
 ## Next Steps
 
+- [Azure Key Vault security baseline](security-baseline.md)
+- [Azure Key Vault best practices](security-baseline.md)
 - [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md)
 - [Azure RBAC: Built-in roles](../../role-based-access-control/built-in-roles.md)

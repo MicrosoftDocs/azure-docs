@@ -1,9 +1,6 @@
 ---
 title: Machine learning example with Spark MLlib on HDInsight - Azure
 description: Learn how to use Spark MLlib to create a machine learning app that analyzes a dataset using classification through logistic regression.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020, devx-track-python
@@ -173,7 +170,7 @@ Let's start to get a sense of what the dataset contains.
 
     The output is:
 
-    ![SQL query output](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png "SQL query output")
+    :::image type="content" source="./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png " alt-text="SQL query output" border="true":::
 
 3. You can also use Matplotlib, a library used to construct visualization of data, to create a plot. Because the plot must be created from the locally persisted **countResultsdf** dataframe, the code snippet must begin with the `%%local` magic. This action ensures that the code is run locally on the Jupyter server.
 
@@ -346,7 +343,7 @@ You can now construct a final visualization to help you reason about the results
 
     You should see the following output:
 
-    ![Spark machine learning application output - pie chart percentages of failed food inspections.](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png "Spark machine learning result output")
+    :::image type="content" source="./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png " alt-text="Spark machine learning application output - pie chart percentages of failed food inspections." border="true":::
 
     In this chart, a "positive" result refers to the failed food inspection, while a negative result refers to a passed inspection.
 

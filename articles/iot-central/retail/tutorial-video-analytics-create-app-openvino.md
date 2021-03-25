@@ -119,3 +119,25 @@ On the **LVA Edge Gateway v2** page, select **+ Replace manifest**.
 Navigate to the *lva-configuration* folder and select the *deployment.openvino.amd64.json* manifest file you edited previously. Select **Upload**. When the validation is complete, select **Replace**.
 
 [!INCLUDE [iot-central-video-analytics-part4](../../../includes/iot-central-video-analytics-part4.md)]
+
+## Clean up resources
+
+If you've finished with the application, you can remove all the resources you created as follows:
+
+1. In the IoT Central application, navigate to the **Your application** page in the **Administration** section. Then select **Delete**.
+1. In the Azure portal, delete the **lva-rg** resource group.
+1. On your local machine, stop the **amp-viewer** Docker container.
+
+## Next steps
+
+You've now created an IoT Central application using the **Video analytics - object and motion detection** application template, created a device template for the gateway device, and added a gateway device to the application.
+
+If you want to try out the video analytics - object and motion detection application using IoT Edge modules running a cloud VM with simulated video streams:
+
+> [!div class="nextstepaction"]
+> [Create an IoT Edge instance for video analytics (Linux VM)](tutorial-video-analytics-iot-edge-vm.md)
+
+If you want to try out the video analytics - object and motion detection application using IoT Edge modules running a real device with real **ONVIF** camera:
+
+> [!div class="nextstepaction"]
+> [Create an IoT Edge instance for video analytics (Intel NUC)](tutorial-video-analytics-iot-edge-nuc.md)

@@ -1,9 +1,6 @@
 ---
 title: Azure Data Lake Storage Gen1 overview in HDInsight
 description: Overview of Data Lake Storage Gen1 in HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020

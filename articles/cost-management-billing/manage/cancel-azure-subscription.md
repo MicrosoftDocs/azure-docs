@@ -74,7 +74,7 @@ If you have a free trial subscription, you don't have to wait 30 days for the su
 
 ## Reactivate a subscription
 
-If you cancel your subscription with Pay-As-You-Go rates accidentally, you can [reactivate it in the Accounts Center](subscription-disabled.md).
+If you cancel your subscription with Pay-As-You-Go rates accidentally, you can [reactivate it in the Azure portal](subscription-disabled.md).
 
 If your subscription isn't a subscription with Pay-As-You-Go rates, contact support within 90 days of cancellation to reactivate your subscription.
 
@@ -96,4 +96,4 @@ See the [Renewal and Cancellation](/visualstudio/subscriptions/faq/admin/renewal
 
 ## Next steps
 
-- If needed, you can reactivate a pay-as-you-go subscription in the [Account center](subscription-disabled.md).
+- If needed, you can reactivate a pay-as-you-go subscription in the [Azure portal](subscription-disabled.md).

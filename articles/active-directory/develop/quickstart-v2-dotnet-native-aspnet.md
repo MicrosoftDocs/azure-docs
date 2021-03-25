@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Call an ASP.NET web API that is protected by Microsoft identity platform | Azure"
+title: "Quickstart: Call an ASP.NET web API that is protected by the Microsoft identity platform | Azure"
 titleSuffix: Microsoft identity platform
-description: In this quickstart, learn how to call an ASP.NET web API that's protected by Microsoft identity platform from a Windows Desktop (WPF) application.
+description: In this quickstart, learn how to call an ASP.NET web API that's protected by the Microsoft identity platform from a Windows Desktop (WPF) application.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -37,6 +37,8 @@ You can obtain the sample in either of two ways:
    ```
 * [Download it as a ZIP file](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/complete.zip).
 
+[!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
+
 ## Register your web API
 
 In this section, you register your web API in **App registrations** in the Azure portal.
@@ -45,13 +47,12 @@ In this section, you register your web API in **App registrations** in the Azure
 
 To register your apps manually, choose the Azure Active Directory (Azure AD) tenant where you want to create your apps.
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a> with either a work or school account or a personal Microsoft account.
-1. If your account is present in more than one Azure AD tenant, select your profile at the upper right, and then select **Switch directory**.
-1. Change your portal session to the Azure AD tenant you want to use.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
+1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant that you want to use.
 
 ### Register the TodoListService app
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
@@ -176,7 +177,7 @@ You can limit sign-in access to your application to user accounts that are in a 
 
 ### Option 2: Use a custom method to validate issuers
 
-You can implement a custom method to validate issuers by using the `IssuerValidator` parameter. For more information about this parameter, see [TokenValidationParameters class](/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters?view=azure-dotnet&preserve-view=true).
+You can implement a custom method to validate issuers by using the `IssuerValidator` parameter. For more information about this parameter, see [TokenValidationParameters class](/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters).
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

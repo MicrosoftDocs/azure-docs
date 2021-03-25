@@ -23,7 +23,7 @@ In part four of the series, you learn how to:
 
 ## Configure metrics
 
-Navigate to **Metrics (preview)** under **SETTINGS** in your storage account.
+Navigate to **Metrics** under **SETTINGS** in your storage account.
 
 Choose Blob from the **SUB SERVICE** drop-down.
 

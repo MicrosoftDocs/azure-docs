@@ -3,19 +3,17 @@ title: Licensing Microsoft&reg; Smooth Streaming Client Porting Kit
 description: Learn about how to licensing the Microsoft&reg; Smooth Streaming Client Porting Kit.
 services: media-services
 documentationcenter: ''
-author: xpouyat
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: e3b488e7-8428-4c10-a072-eb3af46c82ad
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2019
+ms.date: 3/10/2021
 ms.author: xpouyat
-
 ---
 # Licensing Microsoft&reg; Smooth Streaming Client Porting Kit
 
@@ -42,7 +40,7 @@ SSPK is licensed on terms that offer excellent business value. SSPK license prov
   * programming interfaces for interaction with hardware A/V decoders (decoding, rendering)
 * Digital Rights Management (DRM) Interface 
   * programming interfaces for handling DRM through the DRM Abstraction Layer (DAL)
-  * Microsoft PlayReady Porting Kit ships separately but integrates through this interface. For more details on Microsoft PlayReady Device licensing, click [here](https://www.microsoft.com/playready/licensing/device_technology.mspx#pddipdl).
+  * Microsoft PlayReady Porting Kit ships separately but integrates through this interface. [See more details on Microsoft PlayReady Device licensing](https://www.microsoft.com/playready/licensing/device_technology.mspx#pddipdl).
 * Implementation samples 
   * sample PAL implementation for Linux
   * sample HAL implementation for GStreamer
@@ -119,18 +117,18 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * EXPRESS LUCK TECHNOLOGY LIMITED
 * Fluendo S.A.
 * FUNAI ELECTRIC CO., LTD
-* Hisense International Co., Ltd. 
+* Hisense International Co., Ltd.
+* Hisense Visual Technology Co., Ltd
 * HKC Corporation Limited
 * Hong Kong Konka Ltd
 * Innolux Corporation
-* Innopia Technologies, Inc
+* Jinpin Electrical Company Ltd.Zhuhai.S.E.Z
 * K-Tronics (Suzhou) Technology Co., Ltd. 
 * Kaonmedia Co., Ltd.
 * KDDI Corporation
 * Mega Fame Electronics Co. Limited
 * MIRC Electronics Limited
 * MOKA INTERNATIONAL LIMITED
-* Nintendo Co., Ltd.
 * ONEPLUS ELECTRONICS (SHENZHEN) CO., LTD.
 * Panasonic Corporation
 * Qingdao Haier Optronics Co., Ltd.
@@ -143,7 +141,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * Shenzhen Skyworth Digital Technology Co., Ltd
 * Sichuan Changhong Electric Co., Ltd.
 * Skardin Industrial Corp.
-* Sky Deutschland Fernsehen GmbH & Co. KG
+* Sky CP Ltd
 * SMARDTV GLOBAL SAS
 * SoftAtHome
 * Sony Corporation

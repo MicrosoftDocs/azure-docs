@@ -82,6 +82,5 @@ How Impact is ultimately calculated varies based on whether we are analyzing by 
     - [Funnels](usage-funnels.md)
     - [Retention](usage-retention.md)
     - [User Flows](usage-flows.md)
-    - [Workbooks](../platform/workbooks-overview.md)
-    - [Add user context](usage-send-user-context.md)
-
+    - [Workbooks](../visualize/workbooks-overview.md)
+    - [Add user context](./usage-overview.md)

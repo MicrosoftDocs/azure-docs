@@ -1,12 +1,11 @@
 ---
-title: How to generate thumbnails using Azure Media Services Encoder Standard with .NET
+title: Generate thumbnails using Media Encoder Standard .NET
 description: This article shows how to use .NET to encode an asset and generate thumbnails at the same time using Media Encoder Standard.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -15,7 +14,6 @@ ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-
 ---
 # How to generate thumbnails using Encoder Standard with .NET
 
@@ -92,4 +90,5 @@ private static Transform EnsureTransformExists(IAzureMediaServicesClient client,
 ```
 
 ## Next steps
+
 [Generate thumbnails using REST](media-services-generate-thumbnails-rest.md)

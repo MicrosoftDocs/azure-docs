@@ -20,8 +20,8 @@ You may need to inspect or block traffic from clients to the services exposed vi
 
 The following limitations apply:
 
-* Network security groups (NSGs) don't apply to private endpoints
-* User-defined routes (UDR) don't apply to private endpoints
+* Network security groups (NSG) are bypassed by traffic coming from private endpoints
+* User-defined routes (UDR) are bypassed by traffic coming from private endpoints
 * A single route table can be attached to a subnet
 * A route table supports up to 400 routes
 
@@ -30,7 +30,8 @@ Azure Firewall filters traffic using either:
 * [FQDN in network rules](../firewall/fqdn-filtering-network-rules.md) for TCP and UDP protocols
 * [FQDN in application rules](../firewall/features.md#application-fqdn-filtering-rules) for HTTP, HTTPS, and MSSQL. 
 
-Most of the services exposed over private endpoints use HTTPS. The use of application rules over network rules is recommended when using Azure SQL.
+> [!IMPORTANT] 
+> The use of application rules over network rules is recommended when inspecting traffic destined to private endpoints in order to maintain flow symmetry. If network rules are used, or an NVA is used instead of Azure Firewall, SNAT must be configured for traffic destined to private endpoints.
 
 > [!NOTE]
 > SQL FQDN filtering is supported in [proxy-mode](../azure-sql/database/connectivity-architecture.md#connection-policy) only (port 1433). **Proxy** mode can result in more latency compared to *redirect*. If you want to continue using redirect mode, which is the default for clients connecting within Azure, you can filter access using FQDN in firewall network rules.
@@ -41,12 +42,9 @@ Most of the services exposed over private endpoints use HTTPS. The use of applic
 
 This scenario is the most expandable architecture to connect privately to multiple Azure services using private endpoints. A route pointing to the network address space where the private endpoints are deployed is created. This configuration reduces administrative overhead and prevents running into the limit of 400 routes.
 
-Connections from a client virtual network to the Azure Firewall in a hub virtual network will incur charges if the virtual networks are peered.
+Connections from a client virtual network to the Azure Firewall in a hub virtual network will incur charges if the virtual networks are peered. Connections from Azure Firewall in a hub virtual network to private endpoints in a peered virtual network are not charged.
 
 For more information on charges related to connections with peered virtual networks, see the FAQ section of the [pricing](https://azure.microsoft.com/pricing/details/private-link/) page.
-
->[!NOTE]
-> This scenario can be implemented using any third party NVA or Azure Firewall network rules instead of application rules.
 
 ## Scenario 2: Hub and spoke architecture - Shared virtual network for private endpoints and virtual machines
 
@@ -64,21 +62,15 @@ The administrative overhead of maintaining the route table increases as services
 
 Depending on your overall architecture, it's possible to run into the 400 routes limit. It's recommended to use scenario 1 whenever possible.
 
-Connections from a client virtual network to the Azure Firewall in a hub virtual network will incur charges if the virtual networks are peered.
+Connections from a client virtual network to the Azure Firewall in a hub virtual network will incur charges if the virtual networks are peered. Connections from Azure Firewall in a hub virtual network to private endpoints in a peered virtual network are not charged.
 
 For more information on charges related to connections with peered virtual networks, see the FAQ section of the [pricing](https://azure.microsoft.com/pricing/details/private-link/) page.
-
->[!NOTE]
-> This scenario can be implemented using any third party NVA or Azure Firewall network rules instead of application rules.
 
 ## Scenario 3: Single virtual network
 
 :::image type="content" source="./media/inspect-traffic-using-azure-firewall/single-vnet.png" alt-text="Single virtual network" border="true":::
 
-There's some limitations to implementation: a migration to a hub and spoke architecture isn't possible. The same considerations as in scenario 2 apply. In this scenario, virtual network peering charges don't apply.
-
->[!NOTE]
-> If you want to implement this scenario using a third party NVA or Azure Firewall, network rules instead of application rules is required to SNAT traffic destined to the private endpoints. Otherwise communication between the virtual machines and private endpoints will fail.
+Use this pattern when a migration to a hub and spoke architecture isn't possible. The same considerations as in scenario 2 apply. In this scenario, virtual network peering charges don't apply.
 
 ## Scenario 4: On-premises traffic to private endpoints
 
@@ -87,21 +79,18 @@ There's some limitations to implementation: a migration to a hub and spoke archi
 This architecture can be implemented if you have configured connectivity with your on-premises network using either: 
 
 * [ExpressRoute](..\expressroute\expressroute-introduction.md)
-* [Site to Site VPN](..\vpn-gateway\vpn-gateway-howto-site-to-site-resource-manager-portal.md) 
+* [Site to Site VPN](../vpn-gateway/tutorial-site-to-site-portal.md) 
 
 If your security requirements require client traffic to services exposed via private endpoints to be routed through a security appliance, deploy this scenario.
 
 The same considerations as in scenario 2 above apply. In this scenario, there aren't virtual network peering charges. For more information about how to configure your DNS servers to allow on-premises workloads to access private endpoints, see [On-Premises workloads using a DNS forwarder](./private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder).
-
->[!NOTE]
-> If you want to implement this scenario using a third party NVA or Azure Firewall, network rules instead of application rules is required to SNAT traffic destined to the private endpoints. Otherwise communication between the virtual machines and private endpoints will fail.
 
 ## Prerequisites
 
 * An Azure subscription.
 * A Log Analytics workspace.  
 
-See, [Create a Log Analytics workspace in the Azure portal](../azure-monitor/learn/quick-create-workspace.md) to create a workspace if you don't have one in your subscription.
+See, [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md) to create a workspace if you don't have one in your subscription.
 
 
 ## Sign in to Azure

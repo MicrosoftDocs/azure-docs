@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/09/2020
+ms.date: 02/22/2021
 
 ms.author: justinha
 author: justinha
@@ -20,9 +20,9 @@ ms.collection: M365-identity-device-management
 
 The Microsoft Authenticator app provides an additional level of security to your Azure AD work or school account or your Microsoft account and is available for [Android](https://go.microsoft.com/fwlink/?linkid=866594) and [iOS](https://go.microsoft.com/fwlink/?linkid=866594). With the Microsoft Authenticator app, users can authenticate in a passwordless way during sign-in, or as an additional verification option during self-service password reset (SSPR) or Azure AD Multi-Factor Authentication events.
 
-Users may receive a notification through the mobile app for them to approve or deny, or use the Authenticator app to generate an OATH verification code that can be entered in a sign-in interface. If you enable both a notification and verification code, users who register the Authenticator app can use either method to verify their identity.
+Users may receive a notification through the mobile app for them to approve or deny, or use the Authenticator app to generate an OAUTH verification code that can be entered in a sign-in interface. If you enable both a notification and verification code, users who register the Authenticator app can use either method to verify their identity.
 
-To use the Authenticator app at a sign-in prompt rather than a username and password combination, see [Enable passwordless sign-in with the Microsoft Authenticator app (preview)](howto-authentication-passwordless-phone.md).
+To use the Authenticator app at a sign-in prompt rather than a username and password combination, see [Enable passwordless sign-in with the Microsoft Authenticator app](howto-authentication-passwordless-phone.md).
 
 > [!NOTE]
 > Users don't have the option to register their mobile app when they enable SSPR. Instead, users can register their mobile app at [https://aka.ms/mfasetup](https://aka.ms/mfasetup) or as part of the combined security info registration at [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
@@ -33,7 +33,7 @@ Instead of seeing a prompt for a password after entering a username, a user that
 
 ![Example of a browser sign-in asking for user to approve the sign-in](./media/howto-authentication-passwordless-phone/phone-sign-in-microsoft-authenticator-app.png)
 
-This authentication method provides a high level of security, and removes the need for the user to provide a password at sign-in. Passwordless sign-in using the Microsoft Authenticator app is currently in preview.
+This authentication method provides a high level of security, and removes the need for the user to provide a password at sign-in. 
 
 To get started with passwordless sign-in, see [Enable passwordless sign-in with the Microsoft Authenticator app](howto-authentication-passwordless-phone.md).
 

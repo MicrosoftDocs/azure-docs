@@ -23,7 +23,7 @@ You can create [user flows](user-flow-overview.md) of different types in your Az
 ## Before you begin
 
 - **Register the application** you want to use to test the new user flow. For an example, see the [Tutorial: Register a web application in Azure AD B2C](tutorial-register-applications.md).
-- **Add external identity providers** if you want to enable user sign-in with providers like Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft, or Twitter. For an example, see [Tutorial: Add identity providers to your applications in Azure AD B2C](tutorial-add-identity-providers.md).
+- **Add external identity providers** if you want to enable user sign-in with providers like Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft, or Twitter. See [Add identity providers to your applications in Azure AD B2C](add-identity-provider.md).
 - **Configure the local account identity provider** to specify the identity types (email, username, phone number) you want to support for local accounts in your tenant. Then you can choose from these supported identity types when you create individual user flows. When a user completes the user flow, a local account is created in your Azure AD B2C directory, and your **Local account** identity provider authenticates the user's information. Configure your tenant's local account identity provider with these steps:
 
    1. Sign in to the [Azure portal](https://portal.azure.com/). 
@@ -62,7 +62,7 @@ You can create [user flows](user-flow-overview.md) of different types in your Az
 
    - **Local account**. If you want to allow users to create local accounts in your Azure AD B2C tenant, select the type of identifier you want them to use (for example, email, user ID, or phone). Only those identity types that are configured in your [local account identity provider](#before-you-begin) settings are listed.
 
-   - **Social identity providers**. If you want to allow user sign-in with [social identity providers you've added](tutorial-add-identity-providers.md), like Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft, or Twitter, select the providers from the list.
+   - **Social identity providers**. If you want to allow user sign-in with [social identity providers you've added](add-identity-provider.md), like Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft, or Twitter, select the providers from the list.
 
 9. For **User attributes and claims**, choose the claims and attributes that you want to collect and send from the user during sign-up. Select **Show more**. Select the attributes and claims, and then select **OK**.
 

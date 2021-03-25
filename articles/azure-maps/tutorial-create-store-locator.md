@@ -931,6 +931,10 @@ In this tutorial, you learned how to create a basic store locator by using Azure
 
 You can [View full source code](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator), [View live sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator) and learn more about the coverage and capabilities of Azure Maps by using [Zoom levels and tile grid](zoom-levels-and-tile-grid.md). You can also [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md) to apply to your business logic.
 
+## Clean up resources
+
+There are no resources that require cleanup.
+
 ## Next steps
 
 To see more code examples and an interactive coding experience:

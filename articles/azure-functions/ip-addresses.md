@@ -8,12 +8,12 @@ ms.date: 12/03/2018
 
 # IP addresses in Azure Functions
 
-This article explains the following topics related to IP addresses of function apps:
+This article explains the following concepts related to IP addresses of function apps:
 
-* How to find the IP addresses currently in use by a function app.
-* What causes a function app's IP addresses to be changed.
-* How to restrict the IP addresses that can access a function app.
-* How to get dedicated IP addresses for a function app.
+* Locating the IP addresses currently in use by a function app.
+* Conditions that cause function app IP addresses to changed.
+* Restricting the IP addresses that can access a function app.
+* Defining dedicated IP addresses for a function app.
 
 IP addresses are associated with function apps, not with individual functions. Incoming HTTP requests can't use the inbound IP address to call individual functions; they must use the default domain name (functionappname.azurewebsites.net) or a custom domain name.
 
@@ -23,8 +23,7 @@ Each function app has a single inbound IP address. To find that IP address:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Navigate to the function app.
-3. Select **Platform features**.
-4. Select **Properties**, and the inbound IP address appears under **Virtual IP address**.
+3. Under **Settings**, select **Properties**. The inbound IP address appears under **Virtual IP address**.
 
 ## <a name="find-outbound-ip-addresses"></a>Function app outbound IP addresses
 
@@ -51,9 +50,9 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 
 ## Data center outbound IP addresses
 
-If you need to add the outbound IP addresses used by your function apps to an allow list, another option is to add the function apps' data center (Azure region) to an allow list. You can [download a JSON file that lists IP addresses for all Azure data centers](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Then find the JSON fragment that applies to the region that your function app runs in.
+If you need to add the outbound IP addresses used by your function apps to an allowlist, another option is to add the function apps' data center (Azure region) to an allowlist. You can [download a JSON file that lists IP addresses for all Azure data centers](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Then find the JSON fragment that applies to the region that your function app runs in.
 
-For example, this is what the Western Europe JSON fragment might look like:
+For example, the following JSON fragment is what the allowlist for Western Europe might look like:
 
 ```
 {
@@ -96,10 +95,12 @@ The set of available outbound IP addresses for a function app might change when 
 
 When your function app runs in a [Consumption plan](consumption-plan.md) or in a [Premium plan](functions-premium-plan.md), the outbound IP address might also change even when you haven't taken any actions such as the ones [listed above](#inbound-ip-address-changes).
 
-To deliberately force an outbound IP address change:
+Use the following procedure to deliberately force an outbound IP address change:
 
 1. Scale your App Service plan up or down between Standard and Premium v2 pricing tiers.
+
 2. Wait 10 minutes.
+
 3. Scale back to where you started.
 
 ## IP address restrictions
@@ -108,7 +109,15 @@ You can configure a list of IP addresses that you want to allow or deny access t
 
 ## Dedicated IP addresses
 
-If you need static, dedicated IP addresses, we recommend [App Service Environments](../app-service/environment/intro.md) (the [Isolated tier](https://azure.microsoft.com/pricing/details/app-service/) of App Service plans). For more information, see [App Service Environment IP addresses](../app-service/environment/network-info.md#ase-ip-addresses) and [How to control inbound traffic to an App Service Environment](../app-service/environment/app-service-app-service-environment-control-inbound-traffic.md).
+There are several strategies to explore when your function app requires static, dedicated IP addresses. 
+
+### Virtual network NAT gateway for outbound static IP
+
+You can control the IP address of outbound traffic from your functions by using a virtual network NAT gateway to direct traffic through a static public IP address. You can use this topology when running in a [Premium plan](functions-premium-plan.md). To learn more, see [Tutorial: Control Azure Functions outbound IP with an Azure virtual network NAT gateway](functions-how-to-use-nat-gateway.md).
+
+### App Service Environments
+
+For full control over the IP addresses, both inbound and outbound, we recommend [App Service Environments](../app-service/environment/intro.md) (the [Isolated tier](https://azure.microsoft.com/pricing/details/app-service/) of App Service plans). For more information, see [App Service Environment IP addresses](../app-service/environment/network-info.md#ase-ip-addresses) and [How to control inbound traffic to an App Service Environment](../app-service/environment/app-service-app-service-environment-control-inbound-traffic.md).
 
 To find out if your function app runs in an App Service Environment:
 

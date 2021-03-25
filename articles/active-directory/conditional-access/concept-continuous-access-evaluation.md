@@ -25,7 +25,7 @@ Timely response to policy violations or security issues really requires a “con
 
 The initial implementation of continuous access evaluation focuses on Exchange, Teams, and SharePoint Online.
 
-To prepare your applications to use CAE, see [How to use Continuous Access Evaluation enabled APIs in your applications](/azure/active-directory/develop/app-resilience-continuous-access-evaluation).
+To prepare your applications to use CAE, see [How to use Continuous Access Evaluation enabled APIs in your applications](../develop/app-resilience-continuous-access-evaluation.md).
 
 ### Key benefits
 
@@ -45,9 +45,12 @@ Continuous access evaluation is implemented by enabling services, like Exchange 
 - Password for a user is changed or reset
 - Multi-factor authentication is enabled for the user
 - Administrator explicitly revokes all refresh tokens for a user
-- Elevated user risk detected by Azure AD Identity Protection
+- High user risk detected by Azure AD Identity Protection
 
 This process enables the scenario where users lose access to organizational SharePoint Online files, email, calendar, or tasks, and Teams from Microsoft 365 client apps within mins after one of these critical events. 
+
+> [!NOTE] 
+> Teams does not support user risk events yet.
 
 ### Conditional Access policy evaluation (preview)
 
@@ -56,11 +59,11 @@ Exchange and SharePoint are able to synchronize key Conditional Access policies 
 This process enables the scenario where users lose access to organizational files, email, calendar, or tasks from Microsoft 365 client apps or SharePoint Online immediately after network location changes.
 
 > [!NOTE]
-> Not all app and resource provider combination are supported. See table below. Office refers to Word, Excel, and PowerPoint
+> Not all app and resource provider combination are supported. See table below. Office refers to Word, Excel, and PowerPoint.
 
 | | Outlook Web | Outlook Win32 | Outlook iOS | Outlook Android | Outlook Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **SharePoint Online** | Supported | Supported | Not Supported | Not Supported | Supported |
+| **SharePoint Online** | Supported | Supported | Supported | Supported | Supported |
 | **Exchange Online** | Supported | Supported | Supported | Supported | Supported |
 
 | | Office web apps | Office Win32 apps | Office for iOS | Office for Android | Office for Mac |
@@ -68,23 +71,20 @@ This process enables the scenario where users lose access to organizational file
 | **SharePoint Online** | Not Supported | Supported | Supported | Supported | Supported |
 | **Exchange Online** | Not Supported | Supported | Supported | Supported | Supported |
 
+| | OneDrive web | OneDrive Win32 | OneDrive iOS | OneDrive Android | OneDrive Mac |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **SharePoint Online** | Supported | Supported | Supported | Supported | Supported |
+
 ### Client-side claim challenge
 
 Before continuous access evaluation, clients would always try to replay the access token from its cache as long as it was not expired. With CAE, we are introducing a new case that a resource provider can reject a token even when it is not expired. In order to inform clients to bypass their cache even though the cached tokens have not expired, we introduce a mechanism called **claim challenge** to indicate that the token was rejected and a new access token need to be issued by Azure AD. CAE requires a client update to understand claim challenge. The latest version of the following applications below support claim challenge:
 
-- Outlook Windows
-- Outlook iOS
-- Outlook Android
-- Outlook Mac
-- Outlook Web App
-- Teams for Windows (Only for Teams resource)
-- Teams iOS (Only for Teams resource)
-- Teams Android (Only for Teams resource)
-- Teams Mac (Only for Teams resource)
-- Word/Excel/PowerPoint for Windows
-- Word/Excel/PowerPoint for iOS
-- Word/Excel/PowerPoint for Android
-- Word/Excel/PowerPoint for Mac
+| | Web | Win32 | iOS | Android | Mac |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **Outlook** | Supported | Supported | Supported | Supported | Supported |
+| **Teams** | Supported | Supported | Supported | Supported | Supported |
+| **Office** | Not Supported | Supported | Supported | Supported | Supported |
+| **OneDrive** | Supported | Supported | Supported | Supported | Supported |
 
 ### Token lifetime
 
@@ -162,9 +162,9 @@ For an explanation of the office update channels, see [Overview of update channe
 
 ### Policy change timing
 
-Due to the potential of replication delay between Azure AD and resource providers, policy changes made by administrators could take up to 2 hours to be effective for Exchange Online.
+Policy changes made by administrators could take up to one day to be effective. Some optimization has been done to reduce the delay to two hours. However, it does not cover all the scenarios yet. 
 
-Example: Administrator adds a policy to block a range of IP addresses from accessing email at 11:00 AM, a user who has come from that IP range before could possibly continue to access email until 1:00 PM.
+If there is an emergency and you need to have your updated policies to be applied to certain users immediately, you should use this [PowerShell command](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) or "Revoke Session" in the user profile page to revoke the users' session, which will make sure that the updated policies will be applied immediately.
 
 ### Coauthoring in Office apps
 

@@ -7,12 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 02/22/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using APIs so that I can efficiently manage my VMs.
 ---
 
 # Deploy VMs on your Azure Stack Edge Pro GPU device via templates
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 This tutorial describes how to create and manage a VM on your Azure Stack Edge Pro device using templates. These templates are JavaScript Object Notation (JSON) files that define the infrastructure and configuration for your VM. In these templates, you specify the resources to deploy and the properties for those resources.
 
@@ -26,7 +28,7 @@ To deploy Azure Stack Edge Pro VMs across many device, you can use a single sysp
 
 The high level summary of the deployment workflow using templates is as follows:
 
-1. **Configure prerequisites** - There are 3 types of prerequisites; device, client, and for the VM.
+1. **Configure prerequisites** - There are three types of prerequisites: device, client, and for the VM.
 
     1. **Device prerequisites**
 
@@ -44,7 +46,7 @@ The high level summary of the deployment workflow using templates is as follows:
         1. Create a resource group in the device location that will contain all the VM resources.
         1. Create a storage account to upload the VHD used to create VM image.
         1. Add local storage account URI to DNS or hosts file on the client accessing your device.
-        1. Install the blob storage certificate on the device as well as on the local client accessing your device. Optionally install the blob storage certificate on the Storage Explorer.
+        1. Install the blob storage certificate on the device and on the local client accessing your device. Optionally install the blob storage certificate on the Storage Explorer.
         1. Create and upload a VHD to the storage account created earlier.
 
 2. **Create VM from templates**
@@ -68,7 +70,7 @@ Configure these prerequisites on your client that will be used to access the Azu
 
 ## VM prerequisites
 
-Configure these prerequisites to create resources which will be needed for VM creation. 
+Configure these prerequisites to create the resources needed for VM creation. 
 
     
 ### Create a resource group
@@ -98,7 +100,7 @@ PS C:\windows\system32>
 
 ### Create a storage account
 
-Create a new storage account using the resource group created in the previous step. This is a **local storage account** that will be used to upload the virtual disk image for the VM.
+Create a new storage account using the resource group created in the previous step. This account is a **local storage account** that will be used to upload the virtual disk image for the VM.
 
 ```powershell
 New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resource group name> -Location DBELocal -SkuName Standard_LRS
@@ -146,7 +148,7 @@ In a typical environment, you would have your DNS configured so that all storage
 
 ### (Optional) Install certificates
 
-Skip this step if you will connect via Storage Explorer using *http*. If you are using *https*, then you need to install appropriate certificates in Storage Explorer. In this case, install the blob endpoint certificate. For more information, see how to create and upload certificates in [Manage certificates](azure-stack-edge-j-series-manage-certificates.md). 
+Skip this step if you will connect via Storage Explorer using *http*. If you are using *https*, then you need to install appropriate certificates in Storage Explorer. In this case, install the blob endpoint certificate. For more information, see how to create and upload certificates in [Manage certificates](azure-stack-edge-gpu-manage-certificates.md). 
 
 ### Create and upload a VHD
 
@@ -192,7 +194,7 @@ Copy any disk images to be used into page blobs in the local storage account tha
 
 7. Review the **Connection summary** and select **Connect**.
 
-8. The storage account appears in the left-pane. Select and expand the storage account. Select **Blob containers**, right-click and select **Create Blob Container**. Provide a name for your blob container.
+8. The storage account appears in the left-pane. Select and expand the storage account. Select **Blob containers**, right-click, and select **Create Blob Container**. Provide a name for your blob container.
 
 9. Select the container you just created and in the right-pane, select **Upload > Upload files**. 
 
@@ -206,7 +208,7 @@ Copy any disk images to be used into page blobs in the local storage account tha
 
     ![Upload VHD file 3](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/upload-vhd-file-3.png)
 
-12. Copy and save the **Uri** as you will use this in the later steps.
+12. Copy and save the **Uri**, which you will use in later steps.
 
     ![Copy URI](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/copy-uri-1.png)
 
@@ -234,7 +236,7 @@ The file `CreateImage.parameters.json` takes the following parameters:
     }
 ```
 
-Edit the file `CreateImage.parameters.json` to include the following for your Azure Stack Edge Pro device:
+Edit the file `CreateImage.parameters.json` to include the following values for your Azure Stack Edge Pro device:
 
 1. Provide the OS type corresponding to the VHD you will upload. The OS type can be Windows or Linux.
 
@@ -247,16 +249,17 @@ Edit the file `CreateImage.parameters.json` to include the following for your Az
 
 2. Change the image URI to the URI of the image you uploaded in the earlier step:
 
-    ```json
-    "imageUri": {
-        "value": "https://myasegpusavm.blob.myasegpu1.wdshcsso.com/windows/WindowsServer2016Datacenter.vhd"
-        },
-    ```
-    If you’re using *http* with Storage Explorer, change this to an *http* URI.
+   ```json
+   "imageUri": {
+       "value": "https://myasegpusavm.blob.myasegpu1.wdshcsso.com/windows/WindowsServer2016Datacenter.vhd"
+       },
+   ```
+
+   If you’re using *http* with Storage Explorer, change the URI to an *http* URI.
 
 3. Provide a unique image name. This image is used to create VM in the later steps. 
 
-    Here is a sample json that is used in this article.
+   Here is a sample json that is used in this article.
 
     ```json
     {
@@ -275,6 +278,7 @@ Edit the file `CreateImage.parameters.json` to include the following for your Az
       }
     }
     ```
+
 5. Save the parameters file.
 
 
@@ -585,4 +589,4 @@ Follow these steps to connect to a Linux VM.
 
 ## Next steps
 
-[Azure Resource Manager cmdlets](/powershell/module/azurerm.resources/?view=azurermps-6.13.0)
+[Azure Resource Manager cmdlets](/powershell/module/azurerm.resources/?view=azurermps-6.13.0&preserve-view=true)

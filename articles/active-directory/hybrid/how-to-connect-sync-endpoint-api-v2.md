@@ -175,7 +175,7 @@ If you have enabled the v2 endpoint and need to rollback, follow these steps:
 ## Frequently asked questions  
  
 **When will the new end point become the default for upgrades and new installations?**  
-</br>We are planning a new release of AADConnect to be published for download in January 2021. This release will use the V2 end point by default and will enable syncing groups larger than 50K without any additional configuration. THis release will subsequently be published for auto upgrade to eligible servers.
+</br>We are planning a new release of AADConnect to be published for download in February 2021. This release will use the V2 end point by default and will enable syncing groups larger than 50K without any additional configuration. This release will subsequently be published for auto upgrade to eligible servers.
  
 ## Next steps
 

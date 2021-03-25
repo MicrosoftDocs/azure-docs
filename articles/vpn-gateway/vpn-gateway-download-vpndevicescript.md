@@ -31,7 +31,7 @@ A cross-premises VPN connection consists of an Azure VPN gateway, an on-premises
 3. Create and configure an Azure VPN connection between the Azure VPN gateway and the local network gateway
 4. Configure the on-premises VPN device represented by the local network gateway to establish the actual S2S VPN tunnel with the Azure VPN gateway
 
-You can complete steps 1 through 3 using the Azure [portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md), or [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md). The last step involves configuring the on-premises VPN devices outside of Azure. This feature allows you to download a configuration script for your VPN device with the corresponding values of your Azure VPN gateway, virtual network, and on-premises network address prefixes, and VPN connection properties, etc. already filled in. You can use the script as a starting point, or apply the script directly to your on-premises VPN devices via the configuration console.
+You can complete steps 1 through 3 using the Azure [portal](./tutorial-site-to-site-portal.md), [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md), or [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md). The last step involves configuring the on-premises VPN devices outside of Azure. This feature allows you to download a configuration script for your VPN device with the corresponding values of your Azure VPN gateway, virtual network, and on-premises network address prefixes, and VPN connection properties, etc. already filled in. You can use the script as a starting point, or apply the script directly to your on-premises VPN devices via the configuration console.
 
 > [!IMPORTANT]
 > * The syntax for each VPN device configuration script is different, and heavily dependent on the models and firmware versions. Pay special attention to your device model and version information against the available templates.
@@ -46,7 +46,7 @@ You can complete steps 1 through 3 using the Azure [portal](vpn-gateway-howto-si
 
 Create an Azure VPN gateway, local network gateway, and a connection resource connecting the two. The following page guides you through the steps:
 
-* [Create a Site-to-Site connection in the Azure portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Create a Site-to-Site connection in the Azure portal](./tutorial-site-to-site-portal.md)
 
 Once the connection resource is created, follow the instructions below to download the VPN device configuration scripts:
 
@@ -96,4 +96,4 @@ After you have downloaded and validated the configuration script, the next step 
 
 ## Next steps
 
-Continue configuring your [Site-to-Site connection](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Continue configuring your [Site-to-Site connection](./tutorial-site-to-site-portal.md).

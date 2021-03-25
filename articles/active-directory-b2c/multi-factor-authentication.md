@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 02/01/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -36,8 +36,13 @@ This feature helps applications handle scenarios such as:
 1. Select **User flows**.
 1. Select the user flow for which you want to enable MFA. For example, *B2C_1_signinsignup*.
 1. Select **Properties**.
-1. In the **Multifactor authentication** section, select the desired **MFA method**, and then under **MFA enforcement** select **Always on**, or **[Conditional](conditional-access-user-flow.md) (Recommended)**. For Conditional, create a [Conditional Access policy](conditional-access-identity-protection-setup.md) policy, and specify the apps you want the policy to apply to. 
-1. Select Save. MFA is now enabled for this user flow.
+1. In the **Multifactor authentication** section, select the desired **MFA method**, and then under **MFA enforcement** select **Always on**, or **Conditional (Recommended)**.
+   > [!NOTE]
+   >
+   > - If you select **Conditional (Recommended)**, you'll also need to [add Conditional Access to user flows](conditional-access-user-flow.md), and specify the apps you want the policy to apply to.
+   > - Multi-factor authentication (MFA) is disabled by default for sign-up user flows. You can enable MFA in user flows with phone sign-up, but because a phone number is used as the primary identifier, email one-time passcode is the only option available for the second authentication factor.
+
+1. Select **Save**. MFA is now enabled for this user flow.
 
 You can use **Run user flow** to verify the experience. Confirm the following scenario:
 

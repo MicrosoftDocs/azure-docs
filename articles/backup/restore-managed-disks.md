@@ -12,7 +12,7 @@ ms.date: 01/07/2021
 >
 >[Fill out this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) to sign-up for the preview.
 
-This article explains how to restore [Azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview) from a restore point created by Azure Backup.
+This article explains how to restore [Azure Managed Disks](../virtual-machines/managed-disks-overview.md) from a restore point created by Azure Backup.
 
 Currently, the Original-Location Recovery (OLR) option of restoring by replacing existing the source disk from where the backups were taken isn't supported. You can restore from a recovery point to create a new disk either in the same resource group as that of the source disk from where the backups were taken or in any other resource group. This is known as Alternate-Location Recovery (ALR) and this helps to keep both the source disk and the restored (new) disk.
 
@@ -26,7 +26,7 @@ In this article, you'll learn how to:
 
 Backup Vault uses Managed Identity to access other Azure resources. To restore from backup, Backup vault’s managed identity requires a set of permissions on the resource group where the disk is to be restored.
 
-Backup vault uses a system assigned managed identity, which is restricted to one per resource and is tied to the lifecycle of this resource. You can grant permissions to the managed identity by using Azure role-based access control (Azure RBAC). Managed identity is a service principal of a special type that may only be used with Azure resources. Learn more about [Managed Identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+Backup vault uses a system assigned managed identity, which is restricted to one per resource and is tied to the lifecycle of this resource. You can grant permissions to the managed identity by using Azure role-based access control (Azure RBAC). Managed identity is a service principal of a special type that may only be used with Azure resources. Learn more about [Managed Identities](../active-directory/managed-identities-azure-resources/overview.md).
 
 The following pre-requisites are required to perform a restore operation:
 
@@ -61,6 +61,8 @@ The following pre-requisites are required to perform a restore operation:
     >
     >During scheduled backups or an on-demand backup operation, Azure Backup stores the disk incremental snapshots in the Snapshot Resource Group provided during configuring backup of the disk. Azure Backup uses these incremental snapshots during the restore operation. If the snapshots are deleted or moved from the Snapshot Resource Group or if the Backup vault role assignments are revoked on the Snapshot Resource Group, the restore operation will fail.
 
+1. If the disk to be restored is encrypted with [customer-managed keys (CMK)](../virtual-machines/disks-enable-customer-managed-keys-portal.md) or using [double encryption using platform-managed keys and customer-managed keys](../virtual-machines/disks-enable-double-encryption-at-rest-portal.md), then assign the **Reader** role permission to the Backup Vault’s managed identity on the **Disk Encryption Set** resource.
+
 Once the prerequisites are met, follow these steps to perform the restore operation.
 
 1. In the [Azure portal](https://portal.azure.com/), go to **Backup center**. Select **Backup instances** under the **Manage** section. From the list of backup instances, select the disk backup instance for which you want to perform the restore operation.
@@ -82,7 +84,7 @@ Once the prerequisites are met, follow these steps to perform the restore operat
     ![Restore parameters](./media/restore-managed-disks/restore-parameters.png)
 
     >[!TIP]
-    >Disks being backed up by Azure Backup using the Disk Backup solution can also be backed up by Azure Backup using the Azure VM backup solution with the Recovery Services vault. If you have configured protection of the Azure VM to which this disk is attached, you can also use the Azure VM restore operation. You can choose to restore the VM, or disks and files or folders from the recovery point of the corresponding Azure VM backup instance. For more information, see [Azure VM backup](https://docs.microsoft.com/azure/backup/about-azure-vm-restore).
+    >Disks being backed up by Azure Backup using the Disk Backup solution can also be backed up by Azure Backup using the Azure VM backup solution with the Recovery Services vault. If you have configured protection of the Azure VM to which this disk is attached, you can also use the Azure VM restore operation. You can choose to restore the VM, or disks and files or folders from the recovery point of the corresponding Azure VM backup instance. For more information, see [Azure VM backup](./about-azure-vm-restore.md).
 
 1. Once the validation is successful, select **Restore** to start the restore operation.
 
@@ -102,9 +104,9 @@ Restore will create a new disk from the selected recovery point in the target re
 
     ![Swap OS disks](./media/restore-managed-disks/swap-os-disks.png)
 
-- For Windows virtual machines, if the restored disk is a data disk, follow the instructions to [detach the original data disk](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk#detach-a-data-disk-using-the-portal) from the virtual machine. Then [attach the restored disk](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) to the virtual machine. Follow the instructions to [swap the OS disk](https://docs.microsoft.com/azure/virtual-machines/windows/os-disk-swap) of the virtual machine with the restored disk.
+- For Windows virtual machines, if the restored disk is a data disk, follow the instructions to [detach the original data disk](../virtual-machines/windows/detach-disk.md#detach-a-data-disk-using-the-portal) from the virtual machine. Then [attach the restored disk](../virtual-machines/windows/attach-managed-disk-portal.md) to the virtual machine. Follow the instructions to [swap the OS disk](../virtual-machines/windows/os-disk-swap.md) of the virtual machine with the restored disk.
 
-- For Linux virtual machines, if the restored disk is a data disk, follow the instructions to [detach the original data disk](https://docs.microsoft.com/azure/virtual-machines/linux/detach-disk#detach-a-data-disk-using-the-portal) from the virtual machine. Then [attach the restored disk](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal#attach-an-existing-disk) to the virtual machine. Follow the instructions to [swap the OS disk](https://docs.microsoft.com/azure/virtual-machines/linux/os-disk-swap) of  the virtual machine with the restored disk.
+- For Linux virtual machines, if the restored disk is a data disk, follow the instructions to [detach the original data disk](../virtual-machines/linux/detach-disk.md#detach-a-data-disk-using-the-portal) from the virtual machine. Then [attach the restored disk](../virtual-machines/linux/attach-disk-portal.md#attach-an-existing-disk) to the virtual machine. Follow the instructions to [swap the OS disk](../virtual-machines/linux/os-disk-swap.md) of  the virtual machine with the restored disk.
 
 It's recommended that you revoke the **Disk Restore Operator** role assignment from the Backup vault's managed identity on the **Target resource group** after the successful completion of restore operation.
 

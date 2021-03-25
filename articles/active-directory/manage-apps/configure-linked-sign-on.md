@@ -3,7 +3,7 @@ title: Understand linked sign-on in Azure Active Directory
 description: Understand linked sign-on in Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual

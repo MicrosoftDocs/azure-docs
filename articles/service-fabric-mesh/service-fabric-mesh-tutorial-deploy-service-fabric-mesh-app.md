@@ -11,6 +11,11 @@ ms.custom: mvc, devcenter
 
 # Tutorial: Deploy a Service Fabric Mesh application
 
+> [!IMPORTANT]
+> The preview of Azure Service Fabric Mesh has been retired. New deployments will no longer be permitted through the Service Fabric Mesh API. Support for existing deployments will continue through April 28, 2021.
+> 
+> For details, see [Azure Service Fabric Mesh Preview Retirement](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+
 This tutorial is part three of a series and shows you how to publish an Azure Service Fabric Mesh web application directly from Visual Studio.
 
 In this tutorial you learn how to:
@@ -135,4 +140,4 @@ Advance to the next tutorial:
 > [!div class="nextstepaction"]
 > [Upgrade a Service Fabric Mesh app](service-fabric-mesh-tutorial-upgrade.md)
 
-[azure-cli-install]: /cli/azure/install-azure-cli?view=azure-cli-latest
+[azure-cli-install]: /cli/azure/install-azure-cli

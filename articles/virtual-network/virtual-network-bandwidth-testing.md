@@ -51,9 +51,9 @@ Sender parameters: ntttcp -s10.27.33.7 -t 10 -n 1 -P 1
 #### Get NTTTCP onto the VMs.
 
 Download the latest version:
-<https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769>
+https://github.com/microsoft/ntttcp/releases/download/v5.35/NTttcp.exe
 
-Or search for it if moved: <https://www.bing.com/search?q=ntttcp+download>\< -- should be first hit
+Or view the top-level GitHub Page: <https://github.com/microsoft/ntttcp>\
 
 Consider putting NTTTCP in separate folder, like c:\\tools
 
@@ -94,15 +94,19 @@ Use nttcp-for-linux. It is available from <https://github.com/Microsoft/ntttcp-f
 
 On the Linux VMs (both SENDER and RECEIVER), run these commands to prepare ntttcp-for-linux on your VMs:
 
-CentOS - Install Git:
+CentOS - Install gcc and git:
 ``` bash
   yum install gcc -y  
   yum install git -y
 ```
-Ubuntu - Install Git:
+Ubuntu - Install build-essential and git:
 ``` bash
  apt-get -y install build-essential  
  apt-get -y install git
+```
+SUSE - Install git-core, gcc, and make:
+``` bash
+  zypper in -y git-core gcc make
 ```
 Make and Install on both:
 ``` bash

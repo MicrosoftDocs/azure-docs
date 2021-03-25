@@ -16,7 +16,7 @@ This glossary of terms can be helpful when using Azure Backup.
 
 ## AFS (Azure File shares)
 
-Refer to [Azure Files documentation](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
+Refer to [Azure Files documentation](../storage/files/storage-files-introduction.md).
 
 ## Alternate location recovery
 
@@ -30,7 +30,7 @@ Application-consistent backups capture memory content and pending I/O operations
 
 ## Azure Resource Manager (ARM) templates
 
-Refer to [ARM templates documentation](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview).
+Refer to [ARM templates documentation](../azure-resource-manager/templates/overview.md).
 
 ## Autoprotection (for databases)
 
@@ -44,38 +44,38 @@ Azure Backup offers three types of replication to keep your storage and data hig
 
 ### LRS
 
-[Locally redundant storage (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy#locally-redundant-storage) replicates your backup data three times (it creates three copies of your backup data) in a storage scale unit in a datacenter. All copies of the backup data exist within the same region. LRS is a low-cost option for protecting your backup data from local hardware failures.
+[Locally redundant storage (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) replicates your backup data three times (it creates three copies of your backup data) in a storage scale unit in a datacenter. All copies of the backup data exist within the same region. LRS is a low-cost option for protecting your backup data from local hardware failures.
 
 ### GRS
 
-[Geo-redundant storage (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy#geo-redundant-storage) is the default and recommended replication option. GRS replicates your backup data to a secondary region, hundreds of miles away from the primary location of the source data. GRS costs more than LRS, but GRS provides a higher level of durability for your backup data, even if there's a regional outage.
+[Geo-redundant storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage) is the default and recommended replication option. GRS replicates your backup data to a secondary region, hundreds of miles away from the primary location of the source data. GRS costs more than LRS, but GRS provides a higher level of durability for your backup data, even if there's a regional outage.
 
 >[!NOTE]
->For GRS vaults that have teh cross-region restore feature enabled, backup storage is upgraded from GRS to RA-GRS (Read-Access Geo-Redundant Storage).
+>For GRS vaults that have the cross-region restore feature enabled, backup storage is upgraded from GRS to RA-GRS (Read-Access Geo-Redundant Storage).
 
 ### ZRS
 
-[Zone-redundant storage (ZRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy#zone-redundant-storage) replicates your backup data in [availability zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones), guaranteeing backup data residency and resiliency in the same region. So your critical workloads that require [data residency](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) can be backed up in ZRS.
+[Zone-redundant storage (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replicates your backup data in [availability zones](../availability-zones/az-overview.md#availability-zones), guaranteeing backup data residency and resiliency in the same region. So your critical workloads that require [data residency](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) can be backed up in ZRS.
 
 ## Azure Command-Line Interface (CLI)
 
-Refer to [Azure CLI documentation](https://docs.microsoft.com/cli/azure/what-is-azure-cli).
+Refer to [Azure CLI documentation](/cli/azure/what-is-azure-cli).
 
 ## Azure Policy
 
-Refer to [Azure Policy documentation](https://docs.microsoft.com/azure/governance/policy/overview).
+Refer to [Azure Policy documentation](../governance/policy/overview.md).
 
 ## Azure PowerShell
 
-Refer to [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/).
+Refer to [Azure PowerShell documentation](/powershell/azure/).
 
 ## Azure Resource Manager (ARM)
 
-Refer to [Azure Resource Manager documentation](https://docs.microsoft.com/azure/azure-resource-manager/management/overview).
+Refer to [Azure Resource Manager documentation](../azure-resource-manager/management/overview.md).
 
 ## Azure Disk Encryption (ADE)
 
-Refer to [Azure Disk Encryption documentation](https://docs.microsoft.com/azure/security/fundamentals/azure-disk-encryption-vms-vmss).
+Refer to [Azure Disk Encryption documentation](../security/fundamentals/azure-disk-encryption-vms-vmss.md).
 
 ## Backend storage / Cloud storage / Backup storage
 
@@ -119,11 +119,11 @@ Crash-consistent snapshots typically occur if an Azure VM shuts down at the time
 
 ## Cross-Region Restore (CRR)
 
-As one of the [restore options](backup-azure-arm-restore-vms.md#restore-options), Cross Region Restore (CRR) allows you to restore backup items in a secondary region, which is an [Azure paired region](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#what-are-paired-regions).
+As one of the [restore options](backup-azure-arm-restore-vms.md#restore-options), Cross Region Restore (CRR) allows you to restore backup items in a secondary region, which is an [Azure paired region](../best-practices-availability-paired-regions.md#what-are-paired-regions).
 
 ## Data box
 
-Refer to [data box documentation](https://docs.microsoft.com/azure/databox/data-box-overview).
+Refer to [data box documentation](../databox/data-box-overview.md).
 
 ## Datasource
 
@@ -133,11 +133,11 @@ A resource (Azure resource, proxy-resource, or on-premises resource) which is a 
 
 (Workload-specific term)
 
-Refer to the [DPM documentation](https://docs.microsoft.com/system-center/dpm/dpm-overview).
+Refer to the [DPM documentation](/system-center/dpm/dpm-overview).
 
 ## ExpressRoute
 
-Refer to the [ExpressRoute documentation](https://docs.microsoft.com/azure/expressroute/expressroute-introduction).
+Refer to the [ExpressRoute documentation](../expressroute/expressroute-introduction.md).
 
 ## File system consistent backup
 
@@ -159,7 +159,7 @@ A GFS (Grandfather-father-son) backup policy is one that enables you to define w
 
 ## IaaS VMs / Azure VMs
 
-Refer to the [Azure VM documentation](https://docs.microsoft.com/azure/virtual-machines/).
+Refer to the [Azure VM documentation](../virtual-machines/index.yml).
 
 ## Incremental backup
 
@@ -191,7 +191,7 @@ With Azure Backup Server, you can protect application workloads such as Hyper-V 
 
 ## Managed disks
 
-Refer to the [Managed disks documentation](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
+Refer to the [Managed disks documentation](../virtual-machines/managed-disks-overview.md).
 
 ## MARS Agent
 
@@ -201,7 +201,7 @@ Also known as **Azure Backup agent** or **Recovery Services agent**, the MARS ag
 
 ## NSG (Network Security Group)
 
-Refer to the [NSG documentation](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview).
+Refer to the [NSG documentation](../virtual-network/network-security-groups-overview.md).
 
 ## Offline seeding
 
@@ -223,7 +223,7 @@ A passphrase is used to encrypt and decrypt data while backing up or restoring y
 
 ## Private endpoint
 
-Refer to the [Private Endpoint documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
+Refer to the [Private Endpoint documentation](../private-link/private-endpoint-overview.md).
 
 ## Protected instance
 
@@ -231,7 +231,7 @@ A protected instance refers to the computer, physical or virtual server you use 
 
 ## RBAC (Role-based access control)
 
-Refer to the [RBAC documentation](https://docs.microsoft.com/azure/role-based-access-control/overview).
+Refer to the [RBAC documentation](../role-based-access-control/overview.md).
 
 ## Recovery point/ Restore point/ Retention point / Point-in-time (PIT)
 
@@ -243,11 +243,11 @@ An Azure Resource Manager resource of type *Microsoft.RecoveryServices/vaults*. 
 
 ## Resource group
 
-Refer to the [Azure Resource Manager documentation](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group).
+Refer to the [Azure Resource Manager documentation](../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group).
 
 ## REST API
 
-Refer to the [Azure REST API documentation](https://docs.microsoft.com/rest/api/azure/).
+Refer to the [Azure REST API documentation](/rest/api/azure/).
 
 ## Retention rule
 
@@ -267,7 +267,7 @@ A backup job that is automatically triggered by the backup policy configured for
 
 ## Secondary region / Paired region
 
-A regional pair consists of two regions within the same geography. One is the primary region, and the other is the secondary region. Paired regions are used by some Azure services (including Azure Backup with GRS settings) to ensure business continuity and protect against data loss. [Learn more](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+A regional pair consists of two regions within the same geography. One is the primary region, and the other is the secondary region. Paired regions are used by some Azure services (including Azure Backup with GRS settings) to ensure business continuity and protect against data loss. [Learn more](../best-practices-availability-paired-regions.md).
 
 ## Soft delete
 
@@ -275,11 +275,11 @@ Soft delete is a feature that helps guard against accidental deletion of backup 
 
 ## Snapshot
 
-A snapshot is a full, read-only copy of a virtual hard drive (VHD) or an Azure File share. Learn more about [disk snapshots](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk) and [file snapshots](https://docs.microsoft.com/azure/storage/files/storage-snapshots-files).
+A snapshot is a full, read-only copy of a virtual hard drive (VHD) or an Azure File share. Learn more about [disk snapshots](../virtual-machines/windows/snapshot-copy-managed-disk.md) and [file snapshots](../storage/files/storage-snapshots-files.md).
 
 ## Storage account
 
-Refer to the [Storage account documentation](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
+Refer to the [Storage account documentation](../storage/common/storage-account-overview.md).
 
 ## Subscription
 
@@ -295,9 +295,21 @@ Backs up operating system files. This backup allows you to recover when a comput
 
 A tenant is a representation of an organization. It's a dedicated instance of Azure AD that an organization or app developer receives when the organization or app developer creates a relationship with Microsoft, like signing up for Azure, Microsoft Intune, or Microsoft 365.
 
+## Tier
+
+Currently, Azure Backup supports the following backup storage tiers:
+
+### Snapshot tier
+
+(Workload specific term) In the first phase of VM backup, the snapshot taken is stored along with the disk. This form of storage is referred to as snapshot tier. Snapshot tier restores are faster (than restoring from a vault) because they eliminate the wait time for snapshots to get copied to from the vault before triggering the restore operation.
+
+### Vault-Standard tier
+
+Backup data for all workloads supported by Azure Backup is stored in vaults which hold backup storage, an auto-scaling set of storage accounts managed by Azure Backup. The Vault-Standard tier is an online storage tier that enables you to store an isolated copy of backup data in a Microsoft managed tenant, thus creating an additional layer of protection. For workloads where snapshot tier is supported, there is a copy of the backup data in both the snapshot tier and the vault-standard tier. Vault-standard tier ensures that backup data is available even if the datasource being backed up is deleted or compromised.
+
 ## Unmanaged disk
 
-Refer to the [Unmanaged disks documentation](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance#azure-unmanaged-disks).
+Refer to the [Unmanaged disks documentation](../storage/common/storage-disaster-recovery-guidance.md#azure-unmanaged-disks).
 
 ## Vault
 
@@ -309,11 +321,11 @@ The vault credentials file is a certificate generated by the portal for each vau
 
 ## VNET (Virtual Network)
 
-Refer to the [VNET documentation](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+Refer to the [VNET documentation](../virtual-network/virtual-networks-overview.md).
 
 ## VSS (Windows Volume Shadow Copy Service)
 
-Refer to the [VSS documentation](https://docs.microsoft.com/windows-server/storage/file-server/volume-shadow-copy-service).
+Refer to the [VSS documentation](/windows-server/storage/file-server/volume-shadow-copy-service).
 
 ## Next steps
 

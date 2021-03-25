@@ -271,7 +271,7 @@ Console.WriteLine(connectionString);
 
 The getConnectionStringAsMap is a helper function available in Scala and Python to parse specific values from a _key=value_ pair in the connection string such as
 
-_`DefaultEndpointsProtocol=https;AccountName=\<ACCOUNT NAME>;AccountKey=\<ACCOUNT KEY>`_
+_`DefaultEndpointsProtocol=https;AccountName=<ACCOUNT NAME>;AccountKey=<ACCOUNT KEY>`_
 
 use the **getConnectionStringAsMap** function and pass the key to return the value.  In the above connection string example, 
 

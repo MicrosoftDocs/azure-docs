@@ -1,12 +1,12 @@
 ---
-title: Add bindings to an existing function in Azure Functions 
-description: Learn how to add bindings to an existing function in your Azure Functions project.
+title: Connect functions to other Azure services 
+description: Learn how to add bindings that connect to other Azure services to an existing function in your Azure Functions project.
 ms.topic: how-to
 ms.date: 04/29/2020
 #Customer intent: As a developer, I need to know how to add a binding to an existing function so that I can integrate external services to my function.
 ---
 
-# Add bindings to an existing function in Azure Functions
+# Connect functions to Azure services using bindings
 
 When you create a function, language-specific trigger code is added in your project from a set of trigger templates. If you want to connect your function to other services by using input or output bindings, you have to add specific binding definitions in your function. To learn more about bindings, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 

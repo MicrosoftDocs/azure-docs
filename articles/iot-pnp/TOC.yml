@@ -35,8 +35,8 @@
     href: concepts-developer-guide-device.md
   - name: Service developer guide
     href: concepts-developer-guide-service.md
-  - name: Components
-    href: concepts-components.md
+  - name: Modeling guide
+    href: concepts-modeling-guide.md
   - name: IoT Plug and Play conventions
     href: concepts-convention.md
   - name: IoT Plug and Play bridge
@@ -51,8 +51,6 @@
     href: concepts-model-discovery.md
   - name: Model parser
     href: concepts-model-parser.md
-  - name: Glossary
-    href: iot-plug-and-play-glossary.md
 - name: How-to guides
   items:
   - name: Install and use IoT explorer
@@ -65,10 +63,12 @@
     href: howto-manage-digital-twin.md
   - name: Certify a device
     href: howto-certify-device.md
-  - name: Install and use IoT Plug and Play bridge
+  - name: How to connect an IoT Plug and Play bridge sample
     href: howto-use-iot-pnp-bridge.md
-  - name: Build, deploy, extend IoT Plug and Play bridge
+  - name: Build and deploy IoT Plug and Play bridge
     href: howto-build-deploy-extend-pnp-bridge.md
+  - name: Extend IoT Plug and Play bridge
+    href: howto-author-pnp-bridge-adapter.md
 - name: Reference
   items:
   - name: Libraries and SDKs
@@ -80,7 +80,9 @@
 - name: Resources
   items:
   - name: Support and help options
-    href: ../iot-fundamentals/iot-support-help.md
+    href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-pnp/toc.json&bc=/azure/iot-pnp/breadcrumb/toc.json
+  - name: IoT Glossary
+    href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-pnp/toc.json&bc=/azure/iot-pnp/breadcrumb/toc.json
   - name: Azure IoT services
     items:
     - name: IoT Hub

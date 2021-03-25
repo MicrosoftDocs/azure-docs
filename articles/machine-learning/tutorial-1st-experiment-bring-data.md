@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 09/15/2020
+ms.date: 02/11/2021
 ms.custom: tracking-python
 ---
 
@@ -34,7 +34,12 @@ In this tutorial, you:
 
 ## Prerequisites
 
-* Completion of [part 3](tutorial-1st-experiment-sdk-train.md) of the series.
+You'll need the data and an updated version of the pytorch environment created in the previous tutorial.  Make sure you have completed these steps:
+
+1. [Create the training script](tutorial-1st-experiment-sdk-train.md#create-training-scripts)
+1. [Create a new Python environment](tutorial-1st-experiment-sdk-train.md#environment)
+1. [Test locally](tutorial-1st-experiment-sdk-train.md#test-local)
+1. [Update the Conda environment file](tutorial-1st-experiment-sdk-train.md#update-the-conda-environment-file)
 
 ## Adjust the training script
 
@@ -70,6 +75,7 @@ optimizer = optim.SGD(
     momentum=args.momentum,    # get momentum from command-line argument
 )
 ```
+
 > [!div class="nextstepaction"]
 > [I adjusted the training script](?success=adjust-training-script#test-locally) [I ran into an issue](https://www.research.net/r/7C6W7BQ?issue=adjust-training-script)
 
@@ -78,29 +84,29 @@ optimizer = optim.SGD(
 Your script now accepts _data path_ as an argument. To start with, test it
 locally. Add to your tutorial directory structure a folder called `data`. Your directory structure should look like:
 
-```txt
-tutorial
-└──.azureml
-|  └──config.json
-|  └──pytorch-env.yml
-└──data
-└──src
-|  └──hello.py
-|  └──model.py
-|  └──train.py
-└──01-create-workspace.py
-└──02-create-compute.py
-└──03-run-hello.py
-└──04-run-pytorch.py
-```
+:::image type="content" source="media/tutorial-1st-experiment-bring-data/directory-structure.png" alt-text="Directory structure shows .azureml, data, and src sub-directories":::
 
-If you didn't run `train.py` locally in the previous tutorial, you won't have the `data/` directory. In this case, run the `torchvision.datasets.CIFAR10` method locally with `download=True` in your `train.py` script.
+1. Exit the current environment.
 
-To run the modified training script locally, call:
+    ```bash
+    conda deactivate
 
-```bash
-python src/train.py --data_path ./data --learning_rate 0.003 --momentum 0.92
-```
+1. Now create and activate the new environment.  This will rebuild the pytorch-aml-env with the [updated environment file](tutorial-1st-experiment-sdk-train.md#update-the-conda-environment-file)
+
+
+    ```bash
+    conda env create -f .azureml/pytorch-env.yml    # create the new conda environment with updated dependencies
+    ```
+
+    ```bash
+    conda activate pytorch-aml-env			# activate new conda environment
+    ```
+
+1. Finally, run the modified training script locally.
+
+    ```bash
+    python src/train.py --data_path ./data --learning_rate 0.003 --momentum 0.92
+    ```
 
 You avoid having to download the CIFAR10 dataset by passing in a local path to the data. You can also experiment with different values for _learning rate_ and _momentum_ hyperparameters without having to hard-code them in the training script.
 
@@ -195,7 +201,7 @@ The control script is similar to the one from [part 3 of this series](tutorial-1
       `dataset = Dataset.File.from_files( ... )`
    :::column-end:::
    :::column span="2":::
-      A [dataset](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py) is used to reference the data you uploaded to Azure Blob Storage. Datasets are an abstraction layer on top of your data that are designed to improve reliability and trustworthiness.
+      A [dataset](/python/api/azureml-core/azureml.core.dataset.dataset) is used to reference the data you uploaded to Azure Blob Storage. Datasets are an abstraction layer on top of your data that are designed to improve reliability and trustworthiness.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -203,7 +209,7 @@ The control script is similar to the one from [part 3 of this series](tutorial-1
       `config = ScriptRunConfig(...)`
    :::column-end:::
    :::column span="2":::
-      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) is modified to include a list of arguments that will be passed into `train.py`. The `dataset.as_named_input('input').as_mount()` argument means the specified directory will be _mounted_ to the compute target.
+      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) is modified to include a list of arguments that will be passed into `train.py`. The `dataset.as_named_input('input').as_mount()` argument means the specified directory will be _mounted_ to the compute target.
    :::column-end:::
 :::row-end:::
 

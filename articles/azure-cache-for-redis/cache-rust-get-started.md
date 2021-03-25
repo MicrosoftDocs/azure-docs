@@ -13,6 +13,10 @@ ms.date: 01/08/2021
 
 In this article, you will learn how to use the [Rust programming language](https://www.rust-lang.org/) for interacting with [Azure Cache for Redis](./cache-overview.md). It will demonstrate examples of commonly used Redis data structures such as [String](https://redis.io/topics/data-types-intro#redis-strings), [Hash](https://redis.io/topics/data-types-intro#redis-hashes), [List](https://redis.io/topics/data-types-intro#redis-lists) etc. using the [redis-rs](https://github.com/mitsuhiko/redis-rs) library for Redis. This client exposes both high and low-level APIs and you will see both these styles in action with the help of sample code presented in this article.
 
+## Skip to the code on GitHub
+
+If you want to skip straight to the code, see the [Rust quickstart](https://github.com/Azure-Samples/azure-redis-cache-rust-quickstart/) on GitHub.
+
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)

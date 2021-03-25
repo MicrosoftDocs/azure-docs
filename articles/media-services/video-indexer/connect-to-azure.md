@@ -8,11 +8,11 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article 
-ms.date: 10/21/2020
+ms.date: 01/14/2021
 ms.author: juliako
 ---
  
-# Create a Video Indexer account connected to Azure
+# Create a Video Indexer account
 
 When creating a Video Indexer account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you're not limited by the quota). With a free trial, Video Indexer provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With the paid option, you create a Video Indexer account that's connected to your Azure subscription. You pay for minutes indexed, for more information, see [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/).
 
@@ -20,7 +20,9 @@ This article shows how to create a Video Indexer account that's linked to an Azu
 
 If you are moving from a *trial* to *paid* Video Indexer account, you can choose to copy all of the videos and model customization to the new account, as discussed in the [Import your content from the trial account](#import-your-content-from-the-trial-account) section.
 
-## Prerequisites
+The article also covers [Linking a Video Indexer account to Azure Government](#video-indexer-in-azure-government).
+
+## Prerequisites for connecting to Azure
 
 * An Azure subscription.
 
@@ -32,7 +34,7 @@ If you are moving from a *trial* to *paid* Video Indexer account, you can choose
 
     This user should be an Azure AD user with a work or school account. Don't use a personal account, such as outlook.com, live.com, or hotmail.com.
 
-    ![all AAD users](./media/create-account/all-aad-users.png)
+    ![all Azure AD users](./media/create-account/all-aad-users.png)
 
 ### Additional prerequisites for automatic flow
 
@@ -54,7 +56,7 @@ If you are moving from a *trial* to *paid* Video Indexer account, you can choose
 
     ![EventGrid](./media/create-account/event-grid.png)
 
-## Create a new account
+## Create a new account on Azure 
 
 > [!NOTE]
 > If your Azure subscription uses certificate-based multi-factor authentication, it's crucial that you perform the following steps on a device that has the required certificates installed.
@@ -150,7 +152,7 @@ In the dialog, provide the following information:
 |Application ID|The Azure AD application ID (with permissions for the specified Media Services account) that you created in the previous section.|
 |Application key|The Azure AD application key that you created in the previous section. |
 
-## Import your content from the *trial* account
+### Import your content from the *trial* account
 
 When creating a new account, you have an option to import your content from the *trial* account into the new account. If you check the *import* option in the **Create a new account on an Azure subscription** dialog, all media and content model customizations will be copied from the *trial* account into the new account.
 
@@ -158,16 +160,10 @@ The ability to import the content is valid for both automated and manual approac
 
 > [!NOTE]
 > The content can only be imported once from each account.
+>
+> The *trial* account is not availagle on the Azure Government cloud.
 
-## Delete the account
-
-If later you want to delete the account, you can delete the account from the Video Indexer website. To delete the account, you must be the owner.
-
-Select the account -> **Settings** -> **Delete this account**. 
-
-The account will be permanently deleted in 90 days.
-
-## Considerations
+## Azure Media Services considerations
 
 The following Azure Media Services related considerations apply:
 
@@ -194,11 +190,54 @@ To automate the creation of the account is a two steps process:
 1. Use Azure Resource Manager to create an Azure Media Services account + Azure AD application.
 
     See an example of the [Media Services account creation template](https://github.com/Azure-Samples/media-services-v3-arm-templates).
-1. Call [Create-Account with the Media Services and Azure AD application](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Paid-Account).
+1. Call [Create-Account with the Media Services and Azure AD application](https://videoindexer.ai.azure.us/account/login?source=apim).
+
+## Video Indexer in Azure Government
+
+### Prerequisites for connecting to Azure Government
+
+-	An Azure subscription in [Azure Government](../../azure-government/index.yml).
+- An Azure AD account in Azure Government.
+- All pre-requirements of permissions and resources as described above in [Prerequisites for connecting to Azure](#prerequisites-for-connecting-to-azure). Make sure to check [Additional prerequisites for automatic flow](#additional-prerequisites-for-automatic-flow) and [Additional prerequisites for manual flow](#additional-prerequisites-for-manual-flow).
+
+### Create new account via the Azure Government portal
+
+> [!NOTE]
+> The Azure Government cloud does not include a *trial* experience of Video Indexer.
+
+To create a paid account via the Video Indexer portal:
+
+1. Go to https://videoindexer.ai.azure.us 
+1. Log in with your Azure Government Azure AD account.
+1.	If you do not have any Video Indexer accounts in Azure Government that you are an owner or a contributor to, you will get an empty experience from which you can start creating your account. 
+
+    The rest of the flow is as described in above , only the regions to select from will be Government regions in which video Indexer is available 
+
+    If you already are a contributor or an admin of an existing one or more Video Indexer account in Azure Government, you will be taken to that account and from there you can start a follow steps for creating an additional account if needed, as described above.
+    
+### Create new account via the API on Azure Government
+
+To create a paid account in Azure Government, follow the instructions in [Create-Paid-Account](). This API end point only includes Government cloud regions.
+
+### Limitations of Video Indexer on Azure Government
+
+*	No manual content moderation available in Government cloud. 
+
+    In the public cloud when content is deemed offensive based on a content moderation, the customer can ask for a human to look at that content and potentially revert that decision.  
+*	No trial accounts. 
+* Bing description - in Gov cloud we will not present a description of celebrities and named entities identified. This is a UI capability only. 
 
 ## Clean up resources
 
 After you are done with this tutorial, delete resources that you are not planning to use.
+
+### Delete a Video Indexer account
+
+If you want to delete a Video Indexer account, you can delete the account from the Video Indexer website. To delete the account, you must be the owner.
+
+Select the account -> **Settings** -> **Delete this account**. 
+
+The account will be permanently deleted in 90 days.
 
 ## Next steps
 

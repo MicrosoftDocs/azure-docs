@@ -3,7 +3,7 @@ title: Add or update your Red Hat pull secret on an Azure Red Hat OpenShift 4 cl
 description: Add or update your Red Hat pull secret on existing 4.x ARO clusters
 author: sakthi-vetrivel
 ms.author: suvetriv
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 05/21/2020
 keywords: pull secret, aro, openshift, red hat
@@ -227,6 +227,6 @@ If you don't see the Certified Operators and Red Hat Operators, wait a few minut
 To ensure that your pull secret has been updated and is working correctly, open OperatorHub and check for any Red Hat verified Operator. For example, check to see if the OpenShift Container Storage Operator is available, and see if you have permissions to install.
 
 ## Next steps
-To learn more about Red Hat pull secrets, see [Using image pull secrets](https://docs.openshift.com/container-platform/4.5/openshift_images/managing_images/using-image-pull-secrets.html).
+To learn more about Red Hat pull secrets, see [Using image pull secrets](https://docs.openshift.com/container-platform/4.6/openshift_images/managing_images/using-image-pull-secrets.html).
 
-To learn more about Red Hat OpenShift 4, see [Azure Red Hat OpenShift 4](https://docs.openshift.com/aro/4/welcome/index.html).
+To learn more about Red Hat OpenShift 4, see [Red Hat OpenShift Container Platform Documentation](https://docs.openshift.com/container-platform/4.6/welcome/index.html).

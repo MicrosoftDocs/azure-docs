@@ -191,7 +191,7 @@
       href: luis-how-to-azure-subscription.md
     - name: App and version settings
       href: how-to-application-settings-portal.md
-    - name: Authors and collaborators
+    - name: Authors and contributors
       displayName: access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import
       href: luis-how-to-collaborate.md
     - name: With versions
@@ -286,7 +286,7 @@
         - name: NuGet - runtime
           href: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/
         - name: Reference
-          href: /dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet
+          href: /dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding
         - name: Samples
           href: https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/LUIS
       - name: Go
@@ -304,7 +304,7 @@
         - name: Maven - runtime
           href: https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime
         - name: Reference
-          href: /java/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-java-stable
+          href: /java/api/overview/azure/cognitiveservices/client/languageunderstanding
         - name: Samples
           href: https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Language/LanguageUnderstanding
       - name: Node.js
@@ -320,7 +320,7 @@
         - name: Pip SDK
           href: https://pypi.org/project/azure-cognitiveservices-language-luis/
         - name: Reference
-          href: /python/api/azure-cognitiveservices-language-luis/index?view=azure-python
+          href: /python/api/azure-cognitiveservices-language-luis/index
         - name: Samples
           href: https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/language/luis
   - name: User privacy
@@ -413,7 +413,7 @@
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Encryption
-    href: luis-encryption-of-data-at-rest.md
+    href: encrypt-data-at-rest.md
   - name: Configure virtual networks
     maintainContext: true
     href: ../cognitive-services-virtual-networks.md

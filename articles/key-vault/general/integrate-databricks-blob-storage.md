@@ -24,11 +24,11 @@ In this tutorial, you learn how to:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-Before you start this tutorial, install the [Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+Before you start this tutorial, install the [Azure CLI](/cli/azure/install-azure-cli-windows).
 
 ## Create a storage account and blob container with Azure CLI
 
-You'll need to create a general-purpose storage account first to use blobs. If you don't have a [resource group](/cli/azure/group?view=azure-cli-latest#az-group-create), create one before running the command. The following command creates and display the metadata of the storage container. Copy down the **ID**.
+You'll need to create a general-purpose storage account first to use blobs. If you don't have a [resource group](/cli/azure/group#az-group-create), create one before running the command. The following command creates and display the metadata of the storage container. Copy down the **ID**.
 
 ```azurecli
 az storage account create --name contosoblobstorage5 --resource-group contosoResourceGroup --location eastus --sku Standard_ZRS --encryption-services blob

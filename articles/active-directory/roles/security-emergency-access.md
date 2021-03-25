@@ -1,11 +1,10 @@
 ---
-
-title: Manage emergency access admin accounts - Azure AD | Microsoft Docs
+title: Manage emergency access admin accounts - Azure AD 
 description: This article describes how to use emergency access accounts to help prevent being inadvertently locked out of your Azure Active Directory (Azure AD) organization. 
 services: active-directory 
 author: markwahl-msft
 manager: daveba
-ms.author: curtand
+ms.author: rolyon
 ms.date: 11/05/2020
 ms.topic: conceptual
 ms.service: active-directory
@@ -56,7 +55,7 @@ During an emergency, you do not want a policy to potentially block your access t
 
 ## Federation guidance
 
-An additional option for organizations that use AD Domain Services and ADFS or similar identity provider to federate to Azure AD, is to configure an emergency access account whose MFA claim could be supplied by that identity provider.  For example, the emergency access account could be backed by a certificate and key pair such as one stored on a smartcard.  When that user is authenticated to AD, ADFS can supply a claim to Azure AD indicating that the user has met MFA requirements.  Even with this approach, organizations must still have cloud-based emergency access accounts in case federation cannot be established. 
+Some organizations use AD Domain Services and ADFS or similar identity provider to federate to Azure AD. [There should be no on-premises accounts with administrative privileges](../fundamentals/protect-m365-from-on-premises-attacks.md). Mastering and or sourcing authentication for  accounts with administrative privilege outside Azure AD adds unnecessary risk in the event of an outage or compromise of those system(s).
 
 ## Store account credentials safely
 
