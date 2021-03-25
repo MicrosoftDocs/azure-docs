@@ -112,7 +112,7 @@ To view the non-Azure Kubernetes cluster in Container insights, Read access is r
 
 ## Metrics aren't being collected
 
-1. Verify that the cluster is in a [supported region for custom metrics](../essentials/metrics-custom-overview#supported-regions).
+1. Verify that the cluster is in a [supported region for custom metrics](../essentials/metrics-custom-overview.md#supported-regions).
 
 2. Verify that the **Monitoring Metrics Publisher** role assignment exists using the following CLI command:
 
