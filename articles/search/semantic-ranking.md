@@ -20,9 +20,9 @@ Semantic ranking is an extension of the query execution pipeline that improves p
 
 Semantic ranking is both resource and time intensive. In order to complete processing within the expected latency of a query operation, inputs to the semantic ranker are consolidated and reduced so that the underlying summarization and reranking steps can be completed as quickly as possible.
 
-## Preparation for semantic ranking
+## Pre-processing
 
-Before scoring for relevance, content must be reduced to a manageable number of inputs that can be handled efficiently by the semantic ranker. Content reduction includes the following sequence of steps.
+Before scoring for relevance, content must be reduced to a manageable number of inputs that can be handled efficiently by the semantic ranker.
 
 1. First, content reduction begins with the initial results set returned by the default [similarity ranking algorithm](index-ranking-similarity.md) used for keyword search. For any given query, the results could be a handful of documents, up to the maximum limit of 1,000. Because processing a large number of matches would take too long, only the top 50 progress to semantic ranking.
 
@@ -30,12 +30,14 @@ Before scoring for relevance, content must be reduced to a manageable number of 
 
 1. Next, across the corpus, the contents of each field in "searchFields" are extracted and combined into a long string.
 
-1. Any strings that are excessively long are trimmed to ensure the overall length meets the input requirements of the summarization step. This trimming exercise is why it's important to position concise fields first in "searchFields", to ensure they are included in the string. If you have very large documents with text-heavy fields, anything after the maximum limit is ignored.
+1. After string consolidation, any strings that are excessively long are trimmed to ensure the overall length meets the input requirements of the summarization step.
+
+   This trimming exercise is why it's important to position concise fields first in "searchFields", to ensure they are included in the string. If you have very large documents with text-heavy fields, anything after the maximum limit is ignored.
 
 Each document is now represented by a single long string.
 
 > [!NOTE]
-> Parameter inputs to the models are tokens, not characters or words. Tokenization is determined in part by the analyzer assignment on searchable fields. For insights into how strings are tokenized, you can review the token output of an analyzer using the [Test Analyzer REST API](/rest/api/searchservice/test-analyzer).
+> The string is composed of tokens, not characters or words. Tokenization is determined in part by the analyzer assignment on searchable fields. If you are using specialized analyzer, such as nGram or EdgeNGram, you might want to exclude that field from searchFields. For insights into how strings are tokenized, you can review the token output of an analyzer using the [Test Analyzer REST API](/rest/api/searchservice/test-analyzer).
 
 ## Extraction
 
