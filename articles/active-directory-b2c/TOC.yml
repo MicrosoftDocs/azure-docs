@@ -179,6 +179,8 @@
       href: identity-provider-google.md
     - name: ID.me
       href: identity-provider-id-me.md
+    - name: itsme
+      href: partner-itsme.md
     - name: LinkedIn
       href: identity-provider-linkedin.md
     - name: Microsoft Account
@@ -220,8 +222,25 @@
     - name: Disable email verification
       href: disable-email-verification.md
     - name: Enable MFA
-      href: multi-factor-authentication.md
-      displayName: multi-factor auth
+      items:
+      - name: Multi-factor authentication
+        href: multi-factor-authentication.md
+      - name: Partner integration
+        items:
+        - name: HYPR
+          href: partner-hypr.md
+        - name: Keyless
+          href: partner-keyless.md
+        - name: Nevis
+          href: partner-nevis.md
+        - name: Trusona
+          href: partner-trusona.md
+        - name: Twilio
+          href: partner-twilio.md
+        - name: TypingDNA
+          href: partner-typingdna.md
+        - name: WhoIAM
+          href: partner-whoiam.md
     - name: Set up direct sign-in
       href: direct-signin.md
   - name: Tokens and session management
@@ -383,46 +402,39 @@
     items:
     - name: Azure AD B2C partner gallery
       href: partner-gallery.md
-    - name: Arkose Labs
-      href: partner-arkose-labs.md
+  - name: Identity verification and proofing
+    items: 
+    - name: Identity verification and proofing partners
+      href: identity-verification-proofing.md
+      displayName: id verify, id verification, azure ad b2c proofing, id proofing
     - name: Experian
       href: partner-experian.md
-    - name: HYPR
-      href: partner-hypr.md
     - name: IDology
       href: partner-idology.md
-    - name: itsme
-      href: partner-itsme.md
     - name: Jumio
       href: partner-jumio.md
-    - name: Keyless
-      href: partner-keyless.md
     - name: LexisNexis
       href: partner-lexisnexis.md
-    - name: Microsoft Dynamics 365 Fraud Protection
-      href: partner-dynamics-365-fraud-protection.md
-    - name: N8 Identity
-      href: partner-n8identity.md
-    - name: Nevis
-      href: partner-nevis.md
     - name: Onfido
       href: partner-onfido.md
+  - name: Fraud protection
+    items: 
+    - name: Microsoft Dynamics 365 Fraud Protection
+      href: partner-dynamics-365-fraud-protection.md
+      displayName: m365 dynamics, dynamics fraud protection, fraud, 365 protection
+    - name: Arkose Labs
+      href: partner-arkose-labs.md
+      displayName: fraud protection, fraud, Azure AD b2c, protection, B2Cprotection
+  - name: Secure legacy and on-premises apps
+    items:
     - name: Ping Identity
       href: partner-ping-identity.md
-    - name: Saviynt
-      href: partner-saviynt.md
     - name: Strata
       href: partner-strata.md
-    - name: Trusona
-      href: partner-trusona.md
-    - name: Twilio
-      href: partner-twilio.md
-    - name: TypingDNA
-      href: partner-typingdna.md
-    - name: WhoIAM
-      href: partner-whoiam.md
+      displayName: AAD b2c access, legacy app, onpremises apps
     - name: Zscaler
       href: partner-zscaler.md
+      displayName: zscaler b2c, vpn, sdp b2c
   - name: Domain name
     items:
     - name: b2clogin.com overview
@@ -443,9 +455,17 @@
     - name: Manage policies with PowerShell
       href: manage-custom-policies-powershell.md
       displayName: scripting, scripts, psh, custom policy
-  - name: Manage users - Azure portal
-    href: manage-users-portal.md
-    displayName: create users, add users, delete users
+  - name: Manage users
+    items:
+    - name: Azure portal
+      href: manage-users-portal.md
+      displayName: create users, add users, delete users
+    - name: Partner integration
+      items:
+      - name: N8identity
+        href: partner-n8identity.md
+      - name: Saviynt 
+        href: partner-saviynt.md
   - name: Secure API Management API
     href: secure-api-management.md
     displayName: apim, api management, migrate, b2clogin.com
@@ -496,6 +516,7 @@
     href: custom-policy-developer-notes.md
   - name: Page layout versions
     href: page-layout.md
+    displayName: Page version
   - name: Region availability & data residency
     href: data-residency.md
   - name: Build for resilience

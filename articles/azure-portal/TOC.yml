@@ -11,7 +11,7 @@
 - name: Quickstarts
   items:
   - name: Create a VM in the portal
-    href: ../virtual-machines/windows/quick-create-portal.md?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
+    href: ../virtual-machines/windows/quick-create-portal.md?context=/azure/azure-portal/context/context
   - name: Create a dashboard
     items:
     - name: Azure CLI
@@ -35,11 +35,11 @@
       href: azure-portal-dashboards.md
     - name: Share an Azure dashboard
       href: azure-portal-dashboard-share-access.md
+    - name: Use a custom markdown tile
+      href: azure-portal-markdown-tile.md
     - name: Programmatically create an Azure dashboard
       href: azure-portal-dashboards-create-programmatically.md
       displayName: Azure CLI, az portal dashboard, az portal
-    - name: Use a custom markdown tile
-      href: azure-portal-markdown-tile.md
   - name: Azure portal how-to video series
     href: azure-portal-video-series.md
   - name: Create and manage support requests
@@ -86,7 +86,7 @@
     href: ./policy-reference.md
 - name: Resources
   items:
-  - name: Azure roadmap
+  - name: Azure updates
     href: https://azure.microsoft.com/updates/
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/?products=azure-portal
@@ -98,3 +98,5 @@
     href: https://stackoverflow.com/questions/tagged/azure-management-portal
   - name: Azure Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-portal&sort=newest
+  - name: Azure and Power BI
+    href: /power-bi/connect-data/service-azure-and-power-bi?context=/azure/azure-portal/context/context
