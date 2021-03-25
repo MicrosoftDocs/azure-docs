@@ -55,7 +55,7 @@ Switching between video devices may cause your video stream to pause while the s
 Streaming from and switching between media devices is computationally intensive. Switching frequently can cause performance degradation. Developers are encouraged to stop one device stream before starting another.
 
 ### Bluetooth headset microphone is not detected therefore is not audible during the call on Safari on iOS
-Bluetooth headsets aren't supported by Safari. Your Bluetooth device will not be listed in available microphone options and other participants will not be able to hear you if you try using Bluetooth over Safari.
+Bluetooth headsets aren't supported by Safari on iOS. Your Bluetooth device will not be listed in available microphone options and other participants will not be able to hear you if you try using Bluetooth over Safari.
 
 #### Possible causes
 This is a known iOS operating system limitation. 
