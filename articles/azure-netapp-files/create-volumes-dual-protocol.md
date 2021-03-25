@@ -115,33 +115,6 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMB3
  
     A volume inherits subscription, resource group, location attributes from its capacity pool. To monitor the volume deployment status, you can use the Notifications tab.
 
-<!--
-## Upload Active Directory Certificate Authority public root certificate  
-
-1.	Follow [Install the Certification Authority](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) to install and configure ADDS Certificate Authority. 
-
-2.	Follow [View certificates with the MMC snap-in](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) to use the MMC snap-in and the Certificate Manager tool.  
-    Use the Certificate Manager snap-in to locate the root or issuing certificate for the local device. You should run the Certificate Management snap-in commands from one of the following settings:  
-    * A Windows-based client that has joined the domain and has the root certificate installed 
-    * Another machine in the domain containing the root certificate  
-
-3. Export the root CA certificate.  
-    Root CA certificates can be exported from the Personal or Trusted Root Certification Authorities directory, as shown in the following examples:   
-    ![screenshot that shows personal certificates](../media/azure-netapp-files/personal-certificates.png)   
-    ![screenshot that shows trusted root certification authorities](../media/azure-netapp-files/trusted-root-certification-authorities.png)    
-
-    Ensure that the certificate is exported in the Base-64 encoded X.509 (.CER) format: 
-
-    ![Certificate Export Wizard](../media/azure-netapp-files/certificate-export-wizard.png)
-
-4. Go to the NetApp account of the dual-protocol volume, click **Active Directory connections**, and upload the root CA certificate by using the **Join Active Directory** window:  
-
-    ![Server root CA certificate](../media/azure-netapp-files/server-root-ca-certificate.png)
-
-    Ensure that the certificate authority name can be resolved by DNS. This name is the "Issued By" or "Issuer" field on the certificate:  
-
-    ![Screenshot that shows certificate information](../media/azure-netapp-files/certificate-information.png)
--->
 ## Manage LDAP POSIX Attributes
 
 You can manage POSIX attributes such as UID, Home Directory, and other values by using the Active Directory Users and Computers MMC snap-in.  The following example shows the Active Directory Attribute Editor:  
