@@ -335,8 +335,6 @@
               href: iot-hub-configure-file-upload-powershell.md
             - name: Use Azure CLI
               href: iot-hub-configure-file-upload-cli.md
-        - name: Secure your hub with an X.509 certificate
-          href: iot-hub-security-x509-get-started.md
         - name: Upgrade an IoT hub
           href: iot-hub-upgrade.md
         - name: Configure IP filtering
