@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: This article describes how to create a monitor in Connection Monitor by using the Azure portal.
 services: network-watcher
 documentationcenter: na
-author: vinigam
+author: vinynigam
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: how-to
