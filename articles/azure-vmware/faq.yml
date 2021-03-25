@@ -110,7 +110,11 @@ sections:
         answer: The only way to connect to Azure VMware Solution through ExpressRoute is for your environment and the on-premises ExpressRoute-carrier partners/ISPs support 4-byte ASN or have backward compatibility from 4 byte to 2-byte ASN in the BGP prefix ASN path advertisement.
 
       - question: What is the Fault tolerance of hardware failure on the vSAN?
-        answer: FTT-1, RAID-1 (mirroring) with Object Space reservation set to Thick Provisioning is the Default Storage policy for the SDDC.
+        answer: |
+          FTT-1, RAID-1 (mirroring) with Object Space reservation set to Thick Provisioning is the Default Storage policy for the SDDC.
+          
+          :::image type="content" source="media/vsphere-vm-storage-policies.png" alt-text="Screenshot that shows the vSphere Client VM Storage Policies.":::  
+
       - question: Why is thick provisioning the default vSAN policy in Azure VMware Solution?
         answer: Thick provisioning is reserved or pre-allocated storage space.  Thick provisioning protects systems by allowing them to function even if the vSAN datastore is full because the space is already reserved. For example, suppose you create a 10GB virtual disk with thick provisioning. In that case, the full amount of virtual disk storage capacity is pre-allocated on the physical storage where the virtual disk is created and consumes all the space allocated to it in the datastore.  It won’t allow other VMs to share the space from the datastore. A thin-provisioned virtual disk consumes the space that it needs initially and grows to the data space demand used in the datastore.
 
@@ -275,6 +279,5 @@ sections:
   - name: Customer communication
     questions:
       - question: How can I receive an alert when Azure sends service health notifications to my Azure subscription?
-        answer: Service issues, planned maintenance, health advisories, security advisories notifications are published through **Service Health** in the Azure portal.  You can take timely actions when you set up activity log alerts for these notifications. For more information, see [Create service health alerts using the Azure portal](../service-health/alerts-activity-log-service-notifications-portal.md#create-service-health-alert-using-azure-portal). 
-#        |
-#        :::image type="content" source="media/service-health.png" alt-text="Screenshot of Service Health notifications":::
+        answer: |
+          [!INCLUDE [customer-communications](includes/customer-communications.md)]

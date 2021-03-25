@@ -51,9 +51,7 @@ In your private cloud, you can:
 Monitoring patterns inside the Azure VMware Solution are similar to Azure VMs within the IaaS platform. For more information and how-tos, see [Monitoring Azure VMs with Azure Monitor](../azure-monitor/vm/monitor-vm-azure.md).
 
 ## Customer communication
-Service issues, planned maintenance, health advisories, security advisories notifications are published through **Service Health** in the Azure portal. You can take timely actions when you set up activity log alerts for these notifications. For more information, see [Create service health alerts using the Azure portal](../service-health/alerts-activity-log-service-notifications-portal.md#create-service-health-alert-using-azure-portal).
-
-:::image type="content" source="media/service-health.png" alt-text="Screenshot of Service Health notifications":::
+[!INCLUDE [customer-communications](includes/customer-communications.md)]
 
 ## Next steps
 
@@ -63,3 +61,5 @@ The next step is to learn key [private cloud and cluster concepts](concepts-priv
 
 <!-- LINKS - internal -->
 [concepts-private-clouds-clusters]: ./concepts-private-clouds-clusters.md
+
+
