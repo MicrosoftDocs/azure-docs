@@ -34,7 +34,7 @@ Configure this page the same in both the DEV and PROD offers.
 
 ## Preview audience
 
-In the DEV offer, include the Azure Active Directory (AAD) user principal names or Microsoft account (MSA) email addresses of developers and testers, including yourself. Note that the user principal name of a user on AAD can be different than the email of that user. For example, jane.doe@contoso.com will not work but janedoe@contoso.com will work. The users you designate are those who will have access to the DEV offer when you share the **Preview** link during the development and testing phase.
+In the DEV offer, include the Azure Active Directory (AAD) user principal names or Microsoft account (MSA) email addresses of developers and testers, including yourself. The user principal name of a user on AAD can be different than the email of that user. For example, jane.doe@contoso.com will not work but janedoe@contoso.com will. The users you designate will have access to the DEV offer when you share the **Preview** link during the development and testing phase.
 
 In the PROD offer, include the Azure AD user principal name or Microsoft Account email of the users who will validate the offer before selecting the **Go Live button** to publish the offer live.
 
