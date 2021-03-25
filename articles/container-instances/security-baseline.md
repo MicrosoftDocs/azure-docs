@@ -36,7 +36,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 Control outbound network access from a subnet delegated to Azure Container Instances by using Azure Firewall. 
 
-- [Deploy container instances into an Azure virtual network](/azure/container-instances/container-instance-vnet)
+- [Deploy container instances into an Azure virtual network](/azure/container-instances/container-instances-vnet)
 
 - [How to deploy and configure Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
 
