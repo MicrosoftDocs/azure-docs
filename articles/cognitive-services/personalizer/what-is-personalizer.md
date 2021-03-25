@@ -16,11 +16,14 @@ Azure Personalizer is a cloud-based service that helps your applications choose 
 > [!TIP]
 > Content is any unit of information, such as text, images, URL, emails, or anything else that you want to select from and show to your users.
 
-Before you get started, feel free to try out [Personalizer with this interactive demo](https://personalizationdemo.azurewebsites.net/).
+This documentation contains the following article types:  
 
-<!--
-![What is personalizer animation](./media/what-is-personalizer.gif)
--->
+* [**Quickstarts**](quickstart-personalizer-sdk.md) are getting-started instructions to guide you through making requests to the service.  
+* [**How-to guides**](how-to-settings.md) contain instructions for using the service in more specific or customized ways.  
+* [**Concepts**](how-personalizer-works.md) provide in-depth explanations of the service functionality and features.  
+* [**Tutorials**](tutorial-use-personalizer-web-app.md) are longer guides that show you how to use the service as a component in broader business solutions.  
+
+Before you get started, try out [Personalizer with this interactive demo](https://personalizationdemo.azurewebsites.net/).
 
 ## How does Personalizer select the best content item?
 

@@ -9,10 +9,14 @@
   - name: What's new
     href: whats-new.md
     displayName: release notes, service updates, videos
-- name: Quickstarts
+- name: Personalizer quickstart
+  href: ./quickstart-personalizer-sdk.md
+- name: Samples
+  href: https://github.com/Azure-Samples/cognitive-services-personalizer-samples
+- name: Responsible use of AI
   items:
-  - name: Using SDK
-    href: ./quickstart-personalizer-sdk.md
+  - name: Ethics & responsible use
+    href: ethics-responsible-use.md
 - name: Tutorials
   items:
   - name: Use Web app
@@ -32,8 +36,6 @@
     displayName: checklist, considerations, effectiveness, recommendation engine
   - name: Terminology
     href: terminology.md
-  - name: Ethics & responsible use
-    href: ethics-responsible-use.md
     displayName: best practice, design
   - name: Fundamental concepts
     items:
@@ -79,46 +81,42 @@
     href: how-to-offline-evaluation.md
 - name: Reference
   items:
-  - name: Samples
-    href: https://go.microsoft.com/fwlink/?linkid=2092083
-  - name: REST API Reference
+  - name: Personalizer REST API
     href: https://go.microsoft.com/fwlink/?linkid=2092082
-  - name: SDKs
+  - name: .NET
     items:
-    - name: .NET
-      items:
-      - name: Reference
-        href: /dotnet/api/overview/azure/cognitiveservices/client/personalizer
-      - name: NuGet package
-        href: https://go.microsoft.com/fwlink/?linkid=2092272
-    - name: Go
-      items:
-      - name: SDK
-        href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview
-    - name: Node.js
-      items:
-      - name: Reference
-        href: /javascript/api/@azure/cognitiveservices-personalizer/
-      - name: NPM
-        href: https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0
-    - name: Python
-      items:
-      - name: Reference
-        href: /python/api/overview/azure/cognitiveservices/personalizer
-      - name: Pypi package
-        href: https://pypi.org/project/azure-cognitiveservices-personalizer/
+    - name: Reference
+      href: /dotnet/api/overview/azure/cognitiveservices/client/personalizer
+    - name: NuGet package
+      href: https://go.microsoft.com/fwlink/?linkid=2092272
+  - name: Go
+    items:
+    - name: Reference
+      href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview
+  - name: Node.js
+    items:
+    - name: Reference
+      href: /javascript/api/@azure/cognitiveservices-personalizer/
+    - name: NPM package
+      href: https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0
+  - name: Python
+    items:
+    - name: Reference
+      href: /python/api/overview/azure/cognitiveservices/personalizer
+    - name: Pypi package
+      href: https://pypi.org/project/azure-cognitiveservices-personalizer/
 - name: Resources
   items:
   - name: Support & help options
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/personalizer/context/context
   - name: Troubleshooting
     href: troubleshooting.md
-  - name: Regional availability
+  - name: Region support
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-  - name: Compliance
-    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Encryption
     href: encrypt-data-at-rest.md
+  - name: Compliance
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Azure Roadmap
     href: https://go.microsoft.com/fwlink/?linkid=2092153
   - name: Pricing
