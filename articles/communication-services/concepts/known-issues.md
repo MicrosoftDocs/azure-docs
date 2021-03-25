@@ -58,11 +58,9 @@ Streaming from and switching between media devices is computationally intensive.
 Bluetooth headsets aren't supported by Safari on iOS. Your Bluetooth device will not be listed in available microphone options and other participants will not be able to hear you if you try using Bluetooth over Safari.
 
 #### Possible causes
-This is a known iOS operating system limitation. 
+This is a known MacOS/iOS/iPadOS operating system limitation. 
 
-With Safari on **iOS/iPad**, your app may have trouble enumerating/selecting mic/speaker devices (e.g. Bluetooth). This is a known operating system limitation. You may only see one device in this scenario. 
-
-With Safari on **MacOS**, your app may have trouble enumerating/selecting speaker devices through the Communication Services Device Manager. In this scenario, your device selection should be updated via the operating system.
+With Safari on **MacOS** and **iOS/iPadOS**, it is not possible to enumerating/selecting speaker devices through the Communication Services Device Manager since speakers enumeration/selection is not supported by Safari. In this scenario, your device selection should be updated via the operating system.
 
 ### Rotation of a device can create poor video quality
 Users may experience degraded video quality when devices are rotated.
