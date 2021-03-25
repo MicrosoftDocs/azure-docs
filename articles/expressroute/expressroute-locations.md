@@ -14,7 +14,7 @@ ms.author: duau
 # ExpressRoute connectivity partners and peering locations
 
 > [!div class="op_single_selector"]
-> * Locations By Provider
+> * [Locations By Provider](expressroute-locations.md)
 > * [Providers By Location](expressroute-locations-providers.md)
 
 
@@ -251,7 +251,7 @@ If you are remote and don't have fiber connectivity or you want to explore other
 
 | **Connectivity provider** | **Exchange** | **Locations** |
 | --- | --- | --- |
-| **[1CLOUDSTAR](https://www.1cloudstar.com/service/cloudconnect-azure-expressroute/)** |Equinix |Singapore |
+| **[1CLOUDSTAR](https://www.1cloudstar.com/service/cloudconnect-azure-expressroute/)** | Equinix |Singapore |
 | **[Airgate Technologies, Inc.](https://www.airgate.ca/)** | Equinix, Cologix | Toronto, Montreal |
 | **[Alaska Communications](https://www.alaskacommunications.com/Business)** |Equinix |Seattle |
 | **[Altice Business](https://golightpath.com/transport)** |Equinix |New York, Washington DC |
