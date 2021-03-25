@@ -72,7 +72,7 @@ Based on your choices, Azure performs the following storage configuration tasks 
 * Associates the storage pool with a new drive on the virtual machine.
 * Optimizes this new drive based on your specified workload type (Data warehousing, Transactional processing, or General).
 
-or a full walkthrough of how to create a SQL Server VM in the Azure portal, see [the provisioning tutorial](../../../azure-sql/virtual-machines/windows/create-sql-vm-portal.md).
+For a full walkthrough of how to create a SQL Server VM in the Azure portal, see [the provisioning tutorial](../../../azure-sql/virtual-machines/windows/create-sql-vm-portal.md).
 
 ### Resource Manager templates
 
@@ -158,11 +158,11 @@ To change your caching policy in the Azure portal, follow these steps:
 1. Sign into the [Azure portal](https://portal.azure.com). 
 1. Navigate to your virtual machine, select **Disks** under **Settings**. 
    
-   ![VM Disk Configuration](./media/storage-configuration/disk-in-portal.png)
+   ![Screenshot showing the VM disk configuration blade in the Azure portal.](./media/storage-configuration/disk-in-portal.png)
 
 1. Choose the appropriate caching policy for your disk from the drop-down. 
 
-   ![Choose caching policy](./media/storage-configuration/azure_disk_config.png)
+   ![Screenshot showing the disk caching policy configuration in the Azure portal.](./media/storage-configuration/azure-disk-config.png)
 
 1. After the change takes effect, reboot the SQL Server VM and start the SQL Server service. 
 
@@ -181,11 +181,11 @@ To enable Write Acceleration using the Azure portal, follow these steps:
 1. Sign into the [Azure portal](https://portal.azure.com). 
 1. Navigate to your virtual machine, select **Disks** under **Settings**. 
    
-   ![VM Disk Configuration](./media/storage-configuration/disk-in-portal.png)
+   ![Screenshot showing the VM disk configuration blade in the Azure portal.](./media/storage-configuration/disk-in-portal.png)
 
 1. Choose the cache option with **Write Accelerator** for your disk from the drop-down. 
 
-   ![Enable write accelerator cache policy](./media/storage-configuration/write-accelerator.png)
+   ![Screenshot showing the write accelerator cache policy.](./media/storage-configuration/write-accelerator.png)
 
 1. After the change takes effect, start the virtual machine and SQL Server service. 
 

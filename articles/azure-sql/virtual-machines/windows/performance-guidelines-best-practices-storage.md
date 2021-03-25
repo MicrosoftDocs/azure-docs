@@ -153,7 +153,7 @@ The amount of uncached IOPS and throughput that is available for a VM can be ver
 
 For example, the [M-series](../../../virtual-machines/m-series.md) documentation shows that the max uncached throughput for the Standard_M8ms VM is 5000 IOPS and 125 MBps of uncached disk throughput. 
 
-![M-series Uncached Disk Throughput](./media/performance-guidelines-best-practices/M-Series_table.png)
+![Screenshot showing M-series uncached disk throughput documentation.](./media/performance-guidelines-best-practices/m-series-table.png)
 
 Likewise, you can see that the Standard_M32ts supports 20,000 uncached disk IOPS and 500 MBps uncached disk throughput. This limit is governed at the virtual machine level regardless of the underlying premium disk storage.
 
@@ -170,11 +170,11 @@ When caching is enabled on premium storage, virtual machines can scale beyond th
 
 Only certain virtual machines support both premium storage and premium storage caching (which needs to be verified in the virtual machine documentation). For example, the [M-series](../../../virtual-machines/m-series.md) documentation indicates that both premium storage, and premium storage caching is supported: 
 
-![M-Series Premium Storage Support](./media/performance-guidelines-best-practices/M-Series_table_premium_support.png)
+![Screenshot showing M-Series Premium Storage support.](./media/performance-guidelines-best-practices/m-series-table-premium-support.png)
 
 The limits of the cache will vary based on the virtual machine size. For example, the Standard_M8ms VM supports 10000 cached disk IOPS and 1000 MBps cached disk throughput with a total cache size of 793 GiB. Similarly, the Standard_M32ts VM supports 40000 cached disk IOPS and 400 MBps cached disk throughput with a total cache size of 3174 GiB. 
 
-![M-series Cached Disk Throughput](./media/performance-guidelines-best-practices/M-Series_table_cached_temp.png)
+![Screenshot showing M-series cached disk throughput documentation.](./media/performance-guidelines-best-practices/m-series-table-cached-temp.png)
 
 You can manually enable host caching on an existing VM. Stop all application workloads and the SQL Server services before any changes are made to your virtual machine's caching policy. Changing any of the virtual machine cache settings results in the target disk being detached and reattached after the settings are applied.
 
@@ -246,7 +246,7 @@ The follow table outlines the number of data disks and IOPS supported per virtua
 There are a number of restrictions to using Write Acceleration. To learn more, see [Restrictions when using Write Accelerator](../../../virtual-machines/how-to-enable-write-accelerator.md#restrictions-when-using-write-accelerator).
 
 
-### Comparing to Azure ultra Disk
+### Comparing to Azure ultra disk
 
 The biggest difference between Write Acceleration and Azure ultra disks is that Write Acceleration is a virtual machine feature only available for the M-Series and Azure ultra disks is a storage option. Write Acceleration is a write-optimized cache with its own limitations based on the virtual machine size. Azure ultra disks are a low latency disk storage option for Azure Virtual Machines. 
 

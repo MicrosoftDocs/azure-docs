@@ -83,7 +83,7 @@ The [DSv2-series 11-15](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2
 
 The [DSv2-series 11-15](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) supports [premium storage](../../../virtual-machines/premium-storage-performance.md) and [premium storage caching](../../../virtual-machines/premium-storage-performance.md#disk-caching), which is strongly recommended for optimal performance.
 
-## General Purpose
+## General purpose
 
 The [general purpose virtual machine sizes](../../../virtual-machines/sizes-general.md) are designed to provide balanced memory-to-vCore ratios for smaller entry level workloads such as development and test, web servers, and smaller database servers. 
 
