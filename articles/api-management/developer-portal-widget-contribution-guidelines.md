@@ -19,9 +19,9 @@ If you'd like to contribute a widget to the API Management developer portal [Git
 
 1. Open a pull request to include your widget in the official repository.
 
-Your widget will inherit the repository's license. It will be available for [opt-in installation](dev-portal-use-community-widgets.md) in the self-hosted version of the portal. The developer portal team may decide to also include it in the managed version of the portal.
+Your widget will inherit the repository's license. It will be available for [opt-in installation](developer-portal-use-community-widgets.md) in the self-hosted version of the portal. The developer portal team may decide to also include it in the managed version of the portal.
 
-Refer to the [widget implementation](dev-portal-implement-widgets.md) tutorial for an example of how to develop your own widget.
+Refer to the [widget implementation](developer-portal-implement-widgets.md) tutorial for an example of how to develop your own widget.
 
 ## Contribution guidelines
 

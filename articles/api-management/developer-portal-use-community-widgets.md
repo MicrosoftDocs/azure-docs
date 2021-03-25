@@ -64,7 +64,7 @@ All developers place their community-contributed widgets in the `/community/widg
 
 You can see the widget in the **Community** category in the widget selector.
 
-:::image type="content" source="media/developer-portal-community-widgets/widget-selector.png" alt-text="Use widget selector":::
+:::image type="content" source="media/developer-portal-use-community-widgets/widget-selector.png" alt-text="Use widget selector":::
 
 
 ## Next steps

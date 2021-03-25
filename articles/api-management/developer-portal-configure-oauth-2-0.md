@@ -52,11 +52,6 @@ https://graph.microsoft.com/.default
 
 ## Next steps
 
-<<<<<<< HEAD:articles/api-management/developer-portal-configure-oauth-2-0.md
-=======
-This article is the last step in the process of creating a self-hosted developer portal. If you'd like to learn more about the developer portal, see these articles:
-
->>>>>>> 182eb9c329d7dde7771539b481aa7674f25eba27:articles/api-management/dev-portal-configure-oauth-2-0.md
 - [Migrate to the new developer portal](developer-portal-deprecated-migration.md)
 
 - [Authenticate with Azure AD](api-management-howto-aad.md)

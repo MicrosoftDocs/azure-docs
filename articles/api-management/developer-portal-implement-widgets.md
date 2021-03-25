@@ -106,7 +106,7 @@ Now you're ready to plug in the duplicated scaffold and use it in developer port
 1. When the application loads, place the new widget on a page. You can find it under the name `Your widget` in the `Community` category in the widget selector.
     :::image type="content" source="media/developer-portal-implement-widgets/widget-selector.png" alt-text="Use widget selector":::
 
-1. Save the page by pressing `Ctrl+S` (or `⌘+S` on MacOS).
+1. Save the page by pressing `Ctrl+S` (or `⌘+S` onmacOSS).
 
 1. Save the page by pressing **Ctrl** + **S** (or **⌘** + **S** on Apple computers).
 
@@ -176,7 +176,7 @@ Enable the flow of the `sessionNumber` from the data source to the widget presen
 
 The components of each scope run independently. They have separate dependency injection containers, their own configuration, lifecycle, etc. They may even be powered by different UI frameworks (in this example it is Knockout JS).
 
-From the design-time perspective, any runtime component is just an HTML tag with certain attributes and/or content. Configuration (if required) is passed with plain markup. In simple cases, like in this example, the parameter is passed in the attribute. If the configuration is more complex, you could use an identifier of the required setting(s) fetched by a designated configuration provider (for example, `ISettingsProvider`).
+From the design-time perspective, any runtime component is just an HTML tag with certain attributes and/or content. Configuration if necessaryd) is passed with plain markup. In simple cases, like in this example, the parameter is passed in the attribute. If the configuration is more complex, you could use an identifier of the required setting(s) fetched by a designated configuration provider (for example, `ISettingsProvider`).
 
 1. Update the `ko/widgetView.html` file:
 

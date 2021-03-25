@@ -215,8 +215,8 @@ cd ..
 Learn more about the new developer portal:
 
 - [Access and customize the managed developer portal](api-management-howto-developer-portal-customize.md)
-- [Set up self-hosted version of the portal](dev-portal-self-host-portal.md)
-- [Implement your own widget](dev-portal-implement-widgets.md)
+- [Set up self-hosted version of the portal](developer-portal-self-host.md)
+- [Implement your own widget](developer-portal-implement-widgets.md)
 
 Browse other resources:
 

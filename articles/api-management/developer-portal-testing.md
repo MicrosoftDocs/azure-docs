@@ -172,7 +172,7 @@ Here's an example of a `validate.config.json` that would be stored in the `src` 
 
 ### Headless vs normal tests
 
-Modern browsers such as Chrome or Microsoft Edge allow you to run automation in both headless mode and normal mode. The browser operates without a graphical user interface in headless mode. It still carries out the same page and Document Object Model (DOM) manipulations. The browser UI usually isn't needed in delivery pipelines. In that case, running tests in headless mode is a great option.
+Modern browsers such as Chrome or Microsoft Edge allows you to run automation in both headless mode and normal mode. The browser operates without a graphical user interface in headless mode. It still carries out the same page and Document Object Model (DOM) manipulations. The browser UI usually isn't needed in delivery pipelines. In that case, running tests in headless mode is a great option.
 
 When you develop a test script, it's useful to see what exactly is happening in the browser. That's a good time to use normal mode.
 
