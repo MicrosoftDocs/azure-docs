@@ -10,13 +10,13 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
-ms.date: 02/02/2021
+ms.date: 03/25/2021
 ---
 
 # Resource limits for Azure SQL Database and Azure Synapse Analytics servers
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-This article provides an overview of the resource limits for the logical server used by Azure SQL Database and Azure Synapse Analytics. It provides information on what happens when those resource limits are hit or exceeded and describes the resource governance mechanisms used to enforce these limits.
+This article provides an overview of the resource limits for the [logical server](logical-servers.md) used by Azure SQL Database and Azure Synapse Analytics. It provides information on what happens when those resource limits are hit or exceeded and describes the resource governance mechanisms used to enforce these limits.
 
 > [!NOTE]
 > For Azure SQL Managed Instance limits, see [SQL Database resource limits for managed instances](../managed-instance/resource-limits.md).
@@ -26,21 +26,21 @@ This article provides an overview of the resource limits for the logical server 
 | Resource | Limit |
 | :--- | :--- |
 | Databases per server | 5000 |
-| Default number of servers per subscription in any region | 20 |
-| Max number of servers per subscription in any region | 200 |  
-| DTU / eDTU quota per server | 54,000 |  
-| vCore quota per server/instance | 540 |
-| Max pools per server | Limited by number of DTUs or vCores. For example, if each pool is 1000 DTUs, then a server can support 54 pools.|
+| Default number of logical servers per subscription in a region | 20 |
+| Max number of logical servers per subscription in a region | 200 |  
+| DTU / eDTU quota per logical server | 54,000 |  
+| vCore quota per logical server | 540 |
+| Max pools per logical server | Limited by number of DTUs or vCores. For example, if each pool is 1000 DTUs, then a server can support 54 pools.|
 |||
 
 > [!IMPORTANT]
-> As the number of databases approaches the limit per server, the following can occur:
+> As the number of databases approaches the limit per logical server, the following can occur:
 >
-> - Increasing latency in running queries against the master database.  This includes views of resource utilization statistics such as sys.resource_stats.
+> - Increasing latency in running queries against the master database.  This includes views of resource utilization statistics such as `sys.resource_stats`.
 > - Increasing latency in management operations and rendering portal viewpoints that involve enumerating databases in the server.
 
 > [!NOTE]
-> To obtain more DTU/eDTU quota, vCore quota, or more servers than the default amount, submit a new support request in the Azure portal. For more information, see [Request quota increases for Azure SQL Database](quota-increase-request.md).
+> To obtain more DTU/eDTU quota, vCore quota, or more logical servers than the default amount, submit a new support request in the Azure portal. For more information, see [Request quota increases for Azure SQL Database](quota-increase-request.md).
 
 ### Storage size
 
