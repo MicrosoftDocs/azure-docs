@@ -56718,6 +56718,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-saas-iqnavigatorvms-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/iqnavigatorvms-tutorial",
       "redirect_document_id": true
