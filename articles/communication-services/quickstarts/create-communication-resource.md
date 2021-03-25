@@ -44,15 +44,25 @@ After navigating to your Communication Services resource, select **Keys** from t
 
 :::image type="content" source="./media/key.png" alt-text="Screenshot of Communication Services Key page.":::
 
-You can also access key information using Azure CLI:
+You can also access key information using Azure CLI, like your resource group or the keys for a specific resource. 
 
+Install [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?tabs=azure-cli) and use the following command to login. You will need to provide your credentials to connect with your azure account.
+```azurecli
+az login
+```
+
+Now you can access important information about your resources.
 ```azurecli
 az communication list --resource-group "<resourceGroup>"
 
 az communication list-key --name "<communicationName>" --resource-group "<resourceGroup>"
 ```
 
-## Store your connection string
+If you would like to select a specific subscription you can also specify the ```--subscription``` flag and provide the subscription ID.
+```
+az communication list --resource-group  "resourceGroup>"  --subscription "<subscriptionID>"
+
+az communication list-key --name "<communicationName>" --resource-group "resourceGroup>" --subscription "<subscriptionID>"
 
 Communication Services SDKs use connection strings to authorize requests made to Communication Services. You have several options for storing your connection string:
 
