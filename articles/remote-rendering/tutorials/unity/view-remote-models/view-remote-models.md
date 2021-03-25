@@ -748,7 +748,7 @@ The code above is performing the following steps:
 1. Create a [Remote Entity](../../../concepts/entities.md).
 1. Create a local GameObject to represent the remote entity.
 1. Configure the local GameObject to sync its state (i.e. Transform) to the remote entity every frame.
-1. Set a name and add a [**WorldAnchor**](https://docs.unity3d.com/ScriptReference/XR.WSA.WorldAnchor.html) to assist stabilization.
+1. Set a name and add a [**WorldAnchor**](https://docs.unity3d.com/550/Documentation/ScriptReference/VR.WSA.WorldAnchor.html) to assist stabilization.
 1. Load model data from Blob Storage into the remote entity.
 1. Return the parent Entity, for later reference.
 
