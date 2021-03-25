@@ -14,7 +14,7 @@ ms.author: yuajia
 > [!Note]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
 
-An Azure Front Door [Rule Set](concept-rule-set.md) consist of rules with a combination of match conditions and actions. This article provides a detailed description of the actions you can use in a Rule Set. The action defines the behavior that gets applied to a request type that a match condition(s) identifies. In an Azure Front Door Rule Set, a rule can contain up to five actions. Server variable is supported on all actions.
+An Azure Front Door Standard/Premium [Rule Set](concept-rule-set.md) consist of rules with a combination of match conditions and actions. This article provides a detailed description of the actions you can use in Azure Front Door Standard/Premium Rule Set. The action defines the behavior that gets applied to a request type that a match condition(s) identifies. In an Azure Front Door (Standard/Premium) Rule Set, a rule can contain up to five actions. Server variables are supported on all actions.
 
 > [!IMPORTANT]
 > Azure Front Door Standard/Premium (Preview) is currently in public preview.
@@ -25,11 +25,7 @@ The following actions are available to use in Azure Front Door rule set.
 
 ## Cache expiration
 
-Use this action to overwrite the time to live (TTL) value of the endpoint for requests that the rules match conditions specify.
-
-### Required fields
-
-The following description applies when selecting these cache behaviors and the rule matches:
+Use the **cache expiration** action to overwrite the time to live (TTL) value of the endpoint for requests that the rules match conditions specify.
 
 Cache behavior |  Description              
 ---------------|----------------
@@ -37,11 +33,50 @@ Bypass cache | The content isn't cached.
 Override | The TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. For cache-control response header with values "no-cache", "private", "no-store", the action won't be applicable.
 Set if missing | If no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. For cache-control response header with values "no-cache", "private", "no-store", the action won't be applicable.
 
-### Additional fields
+### Properties
 
-Days | Hours | Minutes | Seconds
------|-------|---------|--------
-Int | Int | Int | Int 
+| Property | Supported values |
+|-------|------------------|
+| Cache behavior | `Bypass cache`, `Override`, `Set if missing` |
+| Cache duration | When _Cache behavior_ is set to `Override` or `Set if missing`, these fields must specify the cache duration to use. <ul><li>In the Azure portal: specify the days, hours, minutes, and seconds.</li><li>In ARM templates: specify the duration in the format `d.hh:mm:ss`. |
+
+### Example
+
+In this example, we override the cache expiration to 6 hours, for matched requests that don't specify a cache duration already.
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="../media/concept-rule-set-actions/cache-expiration.png" alt-text="Portal screenshot showing cache expiration action.":::
+
+# [JSON](#tab/json)
+
+```json
+{
+  "name": "CacheExpiration",
+  "parameters": {
+    "cacheBehavior": "SetIfMissing",
+    "cacheType": "All",
+    "cacheDuration": "0.06:00:00",
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleCacheExpirationActionParameters"
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'CacheExpiration'
+  parameters: {
+    cacheBehavior: 'SetIfMissing'
+    cacheType: All
+    cacheDuration: '0.06:00:00'
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleCacheExpirationActionParameters'
+  }
+}
+```
+
+---
 
 ## Cache key query string
 
@@ -113,27 +148,29 @@ Source pattern | Define the source pattern in the URL path to replace. Currently
 Destination | Define the destination path to use in the rewrite. The destination path overwrites the source pattern.
 Preserve unmatched path | If set to **Yes**, the remaining path after the source pattern is appended to the new destination path. 
 
-## Server Variable
+## Server variables
 
-### Supported Variables
+TODO intro paragraph
+
+### Supported variables
 
 | Variable name | Description                                                  |
 | -------------------------- | :----------------------------------------------------------- |
-| socket_ip                  | The IP address of the direct connection to Azure Front Door edge. If the client used an HTTP proxy or a load balancer to send the request, the value of SocketIp is the IP address of the proxy or load balancer. |
-| client_ip                  | The IP address of the client that made the original request. If there was an X-Forwarded-For header in the request, then the Client IP is picked from the same. |
-| client_port                | The IP port of the client that made the request. |
-| hostname                      | The host name in the request from client. |
-| geo_country                     | Indicates the requester's country/region of origin through its country/region code. |
-| http_method                | The method used to make the URL request. For example, GET or POST. |
-| http_version               | The request protocol. Usually HTTP/1.0, HTTP/1.1, or HTTP/2.0. |
-| query_string               | The list of variable/value pairs that follows the "?" in the requested URL. Example: in the request *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*, query_string value will be *id=123&title=fabrikam* |
-| request_scheme             | The request scheme: http or https. |
-| request_uri                | The full original request URI (with arguments). Example: in the request *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*, request_uri value will be */article.aspx?id=123&title=fabrikam* |
-| server_port                | The port of the server that accepted a request. |
-| ssl_protocol    | The protocol of an established TLS connection. |
-| url_path                   | Identifies the specific resource in the host that the web client wants to access. This is the part of the request URI without the arguments. Example: in the request *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*, uri_path value will be */article.aspx* |
+| `socket_ip`                  | The IP address of the direct connection to Azure Front Door edge. If the client used an HTTP proxy or a load balancer to send the request, the value of `socket_ip` is the IP address of the proxy or load balancer. |
+| `client_ip`                  | The IP address of the client that made the original request. If there was an `X-Forwarded-For` header in the request, then the client IP address is picked from the header. |
+| `client_port`                | The IP port of the client that made the request. |
+| `hostname`                      | The host name in the request from the client. |
+| `geo_country`                     | Indicates the requester's country/region of origin through its country/region code. |
+| `http_method`                | The method used to make the URL request, such as `GET` or `POST`. |
+| `http_version`               | The request protocol. Usually `HTTP/1.0`, `HTTP/1.1`, or `HTTP/2.0`. |
+| `query_string`               | The list of variable/value pairs that follows the "?" in the requested URL.<br />Example: in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `query_string` value will be `id=123&title=fabrikam` |
+| `request_scheme`             | The request scheme: `http` or `https`. |
+| `request_uri`                | The full original request URI (with arguments).<br />Example: in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `request_uri` value will be `/article.aspx?id=123&title=fabrikam` |
+| `server_port`                | The port of the server that accepted a request. |
+| `ssl_protocol`    | The protocol of an established TLS connection. |
+| `url_path`                   | Identifies the specific resource in the host that the web client wants to access. This is the part of the request URI without the arguments.<br />Example: in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `uri_path` value will be `/article.aspx` |
 
-### Server Variable Format    
+### Server variable format    
 
 **Format:** {variable:offset}, {variable:offset:length}, {variable}
 
@@ -147,5 +184,5 @@ Preserve unmatched path | If set to **Yes**, the remaining path after the source
 
 ## Next steps
 
-* Learn more about [Azure Front Door Stanard/Premium Rule Set](concept-rule-set.md).
+* Learn more about [Azure Front Door Standard/Premium Rule Set](concept-rule-set.md).
 * Learn more about [Rule Set Match Conditions](concept-rule-set-match-conditions.md).

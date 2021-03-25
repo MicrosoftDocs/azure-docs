@@ -26,13 +26,15 @@
   - name: Route
     href: concept-route.md
   - name: Rule Set
-    href: concept-rule-set.md
-  - name: Rule Set Match Conditions
-    href: concept-rule-set-match-conditions.md
-  - name: Rule Set Actions
-    href: concept-rule-set-actions.md
-  - name: URL redirect and URL rewrite
-    href: concept-rule-set-url-redirect-and-rewrite.md
+    items:
+    - name: Rule Set
+      href: concept-rule-set.md
+    - name: Match Conditions
+      href: concept-rule-set-match-conditions.md
+    - name: Actions
+      href: concept-rule-set-actions.md
+    - name: URL redirect and URL rewrite
+      href: concept-rule-set-url-redirect-and-rewrite.md
   - name: Health probes
     href: concept-health-probes.md
   - name: Private Link
