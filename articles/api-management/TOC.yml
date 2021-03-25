@@ -180,7 +180,7 @@
                   - name: Migrate from deprecated to new developer portal
                     href: developer-portal-deprecated-migration.md
                   - name: Move portal between services
-                    hewd: developer-portal-migrate-between-services.md
+                    href: developer-portal-migrate-between-services.md
                   - name: Authenticate with Azure AD
                     href: api-management-howto-aad.md
                   - name: Authenticate with Azure AD B2C
@@ -197,27 +197,27 @@
                     href: developer-portal-integrate-google-tag-manager.md
             - name: Self-host developer portal 
               items:  
-                - name: Self-hosted portal - create
+                - name: Create self-hosted portal
                   href: developer-portal-self-host.md
-                - name: Self-hosted portal - enable CAPTCHA
+                - name: Enable CAPTCHA
                   href: developer-portal-enable-captcha.md
                 - name: Alternative processes to self-host
                   href: developer-portal-alternative-processes-self-host.md
-                - name: Self-hosted portal - content management API
+                - name: Content management API
                   href: developer-portal-content-management-api.md
-                - name: Self-hosted portal - implement widgets
+                - name: Implement widgets
                   href: developer-portal-implement-widgets.md
-                - name: Self-hosted portal - contribute widgets
+                - name: Contribute widgets
                   href: developer-portal-widget-contribution-guidelines.md
-                - name: Self-hosted portal - use community widgets
+                - name: Use community widgets
                   href: developer-portal-use-community-widgets.md
-                - name: Self-hosted portal - test
+                - name: Test self-hosted portal
                   href: developer-portal-testing.md
                 - name: Move from managed to self-hosted portal
                   href: developer-portal-move-managed-self-hosted.md
-                - name: Self-hosted portal - SSO authentication
+                - name: Single sign-on to self-hosted portal
                   href: developer-portal-sso-authentication.md
-                - name: Self-hosted portal - configure OAuth 2.0
+                - name: Configure OAuth 2.0 for self-hosted portal
                   href: developer-portal-configure-oauth-2-0.md
             - name: Deprecated portal
               items:
