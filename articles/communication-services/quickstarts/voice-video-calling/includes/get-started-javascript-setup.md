@@ -24,7 +24,7 @@ npm init -y
 
 ### Install the package
 
-Use the `npm install` command to install the Azure Communication Services Calling client library for JavaScript.
+Use the `npm install` command to install the Azure Communication Services Calling SDK for JavaScript.
 
 ```console
 npm install @azure/communication-common --save
