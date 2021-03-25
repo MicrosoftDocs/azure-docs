@@ -35,7 +35,7 @@ If previously user was sending video, `videoStreams` collection will keep previo
 ### It's not possible to render multiple previews from multiple devices on web
 This is a known limitation. Refer to the [calling client library overview](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features) for more information.
 
-### Enumeration of the mic and speaker devices is not possible in Safari when the application runs on iOS or iPadOS 
+### Enumeration of the microphone and speaker devices is not possible in Safari when the application runs on iOS or iPadOS 
 Applications can't enumerate/select mic/speaker devices (like Bluetooth) on Safari iOS/iPad. This is a known operating system limitation.
 
 If you're using Safari on MacOS, your app may not be able to enumerate/select speakers through the Communication Services Device Manager. In this scenario, devices must be selected via the OS. If you use Chrome on MacOS, the app can enumerate/select devices through the Communication Services Device Manager.
