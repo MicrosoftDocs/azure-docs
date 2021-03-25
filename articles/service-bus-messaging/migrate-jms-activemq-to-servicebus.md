@@ -156,60 +156,6 @@ To ensure seamless connectivity with Service Bus, add the `azure-servicebus-jms`
 
 This part is customized to the application server that is hosting your client applications connecting to ActiveMQ.
 
-#### Tomcat
-
-Here, you start with the configuration specific to ActiveMQ, as shown in the `/META-INF/context.xml` file.
-
-```XML
-<Context antiJARLocking="true">
-    <Resource
-        name="jms/ConnectionFactory"
-        auth="Container"
-        type="org.apache.activemq.ActiveMQConnectionFactory"
-        description="JMS Connection Factory"
-        factory="org.apache.activemq.jndi.JNDIReferenceFactory"
-        brokerURL="tcp://localhost:61616"
-        brokerName="LocalActiveMQBroker"
-        useEmbeddedBroker="false"/>
-
-    <Resource name="jms/topic/MyTopic"
-        auth="Container"
-        type="org.apache.activemq.command.ActiveMQTopic"
-        factory="org.apache.activemq.jndi.JNDIReferenceFactory"
-        physicalName="MY.TEST.FOO"/>
-    <Resource name="jms/queue/MyQueue"
-        auth="Container"
-        type="org.apache.activemq.command.ActiveMQQueue"
-        factory="org.apache.activemq.jndi.JNDIReferenceFactory"
-        physicalName="MY.TEST.FOO.QUEUE"/>
-</Context>
-```
-
-You adapt this to point to Service Bus, as follows:
-
-```xml
-<Context antiJARLocking="true">
-    <Resource
-        name="jms/ConnectionFactory"
-        auth="Container"
-        type="com.microsoft.azure.servicebus.jms.ServiceBusJmsConnectionFactory"
-        description="JMS Connection Factory"
-        factory="org.apache.qpid.jms.jndi.JNDIReferenceFactory"
-        connectionString="<INSERT YOUR SERVICE BUS CONNECTION STRING HERE>"/>
-
-    <Resource name="jms/topic/MyTopic"
-        auth="Container"
-        type="org.apache.qpid.jms.JmsTopic"
-        factory="org.apache.qpid.jms.jndi.JNDIReferenceFactory"
-        physicalName="MY.TEST.FOO"/>
-    <Resource name="jms/queue/MyQueue"
-        auth="Container"
-        type="org.apache.qpid.jms.JmsQueue"
-        factory="org.apache.qpid.jms.jndi.JNDIReferenceFactory"
-        physicalName="MY.TEST.FOO.QUEUE"/>
-</Context>
-```
-
 #### Spring applications
 
 ##### Update the `application.properties` file
