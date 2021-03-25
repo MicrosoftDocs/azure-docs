@@ -112,7 +112,7 @@ To publish your schema and migrate your data, follow these steps:
    :::image type="content" source="media/db2-to-sql-database-guide/migrate-data.png" alt-text="Screenshot that shows selecting the schema and choosing to migrate data.":::
 
 1. Provide connection details for both the Db2 and Azure SQL Database. 
-1. After migration completes, view the **Data Migration Report**:  
+1. After migration completes, view the **Data Migration Report**.  
 
    :::image type="content" source="media/db2-to-sql-database-guide/data-migration-report.png" alt-text="Screenshot that shows where to review the data migration report.":::
 
@@ -158,11 +158,11 @@ For additional assistance, see the following resources, which were developed in 
 
 - For Microsoft and third-party services and tools to assist you with various database and data migration scenarios, see [Service and tools for data migration](../../../dms/dms-tools-matrix.md).
 
-- To learn more about Azure SQL Database see:
+- To learn more about Azure SQL Database, see:
    - [An overview of SQL Database](../../database/sql-database-paas-overview.md)
-   - [Azure total Cost of Ownership Calculator](https://azure.microsoft.com/pricing/tco/calculator/) 
+   - [Azure total cost of ownership calculator](https://azure.microsoft.com/pricing/tco/calculator/) 
 
-- To learn more about the framework and adoption cycle for cloud migrations, see
+- To learn more about the framework and adoption cycle for cloud migrations, see:
    -  [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
    -  [Best practices for costing and sizing workloads migrated to Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
 
