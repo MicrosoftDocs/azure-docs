@@ -18,9 +18,9 @@ While some scenarios work best with all of a node's resources dedicated to a sin
 
 ## Example scenario
 
-As an example, imagine a task application with CPU and memory requirements such that [Standard\_D1](../cloud-services/cloud-services-sizes-specs.md##d-series) nodes are sufficient. However, in order to finish the job in the required time, 1,000 of these nodes are needed.
+As an example, imagine a task application with CPU and memory requirements such that [Standard\_D1](../cloud-services/cloud-services-sizes-specs.md#d-series) nodes are sufficient. However, in order to finish the job in the required time, 1,000 of these nodes are needed.
 
-Instead of using Standard\_D1 nodes that have 1 CPU core, you could use [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md##d-series) nodes that have 16 cores each, and enable parallel task execution. This means that 16 times fewer nodes could be used--instead of 1,000 nodes, only 63 would be required. If large application files or reference data are required for each node, job duration and efficiency are improved, since the data is copied to only 63 nodes.
+Instead of using Standard\_D1 nodes that have 1 CPU core, you could use [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md#d-series) nodes that have 16 cores each, and enable parallel task execution. This means that 16 times fewer nodes could be used--instead of 1,000 nodes, only 63 would be required. If large application files or reference data are required for each node, job duration and efficiency are improved, since the data is copied to only 63 nodes.
 
 ## Enable parallel task execution
 

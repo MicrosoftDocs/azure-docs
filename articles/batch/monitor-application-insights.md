@@ -3,7 +3,7 @@ title: Monitor Batch with Azure Application Insights
 description: Learn how to instrument an Azure Batch .NET application using the Azure Application Insights library.
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.date: 03/19/2021
+ms.date: 03/25/2021
 ---
 
 # Monitor and debug an Azure Batch .NET application with Application Insights
@@ -249,8 +249,7 @@ for (int i = 1; i <= topNWordsConfiguration.NumberOfTasks; i++)
 
 ## View data in the Azure portal
 
-Now that you've configured the job and tasks to use Application Insights, run the example job in your pool. Navigate to the Azure portal and open the Application 
-Insights resource that you provisioned. After the pool is provisioned, you should start to see data flowing and getting logged. The rest of this article touches on only a few Application Insights features, but feel free to explore the full feature set.
+Now that you've configured the job and tasks to use Application Insights, run the example job in your pool. Navigate to the Azure portal and open the Application Insights resource that you provisioned. After the pool is provisioned, you should start to see data flowing and getting logged. The rest of this article touches on only a few Application Insights features, but feel free to explore the full feature set.
 
 ### View live stream data
 
@@ -260,8 +259,7 @@ To view trace logs in your Applications Insights resource, click **Live Stream**
 
 ### View trace logs
 
-To view trace logs in your Applications Insights resource, click **Search**. This view shows a list of diagnostic data 
-captured by Application Insights including traces, events, and exceptions. 
+To view trace logs in your Applications Insights resource, click **Search**. This view shows a list of diagnostic data captured by Application Insights including traces, events, and exceptions. 
 
 The following screenshot shows how a single trace for a task is logged and later queried for debugging purposes.
 

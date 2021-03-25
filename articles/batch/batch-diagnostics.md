@@ -36,7 +36,7 @@ To view additional metrics for a Batch account:
 1. Select an **Aggregation** option for the metric. For count-based metrics (like "Dedicated Core Count" or "Low-Priority Node Count"), use the **Avg** aggregation. For event-based metrics (like "Pool Resize Complete Events"), use the **Count**" aggregation. Avoid using the **Sum** aggregation, which adds up the values of all data points received over the period of the chart.
 1. To add additional metrics, repeat steps 3 and 4.
 
-You can also retrieve metrics programmatically with the Azure Monitor APIs. For an example, see [Retrieve Azure Monitor metrics with .NET](samples/azure-samples/monitor-dotnet-metrics-api/monitor-dotnet-metrics-api/).
+You can also retrieve metrics programmatically with the Azure Monitor APIs. For an example, see [Retrieve Azure Monitor metrics with .NET](/samples/azure-samples/monitor-dotnet-metrics-api/monitor-dotnet-metrics-api/).
 
 > [!NOTE]
 > Metrics emitted in the last 3 minutes may still be aggregating, so values may be under-reported during this timeframe. Metric delivery is not guaranteed, and may be affected by out-of-order delivery, data loss, or duplication.
