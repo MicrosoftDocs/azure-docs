@@ -132,7 +132,7 @@ The following information is returned in a successful response.
   <tr>
     <td>summary.failed</p></td>
     <td>integer</td>
-    <td>Failed count.</td>
+    <td>Count of documents failed.</td>
   </tr>
   <tr>
     <td>summary.success</p></td>
