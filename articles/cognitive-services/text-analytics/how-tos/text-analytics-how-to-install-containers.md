@@ -9,7 +9,7 @@ ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/25/2021
 ms.author: aahi
 keywords: on-premises, Docker, container, sentiment analysis, natural language processing
 ---
@@ -44,6 +44,8 @@ You must meet the following prerequisites before using Text Analytics containers
 |Text Analytics resource |In order to use the container, you must have:<br><br>An Azure [Text Analytics resource](../../cognitive-services-apis-create-account.md) with the free (F0) or standard (S) [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/). You will need to get the associated API key and endpoint URI by navigating to your resource's **Key and endpoint** page in the Azure portal. <br><br>**{API_KEY}**: One of the two available resource keys. <br><br>**{ENDPOINT_URI}**: The endpoint for your resource. |
 
 [!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]
+
+If you're using the Text Analytics for health container, the [responsible AI](https://docs.microsoft.com/legal/cognitive-services/text-analytics/transparency-note-health)  (RAI) acknowledgement must also be present with a value of `accept`.
 
 ## The host computer
 
