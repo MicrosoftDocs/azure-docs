@@ -97,6 +97,8 @@
     href: ./workloads/sap/get-started.md
   - name: Oracle
     href: ./workloads/oracle/oracle-database-quick-create.md
+  - name: Azure for Gaming
+    href: https://docs.microsoft.com/gaming/azure/
   - name: Elasticsearch
     href: ./linux/tutorial-elasticsearch.md
   - name: Mainframe rehosting
