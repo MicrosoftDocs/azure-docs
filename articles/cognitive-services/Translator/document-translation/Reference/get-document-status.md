@@ -42,7 +42,7 @@ Request parameters passed on the query string are:
   <tr>
     <td>documentId</td>
     <td>True</td>
-    <td>The document ID. Format - uuid. </td>
+    <td>The document ID.</td>
   </tr>
   <tr>
     <td>id</td>
