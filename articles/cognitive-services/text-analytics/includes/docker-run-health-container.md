@@ -39,6 +39,7 @@ Execute the following `docker run` command. Replace the placeholders below with 
 docker run --rm -it -p 5000:5000 --cpus 6 --memory 12g \
 --mount type=bind,src={INPUT_DIR},target=/output {IMAGE_ID} \
 Eula=accept \
+RAI=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY} \
 Logging:Disk:Format=json
@@ -50,6 +51,7 @@ This command:
 - Runs a Text Analytics for Health container from the container image
 - Allocates 6 CPU core and 12 gigabytes (GB) of memory
 - Exposes TCP port 5000 and allocates a pseudo-TTY for the container
+- Accepts the end user license agreement (Eula) and responsible AI (RAI) acknowledgement
 - Automatically removes the container after it exits. The container image is still available on the host computer.
 
 ### Demo UI to visualize output
