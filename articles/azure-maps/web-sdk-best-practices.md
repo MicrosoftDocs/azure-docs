@@ -1,5 +1,5 @@
 ---
-title: Azure Maps Web SDK Best Practices | Microsoft Azure Maps
+title: Azure Maps Web SDK best practices | Microsoft Azure Maps
 description: Learn tips & tricks to optimize your use of the Azure Maps Web SDK. 
 author: rbrundritt
 ms.author: richbrun
@@ -10,7 +10,7 @@ services: azure-maps
 manager: cpendle
 ---
 
-# Azure Maps Web SDK Best Practices
+# Azure Maps Web SDK best practices
 
 This document focuses on best practices for the Azure Maps Web SDK, however, many of the best practices and optimizations outlined can be applied to all other Azure Maps SDKs.
 
