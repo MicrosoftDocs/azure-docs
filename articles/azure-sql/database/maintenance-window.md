@@ -50,7 +50,7 @@ Once the maintenance window selection is made and service configuration complete
 Configuring and using maintenance window is free of charge for all eligible [offer types](https://azure.microsoft.com/support/legal/offer-details/): Pay-As-You-Go, Cloud Solution Provider (CSP), Microsoft Enterprise Agreement, or Microsoft Customer Agreement.
 
 > [!Note]
-> An Azure offer is the type of the Azure subscription you have. For example, a subscription with [pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/), [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p/), and [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) are all Azure offers. Each offer or plan has different terms and benefits. Your offer or plan is shown on the subscription's Overview. For more information on switching your subscription to a different offer, see [Change your Azure subscription to a different offer](/azure/cost-management-billing/manage/switch-azure-offer).
+> An Azure offer is the type of the Azure subscription you have. For example, a subscription with [pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/), [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p/), and [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) are all Azure offers. Each offer or plan has different terms and benefits. Your offer or plan is shown on the subscription's Overview. For more information on switching your subscription to a different offer, see [Change your Azure subscription to a different offer](../../cost-management-billing/manage/switch-azure-offer.md).
 
 ## Advance notifications
 
@@ -103,17 +103,17 @@ For more on the client connection policy in Azure SQL managed instance see [Azur
 
 ## Considerations for Azure SQL managed instance
 
-Azure SQL managed instance consists of service components hosted on a dedicated set of isolated virtual machines that run inside the customer's virtual network subnet. These virtual machines form [virtual cluster(s)](/azure/azure-sql/managed-instance/connectivity-architecture-overview#high-level-connectivity-architecture) that can host multiple managed instances. Maintenance window configured on instances of one subnet can influence the number of virtual clusters within the subnet and distribution of instances among virtual clusters. This may require a consideration of few effects.
+Azure SQL managed instance consists of service components hosted on a dedicated set of isolated virtual machines that run inside the customer's virtual network subnet. These virtual machines form [virtual cluster(s)](../managed-instance/connectivity-architecture-overview.md#high-level-connectivity-architecture) that can host multiple managed instances. Maintenance window configured on instances of one subnet can influence the number of virtual clusters within the subnet and distribution of instances among virtual clusters. This may require a consideration of few effects.
 
 ### Maintenance window configuration is long running operation 
 All instances hosted in a virtual cluster share the maintenance window. By default, all managed instances are hosted in the virtual cluster with the default maintenance window. Specifying another maintenance window for managed instance during its creation or afterwards means that it must be placed in virtual cluster with corresponding maintenance window. If there is no such virtual cluster in the subnet, a new one must be created first to accommodate the instance. Accommodating additional instance in the existing virtual cluster may require cluster resize. Both operations contribute to the duration of configuring maintenance window for a managed instance.
-Expected duration of configuring maintenance window on managed instance can be calculated using [estimated duration of instance management operations](/azure/azure-sql/managed-instance/management-operations-overview#duration).
+Expected duration of configuring maintenance window on managed instance can be calculated using [estimated duration of instance management operations](../managed-instance/management-operations-overview.md#duration).
 
 > [!Important]
 > A short reconfiguration happens at the end of the maintenance operation and typically lasts up to 8 seconds even in case of interrupted long-running transactions. To minimize the impact of the reconfiguration you should schedule the operation outside of the peak hours.
 
 ### IP address space requirements
-Each new virtual cluster in subnet requires additional IP addresses according to the [virtual cluster IP address allocation](/azure/azure-sql/managed-instance/vnet-subnet-determine-size#determine-subnet-size). Changing maintenance window for existing managed instance also requires [temporary additional IP capacity](/azure/azure-sql/managed-instance/vnet-subnet-determine-size#address-requirements-for-update-scenarios) as in scaling vCores scenario for corresponding service tier.
+Each new virtual cluster in subnet requires additional IP addresses according to the [virtual cluster IP address allocation](../managed-instance/vnet-subnet-determine-size.md#determine-subnet-size). Changing maintenance window for existing managed instance also requires [temporary additional IP capacity](../managed-instance/vnet-subnet-determine-size.md#address-requirements-for-update-scenarios) as in scaling vCores scenario for corresponding service tier.
 
 ### IP address change
 Configuring and changing maintenance window causes change of the IP address of the instance, within the IP address range of the subnet.
@@ -132,8 +132,3 @@ Configuring and changing maintenance window causes change of the IP address of t
 * [Azure SQL Database](sql-database-paas-overview.md) 
 * [SQL managed instance](../managed-instance/sql-managed-instance-paas-overview.md)
 * [Plan for Azure maintenance events in Azure SQL Database and Azure SQL managed instance](planned-maintenance.md)
-
-
-
-
-
