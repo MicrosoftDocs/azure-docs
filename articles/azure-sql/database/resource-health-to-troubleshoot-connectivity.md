@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: wiassaf, sstein
-ms.date: 02/26/2019
+ms.date: 03/24/2021
 ---
 # Use Resource Health to troubleshoot connectivity for Azure SQL Database and Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -70,5 +70,5 @@ Reconfigurations are considered transient conditions and are expected from time 
 - Learn more about [retry logic for transient errors](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors).
 - [Troubleshoot, diagnose, and prevent SQL connection errors](troubleshoot-common-connectivity-issues.md).
 - Learn more about [configuring Resource Health alerts](../../service-health/resource-health-alert-arm-template-guide.md).
-- Get an overview of [Resource Health](../../application-gateway/resource-health-overview.md).
+- Get an overview of [Resource Health](../../service-health/resource-health-overview.md).
 - Review [Resource Health FAQ](../../service-health/resource-health-faq.md).
