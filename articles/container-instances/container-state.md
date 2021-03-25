@@ -11,7 +11,7 @@ Azure Container Instances displays several independent state values. This articl
 
 ## Container Groups
 
-This is the state of the deployed container group on the backend. In the Azure portal, you can find container group state under Essentials in the Overview blade.
+This value is the state of the deployed container group on the backend. In the Azure portal, you can find container group state under Essentials in the Overview blade.
 
 :::image type="content" source="./media/container-state/container-group-state.png" alt-text="The overview blade for the resource in the Azure portal is shown in a web browser. The text 'Status: Running' is highlighted.":::
 
@@ -19,11 +19,11 @@ This is the state of the deployed container group on the backend. In the Azure p
 
 - **Stopped**: The container group has been stopped and will not be scheduled to run without user action.
 
-- **Pending**: The container group is waiting to initialize (finish running init containers, mount azure file volumes). The container continues to attempt to get to the **Running** state unless a user action (stop/delete) happens.
+- **Pending**: The container group is waiting to initialize (finish running init containers, mount Azure file volumes). The container continues to attempt to get to the **Running** state unless a user action (stop/delete) happens.
 
 - **Succeeded**: The container group has run to completion successfully. Only applicable for *Never* and *On Failure* restart policies.
 
-- **Failed**: The container group failed to run to completion. Only applicable with a *Never* restart policy. This indicates either an init container failure, azure file mount failure, or user container failure.
+- **Failed**: The container group failed to run to completion. Only applicable with a *Never* restart policy. This state indicates either an init container failure, Azure file mount failure, or user container failure.
 
 The following table shows what states are applicable to a container group based on the designated restart policy:
 
@@ -38,23 +38,23 @@ The following table shows what states are applicable to a container group based 
 
 ## Containers
 
-This is the state of a single container in a container group. In the Azure portal, container state is shown on the Containers blade.
+This value is the state of a single container in a container group. In the Azure portal, container state is shown on the Containers blade.
 
 :::image type="content" source="./media/container-state/container-state.png" alt-text="The Containers blade in the Azure portal is shown. A table is shown, and 'Running' under the 'State' column is highlighted. ":::
 
 - **Running**: The container is running.
 
-- **Waiting**: The container is waiting to run. This indicates either init containers are still running, or the container is backing off due to a crash loop.
+- **Waiting**: The container is waiting to run. This state indicates either init containers are still running, or the container is backing off due to a crash loop.
 
 - **Terminated**: The container has terminated, accompanied with an exit code value.
 
 ## Provisioning
 
-This is the state of the last operation performed on a container group. Generally, this is a PUT(create) operation, but it can also be a POST(start/stop) or DELETE (delete).
+This value is the state of the last operation performed on a container group. Generally, this operation is a PUT(create), but it can also be a POST(start/stop) or DELETE (delete).
 
 - **Pending**: The container group is waiting for infrastructure setup, such as a node assignment, virtual network provisioning, or anything else needed prior to pulling the user image.
 
-- **Creating**: The infrastructure setup has finished. The container group is now getting brought up and receiving the resources it needs (mounting azure file volumes, getting ingress IP address, etc.).
+- **Creating**: The infrastructure setup has finished. The container group is now getting brought up and receiving the resources it needs (mounting Azure file volumes, getting ingress IP address, etc.).
 
 - **Succeeded**: The container group has succeeded in getting its containers into the running state and has received all resources it needs. If the latest operation was to stop the container group, this indicates the operation completed successfully.
 
