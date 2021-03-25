@@ -73,9 +73,9 @@ The following screenshot shows the above code overlaying a web-mapping service o
 
 A web-mapping tile service (WMTS) is an Open Geospatial Consortium (OGC) standard for serving tiled based overlays for maps. There are many open data sets available in this format that you can use with Azure Maps. This type of service can be used with a tile layer if the service supports the `EPSG:3857` or `GoogleMapsCompatible` coordinate reference system (CRS). When using a WMTS service, set the width and height parameters to the same value that is supported by the service, be sure to set this same value in the `tileSize` option. In the formatted URL, replace the following placeholders accordingly:
 
-* {TileMatrix} => {z}
-* {TileRow} => {y}
-* {TileCol} => {x}
+* `{TileMatrix}` => `{z}`
+* `{TileRow}` => `{y}`
+* `{TileCol}` => `{x}`
 
 The following screenshot shows the above code overlaying a web-mapping tile service of imagery from the [U.S. Geological Survey (USGS) National Map](https://viewer.nationalmap.gov/services/) on top of a map, below the roads and labels.
 
