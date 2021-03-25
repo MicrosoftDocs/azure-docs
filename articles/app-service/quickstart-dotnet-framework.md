@@ -28,23 +28,7 @@ If you've installed Visual Studio 2019 already:
 
 Create an ASP.NET web app by following these steps:
 
-1. Open Visual Studio and then select **Create a new project**.
 
-2. In **Create a new project**, find and choose **ASP.NET Web Application (.NET Framework)**, then select **Next**.
-
-3. In **Configure your new project**, name the application _myFirstAzureWebApp_, and then select **Create**.
-
-   ![Configure your web app project](./media/quickstart-dotnet-framework/configure-web-app-project-framework.png)
-
-4. You can deploy any type of ASP.NET web app to Azure. For this quickstart, choose the **MVC** template.
-
-5. Make sure authentication is set to **No Authentication**. Select **Create**.
-
-   ![Create ASP.NET Web Application](./media/quickstart-dotnet-framework/select-mvc-template-vs2019.png)
-
-6. From the Visual Studio menu, select **Debug** > **Start Without Debugging** to run the web app locally.
-
-   ![Run app locally](./media/quickstart-dotnet-framework/local-web-app.png)
 
 ## Publish your web app <a name="launch-the-publish-wizard"></a>
 
