@@ -357,7 +357,7 @@ This article explores common troubleshooting methods for mapping data flows in A
 
 ### Improvement on CSV/CDM format in Data Flow 
 
-If you use the **Delimited Text or CDM formatting for mapping data flow in Azure Data Factory V2**, you may face the behavior changes to your existing pipelines because of the improvement for Delimited Text / CDM in data flow starting from 1 May 2021. 
+If you use the **Delimited Text or CDM formatting for mapping data flow in Azure Data Factory V2**, you may face the behavior changes to your existing pipelines because of the improvement for Delimited Text/CDM in data flow starting from 1 May 2021. 
 
 You may encounter the following issues before the improvement, but after the improvement, the issues were fixed. Read the following content to determine whether this improvement affects you. 
 
