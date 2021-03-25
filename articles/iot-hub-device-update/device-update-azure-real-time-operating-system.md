@@ -1,6 +1,6 @@
 ---
-title: Device Update for Azure IoT Hub tutorial for Azure Real Time Operating System | Microsoft Docs
-description: Get started with Device Update for Azure IoT Hub using Azure Real Time Operating System
+title: Device Update for Azure IoT Hub tutorial for Azure-Real-Time-Operating-System | Microsoft Docs
+description: Get started with Device Update for Azure IoT Hub using Azure-Real-Time-Operating-System
 author: valls
 ms.author: valls
 ms.date: 3/18/2021
@@ -94,9 +94,9 @@ Learn more about [Azure RTOS](https://github.com/azure-rtos/netxduo/tree/feature
 
 You have now completed a successful end-to-end image update using Device Update for IoT Hub on a Raspberry Pi 3 B+ device. 
 
-## Clean up resources
+## Cleanup resources
 
-When no longer needed clean up your device update account, instance, IoT Hub and IoT device. 
+When no longer needed cleanup your device update account, instance, IoT Hub and IoT device. 
 
 ## Next steps
 
