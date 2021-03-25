@@ -17,14 +17,15 @@ ms.date: 03/19/2021
 
 In this guide, you learn how to migrate your SAP ASE databases to Azure SQL Database by using SQL Server Migration Assistant for SAP Adapter Server Enterprise.
 
-For other migration guides, see [Azure Database Migration Guide](https://datamigration.microsoft.com/). 
+For other migration guides, see [Azure Database Migration Guide](https://docs.microsoft.com/data-migration). 
 
 ## Prerequisites 
 
 Before you begin migrating your SAP SE database to Azure SQL Database, do the following:
 
 - Verify that your source environment is supported. 
-- Download and install [SQL Server Migration Assistant for SAP Adaptive Server Enterprise (formerly SAP Sybase ASE)](https://www.microsoft.com/en-us/download/details.aspx?id=54256). 
+- Download and install [SQL Server Migration Assistant for SAP Adaptive Server Enterprise (formerly SAP Sybase ASE)](https://www.microsoft.com/en-us/download/details.aspx?id=54256).
+- Ensure that you have connectivity and sufficient permissions to access both source and target.
 
 ## Pre-migration
 
@@ -41,16 +42,14 @@ To create an assessment, do the following:
 1. In the **New Project** pane, enter a name and location for your project and then, in the **Migrate To** drop-down list, select **Azure SQL Database**. 
 1. Select **OK**.
 1. On the **Connect to Sybase** pane, enter the SAP connection details. 
-1. Right-click the SAP database you want to migrate, and then select **Create report**. This generates an HTML report.
-1. Review the HTML report to understand conversion statistics, errors, and warnings. You can also open the report in Excel to get an inventory of DB2 objects and the effort that's required to perform schema conversions. The default location for the report is in the report folder within SSMAProjects.
+1. Right-click the SAP database you want to migrate, and then select **Create report**. This generates an HTML report. Alternatively, you can select the **Create report** tab at the upper right.
+1. Review the HTML report to understand the conversion statistics and any errors or warnings. You can also open the report in Excel to get an inventory of SAP ASE objects and the effort that's required to perform schema conversions. The default location for the report is in the report folder within SSMAProjects. For example:
 
-   For example: `drive:\<username>\Documents\SSMAProjects\MyDB2Migration\report\report_<date>`. 
-
+   `drive:\<username>\Documents\SSMAProjects\MySAPMigration\report\report_<date>` 
 
 ### Validate the type mappings
 
 Before you perform schema conversion, validate the default data-type mappings or change them based on requirements. You can do so by selecting **Tools** > **Project Settings**, or you can change the type mapping for each table by selecting the table in the **SAP ASE Metadata Explorer**.
-
 
 ### Convert the schema
 
@@ -61,10 +60,10 @@ To convert the schema, do the following:
 1. On the **Sybase Metadata Explorer** pane, right-click the SAP ASE schema you're working with, and then select **Convert Schema**. 
 1. After the schema has been converted, compare and review the converted structure to the original structure identify potential problems. 
 
-After the schema conversion, you can save this project locally for an offline schema remediation exercise. To do so, select **File** > **Save Project**. This gives you an opportunity to evaluate the source and target schemas offline and perform remediation before you publish the schema to Azure SQL Database.
+   After the schema conversion, you can save this project locally for an offline schema remediation exercise. To do so, select **File** > **Save Project**. This gives you an opportunity to evaluate the source and target schemas offline and perform remediation before you publish the schema to Azure SQL Database.
 
-To learn more, see [Convert SAP ASE database objects (SybaseToSQL)](/sql/ssma/sybase/converting-sybase-ase-database-objects-sybasetosql).
-
+1. On the **Output** pane, select **Review results**, and review any errors in the **Error list** pane. 
+1. Save the project locally for an offline schema remediation exercise. To do so, select **File** > **Save Project**. This gives you an opportunity to evaluate the source and target schemas offline and perform remediation before you publish the schema to SQL Database.
 
 ## Migrate the databases 
 
@@ -72,11 +71,13 @@ After you have the necessary prerequisites in place and have completed the tasks
 
 To publish the schema and migrate the data, do the following: 
 
-1. On the **Azure SQL Database Metadata Explorer** pane, right-click the database, and then select **Synchronize with Database**. This action publishes the SAP ASE schema to the Azure SQL Database instance.
-1. On the **SAP ASE Metadata Explorer** pane, right-click the SAP ASE schema, and then select **Migrate Data**.  
-1. After the migration is completed, view the **Data Migration Report**. 
-1. Validate the migration by reviewing the data and schema on the Azure SQL Database instance by using Azure SQL Database Management Studio.
+1. Publish the schema. On the **Azure SQL Database Metadata Explorer** pane, right-click the database, and then select **Synchronize with Database**. This action publishes the SAP ASE schema to the Azure SQL Database instance.
 
+1. Migrate the data. On the **SAP ASE Metadata Explorer** pane, right-click the SAP ASE database or object you want to migrate, and then select **Migrate Data**. Alternatively, you can select the **Migrate Data** tab at the upper right. 
+
+   To migrate data for an entire database, select the check box next to the database name. To migrate data from individual tables, expand the database, expand **Tables**, and then select the check box next to the table. To omit data from individual tables, clear the check box. 
+1. After the migration is completed, view the **Data Migration Report**. 
+1. Validate the migration by reviewing the data and schema. To do so, connect to your Azure SQL Database by using [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 ## Post-migration 
 
