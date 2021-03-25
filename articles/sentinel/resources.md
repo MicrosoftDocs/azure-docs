@@ -35,7 +35,7 @@ Azure Sentinel uses Azure Monitor Log Analytics's Kusto Query Language (KQL) to 
 
 Create automation in Azure Sentinel using Azure Logic Apps, with a growing gallery of built-in playbooks. 
 
-For more information, see [Azure Logic Apps connectors](https://docs.microsoft.com/connectors/).
+For more information, see [Azure Logic Apps connectors](/connectors/).
 
 ## Comment on our blogs and forums
 
@@ -63,4 +63,3 @@ Download sample content from the private community GitHub repository to create c
 
 > [!div class="nextstepaction"]
 > [Read customer use case stories](https://customers.microsoft.com/en-us/search?sq=%22Azure%20Sentinel%20%22&ff=&p=0&so=story_publish_date%20desc)
-

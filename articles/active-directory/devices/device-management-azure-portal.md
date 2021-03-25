@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 03/23/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -30,6 +30,7 @@ The **All devices** page enables you to:
 - Configure your device identity settings.
 - Enable or disable Enterprise State Roaming.
 - Review device-related audit logs
+- Download devices (preview)
 
 [![All devices view in the Azure portal](./media/device-management-azure-portal/all-devices-azure-portal.png)](./media/device-management-azure-portal/all-devices-azure-portal.png#lightbox)
 
@@ -141,6 +142,14 @@ To enable the preview filtering functionality in the **All devices** view:
 1. Select the banner that says, **Try out the new devices filtering improvements. Click to enable the preview.**
 
 You will now have the ability to **Add filters** to your **All devices** view.
+
+### Download devices (preview)
+
+Cloud device administrators, Intune administrators, and Global administrators can use the **Download devices (preview)** option to export a CSV file of devices based on any applied filters. If no filters are applied to the list then all devices will be exported. An export may run for a period of up to one hour depending on the 
+
+The exported list includes the following device identity attributes:
+
+`accountEnabled, approximateLastLogonTimeStamp, deviceOSType, deviceOSVersion, deviceTrustType, dirSyncEnabled, displayName, isCompliant, isManaged, lastDirSyncTime, objectId, profileType, registeredOwners, systemLabels, registrationTime, mdmDisplayName`
 
 ## Configure device settings
 

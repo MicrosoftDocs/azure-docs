@@ -21,7 +21,7 @@ The following sections list changes in the most recent releases.
 
 - Upgraded to new Microsoft Audio Stack (MAS) with improved beamforming and noise reduction for speech.
 - Reduced the binary size by as much as 70% depending on target.
-- Support for [Azure Percept Audio](https://docs.microsoft.com/azure/azure-percept/overview-azure-percept-audio) with [binary release](https://aka.ms/sdsdk-download-APAudio).
+- Support for [Azure Percept Audio](../../azure-percept/overview-azure-percept-audio.md) with [binary release](https://aka.ms/sdsdk-download-APAudio).
 - Updated the [Speech SDK](./speech-sdk.md) component to version 1.15.0. For more information, see its [release notes](./releasenotes.md).
 
 ## Speech Devices SDK 1.11.0:

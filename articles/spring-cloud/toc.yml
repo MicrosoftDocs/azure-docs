@@ -77,20 +77,30 @@
           href: https://code.visualstudio.com/docs/java/java-spring-cloud
         - name: Deploy Azure Spring Cloud with Azure PowerShell
           href: how-to-deploy-powershell.md
-    - name: Configure
+    - name: Manage
       items:
         - name: Start, stop, and delete an app
           href: how-to-start-stop-delete.md
         - name: Use persistent storage
           href: how-to-persistent-storage.md
+        - name: Identify outbound public IP addresses
+          href: how-to-outbound-public-ip.md
     - name: Scale
       items: 
         - name: Manually scale an app
           href: how-to-scale-manual.md
         - name: Autoscale an app
           href: how-to-setup-autoscale.md
-        - name: Identify outbound public IP addresses
-          href: how-to-outbound-public-ip.md
+    - name: Integrate
+      items:
+        - name: Bind an app to Azure CosmosDB
+          href: how-to-bind-cosmos.md
+        - name: Bind an app to Azure Cache for Redis
+          href: how-to-bind-redis.md
+        - name: Bind an app to Azure MySQL
+          href: how-to-bind-mysql.md
+        - name: Integrate with Azure Load Balance Solutions
+          href: how-to-integrate-azure-load-balancers.md
     - name: Monitor
       items:
         - name: Distributed tracing and App Insights
