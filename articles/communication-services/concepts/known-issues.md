@@ -29,7 +29,7 @@ We encourage developers build experiences that don't require end-users to refres
 
 For the perspective of other participants in the call, such user will remain in the call for predefined amount of time (1-2 mins). 
 If user will rejoin with the same Communication Services user ID, he will be represented as the same, existing object in the `remoteParticipants` collection.
-If previously user was sending video, `videoStreams` collection will keep previous stream information untill service will timeout and remove it, in this scenario application may decide to observe any new streams added to the collection and render one with highest `id`. 
+If previously user was sending video, `videoStreams` collection will keep previous stream information until service will timeout and remove it, in this scenario application may decide to observe any new streams added to the collection and render one with highest `id`. 
 
 
 ### It's not possible to render multiple previews from multiple devices on web
@@ -38,7 +38,7 @@ This is a known limitation. Refer to the [calling client library overview](https
 ### Enumeration of the microphone and speaker devices is not possible in Safari when the application runs on iOS or iPadOS 
 Applications can't enumerate/select mic/speaker devices (like Bluetooth) on Safari iOS/iPad. This is a known operating system limitation.
 
-If you're using Safari on MacOS, your app will not be able to enumerate/select speakers through the Communication Services Device Manager. In this scenario, devices must be selected via the OS. If you use Chrome on MacOS, the app can enumerate/select devices through the Communication Services Device Manager.
+If you're using Safari on macOS, your app will not be able to enumerate/select speakers through the Communication Services Device Manager. In this scenario, devices must be selected via the OS. If you use Chrome on macOS, the app can enumerate/select devices through the Communication Services Device Manager.
 
 ### Audio connectivity is lost when receiving SMS messages or calls during an ongoing VoIP call
 Mobile browsers don't maintain connectivity while in the background state. This can lead to a degraded call experience if the VoIP call was interrupted by text message or incoming PSTN call that pushes your application into the background.
@@ -58,9 +58,9 @@ Streaming from and switching between media devices is computationally intensive.
 Bluetooth headsets aren't supported by Safari on iOS. Your Bluetooth device will not be listed in available microphone options and other participants will not be able to hear you if you try using Bluetooth over Safari.
 
 #### Possible causes
-This is a known MacOS/iOS/iPadOS operating system limitation. 
+This is a known macOS/iOS/iPadOS operating system limitation. 
 
-With Safari on **MacOS** and **iOS/iPadOS**, it is not possible to enumerating/selecting speaker devices through the Communication Services Device Manager since speakers enumeration/selection is not supported by Safari. In this scenario, your device selection should be updated via the operating system.
+With Safari on **macOS** and **iOS/iPadOS**, it is not possible to enumerating/selecting speaker devices through the Communication Services Device Manager since speakers enumeration/selection is not supported by Safari. In this scenario, your device selection should be updated via the operating system.
 
 ### Rotation of a device can create poor video quality
 Users may experience degraded video quality when devices are rotated.
@@ -86,8 +86,8 @@ Under investigation.
 ### If the video signal was stopped while the call is in "connecting" state, the video will not be sent after the call started 
 If users decide to quickly turn video on/off while call is in `Connecting` state - this may lead to problem with stream acquired for the call. We encourage developers to build their apps in a way that doesn't require video to be turned on/off while call is in `Connecting` state. This issue may cause degraded video performance in the following scenarios:
 
- 1. If User starts with audio and then start and stop video while the call is in `Connecting` state.
- 2. If User starts with audio and then start and stop video while the call is in `Lobby` state.
+ - If User starts with audio and then start and stop video while the call is in `Connecting` state.
+ - If User starts with audio and then start and stop video while the call is in `Lobby` state.
 
 
 #### Possible causes
