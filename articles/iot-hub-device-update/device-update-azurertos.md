@@ -24,16 +24,16 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 * Access to an IoT Hub. It is recommended that you use a S1 (Standard) tier or above.
-* Learn about AzureRTOS from the [getting-started repository](https://github.com/azure-rtos/getting-started). 
 
 ## Get Started
 
-Each board-specific sample AzureRTOS project contains code and documentation on how to use Device Update for IoT Hub on it.  
-1. Download the board-specific sample files from [AzureRTOS releases](https://github.com/azure-rtos/samples/releases).
-2. Follow the sample for how to prepare Azure Resources, Account, and register IoT devices to it.
-3. Next follow the sample to build a new firmware image and import manifest for your board.
-4. Publish firmware image and manifest to Device Update for IoT Hub.
-5. Download and run the project on your device
+Each board-specific sample AzureRTOS project contains code and documentation on how to use Device Update for IoT Hub on it. * Learn more about [AzureRTOS](https://github.com/azure-rtos).  
+1. Download the board-specific sample files from [Azure RTOS and Device Update samples](https://github.com/azure-rtos/samples/tree/PublicPreview/ADU).
+2. Find the docs folder from the downloaded sample.
+3. From the docs follow the steps for how to prepare Azure Resources, Account, and register IoT devices to it.
+4. Next follow the docs to build a new firmware image and import manifest for your board.
+5. Next publish firmware image and manifest to Device Update for IoT Hub.
+6. Finally download and run the project on your device
 
 ## Tag your device
 
