@@ -1,8 +1,8 @@
 ---
 title: Azure Percept overview
 description: Learn more about the Azure Percept platform
-author: elqu20
-ms.author: v-elqu
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: overview
 ms.date: 03/23/2021
@@ -23,21 +23,21 @@ The integration challenges one faces when attempting to deploy edge AI solutions
 
 The main components of Azure Percept are:
 
-1. [Azure Percept DK.](./overview-azure-percept-dk.md)
+- [Azure Percept DK.](./overview-azure-percept-dk.md)
 
     - A development kit that is flexible enough to support a wide variety of prototyping scenarios for device builders, solution builders, and customers.
 
         > [!div class="nextstepaction"]
         > [Buy now](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
 
-1. Services and workflows that accelerate edge AI model and solution development.
+- Services and workflows that accelerate edge AI model and solution development.
 
     - Development workflows and pre-built models accessible from [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819).
     - Model development services.
     - Device management services for scaling.
     - End-to-end security.
 
-1. AI hardware reference design and certification programs.
+- AI hardware reference design and certification programs.
 
     - Provides the ecosystem of hardware developers with patterns and best practices for developing edge AI hardware that can be integrated easily with Azure AI and IoT services.
 

@@ -145,6 +145,6 @@ The **Ssh-EflowVm** command is used to SSH into the virtual machine. The only ac
 
 Learn how to use these commands in the following article:
 
-* [Install Azure IoT Edge for Linux on Windows](how-to-install-iot-edge-windows.md)
+* [Install Azure IoT Edge for Linux on Windows](./how-to-install-iot-edge-windows-on-windows.md)
 
 * Refer to [the IoT Edge for Linux on Windows PowerShell script reference](reference-iot-edge-for-linux-on-windows-scripts.md#deploy-eflow) for all the commands available through PowerShell.
