@@ -95,10 +95,12 @@
     - name: Store AMS events in Azure Log Analytics
       href: tutorial-events-log-analytics.md
 - name: Samples
-  items:    
+  items:
+  - name: Samples overview
+    href: samples-overview.md
   - name: Media Services v3 samples
     displayName: .NET, Java
-    href: /samples/browse/?products=azure-media-services
+    href: https://github.com/Azure-Samples?q=media-services&type=&language=&sort=
   - name: Media Services v3 REST samples
     href: https://github.com/Azure-Samples/media-services-v3-rest-postman
 - name: Concepts
@@ -339,13 +341,15 @@
       href: how-to-create-copyallbitratenoninterleaved-transform.md
     - name: Copy videos without encoding with REST
       href: how-to-create-copy-video-audio-transform.md
-    - name: Create jobs
+    - name: Create jobs with .NET
       href: cli-create-jobs.md
     - name: Create job input with a local file and .NET
       displayName: upload
       href: job-input-from-local-file-how-to.md
     - name: Jobs with multiple transform outputs
       href: job-multiple-transform-outputs.md
+    - name: Stitch two or more video files with .NET
+      href: stitch-howto.md
   - name: Encode content 
     items:
     - name: HTTPS as job input
@@ -363,6 +367,8 @@
           href: how-to-create-overlay.md
         - name: Generate thumbnails with .NET
           href: media-services-generate-thumbnails-dotnet.md
+        - name: Crop videos with .NET
+          href: crop-howto.md
       - name: With CLI
         displayName: encode, encoding, custom, transform
         href: custom-preset-cli-howto.md
