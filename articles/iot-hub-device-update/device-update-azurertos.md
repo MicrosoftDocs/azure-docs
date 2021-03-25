@@ -1,5 +1,5 @@
 ---
-title: Device Update for Azure IoT Hub tutorial for Azure RTOS | Microsoft Docs
+title: Device Update for Azure IoT Hub tutorial for Azure Real Time Operating System | Microsoft Docs
 description: Get started with Device Update for Azure IoT Hub using Azure RTOS
 author: valls
 ms.author: valls
@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.service: iot-hub-device-update
 ---
 
-# Device Update for Azure IoT Hub tutorial using AzureRTOS
+# Device Update for Azure IoT Hub tutorial using Azure Real Time Operating System (RTOS)
 
 This tutorial will walk through how to create the Device Update for IoT Hub Agent in Azure RTOS NetX Duo. It also provides simple APIs for developers to integrate the Device Update capability in their application. Explore [samples](https://github.com/azure-rtos/samples/tree/PublicPreview/ADU) of key semiconductors evaluation boards that include the get started guides to learn configure, build, and deploy the over-the-air (OTA) updates to the devices.
 
@@ -24,16 +24,19 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 * Access to an IoT Hub. It is recommended that you use a S1 (Standard) tier or above.
+* A Device Update instance and account linked to your IoT Hub. Follow the guide to [create and link](http://create-device-update-account.md/) a device update account if you have not done so previously.
 
-## Get Started
+## Get started
 
-Each board-specific sample AzureRTOS project contains code and documentation on how to use Device Update for IoT Hub on it. * Learn more about [AzureRTOS](https://github.com/azure-rtos).  
+Each board-specific sample Azure RTOS project contains code and documentation on how to use Device Update for IoT Hub on it. 
 1. Download the board-specific sample files from [Azure RTOS and Device Update samples](https://github.com/azure-rtos/samples/tree/PublicPreview/ADU).
 2. Find the docs folder from the downloaded sample.
 3. From the docs follow the steps for how to prepare Azure Resources, Account, and register IoT devices to it.
-4. Next follow the docs to build a new firmware image and import manifest for your board.
-5. Next publish firmware image and manifest to Device Update for IoT Hub.
-6. Finally download and run the project on your device
+5. Next follow the docs to build a new firmware image and import manifest for your board.
+6. Next publish firmware image and manifest to Device Update for IoT Hub.
+7. Finally download and run the project on your device.
+
+Learn more about [Azure RTOS](https://github.com/azure-rtos/netxduo/tree/feature/adu/addons/azure_iot#device-update-for-iot-hub-module).  
 
 ## Tag your device
 
