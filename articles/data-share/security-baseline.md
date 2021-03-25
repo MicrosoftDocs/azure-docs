@@ -38,7 +38,7 @@ Alternatively, you can enable and on-board this data to Azure Sentinel or a thir
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [How to collect platform logs and metrics with Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings) 
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
 - [How to get started with Azure Monitor and third-party SIEM integration](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
@@ -52,11 +52,11 @@ Alternatively, you can enable and on-board this data to Azure Sentinel or a thir
 
 Enable diagnostic logs for Azure Data Share, specifically the diagnostic logs for MicrosoftDataShareSentShareSnapshotsLog &amp; MicrosoftDataShareReceivedShareSnapshotsLog. These logs will enable you to capture key information like synchronization start time, end time, status and other details. These logs can be critical for later investigating security incidents and performing forensic exercises.
 
-- [How to collect platform logs and metrics with Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings) 
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Understand logging and different log types in Azure](/azure/azure-monitor/platform/platform-logs-overview)
+- [Understand logging and different log types in Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
-- [How to configure Diagnostic Settings for the Azure Activity Log](/azure/azure-monitor/platform/activity-log)
+- [How to configure Diagnostic Settings for the Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 **Responsibility**: Customer
 
@@ -66,9 +66,9 @@ Enable diagnostic logs for Azure Data Share, specifically the diagnostic logs fo
 
 **Guidance**: Ensure that any storage accounts or Log Analytics workspaces used for storing Azure Data Share logs has the log retention period set according to your organization's compliance regulations.
 
-- [How to configure Log Analytics Workspace Retention Period](/azure/azure-monitor/platform/manage-cost-storage)
+- [How to configure Log Analytics Workspace Retention Period](../azure-monitor/logs/manage-cost-storage.md)
 
-- [Storing resource logs in an Azure Storage Account](/azure/azure-monitor/platform/resource-logs#send-to-azure-storage)
+- [Storing resource logs in an Azure Storage Account](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 **Responsibility**: Customer
 
@@ -82,9 +82,9 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [Getting started with Log Analytics queries](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [Getting started with Log Analytics queries](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [How to perform custom queries in Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
+- [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Responsibility**: Customer
 
@@ -98,7 +98,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 
 - [How to manage alerts in Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md) 
 
-- [How to alert on log analytics log data](/azure/azure-monitor/learn/tutorial-response)
+- [How to alert on log analytics log data](../azure-monitor/alerts/tutorial-response.md)
 
 **Responsibility**: Customer
 
@@ -148,7 +148,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 
 - [How to create and configure an Azure AD instance](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) 
 
-- [Azure Data Share works with general Azure built in roles ](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#general)
+- [Azure Data Share works with general Azure built in roles ](../role-based-access-control/built-in-roles.md#general)
 
 **Responsibility**: Customer
 
@@ -158,11 +158,11 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 
 **Guidance**: Azure AD provides logs to help discover stale accounts. In addition, use Azure AD identity and access reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right users have continued access.
 
-- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/) 
+- [Understand Azure AD reporting](../active-directory/reports-monitoring/index.yml) 
 
 - [How to use Azure AD identity and access reviews](../active-directory/governance/access-reviews-overview.md) 
 
-- [Azure Data Share works with general Azure built in roles ](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#general)
+- [Azure Data Share works with general Azure built in roles ](../role-based-access-control/built-in-roles.md#general)
 
 **Responsibility**: Customer
 
@@ -174,7 +174,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 
 You can streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics workspace. You can configure desired alerts within Log Analytics workspace.
 
-- [How to integrate Azure activity logs with Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [How to integrate Azure activity logs with Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Responsibility**: Customer
 
@@ -212,7 +212,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Use Azure Monitor with the Azure Activity Log to create Azure Monitor alerts for when changes take place to critical Azure resources.
 
-- [How to create alerts for Azure Activity Log events](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsibility**: Customer
 
@@ -295,7 +295,7 @@ Use Azure Resource Graph to query and discover resources within their subscripti
 
 **Guidance**: Remove Azure resources when they are no longer needed, this can be done through the Azure portal, PowerShell or CLI.
 
-- [Azure resource group and resource deletion](https://docs.microsoft.com/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-powershell)
+- [Azure resource group and resource deletion](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-powershell)
 
 Azure Data Share does not expose the OS or allow you to install 3rd party software applications on its resources.
 
@@ -309,7 +309,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md) 
 
-- [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
 **Responsibility**: Customer
 
@@ -347,7 +347,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md) 
 
-- [How to use aliases](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
+- [How to use aliases](../governance/policy/concepts/definition-structure.md#aliases)
 
 **Responsibility**: Customer
 
@@ -365,5 +365,5 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 ## Next steps
 
-- See the [Azure Security Benchmark V2 overview](/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure Security Benchmark V2 overview](../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)

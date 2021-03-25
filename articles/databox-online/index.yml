@@ -30,7 +30,7 @@ landingContent:
           - text: What is Azure Stack Edge Pro FPGA?
             url: azure-stack-edge-overview.md
           - text: What is Azure Stack Edge R?
-            url: azure-stack-edge-j-series-overview.md 
+            url: ./azure-stack-edge-pro-r-overview.md
           - text: What is Azure Stack Edge Mini R?
             url: azure-stack-edge-mini-r-overview.md   
       - linkListType: architecture
