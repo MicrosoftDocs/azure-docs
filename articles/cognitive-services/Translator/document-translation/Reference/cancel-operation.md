@@ -127,7 +127,7 @@ The following information is returned in a successful response.
   <tr>
     <td>summary.total</p></td>
     <td>integer</td>
-    <td>Total count.</td>
+    <td>Count of total documents.</td>
   </tr>
   <tr>
     <td>summary.failed</p></td>
