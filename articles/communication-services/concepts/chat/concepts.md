@@ -24,10 +24,12 @@ See the [Communication Services Chat SDK Overview](./sdk-features.md) to learn m
 Chat conversations happen within chat threads. A chat thread, uniquely identified by `ChatThreadId`, can have one or many users as participants who can send messages to that chat thread. A user can be a part of one or many chat threads. Only the users that are participants of a chat thread have access to it and can do operations on it, like send and recieve messages in that chat, add or remove others users or themselves from that chat thread. A user that created the chat thread is automatically added as participant to it.
 
 ### User access
-Typically the thread creator as well as participant both have same level of access to the thread and can execute all related operations available in client library, including deleting it. However, participants dont have write access to messages sent by other participants which means only the message sender can update or delete their sent messages. If another participant tries to do that, they will get an error, like 'The initiator doesn't have the permission to perform the requested operation'. If you want to limit access to these features for a set of users, you can configure and control that behaviour as part of your trusted service, which is discussed later in this article.   
+Typically the thread creator and participant both have the same level of access to the thread and can execute all related operations available in the SDK, including deleting the thread. Participants don't have write access to messages sent by other participants, which means only the message sender can update or delete their sent messages. If another participant tries to do that, they'll get an error. 
+
+If you want to limit access to chat features for a set of users, you can configure access as part of your trusted service. Your trusted service is the service that orchestrates the authentication and authorization of chat participants. We'll explore this in further detail below.  
 
 ### Chat Data 
-Communication Services stores chat history until explicitly deleted. Chat thread participants can use `ListMessages` to view  message history for a particular thread. Users removed from a chat thread will be able to view previous message history, but wont be able to send or receieve new messages as part of that chat thread. A fully idle thread with no participants will be automatically deleted after 30 days. To learn more about data being stored by Communication Services, refer to documentation on [privacy](../privacy.md).  
+Communication Services stores chat history until explicitly deleted. Chat thread participants can use `ListMessages` to view  message history for a particular thread. Users removed from a chat thread will be able to view previous message history, but they won't be able to send or receive new messages as part of that chat thread. A fully idle thread with no participants will be automatically deleted after 30 days. To learn more about data being stored by Communication Services, refer to documentation on [privacy](../privacy.md).  
 
 ### Service limits	
 - The maximum number of participants allowed in a chat thread is 250.	
@@ -47,7 +49,7 @@ We recommend generating access tokens using the trusted service tier. In this sc
 ## Message types	
 
 As part of chat thread's message history, Chat shares user-generated messages as well as system-generated messages. System messages are generated when a chat thread is updated and can help identify when a participant was added or removed or when the chat thread topic was updated. When you call `List Messages` or `Get Messages` on a chat thread, the result will contain both kind of messages in chronological order.  
-For user generated messages, message type can be set in `SendMessageOptions` when sending a message to chat thread. If no value is provided, Communication Services will default to `text` type. It is recommended to set the type correctly when sending html content as this will allow Communication Services to sanitize the content for safer client rendering.
+For user generated messages, the message type can be set in `SendMessageOptions` when sending a message to chat thread. If no value is provided, Communication Services will default to `text` type. Setting this value is important when sending HTML. When `html` is specified, Communication Services will sanitize the content to ensure that it's rendered safely on client devices.
  - `text`: A plain text message composed and sent by a user as part of a chat thread. 
  - `html`: A formatted message using html, composed and sent by a user as part of chat thread. 
 
@@ -58,24 +60,24 @@ Types of system messages:
 
 ## Real-time notifications 	
 
-Certain languages, like JavaScript, support the feature called real-time notifications which enables clients to establish a connection with Communication Services and listen for real-time updates and incoming messages to a chat thread without having to poll the APIs. Supported events include:
+Some SDKs (like the JavaScript Chat SDK) support real-time notifications. This feature lets clients listen to Communication Services for real-time updates and incoming messages to a chat thread without having to poll the APIs. Supported events include:
  - `chatMessageReceived` - when a new message is sent to a chat thread by a participant.
  - `chatMessageEdited` - when a message is edited in a chat thread.	
  - `chatMessageDeleted` - when a message is deleted in a chat thread.	
- - `typingIndicatorReceived` - when another participant sent a typing indicator to the chat thread. 	
- - `readReceiptReceived` - when another participant sent read receipt for a message they have read. 	
- - `chatThreadCreated` - when a chat thread is created by a communication user.	
- - `chatThreadDeleted` - when a chat thread is deleted by a communication user.	
+ - `typingIndicatorReceived` - when another participant sends a typing indicator to the chat thread. 	
+ - `readReceiptReceived` - when another participant sends a read receipt for a message they have read. 	
+ - `chatThreadCreated` - when a chat thread is created by a Communication Services user.	
+ - `chatThreadDeleted` - when a chat thread is deleted by a Communication Services user.	
  - `chatThreadPropertiesUpdated` - when chat thread properties are updated; currently, only updating the topic for the thread is supported.	
- - `participantsAdded` - when a user is added as participant to a chat thread. 	
+ - `participantsAdded` - when a user is added as a chat thread participant. 	
  - `participantsRemoved` - when an existing participant is removed from the chat thread.
 
-Real-time notifications work best to provide a real time chat experience for your users when they are active in the app. To send push notifications for messages missed by your users while they were away, Communication Services integrates with Azure Event Grid to publish chat related events (post operation) which can be plugged into your custom app notification service. For more details, see [Server Events](https://docs.microsoft.com/azure/event-grid/event-schema-communication-services?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fcommunication-services%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json).
+Real-time notifications can be used to provide a real-time chat experience for your users. To send push notifications for messages missed by your users while they were away, Communication Services integrates with Azure Event Grid to publish chat related events (post operation) which can be plugged into your custom app notification service. For more details, see [Server Events](https://docs.microsoft.com/azure/event-grid/event-schema-communication-services?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fcommunication-services%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json).
 
 
 ## Build intelligent, AI powered chat experiences 	
 
-Leverage various services available in Azure to add intelligence to your chat experiences. You can use [Azure Cognitive APIs](../../../cognitive-services/index.yml) with the Chat SDK to build use cases like:
+You can use [Azure Cognitive APIs](../../../cognitive-services/index.yml) with the Chat SDK to build use cases like:
 
 - Enable users to chat with each other in different languages. 	
 - Help a support agent prioritize tickets by detecting a negative sentiment of an incoming message from a customer.	
