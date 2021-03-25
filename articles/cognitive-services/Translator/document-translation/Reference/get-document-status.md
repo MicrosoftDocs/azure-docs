@@ -47,7 +47,7 @@ Request parameters passed on the query string are:
   <tr>
     <td>id</td>
     <td>True</td>
-    <td>The batch ID. Format - uuid. </td>
+    <td>The batch ID.</td>
   </tr>
 </table>
 
