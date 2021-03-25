@@ -9,7 +9,7 @@ ms.date: 02/04/2021
 ms.custom: devx-track-java
 ---
 
-# Access the Config Server and Service Registry Endpoints with Azure Active Directory and Role Based Access Control
+# Access Config Server and Service Registry
 
 This article explains how to access the Spring Cloud Config Server and Spring Cloud Service Registry managed by Azure Spring Cloud using Azure Active Directory (Azure AD) role-based access control (RBAC).
 
@@ -31,7 +31,7 @@ To use Azure AD and RBAC you must assign the *Azure Spring Cloud Data Reader* ro
 
 ## Access Config Server and Service Registry Endpoints
 
-After an Azure AD user is assigned the *Azure Spring Cloud Data Reader* role, customers can log in to Azure CLI with user, service principal, or managed identity.  Use the following procedure:
+After the Azure Spring Cloud Data Reader role is assigned, customers can access the Spring Cloud Config Server and the Spring Cloud Service Registry endpoints. Use the following procedures:
 
 1. Get an access token. After an Azure AD user is assigned the Azure Spring Cloud Data Reader role, customers can use the following commands to log in to Azure CLI with user, service principal, or managed identity to get an access token. For details, see [Authenticate Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). 
 
