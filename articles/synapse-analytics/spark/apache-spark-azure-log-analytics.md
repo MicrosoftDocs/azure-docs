@@ -1,8 +1,8 @@
 ---
 title: Tutorial: Use Azure Log Analytics to collect and visualize metrics and logs (Preview)
 description: Tutorial - Learn how to enable the Synapse built-in Azure Log Analytics connector for collecting and sending the Apache Spark application metrics and logs to your Azure Log Analytics workspace. 
-services: synapse-analytics 
 author: hrasheed-msft
+ms.service: synapse-analytics 
 ms.author: jejiang
 ms.reviewer: jrasnick 
 ms.service: synapse-analytics
@@ -21,11 +21,11 @@ In this tutorial, you will learn how to enable the Synapse built-in Azure Log An
 
 ### Prepare a Spark configuration file
 
-#### Option 1. Configure with Azure Log Analytics Workspace Id and Key 
+#### Option 1. Configure with Azure Log Analytics Workspace ID and Key 
 
 Copy the following Spark configuration, save it as **"spark_loganalytics_conf.txt"** and fill the parameters:
    - `<LOG_ANALYTICS_WORKSPACE_ID>`: Azure Log Analytics workspace id.
-   - `<LOG_ANALYTICS_WORKSPACE_KEY>`: Azure Log Analytics key: **Azure Portal > Azure Log Analytics workspace > Agents management > Primary key**
+   - `<LOG_ANALYTICS_WORKSPACE_KEY>`: Azure Log Analytics key: **Azure portal > Azure Log Analytics workspace > Agents management > Primary key**
 
 ```properties
 spark.synapse.logAnalytics.enabled true
@@ -46,7 +46,7 @@ To configure an Azure Key Vault to store the workspace key, follow the steps:
    - Leave the other values to their defaults. Click **Create**.
 5. Copy the following Spark configuration, save it as **"spark_loganalytics_conf.txt"** and fill the parameters:
    - `<LOG_ANALYTICS_WORKSPACE_ID>`: Azure Log Analytics workspace id.
-   - `<AZURE_KEY_VAULT_NAME>`: The Azure Key Vault name you just configured.
+   - `<AZURE_KEY_VAULT_NAME>`: The Azure Key Vault name you configured.
    - `<AZURE_KEY_VAULT_SECRET_KEY_NAME>` (Optional): The secret name in the Azure Key Vault for workspace key, default: "SparkLogAnalyticsSecret".
 
 ```properties
@@ -56,7 +56,9 @@ spark.synapse.logAnalytics.keyVault.name <AZURE_KEY_VAULT_NAME>
 spark.synapse.logAnalytics.keyVault.key.secret <AZURE_KEY_VAULT_SECRET_KEY_NAME>
 ```
 
-> NOTE: You can also store the Log Analytics workspace id to Azure Key vault. Please refer to the above steps and store the workspace id with secret name `"SparkLogAnalyticsWorkspaceId"`. Or use the config `spark.synapse.logAnalytics.keyVault.key.workspaceId` to specify the workspace id secret name in Azure Key vault.
+> [!NOTE]
+>
+> You can also store the Log Analytics workspace id to Azure Key vault. Please refer to the above steps and store the workspace id with secret name `"SparkLogAnalyticsWorkspaceId"`. Or use the config `spark.synapse.logAnalytics.keyVault.key.workspaceId` to specify the workspace id secret name in Azure Key vault.
 
 #### Option 3. Configure with an Azure Key Vault linked service
 
@@ -83,11 +85,11 @@ spark.synapse.logAnalytics.keyVault.linkedService <LINKED_SERVICE_NAME>
 | Configuration Name                                  | Default Value                | Description                                                                                                                                                                                                |
 | --------------------------------------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | spark.synapse.logAnalytics.enabled                  | false                        | To enable the Azure Log Analytics sink for the Spark applications, true. Otherwise, false.                                                                                                                  |
-| spark.synapse.logAnalytics.workspaceId              | -                            | The destination Azure Log Analytics workspace id.                                                                                                                                                          |
+| spark.synapse.logAnalytics.workspaceId              | -                            | The destination Azure Log Analytics workspace ID                                                                                                                                                          |
 | spark.synapse.logAnalytics.secret                   | -                            | The destination Azure Log Analytics workspace secret.                                                                                                                                                      |
-| spark.synapse.logAnalytics.keyVault.linkedService   | -                            | Azure Key vault linked service name for the Azure Log Analytics workspace id and key                                                                                                                       |
-| spark.synapse.logAnalytics.keyVault.name            | -                            | Azure Key vault name for the Azure Log Analytics id and key                                                                                                                                                |
-| spark.synapse.logAnalytics.keyVault.key.workspaceId | SparkLogAnalyticsWorkspaceId | Azure Key vault secret name for the Azure Log Analytics workspace id                                                                                                                                       |
+| spark.synapse.logAnalytics.keyVault.linkedService   | -                            | Azure Key vault linked service name for the Azure Log Analytics workspace ID and key                                                                                                                       |
+| spark.synapse.logAnalytics.keyVault.name            | -                            | Azure Key vault name for the Azure Log Analytics ID and key                                                                                                                                                |
+| spark.synapse.logAnalytics.keyVault.key.workspaceId | SparkLogAnalyticsWorkspaceId | Azure Key vault secret name for the Azure Log Analytics workspace ID                                                                                                                                       |
 | spark.synapse.logAnalytics.keyVault.key.secret      | SparkLogAnalyticsSecret      | Azure Key vault secret name for the Azure Log Analytics workspace key                                                                                                                                      |
 | spark.synapse.logAnalytics.keyVault.uriSuffix       | ods.opinsights.azure.com     | The destination Azure Log Analytics workspace [URI suffix][uri_suffix]. If your Azure Log Analytics Workspace is not in Azure global, you need to update the URI suffix according to the respective cloud. |
 
@@ -103,12 +105,13 @@ You can upload the configuration file to your Synapse Spark pool in Synapse Stud
    - Navigate to your Apache Spark pool in the Azure Synapse Studio (Manage -> Apache Spark pools)
    - Click the **"..."** button on the right of your Apache Spark pool
    - Select Apache Spark configuration 
-   - Click **Upload** and choose the **"spark_loganalytics_conf.txt"** just created.
+   - Click **Upload** and choose the **"spark_loganalytics_conf.txt"** created.
    - Click **Upload** and **Apply**.
 
 ![spark pool configuration](./media/apache-spark-azure-log-analytics/spark-pool-configuration.png)
 
 > [!NOTE] 
+>
 > All the Spark application submitted to the Spark pool above will use the configuration setting to push the Spark application metrics and logs to your specified Azure Log Analytics workspace.
 
 ## Submit a Spark application and view the logs and metrics in Azure Log Analytics
@@ -124,22 +127,22 @@ You can upload the configuration file to your Synapse Spark pool in Synapse Stud
 
 1. [Download the workbook](https://aka.ms/SynapseSparkLogAnalyticsWorkbook) here.
 2. Open and **Copy** the workbook file content.
-3. Navigate to Azure Log Analytics workbook ([Azure Portal](https://portal.azure.com/) > Log Analytics workspace > Workbooks)
-4. Open the **"Empty"** Azure Log Analytics Workbook, in **"Advanced Editer"** mode (press the </> icon).
-5. Please **Paste** over any json that exists.
+3. Navigate to Azure Log Analytics workbook ([Azure portal](https://portal.azure.com/) > Log Analytics workspace > Workbooks)
+4. Open the **"Empty"** Azure Log Analytics Workbook, in **"Advanced Editor"** mode (press the </> icon).
+5. **Paste** over any json that exists.
 6. Then Press **Apply** then **Done Editing**.
 
 ![new workbook](./media/apache-spark-azure-log-analytics/new-workbook.png)
 
 ![import workbook](./media/apache-spark-azure-log-analytics/import-workbook.png)
 
-Then, submit your Apache Spark application to the configured Spark pool. After the application go to running state, choose the running application in the workbook dropdown list.
+Then, submit your Apache Spark application to the configured Spark pool. After the application goes to running state, choose the running application in the workbook dropdown list.
 
-![workbook](./media/apache-spark-azure-log-analytics/workbook.png)
+![workbook imange](./media/apache-spark-azure-log-analytics/workbook.png)
 
 And you can customize the workbook by Kusto query and configure alerts.
 
-![kusto-query-and-alerts](./media/apache-spark-azure-log-analytics/kusto-query-and-alerts.png)
+![kusto query and alerts](./media/apache-spark-azure-log-analytics/kusto-query-and-alerts.png)
 
 ## Sample Kusto queries
 
@@ -175,7 +178,7 @@ And you can customize the workbook by Kusto query and configure alerts.
 
 Azure Monitor alerts allow users to use a Log Analytics query to evaluate metrics and logs every set frequency, and fire an alert based on the results.
 
-For more details, see [Create, view, and manage log alerts using Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-log).
+For more information, see [Create, view, and manage log alerts using Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-log).
 
 ## Next steps
 
