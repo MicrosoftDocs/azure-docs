@@ -17,29 +17,32 @@ Script actions can also be published to the Azure Marketplace as an HDInsight ap
 
 A script action is Bash script that runs on the nodes in an HDInsight cluster. Characteristics and features of script actions are as follows:
 
-- Must be stored on a URI that's accessible from the HDInsight cluster. The following are possible storage locations:
+- The Bash script URI (the location to access the file) has to be accessible from the HDInsight resource provider and the cluster.
+- The following are possible storage locations:
 
-- For regular (non-ESP) clusters:
-  - A blob in an Azure Storage account that's either the primary or additional storage account for the HDInsight cluster. HDInsight is granted access to both of these types of storage accounts during cluster creation.
-  - Data Lake Storage Gen1/Gen2: The service principal HDInsight uses to access Data Lake Storage must have read access to the script. 
-    - For Data Lake Storage Gen1, the Bash script URI format is `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`. 
-    - For Data Lake Storage Gen2, the Bash script URI format is limited to `https://` with a [Shared Access Signature (SAS) token](../storage/blobs/data-lake-storage-access-control-model.md#shared-key-and-shared-access-signature-sas-authorization). However, `abfs://` URIs are not supported for script actions at this time.  There are additional limitations that the storage container has to be **public**, and the storage account network open (firewalls and virtual networks) and accessible to the cluster. For example, this fictitious script location `https://mystorage.blob.core.windows.net/scriptaction/myscript.sh?<SASTokenHere>`.  
+   - For regular (non-ESP) clusters:
+     - A blob in an Azure Storage account that's either the primary or additional storage account for the HDInsight cluster. HDInsight is granted access to both of these types of storage accounts during cluster creation.
+    
+       > [!IMPORTANT]  
+       > Do not rotate the storage key on this Azure Storage account, as it will cause subsequent script actions with scripts stored there to fail.
 
-    > [!IMPORTANT]  
-    > Do not rotate the storage key on this Azure Storage account, as it will cause subsequent script actions with scripts stored there to fail.
+     - Data Lake Storage Gen1: The service principal HDInsight uses to access Data Lake Storage must have read access to the script. The Bash script URI format is `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`. 
 
-  - A public file-sharing service accessible through `http://` paths. Examples are Azure Blob, GitHub, or OneDrive. For example URIs, see [Example script action scripts](#example-script-action-scripts).
-   - For clusters with ESP, the `wasb://` or `wasbs://` or `http[s]://` URIs are supported.
+     - Data Lake Storage Gen2 is not recommended to use for script actions. `abfs://` is not supported for the Bash script URI. `https://` URIs are possible, but those work for containers that have public access, and the firewall open for the HDInsight Resource Provider, and therefore is not recommended.
 
-- Can be restricted to run on only certain node types. Examples are head nodes or worker nodes.
-- Can be persisted or *ad hoc*.
+     - A public file-sharing service accessible through `https://` paths. Examples are Azure Blob, GitHub, or OneDrive. For example URIs, see [Example script action scripts](#example-script-action-scripts).
 
-    - Persisted script actions must have a unique name. Persisted scripts are used to customize new worker nodes added to the cluster through scaling operations. A persisted script might also apply changes to another node type when scaling operations occur. An example is a head node.
-    - *Ad hoc* scripts aren't persisted. Script actions used during cluster creation are automatically persisted. They aren't applied to worker nodes added to the cluster after the script has run. Then you can promote an *ad hoc* script to a persisted script or demote a persisted script to an *ad hoc* script. Scripts that fail aren't persisted, even if you specifically indicate that they should be.
+  - For clusters with ESP, the `wasb://` or `wasbs://` or `http[s]://` URIs are supported.
 
-- Can accept parameters that are used by the script during execution.
-- Run with root-level privileges on the cluster nodes.
-- Can be used through the Azure portal, Azure PowerShell, Azure  CLI, or HDInsight .NET SDK.
+- The script actions can be restricted to run on only certain node types. Examples are head nodes or worker nodes.
+- The script actions can be persisted or *ad hoc*.
+
+  - Persisted script actions must have a unique name. Persisted scripts are used to customize new worker nodes added to the cluster through scaling operations. A persisted script might also apply changes to another node type when scaling operations occur. An example is a head node.
+  - *Ad hoc* scripts aren't persisted. Script actions used during cluster creation are automatically persisted. They aren't applied to worker nodes added to the cluster after the script has run. Then you can promote an *ad hoc* script to a persisted script or demote a persisted script to an *ad hoc* script. Scripts that fail aren't persisted, even if you specifically indicate that they should be.
+
+- Script actions can accept parameters that are used by the script during execution.
+- Script actions run with root-level privileges on the cluster nodes.
+- Script actions can be used through the Azure portal, Azure PowerShell, Azure  CLI, or HDInsight .NET SDK.
 - Script actions that remove or modify service files on the VM may impact service health and availability.
 
 The cluster keeps a history of all scripts that have been run. The history helps when you need to find the ID of a script for promotion or demotion operations.
