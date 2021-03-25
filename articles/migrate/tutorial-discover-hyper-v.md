@@ -97,7 +97,7 @@ Delegate credentials if server disks are located on remote SMB shares | Delegate
     ```powershell
     C:\>CertUtil -HashFile C:\Users\Administrators\Desktop\ MicrosoftAzureMigrate-Hyper-V.ps1 SHA256
     ```
-3. After validating the script integrity, run the script on each Hyper-V host with this PowerShell command:
+3. After validating the script integrity, run the script on each Hyper-V host with this PowerShell command with elevated permissions:
 
     ```powershell
     PS C:\Users\Administrators\Desktop> MicrosoftAzureMigrate-Hyper-V.ps1
