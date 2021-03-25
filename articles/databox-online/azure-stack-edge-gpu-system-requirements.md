@@ -117,7 +117,7 @@ We recommend that you set your firewall rules for outbound traffic, based on Azu
 
 ### URL patterns for monitoring
 
-Configure the following URL patterns on Port 443 if you use the containerized version of the Log Analytics agent for Linux to communicate with Azure Monitor.<!--In the firewall, are URL patterns per port? Is a port designation is relevant to the firewall configuration, is that best noted in the introduction, in the table (not in other tables), or in both places?-->
+If you use the containerized version of the Log Analytics agent for Linux to communicate with Azure Monitor, configure firewall rules with the following URL patterns on Port 443.<!--In the firewall, are URL patterns per port? Is a port designation is relevant to the firewall configuration, is that best noted in the introduction, in the table (not in other tables), or in both places?-->
 
 | URL pattern | Port number | Component or functionality |   
 |-------------|-------------|----------------------------|
