@@ -30,7 +30,7 @@ Send a `GET` request to:
 GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/{id}/documents
 ```
 
-Learn how to find your [custom domain name](../get-started-with-document-translation#find-your-custom-domain-name).
+Learn how to find your [custom domain name](../get-started-with-document-translation.md#find-your-custom-domain-name).
 
 > [!IMPORTANT]
 >
