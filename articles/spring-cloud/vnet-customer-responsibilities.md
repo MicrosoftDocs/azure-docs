@@ -49,7 +49,8 @@ Azure Firewall provides a fully qualified domain name (FQDN) tag **AzureKubernet
   | *.cdn.mscr.io | HTTPS:443 | MCR storage backed by the Azure CDN. |
   | *.data.mcr.microsoft.com | HTTPS:443 | MCR storage backed by the Azure CDN. |
   | <i>management.azure.com</i> | HTTPS:443 | Underlying Kubernetes Cluster management. ​|
-  | <i>login.microsoftonline.com</i> | HTTPS:443 | Azure Active Directory authentication.​ |
+  | <i>*login.microsoftonline.com</i> | HTTPS:443 | Azure Active Directory authentication.​ |
+  | <i>*login.microsoft.com</i> | HTTPS:443 | Azure Active Directory authentication.​ |
   |<i>packages.microsoft.com</i>    | HTTPS:443 | Microsoft packages repository. |
   | <i>acs-mirror.azureedge.net</i> | HTTPS:443 | Repository required to install required binaries like kubenet and Azure CNI.​ |
   | *mscrl.microsoft.com* | HTTPS:80 | Required Microsoft Certificate Chain Paths. |
@@ -57,5 +58,5 @@ Azure Firewall provides a fully qualified domain name (FQDN) tag **AzureKubernet
   | *crl3.digicert.com* | HTTPS:80 | 3rd Party SSL Certificate Chain Paths. |
 
 ## See also
-* [Access your application in a private network](spring-cloud-access-app-virtual-network.md)
-* [Expose apps using Application Gateway and Azure Firewall](spring-cloud-expose-apps-gateway-azure-firewall.md)
+* [Access your application in a private network](access-app-virtual-network.md)
+* [Expose apps using Application Gateway and Azure Firewall](expose-apps-gateway-azure-firewall.md)

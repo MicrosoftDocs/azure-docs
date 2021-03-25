@@ -34,7 +34,7 @@ The runtime version will be updated aperiodically. And the previous runtime will
 
 The following version is the current default runtime version.
 
-- release-20200124live_adl_16283022_2
+- **release_20200707_scope_2b8d563_usql**
 
 To get understanding how to troubleshoot U-SQL runtime failures, refer to [Troubleshoot U-SQL runtime failures](runtime-troubleshoot.md).
 

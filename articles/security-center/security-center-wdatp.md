@@ -69,7 +69,7 @@ After you've configured the location, you can't change it. If you have your own 
 1. Confirm that your machine meets the necessary requirements for Defender for Endpoint:
 
     - For **all versions of Windows**:
-        - Configure the network settings described in [Configure device proxy and Internet connectivity settings](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet)
+        - Configure the network settings described in [Configure device proxy and Internet connectivity settings](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet)
         - If you're deploying Defender to Endpoint to an on-premises machines, connect it to Azure Arc as explained in [Connect hybrid machines with Azure Arc enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md)
     - In addition, for **Windows Server 2019 machines**, confirm that they're running a valid agent and have the MicrosoftMonitoringAgent extension
 
