@@ -31,7 +31,7 @@ By default, your app routes only RFC1918 traffic into your VNet. If you want to 
 1. Select **Save**.
 
 > [!NOTE]
-> When you route all of your outbound traffic into your VNet, it's subject to the NSGs and UDRs that are applied to your integration subnet. Outbound addresses remain the outbound addresses displayed in your app properties, unless you provide routes to send the traffic elsewhere.
+> When you route all of your outbound traffic into your VNet, it's subject to the NSGs and UDRs that are applied to your integration subnet. When `WEBSITE_VNET_ROUTE_ALL` is set to `1`, outbound traffic is still sent from the addresses that are listed in your app properties, unless you provide routes that direct the traffic elsewhere.
 > 
 > Regional VNet integration isn't able to use port 25.
 
@@ -72,8 +72,6 @@ Regional VNet Integration enables you to use service endpoints. The basic steps 
 
 1. Configure regional VNet Integration with your web app to connect to a specific subnet for integration.
 1. Go to the destination service and configure service endpoints against the integration subnet.
-
-To learn more, see [Set a service endpoint-based rule](../articles/app-service/app-service-ip-restrictions.md#set-a-service-endpoint-based-rule).
 
 ### Network security groups
 
