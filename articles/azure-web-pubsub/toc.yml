@@ -4,13 +4,13 @@
 - name: Overview
   items:
   - name: About Azure Web PubSub service
-    href: web-pubsub-overview.md
+    href: overview.md
 
 - name: Quickstarts
   expanded: true
   items:
   - name: Serverless Application
-    href: web-pubsub-quickstart-serverless.md
+    href: quickstart-serverless.md
 
 - name: How-to guides
   expanded: true
@@ -18,13 +18,21 @@
   - name: Develop
     items:
     - name: Create instance
-      href: web-pubsub-howto-create-instance.md
+      href: howto-develop-create-instance.md
+  - name: Secure
+    items:
+    - name: Protect the access key
+      href: howto-secure-rotate-access-key.md
+    - name: Secure the traffic for VNet
+      href: howto-secure-private-endpoints.md
+    - name: Secure and control network access
+      href: howto-secure-network-access-control.md
   - name: Troubleshooting
     items:
     - name: Collect network trace
-      href: web-pubsub-howto-troubleshoot-network-trace.md
+      href: howto-troubleshoot-network-trace.md
     - name: Capture diagnostic logs
-      href: web-pubsub-howto-troubleshoot-diagnostic-logs.md
+      href: howto-troubleshoot-diagnostic-logs.md
 
 - name: Resources
   items:

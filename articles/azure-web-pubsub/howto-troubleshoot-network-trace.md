@@ -53,7 +53,7 @@ Most browser Developer Tools have a "Network" tab that allows you to capture net
 1. Refresh the page (if needed) and reproduce the problem
 1. Select the `Export HAR...` in the toolbar to export the trace as a "HAR" file
 
-    :::image type="content" source="./media/web-pubsub-howto-troubleshoot-network-trace/edge-export-network-trace.png" alt-text="Collect network trace with Microsoft Edge":::
+    :::image type="content" source="./media/howto-troubleshoot-network-trace/edge-export-network-trace.png" alt-text="Collect network trace with Microsoft Edge":::
 
 ### Google Chrome
 
@@ -65,7 +65,7 @@ Most browser Developer Tools have a "Network" tab that allows you to capture net
 1. Refresh the page (if needed) and reproduce the problem
 1. Select the `Export HAR...` in the toolbar to export the trace as a "HAR" file
 
-    :::image type="content" source="./media/web-pubsub-howto-troubleshoot-network-trace/chrome-export-network-trace.png" alt-text="Collect network trace with Google Chrome":::
+    :::image type="content" source="./media/howto-troubleshoot-network-trace/chrome-export-network-trace.png" alt-text="Collect network trace with Google Chrome":::
 
 ### Mozilla Firefox
 
@@ -77,7 +77,7 @@ Most browser Developer Tools have a "Network" tab that allows you to capture net
 1. Refresh the page (if needed) and reproduce the problem
 1. Right-click anywhere in the list of requests and choose "Save All As HAR"
 
-    :::image type="content" source="./media/web-pubsub-howto-troubleshoot-network-trace/firefox-export-network-trace.png" alt-text="Collect network trace with Mozilla Firefox":::
+    :::image type="content" source="./media/howto-troubleshoot-network-trace/firefox-export-network-trace.png" alt-text="Collect network trace with Mozilla Firefox":::
 
 ### Safari
 
