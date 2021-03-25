@@ -127,8 +127,7 @@ The Log Analytics workspace must exist in the following regions:
    :::column span="":::
       East US 2  
       East US 2 EUAP  
-      France Central  
-      Germany West Central  
+      France Central 
       Japan East  
       Korea Central  
       North Central US  
