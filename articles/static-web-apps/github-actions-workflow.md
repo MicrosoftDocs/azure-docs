@@ -131,11 +131,7 @@ with:
     ###### End of Repository/Build Configurations ######
 ```
 
-| Property | Description | Required |
-|---|---|---|
-| `app_location` | Location of your application code.<br><br>For example, enter `/` if your application source code is at the root of the repository, or `/app` if your application code is in a directory called `app`. | Yes |
-| `api_location` | Location of your Azure Functions code.<br><br>For example, enter `/api` if your app code is in a folder called `api`. If no Azure Functions app is detected in the folder, the build doesn't fail, the workflow assumes you don't want an API. | No |
-| `output_location` | Location of the build output directory relative to the `app_location`.<br><br>For example, if your application source code is located at `/app`, and the build script outputs files to the `/app/build` folder, then set `build` as the `output_location` value. | No |
+[!INCLUDE [static-web-apps-folder-structure](../../includes/static-web-apps-folder-structure.md)]
 
 The `repo_token`, `action`, and `azure_static_web_apps_api_token` values are set for you by Azure Static Web Apps shouldn't be manually changed.
 
