@@ -361,7 +361,7 @@ If you use the **Delimited Text or CDM formatting for mapping data flow in Azure
 
 You may encounter the following issues before the improvement, but after the improvement, the issues were fixed. Read the following content to determine whether this improvement affects you. 
 
-#### Scenario 1: Encounter the unexpected Row-Delimiter issue. 
+#### Scenario 1: Encounter the unexpected Row-Delimiter issue
 
  You are affected if you are in the following conditions:
  - Using the Delimited Text/CDM with Multiline setting set to True as the source. 
@@ -390,7 +390,7 @@ You may encounter the following issues before the improvement, but after the imp
    `C1 C2 {long first row} C128`<br/>
    `V1 V2 {values………………….} V128`<br/>
   
-#### Scenario 2: Encounter an issue of incorrectly reading column values containing '\r\n'.
+#### Scenario 2: Encounter an issue of incorrectly reading column values containing '\r\n'
 
  You are affected if you are in the following conditions:
  - Using the Delimited Text / CDM with the Multiline setting set to True as a source. 
@@ -413,7 +413,7 @@ You may encounter the following issues before the improvement, but after the imp
  After the improvement, the parsed column result should be:<br/>
   **`A\r\n`**` B C`<br/>  
 
-#### Scenario 3: Encounter an issue of incorrectly writing column values containing '\n'. 
+#### Scenario 3: Encounter an issue of incorrectly writing column values containing '\n'
 
  You are affected if you are in the following conditions:
  - Using the Delimited Text as a sink.
@@ -437,7 +437,7 @@ You may encounter the following issues before the improvement, but after the imp
  After the improvement, the CSV sink should be:<br/>
   **`A\n`**`, B, C\r\n`<br/>
 
-#### Scenario 4: Encounter an issue of incorrectly reading empty string as NULL. 
+#### Scenario 4: Encounter an issue of incorrectly reading empty string as NULL
  
  You are affected if you are in the following conditions:
  - Using the Delimited Text as a source. 
