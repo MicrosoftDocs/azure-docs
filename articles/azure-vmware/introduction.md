@@ -2,7 +2,7 @@
 title: Introduction
 description: Learn the features and benefits of Azure VMware Solution to deploy and manage VMware-based workloads in Azure.
 ms.topic: overview
-ms.date: 11/11/2020
+ms.date: 03/24/2021
 ---
 
 # What is Azure VMware Solution?
@@ -14,6 +14,11 @@ Azure VMware Solution is a VMware validated solution with on-going validation an
 The diagram shows the adjacency between private clouds and VNets in Azure, Azure services, and on-premises environments. Network access from private clouds to Azure services or VNets provides SLA-driven integration of Azure service endpoints. ExpressRoute Global Reach connects your on-premises environment to your Azure VMware Solution private cloud. 
 
 ![Image of Azure VMware Solution private cloud adjacency to Azure and on-premises](./media/adjacency-overview-drawing-final.png)
+
+## Customer communication
+Service issues, planned maintenance, health advisories, security advisories notifications are published through **Service Health** in the Azure portal. You can take timely actions when you set up activity log alerts for these notifications. For more information, see [Create service health alerts using the Azure portal](../service-health/alerts-activity-log-service-notifications-portal.md#create-service-health-alert-using-azure-portal).
+
+:::image type="content" source="media/service-health.png" alt-text="Screenshot of Service Health notifications":::
 
 ## Hosts, clusters, and private clouds
 

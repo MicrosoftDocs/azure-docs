@@ -352,7 +352,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
    Your Azure Resource Manager Client ID is hard-coded. Your Azure Resource Manager Tenant ID and Azure Resource Manager Subscription ID are both present in the output of `az login` command you ran earlier. The Azure Resource Manager Client secret is the Azure Resource Manager password that you set.
 
-   For more information, see [Azure Resource Manager password](/azure/databox-online/azure-stack-edge-gpu-set-azure-resource-manager-password).
+   For more information, see [Azure Resource Manager password](/azure/azure-stack-edge-gpu-set-azure-resource-manager-password).
 
 5. Change the profile to version 2019-03-01-hybrid. To change the profile version, run the following command:
 

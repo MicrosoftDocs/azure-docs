@@ -79,7 +79,7 @@ While deploying applications, consider the following information:
 
 To locally deploy an app via kubectl, see:
 
-- [Deploy a stateless application on your Azure Stack Edge Pro via kubectl](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md).
+- [Deploy a stateless application on your Azure Stack Edge Pro via kubectl](./azure-stack-edge-gpu-deploy-stateless-application-kubernetes.md).
 
 To deploy an app via IoT Edge, see:
 
