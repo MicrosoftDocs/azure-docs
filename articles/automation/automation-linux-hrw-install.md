@@ -107,7 +107,7 @@ There are two methods to deploy a Hybrid Runbook Worker. You can import and run 
 ### Importing a runbook from the Runbook Gallery
 
 The import procedure is described in detail in [Import a PowerShell runbook from GitHub with the Azure portal](automation-runbook-gallery.md#import-a-powershell-runbook-from-github-with-the-azure-portal). The name of the runbook to import is **Create Automation Linux HybridWorker**.
-
+automation-runbook-gallery#import-a-powershell-runbook-from-the-runbook-gallery-with-the-azure-portal
 The runbook uses the following parameters.
 
 | Parameter | Status | Description |
@@ -122,7 +122,6 @@ The runbook uses the following parameters.
 | `vmName` | Optional | The name of the virtual machine that's either created or registered, depending on the value of `CreateVM`. Defaults to `VMForLHW`.|
 | `vmlocation` | Optional | Location of the VM that's either created or registered. If this location is not specified, the value of `location` is used. |
 | `WorkerGroupName` | Mandatory | Name of the Hybrid Worker Group. |
-
 
 ### Manually run PowerShell commands
 

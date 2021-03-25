@@ -38,7 +38,7 @@ The list below contains a few runbooks that support common scenarios. For a full
    * [Copy-ItemFromAzureVM](https://www.powershellgallery.com/packages/Copy-ItemFromAzureVM/) - Copies a remote file from a Windows Azure virtual machine.
    * [Copy-ItemToAzureVM](https://www.powershellgallery.com/packages/Copy-ItemToAzureVM/) - Copies a local file to an Azure virtual machine.
 
-## Import a  PowerShell runbook from GitHub with the Azure portal
+## Import a PowerShell runbook from GitHub with the Azure portal
 
 1. In the Azure portal, open your Automation account.
 1. Select **Runbooks gallery** under **Process Automation**.
