@@ -64,7 +64,7 @@ The following are the possible HTTP status codes that a request returns.
 |--- |--- |
 |200|OK. Successful request and returns the status of the all the operations. HeadersRetry-After: integerETag: string|
 |400|Bad Request. Invalid request. Check input parameters.|
-|401|Unauthorized. Please check your credentials.|
+|401|Unauthorized. Check your credentials.|
 |500|Internal Server Error.|
 |Other Status Codes|<ul><li>Too many requests</li><li>Server temporary unavailable</li></ul>|
 
@@ -79,14 +79,14 @@ The following information is returned in a successful response.
 |id|string|ID of the operation.|
 |createdDateTimeUtc|string|Operation created date time.|
 |lastActionDateTimeUtc|string|Date time in which the operation's status has been updated.|
-|status|String|List of possible statuses for job or document: <ul><li>Cancelled</li><li>Cancelling</li><li>Failed</li><li>NotStarted</li><li>Running</li><li>Succeeded</li><li>ValidationFailed</li></ul>|
+|status|String|List of possible statuses for job or document: <ul><li>Canceled</li><li>Cancelling</li><li>Failed</li><li>NotStarted</li><li>Running</li><li>Succeeded</li><li>ValidationFailed</li></ul>|
 |summary|StatusSummary[]|Summary containing the details listed below.|
 |summary.total|integer|Count of total documents.|
 |summary.failed|integer|Count of documents failed.|
 |summary.success|integer|Count of documents successfully translated.|
 |summary.inProgress|integer|Count of documents in progress.|
 |summary.notYetStarted|integer|Count of documents not yet started processing.|
-|summary.cancelled|integer|Count of documents cancelled.|
+|summary.cancelled|integer|Count of documents canceled.|
 |summary.totalCharacterCharged|integer|Total count of characters charged.|
 
 ### Error Response

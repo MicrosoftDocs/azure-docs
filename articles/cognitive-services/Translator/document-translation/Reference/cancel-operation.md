@@ -1,5 +1,5 @@
 ---
-title: Document Translation cancel operations method
+title: Document Translation cancel operation method
 titleSuffix: Azure Cognitive Services
 description: The cancel operations method cancels a currently processing or queued operation.
 services: cognitive-services
@@ -70,14 +70,14 @@ The following information is returned in a successful response.
 |id|string|ID of the operation.|
 |createdDateTimeUtc|string|Operation created date time.|
 |lastActionDateTimeUtc|string|Date time in which the operation's status has been updated.|
-|status|String|List of possible statuses for job or document: <ul><li>Cancelled</li><li>Cancelling</li><li>Failed</li><li>NotStarted</li><li>Running</li><li>Succeeded</li><li>ValidationFailed</li></ul>|
+|status|String|List of possible statuses for job or document: <ul><li>Canceled</li><li>Cancelling</li><li>Failed</li><li>NotStarted</li><li>Running</li><li>Succeeded</li><li>ValidationFailed</li></ul>|
 |summary|StatusSummary|Summary containing the details listed below.|
 |summary.total|integer|Count of total documents.|
 |summary.failed|integer|Count of documents failed.|
 |summary.success|integer|Count of documents successfully translated.|
 |summary.inProgress|integer|Count of documents in progress.|
 |summary.notYetStarted|integer|Count of documents not yet started processing.|
-|summary.cancelled|integer|Number of cancelled.|
+|summary.cancelled|integer|Number of canceled.|
 |summary.totalCharacterCharged|integer|Total characters charged by the API.|
 
 ### Error Response

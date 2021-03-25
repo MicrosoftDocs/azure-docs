@@ -63,7 +63,7 @@ The following are the possible HTTP status codes that a request returns.
 |--- |--- |
 |200|OK. Successful request and returns the status of the documents. HeadersRetry-After: integerETag: string|
 |400|Invalid request. Check input parameters.|
-|401|Unauthorized. Please check your credentials.|
+|401|Unauthorized. Check your credentials.|
 |404|Resource is not found.|
 |500|Internal Server Error.|
 |Other Status Codes|<ul><li>Too many requests</li><li>Server temporary unavailable</li></ul>|
@@ -82,7 +82,7 @@ The following information is returned in a successful response.
 |value.path|string|Location of the document or folder.|
 |value.createdDateTimeUtc|string|Operation created date time.|
 |value.lastActionDateTimeUt|string|Date time in which the operation's status has been updated.|
-|value.status|status|List of possible statuses for job or document.<ul><li>Cancelled</li><li>Cancelling</li><li>Failed</li><li>NotStarted</li><li>Running</li><li>Succeeded</li><li>ValidationFailed</li></ul>|
+|value.status|status|List of possible statuses for job or document.<ul><li>Canceled</li><li>Cancelling</li><li>Failed</li><li>NotStarted</li><li>Running</li><li>Succeeded</li><li>ValidationFailed</li></ul>|
 |value.to|string|To language.|
 |value.progress|string|Progress of the translation if available.|
 |value.id|string|Document ID.|
