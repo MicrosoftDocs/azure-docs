@@ -595,7 +595,7 @@ Setup a port forward tunnel to the bookbuyer pod and you should now see books be
 
 ### Before you begin
 
-The steps detailed in this walkthrough assume that you have previously enabled the OSM AKS add-on for your AKS cluster. If not, please review the section [Enable Open Service Mesh (OSM) Azure Kubernetes Service (AKS) add-on for an existing AKS cluster](#Enable-Open-Service-Mesh-(OSM)-Azure-Kubernetes-Service-(AKS)-add-on-for-an-existing-AKS-cluster) before proceeding. Also, your AKS cluster needs to be version Kubernetes `1.19+` and above, have Kubernetes RBAC enabled, and have established a `kubectl` connection with the cluster (If you need help with any of these items, then see the [AKS quickstart](./kubernetes-walkthrough.md), and have installed the AKS OSM add-on.
+The steps detailed in this walkthrough assume that you have previously enabled the OSM AKS add-on for your AKS cluster. If not, please review the section [Enable Open Service Mesh (OSM) Azure Kubernetes Service (AKS) add-on for an existing AKS cluster](<#Enable-Open-Service-Mesh-(OSM)-Azure-Kubernetes-Service-(AKS)-add-on-for-an-existing-AKS-cluster>) before proceeding. Also, your AKS cluster needs to be version Kubernetes `1.19+` and above, have Kubernetes RBAC enabled, and have established a `kubectl` connection with the cluster (If you need help with any of these items, then see the [AKS quickstart](./kubernetes-walkthrough.md), and have installed the AKS OSM add-on.
 
 You must have the following resources installed:
 
@@ -628,7 +628,7 @@ Output of the OSM configmap should look like the following:
 }
 ```
 
-If the **permissive_traffic_policy_mode** is configured to **true**, you can safely onboard your namespaces without any disruption to your service-to-service communications. If the **permissive_traffic_policy_mode** is configured to **false**, You will need to ensure you have the correct [SMI](https://smi-spec.io/) traffic access policy manifests deployed as well as ensuring you have a service account representing each service deployed in the namespace. Please follow the guidance for [Onboard existing deployed applications with Open Service Mesh (OSM) Permissive Traffic Policy configured as False](#Onboard-existing-deployed-applications-with-Open-Service-Mesh-(OSM)-Permissive-Traffic-Policy-configured-as-False)
+If the **permissive_traffic_policy_mode** is configured to **true**, you can safely onboard your namespaces without any disruption to your service-to-service communications. If the **permissive_traffic_policy_mode** is configured to **false**, You will need to ensure you have the correct [SMI](https://smi-spec.io/) traffic access policy manifests deployed as well as ensuring you have a service account representing each service deployed in the namespace. Please follow the guidance for [Onboard existing deployed applications with Open Service Mesh (OSM) Permissive Traffic Policy configured as False](<#Onboard-existing-deployed-applications-with-Open-Service-Mesh-(OSM)-Permissive-Traffic-Policy-configured-as-False>)
 
 ### Onboard existing deployed applications with Open Service Mesh (OSM) Permissive Traffic Policy configured as True
 
@@ -1768,7 +1768,8 @@ kubectl get ConfigMap -n kube-system osm-config -o json | jq '.data'
 
 #### Check Namespaces
 
-> Note: The kube-system namespace will never participate in a service mesh and will never be labeled and/or annotated with the key/values below.
+> [!NOTE]
+> The kube-system namespace will never participate in a service mesh and will never be labeled and/or annotated with the key/values below.
 
 We use the `osm namespace add` command to join namespaces to a given service mesh.
 When a k8s namespace is part of the mesh (or for it to be part of the mesh) the following must be true:
