@@ -16,10 +16,13 @@ ms.reviewer: larryfr
 
 [Azure Policy](../governance/policy/index.yml) is a governance tool that allows you to ensure that Azure resources are compliant with your policies. With Azure Machine Learning, you can assign the following policies:
 
-* **Customer-managed key**: Audit or enforce whether workspaces must use a customer-managed key.
-* **Private link**: Audit or enforce whether workspaces use a private endpoint to communicate with a virtual network.
-* **Private endpoint**: Configure the Azure Virtual Network subnet where the private endpoint should be created.
-* **Private DNS zone**: Configure the private DNS zone to use for the private link.
+| Policy | Description |
+| ----- | ----- |
+| **Customer-managed key** | Audit or enforce whether workspaces must use a customer-managed key. |
+| **Private link** | Audit or enforce whether workspaces use a private endpoint to communicate with a virtual network. |
+| **Private endpoint** | Configure the Azure Virtual Network subnet where the private endpoint should be created. |
+| **Private DNS zone** | Configure the private DNS zone to use for the private link. |
+| **User-assigned managed identity** | Audit or enforce whether workspaces use a user-assigned managed identity. |
 
 Policies can be set at different scopes, such as at the subscription or resource group level. For more information, see the [Azure Policy documentation](../governance/policy/overview.md).
 
