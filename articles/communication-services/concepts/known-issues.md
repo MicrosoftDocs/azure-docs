@@ -89,7 +89,7 @@ Under investigation.
 Mobile browsers are sensitive to any changes made while being in the `connecting` state. We encourage developers to build their apps in a way that doesn't require video to be configured while connecting. This issue may cause degraded video performance in the following scenarios:
 
  1. If you start with audio and then start and stop video while the call is in `connecting` state
- 2. If you start with audio and then start and stop video while the call is in the lobby
+ 2. If User starts with audio and then start and stop video while the call is in `Lobby` state
 
 
 #### Possible causes
