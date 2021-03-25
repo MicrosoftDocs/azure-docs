@@ -1685,7 +1685,7 @@ A sample error when the CA Bundle is incorrect:
 
 - An attepmt to change the osm-config ConfigMap:
 
-```
+```azurecli-interactive
 kubectl patch ConfigMap osm-config -n kube-system --type merge --patch '{"data":{"config_resync_interval":"2m"}}'
 ```
 
