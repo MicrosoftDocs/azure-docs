@@ -74,7 +74,7 @@ The following limitations apply only to the Azure Policy Add-on for AKS:
 
 - [AKS Pod security policy](../../../aks/use-pod-security-policies.md) and the Azure Policy Add-on
   for AKS can't both be enabled. For more information, see
-  [AKS pod security limitation](../../../aks/use-azure-policy.md#limitations).
+  [AKS pod security limitation](../../../aks/use-azure-policy.md).
 - Namespaces automatically excluded by Azure Policy Add-on for evaluation: _kube-system_,
   _gatekeeper-system_, and _aks-periscope_.
 
