@@ -11,19 +11,19 @@ ms.topic: troubleshooting
 ms.service: azure-communication-services
 ---
 
-# Known issues: Azure Communication Services client libraries
-This article provides information about limitations and known issues related to the Azure Communication Services client libraries.
+# Known issues: Azure Communication Services SDKs
+This article provides information about limitations and known issues related to the Azure Communication Services SDKs.
 
 > [!IMPORTANT]
 > There are multiple factors that can affect the quality of your calling experience. Refer to the **[network requirements](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/network-requirements)** documentation to learn more about Communication Services network configuration and testing best practices.
 
 
-## JavaScript client library
+## JavaScript SDK
 
-This section provides information about known issues associated with JavaScript voice and video calling client libraries in Azure Communication Services.
+This section provides information about known issues associated with JavaScript voice and video calling SDKs in Azure Communication Services.
 
 ### After refreshing the page, user is not removed from the call immediately 
-If user is in a call and decides to refresh the page, the Communication Services client library may not be able to inform the Communication Services media service that it's about to disconnect. The Communication Services media service will not remove such user immediately from the call but it will wait for a user to rejoin assuming problems with network connectivity. User will be removed from the call after media service will timeout.
+If user is in a call and decides to refresh the page, the Communication Services SDK may not be able to inform the Communication Services media service that it's about to disconnect. The Communication Services media service will not remove such user immediately from the call but it will wait for a user to rejoin assuming problems with network connectivity. User will be removed from the call after media service will timeout.
 
 We encourage developers build experiences that don't require end-users to refresh the page of your application while participating in a call. If user will refresh the page, the best way to handle it for the app is to reuse the same Communication Services user ID for the user after he returns back to the application after refreshes.
 
@@ -33,7 +33,7 @@ If previously user was sending video, `videoStreams` collection will keep previo
 
 
 ### It's not possible to render multiple previews from multiple devices on web
-This is a known limitation. Refer to the [calling client library overview](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features) for more information.
+This is a known limitation. Refer to the [calling SDK overview](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features) for more information.
 
 ### Enumeration of the microphone and speaker devices is not possible in Safari when the application runs on iOS or iPadOS 
 Applications can't enumerate/select mic/speaker devices (like Bluetooth) on Safari iOS/iPad. This is a known operating system limitation.
@@ -72,7 +72,7 @@ Users may experience degraded video quality when devices are rotated.
 
 
 ### Camera switching makes the screen freeze 
-When a Communication Services user joins a call using the JavaScript calling client library and then hits the camera switch button, the UI may become completely unresponsive until the application is refreshed or browser is pushed to the background by user.
+When a Communication Services user joins a call using the JavaScript calling SDK and then hits the camera switch button, the UI may become completely unresponsive until the application is refreshed or browser is pushed to the background by user.
 
 <br/>Devices affected: Google Pixel 4a
 <br/>Client library: Calling (JavaScript)
