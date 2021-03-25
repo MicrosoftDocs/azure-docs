@@ -5,7 +5,7 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 03/17/2021
+ms.date: 03/25/2021
 ms.custom: mvc
 #Customer intent: As an VMware admin, I want to discover my on-premises servers running in VMware environment.
 ---
@@ -19,6 +19,7 @@ This tutorial shows you how to discover servers running in VMware environment wi
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+
 > * Set up an Azure account.
 > * Prepare the VMware environment for discovery.
 > * Create a project.
@@ -30,11 +31,9 @@ In this tutorial, you learn how to:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
-
 ## Prerequisites
 
 Before you start this tutorial, check you have these prerequisites in place.
-
 
 **Requirement** | **Details**
 --- | ---
@@ -93,7 +92,6 @@ In vSphere Web Client, set up an account as follows:
 6. If you also want to perform discovery of installed applications and agentless dependency analysis, go to **Roles** > select the **Read-only** role, and in **Privileges**, select **Guest Operations**. You can propagate the privileges to all objects under the vCenter Server by selecting "Propagate to children" checkbox.
 
     :::image type="content" source="./media/tutorial-discover-vmware/guest-operations.png" alt-text="Checkbox to allow guest operations on the read-only role":::
-
 
 > [!NOTE]
 > You can limit discovery to specific vCenter Server datacenters, clusters, a folder of clusters, hosts, a folder of hosts, or individual servers by scoping the vCenter Server account. [**Learn more**](set-discovery-scope.md) on how to scope the vCenter Server user account.
@@ -193,11 +191,9 @@ Import the downloaded file, and create a server in VMware environment
 8. In **Network Mapping**, specify the network to which the server will connect. The network needs internet connectivity, to send metadata to Azure Migrate.
 9. Review and confirm the settings, then click **Finish**.
 
-
 ### Verify appliance access to Azure
 
 Make sure that the appliance server can connect to Azure URLs for [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
-
 
 ### 4. Configure the appliance
 
@@ -278,7 +274,7 @@ If you want to use these features, you can provide server credentials by followi
 - You can see the **Validation status** for all the domain credentials in the credentials table. Only domain credentials will be validated.
 - If the validation fails, you can click on **Failed** status to see the error encountered and click on **Revalidate credentials** after fixing the issue to validate the failed domain credentials again.
 
-     :::image type="content" source="./media/tutorial-discover-vmware/add-server-credentials-multiple.png" alt-text="Panel 3 on appliance configuration manager for server details":::
+     :::image type="content" source="./media/tutorial-discover-vmware/add-server-credentials-multiple.png" alt-text="Panel 3 on appliance configuration manager for providing multiple credentials":::
 
 ### Start discovery
 

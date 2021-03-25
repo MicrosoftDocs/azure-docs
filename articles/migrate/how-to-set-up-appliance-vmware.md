@@ -62,7 +62,6 @@ Check that the OVA file is secure, before you deploy it:
         --- | --- | ---
         VMware (11.9 GB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140333) | e9c9a1fe4f3ebae81008328e8f3a7933d78ff835ecd871d1b17f367621ce3c74
 
-
 ### 3. Create the appliance server
 
 Import the downloaded file, and create a server in VMware environment
@@ -76,11 +75,9 @@ Import the downloaded file, and create a server in VMware environment
 8. In **Network Mapping**, specify the network to which the server will connect. The network needs internet connectivity, to send metadata to Azure Migrate.
 9. Review and confirm the settings, then click **Finish**.
 
-
 ### Verify appliance access to Azure
 
 Make sure that the appliance server can connect to Azure URLs for [public](migrate-appliance.md#public-cloud-urls) and [Government](migrate-appliance.md#government-cloud-urls) clouds.
-
 
 ### 4. Configure the appliance
 
@@ -109,7 +106,6 @@ Set up the appliance for the first time.
 1. If you want, you can **rerun prerequisites** at any time during appliance configuration to check if the appliance meets all the prerequisites.
 
     :::image type="content" source="./media/tutorial-discover-vmware/appliance-prerequisites.png" alt-text="Panel 1 on appliance configuration manager":::
-
 
 ## Register the appliance with Azure Migrate
 
@@ -162,7 +158,7 @@ If you want to leverage these features, you can provide server credentials by fo
 - When you click on **Save** or **Add more**, the appliance validates the domain credentials with the domain's Active Directory for their authenticity. This is done to avoid any account lockouts when appliance does multiple iterations to map credentials to the respective servers.
 - You can see the **Validation status** for all the domain credentials in the credentials table. Only domain credentials will be validated.
 - If the validation fails, you can click on **Failed** status to see the error encountered and click on **Revalidate credentials** after fixing the issue to validate the failed domain credentials again.
-    :::image type="content" source="./media/tutorial-discover-vmware/add-server-credentials-multiple.png" alt-text="Panel 3 on appliance configuration manager for server details":::
+    :::image type="content" source="./media/tutorial-discover-vmware/add-server-credentials-multiple.png" alt-text="Panel 3 on appliance configuration manager for providing multiple credentials":::
 
 ### Start discovery
 
