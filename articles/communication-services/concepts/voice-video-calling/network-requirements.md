@@ -33,7 +33,7 @@ The quality of real-time media over IP is significantly impacted by the quality 
 
 Ensure that your network is configured to support the bandwidth required by concurrent Azure Communication Services media sessions and other business applications. Testing the end-to-end network path for bandwidth bottlenecks is critical to the successful deployment of your multimedia Communication Services solution.
 
-Below are the bandwidth requirements for the JavaScript client libraries:
+Below are the bandwidth requirements for the JavaScript SDKs:
 
 |Bandwidth|Scenarios|
 |:--|:--|
@@ -44,7 +44,7 @@ Below are the bandwidth requirements for the JavaScript client libraries:
 |500 kbps|Group video calling 360p at 30fps|
 |1.2 Mbps|HD Group video calling with resolution of HD 720p at 30fps| 
 
-Below are the bandwidth requirements for the native Android and iOS client libraries:
+Below are the bandwidth requirements for the native Android and iOS SDKs:
 
 |Bandwidth|Scenarios|
 |:--|:--|
@@ -76,7 +76,7 @@ You might want to optimize further if:
 | Network optimization task | Details |
 | :-- | :-- |
 | Plan your network | In this documentation you can find minimal requirements to your network for calls. Refer to the [Teams example for planning your network](https://docs.microsoft.com/microsoftteams/tutorial-network-planner-example) |
-| External name resolution | Be sure that all computers running the Azure Communications Services client libraries can resolve external DNS queries to discover the services provided by Azure Communication Servicers and that your firewalls are not preventing access. Please ensure that the client libraries can resolve addresses *.skype.com, *.microsoft.com, *.azure.net, *.azureedge.net, *.office.com, *.trouter.io  |
+| External name resolution | Be sure that all computers running the Azure Communications Services SDKs can resolve external DNS queries to discover the services provided by Azure Communication Servicers and that your firewalls are not preventing access. Please ensure that the SDKs can resolve addresses *.skype.com, *.microsoft.com, *.azure.net, *.azureedge.net, *.office.com, *.trouter.io  |
 | Maintain session persistence | Make sure your firewall doesn't change the mapped Network Address Translation (NAT) addresses or ports for UDP
 Validate NAT pool size | Validate the network address translation (NAT) pool size required for user connectivity. When multiple users and devices access Azure Communication Services using [Network Address Translation (NAT) or Port Address Translation (PAT)](https://docs.microsoft.com/office365/enterprise/nat-support-with-office-365), ensure that the devices hidden behind each publicly routable IP address do not exceed the supported number. Ensure that adequate public IP addresses are assigned to the NAT pools to prevent port exhaustion. Port exhaustion will contribute to internal users and devices being unable to connect to the Azure Communication Services |
 | Intrusion Detection and Prevention Guidance | If your environment has an [Intrusion Detection](https://docs.microsoft.com/azure/network-watcher/network-watcher-intrusion-detection-open-source-tools) or Prevention System (IDS/IPS) deployed for an extra layer of security for outbound connections, allow all Azure Communication Services URLs |
@@ -86,10 +86,10 @@ Validate NAT pool size | Validate the network address translation (NAT) pool siz
 
 
 
-### Operating system and Browsers (for JavaScript client libraries)
+### Operating system and Browsers (for JavaScript SDKs)
 
-Azure Communication Services voice/video client libraries support certain operating systems and browsers.
-Learn about the operating systems and browsers that the calling client libraries support in the [calling conceptual documentation](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features).
+Azure Communication Services voice/video SDKs support certain operating systems and browsers.
+Learn about the operating systems and browsers that the calling SDKs support in the [calling conceptual documentation](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features).
 
 ## Next steps
 
