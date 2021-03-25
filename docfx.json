@@ -282,7 +282,7 @@
         "articles/virtual-machines/linux/*.md": "cynthn",
         "articles/virtual-machines/windows/*.md": "cynthn",
         "articles/virtual-machines-scale-sets/*.md": "ju-shim",
-        "articles/azure-video-analyzer/**/*.md": "Juliako"
+        "articles/azure-video-analyzer/video-analyzer-docs/*.md": "Juliako"
       },
       "featureFlags": {
         "articles/**/*.md": [
@@ -624,7 +624,7 @@
         "articles/virtual-machines/linux/*.md": "cynthn",
         "articles/virtual-machines/windows/*.md": "cynthn",
         "articles/virtual-machines-scale-sets/*.md": "jushiman",
-        "articles/azure-video-analyzer/**/*.md":  "juliako"
+        "articles/azure-video-analyzer/video-analyzer-docs/*.md": "juliako"
       },
       "ms.collection": {
         "articles/application-gateway/*.md": "networking",
@@ -728,7 +728,7 @@
         "articles/virtual-desktop/**/*.md": "virtual-desktop",
         "articles/virtual-machines/*.md": "virtual-machines",
         "articles/virtual-machine-scale-sets/*.md": "virtual-machine-scale-sets",
-        "articles/Azure Video Analyzer/**/*.md": "azure-video-analyzer"
+        "articles/Azure Video Analyzer/video-analyzer-docs/*.md": "azure-video-analyzer"
       },
       "ms.subservice": {
         "articles/azure-arc/kubernetes/**/*.md": "azure-arc-kubernetes",
