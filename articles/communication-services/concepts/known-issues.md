@@ -18,7 +18,7 @@ This article provides information about limitations and known issues related to 
 > There are multiple factors that can affect the quality of your calling experience. Refer to the **[network requirements](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/network-requirements)** documentation to learn more about Communication Services network configuration and testing best practices.
 
 
-## JavaScript client library known issues 
+## JavaScript client library
 
 This section provides information about known issues associated with JavaScript voice and video calling client libraries in Azure Communication Services.
 
