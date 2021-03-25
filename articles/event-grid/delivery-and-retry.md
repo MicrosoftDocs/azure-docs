@@ -292,7 +292,7 @@ Event subscriptions allow you to set up http headers that are included in delive
 - Azure Event Hubs
 - Relay Hybrid Connections
 
-For more information, see [Delivery with custom headers](delivery-custom-headers.md). 
+For more information, see [Delivery with custom headers](delivery-properties.md). 
 
 ## Next steps
 
