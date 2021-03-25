@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 03/24/2021
 ms.author: alkohli
 ---
 # Azure Stack Edge Pro R technical specifications
@@ -21,7 +21,7 @@ The Azure Stack Edge Pro R device have the following specifications for compute 
 
 | Specification       | Value                  |
 |---------------------|------------------------|
-| CPU    | 2 X 10 core CPU, Intel Xeon Silver 4114 |
+| CPU    | 2 X Intel Xeon Silver 4114 CPU<br>20 phsyical cores (10 per CPU)<br>40 logical cores (vCPUs) (20 per CPU)  |
 | Memory              | 256 GB RAM (2666 MT/s)     |
 
 
