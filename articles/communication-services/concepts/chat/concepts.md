@@ -21,14 +21,19 @@ See the [Communication Services Chat SDK Overview](./sdk-features.md) to learn m
 
 ## Chat overview 	
 
-Chat conversations happen within chat threads. A chat thread can contain many messages and many users. Every message belongs to a single thread, and a user can be a part of one or many threads. Each user in the chat thread is called a participant. Only thread participants can send and receive messages and add or remove other users in a chat thread. Communication Services stores chat history until you execute a delete operation on the chat thread or message, or until no participants are remaining in the chat thread, at which point, the chat thread is orphaned and queued for deletion. 
-	
-## Service limits	
+Chat conversations happen within chat threads. A chat thread, uniquely identified by `ChatThreadId`, can have one or many users as participants who can send messages to that chat thread. A user can be a part of one or many chat threads. Only the users that are participants of a chat thread have access to it and can do operations on it, like send and recieve messages in that chat, add or remove others users or themselves from that chat thread. A user that created the chat thread is automatically added as participant to it.
 
+### User access
+Typically the thread creator as well as participant both have same level of access to the thread and can execute all related operations available in client library, including deleting it. However, participants dont have write access to messages sent by other participants which means only the message sender can update or delete their sent messages. If another participant tries to do that, they will get an error, like 'The initiator doesn't have the permission to perform the requested operation'. If you want to limit access to these features for a set of users, you can configure and control that behaviour as part of your trusted service, which is discussed later in this article.   
+
+### Chat Data 
+Communication Services stores chat history until you execute a delete operation on the chat thread or a particular message. Chat thread participants can use `ListMessages` to view  message history for a particular thread. Users removed from a chat thread will be able to view previous message history, but wont be able to send or receieve new messages as part of that chat thread. If all participants are removed from a chat thread, the chat thread is considered as orphaned and will be queued for deletion by Communication Services. To learn more about data being stored by Communication Services, refer to documentation on [privacy](../privacy.md).  
+
+### Service limits	
 - The maximum number of participants allowed in a chat thread is 250.	
 - The maximum message size allowed is approximately 28 KB. 	
 - For chat threads with more than 20 participants, read receipts and typing indicator features aren't supported. 	
-- 
+
 ## Chat architecture	
 
 There are two core parts to chat architecture: 1) Trusted Service and 2) Client Application.	
@@ -41,102 +46,39 @@ We recommend generating access tokens using the trusted service tier. In this sc
     	
 ## Message types	
 
-Communication Services Chat shares user-generated messages as well as system-generated messages called **Thread activities**. Thread activities are generated when a chat thread is updated. When you call `List Messages` or `Get Messages` on a chat thread, the result will contain the user-generated text messages as well as the system messages in chronological order. This helps you identify when a participant was added or removed or when the chat thread topic was updated. Supported message types are:  
-	
- - `Text`: A plain text message composed and sent by a user as part of a chat conversation.	
- - `RichText/HTML`: A formatted text message. Note that Communication Services users currently can't send RichText messages. This message type is supported by messages sent from Teams users to Communication Services users in Teams Interop scenarios.	
- - `ThreadActivity/ParticipantAdded`: A system message that indicates one or more participants have been added to the chat thread. For example:	
+As part of chat thread's message history, Chat shares user-generated messages as well as system-generated messages. System messages are generated when a chat thread is updated and can help identify when a participant was added or removed or when the chat thread topic was updated. When you call `List Messages` or `Get Messages` on a chat thread, the result will contain both kind of messages in chronological order.  
+For user generated messages, message type can be set in `SendMessageOptions` when sending a message to chat thread. If no value is provided, Communication Services will default to `text` type. It is recommended to set the type correctly when sending html content as this will allow Communication Services to sanitize the content for safer client rendering.
+ - `text`: A plain text message composed and sent by a user as part of a chat thread. 
+ - `html`: A formatted message using html, composed and sent by a user as part of chat thread. 
+
+Types of system messages: 
+ - `participantAdded`: System message that indicates one or more participants have been added to the chat thread. For example:	
+ - `participantRemoved`: System message that indicates a participant has been removed from the chat thread. For example:	
+ - `topicUpdated`: System message that indicates the thread topic has been updated. For example:	
+
+## Real-time notifications 	
+
+Certain languages, like JavaScript, support the feature called real-time notifications which enables clients to establish a connection with Communication Services and listen for real-time updates and incoming messages to a chat thread without having to poll the APIs. Supported events include:
+ - `chatMessageReceived` - when a new message is sent to a chat thread by a participant.
+ - `chatMessageEdited` - when a message is edited in a chat thread.	
+ - `chatMessageDeleted` - when a message is deleted in a chat thread.	
+ - `typingIndicatorReceived` - when another participant sent a typing indicator to the chat thread. 	
+ - `readReceiptReceived` - when another participant sent read receipt for a message they have read. 	
+ - `chatThreadCreated` - when a chat thread is created by a communication user.	
+ - `chatThreadDeleted` - when a chat thread is deleted by a communication user.	
+ - `chatThreadPropertiesUpdated` - when chat thread properties are updated; currently, only updating the topic for the thread is supported.	
+ - `participantsAdded` - when a user is added as participant to a chat thread. 	
+ - `participantsRemoved` - when an existing participant is removed from the chat thread.
+
+Real-time notifications work best to provide a real time chat experience for your users when they are active in the app. To send push notifications for messages missed by your users while they were away, Communication Services integrates with Azure Event Grid to publish chat related events (post operation) which can be plugged into your custom app notification service. For more details, see [Server Events](https://docs.microsoft.com/azure/event-grid/event-schema-communication-services?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fcommunication-services%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json).
 
 
-```	
-{	
-            "id": "1613589626560",	
-            "type": "participantAdded",	
-            "sequenceId": "7",	
-            "version": "1613589626560",	
-            "content":	
-            {	
-                "participants":	
-                [	
-                    {	
-                        "id": "8:acs:d2a829bc-8523-4404-b727-022345e48ca6_00000008-511c-4df6-f40f-343a0d003226",	
-                        "displayName": "Jane",	
-                        "shareHistoryTime": "1970-01-01T00:00:00Z"	
-                    }	
-                ],	
-                "initiator": "8:acs:d2a829bc-8523-4404-b727-022345e48ca6_00000008-511c-4ce0-f40f-343a0d003224"	
-            },	
-            "createdOn": "2021-02-17T19:20:26Z"	
-        }	
-```	
+## Build intelligent, AI powered chat experiences 	
 
-- `ThreadActivity/ParticipantRemoved`: System message that indicates a participant has been removed from the chat thread. For example:	
-
-```	
-{	
-            "id": "1613589627603",	
-            "type": "participantRemoved",	
-            "sequenceId": "8",	
-            "version": "1613589627603",	
-            "content":	
-            {	
-                "participants":	
-                [	
-                    {	
-                        "id": "8:acs:d2a829bc-8523-4404-b727-022345e48ca6_00000008-511c-4df6-f40f-343a0d003226",	
-                        "displayName": "Jane",	
-                        "shareHistoryTime": "1970-01-01T00:00:00Z"	
-                    }	
-                ],	
-                "initiator": "8:acs:d2a829bc-8523-4404-b727-022345e48ca6_00000008-511c-4ce0-f40f-343a0d003224"	
-            },	
-            "createdOn": "2021-02-17T19:20:27Z"	
-        }	
-```	
-
-- `ThreadActivity/TopicUpdate`: System message that indicates the thread topic has been updated. For example:	
-```	
-{	
-            "id": "1613589623037",	
-            "type": "topicUpdated",	
-            "sequenceId": "2",	
-            "version": "1613589623037",	
-            "content":	
-            {	
-                "topic": "New topic",	
-                "initiator": "8:acs:d2a829bc-8523-4404-b727-022345e48ca6_00000008-511c-4ce0-f40f-343a0d003224"	
-            },	
-            "createdOn": "2021-02-17T19:20:23Z"	
-        }	
-```	
-
-## Real-time signaling 	
-
-The Chat JavaScript SDK includes real-time signaling. This allows clients to listen for real-time updates and incoming messages to a chat thread without having to poll the APIs. Available events include:
-
- - `ChatMessageReceived` - when a new message is sent to a chat thread. This event is not sent for auto generated system messages which were discussed in the previous topic.  	
- - `ChatMessageEdited` - when a message is edited in a chat thread.	
- - `ChatMessageDeleted` - when a message is deleted in a chat thread.	
- - `TypingIndicatorReceived` - when another participant is typing a message in a chat thread. 	
- - `ReadReceiptReceived` - when another participant has read the message that a user sent in a chat thread. 	
- - `ChatThreadCreated` - when a chat thread is created by a communication user.	
- - `ChatThreadDeleted` - when a chat thread is deleted by a communication user.	
- - `ChatThreadPropertiesUpdated` - when chat thread properties are updated; currently, we support only updating the topic for the thread.	
- - `ParticipantsAdded` - when a user is added as participant to a chat thread. 	
- - `ParticipantsRemoved` - when an existing participant is removed from the chat thread.
-
-
-## Chat events 	
-
-Real-time signaling allows your users to chat in real-time. Your services can use Azure Event Grid to subscribe to chat-related events. For more details, see [Event Handling conceptual](https://docs.microsoft.com/azure/event-grid/event-schema-communication-services?tabs=event-grid-event-schema).
-
-
-## Using Cognitive Services with Chat SDK to enable intelligent features	
-
-You can use [Azure Cognitive APIs](../../../cognitive-services/index.yml) with the Chat SDK to add intelligent features to your applications. For example, you can:	
+Leverage various services available in Azure to add intelligence to your chat experiences. You can use [Azure Cognitive APIs](../../../cognitive-services/index.yml) with the Chat SDK to build use cases like:
 
 - Enable users to chat with each other in different languages. 	
-- Help a support agent prioritize tickets by detecting a negative sentiment of an incoming issue from a customer.	
+- Help a support agent prioritize tickets by detecting a negative sentiment of an incoming message from a customer.	
 - Analyze the incoming messages for key detection and entity recognition, and prompt relevant info to the user in your app based on the message content.
 
 One way to achieve this is by having your trusted service act as a participant of a chat thread. Let's say you want to enable language translation. This service will be responsible for listening to the messages being exchanged by other participants [1], calling cognitive APIs to translate the content to desired language[2,3] and sending the translated result as a message in the chat thread[4].
