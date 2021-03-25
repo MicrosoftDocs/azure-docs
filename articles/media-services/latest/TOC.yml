@@ -9,6 +9,8 @@
     href: release-notes.md
   - name: Media Services compliance
     href: concept-compliance.md
+  - name: Frequently Asked Questions
+    href: frequently-asked-questions.md
 - name: Quickstarts
   items:
   - name: Set up your environment
