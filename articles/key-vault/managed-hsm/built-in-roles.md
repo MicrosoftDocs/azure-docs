@@ -41,29 +41,32 @@ Managed HSM local RBAC has several built-in roles that you can assign to users, 
 /securitydomain/upload/read|<center>X</center>||||||
 /securitydomain/transferkey/read|<center>X</center>||||||
 |**Key management**|
-|/keys/read/action|<center></center>|<center></center>|<center>X</center>||<center>X</center>||<center>X</center>|
-|/keys/write/action|<center></center>|<center></center>|<center>X</center>||||
-|/keys/create|<center></center>|<center></center>|<center>X</center>||||
-|/keys/delete|<center></center>||<center>X</center>||||
-|/keys/deletedKeys/read/action|<center></center>|<center>X</center>|||||
-|/keys/deletedKeys/recover/action|<center></center>|<center>X</center>|||||
-|/keys/deletedKeys/delete|<center></center>|<center>X</center>|||||<center>X</center>|
-|/keys/backup/action|<center></center>|<center></center>|<center>X</center>|||<center>X</center>|
-|/keys/restore/action|<center></center>||<center>X</center>||||
-|/keys/export/action|<center></center>|<center>X</center>|||||
-|/keys/import/action|<center></center>||<center>X</center>||||
+|/keys/read/action|||<center>X</center>||<center>X</center>||<center>X</center>|
+|/keys/write/action|||<center>X</center>||||
+|/keys/create|||<center>X</center>||||
+|/keys/delete|||<center>X</center>||||
+|/keys/deletedKeys/read/action||<center>X</center>|||||
+|/keys/deletedKeys/recover/action||<center>X</center>|||||
+|/keys/deletedKeys/delete||<center>X</center>|||||<center>X</center>|
+|/keys/backup/action|||<center>X</center>|||<center>X</center>|
+|/keys/restore/action|||<center>X</center>||||
+|/keys/export/action||<center>X</center>|||||
+|/keys/release/action|||<center>X</center>||||
+|/keys/import/action|||<center>X</center>||||
 |**Key cryptographic operations**|
-|/keys/encrypt/action|<center></center>|<center></center>|<center>X</center>||||
-|/keys/decrypt/action|<center></center>|<center></center>|<center>X</center>||||
-|/keys/wrap/action|<center></center>|<center></center>|<center>X</center>||<center>X</center>||
-|/keys/unwrap/action|<center></center>|<center></center>|<center>X</center>||<center>X</center>||
-|/keys/sign/action|<center></center>|<center></center>|<center>X</center>||||
-|/keys/verify/action|<center></center>|<center></center>|<center>X</center>||||
+|/keys/encrypt/action|||<center>X</center>||||
+|/keys/decrypt/action|||<center>X</center>||||
+|/keys/wrap/action|||<center>X</center>||<center>X</center>||
+|/keys/unwrap/action|||<center>X</center>||<center>X</center>||
+|/keys/sign/action|||<center>X</center>||||
+|/keys/verify/action|||<center>X</center>||||
 |**Role management**|
-|/roleAssignments/delete/action|<center>X</center>|||<center>X</center>|||
-|/roleAssignments/read/action|<center>X</center>|||<center>X</center>|||
-|/roleAssignments/write/action|<center>X</center>|||<center>X</center>|||
-|/roleDefinitions/read/action|<center>X</center>|||<center>X</center>|||
+|/roleAssignments/read/action|<center>X</center>|<center>X</center>|<center>X</center>|<center>X</center>|||<center>X</center>
+|/roleAssignments/write/action|<center>X</center>|<center>X</center>||<center>X</center>|||
+|/roleAssignments/delete/action|<center>X</center>|<center>X</center>||<center>X</center>|||
+|/roleDefinitions/read/action|<center>X</center>|<center>X</center>|<center>X</center>|<center>X</center>|||<center>X</center>
+|/roleDefinitions/write/action|<center>X</center>|<center>X</center>||<center>X</center>|||
+|/roleDefinitions/delete/action|<center>X</center>|<center>X</center>||<center>X</center>|||
 |**Backup/Restore management**|
 |/backup/start/action|<center>X</center>|||||<center>X</center>|
 |/backup/status/action|<center>X</center>|||||<center>X</center>|
