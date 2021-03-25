@@ -29,7 +29,7 @@ Select "Empty Activity" project template under "Phone and Tablet".
 
 :::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Screenshot showing the 'Empty Activity' option selected in the Project Template Screen.":::
 
-Name the project `TeamsEmbedAndroidGettingStarted`, set language to java and select Minimum client library of "API 21: Android 5.0 (Lollipop)" or greater.
+Name the project `TeamsEmbedAndroidGettingStarted`, set language to java and select Minimum SDK of "API 21: Android 5.0 (Lollipop)" or greater.
 
 :::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Screenshot showing the 'Empty Activity' option selected in the Project Template Screen 2.":::
 
@@ -294,7 +294,7 @@ public String fetchToken() {
 ## Get the Teams meeting link
 
 The Teams meeting link can be retrieved using Graph APIs. This is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
-The Communication Services Calling client library accepts a full Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)
+The Communication Services Calling SDK accepts a full Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)
 You can also get the required meeting information from the **Join Meeting** URL in the Teams meeting invite itself.
 
 ## Start a meeting using the meeting client
