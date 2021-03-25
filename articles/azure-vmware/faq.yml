@@ -51,13 +51,42 @@ sections:
 
       - question: Are there special instructions for installing and using VMRC with Azure VMware Solution VMs?
         answer: No. To meet the VM prerequisites, follow the [instructions provided by VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html). 
-          
-      - question: Is VMware HCX supported on VPNs?
-        answer: No, because of bandwidth and latency requirements.
 
       - question: Can Azure Bastion be used for connecting to Azure VMware Solution VMs?
         answer: Azure Bastion is the service recommended to connect to the jump box to prevent exposing Azure VMware Solution to the internet. You can't use Azure Bastion to connect to Azure VMware Solution VMs since they aren't Azure IaaS objects.
 
+  - name: Customer communication
+    questions:
+      - question: How can I receive an alert when Azure sends service health notifications to my Azure subscription?
+        answer: |
+          [!INCLUDE [customer-communications](includes/customer-communications.md)]
+
+  - name: Azure VMware Solution and VMware software
+    questions:
+      - question: Is VMware HCX supported on VPNs?
+        answer: No, because of bandwidth and latency requirements.
+
+      - question: What versions of VMware software is used in private clouds?
+        answer: |
+          [!INCLUDE [vmware-software-versions](includes/vmware-software-versions.md)]
+          
+      - question: How often is the VMware software (ESXi, vCenter, PSC, and NXS) patched, updated, or upgraded in the Azure VMware Solution private cloud?
+        answer: |
+          [!INCLUDE [vmware-software-update-frequency](includes/vmware-software-update-frequency.md)]
+
+      - question: Do private clouds use VMware NSX? If so, which version is supported?
+        answer: Yes, NSX-T 2.5 is used for the software-defined networking in Azure VMware Solution private clouds.
+          |
+          NSX-T is the only supported version of NSX.
+
+      - question: Is NSX required in on-premises environments or networks that connect to a private cloud?
+        answer: No, you aren't required to use NSX on-premises.
+
+      - question: Is VMware Horizon 8 2012 compatible with Azure VMware Solution?
+        answer: Yes.
+
+      - question: Can I change the default vSphere Web Client timeout value?
+        answer: Yes. For information on changing the timeout value, see [Configure the vSphere Web Client Timeout Value](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vcenterhost.doc/GUID-975412DE-CDCB-49A1-8E2A-0965325D33A5.html).
 
   - name: Compute, network, storage, and backup
     questions:
@@ -142,7 +171,6 @@ sections:
       - question: If a cluster is scaled up and then workload demand falls, can it be scaled back down? 
         answer: Yes, as long as you have the quota allocated against your private cloud, you can scale out your clusters. When workload demand falls, you can delete nodes from the cluster to scale it down. You can do this through the Azure VMware Solution portal.
 
-
   - name: Hosts, clusters, and private clouds
     questions:
       - question: Is the underlying infrastructure shared?
@@ -159,30 +187,6 @@ sections:
 
       - question: Can I use High-end hosts for trial clusters?
         answer: No. High-end ESXi hosts are reserved for use in production clusters.
-
-  - name: Azure VMware Solution and VMware software
-    questions:
-      - question: What versions of VMware software is used in private clouds?
-        answer: |
-          [!INCLUDE [vmware-software-versions](includes/vmware-software-versions.md)]
-          
-      - question: How often is the VMware software (ESXi, vCenter, PSC, and NXS) patched, updated, or upgraded in the Azure VMware Solution private cloud?
-        answer: |
-          [!INCLUDE [vmware-software-update-frequency](includes/vmware-software-update-frequency.md)]
-
-      - question: Do private clouds use VMware NSX? If so, which version is supported?
-        answer: Yes, NSX-T 2.5 is used for the software-defined networking in Azure VMware Solution private clouds.
-          |
-          NSX-T is the only supported version of NSX.
-
-      - question: Is NSX required in on-premises environments or networks that connect to a private cloud?
-        answer: No, you aren't required to use NSX on-premises.
-
-      - question: Is VMware Horizon 8 2012 compatible with Azure VMware Solution?
-        answer: Yes.
-
-      - question: Can I change the default vSphere Web Client timeout value?
-        answer: Yes. For information on changing the timeout value, see [Configure the vSphere Web Client Timeout Value](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vcenterhost.doc/GUID-975412DE-CDCB-49A1-8E2A-0965325D33A5.html).
 
   - name: Connectivity
     questions:
@@ -276,8 +280,4 @@ sections:
         answer: | 
           NO        
           
-  - name: Customer communication
-    questions:
-      - question: How can I receive an alert when Azure sends service health notifications to my Azure subscription?
-        answer: |
-          [!INCLUDE [customer-communications](includes/customer-communications.md)]
+
