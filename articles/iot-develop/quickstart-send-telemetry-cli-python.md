@@ -36,10 +36,10 @@ In this section, you will use the Python SDK to send messages from your simulate
     ```console
     git clone https://github.com/Azure/azure-iot-sdk-python
     ```
-1. Navigate to the *azure-iot-sdk-python/azure-iot-device/samples* directory:
+1. Navigate to the *azure-iot-sdk-python/azure-iot-device/samples/pnp* directory:
 
     ```console
-    cd azure-iot-sdk-python/azure-iot-device/samples
+    cd azure-iot-sdk-python/azure-iot-device/samples/pnp
     ```
 1. Install the Azure IoT Python SDK:
 
