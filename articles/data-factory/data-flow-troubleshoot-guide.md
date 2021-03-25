@@ -442,7 +442,7 @@ You may encounter the following issues before the improvement, but after the imp
  You are affected if you are in the following conditions:
  - Using the Delimited Text as a source. 
  - NULL value is set to non-empty value. 
- - The column value is empty string and is un-quoted. 
+ - The column value is empty string and is unquoted. 
  
  Before the improvement, the column value of unquoted empty string is read as NULL. 
 
