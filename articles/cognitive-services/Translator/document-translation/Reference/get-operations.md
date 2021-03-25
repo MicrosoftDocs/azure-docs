@@ -57,7 +57,7 @@ Request parameters passed on the query string are:
     <td>False</td>
     <td>Take the $top entries in the collection. When both $top and $skip are supplied, $skip is applied first. </td>
   </tr>
-</table>
+</table> 
 
 ## Request headers
 
@@ -70,11 +70,11 @@ Request headers are:
     <td>Ocp-Apim-Subscription-Key</td>
     <td><em>Required request header</em></td>
   </tr>
-</table>
+</table> 
 
 ## Response status codes
 
-The following are the possible HTTP status codes that a request returns.
+The following are the possible HTTP status codes that a request returns. 
 
 <table width="100%">
   <th width="20%">Status Code</th>
@@ -99,7 +99,7 @@ The following are the possible HTTP status codes that a request returns.
     <td>Other Status Codes</td>
     <td><ul><li>Too many requests</li><li>Server temporary unavailable</li></ul></td>
   </tr>
-</table>
+</table> 
 
 ## Get Operations Response
 
@@ -107,80 +107,67 @@ The following are the possible HTTP status codes that a request returns.
 The following information is returned in a successful response.
 <table>
   <th width="20%">Name</th>
-  <th></th>
   <th>Type</th>
   <th>Description</th>
   <tr>
     <td>id</td>
-    <td></td>
     <td>string</td>
     <td>ID of the operation.</td>
   </tr>
   <tr>
     <td>createdDateTimeUtc</td>
-    <td></td>
     <td>string</td>
     <td>Operation created date time.</td>
   </tr>
   <tr>
     <td>lastActionDateTimeUtc</td>
-    <td></td>
     <td>string</td>
     <td>Date time in which the operation's status has been updated.</td>
   </tr>
   <tr>
     <td>status</td>
-    <td></td>
     <td>String</td>
     <td>List of possible statuses for job or document: <ul><li>Cancelled</li><li>Cancelling</li><li>Failed</li><li>NotStarted</li><li>Running</li><li>Succeeded</li><li>ValidationFailed</li></ul></td>
   </tr>
   <tr>
     <td>summary</td>
-    <td></td>
     <td>StatusSummary[]</td>
     <td>Summary containing the details listed below.</td>
   </tr>
     <tr>
-    <td></td>
-    <td><p style="margin-left: 40px">total</p></td>
+    <td>summary.total</p></td>
     <td>integer</td>
-    <td>Total count.</td>
+    <td>Count of total documents.</td>
   </tr>
   <tr>
-    <td></td>
-    <td><p style="margin-left: 40px">failed</p></td>
+    <td>summary.failed</p></td>
     <td>integer</td>
-    <td>Failed count.</td>
+    <td>Count of documents failed.</td>
   </tr>
   <tr>
-    <td></td>
-    <td><p style="margin-left: 40px">success</p></td>
+    <td>summary.success</p></td>
     <td>integer</td>
-    <td>Number of success.</td>
+    <td>Count of documents successfully translated.</td>
   </tr>
   <tr>
-    <td></td>
-    <td><p style="margin-left: 40px">inProgress</p></td>
+    <td>summary.inProgress</p></td>
     <td>integer</td>
-    <td>Number of in progress.</td>
+    <td>Count of documents in progress.</td>
   </tr>
   <tr>
-    <td></td>
-    <td><p style="margin-left: 40px">notYetStarted</p></td>
+    <td>summary.notYetStarted</p></td>
     <td>integer</td>
-    <td>Count of not yet started.</td>
+    <td>Count of documents not yet started processing.</td>
   </tr>
   <tr>
-    <td></td>
-    <td><p style="margin-left: 40px">cancelled</p></td>
+    <td>summary.cancelled</p></td>
     <td>integer</td>
-    <td>Number of cancelled.</td>
+    <td>Count of documents cancelled.</td>
   </tr>
   <tr>
-    <td></td>
-    <td><p style="margin-left: 40px">totalCharacterCharged</p></td>
+    <td>summary.totalCharacterCharged</p></td>
     <td>integer</td>
-    <td>Total characters charged by the API.</td>
+    <td>Total count of characters charged.</td>
   </tr>
 </table>
 
