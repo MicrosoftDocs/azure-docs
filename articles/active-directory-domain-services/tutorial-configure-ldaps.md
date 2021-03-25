@@ -308,7 +308,7 @@ If you see an error stating that LDAP.exe cannot connect, try working through th
 
 For the certificate subject name match, the DC will use the Azure ADDS domain name (not the Azure AD domain name) to search its certificate store for the certificate. Spelling mistakes, for example, prevent the DC from selecting the right certificate. 
 
-The client attempts to establish the TLS connection using the name you provided. The traffic needs to get all the way through. The DC sends the public key of the server auth cert. The cert needs to have the right usage in the certificate, the name signed in the subject name must be compatible for the client to trust that the server is the DNS name which you’re connecting to (that is, a wildcard will work, with no spelling mistakes), and the client must trust the issuer. Problems in that chain will be logged in the SCHANNEL logs of the client (System?). Once those pieces are in place they form a session key.  
+The client attempts to establish the TLS connection using the name you provided. The traffic needs to get all the way through. The DC sends the public key of the server auth cert. The cert needs to have the right usage in the certificate, the name signed in the subject name must be compatible for the client to trust that the server is the DNS name which you’re connecting to (that is, a wildcard will work, with no spelling mistakes), and the client must trust the issuer. You can check for any problems in that chain in the System log in Event Viewer, and filter the events where source equals Schannel. Once those pieces are in place, they form a session key.  
 
 For more information, see [TLS Handshake](https://docs.microsoft.com/windows/win32/secauthn/tls-handshake-protocol).
 
