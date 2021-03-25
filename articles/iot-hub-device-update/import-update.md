@@ -13,7 +13,7 @@ Learn how to import a new update into Device Update for IoT Hub. If you haven't 
 
 ## Prerequisites
 
-* [Access to an IoT Hub with Device Update for IoT Hub enabled](create-device-update-account.md). It is recommended that you use a S1 (Standard) tier or above for your IoT Hub. 
+* [Access to an IoT Hub with Device Update for IoT Hub enabled](create-device-update-account.md). 
 * An IoT device (or simulator) provisioned for Device Update within IoT Hub.
    * If using a real device, you’ll need an update image file for image update, or [APT Manifest file](device-update-apt-manifest.md) for package update.
 * [PowerShell 5](https://docs.microsoft.com/powershell/scripting/install/installing-powershell) or later (Linux, macOS, and Windows installs available)
