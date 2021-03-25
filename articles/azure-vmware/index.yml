@@ -149,6 +149,8 @@ landingContent:
         links:
           - text: Azure CLI
             url: /cli/azure/ext/vmware/vmware
+          - text: Azure CLI datastore
+            url: /cli/azure/ext/vmware/vmware/datastore
           - text: Azure PowerShell
             url: /powershell/module/az.vmware
           - text: Terraform Azure provider
