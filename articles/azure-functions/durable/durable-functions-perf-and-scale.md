@@ -92,7 +92,7 @@ If not specified, the default `AzureWebJobsStorage` storage account is used. For
 > [!NOTE]
 > Scale-out refers to the increase of available Azure Functions workers in response to changing traffic patterns. Since App Service plan customers make use of a fixed number of workers, this section is not directly applicable to them; this section is aimed at Consumption and Elastic Premium customers. That said, this section can still provide broad insights into the inner workings of Durable Functions.
 
-While activity functions can be scaled out infinitely by adding more VMs elastically, orchestrators and entities are constrained to inhabit a single partition and the maximum number of partitions is bounded by the `partitionCount` setting in your `host.json`. 
+While activity functions can be scaled out infinitely by adding more VMs elastically, individual orchestrator instances and entities are constrained to inhabit a single partition and the maximum number of partitions is bounded by the `partitionCount` setting in your `host.json`. 
 
 > [!NOTE]
 > Generally speaking, orchestrator functions are intended to be lightweight and should not require large amounts of computing power. It is therefore not necessary to create a large number of control queue partitions to get great throughput for orchestrations. Most of the heavy work should be done in stateless activity functions, which can be scaled out infinitely.
