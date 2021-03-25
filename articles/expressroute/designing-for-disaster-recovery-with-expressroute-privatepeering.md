@@ -38,11 +38,11 @@ However, if you load balance traffic across geo-redundant parallel paths, regard
 
 ### Same metro
 
-When using the same metro, you should use the secondary location for the second path for this configuration to work. An example of the same metro would be *Amsterdam* and *Amsterdam2*. The advantage of selecting the same metro is when application failover happens, end-to-end latency between your on-premises applications and Microsoft stays the same. However, if there is a natural disaster, connectivity for both paths may no longer be available. 
+[Many metros](expressroute-locations-providers.md#global-commercial-azure) have two ExpressRoute locations. An example would be *Amsterdam* and *Amsterdam2*. When designing redundancy, you could build two parallel paths to Azure vith both locations in the same metro. The advantage of this design is when application failover happens, end-to-end latency between your on-premises applications and Microsoft stays approximately the same. However, if there is a natural disaster such as earthquake, connectivity for both paths may no longer be available. 
 
 ### Different metros
 
-When using different metros for Standard SKU circuits, the secondary location should be in the same [geo-political region](expressroute-locations-providers.md#locations). To choose a location outside of the geo-political region, you'll need to use Premium SKU for both circuits in the parallel paths. The advantage of this configuration is the chances of a natural disaster causing an outage to both links are much lower but at the cost of increase latency end-to-end.
+When using different metros for redundancy, the secondary location should be in the same [geo-political region](expressroute-locations-providers.md#locations). To choose a location outside of the geo-political region, you'll need to use Premium SKU for both circuits in the parallel paths. The advantage of this configuration is the chances of a natural disaster causing an outage to both links are much lower but at the cost of increase latency end-to-end.
 
 In this article, let's discuss how to address challenges you may face when configuring geo-redundant paths.
 
