@@ -196,7 +196,7 @@ For more throughput, you can add additional data disks and use disk striping. To
 
 * For Windows 8/Windows Server 2012 or later, use [Storage Spaces](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831739(v=ws.11)) with the following guidelines:
 
-  1. Set the interleave (stripe size) to 64 KB (65,536 bytes) for OLTP workloads and 256 KB (262,144 bytes) for data warehousing workloads to avoid performance impact due to partition misalignment. This must be set with PowerShell.
+  1. Set the interleave (stripe size) to 64 KB (65,536 bytes) to avoid performance impact due to partition misalignment. This must be set with PowerShell.
 
   2. Set column count = number of physical disks. Use PowerShell when configuring more than 8 disks (not Server Manager UI).
 
