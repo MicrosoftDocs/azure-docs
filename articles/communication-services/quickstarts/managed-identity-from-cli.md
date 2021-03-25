@@ -13,9 +13,9 @@ ms.reviewer: mikben
 
 # Authorize access with managed identity to your communication resource in your development environment
 
-The Azure Identity client library provides Azure Active Directory (Azure AD) token authentication support for the Azure SDK. The latest versions of the Azure Communication Services client libraries for .NET, Java, Python, and JavaScript integrate with the Azure Identity library to provide a simple and secure means to acquire an OAuth 2.0 token for authorization of Azure Communication Services requests.
+The Azure Identity SDK provides Azure Active Directory (Azure AD) token authentication support for the Azure SDK. The latest versions of the Azure Communication Services SDKs for .NET, Java, Python, and JavaScript integrate with the Azure Identity library to provide a simple and secure means to acquire an OAuth 2.0 token for authorization of Azure Communication Services requests.
 
-An advantage of the Azure Identity client library is that it enables you to use the same code to authenticate across multiple services whether your application is running in the development environment or in Azure. The Azure Identity client library authenticates a security principal. When your code is running in Azure, the security principal is a managed identity for Azure resources. In the development environment, the managed identity does not exist, so the client library authenticates either the user or a registered application for testing purposes.
+An advantage of the Azure Identity SDK is that it enables you to use the same code to authenticate across multiple services whether your application is running in the development environment or in Azure. The Azure Identity SDK authenticates a security principal. When your code is running in Azure, the security principal is a managed identity for Azure resources. In the development environment, the managed identity does not exist, so the SDK authenticates either the user or a registered application for testing purposes.
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ Managed identities should be enabled on the Azure resources that you're authoriz
 - [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Azure Resource Manager template](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
-- [Azure Resource Manager client libraries](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
+- [Azure Resource Manager SDKs](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 - [App services](../../app-service/overview-managed-identity.md)
 
 ## Authenticate a registered application in the development environment
@@ -63,7 +63,7 @@ The `az ad sp create-for-rbac` command will return a list of service principal p
 
 #### Set environment variables
 
-The Azure Identity client library reads values from three environment variables at runtime to authenticate the application. The following table describes the value to set for each environment variable.
+The Azure Identity SDK reads values from three environment variables at runtime to authenticate the application. The following table describes the value to set for each environment variable.
 
 |Environment variable|Value
 |-|-
