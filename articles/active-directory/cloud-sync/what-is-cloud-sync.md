@@ -72,6 +72,9 @@ The following table provides a comparison between Azure AD Connect and Azure AD 
 | Cross domain references|● | |
 | On-demand provisioning| |● |
 
+> [!NOTE]
+   > Azure Active Directory Cloud Connect does not support hybrid migrations due to the inability to handle Exchange hybrid writeback.
+
 ## Next steps 
 
 - [What is provisioning?](what-is-provisioning.md)
