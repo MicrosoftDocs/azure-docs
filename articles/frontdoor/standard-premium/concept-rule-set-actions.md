@@ -27,17 +27,14 @@ The following actions are available to use in Azure Front Door rule set.
 
 Use the **cache expiration** action to overwrite the time to live (TTL) value of the endpoint for requests that the rules match conditions specify.
 
-Cache behavior |  Description              
----------------|----------------
-Bypass cache | The content isn't cached.
-Override | The TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. For cache-control response header with values "no-cache", "private", "no-store", the action won't be applicable.
-Set if missing | If no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. For cache-control response header with values "no-cache", "private", "no-store", the action won't be applicable.
+> [!NOTE]
+> TODO note that won't be able to cache content that is explicitly specified as not cacheable
 
 ### Properties
 
 | Property | Supported values |
 |-------|------------------|
-| Cache behavior | `Bypass cache`, `Override`, `Set if missing` |
+| Cache behavior | <ul><li>**Bypass cache:** The content should not be cached. In ARM templates, use the `cacheBehavior` value of `TODO`.</li><li>**Override:** The TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. For cache-control response header with values "no-cache", "private", "no-store", the action won't be applicable. In ARM templates, use the `cacheBehavior` value of `TODO`.</li><li>**Set if missing:** If no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. For cache-control response header with values "no-cache", "private", "no-store", the action won't be applicable. In ARM templates, use the `cacheBehavior` value of `SetIfMissing`.</li></ul> |
 | Cache duration | When _Cache behavior_ is set to `Override` or `Set if missing`, these fields must specify the cache duration to use. <ul><li>In the Azure portal: specify the days, hours, minutes, and seconds.</li><li>In ARM templates: specify the duration in the format `d.hh:mm:ss`. |
 
 ### Example
