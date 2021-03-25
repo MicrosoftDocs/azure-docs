@@ -48,7 +48,7 @@ Request parameters passed on the query string are:
   <tr>
     <td>id</td>
     <td>True</td>
-    <td>The operation ID. Format - uuid. </td>
+    <td>The operation ID.</td>
   </tr>
   <tr>
     <td>$skip</td>
