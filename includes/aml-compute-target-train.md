@@ -27,4 +27,4 @@ You can use any of the following resources for a training compute target for mos
 |[Azure Batch](../articles/machine-learning/how-to-attach-compute-targets.md#azbatch) | &nbsp; | Yes | &nbsp; |
 
 > [!TIP]
-> The compute instance has 120GB OS disk. If you run out of disk space, [use the terminal](../articles/machine-learninghow-to-access-terminal.md) to clear at least 1-2 GB before you [stop or restart](../articles/machine-learninghow-to-create-manage-compute-instance.md#manage) the compute instance.
+> The compute instance has 120GB OS disk. If you run out of disk space, [use the terminal](../articles/machine-learning/how-to-access-terminal.md) to clear at least 1-2 GB before you [stop or restart](../articles/machine-learning/how-to-create-manage-compute-instance.md#manage) the compute instance.
