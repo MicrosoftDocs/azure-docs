@@ -77,7 +77,7 @@ For more information, see [Configure how end-users consent to applications](../m
 
 ### Group owner consent for apps accessing data
 
-Group and team owners can authorize applications, such as applications published by third-party vendors, to access your organization's data associated with a group. See [Resource-specific consent in Microsoft Teams](https://docs.microsoft.com/en-us/microsoftteams/resource-specific-consent) to learn more. 
+Group and team owners can authorize applications, such as applications published by third-party vendors, to access your organization's data associated with a group. See [Resource-specific consent in Microsoft Teams](https://docs.microsoft.com/microsoftteams/resource-specific-consent) to learn more. 
 
 You can configure whether you'd like to allow or disable this feature.
 
