@@ -44,7 +44,7 @@ ms.author: tchladek
 
 ### Install the package
 
-While still in the application directory, install the Azure Communication Services Identity client library for Python package by using the `pip install` command.
+While still in the application directory, install the Azure Communication Services Identity SDK for Python package by using the `pip install` command.
 
 ```console
 pip install azure-communication-identity

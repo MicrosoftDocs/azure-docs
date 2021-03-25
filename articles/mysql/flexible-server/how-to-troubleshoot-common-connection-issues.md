@@ -2,8 +2,8 @@
 title: Troubleshoot connection issues - Azure Database for MySQL - Flexible Server
 description: Learn how to troubleshoot connection issues to Azure Database for MySQL Flexible Server.
 keywords: mysql connection,connection string,connectivity issues,persistent error,connection error
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 9/21/2020

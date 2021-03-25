@@ -173,4 +173,4 @@ In this article, you learned:
 - How to replicate VMs using a scale-out appliance
 
 
-[Learn more](https://docs.microsoft.com/azure/migrate/tutorial-migrate-vmware) about migrating servers to Azure using Azure Migrate: Server Migration tool.
+[Learn more](./tutorial-migrate-vmware.md) about migrating servers to Azure using Azure Migrate: Server Migration tool.
