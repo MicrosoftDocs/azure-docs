@@ -40,7 +40,7 @@ conceptualContent:
         - url: https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91
           itemType: concept
           text: Shared responsibilities for cloud computing
-        - url: ./fundamentals/security-controls.md
+        - url: ./benchmarks/index.yml
           itemType: concept
           text: Security controls for Azure services
       footerLink:
@@ -67,7 +67,7 @@ conceptualContent:
         - url: ./benchmarks/introduction.md
           itemType: download
           text: Azure cloud security benchmark
-        - url: ../security-center/security-center-using-recommendations.md
+        - url: ../security-center/security-center-remediate-recommendations.md
           itemType: overview
           text: Azure Security Center recommendations
       footerLink:

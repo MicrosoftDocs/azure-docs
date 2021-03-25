@@ -13,7 +13,7 @@ ms.custom: include file
 ms.author: pvicencio
 ---
 
-Get started with Azure Communication Services by using the Communication Services Java SMS client library to send SMS messages.
+Get started with Azure Communication Services by using the Communication Services Java SMS SDK to send SMS messages.
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -96,7 +96,7 @@ public class App
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services SMS client library for Java.
+The following classes and interfaces handle some of the major features of the Azure Communication Services SMS SDK for Java.
 
 | Name                                                             | Description                                                                                     |
 | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |

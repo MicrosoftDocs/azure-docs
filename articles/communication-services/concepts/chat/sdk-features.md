@@ -1,7 +1,7 @@
 ---	
-title: Chat client library overview for Azure Communication Services	
+title: Chat SDK overview for Azure Communication Services	
 titleSuffix: An Azure Communication Services concept document	
-description: Learn about the Azure Communication Services chat client library.	
+description: Learn about the Azure Communication Services Chat SDK.	
 author: mikben	
 manager: jken	
 services: azure-communication-services	
@@ -11,15 +11,15 @@ ms.topic: overview
 ms.service: azure-communication-services	
 ---	
 
-# Chat client library overview	
+# Chat SDK overview	
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]	
 
-Azure Communication Services Chat client libraries can be used to add rich, real-time chat to your applications.
+Azure Communication Services Chat SDKs can be used to add rich, real-time chat to your applications.
 	
-## Chat client library capabilities	
+## Chat SDK capabilities	
 
-The following list presents the set of features which are currently available in the Communication Services chat client libraries.	
+The following list presents the set of features which are currently available in the Communication Services chat SDKs.	
 
 | Group of features | Capability | JavaScript  | Java | .NET | Python | iOS | Android |
 |-----------------|-------------------|---|-----|----|-----|----|----|
@@ -46,13 +46,13 @@ The following list presents the set of features which are currently available in
 
 **The proprietary signaling package is implemented using web sockets. It will fallback to long polling if web sockets are unsupported.	
 
-## JavaScript chat client library support by OS and browser	
+## JavaScript Chat SDK support by OS and browser	
 
 The following table represents the set of supported browsers and versions which are currently available.
 	
 |                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    | iPad OS|
 |--------------------------------|----------------|--------------|-------|------|------|------|-------|
-| **Chat client library** | Firefox*, Chrome*, new Edge | Firefox*, Chrome*, Safari* | Chrome*  | Chrome* | Chrome* | Safari* | Safari* |
+| **Chat SDK** | Firefox*, Chrome*, new Edge | Firefox*, Chrome*, Safari* | Chrome*  | Chrome* | Chrome* | Safari* | Safari* |
 
 *Note that the latest version is supported in addition to the previous two releases.<br/>	
 
