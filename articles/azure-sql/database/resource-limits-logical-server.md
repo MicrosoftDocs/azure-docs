@@ -19,13 +19,13 @@ ms.date: 03/25/2021
 This article provides an overview of the resource limits for the [logical server](logical-servers.md) used by Azure SQL Database and Azure Synapse Analytics. It provides information on what happens when those resource limits are hit or exceeded and describes the resource governance mechanisms used to enforce these limits.
 
 > [!NOTE]
-> For Azure SQL Managed Instance limits, see [SQL Database resource limits for managed instances](../managed-instance/resource-limits.md).
+> For Azure SQL Managed Instance limits, see [resource limits for managed instances](../managed-instance/resource-limits.md).
 
 ## Maximum resource limits
 
 | Resource | Limit |
 | :--- | :--- |
-| Databases per server | 5000 |
+| Databases per logical server | 5000 |
 | Default number of logical servers per subscription in a region | 20 |
 | Max number of logical servers per subscription in a region | 200 |  
 | DTU / eDTU quota per logical server | 54,000 |  
