@@ -1,16 +1,15 @@
 ---
-title: Tutorial: Use Azure Log Analytics to collect and visualize metrics and logs (Preview)
-description: Tutorial - Learn how to enable the Synapse built-in Azure Log Analytics connector for collecting and sending the Apache Spark application metrics and logs to your Azure Log Analytics workspace. 
-author: hrasheed-msft
-ms.service: synapse-analytics 
+title: Use Azure Log Analytics to collect and visualize metrics and logs (Preview)
+description: learn how to enable the Synapse built-in Azure Log Analytics connector for collecting and sending the Apache Spark application metrics and logs to your Azure Log Analytics workspace.
+services: synapse-analytics 
+author: jejiang
 ms.author: jejiang
 ms.reviewer: jrasnick 
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
-ms.date: 03/25/2021
+ms.date: 03/25/2020
 ---
-
 # Tutorial: Use Azure Log Analytics to collect and visualize metrics and logs (Preview)
 
 ## Overview
