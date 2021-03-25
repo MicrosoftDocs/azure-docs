@@ -21,7 +21,7 @@ In this quickstart, we'll reap the benefits of Azure Arc enabled Kubernetes and 
 * Verify you have:
     * An up-and-running Kubernetes cluster.
     * A `kubeconfig` file pointing to the cluster you want to connect to Azure Arc.
-    * 'Read' and 'Write' permissions for the user or service principal connecting creating the Azure Arc enabled Kubernetes resource type (`Microsoft.Kubernetes/connectedClusters`).
+    * 'Read' and 'Write' permissions for the user or service principal creating the Azure Arc enabled Kubernetes resource type (`Microsoft.Kubernetes/connectedClusters`).
 * Install the [latest release of Helm 3](https://helm.sh/docs/intro/install).
 * Install the following Azure Arc enabled Kubernetes CLI extensions of versions >= 1.0.0:
   
