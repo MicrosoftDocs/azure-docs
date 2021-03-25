@@ -23620,7 +23620,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "articles/iot-hub/iot-hub-security-x509-get-started.md",
+      "source_path_from_root": "/articles/iot-hub/iot-hub-security-x509-get-started.md",
       "redirect_url": "/iot-hub/tutorial-x509-scripts",
       "redirect_document_id": false
     },
