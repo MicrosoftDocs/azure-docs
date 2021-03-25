@@ -28,9 +28,9 @@ Azure Policy uses the term _Ownership_ in place of _Responsibility_. For details
 
 **Guidance**: Azure Policy uses activity logs, which are automatically enabled, to include event source, date, user, timestamp, source addresses, destination addresses, and other useful elements.
 
-- [How to collect platform logs and metrics with Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings)
+- [How to collect platform logs and metrics with Azure Monitor](../../../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Understand logging and different log types in Azure](/azure/azure-monitor/platform/platform-logs-overview)
+- [Understand logging and different log types in Azure](../../../azure-monitor/essentials/platform-logs-overview.md)
 
 **Responsibility**: Customer
 
@@ -72,7 +72,7 @@ Azure Policy uses the term _Ownership_ in place of _Responsibility_. For details
 
 **Guidance**: Use Azure role-based access control (Azure RBAC) to control access to Azure Policy.
 
-- [Azure RBAC permissions in Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview#azure-rbac-permissions-in-azure-policy)
+- [Azure RBAC permissions in Azure Policy](../overview.md#azure-rbac-permissions-in-azure-policy)
 
 - [How to configure Azure RBAC](../../../role-based-access-control/role-assignments-portal.md)
 
@@ -84,7 +84,7 @@ Azure Policy uses the term _Ownership_ in place of _Responsibility_. For details
 
 **Guidance**: Use Azure Monitor with activity logs to create alerts for when changes take place in Azure Policy.
 
-- [How to create alerts for Azure activity log events](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts for Azure activity log events](../../../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsibility**: Customer
 
@@ -127,5 +127,5 @@ subscriptions.
 
 ## Next steps
 
-- See the [Azure Security Benchmark V2 overview](/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure Security Benchmark V2 overview](../../../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../../../security/benchmarks/security-baselines-overview.md)

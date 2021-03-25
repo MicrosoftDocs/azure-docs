@@ -72,7 +72,7 @@ You can also secure your Azure Event Hubs namespace by using firewalls. Event Hu
 
 - [How to configure DDoS protection](../ddos-protection/manage-ddos-protection.md)
 
-- [For more information about the Azure Security Center Integrated Threat Intelligence](/azure/security-center/security-center-alerts-service-layer)
+- [For more information about the Azure Security Center Integrated Threat Intelligence](../security-center/azure-defender.md)
 
 **Responsibility**: Customer
 
@@ -116,9 +116,9 @@ Additional information is available at the referenced links.
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Built-in Policy for Event Hubs namespace](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#event-hub)
+- [Azure Built-in Policy for Event Hubs namespace](../governance/policy/samples/built-in-policies.md#event-hub)
 
-- [Azure Policy samples for networking](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network)
+- [Azure Policy samples for networking](../governance/policy/samples/built-in-policies.md#network)
 
 - [How to create an Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
 
@@ -130,7 +130,7 @@ Additional information is available at the referenced links.
 
 **Guidance**: Use tags for virtual networks and other resources related to network security and traffic flow that are associated with your event hubs.
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Responsibility**: Customer
 
@@ -140,9 +140,9 @@ Additional information is available at the referenced links.
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to Azure Event Hubs. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
-- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log-view)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsibility**: Customer
 
@@ -158,7 +158,7 @@ Additional information is available at the referenced links.
 
 - [How to configure Diagnostic Settings for Azure Event Hubs](event-hubs-diagnostic-logs.md)
 
-- [Understanding Azure Activity Log](/azure/azure-monitor/platform/platform-logs-overview)
+- [Understanding Azure Activity Log](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Responsibility**: Customer
 
@@ -172,7 +172,7 @@ Additionally, you may enable Azure Activity log diagnostic settings and send the
 
 - [How to enable Diagnostic Settings for Azure Event Hubs](event-hubs-diagnostic-logs.md)
 
-- [How to enable Diagnostic Settings for Azure Activity Log](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 **Responsibility**: Customer
 
@@ -186,7 +186,7 @@ Additionally, you may enable Azure Activity log diagnostic settings and send the
 
 **Guidance**: Within Azure Monitor, set your Log Analytics workspace retention period according to your organization's compliance regulations to capture and review event hub-related incidents.
 
-- [How to set log retention parameters for Log Analytics workspaces](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [How to set log retention parameters for Log Analytics workspaces](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Responsibility**: Customer
 
@@ -196,9 +196,9 @@ Additionally, you may enable Azure Activity log diagnostic settings and send the
 
 **Guidance**: Analyze and monitor logs for anomalous behavior and regularly review results related to your event hubs. Use Azure Monitor's Log Analytics to review logs and perform queries on log data. Alternatively, you may enable and on-board data to Azure Sentinel or a third-party system information and event management solution.
 
-- [For more information about the Log Analytics workspace](/azure/azure-monitor/log-query/get-started-portal)
+- [For more information about the Log Analytics workspace](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [How to perform custom queries in Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
+- [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -212,11 +212,11 @@ Additionally, you may enable Azure Activity log diagnostic settings and send the
 
 Alternatively, you may enable and on-board data to Azure Sentinel. 
 
-- [Understand the Azure Activity Log](/azure/azure-monitor/platform/platform-logs-overview)
+- [Understand the Azure Activity Log](../azure-monitor/essentials/platform-logs-overview.md)
 
 - [How to configure Diagnostic Settings for Azure Event Hubs](event-hubs-diagnostic-logs.md)
 
-- [How to alert on Log Analytics workspace log data](/azure/azure-monitor/learn/tutorial-response)
+- [How to alert on Log Analytics workspace log data](../azure-monitor/alerts/tutorial-response.md)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -314,9 +314,9 @@ Additional information is available at the referenced links.
 
 **Guidance**: Use Azure Active Directory (Azure AD) Privileged Identity Management for generation of logs and alerts when suspicious or unsafe activity occurs in the environment. Use Azure AD risk detections to view alerts and reports on risky user behavior. For additional logging, send Azure Security Center risk detection alerts into Azure Monitor and configure custom alerting/notifications using action groups.
 
-- [Understand Azure AD risk detections](/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Understand Azure AD risk detections](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [How to configure action groups for custom alerting and notification](/azure/azure-monitor/platform/action-groups)
+- [How to configure action groups for custom alerting and notification](../azure-monitor/alerts/action-groups.md)
 
 **Responsibility**: Customer
 
@@ -350,7 +350,7 @@ Additional information is available at the referenced links.
 
 In addition, regularly rotate your Event Hubs' shared access signatures.
 
-- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/)
+- [Understand Azure AD reporting](../active-directory/reports-monitoring/index.yml)
 
 - [How to use Azure Identity Access Reviews](../active-directory/governance/access-reviews-overview.md)
 
@@ -366,7 +366,7 @@ In addition, regularly rotate your Event Hubs' shared access signatures.
 
 You can streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics workspace. You can configure desired log alerts within Log Analytics.
 
-- [How to integrate Azure Activity Logs into Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Authorize access to Event Hubs resources using Azure AD](authorize-access-azure-active-directory.md)
 
@@ -378,7 +378,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Use Identity Protection and risk detection features within Azure Active Directory (Azure AD) to configure automated responses to detected suspicious actions related to your Event Hubs-enabled resources. You should enable automated responses through Azure Sentinel to implement your organization's security responses.
 
-- [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [How to view Azure AD risky sign-ins](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -392,7 +392,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Currently not available; Customer Lockbox is not yet supported for Event Hubs.
 
-- [List of Customer Lockbox-supported services](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+- [List of Customer Lockbox-supported services](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Responsibility**: Customer
 
@@ -406,7 +406,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Use tags on resources related to your Event Hubs to assist in tracking Azure resources that store or process sensitive information.
 
-- [How to create and use Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Responsibility**: Customer
 
@@ -418,13 +418,13 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 You may also secure your Azure Event Hubs namespace by using firewalls. Azure Event Hubs supports IP-based access controls for inbound firewall support. You can set firewall rules by using the Azure portal, Azure Resource Manager templates, or through the Azure CLI or Azure PowerShell.
 
-- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
+- [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create Management Groups](/azure/governance/management-groups/create)
+- [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
 - [Configure IP firewall rules for Azure Event Hubs namespaces](event-hubs-ip-filtering.md)
 
-- [How to create and utilize tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and utilize tags](../azure-resource-manager/management/tag-resources.md)
 
 - [How to create a Virtual Network](../virtual-network/quick-create-portal.md)
 
@@ -444,7 +444,7 @@ Microsoft manages the underlying infrastructure for Azure Event Hubs and has imp
 
 - [Integrate Azure Event Hubs with Azure Private Link](private-link-service.md)
 
-- [Understand Network Security Groups and Service Tags](/azure/virtual-network/security-overview)
+- [Understand Network Security Groups and Service Tags](../virtual-network/network-security-groups-overview.md)
 
 - [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
@@ -488,7 +488,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to production instances of Azure Event Hubs and other critical or related resources.
 
-- [How to create alerts for Azure Activity Log events](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsibility**: Customer
 
@@ -516,7 +516,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Guidance**: Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Responsibility**: Customer
 
@@ -526,11 +526,11 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Guidance**: Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track Azure Event Hubs namespaces and related resources. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
 
-- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
+- [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create Management Groups](/azure/governance/management-groups/create)
+- [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
-- [How to create and use Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Responsibility**: Customer
 
@@ -566,7 +566,7 @@ Additional information is available at the referenced links.
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
 **Responsibility**: Customer
 
@@ -596,7 +596,7 @@ Additional information is available at the referenced links.
 
 Additional information is available at the referenced links.
 
-- [Azure Built-in Policy for Event Hubs namespace](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#event-hub)
+- [Azure Built-in Policy for Event Hubs namespace](../governance/policy/samples/built-in-policies.md#event-hub)
 
 - [How to view available Azure Policy aliases](/powershell/module/az.resources/get-azpolicyalias)
 
@@ -643,15 +643,15 @@ Additional information is available at the referenced links.
 
 **Guidance**: For Azure virtual machines or web applications running on Azure App Service being used to access your event hubs, use Managed Service Identity in conjunction with Azure Key Vault to simplify and secure shared access signature management for your Azure Event Hubs deployments. Ensure Key Vault is configured with soft-delete enabled.
 
-- [Authenticate a managed identity with Azure Active Directory (Azure AD) to access Event Hubs resources](https://docs.microsoft.com/azure/event-hubs/authenticate-managed-identity?tabs=latest)
+- [Authenticate a managed identity with Azure Active Directory (Azure AD) to access Event Hubs resources](./authenticate-managed-identity.md?tabs=latest)
 
 - [Configure customer-managed keys for Event Hubs](configure-customer-managed-key.md)
 
 - [How to integrate with Azure Managed Identities](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-- [How to create a Key Vault](/azure/key-vault/quick-create-portal)
+- [How to create a Key Vault](../key-vault/secrets/quick-create-portal.md)
 
-- [How to provide Key Vault authentication with a managed identity](/azure/key-vault/managed-identity)
+- [How to provide Key Vault authentication with a managed identity](../key-vault/general/assign-access-policy-portal.md)
 
 **Responsibility**: Customer
 
@@ -663,7 +663,7 @@ Additional information is available at the referenced links.
 
 Use Managed Identities to provide Azure services with an automatically managed identity in Azure Active Directory (Azure AD). Managed Identities allows you to authenticate to any service that supports Azure AD authentication, including Azure Key Vault, without any credentials in your code.
 
-- [Authenticate a managed identity with Azure AD to access Event Hubs Resources](https://docs.microsoft.com/azure/event-hubs/authenticate-managed-identity?tabs=latest)
+- [Authenticate a managed identity with Azure AD to access Event Hubs Resources](./authenticate-managed-identity.md?tabs=latest)
 
 - [Configure customer-managed keys for Event Hubs](configure-customer-managed-key.md)
 
@@ -707,7 +707,7 @@ Microsoft anti-malware is enabled on the underlying host that supports Azure ser
 
 **Guidance**: Configure geo-disaster recovery for Azure Event Hubs. When entire Azure regions or datacenters (if no availability zones are used) experience downtime, it is critical for data processing to continue to operate in a different region or datacenter. As such, Geo-disaster recovery and Geo-replication are important features for any enterprise. Azure Event Hubs supports both geo-disaster recovery and geo-replication, at the namespace level. 
 
-- [Understand geo-disaster recovery for Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr#availability-zones)
+- [Understand geo-disaster recovery for Azure Event Hubs](./event-hubs-geo-dr.md#availability-zones)
 
 **Responsibility**: Customer
 
@@ -743,11 +743,11 @@ Ensure regular automated backups of your Key Vault Secrets with the following Po
 
 Configure soft delete for the Azure storage account that's used for capturing Event Hubs data. Note that this feature isn’t supported for Azure Data Lake Storage Gen 2 yet.
 
-- [How to enable soft delete in Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [How to enable soft delete in Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 - [Set up a key vault with keys](configure-customer-managed-key.md)
 
-- [Soft delete for Azure Storage blobs](https://docs.microsoft.com//azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Soft delete for Azure Storage blobs](//azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
 **Responsibility**: Customer
 
@@ -835,5 +835,5 @@ Configure soft delete for the Azure storage account that's used for capturing Ev
 
 ## Next steps
 
-- See the [Azure Security Benchmark V2 overview](/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure Security Benchmark V2 overview](../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)
