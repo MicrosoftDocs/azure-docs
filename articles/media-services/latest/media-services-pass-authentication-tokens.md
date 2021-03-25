@@ -20,29 +20,29 @@ Customers often ask how a player can pass tokens to the Azure Media Services key
 
 ## Pass a token through the HTTP authorization header
 
-    > [!NOTE]
-    > The "Bearer" prefix is expected per the OAuth 2.0 specs. To set the video source, choose **AES (JWT Token)** or **AES (SWT Token)**. The token is passed via the Authorization header.
+> [!NOTE]
+> The "Bearer" prefix is expected per the OAuth 2.0 specs. To set the video source, choose **AES (JWT Token)** or **AES (SWT Token)**. The token is passed via the Authorization header.
 
 ## Pass a token via the addition of a URL query parameter with "token=tokenvalue."
 
-    > [!NOTE]
-    > The "Bearer" prefix isn't expected. Because the token is sent through a URL, you need to armor the token string. Here is a C# sample code that shows how to do it:
+> [!NOTE]
+> The "Bearer" prefix isn't expected. Because the token is sent through a URL, you need to armor the token string. Here is a C# sample code that shows how to do it:
 
-    ```csharp
+```csharp
     string armoredAuthToken = System.Web.HttpUtility.UrlEncode(authToken);
     string uriWithTokenParameter = string.Format("{0}&token={1}", keyDeliveryServiceUri.AbsoluteUri, armoredAuthToken);
     Uri keyDeliveryUrlWithTokenParameter = new Uri(uriWithTokenParameter);
-    ```
+```
 
 ## Pass a token through the CustomData field
 
 This option is used for PlayReady license acquisition only, through the CustomData field of the PlayReady License Acquisition Challenge. In this case, the token must be inside the XML document as described here:
 
-    ```xml
+```xml
     <?xml version="1.0"?>
     <CustomData xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyCustomData/v1"> 
         <Token></Token> 
     </CustomData>
-    ```
+```
 
-    Put your authentication token in the Token element.
+Put your authentication token in the Token element.
