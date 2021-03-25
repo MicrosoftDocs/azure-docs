@@ -7,7 +7,7 @@ manager: daveba
 ms.service: identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 03/16/2021
+ms.date: 03/24/2021
 ms.author: barclayn
 
 #Customer intent: As an administrator I am looking for information to help me disable 

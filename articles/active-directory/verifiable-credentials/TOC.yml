@@ -17,9 +17,7 @@
     - name: 2 - Create a sample credential in your issuer
       href: create-sample-card-your-issuer.md
     - name: 3- Connect your verifiable credentials issuer to your own Azure AD
-      href: tutorial-03-sample-app-your-idp.md
-    - name: 4 - Issue and verify credentials from your tenant
-      href: tutorial-04-update-sample-your-idp-vc.md
+      href: verifiable-credentials-your-tenant.md
 - name: Concepts
   expanded: true
   items:

@@ -9,7 +9,7 @@ metadata:
   manager: daveba
   ms.author: barclayn
   ms.collection: na
-  ms.date: 03/16/2021
+  ms.date: 03/24/2021
   ms.service: active-directory
   ms.subservice: na
   ms.topic: landing-page
@@ -47,7 +47,7 @@ landingContent:
             url: issuer-openid.md
  
   # Card
-  - title: How to bind DNS
+  - title: How to link your DID
     linkLists:
       - linkListType: how-to-guide
         links:

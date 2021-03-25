@@ -38,9 +38,9 @@ A DID is a decentralized identifier. They can be used to uniquely identify and a
 
 ### What happens when a user loses their phone? Can they recover their identity?
 
-Microsoft Authenticator will support the ability for users to recover their verifiable credentials on a new device. There are multiple ways of offering a recovery mechanism to users, each with their own tradeoffs. We're currently evaluating options and designing approaches to recovery that offer convenience and security while respecting a user's privacy and autonomy.
+There are multiple ways of offering a recovery mechanism to users, each with their own tradeoffs. We're currently evaluating options and designing approaches to recovery that offer convenience and security while respecting a user's privacy and autonomy.
 
-### Why does validation of a Verifiable Credential require a query to a credential status endpoint? Is this not a privacy concern?
+### Why does validation of a verifiable credential require a query to a credential status endpoint? Is this not a privacy concern?
 
 The `credentialStatus` property in a verifiable credential requires the verifier to query the credential's issuer during validation. This is a convenient and efficient way for the issuer to be able to revoke a credential that has been previously issued. This also means that the issuer can track which verifiers have accessed a user's credentials. In some use cases this is desirable, but in many, this would be considered a serious privacy concern. We are exploring alternative means of credential revocation that will allow an issuer to revoke a verifiable credential without being able to trace a credential's usage.
 
@@ -50,12 +50,11 @@ There are many ways users and organizations can establish trust in a verifiable 
 
 ### Does a user need to periodically rotate their DID keys?
 
-The DID methods used in Verifiable Credential exchanges support the ability for a user to update the keys associated with their DID. Currently, Microsoft Authenticator does not change the user's keys after a DID has been created. This is a feature on the Authenticator roadmap.
+The DID methods used in verifiable credential exchanges support the ability for a user to update the keys associated with their DID. Currently, Microsoft Authenticator does not change the user's keys after a DID has been created.
 
 ### Why does the Verifiable Credential preview use ION as its DID method, and therefore Bitcoin to provide decentralized public key infrastructure?
 
-The Verifiable Credential preview has been purposefully designed to be agnostic to the DID method used. True, currently only ION DIDs are supported, which is a layer 2 network on top of Bitcoin. The [ION](https://github.com/decentralized-identity/ion) repository contains information about the choice of Bitcoin as a decentralized ledger. Over time, we intend to support more DID methods, so that customers may make informed decisions about which ledger technology is used for their DIDs.
-
+The verifiable credential preview has been purposefully designed to be agnostic to the DID method used. True, currently only ION DIDs are supported, which is a layer 2 network on top of Bitcoin. The [ION](https://github.com/decentralized-identity/ion) repository contains information about the choice of Bitcoin as a decentralized ledger. Over time, we intend to support more DID methods, so that customers may make informed decisions about which ledger technology is used for their DIDs.
 
 ## Using the preview
 

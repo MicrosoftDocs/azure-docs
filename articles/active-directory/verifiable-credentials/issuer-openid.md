@@ -7,7 +7,7 @@ ms.service: identity
 ms.subservice: verifiable-credentials
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/08/2021
+ms.date: 03/24/2021
 ms.author: barclayn
 # Customer intent: As a developer I am looking for information on how to enable my users to control their own information 
 ---
@@ -25,8 +25,6 @@ The Verifiable Credential issuer service transforms security tokens output by yo
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
-
-![issue process](media/issuer-openid/idp-transform-diagram.png)
 
 To issue a Verifiable Credential, you must allow the verifiable credential issuer service to federate with your identity provider using the OpenID Connect protocol. The claims in the resulting ID token are used to populate the contents of your Verifiable Credential.
 
@@ -76,7 +74,7 @@ Connection: Keep-Alive
 | `state` | Must be returned to the client according to the OpenID Connect standard. |
 | `nonce` | Must be returned as a claim in the ID token according to the OpenID Connect standard. |
 
-When it receives an authorization request, your identity provider should authenticate the user and perform any steps that must occur before a Verifiable Credential is issued. You may customize the credential issuance process to meet your needs. You may ask the user to provide additional information, accept terms of service, pay for their credential, and more. Once all steps have been completed, respond to the authorization request by redirecting to the redirect URI as follows.
+When it receives an authorization request, your identity provider should authenticate the user and perform any steps that must occur before a verifiable credential is issued. You may customize the credential issuance process to meet your needs. You may ask the user to provide additional information, accept terms of service, pay for their credential, and more. Once all steps have been completed, respond to the authorization request by redirecting to the redirect URI as follows.
 
 ```HTTP
 portableidentity://verify?code=nbafhjbh1ub1yhbj1h4jr1&state=12345
