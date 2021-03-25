@@ -96,7 +96,7 @@ Destination for the finished translated documents.
 |glossaries.glossaryUrl|string|True (if using glossaries)|Location of the glossary. We will use the file extension to extract the formatting if the format parameter isn't supplied. If the translation language pair isn't present in the glossary, it won't be applied.|
 |glossaries.storageSource|StorageSource|False|StorageSource listed above.|
 |targetUrl|string|True|Location of the folder / container with your documents.|
-|language|string|True|Two letter Target Language code. See [list of language codes](language-support.md).|
+|language|string|True|Two letter Target Language code. See [list of language codes](../../language-support.md).|
 |storageSource|StorageSource []|False|StorageSource [] listed above.|
 |version|string|False|Version.|
 
