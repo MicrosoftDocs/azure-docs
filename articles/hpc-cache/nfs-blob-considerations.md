@@ -10,7 +10,7 @@ ms.author: v-erkel
 
 # Use NFS-mounted blob storage (PREVIEW) with Azure HPC Cache
 
-Starting in March 2021 you can use NFS-mounted blob containers with Azure HPC Cache. Read more about the [NFS 3.0 protocol support in Azure Blob storage](../storage/blobs/network-file-system-protocol-support) on the Blob storage documentation site.
+Starting in March 2021 you can use NFS-mounted blob containers with Azure HPC Cache. Read more about the [NFS 3.0 protocol support in Azure Blob storage](../storage/blobs/network-file-system-protocol-support.md) on the Blob storage documentation site.
 
 > [!NOTE]
 > NFS 3.0 protocol support in Azure Blob storage is in preview and should not be used in production environments. Check for updates and more details in the [NFS protocol support documentation](../storage/blobs/network-file-system-protocol-support.md).
