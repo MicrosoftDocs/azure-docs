@@ -3,7 +3,7 @@ author: v-dalc
 ms.service: databox
 ms.author: alkohli
 ms.topic: include
-ms.date: 03/02/2021
+ms.date: 03/23/2021
 ---
 
 Use the IoT Edge agent runtime responses to troubleshoot compute-related errors. Here is a list of possible responses:
@@ -27,7 +27,7 @@ All modules on the device show Unknown status and can't be used. The Unknown sta
 
 #### Suggested solution
 
-Delete the IoT Edge service, and then redeploy the module(s). For more information, see [Remove IoT Edge service](../articles/databox-online/azure-stack-edge-j-series-manage-compute.md#remove-iot-edge-service).
+Delete the IoT Edge service, and then redeploy the module(s). For more information, see [Remove IoT Edge service](../articles/databox-online/azure-stack-edge-gpu-manage-compute.md#remove-iot-edge-service).
 
 
 ### Modules show as running but are not working
@@ -60,4 +60,44 @@ In the local web UI of your device, do the following steps:
 1. Enter a static, contiguous range of IPs for **Kubernetes external service IPs**. You need 1 IP for `edgehub` service. Additionally, you need one IP for each IoT Edge module and for each VM you'll deploy. 
 1. Select **Apply**. The changed IP range should take effect immediately.
 
-For more information, see [Change external service IPs for containers](../articles/databox-online/azure-stack-edge-j-series-manage-compute.md#change-external-service-ips-for-containers).
+For more information, see [Change external service IPs for containers](../articles/databox-online/azure-stack-edge-gpu-manage-compute.md#change-external-service-ips-for-containers).
+
+### Configure static IPs for IoT Edge modules
+
+#### Problem description
+
+Kubernetes assigns dynamic IPs to each IoT Edge module on your Azure Stack Edge Pro GPU device. A method is needed to configure static IPs for the modules.
+
+#### Suggested solution
+
+You can specify fixed IP addresses for your IoT Edge modules via the K8s-experimental section as described below: 
+
+```yaml
+{
+  "k8s-experimental": {
+    "serviceOptions" : {
+      "loadBalancerIP" : "100.23.201.78",
+      "type" : "LoadBalancer"
+    }
+  }
+}
+```
+### Expose Kubernetes service as cluster IP service for internal communication
+
+#### Problem description
+
+By default, the IoT service type is of type load balancer and assigned externally facing IP addresses. You may not want an external-facing IP address for your application. You may need to expose the pods within the KUbernetes cluster for access as other pods and not as an externally exposed load balancer service. 
+
+#### Suggested solution
+
+You can use the create options via the K8s-experimental section. The following service option should work with port bindings.
+
+```yaml
+{
+"k8s-experimental": {
+  "serviceOptions" : {
+    "type" : "ClusterIP"
+    }
+  }
+}
+```

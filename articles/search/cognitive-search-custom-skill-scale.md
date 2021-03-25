@@ -38,7 +38,7 @@ On the [custom skill](cognitive-search-custom-skill-web-api.md) set the followin
 
 3. Set `timeout`to a value sufficient for the skill to respond with a valid response.
 
-4. In the `indexer` definition, set [`batchSize`](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters) to the number of documents that should be read from the data source and enriched concurrently.
+4. In the `indexer` definition, set [`batchSize`](/rest/api/searchservice/create-indexer#indexer-parameters) to the number of documents that should be read from the data source and enriched concurrently.
 
 ### Considerations
 
@@ -102,5 +102,5 @@ Congratulations! Your custom skill is now scaled right to maximize throughput on
 
 + [Power Skills: a repository of custom skills](https://github.com/Azure-Samples/azure-search-power-skills)
 + [Add a custom skill to an AI enrichment pipeline](cognitive-search-custom-skill-interface.md)
-+ [Add a Azure Machine Learning skill](https://docs.microsoft.com/azure/search/cognitive-search-aml-skill)
-+ [Use debug sessions to test changes](https://docs.microsoft.com/azure/search/cognitive-search-debug-session)
++ [Add a Azure Machine Learning skill](./cognitive-search-aml-skill.md)
++ [Use debug sessions to test changes](./cognitive-search-debug-session.md)

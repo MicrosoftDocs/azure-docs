@@ -1,13 +1,8 @@
 ---
 title: About the Fortinet integration
-titleSuffix: Azure Defender for IoT
 description: Defender for IoT and Fortinet has established a technology partnership in order to detect and stop attacks on IoT and ICS networks.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/17/2021
 ms.topic: article
-ms.service: azure
 ---
 
 # Defender for IoT and Fortinet IIoT and ICS threat detection & prevention
