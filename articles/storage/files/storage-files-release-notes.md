@@ -48,7 +48,31 @@ The following Azure File Sync agent versions have expired and are no longer supp
 The following release notes are for version 12.0.0.0 of the Azure File Sync agent (released March 25, 2021).
 
 ### Improvements and issues that are fixed
-- Add improvements
+- New portal experience to configure network access policy and private endpoint connections
+	- You can now use the portal to disable access to the Storage Sync Service public endpoint and to approve, reject and remove private endpoint connections. To configure the network access policy and private endpoint connections, open the Storage Sync Service portal, go to the Settings section and click Network.
+ 
+- Cloud Tiering support for volume cluster sizes larger than 64KiB
+	- Cloud Tiering now supports volume cluster sizes up to 2MiB on Server 2019. To learn more, see What is the minimum file size for a file to tier?.
+ 
+- Measure bandwidth and latency to Azure File Sync service and storage account
+	- The Test-StorageSyncNetworkConnectivity cmdlet can now be used to measure latency and bandwidth to the Azure File Sync service and storage account. Latency to the Azure File Sync service and storage account is measured by default when running the cmdlet.  Upload and download bandwidth to the storage account is measured when using the "-MeasureBandwidth" parameter.
+ 
+		For example, to measure bandwidth and latency to the Azure File Sync service and storage account, run the following PowerShell commands:
+ 
+ 		```powershell
+		Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+		Test-StorageSyncNetworkConnectivity -MeasureBandwidth 
+		``` 
+ 
+- Improved error messages in the portal when server endpoint creation fails
+	- We heard your feedback and have improved the error messages and guidance when server endpoint creation fails.
+ 
+- Miscellaneous performance and reliability improvements
+	- Improved change detection performance to detect files that have changed in the Azure file share.
+	- Performance improvements for reconciliation sync sessions. 
+	- Sync improvements to reduce ECS_E_SYNC_METADATA_KNOWLEDGE_SOFT_LIMIT_REACHED and ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED errors.
+	- Files may fail to tier on Server 2019 if Data Deduplication is enabled on the volume.
+	- AFSDiag fails to compress files if a file is larger than 2GiB.
 
 ### Evaluation Tool
 Before deploying Azure File Sync, you should evaluate whether it is compatible with your system using the Azure File Sync evaluation tool. This tool is an Azure PowerShell cmdlet that checks for potential issues with your file system and dataset, such as unsupported characters or an unsupported OS version. For installation and usage instructions, see [Evaluation Tool](./storage-sync-files-planning.md#evaluation-cmdlet) section in the planning guide. 
