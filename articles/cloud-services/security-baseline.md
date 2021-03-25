@@ -275,7 +275,7 @@ The Azure Diagnostic extension collects and stores data in an Azure Storage acco
 
 - [Enable diagnostics in Azure Cloud Services using PowerShell](cloud-services-diagnostics-powershell.md)
 
-- [Store and view diagnostic data in Azure Storage](./diagnostics-extension-to-storage.md?amp;preserve-view=)
+- [Store and view diagnostic data in Azure Storage](./diagnostics-extension-to-storage.md?preserve-view=)
 
 **Responsibility**: Customer
 

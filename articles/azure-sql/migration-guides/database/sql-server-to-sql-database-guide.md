@@ -146,7 +146,7 @@ When using migration options that continuously replicate / sync data changes fro
 After you verify that data is same on both the source and the target, you can cutover from the source to the target environment. It is important to plan the cutover process with business / application teams to ensure minimal interruption during cutover does not affect business continuity. 
 
 > [!IMPORTANT]
-> For details on the specific steps associated with performing a cutover as part of migrations using DMS, see [Performing migration cutover](../../../dms/tutorial-sql-server-to-azure-sql.md#perform-migration-cutover).
+> For details on the specific steps associated with performing a cutover as part of migrations using DMS, see [Performing migration cutover](../../../dms/tutorial-sql-server-to-azure-sql.md).
 
 ## Migration recommendations
 

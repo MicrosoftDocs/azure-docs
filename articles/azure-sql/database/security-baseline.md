@@ -144,7 +144,7 @@ You may use Azure PowerShell or Azure CLI to look up or perform actions on resou
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to your Azure SQL Database server instances. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
-- [How to view and retrieve Azure Activity Log events](../../azure-monitor/essentials/activity-log.md#view-the-activity-logview-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](../../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 - [How to create alerts in Azure Monitor](../../azure-monitor/alerts/alerts-activity-log.md)
 
@@ -166,7 +166,7 @@ In addition, you can stream Azure SQL diagnostics telemetry into Azure SQL Analy
 
 - [How to collect platform logs and metrics with Azure Monitor](./metrics-diagnostic-telemetry-logging-streaming-export-configure.md)
 
-- [How to stream diagnostics into Azure SQL Analytics](./metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-azure-sql-analytics)
+- [How to stream diagnostics into Azure SQL Analytics](./metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-sql-analytics)
 
 **Responsibility**: Customer
 
@@ -500,7 +500,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Guidance**: Enable periodic recurring scans for your Azure SQL Database instances; this will configure a vulnerability assessment to automatically run a scan on your database once per week. A scan result summary will be sent to the email address(es) you provide. Compare the results to verify that vulnerabilities have been remediated.
 
-- [How to export a vulnerability assessment report in Azure Security Center](./sql-vulnerability-assessment.md#implementing-vulnerability-assessment)
+- [How to export a vulnerability assessment report in Azure Security Center](./sql-vulnerability-assessment.md#export-an-assessment-report)
 
 **Responsibility**: Customer
 
