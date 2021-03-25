@@ -34,7 +34,7 @@ In Xcode, create a new iOS project and select the **Single View App** template. 
 
 1. To create a Podfile for your application open the terminal and navigate to the project folder and run 
 ```pod init```
-3. Add the following code to the Podfile and save:
+3. Add the following code to the Podfile and save (make sure that "target" matches the name of your project):
 
    ```
    platform :ios, '13.0'
