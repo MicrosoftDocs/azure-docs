@@ -71,13 +71,13 @@ In the **Get New Access Token** dialog box, enter the following details:
 |-----------------------|-----------------------------------------------------------------------------------------------------------------|----------------------------|
 | Token Name            | MYTOKEN                                                                                                         | A name you choose          |
 | Grant Type            | Authorization Code                                                                                              |                            |
-| Callback URL          | `https://www.getpostman.com/oauth2/callback`                                                                      |                            |
+| Callback URL          | `https://www.getpostman.com/oauth2/callback`                                                                    |                            |
 | Auth URL              | `https://login.microsoftonline.com/{TENANT-ID}/oauth2/authorize?resource=<audience>` | `audience` is `https://MYACCOUNT.azurehealthcareapis.com` for Azure API for FHIR |
-| Access Token URL      | `https://login.microsoftonline.com/{TENANT ID}/oauth2/token`                                                      |                            |
-| Client ID             | `XXXXXXXX-XXX-XXXX-XXXX-XXXXXXXXXXXX`                                                                            | Application ID             |
-| Client Secret         | `XXXXXXXX`                                                                                                        | Secret client key          |
-| Scope | `<Leave Blank>` |
-|                 |                                                                                                             |                            |
+| Access Token URL      | `https://login.microsoftonline.com/{TENANT ID}/oauth2/token`                                                    |                            |
+| Client ID             | `XXXXXXXX-XXX-XXXX-XXXX-XXXXXXXXXXXX`                                                                           | Application ID             |
+| Client Secret         | `XXXXXXXX`                                                                                                      | Secret client key          |
+| Scope | `<Leave Blank>` | Scope is not used; therefore, it can be left blank.  
+| State                 | `1234`     | [State](https://learning.postman.com/docs/sending-requests/authorization/) is an opaque value to prevent cross-site request forgery. It is optional and can take an arbitrary value such as '1234'.                           |
 | Client Authentication | Send client credentials in body                                                                                 |                 
 
 Click **Request Token** to be guided through the Azure Active Directory Authentication flow, and a token will be returned to Postman. If an authentication failure occurs, refer to the Postman Console for more details. **Note**: On the ribbon, click **View**, and then select **Show Postman Console**. The keyboard shortcut to the Postman Console is **Alt-Ctrl+C**.
