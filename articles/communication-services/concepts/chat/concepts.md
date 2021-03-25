@@ -15,9 +15,9 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]	
 
-Azure Communication Services Chat client libraries can be used to add real-time text chat to your applications. This page summarizes key Chat concepts and capabilities.	
+Azure Communication Services Chat SDKs can be used to add real-time text chat to your applications. This page summarizes key Chat concepts and capabilities.	
 
-See the [Communication Services Chat client library Overview](./sdk-features.md) to learn more about specific client library languages and capabilities.	
+See the [Communication Services Chat SDK Overview](./sdk-features.md) to learn more about specific SDK languages and capabilities.	
 
 ## Chat overview 	
 
@@ -112,7 +112,7 @@ Communication Services Chat shares user-generated messages as well as system-gen
 
 ## Real-time signaling 	
 
-The Chat JavaScript client library includes real-time signaling. This allows clients to listen for real-time updates and incoming messages to a chat thread without having to poll the APIs. Available events include:
+The Chat JavaScript SDK includes real-time signaling. This allows clients to listen for real-time updates and incoming messages to a chat thread without having to poll the APIs. Available events include:
 
  - `ChatMessageReceived` - when a new message is sent to a chat thread. This event is not sent for auto generated system messages which were discussed in the previous topic.  	
  - `ChatMessageEdited` - when a message is edited in a chat thread.	
@@ -131,9 +131,9 @@ The Chat JavaScript client library includes real-time signaling. This allows cli
 Real-time signaling allows your users to chat in real-time. Your services can use Azure Event Grid to subscribe to chat-related events. For more details, see [Event Handling conceptual](https://docs.microsoft.com/azure/event-grid/event-schema-communication-services?tabs=event-grid-event-schema).
 
 
-## Using Cognitive Services with Chat client library to enable intelligent features	
+## Using Cognitive Services with Chat SDK to enable intelligent features	
 
-You can use [Azure Cognitive APIs](../../../cognitive-services/index.yml) with the Chat client library to add intelligent features to your applications. For example, you can:	
+You can use [Azure Cognitive APIs](../../../cognitive-services/index.yml) with the Chat SDK to add intelligent features to your applications. For example, you can:	
 
 - Enable users to chat with each other in different languages. 	
 - Help a support agent prioritize tickets by detecting a negative sentiment of an incoming issue from a customer.	
@@ -151,4 +151,4 @@ This way, the message history will contain both original and translated messages
 > [Get started with chat](../../quickstarts/chat/get-started.md)	
 
 The following documents may be interesting to you:	
-- Familiarize yourself with the [Chat client library](sdk-features.md)
+- Familiarize yourself with the [Chat SDK](sdk-features.md)
