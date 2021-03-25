@@ -11,7 +11,7 @@ ms.author: sandeo
 
 # Preview: Log in to a Linux virtual machine in Azure using Azure Active Directory authentication
 
-To improve the security of Linux virtual machines (VMs) in Azure, you can integrate with Azure Active Directory (AD) authentication. When you use Azure AD authentication for Linux VMs, you centrally control and enforce policies that allow or deny access to the VMs. This article shows you how to create and configure a Linux VM to use Azure AD authentication.
+To improve the security of Linux virtual machines (VMs) in Azure, you can integrate with Azure Active Directory (AAD) authentication. When you use Azure AD authentication for Linux VMs, you centrally control and enforce policies that allow or deny access to the VMs. This article shows you how to create and configure a Linux VM to use Azure AD authentication.
 
 
 > [!IMPORTANT]
@@ -128,6 +128,15 @@ az vm extension set \
 
 The *provisioningState* of *Succeeded* is shown once the extension is successfully installed on the VM. The VM needs a running VM agent to install the extension. For more information, see [VM Agent Overview](../extensions/agent-windows.md).
 
+## Creating a Linux virtual machine in the Azure Portal
+
+You can create Linux VMs in the Azure Portal GUI instead of using Azure CLI. When using the Azure AD Login for Linux feature you need to validate that two features are enabled.
+
+- System assigned managed identity
+- Login with AAD credentials (Preview)
+
+<img width="778" alt="2021-03-24_23-09-29" src="https://user-images.githubusercontent.com/19227815/112427227-7522f200-8cf6-11eb-9aba-67eb1c5d366a.png">
+
 ## Configure role assignments for the VM
 
 Azure role-based access control (Azure RBAC) policy determines who can log in to the VM. Two Azure roles are used to authorize VM login:
@@ -138,7 +147,7 @@ Azure role-based access control (Azure RBAC) policy determines who can log in to
 > [!NOTE]
 > To allow a user to log in to the VM over SSH, you must assign either the *Virtual Machine Administrator Login* or *Virtual Machine User Login* role. The Virtual Machine Administrator Login and Virtual Machine User Login roles use dataActions and thus cannot be assigned at management group scope. Currently these roles can only be assigned at the subscription, resource group or resource scope. An Azure user with the *Owner* or *Contributor* roles assigned for a VM do not automatically have privileges to log in to the VM over SSH. It is recommended that the roles be assigned at the subscription or resource group level, not at the individual VM level.
 
-The following example uses [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) to assign the *Virtual Machine Administrator Login* role to the VM for your current Azure user. The username of your active Azure account is obtained with [az account show](/cli/azure/account#az-account-show), and the *scope* is set to the VM created in a previous step with [az vm show](/cli/azure/vm#az-vm-show). The scope could also be assigned at a resource group or subscription level, and normal Azure RBAC inheritance permissions apply. For more information, see [Azure RBAC](../../role-based-access-control/overview.md)
+The following example uses [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) to assign the *Virtual Machine Administrator Login* role to the VM for your current Azure user. The username of your active Azure account is obtained with [az account show](/cli/azure/account#az-account-show), and the *scope* is set to the VM created in a previous step with [az vm show](/cli/azure/vm#az-vm-show). The scope could also be assigned at a resource group or subscription level, and normal Azure RBAC inheritance permissions apply. For more information, see [Azure RBAC](../../role-based-access-control/overview.md).
 
 ```azurecli-interactive
 username=$(az account show --query user.name --output tsv)
@@ -165,6 +174,14 @@ You can enforce Conditional Access policies such as multi-factor authentication,
 
 ### Log in with Azure CLI
 
+Any client machine you plan to log into an Azure VM from should typically have [Azure CLI installed](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli). Azure CLI is supported on a wide variety of client operating systems, including Windows, macOS, and Linux.
+
+Log in to Azure CLI with your Azure Active Directory credentials first. The following example will launch the system's default browser to perform log in.
+
+```azurecli-interactive
+az login
+```
+
 Log in to the Azure Linux virtual machine using your Azure AD credentials. The following example automatically resolves the appropriate IP address for the VM.
 
 ```azurecli-interactive
@@ -185,7 +202,7 @@ You are now signed in to the Azure Linux virtual machine with the role permissio
 
 ### Log in with Azure Cloud Shell
 
-You can use Azure Cloud Shell to connect to VMs without needing to install anything lcoally to your client machine. Start Cloud Shell by clicking the shell icon in the upper right corner of the [Azure Portal](https://portal.azure.com).
+You can use Azure Cloud Shell to connect to VMs without needing to install anything locally to your client machine. Start Cloud Shell by clicking the shell icon in the upper right corner of the [Azure Portal](https://portal.azure.com).
 
 <img width="477" alt="2021-03-23_22-33-23" src="https://user-images.githubusercontent.com/19227815/112260975-2a3aa900-8c28-11eb-9e61-128a379640aa.png">
 
@@ -231,13 +248,13 @@ az ssh vm --vm-name myVM --resource-group myResourceGroup
 
 ### Exporting SSH Configuration for use with generic OpenSSH clients
 
-Login to Azure Linux VMs with Azure AD supports exporting the OpenSSH certificate and configuration to files, allowing you to use any generic OpenSSH-based tool to sign in Azure AD. The following example exports the configuration for all IP addresses assigned to the VM.
+Login to Azure Linux VMs with Azure Active Directory supports exporting the OpenSSH certificate and configuration to files, allowing you to use any generic OpenSSH-based tool to sign in Azure AD to your VM. The following example exports the configuration for all IP addresses assigned to the VM.
 
 ```azurecli-interactive
 az ssh config --file ~/.ssh/config --vm-name myVM -g myResourceGroup
 ```
 
-Alternatively, you can export the config by specifying just the IP address. Replace the IP address in the example with the public or private IP address for your VM.
+Alternatively, you can export the config by specifying just the IP address you plan to use. Replace the IP address in the example with the public or private IP address for your VM you will connect to.
 
 ```azurecli-interactive
 az ssh config --file ~/.ssh/config --ip 10.11.123.456
