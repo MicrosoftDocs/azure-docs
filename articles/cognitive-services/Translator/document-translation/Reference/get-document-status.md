@@ -68,7 +68,7 @@ The following are the possible HTTP status codes that a request returns.
 |path|string|Location of the document or folder.|
 |createdDateTimeUtc|string|Operation created date time.|
 |lastActionDateTimeUtc|string|Date time in which the operation's status has been updated.|
-|status|String|List of possible statuses for job or document: <ul><li>Cancelled</li><li>Cancelling</li><li>Failed</li><li>NotStarted</li><li>Running</li><li>Succeeded</li><li>ValidationFailed</li></ul>|
+|status|String|List of possible statuses for job or document: <ul><li>Canceled</li><li>Cancelling</li><li>Failed</li><li>NotStarted</li><li>Running</li><li>Succeeded</li><li>ValidationFailed</li></ul>|
 |to|string|Two letter language code of To Language. See the list of languages.|
 |progress|number|Progress of the translation if available|
 |id|string|Document ID.|
