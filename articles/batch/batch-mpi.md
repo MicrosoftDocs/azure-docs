@@ -116,7 +116,7 @@ await myBatchClient.JobOperations.AddTaskAsync("mybatchjob", myMultiInstanceTask
 
 When you create the multi-instance settings for a task, you specify the number of compute nodes that are to execute the task. When you submit the task to a job, the Batch service creates one **primary** task and enough **subtasks** that together match the number of nodes you specified.
 
-These tasks are assigned an integer id in the range of 0 to *numberOfInstances* - 1. The task with id 0 is the primary task, and all other ids are subtasks. For example, if you create the following multi-instance settings for a task, the primary task would have an id of 0, and the subtasks would have ids 1 through 9.
+These tasks are assigned an integer ID in the range of 0 to *numberOfInstances* - 1. The task with ID 0 is the primary task, and all other IDs are subtasks. For example, if you create the following multi-instance settings for a task, the primary task would have an ID of 0, and the subtasks would have IDs 1 through 9.
 
 ```csharp
 int numberOfNodes = 10;
@@ -187,11 +187,11 @@ When you delete a multi-instance task, the primary and all subtasks are also del
 
 [TaskConstraints](/dotnet/api/microsoft.azure.batch.taskconstraints) for a multi-instance task, such as the [MaxTaskRetryCount](/dotnet/api/microsoft.azure.batch.taskconstraints.maxtaskretrycount), [MaxWallClockTime](/dotnet/api/microsoft.azure.batch.taskconstraints.maxwallclocktime), and [RetentionTime](/dotnet/api/microsoft.azure.batch.taskconstraints.retentiontime) properties, are honored as they are for a standard task, and apply to the primary and all subtasks. However, if you change theRetentionTime property after adding the multi-instance task to the job, this change is applied only to the primary task, and all of the subtasks continue to use the original RetentionTime.
 
-A compute node's recent task list reflects the id of a subtask if the recent task was part of a multi-instance task.
+A compute node's recent task list reflects the ID of a subtask if the recent task was part of a multi-instance task.
 
 ## Obtain information about subtasks
 
-To obtain information on subtasks by using the Batch .NET library, call the [CloudTask.ListSubtasks](/dotnet/api/microsoft.azure.batch.cloudtask.listsubtasks) method. This method returns information on all subtasks, and information about the compute node that executed the tasks. From this information, you can determine each subtask's root directory, the pool id, its current state, exit code, and more. You can use this information in combination with the [PoolOperations.GetNodeFile](/dotnet/api/microsoft.azure.batch.pooloperations.getnodefile) method to obtain the subtask's files. Note that this method does not return information for the primary task (id 0).
+To obtain information on subtasks by using the Batch .NET library, call the [CloudTask.ListSubtasks](/dotnet/api/microsoft.azure.batch.cloudtask.listsubtasks) method. This method returns information on all subtasks, and information about the compute node that executed the tasks. From this information, you can determine each subtask's root directory, the pool ID, its current state, exit code, and more. You can use this information in combination with the [PoolOperations.GetNodeFile](/dotnet/api/microsoft.azure.batch.pooloperations.getnodefile) method to obtain the subtask's files. Note that this method does not return information for the primary task (ID 0).
 
 > [!NOTE]
 > Unless otherwise stated, Batch .NET methods that operate on the multi-instance [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) itself apply *only* to the primary task. For example, when you call the [CloudTask.ListNodeFiles](/dotnet/api/microsoft.azure.batch.cloudtask.listnodefiles) method on a multi-instance task, only the primary task's files are returned.
@@ -299,5 +299,5 @@ Sample complete, hit ENTER to exit...
 
 ## Next steps
 
-- Read more about [MPI support for Linux on Azure Batch](https://docs.microsoft.com/en-us/archive/blogs/windowshpc/introducing-mpi-support-for-linux-on-azure-batch).
+- Read more about [MPI support for Linux on Azure Batch](https://docs.microsoft.com/archive/blogs/windowshpc/introducing-mpi-support-for-linux-on-azure-batch).
 - Learn how to [create pools of Linux compute nodes](batch-linux-nodes.md) for use in your Azure Batch MPI solutions.
