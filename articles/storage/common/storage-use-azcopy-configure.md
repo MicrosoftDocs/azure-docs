@@ -98,8 +98,7 @@ Before you set this variable, we recommend that you run a benchmark test. The be
 
 ### Optimize memory use
 
-Set the `AZCOPY_BUFFER_GB` environment variable to specify the maximum amount of your system memory you want AzCopy to use for buffering when downloading and uploading files.
-Express this value in gigabytes (GB).
+Set the `AZCOPY_BUFFER_GB` environment variable to specify the maximum amount of your system memory you want AzCopy to use for buffering when downloading and uploading files. Express this value in gigabytes (GB).
 
 | Operating system | Command  |
 |--------|-----------|
@@ -108,7 +107,7 @@ Express this value in gigabytes (GB).
 | **macOS** | `export AZCOPY_BUFFER_GB=<value>` |
 
 > [!NOTE]
-> Please note that there is always an additional overhead in terms of memory usage for job tracking purposes, and this amount varies based on the number of transfers in a job. Since the buffers are the biggest component of memory usage, you can control it with `AZCOPY_BUFFER_GB` to roughly meet your requirements. To be clear, there is no flag to strictly cap the overall memory usage.
+> Job tracking always incurs additional overhead in memory usage. The amount varies based on the number of transfers in a job. Buffers are the largest component of memory usage. You can help control overhead by using `AZCOPY_BUFFER_GB` to approximately meet your requirements, but no flag to strictly cap overall memory usage is available.
 
 ### Optimize file synchronization
 
