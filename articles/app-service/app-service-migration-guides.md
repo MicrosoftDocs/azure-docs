@@ -21,10 +21,11 @@ Using [App Service Migration Assistant](https://azure.microsoft.com/services/app
 - Download the Migration Assistant to begin your migration.
 - Use the tool to run readiness checks and general assessment of your app's configuration settings
 - Migrate your app or site to Azure App Service via the tool.
-- 
-- ## Migration guides
+ 
+### Helpful links
 
-In addition to the assistant, there's [specific guides](https://github.com/Azure/App-Service-Migration-Assistant/tree/master/MigrationDocs) to migrate to App Service. Examples include: ASP.NET, Drupal, NodeJS, PHP, Wordpress, and many more.
+- [Migrate an on-premise web application to Azure App Service](https://docs.microsoft.com/learn/modules/migrate-app-service-migration-assistant/)
+- Video: [How to migrate web apps to Azure App Service](https://www.youtube.com/watch?v=9LBUmkUhmXU)
 
 ## Next Steps
 [App Service overview](overview)
