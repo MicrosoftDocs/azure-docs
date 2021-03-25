@@ -35,7 +35,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Saba Cloud supports **SP and IDP** initiated SSO.
 * Saba Cloud supports **Just In Time** user provisioning.
-
+* Saba Cloud Mobile application can now be configured with Azure AD for enabling SSO. In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 ## Adding Saba Cloud from the gallery
 
