@@ -2,7 +2,7 @@
 title: Use multi-instance tasks to run MPI applications
 description: Learn how to execute Message Passing Interface (MPI) applications using the multi-instance task type in Azure Batch.
 ms.topic: how-to
-ms.date: 03/19/2021
+ms.date: 03/25/2021
 ---
 
 # Use multi-instance tasks to run Message Passing Interface (MPI) applications in Batch
@@ -16,7 +16,7 @@ Multi-instance tasks allow you to run an Azure Batch task on multiple compute no
 
 In Batch, each task is normally executed on a single compute node--you submit multiple tasks to a job, and the Batch service schedules each task for execution on a node. However, by configuring a task's **multi-instance settings**, you tell Batch to instead create one primary task and several subtasks that are then executed on multiple nodes.
 
-:::image type="content" source="media/batch-mpi/batch_mpi_01.png" alt-text="Diagram showing an overview of multi-instance settings":::
+:::image type="content" source="media/batch-mpi/batch_mpi_01.png" alt-text="Diagram showing an overview of multi-instance settings.":::
 
 When you submit a task with multi-instance settings to a job, Batch performs several steps unique to multi-instance tasks:
 
@@ -27,16 +27,14 @@ When you submit a task with multi-instance settings to a job, Batch performs sev
 5. The primary task executes the **application command** on the master node *after* the coordination command has been completed successfully by the primary and all subtasks. The application command is the command line of the multi-instance task itself, and is executed only by the primary task. In an [MS-MPI](/message-passing-interface/microsoft-mpi) -based solution, this is where you execute your MPI-enabled application using `mpiexec.exe`.
 
 > [!NOTE]
-> Though it is functionally distinct, the "multi-instance task" is not a unique task type like the [StartTask] or [JobPreparationTask][net_jobprep]. The multi-instance task is simply a standard Batch task ([CloudTask][net_task] in Batch .NET) whose multi-instance settings have been configured. In this article, we refer to this as the **multi-instance task**.
->
->
+> Though it is functionally distinct, the "multi-instance task" is not a unique task type like the [StartTask](/dotnet/api/microsoft.azure.batch.starttask) or [JobPreparationTask](/dotnet/api/microsoft.azure.batch.jobpreparationtask). The multi-instance task is simply a standard Batch task ([CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) in Batch .NET) whose multi-instance settings have been configured. In this article, we refer to this as the **multi-instance task**.
 
 ## Requirements for multi-instance tasks
+
 Multi-instance tasks require a pool with **inter-node communication enabled**, and with **concurrent task execution disabled**. To disable concurrent task execution, set the [CloudPool.TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool) property to 1.
 
 > [!NOTE]
 > Batch [limits](batch-quota-limit.md#pool-size-limits) the size of a pool that has inter-node communication enabled.
-
 
 This code snippet shows how to create a pool for multi-instance tasks using the Batch .NET library.
 
@@ -56,7 +54,6 @@ myCloudPool.TaskSlotsPerNode = 1;
 
 > [!NOTE]
 > If you try to run a multi-instance task in a pool with internode communication disabled, or with a *taskSlotsPerNode* value greater than 1, the task is never scheduled--it remains indefinitely in the "active" state.
-
 
 ### Use a StartTask to install MPI
 
@@ -90,7 +87,7 @@ Look for the sizes specified as "RDMA capable" in [Sizes for virtual machines in
 
 ## Create a multi-instance task with Batch .NET
 
-Now that we've covered the pool requirements and MPI package installation, let's create the multi-instance task. In this snippet, we create a standard [CloudTask][net_task], then configure its [MultiInstanceSettings](/dotnet/api/microsoft.azure.batch.cloudtask) property. As mentioned earlier, the multi-instance task is not a distinct task type, but a standard Batch task configured with multi-instance settings.
+Now that we've covered the pool requirements and MPI package installation, let's create the multi-instance task. In this snippet, we create a standard [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask), then configure its [MultiInstanceSettings](/dotnet/api/microsoft.azure.batch.cloudtask) property. As mentioned earlier, the multi-instance task is not a distinct task type, but a standard Batch task configured with multi-instance settings.
 
 ```csharp
 // Create the multi-instance task. Its command line is the "application command"
@@ -149,7 +146,7 @@ For MS-MPI applications, use the application command to execute your MPI-enabled
 `cmd /c ""%MSMPI_BIN%\mpiexec.exe"" -c 1 -wdir %AZ_BATCH_TASK_SHARED_DIR% MyMPIApplication.exe`
 
 > [!NOTE]
-> Because MS-MPI's `mpiexec.exe` uses the `CCP_NODES` variable by default (see [Environment variables](#environment-variables)) the example application command line above excludes it.
+> Because MS-MPI's `mpiexec.exe` uses the `CCP_NODES` variable by default (see [Environment variables](#environment-variables)), the example application command line above excludes it.
 
 ## Environment variables
 
@@ -167,7 +164,7 @@ The following environment variables are created by the Batch service for use by 
 For full details on these and the other Batch compute node environment variables, including their contents and visibility, see [Compute node environment variables](batch-compute-node-environment-variables.md).
 
 > [!TIP]
-> The Batch Linux MPI code sample contains an example of how several of these environment variables can be used.
+> The [Batch Linux MPI code sample](https://github.com/Azure-Samples/azure-batch-samples/tree/master/Python/Batch/article_samples/mpi) contains an example of how several of these environment variables can be used.
 
 ## Resource files
 
@@ -245,24 +242,25 @@ The [MultiInstanceTasks](https://github.com/Azure/azure-batch-samples/tree/maste
 ### Preparation
 
 1. Download the [MS-MPI SDK and Redist installers](/message-passing-interface/microsoft-mpi) and install them. After installation you can verify that the MS-MPI environment variables have been set.
-1. Build a *Release* version of the [MPIHelloWorld][helloworld_proj] sample MPI program. This is the program that will be run on compute nodes by the multi-instance task.
-1. Create a zip file containing `MPIHelloWorld.exe` (which you built step 2) and `MSMpiSetup.exe` (which you downloaded step 1). You'll upload this zip file as an application package in the next step.
+1. Build a *Release* version of the [MPIHelloWorld](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp/ArticleProjects/MultiInstanceTasks/MPIHelloWorld) sample MPI program. This is the program that will be run on compute nodes by the multi-instance task.
+1. Create a zip file containing `MPIHelloWorld.exe` (which you built in step 2) and `MSMpiSetup.exe` (which you downloaded in step 1). You'll upload this zip file as an application package in the next step.
 1. Use the [Azure portal](https://portal.azure.com) to create a Batch [application](batch-application-packages.md) called "MPIHelloWorld", and specify the zip file you created in the previous step as version "1.0" of the application package. See [Upload and manage applications](batch-application-packages.md#upload-and-manage-applications) for more information.
 
 > [!TIP]
-> Build a *Release* version of `MPIHelloWorld.exe` so that you don't have to include any additional dependencies (for example, `msvcp140d.dll` or `vcruntime140d.dll`) in your application package.
+> Building a *Release* version of `MPIHelloWorld.exe` ensures that you don't have to include any additional dependencies (for example, `msvcp140d.dll` or `vcruntime140d.dll`) in your application package.
 
 ### Execution
-1. Download the [azure-batch-samples][github_samples_zip] from GitHub.
+
+1. Download the [azure-batch-samples .zip file](https://github.com/Azure/azure-batch-samples/archive/master.zip) from GitHub.
 1. Open the MultiInstanceTasks **solution** in Visual Studio 2019. The `MultiInstanceTasks.sln` solution file is located in:
 
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
 1. Enter your Batch and Storage account credentials in `AccountSettings.settings` in the **Microsoft.Azure.Batch.Samples.Common** project.
 1. **Build and run** the MultiInstanceTasks solution to execute the MPI sample application on compute nodes in a Batch pool.
-1. *Optional*: Use the [Azure portal][portal] or [Batch Explorer][batch_labs] to examine the sample pool, job, and task ("MultiInstanceSamplePool", "MultiInstanceSampleJob", "MultiInstanceSampleTask") before you delete the resources.
+1. *Optional*: Use the [Azure portal](https://portal.azure.com) or [Batch Explorer](https://azure.github.io/BatchExplorer/) to examine the sample pool, job, and task ("MultiInstanceSamplePool", "MultiInstanceSampleJob", "MultiInstanceSampleTask") before you delete the resources.
 
 > [!TIP]
-> You can download [Visual Studio Community][visual_studio] for free if you do not have Visual Studio.
+> You can download [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/) for free if you don't already have Visual Studio.
 
 Output from `MultiInstanceTasks.exe` is similar to the following:
 
@@ -300,48 +298,6 @@ Sample complete, hit ENTER to exit...
 ```
 
 ## Next steps
-* The Microsoft HPC & Azure Batch Team blog discusses [MPI support for Linux on Azure Batch][blog_mpi_linux], and includes information on using [OpenFOAM][openfoam] with Batch. You can find Python code samples for the [OpenFOAM example on GitHub][github_mpi].
-* Learn how to [create pools of Linux compute nodes](batch-linux-nodes.md) for use in your Azure Batch MPI solutions.
 
-[helloworld_proj]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/MultiInstanceTasks/MPIHelloWorld
-
-[api_net]: 
-[api_rest]: /rest/api/batchservice/
-[batch_labs]: https://azure.github.io/BatchExplorer/
-[blog_mpi_linux]: /archive/blogs/windowshpc/introducing-mpi-support-for-linux-on-azure-batch
-[cmd_start]: 
-[coord_cmd_example]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/article_samples/mpi/data/coordination-cmd
-[github_mpi]: 
-[github_samples]: https://github.com/Azure/azure-batch-samples
-[github_samples_zip]: https://github.com/Azure/azure-batch-samples/archive/master.zip
-[msdn_env_var]: ./
-
-[msmpi_sdk]: https://go.microsoft.com/FWLink/p/?LinkID=389556
-[msmpi_howto]: 
-[openfoam]: http://www.openfoam.com/
-[visual_studio]: https://www.visualstudio.com/vs/community/
-
-[net_jobprep]: /dotnet/api/microsoft.azure.batch.jobpreparationtask
-[net_multiinstance_class]: /dotnet/api/microsoft.azure.batch.multiinstancesettings
-[net_multiinstance_prop]: 
-[net_multiinsance_commonresfiles]: /dotnet/api/microsoft.azure.batch.multiinstancesettings
-[net_multiinstance_coordcmdline]: /dotnet/api/microsoft.azure.batch.multiinstancesettings
-[net_multiinstance_numinstances]: /dotnet/api/microsoft.azure.batch.multiinstancesettings
-[net_pool]: /dotnet/api/microsoft.azure.batch.cloudpool
-[net_pool_create]: /dotnet/api/microsoft.azure.batch.pooloperations
-[net_pool_starttask]: /dotnet/api/microsoft.azure.batch.cloudpool
-[net_resourcefile]: 
-[net_starttask]: 
-[net_starttask_cmdline]: /dotnet/api/microsoft.azure.batch.starttask
-[net_task]: /dotnet/api/microsoft.azure.batch.cloudtask
-[net_taskconstraints]: 
-[net_taskconstraint_maxretry]: /dotnet/api/microsoft.azure.batch.taskconstraints
-[net_taskconstraint_maxwallclock]: /dotnet/api/microsoft.azure.batch.taskconstraints
-[net_taskconstraint_retention]: /dotnet/api/microsoft.azure.batch.taskconstraints
-[net_task_listsubtasks]: /dotnet/api/microsoft.azure.batch.cloudtask
-[net_task_listnodefiles]: /dotnet/api/microsoft.azure.batch.cloudtask
-[poolops_getnodefile]: /dotnet/api/microsoft.azure.batch.pooloperations
-
-[portal]: https://portal.azure.com
-[rest_multiinstance]: /previous-versions/azure/mt637905(v=azure.100)
-
+- Read more about [MPI support for Linux on Azure Batch](https://docs.microsoft.com/en-us/archive/blogs/windowshpc/introducing-mpi-support-for-linux-on-azure-batch).
+- Learn how to [create pools of Linux compute nodes](batch-linux-nodes.md) for use in your Azure Batch MPI solutions.
