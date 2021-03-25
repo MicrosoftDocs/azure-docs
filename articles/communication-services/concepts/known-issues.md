@@ -74,7 +74,7 @@ Operating System: iOS, Android
 
 
 ### Camera switching makes the screen freeze 
-When a Communication Services user joins a call using the JavaScript calling client library and then hits the camera switch button, the UI may become completely unresponsive until the application is refreshed.
+When a Communication Services user joins a call using the JavaScript calling client library and then hits the camera switch button, the UI may become completely unresponsive until the application is refreshed or browser is pushed to the background by user
 
 Devices affected: Google Pixel 4a
 Client library: Calling (JavaScript)
