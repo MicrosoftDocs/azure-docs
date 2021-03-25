@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.custom: "mvc, seodec18, devx-track-azurepowershell"
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/18/2021
+ms.date: 03/25/2021
 ms.author: keithp
 ---
 
