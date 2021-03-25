@@ -12,12 +12,12 @@ ms.author: mikben
 - A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../access-tokens.md).
 - Optional: Complete the quickstart to [add voice calling to your application](../getting-started-with-calling.md).
 
-## Install the client library
+## Install the SDK
 
 > [!NOTE]
-> This document uses version 1.0.0-beta.6 of the calling client library.
+> This document uses version 1.0.0-beta.6 of the Calling SDK.
 
-Use the `npm install` command to install the Azure Communication Services calling and common client libraries for JavaScript.
+Use the `npm install` command to install the Azure Communication Services calling and common SDKs for JavaScript.
 This document references types in version 1.0.0-beta.5 of calling library.
 
 ```console
@@ -28,11 +28,11 @@ npm install @azure/communication-calling --save
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services calling client library:
+The following classes and interfaces handle some of the major features of the Azure Communication Services Calling SDK:
 
 | Name                             | Description                                                                                                                                 |
 | ---------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `CallClient`                      | The main entry point to the calling client library.                                                                       |
+| `CallClient`                      | The main entry point to the Calling SDK.                                                                       |
 | `CallAgent`                        | Used to start and manage calls.                                                                                            |
 | `DeviceManager`                    | Used to manage media devices.                                                                                           |
 | `AzureCommunicationTokenCredential` | Implements the `CommunicationTokenCredential` interface, which is used to instantiate `callAgent`. |
@@ -57,13 +57,13 @@ const deviceManager = await callClient.getDeviceManager()
 
 ## Place a call
 
-To create and start a call, use one of the APIs on `callAgent` and provide a user that you've created through the Communication Services identity client library.
+To create and start a call, use one of the APIs on `callAgent` and provide a user that you've created through the Communication Services identity SDK.
 
 Call creation and start are synchronous. The call instance allows you to subscribe to call events.
 
 ### Place a 1:n call to a user or PSTN
 
-To call another Communication Services user, use the `startCall` method on `callAgent` and pass the recipient's `CommunicationUserIdentifier` that you [created with the Communication Services administration library](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens).
+To call another Communication Services user, use the `startCall` method on `callAgent` and pass the recipient's `CommunicationUserIdentifier` that you [created with the Communication Services administration library](../../access-tokens.md).
 
 ```js
 const userCallee = { communicationUserId: '<ACS_USER_ID>' }
