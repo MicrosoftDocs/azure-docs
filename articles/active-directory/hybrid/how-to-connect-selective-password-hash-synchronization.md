@@ -32,6 +32,9 @@ To reduce the configuration administrative effort, you should first consider the
 > [!Important]
 > With either configuration option chosen, a required initial sync (Full Sync) to apply the changes, will be performed automatically over the next sync cycle.
 
+> [!Important]
+> Configuring selective password hash synchronization will directly influence password writeback. Password changes or password resets initiated in Azure Active Directory, will only writeback to on-premises Active Directory if the user is in scope for password hash synchronization. 
+
 ### The adminDescription attribute
 Both scenarios rely on setting the adminDescription attribute of users to a specific value.  This allows the the rules to be applied and is what makes selective PHS work.
 
@@ -131,6 +134,9 @@ Once all configurations are complete, you need edit the attribute **adminDescrip
    
   ![Edit attribute](media/how-to-connect-selective-password-hash-synchronization/exclude-11.png)
 
+You can also use the following PowerShell command to edit users **adminDescription** attribute:
+
+     ```Set-ADUser myuser -Replace @{adminDescription="PHSFiltered"}```
 
 ## Excluded users is larger than included users
 The following section describes how to enable selective password hash synchronization when the number of users to **exclude** is **larger** than the number of users to **include**.
@@ -201,7 +207,9 @@ Once all configurations are complete, you need edit the attribute **adminDescrip
 
   ![Edit attributes](media/how-to-connect-selective-password-hash-synchronization/include-11.png)
  
- 
+ You can also use the following PowerShell command to edit users **adminDescription** attribute:
+
+    ```Set-ADUser myuser -Replace @{adminDescription="PHSIncluded"}``` 
 
 ## Next Steps
 - [What is password hash synchronization?](whatis-phs.md)
