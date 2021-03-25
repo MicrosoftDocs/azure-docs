@@ -59,7 +59,7 @@ For more discovery tools, see the [services and tools](../../../dms/dms-tools-ma
 After you've discovered all the data sources, use [Data Migration Assistant](/sql/dma/dma-overview) to assess on-premises SQL Server instances migrating to an instance of SQL Server on Azure Virtual Machines to understand the gaps between the source and target instances.
 
 > [!NOTE]
-> If you're _not_ upgrading the version of SQL Server, skip this step and move to the "[Migrate](#migrate)" section.
+> If you're _not_ upgrading the version of SQL Server, skip this step and move to the [Migrate](#migrate) section.
 
 #### Assess user databases
 
@@ -100,7 +100,7 @@ You need to script all Data Migration Assistant fixes and apply them to the targ
 > Not all SQL Server versions support all compatibility modes. Check that your [target SQL Server version](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level) supports your chosen database compatibility. For example, SQL Server 2019 doesn't support databases with level 90 compatibility (which is SQL Server 2005). These databases would require, at least, an upgrade to compatibility level 100.
 >
 
-## Migrate the databases
+## Migrate
 
 After you've completed the pre-migration steps, you're ready to migrate the user databases and components. Migrate your databases by using your preferred [migration method](sql-server-to-sql-on-azure-vm-migration-overview.md#migrate).
 
