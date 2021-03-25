@@ -19,9 +19,9 @@ You can use Azure Video Analyzer to create video resources and add data to exist
 
 [gRPC](https://grpc.io/docs/guides/) is a language agnostic, high-performance Remote Procedure Call (RPC) framework. It uses session-based structured schemas via [Protocol Buffers 3](https://developers.google.com/protocol-buffers/docs/proto3) as its underlying message interchange format for communication.
 
-## Pipeline Topology
+## Pipeline topology
 
-[Pipeline Topology]()<!--media-graph.md--> lets you define where media should be captured from, how it should be processed, and where the results should be delivered. It enables you to define a graph consisting of sources, processors, and sink nodes and hence provides the ability for you to build live video analytics applications. 
+[Pipeline topology]()<!--media-graph.md--> lets you define where media should be captured from, how it should be processed, and where the results should be delivered. It enables you to define a graph consisting of sources, processors, and sink nodes and hence provides the ability for you to build live video analytics applications. 
 
 ## Recording
 
@@ -36,7 +36,7 @@ In the context of a video management system for security cameras, video recordin
 <!--//TODO: Update when AVA Player is shipped-->
 If you have watched video on a mobile device from services like Netflix, YouTube, and others, you have experienced streaming video. Playback begins soon after you hit “play” (if you have sufficient bandwidth), and you can seek back and forth along the timeline of the video. With streaming, the idea is to deliver only the portion of the video that is being watched, and to let the viewer start playing the video while the data is still being transferred from a server to the playback client. In the context of Azure Video Analyzer, [streaming](https://en.wikipedia.org/wiki/Streaming_media) refers to the process of delivering media from Azure Video Analyzer videos to a streaming client (for example, Azure Video Analyzer Player<<TODO: LINK>>). You can use Azure Video Analyzer to stream video to clients using industry-standard, HTTP-based media streaming protocols like [HTTP Live Streaming (HLS)](https://developer.apple.com/streaming/) and [MPEG-DASH](https://dashif.org/about/). HLS is supported by Azure Video Analyzer Player, and web-players like [JW Player](https://www.jwplayer.com/), [hls.js](https://github.com/video-dev/hls.js/), [VideoJS](https://videojs.com/), [Google’s Shaka Player](https://github.com/google/shaka-player), or you can render natively in mobile apps with Android's [Exoplayer](https://github.com/google/ExoPlayer) and iOS's [AV Foundation](https://developer.apple.com/av-foundation/). MPEG-DASH is likewise supported by Azure Video Analyzer Player, [find a list of clients on this page](https://dashif.org/clients/). 
 
-By using [pipeline topologies]()<!--[pipeline-topologies.md--> to record video to an Azure Video Analyzer video resource, you can make use of Azure Video Analyzer streaming capability to deliver video streams in HLS and DASH. You can learn more about that in the [video playback]()<!--video-playback.md--> article.
+By using [pipeline topologies](#pipeline-topology) to record video to an Azure Video Analyzer video resource, you can make use of Azure Video Analyzer streaming capability to deliver video streams in HLS and DASH. You can learn more about that in the [video playback]()<!--video-playback.md--> article.
 
 ## VMS
 
