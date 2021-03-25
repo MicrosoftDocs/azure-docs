@@ -9,9 +9,9 @@ ms.service: api-management
 ms.topic: how-to
 ---
 
-# Enable CAPTCHA in the self-hosted portal
+# Enable CAPTCHA in the self-hosted developer portal
 
-In the previous tutorial [Self-host the portal](developer-portal-self-host.md#configure-json-files-static-website-and-cors-settings), you may have disabled CAPTCHA through the `useHipCaptcha` setting. Communication with CAPTCHA happens through an endpoint, which lets Cross-Origin Resource Sharing (CORS) happen for only the managed developer portal hostname. If your portal is self-hosted, it uses a different hostname and CAPTCHA won't allow the communication.
+In the tutorial to [self-host the developer portal](developer-portal-self-host.md#configure-json-files-static-website-and-cors-settings), you may have disabled CAPTCHA through the `useHipCaptcha` setting. Communication with CAPTCHA happens through an endpoint, which lets Cross-Origin Resource Sharing (CORS) happen for only the managed developer portal hostname. If your developer portal is self-hosted, it uses a different hostname and CAPTCHA won't allow the communication.
 
 ## Update the JSON config files
 
@@ -21,7 +21,7 @@ To enable the CAPTCHA in your self-hosted portal:
 
     This domain applies to the managed version of your portal and the CAPTCHA endpoint. For steps, see [Configure a custom domain name for your Azure API Management instance](configure-custom-domain.md).
 
-1. Go to the `src` folder in the local environment for your self-hosted portal.
+1. Go to the `src` folder in the [local environment](developer-portal-self-host.md#set-up-local-environment) for your self-hosted portal.
 
 1. Update the configuration `json` files:
 

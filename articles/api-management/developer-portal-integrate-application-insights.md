@@ -1,28 +1,30 @@
 ---
-title: Integrate Application Insights
+title: Integrate Application Insights to developer portal
 titleSuffix: Azure API Management
 description: Learn how to integrate Application Insights into your managed or self-hosted developer portal.
-author: erikadoyle
+author: dlepow
 ms.author: apimpm
-ms.date: 02/08/2021
+ms.date: 03/25/2021
 ms.service: api-management
 ms.topic: how-to
 ---
 
-# Integrate Application Insights
+# Integrate Application Insights to developer portal
 
 A popular feature of Azure Monitor is Application Insights. It's an extensible Application Performance Management (APM) service for developers and DevOps professionals. Use it to monitor your developer portal and detect performance anomalies. Application Insights includes powerful analytics tools to help you learn what users actually do while visiting your developer portal.
 
 ## Add Application Insights to your portal
 
-Follow the steps below to plug Application Insights into your managed or self-hosted developer portal.
+Follow these steps to plug Application Insights into your managed or self-hosted developer portal.
 
 > [!IMPORTANT]
-> Steps 1 and 2 are not required for managed portals. If you have a managed portal, skip to step 3.
+> Steps 1 and 2 are not required for managed portals. If you have a managed portal, skip to step 4.
+
+1. Set up a [local environment](developer-portal-self-host.md#set-up-local-environment) for the latest release of the developer portal.
 
 1. Install the **npm** package to add [Paperbits for Azure](https://github.com/paperbits/paperbits-azure):
 
-    ```sh
+    ```console
     npm install @paperbits/azure --save
     ```
 
@@ -79,4 +81,4 @@ Follow the steps below to plug Application Insights into your managed or self-ho
 
 ## Next steps
 
-- [Integrate Google Tag Manager](dev-portal-integrate-google-tag-manager.md)
+- [Integrate Google Tag Manager](developer-portal-integrate-google-tag-manager.md)

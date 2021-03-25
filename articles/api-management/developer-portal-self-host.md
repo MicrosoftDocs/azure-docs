@@ -63,7 +63,7 @@ The developer portal requires API Management's REST API to manage the content.
 
 ### config.design.json file
 
-Go to the `/src/` folder and open the `config.design.json` file.
+Go to the `src` folder and open the `config.design.json` file.
 
 ```json
 {
@@ -103,7 +103,7 @@ Configure the file:
 
 ### config.publish.json file
 
-Go to the `/src/` folder and open the `config.publish.json` file.
+Go to the `src` folder and open the `config.publish.json` file.
 
 ```json
 {
@@ -122,7 +122,7 @@ Configure the file:
 
 ### config.runtime.json file
 
-Go to the `/src/` folder and open the `config.runtime.json` file.
+Go to the `src` folder and open the `config.runtime.json` file.
 
 ```json
 {

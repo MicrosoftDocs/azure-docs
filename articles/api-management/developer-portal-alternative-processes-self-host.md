@@ -1,19 +1,19 @@
 ---
 title: Alternative processes for self-hosted portal
 titleSuffix: Azure API Management
-description: Learn about alternative processes you can use when you self-host a portal.
-author: erikadoyle
+description: Learn about alternative processes you can use when you self-host a developer portal in Azure API Management.
+author: dlepow
 ms.author: apimpm
-ms.date: 11/30/2020
+ms.date: 03/25/2021
 ms.service: api-management
 ms.topic: how-to
 ---
 
-# Alternative processes for self-hosted portal
+# Alternative processes for self-hosted developer portal
 
-There are several new processes you can explore when you self-host a portal. You can:
+There are several alternative processes you can explore when you [self-host a developer portal](developer-portal-self-host.md):
 
-* Edit content directly in files instead of having to use the visual editor.
+* Edit content directly in files instead of using the visual editor.
 
 * Use your own content management system (CMS) to manage your content.
 
@@ -23,23 +23,23 @@ There are several new processes you can explore when you self-host a portal. You
 
 * Front the files of your portal with a Content Delivery Network (CDN) to reduce page loading times.
 
-This article provides information on each of the processes.
+This article provides information on each of the processes. 
+
+If you have not already done so, set up a [local environment](developer-portal-self-host.md#set-up-local-environment) for the latest release of the developer portal.
 
 ## Edit content through files, not visual editor
 
-In the [self-hosting tutorial](dev-portal-self-host-portal.md) we described the workflow of editing content and customizing the portal through the built-in visual editor. You can also use REST API to fetch the underlying data files, edit them directly in a text editor, and upload new versions through API calls.
+In the tutorial to [self-host the developer portal](developer-portal-self-host.md), we described the workflow to edit content and customize the portal through the built-in visual editor. You can also use the  REST API to fetch the underlying data files, edit them directly in a text editor, and upload new versions through API calls.
 
 ## Bring your own CMS
 
-By default, portal's content (e.g., pages) is retrieved from, saved to, and stored in an API Management service.
+By default, the portal's page and other content is retrieved from, saved to, and stored in an API Management service.
 
 You can configure your portal deployment to use a different data source - for example, a headless CMS to manage your content. 
 
-Examples on how to achieve that are coming soon.
-
 ## Build for production
 
-If you would like to host the development environment of the portal online for collaboration purposes, use production builds of the designer and the publisher. Production builds bundle the files, exclude source maps, etc.
+If you want to host the development environment of the portal online for collaboration purposes, use production builds of the designer and the publisher. Production builds bundle the files, exclude source maps, etc.
 
 Create a bundle in the `./dist/designer` directory by running the command:
 
@@ -47,7 +47,7 @@ Create a bundle in the `./dist/designer` directory by running the command:
 npm run build-designer
 ```
 
-The result is a single page application, so you can still deploy it to a static web host, e.g. Azure Blob Storage Static Website.
+The result is a single page application, so you can still deploy it to a static web host, such as the Azure Blob Storage Static Website.
 
 Similarly, place a compiled and optimized publisher in the `./dist/publisher` folder:
 
@@ -55,13 +55,13 @@ Similarly, place a compiled and optimized publisher in the `./dist/publisher` fo
 npm run build-publisher
 ```
 
-## Using Function App to publish the portal
+## Use Function App to publish the portal
 
-![API Management developer portal development - publish external portal](media/dev-portal/readme-dev-publish-external.png)
+:::image type="content" source="media/developer-portal-alternative-processes-self-host/developer-portal-publish-external.png" alt-text="Publish portal using Function App":::
 
-Running the publishing step in the cloud is an alternative to executing it locally.
+Run the publishing step in the cloud as an alternative to executing it locally.
 
-To implement it with an Azure Function App, you will need to first:
+To implement publishing with an Azure Function App, you need the following prerequisites:
 
 - [Create an Azure Function](../azure-functions/functions-create-first-azure-function.md). The Function needs to be a JavaScript language Function.
 - Install Azure Functions Core Tools:
@@ -71,7 +71,7 @@ To implement it with an Azure Function App, you will need to first:
 
 ### Step 1: Configure output storage
 
-You will be will be uploading the content directly to website hosting ("$web" container of output storage), instead of a local folder. You need to account for that in the `./src/config.publish.json` file:
+Uploading the content directly to the hosting website ("$web" container of output storage), instead of a local folder. Configure this change in the `./src/config.publish.json` file:
 
 ```json
 {
@@ -90,7 +90,7 @@ There is a sample HTTP Trigger Function in the `./examples` folder. To build it 
 npm run build-function
 ```
 
-Then, login to Azure and deploy it:
+Then, sign in to the Azure CLI and deploy it:
 
 ```sh
 az login
@@ -106,10 +106,10 @@ curl -X POST https://<function app name>.azurewebsites.net/api/publish
 
 ## Hosting and CDN
 
-Although in the previous section we suggested using Azure Storage Account as a hosting for your website, you can publish the files through any solution, including services of hosting providers.
+Although in the previous section we suggested using an Azure storage account to host your website, you can publish the files through any solution, including services of hosting providers.
 
 You can also front the files with a Content Delivery Network (CDN) to reduce page loading times. We recommend using [Azure CDN](https://azure.microsoft.com/services/cdn/).
 
 ## Next steps
 
-- [Architectural concepts](dev-portal-architectural-concepts.md)
+- [Architectural concepts for the developer portal](developer-portal-architectural-concepts.md)

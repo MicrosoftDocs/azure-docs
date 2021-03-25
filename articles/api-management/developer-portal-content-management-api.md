@@ -1,17 +1,17 @@
 ---
-title: Content management API
+title: Content management API for developer portal
 titleSuffix: Azure API Management
-description: Learn about the content management API and how it's used to save and retrieve content.
+description: Learn about the content management API and how it's used to save and retrieve content for the API Management developer portal.
 author: erikadoyle
 ms.author: apimpm
-ms.date: 02/03/2021
+ms.date: 03/25/2021
 ms.service: api-management
-ms.topic: how-to
+ms.topic: conceptual
 ---
 
-# Content management API
+# Content management API for the developer portal
 
-Developer portal is a static web application that relies on the content management API to save and retrieve content. Classic content management systems store content in form of HTML. Developer portal outputs structured JSON. Every element, from a page layout to a hyperlink, has a strictly defined contract. This approach lets the developer portal:
+The API Management developer portal is a static web application that relies on the content management API to save and retrieve content. Classic content management systems store content in form of HTML. Developer portal outputs structured JSON. Every element, from a page layout to a hyperlink, has a strictly defined contract. This approach lets the developer portal:
 
 - Abstract data from its representation.
 
@@ -27,17 +27,17 @@ The content management API is an endpoint in the [Azure API Management REST API]
 - [Content Item](/rest/api/apimanagement/2019-12-01/contentitem) - a content item represents data that the content type it belongs to describes.
 
 > [!NOTE]
-> Developer portal comes with these content types built-in. You can't change or remove them: *Pages*, *Layouts*, *Blog posts*, *Blobs*, *URLs*, *Design blocks*, *Styles*, *Documents*. You can only carry out a GET operation on them.
+> The developer portal comes with the following content types built-in that you can't change or remove: *Pages*, *Layouts*, *Blog posts*, *Blobs*, *URLs*, *Design blocks*, *Styles*, *Documents*. You can only carry out a GET operation on them.
 >
 > Also, custom content types ids need to start with the `c-` prefix.
 
 ## Authentication
 
-You can use the official rest API via Azure Resource Manager or the direct access API in API Management. If you use the direct access API, you need to [get a direct API access token](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-authentication).
+You can use the official REST API via Azure Resource Manager or the direct access API in API Management. If you use the direct access API, you need to [get a direct API access token](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-authentication).
 
 ## Open Data Protocol support
 
-Content management API supports these Open Data Protocol (OData) operations: *filtering* and *ordering*.
+Content management API supports the following Open Data Protocol (OData) operations: *filtering* and *ordering*.
 
 ### Filtering
 
@@ -74,4 +74,4 @@ GET /contentTypes/page/contentItems?$orderby=en_us/title desc
 ```
 ## Next steps
 
-- [Implement widgets](dev-portal-implement-widgets.md)
+- [Implement widgets](developer-portal-implement-widgets.md)

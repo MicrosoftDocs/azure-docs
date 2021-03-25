@@ -1,21 +1,21 @@
 ---
-title: Testing the developer portal
+title: Test the self-hosted developer portal
 titleSuffix: Azure API Management
-description: Learn how to set up unit tests and end-to-end tests for your self-hosted portal.
-author: erikadoyle
+description: Learn how to set up unit tests and end-to-end tests for your self-hosted API Management portal.
+author: dlepow
 ms.author: apimpm
-ms.date: 02/08/2021
+ms.date: 03/25/2021
 ms.service: api-management
 ms.topic: how-to
 ---
 
-# Testing the developer portal
+# Test the self-hosted developer portal
 
 This article explains how to set up unit tests and end-to-end tests for your self-hosted portal.
 
 ## Unit tests
 
-A unit test is an approach to the validation of small pieces of functionality. It's done in isolation from other parts of the application.
+A unit test is an approach to validate small pieces of functionality. It's done in isolation from other parts of the application.
 
 ### Example scenario
 
@@ -27,7 +27,7 @@ In this scenario, you're testing a password input control. It only accepts passw
 
 - One special character
  
-So, the test validating all these requirements will look like this:
+So, the test to validate these requirements looks like this:
 
 ```typescript
 const passwordInput = new PasswordInput();
@@ -51,9 +51,9 @@ component.ts
 component.spec.ts
 ```
 
-### Mocking HTTP requests
+### Mock HTTP requests
 
-There are cases when you expect a component to make HTTP requests. The component should react properly to different kind of responses. To simulate specific HTTP responses, use `MockHttpClient`. It implements `HttpClient` interface used by many other components of the project.
+There are cases when you expect a component to make HTTP requests. The component should react properly to different kind of responses. To simulate specific HTTP responses, use `MockHttpClient`. It implements the `HttpClient` interface used by many other components of the project.
 
 ```typescript
 const httpClient = new MockHttpClient();
@@ -68,17 +68,19 @@ httpClient.mock()
 
 ## End-to-end tests
 
-An end-to-end test executes a particular user scenario taking exact steps that you expect the user to carry out. In a web application like Azure API Management developer portal, the user scrolls through the content and selects options to achieve certain results. To replicate user navigation, you can use browser manipulation helper libraries like [Puppeteer](https://github.com/puppeteer/puppeteer). It lets you simulate user actions and automate assumed scenarios. Puppeteer also automatically takes screenshots of pages or components at any stage of the test. Compare them later with previous results to catch deviations and potential regressions.
+An end-to-end test executes a particular user scenario taking exact steps that you expect the user to carry out. In a web application like te Azure API Management developer portal, the user scrolls through the content and selects options to achieve certain results. 
+
+To replicate user navigation, you can use browser manipulation helper libraries like [Puppeteer](https://github.com/puppeteer/puppeteer). It lets you simulate user actions and automate assumed scenarios. Puppeteer also automatically takes screenshots of pages or components at any stage of the test. Compare them later with previous results to catch deviations and potential regressions.
 
 ### Example scenario
 
-In this scenario, you need to validate a user sign-in flow. This scenario would require us to:
+In this scenario, you need to validate a user sign-in flow. This scenario would require the following steps:
 
 1. Open browser and navigate to the sign-in page.
 
-1. Enter the email.
+1. Enter the email address.
 
-1. Enter the  password.
+1. Enter the password.
 
 1. Select **Sign-in**.
 
@@ -86,7 +88,7 @@ In this scenario, you need to validate a user sign-in flow. This scenario would 
 
 1. Verify that the page includes the **Profile** menu item. It's one of the possible indicators that you successfully signed in.
 
-To run the test automatically, we create a script with exactly the same steps:
+To run the test automatically, create a script with exactly the same steps:
 
 ```typescript
 // 1. Open browser and navigate to the sign-in page.
@@ -111,11 +113,13 @@ expect(profileMenuItem).not.equals(null);
 ```
 
 > [!NOTE]
-> Here strings like "#email", "#password" and "#signin" are CSS-like selectors that identify HTML elements on the page. See the [Selectors Level 3](https://www.w3.org/TR/selectors-3/) W3C specification to learn more.
+> Strings such as "#email", "#password" and "#signin" are CSS-like selectors that identify HTML elements on the page. See the [Selectors Level 3](https://www.w3.org/TR/selectors-3/) W3C specification to learn more.
 
 ### UI component maps
 
-User flows often go through the same pages or components. A good example of that is the main website menu that is present on every page. Create a UI component map to avoid configuring and updating the same selectors for every test. For example, you could replace steps 2 through 6 above with just two lines:
+User flows often go through the same pages or components. A good example is the main website menu that is present on every page. 
+
+Create a UI component map to avoid configuring and updating the same selectors for every test. For example, you could replace steps 2 through 6 in the preceding example with just two lines:
 
 ```typescript
 const signInWidget = new SigninBasicWidget(page);
@@ -168,9 +172,9 @@ Here's an example of a `validate.config.json` that would be stored in the `src` 
 
 ### Headless vs normal tests
 
-Modern browsers like Chrome or Microsoft Edge allow you to run automation in both headless mode and normal mode. The browser operates without a graphical user interface in headless mode. It still carries out the same page and Document Object Model (DOM) manipulations. The browser UI usually isn't needed in delivery pipelines. In that case, running tests in headless mode is a great option.
+Modern browsers such as Chrome or Microsoft Edge allow you to run automation in both headless mode and normal mode. The browser operates without a graphical user interface in headless mode. It still carries out the same page and Document Object Model (DOM) manipulations. The browser UI usually isn't needed in delivery pipelines. In that case, running tests in headless mode is a great option.
 
-When you develop a test script, it would be useful to see what exactly is happening in the browser. That's a good time to use normal mode.
+When you develop a test script, it's useful to see what exactly is happening in the browser. That's a good time to use normal mode.
 
 To switch between the modes, change the option `headless` option in the `constants.ts` file. It's in the `tests` folder in your project:
 
@@ -188,11 +192,11 @@ export const LaunchOptions = {
 };
 ```
 
-## Running tests
+## Run tests
 
 There are two built-in ways to execute tests in this project:
 
-**NPM command**
+**npm command**
 
 ```console
 npm run test
@@ -200,10 +204,10 @@ npm run test
 
 **Test Explorer**
 
-Test Explorer extension for VS Code (for example, [Mocha Test Explorer](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-mocha-test-adapter)) has convenient UI and an option to run tests automatically on every change of the source code:
+The Test Explorer extension for VS Code (for example, [Mocha Test Explorer](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-mocha-test-adapter)) has a convenient UI and an option to run tests automatically on every change of the source code:
 
-![image](media/dev-portal/visual-studio-code-test-explorer.png)
+:::image type="content" source="media/developer-portal-testing/visual-studio-code-test-explorer.png" alt-text="Visual Studio Code Test Explorer":::
 
 ## Next steps
 
-- [Integrate Application Insights](dev-portal-integrate-application-insights.md)
+- [Integrate Application Insights](developer-portal-integrate-application-insights.md)

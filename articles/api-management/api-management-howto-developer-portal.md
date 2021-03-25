@@ -12,7 +12,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/15/2020
+ms.date: 03/25/2021
 ms.author: apimpm
 ---
 
@@ -41,16 +41,14 @@ The developer portal can be customized and styled through the built-in, drag-and
 
 Your API Management service includes a built-in, always up-to-date, **managed** developer portal. You can access it from the Azure portal interface.
 
-If you need to extend it with custom logic, which isn't supported out-of-the-box, you can modify its codebase. The portal's codebase is [available in a GitHub repository][1]. For example, you could implement a new widget, which integrates with a third-party support system. When you implement new functionality, you can choose one of the following options:
+If you need to extend it with custom logic, which isn't supported out-of-the-box, you can modify its codebase. The portal's codebase is [available in a GitHub repository](https://github.com/Azure/api-management-developer-portal). For example, you could implement a new widget, which integrates with a third-party support system. When you implement new functionality, you can choose one of the following options:
 
-- **Self-host** the resulting portal outside of your API Management service. When you self-host the portal, you become its maintainer and you are responsible for its upgrades. Azure Support's assistance is limited only to the basic setup of self-hosted portals, as documented in the [Wiki section of the repository][2].
+- **Self-host** the resulting portal outside of your API Management service. When you self-host the portal, you become its maintainer and you are responsible for its upgrades. Azure Support's assistance is limited only to the [basic setup of self-hosted portals](developer-portal-self-host.md).
 - Open a pull request for the API Management team to merge new functionality to the **managed** portal's codebase.
 
-For extensibility details and instructions, refer to the [GitHub repository][1] and [the tutorials on implementing a widget][3]. The [tutorial for customizing the managed portal](api-management-howto-developer-portal-customize.md) walks you through the portal's administrative panel, which is common for **managed** and **self-hosted** versions.
+For extensibility details and instructions, refer to the [GitHub repository](https://github.com/Azure/api-management-developer-portal) and the tutorial to [implement a widget](developer-portal-implement-widgets.md). The tutorial to [customize the managed portal](api-management-howto-developer-portal-customize.md) walks you through the portal's administrative panel, which is common for **managed** and **self-hosted** versions.
 
 ## <a name="faq"></a> Frequently asked questions
-
-In this section, we answer common questions about the developer portal, which are of general nature. For questions specific to the self-hosted version, refer to [the wiki section of the GitHub repository](https://github.com/Azure/api-management-developer-portal/wiki).
 
 ### <a id="preview-to-ga"></a> How can I migrate from the preview version of the portal?
 
@@ -68,17 +66,17 @@ If you first accessed the portal after the general availability announcement in 
 
 ### Functionality I need isn't supported in the portal
 
-You can open a feature request in the [GitHub repository][1] or [implement the missing functionality yourself][3]. See the **Extensibility** section above for more details.
+You can open a feature request in the [GitHub repository](https://github.com/Azure/api-management-developer-portal) or [implement the missing functionality yourself](developer-portal-implement-widgets.md). See the **Extensibility** section above for more details.
 
 ### <a id="automate"></a> How can I automate portal deployments?
 
 You can programmatically access and manage the developer portal's content through the REST API, regardless if you're using a managed or a self-hosted version.
 
-The API is documented in [the GitHub repository's wiki section][2]. It can be used for automating migrations of portal content between environments - for example, from a test environment to the production environment. You can learn more about this process [in this documentation article](https://aka.ms/apimdocs/migrateportal) on GitHub.
+The API is documented in [Content management API](developer-portal-content-management-api.md). It can be used for automating migrations of portal content between environments - for example, from a test environment to the production environment. For more information, see [Migrate portal between services](developer-portal-migrate-between-services.md)
 
 ### How do I move from the managed to the self-hosted version?
 
-See the detailed article in [the Wiki section of the developer portal repository on GitHub][2].
+See [Move from managed to self-hosted developer portal](developer-portal-move-managed-self-hosted.md).
 
 ### Can I have multiple developer portals in one API Management service?
 
@@ -196,6 +194,21 @@ The call failure may also be caused by an TLS/SSL certificate, which is assigned
 | Mozilla Firefox             | Yes<sup>1</sup> |
 
  <small><sup>1</sup> Supported in the two latest production versions.</small>
+
+### Local development of my self-hosted portal is no longer working
+
+If your local version of the developer portal cannot save or retrieve information from the storage account or API Management instance, the SAS tokens may have expired. You can fix that by generating new tokens. For instructions, refer to the tutorial to [self-host the developer portal](developer-portal-self-host.md#configure-json-files-static-website-and-cors-settings).
+
+### How can I remove the developer portal content provisioned to my API Management service?
+
+Provide the required parameters in the `scripts.v2/cleanup.bet` script in the developer portal [GitHub repository](https://github.com/Azure/api-management-developer-portal) and execute it:
+
+```sh
+cd scripts.v2
+.\cleanup.bat
+cd ..
+```
+
 
 ## Next steps
 
