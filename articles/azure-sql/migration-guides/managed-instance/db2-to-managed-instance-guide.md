@@ -46,7 +46,7 @@ To create an assessment, follow these steps:
 
 1. On **Connect to Db2**, enter values for the Db2 connection details. 
 
-   :::image type="content" source="media/db2-to-sql-database-guide/connect-to-db2.png" alt-text="Screenshot that shows options to connect to your Db2 instance.":::
+   :::image type="content" source="media/db2-to-managed-instance-guide/connect-to-db2.png" alt-text="Screenshot that shows options to connect to your Db2 instance.":::
 
 
 1. Right-click the Db2 schema you want to migrate, and then choose **Create report**. This will generate an HTML report. Alternatively, you can choose **Create report** from the navigation bar after selecting the schema:
