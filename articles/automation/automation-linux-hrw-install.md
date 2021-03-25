@@ -102,7 +102,7 @@ For networking requirements for the Hybrid Runbook Worker, see [Configuring your
 
 ## Install a Linux Hybrid Runbook Worker
 
-There are two methods to automatically deploy a Hybrid Runbook Worker. You can import and run a runbook from the Runbook Gallery in the Azure portal, or you can manually run a series of PowerShell commands to accomplish the same task.
+There are two methods to deploy a Hybrid Runbook Worker. You can import and run a runbook from the Runbook Gallery in the Azure portal, or you can manually run a series of PowerShell commands to accomplish the same task.
 
 ### Importing a runbook from the Runbook Gallery
 
