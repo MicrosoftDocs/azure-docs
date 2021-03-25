@@ -72,7 +72,7 @@ The following are the possible HTTP status codes that a request returns.
   </tr>
   <tr>
     <td>401</td>
-    <td>Unauthorized. Please check your credentials.</td>
+    <td>Unauthorized. Check your credentials.</td>
   </tr>
   <tr>
     <td>404</td>
@@ -180,12 +180,12 @@ The following information is returned in a successful response.
   <tr>
     <td>target</td>
     <td>string</td>
-    <td>Gets the source of the error. For example, it would be "documents" or "document id" in the case of an invalid document.</td>
+    <td>Gets the source of the error. For example, it would be "documents" or "document id" for an invalid document.</td>
   </tr>
   <tr>
     <td>innerError</td>
     <td>InnerErrorV2</td>
-    <td>New Inner Error format, which conforms to Cognitive Services API Guidelines. It contains required properties ErrorCode, message and optional properties target, details(key value pair), inner error (this can be nested).</td>
+    <td>New Inner Error format, which conforms to Cognitive Services API Guidelines. It contains required properties ErrorCode, message, and optional properties target, details(key value pair), inner error (can be nested).</td>
   </tr>
   <tr>
     <td>innerError.code</p></td>
@@ -202,7 +202,8 @@ The following information is returned in a successful response.
 ## Examples
 
 ### Example Successful Response
-The following is an example of a successful response.
+
+The following JSON object is an example of a successful response.
 
 Status code: 200
 
@@ -225,7 +226,8 @@ Status code: 200
 ```
 
 ### Example Error Response
-The following is an example of an error response. The schema for other error codes is the same.
+
+The following JSON object is an example of an error response. The schema for other error codes is the same.
 
 Status code: 500
 
