@@ -147,7 +147,7 @@ The following information is returned in a successful response.
   <tr>
     <td>summary.notYetStarted</p></td>
     <td>integer</td>
-    <td>Count of not yet started.</td>
+    <td>Count of documents not yet started processing.</td>
   </tr>
   <tr>
     <td>summary.cancelled</p></td>
