@@ -83,6 +83,11 @@ If you are not using the default automatically generated, self-signed token sign
 
 First, you must obtain a two new certificates from your certificate authority and import them into the local machine personal certificate store on each federation server. For instructions, see the [Import a Certificate](https://technet.microsoft.com/library/cc754489.aspx) article.
 
+>[!IMPORTANT]
+>The reason we are creating two certificates is because Azure holds on to information regarding the previous certificate.  By creating a second one, we are forcing Azure to release information about the old certificate and replace it with information about the second certificate.
+>
+>If you do not create the second certificate and update Azure with it, it may be possible for the  old token-signing certificate to authenticate users.
+
 ### To configure a new certificate as a secondary certificate
 Then you must configure one certificate as the secondary AD FS token signing or decryption certificate and then promote it to the primary
 
