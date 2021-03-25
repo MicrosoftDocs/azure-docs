@@ -20,6 +20,8 @@
     href: walkthrough-exchange-all.md
   - name: Peering Service partner walkthrough
     href: walkthrough-peering-service-all.md
+  - name: Voice Service partner walkthrough
+    href: walkthrough-voiceservice-partner.md  
   - name: Associate peer ASN to Azure subscription
     items:
     - name: Portal
