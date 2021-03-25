@@ -88,6 +88,7 @@ Azure Machine Learning builds on top of other services. Some services can be con
 | Container Registry | Microsoft | Configure the Container Registry instance to geo-replicate registries to the paired region for Azure Machine Learning. Use the same instance for both workspace instances. For more information, see [Geo-replication in Azure Container Registry](../container-registry/container-registry-geo-replication.md). |
 | Storage Account | You | Azure Machine Learning does not support __default storage-account__ failover using geo-redundant storage (GRS), geo-zone-redundant storage (GZRS), read-access geo-redundant storage (RA-GRS), or read-access geo-zone-redundant storage (RA-GZRS). Create a separate storage account for the default storage of each workspace. </br>Create separate storage accounts or services for other data storage. For more information, see [Azure Storage redundancy](../storage/common/storage-redundancy.md). |
 | Application Insights | You | Create Application Insights for the workspace in both regions. To adjust the data-retention period and details, see [Data collection, retention, and storage in Application Insights](../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept). |
+| Cosmos DB | You |  Optionally create a dedicated Cosmos DB instance for use with your workspace to allow for geo-replication of data that Azure Machine Learning manages in Cosmos DB. |
 
 To enable fast recovery and restart in the secondary region, we recommend the following development practices:
 
@@ -132,6 +133,9 @@ By keeping your data storage isolated from the default storage the workspace use
 
 * Attach the same storage instances as datastores to the primary and secondary workspaces.
 * Make use of geo-replication for data storage accounts and maximize your uptime.
+
+### Create a dedicated Cosmos DB instance for use with your workspace
+Azure Machine Learning stores metadata in an Azure Cosmos DB instance. This instance is associated with a Microsoft subscription managed by Azure Machine Learning. All the data stored in Azure Cosmos DB is encrypted at rest with Microsoft-managed keys. You can [create](https://docs.microsoft.com/en-us/azure/machine-learning/concept-data-encryption#azure-cosmos-db) a dedicated Cosmos DB instance for use with your workspace. We recommend this approach if you want to store your data, such as run history information, outside of the multi-tenant Cosmos DB instance hosted in our Microsoft subscription. Since you will be the owner of the Cosmos DB instance, you have the ability to configure the Cosmod DB instance in a high available configuration. See [High availability with Azure Cosmos DB](../cosmos-db/high-availability.md).
 
 ### Manage machine learning artifacts as code
 
