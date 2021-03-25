@@ -107,7 +107,8 @@ Express this value in gigabytes (GB).
 | **Linux** | `export AZCOPY_BUFFER_GB=<value>` |
 | **macOS** | `export AZCOPY_BUFFER_GB=<value>` |
 
-Please note that there is always an additional overhead in terms memory usage for job tracking purposes, and this amount varies based on the number of transfers in a job. Since the buffers are the biggest component of memory usage, you can control it with `AZCOPY_BUFFER_GB` to meet you requirements.
+> [!NOTE]
+> Please note that there is always an additional overhead in terms of memory usage for job tracking purposes, and this amount varies based on the number of transfers in a job. Since the buffers are the biggest component of memory usage, you can control it with `AZCOPY_BUFFER_GB` to roughly meet your requirements. To be clear, there is no flag to strictly cap the overall memory usage.
 
 ### Optimize file synchronization
 
