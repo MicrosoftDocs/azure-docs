@@ -25,13 +25,13 @@ The map manages all events through its `events` property. The following table li
 | `OnCameraMove`         | `()`                 | Fired repeatedly during an animated transition from one view to another, as the result of either user interaction or methods. |
 | `OnCameraMoveCanceled` | `()`                 | Fired when a movement request to the camera has been canceled. |
 | `OnCameraMoveStarted`  | `(int reason)`       | Fired just before the map begins a transition from one view to another, as the result of either user interaction or methods. The `reason` argument of the event listener returns an integer value that provides details of how the camera movement was initiated. The following list outlines the possible reasons:<ul><li>1: Gesture</li><li>2: Developer animation</li><li>3: API Animation</li></ul>   |
-| `OnClick`              | `(double lat, double lon)` | Fired when the map is pressed and released at the same point on the map. |
-| `OnFeatureClick`       | `(List<Feature>)`    | Fired when the map is pressed and released at the same point on a feature.  |
+| `OnClick`              | `(double lat, double lon): boolean` | Fired when the map is pressed and released at the same point on the map. The event handler needs to return a boolean value indicating if the event should be consumed or continue bubble up. |
+| `OnFeatureClick`       | `(List<Feature>): boolean`    | Fired when the map is pressed and released at the same point on a feature. The event handler needs to return a boolean value indicating if the event should be consumed or continue bubble up. |
 | `OnLayerAdded` | `(Layer layer)` | Fired when a layer is added to the map. |
 | `OnLayerRemoved` | `(Layer layer)` | Fired when a layer is removed from the map. |
 | `OnLoaded` | `()` | Fired immediately after all necessary resources have been downloaded and the first visually complete rendering of the map has occurred. |
-| `OnLongClick`          | `(double lat, double lon)` | Fired when the map is pressed, held for a moment, and then released at the same point on the map. |
-| `OnLongFeatureClick `  | `(List<Feature>)`    | Fired when the map is pressed, held for a moment, and then released at the same point on a feature. |
+| `OnLongClick`          | `(double lat, double lon): boolean` | Fired when the map is pressed, held for a moment, and then released at the same point on the map. The event handler needs to return a boolean value indicating if the event should be consumed or continue bubble up. |
+| `OnLongFeatureClick `  | `(List<Feature>): boolean`    | Fired when the map is pressed, held for a moment, and then released at the same point on a feature. The event handler needs to return a boolean value indicating if the event should be consumed or continue bubble up. |
 | `OnReady`              | `(AzureMap map)`     | Fired when the map initially is loaded or when the app orientation change and the minimum required map resources are loaded and the map is ready to be programmatically interacted with. |
 | `OnSourceAdded` | `(Source source)` | Fired when a `DataSource` or `VectorTileSource` is added to the map. |
 | `OnSourceRemoved` | `(Source source)` | Fired when a `DataSource` or `VectorTileSource` is removed from the map. |
@@ -44,10 +44,16 @@ The following code shows how to add the `OnClick`, `OnFeatureClick`, and `OnCame
 ```java
 map.events.add((OnClick) (lat, lon) -> {
     //Map clicked.
+
+    //Return a boolean indicating if event should be consumed or continue bubble up.
+    return false;
 });
 
 map.events.add((OnFeatureClick) (features) -> {
     //Feature clicked.
+
+    //Return a boolean indicating if event should be consumed or continue bubble up.
+    return false;
 });
 
 map.events.add((OnCameraMove) () -> {
@@ -62,10 +68,16 @@ map.events.add((OnCameraMove) () -> {
 ```kotlin
 map.events.add(OnClick { lat: Double, lon: Double -> 
     //Map clicked.
+
+    //Return a boolean indicating if event should be consumed or continue bubble up.
+    return false
 })
 
 map.events.add(OnFeatureClick { features: List<Feature?>? -> 
     //Feature clicked.
+
+    //Return a boolean indicating if event should be consumed or continue bubble up.
+    return false
 })
 
 map.events.add(OnCameraMove {
@@ -98,11 +110,17 @@ map.layers.add(layer);
 //Add a feature click event to the map and pass the layer ID to limit the event to the specified layer.
 map.events.add((OnFeatureClick) (features) -> {
     //One or more features clicked.
+
+    //Return a boolean indicating if event should be consumed or continue bubble up.
+    return false;
 }, layer);
 
 //Add a long feature click event to the map and pass the layer ID to limit the event to the specified layer.
 map.events.add((OnLongFeatureClick) (features) -> {
     //One or more features long clicked.
+
+    //Return a boolean indicating if event should be consumed or continue bubble up.
+    return false;
 }, layer);
 ```
 
@@ -126,6 +144,9 @@ map.layers.add(layer)
 map.events.add(
     OnFeatureClick { features: List<Feature?>? -> 
         //One or more features clicked.
+
+        //Return a boolean indicating if event should be consumed or continue bubble up.
+        return false
     },
     layer
 )
@@ -134,6 +155,9 @@ map.events.add(
 map.events.add(
     OnLongFeatureClick { features: List<Feature?>? -> 
          //One or more features long clicked.
+
+        //Return a boolean indicating if event should be consumed or continue bubble up.
+        return false
     },
     layer
 )
