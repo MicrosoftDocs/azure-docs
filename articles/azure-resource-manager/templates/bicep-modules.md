@@ -84,7 +84,7 @@ output storageEndpoint object = stgModule.outputs.storageEndpoint
     "resources": [
       {
         "type": "Microsoft.Resources/deployments",
-        "apiVersion": "2019-10-01",
+        "apiVersion": "2020-10-01",
         "name": "storageDeploy",
         "properties": {
           ...

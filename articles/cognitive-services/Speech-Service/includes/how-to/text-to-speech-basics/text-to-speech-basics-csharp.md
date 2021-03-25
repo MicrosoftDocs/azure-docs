@@ -26,11 +26,11 @@ This article assumes that you have an Azure account and Speech service subscript
 
 Before you can do anything, you'll need to install the Speech SDK. Depending on your platform, use the following instructions:
 
-* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=dotnet&pivots=programming-language-csharp" target="_blank">.NET Framework </a>
-* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=dotnetcore&pivots=programming-language-csharp" target="_blank">.NET Core </a>
-* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=unity&pivots=programming-language-csharp" target="_blank">Unity </a>
-* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=uwps&pivots=programming-language-csharp" target="_blank">UWP </a>
-* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=xaml&pivots=programming-language-csharp" target="_blank">Xamarin </a>
+* <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-csharp&tabs=dotnet" target="_blank">.NET Framework </a>
+* <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-csharp&tabs=dotnetcore" target="_blank">.NET Core </a>
+* <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-csharp&tabs=unity" target="_blank">Unity </a>
+* <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-csharp&tabs=uwps" target="_blank">UWP </a>
+* <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-csharp&tabs=xaml" target="_blank">Xamarin </a>
 
 ## Import dependencies
 
@@ -106,7 +106,7 @@ Run the program, and a synthesized `.wav` file is written to the location you sp
 
 ## Synthesize to speaker output
 
-In some cases, you may want to directly output synthesized speech directly to a speaker. To do this, simply omit the `AudioConfig` param when creating the `SpeechSynthesizer` in the example above. This outputs to the current active output device.
+In some cases, you may want to directly output synthesized speech directly to a speaker. To do this,  omit the `AudioConfig` parameter when creating the `SpeechSynthesizer` in the example above. This synthesizes to the current active output device.
 
 ```csharp
 static async Task SynthesizeAudioAsync()
@@ -244,10 +244,10 @@ To switch to a neural voice, change the `name` to one of the [neural voice optio
   </voice>
 </speak>
 ```
-## Visemes
+## Get facial pose events
 
-Speech is usually treated as a good way to drive the animation of facial expressions.
-Often [visemes](../../../how-to-speech-synthesis-viseme.md) are used to represent the key poses in observed speech (i.e. the position of the lips, jaw and tongue when producing a particular phoneme).
-You can subscribe the Viseme event in Speech SDK to generate facial animation data.
-Then, you can apply such data to a character to realize facial animation.
-Learn [how to get viseme outputs](../../../how-to-speech-synthesis-viseme.md#get-viseme-outputs-with-the-speech-sdk).
+Speech can be a good way to drive the animation of facial expressions.
+Often [visemes](../../../how-to-speech-synthesis-viseme.md) are used to represent the key poses in observed speech, such as the position of the lips, jaw and tongue when producing a particular phoneme.
+You can subscribe the viseme event in Speech SDK.
+Then, you can apply viseme events to animate the face of a character as speech audio plays.
+Learn [how to get viseme events](../../../how-to-speech-synthesis-viseme.md#get-viseme-events-with-the-speech-sdk).

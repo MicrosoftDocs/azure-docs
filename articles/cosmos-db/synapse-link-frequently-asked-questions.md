@@ -6,6 +6,7 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/30/2020
+ms.custom: synapse-cosmos-db
 
 ---
 

@@ -9,7 +9,7 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
-ms.date: 12/31/2020
+ms.date: 03/24/2021
 ---
 
 # Analyze with Apache Spark
@@ -32,9 +32,10 @@ A serverless Spark pool is a way of indicating how a user wants to work with Spa
 ## Analyze NYC Taxi data in blob storage using Spark
 
 1. In Synapse Studio go to the **Develop** hub
-2. Create a newnNotebook with the default language set to **PySpark (Python)**.
+2. Create a new Notebook with the default language set to **PySpark (Python)**.
 3. Create a new code cell and paste the following code into that cell.
-    ```
+    ```py
+    %%pyspark
     from azureml.opendatasets import NycTlcYellow
 
     data = NycTlcYellow()
@@ -57,7 +58,8 @@ Data is available via the dataframe named **data**. Load it into a Spark databas
 1. Add a new to the notebook, and then enter the following code:
 
     ```py
-    data.write.mode("overwrite").saveAsTable("nyctaxi.trip")
+    spark.sql("CREATE DATABASE IF NOT EXISTS nyctaxi")
+    df.write.mode("overwrite").saveAsTable("nyctaxi.trip")
     ```
 ## Analyze the NYC Taxi data using Spark and notebooks
 
@@ -71,16 +73,16 @@ Data is available via the dataframe named **data**. Load it into a Spark databas
    ```
 
 1. Run the cell to show the NYC Taxi data we loaded into the **nyctaxi** Spark database.
-1. Create a new code cell and enter the following code. Then run the cell to do the same analysis that we did earlier with the dedicated SQL pool **SQLPOOL1**. This code saves and displays the results of the analysis into a table called **nyctaxi.passengercountstats**.
+1. Create a new code cell and enter the following code. We will analysis this data and save the results into a table called **nyctaxi.passengercountstats**.
 
    ```py
    %%pyspark
    df = spark.sql("""
       SELECT PassengerCount,
-          SUM(TripDistanceMiles) as SumTripDistance,
-          AVG(TripDistanceMiles) as AvgTripDistance
+          SUM(TripDistance) as SumTripDistance,
+          AVG(TripDistance) as AvgTripDistance
       FROM nyctaxi.trip
-      WHERE TripDistanceMiles > 0 AND PassengerCount > 0
+      WHERE TripDistance > 0 AND PassengerCount > 0
       GROUP BY PassengerCount
       ORDER BY PassengerCount
    """) 

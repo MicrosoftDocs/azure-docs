@@ -14,7 +14,7 @@ ms.author: mikben
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-The Azure Communication Services **Group Calling Hero Sample for Android** demonstrates how the Communication Services Calling Android client library can be used to build a group calling experience that includes voice and video. In this sample quickstart, you will learn how to set up and run the sample. An overview of the sample is provided for context.
+The Azure Communication Services **Group Calling Hero Sample for Android** demonstrates how the Communication Services Calling Android SDK can be used to build a group calling experience that includes voice and video. In this sample quickstart, you will learn how to set up and run the sample. An overview of the sample is provided for context.
 
 ## Download code
 
@@ -22,7 +22,7 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 
 ## Overview
 
-The sample is a native Android application that uses the Azure Communication Services Android client libraries to build a calling experience that features both voice and video calling. The application uses a server-side component to provision access tokens that are then used to initialize the Azure Communication Services client library. To configure this server-side component, feel free to follow the [Trusted Service with Azure Functions](../../tutorials/trusted-service-tutorial.md) tutorial.
+The sample is a native Android application that uses the Azure Communication Services Android SDKs to build a calling experience that features both voice and video calling. The application uses a server-side component to provision access tokens that are then used to initialize the Azure Communication Services SDK. To configure this server-side component, feel free to follow the [Trusted Service with Azure Functions](../../tutorials/trusted-service-tutorial.md) tutorial.
 
 Here's what the sample looks like:
 
@@ -59,8 +59,8 @@ The group calling sample can be run locally using Android Studio. Developers can
 ### Before running the sample for the first time
 
 1. Open Android Studio and select `Open an Existing Project`
-2. Open the `ACSCall` folder inside downloaded release for the sample.
-3. Expand app/assets to update `config.properties`. Set the value for the key `token_generation_addr` to be the URL for your Authentication Endpoint set up as a prerequisite.
+2. Open the `AzureCalling` folder inside downloaded release for the sample.
+3. Expand app/assets to update `appSettings.properties`. Set the value for the key `communicationTokenFetchUrl` to be the URL for your Authentication Endpoint set up as a prerequisite.
 
 ### Run sample
 
@@ -80,7 +80,7 @@ With additional configuration, this sample supports connecting to an **Azure Act
 
 :::image type="content" source="../media/calling/aad-overview-android.png" alt-text="Azure Active Directory configuration on Azure portal.":::
 
-3. Edit `ACSCall/app/src/main/res/raw/auth_config_single_account.json` and set `is_aad_auth_enabled` to enable Azure Active Directory
+3. Edit `AzureCalling/app/src/main/res/raw/auth_config_single_account.json` and set `isAADAuthEnabled` to enable Azure Active Directory
 4. Edit `AndroidManifest.xml` and set `android:path` to keystore signature hash. (Optional. The current value uses hash from bundled debug.keystore. If different keystore is used, this must be updated.)
    ```
    <activity android:name="com.microsoft.identity.client.BrowserTabActivity">
@@ -89,13 +89,13 @@ With additional configuration, this sample supports connecting to an **Azure Act
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data
-                    android:host="com.azure.samples.acscall"
+                    android:host="com.azure.samples.communication.calling"
                     android:path="/Signature hash" <!-- do not remove /. The current hash in AndroidManifest.xml is for debug.keystore. -->
                     android:scheme="msauth" />
             </intent-filter>
         </activity>
    ```
-5. Copy MSAL Android configuration from Azure portal and paste to `ACSCall/app/src/main/res/raw/auth_config_single_account.json`. Include "account_mode" : "SINGLE"
+5. Copy MSAL Android configuration from Azure portal and paste to `AzureCalling/app/src/main/res/raw/auth_config_single_account.json`. Include "account_mode" : "SINGLE"
    ```
       {
          "client_id": "",
@@ -114,8 +114,8 @@ With additional configuration, this sample supports connecting to an **Azure Act
       }
    ```
 
-6. Edit `ACSCall/app/src/main/res/raw/auth_config_single_account.json` and set the value for the key `token_generation_address` to be the URL for your secure Authentication Endpoint.
-7. Edit `ACSCall/app/src/main/res/raw/auth_config_single_account.json` and set the value for the key `aad_scopes` from `Azure Active Directory` `Expose an API` scopes
+6. Edit `AzureCalling/app/src/main/res/raw/auth_config_single_account.json` and set the value for the key `communicationTokenFetchUrl` to be the URL for your secure Authentication Endpoint.
+7. Edit `AzureCalling/app/src/main/res/raw/auth_config_single_account.json` and set the value for the key `aadScopes` from `Azure Active Directory` `Expose an API` scopes
 
 ## Clean up resources
 
@@ -128,9 +128,12 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 For more information, see the following articles:
 
-- Familiarize yourself with [using the calling client library](../../quickstarts/voice-video-calling/calling-client-samples.md)
+- Familiarize yourself with [using the Calling SDK](../../quickstarts/voice-video-calling/calling-client-samples.md)
 - Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md)
 
 ### Additional reading
 
 - [Azure Communication GitHub](https://github.com/Azure/communication) - Find more examples and information on the official GitHub page
+- [Samples](./../overview.md) - Find more samples and examples on our samples overview page.
+- [Azure Communication Calling Features](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features) - To learn more about the calling Android sdk
+-[Azure Communication Android Calling SDK](https://search.maven.org/artifact/com.azure.android/azure-communication-calling)

@@ -20,7 +20,7 @@ ms.service: azure-communication-services
 > Applications that you build using Azure Communication Services can talk to Microsoft Teams. To learn more, visit our [Teams Interop](./quickstarts/voice-video-calling/get-started-teams-interop.md) documentation.
 
 
-Azure Communication Services allows you to easily add real-time multimedia voice, video, and telephony-over-IP communications features to your applications. The Communication Services client libraries also allow you to add chat and SMS functionality to your communications solutions.
+Azure Communication Services allows you to easily add real-time multimedia voice, video, and telephony-over-IP communications features to your applications. The Communication Services SDKs also allow you to add chat and SMS functionality to your communications solutions.
 
 <br>
 
@@ -59,25 +59,25 @@ After creating an Communication Services resource you can start building client 
 
 ## Samples
 
-The following samples demonstrate end-to-end utilization of the Azure Communication Services client libraries. Feel free to use these samples to bootstrap your own Communication Services solutions.
+The following samples demonstrate end-to-end utilization of the Azure Communication Services SDKs. Feel free to use these samples to bootstrap your own Communication Services solutions.
 <br>
 
 | Sample name                               | Description                           |
 |---                                    |---                                   |
-|**[The Group Calling Hero Sample](./samples/calling-hero-sample.md)**|See how the Communication Services client libraries can be used to build a group calling experience.|
-|**[The Group Chat Hero Sample](./samples/chat-hero-sample.md)**|See how the Communication Services client libraries can be used to build a group chat experience.|
+|**[The Group Calling Hero Sample](./samples/calling-hero-sample.md)**|See how the Communication Services SDKs can be used to build a group calling experience.|
+|**[The Group Chat Hero Sample](./samples/chat-hero-sample.md)**|See how the Communication Services SDKs can be used to build a group chat experience.|
 
 
-## Platforms and client libraries
+## Platforms and SDKs
 
-The following resources will help you learn about the Azure Communication Services client libraries:
+The following resources will help you learn about the Azure Communication Services SDKs:
 
 | Resource                               | Description                           |
 |---                                    |---                                   |
-|**[Client libraries and REST APIs](./concepts/sdk-options.md)**|Azure Communication Services capabilities are conceptually organized into six areas, each represented by a client library. You can decide which client libraries to use based on your real-time communication needs.|
-|**[Calling client library overview](./concepts/voice-video-calling/calling-sdk-features.md)**|Review the Communication Services Calling client library overview.|
-|**[Chat client library overview](./concepts/chat/sdk-features.md)**|Review the Communication Services Chat client library overview.|
-|**[SMS client library overview](./concepts/telephony-sms/sdk-features.md)**|Review the Communication Services SMS client library overview.|
+|**[Client libraries and REST APIs](./concepts/sdk-options.md)**|Azure Communication Services capabilities are conceptually organized into six areas, each represented by an SDK. You can decide which SDKs to use based on your real-time communication needs.|
+|**[Calling SDK overview](./concepts/voice-video-calling/calling-sdk-features.md)**|Review the Communication Services Calling SDK overview.|
+|**[Chat SDK overview](./concepts/chat/sdk-features.md)**|Review the Communication Services Chat SDK overview.|
+|**[SMS SDK overview](./concepts/telephony-sms/sdk-features.md)**|Review the Communication Services SMS SDK overview.|
 
 ## Compare Azure Communication Services
 
