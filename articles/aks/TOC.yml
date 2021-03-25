@@ -309,7 +309,6 @@
           maintainContext: true
     - name: Use Windows Server containers
       items:
-      items:
         - name: Use Bridge to Kubernetes with Visual Studio Code
           href: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
         - name: Use Bridge to Kubernetes with Visual Studio
