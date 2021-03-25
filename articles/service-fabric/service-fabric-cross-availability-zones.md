@@ -348,7 +348,7 @@ Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP
 
 The previously mentioned solution uses one nodeType per AZ. The following solution will allow users to deploy 3 AZ's in the same nodeType.
 
-**This is a preview solution just for testing purposes and should not be deployed to production clusters.**
+**As this feature is currently in preview, it is not currently supported for production scenarios.**
 
 Full sample template is present [here](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/15-VM-Windows-Multiple-AZ-Secure).
 
