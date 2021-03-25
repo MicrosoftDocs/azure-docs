@@ -1,7 +1,7 @@
 ---
-title: Document Translation Get Glossary Formats Method
+title: Document Translation get glossary formats method
 titleSuffix: Azure Cognitive Services
-description: The Get Glossary Formats method returns the list of supported glossary formats.
+description: The get glossary formats method returns the list of supported glossary formats.
 services: cognitive-services
 author: jann-skotdal
 manager: nitinme
@@ -13,7 +13,7 @@ ms.date: 03/03/2021
 ms.author: v-jansk
 ---
 
-# Document Translation: Get Glossary Formats
+# Document Translation: get glossary formats
 
 The Get Glossary Formats method returns a list of supported glossary formats supported by the Document Translation service. The list includes the common file extension used.
 
@@ -35,104 +35,44 @@ Learn how to find your [custom domain name](https://docs.microsoft.com/azure/cog
 
 Request headers are:
 
-<table width="100%">
-  <th width="20%">Headers</th>
-  <th>Description</th>
-  <tr>
-    <td>Ocp-Apim-Subscription-Key</td>
-    <td><em>Required request header</em></td>
-  </tr>
-</table>
+|Headers|Description|
+|--- |--- |
+|Ocp-Apim-Subscription-Key|Required request header|
 
 ## Response status codes
 
 The following are the possible HTTP status codes that a request returns.
 
-<table width="100%">
-  <th width="20%">Status Code</th>
-  <th>Description</th>
-  <tr>
-    <td>200</td>
-    <td>OK. Returns the list of supported glossary file formats.
-  </tr>
-  <tr>
-    <td>500</td>
-    <td>Internal Server Error.</td>
-  </tr>
-  <tr>
-    <td>Other Status Codes</td>
-    <td><ul><li>Too many requests</li><li>Server temporary unavailable</li></ul></td>
-  </tr>
-</table>
+|Status Code|Description|
+|--- |--- |
+|200|OK. Returns the list of supported glossary file formats.|
+|500|Internal Server Error.|
+|Other Status Codes|<ul><li>Too many requests</li><li>Server temporary unavailable</li></ul>|
+
 
 ## Get Glossary Formats Response
+
 Base type for list return in the Get Glossary Formats API.
 
 ### Successful Get Glossary Formats Response
+
 Base type for list return in the Get Glossary Formats API.
 
-<table width="100%">
-  <th width="20%">Name</th>
-  <th>Type</th>
-  <th>Description</th>
-  <tr>
-    <td>value</td>
-    <td>FileFormat[]</td>
-    <td>List of objects in FileFormat below.
-  </tr>
-    <tr>
-    <td>value.format</p></td>
-    <td>string []</td>
-    <td>Name of the format.
-  </tr>
-  <tr>
-    <td>value.fileExtensions</p></td>
-    <td>string []</td>
-    <td>Supported file extension for this format.
-  </tr>
-  <tr>
-    <td>value.contentTypes</p></td>
-    <td>string []</td>
-    <td>Supported Content-Types for this format.
-  </tr>
-    <td>value.versions</p></td>
-    <td>string []</td>
-    <td>Supported Version.
-  </tr>
-</table>
+|Status Code|Description|
+|--- |--- |
+|200|OK. Returns the list of supported glossary file formats.|
+|500|Internal Server Error.|
+|Other Status Codes|Too many requestsServer temporary unavailable|
 
 ### Error Response
 
-<table>
-  <th width="20%">Name</th>
-  <th>Type</th>
-  <th>Description</th>
-  <tr>
-    <td>code</td>
-    <td>string</td>
-    <td>Enums containing high-level error codes. Possible values:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Unauthorized</li></ul></td>
-  </tr>
-  <tr>
-    <td>message</td>
-    <td>string</td>
-    <td>Gets high-level error message.</td>
-  </tr>
-  <tr>
-    <td>innerError</td>
-    <td>InnerErrorV2</td>
-    <td>New Inner Error format, which conforms to Cognitive Services API Guidelines. It contains required properties ErrorCode, message and optional properties target, details(key value pair), inner error (this can be nested).</td>
-  </tr>
-  <tr>
-    <td>innerError.code</p></td>
-    <td>string</td>
-    <td>Gets code error string.</td>
-  </tr>
-  <tr>
-    <td>innerError.message</p></td>
-    <td>string</td>
-    <td>Gets high-level error message.</td>
-  </tr>
-</table>
+|Name|Type|Description|
+|--- |--- |--- |
+|code|string|Enums containing high-level error codes. Possible values:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Unauthorized</li></ul>|
+|message|string|Gets high-level error message.|
+|innerError|InnerErrorV2|New Inner Error format, which conforms to Cognitive Services API Guidelines. It contains required properties ErrorCode, message and optional properties target, details(key value pair), inner error (this can be nested).|
+|innerError.code|string|Gets code error string.|
+|innerError.message|string|Gets high-level error message.|
 
 ## Examples
 
@@ -188,3 +128,10 @@ Status code: 500
   }
 }
 ```
+
+## Next steps
+
+Follow our quickstart to learn more about using Document Translation and the client library.
+
+> [!div class="nextstepaction"]
+> [Get started with Document Translation](document-translation/get-started-with-document-translation.md)

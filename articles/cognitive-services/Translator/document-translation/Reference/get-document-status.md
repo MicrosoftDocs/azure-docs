@@ -1,7 +1,7 @@
 ---
-title: Document Translation Get Document Status Method
+title: Document Translation get document status method
 titleSuffix: Azure Cognitive Services
-description: The Get Document Status method returns the status for a specific document.
+description: The get document status method returns the status for a specific document.
 services: cognitive-services
 author: jann-skotdal
 manager: nitinme
@@ -13,7 +13,7 @@ ms.date: 03/03/2021
 ms.author: v-jansk
 ---
 
-# Document Translation: Get Document Status
+# Document Translation: get document status
 
 The Get Document Status method returns the status for a specific document. The method returns the translation status for a specific document based on the request ID and document ID.
 
@@ -35,150 +35,59 @@ Learn how to find your [custom domain name](https://docs.microsoft.com/azure/cog
 
 Request parameters passed on the query string are:
 
-<table width="100%">
-  <th width="20%">Query parameter</th>
-  <th>Required</th>
-  <th>Description</th>
-  <tr>
-    <td>documentId</td>
-    <td>True</td>
-    <td>The document ID.</td>
-  </tr>
-  <tr>
-    <td>id</td>
-    <td>True</td>
-    <td>The batch ID.</td>
-  </tr>
-</table>
-
+|Query parameter|Required|Description|
+|--- |--- |--- |
+|documentId|True|The document ID.|
+|id|True|The batch ID.|
 ## Request headers
 
 Request headers are:
 
-<table width="100%">
-  <th width="20%">Headers</th>
-  <th>Description</th>
-  <tr>
-    <td>Ocp-Apim-Subscription-Key</td>
-    <td><em>Required request header</em></td>
-  </tr>
-</table>
+|Headers|Description|
+|--- |--- |
+|Ocp-Apim-Subscription-Key|Required request header|
 
 ## Response status codes
 
 The following are the possible HTTP status codes that a request returns.
 
-<table width="100%">
-  <th width="20%">Status Code</th>
-  <th>Description</th>
-  <tr>
-    <td>200</td>
-    <td>OK. Successful request and it is accepted by the service. The operation details are returned.<br/><br/>Headers<br/>Retry-After: integer<br/>ETag: string</td>
-  </tr>
-  <tr>
-    <td>401</td>
-    <td>Unauthorized. Please check your credentials.</td>
-  </tr>
-  <tr>
-    <td>404</td>
-    <td>Not Found. Resource is not found.</td>
-  </tr>
-  <tr>
-    <td>500</td>
-    <td>Internal Server Error.</td>
-  </tr>
-  <tr>
-    <td>Other Status Codes</td>
-    <td><ul><li>Too many requests</li><li>Server temporary unavailable</li></ul></td>
-  </tr>
-</table>
+|Status Code|Description|
+|--- |--- |
+|200|OK. Successful request and it is accepted by the service. The operation details are returned.HeadersRetry-After: integerETag: string|
+|401|Unauthorized. Check your credentials.|
+|404|Not Found. Resource is not found.|
+|500|Internal Server Error.|
+|Other Status Codes|<ul><li>Too many requests</li><li>Server temporary unavailable</li></ul>|
 
 ## Get Document Status Response
 
-## Successful Get Document Status Response
-<table>
-  <th width="20%">Name</th>
-  <th>Type</th>
-  <th>Description</th>
-   <tr>
-    <td>path</td>
-    <td>string</td>
-    <td>Location of the document or folder.</td>
-  </tr>
-  <tr>
-    <td>createdDateTimeUtc</td>
-    <td>string</td>
-    <td>Operation created date time.</td>
-  </tr>
-  <tr>
-    <td>lastActionDateTimeUtc</td>
-    <td>string</td>
-    <td>Date time in which the operation's status has been updated.</td>
-  </tr>
-  <tr>
-    <td>status</td>
-    <td>String</td>
-    <td>List of possible statuses for job or document: <ul><li>Cancelled</li><li>Cancelling</li><li>Failed</li><li>NotStarted</li><li>Running</li><li>Succeeded</li><li>ValidationFailed</li></ul></td>
-  </tr>
-  <tr>
-    <td>to</td>
-    <td>string</td>
-    <td>Two letter language code of To Language. See the list of languages.</td>
-  </tr>
-  <tr>
-    <td>progress</td>
-    <td>number</td>
-    <td>Progress of the translation if available</td>
-  </tr>
-  <tr>
-    <td>id</td>
-    <td>string</td>
-    <td>Document ID.</td>
-  </tr>
-  <tr>
-    <td>characterCharged</td>
-    <td>integer</td>
-    <td>Characters charged by the API.</td>
-  </tr>
-</table>
+### Successful Get Document Status Response
+
+|Name|Type|Description|
+|--- |--- |--- |
+|path|string|Location of the document or folder.|
+|createdDateTimeUtc|string|Operation created date time.|
+|lastActionDateTimeUtc|string|Date time in which the operation's status has been updated.|
+|status|String|List of possible statuses for job or document: <ul><li>Cancelled</li><li>Cancelling</li><li>Failed</li><li>NotStarted</li><li>Running</li><li>Succeeded</li><li>ValidationFailed</li></ul>|
+|to|string|Two letter language code of To Language. See the list of languages.|
+|progress|number|Progress of the translation if available|
+|id|string|Document ID.|
+|characterCharged|integer|Characters charged by the API.|
 
 ### Error Response
 
-<table>
-  <th width="20%">Name</th>
-  <th>Type</th>
-  <th>Description</th>
-  <tr>
-    <td>code</td>
-    <td>string</td>
-    <td>Enums containing high-level error codes. Possible values:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Unauthorized</li></ul></td>
-  </tr>
-  <tr>
-    <td>message</td>
-    <td>string</td>
-    <td>Gets high-level error message.</td>
-  </tr>
-  <tr>
-    <td>innerError</td>
-    <td>InnerErrorV2</td>
-    <td>New Inner Error format, which conforms to Cognitive Services API Guidelines. It contains required properties ErrorCode, message and optional properties target, details(key value pair), inner error (this can be nested).</td>
-  </tr>
-  <tr>
-    <td>innerError.code</p></td>
-    <td>string</td>
-    <td>Gets code error string.</td>
-  </tr>
-  <tr>
-    <td>innerError.message</p></td>
-    <td>string</td>
-    <td>Gets high-level error message.</td>
-  </tr>
-</table>
+|Name|Type|Description|
+|--- |--- |--- |
+|code|string|Enums containing high-level error codes. Possible values:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Unauthorized</li></ul>|
+|message|string|Gets high-level error message.|
+|innerError|InnerErrorV2|New Inner Error format, which conforms to Cognitive Services API Guidelines. It contains required properties ErrorCode, message, and optional properties target, details(key value pair), inner error (can be nested).|
+|innerError.code|string|Gets code error string.|
+|innerError.message|string|Gets high-level error message.|
 
 ## Examples
 
 ### Example Successful Response
-The following is an example of a successful response.
+The following JSON object is an example of a successful response.
 
 ```JSON
 {
@@ -194,7 +103,8 @@ The following is an example of a successful response.
 ```
 
 ### Example Error Response
-The following is an example of an error response. The schema for other error codes is the same.
+
+The following JSON object is an example of an error response. The schema for other error codes is the same.
 
 Status code: 401
 
@@ -211,3 +121,10 @@ Status code: 401
   }
 }
 ```
+
+## Next steps
+
+Follow our quickstart to learn more about using Document Translation and the client library.
+
+> [!div class="nextstepaction"]
+> [Get started with Document Translation](document-translation/get-started-with-document-translation.md)

@@ -1,7 +1,7 @@
 ---
-title: Document Translation Get Document Storage Source Method
+title: Document Translation get document storage source method
 titleSuffix: Azure Cognitive Services
-description: The Get Document Storage Source method returns a list of supported storage sources.
+description: The get document storage source method returns a list of supported storage sources.
 services: cognitive-services
 author: jann-skotdal
 manager: nitinme
@@ -13,7 +13,7 @@ ms.date: 03/03/2021
 ms.author: v-jansk
 ---
 
-# Document Translation: Get Document Storage Source
+# Document Translation: get document storage source
 
 The Get Document Storage Source method returns a list of storage sources/options supported by the Document Translation service.
 
@@ -35,89 +35,44 @@ Learn how to find your [custom domain name](https://docs.microsoft.com/azure/cog
 
 Request headers are:
 
-<table width="100%">
-  <th width="20%">Headers</th>
-  <th>Description</th>
-  <tr>
-    <td>Ocp-Apim-Subscription-Key</td>
-    <td><em>Required request header</em></td>
-  </tr>
-</table>
+|Headers|Description|
+|--- |--- |
+|Ocp-Apim-Subscription-Key|Required request header|
 
 ## Response status codes
 
 The following are the possible HTTP status codes that a request returns.
 
-<table width="100%">
-  <th width="20%">Status Code</th>
-  <th>Description</th>
-  <tr>
-    <td>200</td>
-    <td>OK. Successful request and returns the list of storage sources.
-  </tr>
-  <tr>
-    <td>500</td>
-    <td>Internal Server Error.</td>
-  </tr>
-  <tr>
-    <td>Other Status Codes</td>
-    <td><ul><li>Too many requests</li><li>Server temporary unavailable</li></ul></td>
-  </tr>
-</table>
+|Status Code|Description|
+|--- |--- |
+|200|OK. Successful request and returns the list of storage sources.|
+|500|Internal Server Error.|
+|Other Status Codes|<ul><li>Too many requests</li><li>Server temporary unavailable</li></ul>|
 
 ## Get Document Storage Source Response
 
 ### Successful Get Document Storage Source Response
 Base type for list return in the Get Document Storage Source API.
 
-<table width="100%">
-  <th width="20%">Name</th>
-  <th>Type</th>
-  <th>Description</th>
-  <tr>
-    <td>value</td>
-    <td>string []</td>
-    <td>List of objects.
-  </tr>
-</table>
+|Name|Type|Description|
+|--- |--- |--- |
+|value|string []|List of objects.|
+
 
 ### Error Response
 
-<table>
-  <th width="20%">Name</th>
-  <th>Type</th>
-  <th>Description</th>
-  <tr>
-    <td>code</td>
-    <td>string</td>
-    <td>Enums containing high-level error codes. Possible values:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Unauthorized</li></ul></td>
-  </tr>
-  <tr>
-    <td>message</td>
-    <td>string</td>
-    <td>Gets high-level error message.</td>
-  </tr>
-  <tr>
-    <td>innerError</td>
-    <td>InnerErrorV2</td>
-    <td>New Inner Error format, which conforms to Cognitive Services API Guidelines. It contains required properties ErrorCode, message and optional properties target, details(key value pair), inner error (this can be nested).</td>
-  </tr>
-  <tr>
-    <td>innerError.code</p></td>
-    <td>string</td>
-    <td>Gets code error string.</td>
-  </tr>
-  <tr>
-    <td>innerError.message</p></td>
-    <td>string</td>
-    <td>Gets high-level error message.</td>
-  </tr>
-</table>
-
+|Name|Type|Description|
+|--- |--- |--- |
+|code|string|Enums containing high-level error codes. Possible values:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Unauthorized</li></ul>|
+|message|string|Gets high-level error message.|
+|innerError|InnerErrorV2|New Inner Error format, which conforms to Cognitive Services API Guidelines. It contains required properties ErrorCode, message and optional properties target, details(key value pair), inner error (this can be nested).|
+|innerError.code|string|Gets code error string.|
+|innerError.message|string|Gets high-level error message.|
 
 ## Examples
 
 ### Example Successful Response
+
 The following is an example of a successful response.
 
 ```JSON
@@ -145,3 +100,10 @@ Status code: 500
   }
 }
 ```
+
+## Next steps
+
+Follow our quickstart to learn more about using Document Translation and the client library.
+
+> [!div class="nextstepaction"]
+> [Get started with Document Translation](document-translation/get-started-with-document-translation.md)

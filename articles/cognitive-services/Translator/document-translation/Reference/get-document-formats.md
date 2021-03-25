@@ -1,7 +1,7 @@
 ---
-title: Document Translation Get Document Formats Method
+title: Document Translation get document formats method
 titleSuffix: Azure Cognitive Services
-description: The Get Document Formats method returns a list of supported document formats.
+description: The get document formats method returns a list of supported document formats.
 services: cognitive-services
 author: jann-skotdal
 manager: nitinme
@@ -13,7 +13,7 @@ ms.date: 03/03/2021
 ms.author: v-jansk
 ---
 
-# Document Translation: Get Document Formats
+# Document Translation: get document formats
 
 The Get Document Formats method returns a list of document formats supported by the Document Translation service. The list includes the common file extension, and the content-type if using the upload API.
 
@@ -31,40 +31,23 @@ Learn how to find your [custom domain name](https://docs.microsoft.com/azure/cog
 > * **All API requests to the Document Translation service require a custom domain endpoint**.
 > * You can't use the endpoint found on your Azure portal resource _Keys and Endpoint_ page nor the global translator endpoint—`api.cognitive.microsofttranslator.com`—to make HTTP requests to Document Translation.
 
-
 ## Request headers
 
 Request headers are:
 
-<table width="100%">
-  <th width="20%">Headers</th>
-  <th>Description</th>
-  <tr>
-    <td>Ocp-Apim-Subscription-Key</td>
-    <td><em>Required request header</em></td>
-  </tr>
-</table>
+|Headers|Description|
+|-----|-----|
+|Ocp-Apim-Subscription-Key|Required request header|
 
 ## Response status codes
 
 The following are the possible HTTP status codes that a request returns.
 
-<table width="100%">
-  <th width="20%">Status Code</th>
-  <th>Description</th>
-  <tr>
-    <td>200</td>
-    <td>OK. Returns the list of supported document file formats.</td>
-  </tr>
-  <tr>
-    <td>500</td>
-    <td>Internal Server Error.</td>
-  </tr>
-  <tr>
-    <td>Other Status Codes</td>
-    <td><ul><li>Too many requests</li><li>Server temporary unavailable</li></ul></td>
-  </tr>
-</table>
+|Status Code|Description|
+|-----|-----|
+|200|OK. Returns the list of supported document file formats.|
+|500|Internal Server Error.|
+|Other Status Codes|<ul><li>Too many requests</li><li>Server temporary unavailable</li></ul>|
 
 ## File Format Response
 
@@ -72,69 +55,23 @@ The following are the possible HTTP status codes that a request returns.
 
 The following information is returned in a successful response.
 
-<table>
-  <th width="20%">Name</th>
-  <th width="20%">Type</th>
-  <th>Description</th>
-  <tr>
-    <td>value</td>
-    <td>FileFormat []</td>
-    <td>FileFormat[] contains the details listed below.</td>
-  </tr>
-    <tr>
-    <td>value.format</p></td>
-    <td>string[]</td>
-    <td>Supported Content-Types for this format.</td>
-  </tr>
-  <tr>
-    <td>value.fileExtensions</p></td>
-    <td>string[]</td>
-    <td>Supported file extension for this format.</td>
-  </tr>
-  <tr>
-    <td>value.contentTypes</p></td>
-    <td>string[]</td>
-    <td>Name of the format.</td>
-  </tr>
-  <tr>
-    <td>value.versions</p></td>
-    <td>String[]</td>
-    <td>Supported Version.</td>
-  </tr>
-</table>
+|Name|Type|Description|
+|--- |--- |--- |
+|value|FileFormat []|FileFormat[] contains the details listed below.|
+|value.format|string[]|Supported Content-Types for this format.|
+|value.fileExtensions|string[]|Supported file extension for this format.|
+|value.contentTypes|string[]|Name of the format.|
+|value.versions|String[]|Supported Version.|
 
 ### Error Response
 
-<table>
-  <th width="20%">Name</th>
-  <th>Type</th>
-  <th>Description</th>
-  <tr>
-    <td>code</td>
-    <td>string</td>
-    <td>Enums containing high-level error codes. Possible values:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Unauthorized</li></ul></td>
-  </tr>
-  <tr>
-    <td>message</td>
-    <td>string</td>
-    <td>Gets high-level error message.</td>
-  </tr>
-  <tr>
-    <td>innerError</td>
-    <td>InnerErrorV2</td>
-    <td>New Inner Error format, which conforms to Cognitive Services API Guidelines. It contains required properties ErrorCode, message and optional properties target, details(key value pair), inner error (this can be nested).</td>
-  </tr>
-  <tr>
-    <td>innerError.code</p></td>
-    <td>string</td>
-    <td>Gets code error string.</td>
-  </tr>
-  <tr>
-    <td>innerError.message</p></td>
-    <td>string</td>
-    <td>Gets high-level error message.</td>
-  </tr>
-</table>
+|Name|Type|Description|
+|--- |--- |--- |
+ |code|string|Enums containing high-level error codes. Possible values:<ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Unauthorized</li></ul>|
+|message|string|Gets high-level error message.|
+|innerError|InnerErrorV2|New Inner Error format, which conforms to Cognitive Services API Guidelines. It contains required properties ErrorCode, message and optional properties target, details(key value pair), inner error (this can be nested).|
+|innerError.code|string|Gets code error string.|
+|innerError.message|string|Gets high-level error message.|
 
 ## Examples
 
@@ -237,3 +174,10 @@ Status code: 500
   }
 }
 ```
+
+## Next steps
+
+Follow our quickstart to learn more about using Document Translation and the client library.
+
+> [!div class="nextstepaction"]
+> [Get started with Document Translation](document-translation/get-started-with-document-translation.md)
