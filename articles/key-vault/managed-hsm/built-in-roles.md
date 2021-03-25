@@ -13,13 +13,13 @@ ms.author: ambapat
 ---
 # Managed HSM local RBAC built-in roles
 
-Managed HSM local RBAC has several built-in roles that you can assign to users, service principals, groups, and managed identities. To allow a principal to perform an operation you must assign them a role that grants them permission to perform that operations. All these roles and operations only allow you to manage permission for data plane operations. To manage control plane permissions for the Managed HSM resource (such as create a new managed HSM or update, move, delete an existing one), you must use [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
+Managed HSM local RBAC has several built-in roles. You can assign these roles to users, service principals, groups, and managed identities. To allow a principal to perform an operation, you must assign them a role that grants them permission to perform that operations. All these roles and operations only allow you to manage permission for data plane operations. To manage control plane permissions for the Managed HSM resource, you must use [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). Some examples of control plane operations are create a new managed HSM or update, move, delete it.
 
 ## Built-in roles
 
 |Role Name|Description|ID|
 |---|---|---|
-|Managed HSM Administrator| Grants permissions to perform all operations related to Security Domain, full backup/restore, and role managmenet. Not permitted to perform any key management operations.|a290e904-7015-4bba-90c8-60543313cdb4|
+|Managed HSM Administrator| Grants permissions to perform all operations related to Security Domain, full backup/restore, and role management. Not permitted to perform any key management operations.|a290e904-7015-4bba-90c8-60543313cdb4|
 |Managed HSM Crypto Officer|Grants permissions to perform all role management, purge or recover deleted keys, and export keys. Not permitted to perform any other key management operations.|515eb02d-2335-4d2d-92f2-b1cbdf9c3778|
 |Managed HSM Crypto User|Grants permissions to perform all key management operations except purge or recover deleted keys, and export keys.|21dbd100-6940-42c2-9190-5d6cb909625b|
 |Managed HSM Policy Administrator| Grants permission to create and delete role assignments|4bd23610-cdcf-4971-bdee-bdc562cc28e4|
