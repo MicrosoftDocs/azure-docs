@@ -18,7 +18,7 @@
   - name: Develop
     items:
     - name: Create instance
-      href: howto-create-instance.md
+      href: howto-develop-create-instance.md
   - name: Secure
     items:
     - name: Protect the access key

@@ -24,7 +24,7 @@ To completely deny all public traffic, you should first configure the public net
 
 ## Scenario B - Only client connections from public network
 
-In this scenario, you can configure the public network rule to only allow [Client Connections](signalr-concept-internals.md#client-connections) from public network. You can then configure private network rules to allow other types of requests originating from a specific VNet. This configuration hides your app servers from public network and establishes secure connections between your app servers and Azure Web PubSub service.
+In this scenario, you can configure the public network rule to only allow Client Connections from public network. You can then configure private network rules to allow other types of requests originating from a specific VNet. This configuration hides your app servers from public network and establishes secure connections between your app servers and Azure Web PubSub service.
 
 ## Managing network access control
 

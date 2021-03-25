@@ -23,7 +23,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Web PubSub service?
-            url: web-pubsub-overview.md
+            url: overview.md
 
   # Card
   - title: Get started
@@ -31,8 +31,8 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Quick evaluation with serverless application 
-            url: web-pubsub-quickstart-serverless.md
+            url: quickstart-serverless.md
       - linkListType: how-to-guide
         links:
           - text: How to create Web PubSub instance
-            url: web-pubsub-howto-create-instance.md
+            url: howto-develop-create-instance.md
