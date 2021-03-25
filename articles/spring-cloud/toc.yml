@@ -99,7 +99,7 @@
           href: how-to-bind-redis.md
         - name: Bind an app to Azure MySQL
           href: how-to-bind-mysql.md
-        - name: Use managed identity to connect Azure SQL Database to app
+        - name: Managed identity to connect Azure SQL Database
           href: connect-managed-identity-to-azure-sql.md
         - name: Integrate with Azure Load Balance Solutions
           href: how-to-integrate-azure-load-balancers.md
