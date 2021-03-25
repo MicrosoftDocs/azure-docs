@@ -119,7 +119,9 @@ When your call connects, it automatically starts sending a video stream from the
 ### Join a group call
 
 > [!NOTE]
-> The `groupId` parameter is considered System Metadata, and may be used by Microsoft for operations required to run the system. You should not place Personal Data in this field. Microsoft does not treat this field as Persoanl Data, and it's content may be visible to Microsoft employees or may be stored long-term.
+> The `groupId` parameter is considered System Metadata, and may be used by Microsoft for operations required to run the system. You should not place Personal Data in this field. Microsoft does not treat this field as Personal Data, and it's content may be visible to Microsoft employees or may be stored long-term.
+> The `groupId` field requires data in GUID format. We recommend using randomly generated GUIDs that are not considered Personal Data in your systems.
+>
 
 To start a new group call or join an ongoing group call, use the `join` method and pass an object with a `groupId` property. The `groupId` value has to be a GUID.
 
