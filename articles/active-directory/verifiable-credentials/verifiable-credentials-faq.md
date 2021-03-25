@@ -28,7 +28,7 @@ This page contains commonly asked questions about Verifiable Credentials and Dec
 
 ### What is a DID? 
 
-A DID is a decentralized identifier. They can be used to uniquely identify and authenticate people, organizations, and more. [This specification](https://www.w3.org/TR/did-core/) explains many details.
+DIDs are identifiers that can be used to secure access to resources, sign and verify credentials, and facilitate application data exchange. Unlike traditional usernames and email addresses, DIDs are owned and controlled by the entity itself (be it a person, device, or company), and exist independently of any external organization or trusted intermediary. [The W3C spec](https://www.w3.org/TR/did-core/) explains many details.
 
 ### What is a Verifiable Credential? 
 

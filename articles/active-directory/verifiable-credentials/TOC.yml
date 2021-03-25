@@ -27,7 +27,7 @@
   - name: How to customize your credentials
     href: credential-design.md
   - name: Manage credential revocation
-    href: credential-revoke.md
+    href: how-to-issuer-revoke.md
   - name: Link your domain to your DID
     href: how-to-dnsbind.md
   - name: Opt out of verifiable credentials

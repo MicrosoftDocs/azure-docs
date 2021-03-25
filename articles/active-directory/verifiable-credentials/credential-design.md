@@ -25,14 +25,14 @@ Verifiable Credentials are made up of two components, the rules and display file
 
 The rules file is a simple JSON file that describes important properties of verifiable credentials. In particular it describes how claims are used to populate your Verifiable Credentials. 
 
-There are currently 3 input types that that are available to configure in the rules file. These types are used by the Verifiable Credential Issuing service to insert claims into a Verifiable Credential and attest to that information with your DID. The following are the 4 types with explanations. 
+There are currently 3 input types that that are available to configure in the rules file. These types are used by the Verifiable Credential Issuing service to insert claims into a Verifiable Credential and attest to that information with your DID. The following are the 3 types with explanations. 
 
 - ID Token
 - Verifiable Credentials via a Verifiable Presentation 
 - Self Issued Claims
 
 
-**ID Token:** The Sample App and Tutorial use the ID Token. When this option is selected, you will need to provide an Open ID Connect configuration URI and include the claims that should be included in the VC. The user will be promoted to 'Sign In' on the Authenticator app in order to meet this requirement and add the associated claims from their account. 
+**ID Token:** The Sample App and Tutorial use the ID Token. When this option is selected, you will need to provide an Open ID Connect configuration URI and include the claims that should be included in the VC. The user will be prompted to 'Sign In' on the Authenticator app in order to meet this requirement and add the associated claims from their account. 
 
   ![ID Token](media/credential-design/id_token.png)
 
@@ -40,7 +40,7 @@ There are currently 3 input types that that are available to configure in the ru
 
 ![ID Token](media/credential-design/vc_for_vc.png)
 
-**Self Issued Claims:** When this option is selected, the user will be able to directly type information into Authenticator. 
+**Self Issued Claims:** When this option is selected, the user will be able to directly type information into Authenticator. At this time, strings are the only supported input for self issued claims. 
 
 ![ID Token](media/credential-design/self_issued.png)
 
@@ -157,7 +157,7 @@ To ensure interoperability of your credentials, it's recommended that you work c
 | `...mapping` | An object that describes how claims in each presented Verifiable Credential are mapped to attributes in the resulting Verifiable Credential. |
 | `...mapping.{attribute-name}` | The attribute that should be populated in the resulting Verifiable Credential. |
 | `...mapping.{attribute-name}.claim` | The claim in the Verifiable Credential whose value should be used to populate the attribute. |
-| `...mapping.{attribute-name}.index` | Only one can be enabled per Verifiable Credential to save for revoke. |
+| `...mapping.{attribute-name}.indexed` | Only one can be enabled per Verifiable Credential to save for revoke. |
 | `credentialType` | The credentialType of the Verifiable Credential you are asking the user to present. |
 | `contracts` | The URI of the contract in the Verifiable Credential Service portal. |
 | `issuers.iss` | The issuer DID for the Verifiable Credential being asked of the user. |
