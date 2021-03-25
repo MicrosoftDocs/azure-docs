@@ -1,7 +1,7 @@
 ---
-title: Quickstart - Use the Azure Communication Services calling client library
+title: Quickstart - Use the Azure Communication Services Calling SDK
 titleSuffix: An Azure Communication Services quickstart
-description: Learn about the Communication Services calling client library capabilities.
+description: Learn about the Communication Services Calling SDK capabilities.
 author: mikben
 manager: jken
 services: azure-communication-services
@@ -13,12 +13,12 @@ ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android
 ---
 
-# Quickstart: Use the Communication Services calling client library
+# Quickstart: Use the Communication Services Calling SDK
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 
-Get started with Azure Communication Services by using the Communication Services calling client library to add voice and video calling to your app.
+Get started with Azure Communication Services by using the Communication Services Calling SDK to add voice and video calling to your app.
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Calling with JavaScript](./includes/calling-sdk-js.md)]
