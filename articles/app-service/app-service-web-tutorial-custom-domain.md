@@ -104,7 +104,9 @@ To add a custom domain to your app, you need to verify your ownership of the dom
 
 ## Map your domain
 
-You can use either a CNAME record or an A record to map a custom DNS name to App Service. Follow the respective steps:
+You can use either a CNAME record or an A record to map a custom DNS name to App Service. The CNAME/A record needs to be registered in public internet DNS zone - private enterprise DNS zone cannot be used for validation of mapping.
+
+Follow the respective steps:
 
 - [Map a CNAME record](#map-a-cname-record)
 - [Map an A record](#map-an-a-record)
