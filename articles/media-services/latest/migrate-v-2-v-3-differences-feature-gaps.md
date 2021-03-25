@@ -47,6 +47,6 @@ not available in V3:
 
 - Client-side storage encryption for protection of assets at rest has been removed in the V3 API and replaced by storage service encryption for data at rest. The V3 APIs continue to work with existing storage encrypted assets but won't allow creation of new ones.
 
-## Release notes
+## Terminology and entity changes
 
-See the Media Services [release notes](release-notes.md) for updates about feature gaps.
+See [Terminology and entity](migrate-v-2-v-3-differences-terminology.md) changes for additional changes to the API.
