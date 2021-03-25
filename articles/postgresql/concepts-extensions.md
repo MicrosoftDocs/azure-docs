@@ -1,8 +1,8 @@
 ---
 title: Extensions - Azure Database for PostgreSQL - Single Server
 description: Learn about the available Postgres extensions in Azure Database for PostgreSQL - Single Server
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/14/2020
