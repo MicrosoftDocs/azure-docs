@@ -42,7 +42,7 @@ Request parameters passed on the query string are:
   <tr>
     <td>id</td>
     <td>True</td>
-    <td>The operation-id. Format: UUID</td>
+    <td>The operation-id.</td>
   </tr>
 </table>
 
