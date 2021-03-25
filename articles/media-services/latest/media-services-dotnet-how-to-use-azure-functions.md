@@ -78,7 +78,7 @@ Replace the contents of the existing function.json file with the following code:
 
 ### project.json
 
-The project.json file contains dependencies. Here is an example of **project.json** file that includes the required .NET Azure Media Services packages from Nuget. Note that the version numbers change with latest updates to the packages, so you should confirm the most recent versions.
+The project.json file contains dependencies. Here is an example of **project.json** file that includes the required .NET Azure Media Services packages from NuGet. Note that the version numbers change with latest updates to the packages, so you should confirm the most recent versions.
 
 Add the following definition to project.json.
 
