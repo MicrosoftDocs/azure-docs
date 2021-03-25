@@ -109,7 +109,7 @@ The Speech SDK can be used for transcribing call center scenarios, where telepho
 
 ### Codec compressed audio input
 
-Several of the Speech SDK programming languages support codec compressed audio input streams. For more information, see <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">use compressed audio input formats </a>.
+Several of the Speech SDK programming languages support codec compressed audio input streams. For more information, see <a href="/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">use compressed audio input formats </a>.
 
 **Codec compressed audio input** is available on the following platforms:
 
