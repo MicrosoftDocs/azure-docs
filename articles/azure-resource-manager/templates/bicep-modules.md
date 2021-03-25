@@ -1,8 +1,8 @@
 ---
-title: Bicep modules
+title: Bicep modules (Preview)
 description: Describes how to define and consume a module, and how to use module scopes.
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 03/25/2021
 ---
 
 # Use Bicep modules
