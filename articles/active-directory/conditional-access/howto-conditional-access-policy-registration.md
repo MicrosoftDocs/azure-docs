@@ -31,14 +31,14 @@ The following policy applies to the selected users, who attempt to register usin
 1. Under **Assignments**, select **Users and groups**, and select the users and groups you want this policy to apply to.
    1. Under **Include**, select **All users**.
 
-   > [!WARNING]
-   > Users must be enabled for the [combined registration](../authentication/howto-registration-mfa-sspr-combined.md).
+      > [!WARNING]
+      > Users must be enabled for the [combined registration](../authentication/howto-registration-mfa-sspr-combined.md).
 
    1. Under **Exclude**.
       1. Select **All guest and external users**.
       
-      > [!NOTE]
-      > Temporary Access Pass does not work for guest users.
+         > [!NOTE]
+         > Temporary Access Pass does not work for guest users.
 
       1. Select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
 1. Under **Cloud apps or actions**, select **User actions**, check **Register security information**.
