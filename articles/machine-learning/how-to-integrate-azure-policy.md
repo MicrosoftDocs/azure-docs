@@ -57,7 +57,7 @@ If the policy is set to __deny__, then you cannot create a workspace unless it u
 
 Configures a workspace to create a private endpoint within the specified subnet of an Azure Virtual Network.
 
-To configure this policy, set the effect parameter to __DeployIfNotExists__. Set the the __privateEndpointSubnetID__ to the Azure Resource Manager ID of the subnet.
+To configure this policy, set the effect parameter to __DeployIfNotExists__. Set the __privateEndpointSubnetID__ to the Azure Resource Manager ID of the subnet.
 ## Workspace should use private DNS zones
 
 Configures a workspace to use a private DNS zone, overriding the default DNS resolution for a private endpoint.

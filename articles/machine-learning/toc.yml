@@ -234,8 +234,8 @@
               href: how-to-access-azureml-behind-firewall.md
         - name: Data protection
           items:
-            - name: Increase resiliency
-              displayName: high availability, disaster recovery
+            - name: Failover & disaster recovery
+              displayName: high availability
               href: how-to-high-availability-machine-learning.md
             - name: Regenerate storage access keys
               href: how-to-change-storage-access-key.md
