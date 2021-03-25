@@ -24,7 +24,7 @@ Semantic ranking is both resource and time intensive. In order to complete proce
 
 Before scoring for relevance, content must be reduced to a manageable number of inputs that can be handled efficiently by the semantic ranker. Content reduction includes the following sequence of steps.
 
-1. First, semantic ranking depends on the initial results set returned by the default [similarity ranking algorithm](index-ranking-similarity.md) used for keyword search. For any given query, a results set could be just a handful of documents, or it could be the maximum limit of 1,000. Since 1,000 would be too many for semantic ranking, only the top 50 progress to semantic ranking. Whatever the document count, whether zero, one, or 50, the initial result set becomes the document corpus for semantic ranking.
+1. First, semantic ranking depends on the initial results set returned by the default [similarity ranking algorithm](index-ranking-similarity.md) used for keyword search. For any given query, a results set could be a handful of documents, up to the maximum limit of 1,000. Since a large number of matches would be too much to process, only the top 50 progress to semantic ranking. Whatever the document count, whether one or 50, the initial result set becomes the document corpus for semantic ranking.
 
 1. Across the document corpus, the contents of each field in "searchFields" are extracted and combined into a long string.
 
