@@ -146,11 +146,14 @@
       href: content-aware-encoding.md
     - name: Media reserved units
       href: concept-media-reserved-units.md          
-  - name: Analyzing content (Video Indexer)
+  - name: Analyzing and Redaction 
     items:
     - name: Overview
       href: analyzing-video-audio-files-concept.md
       displayName: analyze, analyzing, presets, jobs
+    - name: Detect and Redact (blur) faces
+      href: analyze-face-redaction-concept.md
+      displayName: analyze, redact, face, detect, presets, jobs, blur, faces, redaction   
   - name: Transforms and jobs
     href: transforms-jobs-concept.md    
   - name: Live streaming 
