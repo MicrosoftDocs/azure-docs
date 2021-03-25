@@ -23,7 +23,7 @@ The following list presents the set of features which are currently available in
 
 | Group of features | Capability | JavaScript  | Java | .NET | Python | iOS | Android |
 |-----------------|-------------------|---|-----|----|-----|----|----|
-| Core Capabilities | Create a chat thread between 2 or more users (up to 250 users)                                                       | ✔️   | ✔️  | ✔️    | ✔️   |  ✔️    | ✔️   |	
+| Core Capabilities | Create a chat thread between 2 or more users                                                     | ✔️   | ✔️  | ✔️    | ✔️   |  ✔️    | ✔️   |	
 |                   | Update the topic of a chat thread                                                                              | ✔️   | ✔️ | ✔️    | ✔️   |  ✔️    | ✔️   |	
 |                   | Add or remove participants from a chat thread                                                                           | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |	
 |                   | Choose whether to share chat message history with the participant being added                                   | ✔️   | ✔️   | ✔️    | ✔️  |  ✔️    | ✔️   |	
@@ -32,16 +32,16 @@ The following list presents the set of features which are currently available in
 |                   | Given a communication user, get the list of chat threads the user is part of                                           | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |	
 |                   | Get info for a particular chat thread                                                                              | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |	
 |                   | Send and receive messages in a chat thread                                                                            | ✔️   | ✔️   | ✔️    | ✔️  |  ✔️    | ✔️   |	
-|                   | Edit the contents of a sent message                                                                                | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |	
-|                   | Delete a message                                                                                                       | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |	
-|                   | Read receipts for messages that have been read by other participants in a chat <br/> *Not available when there are more than 20 participants in a chat thread*    | ✔️   | ✔️  | ✔️    | ✔️   |  ✔️    | ✔️   |	
-|                   | Get notified when participants are actively typing a message in a chat thread <br/> *Not available when there are more than 20 members in a chat thread*      | ✔️   | ✔️   | ✔️    | ✔️    |  ✔️    | ✔️   |	
-|                   | Get all messages in a chat thread <br/>                                                                         | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |	
+|                   | Update the content of your sent message                                                                               | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |	
+|                   | Delete a message you previously sent                                                                                                      | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |	
+|                   | Read receipts for messages that have been read by other participants in a chat                                        | ✔️   | ✔️  | ✔️    | ✔️   |  ✔️    | ✔️   |	
+|                   | Get notified when participants are actively typing a message in a chat thread                                         | ✔️   | ✔️   | ✔️    | ✔️    |  ✔️    | ✔️   |	
+|                   | Get all messages in a chat thread                                                                        | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |	
 |                   | Send Unicode emojis as part of message content                                                                            | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |	
-|Real-time signaling (enabled by proprietary signaling package**)|  Subscribe to get real-time updates for incoming messages and other operations in your chat app. To see a list of supported updates for real-time signaling, see [Chat concepts](concepts.md#real-time-signaling)                                     | ✔️   | ❌    | ❌  | ❌  | ❌  | ❌  |	
-| Event Grid support             | Use integration with Azure Event Grid and configure your communication service to execute business logic based on chat activity or to plug in a custom push notification service   | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |	
-| Monitoring        | Use the API request metrics emitted in the Azure portal to build dashboards, monitor the health of your chat app, and set alerts to detect abnormalities      | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |	
-|                   | Configure your Communication Services resource to receive chat operational logs for monitoring and diagnostic purposes          | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |	
+|Real-time notifications (enabled by proprietary signaling package**)|  Chat clients can subscribe to get real-time updates for incoming messages and other operations occuring in a chat thread. To see a list of supported updates for real-time notifications, see [Chat concepts](concepts.md#real-time-signaling)                                     | ✔️   | ❌    | ❌  | ❌  | ❌  | ❌  |	
+| Integration with Azure Event Grid             | Use the chat events available in Azure Event Grid to plug custom notification services or post that event to a webhook to execute business logic like updating CRM records after a chat is finished   | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |	
+| Reporting </br>(This info is available under Monitoring tab for your Communication Services resource on Azure portal)      | Understand API traffic from your chat app by monitoring the published metrics in Azure Metrics Explorer and set alerts to detect abnormalities     | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |	
+|                   | Monitor and debug your Communication Services solution by enabling diagnostic logging for your resource    | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |	
 
 
 **The proprietary signaling package is implemented using web sockets. It will fallback to long polling if web sockets are unsupported.	
