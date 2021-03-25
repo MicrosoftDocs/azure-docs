@@ -267,7 +267,7 @@ The following headers are included with each Document Translator API request:
 
 > [!IMPORTANT]
 >
-> For the code samples below, you'll hard-code your key and endpoint where indicated; remember to remove the key from your code when you're done, and never post it publicly.  See [Azure Cognitive Services security](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) for ways to securely store and access your credentials.
+> For the code samples below, you'll hard-code your key and endpoint where indicated; remember to remove the key from your code when you're done, and never post it publicly.  See [Azure Cognitive Services security](../../cognitive-services-security.md?tabs=command-line%2ccsharp) for ways to securely store and access your credentials.
 >
 > You may need to update the following fields, depending upon the operation:
 >>>
