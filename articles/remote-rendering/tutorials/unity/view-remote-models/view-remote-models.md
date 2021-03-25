@@ -28,10 +28,7 @@ For this tutorial you need:
 * Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * The latest version of Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
 * GIT [(download)](https://git-scm.com/downloads)
-* Unity, the most recent version of 2019.3, we recommend using Unity Hub for this [(download)](https://unity3d.com/get-unity/download)
-  * Install these modules in Unity:
-    * **UWP** - Universal Windows Platform Build Support
-    * **IL2CPP** - Windows Build Support (IL2CPP)
+* Unity (see [system requirements](../../../overview/system-requirements.md#unity) for supported versions)
 * Intermediate knowledge of Unity and the C# language (for example: creating scripts and objects, using prefabs, configuring Unity events, etc.)
 
 ## Provision an Azure Remote Rendering (ARR) instance
@@ -751,7 +748,7 @@ The code above is performing the following steps:
 1. Create a [Remote Entity](../../../concepts/entities.md).
 1. Create a local GameObject to represent the remote entity.
 1. Configure the local GameObject to sync its state (i.e. Transform) to the remote entity every frame.
-1. Set a name and add a [**WorldAnchor**](https://docs.unity3d.com/ScriptReference/XR.WSA.WorldAnchor.html) to assist stabilization.
+1. Set a name and add a [**WorldAnchor**](https://docs.unity3d.com/550/Documentation/ScriptReference/VR.WSA.WorldAnchor.html) to assist stabilization.
 1. Load model data from Blob Storage into the remote entity.
 1. Return the parent Entity, for later reference.
 

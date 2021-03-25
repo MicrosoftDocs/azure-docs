@@ -10,6 +10,7 @@ ms.custom: "include file"
 ms.topic: "include"
 ms.date: 09/17/2020
 ---
+
 **Compute targets can be reused from one training job to the next.** For example, after you attach a remote VM to your workspace, you can reuse it for multiple jobs. For machine learning pipelines, use the appropriate [pipeline step](/python/api/azureml-pipeline-steps/azureml.pipeline.steps) for each compute target.
 
 You can use any of the following resources for a training compute target for most jobs. Not all resources can be used for automated machine learning, machine learning pipelines, or designer.
@@ -24,3 +25,6 @@ You can use any of the following resources for a training compute target for mos
 |[Azure Data Lake Analytics](../articles/machine-learning/how-to-attach-compute-targets.md#adla) | &nbsp; | Yes | &nbsp; |
 |[Azure HDInsight](../articles/machine-learning/how-to-attach-compute-targets.md#hdinsight) | &nbsp; | Yes | &nbsp; |
 |[Azure Batch](../articles/machine-learning/how-to-attach-compute-targets.md#azbatch) | &nbsp; | Yes | &nbsp; |
+
+> [!TIP]
+> The compute instance has 120GB OS disk. If you run out of disk space, clear sufficient space before attempting to stop/restart the compute instance.

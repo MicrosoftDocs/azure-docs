@@ -39,7 +39,7 @@ In this overview, you learn about the benefits and capabilities of the text-to-s
 * Visemes - [Visemes](how-to-speech-synthesis-viseme.md) are the key poses in observed speech, including the position of the lips, jaw and tongue when producing a particular phoneme. Visemes have a strong correlation with voices and phonemes. Using viseme events in Speech SDK, you can generate facial animation data, which can be used to animate faces in lip-reading communication, education, entertainment, and customer service.
 
 > [!NOTE]
-> Viseme only works for `en-US-AriaNeural` voice in West US (`westus`) region for now, and will be available for all `en-US` voices by the end of April, 2021.
+> Viseme only works for `en-US-AriaNeural` voice in West US 2 (`westus2`) region for now.
 
 ## Get started
 
