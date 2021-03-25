@@ -112,12 +112,12 @@ sections:
         answer: No, you can't change the name of datastores or clusters.
 
       - question:  What independent software vendors (ISVs) backup solutions work with Azure VMware Solution?
-        answer: Commvault, Veritas, and Veeam have extended their backup solutions to work with Azure VMware Solution.  However, any backup solution that uses VMware VADP with the HotAdd transport mode would work right out of the box on Azure VMware Solution.
+        answer: Commvault, Veritas, and Veeam have extended their backup solutions to work with Azure VMware Solution.  However, any backup solution that uses VMware vStorage API for Data Protection (VADP) with the HotAdd transport mode works out of the box on Azure VMware Solution. For more information, see [Backup solutions for Azure VMware Solution VMs](ecosystem-back-up-vms.md).
 
       - question: What about support for ISV backup solutions?
         answer: As these backup solutions are installed and managed by customers, they can reach out to the respective ISV for support. 
 
-      - question: What is the correct storage policy for the dedupe setup?
+      - question: What is the correct storage policy for the dedup setup?
         answer: Use the *thin_provision* storage policy for your VM template.  The default is *thick_provision*.
 
       - question: Are the SNMP infrastructure logs shared?
