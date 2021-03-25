@@ -39,7 +39,7 @@ A one-to-one call on Azure Communication Services happens when one of your users
 A group call on Azure Communication Services happens when three or more participants connect to one another. Any combination of VoIP and PSTN-connected users can be present on a group call. A one-to-one call can be converted into a group call by adding more participants to the call. One of those participants can be a bot.
 
 ### Supported video standards
-We support H.264 (MPEG-4)
+We support H.264 (MPEG-4).
 
 ### Video quality
 We support up to Full HD 1080p on the native (iOS, Android) SDKs. For Web (JS) SDK we support Standard HD 720p. The quality depends on the available bandwidth.
