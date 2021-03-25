@@ -100,4 +100,4 @@ In this tutorial, you learned about:
 To learn how to transfer data with your Azure Stack Edge Pro device, see:
 
 > [!div class="nextstepaction"]
-> [Transfer data with Azure Stack Edge Pro](./azure-stack-edge-j-series-deploy-add-shares.md)
+> [Transfer data with Azure Stack Edge Pro](./azure-stack-edge-gpu-deploy-add-shares.md)
