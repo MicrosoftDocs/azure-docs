@@ -279,7 +279,7 @@ Now that you have a new credential, copy the credential URL.
    ![The issue credential URL](media/tutorial-create-sample-card-your-issuer/issue-credential-url.png)
 
 >[!note]
-The credential URL is the combination of the Rules and Display file and is the URL that Authenitcator will evaluate in order to show the User the requirements they need to meet in order to receive the Verifiable Credential.  
+    >The credential URL is the combination of the Rules and Display file and is the URL that Authenitcator will evaluate in order to show the User the requirements they need to meet in order to receive the Verifiable Credential.  
 
 ## Update the sample app
 
@@ -352,7 +352,7 @@ Now that we've issued the verifiable credential from our own tenant, let's verif
     ```
 
 >[!note]
-The Verifier DID is still from the Microsoft Sample App tenant. Since Microsoft's DID has been linked to a domain we own, you will not see the warning like we experienced during the Issuance flow. This will be updated in the next section. 
+>The Verifier DID is still from the Microsoft Sample App tenant. Since Microsoft's DID has been linked to a domain we own, you will not see the warning like we experienced during the Issuance flow. This will be updated in the next section. 
 
 ## Next steps
 
