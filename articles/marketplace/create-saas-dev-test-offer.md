@@ -74,8 +74,8 @@ Use the DEV offer to experiment with pricing models. After you verify which pric
 
 The DEV offer should have plans with zero or very low prices in the plans. The PROD offer will have the prices you want to charge to customers.
 
-> [!NOTE]
-> Purchases made in Preview will be processed for both DEV and PROD offers. If an offer has a $100/mo price, your company will be charged $100. If this happens, you can open a [support ticket](support.md) and we will issue a payout for the full amount (and take no agency fee).
+> [!IMPORTANT]
+> Purchases made in Preview will be processed for both DEV and PROD offers. If an offer has a $100/mo price, your company will be charged $100. If this happens, you can open a [support ticket](support.md) and we will issue a payout for the full amount (and take no store service fee).
 
 #### Pricing model
 
@@ -92,7 +92,7 @@ To reduce your cost for testing the pricing models, including Marketplace custom
 | $50.00 and above | Use this price range to test payout. For information about our payment schedule, see [Payout schedules and processes](/partner-center/payout-policy-details). |
 |||
 
-To avoid being charged a processing fee on your test, open a [support ticket](support.md).
+To avoid being charged a store service fee on your test, open a [support ticket](support.md).
 
 #### Free trial
 
