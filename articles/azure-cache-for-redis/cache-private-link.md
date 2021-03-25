@@ -116,11 +116,6 @@ It takes a while for the cache to create. You can monitor progress on the Azure 
 > ```
 >
 
-> [!IMPORTANT]
-> 
-> To connect to a clustered cache, `publicNetworkAccess` needs to be set to `Disabled`.
->
-
 ## Create a private endpoint with an existing Azure Cache for Redis instance 
 
 In this section, you'll add a private endpoint to an existing Azure Cache for Redis instance. 
@@ -225,9 +220,6 @@ To have multiple private endpoints in different virtual networks, the private DN
 No, they are disabled for private endpoints. While subnets containing the private endpoint can have NSG associated with it, the rules will not be effective on traffic processed by the private endpoint. You must have [network policies enforcement disabled](../private-link/disable-private-endpoint-network-policy.md) to deploy private endpoints in a subnet. NSG is still enforced on other workloads hosted on the same subnet. Routes on any client subnet will be using an /32 prefix, changing the default routing behavior requires a similar UDR. 
 
 Control the traffic by using NSG rules for outbound traffic on source clients. Deploy individual routes with /32 prefix to override private endpoint routes. NSG Flow logs and monitoring information for outbound connections are still supported and can be used
-
-### How can I connect to a clustered cache?
-`publicNetworkAccess` needs to be set to `Disabled`.
 
 ### Since my private endpoint instance is not in my VNet, how is it associated with my VNet?
 It is only linked to your VNet. Since it is not in your VNet, NSG rules do not need to be modified for dependent endpoints.
