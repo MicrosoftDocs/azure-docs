@@ -30,8 +30,6 @@ The predefined datasets for Azure Monitor for Windows Virtual Desktop include:
 - Windows Event Logs from the session hosts
 - Windows Virtual Desktop diagnostics from the service infrastructure
 
-The specs for the virtual machine (VM) we'll be using in this example include the following components and usage:
-
 Your data ingestion and storage costs depend on your environment size, health, and usage. The example estimates we'll use in this article to calculate the cost ranges you can expect are based on healthy virtual machines running light to power usage, based on our [virtual machine sizing guidelines](/remote/remote-desktop-services/virtual-machine-recs), to calculate a range of data ingestion and storage costs you could expect.
 
 The light usage VM we'll be using in our example includes the following components:
@@ -58,7 +56,7 @@ Before you start estimating, it’s important that you understand that each perf
 
    To summarize:
 
-   Default sample rate per minute per day × number of VMs × average VM running time per day = number of records
+   Default sample rate per minute × number of CPU cores in the VM SKU × number of VMs × average VM running time per day = number of records sent per day
 
 - For the per CPU factor, each counter sends at the default sample rate per minute per vCPU in each VM in your environment while the VM is running. You can estimate the number of records the counters will send per day by multiplying the default sample rate per minute by the number of CPU cores in the VM SKU, then multiplying that number by the number of minutes the VM runs and the number of VMs in your environment.
 
@@ -66,11 +64,11 @@ Before you start estimating, it’s important that you understand that each perf
    
    Default sample rate per minute × number of CPU cores in the VM SKU × number of minutes the VM runs × number of VMs = number of records sent per day
 
-- For the per disk factor, each counter sends data at the default sample rate for each disk in each VM in your environment. The number of records these counters will send per day equals the default sample rate per minute divided by number of disks in the VM SKU, divided by 60 minutes per hour, divided by the average active hours for a VM.
+- For the per disk factor, each counter sends data at the default sample rate for each disk in each VM in your environment. The number of records these counters will send per day equals the default sample rate per minute multiplied by number of disks in the VM SKU, multiplied by 60 minutes per hour, and finally multiplied by the average active hours for a VM.
 
    To summarize:
 
-   Default sample rate per minute ÷ number of disks in VM SKU ÷ 60 mimutes per hour ÷ number of hours the VM runs = number of records sent per day
+   Default sample rate per minute × number of disks in VM SKU × 60 minutes per hour × number of VMs × average VM running time per day = number of records sent per day
 
 - For the per session factor, each counter sends data at the default sample rate for each session in your environment while the session is connected. You can estimate the number of records these counters will send per day can by multiplying the default sample rate per minute by the average number of sessions per day and the average session duration.
 
@@ -109,15 +107,13 @@ The following table lists the 20 performance counters Azure Monitor for Windows 
 | RemoteFX Network(\*)\\Current TCP RTT | 30 seconds | Per VM  |
 | RemoteFX Network(\*)\\Current UDP Bandwidth     | 30 seconds | Per VM  |
 
-In this example, the total cost would be $611,040.
-
 If we estimate each record size to be 200 bytes, an example VM running a light workload on the default sample rate would send roughly 90 megabytes of performance counter data per day per VM. Meanwhile, an example VM running a power workload would send roughly 130 megabytes of performance counter data per day per VM. However, record size and environment usage can vary, so the megabytes per day your deployment uses may be different.
 
 To learn more about input delay performance counters, see [User Input Delay performance counters](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/).
 
 ## Estimating Windows Event Log ingestion
 
-Windows Event Logs are data sources collected by Log Analytics agents on Windows virtual machines. You can collect events from standard logs like System and Application as well as custom logs created by applications you need to monitor. We exclude information-level events from the default configuration for cost savings.
+Windows Event Logs are data sources collected by Log Analytics agents on Windows virtual machines. You can collect events from standard logs like System and Application as well as custom logs created by applications you need to monitor.
 
 These are the default Windows Events for Azure Monitor for Windows Virtual Desktop:
 
