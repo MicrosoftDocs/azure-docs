@@ -13,15 +13,6 @@ ms.service: azure-communication-services
 ---
 # Client and Server Architecture
 
-<!-- To any reviewers - we have an exception that allows us to use inline docs comments like code comments. Please do not block on this.
-> [!WARNING]
-> This document is under construction and needs the following items to be addressed:
-> - Need to add security best practices for token management here
-> - Reference docs:
-> - https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/create-a-token-object
-> - https://docs.microsoft.com/azure/aks/operator-best-practices-identity
-> - https://docs.microsoft.com/cloud-app-security/api-tokens?view=gestures-1.0-->
-
 Every Azure Communication Services application will have **client applications** that use **services** to facilitate person-to-person connectivity. This page illustrates common architectural elements in a variety of scenarios.
 
 ## User access management
