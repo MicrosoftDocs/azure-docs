@@ -10,7 +10,7 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
 ---
 
@@ -47,6 +47,6 @@ not available in V3:
 
 - Client-side storage encryption for protection of assets at rest has been removed in the V3 API and replaced by storage service encryption for data at rest. The V3 APIs continue to work with existing storage encrypted assets but won't allow creation of new ones.
 
-## Next steps
+## Release notes
 
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]
+See the Media Services [release notes](release-notes.md) for updates about feature gaps.
