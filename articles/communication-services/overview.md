@@ -83,7 +83,7 @@ The following resources will help you learn about the Azure Communication Servic
 
 There are two other Microsoft communication products you may consider leveraging that are not directly interoperable with Communication Services at this time:
 
- - [Microsoft Graph Cloud Communication APIs](/graph/cloud-communications-concept-overview) allow organizations to build communication experiences tied to Azure Active Directory users with M365 licenses. This is ideal for applications tied to Azure Active Directory or where you want to extend productivity experiences in Microsoft Teams. There are also APIs to build applications and customization within the [Teams experience.](/microsoftteams/platform/?preserve-view=true&view=msteams-client-js-latest)
+ - [Microsoft Graph Cloud Communication APIs](/graph/cloud-communications-concept-overview) allow organizations to build communication experiences tied to Azure Active Directory users with Microsoft 365 licenses. This is ideal for applications tied to Azure Active Directory or where you want to extend productivity experiences in Microsoft Teams. There are also APIs to build applications and customization within the [Teams experience.](/microsoftteams/platform/?preserve-view=true&view=msteams-client-js-latest)
 
  - [Azure PlayFab Party](/gaming/playfab/features/multiplayer/networking/) simplifies adding low-latency chat and data communication to games. While you can power gaming chat and networking systems with Communication Services, PlayFab is a tailored option and free on Xbox.
 
