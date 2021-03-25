@@ -39,7 +39,7 @@ The following is a quick checklist of VM size best practices for running your SQ
 - The [DSv2 11-15](../../../virtual-machines/dv2-dsv2-series-memory.md), [Edsv4](../../../virtual-machines/edv4-edsv4-series.md) series, the [M-](../../../virtual-machines/m-series.md), and the [Mv2-](../../../virtual-machines/mv2-series.md) series offer the optimal memory-to-vCore ratio required for OLTP workloads. Both M series VMs offer the highest memory-to-vCore ratio required for mission critical workloads and are also ideal for data warehouse workloads. 
 - Consider a higher memory-to-vCore ratio for mission critical and data warehouse workloads. 
 - Use the Azure Virtual Machine marketplace images as the SQL Server settings and storage options are configured for optimal SQL Server performance. 
-- Collect the target workload's performance characteristics and use them to determine the appropriate VM size for your business.|
+- Collect the target workload's performance characteristics and use them to determine the appropriate VM size for your business.
 
 To learn more, see the comprehensive [VM size best practices](performance-guidelines-best-practices-vm-size.md). 
 
@@ -52,20 +52,20 @@ The following is a quick checklist of storage configuration best practices for r
 - Place data, log, and tempdb files on separate drives.
     - For the data drive, only use [premium P30 and P40 disks](../../../virtual-machines/disks-types.md#premium-ssd) to ensure the availability of cache support
     - For the log drive plan for capacity and test performance versus cost while evaluating the [premium P30 - P80 disks](../../../virtual-machines/disks-types.md#premium-ssd).
-      - If 1-ms storage latencies are required, use [Ultra SSD Disks](../../../virtual-machines/disks-types.md#ultra-disk) for the transaction log. 
-      - For M-series virtual machine deployments consider [Write Accelerator](../../../virtual-machines/how-to-enable-write-accelerator.md) over using Ultra SSD disks.
+      - If submillisecond storage latency is required, use [Azure ultra disks](../../../virtual-machines/disks-types.md#ultra-disk) for the transaction log. 
+      - For M-series virtual machine deployments consider [Write Accelerator](../../../virtual-machines/how-to-enable-write-accelerator.md) over using Azure ultra disks.
     - Place [tempdb](/sql/relational-databases/databases/tempdb-database) on the local ephemeral SSD `D:\` drive for most SQL Server workloads after choosing the optimal VM size. 
-      - If the capacity of the local drive is not enough for tempdb, see [Data file caching policies](performance-guidelines-best-practices-storage.md#data-file-caching-policies) for more information.
+      - If the capacity of the local drive is not enough for tempdb, consider sizing up the VM. See [Data file caching policies](performance-guidelines-best-practices-storage.md#data-file-caching-policies) for more information.
 - Stripe multiple Azure data disks using [Storage Spaces](/windows-server/storage/storage-spaces/overview) to increase I/O bandwidth up to the target virtual machine's IOPS and throughput limits.
 - Set [host caching](../../../virtual-machines/disks-performance.md#virtual-machine-uncached-vs-cached-limits) to read-only for data file disks.
 - Set [host caching](../../../virtual-machines/disks-performance.md#virtual-machine-uncached-vs-cached-limits) to none for log file disks.
     - Do not enable read/write caching on disks that contain SQL Server files. 
     - Always stop the SQL Server service before changing the cache settings of your disk.
-- For development and test workloads, and long-term backup archival consider using standard storage. It is not recommended to use Standard HDD/SDD for production workloads.
+- For development and test workloads consider using standard storage. It is not recommended to use Standard HDD/SDD for production workloads.
 - [Credit-based Disk Bursting](../../../virtual-machines/disk-bursting.md#credit-based-bursting) (P1-P20) should only be considered for smaller dev/test workloads and departmental systems.
 - Provision the storage account in the same region as the SQL Server VM. 
 - Disable Azure geo-redundant storage (geo-replication) and use LRS (local redundant storage) on the storage account.
-- Format your data disk to use 64-KB allocation unit size for all data files placed on a drive other than the temporary `D:\` drive (which has a default of 4 KB). SQL Server VMs deployed through Azure Marketplace come with data disks formatted with allocation unit size and interleave for the storage pool set to 64 KB. 
+- Format your data disk to use 64 KB allocation unit size for all data files placed on a drive other than the temporary `D:\` drive (which has a default of 4 KB). SQL Server VMs deployed through Azure Marketplace come with data disks formatted with allocation unit size and interleave for the storage pool set to 64 KB. 
 
 To learn more, see the comprehensive [Storage best practices](performance-guidelines-best-practices-storage.md). 
 
@@ -74,7 +74,7 @@ To learn more, see the comprehensive [Storage best practices](performance-guidel
 
 The following is a quick checklist of best practices for SQL Server and Azure-specific configurations when running your SQL Server on Azure VM: 
 
-- Register with the [SQL Server IaaS extension](sql-agent-extension-manually-register-single-vm.md) to unlock a number of [feature benefits](sql-server-iaas-agent-extension-automate-management.md#feature-benefits). 
+- Register with the [SQL IaaS Agent Extension](sql-agent-extension-manually-register-single-vm.md) to unlock a number of [feature benefits](sql-server-iaas-agent-extension-automate-management.md#feature-benefits). 
 - Enable database page compression.
 - Enable instant file initialization for data files.
 - Limit autogrowth of the database.
@@ -85,10 +85,7 @@ The following is a quick checklist of best practices for SQL Server and Azure-sp
 - [Enable locked pages in memory](/sql/database-engine/configure-windows/enable-the-lock-pages-in-memory-option-windows).
 - Evaluate and apply the [latest cumulative updates](/sql/database-engine/install-windows/latest-updates-for-microsoft-sql-server) for the installed version of SQL Server.
 - Back up directly to Azure Blob storage.
-- Use [file snapshot backups](/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure) for databases larger than 12 TB. 
-- Use multiple Temp DB files, 1 file per core, up to 8 files.
-- Set max server memory at 90% or up to 50 GB left for the Operating System.
-- Enable soft NUMA. 
+- Use multiple [tempdb](/sql/relational-databases/databases/tempdb-database#optimizing-tempdb-performance-in-sql-server) files, 1 file per core, up to 8 files.
 
 
 
