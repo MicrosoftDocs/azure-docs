@@ -63,6 +63,9 @@ If you would like to select a specific subscription you can also specify the ```
 az communication list --resource-group  "resourceGroup>"  --subscription "<subscriptionID>"
 
 az communication list-key --name "<communicationName>" --resource-group "resourceGroup>" --subscription "<subscriptionID>"
+```
+
+## Store your connection string
 
 Communication Services SDKs use connection strings to authorize requests made to Communication Services. You have several options for storing your connection string:
 
