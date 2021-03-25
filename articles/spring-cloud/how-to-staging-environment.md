@@ -180,4 +180,4 @@ az spring-cloud app deployment delete -n <staging-deployment-name> -g <resource-
 
 ## Next steps
 
-* [CI/CD for Azure Spring Cloud](/azure/spring-cloud/spring-cloud-howto-cicd?pivots=programming-language-java)
+* [CI/CD for Azure Spring Cloud](./spring-cloud-howto-cicd.md?pivots=programming-language-java)
