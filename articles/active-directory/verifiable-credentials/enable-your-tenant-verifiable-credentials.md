@@ -262,7 +262,7 @@ Now that you have modified the Rules and Display file, it's time to create the V
 
    ![Create a new credential screen](media/tutorial-create-sample-card-your-issuer/create-credential.png)
 
-6. In the **Display file** section choose **Configure display file**
+6. In the Display file section, choose **Configure display file**
 7. In the **Storage accounts** section, select **contosovcstorage**.
 8. From the list of available containers choose **vc-container**.
 9. Choose **MyFirstVC-display.json** which we created earlier.
@@ -325,7 +325,7 @@ Now that we've issued the verifiable credential from our own tenant, let's verif
 
 - credential: change to your credential URL
 - credentialType: 'MyFirstVC'
-- issuerDid: Copy this value from Azure Portal>Verifiable credentials (Preview)>Settings>Decentralized identifier (DID)
+- issuerDid: Copy this value from Azure portal>Verifiable credentials (Preview)>Settings>Decentralized identifier (DID)
 
    ![update the constant issuerDid to match your issuer identifier](media/tutorial-create-sample-card-your-issuer/constant-update.png)
 

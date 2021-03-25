@@ -14,9 +14,7 @@
     items:
     - name: 1 - Set up Verifiable Credentials issuer in your own Azure AD
       href: enable-your-tenant-verifiable-credentials.md
-    - name: 2 - Create a sample credential in your issuer
-      href: create-sample-card-your-issuer.md
-    - name: 3- Connect your verifiable credentials issuer to your own Azure AD
+    - name: 2- Connect your verifiable credentials issuer to your own Azure AD
       href: verifiable-credentials-your-tenant.md
 - name: Concepts
   expanded: true
