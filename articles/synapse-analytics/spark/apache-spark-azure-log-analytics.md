@@ -8,7 +8,7 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
-ms.date: 03/25/2020
+ms.date: 03/25/2021
 ---
 # Tutorial: Use Azure Log Analytics to collect and visualize metrics and logs (Preview)
 
