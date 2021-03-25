@@ -497,7 +497,7 @@ You can streamline this process by creating Diagnostic Settings for Azure AD use
 
 - [How to create queries with Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
+- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -641,7 +641,7 @@ Reference Material:
 
 **Guidance**: Depending on the type of scripts, you may use operating system-specific configurations or third-party resources to limit users' ability to execute scripts within the VMs hosted in DevTest Labs. You can also use Azure Security Center Adaptive Application Controls to ensure that only authorized software executes, and all unauthorized software is blocked from executing on the underlying Azure VMs.
 
-- [How to control PowerShell script execution in Windows Environments](/powershell/module/microsoft.powershell.security/set-executionpolicy?amp;preserve-view=true&view=powershell-7)
+- [How to control PowerShell script execution in Windows Environments](/powershell/module/microsoft.powershell.security/set-executionpolicy?preserve-view=true&view=powershell-7)
 
 - [How to use Azure Security Center Adaptive Application Controls](../security-center/security-center-adaptive-application.md)
 
@@ -681,7 +681,7 @@ Also, Azure Resource Manager has the ability to export the template in JavaScrip
 
 You may also use recommendations from Azure Security Center as a secure configuration baseline for your Azure resources.
 
-- [How to view available Azure Policy aliases](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
+- [How to view available Azure Policy aliases](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Tutorial: Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md)
 
@@ -751,7 +751,7 @@ Also, Azure Marketplace Virtual Machine Images published by Microsoft are manage
 
 - [Azure Repos Git tutorial](/azure/devops/repos/git/gitworkflow)
 
-- [About permissions and groups](/azure/devops/organizations/security/about-permissions?amp;preserve-view=true&amp;tabs=preview-page&view=azure-devops)
+- [About permissions and groups](/azure/devops/organizations/security/about-permissions?preserve-view=true&tabs=preview-page&view=azure-devops)
 
 - [Integration between Azure DevTest Labs and Azure DevOps workflow](devtest-lab-dev-ops.md)
 
@@ -929,7 +929,7 @@ Enable Azure Backup on target Azure VMs, and the wanted frequency and retention 
 
 - [An overview of Azure VM backup](../backup/backup-azure-vms-introduction.md)
 
-- [How to back up Key Vault keys in Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
+- [How to back up Key Vault keys in Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
 **Responsibility**: Customer
 
@@ -945,7 +945,7 @@ If you're using Azure disk encryption, you can restore the Azure VM with the dis
 
 - [How to recover files from Azure VM backup](../backup/backup-azure-restore-files-from-vm.md)
 
-- [How to restore key vault keys in Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
+- [How to restore key vault keys in Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
 - [How to back up and restore an encrypted VM](../backup/backup-azure-vms-encryption.md)
 
