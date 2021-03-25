@@ -8,7 +8,7 @@ ms.date: 03/24/2021
 ms.author: v-erkel
 ---
 
-# Is your workflow a good fit for Azure HPC Cache?
+# Is your job a good fit for Azure HPC Cache?
 
 Azure HPC Cache can speed access to data for high-performance computing jobs in a variety of disciplines. But it is not perfect for all types of workflows. This article gives guidelines for how to decide if HPC cache is a good option for your needs.
 
