@@ -142,7 +142,7 @@ The following information is returned in a successful response.
   <tr>
     <td>summary.inProgress</p></td>
     <td>integer</td>
-    <td>Number of in progress.</td>
+    <td>Count of documents in progress.</td>
   </tr>
   <tr>
     <td>summary.notYetStarted</p></td>
