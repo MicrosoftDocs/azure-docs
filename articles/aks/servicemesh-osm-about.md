@@ -925,7 +925,7 @@ EOF
 
 Please visit the [SMI](https://smi-spec.io/) site for more detailed information on the specification.
 
-## Tutorial: Deploy a application managed by Open Service Mesh (OSM) with NGINX ingress
+## Tutorial: Deploy an application managed by Open Service Mesh (OSM) with NGINX ingress
 
 Open Service Mesh (OSM) is a lightweight, extensible, Cloud Native service mesh that allows users to uniformly manage, secure, and get out-of-the-box observability features for highly dynamic microservice environments.
 

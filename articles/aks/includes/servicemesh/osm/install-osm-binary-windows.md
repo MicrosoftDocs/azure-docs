@@ -24,7 +24,7 @@ The `osm` client binary runs on your client machine and allows you to manage the
 ```powershell
 # Copy osm.exe to C:\OSM
 New-Item -ItemType Directory -Force -Path "C:\OSM"
-Move-Item -Path .\osm.exe -Destination "C:\OSM\"
+Move-Item -Path .\windows-amd64\osm.exe -Destination "C:\OSM\"
 
 # Add C:\OSM to PATH.
 # Make the new PATH permanently available for the current User
