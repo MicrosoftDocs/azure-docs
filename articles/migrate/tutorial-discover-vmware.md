@@ -42,12 +42,10 @@ Before you start this tutorial, check you have these prerequisites in place.
 **Appliance** | vCenter Server needs resources to allocate a server for the Azure Migrate appliance:<br/><br/> - 32 GB of RAM, 8 vCPUs, and around 80 GB of disk storage.<br/><br/> - An external virtual switch, and internet access on the appliance server, directly or via a proxy.
 **Servers** | All Windows and Linux OS versions are supported for discovery of configuration and performance metadata. <br/><br/> To perform application discovery on servers, all Windows and Linux OS versions are supported. Check [here](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) for the OS versions supported for agentless dependency analysis.<br/><br/> To perform discovery of installed applications and agentless dependency analysis, VMware Tools (later than 10.2.0) must be installed and running on servers. Windows servers must have PowerShell version 2.0 or later installed.<br/><br/> To discover SQL Server instances and databases, check [here](migrate-support-matrix-vmware.md#requirements-for-discovery-of-sql-server-instances-and-databases) for the supported SQL Server versions and editions, the supported Windows OS versions and authentication mechanisms.
 
-> [!Note]
-> Discovery and assessment of SQL Server instances and databases running in your VMware environment is now in preview. To try out this feature, use [**this link**](https://aka.ms/AzureMigrate/SQL) to create a project in **Australia East** region. If you already have a project in Australia East and want to try out this feature, please ensure that you have completed these [**prerequisites**](how-to-discover-sql-existing-project.md) on the portal.
-
 ## Prepare an Azure user account
 
 To create a project and register the Azure Migrate appliance, you need an account with:
+
 - Contributor or Owner permissions on the Azure subscription
 - Permissions to register Azure Active Directory (AAD) apps
 - Owner or Contributor plus User Access Administrator permissions on the Azure subscription to create a Key Vault, used during agentless server migration
@@ -92,14 +90,13 @@ In vSphere Web Client, set up an account as follows:
 3. In **Users**, add a new user.
 4. In **New User**, type in the account details. Then click **OK**.
 5. In **Global Permissions**, select the user account, and assign the **Read-only** role to the account. Then click **OK**.
-6.  If you also want to perform discovery of installed applications and agentless dependency analysis, go to **Roles** > select the **Read-only** role, and in **Privileges**, select **Guest Operations**. You can propagate the privileges to all objects under the vCenter Server by selecting "Propagate to children" checkbox.
+6. If you also want to perform discovery of installed applications and agentless dependency analysis, go to **Roles** > select the **Read-only** role, and in **Privileges**, select **Guest Operations**. You can propagate the privileges to all objects under the vCenter Server by selecting "Propagate to children" checkbox.
 
     :::image type="content" source="./media/tutorial-discover-vmware/guest-operations.png" alt-text="Checkbox to allow guest operations on the read-only role":::
 
 
 > [!NOTE]
 > You can limit discovery to specific vCenter Server datacenters, clusters, a folder of clusters, hosts, a folder of hosts, or individual servers by scoping the vCenter Server account. [**Learn more**](set-discovery-scope.md) on how to scope the vCenter Server user account.
-
 
 ### Create an account to access servers
 
@@ -150,7 +147,7 @@ To set up the appliance using an OVA template you:
 1. In **Migration Goals** > **Windows, Linux and SQL Servers** > **Azure Migrate: Discovery and assessment**, select **Discover**.
 2. In **Discover servers** > **Are your servers virtualized?**, select **Yes, with VMware vSphere hypervisor**.
 3. In **1:Generate project key**, provide a name for the Azure Migrate appliance that you will set up for discovery of servers in your VMware environment. The name should be alphanumeric with 14 characters or fewer.
-1. Click on **Generate key** to start the creation of the required Azure resources. Please do not close the Discover page during the creation of resources.
+1. Click on **Generate key** to start the creation of the required Azure resources. Do not close the Discover page during the creation of resources.
 1. After the successful creation of the Azure resources, a **project key** is generated.
 1. Copy the key as you will need it to complete the registration of the appliance during its configuration.
 
@@ -230,7 +227,6 @@ Set up the appliance for the first time.
 
     :::image type="content" source="./media/tutorial-discover-vmware/appliance-prerequisites.png" alt-text="Panel 1 on appliance configuration manager":::
 
-
 ### Register the appliance with Azure Migrate
 
 1. Paste the **project key** copied from the portal. If you do not have the key, go to **Azure Migrate: Discovery and assessment> Discover> Manage existing appliances**, select the appliance name you provided at the time of key generation and copy the corresponding key.
@@ -270,9 +266,6 @@ In **Step 3: Provide server credentials to perform software inventory, agentless
 
 :::image type="content" source="./media/tutorial-discover-vmware/appliance-server-credentials-mapping.png" alt-text="Panel 3 on appliance configuration manager for server details":::
 
-> [!Note]
-> Discovery and assessment of SQL Server instances and databases running in your VMware environment is now in preview. To try out this feature, use [**this link**](https://aka.ms/AzureMigrate/SQL) to create a project in **Australia East** region. If you already have a project in Australia East and want to try out this feature, please ensure that you have completed these [**prerequisites**](how-to-discover-sql-existing-project.md) on the portal.
-
 If you want to use these features, you can provide server credentials by following the steps below. The appliance will attempt to automatically map the credentials to the servers to perform the discovery features.
 
 - You can add server credentials by clicking on **Add Credentials** button. This will open a modal where you can choose the **Credentials type** from the drop-down.
@@ -285,6 +278,7 @@ If you want to use these features, you can provide server credentials by followi
 - You can see the **Validation status** for all the domain credentials in the credentials table. Only domain credentials will be validated.
 - If the validation fails, you can click on **Failed** status to see the error encountered and click on **Revalidate credentials** after fixing the issue to validate the failed domain credentials again.
 
+     :::image type="content" source="./media/tutorial-discover-vmware/add-server-credentials-multiple.png" alt-text="Panel 3 on appliance configuration manager for providing multiple credentials":::
 
 ### Start discovery
 

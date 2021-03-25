@@ -192,7 +192,7 @@ async void List_Clicked(object sender, EventArgs e)
 
 ### Download blobs
 
-Download the previously created blob by calling the [​Download​Async](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadasync) method. The example code copies the `Stream` representation of the blob first into a `MemoryStream` and then into a `StreamReader` so the text can be displayed.
+Download the previously created blob by calling the [​DownloadTo​Async](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadtoasync) method. The example code copies the `Stream` representation of the blob first into a `MemoryStream` and then into a `StreamReader` so the text can be displayed.
 
 Add this code to the *MainPage.xaml.cs* file:
 

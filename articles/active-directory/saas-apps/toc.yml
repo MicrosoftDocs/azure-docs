@@ -435,7 +435,7 @@
         href: convercent-tutorial.md
       - name: Coralogix
         href: coralogix-tutorial.md
-      - name: Cornerstone OnDemand
+      - name: Cornerstone Single Sign-On
         href: cornerstone-ondemand-tutorial.md
       - name: CorpTax
         href: corptax-tutorial.md
@@ -2247,6 +2247,8 @@
         href: lucidchart-provisioning-tutorial.md
       - name: Leapsome
         href: leapsome-provisioning-tutorial.md
+      - name: LogicGate
+        href: logicgate-provisioning-tutorial.md
       - name: Looop
         href: looop-provisioning-tutorial.md
       - name: MediusFlow
@@ -2275,6 +2277,8 @@
         href: netsuite-provisioning-tutorial.md
       - name: OfficeSpace Software
         href: officespace-software-provisioning-tutorial.md
+      - name: Olfeo SAAS
+        href: olfeo-saas-provisioning-tutorial.md
       - name: OpenText Directory Services
         href: open-text-directory-services-provisioning-tutorial.md
       - name: Oracle Cloud Infrastructure Console
@@ -2331,6 +2335,8 @@
         href: secure-login-provisioning-tutorial.md
       - name: ServiceNow
         href: servicenow-provisioning-tutorial.md
+      - name: Segment
+        href: segment-provisioning-tutorial.md
       - name: Shopify Plus
         href: shopify-plus-provisioning-tutorial.md
       - name: Slack

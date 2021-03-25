@@ -28,14 +28,14 @@ To complete this tutorial's steps, you need to have access to a resource group f
 1. Select **Add** to create a workspace.
 
 ## Basics tab > Project Details
-1. **Basics** tab, under **Project Details**, fill in the following fields:
-      1. **Subscription** - Pick any subscription.
-      2. **Resource group** - Use any resource group.
-      3. **Resource group** - Leave this blank.
+Fill in the following fields:
+    1. **Subscription** - Pick any subscription.
+    1. **Resource group** - Use any resource group.
+    1. **Resource group** - Leave this blank.
 
 
 ## Basics tab > Workspace details
-1. In the **Basics** tab, under **Workspace details**, fill in the following fields:
+Fill in the following fields:
       1. **Workspace name** - Pick any globally unique name. In this tutorial, we'll use **myworkspace**.
       1. **Region** - Pick any region.
       1. **Select Data Lake Storage Gen 2**
@@ -44,8 +44,8 @@ To complete this tutorial's steps, you need to have access to a resource group f
         1. By **File system name**, click **Create New** and name it **users**. This will create a storage container called **users**. The workspace will use this storage account as the "primary" storage account to Spark tables and Spark application logs.
         1. Check the "Assign myself the Storage Blob Data Contributor role on the Data Lake Storage Gen2 account" box. 
 
-### Completing the process
-5. Select **Review + create** > **Create**. Your workspace is ready in a few minutes.
+## Completing the process
+Select **Review + create** > **Create**. Your workspace is ready in a few minutes.
 
 > [!NOTE]
 > To enable workspace features from an existing dedicated SQL pool (formerly SQL DW) refer to [How to enable a workspace for your dedicated SQL pool (formerly SQL DW)](./sql-data-warehouse/workspace-connected-create.md).
