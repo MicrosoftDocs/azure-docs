@@ -55,7 +55,10 @@ Follow these steps to create the app registration:
 
     :::image type="content" source="media/quickstart-register-app/portal-02-app-reg-01.png" alt-text="Screenshot of the Azure portal in a web browser, showing the Register an application pane.":::
 
-When registration finishes, the Azure portal displays the app registration's **Overview** pane. You see the **Application (client) ID**. Also called the *client ID*, this value uniquely identifies your application in the Microsoft identity platform.
+When registration finishes, the Azure portal displays the app registration's **Overview** pane. You see the **Application (client) ID**. Also called the *client ID*, this value uniquely identifies your application in the Microsoft identity platform. 
+
+> [!IMPORTANT]
+> > New app registrations are hidden to users by default. When you are ready for users to see the app on their [My Apps page](../user-help/my-apps-portal-end-user-access.md) you can enable it. To enable the app, in the Azure portal navigate to **Azure Active Director** > **Enterprise applications** and select the app. Then on the Properties page toggle **Visible to users?** to Yes.
 
 Your application's code, or more typically an authentication library used in your application, also uses the client ID. The ID is used as part of validating the security tokens it receives from the identity platform.
 
