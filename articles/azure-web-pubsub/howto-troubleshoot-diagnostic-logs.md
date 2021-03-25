@@ -41,7 +41,7 @@ The Azure Web PubSub service live trace tool has ability to collect diagnostic l
 1. Go to the Azure portal. 
 1. On the **Diagnostic Settings** page of your Azure Web PubSub service instance, select **Open Live Trace Tool**. 
 
-    :::image type="content" source="./media/web-pubsub-howto-troubleshoot-diagnostic-logs/diagnostic-logs-with-live-trace-tool.png" alt-text="Launch the live trace tool.":::
+    :::image type="content" source="./media/howto-troubleshoot-diagnostic-logs/diagnostic-logs-with-live-trace-tool.png" alt-text="Launch the live trace tool.":::
 
 ### Capture the diagnostic logs
 
@@ -52,7 +52,7 @@ The live trace tool provides some fundamental functionalities to help you captur
 * **Log filter**: The live trace tool allows you filtering the captured real-time diagnostic logs with one specific key word. The common separator (for example, space, comma, semicolon, and so on) will be treated as part of the key word. 
 * **Status**: The status shows whether the live trace tool is connected or disconnected with the specific instance.
 
-:::image type="content" source="./media/web-pubsub-howto-troubleshoot-diagnostic-logs/live-trace-tool-capture.png" alt-text="Capture diagnostic logs with live trace tool.":::
+:::image type="content" source="./media/howto-troubleshoot-diagnostic-logs/live-trace-tool-capture.png" alt-text="Capture diagnostic logs with live trace tool.":::
 
 The real-time diagnostic logs captured by live trace tool contain detailed information for troubleshooting. 
 

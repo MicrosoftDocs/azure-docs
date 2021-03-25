@@ -40,7 +40,7 @@ Install the [Azure Functions Core Tools](https://github.com/Azure/azure-function
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [web-pubsub-create-instance-portal](includes/web-pubsub-create-instance-portal.md)]
+[!INCLUDE [create-instance-portal](includes/create-instance-portal.md)]
 
 ## Clone the sample application
 
