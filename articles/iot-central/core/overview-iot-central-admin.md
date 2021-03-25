@@ -3,57 +3,81 @@ title: Azure IoT Central administrator guide
 description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. This article provides an overview of the administrator role in IoT Central. 
 author: TheJasonAndrew
 ms.author: v-anjaso
-ms.date: 03/22/2021
+ms.date: 03/25/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.custom: [mvc, device-developer]
+ms.custom: mvc
 ---
 
 # IoT Central administrator guide
 
-This article provides an overview of the administrator role in IoT Central. 
+*This article applies to administrators.*
 
-To access and use the Administration section, you must be in the Administrator role for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically assigned to the Administrator role for that application.
+An IoT Central application lets you monitor and manage millions of devices throughout their life cycle. This guide is for administrators who manage IoT Central applications.
 
-As an _administrator_, you are  responsible for administrative tasks such as:
+In IoT Central, an administrator:
 
-* Managing Roles
-* Curate Permissions
-* Manage application by changing the application name and URL
-* Uploading image
-* Deleting an application in your Azure IoT Central application.
+- Manages users and roles in the application.
+- Manages security such as device authentication.
+- Configures application settings.
+- Upgrades applications.
+- Exports and shares applications.
+- Monitors application health.
 
-## Manage application settings
-You have the ability to [manage application settings](howto-administer.md).
+## Users and roles
 
-## Manage billing
-You can [manage your Azure IoT Central billing](howto-view-bill.md). You can move your application from the free pricing plan to a standard pricing plan, and also upgrade or downgrade your pricing plan.
+IoT Central uses a role-based access control system to manage user permissions within an application. IoT Central has three built-in roles for administrators, solution builders, and operators. An administrator can create custom roles with specific sets of permissions. An administrator is responsible for adding users to an application and assigning them to roles.
 
-## Export applications
-You can [export your Azure IoT application](howto-use-app-templates.md) so that you may reuse it.
+To learn more, see [Manage users and roles in your IoT Central application](howto-manage-users-roles.md).
 
-## Manage migration between versions
-When you create a new IoT Central application, it's a V3 application. If you previously created an application, then depending on when you created it, it may be V2. You can [migrate a V2 to a V3 application](howto-migrate.md).
+## Application security
+
+Devices that connect to your IoT Central application typically use X.509 certificates or shared access signatures (SAS) as credentials. The administrator manages the group certificates or keys that the device credentials are derived from.
+
+To learn more, see [X.509 group enrollment](concepts-get-connected.md#x509-group-enrollment), [SAS group enrollment](concepts-get-connected.md#sas-group-enrollment), and [How to roll X.509 device certificates](how-to-roll-x509-certificates.md).
+
+The administrator can also create and manage the API tokens that a client application uses to authenticate with your IoT Central application. Client applications use the REST API to interact with IoT Central.
+
+## Configure an application
+
+The administrator can configure the behavior and appearance of an IoT Central application. To learn more, see:
+
+- [Change application name and URL](howto-administer.md#change-application-name-and-url)
+- [Customize the UI](howto-customize-ui.md)
+- [Move an application to a different pricing plans](howto-view-bill.md)
+- [Configure file uploads](howto-configure-file-uploads.md)
+
+## Export an application
+
+An administrator can:
+
+- Create a copy of an application if you just need a duplicate copy of your application. For example, you may need a duplicate copy for testing.
+- Create an application template from an existing application if you plan to create multiple copies.
+
+To learn more, see [Export your Azure IoT application](howto-use-app-templates.md).
+
+## Migrate to a new version
+
+An administrator can migrate an application to a newer version. Currently, a newly created application is a V3 application. An administrator may need to migrate a V2 application to a V3 application.
+
+To learn more, see [Migrate your V2 IoT Central application to V3](howto-migrate.md).
 
 ## Monitor application health
-You can set of metrics provided by IoT Central to [assess the health of devices](howto-monitor-application-health.md) connected to your IoT Central application and the health of your running data exports.
 
-## Manage security (X.509, SAS keys, API tokens)
-As an _Administrator_ you can do the following:
-* Manage [X.509 certificates](how-to-roll-x509-certificates.md)
-* Curate [SaS keys](concepts-get-connected.md)
-* Review [API tokens](https://docs.microsoft.com/rest/api/iotcentral/)
+An administrator can use IoT Central metrics to assess the health of connected devices and the health of running data exports.
 
-## Configure file uploads
-You can configure how to [file uploads](howto-configure-file-uploads.md)
+To view the metrics, an administrator can use charts in the Azure portal, a REST API, or PowerShell or Azure CLI queries.
 
-## Tools - Azure CLI, Azure PowerShell, Azure portal
+To learn more, see [Monitor the overall health of an IoT Central application](howto-monitor-application-health.md).
 
-Here are some tools you have access to as _administrator_.
-* [Azure CLI](howto-manage-iot-central-from-cli.md)
-* [Azure PowerShell](howto-manage-iot-central-from-powershell.md)
-* [Azure portal](howto-manage-iot-central-from-portal.md)
+## Tools
+
+Many of the tools you use as an administrator are available in the **Administration** section of each IoT Central application. You can also use the following tools to complete some administrative tasks:
+
+- [Azure CLI](howto-manage-iot-central-from-cli.md)
+- [Azure PowerShell](howto-manage-iot-central-from-powershell.md)
+- [Azure portal](howto-manage-iot-central-from-portal.md)
 
 ## Next steps
 

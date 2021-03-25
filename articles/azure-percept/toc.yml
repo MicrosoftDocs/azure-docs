@@ -19,7 +19,7 @@
       href: overview-percept-security.md   
     - name: 80/20 integration
       href: overview-8020-integration.md   
-    - name: Update your Percept devices
+    - name: Device updates
       href: overview-update-experience.md   
 
 - name: Quickstarts
@@ -48,6 +48,10 @@
       items:
         - name: LED and button behavior
           href: audio-button-led-behavior.md        
+    - name: Security
+      items:
+        - name: Firewall configuration and security recommendations
+          href: concept-security-configuration.md        
 
 - name: How-to guides
   items:

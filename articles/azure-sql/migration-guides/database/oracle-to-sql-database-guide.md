@@ -17,7 +17,7 @@ ms.date: 08/25/2020
 
 In this guide, you learn how to migrate your Oracle schemas to Azure SQL Database by using SQL Server Migration Assistant for Oracle (SSMA for Oracle).
 
-For other migration guides, see [Azure Database Migration Guide](https://docs.microsoft.com/data-migration).
+For other migration guides, see [Azure Database Migration Guides](https://docs.microsoft.com/data-migration).
 
 ## Prerequisites
 
@@ -127,7 +127,7 @@ To publish your schema and migrate your data:
 
 Alternatively, you can also use SQL Server Integration Services to perform the migration. To learn more, see:
 
-- [Getting started with SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services)
+- [Getting started with SQL Server Integration Services](/sql/integration-services/sql-server-integration-services)
 - [SQL Server Integration Services for Azure and Hybrid Data Movement](https://download.microsoft.com/download/D/2/0/D20E1C5F-72EA-4505-9F26-FEF9550EFD44/SSIS%20Hybrid%20and%20Azure.docx)
 
 ## Post-migration
@@ -168,11 +168,11 @@ For more assistance with completing this migration scenario, see the following r
 | [SSMA for Oracle Common Errors and How to Fix Them](https://aka.ms/dmj-wp-ssma-oracle-errors)                                                           | With Oracle, you can assign a nonscalar condition in the WHERE clause. However, SQL Server doesn't support this type of condition. As a result, SSMA for Oracle doesn't convert queries with a nonscalar condition in the WHERE clause. Instead, it generates the error O2SS0001. This white paper provides more details on the issue and ways to resolve it.          |
 | [Oracle to SQL Server Migration Handbook](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20SQL%20Server%20Migration%20Handbook.pdf)                | This document focuses on the tasks associated with migrating an Oracle schema to the latest version of SQL Server Database. If the migration requires changes to features or functionality, the possible impact of each change on the applications that use the database must be considered carefully.                                                     |
 
-These resources were developed as part of the Data SQL Ninja program, which is sponsored by the Azure Data Group engineering team. The core charter of the Data SQL Ninja program is to unblock and accelerate complex modernization and compete data platform migration opportunities to the Azure Data platform. If you think your organization would be interested in participating in the Data SQL Ninja program, contact your account team and ask them to submit a nomination.
+These resources were developed as part of the Data SQL Ninja program, which is sponsored by the Azure Data Group engineering team. The core charter of the Data SQL Ninja program is to unblock and accelerate complex modernization and complete data platform migration opportunities to the Azure Data platform. If you think your organization would be interested in participating in the Data SQL Ninja program, contact your account team and ask them to submit a nomination.
 
 ## Next steps
 
-- For a matrix of Microsoft and third-party services and tools that are available to assist you with various database and data migration scenarios and specialty tasks, see [Services and tools for data migration](https://docs.microsoft.com/azure/dms/dms-tools-matrix).
+- For a matrix of Microsoft and third-party services and tools that are available to assist you with various database and data migration scenarios and specialty tasks, see [Services and tools for data migration](../../../dms/dms-tools-matrix.md).
 
 - To learn more about SQL Database, see:
   - [An overview of Azure SQL Database](../../database/sql-database-paas-overview.md)
@@ -184,5 +184,3 @@ These resources were developed as part of the Data SQL Ninja program, which is s
 
 - For video content, see:
     - [Overview of the migration journey and the tools and services recommended for performing assessment and migration](https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/)
-
-
