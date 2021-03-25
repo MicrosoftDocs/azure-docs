@@ -336,7 +336,7 @@ Azure Container Instances (ACI) are created dynamically when you deploy a model.
 
 Azure Machine Learning provides you with the following options for attaching Kubernetes clusters for training:
 
-* [Azure Kubernetes Service](/azure/aks/intro-kubernetes.md). Azure Kubernetes Service provides a managed cluster in Azure. 
+* [Azure Kubernetes Service](/azure/aks/intro-kubernetes.md). Azure Kubernetes Service provides a managed cluster in Azure.
 * [Azure Arc Kubernetes](/azure/azure-arc/kubernetes/overview). Use Azure Arc enabled Kubernetes clusters if your cluster is hosted outside of Azure. For more information, see [Connect to your Kubernetes cluster using Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster)
 
 > [!IMPORTANT]
