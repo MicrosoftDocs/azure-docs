@@ -12,9 +12,6 @@ zone_pivot_groups: acs-plat-web-ios-android
 
 # Quickstart: Call To Phone
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
-
 Get started with Azure Communication Services by using the Communication Services Calling SDK to add PSTN calling to your app.
 
 ::: zone pivot="platform-web"

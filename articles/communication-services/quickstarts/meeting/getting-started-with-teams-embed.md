@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Add joining a teams meeting to your app 
+title: Quickstart - Add joining a Teams meeting to your app 
 titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you'll learn how to add join teams meeting capabilities to your app using Azure Communication Services.
 author: palatter
@@ -11,9 +11,7 @@ ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-ios-android
 ---
 
-# Quickstart: Add joining a teams meeting to your app
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+# Quickstart: Add joining a Teams meeting to your app
 
 Get started with Azure Communication Services by using the Communication Services Teams Embed SDK to add teams meetings to your app. 
 

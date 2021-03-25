@@ -14,8 +14,6 @@ ms.service: azure-communication-services
 
 # What is Azure Communication Services?
 
-[!INCLUDE [Public Preview Notice](./includes/public-preview-include.md)]
-
 > [!IMPORTANT]
 > Applications that you build using Azure Communication Services can talk to Microsoft Teams. To learn more, visit our [Teams Interop](./quickstarts/voice-video-calling/get-started-teams-interop.md) documentation.
 

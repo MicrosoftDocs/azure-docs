@@ -13,8 +13,6 @@ ms.service: azure-communication-services
 
 # Chat SDK overview	
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]	
-
 Azure Communication Services Chat SDKs can be used to add rich, real-time chat to your applications.
 	
 ## Chat SDK capabilities	

@@ -15,9 +15,6 @@ zone_pivot_groups: acs-js-csharp-java-python
 ---
 # Quickstart: Send an SMS message
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
-
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 > [!IMPORTANT]

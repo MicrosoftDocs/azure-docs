@@ -13,10 +13,7 @@ ms.service: azure-communication-services
 ---
 # Client and Server Architecture
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
-
-<!--
+<!-- To any reviewers - we have an exception that allows us to use inline docs comments like code comments. Please do not block on this.
 > [!WARNING]
 > This document is under construction and needs the following items to be addressed:
 > - Need to add security best practices for token management here

@@ -13,9 +13,6 @@ ms.service: azure-communication-services
 ---
 # Quickstart: Handle SMS events
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
-
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 Get started with Azure Communication Services by using Azure Event Grid to handle Communication Services SMS events.

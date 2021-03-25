@@ -20,9 +20,6 @@ This sample was built for developers and makes it very easy for you to get start
 
 ## Get started with the web calling sample
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
-
 > [!IMPORTANT]
 > [This sample is available on Github.](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/).
 

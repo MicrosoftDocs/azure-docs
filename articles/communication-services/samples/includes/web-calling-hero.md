@@ -12,8 +12,6 @@ ms.custom: include file
 ms.author: mikben
 ---
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 The Azure Communication Services **Group Calling Hero Sample** demonstrates how the Communication Services Calling Web SDK can be used to build a group calling experience.
 
 In this Sample quickstart, we'll learn how the sample works before we run the sample on your local machine. We'll then deploy the sample to Azure using your own Azure Communication Services resources.

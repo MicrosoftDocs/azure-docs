@@ -13,7 +13,8 @@ ms.service: azure-communication-services
 
 # Telephony concepts
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include-phone-numbers.md)]
+
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 Azure Communication Services Calling SDKs can be used to add telephony and PSTN to your applications. This page summarizes key telephony concepts and capabilities. See the [calling library](../../quickstarts/voice-video-calling/calling-client-samples.md) to learn more about specific SDK languages and capabilities.
