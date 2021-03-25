@@ -117,13 +117,11 @@ We recommend that you set your firewall rules for outbound traffic, based on Azu
 
 ### URL patterns for monitoring
 
-The following proxy and firewall configuration information is required for the containerized version of the Log Analytics agent for Linux to communicate with Azure Monitor.<!--Is "Agent Resource" needed in the table. If associating a URL pattern with a specific resource is important, I recommend adding a "Component or functionality" column. In a quick search, I couldn't find a list of resources for the Log Analytics agent in Linux.-->
+Configure the following URL patterns on Port 443 if you use the containerized version of the Log Analytics agent for Linux to communicate with Azure Monitor.<!--In the firewall, are URL patterns per port? Is a port designation is relevant to the firewall configuration, is that best noted in the introduction, in the table (not in other tables), or in both places?-->
 
-| URL pattern                    | Port    |   
-|--------------------------------|---------|
-|*.ods.opinsights.azure.com      | Port 443|
-|*.oms.opinsights.azure.com      | Port 443| 
-|*.dc.services.visualstudio.com  | Port 443| 
+| URL pattern | Port number | Component or functionality |   
+|-------------|-------------|----------------------------|
+| http://\*ods.opinsights.azure.com <br> http://\*.oms.opinsights.azure.com <br> http://\*.dc.services.visualstudio.com | Port 443 |  Azure Monitor, for containerized version of Log Analytics agent for Linux |
 
 ## Internet bandwidth
 
