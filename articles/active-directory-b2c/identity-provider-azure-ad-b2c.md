@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/15/2021
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
@@ -60,6 +60,8 @@ To create an application.
 
     For example, `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
 
+    If you use a [custom domain](custom-domain.md), enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace `your-domain-name` with your custom domain, and `your-tenant-name` with the name of your tenant.
+
 1. Under Permissions, select the **Grant admin consent to openid and offline_access permissions** check box.
 1. Select **Register**.
 1. In the **Azure AD B2C - App registrations** page, select the application you created, for example *ContosoApp*.
@@ -103,6 +105,19 @@ To create an application.
 
 1. Select **Save**.
 
+## Add Azure AD B2C identity provider to a user flow 
+
+1. In your Azure AD B2C tenant, select **User flows**.
+1. Click the user flow that you want to add the Azure AD B2C identity provider.
+1. Under the **Social identity providers**, select **Fabrikam**.
+1. Select **Save**.
+1. To test your policy, select **Run user flow**.
+1. For **Application**, select the web application named *testapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
+1. Select the **Run user flow** button.
+1. From the sign-up or sign-in page, select **Fabrikam** to sign in with the other Azure AD B2C tenant.
+
+If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
+
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
@@ -121,9 +136,9 @@ You need to store the application key that you created earlier in your Azure AD 
 1. For **Key usage**, select `Signature`.
 1. Select **Create**.
 
-## Add a claims provider
+## Configure Azure AD B2C as an identity provider
 
-If you want users to sign in by using the other Azure AD B2C (Fabrikam), you need to define the other Azure AD B2C as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated.
+To enable users to sign in using an account from another Azure AD B2C tenant (Fabrikam), you need to define the other Azure AD B2C as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated.
 
 You can define Azure AD B2C as a claims provider by adding Azure AD B2C to the **ClaimsProvider** element in the extension file of your policy.
 
@@ -135,7 +150,7 @@ You can define Azure AD B2C as a claims provider by adding Azure AD B2C to the *
       <Domain>fabrikam.com</Domain>
       <DisplayName>Federation with Fabrikam tenant</DisplayName>
       <TechnicalProfiles>
-        <TechnicalProfile Id="Fabrikam-OpenIdConnect">
+        <TechnicalProfile Id="AzureADB2CFabrikam-OpenIdConnect">
         <DisplayName>Fabrikam</DisplayName>
         <Protocol Name="OpenIdConnect"/>
         <Metadata>
@@ -184,83 +199,37 @@ You can define Azure AD B2C as a claims provider by adding Azure AD B2C to the *
     |CryptographicKeys| Update the value of **StorageReferenceId** to the name of the policy key that you created earlier. For example, `B2C_1A_FabrikamAppSecret`.| 
     
 
-### Upload the extension file for verification
-
-By now, you have configured your policy so that Azure AD B2C knows how to communicate with the other Azure AD B2C tenant. Try uploading the extension file of your policy just to confirm that it doesn't have any issues so far.
-
-1. On the **Custom Policies** page in your Azure AD B2C tenant, select **Upload Policy**.
-1. Enable **Overwrite the policy if it exists**, and then browse to and select the *TrustFrameworkExtensions.xml* file.
-1. Click **Upload**.
-
-## Register the claims provider
-
-At this point, the identity provider has been set up, but it's not yet available in any of the sign-up/sign-in pages. To make it available, create a duplicate of an existing template user journey, and then modify it so that it also has the Azure AD identity provider:
-
-1. Open the *TrustFrameworkBase.xml* file from the starter pack.
-1. Find and copy the entire contents of the **UserJourney** element that includes `Id="SignUpOrSignIn"`.
-1. Open the *TrustFrameworkExtensions.xml* and find the **UserJourneys** element. If the element doesn't exist, add one.
-1. Paste the entire content of the **UserJourney** element that you copied as a child of the **UserJourneys** element.
-1. Rename the ID of the user journey. For example, `SignUpSignInFabrikam`.
-
-### Display the button
-
-The **ClaimsProviderSelection** element is analogous to an identity provider button on a sign-up/sign-in page. If you add a **ClaimsProviderSelection** element for Azure AD B2C, a new button shows up when a user lands on the page.
-
-1. Find the **OrchestrationStep** element that includes `Order="1"` in the user journey that you created in *TrustFrameworkExtensions.xml*.
-1. Under **ClaimsProviderSelections**, add the following element. Set the value of **TargetClaimsExchangeId** to an appropriate value, for example `FabrikamExchange`:
-
-    ```xml
-    <ClaimsProviderSelection TargetClaimsExchangeId="FabrikamExchange" />
-    ```
-
-### Link the button to an action
-
-Now that you have a button in place, you need to link it to an action. The action, in this case, is for Azure AD B2C to communicate with the other Azure AD B2C to receive a token. Link the button to an action by linking the technical profile for the Azure AD B2C claims provider:
-
-1. Find the **OrchestrationStep** that includes `Order="2"` in the user journey.
-1. Add the following **ClaimsExchange** element making sure that you use the same value for **Id** that you used for **TargetClaimsExchangeId**:
-
-    ```xml
-    <ClaimsExchange Id="FabrikamExchange" TechnicalProfileReferenceId="Fabrikam-OpenIdConnect" />
-    ```
-
-    Update the value of **TechnicalProfileReferenceId** to the **Id** of the technical profile you created earlier. For example, `Fabrikam-OpenIdConnect`.
-
-1. Save the *TrustFrameworkExtensions.xml* file and upload it again for verification.
-
-::: zone-end
-
-::: zone pivot="b2c-user-flow"
-
-## Add Azure AD B2C identity provider to a user flow 
-
-1. In your Azure AD B2C tenant, select **User flows**.
-1. Click the user flow that you want to add the Azure AD B2C identity provider.
-1. Under the **Social identity providers**, select **Fabrikam**.
-1. Select **Save**.
-1. To test your policy, select **Run user flow**.
-1. For **Application**, select the web application named *testapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
-1. Click **Run user flow**
-1. From the sign-up or sign-in page, select *Fabrikam* to sign in with the other Azure AD B2C tenant.
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
+[!INCLUDE [active-directory-b2c-add-identity-provider-to-user-journey](../../includes/active-directory-b2c-add-identity-provider-to-user-journey.md)]
 
 
-## Update and test the relying party file
+```xml
+<OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
+  <ClaimsProviderSelections>
+    ...
+    <ClaimsProviderSelection TargetClaimsExchangeId="AzureADB2CFabrikamExchange" />
+  </ClaimsProviderSelections>
+  ...
+</OrchestrationStep>
 
-Update the relying party (RP) file that initiates the user journey that you created.
+<OrchestrationStep Order="2" Type="ClaimsExchange">
+  ...
+  <ClaimsExchanges>
+    <ClaimsExchange Id="AzureADB2CFabrikamExchange" TechnicalProfileReferenceId="AzureADB2CFabrikam-OpenIdConnect" />
+  </ClaimsExchanges>
+</OrchestrationStep>
+```
 
-1. Make a copy of *SignUpOrSignIn.xml* in your working directory, and rename it. For example, rename it to *SignUpSignInFabrikam.xml*.
-1. Open the new file and update the value of the **PolicyId** attribute for **TrustFrameworkPolicy** with a unique value. For example, `SignUpSignInFabrikam`.
-1. Update the value of **PublicPolicyUri** with the URI for the policy. For example, `http://contoso.com/B2C_1A_signup_signin_fabrikam`.
-1. Update the value of the **ReferenceId** attribute in **DefaultUserJourney** to match the ID of the user journey that you created earlier. For example, *SignUpSignInFabrikam*.
-1. Save your changes and upload the file.
-1. Under **Custom policies**, select the new policy in the list.
-1. In the **Select application** drop-down, select the Azure AD B2C application that you created earlier. For example, *testapp1*.
-1. Select **Run now** 
-1. From the sign-up or sign-in page, select *Fabrikam* to sign in with the other Azure AD B2C tenant.
+[!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
+
+
+## Test your custom policy
+
+1. Select your relying party policy, for example `B2C_1A_signup_signin`.
+1. For **Application**, select a web application that you [previously registered](troubleshoot-custom-policies.md#troubleshoot-the-runtime). The **Reply URL** should show `https://jwt.ms`.
+1. Select the **Run now** button.
+1. From the sign-up or sign-in page, select **Fabrikam** to sign in with the other Azure AD B2C tenant.
+
+If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
 
 ::: zone-end
 

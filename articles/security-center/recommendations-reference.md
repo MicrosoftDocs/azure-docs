@@ -1,10 +1,10 @@
 ---
 title: Reference table for all Azure Security Center recommendations 
-description: This article lists Azure Security Center's security recommendations that help you protect your resources.
+description: This article lists Azure Security Center's security recommendations that help you harden and protect your resources.
 author: memildin
 ms.service: security-center
 ms.topic: reference
-ms.date: 01/12/2021
+ms.date: 03/22/2021
 ms.author: memildin
 ms.custom: generated
 ---
@@ -14,17 +14,19 @@ This article lists the recommendations you might see in Azure Security Center. T
 shown in your environment depend on the resources you're protecting and your customized
 configuration.
 
-Security Center's recommendations are based on best practices. Some are aligned with the **Azure
-Security Benchmark**, the Microsoft-authored, Azure-specific guidelines for security and compliance
-best practices based on common compliance frameworks.
-[Learn more about Azure Security Benchmark](../security/benchmarks/introduction.md).
+Security Center's recommendations are based on the [Azure Security Benchmark](../security/benchmarks/introduction.md). 
+Azure Security Benchmark is the Microsoft-authored, Azure-specific set of guidelines for security 
+and compliance best practices based on common compliance frameworks. This widely respected benchmark 
+builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) 
+and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on 
+cloud-centric security.
 
 To learn about how to respond to these recommendations, see
 [Remediate recommendations in Azure Security Center](security-center-remediate-recommendations.md).
 
-Your Secure Score is based on the number of Security Center recommendations you've completed. To
+Your secure score is based on the number of Security Center recommendations you've completed. To
 decide which recommendations to resolve first, look at the severity of each one and its potential
-impact on your Secure Score.
+impact on your secure score.
 
 > [!TIP]
 > If a recommendation's description says "No related policy", it's usually because that
@@ -34,9 +36,17 @@ impact on your Secure Score.
 > protection solution should be installed..."). The underlying recommendation _does_ have a policy.
 > Limiting the policies to only the foundational recommendation simplifies policy management.
 
+## <a name='recs-appservices'></a>AppServices recommendations
+
+[!INCLUDE [asc-recs-appservices](../../includes/asc-recs-appservices.md)]
+
 ## <a name='recs-compute'></a>Compute recommendations
 
 [!INCLUDE [asc-recs-compute](../../includes/asc-recs-compute.md)]
+
+## <a name='recs-container'></a>Container recommendations
+
+[!INCLUDE [asc-recs-container](../../includes/asc-recs-container.md)]
 
 ## <a name='recs-data'></a>Data recommendations
 
@@ -45,6 +55,10 @@ impact on your Secure Score.
 ## <a name='recs-identityandaccess'></a>IdentityAndAccess recommendations
 
 [!INCLUDE [asc-recs-identityandaccess](../../includes/asc-recs-identityandaccess.md)]
+
+## <a name='recs-iot'></a>IoT recommendations
+
+[!INCLUDE [asc-recs-iot](../../includes/asc-recs-iot.md)]
 
 ## <a name='recs-networking'></a>Networking recommendations
 
@@ -55,7 +69,7 @@ impact on your Secure Score.
 |Recommendation|Description & related policy|Severity|Quick fix enabled?([Learn more](security-center-remediate-recommendations.md#quick-fix-remediation))|Resource type|
 |----|----|----|----|----|
 |**Access to App Services should be restricted**|Restrict access to your App Services by changing the networking configuration, to deny inbound traffic from ranges that are too broad.<br>(Related policy: [Preview]: Access to App Services should be restricted)|High|N|App service|
-|**The rules for web applications on IaaS NSGs should be hardened**|Harden the network security group (NSG) of your virtual machines that are running web applications, with NSG rules that are overly permissive with regards to web application ports.<br>(Related policy: The NSGs rules for web applications on IaaS should be hardened)|High|N|Virtual machine|
+|**The rules for web applications on IaaS NSGs should be hardened**|Harden the network security group (NSG) of your virtual machines that are running web applications, with NSG rules that are overly permissive with regard to web application ports.<br>(Related policy: The NSGs rules for web applications on IaaS should be hardened)|High|N|Virtual machine|
 |**Pod Security Policies should be defined to reduce the attack vector by removing unnecessary application privileges (Preview)**|Define Pod Security Policies to reduce the attack vector by removing unnecessary application privileges. It is recommended to configure pod security policies so pods can only access resources which they are allowed to access.<br>(Related policy: [Preview]: Pod Security Policies should be defined on Kubernetes Services)|Medium|N|Compute resources (Containers)|
 |**Install Azure Security Center for IoT security module to get more visibility into your IoT devices**|Install Azure Security Center for IoT security module to get more visibility into your IoT devices.|Low|N|IoT device|
 
@@ -63,5 +77,5 @@ impact on your Secure Score.
 
 To learn more about recommendations, see the following:
 
-- [Security recommendations in Azure Security Center](security-center-recommendations.md)
-- [Protecting your network in Azure Security Center](security-center-network-recommendations.md)
+- [What are security policies, initiatives, and recommendations?](security-policy-concept.md)
+- [Review your security recommendations](security-center-recommendations.md)

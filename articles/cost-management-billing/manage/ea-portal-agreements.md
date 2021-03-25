@@ -3,7 +3,7 @@ title: Azure EA agreements and amendments
 description: This article explains how Azure EA agreements and amendments affect your Azure EA portal use.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/03/2020
+ms.date: 01/19/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -16,7 +16,7 @@ The article describes how Azure EA agreements and amendments might affect your a
 
 ## Enrollment provisioning status
 
-The start date of a new Azure Prepayment is defined by the date that the regional operations center processed it. Since Azure Prepayment orders via the Azure EA portal are processed in the UTC time zone, you may experience some delay if your Azure Prepayment purchase order was processed in a different region. The coverage start date on the purchase order shows the start of the Azure Prepayment. The coverage start date is when the Azure Prepayment appears in the Azure EA portal.
+The start date of a new Azure Prepayment (previously called monetary commitment) is defined by the date that the regional operations center processed it. Since Azure Prepayment orders via the Azure EA portal are processed in the UTC time zone, you may experience some delay if your Azure Prepayment purchase order was processed in a different region. The coverage start date on the purchase order shows the start of the Azure Prepayment. The coverage start date is when the Azure Prepayment appears in the Azure EA portal.
 
 ## Support for enterprise customers
 
@@ -140,7 +140,7 @@ Any quota described above is not a Service Prepayment. For purposes of determini
 
 ## Requesting a quota increase
 
-You can request a quota increase at any time by submitting an [online request](https://g.microsoftonline.com/0WAEP00en/6). To process your request, provide the following information:
+You can request a quota increase at any time by submitting an [online request](https://ms.portal.azure.com/). To process your request, provide the following information:
 
 - The Microsoft account or work or school account associated with the account owner of your subscription. This is the email address utilized to sign in to the Microsoft Azure portal to manage your subscription(s). Please also identify that this account is associated with an EA enrollment.
 - The resource(s) and amount for which you desire a quota increase.

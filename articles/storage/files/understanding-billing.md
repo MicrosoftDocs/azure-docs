@@ -1,20 +1,42 @@
 ---
-title: Understanding Azure Files billing | Microsoft Docs
+title: Understand Azure Files billing | Microsoft Docs
 description: Learn how to interpret the provisioned and pay-as-you-go billing models for Azure file shares.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/1/2020
+ms.date: 01/27/2021
 ms.author: rogarana
 ms.subservice: files
 ---
 
-# Understanding Azure Files billing
+# Understand Azure Files billing
 Azure Files provides two distinct billing models: provisioned and pay-as-you-go. The provisioned model is only available for premium file shares, which are file shares deployed in the **FileStorage** storage account kind. The pay-as-you-go model is only available for standard file shares, which are file shares deployed in the **general purpose version 2 (GPv2)** storage account kind. This article explains how both models work in order to help you understand your monthly Azure Files bill.
 
-The current pricing for Azure Files can be found on the [Azure Files pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
+For Azure Files pricing information, see [Azure Files pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
 
-## Provisioned billing
+## Storage units	
+Azure Files uses base-2 units of measurement to represent storage capacity: KiB, MiB, GiB, and TiB. Your operating system may or may not use the same unit of measurement or counting system.
+
+### Windows
+
+Both the Windows operating system and Azure Files measure storage capacity using the base-2 counting system, but there is a difference when labeling units. Azure Files labels its storage capacity with base-2 units of measurement while Windows labels its storage capacity in base-10 units of measurement. When reporting storage capacity, Windows doesn't convert its storage capacity from base-2 to base-10.
+
+|Acronym  |Definition  |Unit  |Windows displays as  |
+|---------|---------|---------|---------|
+|KiB     |1,024 bytes         |kibibyte         |KB (kilobyte)         |
+|MiB     |1,024 KiB (1,048,576 bytes)         |mebibyte         |MB (megabyte)         |
+|GiB     |1024 MiB (1,073,741,824 bytes)         |gibibyte         |GB (gigabyte)         |
+|TiB     |1024 GiB (1,099,511,627,776 bytes)         |tebibyte         |TB (terabyte)         |
+
+### macOS
+
+See [How iOS and macOS report storage capacity](https://support.apple.com/HT201402) on Apple's website to determine which counting system is used.
+
+### Linux
+
+A different counting system could be used by each operating system or individual piece of software. See their documentation to determine how they report storage capacity.
+
+## Provisioned model
 Azure Files uses a provisioned model for premium file shares. In a provisioned business model, you proactively specify to the Azure Files service what your storage requirements are, rather than being billed based on what you use. This is similar to buying hardware on-premises, in that when you provision an Azure file share with a certain amount of storage, you pay for that storage regardless of whether you use it or not, just like you don't start paying the costs of physical media on-premises when you start to use space. Unlike purchasing physical media on-premises, provisioned file shares can be dynamically scaled up or down depending on your storage and IO performance characteristics.
 
 When you provision a premium file share, you specify how many GiBs your workload requires. Each GiB that you provision entitles you to additional IOPS and throughput on a fixed ratio. In addition to the baseline IOPS for which you are guaranteed, each premium file share supports bursting on a best effort basis. The formulas for IOPS and throughput are as follows:
@@ -60,7 +82,7 @@ Share credits have three states:
 
 New file shares start with the full number of credits in its burst bucket. Burst credits will not be accrued if the share IOPS fall below baseline IOPS due to throttling by the server.
 
-## Pay-as-you-go billing
+## Pay-as-you-go model
 Azure Files uses a pay-as-you-go business model for standard file shares. In a pay-as-you-go business model, the amount you pay is determined by how much you actually use, rather than based on a provisioned amount. At a high level, you pay a cost for the amount of data stored on disk, and then an additional set of transactions based on your usage of that data. A pay-as-you-go model can be cost-efficient, because you don't need to overprovision to account for future growth or performance requirements or deprovision if your workload is data footprint varies over time. On the other hand, a pay-as-you-go model can also be difficult to plan as part of a budgeting process, because the pay-as-you-go billing model is driven by end-user consumption.
 
 ### Differences in standard tiers
@@ -74,7 +96,7 @@ If you put an infrequently accessed workload in the transaction optimized tier, 
 
 Similarly, if you put a highly accessed workload in the cool tier, you will pay a lot more in transaction costs, but less for data storage costs. This can lead to a situation where the increased costs from the transaction prices increase outweigh the savings from the decreased data storage price, leading you to pay more money on cool than you would have on transaction optimized. It is possible for some usage levels that while the hot tier will be the most cost efficient tier, the cool tier will be more expensive than transaction optimized.
 
-Your workload and activity level will determine the most cost efficient tier for your standard file share. In practice, the best way to pick the the most cost efficient tier involves looking at the actual resource consumption of the share (data stored, write transactions, etc.).
+Your workload and activity level will determine the most cost efficient tier for your standard file share. In practice, the best way to pick the most cost efficient tier involves looking at the actual resource consumption of the share (data stored, write transactions, etc.).
 
 ### What are transactions?
 Transactions are operations or requests against Azure Files to upload, download, or otherwise manipulate the contents of the file share. Every action taken on a file share translates to one or more transactions, and on standard shares that use the pay-as-you-go billing model, that translates to transaction costs.

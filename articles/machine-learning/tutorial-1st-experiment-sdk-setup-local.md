@@ -9,8 +9,9 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 09/15/2020
+ms.date: 02/11/2021
 ms.custom: devx-track-python
+adobe-target: true
 ---
 
 # Tutorial: Get started with Azure Machine Learning in your development environment (part 1 of 4)
@@ -63,7 +64,7 @@ pip install azureml-core
 > [!NOTE]
 > It takes approximately 2 minutes for the Azure Machine Learning SDK install to complete.
 >
-> If you get a timeout error, try `pip install --default-timeout=100 azureml-core` intstead.
+> If you get a timeout error, try `pip install --default-timeout=100 azureml-core` instead.
 
 
 > [!div class="nextstepaction"]
@@ -73,20 +74,29 @@ pip install azureml-core
 
 We recommend that you set up the following simple directory structure for this tutorial:
 
-```markdown
-tutorial
-└──.azureml
-```
+:::image type="content" source="media/tutorial-1st-experiment-sdk-local/directory-structure-1.png" alt-text="directory structure: tutorial top level with .azureml subdirectory":::
+
 
 - `tutorial`: Top-level directory of the project.
 - `.azureml`: Hidden subdirectory for storing Azure Machine Learning configuration files.
 
+For example, to create this in a bash window:
+
+```bash
+mkdir tutorial
+cd tutorial
+mkdir .azureml
+```
+
 > [!TIP]
-> You can create the hidden .azureml subdirectory in a terminal window.  Or use the following:
+> To create or view the structure in a graphical window, first enable the ability to see and create hidden files and folders:
 >
-> * In a Mac Finder window use **Command + Shift + .** to toggle the ability to see and create directories that begin with a dot.  
+> * In a Mac Finder window use **Command + Shift + .** to toggle the display of hidden files/folders.  
 > * In a Windows 10 File Explorer, see [how to view hidden files and folders](https://support.microsoft.com/en-us/windows/view-hidden-files-and-folders-in-windows-10-97fbc472-c603-9d90-91d0-1166d1d9f4b5). 
 > * In the Linux Graphical Interface, use **Ctrl + h** or the **View** menu and check the box to **Show hidden files**.
+
+
+
 
 > [!div class="nextstepaction"]
 > [I created a directory](?success=create-dir#workspace) [I ran into an issue](https://www.research.net/r/7C8Z3DN?issue=create-dir)
@@ -133,12 +143,7 @@ python ./01-create-workspace.py
 
 After you've successfully run *01-create-workspace.py*, your folder structure will look like:
 
-```markdown
-tutorial
-└──.azureml
-|  └──config.json
-└──01-create-workspace.py
-```
+:::image type="content" source="media/tutorial-1st-experiment-sdk-local/directory-structure-2.png" alt-text="File config.json appears in .azureml subdirectory after running 01-create-workspace.py":::
 
 The file `.azureml/config.json` contains the metadata necessary to connect to your Azure Machine Learning
 workspace. Namely, it contains your subscription ID, resource group, and workspace name. 
@@ -192,13 +197,7 @@ python ./02-create-compute.py
 
 Your folder structure will now look as follows:
 
-```bash
-tutorial
-└──.azureml
-|  └──config.json
-└──01-create-workspace.py
-└──02-create-compute.py
-```
+:::image type="content" source="media/tutorial-1st-experiment-sdk-local/directory-structure-3.png" alt-text="Add 02-create-compute.py to the tutorial directory":::
 
 > [!div class="nextstepaction"]
 > [I created a compute cluster](?success=create-compute-cluster#next-steps) [I ran into an issue](https://www.research.net/r/7C8Z3DN?issue=create-compute-cluster)

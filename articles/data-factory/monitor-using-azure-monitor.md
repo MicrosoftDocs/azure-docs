@@ -1,14 +1,10 @@
 ---
 title: Monitor data factories using Azure Monitor 
 description: Learn how to use Azure Monitor to monitor /Azure Data Factory pipelines by enabling diagnostic logs with information from Data Factory.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/13/2020
 ---
@@ -75,7 +71,7 @@ Create or add diagnostic settings for your data factory.
    ![Name your settings and select a log-analytics workspace](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
     > [!NOTE]
-    > Because an Azure log table can't have more than 500 columns, we **highly recommended** you select _Resource-Specific mode_. For more information, see [Log Analytics Known Limitations](../azure-monitor/platform/resource-logs.md#column-limit-in-azurediagnostics).
+    > Because an Azure log table can't have more than 500 columns, we **highly recommended** you select _Resource-Specific mode_. For more information, see [AzureDiagnostics Logs reference](/azure-monitor/reference/tables/azurediagnostics#additionalfields-column).
 
 1. Select **Save**.
 
@@ -150,7 +146,7 @@ Here are some of the metrics emitted by Azure Data Factory version 2:
 | SSISPackageExecutionFailed           | Failed SSIS package execution metrics    | Count    | Total                | The total number of SSIS package executions that failed within a minute window. |
 | SSISPackageExecutionSucceeded        | Succeeded SSIS package execution metrics | Count    | Total                | The total number of SSIS package executions that succeeded within a minute window. |
 
-To access the metrics, complete the instructions in [Azure Monitor data platform](../azure-monitor/platform/data-platform.md).
+To access the metrics, complete the instructions in [Azure Monitor data platform](../azure-monitor/data-platform.md).
 
 > [!NOTE]
 > Only events from completed, triggered activity and pipeline runs are emitted. In progress and debug runs are **not** emitted. On the other hand, events from **all** SSIS package executions are emitted, including those that are completed and in progress, regardless of their invocation methods. For example, you can invoke package executions on Azure-enabled SQL Server Data Tools (SSDT), via T-SQL on SSMS, SQL Server Agent, or other designated tools, and as triggered or debug runs of Execute SSIS Package activities in ADF pipelines.
@@ -847,7 +843,7 @@ To lift & shift your SSIS workloads, you can [provision SSIS IR in ADF](./tutori
 
 Once provisioned, you can [check SSIS IR operational status using Azure PowerShell or on the **Monitor** hub of ADF portal](./monitor-integration-runtime.md#azure-ssis-integration-runtime). With Project Deployment Model, SSIS package execution logs are stored in SSISDB internal tables or views, so you can query, analyze, and visually present them using designated tools like SSMS. With Package Deployment Model, SSIS package execution logs can be stored in file system or Azure Files as CSV files that you still need to parse and process using other designated tools before you can query, analyze, and visually present them.
 
-Now with [Azure Monitor](../azure-monitor/platform/data-platform.md) integration, you can query, analyze, and visually present all metrics and logs generated from SSIS IR operations and SSIS package executions on Azure portal. Additionally, you can also raise alerts on them.
+Now with [Azure Monitor](../azure-monitor/data-platform.md) integration, you can query, analyze, and visually present all metrics and logs generated from SSIS IR operations and SSIS package executions on Azure portal. Additionally, you can also raise alerts on them.
 
 ### Configure diagnostic settings and workspace for SSIS operations
 
@@ -855,9 +851,9 @@ To send all metrics and logs generated from SSIS IR operations and SSIS package 
 
 ### SSIS operational metrics
 
-SSIS operational [metrics](../azure-monitor/platform/data-platform-metrics.md) are performance counters or numerical values that describe the status of SSIS IR start and stop operations, as well as SSIS package executions at a particular point in time. They're part of [ADF metrics in Azure Monitor](#data-factory-metrics).
+SSIS operational [metrics](../azure-monitor/essentials/data-platform-metrics.md) are performance counters or numerical values that describe the status of SSIS IR start and stop operations, as well as SSIS package executions at a particular point in time. They're part of [ADF metrics in Azure Monitor](#data-factory-metrics).
 
-When you configure diagnostic settings and workspace for your ADF on Azure Monitor, selecting the _AllMetrics_ check box will make SSIS operational metrics available for [interactive analysis using Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md), [presentation on Azure dashboard](../azure-monitor/learn/tutorial-app-dashboards.md), and [near-real time alerts](../azure-monitor/platform/alerts-metric.md).
+When you configure diagnostic settings and workspace for your ADF on Azure Monitor, selecting the _AllMetrics_ check box will make SSIS operational metrics available for [interactive analysis using Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md), [presentation on Azure dashboard](../azure-monitor/app/tutorial-app-dashboards.md), and [near-real time alerts](../azure-monitor/alerts/alerts-metric.md).
 
 ![Name your settings and select a log-analytics workspace](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
@@ -873,9 +869,9 @@ To raise alerts on SSIS operational metrics from Azure portal, [select the **Ale
 
 ### SSIS operational logs
 
-SSIS operational [logs](../azure-monitor/platform/data-platform-logs.md) are events generated by SSIS IR operations and SSIS package executions that provide enough context on any identified issues and are useful for root cause analysis. 
+SSIS operational [logs](../azure-monitor/logs/data-platform-logs.md) are events generated by SSIS IR operations and SSIS package executions that provide enough context on any identified issues and are useful for root cause analysis. 
 
-When you configure diagnostic settings and workspace for your ADF on Azure Monitor, you can select the relevant SSIS operational logs and send them to Log Analytics that's based on Azure Data Explorer. In there, they'll be made available for [analysis using rich query language](../azure-monitor/log-query/log-query-overview.md), [presentation on Azure dashboard](../azure-monitor/learn/tutorial-app-dashboards.md), and [near-real time alerts](../azure-monitor/platform/alerts-log.md).
+When you configure diagnostic settings and workspace for your ADF on Azure Monitor, you can select the relevant SSIS operational logs and send them to Log Analytics that's based on Azure Data Explorer. In there, they'll be made available for [analysis using rich query language](../azure-monitor/logs/log-query-overview.md), [presentation on Azure dashboard](../azure-monitor/app/tutorial-app-dashboards.md), and [near-real time alerts](../azure-monitor/alerts/alerts-log.md).
 
 ![Name your settings and select a log-analytics workspace](media/data-factory-monitor-oms/monitor-oms-image2.png)
 

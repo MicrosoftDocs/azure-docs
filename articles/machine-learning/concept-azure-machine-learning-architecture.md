@@ -43,19 +43,6 @@ A workspace includes other Azure resources that are used by the workspace:
 
 You can share a workspace with others.
 
-### Create workspace
-
-The following diagram shows the create workspace workflow.
-
-* You sign in to Azure AD from one of the supported Azure Machine Learning clients (Azure CLI, Python SDK, Azure portal) and request the appropriate Azure Resource Manager token.
-* You call Azure Resource Manager to create the workspace. 
-* Azure Resource Manager contacts the Azure Machine Learning resource provider to provision the workspace.
-* If you don't specify existing resources, additional required resources are created in your subscription..
-
-You can also provision other compute targets that are attached to a workspace (like Azure Kubernetes Service or VMs) as needed.
-
-[![Create workspace workflow](media/concept-azure-machine-learning-architecture/create-workspace.png)](media/concept-azure-machine-learning-architecture/create-workspace.png#lightbox)
-
 ## Computes
 
 <a name="compute-targets"></a>
@@ -112,7 +99,7 @@ You produce a run when you submit a script to train a model. A run can have zero
 
 [Workspace](#workspace) > [Experiments](#experiments) > [Run](#runs) > **Run configuration**
 
-A run configuration defines how a script should be run in a specified compute target. You use the configuration to specify the script, the compute target and Azure ML environment to run on, any distributed job-specific configurations, and some additional properties. For more information on the full set of configurable options for runs, see [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py).
+A run configuration defines how a script should be run in a specified compute target. You use the configuration to specify the script, the compute target and Azure ML environment to run on, any distributed job-specific configurations, and some additional properties. For more information on the full set of configurable options for runs, see [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig).
 
 A run configuration can be persisted into a file inside the directory that contains your training script.   Or it can be constructed as an in-memory object and used to submit a run.
 
@@ -123,10 +110,6 @@ For example run configurations, see [Configure a training run](how-to-set-up-tra
 [Workspace](#workspace) > [Experiments](#experiments) > [Run](#runs) > **Snapshot**
 
 When you submit a run, Azure Machine Learning compresses the directory that contains the script as a zip file and sends it to the compute target. The zip file is then extracted, and the script is run there. Azure Machine Learning also stores the zip file as a snapshot as part of the run record. Anyone with access to the workspace can browse a run record and download the snapshot.
-
-The following diagram shows the code snapshot workflow.
-
-[![Code snapshot workflow](media/concept-azure-machine-learning-architecture/code-snapshot.png)](media/concept-azure-machine-learning-architecture/code-snapshot.png#lightbox)
 
 ### Logging
 
@@ -297,7 +280,7 @@ The studio is also where you access the interactive tools that are part of Azure
 > The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-+  Interact with the service in any Python environment with the [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
++  Interact with the service in any Python environment with the [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro).
 + Interact with the service in any R environment with the [Azure Machine Learning SDK for R](https://azure.github.io/azureml-sdk-for-r/reference/index.html) (preview).
 + Use [Azure Machine Learning designer](concept-designer.md) to perform the workflow steps without writing code. 
 + Use [Azure Machine Learning CLI](./reference-azure-machine-learning-cli.md) for automation.

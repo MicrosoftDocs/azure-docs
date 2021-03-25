@@ -1,7 +1,7 @@
 ---
 title: Get started with Azure Service Bus topics and subscriptions | Microsoft Docs
 description: Write a C# .NET Core console application that uses Service Bus messaging topics and subscriptions.
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 09/02/2020
 ms.custom: devx-track-csharp

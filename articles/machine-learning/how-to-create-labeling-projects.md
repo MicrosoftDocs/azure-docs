@@ -19,7 +19,7 @@ Learn how to create and run data labeling projects to tag data in Azure Machine 
 ## Data labeling capabilities
 
 > [!Important]
-> Only image classification and object identification labeling projects are currently supported. Additionally, the data images must be available in an Azure blob datastore. (If you do not have an existing datastore, you may upload images during project creation.)
+> Data images must be available in an Azure blob datastore. (If you do not have an existing datastore, you may upload images during project creation.)
 
 Azure Machine Learning data labeling is a central place to create, manage, and monitor labeling projects:
  - Coordinate data, labels, and team members to efficiently manage labeling tasks. 
@@ -48,6 +48,12 @@ To create a project, select **Add project**. Give the project an appropriate nam
 * Choose **Image Classification Multi-class** for projects when you want to apply only a *single label* from a set of labels to an image.
 * Choose **Image Classification Multi-label** for projects when you want to apply *one or more* labels from a set of labels to an image. For instance, a photo of a dog might be labeled with both *dog* and *daytime*.
 * Choose **Object Identification (Bounding Box)** for projects when you want to assign a label and a bounding box to each object within an image.
+* Choose **Instance Segmentation (Polygon)(Preview)** for projects when you want to assign a label and draw a polygon around each object within an image.
+
+> [!IMPORTANT]
+> Instance Segmentation (Polygon) is in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Select **Next** when you're ready to continue.
 
@@ -97,12 +103,9 @@ If you plan to add new images to your dataset, use incremental refresh to add th
 
 To add more images to your project, use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to upload to the appropriate folder in the blob storage. 
 
-Check the box for **Enable incremental refresh** when you want your project to continually monitor for new data in the datastore. This data will be pulled into your project once a day when enabled.
+Check the box for **Enable incremental refresh** when you want your project to continually monitor for new data in the datastore. This data will be pulled into your project once a day when enabled, so you will have to wait after you add new data to the datastore before it shows up in your project.  You can see a timestamp for when data was last  refreshed in the **Incremental refresh** section of **Details** tab for your project.
 
 Uncheck this box if you do not want new images that appear in the datastore to be added to your project.
-
-You can find the timestamp for the latest refresh in the **Incremental refresh** section of **Details** tab for your project.
-
 
 ## Specify label classes
 
@@ -136,6 +139,7 @@ For bounding boxes, important questions include:
 
 The **ML-assisted labeling** page lets you trigger automatic machine learning models to accelerate the labeling task. At the beginning of your labeling project, the images are shuffled into a random order to reduce potential bias. However, any biases that are present in the dataset will be reflected in the trained model. For example, if 80% of your images are of a single class, then approximately 80% of the data used to train the model will be of that class. This training does not include active learning.
 
+
 Select *Enable ML assisted labeling* and specify a GPU to enable assisted labeling, which consists of two phases:
 * Clustering
 * Prelabeling
@@ -145,7 +149,7 @@ The exact number of labeled images necessary to start assisted labeling is not a
 Since the final labels still rely on input from the labeler, this technology is sometimes called *human in the loop* labeling.
 
 > [!NOTE]
-> ML assisted data labelling does not support default storage accounts secured behind a [virtual network](how-to-network-security-overview.md). You must use a non-default storage account for ML assisted data labelling. The non-default storage account can be secured behind the virtual network. 
+> ML assisted data labelling does not support default storage accounts secured behind a [virtual network](how-to-network-security-overview.md). You must use a non-default storage account for ML assisted data labelling. The non-default storage account can be secured behind the virtual network.
 
 ### Clustering
 

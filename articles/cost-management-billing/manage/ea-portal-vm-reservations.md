@@ -20,7 +20,7 @@ You can exchange a reservation for another reservation of the same type. It's al
 
 ### Partial refunds
 
-We’ll issue a partial refund when EA customers return reservations that were purchased using overage and not monetary commitment.
+We’ll issue a partial refund when EA customers return reservations that were purchased using overage and not Azure Prepayment (previously called monetary commitment).
 
 The refund will be displayed in the EA portal as a negative adjustment in the previous month and a positive adjustment in the current month. It will show up similarly to a reservations exchange. The credit memo will reference the original invoice number; therefore, to reconcile the initial purchase with the credit memo, please refer to the original invoice number.
 

@@ -70,7 +70,7 @@ How-to guides to control access in Key Vault:
 - [Assign a Key Vault access policy using CLI](../general/assign-access-policy-cli.md)
 - [Assign a Key Vault access policy using PowerShell](../general/assign-access-policy-powershell.md)
 - [Assign a Key Vault access policy using the Azure portal](../general/assign-access-policy-portal.md)
-- [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control (preview)](../general/rbac-guide.md)
+- [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../general/rbac-guide.md)
 
 ## Secret tags  
 You can specify additional application-specific metadata in the form of tags. Key Vault supports up to 15 tags, each of which can have a 256 character name and a 256 character value.  
@@ -80,7 +80,7 @@ You can specify additional application-specific metadata in the form of tags. Ke
 
 ## Azure Storage account key management
 
-Key Vault can manage [Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-account-overview) keys:
+Key Vault can manage [Azure storage account](../../storage/common/storage-account-overview.md) keys:
 
 - Internally, Key Vault can list (sync) keys with an Azure storage account. 
 - Key Vault regenerates (rotates) the keys periodically.
@@ -88,7 +88,7 @@ Key Vault can manage [Azure storage account](https://docs.microsoft.com/azure/st
 - Key Vault manages keys of both storage accounts and classic storage accounts.
 
 For more information, see:
-- [Storage account access keys](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage)
+- [Storage account access keys](../../storage/common/storage-account-keys-manage.md)
 - [Storage account keys management in Azure Key Vault](../secrets/overview-storage-keys.md))
 
 
@@ -120,7 +120,7 @@ How-to guides to control access in Key Vault:
 - [Assign a Key Vault access policy using CLI](../general/assign-access-policy-cli.md)
 - [Assign a Key Vault access policy using PowerShell](../general/assign-access-policy-powershell.md)
 - [Assign a Key Vault access policy using the Azure portal](../general/assign-access-policy-portal.md)
-- [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control (preview)](../general/rbac-guide.md)
+- [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../general/rbac-guide.md)
 
 
 ## Next steps

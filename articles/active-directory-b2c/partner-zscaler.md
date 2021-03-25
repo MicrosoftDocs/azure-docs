@@ -22,7 +22,7 @@ In this tutorial, you'll learn how to integrate Azure Active Directory B2C (Azur
 Before you begin, you’ll need:
 
 - An Azure subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).  
-- [An Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) that's linked to your Azure subscription.  
+- [An Azure AD B2C tenant](./tutorial-create-tenant.md) that's linked to your Azure subscription.  
 - [A ZPA subscription](https://azuremarketplace.microsoft.com/marketplace/apps/aad.zscalerprivateaccess?tab=Overview).
 
 ## Scenario description
@@ -91,15 +91,15 @@ After you've configured Azure AD B2C, the rest of the IdP configuration resumes.
 >[!Note]
 >This step is required only if you haven’t already configured custom policies. If you already have one or more custom policies, you can skip this step.
 
-To configure custom policies on your Azure AD B2C tenant, see [Get started with custom policies in Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started).
+To configure custom policies on your Azure AD B2C tenant, see [Get started with custom policies in Azure Active Directory B2C](./custom-policy-get-started.md).
 
 ### Step 3: Register ZPA as a SAML application in Azure AD B2C
 
-To configure a SAML application in Azure AD B2C, see [Register a SAML application in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/connect-with-saml-service-providers). 
+To configure a SAML application in Azure AD B2C, see [Register a SAML application in Azure AD B2C](./saml-service-provider.md). 
 
-In step ["3.2 Upload and test your policy metadata"](https://docs.microsoft.com/azure/active-directory-b2c/connect-with-saml-service-providers#32-upload-and-test-your-policy-metadata), copy or note the IdP SAML metadata URL that's used by Azure AD B2C. You'll need it later.
+In step ["Upload your policy"](./saml-service-provider.md#upload-your-policy), copy or note the IdP SAML metadata URL that's used by Azure AD B2C. You'll need it later.
 
-Follow the instructions through step ["4.2 Update the app manifest"](https://docs.microsoft.com/azure/active-directory-b2c/connect-with-saml-service-providers#42-update-the-app-manifest). In step 4.2, update the app manifest properties as follows:
+Follow the instructions through step ["Configure your application in Azure AD B2C"](./saml-service-provider.md#configure-your-application-in-azure-ad-b2c). In step 4.2, update the app manifest properties as follows:
 
 - For **identifierUris**: Use the Service Provider Entity ID that you copied or noted earlier in "Step 1.6.b".  
 - For **samlMetadataUrl**: Skip this property, because ZPA doesn't host a SAML metadata URL.  
@@ -144,7 +144,7 @@ Go to a ZPA user portal or a browser-access application, and test the sign-up or
 
 For more information, review the following articles:
 
-- [Get started with custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started)
-- [Register a SAML application in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/connect-with-saml-service-providers)
+- [Get started with custom policies in Azure AD B2C](./custom-policy-get-started.md)
+- [Register a SAML application in Azure AD B2C](./saml-service-provider.md)
 - [Step-by-step configuration guide for ZPA](https://help.zscaler.com/zpa/step-step-configuration-guide-zpa)
 - [Configure an IdP for single sign-on](https://help.zscaler.com/zpa/configuring-idp-single-sign)

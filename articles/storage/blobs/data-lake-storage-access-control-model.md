@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 02/17/2021
 ms.author: normesta
 ---
 
@@ -30,7 +30,7 @@ This article focuses on Azure RBAC and ACLs, and how the system evaluates them t
 
 Azure RBAC uses role assignments to apply sets of permissions to [security principals](../../role-based-access-control/overview.md#security-principal). A security principal is an object that represents a user, group, service principal, or managed identity that is defined in Azure Active Directory (AD). A permission set can give a security principal a "coarse-grain" level of access such as read or write access to **all** of the data in a storage account or **all** of the data in a container. 
 
-The following roles permit a security principal to access data in a storage account. 
+The following roles permit a security principal to access data in a storage account.
 
 |Role|Description|
 |--|--|
@@ -102,7 +102,7 @@ This table shows a column that represents each level of a fictitious directory h
 
 
 > [!NOTE] 
-> To view the contents of a container in Azure Storage Explorer, security principals must [sign into Storage Explorer by using Azure AD](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#add-a-resource-via-azure-ad), and (at a minimum) have read access (R--) to the root folder (`\`) of a container. This level of permission does give them the ability to list the contents of the root folder. If you don't want the contents of the root folder to be visible, you can assign them [Reader](../../role-based-access-control/built-in-roles.md#reader) role. With that role, they'll be able to list the containers in the account, but not container contents. You can then grant access to specific directories and files by using ACLs.   
+> To view the contents of a container in Azure Storage Explorer, security principals must [sign into Storage Explorer by using Azure AD](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#attach-to-an-individual-resource), and (at a minimum) have read access (R--) to the root folder (`\`) of a container. This level of permission does give them the ability to list the contents of the root folder. If you don't want the contents of the root folder to be visible, you can assign them [Reader](../../role-based-access-control/built-in-roles.md#reader) role. With that role, they'll be able to list the containers in the account, but not container contents. You can then grant access to specific directories and files by using ACLs.   
 
 ## Security groups
 

@@ -3,7 +3,7 @@ title: 'ML Studio (classic): start experiments from examples - Azure'
 description: Learn how to use example machine learning experiments to create new experiments with Azure AI Gallery and Azure Machine Learning Studio (classic).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: sample
 
 author: likebupt

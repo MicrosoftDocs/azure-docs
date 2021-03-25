@@ -15,7 +15,7 @@ ms.date: 10/21/2020
 # Create an Elastic Job agent using PowerShell (preview)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-[Elastic jobs (preview)](job-automation-overview.md#elastic-database-jobs-preview) enable the running of one or more Transact-SQL (T-SQL) scripts in parallel across many databases.
+[Elastic jobs (preview)](job-automation-overview.md) enable the running of one or more Transact-SQL (T-SQL) scripts in parallel across many databases.
 
 In this tutorial, you learn the steps required to run a query across multiple databases:
 
@@ -57,7 +57,7 @@ In addition to the **Az.Sql** module, this tutorial also requires the *SqlServer
 
 ## Create required resources
 
-Creating an Elastic Job agent requires a database (S0 or higher) for use as the [Job database](job-automation-overview.md#job-database).
+Creating an Elastic Job agent requires a database (S0 or higher) for use as the [Job database](job-automation-overview.md#elastic-job-database).
 
 The script below creates a new resource group, server, and database for use as the Job database. The second script creates a second server with two blank databases to execute jobs against.
 
@@ -265,7 +265,7 @@ The following table lists the possible job execution states:
 |:---|:---|
 |**Created** | The job execution was just created and is not yet in progress.|
 |**InProgress** | The job execution is currently in progress.|
-|**WaitingForRetry** | The job execution wasn’t able to complete its action and is waiting to retry.|
+|**WaitingForRetry** | The job execution wasn't able to complete its action and is waiting to retry.|
 |**Succeeded** | The job execution has completed successfully.|
 |**SucceededWithSkipped** | The job execution has completed successfully, but some of its children were skipped.|
 |**Failed** | The job execution has failed and exhausted its retries.|

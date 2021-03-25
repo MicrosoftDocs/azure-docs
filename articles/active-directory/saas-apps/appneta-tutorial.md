@@ -102,7 +102,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| | |
 
 	> [!NOTE]
-	> **groups** refers to the security group in Appneta which is mapped to a **Role** in Azure AD. Please refer to [this](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui) doc which explains how to create custom roles in Azure AD.
+	> **groups** refers to the security group in Appneta which is mapped to a **Role** in Azure AD. Please refer to [this](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview) doc which explains how to create custom roles in Azure AD.
 
 	1. Click **Add new claim** to open the **Manage user claims** dialog.
 
@@ -168,9 +168,9 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to AppNeta Performance Monitor Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the AppNeta Performance Monitor tile in the My Apps, this will redirect to AppNeta Performance Monitor Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* You can use Microsoft My Apps. When you click the AppNeta Performance Monitor tile in the My Apps, this will redirect to AppNeta Performance Monitor Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## Next steps
 
-Once you configure AppNeta Performance Monitor you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Once you configure AppNeta Performance Monitor you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

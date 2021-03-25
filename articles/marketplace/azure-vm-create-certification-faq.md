@@ -4,8 +4,8 @@ description: Troubleshoot common issues related to testing and certifying virtua
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
-author: iqshahmicrosoft
-ms.author: iqshah
+author: mathapli
+ms.author: mathapli
 ms.date: 01/18/2021
 ---
 
@@ -316,7 +316,7 @@ Refer to the following table for any issues that arise when you download the VM 
 |Invalid VHD name|Check to see whether any special characters, such as a percent sign `%` or quotation marks `"`, exist in the VHD name.|Rename the VHD file by removing the special characters.|
 |
 
-## First 1 MB (2048 sectors, each sector of 512 bytes) partition
+## First partition starts at 1 MB (2048 Sectors)
 
 If you are [building your own image](azure-vm-create-using-own-image.md), ensure the first 2048 sectors (1 MB) of the OS disk is empty. Otherwise, your publishing will fail. This requirement is applicable to the OS disk only (not data disks). If you are building your image [from an approved base](azure-vm-create-using-approved-base.md), you can skip this requirement.
 
@@ -589,8 +589,38 @@ Next, republish the offer.
 
 To complete the publishing process, see [Review and publish offers](review-publish-offer.md).
 
+### VM images with limited access or requiring custom templates
+
+#### Locked down (or) SSH disabled offer
+
+  Images which are published with either SSH disabled(for Linux) or RDP disabled (for Windows) are treated as Locked down VMs. There are special business scenarios due to which Publishers only allow restricted access to no/a few users. 
+  During validation checks, Locked down VMs might not allow execution of certain certification commands.
+
+
+#### Custom templates
+
+   In general, all the images which are published under single VM offers will follow standard ARM template for deployment. However, there are scenarios where publisher might requires customization while deploying VMs (e.g. multiple NIC(s) to be configured).
+    
+   Depending on the below scenarios (non-exhaustive), publishers will use custom templates for deploying the VM:
+
+   * VM requires additional network subnets.
+   * Additional metadata to be inserted in ARM template.
+   * Commands that are prerequisite to the execution of ARM template.
+
+### VM extensions   
+
+   Azure virtual machine (VM) extensions are small applications that provide post-deployment configuration and automation tasks on Azure VMs. For example, if a virtual machine requires software installation, anti-virus protection, or to run a script inside of it, a VM extension can be used. 
+
+   Linux VM extension validations require the following to be part of the image:
+* Azure Linux Agent greater 2.2.41
+* Python version above 2.8 
+
+
+For more information, please visit [VM Extension](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux).
+     
 ## Next steps
 
 - [Configure VM offer properties](azure-vm-create-properties.md)
 - [Active marketplace rewards](partner-center-portal/marketplace-rewards.md)
 - If you have questions or feedback for improvement, contact [Partner Center support](https://aka.ms/marketplacepublishersupport).
+ 

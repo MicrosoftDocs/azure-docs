@@ -187,10 +187,6 @@
         href: deploy-ci-cd-custom-container.md
       - name: Deploy from local Git
         href: deploy-local-git.md
-      - name: GitHub Action
-        href: deploy-github-actions.md
-      - name: GitHub Action for Containers
-        href: deploy-container-github-action.md
       - name: Deploy with template
         href: deploy-complex-application-predictably.md
     - name: Set deployment credentials
@@ -248,7 +244,7 @@
     - name: Configure PremiumV3 tier
       href: app-service-configure-premium-tier.md
     - name: Scale out to multiple instances
-      href: ../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json
+      href: ../azure-monitor/autoscale/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json
     - name: High density hosting
       href: manage-scale-per-app.md
   - name: Monitor app
@@ -259,6 +255,8 @@
       href: troubleshoot-diagnostic-logs.md
     - name: Get resource events
       href: get-resource-events.md
+    - name: Health check
+      href: monitor-instances-health-check.md      
     - name: Open SSH session to Linux container
       href: configure-linux-open-ssh-session.md
   - name: Manage app
@@ -320,6 +318,8 @@
     href: ../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits
   - name: Service Updates
     href: https://azure.microsoft.com/updates/?product=app-service
+  - name: Kudu service
+    href: resources-kudu.md
   - name: Migration Assistant guides
     href: https://github.com/Azure/App-Service-Migration-Assistant/tree/master/MigrationDocs
   - name: Best practices

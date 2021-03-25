@@ -78,6 +78,18 @@
           href: synapse-link-use-cases.md
         - name: Synapse Link FAQ
           href: synapse-link-frequently-asked-questions.md
+    - name: Backup and restore
+      items:
+        - name: Backup and restore introduction
+          href: online-backup-and-restore.md
+        - name: Continuous backup
+          items:
+          - name: Continuous backup - Introduction
+            href: continuous-backup-restore-introduction.md
+          - name: Continuous backup - FAQ
+            href: continuous-backup-restore-frequently-asked-questions.md
+          - name: Continuous backup - Resource model
+            href: continuous-backup-restore-resource-model.md
     - name: Optimize your Azure Cosmos DB cost
       items:
         - name: Plan and manage costs
@@ -110,8 +122,10 @@
       href: cosmosdb-jupyter-notebooks.md
     - name: Service quotas
       href: concepts-limits.md
-    - name: Enterprise readiness - Compliance
-      href: compliance.md
+    - name: Enterprise readiness 
+      items:
+        - name: Compliance
+          href: compliance.md
     - name: Automatic recommendations
       href: automated-recommendations.md
 - name: SQL/Core API
@@ -569,6 +583,9 @@
             - name: Parameterized query
               displayName: parameterized query, parameterized, parameter, parameters
               href: sql-query-parameterized-queries.md
+            - name: Pagination
+              displayName: continuation tokens, paging, pagination
+              href: sql-query-pagination.md
             - name: LINQ to SQL
               displayName: linq, .NET
               href: sql-query-linq-to-sql.md
@@ -736,6 +753,8 @@
                   href: troubleshoot-not-found.md
                 - name: Troubleshoot unauthorized
                   href: troubleshoot-unauthorized.md
+                - name: Troubleshoot forbidden
+                  href: troubleshoot-forbidden.md
                 - name: Availability issues in multiregional environments
                   href: troubleshoot-sdk-availability.md
             - name: .NET
@@ -786,6 +805,8 @@
               href: enable-notebooks.md
             - name: Import notebooks from GitHub
               href: import-github-notebooks.md
+            - name: Publish notebooks to gallery
+              href: publish-notebook-gallery.md
             - name: Use built-in Python notebook commands
               href: use-python-notebook-features-and-commands.md
             - name: Use built-in C# notebook commands
@@ -828,6 +849,9 @@
           items:
             - name: Configure Cross Origin Resource Sharing(CORS)
               href: how-to-configure-cross-origin-resource-sharing.md
+            - name: Configure role-based access control
+              href: how-to-setup-rbac.md
+              displayName: aad, active directory, rbac
             - name: Use managed identities to access data
               href: managed-identity-based-authentication.md
               displayName: msi, managed service identity, aad, azure active directory, identity
@@ -856,9 +880,9 @@
             - name: Azure Event Hubs and Azure Storage
               href: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md
             - name: Use Spring Boot Starter
-              href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
+              href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Spring Data developer guide
-              href: /azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
+              href: /azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: ODBC driver
               href: odbc-driver.md
     - name: Reference
@@ -900,7 +924,7 @@
         - name: REST (Management plane)
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/sqlresources
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Resource Manager template
           href: /azure/templates/microsoft.documentdb/allversions
           displayName: ARM
@@ -966,8 +990,6 @@
               href: cassandra-migrate-cosmos-db-blitzz.md
             - name: Migrate - Apache Cassandra to Cassandra API using Databricks
               href: cassandra-migrate-cosmos-db-databricks.md
-            - name: Migrate - Apache Cassandra to Cassandra API using Databricks
-              href: cassandra-migrate-cosmos-db-databricks.md
             - name: Migrate - PostgreSQL to Cassandra API using Apache Kafka
               href: postgres-migrate-cosmos-db-kafka.md
         - name: Change feed
@@ -981,7 +1003,7 @@
           displayName: request units, RUs, RU, charge, consumption
           href: find-request-unit-charge-cassandra.md
         - name: Store and manage Spring Data
-          href: /azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
+          href: /azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Troubleshoot common issues
           href: cassandra-troubleshoot.md
         - name: Cassandra and Spark
@@ -1020,7 +1042,7 @@
         - name: REST resource provider
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/cassandraresources
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Resource Manager template
           href: /azure/templates/microsoft.documentdb/allversions
 - name: MongoDB API
@@ -1038,11 +1060,13 @@
         - name: Node.js
           href: create-mongodb-nodejs.md
         - name: Python
-          href: create-mongodb-flask.md
+          href: ./mongodb-introduction.md
         - name: Xamarin
           href: create-mongodb-xamarin.md
         - name: Golang
           href: create-mongodb-go.md
+        - name: Rust
+          href: create-mongodb-rust.md
     - name: Tutorials
       items:
         - name: 1 - Create and manage data
@@ -1071,9 +1095,11 @@
           href: tutorial-global-distribution-mongodb.md
     - name: Concepts
       items:
-        - name: Wire protocol support (3.6)
+        - name: API version 4.0
+          href: mongodb-feature-support-40.md
+        - name: API version 3.6
           href: mongodb-feature-support-36.md
-        - name: Wire protocol support (3.2)
+        - name: API version 3.2
           href: mongodb-feature-support.md
         - name: FAQ
           href: mongodb-api-faq.md
@@ -1085,13 +1111,15 @@
           items:
             - name: Pre-migration guide
               href: mongodb-pre-migration.md
+            - name: MongoDB native tools (offline)
+              href: tutorial-mongotools-cosmos-db.md                            
             - name: Database Migration Service (online)
               href: ../dms/tutorial-mongodb-cosmos-db-online.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Database Migration Service (offline)
               href: ../dms/tutorial-mongodb-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Post-migration guide
               href: mongodb-post-migration.md
-        - name: Upgrade from MongoDB 3.2 to 3.6
+        - name: Upgrade to API version 4.0 or 3.6
           href: mongodb-version-upgrade.md
         - name: Get the connection string
           href: connect-mongodb-account.md
@@ -1112,6 +1140,8 @@
           href: mongodb-change-streams.md
         - name: Manage data indexing
           href: mongodb-indexing.md
+        - name: Use multi-document transactions
+          href: use-multi-document-transactions.md
         - name: Create a container - MongoDB API
           href: how-to-create-container-mongodb.md
         - name: Provision throughput- MongoDB API
@@ -1127,7 +1157,7 @@
         - name: Prevent rate-limiting errors
           href: prevent-rate-limiting-errors.md
         - name: Store and manage Spring Data
-          href: /azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
+          href: /azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: MongoDB extension commands
           href: mongodb-custom-commands.md
           displayName: custom commands
@@ -1143,7 +1173,7 @@
         - name: REST resource provider
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/mongodbresources
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Resource Manager template
           href: /azure/templates/microsoft.documentdb/allversions
 - name: Gremlin API
@@ -1208,7 +1238,7 @@
         - name: Visualize graph data
           href: graph-visualization.md
         - name: Store and manage Spring Data
-          href: /azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
+          href: /azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Manage using Resource Manager templates
           href: templates-samples-gremlin.md
           displayName: ARM
@@ -1221,7 +1251,7 @@
         - name: Response Headers
           href: gremlin-headers.md
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: REST resource provider
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/gremlinresources
         - name: Resource Manager template
@@ -1307,7 +1337,7 @@
         - name: Python
           href: table-sdk-python.md
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Table storage REST APIs
           href: /rest/api/storageservices/table-service-rest-api
 - name: How-to guides
@@ -1340,12 +1370,30 @@
           href: configure-synapse-link.md
         - name: Connect to Azure Synapse Link
           href: ../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Analytical store and private endpoints
+          href: analytical-store-private-endpoints.md
         - name: Query with Azure Synapse Spark
           href: ../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Query with serverless SQL pool
           href: ../synapse-analytics/sql/query-cosmos-db-analytical-store.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Use Power BI with Synapse Link
           href: synapse-link-power-bi.md
+    - name: Backup and restore
+      items:
+        - name: Manage continuous backup
+          items:
+            - name: Continuous backup - Permissions and roles
+              href: continuous-backup-restore-permissions.md
+            - name: Continuous backup - Portal
+              href: continuous-backup-restore-portal.md
+            - name: Continuous backup - PowerShell
+              href: continuous-backup-restore-powershell.md
+            - name: Continuous backup - CLI
+              href: continuous-backup-restore-command-line.md
+            - name: Continuous backup - Resource Manager
+              href: continuous-backup-restore-template.md
+        - name: Manage periodic backup
+          href: configure-periodic-backup-restore.md 
     - name: Security
       items:
         - name: Configure IP firewall
@@ -1365,8 +1413,6 @@
           href: how-to-setup-cmk.md
     - name: Enterprise readiness
       items:
-        - name: Online backup and on-demand restore
-          href: online-backup-and-restore.md
         - name: Request quota increase
           href: create-support-request-quota-increase.md
     - name: Monitor
@@ -1375,7 +1421,7 @@
           href: monitor-cosmos-db.md
         - name: Use Azure monitor metrics
           items:
-            - name: Azure Monitor for Cosmos (preview)
+            - name: Azure Monitor for Cosmos DB
               href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Scenarios to monitor
               href: use-metrics.md

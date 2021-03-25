@@ -22,7 +22,7 @@ This procedure requires several tools that must be installed and run locally. Do
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services) before you begin.
 * A text editor, for example, [Visual Studio Code](https://code.visualstudio.com/download).
-* The [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) installed.
+* The [Azure CLI](/cli/azure/install-azure-cli) installed.
 * The [Kubernetes CLI](https://kubernetes.io/docs/tasks/tools/install-kubectl/) installed.
 * An Azure resource with the correct pricing tier. Not all pricing tiers work with this container:
     * **Azure Text Analytics** resource with F0 or standard pricing tiers only.

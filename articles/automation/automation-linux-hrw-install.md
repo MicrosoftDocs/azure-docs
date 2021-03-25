@@ -21,13 +21,13 @@ Before you start, make sure that you have the following.
 
 ### A Log Analytics workspace
 
-The Hybrid Runbook Worker role depends on an Azure Monitor Log Analytics workspace to install and configure the role. You can create it through [Azure Resource Manager](../azure-monitor/samples/resource-manager-workspace.md#create-a-log-analytics-workspace), through [PowerShell](../azure-monitor/scripts/powershell-sample-create-workspace.md?toc=/powershell/module/toc.json), or in the [Azure portal](../azure-monitor/learn/quick-create-workspace.md).
+The Hybrid Runbook Worker role depends on an Azure Monitor Log Analytics workspace to install and configure the role. You can create it through [Azure Resource Manager](../azure-monitor/logs/resource-manager-workspace.md#create-a-log-analytics-workspace), through [PowerShell](../azure-monitor/logs/powershell-sample-create-workspace.md?toc=/powershell/module/toc.json), or in the [Azure portal](../azure-monitor/logs/quick-create-workspace.md).
 
-If you don't have an Azure Monitor Log Analytics workspace, review the [Azure Monitor Log design guidance](../azure-monitor/platform/design-logs-deployment.md) before you create the workspace.
+If you don't have an Azure Monitor Log Analytics workspace, review the [Azure Monitor Log design guidance](../azure-monitor/logs/design-logs-deployment.md) before you create the workspace.
 
 ### Log Analytics agent
 
-The Hybrid Runbook Worker role requires the [Log Analytics agent](../azure-monitor/platform/log-analytics-agent.md) for the supported Linux operating system. For servers or machines hosted outside of Azure, you can install the Log Analytics agent using [Azure Arc enabled servers](../azure-arc/servers/overview.md).
+The Hybrid Runbook Worker role requires the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) for the supported Linux operating system. For servers or machines hosted outside of Azure, you can install the Log Analytics agent using [Azure Arc enabled servers](../azure-arc/servers/overview.md).
 
 >[!NOTE]
 >After installing the Log Analytics agent for Linux, you should not change the permissions of the `sudoers.d` folder or its ownership. Sudo permission is required for the **nxautomation** account, which is the user context the Hybrid Runbook Worker runs under. The permissions should not be removed. Restricting this to certain folders or commands may result in a breaking change.
@@ -38,12 +38,15 @@ The Hybrid Runbook Worker role requires the [Log Analytics agent](../azure-monit
 The Hybrid Runbook Worker feature supports the following distributions. All operating systems are assumed to be x64. x86 is not supported for any operating system.
 
 * Amazon Linux 2012.09 to 2015.09
-* CentOS Linux 5, 6, and 7
+* CentOS Linux 5, 6, 7, and 8
 * Oracle Linux 5, 6, and 7
-* Red Hat Enterprise Linux Server 5, 6, and 7
+* Red Hat Enterprise Linux Server 5, 6, 7, and 8
 * Debian GNU/Linux 6, 7, and 8
 * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS, and 18.04 LTS
-* SUSE Linux Enterprise Server 12
+* SUSE Linux Enterprise Server 12 and 15 (SUSE did not release versions numbered 13 or 14)
+
+> [!IMPORTANT]
+> Before enabling the Update Management feature, which depends on the system Hybrid Runbook Worker role, confirm the distributions it supports [here](update-management/overview.md#supported-operating-systems).
 
 ### Minimum requirements
 
@@ -58,7 +61,7 @@ The minimum requirements for a Linux system and user Hybrid Runbook Worker are:
 |Glibc |GNU C Library| 2.5-12 |
 |Openssl| OpenSSL Libraries | 1.0 (TLS 1.1 and TLS 1.2 are supported)|
 |Curl | cURL web client | 7.15.5|
-|Python-ctypes | Python 2.x is required |
+|Python-ctypes | Python 2.x or Python 3.x are required |
 |PAM | Pluggable Authentication Modules|
 | **Optional package** | **Description** | **Minimum version**|
 | PowerShell Core | To run PowerShell runbooks, PowerShell Core needs to be installed. See [Installing PowerShell Core on Linux](/powershell/scripting/install/installing-powershell-core-on-linux) to learn how to install it. | 6.0.0 |
@@ -82,13 +85,16 @@ Linux Hybrid Runbook Workers support a limited set of runbook types in Azure Aut
 
 |Runbook type | Supported |
 |-------------|-----------|
-|Python 2 |Yes |
-|PowerShell |Yes<sup>1</sup> |
+|Python 3 (preview)|Yes, required for these distros only: SUSE LES 15, RHEL 8 and CentOS 8|
+|Python 2 |Yes, for any distro that doesn't require Python 3<sup>1</sup> |
+|PowerShell |Yes<sup>2</sup> |
 |PowerShell Workflow |No |
 |Graphical |No |
 |Graphical PowerShell Workflow |No |
 
-<sup>1</sup>PowerShell runbooks require PowerShell Core to be installed on the Linux machine. See [Installing PowerShell Core on Linux](/powershell/scripting/install/installing-powershell-core-on-linux) to learn how to install it.
+<sup>1</sup>See [Supported Linux operating systems](#supported-linux-operating-systems).
+
+<sup>2</sup>PowerShell runbooks require PowerShell Core to be installed on the Linux machine. See [Installing PowerShell Core on Linux](/powershell/scripting/install/installing-powershell-core-on-linux) to learn how to install it.
 
 ### Network configuration
 

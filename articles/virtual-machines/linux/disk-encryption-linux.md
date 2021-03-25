@@ -2,8 +2,9 @@
 title: Azure Disk Encryption scenarios on Linux VMs
 description: This article provides instructions on enabling Microsoft Azure Disk Encryption for Linux VMs for various scenarios
 author: msmbaldwin
-ms.service: virtual-machines-linux
-ms.subservice: security
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: linux
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
@@ -12,7 +13,6 @@ ms.custom: seodec18, devx-track-azurecli
 ---
 
 # Azure Disk Encryption scenarios on Linux VMs
-
 
 Azure Disk Encryption for Linux virtual machines (VMs) uses the DM-Crypt feature of Linux to provide full disk encryption of the OS disk and data disks. Additionally, it provides encryption of the temporary disk when using the EncryptFormatAll feature.
 
@@ -38,11 +38,11 @@ Azure Disk Encryption can be enabled and managed through the [Azure CLI](/cli/az
 
 ### Azure CLI
 
-The [Azure CLI 2.0](/cli/azure) is a command-line tool for managing Azure resources. The CLI is designed to flexibly query data, support long-running operations as non-blocking processes, and make scripting easy. You can install it locally by following the steps in [Install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+The [Azure CLI 2.0](/cli/azure) is a command-line tool for managing Azure resources. The CLI is designed to flexibly query data, support long-running operations as non-blocking processes, and make scripting easy. You can install it locally by following the steps in [Install the Azure CLI](/cli/azure/install-azure-cli).
 
  
 
-To [Sign in to your Azure account with the Azure CLI](/cli/azure/authenticate-azure-cli), use the [az login](/cli/azure/reference-index?view=azure-cli-latest#az-login) command.
+To [Sign in to your Azure account with the Azure CLI](/cli/azure/authenticate-azure-cli), use the [az login](/cli/azure/reference-index#az_login) command.
 
 ```azurecli
 az login
@@ -68,13 +68,13 @@ The [Azure PowerShell az module](/powershell/azure/new-azureps-module-az) provid
 
 If you already have it installed locally, make sure you use the latest version of Azure PowerShell SDK version to configure Azure Disk Encryption. Download the latest version of [Azure PowerShell release](https://github.com/Azure/azure-powershell/releases).
 
-To [Sign in to your Azure account with Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-2.5.0), use the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) cmdlet.
+To [Sign in to your Azure account with Azure PowerShell](/powershell/azure/authenticate-azureps), use the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
 ```powershell
 Connect-AzAccount
 ```
 
-If you have multiple subscriptions and want to specify one, use the [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) cmdlet to list them, followed by the [Set-AzContext](/powershell/module/az.accounts/set-azcontext?view=azps-2.5.0) cmdlet:
+If you have multiple subscriptions and want to specify one, use the [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) cmdlet to list them, followed by the [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet:
 
 ```powershell
 Set-AzContext -Subscription -Subscription <SubscriptionId>
@@ -82,7 +82,7 @@ Set-AzContext -Subscription -Subscription <SubscriptionId>
 
 Running the [Get-AzContext](/powershell/module/Az.Accounts/Get-AzContext) cmdlet will verify that the correct subscription has been selected.
 
-To confirm the Azure Disk Encryption cmdlets are installed, use the [Get-command](/powershell/module/microsoft.powershell.core/get-command?view=powershell-6) cmdlet:
+To confirm the Azure Disk Encryption cmdlets are installed, use the [Get-command](/powershell/module/microsoft.powershell.core/get-command) cmdlet:
      
 ```powershell
 Get-command *diskencryption*
@@ -100,9 +100,9 @@ In this scenario, you can enable encryption by using the Resource Manager templa
 
 ### Enable encryption on an existing or running Linux VM using Azure CLI 
 
-You can enable disk encryption on your encrypted VHD by installing and using the [Azure CLI](/cli/azure/?view=azure-cli-latest) command-line tool. You can use it in your browser with [Azure Cloud Shell](../../cloud-shell/overview.md), or you can install it on your local machine and use it in any PowerShell session. To enable encryption on existing or running Linux VMs in Azure, use the following CLI commands:
+You can enable disk encryption on your encrypted VHD by installing and using the [Azure CLI](/cli/azure/) command-line tool. You can use it in your browser with [Azure Cloud Shell](../../cloud-shell/overview.md), or you can install it on your local machine and use it in any PowerShell session. To enable encryption on existing or running Linux VMs in Azure, use the following CLI commands:
 
-Use the [az vm encryption enable](/cli/azure/vm/encryption?view=azure-cli-latest#az-vm-encryption-show) command to enable encryption on a running virtual machine in Azure.
+Use the [az vm encryption enable](/cli/azure/vm/encryption#az_vm_encryption_show) command to enable encryption on a running virtual machine in Azure.
 
 - **Encrypt a running VM:**
 
@@ -263,7 +263,7 @@ We recommend an LVM-on-crypt setup. For all the following examples, replace the 
 
 1. Format, mount, and add these disks to the fstab file.
 
-1. Choose a partition standard, create a partition that spans the entire drive, and then format the partition. We use symlinks generated by Azure here. Using symlinks avoids problems related to device names changing. For more information, see the [Troubleshoot Device Names problems](../troubleshooting/troubleshoot-device-names-problems.md) article.
+1. Choose a partition standard, create a partition that spans the entire drive, and then format the partition. We use symlinks generated by Azure here. Using symlinks avoids problems related to device names changing. For more information, see the [Troubleshoot Device Names problems](/troubleshoot/azure/virtual-machines/troubleshoot-device-names-problems) article.
     
     ```bash
     parted /dev/disk/azure/scsi1/lun0 mklabel gpt
@@ -284,7 +284,7 @@ We recommend an LVM-on-crypt setup. For all the following examples, replace the 
     echo "/dev/disk/azure/scsi1/lun0-part1 /mnt/mountpoint ext4 defaults,nofail 0 2" >> /etc/fstab
     ```
     
-1. Run the Azure PowerShell [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension?view=azps-3.8.0&preserve-view=true) cmdlet with -EncryptFormatAll to encrypt these disks.
+1. Run the Azure PowerShell [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) cmdlet with -EncryptFormatAll to encrypt these disks.
 
     ```azurepowershell-interactive
     $KeyVault = Get-AzKeyVault -VaultName "MySecureVault" -ResourceGroupName "MySecureGroup"
@@ -412,14 +412,13 @@ Azure Disk Encryption does not work for the following Linux scenarios, features,
 - Creating an image or snapshot of an encrypted VM and using it to deploy additional VMs.
 - Kernel Crash Dump (kdump).
 - Oracle ACFS (ASM Cluster File System).
-- Gen2 VMs (see: [Support for generation 2 VMs on Azure](../generation-2.md#generation-1-vs-generation-2-capabilities)).
 - The NVMe disks of Lsv2 series VMs (see: [Lsv2-series](../lsv2-series.md)).
 - A VM with "nested mount points"; that is, multiple mount points in a single path (such as "/1stmountpoint/data/2stmountpoint").
 - A VM with a data drive mounted on top of an OS folder.
+- A VM on which a root (OS disk) logical volume has been extended using a data disk.
 - M-series VMs with Write Accelerator disks.
 - Applying ADE to a VM that has disks encrypted with [server-side encryption with customer-managed keys](../disk-encryption.md) (SSE + CMK). Applying SSE + CMK to a data disk on a VM encrypted with ADE is an unsupported scenario as well.
 - Migrating a VM that is encrypted with ADE, or has **ever** been encrypted with ADE, to [server-side encryption with customer-managed keys](../disk-encryption.md).
-- [Azure VM sizes with no local temporary disk](../azure-vms-no-temp-disk.md); specifically, Dv4, Dsv4, Ev4, and Esv4.
 - Encrypting VMs in failover clusters.
 
 ## Next steps

@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 03/04/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -68,9 +68,9 @@ The application session can be a cookie-based session stored under the applicati
 
 You can configure the Azure AD B2C session behavior, including:
 
-- **Web app session lifetime (minutes)** - The amount of time the Azure AD B2C session cookie is stored on the user's browser after successful authentication. You can set the session life time to a value from 15 to 720 minutes.
+- **Web app session lifetime (minutes)** - The amount of time the Azure AD B2C session cookie is stored on the user's browser after successful authentication. You can set the session lifetime up to 24 hours.
 
-- **Web app session timeout** - Indicates how a session is extended by the session life time setting or the keep me signed-in setting.
+- **Web app session timeout** - Indicates how a session is extended by the session lifetime setting or the Keep me signed in (KMSI) setting.
   - **Rolling** - Indicates that the session is extended every time the user performs a cookie-based authentication (default).
   - **Absolute** - Indicates that the user is forced to re-authenticate after the time period specified.
 
@@ -78,10 +78,8 @@ You can configure the Azure AD B2C session behavior, including:
   - **Tenant** - This setting is the default. Using this setting allows multiple applications and user flows in your B2C tenant to share the same user session. For example, once a user signs into an application, the user can also seamlessly sign into another one upon accessing it.
   - **Application** - This setting allows you to maintain a user session exclusively for an application, independent of other applications. For example, you can use this setting if you want the user to sign in to Contoso Pharmacy regardless of whether the user is already signed into Contoso Groceries.
   - **Policy** - This setting allows you to maintain a user session exclusively for a user flow, independent of the applications using it. For example, if the user has already signed in and completed a multi-factor authentication (MFA) step, the user can be given access to higher-security parts of multiple applications, as long as the session tied to the user flow doesn't expire.
-  - **Disabled** - This setting forces the user to run through the entire user flow upon every execution of the policy.
-::: zone pivot="b2c-custom-policy"
-- **Keep me signed-in** - extends the session life time through the use of a persistent cookie. The session remains active after the user closes and reopens the browser. The session is revoked only when a user signs out. The Keep me signed-in feature only applies to sign-in with local accounts. The Keep me signed-in feature takes precedence over the session life time. If the Keep me signed-in feature is enabled and the user selects it, this feature dictates when the session will expire. 
-::: zone-end
+  - **Suppressed** - This setting forces the user to run through the entire user flow upon every execution of the policy.
+- **Keep me signed in (KMSI)** - Extends the session lifetime through the use of a persistent cookie. If this feature is enabled and the user selects it, the session remains active even after the user closes and reopens the browser. The session is revoked only when the user signs out. The KMSI feature only applies to sign-in with local accounts. The KMSI feature takes precedence over the session lifetime.
 
 ::: zone pivot="b2c-user-flow"
 
@@ -109,12 +107,43 @@ To change your session behavior and SSO configurations, you add a **UserJourneyB
    <SessionExpiryInSeconds>86400</SessionExpiryInSeconds>
 </UserJourneyBehaviors>
 ```
+::: zone-end
 
 ## Enable Keep me signed in (KMSI)
 
-You can enable Keep Me Signed In functionality for users of your web and native applications that have local accounts in your Azure Active Directory B2C (Azure AD B2C) directory. This feature grants access to users returning to your application without prompting them to reenter their username and password. This access is revoked when a user signs out.
+You can enable the KMSI feature for users of your web and native applications who have local accounts in your Azure AD B2C directory. When you enable the feature, users can opt to stay signed in so the session remains active after they close the browser. Then they can reopen the browser without being prompted to reenter their username and password. This access is revoked when a user signs out.
 
 ![Example sign-up sign-in page showing a Keep me signed in checkbox](./media/session-behavior/keep-me-signed-in.png)
+
+
+::: zone pivot="b2c-user-flow"
+
+KMSI is configurable at the individual user flow level. Before enabling KMSI for your user flows, consider the following:
+
+- KMSI is supported only for the **Recommended** versions of sign-up and sign-in (SUSI), sign-in, and profile editing user flows. If you currently have **Standard** or **Legacy preview - v2** versions of these user flows and want to enable KMSI, you'll need to create new, **Recommended** versions of these user flows.
+- KMSI is not supported with password reset or sign-up user flows.
+- If you want to enable KMSI for all applications in your tenant, we recommend that you enable KMSI for all user flows in your tenant. Because a user can be presented with multiple policies during a session, it's possible they could encounter one that doesn't have KMSI enabled, which would remove the KMSI cookie from the session.
+- KMSI should not be enabled on public computers.
+
+### Configure KMSI for a user flow
+
+To enable KMSI for your user flow:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory + subscription** filter in the top menu and choose the directory that contains your Azure AD B2C tenant.
+3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+4. Select **User flows (policies)**.
+5. Open the user flow that you previously created.
+6. Select **Properties**.
+
+7. Under **Session behavior**, select **Enable keep me signed in session**. Next to **Keep me signed in session (days)**, enter a value from 1 to 90 to specify the number of days a session can remain open.
+
+
+   ![Enable keep me signed in session](media/session-behavior/enable-keep-me-signed-in.png)
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
 
 Users should not enable this option on public computers.
 
@@ -162,7 +191,7 @@ To add the KMSI checkbox to the sign-up and sign-in page, set the `setting.enabl
 
 ### Configure a relying party file
 
-Update the relying party (RP) file that initiates the user journey that you created.
+Update the relying party (RP) file that initiates the user journey that you created. The keepAliveInDays parameter allows you to configure how the long the keep me signed in (KMSI) session cookie should persist. For example, if you set the value to 30, then KMSI session cookie will persist for 30 days. The range for the value is from 1 to 90 days.
 
 1. Open your custom policy file. For example, *SignUpOrSignin.xml*.
 1. If it doesn't already exist, add a `<UserJourneyBehaviors>` child node to the `<RelyingParty>` node. It must be located immediately after `<DefaultUserJourney ReferenceId="User journey Id" />`, for example: `<DefaultUserJourney ReferenceId="SignUpOrSignIn" />`.
@@ -217,9 +246,9 @@ Upon a sign-out request, Azure AD B2C:
 ::: zone-end
 ::: zone pivot="b2c-custom-policy"
 3. Attempts to sign out from federated identity providers:
-   - OpenId Connect - If the identity provider well-known configuration endpoint specifies an `end_session_endpoint` location.
+   - OpenId Connect - If the identity provider well-known configuration endpoint specifies an `end_session_endpoint` location. The sign-out request doesn't pass the `id_token_hint` parameter. If the federated identity provider requires this parameter, the sign-out request will fail.
    - OAuth2 - If the [identity provider metadata](oauth2-technical-profile.md#metadata) contains the `end_session_endpoint` location.
-   - SAML - If the [identity provider metadata](saml-identity-provider-technical-profile.md#metadata) contains the `SingleLogoutService` location.
+   - SAML - If the [identity provider metadata](identity-provider-generic-saml.md) contains the `SingleLogoutService` location.
 4. Optionally, signs-out from other applications. For more information, see the [Single sign-out](#single-sign-out) section.
 
 > [!NOTE]

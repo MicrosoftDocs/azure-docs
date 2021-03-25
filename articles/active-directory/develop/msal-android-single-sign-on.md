@@ -115,7 +115,7 @@ keytool -exportcert -alias androiddebugkey -keystore %HOMEPATH%\.android\debug.k
 
 Once you've generated a signature hash with *keytool*, use the Azure portal to generate the redirect URI:
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a> and select your Android app in **App registrations**.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a> and select your Android app in **App registrations**.
 1. Select **Authentication** > **Add a platform** > **Android**.
 1. In the **Configure your Android app** pane that opens, enter the **Signature hash** that you generated earlier and a **Package name**.
 1. Select the **Configure** button.

@@ -3,7 +3,7 @@ title: Diagnose and troubleshoot issues when using Azure Cosmos DB .NET SDK
 description: Use features like client-side logging and other third-party tools to identify, diagnose, and troubleshoot Azure Cosmos DB issues when using .NET SDK.
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 09/12/2020
+ms.date: 03/05/2021
 ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
@@ -61,6 +61,7 @@ Cosmos DB SDK on any IO failure will attempt to retry the failed operation if re
 |----------|-------------|
 | 400 | Bad request (Depends on the error message)| 
 | 401 | [Not authorized](troubleshoot-unauthorized.md) | 
+| 403 | [Forbidden](troubleshoot-forbidden.md) |
 | 404 | [Resource is not found](troubleshoot-not-found.md) |
 | 408 | [Request timed out](troubleshoot-dot-net-sdk-request-timeout.md) |
 | 409 | Conflict failure is when the ID provided for a resource on a write operation has been taken by an existing resource. Use another ID for the resource to resolve this issue as ID must be unique within all documents with the same partition key value. |
@@ -84,14 +85,49 @@ If your app is deployed on [Azure Virtual Machines without a public IP address](
 * Assign a [public IP to your Azure VM](../load-balancer/troubleshoot-outbound-connection.md#assignilpip).
 
 ### <a name="high-network-latency"></a>High network latency
-High network latency can be identified by using the [diagnostics string](/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?preserve-view=true&view=azure-dotnet) in the V2 SDK or [diagnostics](/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics?preserve-view=true&view=azure-dotnet#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) in V3 SDK.
+High network latency can be identified by using the [diagnostics string](/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring) in the V2 SDK or [diagnostics](/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) in V3 SDK.
 
-If no [timeouts](troubleshoot-dot-net-sdk-request-timeout.md) are present and the diagnostics show single requests where the high latency is evident on the difference between `ResponseTime` and `RequestStartTime`, like so (>300 milliseconds in this example):
+If no [timeouts](troubleshoot-dot-net-sdk-request-timeout.md) are present and the diagnostics show single requests where the high latency is evident.
+
+# [V3 SDK](#tab/diagnostics-v3)
+
+Diagnostics can be obtained from any `ResponseMessage`, `ItemResponse`, `FeedResponse`, or `CosmosException` by the `Diagnostics` property:
+
+```csharp
+ItemResponse<MyItem> response = await container.CreateItemAsync<MyItem>(item);
+Console.WriteLine(response.Diagnostics.ToString());
+```
+
+Network interactions in the diagnostics will be for example:
+
+```json
+{
+    "name": "Microsoft.Azure.Documents.ServerStoreModel Transport Request",
+    "id": "0e026cca-15d3-4cf6-bb07-48be02e1e82e",
+    "component": "Transport",
+    "start time": "12: 58: 20: 032",
+    "duration in milliseconds": 1638.5957
+}
+```
+
+Where the `duration in milliseconds` would show the latency.
+
+# [V2 SDK](#tab/diagnostics-v2)
+
+The diagnostics are available when the client is configured in [direct mode](sql-sdk-connection-modes.md), through the `RequestDiagnosticsString` property:
+
+```csharp
+ResourceResponse<Document> response = await client.ReadDocumentAsync(documentLink, new RequestOptions() { PartitionKey = new PartitionKey(partitionKey) });
+Console.WriteLine(response.RequestDiagnosticsString);
+```
+
+And the latency would be on the difference between `ResponseTime` and `RequestStartTime`:
 
 ```bash
 RequestStartTime: 2020-03-09T22:44:49.5373624Z, RequestEndTime: 2020-03-09T22:44:49.9279906Z,  Number of regions attempted:1
 ResponseTime: 2020-03-09T22:44:49.9279906Z, StoreResult: StorePhysicalAddress: rntbd://..., ...
 ```
+--- 
 
 This latency can have multiple causes:
 

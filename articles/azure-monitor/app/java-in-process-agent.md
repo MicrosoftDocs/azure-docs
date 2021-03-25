@@ -30,11 +30,11 @@ The 3.0 agent supports Java 8 and above.
 > Please review all the [configuration options](./java-standalone-config.md) carefully,
 > as the json structure has completely changed, in addition to the file name itself which went all lowercase.
 
-Download [applicationinsights-agent-3.0.1.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.1/applicationinsights-agent-3.0.1.jar)
+Download [applicationinsights-agent-3.0.2.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.2/applicationinsights-agent-3.0.2.jar)
 
 **2. Point the JVM to the agent**
 
-Add `-javaagent:path/to/applicationinsights-agent-3.0.1.jar` to your application's JVM args
+Add `-javaagent:path/to/applicationinsights-agent-3.0.2.jar` to your application's JVM args
 
 Typical JVM args include `-Xmx512m` and `-XX:+UseG1GC`. So if you know where to add these, then you already know where to add this.
 
@@ -50,7 +50,7 @@ Point the agent to your Application Insights resource, either by setting an envi
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
 ```
 
-Or by creating a configuration file named `applicationinsights.json`, and placing it in the same directory as `applicationinsights-agent-3.0.1.jar`, with the following content:
+Or by creating a configuration file named `applicationinsights.json`, and placing it in the same directory as `applicationinsights-agent-3.0.2.jar`, with the following content:
 
 ```json
 {
@@ -233,6 +233,7 @@ try {
 } finally {
     long endTime = System.currentTimeMillis();
     RemoteDependencyTelemetry telemetry = new RemoteDependencyTelemetry();
+    telemetry.setSuccess(success);
     telemetry.setTimestamp(new Date(startTime));
     telemetry.setDuration(new Duration(endTime - startTime));
     telemetryClient.trackDependency(telemetry);
@@ -258,7 +259,7 @@ try {
 ### Add request custom dimensions using the 2.x SDK
 
 > [!NOTE]
-> This feature is only in 3.0.1 and later
+> This feature is only in 3.0.2 and later
 
 Add `applicationinsights-web-2.6.2.jar` to your application (all 2.x versions are supported by Application Insights Java 3.0, but it's worth using the latest if you have a choice):
 
@@ -282,7 +283,7 @@ requestTelemetry.getProperties().put("mydimension", "myvalue");
 ### Set the request telemetry user_Id using the 2.x SDK
 
 > [!NOTE]
-> This feature is only in 3.0.1 and later
+> This feature is only in 3.0.2 and later
 
 Add `applicationinsights-web-2.6.2.jar` to your application (all 2.x versions are supported by Application Insights Java 3.0, but it's worth using the latest if you have a choice):
 
@@ -306,7 +307,7 @@ requestTelemetry.getContext().getUser().setId("myuser");
 ### Override the request telemetry name using the 2.x SDK
 
 > [!NOTE]
-> This feature is only in 3.0.1 and later
+> This feature is only in 3.0.2 and later
 
 Add `applicationinsights-web-2.6.2.jar` to your application (all 2.x versions are supported by Application Insights Java 3.0, but it's worth using the latest if you have a choice):
 
@@ -327,10 +328,27 @@ RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().g
 requestTelemetry.setName("myname");
 ```
 
+### Get the request telemetry id and the operation id using the 2.x SDK
+
 > [!NOTE]
-> All other operations on a `RequestTelemetry` retrieved from
-> `ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry()` besides those described above,
-> will fail fast and throw an exception to let you know that is undefined behavior under the 3.0 agent.
->
-> If you need interop for any other methods on `RequestTelemetry` please let us know by opening an issue
-> https://github.com/microsoft/ApplicationInsights-Java/issues.
+> This feature is only in 3.0.3-BETA and later
+
+Add `applicationinsights-web-2.6.2.jar` to your application (all 2.x versions are supported by Application Insights Java 3.0, but it's worth using the latest if you have a choice):
+
+```xml
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>applicationinsights-web</artifactId>
+  <version>2.6.2</version>
+</dependency>
+```
+
+and get the request telemetry id and the operation id in your code:
+
+```java
+import com.microsoft.applicationinsights.web.internal.ThreadContext;
+
+RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
+String requestId = requestTelemetry.getId();
+String operationId = requestTelemetry.getContext().getOperation().getId();
+```

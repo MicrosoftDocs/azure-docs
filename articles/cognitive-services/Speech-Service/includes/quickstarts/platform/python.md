@@ -19,6 +19,8 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
 
 ## Prerequisites
 
+- On Windows, you need the [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) for your platform. Installing this for the first time may require a restart.
+
 - Supported Linux platforms will require certain libraries installed (`libssl` for secure sockets layer support and `libasound2` for sound support). Refer to your distribution below for the commands needed to install the correct versions of these libraries.
 
   - On Ubuntu/Debian, run the following commands to install the required packages:
@@ -42,7 +44,7 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
 > - On RHEL/CentOS 8, follow the instructions on [how to configure OpenSSL for Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 - On Windows, you need the [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) for your platform. Note that installing this for the first time may require you to restart Windows before continuing with this guide.
-- And finally, you'll need [Python 3.5 to 3.8](https://www.python.org/downloads/). To check your installation, open a command prompt and type the command `python --version` and check the result. If it's installed properly, you'll get a response "Python 3.5.1" or similar.
+- And finally, you'll need [Python 3.6+](https://www.python.org/downloads/). To check your installation, open a command prompt and type the command `python --version` and check the result. If it's installed properly, you'll get a response like "Python 3.8.8".
 
 ## Install the Speech SDK from PyPI
 
@@ -66,7 +68,7 @@ import azure.cognitiveservices.speech as speechsdk
 
 ## Install the Speech SDK using Visual Studio Code
 
-1. Download and install the latest supported version of [Python](https://www.python.org/downloads/) for your platform, 3.5 to 3.8.
+1. Download and install the latest supported version of [Python](https://www.python.org/downloads/) for your platform, 3.6 to 3.9.
    - Windows users make sure to select "Add Python to your PATH" during the installation process.
 1. Download and install [Visual Studio Code](https://code.visualstudio.com/Download).
 1. Open Visual Studio Code and install the Python extension. Select **File** > **Preferences** > **Extensions** from the menu. Search for **Python** and click **Install**.

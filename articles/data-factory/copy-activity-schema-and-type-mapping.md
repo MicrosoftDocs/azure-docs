@@ -1,18 +1,12 @@
 ---
 title: Schema and data type mapping in copy activity 
 description: Learn about how copy activity in Azure Data Factory maps schemas and data types from source data to sink data.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: craigg
 
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jingwang
-
 ---
 # Schema and data type mapping in copy activity
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -181,6 +175,9 @@ You can define such mapping on Data Factory authoring UI:
 2. Select the array from which you want to iterate and extract data. It will be auto populated as **Collection reference**. Note only single array is supported for such operation.
 
 3. Map the needed fields to sink. Data Factory automatically determines the corresponding JSON paths for the hierarchical side.
+
+> [!NOTE]
+> For records where the array marked as collection reference is empty and the check box is selected, the entire record is skipped.
 
 ![Map hierarchical to tabular using UI](media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-ui.png)
 

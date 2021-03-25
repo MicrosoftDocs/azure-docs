@@ -6,7 +6,7 @@ author: vhorne
 
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 8/15/2018
+ms.date: 01/20/2021
 ms.author: victorh
 ---
 
@@ -18,11 +18,12 @@ You can renew a certificate associated with a listener using either the Azure po
 
 ## Azure portal
 
-To renew a listener certificate from the portal, navigate to your application gateway listeners. Click the listener that has a certificate that needs to be renewed, and then click **Renew or edit selected certificate**.
+To renew a listener certificate from the portal, navigate to your application gateway listeners. 
+Select the listener that has a certificate that needs to be renewed, and then select **Renew or edit selected certificate**.
 
-![Renew certificate](media/renew-certificate/ssl-cert.png)
+:::image type="content" source="media/renew-certificate/ssl-cert.png" alt-text="Renew certificate":::
 
-Upload your new PFX certificate, give it a name, type the password, and then click **Save**.
+Upload your new PFX certificate, give it a name, type the password, and then select **Save**.
 
 ## Azure PowerShell
 

@@ -20,7 +20,7 @@ ROBOTS: NOINDEX
 
 You can find the authentication endpoints for your application in the [Azure portal](https://portal.azure.com).
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. Select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations**, and then select **Endpoints** in the top menu.
 

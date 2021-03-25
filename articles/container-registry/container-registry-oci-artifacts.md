@@ -4,7 +4,7 @@ description: Push and pull Open Container Initiative (OCI) artifacts using a pri
 author: SteveLasker
 manager: gwallace
 ms.topic: article
-ms.date: 08/12/2020
+ms.date: 02/03/2021
 ms.author: stevelas
 ---
 
@@ -41,7 +41,7 @@ To read the password from Stdin, use `--password-stdin`.
 
 [Sign in](/cli/azure/authenticate-azure-cli) to the Azure CLI with your identity to push and pull artifacts from the container registry.
 
-Then, use the Azure CLI command [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) to access the registry. For example, to authenticate to a registry named *myregistry*:
+Then, use the Azure CLI command [az acr login](/cli/azure/acr#az-acr-login) to access the registry. For example, to authenticate to a registry named *myregistry*:
 
 ```azurecli
 az login
@@ -56,12 +56,12 @@ az acr login --name myregistry
 Create a text file in a local working working directory with some sample text. For example, in a bash shell:
 
 ```bash
-echo "Here is an artifact!" > artifact.txt
+echo "Here is an artifact" > artifact.txt
 ```
 
 Use the `oras push` command to push this text file to your registry. The following example pushes the sample text file to the `samples/artifact` repo. The registry is identified with the fully qualified registry name *myregistry.azurecr.io* (all lowercase). The artifact is tagged `1.0`. The artifact has an undefined type, by default, identified by the *media type* string following the filename `artifact.txt`. See [OCI Artifacts](https://github.com/opencontainers/artifacts) for additional types. 
 
-**Linux**
+**Linux or macOS**
 
 ```bash
 oras push myregistry.azurecr.io/samples/artifact:1.0 \
@@ -132,7 +132,7 @@ Verify that the pull was successful:
 
 ```bash
 $ cat artifact.txt
-Here is an artifact!
+Here is an artifact
 ```
 
 ## Remove the artifact (optional)
@@ -152,7 +152,7 @@ Source code and binaries to build a container image can be stored as OCI artifac
 For example, create a one-line Dockerfile:
 
 ```bash
-echo "FROM hello-world" > hello-world.dockerfile
+echo "FROM mcr.microsoft.com/hello-world" > hello-world.dockerfile
 ```
 
 Log in to the destination container registry.
@@ -165,14 +165,15 @@ az acr login --name myregistry
 Create and push a new OCI artifact to the destination registry by using the `oras push` command. This example sets the default media type for the artifact.
 
 ```bash
-oras push myregistry.azurecr.io/hello-world:1.0 hello-world.dockerfile
+oras push myregistry.azurecr.io/dockerfile:1.0 hello-world.dockerfile
 ```
 
 Run the [az acr build](/cli/azure/acr#az-acr-build) command to build the hello-world image using the new artifact as build context:
 
 ```azurecli
-az acr build --registry myregistry --file hello-world.dockerfile \
-  oci://myregistry.azurecr.io/hello-world:1.0
+az acr build --registry myregistry --image builds/hello-world:v1 \
+  --file hello-world.dockerfile \
+  oci://myregistry.azurecr.io/dockerfile:1.0
 ```
 
 ## Next steps

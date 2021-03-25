@@ -21,6 +21,8 @@ Azure Security Center generates detailed security alerts and recommendations. Yo
 - Specific recommendations are delivered to an Event Hub or Log Analytics workspace whenever they're generated 
 - The secure score for a subscription is sent to a Log Analytics workspace whenever the score for a control changes by 0.01 or more 
 
+Even though the feature is called *continuous*, there's also an option to export weekly snapshots of secure score or regulatory compliance data.
+
 This article describes how to configure continuous export to Log Analytics workspaces or Azure Event Hubs.
 
 > [!NOTE]
@@ -34,10 +36,10 @@ This article describes how to configure continuous export to Log Analytics works
 
 |Aspect|Details|
 |----|:----|
-|Release state:|Generally available (GA)|
+|Release state:|General Availability (GA)|
 |Pricing:|Free|
 |Required roles and permissions:|<ul><li>**Security admin** or **Owner** on the resource group</li><li>Write permissions for the target resource</li><li>If you're using the Azure Policy 'DeployIfNotExist' policies described below you'll also need permissions for assigning policies</li></ul>|
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov, Other Gov<br>![Yes](./media/icons/yes-icon.png) China Gov (to Event Hub)|
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov, Other Gov<br>![Yes](./media/icons/yes-icon.png) China Gov|
 |||
 
 
@@ -73,6 +75,10 @@ The steps below are necessary whether you're setting up a continuous export to L
     Here you see the export options. There's a tab for each available export target. 
 
 1. Select the data type you'd like to export and choose from the filters on each type (for example, export only high severity alerts).
+1. Select the appropriate export frequency:
+    - **Streaming** – assessments will be sent in real-time when a resource’s health state is updated (if no updates occur, no data will be sent).
+    - **Snapshots** – a snapshot of the current state of all regulatory compliance assessments will be sent every week (this is a preview feature for weekly snapshots of secure scores and regulatory compliance data).
+
 1. Optionally, if your selection includes one of these recommendations, you can include the vulnerability assessment findings together with them:
     - Vulnerability Assessment findings on your SQL databases should be remediated
     - Vulnerability Assessment findings on your SQL servers on machines should be remediated (Preview)
@@ -160,7 +166,7 @@ If you want to analyze Azure Security Center data inside a Log Analytics workspa
 
 ### Log Analytics tables and schemas
 
-Security alerts and recommendations are stored in the *SecurityAlert* and *SecurityRecommendations* tables respectively. 
+Security alerts and recommendations are stored in the *SecurityAlert* and *SecurityRecommendation* tables respectively. 
 
 The name of the Log Analytics solution containing these tables depends on whether you have Azure Defender enabled: Security ('Security and Audit') or SecurityCenterFree. 
 
@@ -174,7 +180,7 @@ To view the event schemas of the exported data types, visit the [Log Analytics t
 
 ##  View exported alerts and recommendations in Azure Monitor
 
-You might also choose to view exported Security Alerts and/or recommendations in [Azure Monitor](../azure-monitor/platform/alerts-overview.md). 
+You might also choose to view exported Security Alerts and/or recommendations in [Azure Monitor](../azure-monitor/alerts/alerts-overview.md). 
 
 Azure Monitor provides a unified alerting experience for a variety of Azure alerts including Diagnostic Log, Metric alerts, and custom alerts based on Log Analytics workspace queries.
 
@@ -184,13 +190,13 @@ To view alerts and recommendations from Security Center in Azure Monitor, config
 
     ![Azure Monitor's alerts page](./media/continuous-export/azure-monitor-alerts.png)
 
-1. In the create rule page, configure your new rule (in the same way you'd configure a [log alert rule in Azure Monitor](../azure-monitor/platform/alerts-unified-log.md)):
+1. In the create rule page, configure your new rule (in the same way you'd configure a [log alert rule in Azure Monitor](../azure-monitor/alerts/alerts-unified-log.md)):
 
     * For **Resource**, select the Log Analytics workspace to which you exported security alerts and recommendations.
 
     * For **Condition**, select **Custom log search**. In the page that appears, configure the query, lookback period, and frequency period. In the search query, you can type *SecurityAlert* or *SecurityRecommendation* to query the data types that Security Center continuously exports to as you enable the Continuous export to Log Analytics feature. 
     
-    * Optionally, configure the [Action Group](../azure-monitor/platform/action-groups.md) that you'd like to trigger. Action groups can trigger email sending, ITSM tickets, WebHooks, and more.
+    * Optionally, configure the [Action Group](../azure-monitor/alerts/action-groups.md) that you'd like to trigger. Action groups can trigger email sending, ITSM tickets, WebHooks, and more.
     ![Azure Monitor alert rule](./media/continuous-export/azure-monitor-alert-rule.png)
 
 You'll now see new Azure Security Center alerts or recommendations (depending on your configured continuous export rules and the condition you defined in your Azure Monitor alert rule) in Azure Monitor alerts, with automatic triggering of an action group (if provided).
@@ -199,7 +205,7 @@ You'll now see new Azure Security Center alerts or recommendations (depending on
 
 To download a CSV report for alerts or recommendations, open the **Security alerts** or **Recommendations** page and select the **Download CSV report** button.
 
-[![Download alerts data as a CSV file](media/continuous-export/download-alerts-csv.png)](media/continuous-export/download-alerts-csv.png#lightbox)
+:::image type="content" source="./media/continuous-export/download-alerts-csv.png" alt-text="Download alerts data as a CSV file" lightbox="./media/continuous-export/download-alerts-csv.png":::
 
 > [!NOTE]
 > These reports contain alerts and recommendations for resources from the currently selected subscriptions.

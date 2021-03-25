@@ -12,7 +12,7 @@ ms.author: mbaldwin
 ---
 # Quickstart: Set up Azure Attestation with Azure PowerShell
 
-Follow the below steps to create and configure an attestation provider using Azure PowerShell. See [Overview of Azure PowerShell](/powershell/azure/?view=azps-2.8.0&viewFallbackFrom=azps-2.4.0) for information on how to install and run Azure PowerShell.
+Follow the below steps to create and configure an attestation provider using Azure PowerShell. See [Overview of Azure PowerShell](/powershell/azure/) for information on how to install and run Azure PowerShell.
 
 Please note that, the PowerShell Gallery has deprecated Transport Layer Security (TLS) versions 1.0 and 1.1. TLS 1.2 or a later version is recommended. Hence you may receive the following errors:
 
@@ -222,7 +222,7 @@ Note that all semantic manipulation of the policy signer certificate must be don
 
 For policy signer certificate sample, see [examples of policy signer certificate](policy-signer-examples.md).
 
-For more information on the cmdlets and its parameters, see [Azure Attestation PowerShell cmdlets](/powershell/module/az.attestation/?view=azps-4.3.0#attestation) 
+For more information on the cmdlets and its parameters, see [Azure Attestation PowerShell cmdlets](/powershell/module/az.attestation/#attestation) 
 
 ## Next steps
 

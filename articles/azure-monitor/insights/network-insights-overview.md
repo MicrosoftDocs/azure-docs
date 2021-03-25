@@ -1,7 +1,6 @@
 ---
 title: Azure Monitor for Networks
 description: An overview of Azure Monitor for Networks, which provides a comprehensive view of health and metrics for all deployed network resources without any configuration.
-ms.subservice: 
 ms.topic: conceptual
 author: KumudD
 ms.author: kumud
@@ -11,7 +10,7 @@ ms.date: 11/25/2020
 
 # Azure Monitor for Networks
 
-Azure Monitor for Networks provides a comprehensive view of [health](../../service-health/resource-health-checks-resource-types.md) and [metrics](../platform/metrics-supported.md) for all deployed network resources, without requiring  any configuration. It also provides access to network monitoring capabilities like [Connection Monitor](../../network-watcher/connection-monitor-preview.md), [flow logging for network security groups (NSGs)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md), and [Traffic Analytics](../../network-watcher/traffic-analytics.md). And it provides other network [diagnostic](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) features.
+Azure Monitor for Networks provides a comprehensive view of [health](../../service-health/resource-health-checks-resource-types.md) and [metrics](../essentials/metrics-supported.md) for all deployed network resources, without requiring  any configuration. It also provides access to network monitoring capabilities like [Connection Monitor](../../network-watcher/connection-monitor-overview.md), [flow logging for network security groups (NSGs)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md), and [Traffic Analytics](../../network-watcher/traffic-analytics.md). And it provides other network [diagnostic](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) features.
 
 Azure Monitor for Networks is structured around these key components of monitoring:
 - [Network health and metrics](#networkhealth)
@@ -105,10 +104,12 @@ Diagnostic Toolkit provides access to all the diagnostic features available for 
 
 ![Screenshot that shows the Diagnostic Toolkit tab.](media/network-insights-overview/azure-monitor-for-networks-diagnostic-toolkit.png)
 
+## Onboarded resources 
+
+Onboarded resources have built-in workbooks, and dependency views. Currently onboarded resources are Virtual WAN, Application Gateway, Load Balancer, and ExpressRoute.
+
 ## Troubleshooting 
-
 For general troubleshooting guidance, see the dedicated workbook-based insights [troubleshooting article](troubleshoot-workbooks.md).
-
 This section will help you diagnose and troubleshoot some common problems you might encounter when you use Azure Monitor for Networks. 
 
 ### How do I resolve performance problems or failures?
@@ -145,4 +146,4 @@ You can edit the workbook you see in any side-panel or detailed metric view by u
 ## Next steps
 
 - Learn more about network monitoring: [What is Azure Network Watcher?](../../network-watcher/network-watcher-monitoring-overview.md)
-- Learn the scenarios workbooks are designed to support, how to create reports and customize existing reports, and more: [Create interactive reports with Azure Monitor workbooks](../platform/workbooks-overview.md)
+- Learn the scenarios workbooks are designed to support, how to create reports and customize existing reports, and more: [Create interactive reports with Azure Monitor workbooks](../visualize/workbooks-overview.md)

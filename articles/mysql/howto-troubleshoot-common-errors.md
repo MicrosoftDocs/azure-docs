@@ -13,6 +13,23 @@ ms.date: 8/20/2020
 
 Azure Database for MySQL is a fully managed service powered by the community version of MySQL. The MySQL experience in a managed service environment may differ from running MySQL in your own environment. In this article, you will see some of the common errors users may encounter while migrating to or developing on Azure Database for MySQL service for the first time.
 
+## Common Connection Errors
+
+#### ERROR 1184 (08S01): Aborted connection 22 to db: 'db-name' user: 'user' host: 'hostIP' (init_connect command failed)
+The above error occurs after successful login but before executing any command when session is established. The above message indicates you have set an incorrect value of init_connect server parameter which is causing the session initialization to fail.
+
+There are some server parameters like require_secure_transport that are not supported at the session level and hence trying to change the values of these parameters using init_connect can result in Error 1184 while connecting to the MySQL server as shown below
+
+mysql> show databases;
+ERROR 2006 (HY000): MySQL server has gone away
+No connection. Trying to reconnect...
+Connection id:    64897
+Current database: *** NONE ***
+ERROR 1184 (08S01): Aborted connection 22 to db: 'db-name' user: 'user' host: 'hostIP' (init_connect command failed)
+
+**Resolution** : You should reset init_connect value in Server parameters tab in Azure portal and set only the supported server parameters using init_connect parameter. 
+
+
 ## Errors due to lack of SUPER privilege and DBA role
 
 The SUPER privilege and DBA role are not supported on the service. As a result, you may encounter some common errors listed below:
@@ -31,7 +48,7 @@ BEGIN
 END;
 ```
 
-**Resolution**:  To resolve the error, set log_bin_trust_function_creators to 1 from [server parameters](howto-server-parameters.md) blade in portal, execute the DDL statements or import the schema to create the desired objects and revert back the log_bin_trust_function_creators parameter to its previous value after creation.
+**Resolution**:  To resolve the error, set log_bin_trust_function_creators to 1 from [server parameters](howto-server-parameters.md) blade in portal, execute the DDL statements or import the schema to create the desired objects. You can continue to maintain log_bin_trust_function_creators to 1 for your server to avoid the error in future. Our recommendation is to set log_bin_trust_function_creators as the security risk highlighted in [MySQL community documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) is minimal in Azure DB for MySQL service as bin log is not exposed to any threats.
 
 #### ERROR 1227 (42000) at line 101: Access denied; you need (at least one of) the SUPER privilege(s) for this operation. Operation failed with exitcode 1
 

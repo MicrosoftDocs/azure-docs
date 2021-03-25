@@ -4,8 +4,9 @@ description: How to deploy enterprise Java applications by using Red Hat JBoss E
 author: theresa-nguyen
 ms.author: bicnguy
 ms.topic: quickstart
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: redhat
+ms.collection: linux
 ms.assetid: 8a4df7bf-be49-4198-800e-db381cda98f5
 ms.date: 10/30/2020
 ---

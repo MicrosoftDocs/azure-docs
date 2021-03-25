@@ -45,12 +45,13 @@ The authoring resource has an Azure "kind" of `LUIS-Authoring`.
 
 ## Batch test
 
-Batch testing is the ability to validate a current LUIS app's models with a consistent and known test set of user utterances. The batch test is defined in a [JSON formatted file](luis-concept-batch-test.md#batch-file-format).
+Batch testing is the ability to validate a current LUIS app's models with a consistent and known test set of user utterances. The batch test is defined in a [JSON formatted file](./luis-how-to-batch-test.md#batch-test-file).
+
 
 See also:
-* [Concepts](luis-concept-batch-test.md)
+* [Concepts](./luis-how-to-batch-test.md)
 * [How-to](luis-how-to-batch-test.md) run a batch test
-* [Tutorial](luis-tutorial-batch-testing.md) - create and run a batch test
+* [Tutorial](./luis-how-to-batch-test.md) - create and run a batch test
 
 ### F-measure
 

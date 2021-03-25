@@ -1,12 +1,11 @@
 ---
-title: Azure Media Services v3 with Widevine license template overview
+title: Media Services v3 Widevine license template overview
 description: Learn about Azure Media Services with the Widevine license template and how it is used to configure Widevine licenses.
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -15,7 +14,6 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-
 ---
 # Media Services v3 with Widevine license template overview
 
@@ -113,7 +111,7 @@ Each content_key_specs value must be specified for all tracks, regardless of the
 
 ## Configure your Widevine license with .NET 
 
-Media Services provides a class that lets you configure a Widevine license. To construct the license, pass JSON to [WidevineTemplate](/dotnet/api/microsoft.azure.management.media.models.contentkeypolicywidevineconfiguration.widevinetemplate?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_ContentKeyPolicyWidevineConfiguration_WidevineTemplate).
+Media Services provides a class that lets you configure a Widevine license. To construct the license, pass JSON to [WidevineTemplate](/dotnet/api/microsoft.azure.management.media.models.contentkeypolicywidevineconfiguration.widevinetemplate#Microsoft_Azure_Management_Media_Models_ContentKeyPolicyWidevineConfiguration_WidevineTemplate).
 
 To configure the template, you can:
 
@@ -259,7 +257,7 @@ public class WidevineTemplate
 
 #### Configure the license
 
-Use classes defined in the previous section to create JSON that is used to configure [WidevineTemplate](/dotnet/api/microsoft.azure.management.media.models.contentkeypolicywidevineconfiguration.widevinetemplate?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_ContentKeyPolicyWidevineConfiguration_WidevineTemplate):
+Use classes defined in the previous section to create JSON that is used to configure [WidevineTemplate](/dotnet/api/microsoft.azure.management.media.models.contentkeypolicywidevineconfiguration.widevinetemplate#Microsoft_Azure_Management_Media_Models_ContentKeyPolicyWidevineConfiguration_WidevineTemplate):
 
 ```csharp
 private static ContentKeyPolicyWidevineConfiguration ConfigureWidevineLicenseTempate()

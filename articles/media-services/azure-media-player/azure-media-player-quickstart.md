@@ -34,7 +34,7 @@ Next, simply use the `<video>` element as you normally would, but with an additi
 
 If you don't want to use auto-setup, you can omit the `data-setup` attribute and initialize a video element manually.
 
-```html
+```javascript
     var myPlayer = amp('vid1', { /* Options */
             "nativeControlsForTouch": false,
             autoplay: false,
@@ -47,7 +47,7 @@ If you don't want to use auto-setup, you can omit the `data-setup` attribute and
                // add an event listener
               this.addEventListener('ended', function() {
                 console.log('Finished!');
-            }
+            });
           }
     );
     myPlayer.src([{
@@ -58,4 +58,4 @@ If you don't want to use auto-setup, you can omit the `data-setup` attribute and
 
 ## Next steps ##
 
-- [Azure Media Player Full Setup](https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-full-setup)
+- [Azure Media Player Full Setup](./azure-media-player-full-setup.md)

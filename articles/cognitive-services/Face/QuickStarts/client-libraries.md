@@ -10,7 +10,7 @@ zone_pivot_groups: programming-languages-set-face
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 12/15/2020
+ms.date: 01/15/2021
 ms.author: pafarley
 ms.custom: "devx-track-python, devx-track-csharp, cog-serv-seo-aug-2020"
 keywords: face search by image, facial recognition search, facial recognition, face recognition app
@@ -24,15 +24,21 @@ keywords: face search by image, facial recognition search, facial recognition, f
 
 ::: zone-end
 
-::: zone pivot="programming-language-python"
-
-[!INCLUDE [Python quickstart](../includes/quickstarts/python-sdk.md)]
-
-::: zone-end
-
 ::: zone pivot="programming-language-go"
 
 [!INCLUDE [Go quickstart](../includes/quickstarts/go-sdk.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+[!INCLUDE [JavaScript quickstart](../includes/quickstarts/javascript-sdk.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+[!INCLUDE [Python quickstart](../includes/quickstarts/python-sdk.md)]
 
 ::: zone-end
 

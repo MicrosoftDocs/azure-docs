@@ -253,5 +253,5 @@ To save your new IP filter rule order, click **Save**.
 To further explore the managing DPS, see:
 
 * [Understanding IoT DPS IP addresses](iot-dps-understand-ip-address.md)
-* [Configure DPS using the Azure CLI](how-to-manage-dps-with-cli.md)
+* [Set up DPS using the Azure CLI](quick-setup-auto-provision-cli.md)
 * [Control access to DPS](how-to-control-access.md)

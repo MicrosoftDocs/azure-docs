@@ -120,7 +120,7 @@ After you've reviewed your audio output and are satisfied with your tuning and a
 
 ## How to add/remove Audio Content Creation users?
 
-If more than one user wants to use Audio Content Creation, you can either share your Azure account and password with the user, or grant user access to the Azure subscription and the speech resource. If you add a user to an Azure subscription, the user can access all the resources under the Azure subscription. But if you only add a user to a speech resource, the user will only have access to the speech resource, and cannot access other resources under this Azure subscription. A user with access to the speech resource can use Audio Content Creation.
+If more than one user wants to use Audio Content Creation, you can grant user access to the Azure subscription and the speech resource. If you add a user to an Azure subscription, the user can access all the resources under the Azure subscription. But if you only add a user to a speech resource, the user will only have access to the speech resource, and cannot access other resources under this Azure subscription. A user with access to the speech resource can use Audio Content Creation.
 
 ### Add users to a speech resource
 

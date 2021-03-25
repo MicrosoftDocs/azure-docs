@@ -29,7 +29,7 @@ With Private Link you can:
 - Connect privately to Azure Monitor Log Analytics workspace without opening any public network access.
 
     >[!NOTE]
-    >A separate private endpoint for your Log Analytics workspace is required if your Automation account is linked to a Log Analytics workspace to forward job data, and when you have enabled features such as Update Management, Change Tracking and Inventory, State Configuration, or Start/Stop VMs during off-hours. For more information about Private Link for Azure Monitor, see [Use Azure Private Link to securely connect networks to Azure Monitor](../../azure-monitor/platform/private-link-security.md).
+    >A separate private endpoint for your Log Analytics workspace is required if your Automation account is linked to a Log Analytics workspace to forward job data, and when you have enabled features such as Update Management, Change Tracking and Inventory, State Configuration, or Start/Stop VMs during off-hours. For more information about Private Link for Azure Monitor, see [Use Azure Private Link to securely connect networks to Azure Monitor](../../azure-monitor/logs/private-link-security.md).
 
 - Ensure your Automation data is only accessed through authorized private networks.
 - Prevent data exfiltration from your private networks by defining your Azure Automation resource that connects through your private endpoint.
@@ -41,8 +41,8 @@ For more information, see  [Key Benefits of Private Link](../../private-link/pri
 ## Limitations
 
 - In the current implementation of Private Link, Automation account cloud jobs cannot access Azure resources that are secured using private endpoint. For example, Azure Key Vault, Azure SQL, Azure Storage account, etc. To workaround this, use a [Hybrid Runbook Worker](../automation-hybrid-runbook-worker.md) instead.
-- You need to use the latest version of the [Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md) for Windows or Linux.
-- The [Log Analytics Gateway](../../azure-monitor/platform/gateway.md) does not support Private Link.
+- You need to use the latest version of the [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md) for Windows or Linux.
+- The [Log Analytics Gateway](../../azure-monitor/agents/gateway.md) does not support Private Link.
 
 ## How it works
 
@@ -71,7 +71,7 @@ To understand & configure Update Management review [About Update Management](../
 
 If you want your machines configured for Update management to connect to Automation & Log Analytics workspace in a secure manner over Private Link channel, you have to enable Private Link for the Log Analytics workspace linked to the Automation Account configured with Private Link.
 
-You can control how a Log Analytics workspace can be reached from outside of the Private Link scopes by following the steps described in [Configure Log Analytics](../../azure-monitor/platform/private-link-security.md#configure-log-analytics). If you set **Allow public network access for ingestion** to **No**, then machines outside of the connected scopes cannot upload data to this workspace. If you set **Allow public network access for queries** to **No**, then machines outside of the scopes cannot access data in this workspace.
+You can control how a Log Analytics workspace can be reached from outside of the Private Link scopes by following the steps described in [Configure Log Analytics](../../azure-monitor/logs/private-link-security.md#configure-log-analytics). If you set **Allow public network access for ingestion** to **No**, then machines outside of the connected scopes cannot upload data to this workspace. If you set **Allow public network access for queries** to **No**, then machines outside of the scopes cannot access data in this workspace.
 
 Use **DSCAndHybridWorker** target sub-resource to enable Private Link for user & system hybrid workers.
 

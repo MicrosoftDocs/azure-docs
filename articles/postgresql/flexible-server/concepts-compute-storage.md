@@ -5,7 +5,7 @@ author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 02/19/2021
 ---
 
 # Compute and Storage options in Azure Database for PostgreSQL - Flexible Server
@@ -115,6 +115,9 @@ You can monitor your I/O consumption in the Azure portal or by using Azure CLI c
 
 When marked with a \*, IOPS are limited by the VM type you selected. Otherwise IOPS are limited by the selected storage size.
 
+>[!NOTE]
+> You may see higher IOPS in the metrics due to disk level bursting. Please see the [documentation](../../virtual-machines/disk-bursting.md#disk-level-bursting) for more details. 
+
 ### Maximum I/O bandwidth (MiB/sec) for your configuration
 
 |SKU Name            |Storage Size, GiB                             |32 |64 |128 |256 |512  |1,024|2,048|4,096|8,192 |16,384|
@@ -146,7 +149,10 @@ When marked with a \*, I/O bandwidth is limited by the VM type you selected. Oth
 
 When you reach the storage limit, the server will start returning errors and prevent any further modifications. This may also cause problems with other operational activities, such as backups and WAL archival.
 
+To avoid this situation, when the storage usage reaches 95% or if the available capacity is less than 5 GiB, the server is automatically switched to **read-only mode**.
+
 We recommend to actively monitor the disk space that is in use, and increase the disk size ahead of any out of storage situation. You can set up an alert to notify you when your server storage is approaching out of disk so you can avoid any issues with running out of disk. For more information, see the documentation on [how to set up an alert](howto-alert-on-metrics.md).
+
 
 ### Storage auto-grow
 

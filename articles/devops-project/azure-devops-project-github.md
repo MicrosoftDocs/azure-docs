@@ -113,7 +113,7 @@ When you configured your CI/CD process in this tutorial, you automatically creat
 To learn more about the CI/CD pipeline, see:
 
 > [!div class="nextstepaction"]
-> [Define your multi-stage continuous deployment (CD) pipeline](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Define your multi-stage continuous deployment (CD) pipeline](/azure/devops/pipelines/release/define-multistage-release-process)
 
 To learn more about application monitoring, see:
   

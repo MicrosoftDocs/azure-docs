@@ -23,14 +23,14 @@ Azure Standard Load Balancer supports cross-region load balancing enabling geo-r
 
 * Incoming traffic originating from multiple regions.
 * [Instant global failover](#regional-redundancy) to the next optimal regional deployment.
-* Load distribution across regions to the closest Azure region with [ultra latency](#ultra-low-latency).
+* Load distribution across regions to the closest Azure region with [ultra-low latency](#ultra-low-latency).
 * Ability to [scale up/down](#ability-to-scale-updown-behind-a-single-endpoint) behind a single endpoint.
 * [Static IP](#static-ip)
 * [Client IP preservation](#client-ip-preservation)
 * [Build on existing load balancer](#build-cross-region-solution-on-existing-azure-load-balancer) solution with no learning curve
 
 > [!IMPORTANT]
-> Cross-region load balancer is currently in preview and hidden in the preview portal. Sign-in to **https://preview.portal.azure.com** to view and deploy the feature.. </br> </br>
+> Cross-region load balancer is currently in preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -75,7 +75,7 @@ For more information, see [Configure the distribution mode for Azure Load Balanc
 
 ### Ability to scale up/down behind a single endpoint
 
-When you expose the global endpoint of a cross-region load balancer to customers, you can add or remove regional deployments behind the global endpoint without customer impact. 
+When you expose the global endpoint of a cross-region load balancer to customers, you can add or remove regional deployments behind the global endpoint without interruption. 
 
 <!---To learn about how to add or remove a regional deployment from the backend, read more [here](TODO: Insert CLI doc here).--->
 
@@ -90,8 +90,8 @@ The backend pool of cross-region load balancer contains one or more regional loa
 
 Add your existing load balancer deployments to a cross-region load balancer for a highly available, cross-region deployment.
 
-**Home region** is where the cross-region load balancer is deployed. 
-This region doesn't affect how the traffic will be routed. If a home region goes down, it doesn't impact the flow of traffic.
+**Home region** is where the cross-region load balancer or Public IP Address of Global tier is deployed. 
+This region doesn't affect how the traffic will be routed. If a home region goes down, traffic flow is unaffected.
 
 ### Home regions
 * East US 2
@@ -103,9 +103,9 @@ This region doesn't affect how the traffic will be routed. If a home region goes
 * East Asia
 
 > [!NOTE]
-> You can only deploy your cross-region load balancer in one of the 8 regions above.
+> You can only deploy your cross-region load balancer or Public IP in Global tier in one of the 7 regions above.
 
-A **participating region** is where the global public IP of the load balancer is available. 
+A **participating region** is where the Global public IP of the load balancer is available. 
 
 Traffic started by the user will travel to the closest participating region through the Microsoft core network. 
 
@@ -134,11 +134,13 @@ Cross-region load balancer routes the traffic to the appropriate regional load b
 
 * Cross-region frontend IP configurations are public only. An internal frontend is currently not supported.
 
-* Private or internal load balancer can't be added to the backend pool of cross-regional load balancer 
+* Private or internal load balancer can't be added to the backend pool of a cross-region load balancer 
 
 * Cross-region IPv6 frontend IP configurations aren't supported. 
 
 * A health probe can't be configured currently. A default health probe automatically collects availability information about the regional load balancer every 20 seconds. 
+
+* Integration with Azure Kubernetes Service (AKS) is currently unavailable. Loss of connectivity will occur when deploying a cross-region load balancer with the Standard load balancer with AKS cluster deployed in the backend.
 
 ## Pricing and SLA
 Cross-region load balancer, shares the [SLA](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/ ) of standard load balancer.

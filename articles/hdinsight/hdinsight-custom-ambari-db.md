@@ -1,13 +1,10 @@
 ---
 title: Custom Apache Ambari database on Azure HDInsight
 description: Learn how to create HDInsight clusters with your own custom Apache Ambari database.
-author: hrasheed-msft
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 01/12/2021
-ms.author: hrasheed
 ---
 # Set up HDInsight clusters with a custom Ambari DB
 

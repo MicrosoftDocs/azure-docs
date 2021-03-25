@@ -3,7 +3,7 @@ title: Tutorial - Create and manage exported data from Azure Cost Management
 description: This article shows you how you can create and manage exported Azure Cost Management data so that you can use it in external systems.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/7/2020
+ms.date: 03/24/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -76,6 +76,8 @@ Initially, it can take 12-24 hours before the export runs. However, it can take 
 
 ### [Azure CLI](#tab/azure-cli)
 
+When you create an export programmatically, you must manually register the `Microsoft.CostManagementExports` resource provider with the subscription where the storage account resides. Registration happens automatically when you create the export using the Azure portal. For more information about how to register resource providers, see [Register resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+
 Start by preparing your environment for the Azure CLI:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
@@ -143,6 +145,8 @@ az costmanagement export delete --name DemoExport --scope "subscriptions/0000000
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
+
+When you create an export programmatically, you must manually register the `Microsoft.CostManagementExports` resource provider with the subscription where the storage account resides. Registration happens automatically when you create the export using the Azure portal. For more information about how to register resource providers, see [Register resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
 Start by preparing your environment for Azure PowerShell:
 

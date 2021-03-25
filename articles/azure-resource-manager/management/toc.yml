@@ -102,7 +102,9 @@
       - name: Site Recovery (Recovery Services vaults)
         href: ../../site-recovery/move-vaults-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
       - name: Virtual network
-        href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json  
+        href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
+      - name: Network Interface (NIC)
+        href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json   
       - name: Azure Database for PostgreSQL Server
         href: ../../postgresql/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json 
       - name: Azure Database for MariaDB Server
@@ -141,12 +143,6 @@
     - name: Azure PowerShell
       displayName: open,delete,deploy,move,lock,tag
       href: manage-resources-powershell.md
-  - name: EA subscriptions
-    items:
-    - name: Create
-      href: ../../cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement.md?toc=/azure/azure-resource-manager/management/toc.json
-    - name: Grant access to create
-      href: ../../cost-management-billing/manage/grant-access-to-create-subscription.md?toc=/azure/azure-resource-manager/management/toc.json
   - name: Resource providers and types
     href: resource-providers-and-types.md
   - name: Delete resource groups and resources
@@ -174,7 +170,7 @@
   - name: Java
     href: /java/api/com.microsoft.azure.management.resources
   - name: Python
-    href: /python/api/overview/azure/resources?view=azure-python
+    href: /python/api/overview/azure/resources
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md

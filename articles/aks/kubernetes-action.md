@@ -11,7 +11,7 @@ ms.custom: github-actions-azure
 
 # GitHub Actions for deploying to Kubernetes service
 
-[GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions) gives you the flexibility to build an automated software development lifecycle workflow. You can use multiple Kubernetes actions to deploy to containers from Azure Container Registry to Azure Kubernetes Service with GitHub Actions. 
+[GitHub Actions](https://docs.github.com/en/actions) gives you the flexibility to build an automated software development lifecycle workflow. You can use multiple Kubernetes actions to deploy to containers from Azure Container Registry to Azure Kubernetes Service with GitHub Actions. 
 
 ## Prerequisites 
 

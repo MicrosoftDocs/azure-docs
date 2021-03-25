@@ -19,7 +19,7 @@ A select set of Microsoft commercial marketplace offers will contribute towards 
 
 We validate all offers that participate in this program to ensure you receive high-quality solutions.
 
-To take advantage of this benefit, simply purchase a qualifying offer on Azure Marketplace using a subscription that’s related to your Azure agreement. Azure prepayment and monetary commitments are not eligible for this benefit.
+To take advantage of this benefit, simply purchase a qualifying offer on Azure Marketplace using a subscription that’s related to your Azure agreement. Azure Prepayment (previously called monetary commitment) are not eligible for this benefit.
 
 > [!IMPORTANT]
 > Exclusions may apply to CtC agreements signed prior to this marketplace benefit. If you have questions about eligibility, contact your Microsoft account executive.

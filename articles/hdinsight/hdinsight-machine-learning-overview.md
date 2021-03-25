@@ -1,9 +1,6 @@
 ---
 title: Machine learning overview - Azure HDInsight
 description: Overview of big data machine learning options for clusters in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
@@ -24,9 +21,9 @@ The Microsoft Machine Learning library for Apache Spark is [MMLSpark](https://gi
 
 [R](https://www.r-project.org/) is currently the most popular statistical programming language in the world. It's an open-source data visualization tool with a community of over 2.5 million users and growing. With its thriving user base, and over 8,000 contributed packages, R is a likely choice for many companies who need machine learning. You can create an HDInsight cluster with ML Services ready to be used with massive datasets and models. This capability provides data scientists and statisticians with a familiar R interface that can scale on-demand through HDInsight, without the overhead of cluster setup and maintenance.
 
-![Training for prediction with R server](./media/hdinsight-machine-learning-overview/training-for-prediction.png)
+:::image type="content" source="./media/hdinsight-machine-learning-overview/training-for-prediction.png" alt-text="Training for prediction with R server" border="false":::
 
-The edge node of a cluster provides a convenient place to connect to the cluster and to run your R scripts.  You can also run R scripts across the nodes of the cluster by using ScaleR’s Hadoop Map Reduce or Spark compute contexts.
+The edge node of a cluster provides a convenient place to connect to the cluster and to run your R scripts.  You can also run R scripts across the nodes of the cluster by using ScaleR's Hadoop Map Reduce or Spark compute contexts.
 
 With ML Services on HDInsight with Spark, you can parallelize training across the nodes of a cluster by using a Spark compute context. You can run R scripts directly on the edge node, using all available cores in parallel, as needed. Alternately, you can run your code from the edge node to kick off processing that is distributed across all nodes in the cluster. ML Services on HDInsight with Spark also enables parallelizing functions from open-source R packages, if desired.
 
@@ -34,7 +31,7 @@ With ML Services on HDInsight with Spark, you can parallelize training across th
 
 Azure Machine Learning provides tools to model predictive analytics, and a fully managed service you can use to deploy your predictive models as ready-to-consume web services. Azure Machine Learning is a  complete predictive analytics solution in the cloud that you can use to create, test, operationalize, and manage predictive models. Select from a large algorithm library, use a web-based studio for building models, and easily deploy your model as a web service.
 
-![Microsoft Azure machine learning overview](./media/hdinsight-machine-learning-overview/azure-machine-learning.png)
+:::image type="content" source="./media/hdinsight-machine-learning-overview/azure-machine-learning.png" alt-text="Microsoft Azure machine learning overview" border="false":::
 
 Create features for data in an HDInsight Hadoop cluster using [Hive queries](../machine-learning/team-data-science-process/create-features-hive.md). *Feature engineering* attempts to increase the predictive power of learning algorithms by creating features from raw data that facilitate the learning process. You can run HiveQL queries from Azure Machine Learning Studio (classic), and access data processed in Hive and stored in blob storage, by using the [Import Data module](../machine-learning/classic/import-data.md).
 

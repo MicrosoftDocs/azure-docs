@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/04/2021
+ms.date: 01/22/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro R so I can use it to transfer data to Azure. 
 ---
@@ -82,6 +82,8 @@ Before you begin, make sure that:
 
 If you have an existing Azure Stack Edge resource to manage your physical device, skip this step and go to [Get the activation key](#get-the-activation-key).
 
+### [Portal](#tab/azure-portal)
+
 To create an Azure Stack Edge resource, take the following steps in the Azure portal.
 
 1. Use your Microsoft Azure credentials to sign in to the Azure portal at this URL: [https://portal.azure.com](https://portal.azure.com).
@@ -123,7 +125,7 @@ To create an Azure Stack Edge resource, take the following steps in the Azure po
 
         ![Create a resource 5](media/azure-stack-edge-pro-r-deploy-prep/create-resource-5.png)
 
-    - If this is the new device that you are ordering, enter the contact name, company, address to ship the device, and contact information.
+    - If this device is the new device that you're ordering, enter the contact name, company, address to ship the device, and contact information.
 
         ![Create a resource 6](media/azure-stack-edge-pro-r-deploy-prep/create-resource-6.png)
 
@@ -137,17 +139,65 @@ To create an Azure Stack Edge resource, take the following steps in the Azure po
 
 11. Select **Create**.
 
-The resource creation takes a few minutes. An MSI is also created that lets the Azure Stack Edge device communicate with the resource provider in Azure.
+    The resource creation takes a few minutes. An MSI is also created that lets the Azure Stack Edge device communicate with the resource provider in Azure.
 
-After the resource is successfully created and deployed, you're notified. Select **Go to resource**.
+    After the resource is successfully created and deployed, you're notified. Select **Go to resource**.
 
-![Go to the Azure Stack Edge Pro resource](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-1.png)
+    ![Go to the Azure Stack Edge Pro resource](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-1.png)
 
-After the order is placed, Microsoft reviews the order and reaches out to you (via email) with shipping details.
+After the order is placed, Microsoft reviews the order and contacts you (via email) with shipping details.
 
 <!--![Notification for review of the Azure Stack Edge Pro order](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png) - If this is restored, it must go above "After the resource is successfully created." The azure-stack-edge-resource-1.png would seem superfluous in that case.--> 
 
+> [!NOTE]
+> If you want to create multiple orders at one time or clone an existing order, you can use the [scripts in Azure Samples](https://github.com/Azure-Samples/azure-stack-edge-order). For more information, see the README file.
+
 If you run into any issues during the order process, see [Troubleshoot order issues](azure-stack-edge-troubleshoot-ordering.md).
+
+### [Azure CLI](#tab/azure-cli)
+
+If necessary, prepare your environment for Azure CLI.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+To create an Azure Stack Edge resource, run the following commands in Azure CLI.
+
+1. Create a resource group by using the [az group create](/cli/azure/group#az_group_create) command, or use an existing resource group:
+
+   ```azurecli
+   az group create --name myasepgpu1 --location eastus
+   ```
+
+1. To create a device, use the [az databoxedge device create](/cli/azure/databoxedge/device#az_databoxedge_device_create) command:
+
+   ```azurecli
+   az databoxedge device create --resource-group myasepgpu1 \
+      --device-name myasegpu1 --location eastus --sku EdgePR_Base
+   ```
+
+   Choose a location closest to the geographical region where you want to deploy your device. The region stores only the metadata for device management. The actual data can be stored in any storage account.
+
+   For a list of all the regions where the Azure Stack Edge resource is available, see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). If using Azure Government, all the government regions are available as shown in the [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/).
+
+1. To create an order, run the [az databoxedge order create](/cli/azure/databoxedge/order#az_databoxedge_order_create) command:
+
+   ```azurecli
+   az databoxedge order create --resource-group myasepgpu1 \
+      --device-name myasegpu1 --company-name "Contoso" \
+      --address-line1 "1020 Enterprise Way" --city "Sunnyvale" \
+      --state "California" --country "United States" --postal-code 94089 \
+      --contact-person "Gus Poland" --email-list gus@contoso.com --phone 4085555555
+   ```
+
+The resource creation takes a few minutes. Run the [az databoxedge order show](/cli/azure/databoxedge/order#az_databoxedge_order_show) command to see the order:
+
+```azurecli
+az databoxedge order show --resource-group myasepgpu1 --device-name myasegpu1 
+```
+
+After you place an order, Microsoft reviews the order and contacts you by email with shipping details.
+
+---
 
 ## Get the activation key
 
