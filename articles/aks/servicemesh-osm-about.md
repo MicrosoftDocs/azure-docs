@@ -1565,6 +1565,19 @@ NAME                            READY   STATUS    RESTARTS   AGE
 osm-injector-5986c57765-vlsdk   1/1     Running   0          73m
 ```
 
+#### Check OSM Injector Pod
+
+```azurecli-interactive
+kubectl get pod -n kube-system --selector app=osm-injector
+```
+
+A healthy OSM Injector pod would look like this:
+
+```Output
+NAME                            READY   STATUS    RESTARTS   AGE
+osm-injector-5986c57765-vlsdk   1/1     Running   0          73m
+```
+
 #### Check OSM Injector Service
 
 ```azurecli-interactive
@@ -1578,12 +1591,306 @@ NAME           TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)    AGE
 osm-injector   ClusterIP   10.0.39.54   <none>        9090/TCP   75m
 ```
 
-## Next steps
+#### Check OSM Endpoints
+
+```azurecli-interactive
+kubectl get endpoints -n kube-system osm-injector
+```
+
+A healthy OSM endpoint would look like this:
+
+```Output
+NAME           ENDPOINTS           AGE
+osm-injector   10.240.1.172:9090   75m
+```
+
+#### Check Validating and Mutating webhooks
+
+```azurecli-interactive
+kubectl get ValidatingWebhookConfiguration --selector app=osm-controller
+```
+
+A healthy OSM Validating Webhook would look like this:
+
+```Output
+NAME              WEBHOOKS   AGE
+aks-osm-webhook-osm   1      81m
+```
+
+```azurecli-interactive
+kubectl get MutatingWebhookConfiguration --selector app=osm-controller
+```
+
+A healthy OSM Mutating Webhook would look like this:
+
+```Output
+NAME              WEBHOOKS   AGE
+aks-osm-webhook-osm   1      102m
+```
+
+#### Check for the service and the CA bundle of the Validating webhook
+
+```azurecli-interactive
+kubectl get ValidatingWebhookConfiguration aks-osm-webhook-osm -o json | jq '.webhooks[0].clientConfig.service'
+```
+
+A well configured Validating Webhook Configuration would look exactly like this:
+
+```json
+{
+  "name": "osm-config-validator",
+  "namespace": "kube-system",
+  "path": "/validate-webhook",
+  "port": 9093
+}
+```
+
+#### Check for the service and the CA bundle of the Mutating webhook
+
+```azurecli-interactive
+kubectl get MutatingWebhookConfiguration aks-osm-webhook-osm -o json | jq '.webhooks[0].clientConfig.service'
+```
+
+A well configured Mutating Webhook Configuration would look exactly like this:
+
+```json
+{
+  "name": "osm-injector",
+  "namespace": "kube-system",
+  "path": "/mutate-pod-creation",
+  "port": 9090
+}
+```
+
+#### Check whether OSM Controller has given the Validating (or Mutating) Webhook a CA Bundle
+
+> [!NOTE]
+> As of v0.8.2 It is important to know that AKS RP installs the Validating Webhook, AKS Reconciler ensures it exists, but OSM Controller is the one that fills the CA Bundle.
+
+```azurecli-interactive
+kubectl get ValidatingWebhookConfiguration aks-osm-webhook-osm -o json | jq -r '.webhooks[0].clientConfig.caBundle' | wc -c
+```
+
+```azurecli-interactive
+kubectl get MutatingWebhookConfiguration aks-osm-webhook-osm -o json | jq -r '.webhooks[0].clientConfig.caBundle' | wc -c
+```
+
+```Example Output
+1845
+```
+
+This number indicates the number of bytes, or the size of the CA Bundle. If this is empty, 0, or some number under a 1000 it would indicate that the CA Bundle is not correctly provisioned. Without a correct CA Bundle the Validating Webhook would be erroring out and prohibiting the user from making changes to the osm-config ConfigMap in the kube-system namespace.
+
+A sample error when the CA Bundle is incorrect:
+
+- An attepmt to change the osm-config ConfigMap:
+
+```
+kubectl patch ConfigMap osm-config -n kube-system --type merge --patch '{"data":{"config_resync_interval":"2m"}}'
+```
+
+- Error:
+
+```
+Error from server (InternalError): Internal error occurred: failed calling webhook "osm-config-webhook.k8s.io": Post https://osm-config-validator.kube-system.svc:9093/validate-webhook?timeout=30s: x509: certificate signed by unknown authority
+```
+
+Workaround for when the **Validating** Webhook Configuration has a bad certificate:
+
+- Option 1 - Restart OSM Controller - this will restart the OSM Controller. On start it will overwrite the CA Bundle of both the Mutating and Validating webhooks.
+
+```azurecli-interactive
+kubectl rollout restart deployment -n kube-system osm-controller
+```
+
+- Option 2 - Option 2. Delete the Validating Webhook - removing the Validating Webhook makes mutations of the `osm-config` ConfigMap no longer validated. Any patch will go through. The AKS Reconciler will at some point ensure the Validating Webhook exists and will recreate it. The OSM Controller may have to be restarted to quickly rewrite the CA Bundle.
+
+```azurecli-interactive
+kubectl delete ValidatingWebhookConfiguration aks-osm-webhook-osm
+```
+
+- Option 3 - Delete and Patch: The following command will delete the validating webhook, allowing us to add any values, and will immediately try to apply a patch. Most likely the ASK Reconciler will not have enough time to reconcile and restore the Validating Webhook giving us the opportunity to apply a change as a last resort:
+
+```azurecli-interactive
+kubectl delete ValidatingWebhookConfiguration aks-osm-webhook-osm; kubectl patch ConfigMap osm-config -n kube-system --type merge --patch '{"data":{"config_resync_interval":"15s"}}'
+```
+
+#### Check the `osm-config` **ConfigMap**
+
+> [!NOTE]
+> The OSM Controller does not require for the `osm-config` ConfigMap to be present in the kube-system namespace. The controller has reasonable default values for the config and can operate without it.
+
+Check for the existence:
+
+```azurecli-interactive
+kubectl get ConfigMap -n kube-system osm-config
+```
+
+Check the content of the osm-config ConfigMap
+
+```azurecli-interactive
+kubectl get ConfigMap -n kube-system osm-config -o json | jq '.data'
+```
+
+```json
+{
+  "config_resync_interval": "90s",
+  "egress": "false",
+  "enable_debug_server": "false",
+  "enable_privileged_init_container": "false",
+  "envoy_log_level": "error",
+  "permissive_traffic_policy_mode": "true",
+  "prometheus_scraping": "true",
+  "service_cert_validity_duration": "24h",
+  "tracing_enable": "false",
+  "use_https_ingress": "false"
+}
+```
+
+`osm-config` ConfigMap values:
+
+| Key                              | Type   | Allowed Values                                          | Default Value                          | Function                                                                                                                                                                                                                                |
+| -------------------------------- | ------ | ------------------------------------------------------- | -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| egress                           | bool   | true, false                                             | `"false"`                              | Enables egress in the mesh.                                                                                                                                                                                                             |
+| enable_debug_server              | bool   | true, false                                             | `"true"`                               | Enables a debug endpoint on the osm-controller pod to list information regarding the mesh such as proxy connections, certificates, and SMI policies.                                                                                    |
+| enable_privileged_init_container | bool   | true, false                                             | `"false"`                              | Enables privileged init containers for pods in mesh. When false, init containers only have NET_ADMIN.                                                                                                                                   |
+| envoy_log_level                  | string | trace, debug, info, warning, warn, error, critical, off | `"error"`                              | Sets the logging verbosity of Envoy proxy sidecar, only applicable to newly created pods joining the mesh. To update the log level for existing pods, restart the deployment with `kubectl rollout restart`.                            |
+| outbound_ip_range_exclusion_list | string | comma separated list of IP ranges of the form a.b.c.d/x | `-`                                    | Global list of IP address ranges to exclude from outbound traffic interception by the sidecar proxy.                                                                                                                                    |
+| permissive_traffic_policy_mode   | bool   | true, false                                             | `"false"`                              | Setting to `true`, enables allow-all mode in the mesh i.e. no traffic policy enforcement in the mesh. If set to `false`, enables deny-all traffic policy in mesh i.e. an `SMI Traffic Target` is necessary for services to communicate. |
+| prometheus_scraping              | bool   | true, false                                             | `"true"`                               | Enables Prometheus metrics scraping on sidecar proxies.                                                                                                                                                                                 |
+| service_cert_validity_duration   | string | 24h, 1h30m (any time duration)                          | `"24h"`                                | Sets the service certificate validity duration, represented as a sequence of decimal numbers each with optional fraction and a unit suffix.                                                                                             |
+| tracing_enable                   | bool   | true, false                                             | `"false"`                              | Enables Jaeger tracing for the mesh.                                                                                                                                                                                                    |
+| tracing_address                  | string | jaeger.mesh-namespace.svc.cluster.local                 | `jaeger.kube-system.svc.cluster.local` | Address of the Jaeger deployment, if tracing is enabled.                                                                                                                                                                                |
+| tracing_endpoint                 | string | /api/v2/spans                                           | /api/v2/spans                          | Endpoint for tracing data, if tracing enabled.                                                                                                                                                                                          |
+| tracing_port                     | int    | any non-zero integer value                              | `"9411"`                               | Port on which tracing is enabled.                                                                                                                                                                                                       |
+| use_https_ingress                | bool   | true, false                                             | `"false"`                              | Enables HTTPS ingress on the mesh.                                                                                                                                                                                                      |
+| config_resync_interval           | string | under 1 minute disables this                            | 0 (disabled)                           | When a value above 1m (60s) is provided, OSM Controller will send all available config to each connected Envoy at the given interval                                                                                                    |
+
+#### Check Namespaces
+
+> Note: The kube-system namespace will never participate in a service mesh and will never be labeled and/or annotated with the key/values below.
+
+We use the `osm namespace add` command to join namespaces to a given service mesh.
+When a k8s namespace is part of the mesh (or for it to be part of the mesh) the following must be true:
+
+View the annotations with
+
+```azurecli-interactive
+kc get namespace bookbuyer-many-many-8 -o json | jq '.metadata.annotations'
+```
+
+The following annotation must be present:
+
+```Output
+{
+  "openservicemesh.io/sidecar-injection": "enabled"
+}
+```
+
+View the labels with
+
+```azurecli-interactive
+kc get namespace bookbuyer-many-many-8 -o json | jq '.metadata.labels'
+```
+
+The following label must be present:
+
+```Output
+{
+  "openservicemesh.io/monitored-by": "osm"
+}
+```
+
+If a namespace is not annotated with `"openservicemesh.io/sidecar-injection": "enabled"` or not labeled with `"openservicemesh.io/monitored-by": "osm"` the OSM Injector will not add Envoy sidecars.
+
+> Note: After `osm namespace add` is called only **new** pods will be injected with an Envoy sidecar. Existing pods must be restarted with `kubectl rollout restard deployment ...`
+
+#### Verify the SMI CRDs:
+
+Check whether the cluster has the required CRDs:
+
+```azurecli-interactive
+kubectl get crds
+```
+
+We must have the following installed on the cluster:
+
+- httproutegroups.specs.smi-spec.io
+- tcproutes.specs.smi-spec.io
+- trafficsplits.split.smi-spec.io
+- traffictargets.access.smi-spec.io
+- udproutes.specs.smi-spec.io
+
+Get the versions of the CRDs installed with this command:
+
+```azurecli-interactive
+for x in $(kubectl get crds --no-headers | awk '{print $1}' | grep 'smi-spec.io'); do
+    kubectl get crd $x -o json | jq -r '(.metadata.name, "----" , .spec.versions[].name, "\n")'
+done
+```
+
+Expected output:
+
+```Output
+httproutegroups.specs.smi-spec.io
+----
+v1alpha4
+v1alpha3
+v1alpha2
+v1alpha1
+
+
+tcproutes.specs.smi-spec.io
+----
+v1alpha4
+v1alpha3
+v1alpha2
+v1alpha1
+
+
+trafficsplits.split.smi-spec.io
+----
+v1alpha2
+
+
+traffictargets.access.smi-spec.io
+----
+v1alpha3
+v1alpha2
+v1alpha1
+
+
+udproutes.specs.smi-spec.io
+----
+v1alpha4
+v1alpha3
+v1alpha2
+v1alpha1
+```
+
+OSM Controller v0.8.2 requires the following versions:
+
+- traffictargets.access.smi-spec.io - [v1alpha3](https://github.com/servicemeshinterface/smi-spec/blob/v0.6.0/apis/traffic-access/v1alpha3/traffic-access.md)
+- httproutegroups.specs.smi-spec.io - [v1alpha4](https://github.com/servicemeshinterface/smi-spec/blob/v0.6.0/apis/traffic-specs/v1alpha4/traffic-specs.md#httproutegroup)
+- tcproutes.specs.smi-spec.io - [v1alpha4](https://github.com/servicemeshinterface/smi-spec/blob/v0.6.0/apis/traffic-specs/v1alpha4/traffic-specs.md#tcproute)
+- udproutes.specs.smi-spec.io - Not supported
+- trafficsplits.split.smi-spec.io - [v1alpha2](https://github.com/servicemeshinterface/smi-spec/blob/v0.6.0/apis/traffic-split/v1alpha2/traffic-split.md)
+- \*.metrics.smi-spec.io - [v1alpha1](https://github.com/servicemeshinterface/smi-spec/blob/v0.6.0/apis/traffic-metrics/v1alpha1/traffic-metrics.md)
+
+If CRDs are missing use the following commands to install these on the cluster:
+
+```azurecli-interactive
+kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/v0.8.2/charts/osm/crds/access.yaml
+```
+
+```azurecli-interactive
+kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/v0.8.2/charts/osm/crds/specs.yaml
+```
+
+```azurecli-interactive
+kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/v0.8.2/charts/osm/crds/split.yaml
+```
 
 <!-- LINKS - internal -->
 
 [kubernetes-service]: concepts-network.md#services
-
-```
-
-```
