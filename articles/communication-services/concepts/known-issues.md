@@ -25,7 +25,12 @@ This section provides information about known issues associated with JavaScript 
 ### After refreshing the page, user is not removed from the call immediately 
 If user is in a call and decides to refresh the page, the Communication Services client library may not be able to inform the Communication Services media service that it's about to disconnect. The Communication Services media service will not remove such user immediately from the call but it will wait for a user to rejoin assuming problems with network connectivity. User will be removed from the call after media service will timeout```
 
-We encourage developers build experiences that don't require end-users to refresh the page of your application while participating in a call. If a refresh does happen, the best way to handle it is to track and reuse the same Communication Services user ID between refreshes, and select the stream with the highest numerical ID.
+We encourage developers build experiences that don't require end-users to refresh the page of your application while participating in a call. If user will refresh the page, the best way to handle it for the app is to reuse the same Communication Services user ID for the user after he returns back to the application after refreshes.
+
+For the perspective of other participants in the call, such user will remain in the call for predefined amount of time ( 1-2mins ) 
+If user will rejoin with the same Communication Services user ID, he will be represented as the same, existing object in the `remoteParticipants` collection.
+If previously user was sending video, `videoStreams` collection will keep previous stream information untill service will timeout and remove it, in this scenario application may decide to observe any new streams added to the collection and render one with highest `id` 
+
 
 ### It's not possible to render multiple previews from multiple devices on web
 This is a known limitation. Refer to the [calling client library overview](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features) for more information.
