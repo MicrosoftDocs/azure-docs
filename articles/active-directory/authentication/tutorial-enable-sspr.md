@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Enable users to unlock their account or reset passwords using Azure Active Directory self-service password reset
 
-Azure Active Directory (Azure AD) self-service password reset (SSPR) gives users the ability to change or reset their password, with no administrator or help desk involvement. If Azure AD locks a user's account or they forget their password, they can follow prompts to unblock themselves and get back to work. This ability reduces help desk calls and loss of productivity when a user can't sign in to their device or an application. Here's a video on [How to enable and configure SSPR in Azure AD](https://www.youtube.com/watch?v=rA8TvhNcCvQ) (**Recommended**). We also have a video for IT administrators on [resolving the six most common end-user error messages with SSPR](https://www.youtube.com/watch?v=9RPrNVLzT8I).
+Azure Active Directory (Azure AD) self-service password reset (SSPR) gives users the ability to change or reset their password, with no administrator or help desk involvement. If Azure AD locks a user's account or they forget their password, they can follow prompts to unblock themselves and get back to work. This ability reduces help desk calls and loss of productivity when a user can't sign in to their device or an application. We recommend this video on [How to enable and configure SSPR in Azure AD](https://www.youtube.com/watch?v=rA8TvhNcCvQ). We also have a video for IT administrators on [resolving the six most common end-user error messages with SSPR](https://www.youtube.com/watch?v=9RPrNVLzT8I).
 
 > [!IMPORTANT]
 > This tutorial shows an administrator how to enable self-service password reset. If you're an end user already registered for self-service password reset and need to get back into your account, go to the [Microsoft Online password reset](https://passwordreset.microsoftonline.com/) page.
@@ -34,8 +34,8 @@ In this tutorial you learn how to:
 To finish this tutorial, you need the following resources and privileges:
 
 * A working Azure AD tenant with at least an Azure AD free or trial license enabled. In the Free tier, SSPR only works for cloud users in Azure AD.
-    * For later tutorials in this series, you have to have an Azure AD Premium P1 or trial license for on-premises password writeback.
-    * If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    * For later tutorials in this series, you'll need an Azure AD Premium P1 or trial license for on-premises password writeback.
+    * If needed, [create an Azure account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An account with *Global Administrator* privileges.
 * A non-administrator user with a password you know, like *testuser*. You'll test the end-user SSPR experience using this account in this tutorial.
     * If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
@@ -101,7 +101,7 @@ To keep users informed about account activity, you can set up Azure AD to send e
 
 1. To apply the notification preferences, select **Save**.
 
-If users need more help with the SSPR process, you can customize the "Contact your administrator" link. The user would select this link in the SSPR registration process and when they unlock their account or resets their password. To make sure your users get the support needed, we highly recommend you provide a custom helpdesk email or URL.
+If users need more help with the SSPR process, you can customize the "Contact your administrator" link. The user can select this link in the SSPR registration process and when they unlock their account or resets their password. To make sure your users get the support needed, we highly recommend you provide a custom helpdesk email or URL.
 
 1. From the menu on the left side of the **Customization** page, set **Customize helpdesk link** to *Yes*.
 1. In the **Custom helpdesk email or URL** field, provide an email address or web page URL where your users can get more help from your organization, like *https:\//support.contoso.com/*
@@ -126,7 +126,7 @@ With SSPR enabled and set up, test the SSPR process with a user that's part of t
 
 ## Clean up resources
 
-In a following tutorial in this series, you set up password writeback. This feature writes password changes from Azure AD SSPR back to an on-premises AD environment. If you want to continue with this tutorial series to set up password writeback, don't disable SSPR now.
+In a later tutorial in this series, you'll set up password writeback. This feature writes password changes from Azure AD SSPR back to an on-premises AD environment. If you want to continue with this tutorial series to set up password writeback, don't disable SSPR now.
 
 If you no longer want to use the SSPR functionality you have set up as part of this tutorial, set the SSPR status to **None** using the following steps:
 
