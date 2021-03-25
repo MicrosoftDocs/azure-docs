@@ -27,8 +27,9 @@ In part 1 of this tutorial series, you will:
 > * Configure your local development environment.
 > * Set up a compute cluster.
 
-> [!NOTE]
-> This tutorial series focuses on the Azure Machine Learning concepts required to submit **batch jobs** - this is where the code is submitted to the cloud to run in the background without any user interaction. This is useful for finished scripts or code you wish to run repeatedly, or for compute-intensive machine learning tasks. If you are more interested in an exploratory workflow, you could instead use [Jupyter or RStudio on an Azure Machine Learning compute instance](tutorial-1st-experiment-sdk-setup.md).
+This tutorial series focuses on the Azure Machine Learning concepts required to submit **batch jobs** - this is where the code is submitted to the cloud to run in the background without any user interaction. This is useful for finished scripts or code you wish to run repeatedly, or for compute-intensive machine learning tasks. 
+
+If you are more interested in use Jupyter notebooks for an exploratory workflow, see [Tutorial: Get started with Azure Machine Learning in Jupyter Notebooks](tutorial-1st-experiment-sdk-setup.md).
 
 ## Prerequisites
 

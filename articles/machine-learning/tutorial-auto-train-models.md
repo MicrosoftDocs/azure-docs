@@ -15,10 +15,11 @@ ms.custom: devx-track-python, automl
 
 # Tutorial: Use automated machine learning to predict taxi fares
 
-
 In this tutorial, you use automated machine learning in Azure Machine Learning to create a regression model to predict NYC taxi fare prices. This process accepts training data and configuration settings, and automatically iterates through combinations of different feature normalization/standardization methods, models, and hyperparameter settings to arrive at the best model.
 
 ![Flow diagram](./media/tutorial-auto-train-models/flow2.png)
+
+You'll write code using the Python SDK in this tutorial.  For a low or no-code experience, see the [Tutorial: Create a classification model with automated ML in Azure Machine Learning](tutorial-first-experiment-automated-ml.md) and [Tutorial: Forecast demand with automated machine learning](tutorial-automated-ml-forecast.md).
 
 In this tutorial you learn the following tasks:
 
