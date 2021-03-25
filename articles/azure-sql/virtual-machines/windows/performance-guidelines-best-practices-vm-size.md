@@ -57,7 +57,7 @@ Use the vCPU and memory configuration from your source machine as a baseline for
 
 The [memory optimized virtual machine sizes](../../../virtual-machines/sizes-memory.md) are a primary target for SQL Server VMs and the recommended choice by Microsoft. The memory optimized virtual machines offer stronger memory-to-CPU ratios and medium-to-large cache options. 
 
-### M and Mv2 series
+### M, Mv2, and Mdsv2 series
 
 The [M-series](../../../virtual-machines/m-series.md) offers vCore counts and memory for some of the largest SQL Server workloads.  
 
@@ -65,35 +65,21 @@ The [Mv2-series](../../../virtual-machines/mv2-series.md) has the highest vCore 
 
 The [Standard_M64ms](../../../virtual-machines/m-series.md) has a 28 memory-to-vCore ratio for example.
 
+[Mdsv2 Medium Memory series](../../..//virtual-machines/msv2-mdsv2-series.md) is a new M-series that is currently in [preview](https://aka.ms/Mv2MedMemoryPreview) that offers a range of M-series level Azure virtual machines with a midtier memory offering. These machines are well suited for SQL Server workloads with a minimum of 10 memory-to-vCore support up to 30.
+
 Some of the features of the M and Mv2-series attractive for SQL Server performance include [premium storage](../../../virtual-machines/premium-storage-performance.md) and [premium storage caching](../../../virtual-machines/premium-storage-performance.md#disk-caching) support, [ultra-disk](../../../virtual-machines/disks-enable-ultra-ssd.md) support, and [write acceleration](../../../virtual-machines/how-to-enable-write-accelerator.md).
-
-### Mdsv2-series Medium Memory (Preview)
-
-[Mdsv2 Medium Memory series](../../..//virtual-machines/msv2-mdsv2-series.md) is a new M-series that is currently in [preview](https://aka.ms/Mv2MedMemoryPreview) that offers a range of M-series level Azure virtual machines with a midtier memory offering.
-
-All of the virtual machines are Intel® Xeon® Platinum 8280 (Cascade Lake). These virtual machines range from 32 to to 192 vCPUs with 875 GiB to 4096 GiB of memory. These machines are well suited for SQL Server workloads with a minimum of 10 memory-to-vCore support up to 30.
-
-There are additional features for these virtual machines, with ephemeral disk support, isolated VM sizes, premium storage support, strong memory options, and Write Accelerator support.
 
 ### Edsv4-series
 
-The [Edsv4-series](../../../virtual-machines/edv4-edsv4-series.md) is designed for memory-intensive applications. These VMs have a large local storage SSD capacity, strong local disk IOPS, up to 504 GiB of RAM, and improved compute compared to the previous Ev3/Esv3 sizes with Gen2 VMs. There is a nearly consistent 8 GiB of memory per vCore across most of these virtual machines, which is ideal for standard SQL Server workloads. 
+The [Edsv4-series](../../../virtual-machines/edv4-edsv4-series.md) is designed for memory-intensive applications. These VMs have a large local storage SSD capacity, strong local disk IOPS, up to 504 GiB of RAM. There is a nearly consistent 8 GiB of memory per vCore across most of these virtual machines, which is ideal for standard SQL Server workloads. 
 
-This VM series is ideal for memory-intensive enterprise applications and applications that benefit from low latency, high-speed local storage.
+There is a new virtual machine in this group with the [Standard_E80ids_v4](../../../virtual-machines/edv4-edsv4-series.md) that offers 80 vCores, 504 GBs of memory, with a memory-to-vCore ratio of 6. This virtual machine is notable because it is [isolated](../../../virtual-machines/isolation.md) which means it is guaranteed to be the only virtual machine running on the host, and therefore is isolated from other customer workloads. This has a memory-to-vCore ratio that is lower than what is recommended for SQL Server, so it should only be used if isolation is required.
 
 The Edsv4-series virtual machines support [premium storage](../../../virtual-machines/premium-storage-performance.md), and [premium storage caching](../../../virtual-machines/premium-storage-performance.md#disk-caching).
 
-#### Standard_E80ids_v4
-
-There is a new virtual machine in this group with the [Standard_E80ids_v4](../../../virtual-machines/edv4-edsv4-series.md) that offers 80 vCores, 503 GBs of memory, with a memory-to-vCore ratio of 6. This virtual machine features ephemeral disk support, premium disk support, accelerated networking and is isolated to a single customer.
-
-This machine does not have the recommended minimum memory-to-vCore ratio of 8 that is recommended for most SQL Server machines. It is recommended to leverage the Standard_E64ds_v4 over the new Standard_E80ids_v4 unless the isolation is required for the workload. 
-
-Additionally, the Standard_E64ds_v4 has [constrained CPU](../../..//virtual-machines/constrained-vcpu.md) support which the Standard_E80ids_v4 does not.
-
 ### DSv2-series 11-15
 
-The [DSv2-series 11-15](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) has the same memory and disk configurations as the previous D-series. This series has a consistent memory-to-CPU ratio of 7 across all virtual machines. 
+The [DSv2-series 11-15](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) has the same memory and disk configurations as the previous D-series. This series has a consistent memory-to-CPU ratio of 7 across all virtual machines. This is the smallest of the memory-optimized series and is a good low-cost option for entry-level SQL Server workloads.
 
 The [DSv2-series 11-15](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) supports [premium storage](../../../virtual-machines/premium-storage-performance.md) and [premium storage caching](../../../virtual-machines/premium-storage-performance.md#disk-caching), which is strongly recommended for optimal performance.
 
@@ -152,17 +138,17 @@ The 8 vCore [Standard_A8m_v2](../../../virtual-machines/av2-series.md) may also 
 
 ## Storage optimized
 
-The [storage optimized VM sizes](../../../virtual-machines/sizes-storage.md) are for specific use cases. These virtual machines are specifically designed with optimized disk throughput and IO. This virtual machine series is intended for big data scenarios, data warehousing, and large transactional databases. 
+The [storage optimized VM sizes](../../../virtual-machines/sizes-storage.md) are for specific use cases. These virtual machines are specifically designed with optimized disk throughput and IO. 
 
 ### Lsv2-series
 
 The [Lsv2-series](../../../virtual-machines/lsv2-series.md) features high throughput, low latency, and local NVMe storage. The Lsv2-series VMs are optimized to use the local disk on the node attached directly to the VM rather than using durable data disks. 
 
-These virtual machines are strong options for big data, data warehouse, reporting, and ETL workloads. The high throughput and IOPs of the local NVMe storage is a good use case for processing files that will be loaded into your database and other scenarios where the source data can be recreated from the source system or other repositories such as Azure Blob storage or Azure Data Lake. [Lsv2-series](../../../virtual-machines/lsv2-series.md) VMs can also burst their disk performance for up to 30 minutes at a time.
+These virtual machines are strong options for big data, data warehouse, reporting, and ETL workloads. The high throughput and IOPS of the local NVMe storage is a good use case for processing files that will be loaded into your database and other scenarios where the data can be recreated from the source system or other repositories such as Azure Blob storage or Azure Data Lake. [Lsv2-series](../../../virtual-machines/lsv2-series.md) VMs can also burst their disk performance for up to 30 minutes at a time.
 
 These virtual machines size from 8 to 80 vCPU with 8 GiB of memory per vCPU and for every 8 vCPUs there is 1.92 TB of NVMe SSD. This means for the largest VM of this series, the [L80s_v2](../../../virtual-machines/lsv2-series.md), there is 80 vCPU and 640 BiB of memory with 10x1.92TB of NVMe storage.  There is a consistent memory-to-vCore ratio of 8 across all of these virtual machines.
 
-The NVMe storage is ephemeral meaning that data will be lost on these disks if you restart your virtual machine.
+The NVMe storage is ephemeral meaning that data will be lost on these disks if you deallocate your virtual machine, or if it's moved to a different host for service healing.
 
 The Lsv2 and Ls series support [premium storage](../../../virtual-machines/premium-storage-performance.md), but not premium storage caching. The creation of a local cache to increase IOPs is not supported. 
 
@@ -171,7 +157,7 @@ The Lsv2 and Ls series support [premium storage](../../../virtual-machines/premi
 
 ## Constrained vCores
 
-High performing SQL Server workloads often need larger amounts of memory, IO, and throughput without the higher vCore counts. 
+High performing SQL Server workloads often need larger amounts of memory, I/O, and throughput without the higher vCore counts. 
 
 Most OLTP workloads are application databases driven by large numbers of smaller transactions. With OLTP workloads, only a small amount of the data is read or modified, but the volumes of transactions driven by user counts are much higher. It is important to have the SQL Server memory available to cache plans, store recently accessed data for performance, and ensure physical reads can be read into memory quickly. 
 
@@ -181,11 +167,11 @@ In order to maintain this level of performance without the higher SQL Server lic
 
 This helps control licensing costs by reducing the available vCores while maintaining the same memory, storage, and I/O bandwidth of the parent virtual machine.
 
-The vCPU count can be constrained to one-half to one-quarter of the original VM size. Reducing the vCores available to the virtual machine, will achieve higher memory-to-vCore ratios.
+The vCPU count can be constrained to one-half to one-quarter of the original VM size. Reducing the vCores available to the virtual machine will achieve higher memory-to-vCore ratios, but the compute cost will remain the same.
 
 These new VM sizes have a suffix that specifies the number of active vCPUs to make them easier to identify. 
 
-For example, the [M64-32ms](../../../virtual-machines/constrained-vcpu.md) requires licensing only 32 SQL Server vCores with the memory, IO, and throughput of the [M64ms](../../../virtual-machines/m-series.md) and the [M64-16ms](../../../virtual-machines/constrained-vcpu.md) requires licensing only 16 vCores.  Though while the [M64-16ms](../../../virtual-machines/constrained-vcpu.md) has a quarter of the SQL Server licensing cost of the M64ms, the compute cost of the virtual machine will be the same.
+For example, the [M64-32ms](../../../virtual-machines/constrained-vcpu.md) requires licensing only 32 SQL Server vCores with the memory, I/O, and throughput of the [M64ms](../../../virtual-machines/m-series.md) and the [M64-16ms](../../../virtual-machines/constrained-vcpu.md) requires licensing only 16 vCores.  Though while the [M64-16ms](../../../virtual-machines/constrained-vcpu.md) has a quarter of the SQL Server licensing cost of the M64ms, the compute cost of the virtual machine will be the same.
 
 > [!NOTE] 
 > - Medium to large data warehouse workloads may still benefit from [constrained vCore VMs](../../../virtual-machines/constrained-vcpu.md), but data warehouse workloads are commonly characterized by fewer users and processes addressing larger amounts of data through query plans that run in parallel. 
