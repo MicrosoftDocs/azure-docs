@@ -44,10 +44,6 @@ We support H.264 (MPEG-4)
 ### Video quality
 We support up to Full HD 1080p on the native (iOS, Android) SDKs. For Web (JS) SDK we support Standard HD 720p. The quality depends on the available bandwidth.
 
-### Rooms concept
-Rooms are a set of APIs and SDKs that allow you to easily add audio, video, screen sharing, PSTN and SMS interactions to your website or native application.
-During the preview you can use the group ID to join the same conversation. You can create as many group IDs as you need and separate the users by the “rooms”. Moving forward will introduce more controls around “rooms”
-
 ## Next steps
 
 > [!div class="nextstepaction"]
