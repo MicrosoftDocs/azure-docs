@@ -162,9 +162,9 @@
       href: live-streaming-overview.md
     - name: Live events and live outputs 
       href: live-events-outputs-concept.md    
-      displayName: vanity, ingest 
+      displayName: vanity, ingest, static, hostname, rtmp, ingest
     - name: Tested on-premises live encoders
-      displayName: recommended
+      displayName: recommended, on-premises, live, encoder, OBS, FFMPEG, Wirecast
       href: recommended-on-premises-live-encoders.md
     - name: Time-shifting and live-to-VOD
       displayName: archive, dvr
