@@ -28,4 +28,4 @@ Using [App Service Migration Assistant](https://azure.microsoft.com/services/app
 - Video: [How to migrate web apps to Azure App Service](https://www.youtube.com/watch?v=9LBUmkUhmXU)
 
 ## Next Steps
-[App Service overview](overview)
+[App Service overview](overview.md)
