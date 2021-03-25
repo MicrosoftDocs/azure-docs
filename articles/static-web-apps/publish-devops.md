@@ -146,7 +146,7 @@ In this tutorial, you learn to:
 
 11. Once the deployment is successful, navigate to the Azure Static Web Apps **Overview** which includes links to the deployment configuration.
 
-12. Select the **URL** to see your newly deployed website. Note how the the _Source_ link now points to the branch and location of the Azure DevOps repository.
+12. Select the **URL** to see your newly deployed website. Note how the _Source_ link now points to the branch and location of the Azure DevOps repository.
 
     :::image type="content" source="media/publish-devops/deployment-location.png" alt-text="Deployment location":::
 
