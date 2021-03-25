@@ -16,6 +16,8 @@ ms.author: inhenkel
 
 You can use Media Services to crop an input video. Cropping is the process of selecting a rectangular window within the video frame, and encoding just the pixels within that window. The following diagram helps illustrate the process.
 
+## Pre-processing stage
+
 Cropping is a pre-processing stage, so the *cropping parameters* in the encoding preset apply to the *input* video. Encoding is a subsequent stage, and the width/height settings apply to the *pre-processed* video, and not to the original video. When designing your preset, do the following:
 
 1. Select the crop parameters based on the original input video
