@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 03/25/2021
 ms.author: alkohli
 ms.custom: "contperf-fy21q3"
 ---
@@ -114,6 +114,16 @@ We recommend that you set your firewall rules for outbound traffic, based on Azu
 | https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Microsoft container registry (required)               |
 | https://\*.azure-devices.us              | IoT Hub access (required)           |
 | https://\*.azurecr.us                    | Personal and third-party container registries (optional) | 
+
+### URL patterns for monitoring
+
+The following proxy and firewall configuration information is required for the containerized version of the Log Analytics agent for Linux to communicate with Azure Monitor.<!--Is "Agent Resource" needed in the table. If associating a URL pattern with a specific resource is important, I recommend adding a "Component or functionality" column. In a quick search, I couldn't find a list of resources for the Log Analytics agent in Linux.-->
+
+| URL pattern                    | Port    |   
+|--------------------------------|---------|
+|*.ods.opinsights.azure.com      | Port 443|
+|*.oms.opinsights.azure.com      | Port 443| 
+|*.dc.services.visualstudio.com  | Port 443| 
 
 ## Internet bandwidth
 
