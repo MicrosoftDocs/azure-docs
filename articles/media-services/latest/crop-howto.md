@@ -36,9 +36,7 @@ The following code snippet illustrates how to write a transform in .NET to crop 
 - Height is the final height of the crop.
 
 ```dotnet
-{
-
-    var preset = new StandardEncoderPreset
+var preset = new StandardEncoderPreset
 
     {
 
@@ -108,18 +106,6 @@ The following code snippet illustrates how to write a transform in .NET to crop 
 
         }
 
-    };
-
- 
-
-    MESLocalSimulator.SubmitAndValidateSuccessfulJob(
-
-         OutputDirectory,
-
-        "<name of your file>",
-
-         preset.Serialize());          
-
-}
+    }
 
 ```
