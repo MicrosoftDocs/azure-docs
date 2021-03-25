@@ -14,6 +14,8 @@ monikerRange: "=iotedge-2018-06"
 
 # Quickstart: Deploy your first IoT Edge module to a Windows device (preview)
 
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+
 Try out Azure IoT Edge in this quickstart by deploying containerized code to a Linux on Windows IoT Edge device. IoT Edge allows you to remotely manage code on your devices so that you can send more of your workloads to the edge. For this quickstart, we recommend using your own device to see how easy it is to use Azure IoT Edge for Linux on Windows.
 
 In this quickstart, you'll learn how to:
@@ -53,8 +55,8 @@ Make sure your IoT Edge device meets the following requirements:
 
   
 * Hardware requirements
-  * Minimum Free Memory: 2GB
-  * Minimum Free Disk Space: 10GB
+  * Minimum Free Memory: 2 GB
+  * Minimum Free Disk Space: 10 GB
 
 
 >[!NOTE]

@@ -6,16 +6,16 @@ services: azure-communication-services
 author: peiliu
 ms.service: azure-communication-services
 ms.topic: how-to
-ms.date: 2/24/2021
+ms.date: 03/10/2021
 ms.author: peiliu
 ms.reviewer: mikben
 zone_pivot_groups: acs-js-csharp-java-python
 ---
 
 # Use managed identities
-Get started with Azure Communication Services by using managed identities. The Communication Services Identity and SMS client libraries support Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+Get started with Azure Communication Services by using managed identities. The Communication Services Identity and SMS SDKs support Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
-This quickstart shows you how to authorize access to the Identity and SMS client libraries from an Azure environment that supports managed identities. It also describes how to test your code in a development environment.
+This quickstart shows you how to authorize access to the Identity and SMS SDKs from an Azure environment that supports managed identities. It also describes how to test your code in a development environment.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [.NET](./includes/managed-identity-net.md)]

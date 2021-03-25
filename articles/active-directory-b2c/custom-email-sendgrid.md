@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/10/2021
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -39,7 +39,7 @@ Next, store the SendGrid API key in an Azure AD B2C policy key for your policies
 1. Select **Policy Keys** and then select **Add**.
 1. For **Options**, choose **Manual**.
 1. Enter a **Name** for the policy key. For example, `SendGridSecret`. The prefix `B2C_1A_` is added automatically to the name of your key.
-1. In **Secret**, enter your client secret that you previously recorded.
+1. In **Secret**, enter the SendGrid API key that you previously recorded.
 1. For **Key usage**, select **Signature**.
 1. Select **Create**.
 
@@ -220,17 +220,17 @@ Add the following claims transformation to the `<ClaimsTransformations>` element
 
 ## Add DataUri content definition
 
-Below the claims transformations within `<BuildingBlocks>`, add the following [ContentDefinition](contentdefinitions.md) to reference the version 2.1.0 data URI:
+Below the claims transformations within `<BuildingBlocks>`, add the following [ContentDefinition](contentdefinitions.md) to reference the version 2.1.2 data URI:
 
 ```xml
 <!--
 <BuildingBlocks> -->
   <ContentDefinitions>
    <ContentDefinition Id="api.localaccountsignup">
-      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2</DataUri>
     </ContentDefinition>
     <ContentDefinition Id="api.localaccountpasswordreset">
-      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2</DataUri>
     </ContentDefinition>
   </ContentDefinitions>
 <!--
@@ -485,14 +485,14 @@ To localize the email, you must send localized strings to SendGrid, or your emai
     <BuildingBlocks> -->
       <ContentDefinitions>
         <ContentDefinition Id="api.localaccountsignup">
-          <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
+          <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2</DataUri>
           <LocalizedResourcesReferences MergeBehavior="Prepend">
             <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.custom-email.en" />
             <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.custom-email.es" />
           </LocalizedResourcesReferences>
         </ContentDefinition>
         <ContentDefinition Id="api.localaccountpasswordreset">
-          <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
+          <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2</DataUri>
           <LocalizedResourcesReferences MergeBehavior="Prepend">
             <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.custom-email.en" />
             <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.custom-email.es" />

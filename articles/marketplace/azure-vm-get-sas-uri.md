@@ -6,13 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
-ms.date: 01/10/2021
+ms.date: 03/10/2021
+
 ---
 
 # How to generate a SAS URI for a VM image
 
 > [!NOTE]
-> You don’t need a SAS URI to publish your VM. You can simply share an image in Parter Center. Refer to [Create a virtual machine using an approved base](https://docs.microsoft.com/azure/marketplace/azure-vm-create-using-approved-base) or [Create a virtual machine using your own image](https://docs.microsoft.com/azure/marketplace/azure-vm-create-using-own-image) instructions.
+> You don’t need a SAS URI to publish your VM. You can simply share an image in Parter Center. Refer to [Create a virtual machine using an approved base](./azure-vm-create-using-approved-base.md) or [Create a virtual machine using your own image](./azure-vm-create-using-own-image.md) instructions.
 
 Generating SAS URIs for your VHDs has these requirements:
 
@@ -57,7 +58,7 @@ $snapshotName=mySnapshot
 #Know more about SAS here: https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1
 $sasExpiryDuration=3600
 
-#Provide storage account name where you want to copy the underlying VHD file. 
+#Provide storage account name where you want to copy the underlying VHD file. Currently, only general purpose v1 storage is supported.
 $storageAccountName=mystorageaccountname
 
 #Name of the storage container where the downloaded VHD will be stored.
@@ -71,7 +72,7 @@ $destinationVHDFileName=myvhdfilename.vhd
 
 az account set --subscription $subscriptionId
 
-sas=$(az snapshot grant-access --resource-group $resourceGroupName --name $snapshotName --duration-in-seconds $sasExpiryDuration --query [accessSas] -o tsv)
+$sas=$(az snapshot grant-access --resource-group $resourceGroupName --name $snapshotName --duration-in-seconds $sasExpiryDuration --query [accessSas] -o tsv)
 
 az storage blob copy start --destination-blob $destinationVHDFileName --destination-container $storageContainerName --account-name $storageAccountName --account-key $storageAccountKey --source-uri $sas
 ```

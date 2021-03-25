@@ -6,7 +6,7 @@ author: tomaschladek
 manager: nmurav
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 08/20/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
@@ -37,7 +37,7 @@ npm init -y
 
 ### Install the package
 
-Use the `npm install` command to install the Azure Communication Services Identity client library for JavaScript.
+Use the `npm install` command to install the Azure Communication Services Identity SDK for JavaScript.
 
 ```console
 
@@ -149,7 +149,7 @@ Refreshing access tokens is as easy as calling `getToken` with the same identity
 
 ```javascript
 // // Value of identityResponse represents the Azure Communication Services identity stored during identity creation and then used to issue the tokens being refreshed
-let refreshedTokenResponse = await identityClient.issueToken(identityResponse, ["voip"]);
+let refreshedTokenResponse = await identityClient.getToken(identityResponse, ["voip"]);
 ```
 
 

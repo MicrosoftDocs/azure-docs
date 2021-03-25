@@ -35,32 +35,34 @@
           href: how-to-automatic-language-detection.md
         - name: Use the batch transcription API
           href: batch-transcription.md
-        - name: Migrate from v2.0 to v3.0 
+        - name: Migrate from v2.0 to v3.0
           href: migrate-v2-to-v3.md
         - name: Assess pronunciation
           href: how-to-pronunciation-assessment.md
+        - name: Customization
+          items:
+            - name: What is Custom Speech?
+              href: custom-speech-overview.md
+            - name: Test a model using audio files in Speech Studio
+              href: quickstarts/speech-studio-test-model.md
+            - name: Prepare data for Custom Speech
+              href: how-to-custom-speech-test-and-train.md
+            - name: Inspect Custom Speech data
+              href: how-to-custom-speech-inspect-data.md
+            - name: Evaluate and improve Custom Speech accuracy
+              href: how-to-custom-speech-evaluate-data.md
+            - name: Train and deploy a Custom Speech model
+              href: how-to-custom-speech-train-model.md
+            - name: CI/CD for Custom Speech
+              href: how-to-custom-speech-continuous-integration-continuous-deployment.md
+            - name: Create human-labeled transcriptions
+              href: how-to-custom-speech-human-labeled-transcriptions.md
+            - name: Model and Endpoint Lifecycle
+              href: how-to-custom-speech-model-and-endpoint-lifecycle.md
     - name: Tutorials
       items:
         - name: Improve accuracy with tenant models
           href: tutorial-tenant-model.md
-    - name: Customization
-      items:
-        - name: What is Custom Speech?
-          href: custom-speech-overview.md
-        - name: Test a model using audio files in Speech Studio
-          href: quickstarts/speech-studio-test-model.md
-        - name: Prepare data for Custom Speech
-          href: how-to-custom-speech-test-and-train.md
-        - name: Inspect Custom Speech data
-          href: how-to-custom-speech-inspect-data.md
-        - name: Evaluate and improve Custom Speech accuracy
-          href: how-to-custom-speech-evaluate-data.md
-        - name: Train and deploy a Custom Speech model
-          href: how-to-custom-speech-train-model.md
-        - name: CI/CD for Custom Speech
-          href: how-to-custom-speech-continuous-integration-continuous-deployment.md
-        - name: Create human-labeled transcriptions
-          href: how-to-custom-speech-human-labeled-transcriptions.md
     - name: Reference
       items:
         - name: C++
@@ -69,6 +71,9 @@
         - name: 'C#'
           displayName: CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation
           href: /dotnet/api/microsoft.cognitiveservices.speech
+        - name: 'Go'
+          displayName: Go SDK, Go dev kit,reference,reference docs,ref documentation
+          href: https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go          
         - name: Java
           displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
           href: /java/api/com.microsoft.cognitiveservices.speech
@@ -109,25 +114,27 @@
           href: speech-synthesis-markup.md
         - name: Synthesize speech with Long Audio API
           href: long-audio-api.md
-    - name: Customization
-      items:
-        - name: Custom Voice portal
+        - name: Get facial pose events for lip-sync
+          href: how-to-speech-synthesis-viseme.md
+        - name: Customization
           items:
-            - name: What is Custom Neural Voice?
-              href: custom-neural-voice.md
-            - name: Get started with Custom Voice
-              displayName: 'custom voice, neural voice'
-              href: how-to-custom-voice.md
-            - name: Prepare data
-              href: how-to-custom-voice-prepare-data.md
-            - name: Create and use Custom Voice models
-              href: how-to-custom-voice-create-voice.md
-            - name: Record voice samples
-              href: record-custom-voice-samples.md
-        - name: Audio Content Creation
-          items:
+            - name: Custom Voice portal
+              items:
+                - name: What is Custom Neural Voice?
+                  href: custom-neural-voice.md
+                - name: Get started with Custom Voice
+                  displayName: 'custom voice, neural voice'
+                  href: how-to-custom-voice.md
+                - name: Prepare data
+                  href: how-to-custom-voice-prepare-data.md
+                - name: Create and use Custom Voice models
+                  href: how-to-custom-voice-create-voice.md
+                - name: Record voice samples
+                  href: record-custom-voice-samples.md
             - name: Audio Content Creation
-              href: how-to-audio-content-creation.md
+              items:
+                - name: Audio Content Creation
+                  href: how-to-audio-content-creation.md
     - name: Responsible use of AI
       items:
         - name: Custom Neural Voice
@@ -287,7 +294,7 @@
     - name: Speaker Recognition overview
       href: speaker-recognition-overview.md
     - name: Speaker Recognition quickstart
-      href: get-started-speaker-recognition.md 
+      href: get-started-speaker-recognition.md
     - name: Reference
       items:
         - name: Speaker Recognition REST API
@@ -505,7 +512,7 @@
     - name: Track memory usage
       href: how-to-track-speech-sdk-memory-usage.md
     - name: Enable private endpoint
-      href: speech-services-private-link.md      
+      href: speech-services-private-link.md
     - name: Configure OpenSSL for Linux
       displayName: memory usage, memory consumption, object logging, object tracking, memory, openssl
       href: how-to-configure-openssl-linux.md

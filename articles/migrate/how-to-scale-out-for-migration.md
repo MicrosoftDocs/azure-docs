@@ -11,16 +11,16 @@ ms.date: 03/02/2021
 
 # Scale agentless migration of VMware virtual machines to Azure
 
-This article helps you understand how to use a scale-out appliance to migrate a large number of VMware virtual machines (VMs) to Azure using the Azure Migrate Server Migration tool's agentless migration capability. 
+This article helps you understand how to use a scale-out appliance to migrate a large number of VMware virtual machines (VMs) to Azure using the Azure Migrate Server Migration tool's agentless method for migration of VMware VMs.
 
-With the agentless migration of VMware virtual machines capability of the Server Migration tool, you can:
+Using the agentless migration method for VMware virtual machines you can:
 
 - Replicate up to 300 VMs from a single vCenter server concurrently using one Azure Migrate appliance.
 - Replicate up to 500 VMs from a single vCenter server concurrently by deploying a second scale-out appliance for migration.
 
 In this article, you will learn how to:
 
-- Deploy a scale-out appliance for VMware migration
+- Add a scale-out appliance for agentless migration of VMware virtual machines
 - Migrate up to 500 VMs concurrently using the scale-out appliance.
 
 ##  Prerequisites
@@ -33,8 +33,9 @@ Before you get started, you need to perform the following steps:
 > [!IMPORTANT]
 > You'll need to have at least one replicating virtual machine in the project before you can add a scale-out appliance for migration.
 
-## Deploy a scale-out appliance
+To learn how to perform the above, review the tutorial on [migrating VMware virtual machines to Azure with the agentless migration method](./tutorial-migrate-vmware.md).
 
+## Deploy a scale-out appliance
 
 To add a scale-out appliance, follow the steps mentioned below:
 
@@ -172,4 +173,4 @@ In this article, you learned:
 - How to replicate VMs using a scale-out appliance
 
 
-[Learn more](https://docs.microsoft.com/azure/migrate/tutorial-migrate-vmware) about migrating servers to Azure using Azure Migrate: Server Migration tool.
+[Learn more](./tutorial-migrate-vmware.md) about migrating servers to Azure using Azure Migrate: Server Migration tool.

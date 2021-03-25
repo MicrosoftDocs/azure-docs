@@ -8,9 +8,12 @@ ms.date: 02/16/2021
 ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
+monikerRange: "=iotedge-2018-06"
 ---
 
 # PowerShell scripts for IoT Edge for Linux on Windows
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 Understand the PowerShell scripts that deploy, provision, and get the status your IoT Edge for Linux on Windows virtual machine.
 
@@ -132,7 +135,7 @@ The **Get-EflowVmSshKey** command is used to query and display the SSH key used 
 
 ## Ssh-EflowVm
 
-The **Ssh-EflowVm** command is used to SSH into the virtual machine. For additional information, use the command `Get-Help Ssh-EflowVm -full`.
+The **Ssh-EflowVm** command is used to SSH into the virtual machine. The only account allowed to SSH to the virtual machine is the user that created it. For additional information, use the command `Get-Help Ssh-EflowVm -full`.
 
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
@@ -142,6 +145,6 @@ The **Ssh-EflowVm** command is used to SSH into the virtual machine. For additio
 
 Learn how to use these commands in the following article:
 
-* [Install Azure IoT Edge for Linux on Windows](how-to-install-iot-edge-windows.md)
+* [Install Azure IoT Edge for Linux on Windows](./how-to-install-iot-edge-windows-on-windows.md)
 
 * Refer to [the IoT Edge for Linux on Windows PowerShell script reference](reference-iot-edge-for-linux-on-windows-scripts.md#deploy-eflow) for all the commands available through PowerShell.

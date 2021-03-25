@@ -1,6 +1,6 @@
 ---
-title: "SQL Server to SQL Managed Instance: Migration guide"
-description: Follow this guide to migrate your SQL Server databases to Azure SQL Managed Instance. 
+title: "SQL Server to Azure SQL Managed Instance: Migration guide"
+description: This guide teaches you to migrate your SQL Server databases to Azure SQL Managed Instance. 
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
 ms.custom: 
@@ -11,7 +11,7 @@ ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
 ---
-# Migration guide: SQL Server to SQL Managed Instance
+# Migration guide: SQL Server to Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
 
 This guide helps you migrate your SQL Server instance to Azure SQL Managed Instance. 
@@ -24,7 +24,7 @@ You can migrate SQL Server running on-premises or on:
 - Compute Engine (Google Cloud Platform - GCP)  
 - Cloud SQL for SQL Server (Google Cloud Platform – GCP) 
 
-For more migration information, see the [migration overview](sql-server-to-managed-instance-overview.md). For other scenarios, see the [Database Migration Guide](https://datamigration.microsoft.com/).
+For more migration information, see the [migration overview](sql-server-to-managed-instance-overview.md). For other migration guides, see [Database Migration](https://docs.microsoft.com/data-migration). 
 
 :::image type="content" source="media/sql-server-to-managed-instance-overview/migration-process-flow-small.png" alt-text="Migration process flow":::
 
@@ -34,6 +34,8 @@ To migrate your SQL Server to Azure SQL Managed Instance, make sure to go throug
 
 - Choose a [migration method](sql-server-to-managed-instance-overview.md#compare-migration-options) and the corresponding tools that are required for the chosen method
 - Install [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) on a machine that can connect to your source SQL Server
+- Connectivity and proper permissions to access both source and target. 
+
 
 
 ## Pre-migration
@@ -191,10 +193,6 @@ The test approach for database migration consists of the following activities:
 1. **Set up test environment**: The test environment should contain a copy of the source database and the target database. Be sure to isolate the test environment.
 1. **Run validation tests**: Run the validation tests against the source and the target, and then analyze the results.
 1. **Run performance tests**: Run performance test against the source and the target, and then analyze and compare the results.
-
-   > [!NOTE]
-   > For assistance developing and running post-migration validation tests, consider the Data Quality Solution available from the partner [QuerySurge](https://www.querysurge.com/company/partners/microsoft). 
-
 
 
 ## Leverage advanced features 

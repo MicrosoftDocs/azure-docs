@@ -1,28 +1,28 @@
 ---
-title: Azure Communication Services calling client library overview
+title: Azure Communication Services Calling SDK overview
 titleSuffix: An Azure Communication Services concept document
-description: Provides an overview of the calling client library.
+description: Provides an overview of the Calling SDK.
 author: mikben
 manager: jken
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 03/04/2021
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
-# Calling client library overview
+# Calling SDK overview
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 
-There are two separate families of Calling client libraries, for *clients* and *services.* Currently available client libraries are intended for end-user experiences: websites and native apps.
+There are two separate families of Calling SDKs, for *clients* and *services.* Currently available SDKs are intended for end-user experiences: websites and native apps.
 
-The Service client libraries are not yet available, and provide access to the raw voice and video data planes, suitable for integration with bots and other services.
+The Service SDKs are not yet available, and provide access to the raw voice and video data planes, suitable for integration with bots and other services.
 
-## Calling client library capabilities
+## Calling SDK capabilities
 
-The following list presents the set of features which are currently available in the Azure Communication Services Calling client libraries.
+The following list presents the set of features which are currently available in the Azure Communication Services Calling SDKs.
 
 | Group of features | Capability                                                                                                          | JS  | Java (Android) | Objective-C (iOS)
 | ----------------- | ------------------------------------------------------------------------------------------------------------------- | ---  | -------------- | -------------
@@ -67,13 +67,33 @@ The following list presents the set of features which are currently available in
 |                   | Set / update scaling mode                                                                                           | ✔️   | ✔️            | ✔️ 
 |                   | Render remote video stream                                                                                          | ✔️   | ✔️            | ✔️
 
+## Calling client library streaming support
+The Communication Services Calling client library supports the following streaming configurations:
 
+| Limit          |Web | Android/iOS|
+|-----------|----|------------|
+|**# of outgoing streams that can be sent simultaneously** |1 video + 1 screen sharing | 1 video + 1 screen sharing|
+|**# of incoming streams that can be rendered simultaneously** |1 video + 1 screen sharing| 6 video + 1 screen sharing |
 
-## JavaScript calling client library support by OS and browser
+## Calling client library timeouts
+
+The following timeouts apply to the Communication Services Calling client libraries:
+
+| Action           | Timeout in seconds |
+| -------------- | ---------- |
+| Reconnect/removal participant | 120 |
+| Add or remove new modality from a call (Start/stop video or screen sharing) | 40 |
+| Call Transfer operation timeout | 60 |
+| 1:1 call establishment timeout | 85 |
+| Group call establishment timeout | 85 |
+| PSTN call establishment timeout | 115 |
+| Promote 1:1 call to a group call timeout | 115 |
+
+## JavaScript Calling SDK support by OS and browser
 
 The following table represents the set of supported browsers which are currently available. We support the most recent three versions of the browser unless otherwise indicated.
 
-|                                  | Chrome | Safari*  | Edge (Chromium) | 
+| Platform                         | Chrome | Safari*  | Edge (Chromium) | 
 | -------------------------------- | -------| ------  | --------------  |
 | Android                          |  ✔️    | ❌     | ❌             |
 | iOS                              |  ❌    | ✔️**** | ❌             |
@@ -109,15 +129,6 @@ For example, this iframe allows both camera and microphone access:
 ```html
 <iframe allow="camera *; microphone *">
 ```
-
-## Calling client library streaming support
-The Communication Services calling client library supports the following streaming configurations:
-
-|           |Web | Android/iOS|
-|-----------|----|------------|
-|**# of outgoing streams that can be sent simultaneously** |1 video + 1 screen sharing | 1 video + 1 screen sharing|
-|**# of incoming streams that can be rendered simultaneously** |1 video + 1 screen sharing| 6 video + 1 screen sharing |
-
 
 ## Next steps
 

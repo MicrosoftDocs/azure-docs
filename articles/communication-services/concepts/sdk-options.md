@@ -1,40 +1,42 @@
 ---
-title: Client libraries and REST APIs for Azure Communication Services
+title: SDKs and REST APIs for Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
-description: Learn more about Azure Communication Services client libraries and REST APIs.
+description: Learn more about Azure Communication Services SDKs and REST APIs.
 author: mikben
 manager: jken
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 03/18/2020
+ms.date: 03/25/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
-# Client libraries and REST APIs
+# SDKs and REST APIs
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+Azure Communication Services capabilities are conceptually organized into six areas. Most areas have fully open-sourced client libraries programmed against published REST APIs that you can use directly over the Internet. The Calling client library uses proprietary network interfaces and is currently closed-source. Samples and more technical details for SDKs are published in the [Azure Communication Services GitHub repo](https://github.com/Azure/communication).
+
+## REST APIs
+Communication Services APIs are documented alongside other Azure REST APIs in [docs.microsoft.com](/rest/api/azure/). This documentation will tell you how to structure your HTTP messages and offers guidance for using Postman. This documentation is also offered in Swagger format on [GitHub](https://github.com/Azure/azure-rest-api-specs).
 
 
-Azure Communication Services capabilities are conceptually organized into six areas. Some areas have fully open-sourced client libraries. The Calling client library uses proprietary network interfaces and is currently closed-source, and the Chat library includes a closed-source dependency. Samples and additional technical details for client libraries are published in the [Azure Communication Services GitHub repo](https://github.com/Azure/communication).
+## SDKs
 
-## Client libraries
+| Assembly | Namespaces| Protocols | Capabilities |
+|------------------------|-------------------------------------|---------------------------------|--------------------------------------------------------------------------------------------|
+| Azure Resource Manager | Azure.ResourceManager.Communication | [REST](https://docs.microsoft.com/rest/api/communication/communicationservice)| Provision and manage Communication Services resources|
+| Common | Azure.Communication.Common| REST | Provides base types for other client libraries |
+| Identity | Azure.Communication.Identity| [REST](https://docs.microsoft.com/rest/api/communication/communicationidentity)| Manage users, access tokens|
+| Phone numbers _(beta)_| Azure.Communication.PhoneNumbers| [REST](https://docs.microsoft.com/rest/api/communication/phonenumberadministration)| Acquire and manage phone numbers |
+| Chat | Azure.Communication.Chat| [REST](https://docs.microsoft.com/rest/api/communication/) with proprietary signaling | Add real-time text based chat to your applications |
+| SMS| Azure.Communication.SMS | [REST](https://docs.microsoft.com/rest/api/communication/sms)| Send and receive SMS messages|
+| Calling| Azure.Communication.Calling | Proprietary transport | Use voice, video, screen-sharing, and other real-time data communication capabilities |
 
-| Assembly               | Protocols             |Open vs. Closed Source| Namespaces                          | Capabilities                                                      |
-| ---------------------- | --------------------- | ---|-------------------------- | --------------------------------------------------------------------------- |
-| Azure Resource Manager | REST | Open            | Azure.ResourceManager.Communication | Provision and manage Communication Services resources             |
-| Common                 | REST | Open               | Azure.Communication.Common          | Provides base types for other client libraries |
-| Identity         | REST | Open               | Azure.Communication.Identity  | Manage users, access tokens |
-| Phone numbers         | REST | Open               | Azure.Communication.PhoneNumbers  | Managing phone numbers |
-| Chat                   | REST with proprietary signaling | Open with closed source signaling package    | Azure.Communication.Chat            | Add real-time text based chat to your applications  |
-| SMS                    | REST | Open              | Azure.Communication.SMS             | Send and receive SMS messages |
-| Calling                | Proprietary transport | Closed |Azure.Communication.Calling         | Leverage voice, video, screen-sharing, and other real-time data communication capabilities          |
+The Azure Resource Manager, Identity, and SMS client libraries are focused on service integration, and in many cases security issues arise if you integrate these functions into end-user applications. The Common and Chat client libraries are suitable for service and client applications. The Calling client library is designed for client applications. A client library focused on service scenarios is in development.
 
-Note that the Azure Resource Manager, Identity, and SMS client libraries are focused on service integration, and in many cases security issues arise if you integrate these functions into end-user applications. The Common and Chat client libraries are suitable for service and client applications. The Calling client library is designed for client applications. A client library focused on service scenarios is in development.
 
 ### Languages and publishing locations
 
-Publishing locations for individual client library packages are detailed below.
+Publishing locations for individual SDK packages are detailed below.
 
 | Area           | JavaScript | .NET | Python | Java SE | iOS | Android | Other                          |
 | -------------- | ---------- | ---- | ------ | ---- | -------------- | -------------- | ------------------------------ |
@@ -47,20 +49,27 @@ Publishing locations for individual client library packages are detailed below.
 | Calling        | [npm](https://www.npmjs.com/package/@azure/communication-calling)         | -      | -      | -     | [GitHub](https://github.com/Azure/Communication/releases)     | [Maven](https://search.maven.org/artifact/com.azure.android/azure-communication-calling/)            | -                              |
 | Reference Documentation     | [docs](https://azure.github.io/azure-sdk-for-js/communication.html)         | [docs](https://azure.github.io/azure-sdk-for-net/communication.html)      | -      | [docs](http://azure.github.io/azure-sdk-for-java/communication.html)     | [docs](/objectivec/communication-services/calling/)      | [docs](/java/api/com.azure.communication.calling)            | -                              |
 
-## REST APIs
 
-Communication Services APIs are documented alongside other Azure REST APIs in [docs.microsoft.com](/rest/api/azure/). This documentation will tell you how to structure your HTTP messages and offers guidance for using Postman. This documentation is also offered in Swagger format on [GitHub](https://github.com/Azure/azure-rest-api-specs).
+## REST API Throttles
+Certain REST APIs and corresponding SDK methods have throttle limits you should be mindful of. Exceeding these throttle limits will trigger a  `429 - Too Many Requests` error response. These limits can be increased through [a request to Azure Support](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
-## Additional support details
+| API                                                                                                                          | Throttle            |
+|------------------------------------------------------------------------------------------------------------------------------|---------------------|
+| [All Search Telephone Number Plan APIs](https://docs.microsoft.com/rest/api/communication/phonenumberadministration)         | 4 requests/day      |
+| [Purchase Telephone Number Plan](https://docs.microsoft.com/rest/api/communication/phonenumberadministration/purchasesearch) | 1 request/day       |
+| [Send SMS](https://docs.microsoft.com/rest/api/communication/sms/send)                                                       | 200 requests/minute |
 
-### iOS and Android support details
 
-- Communication Services iOS client libraries target iOS version 13+, and Xcode 11+.
-- Android Java client libraries target Android API level 21+ and Android Studio 4.0+
+## SDK platform support details
 
-### .NET support details
+### iOS and Android 
 
-With the exception of Calling, Communication Services packages target .NET Standard 2.0 which supports the platforms listed below.
+- Communication Services iOS SDKs target iOS version 13+, and Xcode 11+.
+- Android Java SDKs target Android API level 21+ and Android Studio 4.0+
+
+### .NET 
+
+Except for Calling, Communication Services packages target .NET Standard 2.0, which supports the platforms listed below.
 
 Support via .NET Framework 4.6.1
 - Windows 10, 8.1, 8 and 7
@@ -77,48 +86,33 @@ Support via .NET Core 2.0:
 - Xamarin iOS 10.14
 - Xamarin Mac 3.8
 
-## Calling client library timeouts
-
-The following timeouts apply to the Communication Services calling client libraries:
-
-| Action           | Timeout in seconds |
-| -------------- | ---------- |
-| Reconnect/removal participant | 120 |
-| Add or remove new modality from a call (Start/stop video or screen sharing) | 40 |
-| Call Transfer operation timeout | 60 |
-| 1:1 call establishment timeout | 85 |
-| Group call establishment timeout | 85 |
-| PSTN call establishment timeout | 115 |
-| Promote 1:1 call to a group call timeout | 115 |
-
-
 ## API stability expectations
 
 > [!IMPORTANT]
-> This section provides guidance on REST APIs and client libraries marked **stable**. APIs marked pre-release, preview, or beta may be changed or deprecated **without notice**.
+> This section provides guidance on REST APIs and SDKs marked **stable**. APIs marked pre-release, preview, or beta may be changed or deprecated **without notice**.
 
-In the future we may retire versions of the Communication Services client libraries, and we may introduce breaking changes to our REST APIs and released client libraries. Azure Communication Services will *generally* follow two supportability policies for retiring service versions:
+In the future we may retire versions of the Communication Services SDKs, and we may introduce breaking changes to our REST APIs and released SDKs. Azure Communication Services will *generally* follow two supportability policies for retiring service versions:
 
-- You'll be notified at least three years before being required to change code due to a Communication Services interface change. All documented REST APIs and client library APIs generally enjoy at least three years warning before interfaces are decommissioned.
-- You'll be notified at least one year before having to update client library assemblies to the latest minor version. These required updates shouldn't require any code changes because they're in the same major version. This is especially true for the Calling and Chat libraries which have real-time components that frequently require security and performance updates. We highly encourage you to keep your Communication Services client libraries updated.
+- You'll be notified at least three years before being required to change code due to a Communication Services interface change. All documented REST APIs and SDK APIs generally enjoy at least three years warning before interfaces are decommissioned.
+- You'll be notified at least one year before having to update SDK assemblies to the latest minor version. These required updates shouldn't require any code changes because they're in the same major version. This is especially true for the Calling and Chat libraries which have real-time components that frequently require security and performance updates. We highly encourage you to keep your Communication Services SDKs updated.
 
-### API and client library decommissioning examples
+### API and SDK decommissioning examples
 
 **You've integrated the v24 version of the SMS REST API into your application. Azure Communication releases v25.**
 
-You'll get 3 years warning before these APIs stop working and are forced to update to v25. This update might require a code change.
+You'll get three years warning before these APIs stop working and are forced to update to v25. This update might require a code change.
 
-**You've integrated the v2.02 version of the Calling client library into your application. Azure Communication releases v2.05.**
+**You've integrated the v2.02 version of the Calling SDK into your application. Azure Communication releases v2.05.**
 
-You may be required to update to the v2.05 version of the Calling client library within 12 months of the release of v2.05. This should be a simple replacement of the artifact without requiring a code change because v2.05 is in the v2 major version and has no breaking changes.
+You may be required to update to the v2.05 version of the Calling SDK within 12 months of the release of v2.05. This should be a simple replacement of the artifact without requiring a code change because v2.05 is in the v2 major version and has no breaking changes.
 
 ## Next steps
 
-For more information, see the following client library overviews:
+For more information, see the following SDK overviews:
 
-- [Calling client library Overview](../concepts/voice-video-calling/calling-sdk-features.md)
-- [Chat client library Overview](../concepts/chat/sdk-features.md)
-- [SMS client library Overview](../concepts/telephony-sms/sdk-features.md)
+- [Calling SDK Overview](../concepts/voice-video-calling/calling-sdk-features.md)
+- [Chat SDK Overview](../concepts/chat/sdk-features.md)
+- [SMS SDK Overview](../concepts/telephony-sms/sdk-features.md)
 
 To get started with Azure Communication Services:
 

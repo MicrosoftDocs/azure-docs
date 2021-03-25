@@ -13,7 +13,7 @@ ms.author: kenwith
 ms.reviewer: japere
 ---
 
-# Get all Azure AD Proxy application apps that are published with the identical certificate
+# Get all Application Proxy apps that are published with the identical certificate
 
 This PowerShell script example lists all Azure Active Directory (Azure AD) Application Proxy applications that are published with the identical certificate.
 

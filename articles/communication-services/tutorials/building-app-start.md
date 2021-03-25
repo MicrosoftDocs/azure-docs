@@ -5,7 +5,7 @@ description: Learn how to create a baseline web application that supports Azure 
 author: nmurav
 services: azure-communication-services
 ms.author: nmurav
-ms.date: 01/03/2012
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
@@ -16,7 +16,7 @@ ms.service: azure-communication-services
 
 You can use Azure Communication Services to add real-time communications to your applications. In this tutorial, you'll learn how to set up a web application that supports Azure Communication Services. This is an introductory tutorial for new developers who want to get started with real-time communications.
 
-By the end of this tutorial, you'll have a baseline web application that's configured with Azure Communication Services client libraries. You can then use that application to begin building your real-time communications solution.
+By the end of this tutorial, you'll have a baseline web application that's configured with Azure Communication Services SDKs. You can then use that application to begin building your real-time communications solution.
 
 Feel free to visit the [Azure Communication Services GitHub page](https://github.com/Azure/communication) to provide feedback.
 
@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 - An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). The free account gives you $200 in Azure credits to try out any combination of services.
 - [Visual Studio Code](https://code.visualstudio.com/) for editing code in your local development environment.
 - [webpack](https://webpack.js.org/) to bundle and locally host your code.
-- [Node.js](https://nodejs.org/en/) to install and manage dependencies like Azure Communication Services client libraries and webpack.
+- [Node.js](https://nodejs.org/en/) to install and manage dependencies like Azure Communication Services SDKs and webpack.
 - [nvm and npm](/windows/nodejs/setup-on-windows) to handle version control.
 - The [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) for Visual Studio Code. You need this extension to publish your application in Azure Storage. [Read more about hosting static websites in Azure Storage](../../storage/blobs/storage-blob-static-website.md).
 - The [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). The extension allows deploying websites with the option to configure fully managed continuous integration and continuous delivery (CI/CD).
@@ -288,7 +288,7 @@ To stop your server, you can run `Ctrl+C` in your terminal. To start your server
 
 ## Add the Azure Communication Services packages
 
-Use the `npm install` command to install the Azure Communication Services calling client library for JavaScript.
+Use the `npm install` command to install the Azure Communication Services Calling SDK for JavaScript.
 
 ```Console
 npm install @azure/communication-common --save

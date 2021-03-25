@@ -105,8 +105,10 @@
       href: ./samples/nist-sp-800-171-r2.md
   - name: Guest Configuration baselines
     items:
+    - name: Linux baseline for Azure Security Benchmark
+      href: ./samples/guest-configuration-baseline-linux.md
     - name: Windows baseline for Azure Security Benchmark
-      href: ./samples/guestconfig-baseline-windows.md
+      href: ./samples/guest-configuration-baseline-windows.md
 - name: Concepts
   items:
   - name: Definition structure
@@ -263,22 +265,8 @@
       href: /python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights
   - name: REST
     items:
-    - name: Events
-      href: /rest/api/policy-insights/policyevents
-    - name: States
-      href: /rest/api/policy-insights/policystates
-    - name: Assignments
-      href: /rest/api/resources/policyassignments
-    - name: Policy Definitions
-      href: /rest/api/resources/policydefinitions
-    - name: Policy Exemptions
-      href: /rest/api/resources/policyexemptions
-    - name: Initiatives Definitions
-      href: /rest/api/resources/policysetdefinitions
-    - name: Policy Tracked Resources
-      href: /rest/api/policy-insights/policytrackedresources
-    - name: Remediations
-      href: /rest/api/policy-insights/remediations
+    - name: Policy
+      href: /rest/api/policy/
     - name: Guest Configuration
       href: /rest/api/guestconfiguration/
   - name: Resource Manager templates

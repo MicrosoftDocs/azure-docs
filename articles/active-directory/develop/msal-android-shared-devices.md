@@ -1,7 +1,7 @@
 ---
 title: Shared device mode for Android devices
 titleSuffix: Microsoft identity platform | Azure
-description: Learn how to enable shared device mode to allow Firstline Workers to share an Android device
+description: Learn how to enable shared device mode to allow Frontline Workers to share an Android device
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -18,10 +18,7 @@ ms.custom: aaddev, identitypla | Azuretformtop40
 
 # Shared device mode for Android devices
 
->[!IMPORTANT]
-> This feature [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
-
-Firstline Workers such as retail associates, flight crew members, and field service workers often use a shared mobile device to do their work. That becomes problematic when they start sharing passwords or pin numbers to access customer and business data on the shared device.
+Frontline Workers such as retail associates, flight crew members, and field service workers often use a shared mobile device to do their work. That becomes problematic when they start sharing passwords or pin numbers to access customer and business data on the shared device.
 
 Shared device mode allows you to configure an Android device so that it can be easily shared by multiple employees. Employees can sign in and access customer information quickly. When they are finished with their shift or task, they can sign out of the device and it will be immediately ready for the next employee to use.
 
@@ -85,7 +82,7 @@ The following differences apply depending on whether your app is running on a sh
 
 ## Why you may want to only support single-account mode
 
-If you're writing an app that will only be used for firstline workers using a shared device, we recommend that you write your application to only support single-account mode. This includes most applications that are task focused such as medical records apps, invoice apps, and most line-of-business apps. Only supporting single-account mode simplifies development because you won't need to implement the additional features that are part of multiple-account apps.
+If you're writing an app that will only be used for frontline workers using a shared device, we recommend that you write your application to only support single-account mode. This includes most applications that are task focused such as medical records apps, invoice apps, and most line-of-business apps. Only supporting single-account mode simplifies development because you won't need to implement the additional features that are part of multiple-account apps.
 
 ## What happens when the device mode changes
 
@@ -103,4 +100,4 @@ The following diagram shows the overall app lifecycle and common events that may
 
 ## Next steps
 
-Try the [Use shared-device mode in your Android application](tutorial-v2-shared-device-mode.md) tutorial that shows how to run a firstline worker app on a shared mode Android device.
+Try the [Use shared-device mode in your Android application](tutorial-v2-shared-device-mode.md) tutorial that shows how to run a frontline worker app on a shared mode Android device.

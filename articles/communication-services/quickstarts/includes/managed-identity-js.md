@@ -1,6 +1,6 @@
 ## Add managed identity to your Communication Services solution (JS)
 
-### Install the client library packages
+### Install the SDK packages
 
 ```console
 npm install @azure/communication-identity
@@ -9,13 +9,13 @@ npm install @azure/communication-sms
 npm install @azure/identity
 ```
 
-### Use the client library packages
+### Use the SDK packages
 
-Add the following `import` directives to your code to use the Azure Identity and Azure Storage client libraries.
+Add the following `import` directives to your code to use the Azure Identity and Azure Storage SDKs.
 
 ```typescript
 import { DefaultAzureCredential } from "@azure/identity";
-import { CommunicationIdentityClient } from "@azure/communication-identity";
+import { CommunicationIdentityClient, CommunicationUserToken } from "@azure/communication-identity";
 import { SmsClient, SmsSendRequest } from "@azure/communication-sms";
 ```
 
@@ -31,7 +31,7 @@ The following code example shows how to create a service client object with mana
 export async function createIdentityAndIssueToken(resourceEndpoint: string): Promise<CommunicationUserToken> {
      let credential = new DefaultAzureCredential();
      const client = new CommunicationIdentityClient(resourceEndpoint, credential);
-     return await client.createUserWithToken(["chat"]);
+     return await client.createUserAndToken(["chat"]);
 }
 ```
 

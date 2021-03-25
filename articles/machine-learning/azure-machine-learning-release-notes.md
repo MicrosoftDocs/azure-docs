@@ -22,7 +22,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 ## 2021-03-08
 
 ### Azure Machine Learning SDK for Python v1.24.0
-+ **New features**
++ **Bug fixes and improvements**
   + **azureml-automl-core**
     + Removed backwards compatible imports from `azureml.automl.core.shared`. Module not found errors in the `azureml.automl.core.shared` namespace can be resolved by importing from `azureml.automl.runtime.shared`.
   + **azureml-contrib-automl-dnn-vision**
@@ -52,9 +52,9 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 ## 2021-02-28
 ### Azure Machine Learning Studio Notebooks Experience (February Update)
 + **New features**
-  + [Native Terminal (GA)](https://docs.microsoft.com/azure/machine-learning/how-to-access-terminal). Users will now have access to an integrated terminal as well as Git operation via the integrated terminal.
+  + [Native Terminal (GA)](./how-to-access-terminal.md). Users will now have access to an integrated terminal as well as Git operation via the integrated terminal.
   + [Notebook Snippets (preview)](https://azure.github.io/azureml-web/docs/vs-code-snippets/snippets). Common Azure ML code excerpts are now available at your fingertips. Navigate to the code snippets panel, accessible via the toolbar, or activate the in-code snippets menu using Ctrl + Space.  
-  + [Keyboard Shortcuts](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#shortcut-keys). Full parity with keyboard shortcuts available in Jupyter. 
+  + [Keyboard Shortcuts](./how-to-run-jupyter-notebooks.md#useful-keyboard-shortcuts). Full parity with keyboard shortcuts available in Jupyter. 
   + Indicate Cell parameters. Shows users which cells in a notebook are parameter cells and can run parameterized notebooks via [Papermill](https://github.com/nteract/papermill) on the Compute Instance.
   + Terminal and Kernel session manager: Users will be able to manage all kernels and terminal sessions running on their compute.
   + Sharing Button. Users can now share any file in the Notebook file explorer by right-clicking the file and using the share button.
@@ -64,18 +64,18 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   + Improved page load times
   + Improved performance 
   + Improved speed and kernel reliability
-  + Added spinning wheel to show progress for all ongoing [Compute Instance operations](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#status-indicators).
+  + Added spinning wheel to show progress for all ongoing [Compute Instance operations](./how-to-run-jupyter-notebooks.md#status-indicators).
   + Right click in File Explorer. Right-clicking any file will now open file operations. 
 
 
 ## 2021-02-16
 
 ### Azure Machine Learning SDK for Python v1.23.0
-+ **New features**
++ **Bug fixes and improvements**
   + **azureml-core**
     + [Experimental feature] Add support to link synapse workspace into AML as an linked service
     + [Experimental feature] Add support to attach synapse spark pool into AML as a compute
-    + [Experimental feature] Add support for identity based data access. Users can register datastore or datasets without providing credentials. In such case, users' AAD token or managed identity of compute target will be used for authentication. Learn more [here](https://aka.ms/data-access).
+    + [Experimental feature] Add support for identity based data access. Users can register datastore or datasets without providing credentials. In such case, users' AAD token or managed identity of compute target will be used for authentication. Learn more [here](./how-to-identity-based-data-access.md).
   + **azureml-pipeline-steps**
     + [Experimental feature] Add support for [SynapseSparkStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.synapsesparkstep)
   + **azureml-synapse**

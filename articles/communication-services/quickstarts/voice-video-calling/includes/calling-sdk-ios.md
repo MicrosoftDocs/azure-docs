@@ -2,7 +2,7 @@
 author: mikben
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 9/1/2020
+ms.date: 03/10/2021
 ms.author: mikben
 ---
 
@@ -18,7 +18,7 @@ ms.author: mikben
 ### Creating the Xcode project
 
 > [!NOTE]
-> This document uses version 1.0.0-beta.8 of the calling client library.
+> This document uses version 1.0.0-beta.8 of the Calling SDK.
 
 In Xcode, create a new iOS project and select the **Single View App** template. This quickstart uses the [SwiftUI framework](https://developer.apple.com/xcode/swiftui/), so you should set the the **Language** to **Swift** and the **User Interface** to **SwiftUI**. You're not going to create unit tests or UI tests during this quickstart. Feel free to uncheck **Include Unit Tests** and also uncheck **Include UI Tests**.
 
@@ -63,18 +63,18 @@ import AVFoundation
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services Calling client library for iOS.
+The following classes and interfaces handle some of the major features of the Azure Communication Services Calling SDK for iOS.
 
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient | The CallClient is the main entry point to the Calling client library.|
+| CallClient | The CallClient is the main entry point to the Calling SDK.|
 | CallAgent | The CallAgent is used to start and manage calls. |
 | CommunicationTokenCredential | The CommunicationTokenCredential is used as the token credential to instantiate the CallAgent.| 
 | CommunicationIdentifier | The CommunicationIdentifier is used to represent the identity of the user which can be one of the following: CommunicationUserIdentifier/PhoneNumberIdentifier/CallingApplication. |
 
 > [!NOTE]
-> When implementing event delegates, the application has to hold a strong reference to the objects that require event subscriptions. For example, when a `RemoteParticipant` object is returned on invoking the `call.addParticipant` method and the application sets the delegate to listen on `RemoteParticipantDelegate`, the application must hold a strong reference to the `RemoteParticipant` object. Otherwise, if this object gets collected, the delegate will throw a fatal exception when the calling SDK tries to invoke the object.
+> When implementing event delegates, the application has to hold a strong reference to the objects that require event subscriptions. For example, when a `RemoteParticipant` object is returned on invoking the `call.addParticipant` method and the application sets the delegate to listen on `RemoteParticipantDelegate`, the application must hold a strong reference to the `RemoteParticipant` object. Otherwise, if this object gets collected, the delegate will throw a fatal exception when the Calling SDK tries to invoke the object.
 
 ## Initialize the CallAgent
 
@@ -126,7 +126,7 @@ callClient?.createCallAgent(userCredential: userCredential!,
 
 ## Place an outgoing call
 
-To create and start a call you need to call one of the APIs on `CallAgent` and provide the Communication Services Identity of a user that you've provisioned using the Communication Services Management client library.
+To create and start a call you need to call one of the APIs on `CallAgent` and provide the Communication Services Identity of a user that you've provisioned using the Communication Services Management SDK.
 
 Call creation and start is synchronous. You'll receive call instance that allows you to subscribe to all events on the call.
 

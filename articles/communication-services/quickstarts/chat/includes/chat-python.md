@@ -6,7 +6,7 @@ author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 9/1/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
@@ -34,7 +34,7 @@ Use a text editor to create a file called **start-chat.py** in the project root 
 
 ```python
 import os
-# Add required client library components from quickstart here
+# Add required SDK components from quickstart here
 
 try:
     print('Azure Communication Services - Chat Quickstart')
@@ -44,7 +44,7 @@ except Exception as ex:
     print(ex)
 ```
 
-### Install client library
+### Install SDK
 
 ```console
 
@@ -54,7 +54,7 @@ pip install azure-communication-chat
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services Chat client library for Python.
+The following classes and interfaces handle some of the major features of the Azure Communication Services Chat SDK for Python.
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |

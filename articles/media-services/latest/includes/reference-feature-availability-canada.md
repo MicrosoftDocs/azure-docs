@@ -11,7 +11,7 @@ ms.author: inhenkel
 
 | Feature | Canada Central | Canada East |
 | --- | :---: | :---: |
-| [Azure EventGrid](../reacting-to-media-services-events.md) |![Azure EventGrid Canada Central general availability](../media/azure-clouds-regions/ga.svg)  |![Azure EventGrid Canada East general availability](../media/azure-clouds-regions/ga.svg) |
+| [Azure EventGrid](../monitoring/reacting-to-media-services-events.md) |![Azure EventGrid Canada Central general availability](../media/azure-clouds-regions/ga.svg)  |![Azure EventGrid Canada East general availability](../media/azure-clouds-regions/ga.svg) |
 | [VideoAnalyzerPreset](../analyzing-video-audio-files-concept.md) |![VideoAnalyzerPreset Canada Central general availability](../media/azure-clouds-regions/ga.svg)  | ![VideoAnalyzerPreset Canada East general availability](../media/azure-clouds-regions/ga.svg) |
 | [AudioAnalyzerPreset](../analyzing-video-audio-files-concept.md) |![AudioAnalyzerPreset Canada Central general availability](../media/azure-clouds-regions/ga.svg)  | ![AudioAnalyzerPreset Canada East general availability](../media/azure-clouds-regions/ga.svg) |
 | [StandardEncoderPreset](../encoding-concept.md) |![StandardEncoderPreset Canada Central general availability](../media/azure-clouds-regions/ga.svg)  | ![StandardEncoderPreset Canada East general availability](../media/azure-clouds-regions/ga.svg) |

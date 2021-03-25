@@ -34,9 +34,9 @@ Logs can help you diagnose errors and warnings, or track performance metrics lik
 
 You can log multiple data types including scalar values, lists, tables, images, directories, and more. For more information, and Python code examples for different data types, see the [Run class reference page](/python/api/azureml-core/azureml.core.run%28class%29).
 
-### Logging Run Metrics 
+### Logging run metrics 
 
-Use the following methods in the logging APIs to influence the metrics visualizations. Note the [service limits](https://docs.microsoft.com/azure/machine-learning/resource-limits-quotas-capacity#metrics) for these logged metrics. 
+Use the following methods in the logging APIs to influence the metrics visualizations. Note the [service limits](./resource-limits-quotas-capacity.md#metrics) for these logged metrics. 
 
 |Logged Value|Example code| Format in portal|
 |----|----|----|

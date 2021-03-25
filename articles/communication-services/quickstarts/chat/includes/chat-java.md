@@ -6,7 +6,7 @@ author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 9/1/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
@@ -43,7 +43,7 @@ Update your application's POM file to use Java 8 or higher:
 </properties>
 ```
 
-### Add the package references for the chat client library
+### Add the package references for the Chat SDK
 
 In your POM file, reference the `azure-communication-chat` package with the Chat APIs:
 
@@ -67,7 +67,7 @@ For authentication, your client needs to reference the `azure-communication-comm
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services Chat client library for Java.
+The following classes and interfaces handle some of the major features of the Azure Communication Services Chat SDK for Java.
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
@@ -77,7 +77,7 @@ The following classes and interfaces handle some of the major features of the Az
 | ChatThreadAsyncClient | This class is needed for the asynchronous Chat Thread functionality. You obtain an instance via the ChatAsyncClient, and use it to send/receive/update/delete messages, add/remove/get users, send typing notifications and read receipts. |
 
 ## Create a chat client
-To create a chat client, you'll use the Communications Service endpoint and the access token that was generated as part of pre-requisite steps. User access tokens enable you to build client applications that directly authenticate to Azure Communication Services. Once you generate these tokens on your server, pass them back to a client device. You need to use the CommunicationTokenCredential class from the Common client library to pass the token to your chat client. 
+To create a chat client, you'll use the Communications Service endpoint and the access token that was generated as part of pre-requisite steps. User access tokens enable you to build client applications that directly authenticate to Azure Communication Services. Once you generate these tokens on your server, pass them back to a client device. You need to use the CommunicationTokenCredential class from the Common SDK to pass the token to your chat client. 
 
 Learn more about [Chat Architecture](../../../concepts/chat/concepts.md)
 

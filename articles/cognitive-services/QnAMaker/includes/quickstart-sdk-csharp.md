@@ -61,18 +61,6 @@ Use the QnA Maker client library for .NET to:
 
 ## Setting up
 
-### Visual Studio IDE
-
-# [QnA Maker GA (stable release)](#tab/version-1)
-
-Using Visual Studio, create a .NET Core application and install the client library by right-clicking on the solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, and search for `Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker`. Select version `2.0.1`, and then **Install**.
-
-# [QnA Maker managed (preview release)](#tab/version-2)
-
-Using Visual Studio, create a .NET Core application and install the client library by right-clicking on the solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker`. Select version `3.0.0-preview.1`, and then **Install**.
-
----
-
 ### CLI
 
 In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `qna-maker-quickstart`. This command creates a simple "Hello World" C# project with a single source file: *program.cs*.
@@ -145,14 +133,16 @@ In the application's `Main` method, add variables and code, shown in the followi
 
 # [QnA Maker GA (stable release)](#tab/version-1)
 
-> [!IMPORTANT]
-> Go to the Azure portal and find the key and endpoint for the QnA Maker resource you created in the prerequisites. They will be located on the resource's **key and endpoint** page, under **resource management**. 
-
 We use subscription key and authoring key interchangably. For more details on authoring key, follow [Keys in QnA Maker](../concepts/azure-resources.md?tabs=v1#keys-in-qna-maker).
 
-- Create environment variables named QNA_MAKER_SUBSCRIPTION_KEY, QNA_MAKER_ENDPOINT, and QNA_MAKER_RUNTIME_ENDPOINT to store these values.
-- The value of QNA_MAKER_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. 
-- The value of QNA_MAKER_RUNTIME_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.azurewebsites.net`.
+- The value of QNA_MAKER_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Go to the Azure portal and find the key and endpoint for the QnA Maker resource you created in the prerequisites. Click on **Keys and Endpoint** page, under **resource management** to locate authoring (subscription) key and QnA Maker Endpoint.
+
+ ![QnA Maker Authoring Endpoint](../media/keys-endpoint.png)
+
+- The value of QNA_MAKER_RUNTIME_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.azurewebsites.net`. Go to the Azure portal and find the QnA Maker resource you created in the prerequisites. Click on **Export Template** under **Automation** to locate the runtime key.
+
+ ![QnA Maker Runtime Endpoint](../media/runtime-endpoint.png)
+      
 - For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../key-vault/general/overview.md) provides secure key storage.
 
 [!code-csharp[Set the resource key and resource name](~/cognitive-services-quickstart-code/dotnet/QnAMaker/SDK-based-quickstart/Program.cs?name=Resourcevariables)]
@@ -164,8 +154,10 @@ We use subscription key and authoring key interchangably. For more details on au
 
 We use subscription key and authoring key interchangably. For more details on authoring key, follow [Keys in QnA Maker](../concepts/azure-resources.md?tabs=v2#keys-in-qna-maker).
 
-- Create environment variables named QNA_MAKER_SUBSCRIPTION_KEY and QNA_MAKER_ENDPOINT to store these values.
-- The value of QNA_MAKER_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. 
+- The value of QNA_MAKER_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Go to the QnA Maker resource in the Azure portal and click on **Keys and Endpoint** to locate authoring(subscription) key and QnA Maker Endpoint.
+
+ ![QnA Maker Authoring Endpoint](../media/keys-endpoint.png)
+
 - For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../key-vault/general/overview.md) provides secure key storage.
 
 [!code-csharp[Set the resource key and resource name](~/cognitive-services-quickstart-code/dotnet/QnAMaker/Preview-sdk-based-quickstart/Program.cs?name=Resourcevariables)]
