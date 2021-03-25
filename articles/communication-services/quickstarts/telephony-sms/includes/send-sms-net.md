@@ -13,7 +13,7 @@ ms.custom: include file
 ms.author: peiliu
 ---
 
-Get started with Azure Communication Services by using the Communication Services C# SMS client library to send SMS messages.
+Get started with Azure Communication Services by using the Communication Services C# SMS SDK to send SMS messages.
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -24,13 +24,13 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- The latest version [.NET Core client library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
+- The latest version [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
 - An SMS enabled telephone number. [Get a phone number](../get-phone-number.md).
 
 ### Prerequisite check
 
-- In a terminal or command window, run the `dotnet` command to check that the .NET client library is installed.
+- In a terminal or command window, run the `dotnet` command to check that the .NET SDK is installed.
 - To view the phone numbers associated with your Communication Services resource, sign in to the [Azure portal](https://portal.azure.com/), locate your Communication Services resource and open the **phone numbers** tab from the left navigation pane.
 
 ## Setting up
@@ -52,7 +52,7 @@ dotnet build
 
 ### Install the package
 
-While still in the application directory, install the Azure Communication Services SMS client library for .NET package by using the `dotnet add package` command.
+While still in the application directory, install the Azure Communication Services SMS SDK for .NET package by using the `dotnet add package` command.
 
 ```console
 dotnet add package Azure.Communication.Sms --version 1.0.0-beta.4
@@ -73,7 +73,7 @@ using Azure.Communication.Sms;
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services SMS client library for C#.
+The following classes and interfaces handle some of the major features of the Azure Communication Services SMS SDK for C#.
 
 | Name                                       | Description                                                                                                                                                       |
 | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
