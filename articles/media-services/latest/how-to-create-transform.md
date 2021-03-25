@@ -31,8 +31,6 @@ The Azure CLI script in this article shows how to create a transform. Transforms
 
 ## [CLI](#tab/cli/)
 
-[!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
-
 > [!NOTE]
 > You can only specify a path to a custom Standard Encoder preset JSON file for [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset), see the [encode with a custom transform](custom-preset-cli-howto.md) example.
 >
@@ -50,4 +48,4 @@ The Azure CLI script in this article shows how to create a transform. Transforms
 
 ## Next steps
 
-[More about transforms and jobs](transforms-jobs-concept.md)
+[!INCLUDE [transforms next steps](./includes/transforms-next-steps.md)]

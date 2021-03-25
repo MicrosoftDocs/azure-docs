@@ -91,9 +91,12 @@ Create variables for your resource's Azure endpoint and key.
 > [!IMPORTANT]
 > Go to the Azure portal and find the key and endpoint for the QnA Maker resource you created in the prerequisites. They will be located on the resource's **key and endpoint** page, under **resource management**.
 
-- Create environment variables named QNA_MAKER_SUBSCRIPTION_KEY, QNA_MAKER_ENDPOINT, and QNA_MAKER_RUNTIME_ENDPOINT to store these values.
-- The value of QNA_MAKER_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. 
+- The value of QNA_MAKER_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Go to the QnA Maker resource in the Azure portal and click on **Keys and Endpoint** to locate authoring (subscription) key and QnA Maker Endpoint.
+
+ ![QnA Maker Authoring Endpoint](../media/keys-endpoint.png)
+ 
 - The value of QNA_MAKER_RUNTIME_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.azurewebsites.net`.
+   
 - For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../key-vault/general/overview.md) provides secure key storage.
 
 [!code-java[Resource variables](~/cognitive-services-quickstart-code/java/qnamaker/sdk/quickstart.java?name=resourceKeys)]
@@ -103,8 +106,10 @@ Create variables for your resource's Azure endpoint and key.
 > [!IMPORTANT]
 > Go to the Azure portal and find the key and endpoint for the QnA Maker resource you created in the prerequisites. They will be located on the resource's **key and endpoint** page, under **resource management**.
 
-- Create environment variables named QNA_MAKER_SUBSCRIPTION_KEY and QNA_MAKER_ENDPOINT to store these values.
-- The value of QNA_MAKER_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. 
+- The value of QNA_MAKER_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`.  Go to the QnA Maker resource in the Azure portal and click on **Keys and Endpoint** to locate authoring (subscription) key and QnA Maker Endpoint.
+
+ ![QnA Maker Authoring Endpoint](../media/keys-endpoint.png)
+ 
 - For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../key-vault/general/overview.md) provides secure key storage.
 
 [!code-java[Resource variables](~/cognitive-services-quickstart-code/java/qnamaker/sdk/preview-sdk/quickstart.java?name=resourceKeys)]
@@ -117,7 +122,7 @@ Create variables for your resource's Azure endpoint and key.
 
 QnA Maker uses two different object models:
 * **[QnAMakerClient](#qnamakerclient-object-model)** is the object to create, manage, publish, and download the knowledgebase.
-* **[QnAMakerRuntime](#qnamakerruntimeclient-object-model)** is the object to query the knowledge base with the GenerateAnswer API and send new suggested questions using the Train API (as part of [active learning](../concepts/active-learning-suggestions.md)).
+* **[QnAMakerRuntime](#qnamakerruntimeclient-object-model)** is the object to query the knowledge base with the GenerateAnswer API and send new suggested questions using the Train API (as part of [active learning](../how-to/use-active-learning.md)).
 
 # [QnA Maker managed (preview release)](#tab/version-2)
 

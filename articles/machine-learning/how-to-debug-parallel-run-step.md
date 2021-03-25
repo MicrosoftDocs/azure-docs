@@ -17,7 +17,7 @@ ms.date: 09/23/2020
 
 # Troubleshooting the ParallelRunStep
 
-In this article, you learn how to troubleshoot when you get errors using the [ParallelRunStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?preserve-view=true&view=azure-ml-py) class from the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
+In this article, you learn how to troubleshoot when you get errors using the [ParallelRunStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep) class from the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro).
 
 For general tips on troubleshooting a pipeline, see [Troubleshooting machine learning pipelines](how-to-debug-pipelines.md).
 
@@ -116,7 +116,7 @@ Create the ParallelRunStep by using the script, environment configuration, and p
 - `parallel_run_config`: A `ParallelRunConfig` object, as defined earlier.
 - `inputs`: One or more single-typed Azure Machine Learning datasets to be partitioned for parallel processing.
 - `side_inputs`: One or more reference data or datasets used as side inputs without need to be partitioned.
-- `output`: A `PipelineData` object that corresponds to the output directory.
+- `output`: An `OutputFileDatasetConfig` object that represents the directory path at which the output data will be stored.
 - `arguments`: A list of arguments passed to the user script. Use unknown_args to retrieve them in your entry script (optional).
 - `allow_reuse`: Whether the step should reuse previous results when run with the same settings/inputs. If this parameter is `False`, a new run will always be generated for this step during pipeline execution. (optional; the default value is `True`.)
 
@@ -209,7 +209,7 @@ def run(mini_batch):
 
 User can pass reference data to script using side_inputs parameter of ParalleRunStep. All datasets provided as side_inputs will be mounted on each worker node. User can get the location of mount by passing argument.
 
-Construct a [Dataset](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py) containing the reference data and register it with your workspace. Pass it to the `side_inputs` parameter of your `ParallelRunStep`. Additionally, you can add its path in the `arguments` section to easily access its mounted path:
+Construct a [Dataset](/python/api/azureml-core/azureml.core.dataset.dataset) containing the reference data and register it with your workspace. Pass it to the `side_inputs` parameter of your `ParallelRunStep`. Additionally, you can add its path in the `arguments` section to easily access its mounted path:
 
 ```python
 label_config = label_ds.as_named_input("labels_input")
@@ -259,6 +259,6 @@ registered_ds = ds.register(ws, '***dataset-name***', create_new_version=True)
 
 * See these [Jupyter notebooks demonstrating Azure Machine Learning pipelines](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 
-* See the SDK reference for help with the [azureml-pipeline-steps](/python/api/azureml-pipeline-steps/azureml.pipeline.steps?preserve-view=true&view=azure-ml-py) package. View reference [documentation](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?preserve-view=true&view=azure-ml-py) for ParallelRunStep class.
+* See the SDK reference for help with the [azureml-pipeline-steps](/python/api/azureml-pipeline-steps/azureml.pipeline.steps) package. View reference [documentation](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep) for ParallelRunStep class.
 
 * Follow the [advanced tutorial](tutorial-pipeline-batch-scoring-classification.md) on using pipelines with ParallelRunStep. The tutorial shows how to pass another file as a side input.

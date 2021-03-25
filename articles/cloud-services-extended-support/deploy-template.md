@@ -12,30 +12,36 @@ ms.custom:
 
 # Deploy a Cloud Service (extended support) using ARM templates
 
-This tutorial explains how to create a Cloud Service (extended support) deployment using [ARM templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview). 
+This tutorial explains how to create a Cloud Service (extended support) deployment using [ARM templates](../azure-resource-manager/templates/overview.md). 
 
 > [!IMPORTANT]
 > Cloud Services (extended support) is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 ## Before you begin
-1. Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support) and create the associated resources. 
 
-2. Create a new resource group using the [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) or [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-powershell). This step is optional if you are using an existing resource group. 
+1. Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support) and create the associated resources.
+
+2. Create a new resource group using the [Azure portal](../azure-resource-manager/management/manage-resource-groups-portal.md) or [PowerShell](../azure-resource-manager/management/manage-resource-groups-powershell.md). This step is optional if you are using an existing resource group.
  
-3. Create a new storage account using the [Azure portal](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal) or [PowerShell](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-powershell). This step is optional if you are using an existing storage account. 
+3. Create a new storage account using the [Azure portal](../storage/common/storage-account-create.md?tabs=azure-portal) or [PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell). This step is optional if you are using an existing storage account.
 
-4. Upload your Service Definition (.csdef) and Service Configuration (.cscfg) files to the storage account using the [Azure portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#upload-a-block-blob), [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs-upload?toc=/azure/storage/blobs/toc.json) or [PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-powershell#upload-blobs-to-the-container). Obtain the SAS URIs of both files to be added to the ARM template later in this tutorial. 
+4. Upload your Service Definition (.csdef) and Service Configuration (.cscfg) files to the storage account using the [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), [AzCopy](../storage/common/storage-use-azcopy-blobs-upload.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) or [PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md#upload-blobs-to-the-container). Obtain the SAS URIs of both files to be added to the ARM template later in this tutorial.
 
-5. (Optional) Create a Key vault and upload the certificates. 
-    -  Certificates can be attached to cloud services to enable secure communication to and from the service. In order to use certificates, their thumbprints must be specified in your Service Configuration (.cscfg) file and uploaded to a Key vault. A Key Vault can be created through the [Azure portal](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal) or [PowerShell](https://docs.microsoft.com/azure/key-vault/general/quick-create-powershell). 
-    - The associated Key Vault must be located in the same region and subscription as cloud service.   
-    - The associated Key Vault for must be enabled appropriate permissions so that Cloud Services (extended support) resource can retrieve certificate from Key Vault. For more information, see [Certificates and Key Vault](certificates-and-key-vault.md)
-    - Key vault needs to be referenced in the OsProfile section of the ARM template shown in the below steps.
+5. (Optional) Create a key vault and upload the certificates.
 
-## Deploy a Cloud Service (extended support) 
+    -  Certificates can be attached to cloud services to enable secure communication to and from the service. In order to use certificates, their thumbprints must be specified in your Service Configuration (.cscfg) file and uploaded to a key vault. A key vault can be created through the [Azure portal](../key-vault/general/quick-create-portal.md) or [PowerShell](../key-vault/general/quick-create-powershell.md).
+    - The associated key vault must be located in the same region and subscription as cloud service.
+    - The associated key vault for must be enabled appropriate permissions so that Cloud Services (extended support) resource can retrieve certificates from Key Vault. For more information, see [Certificates and Key Vault](certificates-and-key-vault.md)
+    - The key vault needs to be referenced in the OsProfile section of the ARM template shown in the below steps.
+
+## Deploy a Cloud Service (extended support)
+
+> [!NOTE]
+> An easier and faster way of generating your ARM template and parameter file is via the [Azure portal](https://portal.azure.com). You can [download the generated ARM template](generate-template-portal.md) via the portal to create your Cloud Service via Powershell
+ 
 1. Create virtual network. The name of the virtual network must match the references in the Service Configuration (.cscfg) file. If using an existing virtual network, omit this section from the ARM template.
 
     ```json
@@ -64,7 +70,7 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
     ] 
     ```
     
-     If creating a new virtual network, add the following to the `dependsOn` section to ensure the platform creates the virtual network prior to creating the cloud service. 
+     If creating a new virtual network, add the following to the `dependsOn` section to ensure the platform creates the virtual network prior to creating the cloud service.
 
     ```json
     "dependsOn": [ 
@@ -96,7 +102,7 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
     ] 
     ```
      
-     If creating a new IP address, add the following to the `dependsOn` section to ensure the platform creates the IP address prior to creating the cloud service. 
+     If creating a new IP address, add the following to the `dependsOn` section to ensure the platform creates the IP address prior to creating the cloud service.
     
     ```json
     "dependsOn": [ 
@@ -104,7 +110,7 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
           ] 
     ```
  
-3. Create a Network Profile Object and associate the public IP address to the frontend of the load balancer. A Load balancer is automatically created by the platform.  
+3. Create a Network Profile Object and associate the public IP address to the frontend of the load balancer. A Load balancer is automatically created by the platform.
 
     ```json
     "networkProfile": { 
@@ -130,7 +136,7 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
     ```
  
 
-4. Add your key vault reference in the `OsProfile` section of the ARM template. Key Vault is used to store certificates that are associated to Cloud Services (extended support). Add the certificates to Key Vault, then reference the certificate thumbprints in Service Configuration (.cscfg) file. You also need to enable Key Vault for appropriate permissions so that Cloud Services (extended support) resource can retrieve certificate stored as secrets from Key Vault. For more information, see [using certificates with Cloud Services (extended support)](certificates-and-key-vault.md).
+4. Add your key vault reference in the `OsProfile` section of the ARM template. Key Vault is used to store certificates that are associated to Cloud Services (extended support). Add the certificates to Key Vault, then reference the certificate thumbprints in Service Configuration (.cscfg) file. You also need to enable Key Vault 'Access policies' for 'Azure Virtual Machines for deployment'(on portal) so that Cloud Services (extended support) resource can retrieve certificate stored as secrets from Key Vault. The key vault must be located in the same region and subscription as cloud service and have a unique name. For more information, see [using certificates with Cloud Services (extended support)](certificates-and-key-vault.md).
      
     ```json
     "osProfile": { 
@@ -150,71 +156,72 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
     ```
   
     > [!NOTE]
-    > SourceVault is the ARM Resource ID to your Key Vault. You can find this information by locating the Resource ID in the properties section of your Key Vault. 
+    > SourceVault is the ARM Resource ID to your key vault. You can find this information by locating the Resource ID in the properties section of your key vault.
     > - certificateUrl can be found by navigating to the certificate in the key vault labeled as **Secret Identifier**.  
    >  - certificateUrl should be of the form https://{keyvault-endpoin}/secrets/{secretname}/{secret-id}
 
-5. Create a Role Profile. Ensure that the number of roles, role names, number of instances in each role and sizes are the same across the Service Configuration (.cscfg), Service Definition (.csdef) and role profile section in ARM template. 
+5. Create a Role Profile. Ensure that the number of roles, role names, number of instances in each role and sizes are the same across the Service Configuration (.cscfg), Service Definition (.csdef) and role profile section in ARM template.
     
     ```json
-    "roleProfile": { 
-          "roles": { 
-          "value": [ 
-            { 
-              "name": "WebRole1", 
-              "sku": { 
-                "name": "Standard_D1_v2", 
-                "capacity": "1" 
-              } 
-            }, 
-            { 
-              "name": "WorkerRole1", 
-              "sku": { 
-                "name": "Standard_D1_v2", 
-                "capacity": "1" 
-              } 
+    "roleProfile": {
+      "roles": {
+        "value": [
+          {
+            "name": "WebRole1",
+            "sku": {
+              "name": "Standard_D1_v2",
+              "capacity": "1"
+            }
+          },
+          {
+            "name": "WorkerRole1",
+            "sku": {
+              "name": "Standard_D1_v2",
+              "capacity": "1"
             } 
-        }
+          } 
+        ]
+      }
     }   
     ```
 
-6. (Optional) Create an extension profile to add extensions to your cloud service. For this example, we are adding the remote desktop and Windows Azure diagnostics extension. 
-    
+6. (Optional) Create an extension profile to add extensions to your cloud service. For this example, we are adding the remote desktop and Windows Azure diagnostics extension.
+   > [!Note] 
+   > The password for remote desktop must be between 8-123 characters long and must satisfy at least 3 of password complexity requirements from the following: 1) Contains an uppercase character 2) Contains a lowercase character 3) Contains a numeric digit 4) Contains a special character 5) Control characters are not allowed
+
     ```json
         "extensionProfile": {
-              "extensions": [
-                {
-                  "name": "RDPExtension",
-                  "properties": {
-                    "autoUpgradeMinorVersion": true,
-                    "publisher": "Microsoft.Windows.Azure.Extensions",
-                    "type": "RDP",
-                    "typeHandlerVersion": "1.2.1",
-                    "settings": "<PublicConfig>\r\n <UserName>[Insert Username]</UserName>\r\n <Expiration>1/21/2022 12:00:00 AM</Expiration>\r\n</PublicConfig>",
-                    "protectedSettings": "<PrivateConfig>\r\n <Password>[Insert Password]</Password>\r\n</PrivateConfig>"
-                  }
-                },
-                {
-                  "name": "Microsoft.Insights.VMDiagnosticsSettings_WebRole1",
-                  "properties": {
-                    "autoUpgradeMinorVersion": true,
-                    "publisher": "Microsoft.Azure.Diagnostics",
-                    "type": "PaaSDiagnostics",
-                    "typeHandlerVersion": "1.5",
-                    "settings": "[parameters('wadPublicConfig_WebRole1')]",
-                    "protectedSettings": "[parameters('wadPrivateConfig_WebRole1')]",
-                    "rolesAppliedTo": [
-                      "WebRole1"
-              ]
+          "extensions": [
+            {
+              "name": "RDPExtension",
+              "properties": {
+                "autoUpgradeMinorVersion": true,
+                "publisher": "Microsoft.Windows.Azure.Extensions",
+                "type": "RDP",
+                "typeHandlerVersion": "1.2.1",
+                "settings": "<PublicConfig>\r\n <UserName>[Insert Username]</UserName>\r\n <Expiration>1/21/2022 12:00:00 AM</Expiration>\r\n</PublicConfig>",
+                "protectedSettings": "<PrivateConfig>\r\n <Password>[Insert Password]</Password>\r\n</PrivateConfig>"
+              }
+            },
+            {
+              "name": "Microsoft.Insights.VMDiagnosticsSettings_WebRole1",
+              "properties": {
+                "autoUpgradeMinorVersion": true,
+                "publisher": "Microsoft.Azure.Diagnostics",
+                "type": "PaaSDiagnostics",
+                "typeHandlerVersion": "1.5",
+                "settings": "[parameters('wadPublicConfig_WebRole1')]",
+                "protectedSettings": "[parameters('wadPrivateConfig_WebRole1')]",
+                "rolesAppliedTo": [
+                  "WebRole1"
+                ]
+              }
             }
-          }
-        ]
-      }
+          ]
+        }
+    ```
 
-  
-    ```    
-
-7. Review the full template. 
+7. Review the full template.
 
     ```json
     {
@@ -262,12 +269,12 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
           "metadata": {
              "description": "Public configuration of Windows Azure Diagnostics extension"
           }
-         },
+        },
         "wadPrivateConfig_WebRole1": {
           "type": "securestring",
           "metadata": {
             "description": "Private configuration of Windows Azure Diagnostics extension"
-         }
+          }
         },
         "vnetName": {
           "type": "string",
@@ -407,7 +414,7 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
                 }
               ]
             },
-        "extensionProfile": {
+            "extensionProfile": {
               "extensions": [
                 {
                   "name": "RDPExtension",
@@ -437,17 +444,19 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
             ]
           }
         }
-      }
+       }
+      ]
     }
     ```
- 
-8. Deploy the template and create the Cloud Service (extended support) deployment. 
+
+8. Deploy the template and parameter file (defining parameters in template file) to create the Cloud Service (extended support) deployment. Please refer these [sample templates](https://github.com/Azure-Samples/cloud-services-extended-support) as required.
 
     ```powershell
-    New-AzResourceGroupDeployment -ResourceGroupName “ContosOrg -TemplateFile "file path to your template file”  
+    New-AzResourceGroupDeployment -ResourceGroupName "ContosOrg" -TemplateFile "file path to your template file" -TemplateParameterFile "file path to your parameter file"
     ```
- 
+
 ## Next steps 
+
 - Review [frequently asked questions](faq.md) for Cloud Services (extended support).
 - Deploy a Cloud Service (extended support) using the [Azure portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [Template](deploy-template.md) or [Visual Studio](deploy-visual-studio.md).
 - Visit the [Cloud Services (extended support) samples repository](https://github.com/Azure-Samples/cloud-services-extended-support)

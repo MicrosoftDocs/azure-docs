@@ -132,13 +132,13 @@ Sign in to your Azure account and select your subscription.
 
 ## Review deployed resources
 
-1. To verify the deployment, run the following [command to list resources](/cli/azure/resource?view=azure-cli-latest#az-resource-list&preserve-view=true) and look for the new provisioning service and IoT hub in the output:
+1. To verify the deployment, run the following [command to list resources](/cli/azure/resource#az-resource-list) and look for the new provisioning service and IoT hub in the output:
 
     ```azurecli
      az resource list -g "${projectName}rg"
     ```
 
-2. To verify that the hub is already linked to the DPS resource, run the following [DPS extension show command](/cli/azure/iot/dps?view=azure-cli-latest#az_iot_dps_show&preserve-view=true).
+2. To verify that the hub is already linked to the DPS resource, run the following [DPS extension show command](/cli/azure/iot/dps#az_iot_dps_show).
 
     ```azurecli
      az iot dps show --name <Your provisioningServiceName>

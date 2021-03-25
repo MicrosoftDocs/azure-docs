@@ -3,7 +3,7 @@ title: HC-series VM size performance
 description: Learn about performance testing results for HC-series VM sizes in Azure. 
 author: vermagit
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: hpc
 ms.topic: article
 ms.date: 09/10/2020
 ms.author: amverma
@@ -54,5 +54,5 @@ numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 
 ## Next steps
 
-- Read about the latest announcements and some High Performance Computing (HPC) examples and results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Read about the latest announcements, HPC workload examples, and performance results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - For a higher-level architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).

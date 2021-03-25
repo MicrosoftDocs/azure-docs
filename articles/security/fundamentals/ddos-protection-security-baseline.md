@@ -24,7 +24,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](../b
 
 **Guidance**: Enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace, Azure event hub, or Azure storage account for archive. Activity logs provide insight into the operations that were performed on your Azure DDoS Protection plans at the control plane level. Using Azure Activity Log data, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed at the control plane level for your Azure DDoS Protection instances.
 
-- [How to enable Diagnostic Settings for Azure Activity Log](../../azure-monitor/platform/activity-log.md)
+- [How to enable Diagnostic Settings for Azure Activity Log](../../azure-monitor/essentials/activity-log.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -38,7 +38,7 @@ Enable Azure Activity Log diagnostic settings and send the logs to a Log Analyti
 
 - [View and configure DDoS diagnostic logging](../../ddos-protection/diagnostic-logging.md)
 
-- [How to enable Diagnostic Settings for Azure Activity Log](../../azure-monitor/platform/activity-log.md)
+- [How to enable Diagnostic Settings for Azure Activity Log](../../azure-monitor/essentials/activity-log.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -48,7 +48,7 @@ Enable Azure Activity Log diagnostic settings and send the logs to a Log Analyti
 
 **Guidance**: In Azure Monitor, set log retention period for Log Analytics workspaces associated with your Azure DDoS Protection plans according to your organization's compliance regulations.
 
-- [How to set log retention parameters](../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [How to set log retention parameters](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -60,9 +60,9 @@ Enable Azure Activity Log diagnostic settings and send the logs to a Log Analyti
 
 - [Information on how to access telemetry, logs and attack analytics for DDoS Protection Standard service](../../ddos-protection/telemetry.md)
 
-- [How to enable diagnostic settings for Azure Activity Log](../../azure-monitor/platform/activity-log.md)
+- [How to enable diagnostic settings for Azure Activity Log](../../azure-monitor/essentials/activity-log.md)
 
-- [How to collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](../../azure-monitor/platform/activity-log.md)
+- [How to collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](../../azure-monitor/essentials/activity-log.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -78,7 +78,7 @@ Onboard a Log Analytics workspace to Azure Sentinel as it provides a security or
 
 - [How to onboard Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-- [Create, view, and manage log alerts using Azure Monitor](../../azure-monitor/platform/alerts-log.md)
+- [Create, view, and manage log alerts using Azure Monitor](../../azure-monitor/alerts/alerts-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -96,9 +96,9 @@ Additionally, Azure Active Directory (AD) has built-in roles that must be explic
 
 - [Understand permissions in Azure DDoS protection](../../ddos-protection/manage-permissions.md)
 
-- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Azure Security Center monitoring**: Yes
 
@@ -274,7 +274,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to Azure DDoS Protection plans as well as other critical or related resources.
 
-- [How to create alerts for Azure Activity Log events](../../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure Activity Log events](../../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -292,7 +292,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 - [How to create queries with Azure Resource Graph](../../governance/resource-graph/first-query-portal.md)
 
-- [How to view your Azure subscriptions](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [How to view your Azure subscriptions](/powershell/module/az.accounts/get-azsubscription)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -384,7 +384,7 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 **Guidance**: Define and implement standard security configurations for Azure DDoS Protection with Azure Policy. Use Azure Policy aliases in the "Microsoft.Network" namespace to create custom policies to audit or enforce the configuration of your Recovery Services vaults.
 
-- [How to view available Azure Policy aliases](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [How to view available Azure Policy aliases](/powershell/module/az.resources/get-azpolicyalias)
 
 - [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
@@ -408,9 +408,9 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 **Guidance**: If using custom Azure Policy definitions, use Azure DevOps or Azure Repos to securely store and manage your code.
 
-- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-- [Azure Repos Documentation](/azure/devops/repos/index?view=azure-devops)
+- [Azure Repos Documentation](/azure/devops/repos/index)
 
 **Azure Security Center monitoring**: Not applicable
 

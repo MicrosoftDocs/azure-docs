@@ -20,10 +20,10 @@ ms.reviewer: jrasnick
 > * [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 
-You can use the [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) command-line utility to connect to and query serverless SQL pool and dedicated SQL pool within Synapse SQL.  
+You can use the [sqlcmd](/sql/tools/sqlcmd-utility?view=azure-sqldw-latest&preserve-view=true) command-line utility to connect to and query serverless SQL pool and dedicated SQL pool within Synapse SQL.  
 
 ## 1. Connect
-To get started with [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), open the command prompt and enter **sqlcmd** followed by the connection string for your Synapse SQL database. The connection string requires the following parameters:
+To get started with [sqlcmd](/sql/tools/sqlcmd-utility?view=azure-sqldw-latest&preserve-view=true), open the command prompt and enter **sqlcmd** followed by the connection string for your Synapse SQL database. The connection string requires the following parameters:
 
 * **Server (-S):** Server in the form `<`Server Name`>`.database.windows.net
 * **Database (-d):** Database name
@@ -73,7 +73,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 
 ### Use dedicated SQL pool
 
-After connection, you can issue any supported [Transact-SQL](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (T-SQL) statements against the instance. In this example, queries are submitted in interactive mode:
+After connection, you can issue any supported [Transact-SQL](/sql/t-sql/language-reference?view=azure-sqldw-latest&preserve-view=true) (T-SQL) statements against the instance. In this example, queries are submitted in interactive mode:
 
 ```sql
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
@@ -94,7 +94,7 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 
 ### Use serverless SQL pool
 
-After connecting, you can issue any supported [Transact-SQL](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (T-SQL) statements against the instance.  In the following example, queries are submitted in interactive mode:
+After connecting, you can issue any supported [Transact-SQL](/sql/t-sql/language-reference?view=azure-sqldw-latest&preserve-view=true) (T-SQL) statements against the instance.  In the following example, queries are submitted in interactive mode:
 
 ```sql
 C:\>sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Here -P Enter_Your_Password_Here -I
@@ -115,4 +115,4 @@ sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Here -P
 
 ## Next steps
 
-For more information about sqlcmd options, see the [sqlcmd documentation](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+For more information about sqlcmd options, see the [sqlcmd documentation](/sql/tools/sqlcmd-utility?view=azure-sqldw-latest&preserve-view=true).

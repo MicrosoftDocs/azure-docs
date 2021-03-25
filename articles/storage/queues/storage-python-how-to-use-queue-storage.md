@@ -1,10 +1,11 @@
 ---
-title: How to use Azure Queue Storage from Python - Azure Storage
+title: How to use Azure Queue Storage from Python
 description: Learn to use the Azure Queue Storage from Python to create and delete queues, and insert, get, and delete messages.
 author: mhopkins-msft
+
 ms.author: mhopkins
 ms.reviewer: dineshm
-ms.date: 01/19/2021
+ms.date: 02/16/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
@@ -17,9 +18,9 @@ ms.custom: seo-javascript-october2019, devx-track-python
 
 ## Overview
 
-This article demonstrates common scenarios using the Azure Queue Storage service. The scenarios that are covered include inserting, peeking, getting, and deleting queue messages. Code for creating and deleting queues is also covered.
+This article demonstrates common scenarios using the Azure Queue Storage service. The scenarios covered include inserting, peeking, getting, and deleting queue messages. Code for creating and deleting queues is also covered.
 
-The examples in this article are written in Python and use the [Azure Queue Storage client library for Python](https://github.com/Azure/Azure-SDK-for-Python/tree/master/sdk/storage/azure-storage-queue). For more information on queues, see the [Next steps](#next-steps) section.
+The examples in this article are written in Python and use the [Azure Queue Storage client library for Python](https://github.com/azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue). For more information on queues, see the [Next steps](#next-steps) section.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -112,6 +113,26 @@ queue_service.create_queue(queue_name)
 
 ---
 
+Azure queue messages are stored as text. If you want to store binary data, setup Base64 encoding and decoding functions before putting a message in the queue.
+
+# [Python v12](#tab/python)
+
+Configure Base64 encoding and decoding functions when creating the client object.
+
+:::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_EncodeMessage":::
+
+# [Python v2](#tab/python2)
+
+Configure Base64 encoding and decoding functions on Queue Storage object.
+
+```python
+# Setup Base64 encoding and decoding functions
+queue_service.encode_function = QueueMessageFormat.binary_base64encode
+queue_service.decode_function = QueueMessageFormat.binary_base64decode
+```
+
+---
+
 ## Insert a message into a queue
 
 # [Python v12](#tab/python)
@@ -128,26 +149,6 @@ To insert a message into a queue, use the [`put_message`](/azure/developer/pytho
 message = u"Hello, World"
 print("Adding message: " + message)
 queue_service.put_message(queue_name, message)
-```
-
----
-
-Azure queue messages are stored as text. If you want to store binary data, setup Base64 encoding and decoding functions before putting a message in the queue.
-
-# [Python v12](#tab/python)
-
-Configure Base64 encoding and decoding functions on the queue client object.
-
-:::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_EncodeMessage":::
-
-# [Python v2](#tab/python2)
-
-Configure Base64 encoding and decoding functions on Queue Storage object.
-
-```python
-# Setup Base64 encoding and decoding functions
-queue_service.encode_function = QueueMessageFormat.binary_base64encode
-queue_service.decode_function = QueueMessageFormat.binary_base64decode
 ```
 
 ---

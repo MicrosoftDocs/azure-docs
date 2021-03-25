@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/17/2020
+ms.date: 03/02/2021
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: on-premises, Docker, container
@@ -36,12 +36,12 @@ Speech containers enable customers to build a speech application architecture th
 
 | Container | Features | Latest |
 |--|--|--|
-| Speech-to-text | Analyzes sentiment and transcribes continuous real-time speech or batch audio recordings with intermediate results.  | 2.9.0 |
-| Custom Speech-to-text | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 2.9.0 |
-| Text-to-speech | Converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.11.0 |
-| Custom Text-to-speech | Using a custom model from the [Custom Voice portal](https://aka.ms/custom-voice-portal), converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.11.0 |
+| Speech-to-text | Analyzes sentiment and transcribes continuous real-time speech or batch audio recordings with intermediate results.  | 2.10.0 |
+| Custom Speech-to-text | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 2.10.0 |
+| Text-to-speech | Converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.12.0 |
+| Custom Text-to-speech | Using a custom model from the [Custom Voice portal](https://aka.ms/custom-voice-portal), converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.12.0 |
 | Speech Language Detection | Detect the language spoken in audio files. | 1.0 |
-| Neural Text-to-speech | Converts text to natural-sounding speech using deep neural network technology, allowing for more natural synthesized speech. | 1.3.0 |
+| Neural Text-to-speech | Converts text to natural-sounding speech using deep neural network technology, allowing for more natural synthesized speech. | 1.4.0 |
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
@@ -316,7 +316,7 @@ This command:
 #### Diarization on the speech-to-text output
 Diarization is enabled by default. to get diarization in your response, use `diarize_speech_config.set_service_property`.
 
-1. Set the the phrase output format to `Detailed`.
+1. Set the phrase output format to `Detailed`.
 2. Set the mode of diarization. The supported modes are `Identity` and `Anonymous`.
 ```python
 diarize_speech_config.set_service_property(
@@ -382,7 +382,12 @@ To configure a phrase list, you need to add your own phrases when you make the c
         audio_config=audio_config)
     phrase_list_grammer = speechsdk.PhraseListGrammar.from_recognizer(recognizer)
     phrase_list_grammer.addPhrase(phrase)
-
+    
+    dict_speech_config.set_service_property(
+        name='setflight',
+        value='xonlineinterp',
+        channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+    )
 ```
 
 If you have multiple phrases to add, call `.addPhrase()` for each phrase to add it to the phrase list. 
@@ -451,7 +456,7 @@ This command:
 * Runs a *Custom Speech-to-text* container from the container image.
 * Check and return the available base models of the target locale.
 
-The output gives you a list of base models with the information locale, model id, and creation date time. You can use the model id to download and use the specific base model you prefer. For example:
+The output gives you a list of base models with the information locale, model ID, and creation date time. You can use the model ID to download and use the specific base model you prefer. For example:
 ```
 Checking available base model for en-us
 2020/10/30 21:54:20 [Info] Searching available base models for en-us

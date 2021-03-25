@@ -39,7 +39,7 @@ There’s an additional action that can be taken, for any VMs on which the Windo
 This section provides step-by-step instructions for setting up Azure Resources needed to update the **Internal support** page. This walkthrough provides one example of extending DevTest Labs. You can use use this pattern for other scenarios.
 
 ### Step 1: Create a service principal 
-The first step is to get a service principal with permission to the subscription that contains the lab. The service principal must use the password-based authentication. It can be done with [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps?view=azps-2.5.0), or the [Azure portal](../active-directory/develop/howto-create-service-principal-portal.md). If you already have a service principal to use, you can skip this step.
+The first step is to get a service principal with permission to the subscription that contains the lab. The service principal must use the password-based authentication. It can be done with [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli), [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps), or the [Azure portal](../active-directory/develop/howto-create-service-principal-portal.md). If you already have a service principal to use, you can skip this step.
 
 Note down the **application ID**, **key**, and **tenant ID** for the service principal. You will need them later in this walkthrough. 
 

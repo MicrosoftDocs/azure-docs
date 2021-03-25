@@ -6,7 +6,7 @@ manager: nberdy
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 02/14/2021
 ms.author: xujing
 # As an operator for Azure IoT Hub DPS, I need to know how to find out when devices are disconnecting unexpectedly and troubleshoot resolve those issues right away
 ---
@@ -39,7 +39,7 @@ The following procedure describes how to view and set up alert on IoT Hub Device
 
 7. Select **Add condition**, then select the desired metric and threshold by following prompts.
 
-To learn more, see [What are classic alerts in Microsoft Azure?](../azure-monitor/platform/alerts-overview.md)
+To learn more, see [alerts in Azure Monitor](../azure-monitor/alerts/alerts-overview.md).
 
 ## Using Log Analytic to view and resolve errors
 

@@ -1,20 +1,11 @@
 ---
 title: Copy data from MariaDB using Azure Data Factory  
 description: Learn how to copy data from MariaDB to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
-
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-
 ---
 # Copy data from MariaDB using Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

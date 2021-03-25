@@ -71,27 +71,27 @@ def init():
     model = joblib.load(model_path)
 
 
-    # providing 3 sample inputs for schema generation
-    numpy_sample_input = NumpyParameterType(np.array([[1,2,3,4,5,6,7,8,9,10],[10,9,8,7,6,5,4,3,2,1]],dtype='float64'))
-    pandas_sample_input = PandasParameterType(pd.DataFrame({'name': ['Sarah', 'John'], 'age': [25, 26]}))
-    standard_sample_input = StandardPythonParameterType(0.0)
+# providing 3 sample inputs for schema generation
+numpy_sample_input = NumpyParameterType(np.array([[1,2,3,4,5,6,7,8,9,10],[10,9,8,7,6,5,4,3,2,1]],dtype='float64'))
+pandas_sample_input = PandasParameterType(pd.DataFrame({'name': ['Sarah', 'John'], 'age': [25, 26]}))
+standard_sample_input = StandardPythonParameterType(0.0)
 
-    # This is a nested input sample, any item wrapped by `ParameterType` will be described by schema
-    sample_input = StandardPythonParameterType({'input1': numpy_sample_input, 
-                                            'input2': pandas_sample_input, 
-                                            'input3': standard_sample_input})
+# This is a nested input sample, any item wrapped by `ParameterType` will be described by schema
+sample_input = StandardPythonParameterType({'input1': numpy_sample_input, 
+                                        'input2': pandas_sample_input, 
+                                        'input3': standard_sample_input})
 
-    sample_global_parameters = StandardPythonParameterType(1.0) # this is optional
-    sample_output = StandardPythonParameterType([1.0, 1.0])
-    outputs = StandardPythonParameterType({'Results':sample_output}) # 'Results' is case sensitive
+sample_global_parameters = StandardPythonParameterType(1.0) # this is optional
+sample_output = StandardPythonParameterType([1.0, 1.0])
+outputs = StandardPythonParameterType({'Results':sample_output}) # 'Results' is case sensitive
 
-    @input_schema('Inputs', sample_input) 
-    # 'Inputs' is case sensitive
-    
-    @input_schema('GlobalParameters', sample_global_parameters) 
-    # this is optional, 'GlobalParameters' is case sensitive
+@input_schema('Inputs', sample_input) 
+# 'Inputs' is case sensitive
 
-    @output_schema(outputs)
+@input_schema('GlobalParameters', sample_global_parameters) 
+# this is optional, 'GlobalParameters' is case sensitive
+
+@output_schema(outputs)
 
 def run(Inputs, GlobalParameters): 
     # the parameters here have to match those in decorator, both 'Inputs' and 
@@ -286,7 +286,7 @@ second_model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), second_model_na
 
 ### get_model_path
 
-When you register a model, you provide a model name that's used for managing the model in the registry. You use this name with the [Model.get_model_path()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) method to retrieve the path of the model file or files on the local file system. If you register a folder or a collection of files, this API returns the path of the directory that contains those files.
+When you register a model, you provide a model name that's used for managing the model in the registry. You use this name with the [Model.get_model_path()](/python/api/azureml-core/azureml.core.model.model#get-model-path-model-name--version-none---workspace-none-) method to retrieve the path of the model file or files on the local file system. If you register a folder or a collection of files, this API returns the path of the directory that contains those files.
 
 When you register a model, you give it a name. The name corresponds to where the model is placed, either locally or during service deployment.
 
@@ -296,7 +296,7 @@ More entry script examples for specific machine learning use cases can be found 
 
 * [PyTorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch)
 * [TensorFlow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/tensorflow)
-* [Keras](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/keras/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.yml)
+* [Keras](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/keras/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb)
 * [AutoML](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features)
 * [ONNX](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/)
 

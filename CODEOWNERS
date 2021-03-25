@@ -7,6 +7,10 @@ articles/**/policy-reference.md @DCtheGeek
 articles/**/security-controls-policy.md @DCtheGeek
 includes/policy/ @DCtheGeek
 
+# Azure Monitor
+
+articles/azure-monitor/ @bwren
+
 # Azure Active Directory
 
 articles/active-directory-b2c/ @msmimart @yoelhor

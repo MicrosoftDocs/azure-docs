@@ -35,7 +35,10 @@ You can control access to the API server using Kubernetes role-based access cont
 
 ## Node security
 
-AKS nodes are Azure virtual machines that you manage and maintain. Linux nodes run an optimized Ubuntu distribution using the Moby container runtime. Windows Server nodes run an optimized Windows Server 2019 release and also use the Moby container runtime. When an AKS cluster is created or scaled up, the nodes are automatically deployed with the latest OS security updates and configurations.
+AKS nodes are Azure virtual machines that you manage and maintain. Linux nodes run an optimized Ubuntu distribution using the `containerd` or Moby container runtime. Windows Server nodes run an optimized Windows Server 2019 release and also use the `containerd` or Moby container runtime. When an AKS cluster is created or scaled up, the nodes are automatically deployed with the latest OS security updates and configurations.
+
+> [!NOTE]
+> AKS clusters using Kubernetes version 1.19 node pools and greater use `containerd` as its container runtime. AKS clusters using Kubernetes prior to v1.19 for node pools use [Moby](https://mobyproject.org/) (upstream docker) as its container runtime.
 
 The Azure platform automatically applies OS security patches to Linux nodes on a nightly basis. If a Linux OS security update requires a host reboot, that reboot is not automatically performed. You can manually reboot the Linux nodes, or a common approach is to use [Kured][kured], an open-source reboot daemon for Kubernetes. Kured runs as a [DaemonSet][aks-daemonsets] and monitors each node for the presence of a file indicating that a reboot is required. Reboots are managed across the cluster using the same [cordon and drain process](#cordon-and-drain) as a cluster upgrade.
 

@@ -9,7 +9,7 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
 ---
 
@@ -68,7 +68,7 @@ Review the naming conventions that are applied to Media Services V3 resources. A
 | **Encoding** <!--new row --> |||
 | Encoding bit rates <!--new row --> | bit rates measured in kbps ex: 128 (kbps)| bits per second  ex: 128000 (bits/second)|
 | Encoding DRM FairPlay <!--new row --> | In Media Services V2, initialization vector (IV) can be specified. | In Media Services V3, the FairPlay IV cannot be specified.|
-| Premium encoder <!--new row --> | Premium encoder and Legacy Indexer| The [Premium Encoder](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset) and the legacy [media analytics processors](https://docs.microsoft.com/azure/media-services/previous/legacy-components) (Azure Media Services Indexer 2 Preview, Face Redactor, etc.) are not accessible via V3. We added support for audio channel mapping to the Standard encoder.  See [Audio in the Media Services Encoding Swagger documentation](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json).  | See encoding topics in [scenario based encoding](migrate-v-2-v-3-migration-scenario-based-encoding.md) |
+| Premium encoder <!--new row --> | Premium encoder and Legacy Indexer| The [Premium Encoder](../previous/media-services-encode-asset.md) and the legacy [media analytics processors](../previous/legacy-components.md) (Azure Media Services Indexer 2 Preview, Face Redactor, etc.) are not accessible via V3. We added support for audio channel mapping to the Standard encoder.  See [Audio in the Media Services Encoding Swagger documentation](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json).  | See encoding topics in [scenario based encoding](migrate-v-2-v-3-migration-scenario-based-encoding.md) |
 | **Transforms and jobs** <!--new row -->|||
 | Job based processing HTTPS <!--new row --> |<!-- empty -->| For file-based Job processing, you can use a HTTPS URL as the input. You don't need to have content already stored in Azure, nor do you need to create Assets. |
 | ARM templates for jobs <!--new row --> | ARM templates didn't exist in V2. | A transform can be used to build reusable configurations, to create Azure Resource Manager templates, and isolate processing settings between multiple customers or tenants. |
@@ -85,7 +85,3 @@ Review the naming conventions that are applied to Media Services V3 resources. A
 | Live event standby mode <!--new row --> | There was no standby mode for V2. | Stand-by mode is a new v3 feature that helps manage hot pools of Live Events. Customers can now start a Live Event in stand-by mode at lower cost before transitioning it to the running state. This improves channel start times and reduces costs of operating hot pools for faster start ups. |
 | Live event billing <!--new row --> | <!-- empty-->| Live events billing is based on Live Channel meters. |
 | Live outputs <!--new row --> | Programs had to be started after creation. | Live Outputs start on creation and stop when deleted. |
-
-## Next steps
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

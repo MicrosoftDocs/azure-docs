@@ -1,7 +1,7 @@
 ---
 title: Cross-tenant management experiences
 description: Azure delegated resource management enables a cross-tenant management experience.
-ms.date: 02/08/2021
+ms.date: 03/23/2021
 ms.topic: conceptual
 ---
 
@@ -28,7 +28,7 @@ Azure Lighthouse allows greater flexibility to manage resources for multiple cus
 
 You can perform management tasks on delegated resources either directly in the portal or by using APIs and management tools (such as Azure CLI and Azure PowerShell). All existing APIs can be used when working with delegated resources, as long as the functionality is supported for cross-tenant management and the user has the appropriate permissions.
 
-The Azure PowerShell [Get-AzSubscription cmdlet](/powershell/module/Az.Accounts/Get-AzSubscription) shows the `HomeTenantId` and `ManagedByTenantIds` attributes for each subscription, allowing you to identify whether a returned subscription belongs to a managed tenant or to your managing tenant.
+The Azure PowerShell [Get-AzSubscription cmdlet](/powershell/module/Az.Accounts/Get-AzSubscription) will show the `TenantId` for the managing tenant by default. You can use the `HomeTenantId` and `ManagedByTenantIds` attributes for each subscription, allowing you to identify whether a returned subscription belongs to a managed tenant or to your managing tenant.
 
 Similarly, Azure CLI commands such as [az account list](/cli/azure/account#az-account-list) show the `homeTenantId` and `managedByTenants` attributes. If you don't see these values when using Azure CLI, try clearing your cache by running `az account clear` followed by `az login --identity`.
 
@@ -51,8 +51,8 @@ Most tasks and services can be performed on delegated resources across managed t
   - Ensure the same set of policies are applied across customers' hybrid environments
   - Use Azure Security Center to monitor compliance across customers' hybrid environments
 - Manage hybrid Kubernetes clusters at scale - [Azure Arc enabled Kubernetes (preview)](../../azure-arc/kubernetes/overview.md):
-  - [Manage Kubernetes clusters that are connected](../../azure-arc/kubernetes/connect-cluster.md) to delegated subscriptions and/or resource groups in Azure
-  - [Use GitOps](../../azure-arc/kubernetes/use-gitops-connected-cluster.md) for connected clusters
+  - [Manage Kubernetes clusters that are connected](../../azure-arc/kubernetes/quickstart-connect-cluster.md) to delegated subscriptions and/or resource groups in Azure
+  - [Use GitOps](../../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md) for connected clusters
   - Enforce policies across connected clusters
 
 [Azure Automation](../../automation/index.yml):
@@ -62,6 +62,7 @@ Most tasks and services can be performed on delegated resources across managed t
 [Azure Backup](../../backup/index.yml):
 
 - Back up and restore customer data [from on-premises workloads, Azure VMs, Azure file shares, and more](../..//backup/backup-overview.md#what-can-i-back-up)
+- View data for all delegated customer resources in [Backup Center](../../backup/backup-center-overview.md)
 - Use the [Backup Explorer](../../backup/monitor-azure-backup-with-backup-explorer.md) to help view operational information of backup items (including Azure resources not yet configured for backup) and monitoring information (jobs and alerts) for delegated subscriptions. The Backup Explorer is currently available only for Azure VM data.
 - Use [Backup Reports](../../backup/configure-reports.md) across delegated subscriptions to track historical trends, analyze backup storage consumption, and audit backups and restores.
 
@@ -92,10 +93,10 @@ Most tasks and services can be performed on delegated resources across managed t
 
 - View alerts for delegated subscriptions, with the ability to view and refresh alerts across all subscriptions
 - View activity log details for delegated subscriptions
-- [Log analytics](../../azure-monitor/platform/service-providers.md): Query data from remote workspaces in multiple tenants (note that automation accounts used to access data from workspaces in customer tenants must be created in the same tenant)
-- [Create, view, and manage activity log alerts](../../azure-monitor/platform/alerts-activity-log.md) in customer tenants
+- [Log analytics](../../azure-monitor/logs/service-providers.md): Query data from remote workspaces in multiple tenants (note that automation accounts used to access data from workspaces in customer tenants must be created in the same tenant)
+- [Create, view, and manage activity log alerts](../../azure-monitor/alerts/alerts-activity-log.md) in customer tenants
 - Create alerts in customer tenants that trigger automation, such as Azure Automation runbooks or Azure Functions, in the managing tenant through webhooks
-- Create [diagnostic settings](../..//azure-monitor/platform/diagnostic-settings.md) in customer tenants to send resource logs to workspaces in the managing tenant
+- Create [diagnostic settings](../..//azure-monitor/essentials/diagnostic-settings.md) in customer tenants to send resource logs to workspaces in the managing tenant
 - For SAP workloads, [monitor SAP Solutions metrics with an aggregated view across customer tenants](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)
 
 [Azure Networking](../../networking/networking-overview.md):
@@ -108,9 +109,11 @@ Most tasks and services can be performed on delegated resources across managed t
 [Azure Policy](../../governance/policy/index.yml):
 
 - Create and edit policy definitions within delegated subscriptions
+- Deploy policy definitions and policy assignments across multiple tenants
 - Assign customer-defined policy definitions within delegated subscriptions
 - Customers see policies authored by the service provider alongside any policies they've authored themselves
 - Can [remediate deployIfNotExists or modify assignments within the managed tenant](../how-to/deploy-policy-remediation.md)
+- Note that viewing compliance details for non-compliant resources in customer tenants is not currently supported
 
 [Azure Resource Graph](../../governance/resource-graph/index.yml):
 

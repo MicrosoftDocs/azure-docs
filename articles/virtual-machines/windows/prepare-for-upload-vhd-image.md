@@ -3,7 +3,9 @@ title: Prepare a Windows VHD to upload to Azure
 description: Learn how to prepare a Windows VHD or VHDX to upload it to Azure
 author: glimoli
 manager: dcscontentpm
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: windows
 ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 09/02/2020
@@ -594,4 +596,4 @@ configured them.
 ## Next steps
 
 - [Upload a Windows VM image to Azure for Resource Manager deployments](upload-generalized-managed.md)
-- [Troubleshoot Azure Windows VM activation problems](../troubleshooting/troubleshoot-activation-problems.md)
+- [Troubleshoot Azure Windows VM activation problems](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems)

@@ -4,7 +4,7 @@ description: Learn how to enable soft delete on Azure file shares for data recov
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/01/2020
+ms.date: 03/23/2021
 ms.author: rogarana
 ms.subservice: files
 services: storage
@@ -21,12 +21,12 @@ The following sections show how to enable and use soft delete for Azure file sha
 ## Getting started
 
 1. Sign into the [Azure portal](https://portal.azure.com/).
-1. Navigate to your storage account and select **Soft delete** under **File service**.
-1. Select **Enabled** for **file share soft delete**.
+1. Navigate to your storage account and select **File shares** under **File service**.
+1. Select **Enabled** for **Soft delete for all file shares**.
 1. Select **File share retention period in days** and enter a number of your choosing.
 1. Select **Save** to confirm your data retention settings.
 
-:::image type="content" source="media/storage-how-to-recover-deleted-account/enable-soft-delete-files.png" alt-text="Screenshot of the storage account soft delete settings pane. Highlighting the file shares section, enable toggle, set a retention period, and save. This will enable soft delete for all file shares in your storage account.":::
+:::image type="content" source="media/storage-how-to-recover-deleted-account/enable-soft-delete-files.png" alt-text="Screenshot of the storage account soft delete settings pane. Highlighting the file shares soft delete section, enable toggle, set a retention period, and save. This will enable soft delete for all file shares in your storage account.":::
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -120,12 +120,12 @@ Restore-AzRmStorageShare -ResourceGroupName $rgname -StorageAccountName $account
 
 ## Disable soft delete
 
-If you wish to stop using soft delete, or permanently delete a file share, follow these instructions:
+If you wish to stop using soft delete, follow these instructions. To permanently delete a file share that has been soft deleted, you must undelete it, disable soft delete, and then delete it again. 
 
 # [Portal](#tab/azure-portal)
 
-1. Navigate to your storage account and select **Soft delete** under **Settings**.
-1. Under **File shares** select **Disabled** for **Soft delete for file shares**.
+1. Navigate to your storage account and select **File shares** under **File service**.
+1. Select **Disabled** for **Soft delete for all file shares**.
 1. Select **Save** to confirm your data retention settings.
 
     :::image type="content" source="media/storage-how-to-recover-deleted-account/disable-soft-delete-files.png" alt-text="Disabling soft delete will allow you to immediately and permanently delete all file shares in your storage account at your leisure.":::

@@ -35,11 +35,12 @@ Registering your application establishes a trust relationship between your app a
 
 Follow these steps to create the app registration:
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. If you have access to multiple tenants, in the top menu, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: to select the tenant in which you want to register an application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
-1. Enter a **Name** for your application. Users of your app might see this name. You can change it later.
+1. Enter a display **Name** for your application. Users of your application might see the display name when they use the app, for example during sign-in.
+    You can change the display name at any time and multiple app registrations can share the same name. The app registration's automatically generated Application (client) ID, not its display name, uniquely identifies your app within the identity platform.
 1. Specify who can use the application, sometimes called its *sign-in audience*.
 
     | Supported account types | Description |
@@ -87,7 +88,7 @@ To configure application settings based on the platform or device you're targeti
     | **Single-page application** | Enter a **Redirect URI** for your app. This URI is the location where the Microsoft identity platform redirects a user's client and sends security tokens after authentication.<br/><br/>Select this platform if you're building a client-side web app by using JavaScript or a framework like Angular, Vue.js, React.js, or Blazor WebAssembly. |
     | **iOS / macOS** | Enter the app **Bundle ID**. Find it in **Build Settings** or in Xcode in *Info.plist*.<br/><br/>A redirect URI is generated for you when you specify a **Bundle ID**. |
     | **Android** | Enter the app **Package name**. Find it in the *AndroidManifest.xml* file. Also generate and enter the **Signature hash**.<br/><br/>A redirect URI is generated for you when you specify these settings. |
-    | **Mobile and desktop applications** | Select one of the **Suggested redirect URIs**. Or specify a **Custom redirect URI**.<br/><br/>For desktop applications, we recommend<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`<br/><br/>Select this platform for mobile applications that aren't using the latest Microsoft Authentication Library (MSAL) or aren't using a broker. Also select this platform for desktop applications. |
+    | **Mobile and desktop applications** | Select one of the **Suggested redirect URIs**. Or specify a **Custom redirect URI**.<br/><br/>For desktop applications using embedded browser, we recommend<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`<br/><br/>For desktop applications using system browser, we recommend<br/>`http://localhost`<br/><br/>Select this platform for mobile applications that aren't using the latest Microsoft Authentication Library (MSAL) or aren't using a broker. Also select this platform for desktop applications. |
 1. Select **Configure** to complete the platform configuration.
 
 ### Redirect URI restrictions

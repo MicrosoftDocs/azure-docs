@@ -1,17 +1,12 @@
 ---
 title: Built-in policy definitions
 description: Lists Azure Policy built-in policy definitions for Data Factory. These built-in policy definitions provide common approaches to managing your Azure resources.
-
-services: data-factory
 ms.author: lle
 author: lrtoyou1223
-manager: shwang
-ms.reviewer: craigg
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: [seo-lt-2019, references_regions]
-ms.date: 12/3/2020
+ms.date: 03/24/2021
 ---
 
 # Azure Policy built-in definitions for Data Factory (Preview)

@@ -1,12 +1,8 @@
 ---
 title: Manage proprietary protocols (Horizon) 
 description: Defender for IoT Horizon delivers an Open Development Environment (ODE) used to secure IoT and ICS devices running proprietary protocols.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: reference
-ms.service: azure
 ---
 
 # Defender for IoT Horizon

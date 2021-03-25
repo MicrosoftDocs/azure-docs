@@ -37,7 +37,7 @@ This release also contains the following updates:
 
 ## Known issues in this release
 
-No new issues are release noted for this release. All the release noted issues have carried over from the previous releases. To see a list of known issues, go to [Known issues in the GA release](data-box-gateway-release-notes.md#known-issues-in-ga-release).
+No new issues are release noted for this release. All the release noted issues have carried over from the previous releases. To see a list of known issues, go to [Known issues in the GA release](../databox-gateway/data-box-gateway-release-notes.md#known-issues-in-ga-release).
 
 ## Next steps
 

@@ -74,6 +74,10 @@ If you want to be able to send email from Azure VMs directly to external email p
 
 After a subscription is exempted and the VMs have been stopped and restarted in the Azure portal, all VMs in that subscription are exempted going forward. The exemption applies only to the subscription requested and only to VM traffic that's routed directly to the internet.
 
+## Changing subscription type
+
+If you change subscription type or your Cloud Solution Provider or pay-as-you-go subscription is approved, you must stop, deallocate, and then restart your VM for the new policy to take effect. Similarly, if you have a subscription type that's allowed by default, and then you change to a subscription type that's not allowed, port 25 might then be blocked because of the changes to deployment.
+
 ## Need help? Contact support
 
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly. Use this issue type: **Technical** > **Virtual Network** > **Connectivity** > **Cannot send email (SMTP/Port 25)**.

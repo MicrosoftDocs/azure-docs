@@ -86,6 +86,11 @@ First, check the details of your DDoS protection plan:
 
 The _MyVnet_ virtual network should be listed. 
 
+### View protected resources
+Under **Protected resources**, you can view your protected virtual networks and public IP addresses, or add more virtual networks to your DDoS protection plan:
+
+![View protected resources](./media/manage-ddos-protection/ddos-protected-resources.png)
+
 ## Clean up resources
 
 You can keep your resources for the next tutorial. If no longer needed, delete the _MyResourceGroup_ resource group. When you delete the resource group, you also delete the DDoS protection plan and all its related resources. If you don't intend to use this DDoS protection plan, you should remove resources to avoid unnecessary charges.
@@ -104,7 +109,7 @@ You can keep your resources for the next tutorial. If no longer needed, delete t
 To disable DDoS protection for a virtual network: 
 
 1. Enter the name of the virtual network you want to disable DDoS protection standard for in the **Search resources, services, and docs box** at the top of the portal. When the name of the virtual network appears in the search results, select it.
-2. Select **Under DDoS Protection Standard**, select **Disable**.
+2. Under **DDoS Protection Standard**, select **Disable**.
 
 If you want to delete a DDoS protection plan, you must first dissociate all virtual networks from it. 
 

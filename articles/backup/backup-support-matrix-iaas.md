@@ -38,7 +38,7 @@ Back up managed disks after enabling resource group lock | Not supported.<br/><b
 Modify backup policy for a VM | Supported.<br/><br/> The VM will be backed up by using the schedule and retention settings in new policy. If retention settings are extended, existing recovery points are marked and kept. If they're reduced, existing recovery points will be pruned in the next cleanup job and eventually deleted.
 Cancel a backup job| Supported during snapshot process.<br/><br/> Not supported when the snapshot is being transferred to the vault.
 Back up the VM to a different region or subscription |Not supported.<br><br>To successfully back up, virtual machines must be in the same subscription as the vault for backup.
-Backups per day (via the Azure VM extension) | One scheduled backup per day.<br/><br/>The  Azure Backup service supports up to nine on-demand backups per day, but Microsoft recommends no more than four daily on-demand backups to ensure best performance.
+Backups per day (via the Azure VM extension) | One scheduled backup per day.<br/><br/>The Azure Backup service supports up to three on-demand backups per day, and one additional scheduled backup.
 Backups per day (via the MARS agent) | Three scheduled backups per day.
 Backups per day (via DPM/MABS) | Two scheduled backups per day.
 Monthly/yearly backup| Not supported when backing up with Azure VM extension. Only daily and weekly is supported.<br/><br/> You can set up the policy to retain daily/weekly backups for monthly/yearly retention period.
@@ -67,6 +67,7 @@ Here's what's supported if you want to back up Linux machines.
 Back up Linux Azure VMs with the Linux Azure VM agent | File consistent backup.<br/><br/> App-consistent backup using [custom scripts](backup-azure-linux-app-consistent.md).<br/><br/> During restore, you can create a new VM, restore a disk and use it to create a VM, or restore a disk and use it to replace a disk on an existing VM. You can also restore individual files and folders.
 Back up Linux Azure VMs with MARS agent | Not supported.<br/><br/> The MARS agent can only be installed on Windows machines.
 Back up Linux Azure VMs with DPM/MABS | Not supported.
+Backup Linux Azure VMs with docker mount points | Currently, Azure Backup doesn’t support exclusion of docker mount points as these are mounted at different paths every time.
 
 ## Operating system support (Linux)
 
@@ -110,6 +111,7 @@ Restoring files from network-restricted storage accounts | Not supported.
 Restoring files on VMs using Windows Storage Spaces | Restore not supported on same VM.<br/><br/> Instead, restore the files on a compatible VM.
 Restore files on Linux VM using LVM/raid arrays | Restore not supported on same VM.<br/><br/> Restore on a compatible VM.
 Restore files with special network settings | Restore not supported on same VM. <br/><br/> Restore on a compatible VM.
+Restore files from Shared disk, Temp drive, Deduplicated Disk, Ultra disk and disk with write Accelerator enabled | Restore not supported, <br/><br/>see [Azure VM storage support](#vm-storage-support).
 
 ## Support for VM management
 
@@ -139,12 +141,12 @@ Back up VMs that are deployed from [Azure Marketplace](https://azuremarketplace.
 Back up VMs that are deployed from a custom image (third-party) |Supported.<br/><br/> The VM must be running a supported operating system.<br/><br/> When recovering files on the VM, you can restore only to a compatible OS (not an earlier or later OS).
 Back up VMs that are migrated to Azure| Supported.<br/><br/> To back up the VM, the VM agent must be installed on the migrated machine.
 Back up Multi-VM consistency | Azure Backup doesn't provide data and application consistency across multiple VMs.
-Backup with [Diagnostic Settings](../azure-monitor/platform/platform-logs-overview.md)  | Unsupported. <br/><br/> If the restore of the Azure VM with diagnostic settings is triggered using [Create New](backup-azure-arm-restore-vms.md#create-a-vm) option, then the restore fails.
-Restore of Zone-pinned VMs | Supported (for a VM that's backed-up after Jan 2019 and where [availability zones](https://azure.microsoft.com/global-infrastructure/availability-zones/) are available).<br/><br/>We currently support restoring to the same zone that's pinned in VMs. However, if the zone is unavailable because of an outage, the restore will fail.
+Backup with [Diagnostic Settings](../azure-monitor/essentials/platform-logs-overview.md)  | Unsupported. <br/><br/> If the restore of the Azure VM with diagnostic settings is triggered using [Create New](backup-azure-arm-restore-vms.md#create-a-vm) option, then the restore fails.
+Restore of Zone-pinned VMs | Supported (for a VM that's backed-up after Jan 2019 and where [availability zones](https://azure.microsoft.com/global-infrastructure/availability-zones/) are available).<br/><br/>We currently support restoring to the same zone that's pinned in VMs. However, if the zone is unavailable due to an outage, the restore will fail.
 Gen2 VMs | Supported <br> Azure Backup supports backup and restore of [Gen2 VMs](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/). When these VMs are restored from Recovery point, they're restored as [Gen2 VMs](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/).
 Backup of Azure VMs with locks | Unsupported for unmanaged VMs. <br><br> Supported for managed VMs.
 [Spot VMs](../virtual-machines/spot-vms.md) | Unsupported. Azure Backup restores Spot VMs as regular Azure VMs.
-[Azure Dedicated Host](https://docs.microsoft.com/azure/virtual-machines/dedicated-hosts) | Supported
+[Azure Dedicated Host](../virtual-machines/dedicated-hosts.md) | Supported
 Windows Storage Spaces configuration of standalone Azure VMs | Supported
 
 ## VM storage support
@@ -163,7 +165,8 @@ Resize disk on protected VM | Supported.
 Shared storage| Backing up VMs using Cluster Shared Volume (CSV) or Scale-Out File Server isn't supported. CSV writers are likely to fail during backup. On restore, disks containing CSV volumes might not come-up.
 [Shared disks](../virtual-machines/disks-shared-enable.md) | Not supported.
 Ultra SSD disks | Not supported. For more information, see these [limitations](selective-disk-backup-restore.md#limitations).
-[Temporary disks](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview#temporary-disk) | Temporary disks aren't backed up by Azure Backup.
+[Temporary disks](../virtual-machines/managed-disks-overview.md#temporary-disk) | Temporary disks aren't backed up by Azure Backup.
+NVMe/ephemeral disks | Not supported.
 
 ## VM network support
 

@@ -1,29 +1,29 @@
 ---
 title: Content metadata properties
 titleSuffix: Azure Cognitive Search
-description: Metadata properties of blobs can provide content to fields in a search index, or information that informs indexing behavior at run time. This article lists metadata properties supported in Azure Cognitive Search.
+description: Metadata properties of documents can provide content to fields in a search index, or information that informs indexing behavior at run time. This article lists metadata properties supported in Azure Cognitive Search.
 
 manager: nitinme
 author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/03/2021
+ms.date: 02/22/2021
 ---
 
-# Content metadata properties used in blob indexing in Azure Cognitive Search
+# Content metadata properties used in Azure Cognitive Search
 
-Blobs can contain various content, and many of those content types have metadata properties that can be useful in blob indexing. Just as you can create search fields for standard blob properties like **`metadata_storage_name`**, you can create fields for metadata properties that are specific to a document format.
+SharePoint Online and Azure blob storage can contain various content, and many of those content types have metadata properties that can be useful to index. Just as you can create search fields for standard blob properties like **`metadata_storage_name`**, you can create fields for metadata properties that are specific to a document format.
 
 ## Supported document formats
 
-Cognitive Search supports blob indexing for the following document formats:
+Cognitive Search supports blob indexing and SharePoint Online document indexing for the following document formats:
 
 [!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
 ## Properties by document format
 
-The following table summarizes processing done for each document format, and describes the metadata properties extracted by a blob indexer.
+The following table summarizes processing done for each document format, and describes the metadata properties extracted by a blob indexer and the SharePoint Online indexer.
 
 | Document format / content type | Extracted metadata | Processing details |
 | --- | --- | --- |
@@ -58,3 +58,4 @@ The following table summarizes processing done for each document format, and des
 * [Indexers in Azure Cognitive Search](search-indexer-overview.md)
 * [Understand blobs using AI](search-blob-ai-integration.md)
 * [Blob indexing overview](search-blob-storage-integration.md)
+* [SharePoint Online indexing](search-howto-index-sharepoint-online.md)

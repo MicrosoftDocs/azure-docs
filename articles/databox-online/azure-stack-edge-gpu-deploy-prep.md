@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/22/2021
+ms.date: 03/03/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
@@ -42,8 +42,8 @@ For Azure Stack Edge Pro deployment, you need to first prepare your environment.
 |**[6. Configure security settings for Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-configure-certificates.md)** |Configure certificates for your device. Use device-generated certificates or bring your own certificates.   |
 |**[7. Activate Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md)** |Use the activation key from service to activate the device. The device is ready to set up SMB or NFS shares or connect via REST. |
 |**[8. Configure compute](azure-stack-edge-gpu-deploy-configure-compute.md)** |Configure the compute role on your device. A Kubernetes cluster is also created. |
-|**[9A. Transfer data with Edge shares](azure-stack-edge-j-series-deploy-add-shares.md)** |Add shares and connect to shares via SMB or NFS. |
-|**[9B. Transfer data with Edge storage accounts](azure-stack-edge-j-series-deploy-add-storage-accounts.md)** |Add storage accounts and connect to blob storage via REST APIs. |
+|**[9A. Transfer data with Edge shares](./azure-stack-edge-gpu-deploy-add-shares.md)** |Add shares and connect to shares via SMB or NFS. |
+|**[9B. Transfer data with Edge storage accounts](./azure-stack-edge-gpu-deploy-add-storage-accounts.md)** |Add storage accounts and connect to blob storage via REST APIs. |
 
 
 You can now begin to gather information regarding the software configuration for your Azure Stack Edge Pro device.

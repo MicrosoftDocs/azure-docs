@@ -54,8 +54,12 @@
     href: ensure-tags-exists-on-new-virtual-machines.md
   - name: Email when IoT Hub device disconnects
     href: publish-iot-hub-events-to-logic-apps.md
-  - name: Respond to Service Bus events
-    href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
+  - name: Handle Service Bus events via Event Grid
+    items:
+    - name: Azure Logic Apps
+      href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json      
+    - name: Azure Functions
+      href: ../service-bus-messaging/service-bus-to-event-grid-integration-function.md?toc=%2fazure%2fevent-grid%2ftoc.json
   - name: Stream data from Event Hubs
     href: event-grid-event-hubs-integration.md
   - name: Route Media Services events
@@ -208,6 +212,10 @@
       href: diagnostic-logs.md
     - name: Metrics
       href: metrics.md
+  - name: Use cases
+    items:
+    - name: Use cases for domains
+      href: event-domains-use-cases.md
 - name: How-to guides
   items:
   - name: Create, view, and manage system topics
@@ -262,14 +270,18 @@
     items:
     - name: Publish events securely over a private link
       href: configure-private-endpoints.md
+    - name: Deliver events using managed identity
+      href: managed-service-identity.md
+    - name: Deliver events securely over a private link
+      href: consume-private-endpoints.md      
     - name: Configure IP firewall
       href: configure-firewall.md
     - name: Secure Webhook with Azure Active Directory
       href: secure-webhook-delivery.md
-    - name: Event delivery, managed identity, and private link
-      href: managed-service-identity.md
   - name: Troubleshoot
     items: 
+    - name: Troubleshoot Event Grid issues
+      href: troubleshoot-issues.md
     - name: Enable diagnostic logs
       href: enable-diagnostic-logs-topic.md
     - name: Troubleshoot errors

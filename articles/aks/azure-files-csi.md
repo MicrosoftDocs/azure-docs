@@ -222,7 +222,7 @@ az provider register --namespace Microsoft.Storage
 
 ### Create a storage account for the NFS file share
 
-[Create a `Premium_LRS` Azure storage account](../storage/files/storage-how-to-create-premium-fileshare.md) with following configurations to support NFS shares:
+[Create a `Premium_LRS` Azure storage account](../storage/files/storage-how-to-create-file-share.md) with following configurations to support NFS shares:
 - account kind: FileStorage
 - secure transfer required(enable HTTPS traffic only): false
 - select the virtual network of your agent nodes in Firewalls and virtual networks - so you might prefer to create the Storage Account in the MC_ resource group.
@@ -330,10 +330,10 @@ $ kubectl exec -it busybox-azurefile-0 -- cat c:\mnt\azurefile\data.txt # on Win
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
 [storage-class-concepts]: concepts-storage.md#storage-classes
-[az-extension-add]: /cli/azure/extension?view=azure-cli-latest#az-extension-add&preserve-view=true
-[az-extension-update]: /cli/azure/extension?view=azure-cli-latest#az-extension-update&preserve-view=true
-[az-feature-register]: /cli/azure/feature?view=azure-cli-latest#az-feature-register&preserve-view=true
-[az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true
-[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
 [node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
 [storage-skus]: ../storage/common/storage-redundancy.md

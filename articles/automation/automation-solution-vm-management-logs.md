@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 # Query logs from Start/Stop VMs during off-hours
 
-Azure Automation forwards two types of records to the linked Log Analytics workspace: job logs and job streams. This article reviews the  data available for [query](../azure-monitor/log-query/log-query-overview.md) in Azure Monitor.
+Azure Automation forwards two types of records to the linked Log Analytics workspace: job logs and job streams. This article reviews the  data available for [query](../azure-monitor/logs/log-query-overview.md) in Azure Monitor.
 
 ## Job logs
 
@@ -67,5 +67,5 @@ The following table provides sample log searches for job records collected by St
 ## Next steps
 
 * To set up the feature, see [Configure Stop/Start VMs during off-hours](automation-solution-vm-management-config.md).
-* For information on log alerts during feature deployment, see [Create log alerts with Azure Monitor](../azure-monitor/platform/alerts-log.md).
+* For information on log alerts during feature deployment, see [Create log alerts with Azure Monitor](../azure-monitor/alerts/alerts-log.md).
 * To resolve feature errors, see [Troubleshoot Start/Stop VMs during off-hours issues](troubleshoot/start-stop-vm.md).

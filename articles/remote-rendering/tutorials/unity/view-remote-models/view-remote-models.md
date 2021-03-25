@@ -28,10 +28,7 @@ For this tutorial you need:
 * Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * The latest version of Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
 * GIT [(download)](https://git-scm.com/downloads)
-* Unity, the most recent version of 2019.3, we recommend using Unity Hub for this [(download)](https://unity3d.com/get-unity/download)
-  * Install these modules in Unity:
-    * **UWP** - Universal Windows Platform Build Support
-    * **IL2CPP** - Windows Build Support (IL2CPP)
+* Unity (see [system requirements](../../../overview/system-requirements.md#unity) for supported versions)
 * Intermediate knowledge of Unity and the C# language (for example: creating scripts and objects, using prefabs, configuring Unity events, etc.)
 
 ## Provision an Azure Remote Rendering (ARR) instance
@@ -50,43 +47,9 @@ In this example, we'll assume the project is being created in a folder called **
 
 ## Include the Azure Remote Rendering package
 
-You need to modify the file `Packages/manifest.json` that is located in your Unity project folder. Open the file in a text editor and add the following lines to the top of your manifest:
+[Follow the instructions](../../../how-tos/unity/install-remote-rendering-unity-package.md) on how to add the Azure Remote Rendering package to a Unity Project.
 
-```json
-{
-    "scopedRegistries": [
-    {
-        "name": "Azure Mixed Reality Services",
-        "url": "https://api.bintray.com/npm/microsoft/AzureMixedReality-NPM/",
-        "scopes": ["com.microsoft.azure"]
-    }
-    ],
-    "dependencies": {
-        "com.unity.render-pipelines.universal": "7.3.1",
-        "com.microsoft.azure.remote-rendering": "0.1.31",
-        ...existing dependencies...
-    }
-}
-```
 
-After you modify and save the manifest, Unity will automatically refresh. Confirm the packages have been loaded in the *Project* window:
-
-:::image type="content" source="./media/confirm-packages.png" alt-text="confirm package imports":::
-
-If your packages aren't loading, check your Unity console for errors. If you don't have any errors and still don't see any packages under the **Packages** folder, check the package visibility toggle button.\
-![Screenshot with an arrow pointing at the package visibility toggle button.](./media/unity-package-visibility.png)
-
-## Ensure you have the latest version of the package
-
-The following steps ensure that your project is using the latest version of the remote-rendering package.
-
-1. In the Unity Editor's top menu, open *Window->Package Manager*.
-1. Select the package **Microsoft Azure Remote Rendering**.
-1. On the package manager page for the **Microsoft Azure Remote Rendering** package, see if the **Update** button is available. If it is, click it to update the package to the latest available version:\
-![The ARR package in the package manager](./media/package-manager.png)
-1. Updating the package may occasionally lead to console errors. If this occurs, try closing and reopening the project.
-1. When the package is up to date, the Package Manager will show **Up to date** instead of an Update button.\
-![Up to date package](./media/package-up-to-date.png)
 ## Configure the camera
 
 1. Select the **Main Camera** node.
@@ -635,7 +598,7 @@ public async void JoinRemoteSession()
     else
     {
         CurrentCoordinatorState = RemoteRenderingState.ConnectingToNewRemoteSession;
-        joinResult = await ARRSessionService.StartSession(new RenderingSessionCreationOptions(renderingSessionVmSize, maxLeaseHours, maxLeaseMinutes));
+        joinResult = await ARRSessionService.StartSession(new RenderingSessionCreationOptions(renderingSessionVmSize, (int)maxLeaseHours, (int)maxLeaseMinutes));
     }
 
     if (joinResult.Status == RenderingSessionStatus.Ready || joinResult.Status == RenderingSessionStatus.Starting)
@@ -773,7 +736,7 @@ The **LoadModel** method is designed to accept a model path, progress handler, a
     #endif
 
         //Load a model that will be parented to the entity
-        var loadModelParams = new LoadModelFromSasParams(modelPath, modelEntity);
+        var loadModelParams = new LoadModelFromSasOptions(modelPath, modelEntity);
         var loadModelAsync = ARRSessionService.CurrentActiveSession.Connection.LoadModelFromSasAsync(loadModelParams, progress);
         var result = await loadModelAsync;
         return modelEntity;
@@ -785,7 +748,7 @@ The code above is performing the following steps:
 1. Create a [Remote Entity](../../../concepts/entities.md).
 1. Create a local GameObject to represent the remote entity.
 1. Configure the local GameObject to sync its state (i.e. Transform) to the remote entity every frame.
-1. Set a name and add a [**WorldAnchor**](https://docs.unity3d.com/ScriptReference/XR.WSA.WorldAnchor.html) to assist stabilization.
+1. Set a name and add a [**WorldAnchor**](https://docs.unity3d.com/550/Documentation/ScriptReference/VR.WSA.WorldAnchor.html) to assist stabilization.
 1. Load model data from Blob Storage into the remote entity.
 1. Return the parent Entity, for later reference.
 

@@ -23,12 +23,6 @@ Our ISV partner network extends our solution capabilities to help you build seam
 
 ## Identity verification and proofing
 
-With Azure AD B2C partners, customers can enable identity verification and proofing of their end users before allowing  account registration or access. Identity verification and proofing can check document, knowledge-based information and liveness.
-
-A high-level architecture diagram explains the flow.
-
-![Diagram shows the identity proofing flow](./media/partner-gallery/third-party-identity-proofing.png)
-
 Microsoft partners with the following ISVs for identity verification and proofing.
 
 | ISV partner | Description and integration walkthroughs |
@@ -70,6 +64,7 @@ Microsoft partners with the following ISVs for security.
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
 | ![Screenshot of a Arkose lab logo](./media/partner-gallery/arkose-logo.png) | [Arkose Labs](./partner-arkose-labs.md) is a fraud prevention solution provider that helps organizations protect against bot attacks, account takeover attacks, and fraudulent account openings. |
+| ![Screenshot of a Microsoft Dynamics 365 logo](./media/partner-gallery/microsoft-dynamics365-logo.png) | [Microsoft Dynamics 365 Fraud Protection](./partner-dynamics-365-fraud-protection.md) is a solution that helps organizations protect against fraudulent account openings through device fingerprinting. |
 | ![Screenshot of a Ping logo](./media/partner-gallery/ping-logo.png) | [Ping Identity](./partner-ping-identity.md) enables secure hybrid access to on-premises legacy applications across multiple clouds. |
 | ![Screenshot of a strata logo](./media/partner-gallery/strata-logo.png) | [Strata](./partner-strata.md) provides secure hybrid access to on-premises applications by enforcing consistent access policies, keeping identities in sync, and making it simple to transition applications from legacy identity systems to standards-based authentication and access control provided by Azure AD B2C. |
 | ![Screenshot of a zscaler logo](./media/partner-gallery/zscaler-logo.png) | [Zscaler](./partner-zscaler.md) delivers policy-based, secure access to private applications and assets without the cost, hassle, or security risks of a VPN. |

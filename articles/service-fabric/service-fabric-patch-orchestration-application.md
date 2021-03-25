@@ -20,15 +20,74 @@ ms.author: atsenthi
 
 # Patch the Windows operating system in your Service Fabric cluster
 
-> 
+## Automatic OS image upgrades
+
+Getting [automatic OS image upgrades on your Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) is the best practice for keeping your operating system patched in Azure. Virtual Machine Scale Set based automatic OS image upgrades will require silver or greater durability on a scale set.
+
+Requirements for automatic OS image upgrades by Virtual Machine Scale Sets
+-	Service Fabric [durability level](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) is Silver or Gold, and not Bronze.
+-	The Service Fabric extension on the scale set model definition must have TypeHandlerVersion 1.1 or above.
+-	Durability level should be the same at the Service Fabric cluster and Service Fabric extension on the scale set model definition.
+- An additional health probe or use of application health extension for Virtual Machine Scale Sets is not required.
+
+Ensure that durability settings are not mismatched on the Service Fabric cluster and Service Fabric extension, as a mismatch will result in upgrade errors. Durability levels can be modified per the guidelines outlined on [this page](../service-fabric/service-fabric-cluster-capacity.md#changing-durability-levels).
+
+With Bronze durability, automatic OS image upgrade isn't available. While [Patch Orchestration Application](#patch-orchestration-application ) (intended only for non-Azure hosted clusters) is *not recommended* for Silver or greater durability levels, it is your only option to automate Windows updates with respect to Service Fabric upgrade domains.
+
+> [!IMPORTANT]
+> The in-VM upgrades where "Windows Update" applies operating system patches without replacing the OS disk are not supported on Azure Service Fabric.
+
+There are two steps needed to enable the feature with disabled Windows Update on the operation system correctly.
+
+1. Enabling automatic OS image upgrade, disabling Windows Updates
+    ARM 
+    ```json
+    "virtualMachineProfile": { 
+        "properties": {
+          "upgradePolicy": {
+            "automaticOSUpgradePolicy": {
+              "enableAutomaticOSUpgrade":  true
+            }
+          }
+        }
+      }
+    ```
+    
+    ```json
+    "virtualMachineProfile": { 
+        "osProfile": { 
+            "windowsConfiguration": { 
+                "enableAutomaticUpdates": false 
+            }
+        }
+    }
+    ```
+
+    Azure PowerShell
+    ```azurepowershell-interactive
+    Update-AzVmss -ResourceGroupName $resourceGroupName -VMScaleSetName $scaleSetName -AutomaticOSUpgrade $true -EnableAutomaticUpdate $false
+    ``` 
+    
+1. Update scale set model
+    After this configuration change a reimage of all machines is needed to update the scale set model, so that the change is taken effect.
+    
+    Azure PowerShell
+    ```azurepowershell-interactive
+    $scaleSet = Get-AzVmssVM -ResourceGroupName $resourceGroupName -VMScaleSetName $scaleSetName
+    $instances = foreach($vm in $scaleSet)
+    {
+        Set-AzVmssVM -ResourceGroupName $resourceGroupName -VMScaleSetName $scaleSetName -InstanceId $vm.InstanceID -Reimage
+    }
+    ``` 
+    
+Please have a look at [automatic OS image upgrades by Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) for further instructions.
+
+## Patch Orchestration Application
+
 > [!IMPORTANT]
 > As of April 30, 2019, Patch Orchestration Application version 1.2.* is no longer supported. Be sure to upgrade to the latest version.
 
-> [!NOTE]
-> Getting [automatic OS image upgrades on your virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) is the best practice for keeping your operating system patched in Azure. Virtual Machine Scale Set based automatic OS image upgrades will require silver or greater durability on a scale set.
->
-
- Patch Orchestration Application (POA) is a wrapper around the Azure Service Fabric Repair Manager service, which enables configuration-based OS patch scheduling for non-Azure hosted clusters. POA isn't required for non-Azure hosted clusters, but scheduling patch installation by update domain is required to patch Service Fabric cluster hosts without incurring downtime.
+Patch Orchestration Application (POA) is a wrapper around the Azure Service Fabric Repair Manager service, which enables configuration-based OS patch scheduling for non-Azure hosted clusters. POA isn't required for non-Azure hosted clusters, but scheduling patch installation by update domain is required to patch Service Fabric cluster hosts without incurring downtime.
 
 POA is a Service Fabric application that automates operating system patching on a Service Fabric cluster without incurring downtime.
 

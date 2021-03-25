@@ -6,7 +6,7 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 12/15/2020
+ms.date: 03/17/2021
 ms.author: banders
 ---
 
@@ -34,7 +34,7 @@ To allow other people to manage reservations, you have two options:
     1. Select the user, and then select **Save**.
 
 - Add a user as billing administrator to an Enterprise Agreement or a Microsoft Customer Agreement:
-    - For an Enterprise Agreement, add users with the _Enterprise Administrator_ role to view and manage all reservation orders that apply to the Enterprise Agreement. Users with the _Enterprise Administrator (read only)_ role can only view the reservation. Department admins and account owners can't view reservations _unless_ they're explicitly added to them using Access control (IAM). For more information, see [Managing Azure Enterprise roles](../manage/understand-ea-roles.md).
+    - For an Enterprise Agreement, add users with the _Enterprise Administrator_ role to view and manage all reservation orders that apply to the Enterprise Agreement. Enterprise administrators view and manage reservations in **Cost Management + Billing**, not **Reservations**. Users with the _Enterprise Administrator (read only)_ role can only view the reservation. Department admins and account owners can't view reservations _unless_ they're explicitly added to them using Access control (IAM). For more information, see [Managing Azure Enterprise roles](../manage/understand-ea-roles.md).
 
         _Enterprise Administrators can take ownership of a reservation order and they can add other users to a reservation using Access control (IAM)._
     - For a Microsoft Customer Agreement, users with the billing profile owner role or the billing profile contributor role can manage all reservation purchases made using the billing profile. Billing profile readers and invoice managers can view all reservations that are paid for with the billing profile. However, they can't make changes to reservations.
@@ -42,8 +42,15 @@ To allow other people to manage reservations, you have two options:
 
 ### How Billing Administrators view or manage reservations
 
-1. Go to **Cost Management + Billing** and then on the left side of the page, select **Reservation Transactions**.
-2. If you have the required billing permissions, you can view and manage reservations. If you don't see any reservations, make sure that you're signed in using the Azure AD tenant where the reservations were created.
+If you have access to reservations or reservation orders with Azure RBAC access, you might see only a subset of reservation transactions or none when you navigate to Reservations. Use the following steps to view and manage all reservations and reservation transactions.
+
+1. Sign into the [Azure portal](https://portal.azure.com) and navigate to **Cost Management + Billing**.
+    - If you're an EA admin, in the left menu, select **Billing scopes** and then in the list of billing scopes, select one.
+    - If you're a Microsoft Customer Agreement billing profile owner, in the left menu, select **Billing profiles**. In the list of billing profiles, select one.
+1. In the left menu, select **Reservation transactions**. The list of reservation transactions is shown.
+1. A banner at the top of the page reads *Now billing administrators can manage reservations. Click here to manage reservations.* Select the banner.
+1. The complete list of reservations for your EA enrollment or billing profile is shown.
+1. If you want to take ownership of a reservation, select it. Then in the Setting up permissions page, select **Grant access**. You're given owner access to the reservation and reservation order.
 
 ## View reservation and utilization in the Azure portal
 

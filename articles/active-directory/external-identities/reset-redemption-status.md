@@ -25,11 +25,22 @@ After a guest user has redeemed your invitation for B2B collaboration, there mig
 - The user has moved to a different company, but they still need the same access to your resources
 - The user’s responsibilities have been passed along to another user
 
-To manage these scenarios previously, you had to manually delete the guest user’s account from your directory and reinvite the user. Now you can use PowerShell or the Microsoft Graph invitation API to reset the user's redemption status and reinvite the user while retaining the user's object ID, group memberships, and app assignments. When the user redeems the new invitation, the new email address becomes the user's UPN. The user can subsequently sign in using the new email or an email you've added to the `otherMails` property of the user object.
+To manage these scenarios previously, you had to manually delete the guest user’s account from your directory and reinvite the user. Now you can use PowerShell or the Microsoft Graph invitation API to reset the user's redemption status and reinvite the user while retaining the user's object ID, group memberships, and app assignments. When the user redeems the new invitation, the UPN of the user doesn't change, but the user's sign-in name changes to the new email. The user can subsequently sign in using the new email or an email you've added to the `otherMails` property of the user object.
 
+## Reset the email address used for sign-in
+
+If a user wants to sign in using a different email:
+
+1. Make sure the new email address is added to the `mail` or `otherMails` property of the user object. 
+2.  Replace the email address in the `InvitedUserEmailAddress` property with the new email address.
+3. Use one of the methods below to reset the user's redemption status.
+
+> [!NOTE]
+>During public preview, when you're resetting the user's email address, we recommend setting the `mail` property to the new email address. This way the user can redeem the invitation by signing into your directory in addition to using the redemption link in the invitation.
+>
 ## Use PowerShell to reset redemption status
 
-Install the latest AzureADPreview PowerShell module and create a new invitation with `InvitedUserEMailAddress` set to the new email address, and `ResetRedemption` set to `true`.
+Install the latest AzureADPreview PowerShell module and create a new invitation with `InvitedUserEmailAddress` set to the new email address, and `ResetRedemption` set to `true`.
 
 ```powershell  
 Uninstall-Module AzureADPreview 

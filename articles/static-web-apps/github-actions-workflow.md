@@ -131,11 +131,7 @@ with:
     ###### End of Repository/Build Configurations ######
 ```
 
-| Property | Description | Required |
-|---|---|---|
-| `app_location` | Location of your application code.<br><br>For example, enter `/` if your application source code is at the root of the repository, or `/app` if your application code is in a directory called `app`. | Yes |
-| `api_location` | Location of your Azure Functions code.<br><br>For example, enter `/api` if your app code is in a folder called `api`. If no Azure Functions app is detected in the folder, the build doesn't fail, the workflow assumes you don't want an API. | No |
-| `output_location` | Location of the build output directory relative to the `app_location`.<br><br>For example, if your application source code is located at `/app`, and the build script outputs files to the `/app/build` folder, then set `build` as the `output_location` value. | No |
+[!INCLUDE [static-web-apps-folder-structure](../../includes/static-web-apps-folder-structure.md)]
 
 The `repo_token`, `action`, and `azure_static_web_apps_api_token` values are set for you by Azure Static Web Apps shouldn't be manually changed.
 
@@ -147,7 +143,7 @@ The deployment always calls `npm install` before any custom command.
 
 | Command            | Description |
 |---------------------|-------------|
-| `app_build_command` | Defines a custom command to run during deployment of the static content application.<br><br>For example, to configure a production build for an Angular application create an npm script named `build-prod` to run `ng build --prod` and enter `npm run build-prod` as the custom command. If left blank, the workflow tries to run the `npm run build` or `npm run build:Azure` commands.  |
+| `app_build_command` | Defines a custom command to run during deployment of the static content application.<br><br>For example, to configure a production build for an Angular application create an npm script named `build-prod` to run `ng build --prod` and enter `npm run build-prod` as the custom command. If left blank, the workflow tries to run the `npm run build` or `npm run build:azure` commands.  |
 | `api_build_command` | Defines a custom command to run during deployment of the Azure Functions API application. |
 
 ## Route file location

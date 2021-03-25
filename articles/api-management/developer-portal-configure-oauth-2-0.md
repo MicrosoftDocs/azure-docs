@@ -15,15 +15,22 @@ This article provides an example of what your Azure Active Directory endpoints a
 
 ## Azure Active Directory example
 
-**Authorization endpoint**
+**Authorization endpoint**:
 
-`https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/authorize`
+```http
+https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/authorize
+```
 
-**Token endpoint**
+**Token endpoint**:
 
-`https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token`
+```http
+https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+```
 
-**Scope**
+**Scope**:
+```http
+https://graph.microsoft.com/.default
+```
 
 `https://graph.microsoft.com/.default`
 
@@ -33,14 +40,23 @@ This article provides an example of what your Azure Active Directory endpoints a
 
 **Authorization code grant flow**:
 
-`/signin-oauth/code/callback/{authServerName}`
+```http
+/signin-oauth/code/callback/{authServerName}
+```
 
 **Implicit grant flow**:
 
-`/signin-oauth/implicit/callback`
+```http
+/signin-oauth/implicit/callback
+```
 
 ## Next steps
 
+<<<<<<< HEAD:articles/api-management/developer-portal-configure-oauth-2-0.md
+=======
+This article is the last step in the process of creating a self-hosted developer portal. If you'd like to learn more about the developer portal, see these articles:
+
+>>>>>>> 182eb9c329d7dde7771539b481aa7674f25eba27:articles/api-management/dev-portal-configure-oauth-2-0.md
 - [Migrate to the new developer portal](developer-portal-deprecated-migration.md)
 
 - [Authenticate with Azure AD](api-management-howto-aad.md)

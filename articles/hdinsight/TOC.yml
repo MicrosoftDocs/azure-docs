@@ -40,8 +40,18 @@
       href: https://azure.microsoft.com/resources/samples/?service=hdinsight
   - name: Concepts
     items: 
-    - name: Apache components on HDInsight
-      href: ./hdinsight-component-versioning.md
+    - name: Versioning
+      items:
+        - name: Versioning introduction
+          href: ./hdinsight-overview-versioning.md
+        - name: HDInsight versions
+          href: ./hdinsight-component-versioning.md
+        - name: HDInsight version 4.0
+          href: ./hdinsight-40-component-versioning.md
+        - name: HDInsight version 3.6
+          href: ./hdinsight-36-component-versioning.md
+        - name: Retired HDInsight versions
+          href: ./hdinsight-retired-versions.md
     - name: Enterprise Security Package
       href: ./enterprise-security-package.md
     - name: Hortonworks release notes
@@ -180,6 +190,8 @@
           href: ./optimize-hive-ambari.md
         - name: Optimize Apache Pig
           href: ./optimize-pig-ambari.md
+      - name: Find host names of cluster nodes
+        href: ./find-host-name.md
       - name: Reboot cluster nodes
         href: ./cluster-reboot-vm.md
       - name: Use Apache Ambari REST API
@@ -263,9 +275,9 @@
     - name: Azure PowerShell
       href: /powershell/module/az.hdinsight
     - name: SDK for .NET
-      href: /dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true
+      href: /dotnet/api/overview/azure/hdinsight
     - name: SDK for Python
-      href: /python/api/overview/azure/hdinsight?view=azure-python&preserve-view=true
+      href: /python/api/overview/azure/hdinsight
     - name: SDK for Java
       href: /java/api/overview/azure/hdinsight
     - name: SDK for Go
@@ -650,7 +662,7 @@
       - name: Use Apache Kafka with IoT Hub
         href: ./kafka/apache-kafka-connector-iot-hub.md
       - name: Confluent Schema Registry
-        href: ./kafka/schema-registry.md
+        href: ./kafka/apache-kafka-producer-consumer-api.md
       - name: Create streaming pipelines
         items:
         - name: Apache Spark, Apache Kafka, and Azure Cosmos DB
@@ -817,6 +829,10 @@
         href: ./interactive-query/apache-hive-query-odbc-driver-powershell.md
     - name: Manage
       items:
+      - name: Copy Hive tables across Storage Accounts
+        href: ./interactive-query/hive-migration-across-storage-accounts.md
+      - name: Migrate default Hive metastore to external metastore on Azure HDInsight
+        href: ./interactive-query/hive-default-metastore-export-import.md
       - name: Migrate Hive workloads to HDInsight 4.0
         href: ./interactive-query/apache-hive-migrate-workloads.md
       - name: Optimize Apache Hive queries

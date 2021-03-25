@@ -8,9 +8,9 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 11/20/2020
+ms.date: 03/12/2021
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, contperf-fy21q3
 ---
 
 # How to use your workspace with a custom DNS server
@@ -32,32 +32,32 @@ When using an Azure Machine Learning workspace with a private endpoint, there ar
 
 - Optionally, [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps).
 
-## FQDNs in use
-### These FQDNs are in use in the following regions: eastus, southcentralus and westus2.
-The following list contains the fully qualified domain names (FQDN) used by your workspace:
+## Public regions
+
+The following list contains the fully qualified domain names (FQDN) used by your workspace if it is in a public region::
 
 * `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
 * `<workspace-GUID>.workspace.<region>.api.azureml.ms`
-* `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
-* `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
-* `<workspace-GUID>.workspace.<region>.aether.ms`
-* `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.net`
-* If you create a compute instance, you must also add an entry for `<instance-name>.<region>.instances.azureml.ms` with the private IP of the workspace private endpoint.
+* `ml-<workspace-name, truncated>-<region>-<workspace-guid>.notebooks.azure.net`
 
     > [!NOTE]
-    > Compute instances can be accessed only from within the virtual network.
-    
-### These FQDNs are in use in all other regions
-The following list contains the fully qualified domain names (FQDN) used by your workspace:
-
-* `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
-* `<workspace-GUID>.workspace.<region>.api.azureml.ms`
-* `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.net`
+    > The workspace name for this FQDN may be truncated. Truncation is done to keep the FQDN less than or equal to 63 characters.
 * `<instance-name>.<region>.instances.azureml.ms`
 
     > [!NOTE]
     > Compute instances can be accessed only from within the virtual network.
 
+## Azure China 21Vianet regions
+
+The following FQDNs are for Azure China 21Vianet regions:
+
+* `<workspace-GUID>.workspace.<region>.cert.api.ml.azure.cn`
+* `<workspace-GUID>.workspace.<region>.api.ml.azure.cn`
+* `ml-<workspace-name, truncated>-<region>-<workspace-guid>.notebooks.chinacloudapi.cn`
+
+    > [!NOTE]
+    > The workspace name for this FQDN may be truncated. Truncation is done to keep the FQDN less than or equal to 63 characters.
+* `<instance-name>.<region>.instances.ml.azure.cn`
 ## Find the IP addresses
 
 To find the internal IP addresses for the FQDNs in the VNet, use one of the following methods:
@@ -89,7 +89,7 @@ $workspaceDns.CustomDnsConfigs | format-table
 
 ---
 
-The information returned from all methods is the same; a list of the FQDN and private IP address for the resources.
+The information returned from all methods is the same; a list of the FQDN and private IP address for the resources. The following example is from a global Azure region:
 
 | FQDN | IP Address |
 | ----- | ----- |
@@ -107,6 +107,12 @@ The information returned from all methods is the same; a list of the FQDN and pr
 >
 > For all of these IP address, use the same address as the `*.api.azureml.ms` entries returned from the previous steps.
 
+The following table shows example IPs from Azure China 21Vianet regions:
+
+| FQDN | IP Address |
+| ----- | ----- |
+| `52882c08-ead2-44aa-af65-08a75cf094bd.workspace.chinaeast2.api.ml.azure.cn` | `10.1.0.5` |
+| `ml-mype-pltest-chinaeast2-52882c08-ead2-44aa-af65-08a75cf094bd.notebooks.chinacloudapi.cn` | `10.1.0.6` |
 ## Next steps
 
 For more information on using Azure Machine Learning with a virtual network, see the [virtual network overview](how-to-network-security-overview.md).

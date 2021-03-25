@@ -2,7 +2,7 @@
 title: 'Quickstart: Create and query a dedicated SQL pool (formerly SQL DW) (Azure portal)'
 description: Create and query a dedicated SQL pool (formerly SQL DW) using the Azure portal
 services: synapse-analytics
-author: kevinvngo
+author: pimorano
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
@@ -24,7 +24,7 @@ Quickly create and query a dedicated SQL pool (formerly SQL DW) in Azure Synapse
    > [!NOTE]
    > Creating a dedicated SQL pool (formerly SQL DW) in Azure Synapse may result in a new billable service. For more information, see [Azure Synapse Analytics pricing](https://azure.microsoft.com/pricing/details/synapse-analytics/).
 
-2. Download and install the newest version of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS).
+2. Download and install the newest version of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS). Note: SSMS is only available on Windows based platforms, see the [full list of supported platforms](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15&preserve-view=true#supported-operating-systems-ssms-185t).
 
 ## Sign in to the Azure portal
 

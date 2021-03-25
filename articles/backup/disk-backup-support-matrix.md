@@ -6,18 +6,13 @@ ms.date: 01/07/2021
 ms.custom: references_regions 
 ---
 
-# Azure Disk Backup support matrix (in preview)
-
->[!IMPORTANT]
->Azure Disk Backup is in preview without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
->[Fill out this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) to sign-up for the preview.
+# Azure Disk Backup support matrix
 
 You can use [Azure Backup](./backup-overview.md) to protect Azure Disks. This article summarizes region availability, supported scenarios, and limitations.
 
 ## Supported regions
 
-Azure Disk Backup is available in preview in the following regions: West US, West Central US, East US2, Canada Central, UK West, Switzerland North, Switzerland West, Australia Central, Australia Central 2, Korea Central, Korea South, Japan West, East Asia, UAE North, Brazil South, Central India. 
+Azure Disk Backup is available in the following regions: West US, West US 2, West Central US, East US, East US2, Central US, South Central US, North Central US, Canada Central, Brazil South, South Africa North, UK South, UK West, West Europe, North Europe, Switzerland North, Switzerland West, Germany West Central, France Central, Norway East, UAE North, Australia Central, Australia Central 2, Australia East, Korea Central, Korea South, Japan East, Japan West, East Asia, Southeast Asia, Central India. 
 
 More regions will be announced when they become available.
 
@@ -53,7 +48,7 @@ More regions will be announced when they become available.
 
 - Currently (during the preview), the use of PowerShell and Azure CLI to configure the backup and restore of disks isn't supported.
 
-- When configuring backup, the disk selected to be backed up and the snapshot resource group where the snapshots are to be stored must be part of the same subscription. You can't create an incremental snapshot for a particular disk outside of that disk's subscription. Learn more about [incremental snapshots](../virtual-machines/windows/disks-incremental-snapshots-portal.md#restrictions) for managed disk. For more information on how to choose a snapshot resource group, see  [Configure backup](backup-managed-disks.md#configure-backup).
+- When configuring backup, the disk selected to be backed up and the snapshot resource group where the snapshots are to be stored must be part of the same subscription. You can't create an incremental snapshot for a particular disk outside of that disk's subscription. Learn more about [incremental snapshots](../virtual-machines/disks-incremental-snapshots.md#restrictions) for managed disk. For more information on how to choose a snapshot resource group, see  [Configure backup](backup-managed-disks.md#configure-backup).
 
 - For successful backup and restore operations, role assignments are required by the Backup vault’s managed identity. Use only the role definitions provided in the documentation. Use of other roles like owner, contributor, and so on, isn't supported. You may face permission issues, if you start configuring backup or restore operations soon after assigning roles. This is because the role     assignments take a few minutes to take effect.
 

@@ -71,7 +71,7 @@ The name of the database created for Azure AD Connect is **ADSync**. To perform 
 
 4. Start **sqlcmd** utility by running the command `./SQLCMD.EXE -S "(localdb)\.\ADSync" -U <Username> -P <Password>`, using the credential of a sysadmin or the database DBO.
 
-5. To shrink the database, at the sqlcmd prompt (1>), enter `DBCC Shrinkdatabase(ADSync,1);`, followed by `GO` in the next line.
+5. To shrink the database, at the sqlcmd prompt (`1>`), enter `DBCC Shrinkdatabase(ADSync,1);`, followed by `GO` in the next line.
 
 6. If the operation is successful, try to start the Synchronization Service again. If you can start the Synchronization Service, go to [Delete run history data](#delete-run-history-data) step. If not, contact Support.
 

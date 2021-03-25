@@ -68,7 +68,19 @@ Refer to the following list to configure managed identity for Azure App Service 
 | System assigned | Preview | Not available | Not available | Not available |
 | User assigned | Not available | Not available | Not available | Not available |
 
-Azure Arc enabled Kubernetes currently [supports system assigned identity](../../azure-arc/kubernetes/connect-cluster.md#azure-arc-agents-for-kubernetes). The managed service identity certificate is used by all Azure Arc enabled Kubernetes agents for communication with Azure.
+Azure Arc enabled Kubernetes currently [supports system assigned identity](../../azure-arc/kubernetes/quickstart-connect-cluster.md). The managed service identity certificate is used by all Azure Arc enabled Kubernetes agents for communication with Azure.
+
+### Azure Arc enabled servers
+
+| Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | ![Available][check] | ![Available][check] | Not available | Not available |
+| User assigned | Not available | Not available | Not available | Not available |
+
+All Azure Arc enabled servers have a system assigned identity. You cannot disable or change the system assigned identity on an Azure Arc enabled server. Refer to the following resources to learn more about how to consume managed identities on Azure Arc enabled servers:
+
+- [Authenticate against Azure resources with Arc enabled servers](../../azure-arc/servers/managed-identity-authentication.md)
+- [Using a managed identity with Arc enabled servers](../../azure-arc/servers/security-overview.md#using-a-managed-identity-with-arc-enabled-servers)
 
 ### Azure Automanage
 
@@ -171,7 +183,7 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 
 Refer to the following list to configure managed identity for Azure Digital Twins (in regions where available):
 
-- [Azure portal](~/articles/digital-twins/how-to-enable-managed-identities.md)
+- [Azure portal](../../digital-twins/how-to-enable-managed-identities-portal.md)
 
 ### Azure Event Grid
 
@@ -208,7 +220,7 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 | System assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
 | User assigned | Not available | Not available | Not available | Not available |
 
-Refer to the following list to configure managed identity for Azure Data Factory V2 (in regions where available):
+Refer to the following list to configure managed identity for Azure IoT Hub (in regions where available):
 
 - [Azure portal](../../iot-hub/virtual-network-support.md#turn-on-managed-identity-for-iot-hub)
 
@@ -229,6 +241,14 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 
 For more information, see [Use managed identities in Azure Kubernetes Service](../../aks/use-managed-identity.md).
 
+### Azure Log Analytics cluster
+
+Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
+| User assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
+
+For more information, see [how identity works in Azure Monitor](../../azure-monitor/logs/customer-managed-keys.md)
 
 ### Azure Logic Apps
 

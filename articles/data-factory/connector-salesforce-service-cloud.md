@@ -1,16 +1,12 @@
 ---
 title: Copy data from and to Salesforce Service Cloud
 description: Learn how to copy data from Salesforce Service Cloud to supported sink data stores or from supported source data stores to Salesforce Service Cloud by using a copy activity in a data factory pipeline.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/02/2021
+ms.date: 03/17/2021
 ---
 
 # Copy data from and to Salesforce Service Cloud by using Azure Data Factory
@@ -230,6 +226,7 @@ To copy data to Salesforce Service Cloud, the following properties are supported
 | externalIdFieldName | The name of the external ID field for the upsert operation. The specified field must be defined as "External ID Field" in the Salesforce Service Cloud object. It can't have NULL values in the corresponding input data. | Yes for "Upsert" |
 | writeBatchSize | The row count of data written to Salesforce Service Cloud in each batch. | No (default is 5,000) |
 | ignoreNullValues | Indicates whether to ignore NULL values from input data during a write operation.<br/>Allowed values are **true** and **false**.<br>- **True**: Leave the data in the destination object unchanged when you do an upsert or update operation. Insert a defined default value when you do an insert operation.<br/>- **False**: Update the data in the destination object to NULL when you do an upsert or update operation. Insert a NULL value when you do an insert operation. | No (default is false) |
+| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
 
 **Example:**
 

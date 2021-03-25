@@ -136,8 +136,16 @@
       href: expressroute-howto-set-global-reach.md
     - name: Azure CLI
       href: expressroute-howto-set-global-reach-cli.md
+  - name: Add IPv6 support for private peering (Preview)
+    items:
+    - name: Azure portal
+      href: expressroute-howto-add-ipv6-portal.md
+    - name: Azure PowerShell
+      href: expressroute-howto-add-ipv6-powershell.md
   - name: Monitoring
     items:
+    - name: Network Insights
+      href: expressroute-network-insights.md
     - name: ExpressRoute monitoring, metrics, and alerts
       href: expressroute-monitoring-metrics-alerts.md
     - name: Configure Network Performance Monitor for ExpressRoute

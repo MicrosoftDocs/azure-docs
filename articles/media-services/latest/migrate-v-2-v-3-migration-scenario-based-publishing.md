@@ -7,7 +7,7 @@ manager: femila
 ms.service: media-services
 ms.topic: conceptual
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
 ---
 
@@ -50,14 +50,10 @@ See publishing concepts, tutorials and how to guides below for specific steps.
 - [Create a streaming locator and build URLs](create-streaming-locator-build-url.md)
 - [Download the results of a job](download-results-howto.md)
 - [Signal descriptive audio tracks](signal-descriptive-audio-howto.md)
-- [Azure Media Player full setup](https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-full-setup)
+- [Azure Media Player full setup](../azure-media-player/azure-media-player-full-setup.md)
 - [How to use the Video.js player with Azure Media Services](how-to-video-js-player.md)
 - [How to use the Shaka player with Azure Media Services](how-to-shaka-player.md)
 
 ## Samples
 
 You can also [compare the V2 and V3 code in the code samples](migrate-v-2-v-3-migration-samples.md).
-
-## Next steps
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

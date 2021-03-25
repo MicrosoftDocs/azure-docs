@@ -1,7 +1,7 @@
 ---
 title: Built-in policy definitions for Azure Kubernetes Service
 description: Lists Azure Policy built-in policy definitions for Azure Kubernetes Service. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 02/09/2021
+ms.date: 03/24/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
 ---
@@ -15,11 +15,17 @@ The name of each built-in policy definition links to the policy definition in th
 the link in the **Version** column to view the source on the
 [Azure Policy GitHub repo](https://github.com/Azure/azure-policy).
 
-## Microsoft.ContainerService
+## Initiatives
+
+[!INCLUDE [azure-policy-reference-policysets-kubernetes](../../includes/policy/reference/bycat/policysets-kubernetes.md)]
+
+## Policy definitions
+
+### Microsoft.ContainerService
 
 [!INCLUDE [azure-policy-reference-rp-aks-containerservice](../../includes/policy/reference/byrp/microsoft.containerservice.md)]
 
-## AKS Engine
+### AKS Engine
 
 [!INCLUDE [azure-policy-reference-rp-aks-aksengine](../../includes/policy/reference/byrp/aks-engine.md)]
 

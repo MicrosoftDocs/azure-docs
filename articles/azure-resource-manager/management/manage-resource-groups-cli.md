@@ -120,7 +120,7 @@ After setting up your resource group successfully, you may want to view the Reso
 - Automate future deployments of the solution because the template contains all the complete infrastructure.
 - Learn template syntax by looking at the JavaScript Object Notation (JSON) that represents your solution.
 
-To export all resources in a resource group, use [az group export](/cli/azure/group?view=azure-cli-latest#az_group_export&preserve-view=true) and provide the resource group name.
+To export all resources in a resource group, use [az group export](/cli/azure/group#az_group_export) and provide the resource group name.
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&

@@ -5,6 +5,8 @@
   items:
   - name: What is Azure Communication Services?
     href: overview.md
+  - name: Support and Help Options
+    href: support.md
 - name: Quickstarts
   expanded: true
   items:
@@ -12,6 +14,10 @@
     href: quickstarts/create-communication-resource.md
   - name: Create and manage access tokens
     href: quickstarts/access-tokens.md
+  - name: Use managed identities
+    href: quickstarts/managed-identity.md
+  - name: Set up managed identities from CLI
+    href: quickstarts/managed-identity-from-cli.md
   - name: Chat
     items:
       - name: Add chat to your app
@@ -20,7 +26,7 @@
         href: quickstarts/chat/meeting-interop.md
   - name: Telephony and SMS
     items:
-      - name: Get a telephone number
+      - name: Manage telephone numbers
         href: quickstarts/telephony-sms/get-phone-number.md
       - name: Add telephone calling to your app
         href: quickstarts/voice-video-calling/pstn-call.md
@@ -34,7 +40,9 @@
     items:
     - name: Add voice calling to your app
       href: quickstarts/voice-video-calling/getting-started-with-calling.md
-    - name: Use the calling client library
+    - name: Add video calling to your app (JavaScript)
+      href: quickstarts/voice-video-calling/get-started-with-video-calling.md
+    - name: Use the Calling SDK
       href: quickstarts/voice-video-calling/calling-client-samples.md
     - name: Join your calling app to a Teams meeting
       href: quickstarts/voice-video-calling/get-started-teams-interop.md
@@ -55,67 +63,80 @@
     href: tutorials/hmac-header-tutorial.md
   - name: Prepare a web app for Communication Services (Node.js)
     href: tutorials/building-app-start.md
+  - name: Sign and make requests to ACS' SMS API with Postman
+    href: tutorials/postman-tutorial.md
 - name: Concepts
   expanded: false
   items:
-  - name: Teams interoperability
-    href: concepts/teams-interop.md
   - name: Chat
     items:
-      - name: Chat client library overview
+      - name: Chat SDK overview
         href: concepts/chat/sdk-features.md
       - name: Chat concepts
         href: concepts/chat/concepts.md
   - name: Telephony and SMS
-    items: 
-      - name: SMS client library overview
+    items:
+      - name: SMS SDK overview
         href: concepts/telephony-sms/sdk-features.md
       - name: SMS concepts
         href: concepts/telephony-sms/concepts.md
-      - name: Plan your telephony and SMS solution 
+      - name: Telephony Concepts
+        href: concepts/telephony-sms/telephony-concept.md
+      - name: Phone number types
         href: concepts/telephony-sms/plan-solution.md
+      - name: SIP Interface infrastructure requirements
+        href: concepts/telephony-sms/sip-interface-infrastructure.md
   - name: Voice and video calling
     items:
-      - name: Calling client library overview
+      - name: Calling SDK overview
         href: concepts/voice-video-calling/calling-sdk-features.md
       - name: Voice and video concepts
         href: concepts/voice-video-calling/about-call-types.md
+      - name: Network requirements
+        href: concepts/voice-video-calling/network-requirements.md
+      - name: Call flows
+        href: concepts/call-flows.md
+      - name: Call flow topologies
+        href: concepts/detailed-call-flows.md
   - name: UI Framework
     items:
       - name: UI Framework overview
         href: concepts/ui-framework/ui-sdk-overview.md
       - name: UI Framework capabilities
         href: concepts/ui-framework/ui-sdk-features.md
+  - name: Data and Operations
+    items:
+      - name: Service Events (EventGrid)
+        href: ../event-grid/event-schema-communication-services.md
+        maintainContext: true
+      - name: Logging and diagnostics
+        href: concepts/logging-and-diagnostics.md
+      - name: Metrics
+        href: concepts/metrics.md
+      - name: Troubleshooting
+        href: concepts/troubleshooting-info.md
+  - name: SDKs and REST APIs
+    href: concepts/sdk-options.md 
   - name: Client and server architecture
     href: concepts/client-and-server-architecture.md
-  - name: Call flows
-    href: concepts/call-flows.md
-  - name: Call flow topologies
-    href: concepts/detailed-call-flows.md
-  - name: Client libraries and REST APIs
-    href: concepts/sdk-options.md 
-  - name: Pricing model
-    href: concepts/pricing.md
-  - name: Privacy
-    href: concepts/privacy.md
   - name: Identity model
     href: concepts/identity-model.md
   - name: Authentication
     href: concepts/authentication.md
-  - name: Event handling
-    href: concepts/event-handling.md
-  - name: Notifications
+  - name: Privacy
+    href: concepts/privacy.md  
+  - name: Pricing
+    href: concepts/pricing.md  
+  - name: Push Notifications
     href: concepts/notifications.md
-  - name: Logging and diagnostics
-    href: concepts/logging-and-diagnostics.md
-  - name: Metrics
-    href: concepts/metrics.md
-  - name: Troubleshooting
-    href: concepts/troubleshooting-info.md
+  - name: Teams interoperability
+    href: concepts/teams-interop.md
   - name: Known issues
     href: concepts/known-issues.md
 - name: Samples
   items:
+  - name: Overview
+    href: samples/overview.md
   - name: Group calling hero sample
     href: samples/calling-hero-sample.md
   - name: Group chat hero sample
@@ -131,9 +152,9 @@
   - name: Calling libraries
     items:
     - name: Calling (JavaScript)
-      href: /javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js
+      href: /javascript/api/azure-communication-services/@azure/communication-calling/
     - name: Calling (Android/Java)
-      href: /java/api/com.azure.communication.calling?view=communication-services-java-android
+      href: /java/api/com.azure.communication.calling
     - name: Calling (iOS)
       href: /objectivec/communication-services/calling/
   - name: Chat libraries
@@ -144,6 +165,8 @@
       href: https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationchat
     - name: Chat (Android/Java)
       href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-chat
+    - name: Chat (Python)
+      href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-chat
   - name: SMS libraries
     items:
     - name: SMS (JavaScript)
@@ -152,14 +175,18 @@
       href: https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationsms
     - name: SMS (Android/Java)
       href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-sms
-  - name: Administration libraries
+    - name: SMS (Python)
+      href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-sms
+  - name: Identity libraries
     items:
-    - name: Administration (JavaScript)
-      href: https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-administration
-    - name: Administration (.NET)
-      href: https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationadministration
-    - name: Administration (Android/Java)
-      href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-administration
+    - name: Identity (JavaScript)
+      href: https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-identity
+    - name: Identity (.NET)
+      href: https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationidentity
+    - name: Identity (Android/Java)
+      href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-identity
+    - name: Identity (Python)
+      href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-identity
   - name: Common libraries
     items:
     - name: Common (JavaScript)
@@ -168,6 +195,8 @@
       href: https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationcommon
     - name: Common (Android/Java)
       href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-common
+    - name: Common (Python)
+      href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-common
 - name: Resources
   items:
   - name: Release notes

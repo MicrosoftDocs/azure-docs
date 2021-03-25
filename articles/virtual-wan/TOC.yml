@@ -13,6 +13,9 @@
     - name: Any-to-any routing
       displayName: Resource Manager Any-to-any routing
       href: quickstart-any-to-any-template.md
+    - name: Route to shared services VNets
+      displayName: Resource Manager route to shared services VNets
+      href: quickstart-route-shared-services-vnet-template.md
 - name: Tutorials
   expanded: true
   items:
@@ -60,7 +63,7 @@
       href: scenario-isolate-vnets-custom.md
     - name: Isolating virtual networks and branches
       href: scenario-isolate-virtual-networks-branches.md
-    - name: Shared Services VNets
+    - name: Shared services VNets
       href: scenario-shared-services-vnet.md
     - name: Route through an NVA
       href: scenario-route-through-nva.md
@@ -74,10 +77,14 @@
       href: azure-monitor-insights.md
   - name: Site-to-site
     items:
-    - name: About IPsec policies
+    - name: About S2S IPsec policies
       href: virtual-wan-ipsec.md
     - name: Multiple ISP links - Azure path selection
       href: path-selection-multiple-links.md
+  - name: Point-to-site
+    items:
+    - name: About P2S IPsec policies
+      href: point-to-site-ipsec.md
   - name: Security
     items:
     - name: Security baseline
@@ -86,6 +93,8 @@
     href: pricing-concepts.md
   - name: About NVA in a virtual hub
     href: about-nva-hub.md
+  - name: About secured virtual hubs
+    href: ../firewall-manager/secured-virtual-hub.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
 - name: How-to guides
   items:
   - name: Upgrade a virtual WAN SKU
@@ -108,6 +117,8 @@
       href: connect-virtual-network-gateway-vwan.md
     - name: Configure custom IPsec policy
       href: virtual-wan-custom-ipsec-portal.md
+    - name: Configure NAT rules
+      href: nat-rules-vpn-gateway.md
   - name: User VPN (point-to-site)
     items:
     - name: Create a User VPN connection

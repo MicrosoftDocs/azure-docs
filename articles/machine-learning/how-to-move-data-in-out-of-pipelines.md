@@ -7,14 +7,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: laobri
 author: lobrien
-ms.date: 02/01/2021
+ms.date: 02/26/2021
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy20q4, devx-track-python, data4ml
 # As a data scientist using Python, I want to get data into my pipeline and flowing between steps
 ---
 
 # Moving data into and between ML pipeline steps (Python)
-
 
 This article provides code for importing, transforming, and moving data between steps in an Azure Machine Learning pipeline. For an overview of how data works in Azure Machine Learning, see [Access data in Azure storage services](how-to-access-data.md). For the benefits and structure of Azure Machine Learning pipelines, see [What are Azure Machine Learning pipelines?](concept-ml-pipelines.md).
 
@@ -25,7 +24,7 @@ This article will show you how to:
 - Split `Dataset` data into subsets, such as training and validation subsets
 - Create `OutputFileDatasetConfig` objects to transfer data to the next pipeline step
 - Use `OutputFileDatasetConfig` objects as input to pipeline steps
-- Create new `Dataset` objects from `OutputFileDatasetConfig` you wish to persist
+- Create new `Dataset` objects from `OutputFileDatasetConfig` you wisƒh to persist
 
 ## Prerequisites
 
@@ -33,7 +32,7 @@ You'll need:
 
 - An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 
-- The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py), or access to [Azure Machine Learning studio](https://ml.azure.com/).
+- The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro), or access to [Azure Machine Learning studio](https://ml.azure.com/).
 
 - An Azure Machine Learning workspace.
   
@@ -52,7 +51,7 @@ You'll need:
 
 ## Use `Dataset` objects for pre-existing data 
 
-The preferred way to ingest data into a pipeline is to use a [Dataset](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) object. `Dataset` objects represent persistent data available throughout a workspace.
+The preferred way to ingest data into a pipeline is to use a [Dataset](/python/api/azureml-core/azureml.core.dataset%28class%29) object. `Dataset` objects represent persistent data available throughout a workspace.
 
 There are many ways to create and register `Dataset` objects. Tabular datasets are for delimited data available in one or more files. File datasets are for binary data (such as images) or for data that you'll parse. The simplest programmatic ways to create `Dataset` objects are to use existing blobs in workspace storage or public URLs:
 
@@ -60,10 +59,12 @@ There are many ways to create and register `Dataset` objects. Tabular datasets a
 datastore = Datastore.get(workspace, 'training_data')
 iris_dataset = Dataset.Tabular.from_delimited_files(DataPath(datastore, 'iris.csv'))
 
-cats_dogs_dataset = Dataset.File.from_files(
-    paths='https://download.microsoft.com/download/3/E/1/3E1C3F21-ECDB-4869-8368-6DEBA77B919F/kagglecatsanddogs_3367a.zip',
-    archive_options=ArchiveOptions(archive_type=ArchiveType.ZIP, entry_glob='**/*.jpg')
-)
+datastore_path = [
+    DataPath(datastore, 'animals/dog/1.jpg'),
+    DataPath(datastore, 'animals/dog/2.jpg'),
+    DataPath(datastore, 'animals/cat/*.jpg')
+]
+cats_dogs_dataset = Dataset.File.from_files(path=datastore_path)
 ```
 
 For more options on creating datasets with different options and from different sources, registering them and reviewing them in the Azure Machine Learning UI, understanding how data size interacts with compute capacity, and versioning them, see [Create Azure Machine Learning datasets](how-to-create-register-datasets.md). 
@@ -150,7 +151,7 @@ ds = Dataset.get_by_name(workspace=ws, name='mnist_opendataset')
 
 ## Use `OutputFileDatasetConfig` for intermediate data
 
-While `Dataset` objects represent only persistent data, [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py) object(s) can be used for temporary data output from pipeline steps **and** persistent output data. `OutputFileDatasetConfig` supports writing data to blob storage, fileshare, adlsgen1, or adlsgen2. It supports both mount mode and upload mode. In mount mode, files written to the mounted directory are permanently stored when the file is closed. In upload mode, files  written to the output directory are uploaded at the end of the job. If the job fails or is canceled, the output directory will not be uploaded.
+While `Dataset` objects represent only persistent data, [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig) object(s) can be used for temporary data output from pipeline steps **and** persistent output data. `OutputFileDatasetConfig` supports writing data to blob storage, fileshare, adlsgen1, or adlsgen2. It supports both mount mode and upload mode. In mount mode, files written to the mounted directory are permanently stored when the file is closed. In upload mode, files  written to the output directory are uploaded at the end of the job. If the job fails or is canceled, the output directory will not be uploaded.
 
  `OutputFileDatasetConfig` object's default behavior is to write to the default datastore of the workspace. Pass your `OutputFileDatasetConfig` objects to your `PythonScriptStep` with the `arguments` parameter.
 
@@ -197,7 +198,7 @@ with open(args.output_path, 'w') as f:
 
 After the initial pipeline step writes some data to the `OutputFileDatasetConfig` path and it becomes an output of that initial step, it can be used as an input to a later step. 
 
-In the following code, 
+In the following code: 
 
 * `step1_output_data` indicates that the output of the PythonScriptStep, `step1` is written to the ADLS Gen 2 datastore, `my_adlsgen2` in upload access mode. Learn more about how to [set up role permissions](how-to-access-data.md#azure-data-lake-storage-generation-2) in order to write data back to ADLS Gen 2 datastores. 
 
@@ -220,7 +221,7 @@ step2 = PythonScriptStep(
     script_name="step2.py",
     compute_target=compute,
     runconfig = aml_run_config,
-    arguments = ["--pd", step1_output_data.as_input]
+    arguments = ["--pd", step1_output_data.as_input()]
 
 )
 
@@ -236,6 +237,15 @@ step1_output_ds = step1_output_data.register_on_complete(name='processed_data',
                                                          description = 'files from step1`)
 ```
 
+## Delete `OutputFileDatasetConfig` contents when no longer needed
+
+Azure does not automatically delete intermediate data written with `OutputFileDatasetConfig`. To avoid storage charges for large amounts of unneeded data, you should either:
+
+* Programmatically delete intermediate data at the end of a pipeline run, when it is no longer needed
+* Use blob storage with a short-term storage policy for intermediate data (see [Optimize costs by automating Azure Blob Storage access tiers](../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal)) 
+* Regularly review and delete no-longer-needed data
+
+For more information, see [Plan and manage costs for Azure Machine Learning](concept-plan-manage-cost.md).
 
 ## Next steps
 

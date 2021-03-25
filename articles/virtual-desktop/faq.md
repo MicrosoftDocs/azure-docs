@@ -3,7 +3,7 @@ title: Windows Virtual Desktop FAQ - Azure
 description: Frequently asked questions and best practices for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 10/15/2020
+ms.date: 03/09/2021
 ms.author: helohr
 manager: lizross
 ---
@@ -104,7 +104,7 @@ Once you create a host pool, you can't change its type. However, you can move an
 
 Limitations or quotas in FSLogix depend on the storage fabric used to store user profile VHD(X) files.
 
-The following table gives an example of how any resources an FSLogix profile needs to support each user. Requirements can vary widely depending on the user, applications, and activity on each profile.
+The following table gives an example of how many IOPS an FSLogix profile needs to support each user. Requirements can vary widely depending on the user, applications, and activity on each profile.
 
 | Resource | Requirement |
 |---|---|
@@ -130,3 +130,26 @@ Azure Lighthouse doesn't fully support managing Windows Virtual Desktop environm
 You also can't use CSP sandbox subscriptions with the Windows Virtual Desktop service. To learn more, see [Integration sandbox account](/partner-center/develop/set-up-api-access-in-partner-center#integration-sandbox-account).
 
 Finally, if you enabled the resource provider from the CSP owner account, the CSP customer accounts won't be able to modify the resource provider.
+
+## How often should I turn my VMs on to prevent registration issues?
+
+After you register a VM to a host pool within the Windows Virtual Desktop service, the agent regularly refreshes the VM's token whenever the VM is active. The certificate for the registration token is valid for 90 days. Because of this 90-day limit, we recommend you start your VMs every 90 days. Turning your VM on within this time limit will prevent its registration token from expiring or becoming invalid. If you've started your VM after 90 days and are experiencing registration issues, follow the instructions in the [Windows Virtual Desktop agent troubleshooting guide](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) to remove the VM from the host pool, reinstall the agent, and reregister it to the pool.
+
+## Can I set availability options when creating host pools?
+
+Yes. Windows Virtual Desktop host pools have an option for selecting either availability set or availability zones when you create a VM. These availability options are the same as the ones Azure Compute uses. If you select a zone for the VM you create in a host pool, the setting automatically applies to all VMs you create in that zone. If you'd prefer to spread your host pool VMs across multiple zones, you'll need to follow the directions in [Add virtual machines with the Azure portal](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal) to manually select a new zone for each new VM you create.
+
+## Which availability option is best for me?
+
+The availability option you should use for your VMs depends on your image's location and its managed disk fields. The following table explains the relationship each setting has with these variables to help you figure out which option is best for your deployment. 
+
+| Availability option | Image location | Use managed disk option button (radio button) |
+|---|---|---|
+| None | Gallery | Disabled with "Yes" as default |
+| None | Blob storage | Enabled with "No" as default |
+| Availability zone | Gallery (blob storage option disabled) | Disabled with "Yes" as default |
+| Availability set with managed SKU (managed disk) | Gallery | Disabled with "Yes" as default |
+| Availability set with managed SKU (managed disk) | Blob storage | Enabled with "No" as default |
+| Availability set with managed SKU (managed disk) | Blob storage (Gallery option disabled) | Disabled with "No" as default |
+| Availability set (newly created by user) | Gallery | Disabled with "Yes" as default |
+| Availability set (newly created by user) | Blob storage | Enabled with "No" as default |

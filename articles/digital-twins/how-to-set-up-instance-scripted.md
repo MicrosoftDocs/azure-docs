@@ -8,6 +8,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
+ms.custom: contperf-fy21q3
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -124,7 +125,7 @@ If verification was unsuccessful, you can also redo your own role assignment usi
 ## Next steps
 
 Test out individual REST API calls on your instance using the Azure Digital Twins CLI commands: 
-* [az dt reference](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)
+* [az dt reference](/cli/azure/ext/azure-iot/dt)
 * [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md)
 
 Or, see how to connect a client application to your instance with authentication code:

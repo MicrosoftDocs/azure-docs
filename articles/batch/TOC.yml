@@ -31,15 +31,6 @@
   - name: Parallel file processing - Python
     displayName: tutorial, hpc, high-performance, large
     href: tutorial-parallel-python.md
-  - name: Scene rendering with Arnold
-    displayName: tutorial
-    href: tutorial-rendering-cli.md
-  - name: Rendering using Batch Explorer
-    displayName: tutorial
-    href: tutorial-rendering-batchexplorer-blender.md
-  - name: Parallel R simulation
-    displayName: tutorial, doAzureParallel, rstudio
-    href: tutorial-r-doazureparallel.md
   - name: OCR with Batch and Functions
     displayName: trigger, optical
     href: tutorial-batch-functions.md
@@ -158,9 +149,6 @@
       href: batch-sig-images.md
     - name: Create a pool with a managed image resource
       href: batch-custom-images.md
-    - name: Create a pool across Availability Zones
-      displayName: region, zonal policy
-      href: create-pool-availability-zones.md
     - name: Create a pool with disk encryption enabled
       href: disk-encryption.md
     - name: Create a pool in a virtual network
@@ -172,6 +160,12 @@
     - name: Create a pool without public IP addresses
       displayName: private
       href: batch-pool-no-public-ip-address.md
+    - name: Configure managed identities
+      displayName: user-assigned
+      href: managed-identity-pools.md
+    - name: Enable certificate rotation
+      displayName: key vault, keyvault, automatic
+      href: automatic-certificate-rotation.md
     - name: Mount a virtual file system
       href: virtual-file-mount.md
     - name: Mount an Azure file share
