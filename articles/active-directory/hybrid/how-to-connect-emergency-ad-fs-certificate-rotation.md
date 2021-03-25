@@ -59,15 +59,23 @@ The AutoCertificateRollover property describes whether AD FS is configured to re
 
 
 ## Generating new self-signed certificate if AutoCertificateRollover is set to TRUE
-In this section, you will be creating **two** token-signing certificates.  The first will use the **-urgent** flag, which will replace the current primary certificate immediately.  The second will be used for the secondary certificate.  You can use the following steps to generate a new self-signed token signing and token decryption certificates.
+In this section, you will be creating **two** token-signing certificates.  The first will use the **-urgent** flag, which will replace the current primary certificate immediately.  The second will be used for the secondary certificate.  
+
+>[!IMPORTANT]
+>The reason we are creating two certificates is because Azure holds on to information regarding the previous certificate.  By creating a second one, we are forcing Azure to release information about the old certificate and replace it with information about the second certificate.
+>
+>If you do not create the second certificate and update Azure with it, it may be possible for the  old token-signing certificate to authenticate users.
+
+You can use the following steps to generate the new token-signing certificates.
 
  1. Ensure that you are logged on to the primary AD FS server.
  2. Open Windows PowerShell as an administrator. 
  3. Check to make sure that your AutoCertificateRollover is set to True.
 `PS C:\>Get-AdfsProperties | FL AutoCert*, Certificate*`
  4. To generate a new token signing certificate: `Update-ADFSCertificate –CertificateType token-signing -Urgent`.
- 5. Verify the update by running the following command again: `Get-ADFSCertificate –CertificateType token-signing`
- 6. To generate a new token signing certificate: `Update-ADFSCertificate –CertificateType token-signing`.
+ 5. Verify the update by running the following command: `Get-ADFSCertificate –CertificateType token-signing`
+ 6. Now generate the second token signing certificate: `Update-ADFSCertificate –CertificateType token-signing`.
+ 7. You can verify the update by running the following command again: `Get-ADFSCertificate –CertificateType token-signing`
 
 
 ## Generating new certificates manually if AutoCertificateRollover is set to FALSE
