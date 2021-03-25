@@ -19,7 +19,7 @@ ms.reviewer: jroth
 # Collect baseline: Performance best practices for SQL Server on Azure VM
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This article provides information to collect a performance baseline as aa series of best practices and guidelines to optimize performance for your SQL Server on Azure Virtual Machines (VMs).
+This article provides information to collect a performance baseline as a series of best practices and guidelines to optimize performance for your SQL Server on Azure Virtual Machines (VMs).
 
 There is typically a trade-off between optimizing for costs and optimizing for performance. This performance best practices series is focused on getting the *best* performance for SQL Server on Azure Virtual Machines. If your workload is less demanding, you might not require every recommended optimization. Consider your performance needs, costs, and workload patterns as you evaluate these recommendations.
 
@@ -36,18 +36,19 @@ Use the performance analysis to select the [VM Size](../../../virtual-machines/s
 
 ## Storage
 
-SQL Server performance depends heavily on the I/O subsystem and storage performance is measured by IOPS and throughput. Unless your database fits into physical memory, SQL Server constantly brings database pages in and out of the buffer pool. The data files for SQL Server should be treated differently. Access to log files is sequential except when a transaction needs to be rolled back where data files, including TempDB, are randomly accessed. If you have a slow I/O subsystem, your users may experience performance issues such as slow response times and tasks that do not complete due to time-outs. 
+SQL Server performance depends heavily on the I/O subsystem and storage performance is measured by IOPS and throughput. Unless your database fits into physical memory, SQL Server constantly brings database pages in and out of the buffer pool. The data files for SQL Server should be treated differently. Access to log files is sequential except when a transaction needs to be rolled back where data files, including tempdb, are randomly accessed. If you have a slow I/O subsystem, your users may experience performance issues such as slow response times and tasks that do not complete due to time-outs. 
 
-The Azure Marketplace virtual machines have log files on a physical disk that is separate from the data files by default. The TempDB data files count and size meet best practices and are targeted to the ephemeral `D:\` drive.. 
+The Azure Marketplace virtual machines have log files on a physical disk that is separate from the data files by default. The tempdb data files count and size meet best practices and are targeted to the ephemeral `D:\` drive. 
 
 The following PerfMon counters can help validate the IO throughput required by your SQL Server: 
-* **\LogicalDisk\Disk Reads/Sec** (read and write IOPS)
-* **\LogicalDisk\Disk Writes/Sec** (read and write IOPS) 
-* **\LogicalDisk\Disk Bytes/Sec** (throughput requirements for the data, log, and TempDB files)
+* **\LogicalDisk\Disk Reads/Sec** (read IOPS)
+* **\LogicalDisk\Disk Writes/Sec** (write IOPS) 
+* **\LogicalDisk\Disk Read Bytes/Sec** (read throughput requirements for the data, log, and tempdb files)
+* **\LogicalDisk\Disk Write Bytes/Sec** (write throughput requirements for the data, log, and tempdb files)
 
 Using IOPS and throughput requirements at peak levels, evaluate VM sizes that match the capacity from your measurements. 
 
-If your workload requires 20 K read IOPS and 10K write IOPS, you can either choose E16s_v3 (with up to 32 K cached and 25600 uncached IOPS) or M16_s (with up to 20 K cached and 10K uncached IOPS) with 2 P30 disks striped using Storage Spaces. 
+If your workload requires 20K read IOPS and 10K write IOPS, you can either choose E16s_v3 (with up to 32K cached and 25600 uncached IOPS) or M16_s (with up to 20K cached and 10K uncached IOPS) with 2 P30 disks striped using Storage Spaces. 
 
 Make sure to understand both throughput and IOPS requirements of the workload as VMs have different scale limits for IOPS and throughput.
 
