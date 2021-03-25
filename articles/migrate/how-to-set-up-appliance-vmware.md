@@ -162,7 +162,7 @@ If you want to leverage these features, you can provide server credentials by fo
 - When you click on **Save** or **Add more**, the appliance validates the domain credentials with the domain's Active Directory for their authenticity. This is done to avoid any account lockouts when appliance does multiple iterations to map credentials to the respective servers.
 - You can see the **Validation status** for all the domain credentials in the credentials table. Only domain credentials will be validated.
 - If the validation fails, you can click on **Failed** status to see the error encountered and click on **Revalidate credentials** after fixing the issue to validate the failed domain credentials again.
-    :::image type="content" source="./media/tutorial-discover-vmware/add-server-credentials-multiple.png" alt-text="Panel 3 on appliance configuration manager for server details":::
+    :::image type="content" source="./media/tutorial-discover-vmware/add-server-credentials-multiple.png" alt-text="Panel 3 on appliance configuration manager with multiple server credentials":::
 
 ### Start discovery
 
