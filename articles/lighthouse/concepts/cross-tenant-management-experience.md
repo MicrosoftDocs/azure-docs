@@ -1,7 +1,7 @@
 ---
 title: Cross-tenant management experiences
 description: Azure delegated resource management enables a cross-tenant management experience.
-ms.date: 03/23/2021
+ms.date: 03/26/2021
 ms.topic: conceptual
 ---
 
@@ -73,6 +73,7 @@ Most tasks and services can be performed on delegated resources across managed t
 [Azure Cost Management + Billing](../../cost-management-billing/index.yml):
 
 - From the managing tenant, CSP partners can view, manage, and analyze pre-tax consumption costs (not inclusive of purchases) for customers who are under the Azure plan. The cost will be based on retail rates and the Azure role-based access control (Azure RBAC) access that the partner has for the customer's subscription.
+- Note that currently, you can't aggregate cost management information across all of a customer's individual subscriptions.
 
 [Azure Key Vault](../../key-vault/general/index.yml):
 
