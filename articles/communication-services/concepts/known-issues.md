@@ -65,7 +65,7 @@ With Safari on **iOS/iPad**, your app may have trouble enumerating/selecting mic
 With Safari on **MacOS**, your app may have trouble enumerating/selecting speaker devices through the Communication Services Device Manager. In this scenario, your device selection should be updated via the operating system.
 
 ### Rotation of a device can create poor video quality
-We encourage developers to build their app in a way that does not require rotation of multimedia devices. Users may experience degraded video quality when devices are rotated.
+Users may experience degraded video quality when devices are rotated.
 
 Devices affected: Google Pixel 5, Google Pixel 3a, Apple iPad 8, and Apple iPad X
 Client library: Calling (JavaScript)
