@@ -67,13 +67,33 @@ The following list presents the set of features which are currently available in
 |                   | Set / update scaling mode                                                                                           | ✔️   | ✔️            | ✔️ 
 |                   | Render remote video stream                                                                                          | ✔️   | ✔️            | ✔️
 
+## Calling client library streaming support
+The Communication Services Calling client library supports the following streaming configurations:
 
+| Limit          |Web | Android/iOS|
+|-----------|----|------------|
+|**# of outgoing streams that can be sent simultaneously** |1 video + 1 screen sharing | 1 video + 1 screen sharing|
+|**# of incoming streams that can be rendered simultaneously** |1 video + 1 screen sharing| 6 video + 1 screen sharing |
+
+## Calling client library timeouts
+
+The following timeouts apply to the Communication Services Calling client libraries:
+
+| Action           | Timeout in seconds |
+| -------------- | ---------- |
+| Reconnect/removal participant | 120 |
+| Add or remove new modality from a call (Start/stop video or screen sharing) | 40 |
+| Call Transfer operation timeout | 60 |
+| 1:1 call establishment timeout | 85 |
+| Group call establishment timeout | 85 |
+| PSTN call establishment timeout | 115 |
+| Promote 1:1 call to a group call timeout | 115 |
 
 ## JavaScript Calling SDK support by OS and browser
 
 The following table represents the set of supported browsers which are currently available. We support the most recent three versions of the browser unless otherwise indicated.
 
-|                                  | Chrome | Safari*  | Edge (Chromium) | 
+| Platform                         | Chrome | Safari*  | Edge (Chromium) | 
 | -------------------------------- | -------| ------  | --------------  |
 | Android                          |  ✔️    | ❌     | ❌             |
 | iOS                              |  ❌    | ✔️**** | ❌             |
@@ -109,15 +129,6 @@ For example, this iframe allows both camera and microphone access:
 ```html
 <iframe allow="camera *; microphone *">
 ```
-
-## Calling SDK streaming support
-The Communication Services Calling SDK supports the following streaming configurations:
-
-|           |Web | Android/iOS|
-|-----------|----|------------|
-|**# of outgoing streams that can be sent simultaneously** |1 video or 1 screen sharing | 1 video + 1 screen sharing|
-|**# of incoming streams that can be rendered simultaneously** |1 video or 1 screen sharing| 6 video + 1 screen sharing |
-
 
 ## Next steps
 
