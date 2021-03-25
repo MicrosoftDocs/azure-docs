@@ -84,7 +84,7 @@ To set up host pool diagnostics using the resource diagnostic settings section i
     - HostRegistration
     - AgentHealthStatus
     >[!NOTE]
-    > If you don't see the error message, you don't need to do step 2-4.
+    > If you don't see the error message, you don't need to do steps 2 through 4.
 2. Select **Configure host pool**.
 3. Select **Deploy**.
 4. Refresh the configuration workbook.
