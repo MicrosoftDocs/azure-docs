@@ -44,7 +44,7 @@ Start with reading the article [Monitoring Azure resources with Azure Monitor](.
 
 ## Monitoring data
 
-Media Services collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../../../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data-from-Azure-resources).
+Media Services collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../../../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data).
 
 All data collected by Azure Monitor fits into one of two fundamental types: metrics and logs. With these two types you can:
 
@@ -78,7 +78,7 @@ For a list of the metrics collected for Media Services, see [Monitoring Media Se
 
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../../../azure-monitor/essentials/resource-logs-schema.md#top-level-resource-logs-schema).
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../../../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema).
 
 The schema for Media Services resource logs is found in [Monitoring Media Services Data Reference](monitor-media-services-data-reference.md).
 
