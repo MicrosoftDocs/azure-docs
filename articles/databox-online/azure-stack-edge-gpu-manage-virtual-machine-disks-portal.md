@@ -56,7 +56,7 @@ Before you begin to manage disks on the VMs running on your device via the Azure
 
 1. Your VM should be in **Stopped** state. To stop your VM, go to **Virtual machines > Overview** and select the VM you want to stop. In the **Overview** page, select **Stop** and then select **Yes** when prompted for confirmation. Before you add, edit, or delete disks, you must stop the VM.
 
-    ![Stop VM from VM properties page](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/stop-vm-2.png)
+    ![Stop VM from Overview page](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/stop-vm-2.png)
 
 
 ## Add a data disk
@@ -65,7 +65,7 @@ Follow these steps to add a disk to a virtual machine deployed on your device.
 
 1. Go to the virtual machine that you have stopped and then go to the **Overview** page. Select **Disks**.
     
-    ![Select Disks on VM properties page](./media/azure-stack-edge-gpu-manage-virtual-machine-disks-portal/add-data-disk-1.png)
+    ![Select Disks on Overview page](./media/azure-stack-edge-gpu-manage-virtual-machine-disks-portal/add-data-disk-1.png)
 
 1. In the **Disks** blade, under **Data Disks**, select **Create and attach a new disk**.
 
