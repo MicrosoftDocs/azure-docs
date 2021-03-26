@@ -139,6 +139,7 @@ These are the names of the activity logs the diagnostic counter tracks:
 - WVDErrors
 - WVDFeeds
 - WVDManagement
+- WVDAgentHealthStatus
 
 The service sends diagnostic information whenever the environment meets the terms required to make a record. Since diagnostic record count is unpredictable, we use a range of 500 to 1000 events per VM per day based on examples from healthy environments for this estimate.
 
