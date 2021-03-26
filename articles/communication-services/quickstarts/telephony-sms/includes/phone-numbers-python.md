@@ -38,13 +38,13 @@ pip install azure-communication-phone-numbers
 
 ## Authenticate the Phone Numbers Client
 
-The `PhoneNumbersClient` is enabled to use Azure Active Directory Authentication. Using the `DefaultAzureCredential` object is the easiest way to get started with AAD and you can install it using the `pip install` command. 
+The `PhoneNumbersClient` is enabled to use Azure Active Directory Authentication. Using the `DefaultAzureCredential` object is the easiest way to get started with Azure Active Directory and you can install it using the `pip install` command. 
 
 ```console
 pip install azure-identity
 ```
 
-Creating a `DefaultAzureCredential` object requires you to have `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, and `AZURE_TENANT_ID` already set as environment variables with their corresponding values from your registered AAD application.
+Creating a `DefaultAzureCredential` object requires you to have `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, and `AZURE_TENANT_ID` already set as environment variables with their corresponding values from your registered Azure AD application.
 
 Once you have installed the `azure-identity` library, we can continue authenticating the client.
 
