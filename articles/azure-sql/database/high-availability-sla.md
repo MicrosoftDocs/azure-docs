@@ -43,22 +43,22 @@ Whenever the database engine or the operating system is upgraded, or a failure i
 
 ## General Purpose service tier zone redundant availability (Preview)
 
-Zone redundant configuration for the general purpose service tier utilizes [Azure Availability Zones](../../availability-zones/az-overview.md)  to replicate databases across multiple physical locations within an Azure region. By selecting zone redundancy, you can make your new and existing general purpose single databases and elastic pools resilient to a much larger set of failures, including catastrophic datacenter outages, without any changes of the application logic.
+Zone redundant configuration for the general purpose service tier is offered for both serverless and provisioned compute. This configuration utilizes [Azure Availability Zones](../../availability-zones/az-overview.md)  to replicate databases across multiple physical locations within an Azure region. By selecting zone redundancy, you can make your new and existing serverlesss and provisioned general purpose single databases and elastic pools resilient to a much larger set of failures, including catastrophic datacenter outages, without any changes of the application logic.
 
 Zone redundant configuration for the general purpose tier has two layers:  
 
-- A stateful data layer with the database files (.mdf/.ldf) that are stored in ZRS PFS (zone-redundant [storage premium file share](../../storage/files/storage-how-to-create-file-share.md). Using [zone-redundant storage](../../storage/common/storage-redundancy.md) the data and log files are synchronously copied across three physically-isolated Azure availability zones.
-- A stateless compute layer that runs the sqlservr.exe process and contains only transient and cached data, such as TempDB, model databases on the attached SSD, and plan cache, buffer pool, and columnstore pool in memory. This stateless node is operated by Azure Service Fabric that initializes sqlservr.exe, controls health of the node, and performs failover to another node if necessary. For zone redundant general purpose databases, nodes with spare capacity are readily available in other Availability Zones for failover.
+- A stateful data layer with the database files (.mdf/.ldf) that are stored in ZRS(zone-redundant storage). Using [ZRS](../../storage/common/storage-redundancy.md) the data and log files are synchronously copied across three physically-isolated Azure availability zones.
+- A stateless compute layer that runs the sqlservr.exe process and contains only transient and cached data, such as TempDB, model databases on the attached SSD, and plan cache, buffer pool, and columnstore pool in memory. This stateless node is operated by Azure Service Fabric that initializes sqlservr.exe, controls health of the node, and performs failover to another node if necessary. For zone redundant serverless and provisioned general purpose databases, nodes with spare capacity are readily available in other Availability Zones for failover.
 
 The zone redundant version of the high availability architecture for the general purpose service tier is illustrated by the following diagram:
 
 ![Zone redundant configuration for general purpose](./media/high-availability-sla/zone-redundant-for-general-purpose.png)
 
 > [!IMPORTANT]
-> Zone redundant configuration is only available when the Gen5 compute hardware is selected. This feature is not available in SQL Managed Instance. Zone redundant configuration for general purpose tier is only available in the following regions: East US, East US 2, West US 2, North Europe, West Europe, Southeast Asia, Australia East, Japan East, UK South, and France Central.
+> Zone redundant configuration is only available when the Gen5 compute hardware is selected. This feature is not available in SQL Managed Instance. Zone redundant configuration for serverless and provisioned general purpose tier is only available in the following regions: East US, East US 2, West US 2, North Europe, West Europe, Southeast Asia, Australia East, Japan East, UK South, and France Central.
 
 > [!NOTE]
-> General Purpose databases with a size of 80 vcore may experience performance degradation with zone redundant configuration. Additionally, operations such as backup, restore, database copy, and setting up Geo-DR relationships may experience slower performance for any single databases larger than 1 TB. 
+> General Purpose databases with a size of 80 vcore may experience performance degradation with zone redundant configuration. Additionally, operations such as backup, restore, database copy, setting up Geo-DR relationships, and downgrading a zone redundant database from Business Critical to General Purpose may experience slower performance for any single databases larger than 1 TB. Please see our [latency documentation on scaling a database](single-database-scale.md) for more information.
 > 
 > [!NOTE]
 > The preview is not covered under Reserved Instance

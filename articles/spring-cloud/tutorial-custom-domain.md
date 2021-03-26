@@ -23,6 +23,14 @@ Certificates encrypt web traffic. These TLS/SSL certificates can be stored in Az
 * A private certificate (that is, your self-signed certificate) from a third-party provider. The certificate must match the domain.
 * A deployed instance of [Azure Key Vault](../key-vault/general/overview.md)
 
+## Keyvault Private Link Considerations
+
+The Azure Spring Cloud management IPs aren't part of the Azure Trusted Microsoft services. Therefore, to allow Azure Spring Cloud to load certificates from a Key Vault protected with Private endpoint connections, you must add the following IPs to Azure Key Vault Firewall:
+
+```
+20.53.123.160 52.143.241.210 40.65.234.114 52.142.20.14 20.54.40.121 40.80.210.49 52.253.84.152 20.49.137.168 40.74.8.134 51.143.48.243
+```
+
 ## Import certificate
 ### Prepare your certificate file in PFX (optional)
 Azure Key Vault support importing private certificate in PEM and PFX format. If the PEM file you obtained from your certificate provider doesn't work in section below: [Save certificate in Key Vault](#save-certificate-in-key-vault), follow the steps here to generate a PFX for Azure Key Vault.
@@ -152,7 +160,7 @@ After you add the CNAME, the DNS records page will resemble the following exampl
 ![DNS records page](./media/custom-dns-tutorial/dns-records.png)
 
 ## Map your custom domain to Azure Spring Cloud app
-If you don't have an application in Azure Spring Cloud, follow the instructions in [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal).
+If you don't have an application in Azure Spring Cloud, follow the instructions in [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](./spring-cloud-quickstart.md).
 
 #### [Portal](#tab/Azure-portal)
 Go to application page.

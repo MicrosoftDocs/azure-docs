@@ -25,7 +25,7 @@ You can run the Microsoft Azure Import/Export Tool with the import job's copy lo
 
 The following parameters can be specified with **RepairImport**: 
   
-|||  
+| Parameter | Description |  
 |-|-|  
 |**/r:**<RepairFile\>|**Required.** Path to the repair file, which tracks the progress of the repair, and allows you to resume an interrupted repair. Each drive must have one and only one repair file. When you start a repair for a given drive, pass in the path to a repair file, which doesn't yet exist. To resume an interrupted repair, you should pass in the name of an existing repair file. Always specify the repair file corresponding to the target drive.|  
 |**/logdir:**<LogDirectory\>|**Optional.** The log directory. Verbose log files are written to this directory. If no log directory is specified, the current directory is used as the log directory.|  

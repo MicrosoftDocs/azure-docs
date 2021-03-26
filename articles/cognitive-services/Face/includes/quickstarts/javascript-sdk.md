@@ -74,7 +74,7 @@ Create variables for your resource's Azure endpoint and key.
 > [!IMPORTANT]
 > Go to the Azure portal. If the Face resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
 >
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
 
 ```javascript
 key = "<paste-your-face-key-here>"
@@ -109,7 +109,7 @@ The code snippets below show you how to do the following tasks with the Face cli
 
 ## Authenticate the client
 
-Instantiate a client with your endpoint and key. Create a **[ApiKeyCredentials](https://docs.microsoft.com/javascript/api/@azure/ms-rest-js/apikeycredentials)** object with your key, and use it with your endpoint to create a **[FaceClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/faceclient)** object.
+Instantiate a client with your endpoint and key. Create a **[ApiKeyCredentials](/javascript/api/@azure/ms-rest-js/apikeycredentials)** object with your key, and use it with your endpoint to create a **[FaceClient](/javascript/api/@azure/cognitiveservices-face/faceclient)** object.
 
 :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="credentials":::
 
@@ -211,7 +211,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 In this quickstart, you learned how to use the Face client library for JavaScript to do basis facial recognition tasks. Next, explore the reference documentation to learn more about the library.
 
 > [!div class="nextstepaction"]
-> [Face API reference (JavaScript)](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/)
+> [Face API reference (JavaScript)](/javascript/api/@azure/cognitiveservices-face/)
 
 * [What is the Face service?](../../overview.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/Face/sdk_quickstart.js).

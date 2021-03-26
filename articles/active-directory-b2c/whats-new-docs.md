@@ -68,8 +68,8 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 
 ### New articles
 
-- [Create a user flow in Azure Active Directory B2C](create-user-flow.md)
-- [Set up phone sign-up and sign-in for user flows](phone-authentication-user-flows.md)
+- [Create a user flow in Azure Active Directory B2C](add-sign-up-and-sign-in-policy.md)
+- [Set up phone sign-up and sign-in for user flows (preview)](phone-authentication-user-flows.md)
 
 ### Updated articles
 
@@ -109,7 +109,7 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 ### Updated articles
 - [Set redirect URLs to b2clogin.com for Azure Active Directory B2C](b2clogin.md)
 - [Define an OpenID Connect technical profile in an Azure Active Directory B2C custom policy](openid-connect-technical-profile.md)
-- [Set up phone sign-up and sign-in with custom policies in Azure AD B2C](phone-authentication.md)
+- [Set up phone sign-up and sign-in with custom policies in Azure AD B2C](phone-authentication-user-flows.md)
 
 
 ## August 2020

@@ -1,17 +1,17 @@
 ---
 title: Azure Percept AI models
 description: Learn more about the AI models available for prototyping and deployment
-author: elqu20
-ms.author: v-elqu
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 03/23/2021
 ms.custom: template-concept
 ---
 
 # Azure Percept AI models
 
-Azure Percept enables you to develop and deploy AI models directly to your Azure Percept DK from [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819). Model deployment utilizes [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) and [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/#iotedge-overview).
+Azure Percept enables you to develop and deploy AI models directly to your [Azure Percept DK](./overview-azure-percept-dk.md) from [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819). Model deployment utilizes [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) and [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/#iotedge-overview).
 
 ## Sample AI models
 
@@ -22,7 +22,7 @@ Azure Percept Studio contains sample models for the following applications:
 - general object detection
 - products-on-shelf detection
 
-With pre-trained models, no coding or training data collection is required. Simply deploy your desired model to your Azure Percept DK from the portal and open your devkit’s video stream to see the model inferencing in action. Model inferencing telemetry can also be accessed through the [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases) tool.
+With pre-trained models, no coding or training data collection is required. Simply [deploy your desired model](./how-to-deploy-model.md) to your Azure Percept DK from the portal and open your devkit’s [video stream](./how-to-view-video-stream.md) to see the model inferencing in action. [Model inferencing telemetry](./how-to-view-telemetry.md) can also be accessed through the [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases) tool.
 
 ## Reference solutions
 
@@ -32,9 +32,9 @@ A [people counting reference solution](https://github.com/microsoft/Azure-Percep
 
 ## Custom no-code solutions
 
-Through Azure Percept Studio, you can develop custom [vision](./tutorial-nocode-vision.md) and speech solutions, no coding required.
+Through Azure Percept Studio, you can develop custom [vision](./tutorial-nocode-vision.md) and [speech](./tutorial-no-code-speech.md) solutions, no coding required.
 
-For custom vision solutions, both object detection and classification AI models are available. Simply upload and tag your training images, which can be taken directly with the Azure Percept Vision SoM of the Azure Percept DK, if desired. Model training and evaluation are easily performed in [Custom Vision](https://www.customvision.ai/), which is part of [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/#overview).
+For custom vision solutions, both object detection and classification AI models are available. Simply upload and tag your training images, which can be taken directly with the Azure Percept Vision SoM of the Azure Percept DK if desired. Model training and evaluation are easily performed in [Custom Vision](https://www.customvision.ai/), which is part of [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/#overview).
 
 </br>
 
@@ -54,6 +54,6 @@ Pre-built voice assistant keywords and commands are available directly through t
 Please see the [Azure Percept DK advanced development GitHub](https://github.com/microsoft/azure-percept-advanced-development) for
 up-to-date guidance, tutorials, and examples for things like:
 
-* Bringing a custom AI model to the device
-* Updating a model we already support with transfer learning
-* And more
+- Deploying a custom AI model to your Azure Percept DK
+- Updating a supported model with transfer learning
+- And more
