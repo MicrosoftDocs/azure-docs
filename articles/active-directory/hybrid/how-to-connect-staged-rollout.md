@@ -13,7 +13,7 @@ ms.collection: M365-identity-device-management
 ---
 
 
-# Migrate to cloud authentication using staged rollout (preview)
+# Migrate to cloud authentication using staged rollout
 
 Staged rollout allows you to selectively test groups of users with cloud authentication capabilities like Azure AD Multi-Factor Authentication (MFA), Conditional Access, Identity Protection for leaked credentials, Identity Governance, and others, before cutting over your domains.  This article discusses how to make the switch. Before you begin the staged rollout, however, you should consider the implications if one or more of the following conditions is true:
     
@@ -164,19 +164,19 @@ You can roll out one of these options:
 
 Do the following:
 
-1. To access the preview UX, sign in to the [Azure AD portal](https://aka.ms/stagedrolloutux).
+1. To access the UX, sign in to the [Azure AD portal](https://aka.ms/stagedrolloutux).
 
-2. Select the **Enable staged rollout for managed user sign-in (Preview)** link.
+2. Select the **Enable staged rollout for managed user sign-in** link.
 
    For example, if you want to enable *Option A*, slide the **Password Hash Sync** and **Seamless single sign-on** controls to **On**, as shown in the following images.
 
-   ![The Azure AD Connect page](./media/how-to-connect-staged-rollout/sr4.png)
+   
 
-   ![The "Enable staged rollout features (Preview)" page](./media/how-to-connect-staged-rollout/sr5.png)
+  
 
 3. Add the groups to the feature to enable *pass-through authentication* and *seamless SSO*. To avoid a UX time-out, ensure that the security groups contain no more than 200 members initially.
 
-   ![The "Manage groups for Password Hash Sync (Preview)" page](./media/how-to-connect-staged-rollout/sr6.png)
+   
 
    >[!NOTE]
    >The members in a group are automatically enabled for staged rollout. Nested and dynamic groups are not supported for staged rollout.
