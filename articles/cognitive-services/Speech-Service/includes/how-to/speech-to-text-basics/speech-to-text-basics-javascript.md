@@ -21,7 +21,7 @@ This article assumes that you have an Azure account and Speech service subscript
 
 ## Install the Speech SDK
 
-Before you can do anything, you need to install the Speech SDK for Node.js. If you just want the package name to install, run `npm install microsoft-cognitiveservices-speech-sdk`. For guided installation instructions, see the [get started](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=dotnet%2Clinux%2Cjre%2Cnodejs&pivots=programming-language-javascript) article.
+Before you can do anything, you need to install the Speech SDK for Node.js. If you just want the package name to install, run `npm install microsoft-cognitiveservices-speech-sdk`. For guided installation instructions, see the [get started](../../../quickstarts/setup-platform.md?pivots=programming-language-javascript&tabs=dotnet%2clinux%2cjre%2cnodejs) article.
 
 Use the following `require` statement to import the SDK.
 
@@ -57,11 +57,7 @@ Recognizing speech from a microphone is **not supported in Node.js**, and is onl
 
 ## Recognize from file 
 
-To recognize speech from an audio file in Node.js, an alternative design pattern using a push stream must be used, since the JavaScript `File` object cannot be used in a Node.js runtime. The following code:
-
-* Creates a push stream using `createPushStream()`
-* Opens the `.wav` file by creating a read stream, and writes it to the push stream
-* Creates an audio config using the push stream
+To recognize speech from an audio file, create an `AudioConfig` using `fromWavFileInput()` which accepts a `Buffer` object. Then initialize a [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest), passing your `audioConfig` and `speechConfig`.
 
 ```javascript
 const fs = require('fs');
@@ -69,6 +65,31 @@ const sdk = require("microsoft-cognitiveservices-speech-sdk");
 const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
 
 function fromFile() {
+    let audioConfig = sdk.AudioConfig.fromWavFileInput(fs.readFileSync("YourAudioFile.wav"));
+    let recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
+
+    recognizer.recognizeOnceAsync(result => {
+        console.log(`RECOGNIZED: Text=${result.text}`);
+        recognizer.close();
+    });
+}
+fromFile();
+```
+
+## Recognize from in-memory stream
+
+For many use-cases, it is likely your audio data will be coming from blob storage, or otherwise already be in-memory as an [`ArrayBuffer`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) or similar raw data structure. The following code:
+
+* Creates a push stream using `createPushStream()`.
+* Reads a `.wav` file using `fs.createReadStream` for demonstration purposes, but if you already have audio data in an `ArrayBuffer`, you can skip directly to writing the content to the input stream.
+* Creates an audio config using the push stream.
+
+```javascript
+const fs = require('fs');
+const sdk = require("microsoft-cognitiveservices-speech-sdk");
+const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
+
+function fromStream() {
     let pushStream = sdk.AudioInputStream.createPushStream();
 
     fs.createReadStream("YourAudioFile.wav").on('data', function(arrayBuffer) {
@@ -84,7 +105,7 @@ function fromFile() {
         recognizer.close();
     });
 }
-fromFile();
+fromStream();
 ```
 
 Using a push stream as input assumes that the audio data is a raw PCM, e.g. skipping any headers.

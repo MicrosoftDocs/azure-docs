@@ -95,7 +95,7 @@ This article answers frequently asked questions about Azure Resource Manager tem
 
 * **Will you offer a tool to convert my JSON templates to the new template language?**
 
-  Yes. See [Decompile JSON to Bicep](compare-template-syntax.md#decompile-json-to-bicep).
+  Yes. See [Converting ARM templates between JSON and Bicep](bicep-decompile.md).
 
 ## Template Specs
 

@@ -96,7 +96,7 @@ Yes, you can. For instructions, see [Move resources across regions](../database/
 
 **How can I delete my Managed Instance?**
 
-You can delete Managed Instances via Azure portal, [PowerShell](/powershell/module/az.sql/remove-azsqlinstance?preserve-view=true&view=azps-4.3.0), [Azure CLI](/cli/azure/sql/mi#az-sql-mi-delete) or [Resource Manager REST APIs](/rest/api/sql/managedinstances/delete).
+You can delete Managed Instances via Azure portal, [PowerShell](/powershell/module/az.sql/remove-azsqlinstance), [Azure CLI](/cli/azure/sql/mi#az-sql-mi-delete) or [Resource Manager REST APIs](/rest/api/sql/managedinstances/delete).
 
 **How much time does it take to create or update an instance, or to restore a database?**
 
@@ -208,7 +208,7 @@ Yes, you can purchase add-on storage, independently from compute, to some extent
 
 **How can I optimize my storage performance in General Purpose service tier?**
 
-To optimize storage performance, see [Storage best practices in General Purpose](https://techcommunity.microsoft.com).
+To optimize storage performance, see [Storage best practices in General Purpose](https://techcommunity.microsoft.com/t5/datacat/storage-performance-best-practices-and-considerations-for-azure/ba-p/305525).
 
 ## Backup and restore
 

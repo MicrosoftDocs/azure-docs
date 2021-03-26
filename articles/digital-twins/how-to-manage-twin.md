@@ -128,13 +128,13 @@ The result of calling `object result = await client.GetDigitalTwinAsync("my-moon
 }
 ```
 
-The defined properties of the digital twin are returned as top-level properties on the digital twin. Metadata or system information that is not part of the DTDL definition is returned with a `$` prefix. Metadata properties include:
-* The ID of the digital twin in this Azure Digital Twins instance, as `$dtId`.
-* `$etag`, a standard HTTP field assigned by the web server.
-* Other properties in a `$metadata` section. These include:
-    - The DTMI of the model of the digital twin.
-    - Synchronization status for each writeable property. This is most useful for devices, where it's possible that the service and the device have diverging statuses (for example, when a device is offline). Currently, this property only applies to physical devices connected to IoT Hub. With the data in the metadata section, it is possible to understand the full status of a property, as well as the last modified timestamps. For more information about sync status, see [this IoT Hub tutorial](../iot-hub/tutorial-device-twins.md) on synchronizing device state.
-    - Service-specific metadata, like from IoT Hub or Azure Digital Twins. 
+The defined properties of the digital twin are returned as top-level properties on the digital twin. Metadata or system information that is not part of the DTDL definition is returned with a `$` prefix. Metadata properties include the following values:
+* `$dtId`: The ID of the digital twin in this Azure Digital Twins instance
+* `$etag`: A standard HTTP field assigned by the web server. This is updated to a new value every time the twin is updated, which can be useful to determine whether the twin's data has been updated on the server since a previous check. You can use `If-Match` to perform updates and deletes that only complete if the entity's etag matches the etag provided. For more information on these operations, see the documentation for [DigitalTwins Update](/rest/api/digital-twins/dataplane/twins/digitaltwins_update) and [DigitalTwins Delete](/rest/api/digital-twins/dataplane/twins/digitaltwins_delete).
+* `$metadata`: A set of other properties, including:
+  - The DTMI of the model of the digital twin.
+  - Synchronization status for each writeable property. This is most useful for devices, where it's possible that the service and the device have diverging statuses (for example, when a device is offline). Currently, this property only applies to physical devices connected to IoT Hub. With the data in the metadata section, it is possible to understand the full status of a property, as well as the last modified timestamps. For more information about sync status, see [this IoT Hub tutorial](../iot-hub/tutorial-device-twins.md) on synchronizing device state.
+  - Service-specific metadata, like from IoT Hub or Azure Digital Twins. 
 
 You can read more about the serialization helper classes like `BasicDigitalTwin` in [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md).
 

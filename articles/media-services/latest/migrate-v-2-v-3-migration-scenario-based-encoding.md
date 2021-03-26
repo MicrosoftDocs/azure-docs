@@ -7,7 +7,7 @@ manager: femila
 ms.service: media-services
 ms.topic: conceptual
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
 ---
 
@@ -53,9 +53,7 @@ Click on the image below to see a larger version.
 
 ### V3 encoding workflow
 
-<Token>
-<object data="./media/migration-guide/v3-pretty2.svg" width="80%"></object>
-</Token>
+[![Encoding workflow for V3](./media/migration-guide/V3-pretty.svg)](./media/migration-guide/V3-pretty.svg#lightbox)
 
 1. Set up
     1. Create an asset or use an existing asset. If using a new asset, upload content to that asset. If using an existing asset, you should be encoding files that already exist in the asset. You *shouldn't upload more content to that asset.*
@@ -73,7 +71,7 @@ Click on the image below to see a larger version.
         - Output asset(s)
         - A resource group
         - AMS account name  
-1. Use [Event Grid](monitor-events-portal-how-to.md) for monitoring your job.
+1. Use [Event Grid](monitoring/monitor-events-portal-how-to.md) for monitoring your job.
 1. Submit the job.
 
 ## Custom presets from V2 to V3 encoding
@@ -140,7 +138,3 @@ For customers using the Indexer v1 processor in the v2 API, you need to create a
 ## Samples
 
 You can also [compare the V2 and V3 code in the code samples](migrate-v-2-v-3-migration-samples.md).
-
-## Next steps
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

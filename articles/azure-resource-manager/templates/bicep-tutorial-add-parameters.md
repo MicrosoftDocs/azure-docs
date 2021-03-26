@@ -2,7 +2,7 @@
 title: Tutorial - add parameters to Azure Resource Manager Bicep file
 description: Add parameters to your Bicep file to make it reusable.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -29,7 +29,7 @@ You may have noticed that there's a problem with this Bicep file. The storage ac
 
 ## Make Bicep file reusable
 
-To make your Bicep file reusable, let's add a parameter that you can use to pass in a storage account name. The highlighted Bicep in the following example shows what changed in your file. The `storageName` parameter is identified as a string. The maximum length is set to 24 characters to prevent any names that are too long.
+To make your Bicep file reusable, let's add a parameter that you can use to pass in a storage account name. The following Bicep file shows what changed in your file. The `storageName` parameter is identified as a string. The maximum length is set to 24 characters to prevent any names that are too long.
 
 Copy the whole file and replace it with the following contents.
 

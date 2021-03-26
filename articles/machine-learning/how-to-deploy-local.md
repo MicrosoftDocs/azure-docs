@@ -26,7 +26,7 @@ Scenarios for local deployment include:
 
 - An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 - A model and an environment. If you don't have a trained model, you can use the model and dependency files provided in [this tutorial](tutorial-train-models-with-aml.md).
-- The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
+- The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro).
 - A conda manager, like Anaconda or Miniconda, if you want to mirror Azure Machine Learning package dependencies.
 - Docker, if you want to use a containerized version of the Azure Machine Learning environment.
 

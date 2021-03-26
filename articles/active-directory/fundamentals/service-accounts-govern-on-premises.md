@@ -59,7 +59,7 @@ Use the following settings with user accounts used as service accounts:
 
 *  **LogonWorkstations**: restrict permissions for where the service account can sign in. If it runs locally on a machine and accesses only resources on that machine, restrict it from logging on anywhere else.
 
-* [**Cannot change password**](/powershell/module/addsadministration/set-aduser?view=win10-ps): prevent the service account from changing its own password by setting the parameter to false.
+* [**Cannot change password**](/powershell/module/addsadministration/set-aduser): prevent the service account from changing its own password by setting the parameter to false.
 
  
 ## Build a lifecycle management process
@@ -146,9 +146,9 @@ Create service account only after relevant information is documented in your CMD
 
 * [Account Expiry](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps)
 
-   * For all user accounts used as service accounts, define a realistic and definite end-date for use. Set this using the “Account Expires” flag. For more details, refer to[ Set-ADAccountExpiration](/powershell/module/addsadministration/set-adaccountexpiration?view=win10-ps). 
+   * For all user accounts used as service accounts, define a realistic and definite end-date for use. Set this using the “Account Expires” flag. For more details, refer to[ Set-ADAccountExpiration](/powershell/module/addsadministration/set-adaccountexpiration). 
 
-* Log On To ([LogonWorkstation](/powershell/module/addsadministration/set-aduser?view=win10-ps))
+* Log On To ([LogonWorkstation](/powershell/module/addsadministration/set-aduser))
 
 * [Password Policy](../../active-directory-domain-services/password-policy.md) requirements
 

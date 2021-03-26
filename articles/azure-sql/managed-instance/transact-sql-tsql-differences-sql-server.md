@@ -9,7 +9,7 @@ ms.topic: reference
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
-ms.date: 3/5/2021
+ms.date: 3/16/2021
 ms.custom: seoapril2019, sqldbrb=1
 ---
 
@@ -462,11 +462,13 @@ For information about restore statements, see [RESTORE statements](/sql/t-sql/st
 
 ### Service broker
 
-Cross-instance service broker isn't supported:
+Cross-instance service broker message exchange is supported only between Azure SQL Managed Instances:
 
-- `sys.routes`: As a prerequisite, you must select the address from sys.routes. The address must be LOCAL on every route. See [sys.routes](/sql/relational-databases/system-catalog-views/sys-routes-transact-sql).
-- `CREATE ROUTE`: You can't use `CREATE ROUTE` with `ADDRESS` other than `LOCAL`. See [CREATE ROUTE](/sql/t-sql/statements/create-route-transact-sql).
-- `ALTER ROUTE`: You can't use `ALTER ROUTE` with `ADDRESS` other than `LOCAL`. See [ALTER ROUTE](/sql/t-sql/statements/alter-route-transact-sql). 
+- `CREATE ROUTE`: You can't use `CREATE ROUTE` with `ADDRESS` other than `LOCAL` or DNS name of another SQL Managed Instance.
+- `ALTER ROUTE`: You can't use `ALTER ROUTE` with `ADDRESS` other than `LOCAL` or DNS name of another SQL Managed Instance.
+
+Transport security is supported, dialog security is not:
+- `CREATE REMOTE SERVICE BINDING`is not supported.
 
 Service broker is enabled by default and cannot be disabled. The following ALTER DATABSE options are not supported:
 - `ENABLE_BROKER`

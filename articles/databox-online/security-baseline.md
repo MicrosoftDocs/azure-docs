@@ -37,7 +37,7 @@ Internal traffic is further secured by:
 
 Additional information is available at the referenced links.
  
-- [Configure TLS 1.2 on Windows clients accessing Azure Stack Edge Pro GPU device](azure-stack-edge-j-series-configure-tls-settings.md)
+- [Configure TLS 1.2 on Windows clients accessing Azure Stack Edge Pro GPU device](./azure-stack-edge-gpu-configure-tls-settings.md)
 
 - [Quickstart - Get started with Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-quickstart.md)
 
@@ -53,7 +53,7 @@ Customers can configure a virtual private network on their Azure Stack Edge devi
 
 - [Configure Azure VPN via Azure PowerShell script for Azure Stack Edge Pro R and Azure Stack Edge Mini R](azure-stack-edge-mini-r-configure-vpn-powershell.md)
 
-- [Configure TLS 1.2 on Windows clients accessing Azure Stack Edge Pro GPU device](azure-stack-edge-j-series-configure-tls-settings.md)
+- [Configure TLS 1.2 on Windows clients accessing Azure Stack Edge Pro GPU device](./azure-stack-edge-gpu-configure-tls-settings.md)
 
 - [Tutorial: Configure certificates for your Azure Stack Edge Pro R](azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption.md)
 
@@ -67,7 +67,7 @@ Customers can configure a virtual private network on their Azure Stack Edge devi
 
 - [Configure Azure VPN via Azure PowerShell script for Azure Stack Edge Pro R and Azure Stack Edge Mini R](azure-stack-edge-mini-r-configure-vpn-powershell.md)
 
-- [Configure TLS 1.2 on Windows clients accessing Azure Stack Edge Pro GPU device](azure-stack-edge-j-series-configure-tls-settings.md)
+- [Configure TLS 1.2 on Windows clients accessing Azure Stack Edge Pro GPU device](./azure-stack-edge-gpu-configure-tls-settings.md)
 
 - [Tutorial: Configure certificates for your Azure Stack Edge Pro R](azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption.md)
 
@@ -307,7 +307,7 @@ Note that additional permissions might be required to get visibility into worklo
 
 **Guidance**: Only authorized users, for example, the 'EdgeArmUser' can access the Azure Stack Edge device APIs via the local Azure Resource Manager. User account passwords can only be managed at the Azure portal. 
 
-- [Set Azure Resource Manager password](azure-stack-edge-j-series-set-azure-resource-manager-password.md)
+- [Set Azure Resource Manager password](/azure/azure-stack-edge-gpu-set-azure-resource-manager-password)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -317,7 +317,7 @@ Note that additional permissions might be required to get visibility into worklo
 
 **Guidance**: You can bring in your own applications to run on any locally created virtual machines. Use PowerShell scripts to create local compute virtual machines on your Stack Edge device. We strongly recommend that you bring in only trusted applications to run on the local virtual machines. 
 
-- [How to control PowerShell script execution in Windows environment](/powershell/module/microsoft.powershell.security/set-executionpolicy?preserve-view=true&amp;viewFallbackFrom=powershell-6&view=powershell-7.1)
+- [How to control PowerShell script execution in Windows environment](/powershell/module/microsoft.powershell.security/set-executionpolicy)
 
 **Azure Security Center monitoring**: Not applicable
 

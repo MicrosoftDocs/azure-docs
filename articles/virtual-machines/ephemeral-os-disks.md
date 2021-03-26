@@ -242,7 +242,7 @@ A: Ephemeral disks do not support:
 
 > [!NOTE]
 > 
-> Ephemeral disk will not be accessible through portal. You might receive a "Resource not Found" or "404" error when accessing the ephemeral disk.
+> Ephemeral disk will not be accessible through portal. You will receive "Resource not Found" or "404" error when accessing the ephemeral disk which is expected.
 > 
  
 ## Next steps
