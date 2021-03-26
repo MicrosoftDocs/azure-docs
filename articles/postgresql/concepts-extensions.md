@@ -5,7 +5,7 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 03/25/2021
 ---
 # PostgreSQL extensions in Azure Database for PostgreSQL - Single Server
 PostgreSQL provides the ability to extend the functionality of your database using extensions. Extensions bundle multiple related SQL objects together in a single package that can be loaded or removed from your database with a single command. After being loaded in the database, extensions function like built-in features.
@@ -56,7 +56,7 @@ The following extensions are available in Azure Database for PostgreSQL servers 
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.5.1           | PostGIS topology spatial types and functions|
 > |[postgres_fdw](https://www.postgresql.org/docs/11/postgres-fdw.html)                 | 1.0             | foreign-data wrapper for remote PostgreSQL servers|
 > |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | functions that manipulate whole tables, including crosstab|
-> |[timescaledb](https://docs.timescale.com/latest)                    | 1.3.2             | Enables scalable inserts and complex queries for time-series data|
+> |[timescaledb](https://docs.timescale.com/latest)                    | 1.3.2, 1.7.4             | Enables scalable inserts and complex queries for time-series data|
 > |[unaccent](https://www.postgresql.org/docs/11/unaccent.html)                     | 1.1             | text search dictionary that removes accents|
 > |[uuid-ossp](https://www.postgresql.org/docs/11/uuid-ossp.html)                    | 1.1             | generate universally unique identifiers (UUIDs)|
 
@@ -102,7 +102,7 @@ The following extensions are available in Azure Database for PostgreSQL servers 
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.4.3           | PostGIS topology spatial types and functions|
 > |[postgres_fdw](https://www.postgresql.org/docs/10/postgres-fdw.html)                 | 1.0             | foreign-data wrapper for remote PostgreSQL servers|
 > |[tablefunc](https://www.postgresql.org/docs/10/tablefunc.html)                    | 1.0             | functions that manipulate whole tables, including crosstab|
-> |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1             | Enables scalable inserts and complex queries for time-series data|
+> |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1, 1.7.4             | Enables scalable inserts and complex queries for time-series data|
 > |[unaccent](https://www.postgresql.org/docs/10/unaccent.html)                     | 1.1             | text search dictionary that removes accents|
 > |[uuid-ossp](https://www.postgresql.org/docs/10/uuid-ossp.html)                    | 1.1             | generate universally unique identifiers (UUIDs)|
 
@@ -148,11 +148,14 @@ The following extensions are available in Azure Database for PostgreSQL servers 
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.3.2           | PostGIS topology spatial types and functions|
 > |[postgres_fdw](https://www.postgresql.org/docs/9.6/postgres-fdw.html)                 | 1.0             | foreign-data wrapper for remote PostgreSQL servers|
 > |[tablefunc](https://www.postgresql.org/docs/9.6/tablefunc.html)                    | 1.0             | functions that manipulate whole tables, including crosstab|
-> |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1             | Enables scalable inserts and complex queries for time-series data|
+> |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1, 1.7.4             | Enables scalable inserts and complex queries for time-series data|
 > |[unaccent](https://www.postgresql.org/docs/9.6/unaccent.html)                     | 1.1             | text search dictionary that removes accents|
 > |[uuid-ossp](https://www.postgresql.org/docs/9.6/uuid-ossp.html)                    | 1.1             | generate universally unique identifiers (UUIDs)|
 
-## Postgres 9.5 extensions 
+## Postgres 9.5 extensions
+
+>[!NOTE]
+> PostgreSQL version 9.5 has been retired.
 
 The following extensions are available in Azure Database for PostgreSQL servers which have Postgres version 9.5.
 
