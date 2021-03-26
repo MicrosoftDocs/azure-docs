@@ -15,10 +15,11 @@ Azure Database for MySQL has been developed from [MySQL Community Edition](https
 
 ## Connect to a gateway node that is running a specific MySQL version
 
-> [!NOTE]
-> In the Single Server deployment option, a gateway is used to redirect the connections to server instances. After the connection is established, the MySQL client displays the version of MySQL set in the gateway, not the actual version running on your MySQL server instance. To determine the version of your MySQL server instance, use the `SELECT VERSION();` command at the MySQL prompt.
+In the Single Server deployment option, a gateway is used to redirect the connections to server instances. After the connection is established, the MySQL client displays the version of MySQL set in the gateway, not the actual version running on your MySQL server instance. To determine the version of your MySQL server instance, use the `SELECT VERSION();` command at the MySQL prompt. see [Connectivity architecture](https://docs.microsoft.com/azure/mysql/concepts-connectivity-architecture#connectivity-architecture)
 
-The default port to connect to Azure Database for MySQL is port 3306 which is running mysql version 5.6. see [Connectivity architecture](https://docs.microsoft.com/azure/mysql/concepts-connectivity-architecture#connectivity-architecture) that said the gateway nodes running mysql 5.7 listens to port 3308. Similarly, the gateway nodes running mysql 8.0 listens to port 3309. Check the following example:
+As Azure Database for MySQL supports major version v5.6, v5.7 and v8.0, the default port 3306 to connect to Azure Database for MySQL runs MySQL client version 5.6 (least common denominator) to support connections to servers of all 3 supported major versions. However, if your application has a requirement to connect to specific major version say v5.7 or v8.0, you can do so by changing the port in your server connection string.
+
+In Azure Database for MySQL service, gateway nodes listens on port 3308 for v5.7 clients and port 3309 for v8.0 clients. In other words, if you would like to connect to v5.7 gateway client, you should use your fully qualified server name and port 3308 to connect to your server from client application. Similarly, if you would like to connect to v8.0 gateway client, you can use your fully qualified server name and port 3309 to connect to your server. Check the following example for further clarity.
 
 :::image type="content" source="./media/concepts-supported-versions/concepts-supported-versions-gateway.png" alt-text="Example connecting via different gateway mysql versions":::
 
