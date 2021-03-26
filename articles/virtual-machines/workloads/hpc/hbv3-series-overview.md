@@ -1,5 +1,5 @@
 --- 
-title: HBv3-series VM overview: architecture, topology - Azure Virtual Machines | Microsoft Docs 
+title: HBv3-series VM overview, architecture, topology - Azure Virtual Machines | Microsoft Docs 
 description: Learn about the HBv3-series VM size in Azure.  
 services: virtual-machines 
 author: vermagit 
@@ -34,7 +34,7 @@ The following diagram shows the topology of the server. We reserve these 8 hyper
 
 ![Segregation of cores reserved for Azure Hypervisor and HBv3-series VM](./media/architecture/hbv3/hbv3-topology-server.png)
 
-Note that the CCD boundary is not equivalent to a NUMA boundary. On HBv3, a group of four consecutive (4) CCDs is configured as a NUMA domain, both at the host sever level and within a guest VM. Thus, all HBv3 VM sizes expose 4 NUMA domains that will appear to a OS and application as shown below, 4 uniform NUMA domains, each with different number of cores depending on the specific [HBv3 VM size](../../hbv3-series).
+Note that the CCD boundary is not equivalent to a NUMA boundary. On HBv3, a group of four consecutive (4) CCDs is configured as a NUMA domain, both at the host sever level and within a guest VM. Thus, all HBv3 VM sizes expose 4 NUMA domains that will appear to a OS and application as shown below, 4 uniform NUMA domains, each with different number of cores depending on the specific [HBv3 VM size](../../hbv3-series.md).
 
 ![Segregation of cores reserved for Azure Hypervisor and HBv3-series VM](./media/architecture/hbv3/hbv3-topology-vm.png)
 
@@ -52,7 +52,7 @@ Standard_HB120r-16s_v3            | 4            | 4                      | Dual
 
 The virtual NUMA mapping of each HBv3 VM size is mapped to the underlying physical NUMA topology. There is no potentially misleading abstraction of the hardware topology. 
 
-The exact topology for the various [HBv3 VM size](../../hbv3-series) appears as follows using the output of [lstopo](https://linux.die.net/man/1/lstopo):
+The exact topology for the various [HBv3 VM size](../../hbv3-series.md) appears as follows using the output of [lstopo](https://linux.die.net/man/1/lstopo):
 ```bash
 lstopo-no-graphics --no-io --no-legend --of txt
 ```
