@@ -76,7 +76,7 @@ As noted prior, the OSM add-on for AKS is in a preview state and will undergo ad
 
 ::: zone-end
 
-> [!NOTE]
+> [!WARNING]
 > Do not attempt to install OSM from the binary using `osm install`. This will result in a installation of OSM that is not integrated as an add-on for AKS.
 
 ## Install Open Service Mesh (OSM) Azure Kubernetes Service (AKS) add-on for a new AKS cluster
