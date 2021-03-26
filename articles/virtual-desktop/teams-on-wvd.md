@@ -142,11 +142,7 @@ Using Teams in a virtualized environment is different from using Teams in a non-
 - The Teams app doesn't support HID buttons or LED controls with other devices.
 - New Meeting Experience (NME) is not currently supported in VDI environments.
 
-For Teams known issues that aren't related to virtualized environments, see [Support Teams in your organization](/microsoftteams/known-issues)
-
-## UserVoice site
-
-Provide feedback for Microsoft Teams on Windows Virtual Desktop on the Teams [UserVoice site](https://microsoftteams.uservoice.com/).
+For Teams known issues that aren't related to virtualized environments, see [Support Teams in your organization](/microsoftteams/known-issues).
 
 ## Collect Teams logs
 

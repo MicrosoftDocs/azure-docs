@@ -62,7 +62,7 @@ If you want to monitor more Performance Counters or Events, you can enable them 
 Can't find a data point to help diagnose an issue? Send us feedback!
 
 - To learn how to leave feedback, see [Troubleshooting overview, feedback, and support for Windows Virtual Desktop](troubleshoot-set-up-overview.md).
-- You can also leave feedback for Windows Virtual Desktop at the [Windows Virtual Desktop feedback hub](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app) or [our UserVoice forum](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
+- You can also leave feedback for Windows Virtual Desktop at the [Windows Virtual Desktop feedback hub](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
 
 ## Known issues and limitations
 

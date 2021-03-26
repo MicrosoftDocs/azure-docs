@@ -67,10 +67,6 @@ You need to unblock specific URLs to make sure that your virtual machine (VM) fu
 
 To solve this recommendation, make sure you unblock all the URLs on the [Safe URL list](safe-url-list.md). You can use Service Tag or FQDN tags to unblock URLs, too.
 
-## Propose new recommendations
-
-You can help us improve Azure Advisor by submitting ideas for recommendations. Your recommendation could help another user out of a tough spot. To submit a suggestion, go to [our UserVoice forum](https://windowsvirtualdesktop.uservoice.com/forums/930847-azure-advisor-recommendations) and fill out the submission form. When you fill out the form, make sure to give us as much detail as possible.
-
 ## Next steps
 
 If you're looking for more in-depth guides about how to resolve common issues, check out [Troubleshooting overview, feedback, and support for Windows Virtual Desktop](troubleshoot-set-up-overview.md).
