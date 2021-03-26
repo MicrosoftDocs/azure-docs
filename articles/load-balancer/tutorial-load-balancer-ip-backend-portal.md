@@ -2,16 +2,15 @@
 title: 'Tutorial: Create a public load balancer with an IP based backend - Azure Portal'
 titleSuffix: Azure Load Balancer
 description: In this tutorial, learn how to create a public Azure Load Balancer with an IP based backend pool.
-author: #Required; your GitHub user alias, with correct capitalization.
-ms.author: #Required; microsoft alias of author; optional team alias.
-ms.service: #Required; service per approved list. slug assigned by ACOM.
-ms.topic: tutorial #Required; leave this attribute/value as-is.
-ms.date: #Required; mm/dd/yyyy format.
-ms.custom: template-tutorial #Required; leave this attribute/value as-is.
+author: asudbring
+ms.author: allensu
+ms.service: load-balancer
+ms.topic: tutorial
+ms.date: 3/26/2021
+ms.custom: template-tutorial
 ---
 
 <!--
-
 Outline:  
 Create Vnet (Change Bastion to /27)
 Create LB
@@ -23,69 +22,28 @@ Create Backend Pool
 Create VMs
 Install IIS
 Cleanup
-
-
-
-
-
-
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
 -->
 
-<!--
-This template provides the basic structure of a tutorial article.
-See the [tutorial guidance](contribute-how-to-mvc-tutorial.md) in the contributor guide.
+# Tutorial: Create a public load balancer with an IP based backend using the Azure portal
 
-To provide feedback on this template contact 
-[the templates workgroup](mailto:templateswg@microsoft.com).
--->
-
-<!-- 1. H1 
-Required. Start with "Tutorial: ". Make the first word following "Tutorial: " a 
-verb.
--->
-
-# Tutorial: <do something with X> 
-
-<!-- 2. Introductory paragraph 
-Required. Lead with a light intro that describes, in customer-friendly language, 
-what the customer will learn, or do, or accomplish. Answer the fundamental “why 
-would I want to do this?” question. Keep it short.
--->
-
-[Add your introductory paragraph]
-
-<!-- 3. Tutorial outline 
-Required. Use the format provided in the list below.
--->
+In this tutorial, you'll learn how to create a public Azure Load Balancer with an IP based backend pool. A traditional deployment of Azure Load Balancer uses the network interface configuration of the virtual machines for the backend pool. With a IP based backend the virtual machines are added to the backend pool by IP address.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * All tutorials include a list summarizing the steps to completion
-> * Each of these bullet points align to a key H2
-> * Use these green checkboxes in a tutorial
-
-<!-- 4. Prerequisites 
-Required. First prerequisite is a link to a free trial account if one exists. If there 
-are no prerequisites, state that no prerequisites are needed for this tutorial.
--->
-
+> * Create a virtual network
+> * Create a NAT gateway for outbound connectivity
+> * Create an Azure Load Balancer
+> * Create an IP based backend pool
+> * Create two virtual machines
+> * Test the load balancer
 ## Prerequisites
 
-- <!-- An Azure account with an active subscription. [Create an account for free]
-  (https://azure.microsoft.com/free/?WT.mc_id=A261C142F). -->
-- <!-- prerequisite 2 -->
-- <!-- prerequisite n -->
+- An Azure account with an active subscription. [Create an account for free]
+  (https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+## Create a virtual network
 
-<!-- 5. H2s
-Required. Give each H2 a heading that sets expectations for the content that follows. 
-Follow the H2 headings with a sentence about how the section contributes to the whole.
--->
-
-## [Section 1 heading]
-<!-- Introduction paragraph -->
+In this section, you'll create a virtual network for the load balancer, NAT gateway, and virtual machines.
 
 1. Sign in to the [<service> portal](url).
 1. <!-- Step 2 -->
