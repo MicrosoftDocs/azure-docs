@@ -23,8 +23,8 @@ In the event that you need to rotate the AD FS certificates immediately, you can
 > Microsoft highly recommends using a Hardware Security Module (HSM) to protect and secure certificates.
 > For more information see [Hardware Security Module](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#hardware-security-module-hsm) under best practices for securing AD FS.
 
-## Summary of emergency rotation of AD FS certificates steps
-The following table summarized the steps that are outlined below.
+## Steps for emergency rotation of AD FS certificates steps
+The following table provides guidance through the steps that are outlined below.
 
 |Step|Name|Description|
 |-----|-----|-----|
