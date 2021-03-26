@@ -2,20 +2,12 @@
 title: Media Services v3 offline FairPlay Streaming for iOS
 description: This topic gives an overview and shows how to use Azure Media Services v3 to dynamically encrypt your HTTP Live Streaming (HLS) content with Apple FairPlay in offline mode.
 services: media-services
-keywords: HLS, DRM, FairPlay Streaming (FPS), Offline, iOS 10
-documentationcenter: ''
 author: willzhan
-manager: steveng
-editor: ''
-ms.assetid: 7c3b35d9-1269-4c83-8c91-490ae65b0817
+manager: femila
 ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 08/31/2020
-ms.author: willzhan
-ms.custom: devx-track-csharp
+ms.date: 03/25/2021
+ms.author: inhenkel
 ---
 # Offline FairPlay Streaming for iOS with Media Services v3
 
@@ -201,10 +193,6 @@ Three test samples in Media Services cover the following three scenarios:
 You can find these samples at [this demo site](https://aka.ms/poc#22), with the corresponding application certificate hosted in an Azure web app.
 With either the version 3 or version 4 sample of the FPS Server SDK, if a master playlist contains alternate audio, during offline mode it plays audio only. Therefore, you need to strip the alternate audio. In other words, the second and third samples listed previously work in online and offline mode. The sample listed first plays audio only during offline mode, while online streaming works properly.
 
-## FAQ
+## Offline Fairplay questions
 
-See [frequently asked questions provide assistance with troubleshooting](frequently-asked-questions.md#why-does-only-audio-play-but-not-video-during-offline-mode).
-
-## Next steps
-
-Check out how to [protect with AES-128](protect-with-aes128.md)
+See [offline fairplay questions](questions-collection.md#why-does-only-audio-play-but-not-video-during-offline-mode).

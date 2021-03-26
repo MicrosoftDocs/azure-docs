@@ -261,9 +261,8 @@
     href: architectures-concept.md
   - name: Troubleshooting
     items:
-    - name: Troubleshooting questions
-      displayName: troubleshooting
-      href: troubleshooting-questions.md      
+    - name: Question Collection
+      href: questions-collection.md      
     - name: Error codes
       items:
       - name: Streaming endpoint error codes  

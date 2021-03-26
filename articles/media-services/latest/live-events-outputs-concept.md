@@ -198,14 +198,6 @@ Once you have the stream flowing into the live event, you can begin the streamin
 
 For detailed information about live outputs, see [Using a cloud DVR](live-event-cloud-dvr.md).
 
-## Frequently asked questions
+## Live event output questions
 
-See the [Frequently asked questions](frequently-asked-questions.md#live-streaming) article.
-
-## Ask questions and get updates
-
-Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
-
-## Next steps
-
-[Live streaming tutorial](stream-live-tutorial-with-api.md)
+See the [live event output questions](questions-collection.md#live-streaming) article.

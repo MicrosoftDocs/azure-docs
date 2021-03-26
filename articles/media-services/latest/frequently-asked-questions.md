@@ -27,7 +27,7 @@ A Media Services asset is a container within an Azure Storage account that is us
 
 ## How do I create an asset?
 
-Every time you want to upload a media file and perform and do something with it like encoding or streaming, you create an asset to store the media file and other files associated with that media file. Assets are automatically created for you if you use the Azure portal. If you are not using the portal to upload files, you must create an asset first.  See [Create an Asset](how-to-create-asset?tabs=cli) to learn how to create one.
+Every time you want to upload a media file and perform and do something with it like encoding or streaming, you create an asset to store the media file and other files associated with that media file. Assets are automatically created for you if you use the Azure portal. If you are not using the portal to upload files, you must create an asset first.  See [Create an Asset](how-to-create-asset.md) to learn how to create one.
 
 ## What is a transform?
 
