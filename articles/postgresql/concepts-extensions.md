@@ -152,7 +152,10 @@ The following extensions are available in Azure Database for PostgreSQL servers 
 > |[unaccent](https://www.postgresql.org/docs/9.6/unaccent.html)                     | 1.1             | text search dictionary that removes accents|
 > |[uuid-ossp](https://www.postgresql.org/docs/9.6/uuid-ossp.html)                    | 1.1             | generate universally unique identifiers (UUIDs)|
 
-## Postgres 9.5 extensions (retired)
+## Postgres 9.5 extensions
+
+>[!NOTE]
+> PostgreSQL version 9.5 has been retired.
 
 The following extensions are available in Azure Database for PostgreSQL servers which have Postgres version 9.5.
 
