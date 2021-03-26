@@ -5,7 +5,7 @@ author: jehona-m
 ms.author: jemorina
 ms.service: industrial-iot
 ms.topic: tutorial
-ms.date: 12/07/2020
+ms.date: 3/22/2021
 ---
 
 # Tutorial: Configure the OPC Publisher

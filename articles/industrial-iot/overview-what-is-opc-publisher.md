@@ -4,8 +4,8 @@ description: This article provides an overview of the OPC Publisher Edge module.
 author: jehona-m
 ms.author: jemorina
 ms.service: industrial-iot
-ms.topic: overview
-ms.date: 12/01/2020
+ms.topic: conceptual
+ms.date: 3/22/2021
 ---
 
 # What is the OPC Publisher?

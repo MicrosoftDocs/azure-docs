@@ -5,7 +5,7 @@ author: jehona-m
 ms.author: jemorina
 ms.service: industrial-iot
 ms.topic: tutorial
-ms.date: 11/16/2020
+ms.date: 3/22/2021
 ---
 
 # Tutorial: Deploy the Azure Industrial IoT Platform

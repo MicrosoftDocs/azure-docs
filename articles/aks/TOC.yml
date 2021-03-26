@@ -270,7 +270,7 @@
       href: use-pod-security-policies.md
     - name: Define API server authorized IP ranges
       href: api-server-authorized-ip-ranges.md
-    - name: Control deployments with Azure Policy (preview)
+    - name: Control deployments with Azure Policy
       href: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/aks/toc.json
     - name: Update cluster credentials
       href: update-credentials.md

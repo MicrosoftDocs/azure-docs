@@ -5,7 +5,7 @@ author: jehona-m
 ms.author: jemorina
 ms.service: industrial-iot
 ms.topic: reference
-ms.date: 01/18/2021
+ms.date: 3/22/2021
 ---
 # OPC Publisher Telemetry Format
 

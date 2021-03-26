@@ -100,12 +100,14 @@ Link your machine learning workspace and Synapse workspace via the Azure Machine
 1. Sign in to the [Azure Machine Learning studio](https://ml.azure.com/).
 1. Select **Linked Services** in the **Manage** section of the left pane.
 1. Select **Add integration**.
-1. On the **Link workspace** form, populate the fields 
-    Field| Description    
-    ---|---
-    Name| Provide a name for your linked service. This name is what will be used to reference to this particular linked service.
-    Subscription name | Select the name of your subscription that's associated with your machine learning workspace. 
-    Synapse workspace | Select the Synapse workspace you want to link to.
+1. On the **Link workspace** form, populate the fields
+
+    |Field| Description    
+    |---|---
+    |Name| Provide a name for your linked service. This name is what will be used to reference to this particular linked service.
+    |Subscription name | Select the name of your subscription that's associated with your machine learning workspace. 
+    |Synapse workspace | Select the Synapse workspace you want to link to.
+    
 1. Select **Next** to open the **Select Spark pools (optional)** form. On this form, you select which Synapse Spark pool to attach to your workspace
 
 1. Select **Next** to open the **Review** form and check your selections.

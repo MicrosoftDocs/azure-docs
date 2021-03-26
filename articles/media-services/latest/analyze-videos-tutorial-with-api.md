@@ -6,7 +6,7 @@ author: IngridAtMicrosoft
 manager: femila
 ms.service: media-services 
 ms.topic: tutorial
-ms.date: 03/17/2021
+ms.date: 03/22/2021
 ms.author: inhenkel
 ---
 
@@ -61,9 +61,6 @@ The sample completes the following actions:
 4. Submits the job.
 5. Checks the job's status.
 6. Downloads the files that resulted from running the job.
-
-> [!NOTE]
-> When using a Video or Audio Analyzer presets, use the Azure portal to set your account to have 10 S3 Media Reserved Units. For more information, see [Scale media processing](media-reserved-units-cli-how-to.md).
 
 ### Start using Media Services APIs with .NET SDK
 

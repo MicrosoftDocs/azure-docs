@@ -29,7 +29,7 @@ Pipelines can ingest data from disparate data stores. Pipelines process or trans
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* [Python 3.4+](https://www.python.org/downloads/).
+* [Python 3.6+](https://www.python.org/downloads/).
 
 * [An Azure Storage account](../storage/common/storage-account-create.md).
 
@@ -61,7 +61,7 @@ Pipelines can ingest data from disparate data stores. Pipelines process or trans
     pip install azure-mgmt-datafactory
     ```
 
-    The [Python SDK for Data Factory](https://github.com/Azure/azure-sdk-for-python) supports Python 2.7, 3.3, 3.4, 3.5, 3.6 and 3.7.
+    The [Python SDK for Data Factory](https://github.com/Azure/azure-sdk-for-python) supports Python 2.7 and 3.6+.
 
 4. To install the Python package for Azure Identity authentication, run the following command:
 

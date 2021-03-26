@@ -722,6 +722,8 @@
               items:
               - name: JMX metrics
                 href: app/java-jmx-metrics-configuration.md
+              - name: Sampling overrides
+                href: app/java-standalone-sampling-overrides.md
               - name: Telemetry processors
                 items:
                 - name: Overview

@@ -33,7 +33,7 @@ Managed identities are best used for communications among services that support 
 
 A source system requests access to a target service. Any Azure resource can be a source system. For example, an Azure VM, Azure Function instance, and Azure App Services instances support managed identities.
 
-[!VIDEO https://www.youtube.com/embed/5lqayO_oeEo]
+   > [!VIDEO https://www.youtube.com/embed/5lqayO_oeEo]
 
 ### How authentication and authorization work
 
@@ -81,7 +81,7 @@ There are several ways in which you can find managed identities:
 
 ### Using the Azure portal
 
-1. In Azure AD, select Enterprise application.
+1. In Azure Active Directory, select Enterprise applications.
 
 2. Select the filter for “Managed Identities” 
 
@@ -115,7 +115,7 @@ You can assess the security of managed identities in the following ways:
 
 ## Move to managed identities
 
-If you are using a  service principal or an Azure AD user account, evaluate if you can instead use a managed to eliminate the need to protect, rotate, and manage credentials. 
+If you are using a  service principal or an Azure AD user account, evaluate if you can instead use a managed identity to eliminate the need to protect, rotate, and manage credentials. 
 
 ## Next steps
 

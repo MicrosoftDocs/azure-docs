@@ -5,11 +5,11 @@ summary: The Azure Industrial IoT Platform is a Microsoft suite of modules and s
 
 metadata:
   description: Learn about the 
-  ms.service: industrial-iot #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.topic: landing-page # Required
-  author: philmea #Required; your GitHub user alias, with correct capitalization.
-  ms.author: philmea #Required; microsoft alias of author; optional team alias.
-  ms.date: 12/7/2020 #Required; mm/dd/yyyy format.
+  ms.service: industrial-iot 
+  ms.topic: landing-page 
+  author: philmea 
+  ms.author: philmea 
+  ms.date: 3/22/2021 
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -21,6 +21,33 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
+          - text: What is Industrial IoT (IIoT)?
+            url: overview-what-is-industrial-iot.md
           - text: What is the Industrial IoT (IIoT) Platform?
             url: overview-what-is-industrial-iot-platform.md
+          - text: What is the OPC Publisher?
+            url: overview-what-is-opc-publisher.md
 
+  - title: Get started with the Industrial IoT Platform (IIoT)
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Deploy the Azure Industrial IoT Platform
+            url: tutorial-deploy-industrial-iot-platform.md
+          - text: Configure the Industrial IoT components
+            url: tutorial-configure-industrial-iot-components.md
+          - text: Pull Azure Industrial IoT data into ADX
+            url: tutorial-industrial-iot-azure-data-explorer.md
+          - text: Visualize data with Time Series Insights (TSI)
+            url: tutorial-visualize-data-time-series-insights.md
+
+  - title: Work with the OPC Publisher
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Deploy the OPC Publisher
+            url: tutorial-publisher-deploy-opc-publisher-standalone.md
+          - text: Configure the OPC Publisher
+            url: tutorial-publisher-configure-opc-publisher.md
+          - text: Tune the OPC Publisher performance and memory
+            url: tutorial-publisher-performance-memory-tuning-opc-publisher.md

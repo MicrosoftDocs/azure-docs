@@ -5,7 +5,7 @@ author: jehona-m
 ms.author: jemorina
 ms.service: industrial-iot
 ms.topic: tutorial
-ms.date: 11/16/2020
+ms.date: 3/22/2021
 ---
 
 # Tutorial: Configure the Industrial IoT components

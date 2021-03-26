@@ -16,6 +16,9 @@ zone_pivot_groups: programming-languages-speech-services-nomore-variant
 
 # Get facial pose events
 
+> [!NOTE]
+> Viseme only works for `en-US-AriaNeural` voice in West US 2 (`westus2`) region for now.
+
 A viseme is the visual description of a phoneme in spoken language.
 It defines the position of the face and mouth when speaking a word.
 Each viseme depicts the key facial poses for a specific set of phonemes.
@@ -23,7 +26,7 @@ There is no one-to-one correspondence between visemes and phonemes.
 Often several phonemes correspond to a single viseme, as several phonemes look the same on the face when produced, such as `s` and `z`.
 See the [mapping table between visemes and phonemes](#map-phonemes-to-visemes).
 
-Using visemes, you can create more natural and intelligent news broadcast assistant, more interactive gaming and cartoon characters, and more intuitive language teaching videos. The hearing-impaired can also pick up sounds visually and "lip-read" speech content that shows visemes on an animated face.
+Using visemes, you can create more natural and intelligent news broadcast assistant, more interactive gaming and cartoon characters, and more intuitive language teaching videos. People with hearing impairment can also pick up sounds visually and "lip-read" speech content that shows visemes on an animated face.
 
 ## Get viseme events with the Speech SDK
 

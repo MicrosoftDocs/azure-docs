@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for CMMC Level 3
 description: Details of the CMMC Level 3 Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 03/17/2021
+ms.date: 03/24/2021
 ms.topic: sample
 ms.custom: generated
 ---

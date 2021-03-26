@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Add calling to an iOS app using Azure Communication Services
-description: In this quickstart, you learn how to use the Azure Communication Services Calling client library for iOS.
+description: In this quickstart, you learn how to use the Azure Communication Services Calling SDK for iOS.
 author: chpalm
 ms.author: mikben
 ms.date: 03/10/2021
@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 
-In this quickstart, you'll learn how to start a call using the Azure Communication Services Calling client library for iOS.
+In this quickstart, you'll learn how to start a call using the Azure Communication Services Calling SDK for iOS.
 
 > [!NOTE]
-> This document uses version 1.0.0-beta.8 of the calling client library.
+> This document uses version 1.0.0-beta.8 of the Calling SDK.
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ In Xcode, create a new iOS project and select the **Single View App** template. 
 
 1. To create a Podfile for your application open the terminal and navigate to the project folder and run 
 ```pod init```
-3. Add the following code to the Podfile and save:
+3. Add the following code to the Podfile and save (make sure that "target" matches the name of your project):
 
    ```
    platform :ios, '13.0'
@@ -115,11 +115,11 @@ struct ContentView: View {
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services Calling client library:
+The following classes and interfaces handle some of the major features of the Azure Communication Services Calling SDK:
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient | The CallClient is the main entry point to the Calling client library.|
+| CallClient | The CallClient is the main entry point to the Calling SDK.|
 | CallAgent | The CallAgent is used to start and manage calls. |
 | CommunicationTokenCredential | The CommunicationTokenCredential is used as the token credential to instantiate the CallAgent.| 
 | CommunicationUserIdentifier | The CommunicationUserIdentifier is used to represent the identity of the user which can be one of the following: CommunicationUserIdentifier/PhoneNumberIdentifier/CallingApplication. |

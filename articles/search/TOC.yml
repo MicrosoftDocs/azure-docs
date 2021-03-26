@@ -343,7 +343,7 @@
       - name: Create a suggester
         href: index-add-suggesters.md
       - name: Add autocomplete and suggestions
-        href: search-autocomplete-tutorial.md
+        href: search-add-autocomplete-suggestions.md
     - name: Paging and counts
       href: search-pagination-page-layout.md
     - name: Syntax reference
@@ -366,8 +366,6 @@
       href: search-query-troubleshoot-collection-filters.md
     - name: Understand collection filters
       href: search-query-understand-collection-filters.md
-    - name: Filter by language
-      href: search-filters-language.md
     - name: Normalize text
       href: search-normalizers.md
   - name: Relevance
