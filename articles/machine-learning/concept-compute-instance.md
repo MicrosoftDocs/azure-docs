@@ -177,7 +177,7 @@ A compute instance:
 You can use compute instance as a local inferencing deployment target for test/debug scenarios.
 
 > [!TIP]
-> The compute instance has 120GB OS disk. If you run out of disk space, clear sufficient space before attempting to stop/restart the compute instance.
+> The compute instance has 120GB OS disk. If you run out of disk space, [use the terminal](how-to-access-terminal.md) to clear at least 1-2 GB before you [stop or restart](how-to-create-manage-compute-instance.md#manage) the compute instance.
 
 
 ## <a name="notebookvm"></a>What happened to Notebook VM?
