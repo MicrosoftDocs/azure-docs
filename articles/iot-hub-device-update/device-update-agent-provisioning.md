@@ -12,8 +12,18 @@ ms.service: iot-hub-device-update
 
 Device Update for IoT Hub supports two forms of updates – image-based and package-based. 
 
-* Image updates provide a higher level of confidence in the end-state of the device. It is typically easier to replicate the results of an image-update between a pre-production environment and a production environment, since it doesn’t pose the same challenges as packages and their dependencies. Due to their atomic nature, one can also adopt an A/B failover model easily. 
-* Package-based updates are targeted updates that alter only a specific component or application on the device. Thus, leading to lower consumption of bandwidth and helps reduce the time to download and install the update. Package updates typically allow for less downtime of devices when applying an update and avoid the overhead of creating images. 
+* Current supported IoT device types with Device Update:
+1.	Linux device (IoT Edge and Non-IoT Edge):
+    * Image A/B update:
+      - Yocto - ARM64 (reference image), but you can build you own images for other architecture as needed. 
+      - Ubuntu 18.04 simulator
+    * Package Agent supported builds for the following platforms/architectures.
+      - Ubuntu Server 18.04 x64 Package Agent 
+      - Debian 9 
+2.	Constrained devices:
+    * AzureRTOS Device Update agent samples: [Device Update for Azure IoT Hub tutorial for Azure-Real-Time-Operating-System](
+3.	Disconnected devices: Understand support for disconnected device update using Microsoft Connected Cache - Device Update for Azure IoT Hub | Microsoft Docs
+
 
 Follow the links below on how to Build, Run and Modify the Device Update Agent.
 
