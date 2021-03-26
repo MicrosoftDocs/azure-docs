@@ -162,7 +162,7 @@ ChatAsyncClient client = new ChatAsyncClient.Builder()
 3. Replace `<user_access_token>` with a valid Communication Services access token.
 
 ## Object model
-The following classes and interfaces handle some of the major features of the Azure Communication Services Chat client library for JavaScript.
+The following classes and interfaces handle some of the major features of the Azure Communication Services Chat SDK for JavaScript.
 
 | Name                                   | Description                                                                                                                                                                           |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

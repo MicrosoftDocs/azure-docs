@@ -1542,6 +1542,8 @@
         href: runmyprocess-tutorial.md
     - name: S
       items:
+      - name: Saba Cloud
+        href: saba-cloud-tutorial.md
       - name: Saba TalentSpace
         href: halogen-software-tutorial.md
       - name: SafeConnect
@@ -2277,6 +2279,8 @@
         href: netsuite-provisioning-tutorial.md
       - name: OfficeSpace Software
         href: officespace-software-provisioning-tutorial.md
+      - name: Olfeo SAAS
+        href: olfeo-saas-provisioning-tutorial.md
       - name: OpenText Directory Services
         href: open-text-directory-services-provisioning-tutorial.md
       - name: Oracle Cloud Infrastructure Console

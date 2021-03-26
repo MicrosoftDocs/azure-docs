@@ -49,7 +49,8 @@ Continuous access evaluation is implemented by enabling services, like Exchange 
 
 This process enables the scenario where users lose access to organizational SharePoint Online files, email, calendar, or tasks, and Teams from Microsoft 365 client apps within mins after one of these critical events. 
 
-[!NOTE] Teams does not support user risk events yet.
+> [!NOTE] 
+> Teams does not support user risk events yet.
 
 ### Conditional Access policy evaluation (preview)
 
@@ -58,7 +59,7 @@ Exchange and SharePoint are able to synchronize key Conditional Access policies 
 This process enables the scenario where users lose access to organizational files, email, calendar, or tasks from Microsoft 365 client apps or SharePoint Online immediately after network location changes.
 
 > [!NOTE]
-> Not all app and resource provider combination are supported. See table below. Office refers to Word, Excel, and PowerPoint
+> Not all app and resource provider combination are supported. See table below. Office refers to Word, Excel, and PowerPoint.
 
 | | Outlook Web | Outlook Win32 | Outlook iOS | Outlook Android | Outlook Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
@@ -73,12 +74,6 @@ This process enables the scenario where users lose access to organizational file
 | | OneDrive web | OneDrive Win32 | OneDrive iOS | OneDrive Android | OneDrive Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
 | **SharePoint Online** | Supported | Supported | Supported | Supported | Supported |
-
-| | Teams web apps | Teams Win32 apps | Teams for iOS | Teams for Android | Teams for Mac |
-| :--- | :---: | :---: | :---: | :---: | :---: |
-| **SharePoint Online** | Supported | Supported | Supported | Supported | Supported |
-| **Exchange Online** | Supported | Supported | Supported | Supported | Supported |
-| **Exchange Online** | Supported | Supported | Supported | Supported | Supported |
 
 ### Client-side claim challenge
 

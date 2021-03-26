@@ -5,7 +5,7 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 03/17/2021
+ms.date: 03/25/2021
 ms.custom: mvc
 #Customer intent: As an VMware admin, I want to discover my on-premises servers running in VMware environment.
 ---
@@ -30,11 +30,9 @@ In this tutorial, you learn how to:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
-
 ## Prerequisites
 
 Before you start this tutorial, check you have these prerequisites in place.
-
 
 **Requirement** | **Details**
 --- | ---
@@ -94,7 +92,6 @@ In vSphere Web Client, set up an account as follows:
 
     :::image type="content" source="./media/tutorial-discover-vmware/guest-operations.png" alt-text="Checkbox to allow guest operations on the read-only role":::
 
-
 > [!NOTE]
 > You can limit discovery to specific vCenter Server datacenters, clusters, a folder of clusters, hosts, a folder of hosts, or individual servers by scoping the vCenter Server account. [**Learn more**](set-discovery-scope.md) on how to scope the vCenter Server user account.
 
@@ -102,7 +99,7 @@ In vSphere Web Client, set up an account as follows:
 
 You need a user account with the necessary privileges on the servers to perform discovery of installed applications, agentless dependency analysis, and discovery of SQL Server instances and databases. You can provide the user account on the appliance configuration manager. The appliance does not install any agents on the servers.
 
-1. For Windows servers, create an account (local or domain) with administrative permissions on the servers. To discover SQL Server instances and databases, you need the Windows or SQL Server account to be a member of the sysadmin server role. [Learn more](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/server-level-roles) on how to assign the required role to the user account.
+1. For Windows servers, create an account (local or domain) with administrative permissions on the servers. To discover SQL Server instances and databases, you need the Windows or SQL Server account to be a member of the sysadmin server role. [Learn more](/sql/relational-databases/security/authentication-access/server-level-roles) on how to assign the required role to the user account.
 2. For Linux servers, create an account with Root privileges. Alternately, you can create an account with these permissions on /bin/netstat and /bin/ls files: CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE.
 
 > [!NOTE]
@@ -193,11 +190,9 @@ Import the downloaded file, and create a server in VMware environment
 8. In **Network Mapping**, specify the network to which the server will connect. The network needs internet connectivity, to send metadata to Azure Migrate.
 9. Review and confirm the settings, then click **Finish**.
 
-
 ### Verify appliance access to Azure
 
 Make sure that the appliance server can connect to Azure URLs for [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
-
 
 ### 4. Configure the appliance
 
@@ -278,6 +273,8 @@ If you want to use these features, you can provide server credentials by followi
 - You can see the **Validation status** for all the domain credentials in the credentials table. Only domain credentials will be validated.
 - If the validation fails, you can click on **Failed** status to see the error encountered and click on **Revalidate credentials** after fixing the issue to validate the failed domain credentials again.
 
+     :::image type="content" source="./media/tutorial-discover-vmware/add-server-credentials-multiple.png" alt-text="Panel 3 on appliance configuration manager for providing multiple credentials":::
+
 ### Start discovery
 
 1. Click on **Start discovery**, to kick off vCenter Server discovery. After the discovery has been successfully initiated, you can check the discovery status against the vCenter Server IP address/FQDN in the sources table.
@@ -286,8 +283,8 @@ If you want to use these features, you can provide server credentials by followi
 1. During software inventory, the added servers credentials will be iterated against servers and validated for agentless dependency analysis. You can enable agentless dependency analysis for servers from the portal. Only the servers where the validation succeeds can be selected to enable agentless dependency analysis.
 
 > [!Note]
->Azure Migrate will encrypt the communication between Azure Migrate appliance and source SQL Server instances (with Encrypt connection property set to TRUE). These connections are encrypted with [**TrustServerCertificate**](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (set to TRUE); the transport layer will use SSL to encrypt the channel and bypass the certificate chain to validate trust. The appliance server must be set up to [**trust the certificate's root authority**](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).<br/>
-If no certificate has been provisioned on the server when it starts up, SQL Server generates a self-signed certificate which is used to encrypt login packets. [**Learn more**](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
+>Azure Migrate will encrypt the communication between Azure Migrate appliance and source SQL Server instances (with Encrypt connection property set to TRUE). These connections are encrypted with [**TrustServerCertificate**](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (set to TRUE); the transport layer will use SSL to encrypt the channel and bypass the certificate chain to validate trust. The appliance server must be set up to [**trust the certificate's root authority**](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).<br/>
+If no certificate has been provisioned on the server when it starts up, SQL Server generates a self-signed certificate which is used to encrypt login packets. [**Learn more**](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
 
 Discovery works as follows:
 

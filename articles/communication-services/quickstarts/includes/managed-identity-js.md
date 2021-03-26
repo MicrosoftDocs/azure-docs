@@ -1,6 +1,6 @@
 ## Add managed identity to your Communication Services solution (JS)
 
-### Install the client library packages
+### Install the SDK packages
 
 ```console
 npm install @azure/communication-identity
@@ -9,9 +9,9 @@ npm install @azure/communication-sms
 npm install @azure/identity
 ```
 
-### Use the client library packages
+### Use the SDK packages
 
-Add the following `import` directives to your code to use the Azure Identity and Azure Storage client libraries.
+Add the following `import` directives to your code to use the Azure Identity and Azure Storage SDKs.
 
 ```typescript
 import { DefaultAzureCredential } from "@azure/identity";

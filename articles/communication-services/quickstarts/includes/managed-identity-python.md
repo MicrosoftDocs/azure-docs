@@ -1,6 +1,6 @@
 ## Add managed identity to your Communication Services solution
 
-### Install the client library packages
+### Install the SDK packages
 
 ```console
 pip install azure-identity
@@ -8,7 +8,7 @@ pip install azure-communication-identity
 pip install azure-communication-sms
 ```
 
-### Use the client library packages
+### Use the SDK packages
 
 Add the following `import` to your code to use the Azure Identity.
 

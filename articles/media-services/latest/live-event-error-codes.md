@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: error-reference
-ms.date: 02/12/2020
+ms.date: 03/26/2021
 ms.author: inhenkel
 
 ---
@@ -85,7 +85,8 @@ event.
 >| Description|Encoder sending data too fast. |
 >| Suggested solution|This happens when the encoder bursts out a large set of fragments in a brief period.  This can theoretically happen when the encoder can't push data for while due to a network issue and the bursts out data when the network is available. Find the reason from encoder log or system log. |
 >|**Unknown error codes** |
->| Description| These error codes can range from memory error to duplicate entries in hash map. |
+>| Description| These error codes can range from memory error to duplicate entries in hash map. This can happen when the encoder sends out a large set of fragments in a brief period.  This can also happen when the encoder couldn't push data for while due to a network issue and then sends all the delayed fragments at once when the network becomes available. |
+>|Suggested solution| Check the encoder logs.|
 
 ## Other error codes
 
@@ -97,13 +98,13 @@ event.
 >|Suggested solution| None.||
 >|**MPI_SYSTEM_MAINTENANCE** ||Yes|
 >| Description|The encoder disconnected due to service update or system maintenance. ||
->|Suggested solution|Make sure encoder enables 'auto connect'. This is encoder feature to recover the unexpected session disconnection. ||
+>|Suggested solution|Make sure the encoder enables 'auto connect'. It allows the encoder to reconnect to the redundant live event endpoint that is not in maintenance. ||
 >|**MPE_BAD_URL_SYNTAX** ||Yes|
 >| Description|The ingest URL is incorrectly formatted. ||
 >|Suggested solution|Make sure the ingest URL is correctly formatted. For RTMP, it should be `rtmp[s]://hostname:port/live/GUID_APPID/streamname` ||
 >|**MPE_CLIENT_TERMINATED_SESSION** ||Yes|
 >| Description|The encoder disconnected the session.  ||
->|Suggested solution|This is not error. This is the case where encoder initiated disconnection, including graceful disconnection. If this is an unexpected disconnect, check the encoder log or system log. |
+>|Suggested solution|This is not error. The encoder initiated disconnection, including graceful disconnection. If this is an unexpected disconnect, check the encoder logs. |
 >|**MPE_INGEST_BITRATE_NOT_MATCH** ||No|
 >| Description|The incoming data rate does not match with expected bitrate. ||
 >|Suggested solution|This is a warning which happens when incoming data rate is too slow or fast. Check encoder log or system log.||

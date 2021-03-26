@@ -249,6 +249,7 @@ Use this table to determine which speaking styles are supported for each neural 
 |-------------------------|---------------------------|-------------------------------------------------------------|
 | `en-US-AriaNeural`      | `style="newscast-formal"` | Expresses a formal, confident and authoritative tone for news delivery |
 |                         | `style="newscast-casual"` | Expresses a versatile and casual tone for general news delivery        |
+|                         | `style="narration-professional"` | Express a professional, objective tone for content reading        |
 |                         | `style="customerservice"` | Expresses a friendly and helpful tone for customer support  |
 |                         | `style="chat"`            | Expresses a casual and relaxed tone                         |
 |                         | `style="cheerful"`        | Expresses a positive and happy tone                         |
