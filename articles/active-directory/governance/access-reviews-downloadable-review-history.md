@@ -63,7 +63,7 @@ The reports provide details on a per-user basis showing the following:
 | CreatedDateTime |	Creation datetime of the review |
 | ReviewStartDate |	Start date of the review
 | ReviewEndDate | End date of the review |
-| ReviewStatus | Status of the review. For all review statuses, see the access review status table [here](.mdcreate-access-review) |
+| ReviewStatus | Status of the review. For all review statuses, see the access review status table [here](create-access-review.md) |
 | OwnerId | Reviewer owner ID |
 | OwnerName | Reviewer owner name |
 | OwnerUPN | Reviewer owner User Principal Name |
