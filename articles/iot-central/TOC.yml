@@ -124,7 +124,7 @@
         - name: Create a continuous patient monitoring app
           href: healthcare/tutorial-continuous-patient-monitoring.md 
         - name: Create a health data triage dashboard
-          href: healthcare/howto-health-data-triage.md
+          href: ./healthcare/tutorial-health-data-triage.md
 
 - name: Concepts
   items:
@@ -134,6 +134,8 @@
       href: core/overview-iot-central-developer.md
     - name: Solution builder guide
       href: core/overview-iot-central-solution-builder.md
+    - name: Administrator guide
+      href: core/overview-iot-central-admin.md
     - name: Operator guide
       href: core/overview-iot-central-operator.md
     - name: What are application templates?

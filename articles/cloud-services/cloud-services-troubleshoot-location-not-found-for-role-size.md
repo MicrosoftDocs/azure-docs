@@ -42,7 +42,7 @@ In this scenario, you should select a different region or SKU to deploy your Clo
 
 ### List SKUs in region using Azure CLI
 
-You can use the [az vm list-skus](https://docs.microsoft.com/cli/azure/vm.html#az_vm_list_skus) command.
+You can use the [az vm list-skus](/cli/azure/vm.html#az_vm_list_skus) command.
 
 - Use the `--location` parameter to filter output to location you're using.
 - Use the `--size` parameter to search by a partial size name.
@@ -59,7 +59,7 @@ You can use the [az vm list-skus](https://docs.microsoft.com/cli/azure/vm.html#a
 
 #### List SKUs in region using PowerShell
 
-You can use the [Get-AzComputeResourceSku](https://docs.microsoft.com/powershell/module/az.compute/get-azcomputeresourcesku) command.
+You can use the [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku) command.
 
 - Filter the results by location.
 - You must have the latest version of PowerShell for this command.
@@ -87,7 +87,7 @@ Get-AzComputeResourceSku | where {$_.Locations.Contains("centralus") -and $_.Res
 
 #### List SKUs in region using REST API
 
-You can use the [Resource Skus - List](https://docs.microsoft.com/rest/api/compute/resourceskus/list) operation. It returns available SKUs and regions in the following format:
+You can use the [Resource Skus - List](/rest/api/compute/resourceskus/list) operation. It returns available SKUs and regions in the following format:
 
 ```json
 {
