@@ -44,18 +44,18 @@ The following resources are a great place to get started with Azure Communicatio
 
 | Resource                               |Description                           |
 |---                                    |---                                   |
-|**[Create a Communication Services resource](./quickstarts/create-communication-resource.md)**|You can begin using Azure Communication Services by using the Azure portal or Communication Services  client library to provision your first Communication Services resource. Once you have your Communication Services resource connection string, you can provision your first user access tokens.|
+|**[Create a Communication Services resource](./quickstarts/create-communication-resource.md)**|You can begin using Azure Communication Services by using the Azure portal or Communication Services  SDK to provision your first Communication Services resource. Once you have your Communication Services resource connection string, you can provision your first user access tokens.|
 |**[Get a phone number](./quickstarts/telephony-sms/get-phone-number.md)**|You can use Azure Communication Services to provision and release telephone numbers. These telephone numbers can be used to initiate outbound calls and build SMS communications solutions.|
-|**[Send an SMS from your app](./quickstarts/telephony-sms/send.md)**|The Azure Communication Services SMS client library allows you to send and receive SMS messages from your .NET and JavaScript applications.|
+|**[Send an SMS from your app](./quickstarts/telephony-sms/send.md)**|The Azure Communication Services SMS SDK allows you to send and receive SMS messages from your .NET and JavaScript applications.|
 
 After creating an Communication Services resource you can start building client scenarios, such as voice and video calling or text chat.
 
 | Resource                               |Description                           |
 |---                                    |---                                   |
-|**[Create your first user access token](./quickstarts/access-tokens.md)**|User access tokens are used to authenticate your services against your Azure Communication Services resource. These tokens are provisioned and reissued using the Communication Services  client library.|
-|**[Get started with voice and video calling](./quickstarts/voice-video-calling/getting-started-with-calling.md)**| Azure Communication Services allows you to add voice and video calling to your apps using the Calling client library. This library is powered by WebRTC and allows you to establish peer-to-peer, multimedia, real-time communications within your applications.|
+|**[Create your first user access token](./quickstarts/access-tokens.md)**|User access tokens are used to authenticate your services against your Azure Communication Services resource. These tokens are provisioned and reissued using the Communication Services  SDK.|
+|**[Get started with voice and video calling](./quickstarts/voice-video-calling/getting-started-with-calling.md)**| Azure Communication Services allows you to add voice and video calling to your apps using the Calling SDK. This library is powered by WebRTC and allows you to establish peer-to-peer, multimedia, real-time communications within your applications.|
 |**[Join your calling app to a Teams meeting](./quickstarts/voice-video-calling/get-started-teams-interop.md)**|Azure Communication Services can be used to build custom meeting experiences that interact with Microsoft Teams. Users of your Communication Services solution(s) can interact with Teams participants over voice, video, chat, and screen sharing.|
-|**[Get started with chat](./quickstarts/chat/get-started.md)**|The Azure Communication Services Chat client library can be used to integrate real-time chat into your applications.|
+|**[Get started with chat](./quickstarts/chat/get-started.md)**|The Azure Communication Services Chat SDK can be used to integrate real-time chat into your applications.|
 
 ## Samples
 
@@ -74,7 +74,7 @@ The following resources will help you learn about the Azure Communication Servic
 
 | Resource                               | Description                           |
 |---                                    |---                                   |
-|**[Client libraries and REST APIs](./concepts/sdk-options.md)**|Azure Communication Services capabilities are conceptually organized into six areas, each represented by an SDK. You can decide which SDKs to use based on your real-time communication needs.|
+|**[SDKs and REST APIs](./concepts/sdk-options.md)**|Azure Communication Services capabilities are conceptually organized into six areas, each represented by an SDK. You can decide which SDKs to use based on your real-time communication needs.|
 |**[Calling SDK overview](./concepts/voice-video-calling/calling-sdk-features.md)**|Review the Communication Services Calling SDK overview.|
 |**[Chat SDK overview](./concepts/chat/sdk-features.md)**|Review the Communication Services Chat SDK overview.|
 |**[SMS SDK overview](./concepts/telephony-sms/sdk-features.md)**|Review the Communication Services SMS SDK overview.|
