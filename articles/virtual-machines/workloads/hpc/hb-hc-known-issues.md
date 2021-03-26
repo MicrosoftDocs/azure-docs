@@ -5,7 +5,7 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 03/18/2021
+ms.date: 03/25/2021
 ms.author: amverma
 ms.reviewer: cynthn
 
@@ -21,9 +21,19 @@ This has been reported for both Mellanox OFED versions 5.2-1.0.4.0 and 5.2-2.2.0
 The temporary solution is to use the **Canonical:UbuntuServer:18_04-lts-gen2:18.04.202101290** marketplace image or older and not to update the kernel.
 This issue is expected to be resolved with a newer MOFED (TBD).
 
-## Known Issues on HBv3
-- Currently, InfiniBand is supported only on the 120-core VM (Standard_HB120rs_v3).
-- Currently, Azure Accelerated Networking is not supported on HBv3-series in all regions.
+## MPI QP creation errors
+If in the midst of running any MPI workloads, InfiniBand QP creation errors such as shown below, are thrown, we suggest rebooting the VM and re-trying the workload. This issue will be fixed in the future.
+
+```bash
+ib_mlx5_dv.c:150  UCX  ERROR mlx5dv_devx_obj_create(QP) failed, syndrome 0: Invalid argument
+ib_mlx5dv_md.c:826  UCX  ERROR ibv_create_cq() failed: Invalid argument
+```
+
+You may verify the values of the maximum number of queue-pairs when the issue is observed as follows.
+```bash
+[user@azurehpc-vm ~]$ ibv_devinfo -vv | grep qp
+max_qp: 4096
+```
 
 ## Accelerated Networking on HB, HC, HBv2, and NDv2
 
