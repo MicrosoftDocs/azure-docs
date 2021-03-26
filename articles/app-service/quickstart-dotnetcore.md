@@ -372,7 +372,10 @@ To deploy your web app using the Visual Studio Azure Tools extension:
     - Select **Skip for now** for the Application Insights resource.
     - Select a location near you.
 
-1. Browse to the deployed application using your web browser.
+1. When publishing completes, select **Browse Website** in the notification and select **Open** when prompted.
+
+   <!-- TODO: update this with an image-->
+   > Pretend this is a screenshot depicting the notification when it's done publishing
 
 ::: zone-end
 
@@ -448,10 +451,14 @@ Follow these steps to update and redeploy your web app:
 1. Select the **Deploy to Web App...** button on the **App Service** panel.
 
    <!-- TODO: update this with an image-->
-   > Pretend this is a screenshot.
+   > Pretend this is a screenshot depicting the button that looks like ⬆ 
 
 1. Select your recently used **Subscription** and **Web App** when prompted.
 1. Select **Deploy** when prompted.
+1. When publishing completes, select **Browse Website** in the notification and select **Open** when prompted.
+
+   <!-- TODO: update this image -->
+   ![Updated ASP.NET web app running in Azure](./media/quickstart-dotnetcore/updated-web-app-running-live.png)
 
 ::: zone-end
 
