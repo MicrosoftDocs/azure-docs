@@ -261,12 +261,3 @@ If you get errors that end with `_NOT_SPECIFIED_IN_URL`, make sure that you spec
 ## Ask questions, give feedback, get updates
 
 Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
-
-## Next steps
-
-* [Protect with AES encryption](protect-with-aes128.md)
-* [Protect with DRM](protect-with-drm.md)
-* [Design multi-DRM content protection system with access control](design-multi-drm-system-with-access-control.md)
-* [Storage side encryption](storage-account-concept.md#storage-side-encryption)
-* [Frequently asked questions](frequently-asked-questions.md)
-* [JSON Web Token Handler](/dotnet/framework/security/json-web-token-handler)

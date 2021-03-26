@@ -351,9 +351,3 @@ The following screenshot shows a scenario that uses an asymmetric key via an X50
 ![Custom STS with an asymmetric key](./media/design-multi-drm-system-with-access-control/media-services-running-sts2.png)
 
 In both of the previous cases, user authentication stays the same. It takes place through Azure AD. The only difference is that JWTs are issued by the custom STS instead of Azure AD. When you configure dynamic CENC protection, the license delivery service restriction specifies the type of JWT, either a symmetric or an asymmetric key.
-
-## Next steps
-
-* [Frequently asked questions](frequently-asked-questions.md)
-* [Content protection overview](content-protection-overview.md)
-* [Protect your content with DRM](protect-with-drm.md)
