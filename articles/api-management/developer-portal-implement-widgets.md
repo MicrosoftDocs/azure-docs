@@ -25,7 +25,6 @@ To help you in the development process, refer to the completed widget located in
 
 * You should understand the [Paperbits widget anatomy](https://paperbits.io/wiki/widget-anatomy).
 
-## Implement the widget
 
 ## Copy the scaffold
 
@@ -46,44 +45,36 @@ Rename the exported module classes by replacing the `Widget` prefix with `Confer
     
 For example, in the `widget.design.module.ts` file, change `WidgetDesignModule` to `ConferenceSessionDesignModule`:
     
-    ```typescript
-    export class WidgetDesignModule implements IInjectorModule {
-    ```
-    
 ```typescript
 export class WidgetDesignModule implements IInjectorModule {
 ```
-    
-    ```typescript
-    export class ConferenceSessionDesignModule implements IInjectorModule {
-    ```
+to 
     
 ```typescript
 export class ConferenceSessionDesignModule implements IInjectorModule {
 ```
     
+   
 ## Register the widget
 
 Register the widget's modules in the portal's root modules by adding the following lines in the respective files:
 
 1. `src/apim.design.module.ts` - a module that registers design-time dependencies.
 
-    ```typescript
-    import { ConferenceSessionDesignModule } from "../community/widgets/conference-session/widget.design.module";
-
-    ...
-
-        injector.bindModule(new ConferenceSessionDesignModule());
-    ```
-
+   ```typescript
+   import { ConferenceSessionDesignModule } from "../community/widgets/conference-session/widget.design.module";
+   
+   ...
+   injector.bindModule(new ConferenceSessionDesignModule());
+   ```
 1. `src/apim.publish.module.ts` - a module that registers publish-time dependencies.
 
-    ```typescript
-    import { ConferenceSessionPublishModule } from "../community/widgets/conference-session/widget.publish.module";
+   ```typescript
+   import { ConferenceSessionPublishModule } from "../community/widgets/conference-session/widget.publish.module";
 
     ...
 
-        injector.bindModule(new ConferenceSessionPublishModule());
+    injector.bindModule(new ConferenceSessionPublishModule());
     ```
 
 1. `src/apim.runtime.module.ts` - runtime dependencies.
@@ -93,7 +84,7 @@ Register the widget's modules in the portal's root modules by adding the followi
 
     ...
 
-        injector.bindModule(new ConferenceSessionRuntimeModule());
+    injector.bindModule(new ConferenceSessionRuntimeModule());
     ```
 
 ## Place the widget in the portal
@@ -111,9 +102,13 @@ Now you're ready to plug in the duplicated scaffold and use it in developer port
     > [!NOTE]
     > In design-time, you can still interact with the website by holding the **Ctrl** (or **⌘**) key.
 
+## Add custom properties
+
 For the widget to fetch session descriptions, it needs to be aware of the session identifier. Add the `Session ID` property to the respective interfaces and classes:
 
 In order for the widget to fetch the session description, it needs to be aware of the session identifier. Add the session ID property to the respective interfaces and classes:
+
+1. `widgetContract.ts` - data contract (data layer) defining how the widget configuration is persisted.
 
     ```typescript
     export interface WidgetContract extends Contract {
@@ -134,7 +129,7 @@ In order for the widget to fetch the session description, it needs to be aware o
     > [!NOTE]
     > You don't need to change anything in this file.
 
-## Set up binders
+## Configure binders
 
 Enable the flow of the `sessionNumber` from the data source to the widget presentation. Edit the `ModelBinder` and `ViewModelBinder` entities:
 
@@ -193,16 +188,16 @@ From the design-time perspective, any runtime component is just an HTML tag with
 1. Update the `widgetHandlers.ts` file to assign the session ID on creation:
 
     ```typescript
-        ...
-        createModel: async () => {
-            var model = new ConferenceSessionModel();
-            model.sessionNumber = "107";
+    ...
+    createModel: async () => {
+        var model = new ConferenceSessionModel();
+        model.sessionNumber = "107";
             return model;
         }
-        ...
+    ...
     ```
 
-### 8. Revise runtime view model
+## Revise runtime view model
 
 Runtime components are the code running in the website itself. For example, in the API Management developer portal, they are all the scripts behind dynamic components (for example, *API details*, *API console*), handling operations such as code sample generation, sending requests, etc.
 
@@ -315,12 +310,12 @@ Now, carry out these steps to allow the user to set up the session ID through a 
 
 Change the widget name in the `constants.ts` file:
 
-    ```typescript
-    ...
-    export const widgetName = "conference-session";
-    export const widgetDisplayName = "Conference session";
-    ...
-    ```
+```typescript
+...
+export const widgetName = "conference-session";
+export const widgetDisplayName = "Conference session";
+...
+```
 
 > [!NOTE]
 > If you're contributing the widget to the repository, the `widgetName` needs to be the same as its folder name and needs to be derived from the display name (lowercase and spaces replaced with dashes). The category should remain `Community`.
