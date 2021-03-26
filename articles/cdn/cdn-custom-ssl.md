@@ -5,7 +5,7 @@ services: cdn
 author: asudbring
 ms.service: azure-cdn
 ms.topic: tutorial
-ms.date: 01/27/2021
+ms.date: 03/26/2021
 ms.author: allensu
 ms.custom: mvc
 # As a website owner, I want to enable HTTPS on the custom domain of my CDN endpoint so that my users can use my custom domain to access my content securely.
@@ -170,13 +170,15 @@ Grant Azure CDN permission to access the certificates (secrets) in your Azure Ke
 
     ![Configure your certificate](./media/cdn-custom-ssl/cdn-configure-your-certificate.png)
 
-4. Select a key vault, certificate (secret), and certificate version.
+4. Select a key vault, certificate/Secret, and Certificate/Secret version.
 
     Azure CDN lists the following information: 
     - The key vault accounts for your subscription ID. 
-    - The certificates (secrets) under the selected key vault. 
-    - The available certificate versions. 
- 
+    - The certificates/secrets under the selected key vault. 
+    - The available certificate/secret versions. 
+   > [!NOTE]
+   >  In order for the certificate to be automatically rotated to the latest version when a newer version of the certificate is available in your Key Vault, please set the certificate/secret version to 'Latest'. If a specific version is selected, you have to re-select the new version manually for certificate rotation. It takes up to 24 hours for the new version of the certificate/secret to be deployed. 
+   
 5. Select **On** to enable HTTPS.
   
 6. When you use your certificate, domain validation isn't required. Continue to [Wait for propagation](#wait-for-propagation).
