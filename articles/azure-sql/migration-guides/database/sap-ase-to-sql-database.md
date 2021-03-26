@@ -1,6 +1,6 @@
 ---
 title: "SAP ASE to Azure SQL Database: Migration guide"
-description: In this guide you learn how to migrate your SAP ASE databases to Azure SQL Database by using SQL Server Migration Assistant for SAP Adapter Server Enterprise.
+description: In this guide you learn how to migrate your SAP ASE databases to an Azure SQL database by using SQL Server Migration Assistant for SAP Adapter Server Enterprise.
 ms.service: sql-database
 ms.subservice: migration-guide
 ms.custom: 
@@ -15,13 +15,13 @@ ms.date: 03/19/2021
 
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
-In this guide, you learn how to migrate your SAP Adapter Server Enterprise (ASE) databases to Azure SQL Database by using SQL Server Migration Assistant for SAP Adapter Server Enterprise.
+In this guide, you learn how to migrate your SAP Adapter Server Enterprise (ASE) databases to an Azure SQL database by using SQL Server Migration Assistant for SAP Adapter Server Enterprise.
 
 For other migration guides, see [Azure Database Migration Guide](https://docs.microsoft.com/data-migration). 
 
 ## Prerequisites 
 
-Before you begin migrating your SAP SE database to Azure SQL Database, do the following:
+Before you begin migrating your SAP SE database to your SQL database, do the following:
 
 - Verify that your source environment is supported. 
 - Download and install [SQL Server Migration Assistant for SAP Adaptive Server Enterprise (formerly SAP Sybase ASE)](https://www.microsoft.com/en-us/download/details.aspx?id=54256).
@@ -33,7 +33,7 @@ After you've met the prerequisites, you're ready to discover the topology of you
 
 ### Assess
 
-By using [SQL Server Migration Assistant (SSMA) for SAP Adaptive Server Enterprise (formally SAP Sybase ASE)](https://www.microsoft.com/en-us/download/details.aspx?id=54256), you can review database objects and data, assess databases for migration, migrate Sybase database objects to Azure SQL Database, and then migrate data to Azure SQL Database. To learn more, see [SQL Server Migration Assistant for Sybase (SybaseToSQL)](/sql/ssma/sybase/sql-server-migration-assistant-for-sybase-sybasetosql).
+By using [SQL Server Migration Assistant (SSMA) for SAP Adaptive Server Enterprise (formally SAP Sybase ASE)](https://www.microsoft.com/en-us/download/details.aspx?id=54256), you can review database objects and data, assess databases for migration, migrate Sybase database objects to your SQL database, and then migrate data to the SQL database. To learn more, see [SQL Server Migration Assistant for Sybase (SybaseToSQL)](/sql/ssma/sybase/sql-server-migration-assistant-for-sybase-sybasetosql).
 
 To create an assessment, do the following: 
 
@@ -56,14 +56,14 @@ Before you perform schema conversion, validate the default data-type mappings or
 To convert the schema, do the following:
 
 1. (Optional) To convert dynamic or specialized queries, right-click the node, and then select **Add statement**. 
-1. Select the **Connect to Azure SQL Database** tab, and then enter the Azure SQL Database details. You can choose to connect to an existing database or provide a new name, in which case a database will be created on the target server.
+1. Select the **Connect to Azure SQL Database** tab, and then enter the details for your SQL database. You can choose to connect to an existing database or provide a new name, in which case a database will be created on the target server.
 1. On the **Sybase Metadata Explorer** pane, right-click the SAP ASE schema you're working with, and then select **Convert Schema**. 
 1. After the schema has been converted, compare and review the converted structure to the original structure identify potential problems. 
 
-   After the schema conversion, you can save this project locally for an offline schema remediation exercise. To do so, select **File** > **Save Project**. This gives you an opportunity to evaluate the source and target schemas offline and perform remediation before you publish the schema to Azure SQL Database.
+   After the schema conversion, you can save this project locally for an offline schema remediation exercise. To do so, select **File** > **Save Project**. This gives you an opportunity to evaluate the source and target schemas offline and perform remediation before you publish the schema to your SQL database.
 
 1. On the **Output** pane, select **Review results**, and review any errors in the **Error list** pane. 
-1. Save the project locally for an offline schema remediation exercise. To do so, select **File** > **Save Project**. This gives you an opportunity to evaluate the source and target schemas offline and perform remediation before you publish the schema to SQL Database.
+1. Save the project locally for an offline schema remediation exercise. To do so, select **File** > **Save Project**. This gives you an opportunity to evaluate the source and target schemas offline and perform remediation before you publish the schema to your SQL database.
 
 ## Migrate the databases 
 
@@ -71,13 +71,13 @@ After you have the necessary prerequisites in place and have completed the tasks
 
 To publish the schema and migrate the data, do the following: 
 
-1. Publish the schema. On the **Azure SQL Database Metadata Explorer** pane, right-click the database, and then select **Synchronize with Database**. This action publishes the SAP ASE schema to the Azure SQL Database instance.
+1. Publish the schema. On the **Azure SQL Database Metadata Explorer** pane, right-click the database, and then select **Synchronize with Database**. This action publishes the SAP ASE schema to your SQL database.
 
 1. Migrate the data. On the **SAP ASE Metadata Explorer** pane, right-click the SAP ASE database or object you want to migrate, and then select **Migrate Data**. Alternatively, you can select the **Migrate Data** tab at the upper right. 
 
    To migrate data for an entire database, select the check box next to the database name. To migrate data from individual tables, expand the database, expand **Tables**, and then select the check box next to the table. To omit data from individual tables, clear the check box. 
 1. After the migration is completed, view the **Data Migration Report**. 
-1. Validate the migration by reviewing the data and schema. To do so, connect to your Azure SQL Database by using [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
+1. Validate the migration by reviewing the data and schema. To do so, connect to your SQL database by using [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 ## Post-migration 
 
