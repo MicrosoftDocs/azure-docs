@@ -155,7 +155,7 @@ To use the `iotedge-config-cli` tool to create and configure your hierarchy, fol
 
    Once completed, the script displays a topology of your hierarchy. The script also creates a configuration bundle for each device in your hierarchy, which will be stored in the `./outputs` folder from the above command.
 
-   ![The script will display a topology of your hierarchy upon execution](./media/tutorial-nested-iot-edge/successful-setup-script-run.png)
+   ![The script will display a topology of your hierarchy upon execution](./media/tutorial-nested-iot-edge/successful-setup-tool-run.png)
 
 Double-check that the topology output from the script looks correct. Once you are satisfied your hierarchy is correctly structured, you are ready to proceed.
 
