@@ -7,7 +7,7 @@ ms.custom: hdinsightactive
 ms.date: 03/22/2021
 ---
 
-# Migrate Apache HBase to a new version
+# Migrate an Apache HBase cluster to a new version
 
 This article discusses how to update your Apache HBase cluster on Azure HDInsight to a newer version. 
 
@@ -67,7 +67,7 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
    
    For more information on connecting to and using Ambari, see [Manage HDInsight clusters by using the Ambari Web UI](../hdinsight-hadoop-manage-ambari.md).
    
-1. If your source HBase cluster doesn't have the [Accelerated Writes](apache-hbase-accelerated-writes.md) feature, skip this step. For source HBase clusters with Accelerated Writes, back up the WAL dir under HDFS by running the following commands from an SSH session on any of the Zookeeper nodes or worker nodes of the source cluster.
+1. If your source HBase cluster doesn't have the [Accelerated Writes](apache-hbase-accelerated-writes.md) feature, also called Enhanced Writes, skip this step. For source HBase clusters with Accelerated Writes, back up the WAL dir under HDFS by running the following commands from an SSH session on any of the Zookeeper nodes or worker nodes of the source cluster.
    
    ```bash
    hdfs dfs -mkdir /hbase-wal-backup**
@@ -153,12 +153,12 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
 1. In the destination cluster, using the `sudo -u hdfs` user context, copy the folder `/hdp/apps/<new-version-name>` and its contents from `<destination-container-fullpath>` to the `/hdp/apps` folder under `<source-container-fullpath>`. You can copy the folder by running the following commands on the destination cluster, depending on the destination cluster version:
    
    ```bash   
-   hdfs dfs -cp /hdp/apps/<new-version> <source-container-fullpath>/hdp/apps
+   sudo -u hdfs hdfs dfs -cp /hdp/apps/<new-version> <source-container-fullpath>/hdp/apps
    ```
    
    For example:
    ```bash
-   hdfs dfs -cp /hdp/apps/4.1.3.6 <source-container-fullpath>/hdp/apps
+   sudo -u hdfs hdfs dfs -cp /hdp/apps/4.1.3.6 <source-container-fullpath>/hdp/apps
    ```
    
 1. On the destination cluster, save your changes and restart all required services as Ambari indicates.

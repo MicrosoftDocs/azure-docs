@@ -64,7 +64,7 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
    
 1. Clean up the WAL on the destination cluster by running the following commands in any of the Zookeeper nodes or worker nodes.
    
-   - If the destination cluster **has the Accelerated Writes feature**, run:
+   - If the destination cluster **has the Accelerated Writes feature,** also called Enhanced Writes, run:
      
      ```bash   
      hdfs dfs -rm -r hdfs://mycluster/hbasewal**
