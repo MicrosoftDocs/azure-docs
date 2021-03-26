@@ -32,9 +32,9 @@ The following table shows the listing options for SaaS offers in the commercial 
 
 For more information about these listing options, see [Commercial marketplace transact capabilities](marketplace-commercial-transaction-capabilities-and-considerations.md).
 
-After your offer is published, the listing option you chose for your offer appears as a button in the upper-left corner of your offer’s listing page. For example, the following screenshot shows an offer listing page in Azure Marketplace with the **Get it now** and **Test drive** buttons.
+After your offer is published, the listing option you chose for your offer appears as a button in the upper-left corner of your offer’s listing page. For example, the following screenshot shows an offer listing page in Azure Marketplace with the **Get it now** button.
 
-![Illustrates an offer listing in the online store.](./media/listing-options.png)
+![Illustrates an offer listing in the online store.](./media/saas/listing-options-saas-full.png)
 
 ## Technical requirements
 
@@ -134,7 +134,7 @@ If you choose to use the standard contract, you have the option to add universal
 
 When you [create a new SaaS offer](create-new-saas-offer.md) in Partner Center, you will enter text, images, optional videos, and other details on the **Offer listing** page. This is the information that customers will see when they discover your offer listing in the commercial marketplace, as shown in the following example.
 
-:::image type="content" source="./media/example-saas-1.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
+:::image type="content" source="./media/saas/example-saas-1.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
 
 **Call-out descriptions**
 
