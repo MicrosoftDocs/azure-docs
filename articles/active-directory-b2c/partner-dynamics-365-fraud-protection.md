@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 # Tutorial: Configure Microsoft Dynamics 365 Fraud Protection with Azure Active Directory B2C
 
-In this sample tutorial, we provide guidance on how to integrate [Microsoft Dynamics 365 Fraud Protection](/dynamics365/fraud-protection/overview) (DFP) with the Azure Active Directory (AD) B2C.
+In this sample tutorial, we provide guidance on how to integrate [Microsoft Dynamics 365 Fraud Protection](https://docs.microsoft.com/dynamics365/fraud-protection/overview) (DFP) with the Azure Active Directory (AD) B2C.
 
 Microsoft DFP provides clients with the capability to assess if the risk of attempts to create new accounts and attempts to login to client’s ecosystem are fraudulent. Microsoft DFP assessment can be used by the customer to block or challenge suspicious attempts to create new fake accounts or to compromise existing accounts. Account protection includes artificial intelligence empowered device fingerprinting, APIs for real-time risk assessment, rule and list experience to optimize risk strategy as per client’s business needs, and a scorecard to monitor fraud protection effectiveness and trends in client’s ecosystem.
 
