@@ -15,7 +15,7 @@ You must have one **Primary** storage account and you can have  any number of **
 
 In this example, we create a General Purpose v2, Standard LRS account. If you want to experiment with storage accounts, use `--sku Standard_LRS`. However, when picking a SKU for production you should consider, `--sku Standard_RAGRS`, which provides geographic replication for business continuity. For more information, see [storage accounts](/cli/azure/storage/account).
 
-The following command creates a Storage account that is going to be associated with the Media Services account. In the script below, you can substitute `storageaccountforams` with your value. `amsResourceGroup` must match the value you gave for the resource group in the previous step. The storage account name must have length less than 24.
+The following command creates a Storage account that is going to be associated with the Media Services account. In the script below, substitute `storageaccountforams` with your own unqiue name with a length of less than 24 characters. `amsResourceGroup` must match the value you gave for the resource group in the previous step.
 
 ```azurecli
 az storage account create --name storageaccountforams --kind StorageV2 --sku Standard_LRS -l westus2 -g amsResourceGroup

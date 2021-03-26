@@ -134,6 +134,8 @@
   items:
   - name: Azure CLI
     href: /cli/azure/ext/vmware/vmware
+  - name: Azure CLI datastore
+    href: /cli/azure/ext/vmware/vmware/datastore
   - name: Azure PowerShell
     href: /powershell/module/az.vmware/
   - name: Terraform Azure provider
