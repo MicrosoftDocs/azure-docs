@@ -181,20 +181,9 @@ for chat_message_page in chat_messages.by_page():
 
 `list_messages` returns the latest version of the message, including any edits or deletes that happened to the message using `update_message` and `delete_message`. For deleted messages `ChatMessage.deleted_on` returns a datetime value indicating when that message was deleted. For edited messages, `ChatMessage.edited_on` returns a datetime indicating when the message was edited. The original time of message creation can be accessed using `ChatMessage.created_on` which can be used for ordering the messages.
 
-`list_messages` returns different types of messages which can be identified by `ChatMessage.type`. These types are:
+`list_messages` returns different types of messages which can be identified by `ChatMessage.type`. 
 
-- `ChatMessageType.TEXT`: Regular chat message sent by a thread participant.
-
-- `ChatMessageType.HTML`: HTML chat message sent by a thread participant.
-
-- `ChatMessageType.TOPIC_UPDATED`: System message that indicates the topic has been updated.
-
-- `ChatMessageType.PARTICIPANT_ADDED`: System message that indicates one or more participants have been added to the chat thread.
-
-- `ChatMessageType.PARTICIPANT_REMOVED`: System message that indicates a participant has been removed from the chat thread.
-
-For more details, see [Message Types](../../../concepts/chat/concepts.md#message-types).
-
+Read more about Message Types here: [Message Types](../../../concepts/chat/concepts.md#message-types).
 
 ## Send read receipt
 The `send_read_receipt` method can be used to posts a read receipt event to a thread, on behalf of a user.
