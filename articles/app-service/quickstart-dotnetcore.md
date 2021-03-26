@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Create a C# ASP.NET app"
+title: "Quickstart: Deploy an ASP.NET web app"
 description: Learn how to run web apps in Azure App Service by deploying your first ASP.NET app.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
@@ -30,7 +30,7 @@ target cross-platform with .NET Core 3.1 or .NET 5.0.
 
 -->
 
-# Quickstart: Create an ASP.NET web app in Azure
+# Quickstart: Deploy an ASP.NET web app
 
 In this quickstart, you'll learn how to create and deploy your first ASP.NET web app to [Azure App Service](overview.md). App Service supports various versions of .NET apps, and provides a highly scalable, self-patching web hosting service. When you're finished, you'll have an Azure resource group consisting of an App Service hosting plan and an App Service with a deployed web application.
 
@@ -368,7 +368,7 @@ To deploy your web app using the Visual Studio Azure Tools extension:
     - Select **Create a new App Service plan**, provide a name and select the **F1 Free** pricing tier.
     - Select **Skip for now** for the Application Insights resource.
     - Select a location near you.
-
+1. Browse to the deployed application using your web browser.
 ::: zone-end
 
 ::: zone pivot="development-environment-cli"
