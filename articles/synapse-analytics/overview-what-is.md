@@ -15,6 +15,7 @@ ms.reviewer: jrasnick
 
 **Azure Synapse** is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems. Azure Synapse brings together the best of **SQL** technologies used in enterprise data warehousing, **Spark** technologies used for big data, **Pipelines** for data integration and ETL/ELT, and deep integration with other Azure services such as **Power BI**, **CosmosDB**, and **AzureML**.
 
+![Diagram of Azure Synapse Analytics architecture.](./media/overview-what-is/synapse-architecture.png)
 
 ## Industry-leading SQL
 
