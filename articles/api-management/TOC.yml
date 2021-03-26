@@ -107,7 +107,7 @@
               href: import-soap-api.md
             - name: Import a SOAP API and convert to REST
               href: restify-soap-api.md
-            - name: Import App Service web app
+            - name: Import a Web App
               href: import-app-service-as-api.md
             - name: Import a Function App
               href: import-function-app-as-api.md
