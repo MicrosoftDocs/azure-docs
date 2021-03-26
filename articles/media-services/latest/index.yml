@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: IngridAtMicrosoft
   ms.author: inhenkel
-  ms.date: 21/16/2020 #Required; mm/dd/yyyy format.
+  ms.date: 03/25/2021 #Required; mm/dd/yyyy format.
  
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
  
@@ -127,3 +127,5 @@ landingContent:
         links:
           - text: Analyze videos
             url: analyze-videos-tutorial-with-api.md
+          - text: Redact faces in videos
+            url: analyze-face-redaction-concept.md
