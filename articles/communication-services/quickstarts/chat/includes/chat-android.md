@@ -56,19 +56,6 @@ android {
 }
 ```
 
-#### Add a maven resource in root build.gradle
-```
-allprojects {
-    repositories {
-        ...
-        maven {
-            url 'https://trouterpublicpackages.z13.web.core.windows.net'
-        }
-    }
-```
-
-Click 'sync now' in Android Studio.
-
 #### (Alternative) To install libraries through Maven
 To import the library into your project using the [Maven](https://maven.apache.org/) build system, add it to the `dependencies` section of your app's `pom.xml` file, specifying its artifact ID and the version you wish to use:
 
