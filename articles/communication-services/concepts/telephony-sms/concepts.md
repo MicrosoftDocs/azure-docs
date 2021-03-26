@@ -22,7 +22,7 @@ Key features of Azure Communication Services SMS client libraries include:
 
 -  **Simple** setup experience for adding SMS capability to your applications.
 - **High Velocity** message support over toll free numbers for A2P (Application to Person) use cases in the United States.
-- **Multiple recipients** supported to enable sending messages to multiple recipients at a time.
+- **Bulk Messaging** supported to enable sending messages to multiple recipients at a time.
 - **Two-way** conversations to support scenarios like customer support, alerts, and appointment reminders.
 - **Reliable Delivery** with real-time delivery reports for messages sent from your application.
 - **Analytics** to track your usage patterns and customer engagement.
