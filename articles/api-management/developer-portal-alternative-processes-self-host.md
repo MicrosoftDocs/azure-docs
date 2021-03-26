@@ -57,7 +57,7 @@ npm run build-publisher
 
 ## Use Function App to publish the portal
 
-:::image type="content" source="media/developer-portal-alternative-processes-self-host/developer-portal-publish-external.png" alt-text="Publish portal using Function App":::
+:::image type="content" source="media/developer-portal-alternative-processes-self-host/developer-portal-publish-external.png" alt-text="Diagram showing how to publish portal using Function App":::
 
 Run the publishing step in the cloud as an alternative to executing it locally.
 
@@ -65,7 +65,7 @@ To implement publishing with an Azure Function App, you need the following prere
 
 - [Create an Azure Function](../azure-functions/functions-create-first-azure-function.md). The Function needs to be a JavaScript language Function.
 - Install Azure Functions Core Tools:
-    ```sh
+    ```console
     npm install –g azure-function-core-tools
     ```
 

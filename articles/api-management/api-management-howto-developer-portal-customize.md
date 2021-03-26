@@ -52,7 +52,7 @@ Code is maintained in the API Management developer portal [GitHub repository](ht
 
 - **Widgets** - represent visual elements and combine HTML, JavaScript, styling ability, settings, and content mapping. Examples are an image, a text paragraph, a form, a list of APIs etc.
 - **Styling definitions** - specify how widgets can be styled
-- Engine - which generates static webpages from portal content and is written in JavaScript
+- **Engine** - which generates static webpages from portal content and is written in JavaScript
 - **Visual editor** - allows for in-browser customization and authoring experience
 
 ### Content
@@ -65,9 +65,9 @@ Content is divided into two subcategories: *portal content* and *API Management 
 - **Media** - images, animations, and other file-based content
 - **Layouts** - templates, which are matched against a URL and define how pages are displayed
 - **Styles** - values for styling definitions, such as fonts, colors, borders
-- Settings - configurations such as favicon, website metadata
+- **Settings** - configurations such as favicon, website metadata
 
-*Portal content*, except for media, is expressed as JSON documents.
+    Portal content, except for media, is expressed as JSON documents.
 
 *API Management content* includes entities such as APIs, Operations, Products, Subscriptions.
 ## Understand the portal's administrative interface

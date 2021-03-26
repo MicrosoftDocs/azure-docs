@@ -13,6 +13,8 @@ ms.topic: how-to
 
 The API Management developer portal supports programmatic access to content. It allows you to import data to or export from an API Management service through the [content management REST API](developer-portal-content-management-api.md). The REST API access works for both managed and self-hosted portals.
 
+## Automated migration script
+
 You can use the API to automate migration of content between two API Management services - for example, a service in the test environment and a service in the production environment. The `scripts.v2/migrate.js` script in the API Management developer portal [GitHub repo](https://github.com/Azure/api-management-developer-portal/blob/master/scripts.v2/migrate.js) simplifies this automation process.
 
 > [!WARNING]

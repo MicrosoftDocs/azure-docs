@@ -17,7 +17,7 @@ The widget will retrieve session descriptions from the sample [Conference API](h
 
 To help you in the development process, refer to the completed widget located in the `examples` folder of the API Management developer portal [GitHub repository](https://github.com/Azure/api-management-developer-portal/): `/examples/widgets/conference-session`.
 
-:::image type="content" source="media/developer-portal-implement-widgets/widget-published.png" alt-text="Published widget":::
+:::image type="content" source="media/developer-portal-implement-widgets/widget-published.png" alt-text="Screenshot of published widget":::
 
 ## Prerequisites
 
@@ -102,13 +102,11 @@ Now you're ready to plug in the duplicated scaffold and use it in developer port
 
 1. Run the `npm start` command.
 
-1. Execute the command `npm start`.
 1. When the application loads, place the new widget on a page. You can find it under the name `Your widget` in the `Community` category in the widget selector.
-    :::image type="content" source="media/developer-portal-implement-widgets/widget-selector.png" alt-text="Use widget selector":::
 
-1. Save the page by pressing `Ctrl+S` (or `⌘+S` onmacOSS).
+    :::image type="content" source="media/developer-portal-implement-widgets/widget-selector.png" alt-text="Screenshot of widget selector":::
 
-1. Save the page by pressing **Ctrl** + **S** (or **⌘** + **S** on Apple computers).
+1. Save the page by pressing **Ctrl**+**S** (or **⌘**+**S** on macOS).
 
     > [!NOTE]
     > In design-time, you can still interact with the website by holding the **Ctrl** (or **⌘**) key.
@@ -176,7 +174,7 @@ Enable the flow of the `sessionNumber` from the data source to the widget presen
 
 The components of each scope run independently. They have separate dependency injection containers, their own configuration, lifecycle, etc. They may even be powered by different UI frameworks (in this example it is Knockout JS).
 
-From the design-time perspective, any runtime component is just an HTML tag with certain attributes and/or content. Configuration if necessaryd) is passed with plain markup. In simple cases, like in this example, the parameter is passed in the attribute. If the configuration is more complex, you could use an identifier of the required setting(s) fetched by a designated configuration provider (for example, `ISettingsProvider`).
+From the design-time perspective, any runtime component is just an HTML tag with certain attributes and/or content. Configuration if necessary is passed with plain markup. In simple cases, like in this example, the parameter is passed in the attribute. If the configuration is more complex, you could use an identifier of the required setting(s) fetched by a designated configuration provider (for example, `ISettingsProvider`).
 
 1. Update the `ko/widgetView.html` file:
 
@@ -309,9 +307,9 @@ Now, carry out these steps to allow the user to set up the session ID through a 
     <input type="text" class="form-control" data-bind="textInput: sessionNumber" />
     ```
 
-1. Run `npm start` again. You should be able to change `sessionNumber` in the widget editor. Change the id to `108`, save the changes, and refresh the browser's tab. If you're experiencing problems, you may need to add the widget onto the page again.
+1. Run `npm start` again. You should be able to change `sessionNumber` in the widget editor. Change the ID to `108`, save the changes, and refresh the browser's tab. If you're experiencing problems, you may need to add the widget onto the page again.
 
-    ![Widget editor](media/developer-portal-implement-widgets/widget-editor.png)
+    :::image type="content" source="media/developer-portal-implement-widgets/widget-editor.png" alt-text="Screenshot of widget editor":::
 
 ## Rename the widget
 

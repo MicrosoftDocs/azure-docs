@@ -197,9 +197,9 @@ Use the visual editor to carry out these tasks:
 - Organize the structure of the website
 - Stylize its appearance
 
-See [Tutorial: Access and customize the developer portal](api-management-howto-developer-portal-customize.md). It covers the basics of the administrative user interface and lists recommended changes to the default content. Save all changes in the local environment, and press **Ctrl + C** to close it.
+See [Tutorial: Access and customize the developer portal](api-management-howto-developer-portal-customize.md). It covers the basics of the administrative user interface and lists recommended changes to the default content. Save all changes in the local environment, and press **Ctrl+C** to close it.
 
-:::image type="content" source="media/developer-portal-self-host/save-content.png" alt-text="Save content for API Management developer portal" border="false":::
+:::image type="content" source="media/developer-portal-self-host/save-content.png" alt-text="Diagram showing customizing content for developer portal" border="false":::
 
 ## Publish locally
 
@@ -209,7 +209,7 @@ The portal data originates in the form of strong-typed objects. The following co
 npm run publish
 ```
 
-:::image type="content" source="media/developer-portal-self-host/generate-content.png" alt-text="Generate static files for developer portal" border="false":::
+:::image type="content" source="media/developer-portal-self-host/generate-content.png" alt-text="Diagram showing publishing the developer portal locally" border="false":::
 
 ## Upload static files to a blob
 
@@ -227,13 +227,13 @@ Use Azure CLI to upload the locally generated static files to a blob, and make s
         --connection-string <account-connection-string>
     ```
 
-:::image type="content" source="media/developer-portal-self-host/upload-content.png" alt-text="Publish developer portal" border="false":::
+:::image type="content" source="media/developer-portal-self-host/upload-content.png" alt-text="Diagram showing uploading the developer portal" border="false":::
 
 ## Go to your website
 
 Your website is now live under the hostname specified in your Azure Storage properties (**Primary endpoint** in **Static websites**).
 
-![API Management developer portal development - visit portal](media/developer-portal-self-host/view-content.png)
+:::image type="content" source="media/developer-portal-self-host/view-content.png" alt-text="Diagram of viewing content":::
 
 ## Change API Management notification templates
 
