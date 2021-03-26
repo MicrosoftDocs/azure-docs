@@ -63,3 +63,4 @@ The following table represents the set of supported browsers and versions which 
 
 The following documents may be interesting to you:	
 - Familiarize yourself with [chat concepts](../chat/concepts.md)
+- Understand how [pricing](../pricing.md#chat) works for chat
