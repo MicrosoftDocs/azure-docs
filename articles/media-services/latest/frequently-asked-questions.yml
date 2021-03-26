@@ -1,0 +1,81 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure Media Services FAQ
+  description: "Get answers to common questions about Azure Media Services."
+title: Common questions about Azure Media Services
+summary: This article answers commonly asked questions about Azure Media.
+sections:
+  - name: General
+    questions:
+      - question: What is Azure Media Services?
+        answer: |
+         Azure Media Services is a cloud-based platform that enables you to build solutions that achieve broadcast-quality video streaming, enhance accessibility and distribution, analyze content, and much more. Whether you're an app developer, a call center, a government agency, or an entertainment company, Media Services helps you create apps that deliver media experiences of outstanding quality to large audiences on today's most popular mobile devices and browsers. To get started with Azure Media Services see [Azure Media Services v3 overview](media-services-overview.md)
+  - name: References
+    questions:
+      - question: Where can I find the Media Services API and SDKs?
+        answer: |
+          Here is a listing:
+          - [OpenAPI Specification (Swagger)](https://aka.ms/ams-v3-rest-sdk)
+          - [Azure CLI](/cli/azure/install-azure-cli)
+          - [.NET](https://aka.ms/ams-v3-dotnet-sdk)
+          - [Java](https://aka.ms/ams-v3-java-sdk)
+          - [Python](https://aka.ms/ams-v3-python-sdk)
+          - [Node.js](https://aka.ms/ams-v3-nodejs-sdk)
+          - [Go](https://aka.ms/ams-v3-go-sdk)
+          - [Ruby](https://aka.ms/ams-v3-ruby-sdk)
+      - question: Where can I find Media Services samples?
+        answer: |
+          See the article [Media Services v3 samples](samples-overview.md) for a listing of samples.
+      - question: How much does Media Services cost?
+        answer: |
+          See the [Media Services Pricing Guide](https://azure.microsoft.com/pricing/details/media-services/)
+      - question: What quotas and limits are there for Media Services?
+        answer: |
+          See [Media Services quotas and limits](limits-quotas-constraints.md)
+  - name: Using Media Services
+    questions:
+      - question: What is a Media Services Asset?
+        answer: | 
+          A Media Services asset is an Azure Storage account container that is used for each video file you upload.  It has a unique identifier that is used with Transforms and other operations.  See [Assets in Media Service v3](assets-concept.md).
+      - question: How do I create a Media Services Asset?
+        answer: | 
+          Every time you want to upload a media file and perform and do something with it like encoding or streaming, you create an Asset to store the media file and other files associated with that media file. Assets are automatically created for you if you use the Azure portal. If you are not using the portal to upload files, you must create an Asset first.  See [Create an Asset](how-to-create-asset.md) to learn how to create one.
+      - question: What is a Media Services Transform?
+        answer: |
+          A Transform contains the instructions for encoding or analyzing media files. Think of it as a recipe. It can apply more than one encoding instruction for a media file.  It is used by a job to transform files. For more information on Transforms, see Transforms in [Transforms and Jobs in Media Services](transforms-jobs-concept.md#transforms).
+      - question: How do I create a Media Services Transform?
+        answer: |
+          You can create a Transform using REST, the CLI or the SDKs available for Media Services.  See [How to create a transform](how-to-create-transform.md) to use REST or the CLI.  To use the SDK, see [Media Services samples](https://github.com/Azure-Samples?q=media-services&type=&language=&sort=) available in the Azure Samples repo.
+      - question: What is a Media Services job?
+        answer: |
+          A Job is the request you make to start using a Transform to encode or analyze files.  You tell it to Transform a file contained in an input Asset.  You also tell it to either create an output Asset, or use an already existing output Asset.  Once the job is completed, the transformed (encoded, analyzed) files will be in the output Asset as well as other files associated with those files. For more information about Jobs, see [Transforms and Jobs in Media Services](transforms-jobs-concept.md#jobs).
+      - question: How do I create a Media Services Job?
+        answer: |
+          You can create a Job in the Azure portal, with [CLI](cli-create-jobs.md), REST or any of the SDKs. See the [Media Services samples](https://github.com/Azure-Samples?q=media-services&type=&language=&sort=) for the language you prefer.
+      - question: What is encoding?
+        answer: |
+          The term encoding in Media Services applies to the process of converting files containing digital video and/or audio from one standard format to another, with the purpose of (a) reducing the size of the files, and/or (b) producing a format that's compatible with a broad range of devices and apps. This process is also referred to as video compression, or transcoding.
+      - question: What are the encoding formats available with Media Services?
+        answer: |
+          The common encoding formats are available with Media Services Standard Encoder. For a list of all formats, see [Standard Encoder formats and codecs](media-encoder-standard-formats.md).
+      - question: Can I analyze an audio or video file?
+        answer: |
+          Yes you can. Azure Media Services v3 lets you extract insights from your video and audio files with Video Indexer. Media Services v3 analyzer presets can be used to extract those insights. If you want more detailed insights, use Video Indexer directly. To understand when to use Video Indexer vs. Media Services analyzer presets, check out the [comparison document](https://docs.microsoft.com/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets).
+      - question: What is a Media Services Live Event?
+        answer: |
+          A Media Services live event is the process of ingesting live video feeds and broadcasting them through an RTMPS protocol or Smooth Streaming. For more information about Media Services Live Events, see [Live events and live outputs in Media Services](live-events-outputs-concept.md)
+      - question: How do I create a Media Services Live Event?
+        answer: |
+          The first steps is to choose an on premises encoder.  We have provided examples for creating a Live Event with [Wirecast](live-events-wirecast-quickstart.md) and [OBS](live-events-obs-quickstart). If you would rather start with an overview of Media Services Live Events, see [Live Event Types](live-streaming-overview.md#live-event-types).
+      - question: How do I do live transcription with a Media Services Live Event?
+        answer: |
+          Azure Media Service delivers video, audio, and text in different protocols. When you publish your live stream using MPEG-DASH or HLS/CMAF, then along with video and audio, our service delivers the transcribed text in IMSC1.1 compatible TTML. For more information about Live Transcription, see [Live transcription](live-transcription.md)
+      - question: What is a Media Services Streaming Endpoint?
+        answer: |
+          In Media Services, a Streaming Endpoint represents a dynamic (just-in-time) packaging and origin service that can deliver your live and on-demand content directly to a client player app using one of the common streaming media protocols (HLS or DASH). In addition, the Streaming Endpoint provides dynamic (just-in-time) encryption to industry-leading DRMs.  For more information about Streaming Endpoints, see [Streaming Endpoints (Origin) in Azure Media Services](streaming-endpoint-concept.md)
+      - question: What is a Media Services Streaming Locator?
+        answer: |
+          To make videos in the available to clients for playback, you create a Streaming Locator and then build streaming URLs. Streaming Locators are also used to apply Streaming Policies that contain rules for how the media files are consumed.
+      - question: How do I create a Media Services Streaming Locator?
+        answer: |
+          To build a streaming URL, you first create a Streaming Locator. You then concatenate the Streaming Endpoint host name and the Streaming Locator path.  See [Create a streaming locator and build URLs](create-streaming-locator-build-url.md).

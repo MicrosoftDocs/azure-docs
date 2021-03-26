@@ -9,7 +9,7 @@
   - name: Media Services compliance
     href: concept-compliance.md
   - name: Frequently asked questions
-    href: frequently-asked-questions.md
+    href: frequently-asked-questions.yml
 - name: Quickstarts
   items:
   - name: Set up your environment
