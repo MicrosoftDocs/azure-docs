@@ -20,7 +20,7 @@
     href: walkthrough-exchange-all.md
   - name: Peering Service partner walkthrough
     href: walkthrough-peering-service-all.md
-  - name: Voice Service partner walkthrough
+  - name: Communications Services Partner Walkthrough
     href: walkthrough-voiceservice-partner.md  
   - name: Associate peer ASN to Azure subscription
     items:
