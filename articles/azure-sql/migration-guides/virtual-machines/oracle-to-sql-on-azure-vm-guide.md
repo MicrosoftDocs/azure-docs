@@ -260,11 +260,7 @@ For more help with completing this migration scenario, see the following resourc
 | [SSMA issues and possible remedies when migrating Oracle databases](https://aka.ms/dmj-wp-ssma-oracle-errors)                                                           | With Oracle, you can assign a non-scalar condition in a WHERE clause. SQL Server doesn’t support this type of condition. So SQL Server Migration Assistant (SSMA) for Oracle doesn’t convert queries that have a non-scalar condition in the WHERE clause. Instead, it generates an error: O2SS0001. This white paper provides details on the problem and ways to resolve it.          |
 | [Oracle to SQL Server Migration Handbook](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20SQL%20Server%20Migration%20Handbook.pdf)                | This document focuses on the tasks associated with migrating an Oracle schema to the latest version of SQL Server. If the migration requires changes to features/functionality, you need to carefully consider the possible effect of each change on the applications that use the database.                                                     |
 
-These resources were developed as part of the Data SQL Ninja program, which is sponsored by the Azure Data Group engineering team. The core charter of the Data SQL Ninja program is to: 
-- Unblock and accelerate complex modernization.
-- Compete data platform migration opportunities to the Azure data platform. 
-
-If you think your organization would be interested in participating in the Data SQL Ninja program, contact your account team and ask them to submit a nomination.
+The preceding resources were developed by the Data SQL Engineering team. A core charter of this team is to unblock and accelerate complex modernization and compete data-platform migration projects to the Azure data platform.
 
 ## Next steps
 
