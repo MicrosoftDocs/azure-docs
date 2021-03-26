@@ -13,6 +13,8 @@ ms.service: azure-communication-services
 ---
 
 # SMS FAQ
+
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 ## Can a customer use Azure Communication Services for emergency purposes?
 
 Azure Communication Services does not support text-to-911 functionality in the United States, but it’s possible that you may have an obligation to do so under the rules of the Federal Communications Commission (FCC).  You should assess whether the FCC’s text-to-911 rules apply to your service or application. To the extent you're covered by these rules, you'll be responsible for routing 911 text messages to emergency call centers that request them. You're free to determine your own text-to-911 delivery model, but one approach accepted by the FCC involves automatically launching the native dialer on the user’s mobile device to deliver 911 texts through the underlying mobile carrier.
