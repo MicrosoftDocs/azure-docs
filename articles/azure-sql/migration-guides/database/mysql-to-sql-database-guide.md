@@ -167,7 +167,7 @@ These resources were developed as part of the Data SQL Ninja Program, which is s
 
 - Be sure to check out the [Azure Total Cost of Ownership (TCO) Calculator](https://aka.ms/azure-tco) to help estimate the cost savings you can realize by migrating your workloads to Azure.
 
-- For a matrix of the Microsoft and third-party services and tools that are available to assist you with various database and data migration scenarios as well as specialty tasks, see the article [Service and tools for data migration](https://docs.microsoft.com/azure/dms/dms-tools-matrix).
+- For a matrix of the Microsoft and third-party services and tools that are available to assist you with various database and data migration scenarios as well as specialty tasks, see the article [Service and tools for data migration](../../../dms/dms-tools-matrix.md).
 
 - For other migration guides, see [Database Migration](https://datamigration.microsoft.com/). 
 

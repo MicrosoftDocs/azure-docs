@@ -98,7 +98,7 @@ The following table lists the recommended migration tools:
 
 |Technology | Description|
 |---------|---------|
-| [Azure Migrate](/azure/migrate/how-to-create-azure-sql-assessment) | Azure Migrate for Azure SQL allows you to discover and assess your SQL data estate at scale when on VMware,  providing Azure SQL deployment recommendations, target sizing, and monthly estimates. | 
+| [Azure Migrate](../../../migrate/how-to-create-azure-sql-assessment.md) | Azure Migrate for Azure SQL allows you to discover and assess your SQL data estate at scale when on VMware,  providing Azure SQL deployment recommendations, target sizing, and monthly estimates. | 
 |[Data Migration Assistant (DMA)](/sql/dma/dma-migrateonpremsqltosqldb)|The Data Migration Assistant is a desktop tool that provides seamless assessments of SQL Server and migrations to Azure SQL Database (both schema and data). The tool can be installed on a server on-premises or on your local machine that has connectivity to your source databases. The migration process is a logical data movement between objects in the source and target database. </br> - Migrate single databases (both schema and data)|
 |[Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-azure-sql.md)|A first party Azure service that can migrate your SQL Server databases to Azure SQL Database using the Azure portal or automated with PowerShell. Azure DMS requires you to select a preferred Azure Virtual Network (VNet) during provisioning to ensure there is connectivity to your source SQL Server databases. </br> - Migrate single databases or at scale. |
 | | |

@@ -99,7 +99,7 @@ landingContent:
           - text: Save costs with a reserved instance
             url: reserved-instance.md
           - text: Migration assessment
-            url: /azure/migrate/how-to-create-azure-vmware-solution-assessment?context=/azure/azure-vmware/context/context
+            url: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
 
 
 # card 4

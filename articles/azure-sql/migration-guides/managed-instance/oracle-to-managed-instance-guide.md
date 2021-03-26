@@ -136,11 +136,8 @@ To publish your schema and migrate your data, follow these steps:
 
 Alternatively, you can also use SQL Server Integration Services (SSIS) to perform the migration. To learn more, see: 
 
-- [Getting Started with SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services)
+- [Getting Started with SQL Server Integration Services](/sql/integration-services/sql-server-integration-services)
 - [SQL Server Integration Services: SSIS for Azure and Hybrid Data Movement](https://download.microsoft.com/download/D/2/0/D20E1C5F-72EA-4505-9F26-FEF9550EFD44/SSIS%20Hybrid%20and%20Azure.docx)
-
-    
-
 
 ## Post-migration 
 
@@ -188,7 +185,7 @@ These resources were developed as part of the Data SQL Ninja Program, which is s
 
 ## Next steps
 
-- For a matrix of the Microsoft and third-party services and tools that are available to assist you with various database and data migration scenarios as well as specialty tasks, see the article [Service and tools for data migration](https://docs.microsoft.com/azure/dms/dms-tools-matrix).
+- For a matrix of the Microsoft and third-party services and tools that are available to assist you with various database and data migration scenarios as well as specialty tasks, see the article [Service and tools for data migration](../../../dms/dms-tools-matrix.md).
 
 - To learn more about Azure SQL Managed Instance, see: 
   - [An overview of Azure SQL Managed Instance](../../managed-instance/sql-managed-instance-paas-overview.md)
