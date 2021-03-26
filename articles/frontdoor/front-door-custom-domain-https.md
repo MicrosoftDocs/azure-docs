@@ -10,7 +10,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/21/2020
+ms.date: 03/26/2021
 ms.author: duau
 # As a website owner, I want to enable HTTPS on the custom domain in my Front Door so that my users can use my custom domain to access their content securely.
 
@@ -125,17 +125,15 @@ Grant Azure Front Door permission to access the  certificates in your Azure Key 
 
 3. Under Certificate management type, select **Use my own certificate**. 
 
-4. Azure Front Door requires that the subscription of the Key Vault account is the same as for your Front Door. Select a key vault, certificate (secret), and certificate version.
+4. Azure Front Door requires that the subscription of the Key Vault account is the same as for your Front Door. Select a key vault, Secret, and Secret version.
 
     Azure Front Door lists the following information: 
     - The key vault accounts for your subscription ID. 
-    - The certificates (secrets) under the selected key vault. 
-    - The available certificate versions. 
+    - The secrets under the selected key vault. 
+    - The available secret versions. 
+     > [!NOTE]
+     >  In order for the certificate to be automatically rotated to the latest version when a newer version of the certificate is available in your Key Vault, please set the secret version to 'Latest'. If a specific version is selected, you have to re-select the new version manually for certificate rotation. It takes up to 24 hours for the new version of the certificate/secret to be deployed. 
 
-> [!NOTE]
-> Leaving the certificate version as blank would lead to:
-> - The latest version of the certificate getting selected.
-> - Automatic rotation of certificates to the latest version, when a newer version of the certificate is available in your Key Vault.
  
 5. When you use your own certificate, domain validation is not required. Proceed to [Wait for propagation](#wait-for-propagation).
 
