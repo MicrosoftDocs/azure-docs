@@ -170,14 +170,15 @@ Grant Azure CDN permission to access the certificates (secrets) in your Azure Ke
 
     ![Configure your certificate](./media/cdn-custom-ssl/cdn-configure-your-certificate.png)
 
-4. Select a key vault, certificate/Secret, and Certificate/Secret version.
+4. Select a key vault, Certificate/Secret, and Certificate/Secret version.
 
     Azure CDN lists the following information: 
     - The key vault accounts for your subscription ID. 
     - The certificates/secrets under the selected key vault. 
-    - The available certificate/secret versions. 
-   > [!NOTE]
-   >  In order for the certificate to be automatically rotated to the latest version when a newer version of the certificate is available in your Key Vault, please set the certificate/secret version to 'Latest'. If a specific version is selected, you have to re-select the new version manually for certificate rotation. It takes up to 24 hours for the new version of the certificate/secret to be deployed. 
+    - The available certificate/secret versions.
+ 
+    > [!NOTE]
+    > In order for the certificate to be automatically rotated to the latest version when a newer version of the certificate is available in your Key Vault, please set the certificate/secret version to 'Latest'. If a specific version is selected, you have to re-select the new version manually for certificate rotation. It takes up to 24 hours for the new version of the certificate/secret to be deployed. 
    
 5. Select **On** to enable HTTPS.
   
@@ -232,7 +233,7 @@ DigiCert sends a verification email to the following email addresses. Verify tha
 * **hostmaster@your-domain-name.com**  
 * **postmaster@your-domain-name.com**  
 
-You should receive an email in a few minutes for you to approve the request. In case you're using a spam filter, add verification@digicert.com to its allow list. If you don't receive an email within 24 hours, contact Microsoft support.
+You should receive an email in a few minutes for you to approve the request. In case you're using a spam filter, add verification@digicert.com to its allowlist. If you don't receive an email within 24 hours, contact Microsoft support.
     
 ![Domain validation email](./media/cdn-custom-ssl/domain-validation-email.png)
 
