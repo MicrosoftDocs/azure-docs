@@ -77,13 +77,15 @@ The following additional parameters apply to both autocomplete and suggestions, 
 
 Auto-filling a query term or dropping down a list of matching links requires user interaction code, typically JavaScript, that can consume requests from external sources, such as autocomplete or suggestion queries against an Azure Search Cognitive index.
 
-Although you could write this code natively, it's much easier to use functions from existing JavaScript library. This article mentions two, one for suggestions and another for autocomplete. 
+Although you could write this code natively, it's much easier to use functions from existing JavaScript library, such as one of the following. 
 
 + [Autocomplete widget (jQuery UI)](https://jqueryui.com/autocomplete/) appears in the Suggestion code snippet. You can create a search box, and then reference it in a JavaScript function that uses the Autocomplete widget. Properties on the widget set the source (an autocomplete or suggestions function), minimum length of input characters before action is taken, and positioning.
 
 + [XDSoft Autocomplete plug-in](https://xdsoft.net/jqplugins/autocomplete/) appears in the Autocomplete code snippet.
 
-We use these libraries to build the search box supporting both suggestions and autocomplete. Inputs collected in the search box are paired with suggestions and autocomplete actions.
++ [suggestions](https://www.npmjs.com/package/suggestions) appears in the [JavaScript tutorial](tutorial-javascript-overview.md) and code sample.
+
+Use these libraries in the client to create a search box supporting both suggestions and autocomplete. Inputs collected in the search box can then be paired with suggestions and autocomplete actions on the search service.
 
 ## Suggestions
 
@@ -243,7 +245,7 @@ The Autocomplete function takes the search term input. The method creates an [Au
 
 ## Next steps
 
-Follow these links for end-to-end instructions or code demonstrating both search-as-you-type experiences. The sample demonstrates the hybrid implementations of suggestions and autocomplete together.
+Follow these links for end-to-end instructions or code demonstrating both search-as-you-type experiences. The sample demonstrates the hybrid implementation of suggestions and autocomplete together.
 
-+ [Tutorial: Create your first app in C# (lesson 3)](tutorial-csharp-type-ahead-and-suggestions.md)
-+ [C# code sample: azure-search-dotnet-samples/create-first-app/3-add-typeahead/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead)
++ [Add search to a web site (JavaScript)](tutorial-javascript-search-query-integration.md#azure-function-suggestions-from-the-catalog) uses an open source Suggestions package for partial term completion in the client app.
++ [Tutorial: Create your first app in C# (lesson 3)](tutorial-csharp-type-ahead-and-suggestions.md) with the associated  [C# code sample: azure-search-dotnet-samples/create-first-app/3-add-typeahead/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead) demonstrate native support for typeahead.
