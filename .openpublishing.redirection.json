@@ -31720,6 +31720,11 @@
       "redirect_document_id": ""
     },
     {
+      "source_path_from_root": "/articles/search/search-autocomplete-tutorial.md",
+      "redirect_url": "/azure/search/search-add-autocomplete-suggestions",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/search/search-filters-language.md",
       "redirect_url": "/azure/search/search-language-support",
       "redirect_document_id": true
