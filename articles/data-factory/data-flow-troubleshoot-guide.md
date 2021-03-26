@@ -364,7 +364,7 @@ You may encounter the following issues before the improvement, but after the imp
 #### Scenario 1: Encounter the unexpected row delimiter issue
 
  You are affected if you are in the following conditions:
- - Using the Delimited Text/CDM with Multiline setting set to True as the source. 
+ - Using the Delimited Text with the Multiline setting set to True or CDM as the source.
  - The first row has more than 128 characters. 
  - The row delimiter in data files is not `\n`.
 
@@ -390,7 +390,7 @@ You may encounter the following issues before the improvement, but after the imp
 #### Scenario 2: Encounter an issue of incorrectly reading column values containing '\r\n'
 
  You are affected if you are in the following conditions:
- - Using the Delimited Text / CDM with the Multiline setting set to True as a source. 
+ - Using the Delimited Text with the Multiline setting set to True or CDM as a source. 
  - The row delimiter is `\r\n`.
 
  Before the improvement, when reading the column value, the `\r\n` in it may be incorrectly replaced by `\n`. 
