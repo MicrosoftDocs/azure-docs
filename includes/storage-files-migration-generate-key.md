@@ -8,7 +8,7 @@ ms.date: 03/26/2021
 ms.author: fauhse
 ms.subservice: files
 ---
-Service data encryption keys are used to encrypt confidential customer data, such as storage account credentials, that are sent from your StorSimple Manager service to the StorSimple device. You will need to change these keys periodically if your IT organization has a key rotation policy on the storage devices. The key change process can be slightly different depending on whether there is a single device or multiple devices managed by the StorSimple Manager service. For more information, go to [StorSimple security and data protection](storsimple-8000-security.md).
+Service data encryption keys are used to encrypt confidential customer data, such as storage account credentials, that are sent from your StorSimple Manager service to the StorSimple device. You will need to change these keys periodically if your IT organization has a key rotation policy on the storage devices. The key change process can be slightly different depending on whether there is a single device or multiple devices managed by the StorSimple Manager service. For more information, go to [StorSimple security and data protection](../articles/storsimple/storsimple-8000-security.md).
 
 Changing the service data encryption key is a 3-step process:
 
