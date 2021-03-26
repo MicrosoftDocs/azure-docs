@@ -114,11 +114,11 @@ To create and configure your hierarchy of IoT Edge devices, you'll use the `iote
 
 To use the `iotedge-config-cli` tool to create and configure your hierarchy, follow the steps below in the Azure CLI:
 
-1. In the [Azure Cloud Shell](https://shell.azure.com/), download the setup tool from OneDrive:
+<!-- Will be updated to Git repo -->
 
-   ```bash
-   git clone https://github.com/Azure-Samples/iot-edge-for-iiot.git
-   ```
+1. In the [Azure Cloud Shell](https://shell.azure.com/), [download the setup tool from OneDrive](https://microsoft-my.sharepoint.com/personal/lefitche_microsoft_com/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Flefitche%5Fmicrosoft%5Fcom%2FDocuments%2Fnested%5Fcli&originalPath=aHR0cHM6Ly9taWNyb3NvZnQtbXkuc2hhcmVwb2ludC5jb20vOmY6L3AvbGVmaXRjaGUvRW5HaG5FTHdfRlJBZ2diVE9lM0w3NTBCWGgwbkVWNEtvTWU0a3BBbUNJeC1kZz9ydGltZT1FU1VWcWZ2cTJFZw).
+
+   If the link above does not work, you can [download a zip folder containing the `iotedge-config-tool`](https://1drv.ms/u/s!AkzLzaBpSgoMpKB24zXv6RJXnqELJA?e=GMOQYf).
 
 1. Make the script executable by changing its permissions:
 
