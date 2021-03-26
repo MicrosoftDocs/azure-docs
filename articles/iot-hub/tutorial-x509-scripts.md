@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Use Microsoft scripts to create x.509 test certificates | Microsoft Docs
+title: Tutorial - Use Microsoft scripts to create x.509 test certificates for Azure IoT Hub | Microsoft Docs
 description: Tutorial - Use custom scripts to create CA and device certificates for Azure IoT Hub
 author: v-gpettibone
 manager: philmea
@@ -13,8 +13,6 @@ ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics', devx-track-a
 ---
 
 # Tutorial: Using Microsoft-supplied scripts to create test certificates
-
-## Introduction
 
 Microsoft provides PowerShell and Bash scripts to help you understand how to create your own X.509 certificates and authenticate them to an IoT Hub. The scripts are located in [GitHub](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates). They are provided for demonstration purposes only. Certificates created by them must not be used for production. The certificates contain hard-coded passwords (“1234”) and expire after 30 days. For a production environment, you'll need to use your own best practices for certificate creation and lifetime management.
 
@@ -162,3 +160,7 @@ Go to [Testing Certificate Authentication](tutorial-x509-test-certificate.md) to
 ### Step 6 - Cleanup
 
 Because the bash script simply creates certificates in your working directory, just delete them when you are done testing.
+
+## Next Steps
+
+To test your certificate, go to [Testing Certificate Authentication](tutorial-x509-test-certificate.md) to determine if your certificate can authenticate your device to your IoT Hub.

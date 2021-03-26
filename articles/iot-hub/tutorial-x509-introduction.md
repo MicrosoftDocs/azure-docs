@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Understand Cryptography and X.509 certificates | Microsoft Docs
+title: Tutorial - Understand Cryptography and X.509 certificates for Azure IoT Hub | Microsoft Docs
 description: Tutorial - Understand cryptography and X.509 PKI for Azure IoT Hub
 author: v-gpettibone
 manager: philmea
@@ -13,8 +13,6 @@ ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics', devx-track-a
 ---
 
 # Tutorial: Understanding Public Key Cryptography and X.509 Public Key Infrastructure
-
-## Introduction
 
 You can use X.509 certificates to authenticate devices to an Azure IoT Hub. A certificate is a digital document that contains the device's public key and can be used to verify that the device is what it claims to be. X.509 certificates and certificate revocation lists (CRLs) are documented by [RFC 5280](https://tools.ietf.org/html/rfc5280). Certificates are just one part of an X.509 public key infrastructure (PKI). To understand X.509 PKI, you need to understand cryptographic algorithms, cryptographic keys, certificates, and certification authorities (CAs):
 

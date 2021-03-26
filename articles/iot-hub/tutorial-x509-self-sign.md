@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Use OpenSSL to create self signed certificates | Microsoft Docs
+title: Tutorial - Use OpenSSL to create self signed certificates for Azure IoT Hub | Microsoft Docs
 description: Tutorial - Use OpenSSL to create self-signed X.509 certificates for Azure IoT Hub
 author: v-gpettibone
 manager: philmea
@@ -13,8 +13,6 @@ ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics', devx-track-a
 ---
 
 # Tutorial: Using OpenSSL to create self-signed certificates
-
-## Introduction
 
 You can authenticate a device to your IoT Hub using two self-signed device certificates. This is sometimes called thumbprint authentication because the certificates contain thumbprints (hash values) that you submit to the IoT hub. The following steps tell you how to create two self-signed certificates.
 
@@ -98,6 +96,6 @@ Navigate to your IoT Hub in the Azure portal and create a new IoT device identit
 
 illustration
 
-## Step 10 - Test Your Device certificates
+## Next Steps
 
-Go to [Testing Certificate Authentication](tutorial-x509-test-certificate.md) to determine if your device certificate can authenticate to your IoT Hub.Hub.
+Go to [Testing Certificate Authentication](tutorial-x509-test-certificate.md) to determine if your certificate can authenticate your device to your IoT Hub.

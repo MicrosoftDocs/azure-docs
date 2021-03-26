@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Understand X.509 public key certificates | Microsoft Docs
+title: Tutorial - Understand X.509 public key certificates for Azure IoT Hub| Microsoft Docs
 description: Tutorial - Understand X.509 public key certificates for Azure IoT Hub
 author: v-gpettibone
 manager: philmea
@@ -13,8 +13,6 @@ ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics', devx-track-a
 ---
 
 # Tutorial: Understanding X.509 Public Key Certificates
-
-## Introduction
 
 X.509 certificates are digital documents that represent a user, computer, service, or device. They are issued by a certification authority (CA), subordinate CA, or registration authority and contain the public key of the certificate subject. They do not contain the subject's private key which must be stored securely. Public key certificates are documented by [RFC 5280](https://tools.ietf.org/html/rfc5280). They are digitally signed and, in general, contain the following information:
 

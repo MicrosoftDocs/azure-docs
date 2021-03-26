@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Test ability of X.509 certificates to authenticate devices to an IoT Hub | Microsoft Docs
+title: Tutorial - Test ability of X.509 certificates to authenticate devices to an Azure IoT Hub | Microsoft Docs
 description: Tutorial - Test your X.509 certificates to authenticate to Azure IoT Hub
 author: v-gpettibone
 manager: philmea
@@ -21,6 +21,8 @@ You can use the following C# code example to test that your certificate can auth
 * Prove that you possess the CA certificate.
 * Add a device to your IoT Hub.
 * Create a device certificate with the same device ID as your your device.
+
+## Code Example
 
 The following code example shows how to create a C# application to simulate the X.509 device registered for your IoT hub. The example sends temperature and humidity values from the simulated device to your hub. In this tutorial, we will create only the device application. It is left as an exercise to the readers to create the IoT Hub service application that will send responses to the events sent by this simulated device.
 

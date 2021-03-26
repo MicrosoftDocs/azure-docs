@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Use OpenSSL to create X.509 test certificates | Microsoft Docs
+title: Tutorial - Use OpenSSL to create X.509 test certificates for Azure IoT Hub| Microsoft Docs
 description: Tutorial - Use OpenSSL to create CA and device certificates for Azure IoT hub
 author: v-gpettibone
 manager: philmea
@@ -13,8 +13,6 @@ ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics', devx-track-a
 ---
 
 # Tutorial: Using OpenSSL to create test certificates
-
-## Introduction
 
 Although you can purchase X.509 certificates from a trusted certification authority, creating your own test certificate hierarchy or using self-signed certificates is adequate for testing IoT hub device authentication. The following example uses [OpenSSL](https://www.openssl.org/) and the [OpenSSL Cookbook](https://www.feistyduck.com/library/openssl-cookbook/online/ch-openssl.html) to create a certification authority (CA), a subordinate CA, and a device certificate. The example then signs the subordinate CA and the device certificate into a certificate hierarchy. This is presented for example purposes only.
 
@@ -323,6 +321,6 @@ Send the CSR to the subordinate CA for signing into the certificate hierarchy. S
 openssl ca -config subca.conf -in device.csr -out device.crt -extensions client_ext
 ```
 
-## Step 10 - Test your device certificate
+## Next Steps
 
-Go to [Testing Certificate Authentication](tutorial-x509-test-certificate.md) to determine if your device certificate can authenticate to your IoT Hub.
+Go to [Testing Certificate Authentication](tutorial-x509-test-certificate.md) to determine if your certificate can authenticate your device to your IoT Hub.

@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Prove Ownership of CA certificates in IoT Hub | Microsoft Docs
+title: Tutorial - Prove Ownership of CA certificates in Azure IoT Hub | Microsoft Docs
 description: Tutorial - Prove that you own a CA certificate for Azure IoT Hub
 author: v-gpettibone
 manager: philmea
