@@ -84,6 +84,8 @@ The permissions on directories and files in a container, are **Read**, **Write**
 
 In the POSIX-style model that's used by Data Lake Storage Gen2, permissions for an item are stored on the item itself. In other words, permissions for an item cannot be inherited from the parent items if the permissions are set after the child item has already been created. Permissions are only inherited if default permissions have been set on the parent items before the child items have been created.
 
+When inheriting permissions from parent items in POSIX-style model, the owner of a child item inherits the owner permission of the parent item. Even if the entity/user creating the child items has a separate named entry for ACL permissions on parent, when inheriting the permissions on child item, as an owner, the owner permissions of the parent will apply.
+
 ## Common scenarios related to ACL permissions
 
 The following table shows you the ACL entries required to enable a security principal to perform the operations listed in the **Operation** column. 
