@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/25/2021
+ms.date: 03/26/2021
 ---
 
 # How to plan a SaaS offer for the commercial marketplace
@@ -34,7 +34,7 @@ For more information about these listing options, see [Commercial marketplace tr
 
 After your offer is published, the listing option you chose for your offer appears as a button in the upper-left corner of your offer’s listing page. For example, the following screenshot shows an offer listing page in Azure Marketplace with the **Get it now** button.
 
-![Illustrates an offer listing in the online store.](./media/saas/listing-options-saas-full.png)
+![Illustrates an offer listing in the online store.](./media/saas/listing-options-saas.png)
 
 ## Technical requirements
 
