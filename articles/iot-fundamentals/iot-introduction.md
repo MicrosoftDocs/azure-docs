@@ -20,8 +20,11 @@ The Azure Internet of Things (IoT) is a collection of Microsoft-managed cloud se
 An IoT device is typically made up of a circuit board with sensors attached that use WiFi to connect to the internet. For example:
 
 * A pressure sensor on a remote oil pump.
+
 * Temperature and humidity sensors in an air-conditioning unit.
+
 * An accelerometer in an elevator.
+
 * Presence sensors in a room.
 
 There's a wide variety of devices available from different manufacturers to build your solution. For a list of devices certified to work with Azure IoT Hub, see the [Azure Certified for IoT device catalog](https://catalog.azureiotsolutions.com/alldevices). For prototyping, you can use devices such as an [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/) or a [Raspberry Pi](https://www.raspberrypi.org/). The Devkit has built-in sensors for temperature, pressure, humidity, and a gyroscope, accelerometer, and magnetometer. The Raspberry Pi lets you attach many different types of sensor. 
