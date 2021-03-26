@@ -231,16 +231,15 @@ Follow these steps to create your App Service and publish your web app:
 ::: zone pivot="development-environment-vs"
 
 1. In **Solution Explorer**, right-click the **MyFirstAzureWebApp** project and select **Publish**.
-1. In **Publish**, select **Azure** and click **Next**.
+1. In **Publish**, select **Azure** and then **Next**.
 
 <!-- TODO: add image -->
-
 
 1. Your options depend on whether you're signed in to Azure already and whether you have a Visual Studio account linked to an Azure account. Select either **Add an account** or **Sign in** to sign in to your Azure subscription. If you're already signed in, select the account you want.
 
    ![Sign in to Azure](./media/quickstart-dotnetcore/sign-in-azure-vs2019.png)
 
-1. To the right of **App Service instances**, click **+**.
+1. To the right of **App Service instances**, select **+**.
 
    ![New App Service app](./media/quickstart-dotnetcore/publish-new-app-service.png)
 
@@ -273,11 +272,16 @@ Follow these steps to create your App Service and publish your web app:
 
 ### [.NET Core 3.1](#tab/netcore31)
 
+Do we
 
 ### [.NET 5.0](#tab/net50)
 
 
+Need to
+
 ### [.NET Framework 4.8](#tab/netframework48)
+
+Discuss hosting platform now?
 
 ---
 
@@ -285,31 +289,46 @@ Follow these steps to create your App Service and publish your web app:
 
 ::: zone pivot="development-environment-vscode"
 
+Deploy using Azure Tools 
+
 ::: zone-end
 
 ::: zone pivot="development-environment-cli"
 
-::: zone-end
+Deploy the code in your local folder *MyFirstAzureWebApp* using the `az webapp up` command:
 
+```azurecli
+az webapp up --sku F1 --name <app-name>
+```
+
+- If the `az` command isn't recognized, be sure you have the Azure CLI installed as described in [Prerequisites](#prerequisites).
+- Replace `<app-name>` with a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). A good pattern is to use a combination of your company name and an app identifier.
+- The `--sku F1` argument creates the web app on the Free pricing tier. Omit this argument to use a faster premium tier, which incurs an hourly cost.
+- You can optionally include the argument `--location <location-name>` where `<location-name>` is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations) command.
+
+The command may take a few minutes to complete. While running, it provides messages about creating the resource group, the App Service plan and hosting app, configuring logging, then performing ZIP deployment. It then gives the message, "You can launch the app at http://&lt;app-name&gt;.azurewebsites.net", which is the app's URL on Azure.
+
+Browse to the deployed application using your web browser.
+
+```bash
+http://<app_name>.azurewebsites.net
+```
+
+The .NET Core sample code is running in App Service on Linux with a built-in image.
+
+![Sample app running in Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
+
+**Congratulations!** You've deployed your first .NET Core app to App Service on Linux.
+
+::: zone-end
 
 ## Update the app and redeploy
 
 ::: zone pivot="development-environment-vs"
 
-::: zone-end
-
-::: zone pivot="development-environment-vscode"
-
-::: zone-end
-
-::: zone pivot="development-environment-cli"
-
-::: zone-end
-
 Follow these steps to update and redeploy your web app:
 
 1. In **Solution Explorer**, under your project, open **Pages** > **Index.cshtml**.
-
 1. Replace the entire `<div>` tag with the following code:
 
    ```html
@@ -320,18 +339,11 @@ Follow these steps to update and redeploy your web app:
    ```
 
 1. To redeploy to Azure, right-click the **MyFirstAzureWebApp** project in **Solution Explorer** and select **Publish**.
-
 1. In the **Publish** summary page, select **Publish**.
 
-   <!-- ![Publish update to web app](./media/quickstart-dotnetcore/publish-update-to-web-app-vs2019.png) -->
-
     When publishing completes, Visual Studio launches a browser to the URL of the web app.
-
+    <!-- TODO: update this image -->
     ![Updated ASP.NET web app running in Azure](./media/quickstart-dotnetcore/updated-web-app-running-live.png)
-
-## Manage the Azure app
-
-::: zone pivot="development-environment-vs"
 
 ::: zone-end
 
@@ -341,7 +353,29 @@ Follow these steps to update and redeploy your web app:
 
 ::: zone pivot="development-environment-cli"
 
+In the local directory, open the _Startup.cs_ file. Make a small change to the text in the method call `context.Response.WriteAsync`:
+
+```csharp
+await context.Response.WriteAsync("Hello Azure!");
+```
+
+Save your changes, then redeploy the app using the `az webapp up` command again:
+
+```azurecli
+az webapp up --os-type linux
+```
+
+This command uses values that are cached locally in the *.azure/config* file, including the app name, resource group, and App Service plan.
+
+Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and hit refresh.
+
+![Updated sample app running in Azure](media/quickstart-dotnetcore/dotnet-browse-azure-updated.png)
+
+[Having issues? Let us know.](https://aka.ms/DotNetAppServiceLinuxQuickStart)
+
 ::: zone-end
+
+## Manage the Azure app
 
 To manage your web app, go to the [Azure portal](https://portal.azure.com), and search for and select **App Services**.
 
@@ -355,21 +389,29 @@ The **Overview** page for your web app, contains options for basic management li
 
 ![App Service in Azure portal](./media/quickstart-dotnetcore/web-app-overview-page.png)
 
-[!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
+<!--
+## Clean up resources - H2 added from the next three includes
+-->
+::: zone pivot="development-environment-vs"
+[!INCLUDE [Clean-up Portal web app resources](../../includes/clean-up-section-portal-web-app.md)]
+::: zone-end
+
+::: zone pivot="development-environment-vscode"
+[!INCLUDE [Clean-up Portal web app resources](../../includes/clean-up-section-portal-web-app.md)]
+::: zone-end
+
+::: zone pivot="development-environment-cli"
+[!INCLUDE [Clean-up CLI resources](../../includes/cli-samples-clean-up.md)]
+::: zone-end
 
 ## Next steps
 
-In this quickstart, you used Visual Studio to create and deploy an ASP.NET Core web app to Azure App Service.
-
-Advance to the next article to learn how to create a .NET Core app and connect it to a SQL Database:
+In this quickstart, you used created and deployed an ASP.NET web app to Azure App Service. Advance to the next article to learn how to create expand this app to connect to a SQL database:
 
 > [!div class="nextstepaction"]
-> [ASP.NET Core with SQL Database](tutorial-dotnetcore-sqldb-app.md)
+> [Tutorial: ASP.NET Core app with SQL database](tutorial-dotnetcore-sqldb-app.md)
 
 > [!div class="nextstepaction"]
 > [Configure ASP.NET Core app](configure-language-dotnetcore.md)
-
-::: zone-end
-
 
 [app-service-pricing-tier]: https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
