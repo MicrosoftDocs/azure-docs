@@ -793,8 +793,8 @@ groups:
     title: Python
 # Owner: msangapu
 - id: app-service-ide
-  title: Integrated development environment
-  prompt: Choose an integrated development environment
+  title: Development experience
+  prompt: Choose a development experience
   pivots:
   - id: development-environment-vs
     title: Visual Studio

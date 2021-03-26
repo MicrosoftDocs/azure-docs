@@ -111,36 +111,36 @@ In this quickstart, you'll learn how to create and deploy your first ASP.NET web
 ### [.NET Core 3.1](#tab/netcore31)
 
 1. Open Visual Studio and then select **Create a new project**.
-1. In **Create a new project**, find and choose **ASP.NET Web App**, then select **Next**.
+1. In **Create a new project**, find and choose **ASP.NET Web Core App**, then select **Next**.
 1. In **Configure your new project**, name the application _MyFirstAzureWebApp_, and then select **Next**.
 
    :::image type="content" source="media/quickstart-dotnet/configure-webapp-net.png" alt-text="Configure ASP.NET Core 3.1 web app" border="true":::
 
-1. You can deploy any type of ASP.NET web app to Azure. For this quickstart, choose the **MVC** template.
-1. Make sure authentication is set to **No Authentication**. Select **Create**.
+1. You can deploy any type of ASP.NET web app to Azure. Select **.NET Core 3.1 (Long-term support)**.
+1. Make sure **Authentication Type** is set to **Nne**. Select **Create**.
 
    :::image type="content" source="media/quickstart-dotnet/vs-additional-info-netcoreapp3.1.png" alt-text="Visual Studio - .NET Core 3.1" border="true":::
 
 1. From the Visual Studio menu, select **Debug** > **Start Without Debugging** to run the web app locally.
 
-   :::image type="content" source="media/quickstart-dotnet/local-webapp-net.png" alt-text="Visual Studio - .NET Core 3.1 browse locally" border="true":::
+   :::image type="content" source="media/quickstart-dotnet/local-webapp-net.png" alt-text="Visual Studio - .NET Core 3.1 browse locally" lightbox="media/quickstart-dotnet/local-webapp-net.png" border="true":::
 
 ### [.NET 5.0](#tab/net50)
 
 1. Open Visual Studio and then select **Create a new project**.
-1. In **Create a new project**, find and choose **ASP.NET Web App**, then select **Next**.
+1. In **Create a new project**, find and choose **ASP.NET Web Core App**, then select **Next**.
 1. In **Configure your new project**, name the application _MyFirstAzureWebApp_, and then select **Next**.
 
    :::image type="content" source="media/quickstart-dotnet/configure-webapp-net.png" alt-text="Configure ASP.NET 5.0 web app" border="true":::
 
-1. You can deploy any type of ASP.NET web app to Azure. For this quickstart, choose the **MVC** template.
-1. Make sure authentication is set to **No Authentication**. Select **Create**.
+1. You can deploy any type of ASP.NET web app to Azure. Select **.NET Core 5.0 (Current)**.
+1. Make sure **Authentication Type** is set to **Nne**. Select **Create**.
 
    :::image type="content" source="media/quickstart-dotnet/vs-additional-info-net5.0.png" alt-text="Visual Studio - .NET Core 5.0" border="true":::
 
 1. From the Visual Studio menu, select **Debug** > **Start Without Debugging** to run the web app locally.
 
-   :::image type="content" source="media/quickstart-dotnet/local-webapp-net.png" alt-text="Visual Studio - .NET 5.0 browse locally" border="true":::
+   :::image type="content" source="media/quickstart-dotnet/local-webapp-net.png" alt-text="Visual Studio - .NET 5.0 browse locally" lightbox="media/quickstart-dotnet/local-webapp-net.png" border="true":::
 
 ### [.NET Framework 4.8](#tab/netframework48)
 
@@ -157,7 +157,7 @@ In this quickstart, you'll learn how to create and deploy your first ASP.NET web
 
 1. From the Visual Studio menu, select **Debug** > **Start Without Debugging** to run the web app locally.
 
-   :::image type="content" source="media/quickstart-dotnet/vs-local-webapp-netframework48.png" alt-text="Visual Studio - .NET Framework 4.8 browse locally" border="true":::
+   :::image type="content" source="media/quickstart-dotnet/vs-local-webapp-netframework48.png" alt-text="Visual Studio - .NET Framework 4.8 browse locally" lightbox="media/quickstart-dotnet/vs-local-webapp-netframework48.png" border="true":::
 
 ---
 
@@ -297,7 +297,7 @@ Follow these steps to create your App Service and publish your web app:
 1. In **Solution Explorer**, right-click the **MyFirstAzureWebApp** project and select **Publish**.
 1. In **Publish**, select **Azure** and then **Next**.
 
-<!-- TODO: add image -->
+   :::image type="content" source="media/quickstart-dotnet/vs-publish-target-azure.png" alt-text="Publish - target Azure" border="true":::
 
 1. Your options depend on whether you're signed in to Azure already and whether you have a Visual Studio account linked to an Azure account. Select either **Add an account** or **Sign in** to sign in to your Azure subscription. If you're already signed in, select the account you want.
 
