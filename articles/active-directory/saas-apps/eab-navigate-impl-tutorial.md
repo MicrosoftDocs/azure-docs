@@ -78,6 +78,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://impl.bouncer.eab.com`
     
     In the **Reply URL (Assertion Consumer Service URL)** text box, enter both the following values as separate rows:
+    
     | Reply URL|
     | -------------- |
     | `https://impl.bouncer.eab.com/sso/saml2/acs` |
