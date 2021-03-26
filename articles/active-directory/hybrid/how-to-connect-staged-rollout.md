@@ -75,7 +75,7 @@ The following scenarios are not supported for staged rollout:
 - Admins can roll out cloud authentication by using security groups. To avoid sync latency when you're using on-premises Active Directory security groups, we recommend that you use cloud security groups. The following conditions apply:
 
     - You can use a maximum of 10 groups per feature. That is, you can use 10 groups each for *password hash sync*, *pass-through authentication*, and *seamless SSO*.
-    - Nested groups are *not supported*. This scope applies to public preview as well.
+    - Nested groups are *not supported*. 
     - Dynamic groups are *not supported* for staged rollout.
     - Contact objects inside the group will block the group from being added.
 
