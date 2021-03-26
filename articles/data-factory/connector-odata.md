@@ -323,46 +323,45 @@ When you copy data from OData, the following mappings are used between OData dat
 
 ## Copy data from Project Online
 
-You can use the OData connector and the access token obtained from Postman to copy data from Project Online. You can follow the next steps:
+To copy data from Project Online, you can use the OData connector and an access token obtained from tools like Postman.
 
-1.Use **Postman** to get the access token:
+> [!CAUTION]
+> The access token expires in 1 hour by default, please refresh the access token when it expires.
 
-You need to navigate to **Authorization** tab on the Postman Website.
+1. Use **Postman** to get the access token:
 
-- In the **Type** box, select **OAuth 2.0**, and in the **Add authorization data to** box, select **Request Headers**.
-- Fill the following information in the **Configure New Token** page to get a new access token: 
-    - **Grant type**: Select **Authorization Code**.
-    - **Callback URL**: Enter `https://www.localhost.com/`. 
-    - **Auth URL**: Enter `https://login.microsoftonline.com/common/oauth2/authorize?resource=https://<your tenant name>.sharepoint.com`. Replace `<your tenant name>` with your own tenant name. 
-    - **Access Token URL**: Enter `https://login.microsoftonline.com/common/oauth2/token`.
-    - **Client ID**: Enter your AAD service principal ID.
-    - **Client Secret**: Enter your service principal secret.
-    - **Client Authentication**: Select **Send as Basic Auth header**.
-- You will be asked to login with your username and password.
-- Once you get your access token, please copy and save it for the next step.
-
-[ ![Use Postman to get the access token](
-./media/connector-odata/odata-project-online-postman-accesstoken-inline.png
-) ](./media/connector-odata/odata-project-online-postman-accesstoken-expanded.png#lightbox)
+   1. Navigate to **Authorization** tab on the Postman Website.
+   1. In the **Type** box, select **OAuth 2.0**, and in the **Add authorization data to** box, select **Request Headers**.
+   1. Fill the following information in the **Configure New Token** page to get a new access token: 
+      - **Grant type**: Select **Authorization Code**.
+      - **Callback URL**: Enter `https://www.localhost.com/`. 
+      - **Auth URL**: Enter `https://login.microsoftonline.com/common/oauth2/authorize?resource=https://<your tenant name>.sharepoint.com`. Replace `<your tenant name>` with your own tenant name. 
+      - **Access Token URL**: Enter `https://login.microsoftonline.com/common/oauth2/token`.
+      - **Client ID**: Enter your AAD service principal ID.
+      - **Client Secret**: Enter your service principal secret.
+      - **Client Authentication**: Select **Send as Basic Auth header**.
+     
+   1. You will be asked to login with your username and password.
+   1. Once you get your access token, please copy and save it for the next step.
+   
+    [![Use Postman to get the access token](./media/connector-odata/odata-project-online-postman-accesstoken-inline.png)](./media/connector-odata/odata-project-online-postman-accesstoken-expanded.png#lightbox)
 
 2. Create the OData linked service:
-- **Service URL**: Enter `https://<your tenant name>.sharepoint.com/sites/pwa/_api/Projectdata`. Replace `<your tenant name>` with your own tenant name. 
-- **Authentication type**: Select **Anonymous**.
-- **Auth headers**:
+ - **Service URL**: Enter `https://<your tenant name>.sharepoint.com/sites/pwa/_api/Projectdata`. Replace `<your tenant name>` with your own tenant name. 
+ - **Authentication type**: Select **Anonymous**.
+ - **Auth headers**:
     - **Property name**: Choose **Authorization**.
     - **Value**: Enter the **access token** copied from step1.
-- Test the linked service.
+ - Test the linked service.
 
-![Create OData linked service](./media/connector-odata/odata-project-online-linked-service.png)
+    ![Create OData linked service](./media/connector-odata/odata-project-online-linked-service.png)
 
 3. Create the OData dataset:
-- Create the dataset with the OData linked service created in step2.
-- Preview data.
-
-![Preview data](./media/connector-odata/odata-project-online-preview-data.png)
+ - Create the dataset with the OData linked service created in step2.
+ - Preview data.
  
-> [!NOTE]
-> The access token expires in 1 hour by default, please refresh the access token when it expires.
+    ![Preview data](./media/connector-odata/odata-project-online-preview-data.png)
+ 
 
 
 ## Lookup activity properties
