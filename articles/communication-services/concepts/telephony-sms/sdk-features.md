@@ -36,7 +36,6 @@ The following list presents the set of features which are currently available in
 |                   | Customer Content field                                                                | ✔️   | ✔️    | ✔️    | ✔️      |
 | Events            | Use Event Grid to configure webhooks to receive inbound messages and delivery reports | ✔️   | ✔️    | ✔️    | ✔️      |
 | Phone Number      | Toll-Free numbers                                                                     | ✔️   | ✔️    | ✔️    | ✔️      |
-|                   | Toll-free number porting                                                              | ✔️   | ✔️    | ✔️    | ✔️      |
 | Regulatory        | Opt-Out Handling                                                                      | ✔️   | ✔️    | ✔️    | ✔️      |
 | Monitoring        | Monitor usage for messages sent and received                                          | ✔️   | ✔️    | ✔️    | ✔️      |
 | PSTN Calling      | Add PSTN calling capabilities to your SMS-enabled toll-free number                    | ✔️   | ✔️    | ✔️    | ✔️      |
