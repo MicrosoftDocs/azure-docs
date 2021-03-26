@@ -26,8 +26,10 @@
         href: quickstarts/chat/meeting-interop.md
   - name: Telephony and SMS
     items:
-      - name: Manage telephone numbers
+      - name: Get a telephone number (Azure portal)
         href: quickstarts/telephony-sms/get-phone-number.md
+      - name: Port a telephone number into Azure
+        href: quickstarts/telephony-sms/port-phone-number.md
       - name: Add telephone calling to your app
         href: quickstarts/voice-video-calling/pstn-call.md
       - name: Send an SMS message
