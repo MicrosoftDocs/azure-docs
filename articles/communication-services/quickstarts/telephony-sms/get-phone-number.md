@@ -25,6 +25,9 @@ Get started with Azure Communication Services by using the Azure portal to purch
 
 ## Get a phone number
 
+> [!IMPORTANT]
+> Toll-free and geographic phone numbers based in the United States can be **[ported into Azure](port-phone-number.md)**.
+
 To begin provisioning numbers, go to your Communication Services resource on the [Azure portal](https://portal.azure.com).
 
 :::image type="content" source="../media/manage-phone-azure-portal-start.png" alt-text="Screenshot showing a Communication Services resource's main page.":::
