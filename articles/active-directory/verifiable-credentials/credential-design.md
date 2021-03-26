@@ -34,17 +34,11 @@ There are currently three input types that that are available to configure in th
 
 **ID Token:** The sample App and Tutorial use the ID Token. When this option is selected, you will need to provide an Open ID Connect configuration URI and include the claims that should be included in the VC. The user will be prompted to 'Sign in' on the Authenticator app to meet this requirement and add the associated claims from their account. 
 
-  ![ID Token](media/credential-design/id-token.png)
+**Verifiable Credentials:** The end result of an issuance flow is to produce a Verifiable Credential but you may also ask the user to Present a Verifiable Credential in order to issue one. The Rules File is able to take specific claims from the presented Verifiable Credential and include those claims in the newly issued Verifiable Credential from your organization. 
 
-**Verifiable credentials:** The end result of an issuance flow is to produce a verifiable credential but you may also ask the user to present a verifiable credential in order to issue one. The Rules File is able to take specific claims from the presented Verifiable Credential and include those claims in the newly issued verifiable credential from your organization. 
+**Self Issued Claims:** When this option is selected, the user will be able to directly type information into Authenticator. At this time, strings are the only supported input for self issued claims. 
 
-![ID Token](media/credential-design/vc-for-vc.png)
-
-**Self-Issued Claims:** When this option is selected, the user will be able to directly type information into Authenticator. At this time, strings are the only supported input for self-issued claims.
-
-![ID Token](media/credential-design/self-issued.png)
-
-**Static Claims:** Additionally, we are able declare a static claim in the rules file, however this input does not come from the user. The Issuer defines a static claim in the rules file and would look like any other claim in the verifiable credential. Simply add a credentialSubject after vc.type and declare the attribute and the claim. 
+**Static Claims:** Additionally we are able declare a static claim in the Rules file, however this input does not come from the user. The Issuer defines a static claim in the Rules file and would look like any other claim in the Verifiable Credential. Simply add a credentialSubject after vc.type and declare the attribute and the claim. 
 
 ```json
 "vc": {
