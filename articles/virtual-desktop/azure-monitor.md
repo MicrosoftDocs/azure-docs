@@ -66,7 +66,7 @@ The configuration workbook sets up your monitoring environment and lets you chec
 
 ### Resource diagnostic settings
 
-To collect information on your Windows Virtual Desktop infrastructure, you'll need to enable several diagnostic settings on your Windows Virtual Desktop host pools and workspaces (this is your Windows Virtual Desktop workspace, not your Log Analytics workspace). To learn more about host pools, workspaces, and other Windows Virtual Desktop resource objects, see our [environment guide](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
+To collect information on your Windows Virtual Desktop infrastructure, you'll need to enable several diagnostic settings on your Windows Virtual Desktop host pools and workspaces (this is your Windows Virtual Desktop workspace, not your Log Analytics workspace). To learn more about host pools, workspaces, and other Windows Virtual Desktop resource objects, see our [environment guide](environment-setup.md).
 
 You can learn more about Windows Virtual Desktop diagnostics and the supported diagnostic tables at [Send Windows Virtual Desktop diagnostics to Log Analytics](diagnostics-log-analytics.md).
 
@@ -89,7 +89,7 @@ To set up host pool diagnostics using the resource diagnostic settings section i
     - AgentHealthStatus
     
     >[!NOTE]
-    > If you don't see the error message, you don't need to do step 2-4.
+    > If you don't see the error message, you don't need to do steps 2 through 4.
 
 2. Select **Configure host pool**.
 3. Select **Deploy**.
