@@ -23,15 +23,17 @@ The settings used to override the build in providers is configured using the [Co
 ```json
 {
   "auth": {
-    "identityProviders": {
-      "twitter": {
-        "enabled": true,
-        "registration": {
-          "consumerKeySettingName": "TWITTER_CONSUMER_KEY",
-          "consumerSecretSettingName": "TWITTER_SECRET"
-        },
-        "userDetailsClaim": "handle"
-      }
+    "azureActiveDirectory": {
+      "enabled": true, // defaults to true on all the providers if the provider is configured to a non null value (i.e. not "azureActiveDirectory": null)
+      "registration": {
+        "openIdIssuer": "https://login.microsoftonline.com/<tenant id>",
+        "clientIdSettingName": "AAD_CLIENT_ID",
+        "clientSecretSettingName": "AAD_CLIENT_SECRET"
+      },
+      "login": {
+        "loginParameters": []
+      },
+      "userDetailsClaim": "name" // the name of the claim that the provider will provide that contains the identity value you want to use as the "userDetails"
     }
   }
 }
@@ -39,6 +41,35 @@ The settings used to override the build in providers is configured using the [Co
 
 > [!NOTE]
 > To avoid putting secret information in source control, the configuration information will look into [Application Settings](application-settings.md), for settings matching the name provided in the configuration file.
+
+> [!NOTE]
+> The redirect endpoints required for login/logout be `https://<your site>/.auth/login/complete` and `https://<your site>/.auth/logout/complete`.
+
+### Default provider configuration mapping
+
+The following table contains the different configuration options for each of the default providers.
+
+| Provider Name | Field Path                               | Description                                                                                           |
+| ------------- | ---------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| AAD           | `registration.openIdIssuer`              | The endpoint for the OpenID configuration of the AAD tenant                                           |
+| &nbsp;        | `registration.clientIdSettingName`       | The name of the Application Setting for the Client ID                                                 |
+| &nbsp;        | `registration.clientSecretSettingName`   | The name of the Application Setting for the Client Secret                                             |
+| &nbsp;        | `userDetailsClaim`                       | The field to read from the Claims response and expose as user details. The value `name` is expected   |
+| Apple         | `registration.clientIdSettingName`       | The name of the Application Setting for the Client ID                                                 |
+| &nbsp;        | `registration.clientSecretSettingName`   | The name of the Application Setting for the Client Secret                                             |
+| &nbsp;        | `userDetailsClaim`                       | The field to read from the Claims response and expose as user details. The value `name` is expected   |
+| Facebook      | `registration.appIdSettingName`          | The name of the Application Setting for the App ID                                                    |
+| &nbsp;        | `registration.appSecretSettingName`      | The name pf the Application Setting for the App Secret                                                |
+| &nbsp;        | `userDetailsClaim`                       | The field to read from the Claims response and expose as user details. The value `email` is expected  |
+| GitHub        | `registration.clientIdSettingName`       | The name of the Application Setting for the Client ID                                                 |
+| &nbsp;        | `registration.clientSecretSettingName`   | The name of the Application Setting for the Client Secret                                             |
+| &nbsp;        | `userDetailsClaim`                       | The field to read from the Claims response and expose as user details. The value `name` is expected   |
+| Google        | `registration.clientIdSettingName`       | The name of the Application Setting for the Client ID                                                 |
+| &nbsp;        | `registration.clientSecretSettingName`   | The name of the Application Setting for the Client Secret                                             |
+| &nbsp;        | `userDetailsClaim`                       | The field to read from the Claims response and expose as user details. The value `name` is expected   |
+| Twitter       | `registration.consumerKeySettingName`    | The name of the Application Setting for the Client ID                                                 |
+| &nbsp;        | `registration.consumerSecretSettingName` | The name of the Application Setting for the Client Secret                                             |
+| &nbsp;        | `userDetailsClaim`                       | The field to read from the Claims response and expose as user details. The value `handle` is expected |
 
 ## Configuring a custom OpenID Connect provider
 
@@ -53,10 +84,7 @@ Your provider will require you to register the details of your application with 
 > [!IMPORTANT]
 > The app secret is an important security credential. Do not share this secret with anyone or distribute it within a client application.
 
-> [!NOTE]
-> Some providers may require additional steps for their configuration and how to use the values they provide. For example, Apple provides a private key which is not itself used as the OIDC client secret, and you instead must use it craft a JWT which is treated as the secret you provide in your app config (see the "Creating the Client Secret" section of the [Sign in with Apple documentation](https://developer.apple.com/documentation/sign_in_with_apple/generate_and_validate_tokens))
-
-Add the client secret as an [application setting](application-settings.md) for the app, using a setting name of your choice. Make note of this name for later.
+Add the client id and client secret as [application settings](application-settings.md) for the app, using a setting name of your choice. Make note of this name for later.
 
 Additionally, you will need the OpenID Connect metadata for the provider. This is often exposed via a [configuration metadata document](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig), which is the provider's Issuer URL suffixed with `/.well-known/openid-configuration`. Gather this configuration URL.
 
@@ -67,68 +95,34 @@ If you are unable to use a configuration metadata document, you will need to gat
 - The [OAuth 2.0 Token endpoint](https://tools.ietf.org/html/rfc6749#section-3.2) (sometimes shown as `token_endpoint`)
 - The URL of the [OAuth 2.0 JSON Web Key Set](https://tools.ietf.org/html/rfc8414#section-2) document (sometimes shown as `jwks_uri`)
 
-## <a name="configure"> </a>Add provider information to your application
+Within the `openIdConnectConfiguration` object, provide the OpenID Connect metadata you gathered earlier. There are two options for this, based on which information you collected:
 
-> [!NOTE]
-> The required configuration is in a new API format, currently only supported by [file-based configuration (preview)](.\app-service-authentication-how-to.md#config-file). You will need to follow the below steps using such a file.
+- Set the `wellKnownOpenIdConfiguration` property to the configuration metadata URL you gathered earlier.
+- Alternatively, set the four individual values gathered as follows:
+  - Set `issuer` to the issuer URL
+  - Set `authorizationEndpoint` to the authorization Endpoint
+  - Set `tokenEndpoint` to the token endpoint
+  - Set `certificationUri` to the URL of the JSON Web Key Set document
 
-This section will walk you through updating the configuration to include your new IDP. An example configuration follows.
-
-1. Within the `identityProviders` object, add an `openIdConnectProviders` object if one does not already exist.
-1. Within the `openIdConnectProviders` object, add a key for your new provider. This is a friendly name used to reference the provider in the rest of the configuration. For example, if you wanted to require all requests to be authenticated with this provider, you would set `globalValidation.unauthenticatedClientAction` to "RedirectToLoginPage" and set `redirectToProvider` to this same friendly name.
-1. Assign an object to that key with a `registration` object within it, and optionally a `login` object:
-
-   ```json
-   "myCustomIDP" : {
-      "registration" : {},
-      "login": {
-            "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
-            "scope": [],
-            "loginParameterNames": [],
-      }
-   }
-   ```
-
-1. Within the registration object, set the `clientId` to the client ID you collected, set `clientCredential.secretSettingName` to the name of the application setting where you stored the client secret, and create a `openIdConnectConfiguration` object:
-
-   ```json
-   "registration": {
-     "clientId": "bd96cf8a-3f2b-4806-b180-d3c5fd11a2be",
-     "clientCredential": {
-        "secretSettingName": "IDP_CLIENT_SECRET"
-     },
-     "openIdConnectConfiguration" : {}
-   }
-   ```
-
-1. Within the `openIdConnectConfiguration` object, provide the OpenID Connect metadata you gathered earlier. There are two options for this, based on which information you collected:
-
-   - Set the `wellKnownOpenIdConfiguration` property to the configuration metadata URL you gathered earlier.
-   - Alternatively, set the four individual values gathered as follows:
-     - Set `issuer` to the issuer URL
-     - Set `authorizationEndpoint` to the authorization Endpoint
-     - Set `tokenEndpoint` to the token endpoint
-     - Set `certificationUri` to the URL of the JSON Web Key Set document
-
-   These two options are mutually exclusive.
+These two options are mutually exclusive.
 
 Once this configuration has been set, you are ready to use your OpenID Connect provider for authentication in your app.
 
-An example configuration might look like the following (using Sign in with Apple as an example, where the APPLE_GENERATED_CLIENT_SECRET setting points to a generated JWT as per [Apple documentation](https://developer.apple.com/documentation/sign_in_with_apple/generate_and_validate_tokens)):
+An example configuration might look like the following:
 
 ```json
 {
   "auth": {
     "identityProviders": {
       "openIdConnectProviders": {
-        "apple": {
+        "myProvider": {
           "registration": {
-            "clientId": "com.contoso.example.client",
+            "clientIdSettingName": "MY_PROVIDER_ID",
             "clientCredential": {
-              "secretSettingName": "APPLE_GENERATED_CLIENT_SECRET"
+              "secretSettingName": "MY_PROVIDER_CLIENT_SECRET"
             },
             "openIdConnectConfiguration": {
-              "wellKnownOpenIdConfiguration": "https://appleid.apple.com/.well-known/openid-configuration"
+              "wellKnownOpenIdConfiguration": "https://my-id.server/.well-known/openid-configuration"
             }
           },
           "login": {
@@ -142,6 +136,10 @@ An example configuration might look like the following (using Sign in with Apple
   }
 }
 ```
+
+### Creating a browser login/logout
+
+To allow users to login using a custom OIDC provider, navigate them to `/.auth/<provider name>/login`. For logout, use `/.auth/<provider name>/logout`.
 
 ## Next steps
 
