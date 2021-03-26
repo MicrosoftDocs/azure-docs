@@ -11,7 +11,7 @@ ms.date: 03/18/2021
 
 # Troubleshoot mapping data flows in Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article explores common troubleshooting methods for mapping data flows in Azure Data Factory.
 
