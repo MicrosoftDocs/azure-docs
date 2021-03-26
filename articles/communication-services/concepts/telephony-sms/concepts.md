@@ -14,9 +14,6 @@ ms.service: azure-communication-services
 
 # SMS concepts
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
-
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 Azure Communication Services enables you to send and receive SMS text messages using the Communication Services SMS client libraries. These client libraries can be used to support customer service scenarios, appointment reminders, two-factor authentication, and other real-time communication needs. Communication Services SMS allows you to reliably send messages while exposing deliverability and response rate insights surrounding your campaigns.
@@ -25,11 +22,11 @@ Key features of Azure Communication Services SMS client libraries include:
 
 -  **Simple** setup experience for adding SMS capability to your applications.
 - **High Velocity** message support over toll free numbers for A2P (Application to Person) use cases in the United States.
+- **Multiple recipients** supported to enable sending messages to multiple recipients at a time.
 - **Two-way** conversations to support scenarios like customer support, alerts, and appointment reminders.
 - **Reliable Delivery** with real-time delivery reports for messages sent from your application.
 - **Analytics** to track your usage patterns and customer engagement.
 - **Opt-Out** handling support to automatically detect and respect opt-outs for toll-free numbers. Opt-outs for US toll-free numbers are mandated and enforced by US carriers.
-- **Bulk Messaging** enables sending messages to multiple recipients at a time.
 
 ## Next steps
 
