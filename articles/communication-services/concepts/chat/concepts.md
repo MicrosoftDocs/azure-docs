@@ -43,7 +43,7 @@ There are two core parts to chat architecture: 1) Trusted Service and 2) Client 
 :::image type="content" source="../../media/chat-architecture.png" alt-text="Diagram showing Communication Services' chat architecture.":::	
 
  - **Trusted service:** To properly manage a chat session, you need a service that helps you connect to Communication Services by using your resource connection string. This service is responsible for creating chat threads, adding and removing participants, and issueing access tokens to users. More information about access tokens can be found in our [access tokens](../../quickstarts/access-tokens.md) quickstart.	
- - **Client app:**  The client application connects to your trusted service and receives the access tokens that are used by users to connect directly to Communication Services. Once your trusted service has created the chat thread and added users as aprticipants, they can use the client app to connect to the chat thread and send messages. Use real time notifications feature, which we will discuss below, in your client app to subscribe to updates like new messages and other thread related operations.	
+ - **Client app:**  The client application connects to your trusted service and receives the access tokens that are used by users to connect directly to Communication Services. Once your trusted service has created the chat thread and added users as aprticipants, they can use the client app to connect to the chat thread and send messages. Use real time notifications feature, which we will discuss below, in your client app to subscribe to message & thread updates from other participants.
 	
     	
 ## Message types	
@@ -60,7 +60,7 @@ Types of system messages:
 
 ## Real-time notifications 	
 
-Some SDKs (like the JavaScript Chat SDK) support real-time notifications. This feature lets clients listen to Communication Services for real-time updates and incoming messages to a chat thread without having to poll the APIs. Supported events include:
+Some SDKs (like the JavaScript Chat SDK) support real-time notifications. This feature lets clients listen to Communication Services for real-time updates and incoming messages to a chat thread without having to poll the APIs. The client app can subscribe to following events:
  - `chatMessageReceived` - when a new message is sent to a chat thread by a participant.
  - `chatMessageEdited` - when a message is edited in a chat thread.	
  - `chatMessageDeleted` - when a message is deleted in a chat thread.	
