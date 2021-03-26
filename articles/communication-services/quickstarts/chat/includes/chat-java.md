@@ -225,7 +225,7 @@ For more details, see [Message Types](../../../concepts/chat/concepts.md#message
 
 ## Send read receipt
 
-Use `sendReadReceipt` method to post a read receipt event to a chat thread, on behalf of a user.
+Use the `sendReadReceipt` method to post a read receipt event to a chat thread, on behalf of a user.
 `chatMessageId` is the unique ID of the chat message that was read.
 
 ```Java
