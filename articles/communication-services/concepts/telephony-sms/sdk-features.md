@@ -26,18 +26,16 @@ The following list presents the set of features which are currently available in
 
 | Group of features | Capability                                                                            | JS  | Java | .NET | Python |
 | ----------------- | ------------------------------------------------------------------------------------- | --- | ---- | ---- | ------ |
-| Core Capabilities | Send and receive SMS messages </br> *Unicode emojis supported*                        | ✔️   | ✔️    | ✔️    | ✔️      |
-|                   | Receive Delivery Reports for messages sent                                            | ✔️   | ✔️    | ✔️    | ✔️      |
+| Core Capabilities | Send and receive SMS messages                                                         | ✔️   | ✔️    | ✔️    | ✔️      |
+|                   | Enable Delivery Reports for messages sent                                             | ✔️   | ✔️    | ✔️    | ✔️      |
 |                   | All character sets (language/unicode support)                                         | ✔️   | ✔️    | ✔️    | ✔️      |
 |                   | Support for long messages (up to 2048 bytes)                                          | ✔️   | ✔️    | ✔️    | ✔️      |
 |                   | Auto-concatenation of long messages                                                   | ✔️   | ✔️    | ✔️    | ✔️      |
 |                   | Send messages to multiple recipients at a time                                        | ✔️   | ✔️    | ✔️    | ✔️      |
 |                   | Support for idempotency                                                               | ✔️   | ✔️    | ✔️    | ✔️      |
-|                   | Customer Content field                                                                | ✔️   | ✔️    | ✔️    | ✔️      |
+|                   | Custom tags for messages.                                                             | ✔️   | ✔️    | ✔️    | ✔️      |
 | Events            | Use Event Grid to configure webhooks to receive inbound messages and delivery reports | ✔️   | ✔️    | ✔️    | ✔️      |
 | Phone Number      | Toll-Free numbers                                                                     | ✔️   | ✔️    | ✔️    | ✔️      |
-| Regulatory        | Opt-Out Handling                                                                      | ✔️   | ✔️    | ✔️    | ✔️      |
-| Monitoring        | Monitor usage for messages sent and received                                          | ✔️   | ✔️    | ✔️    | ✔️      |
 | PSTN Calling      | Add PSTN calling capabilities to your SMS-enabled toll-free number                    | ✔️   | ✔️    | ✔️    | ✔️      |
 
 ## Next steps
