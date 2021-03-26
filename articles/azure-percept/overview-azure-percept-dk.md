@@ -1,8 +1,8 @@
 ---
 title: Azure Percept DK overview
 description: Learn more about the Azure Percept DK
-author: elqu20
-ms.author: v-elqu
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/23/2021
