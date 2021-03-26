@@ -23620,6 +23620,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-security-x509-get-started.md",
+      "redirect_url": "/azure/iot-hub/tutorial-x509-scripts",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-suite/securing-iot-ground-up.md",
       "redirect_url": "/azure/iot-fundamentals/iot-security-ground-up",
       "redirect_document_id": false
@@ -31718,6 +31723,11 @@
       "source_path_from_root": "/articles/scheduler/get-started-portal.md",
       "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
       "redirect_document_id": ""
+    },
+    {
+      "source_path_from_root": "/articles/search/search-autocomplete-tutorial.md",
+      "redirect_url": "/azure/search/search-add-autocomplete-suggestions",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/search/search-filters-language.md",
