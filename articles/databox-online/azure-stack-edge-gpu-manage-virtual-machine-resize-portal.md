@@ -41,31 +41,15 @@ Follow these steps to resize a virtual machine deployed on your device.
 
 1. Go to the virtual machine that you have stopped and then go to the **Overview** page. Select **VM size (change)**.
     
-    ![Select Networking on Overview page](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-1.png)
+    ![Select VM Size Change on Overview page](./media/azure-stack-edge-gpu-manage-virtual-machine-resize-portal/change-vm-size-1.png)
 
-2. In the **Disks** blade, from the command bar, select **+ Add network interface**.
+2. In the **Change VM size** blade, from the command bar, select the **VM size** and then select **Change**.
 
-    ![Select add network interface](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-2.png)
+    ![Select new VM size](./media/azure-stack-edge-gpu-manage-virtual-machine-resize-portal/change-vm-size-2.png)
 
-3. In the **Add network interface** blade, enter the following parameters:
+3. You'll see a notification that the virtual machine is being updated. After the virtual machine is successfully updated, the **Overview** page refreshes to display the resized VM.
 
-    
-    |Column1  |Column2  |
-    |---------|---------|
-    |Name     | A unique name within the resource group. The name cannot be changed after the network interface is created. To manage multiple network interfaces easily, use the suggestions provided in the [Naming conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming).     |
-    |Virtual network| The virtual network associated with the virtual switch created on your device when you enabled compute on the network interface. There is only one virtual network associated with your device. |         
-    |Subnet   | A subnet within the selected virtual network. This field is automatically populated with the subnet associated with the network interface on which you enabled compute. |       
-    |IP assignment   | A static or a dynamic IP for your network interface. The static IP should be an available, free IP from the specified subnet range. Choose dynamic if a DHCP server exists in the environment.| 
-
-    ![Add a network interface blade](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-3.png)
-
-4. You'll see a notification that the network interface creation is in progress.
-
-    ![Notification when network interface is getting created](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-4.png)
-
-5.  After the network interface is successfully created, the list of network interfaces refreshes to display the newly created interface.
-
-    ![Updated list of network interfaces](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-5.png)
+    ![Resized VM ](./media/azure-stack-edge-gpu-manage-virtual-machine-resize-portal/change-vm-size-3.png)
 
 
 
