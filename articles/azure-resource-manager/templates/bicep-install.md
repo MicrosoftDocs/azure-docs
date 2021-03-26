@@ -14,7 +14,7 @@ Learn how to setup Bicep development and deployment environments.
 To get the best Bicep authoring experience, you need two components:
 
 - **Bicep extension for Visual Studio Code**. To create Bicep files, you need a good Bicep editor. We recommend [Visual Studio Code](https://code.visualstudio.com/) with the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep). These tools provide language support and resource autocompletion. They help create and validate Bicep files. For more information about using Visual Studio Code and the Bicep extension, see [Quickstart: Create Bicep files with Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).
-- **Bicep CLI**. Use Bicep CLI to compile Bicep files to ARM JSON templates, and decompile ARM JSON templates to Bicep files. For the installation instructions, see [Install Bicep CLI](#use-with-azure-powershell).
+- **Bicep CLI**. Use Bicep CLI to compile Bicep files to ARM JSON templates, and decompile ARM JSON templates to Bicep files. For the installation instructions, see [Install Bicep CLI](#install-manually).
 
 ## Deployment environment
 
@@ -32,10 +32,7 @@ To deploy local Bicep files, you need two components:
 
 - **Bicep CLI**. Bicep CLI is needed to compile Bicep files to JSON templates before deployment. For the installation instructions, see [Install Bicep CLI](#install-bicep-cli).
 
-  > [!NOTE]
-  > Bicep CLI version 0.3.1 or later is required for deploying Bicep files.
-
-After the supported version of Azure PowerShell or Azure CLI is installed, you can deploy a Bicep file with:
+After the components are installed, you can deploy a Bicep file with:
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -116,14 +113,19 @@ az bicep version
 
 Azure PowerShell does not have the capability to install the Bicep CLI yet. Azure PowerShell (v5.6.0 or later) expects that the Bicep CLI is already installed and available on the PATH. Follow one of the [manual install methods](#install-manually).
 
-
-Once the Bicep CLI is installed, Bicep CLI is called whenever it is required for a deployment cmdlet. For example,
+Once the Bicep CLI is installed, Bicep CLI is called whenever it is required for a deployment cmdlet. For example:
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName myResourceGroup -TemplateFile azuredeploy.bicep
 ```
 
 ### Install manually
+
+To deploy Bicep files, Bicep CLI version 0.3.1 or later is required. To check the Bicep CLI version:
+
+```cmd
+bicep --version
+```
 
 The following methods install the Bicep CLI and add it to your PATH.
 
