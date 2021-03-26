@@ -89,9 +89,6 @@ If not specified, the default `AzureWebJobsStorage` storage account is used. For
 
 ## Orchestrator scale-out
 
-> [!NOTE]
-> Scale-out refers to the increase of available Azure Functions workers in response to changing traffic patterns. Since App Service plan customers make use of a fixed number of workers, this section is not directly applicable to them; this section is aimed at Consumption and Elastic Premium customers. That said, this section can still provide broad insights into the inner workings of Durable Functions.
-
 While activity functions can be scaled out infinitely by adding more VMs elastically, individual orchestrator instances and entities are constrained to inhabit a single partition and the maximum number of partitions is bounded by the `partitionCount` setting in your `host.json`. 
 
 > [!NOTE]
@@ -131,13 +128,13 @@ During low traffic scenarios, your application will be scaled-in, so partitions 
 
 ![Scale-in orchestrations diagram](./media/durable-functions-perf-and-scale/scale-progression-1.png)
 
-In the previous diagram, we see that orchestrators 1 through 6 are load balanced across partitions. Similarly, partitions, like activities, are load balanced across workers.
+In the previous diagram, we see that orchestrators 1 through 6 are load balanced across partitions. Similarly, partitions, like activities, are load balanced across workers. Partitions are load-balanced across workers regardless of the number of orchestrators that get started.
 
-As traffic increases, more workers will get allocated and partitions will eventually load balance across all workers. If we continue to scale out, eventually each partition will be managed by a single worker. Activities, on the other hand, will continue to be load-balanced across all workers. This is shown in the image below.
+If you're running on the Azure Functions Consumption or Elastic Premium plans, or if you have load-based auto-scaling configured, more workers will get allocated as traffic increases and partitions will eventually load balance across all workers. If we continue to scale out, eventually each partition will eventually be managed by a single worker. Activities, on the other hand, will continue to be load-balanced across all workers. This is shown in the image below.
 
 ![First scaled-out orchestrations diagram](./media/durable-functions-perf-and-scale/scale-progression-2.png)
 
-If more orchestrations are started, their partitions will be load balanced across workers. The upper-bound of the maximum number of concurrent _active_ orchestrations at *any given time* is equal to the number of workers allocated to your application _times_ your value for `maxConcurrentOrchestratorFunctions`. This upper-bound can be made more precise when your partitions are fully scaled-out across workers. When fully scaled-out, and since each worker will have only a single Functions host instance, the maximum number of _active_ concurrent orchestrator instances will be equal to your number of partitions _times_ your value for `maxConcurrentOrchestratorFunctions`. Our image below illustrates a fully scaled-out scenario where more orchestrators are added but some are inactive, shown in grey.
+The upper-bound of the maximum number of concurrent _active_ orchestrations at *any given time* is equal to the number of workers allocated to your application _times_ your value for `maxConcurrentOrchestratorFunctions`. This upper-bound can be made more precise when your partitions are fully scaled-out across workers. When fully scaled-out, and since each worker will have only a single Functions host instance, the maximum number of _active_ concurrent orchestrator instances will be equal to your number of partitions _times_ your value for `maxConcurrentOrchestratorFunctions`. Our image below illustrates a fully scaled-out scenario where more orchestrators are added but some are inactive, shown in grey.
 
 ![Second scaled-out orchestrations diagram](./media/durable-functions-perf-and-scale/scale-progression-3.png)
 
