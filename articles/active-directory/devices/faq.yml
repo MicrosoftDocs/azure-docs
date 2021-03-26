@@ -192,7 +192,7 @@ sections:
           
           
           
-      - question: Why do my users see *You can't get there from here*?
+      - question: Why do my users see 'You can't get there from here'?
         answer: |
           Did you configure certain Conditional Access rules to require a specific device state? If the device doesn't meet the criteria, users are blocked, and they see that message. 
           Evaluate the Conditional Access policy rules. Make sure the device meets the criteria to avoid the message.
@@ -221,7 +221,7 @@ sections:
           
           
           
-      - question: Why do I see the *Oops… an error occurred!* dialog when I try to Azure AD join my PC?
+      - question: Why do I see the 'Oops… an error occurred!' dialog when I try to Azure AD join my PC?
         answer: |
           This error happens when you set up Azure Active Directory enrollment with Intune. Make sure that the user who tries to Azure AD join has the correct Intune license assigned. For more information, see [Set up enrollment for Windows devices](/intune/windows-enroll).  
           
