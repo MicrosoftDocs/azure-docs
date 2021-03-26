@@ -500,7 +500,7 @@ Dispose of videoStreamRenderer and all associated `VideoStreamRendererView` inst
 When you create a `VideoStreamRendererView`, you can specify the `scalingMode` and `isMirrored` properties. `scalingMode` can be `Stretch`, `Crop`, or `Fit`. If `isMirrored` is specified, the rendered stream is flipped vertically.
 
 ```js
-const videoStreamRendererView: VideoStreamRendererView = videoStreamRenderer.createView({ scalingMode, isMirrored });
+const videoStreamRendererView: VideoStreamRendererView = await videoStreamRenderer.createView({ scalingMode, isMirrored });
 ```
 
 Every `VideoStreamRendererView` instance has a `target` property that represents the rendering surface. Attach this property in the application UI:
