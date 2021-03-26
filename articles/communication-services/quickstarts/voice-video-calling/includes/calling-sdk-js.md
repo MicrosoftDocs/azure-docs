@@ -483,7 +483,7 @@ Remote video streams have the following properties:
 
 ### Renderer methods and properties
 
-Create a `VideoStreamRendererView` instance that can be attached in the application UI to render the remote video stream:
+Create a `VideoStreamRendererView` instance that can be attached in the application UI to render the remote video stream, use asynchronous `createView()` method, it resolves when stream is ready to render and returns an object with `target` property that represents `video` element that can be appended anywhere in the DOM tree
 
   ```js
   videoStreamRenderer.createView()
