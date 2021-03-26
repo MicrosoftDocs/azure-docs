@@ -1,6 +1,6 @@
 ---
-title: Import an App Service to Azure API Management with the Azure portal  | Microsoft Docs
-description: This article shows you how to use Azure API Management to import an API hosted in Azure App Service.
+title: Import web app from App Service to Azure API Management  | Microsoft Docs
+description: This article shows you how to use Azure API Management to import a web API hosted in Azure App Service.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -11,23 +11,23 @@ ms.date: 03/22/2021
 ms.author: apimpm
 
 ---
-# Import an App Service API
+# Import a web app from App Service
 
-This article shows how to import an API hosted in Azure App Service to Azure API Management and test the imported API.
+This article shows how to import a web app hosted in Azure App Service to Azure API Management and test the imported API.
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
-> * Import an API hosted in App Service
+> * Import a web app hosted in App Service
 > * Test the API in the Azure portal
 
-## Expose App Service API with API Management
+## Expose web API with API Management
 
-[Azure App Service](../app-service/overview.md) is an HTTP-based service for hosting web applications, REST APIs, and mobile backends. API developers can use their preferred technology stacks and pipelines to develop APIs and publish their API backends in App Service's isolated, secure, scalable environment. Then, use API Management to expose the backends, manage and protect the APIs throughout their lifecycle, and publish them to consumers.
+[Azure App Service](../app-service/overview.md) is an HTTP-based service for hosting web applications, REST APIs, and mobile backends. API developers can use their preferred technology stacks and pipelines to develop APIs and publish their API backends in App Service's isolated, secure, scalable environment. Then, use API Management to expose the web apps, manage and protect the APIs throughout their lifecycle, and publish them to consumers.
 
-API Management is the recommended environment to expose APIs hosted in App Service, for several reasons:
+API Management is the recommended environment to expose an API hosted in App Service, for several reasons:
 
-* Decouple managing and securing the front end you expose to API consumers from managing and monitoring the backend API
+* Decouple managing and securing the front end you expose to API consumers from managing and monitoring the backend web app
 * Manage APIs hosted in App Service in the same environment as your other APIs
 * Apply [policies](api-management-policies.md) to change API behavior, such as to apply call rate limiting
 * Direct API consumers to API Management's customizable [developer portal](api-management-howto-developer-portal.md) to discover your APIs, learn how to use them, request access, and try them out
@@ -36,9 +36,9 @@ For more information, see [About API Management](api-management-key-concepts.md)
 
 ## OpenAPI specification versus wildcard operations
 
-API Management supports import of APIs hosted in App Service that include an OpenAPI specification, but an OpenAPI specification isn't required.
+API Management supports import of APIs hosted in App Service that include an OpenAPI specification (Swagger definitions), but an OpenAPI specification isn't required.
 
-* If the API includes an OpenAPI specification, API Management creates API operations that map directly to the specification, including required paths, parameters, and response types. 
+* If the API includes an OpenAPI specification, API Management creates API operations that map directly to the definitions, including required paths, parameters, and response types. 
 
 * If an OpenAPI specification isn't provided, API Management generates wildcard operations for the common HTTP verbs (GET, PUT, and so on). You can append a path or parameters to a wildcard operation to pass an API request through to the backend API.
 
@@ -46,14 +46,14 @@ For example, your backend API hosted on App Service might support two GET operat
 *  `https://myappservice.azurewebsites.net/customer/{id}`
 *  `https://myappservice.azurewebsites.net/customers`
 
-You import the API to your API Management service at the path `https://contosoapi.azureapi.net/store`, in one case with an OpenAPI specification and in the other case without. The following table shows the operations that are imported to API Management: 
+You import the API to your API Management service at the path `https://contosoapi.azureapi.net/store`. The following table shows the operations that are imported to API Management, either with or without an OpenAPI specification: 
 
-| |Imported operations  |Sample calls |
+| Type |Imported operations  |Sample calls |
 |---------|---------|---------|
-|OpenAPI specification    | `GET  /customer/{id}`<br/><br/> `GET  /customers`         |  `https://contosoapi/azureapi.net/store/customer/1`<br/><br/>`https://contosoapi/azureapi.net/store/customers`       |
-|Wildcard     | `GET  /*`         | `https://contosoapi.azureapi.net/store/customer/1`<br/><br/>`https://contosoapi.azureapi.net/store/customers`  |
+|OpenAPI specification    | `GET  /customer/{id}`<br/><br/> `GET  /customers`         |  `GET https://contosoapi/azureapi.net/store/customer/1`<br/><br/>`GET https://contosoapi/azureapi.net/store/customers`       |
+|Wildcard     | `GET  /*`         | `GET https://contosoapi.azureapi.net/store/customer/1`<br/><br/>`GET https://contosoapi.azureapi.net/store/customers`  |
 
-The wildcard operation supports the same calls to the backend service as the operations in the OpenAPI specification. However, the OpenAPI-specified operations can be validated, managed, secured, and updated separately in API Management. In either case, you can [edit](edit-api.md) or [add](add-api-manually.md) operations to the imported API.
+The wildcard operation allows the same calls to the backend service as the operations in the OpenAPI specification. However, the OpenAPI-specified operations can be validated, managed, secured, and updated separately in API Management. In either case, you can [edit](edit-api.md) or [add](add-api-manually.md) operations to the imported API.
 
 ## Prerequisites
 
