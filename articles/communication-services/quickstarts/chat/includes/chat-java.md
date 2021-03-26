@@ -248,7 +248,7 @@ chatParticipantsResponse.forEach(chatParticipant -> {
 
 Once a chat thread is created, you can then add and remove users from it. By adding users, you give them access to send messages to the chat thread, and add/remove other participants. You'll need to start by getting a new access token and identity for that user. Before calling addParticipants method, ensure that you have acquired a new access token and identity for that user. The user will need that access token in order to initialize their chat client.
 
-Use `addParticipants` method to add participants to the thread.
+Use the `addParticipants` method to add participants to the thread.
 
 - `communicationIdentifier`, required, is the CommunicationIdentifier you've created by the CommunicationIdentityClient in the [User Access Token](../../access-tokens.md) quickstart.
 - `displayName`, optional, is the display name for the thread participant.
