@@ -38,9 +38,9 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 }
 ```
 
-The **suggesterName** gives you the suggester-aware fields used to complete terms or suggestions. For suggestions in particular, the field list should be composed of those that offer clear choices among matching results. On a site that sells computer games, the field might be the game title.
+The "suggesterName" gives you the suggester-aware fields used to complete terms or suggestions. For suggestions in particular, the field list should be composed of those that offer clear choices among matching results. On a site that sells computer games, the field might be the game title.
 
-The **search** parameter provides the partial query, where characters are fed to the query request through the jQuery Autocomplete control. In the above example, "minecraf" is a static illustration of what the control might have passed in.
+The "search" parameter provides the partial query, where characters are fed to the query request through the jQuery Autocomplete control. In the above example, "minecraf" is a static illustration of what the control might have passed in.
 
 The APIs do not impose minimum length requirements on the partial query; it can be as little as one character. However, jQuery Autocomplete provides a minimum length. A minimum of two or three characters is typical.
 
@@ -61,27 +61,27 @@ Responses for autocomplete and suggestions are what you might expect for the pat
 
 Responses are shaped by the parameters on the request:
 
-+ For Autocomplete, set the [**autocompleteMode**](/rest/api/searchservice/autocomplete#query-parameters) to determine whether text completion occurs on one or two terms. 
++ For Autocomplete, set the [autocompleteMode](/rest/api/searchservice/autocomplete#query-parameters) to determine whether text completion occurs on one or two terms. 
 
-+ For Suggestions, set [**$select**](/rest/api/searchservice/suggestionse#query-parameters) to return fields containing unique or differentiating values, such as names and description. Avoid fields that contain duplicate values (such as a category or city).
++ For Suggestions, set [$select](/rest/api/searchservice/suggestionse#query-parameters) to return fields containing unique or differentiating values, such as names and description. Avoid fields that contain duplicate values (such as a category or city).
 
 The following additional parameters apply to both autocomplete and suggestions, but are perhaps more necessary for suggestions, especially when a suggester includes multiple fields.
 
 | Parameter | Usage |
 |-----------|-------|
-| **searchFields** | Constrain the query to specific fields. |
-| **$filter** | Apply match criteria on the result set (`$filter=Category eq 'ActionAdventure'`). |
-| **$top** | Limit the results to a specific number (`$top=5`).|
+| searchFields | Constrain the query to specific fields. |
+| $filter | Apply match criteria on the result set (`$filter=Category eq 'ActionAdventure'`). |
+| $top | Limit the results to a specific number (`$top=5`).|
 
 ## Add user interaction code
 
 Auto-filling a query term or dropping down a list of matching links requires user interaction code, typically JavaScript, that can consume requests from external sources, such as autocomplete or suggestion queries against an Azure Search Cognitive index.
 
-Although you could write this code natively, it's much easier to use functions from existing JavaScript library. This article demonstrates two, one for suggestions and another for autocomplete. 
+Although you could write this code natively, it's much easier to use functions from existing JavaScript library. This article mentions two, one for suggestions and another for autocomplete. 
 
-+ [Autocomplete widget (jQuery UI)](https://jqueryui.com/autocomplete/) is used in the Suggestion example. You can create a search box, and then reference it in a JavaScript function that uses the Autocomplete widget. Properties on the widget set the source (an autocomplete or suggestions function), minimum length of input characters before action is taken, and positioning.
++ [Autocomplete widget (jQuery UI)](https://jqueryui.com/autocomplete/) appears in the Suggestion code snippet. You can create a search box, and then reference it in a JavaScript function that uses the Autocomplete widget. Properties on the widget set the source (an autocomplete or suggestions function), minimum length of input characters before action is taken, and positioning.
 
-+ [XDSoft Autocomplete plug-in](https://xdsoft.net/jqplugins/autocomplete/) is used the Autocomplete example.
++ [XDSoft Autocomplete plug-in](https://xdsoft.net/jqplugins/autocomplete/) appears in the Autocomplete code snippet.
 
 We use these libraries to build the search box supporting both suggestions and autocomplete. Inputs collected in the search box are paired with suggestions and autocomplete actions.
 
@@ -243,7 +243,7 @@ The Autocomplete function takes the search term input. The method creates an [Au
 
 ## Next steps
 
-Follow these links for end-to-end instructions or code demonstrating both search-as-you-type experiences. Both code examples include hybrid implementations of suggestions and autocomplete together.
+Follow these links for end-to-end instructions or code demonstrating both search-as-you-type experiences. The sample demonstrates the hybrid implementations of suggestions and autocomplete together.
 
 + [Tutorial: Create your first app in C# (lesson 3)](tutorial-csharp-type-ahead-and-suggestions.md)
 + [C# code sample: azure-search-dotnet-samples/create-first-app/3-add-typeahead/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead)
