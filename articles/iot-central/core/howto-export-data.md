@@ -376,7 +376,7 @@ The following example shows an exported property change message received in Azur
 }
 ```
 
-# Device lifecycle changes format
+## Device lifecycle changes format
 
 Each message or record represents one change to a single device. Information in the exported message includes:
 
@@ -409,7 +409,7 @@ The following example shows an exported device lifecycle message received in Azu
   }
 }
 ```
-# Device template lifecycle changes format
+## Device template lifecycle changes format
 
 Each message or record represents one change to a single published device template. Information in the exported message includes:
 
