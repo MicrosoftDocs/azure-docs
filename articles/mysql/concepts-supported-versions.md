@@ -11,10 +11,19 @@ ms.date: 6/3/2020
 
 Azure Database for MySQL has been developed from [MySQL Community Edition](https://www.mysql.com/products/community/), using the InnoDB storage engine. The service supports all the current major version supported by the community namely MySQL 5.6, 5.7 and 8.0. MySQL uses the X.Y.Z naming scheme where X is the major version, Y is the minor version, and Z is the bug fix release. For more information about the scheme, see the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/which-version.html).
 
+
+
+## Connect to a gateway node that is running a specific MySQL version
+
 > [!NOTE]
 > In the Single Server deployment option, a gateway is used to redirect the connections to server instances. After the connection is established, the MySQL client displays the version of MySQL set in the gateway, not the actual version running on your MySQL server instance. To determine the version of your MySQL server instance, use the `SELECT VERSION();` command at the MySQL prompt.
 
-Azure Database for MySQL currently supports the following major and minor versions of MySQL:
+The default port to connect to Azure Database for MySQL is port 3306 which is running mysql version 5.6. see [Connectivity architecture](https://docs.microsoft.com/azure/mysql/concepts-connectivity-architecture#connectivity-architecture) that said the gateway nodes running mysql 5.7 listens to port 3308. Similarly, the gateway nodes running mysql 8.0 listens to port 3309. Check the following example:
+
+:::image type="content" source="./media/concepts-supported-versions/concepts-supported-versions-gateway.png" alt-text="Example connecting via different gateway mysql versions":::
+
+
+## Azure Database for MySQL currently supports the following major and minor versions of MySQL:
 
 
 | Version | Single Server <br/> Current minor version |Flexible Server (Preview) <br/> Current minor version  |
