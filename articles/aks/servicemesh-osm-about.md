@@ -1211,7 +1211,7 @@ I0321 <date>        6 controller.go:163] "Backend successfully reloaded"
 I0321 <date>        6 event.go:282] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-basic", Name:"nginx-ingress-ingress-nginx-controller-54cf6c8bf4-jdvrw", UID:"3ebbe5e5-50ef-481d-954d-4b82a499ebe1", APIVersion:"v1", ResourceVersion:"3272", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
 ```
 
-### View the NGINX services
+### View the NGINX services and bookbuyer service externally
 
 ```azurecli-interactive
 kubectl get services -n ingress-basic
@@ -1328,16 +1328,16 @@ kubectl get configmap -n kube-system osm-config -o json | jq '.data'
 
 Output shows the current OSM configuration for the cluster.
 
-```Output
+```json
 {
-  "egress": "false",
-  "enable_debug_server": "false",
+  "egress": "true",
+  "enable_debug_server": "true",
   "enable_privileged_init_container": "false",
   "envoy_log_level": "error",
-  "permissive_traffic_policy_mode": "true",
-  "prometheus_scraping": "true",
+  "outbound_ip_range_exclusion_list": "169.254.169.254,168.63.129.16,20.193.57.43",
+  "permissive_traffic_policy_mode": "false",
+  "prometheus_scraping": "false",
   "service_cert_validity_duration": "24h",
-  "tracing_enable": "false",
   "use_https_ingress": "false"
 }
 ```
@@ -1423,6 +1423,28 @@ service/bookwarehouse created
 deployment.apps/bookwarehouse created
 ```
 
+### Update the Bookbuyer Service
+
+The current bookbuyer application has an incorrect port used. We will update the bookbuyer service to the correct configuration with the following service manifest.
+
+```azurecli-interactive
+kubectl apply -f - <<EOF
+apiVersion: v1
+kind: Service
+metadata:
+  name: bookbuyer
+  namespace: bookbuyer
+  labels:
+    app: bookbuyer
+spec:
+  ports:
+  - port: 14001
+    name: inbound-port
+  selector:
+    app: bookbuyer
+EOF
+```
+
 ### Verify the Bookstore application running inside the AKS cluster
 
 As of now we have deployed the bookstore mulit-container application, but it is only accessible from within the AKS cluster. Later we will add the Azure Application Gateway ingress controller to expose the appliction outside the AKS cluster. To verify that the application is running inside the cluster, we will use a port forward to view the bookbuyer component UI.
@@ -1475,13 +1497,13 @@ When using an AKS cluster and Application Gateway in separate virtual networks, 
 az group create --name myResourceGroup --location eastus2
 az network public-ip create -n myPublicIp -g MyResourceGroup --allocation-method Static --sku Standard
 az network vnet create -n myVnet -g myResourceGroup --address-prefix 11.0.0.0/8 --subnet-name mySubnet --subnet-prefix 11.1.0.0/16
-az network application-gateway create -n myApplicationGateway -l canadacentral -g myResourceGroup --sku Standard_v2 --public-ip-address myPublicIp --vnet-name myVnet --subnet mySubnet
+az network application-gateway create -n myApplicationGateway -l eastus2 -g myResourceGroup --sku Standard_v2 --public-ip-address myPublicIp --vnet-name myVnet --subnet mySubnet
 ```
 
 > [!NOTE]
 > Application Gateway Ingress Controller (AGIC) add-on **only** supports Application Gateway v2 SKUs (Standard and WAF), and **not** the Application Gateway v1 SKUs.
 
-#### Enable the AGIC add-on in existing AKS cluster through Azure CLI
+#### Enable the AGIC add-on for an existing AKS cluster through Azure CLI
 
 If you'd like to continue using Azure CLI, you can continue to enable the AGIC add-on in the AKS cluster you created, _myCluster_, and specify the AGIC add-on to use the existing Application Gateway you created, _myApplicationGateway_.
 
@@ -1555,7 +1577,7 @@ ingress.extensions/bookbuyer-ingress created
 Since the host name in the ingress manifest is a psuedo name used for testing, the DNS name will not be available on the internet. We can alternatively use the curl program and past the hostname header to the Azure Application Gateway public IP address and receive a 200 code succesfully connecting us to the bookbuyer service.
 
 ```azurecli-interactive
-appGWPIP=$(az network public-ip show -g MyResourceGroup -n myPublicIp -o tsv --query "ipAddress')
+appGWPIP=$(az network public-ip show -g MyResourceGroup -n myPublicIp -o tsv --query "ipAddress")
 curl -H 'Host: bookbuyer.contoso.com' http://$appGWPIP/
 ```
 
