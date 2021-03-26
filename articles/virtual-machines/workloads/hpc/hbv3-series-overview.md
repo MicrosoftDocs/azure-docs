@@ -39,6 +39,7 @@ Note that the CCD boundary is not equivalent to a NUMA boundary. On HBv3, a grou
 ![Topology of the HBv3-series VM](./media/architecture/hbv3/hbv3-topology-vm.png)
 
 Each HBv3 VM size is similar in physical layout, features, and performance of a different CPU from the AMD EPYC 7003-series, as follows:
+
 | HBv3-series VM size             | NUMA domains | Cores per NUMA domain  | Similarity with AMD EPYC         |
 |---------------------------------|--------------|------------------------|----------------------------------|
 Standard_HB120rs_v3               | 4            | 30                     | Dual-socket EPYC 7713            |
