@@ -660,11 +660,11 @@ When you're using Private Link with an Azure Cosmos account through a direct mod
 
 For example, if you deploy an Azure Cosmos account in three regions: "West US," "Central US," and "West Europe." When you create a private endpoint for your account, four private IPs are reserved in the subnet. There's one IP for each of the three regions, and there's one IP for the global/region-agnostic endpoint. Later, you might add a new region (for example, "East US") to the Azure Cosmos account. The private DNS zone is updated as follows:
 
-* **If private DNS zone group is used**
+* **If private DNS zone group is used:**
 
   If you are using a private DNS zone group, the private DNS zone is automatically updated when the private endpoint is updated. In the previous example, after adding a new region, the private DNS zone is automatically updated.
 
-* **If private DNS zone group is not used**
+* **If private DNS zone group is not used:**
 
   If you are not using a private DNS zone group, adding or removing regions to an Azure Cosmos account requires you to add or remove DNS entries for that account. After regions have been added or removed, you can update the subnet's private DNS zone to reflect the added or removed DNS entries and their corresponding private IP addresses.
 
