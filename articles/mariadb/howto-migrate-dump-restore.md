@@ -1,6 +1,6 @@
 ---
 title: Migrate with dump and restore - Azure Database for MariaDB
-description: This article explains two common ways to back up and restore databases in your Azure Database for MariaDB by using tools such as mysqldump, MySQL Workbench, and phpMyAdmin.
+description: This article explains two common ways to back up and restore databases in your Azure database for MariaDB by using tools such as mysqldump, MySQL Workbench, and phpMyAdmin.
 author: savjani
 ms.author: pariks
 ms.service: mariadb
@@ -9,33 +9,33 @@ ms.topic: how-to
 ms.date: 2/27/2020
 ---
 
-# Migrate your MariaDB database to Azure Database for MariaDB by using dump and restore
+# Migrate your MariaDB database to an Azure database for MariaDB by using dump and restore
 
-This article explains two common ways to back up and restore databases in your Azure Database for MariaDB:
+This article explains two common ways to back up and restore databases in your Azure database for MariaDB:
 - Dump and restore by using a command-line tool (using mysqldump) 
 - Dump and restore using phpMyAdmin
 
 ## Prerequisites
 Before you begin migrating your database, do the following:
-- Create a [Azure Database for MariaDB server - Azure portal](quickstart-create-mariadb-server-database-using-azure-portal.md).
+- Create an [Azure Database for MariaDB server - Azure portal](quickstart-create-mariadb-server-database-using-azure-portal.md).
 - Install the [mysqldump](https://mariadb.com/kb/en/library/mysqldump/) command-line utility.
 - Download and install [MySQL Workbench](https://dev.mysql.com/downloads/workbench/) or another third-party MySQL tool for running dump and restore commands.
 
 ## Use common tools
-Use common utilities and tools such as MySQL Workbench or mysqldump to remotely connect and restore data into Azure Database for MariaDB. Use these tools on your client machine with an internet connection to connect to the Azure Database for MariaDB. Use an SSL-encrypted connection as a best security practice. For more information, see [Configure SSL connectivity in Azure Database for MariaDB](concepts-ssl-connection-security.md). You don't need to move the dump files to any special cloud location when you migrate data to Azure Database for MariaDB. 
+Use common utilities and tools such as MySQL Workbench or mysqldump to remotely connect and restore data into your Azure database for MariaDB. Use these tools on your client machine with an internet connection to connect to the Azure database for MariaDB. Use an SSL-encrypted connection as a best security practice. For more information, see [Configure SSL connectivity in Azure Database for MariaDB](concepts-ssl-connection-security.md). You don't need to move the dump files to any special cloud location when you migrate data to your Azure database for MariaDB. 
 
 ## Common uses for dump and restore
-You can use MySQL utilities such as mysqldump and mysqlpump to dump and load databases into an Azure Database for MariaDB server in several common scenarios. 
+You can use MySQL utilities such as mysqldump and mysqlpump to dump and load databases into an Azure database for MariaDB server in several common scenarios. 
 
 - Use database dumps when you're migrating an entire database. This recommendation holds when you're moving a large amount of data, or when you want to minimize service interruption for live sites or applications. 
--  Make sure that all tables in the database use the InnoDB storage engine when you're loading data into Azure Database for MariaDB. Azure Database for MariaDB supports only the InnoDB storage engine, and no other storage engines. If your tables are configured with other storage engines, convert them into the InnoDB engine format before you migrate them to Azure Database for MariaDB.
+-  Make sure that all tables in the database use the InnoDB storage engine when you're loading data into your Azure database for MariaDB. Azure Database for MariaDB supports only the InnoDB storage engine, and no other storage engines. If your tables are configured with other storage engines, convert them into the InnoDB engine format before you migrate them to your Azure database for MariaDB.
    
-   For example, if you have a WordPress app or a web app that uses MyISAM tables, first convert those tables by migrating them into InnoDB format before restoring to Azure Database for MariaDB. Use the clause `ENGINE=InnoDB` to set the engine to use for creating a new table, and then transfer the data into the compatible table before you restore it. 
+   For example, if you have a WordPress app or a web app that uses MyISAM tables, first convert those tables by migrating them into InnoDB format before you restore them to your Azure database for MariaDB. Use the clause `ENGINE=InnoDB` to set the engine to use for creating a new table, and then transfer the data into the compatible table before you restore it. 
 
    ```sql
    INSERT INTO innodb_table SELECT * FROM myisam_table ORDER BY primary_key_columns
    ```
-- To avoid any compatibility issues when you're dumping databases, ensure that you're using the same version of MariaDB on the source and destination systems. For example, if your existing MariaDB server is version 10.2,  you should migrate to Azure Database for MariaDB configured to run version 10.2. The `mysql_upgrade` command doesn't function in an Azure Database for MariaDB server, and it isn't supported. If you need to upgrade across MariaDB versions, first dump or export your earlier-version database into a later version of MariaDB in your own environment. You can then run `mysql_upgrade` before you try migrating into an Azure Database for MariaDB.
+- To avoid any compatibility issues when you're dumping databases, ensure that you're using the same version of MariaDB on the source and destination systems. For example, if your existing MariaDB server is version 10.2, you should migrate to your Azure database for MariaDB that's configured to run version 10.2. The `mysql_upgrade` command doesn't function in an Azure Database for MariaDB server, and it isn't supported. If you need to upgrade across MariaDB versions, first dump or export your earlier-version database into a later version of MariaDB in your own environment. You can then run `mysql_upgrade` before you try migrating into your Azure database for MariaDB.
 
 ## Performance considerations
 To optimize performance when you're dumping large databases, keep in mind the following considerations:
@@ -69,7 +69,7 @@ For example, to back up a database named *testdb* on your MariaDB server with th
 ```bash
 $ mysqldump -u root -p testdb > testdb_backup.sql
 ```
-To select specific tables in your database to back up, list the table names, separated by spaces. For example, to back up only table1 and table2 tables from the *testdb*, follow this example: 
+To select specific tables to back up in your database, list the table names, separated by spaces. For example, to back up only table1 and table2 tables from the *testdb*, follow this example: 
 
 ```bash
 $ mysqldump -u root -p testdb table1 table2 > testdb_tables_backup.sql
@@ -84,9 +84,9 @@ $ mysqldump -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sq
 ## Create a database on the target server
 Create an empty database on the target Azure Database for MariaDB server where you want to migrate the data. Use a tool such as MySQL Workbench to create the database. The database can have the same name as the database that contains the dumped data, or you can create a database with a different name.
 
-To get connected, locate the connection information on the **Overview** pane of your Azure Database for MariaDB.
+To get connected, locate the connection information on the **Overview** pane of your Azure database for MariaDB.
 
-![Screenshot of the Overview pane for the Azure Database for MariaDB server in the Azure portal.](./media/howto-migrate-dump-restore/1_server-overview-name-login.png)
+![Screenshot of the Overview pane for an Azure database for MariaDB server in the Azure portal.](./media/howto-migrate-dump-restore/1_server-overview-name-login.png)
 
 In MySQL Workbench, add the connection information.
 
@@ -126,4 +126,4 @@ The importing process is similar to the exporting process. Do the following:
 1. Select the **Go** button to export the backup, execute the SQL commands, and re-create your database.
 
 ## Next steps
-- [Connect applications to Azure Database for MariaDB](./howto-connection-string.md).
+- [Connect applications to your Azure database for MariaDB](./howto-connection-string.md).
