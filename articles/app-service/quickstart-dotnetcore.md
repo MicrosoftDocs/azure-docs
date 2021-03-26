@@ -307,6 +307,11 @@ Follow these steps to create your App Service and publish your web app:
 
    ![Sign in to Azure](./media/quickstart-dotnetcore/sign-in-azure-vs2019.png)
 
+1. Choose the **Specific target**, either **Azure App Service (Linux)** or **Azure App Service (Windows)**.
+
+   > [!IMPORTANT]
+   > You're required to use **Azure App Service (Windows)** when targeting .NET Framework.
+
 1. To the right of **App Service instances**, select **+**.
 
    ![New App Service app](./media/quickstart-dotnetcore/publish-new-app-service.png)
@@ -333,23 +338,6 @@ Follow these steps to create your App Service and publish your web app:
 
 1. Select **Finish** to close the wizard.
 1. In the **Publish** page, click **Publish**. Visual Studio builds, packages, and publishes the app to Azure, and then launches the app in the default browser.
-
-   ![Published ASP.NET web app running in Azure](./media/quickstart-dotnetcore/web-app-running-live.png)
-
-### [.NET Core 3.1](#tab/netcore31)
-
-Do we
-
-### [.NET 5.0](#tab/net50)
-
-
-Need to
-
-### [.NET Framework 4.8](#tab/netframework48)
-
-Discuss hosting platform now?
-
----
 
 ::: zone-end
 

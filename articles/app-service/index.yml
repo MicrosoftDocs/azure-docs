@@ -33,7 +33,7 @@ landingContent:
           - text: First ASP.NET web app
             url: quickstart-dotnetcore.md
           - text: First ASP.NET web app (Windows only)
-            url: quickstart-dotnetcore.md?tabs=netframework48
+            url: quickstart-dotnetcore.md?tabs=netframework48&pivots=development-environment-vs
           - text: First Node.js app
             url: quickstart-nodejs.md
           - text: First PHP app
