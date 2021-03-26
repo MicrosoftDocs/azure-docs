@@ -354,11 +354,11 @@ To deploy your web app using the Visual Studio Azure Tools extension:
 
     - Select *MyFirstAzureWebApp* as the folder to deploy.
     - Select **Add Config** when prompted.
-    - If prompted, sign in to you existing Azure account or create a new one.
+    - If prompted, sign-in to your existing Azure account.
 
     :::image type="content" source="media/quickstart-dotnet/vscode-sign-in-to-azure.png" alt-text="Visual Studio Code - Sign in to Azure" border="true":::
 
-    - Select your **Subscription** account.
+    - Select your **Subscription**.
     - Select **Create new Web App...**. Don't select the "Advanced" option.
     - For **Enter a globally unique name**, use a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). A good pattern is to use a combination of your company name and an app identifier.
     - Select **Create new resource group** and provide a name like `myResourceGroup`.
