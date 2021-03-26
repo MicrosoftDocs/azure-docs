@@ -72,7 +72,7 @@
       href: blob-backup-support-matrix.md
     - name: Active Directory domain controllers
       href: active-directory-backup-restore.md
-    - name: Supported VM SKUs for Azure Policy  
+    - name: Supported VM SKUs for Azure Policy
       href: backup-azure-policy-supported-skus.md
   - name: Frequently asked questions (FAQ)
     items:
@@ -224,10 +224,18 @@
     items:
     - name: Overview
       href: disk-backup-overview.md
-    - name: Backup
-      href: backup-managed-disks.md
-    - name: Restore
-      href: restore-managed-disks.md
+    - name: From the Azure portal
+      items:
+      - name: Backup
+        href: backup-managed-disks.md
+      - name: Restore
+        href: restore-managed-disks.md
+    - name: With PowerShell
+      items:
+      - name: Backup
+        href: backup-managed-disks-ps.md
+      - name: Restore
+        href: restore-managed-disks-ps.md
   - name: Azure Blobs backup
     items:
     - name: Overview
@@ -298,7 +306,7 @@
         href: backup-mabs-add-storage.md
       - name: What's New in MABS
         href: backup-mabs-whats-new-mabs.md
-      - name: Release notes MABS 
+      - name: Release notes MABS
         href: backup-mabs-release-notes-v3.md
       - name: Unattended installation
         href: backup-mabs-unattended-install.md
@@ -428,7 +436,7 @@
       href: security-overview.md
     - name: Azure role-based access control
       href: backup-rbac-rs-vault.md
-    - name: Soft delete 
+    - name: Soft delete
       items:
       - name: Overview
         href: backup-azure-security-feature-cloud.md
@@ -464,7 +472,7 @@
     - name: Azure VM file recovery
       href: backup-azure-vm-file-recovery-troubleshoot.md
     - name: Azure Backup agent or VM extension timed out
-      href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md     
+      href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
     - name: Azure Backup agent
       href: backup-azure-mars-troubleshoot.md
     - name: Files and folders backup is slow
@@ -504,7 +512,7 @@
     href: ./policy-reference.md
 - name: Resources
   items:
-  - name: Compliance 
+  - name: Compliance
     href: compliance-offerings.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
