@@ -42,15 +42,41 @@ This command runs a performance benchmark by uploading test data to a specified 
 
 If you prefer to run this test by downloading data, set the `mode` parameter to `download`. For detailed reference docs, see [azcopy benchmark](storage-ref-azcopy-bench.md). 
 
-## Optimize throughput
+## Optimize for large numbers of small files
 
-You can use the `cap-mbps` flag in your commands to place a ceiling on the throughput data rate. For example, the following command resumes a job and caps throughput to `10` megabits (Mb) per second. 
+Throughput can decrease when transferring small files, especially when transferring large numbers of them. To maximize performance reduce the size of each job. For download and upload operations, increase concurrency, decrease log activity, and turn off features that incur high performance costs.
 
-```azcopy
-azcopy jobs resume <job-id> --cap-mbps 10
-```
+#### Reduce the size of each job
 
-Throughput can decrease when transferring small files. You can increase throughput by setting the `AZCOPY_CONCURRENCY_VALUE` environment variable. This variable specifies the number of concurrent requests that can occur.  
+To achieve optimal performance, ensure that each jobs transfers fewer than 10 million files. Jobs that transfer more than 50 million files can perform poorly because the AzCopy job tracking mechanism incurs a significant amount of overhead.
+
+Consider dividing large jobs into smaller ones. AzCopy commands provide parameters that help you limit jobs to specific directories or file types.
+
+For example, you can copy specific directories by using the `include path` parameter of the [azcopy copy](storage-ref-azcopy-copy.md) command. You can use the `include-pattern` to copy files that have a specific extension (for example: `*.pdf`), and then use the `exclude-pattern` parameter in a separate job that copies all files that don't have that extension. For examples, see [Upload specific files](storage-use-azcopy-blobs-upload.md#upload-specific-files) and [Download specific blobs](#storage-use-azcopy-blobs-download#download-specific-blobs).
+
+After you've decided how to divide large jobs into smaller ones, consider running jobs on more than one Virtual Machine (VM).
+
+#### Increase concurrency
+
+If you're uploading or downloading files, use the `AZCOPY_CONCURRENCY_VALUE` environment variable to increase the number of concurrent requests that can occur on your machine. Set this variable as high as you can without compromising the performance of your machine. To learn more about this variable, see the [Increase the number of concurrent requests](#increase-the-number-of-concurrent-requests) section of this article.
+
+If you're job copies blobs between storage accounts, consider setting the value of the `AZCOPY_CONCURRENCY_VALUE` environment variable to a value greater than `1000`. You can set this variable high because AzCopy uses server-to-server APIs, so data is copied directly between storage servers.  
+
+#### Decrease the number of logs generated
+
+If you're uploading or downloading files, you can improve performance by reducing the number of log entries that AzCopy creates as it completes an operation. By default, AzCopy logs all activity related to an operation. To achieve optimal performance, consider setting the `log-level` parameter of the [azcopy copy](storage-ref-azcopy-copy.md), [azcopy sync](storage-ref-azcopy-sync), or [azcopy list](storage-ref-azcopy-list.md) command to `ERROR`. That way, AzCopy logs only errors. By default, the value log level is set to `INFO`. 
+
+#### Turn off length checking 
+
+If you're uploading or downloading files, consider setting the `--check-length` of the [azcopy copy](storage-ref-azcopy-copy.md), [azcopy sync](storage-ref-azcopy-sync) commands to `false`. This prevents AzCopy from verifying the length of a file after a transfer. By default, AzCopy checks the length to ensure that source and destination files match after a transfer completes. AzCopy performs this check after each file transfer. This check can degrade performance when jobs transfer large numbers of small files. 
+
+#### Turn off scanning (Linux)
+
+File scans on some Linux systems don't execute fast enough to saturate all of the parallel network connections. In these cases, you can set the `AZCOPY_CONCURRENT_SCAN` to `true`. 
+
+## Increase the number of concurrent requests
+
+You can increase throughput by setting the `AZCOPY_CONCURRENCY_VALUE` environment variable. This variable specifies the number of concurrent requests that can occur.  
 
 If your computer has fewer than 5 CPUs, then the value of this variable is set to `32`. Otherwise, the default value is equal to 16 multiplied by the number of CPUs. The maximum default value of this variable is `3000`, but you can manually set this value higher or lower. 
 
@@ -63,6 +89,14 @@ If your computer has fewer than 5 CPUs, then the value of this variable is set t
 Use the `azcopy env` to check the current value of this variable. If the value is blank, then you can read which value is being used by looking at the beginning of any AzCopy log file. The selected value, and the reason it was selected, are reported there.
 
 Before you set this variable, we recommend that you run a benchmark test. The benchmark test process will report the recommended concurrency value. Alternatively, if your network conditions and payloads vary, set this variable to the word `AUTO` instead of to a particular number. That will cause AzCopy to always run the same automatic tuning process that it uses in benchmark tests.
+
+## Limit the throughput data rate
+
+You can use the `cap-mbps` flag in your commands to place a ceiling on the throughput data rate. For example, the following command resumes a job and caps throughput to `10` megabits (Mb) per second. 
+
+```azcopy
+azcopy jobs resume <job-id> --cap-mbps 10
+```
 
 ## Optimize memory use
 
