@@ -23,6 +23,8 @@ We know that messaging requirements can seem daunting to learn, but they are rea
 
 Simple, right? So, we developed this messaging policy to help you learn about the essential messaging rules that you will need to know to satisfy your regulatory requirements and maintain best practices. That means less time squinting at legal requirements and more time delivering a seamless experience for your customers. 
 
+[!INCLUDE [Notice](../../includes/messaging-policy-include.md)]
+
 ## Consent 
 
 ### What is consent?
@@ -32,12 +34,18 @@ The messages that you send must be the same type of messages that the recipient 
 ### How do you obtain consent?
 Consent may be obtained in a variety of ways, such as when an individual enters their telephone number into a website, initiates a text message exchange, or sends a sign-up keyword to your phone number. No matter how consent is obtained, you and your customers must ensure that the consent is unambiguous and that the scope of the consent is clear to the recipient.
 
-### Consent Requirements & Best Practices:
-- Provide a “Call to Action” Before Obtaining Consent. You and your customers should provide potential message recipients with a “call to action” that invites them to opt-in to your messaging program. The call to action should include: (1) the identity of the message sender, (2) the name or description of your messaging program or product, (3) the number from which they will receive messages, (4) clear opt-in instructions, (5) opt-out instructions, and (6) any other applicable terms and conditions.
+### Consent Requirements:
+- Provide a “Call to Action” Before Obtaining Consent. You and your customers should provide potential message recipients with a “call to action” that invites them to opt-in to your messaging program. The call to action should include, at a minimum: (1) the identity of the message sender, (2) clear opt-in instructions, (3) opt-out instructions, and (4) any associated messaging fees.
 - Consent Is Not Transferable or Assignable. Any consent that an individual provides to you cannot be transferred or sold to an unaffiliated third-party. If you collect an individual’s consent for a third-party, then you must clearly identify the third-party to the individual and state that the consent you obtained applies only to communications from the third-party.
-- Consent Is Limited in Purpose. An individual who provides their number for a particular purpose consents to receive communications only for that specific purpose and from that specific message sender only. Prior to obtaining consent, you should clearly notify the intended message recipient if you will send recurring messages or messages from an affiliate.
-- Keep an Accurate Record of Consent. You should retain records of any consent that an individual provides to you for at least four years. Records of consent may include: timestamps, the medium by which consent was obtained, the specific campaign for which consent was obtained, screen captures, and the session ID or IP address of the consenting individual.
-- Maintain Privacy & Security Policies. We recommend that our customers develop straightforward privacy policies that they provide to intended message recipients prior to obtaining consent. We also recommend maintaining proactive security controls to safeguard individuals’ private information.
+- Consent Is Limited in Purpose. An individual who provides their number for a particular purpose consents to receive communications only for that specific purpose and from that specific message sender. Prior to obtaining consent, you should clearly notify the intended message recipient if you will send recurring messages or messages from an affiliate.
+
+### Consent Best Practices:
+In addition to the messaging requirements discussed above, you may want to implement several common best practices, including: 
+
+- Detailed “Call to Action” Information. To ensure that you obtain appropriate consent, you may want to provide the name or description of your messaging program or product, the number(s) from which recipients will receive messages, and any applicable terms and conditions before an individual opts-in to receiving messages from you.
+- Accurate Records of Consent. You should retain records of any consent that an individual provides to you for at least four years. Records of consent may include: timestamps, the medium by which consent was obtained, the specific campaign for which consent was obtained, screen captures, and the session ID or IP address of the consenting individual.
+- Privacy & Security Policies. We recommend that our customers develop straightforward privacy policies that they provide to intended message recipients prior to obtaining consent. We also recommend maintaining proactive security controls to safeguard individuals’ private information.
+
 
 ## Double Opt-In Consent:
 Azure Communication Services recommends that you use double opt-in consent for all messaging campaigns. Double opt-in consent is a two-step process in which an individual first provides consent to receive messages of a certain type from you and then you send a follow-up opt-in message to confirm their consent. You should only send additional messages once the message recipient confirms their consent.
@@ -58,21 +66,25 @@ The campaigns for which double opt-in consent are required are subject to change
 ### Exceptions to Traditional Consent Rules:
 While prior express consent is normally required before sending a message, there are two situations in which consent to message an individual is implied.
 
-- Individual Initiates a Communication. If an individual initiates a communication by sending a message to you, then you may provide relevant information in response to a specific inquiry or request contained in the message. However, the implied consent that the individual provided is limited to the conversation that the individual initiated unless you obtain consent for further communications.
-- Exemptions for Specific Services. There are several specific services for which you may have implied consent to initiate a message - the most common of these are: package delivery messages, financial institution messages that concern time-sensitive topics (such as potentially fraudulent transactions or data breaches), and healthcare provider messages that include time-sensitive information and a treatment purpose (such as appointment or exam reminders, lab results, and prescription notifications). None of these messages may include solicitations or advertisements.
+- Recipient Initiates a Communication. If an individual initiates a communication by sending a message to you, then you may provide relevant information in response to a specific inquiry or request contained in the message. However, the implied consent that the individual provided is limited to the conversation that the individual initiated unless you obtain consent for further communications.
+- Exemptions for Specific Services. There are several specific services for which you may have implied consent to initiate a message¬¬—the most common of these are: package delivery messages, financial institution messages that concern time-sensitive topics (such as potentially fraudulent transactions or data breaches), and healthcare provider messages that include time-sensitive information and a treatment purpose (such as appointment or exam reminders, lab results, and prescription notifications). None of these messages may include solicitations or advertisements.
+
 
 ## Opt-Out
 Message recipients may revoke consent and opt-out of receiving future messages through any reasonable means. You may not designate an exclusive means for message recipients to revoke consent. 
 
-### Opt-Out Requirements & Best Practices:
+### Opt-Out Requirements:
 You should ensure that message recipients can opt-out of future messages at any time, and you must offer multiple opt-out options. After a message recipient opts-out, you should not send additional messages unless the individual provides renewed consent.
 
-One of the most common opt-out mechanisms is to include a “STOP” keyword in the initial message of every new conversation. You should also be equipped to remove individuals that reply with a lowercase “stop” or other common keywords, such as “unsubscribe” or “cancel.”
+One of the most common opt-out mechanisms is to include a “STOP” keyword in the initial message of every new conversation. You should also be equipped to remove customers that reply with a lowercase “stop” or other common keywords, such as “unsubscribe” or “cancel.” After an individual revokes consent, you should remove them from all recurring messaging campaigns unless they expressly elect to continue receiving messages from a particular program.
 
-Other common opt-out mechanisms include providing a designated opt-out e-mail address, the phone number of customer support staff, or a link to unsubscribe on your webpage. After an individual revokes consent, you should remove them from all recurring messaging programs unless they expressly elect to continue receiving messages from a particular program.
+### Opt-Out Best Practices:
+In addition to keywords, other common opt-out mechanisms include providing customers with a designated opt-out e-mail address, the phone number of customer support staff, or a link to unsubscribe on your webpage. 
+
 
 ### How We Handle Opt-Out Requests:
-If an individual requests to opt-out of future messages on an Azure Communication Services toll-free number, then all further traffic from that number will be automatically stopped. However, you must still ensure that you do not send additional messages from new or different numbers. 
+If an individual requests to opt-out of future messages from a particular campaign on an Azure Communication Services toll-free number, then all further traffic from that number will automatically be stopped. However, you must still ensure that you do not send additional messages for that messaging campaign from new or different numbers. If you have separately obtained express consent for a different messaging campaign, then you may continue to send messages from a different number for that campaign.
+
 ## Message Content
 
 ### Adult Content:
@@ -82,7 +94,7 @@ Even where such content is not unlawful, you should include an age verification 
 
 ### Prohibited Content:
 Azure Communication Services prohibits certain message content regardless of consent. Prohibited content includes:
-- Unlawful content (e.g., gambling-related messages in China)
+- Content that promotes unlawful activities (e.g., tax evasion or animal cruelty in the United States)
 - Hate speech, defamatory speech, harassment, or other speech determined to be patently offensive
 - Pornographic content
 - Obscene or vulgar content
