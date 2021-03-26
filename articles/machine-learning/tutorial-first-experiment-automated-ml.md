@@ -1,7 +1,7 @@
 ---
 title: Create automated ML classification models
 titleSuffix: Azure Machine Learning
-description: Learn how to train & deploy classification models with Azure Machine Learning's automated machine learning (automated ML)  interface.
+description: Train & deploy classification models without writing code, using Azure Machine Learning's automated machine learning (automated ML) interface.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

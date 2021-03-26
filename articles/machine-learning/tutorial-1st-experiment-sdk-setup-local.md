@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Get started with machine learning - Python"
 titleSuffix: Azure Machine Learning 
-description: In this tutorial, you'll get started with the Azure Machine Learning SDK for Python running in your personal development environment.
+description: Get started with the Azure Machine Learning SDK for Python running in your personal development environment.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -25,7 +25,7 @@ In part 1 of this tutorial series, you will:
 > * Set up the directory structure for code.
 > * Create an Azure Machine Learning workspace.
 > * Configure your local development environment.
-> * Set up a compute cluster.
+> * Set up a compute cluster, a cloud-based resource for training your models.
 
 This tutorial series focuses on the Azure Machine Learning concepts required to submit **batch jobs** - this is where the code is submitted to the cloud to run in the background without any user interaction. This is useful for finished scripts or code you wish to run repeatedly, or for compute-intensive machine learning tasks. 
 

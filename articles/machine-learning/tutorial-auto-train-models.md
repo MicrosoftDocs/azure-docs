@@ -1,7 +1,7 @@
 ---
 title: 'Regression tutorial: Automated ML'
 titleSuffix: Azure Machine Learning
-description: Create an automated machine learning experiment that generates a regression model for you based on the training data and configuration settings you provide.
+description: Write code with the Python SDK to create an automated machine learning experiment that generates a regression model for you.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
