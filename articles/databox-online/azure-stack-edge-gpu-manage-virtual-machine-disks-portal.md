@@ -1,6 +1,6 @@
 ---
 title: Manage VMs disks on Azure Stack Edge Pro GPu, Pro R, Mini R via Azure portal
-description: Learn how to manage disks including add or detach a data disk on VMs that are deployed on your Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R via the Azure portal.
+description: Learn how to manage disks including add or delete a data disk on VMs that are deployed on your Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R via the Azure portal.
 services: databox
 author: alkohli
 
@@ -16,9 +16,9 @@ Customer intent: As an IT admin, I need to understand how to manage disks on a V
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-You can provision disks on the virtual machines (VMs) deployed on your Azure Stack Edge Pro device using the Azure portal. The disks are provisioned on the device via the local Azure Resource Manager and consume the device capacity. The operations such as adding a disk, detaching a disk can be done via the Azure portal, which in turn makes calls to the local Azure Resource Manager to provision the storage. <!--Disks are provisioned in local ARM via the portal. Use the Storage RP/Disk RP-->
+You can provision disks on the virtual machines (VMs) deployed on your Azure Stack Edge Pro device using the Azure portal. The disks are provisioned on the device via the local Azure Resource Manager and consume the device capacity. The operations such as adding a disk, deleting a disk can be done via the Azure portal, which in turn makes calls to the local Azure Resource Manager to provision the storage. <!--Disks are provisioned in local ARM via the portal. Use the Storage RP/Disk RP-->
 
-This article explains how to add a data disk to an existing VM, detach a data disk, and finally resize the VM itself via the Azure portal. 
+This article explains how to add a data disk to an existing VM, delete a data disk, and finally resize the VM itself via the Azure portal. 
 
         
 ## About disks on VMs
@@ -28,7 +28,7 @@ Your VM can have an OS disk and a data disk. Every virtual machine deployed on y
 > [!NOTE]
 > You cannot change the OS disk size for the VM on your device. The OS disk size is determined by the VM size that you have selected. If you resize a VM, the OS disk size will automatically change.
 
-<!-- can we verify that above is true?-->
+<!-- can we verify that above is true? Supported VM sizes have OS disk has 1000 GiB, is that the max size-->
 <!--Looks like we can't change the OS disk size from the portal. Is it possible to change these at all, via CLI or PS? Is the storage disk also on the ASE? Do we allow both managed and unmanaged disks as Az Stack does?-->
 
 A data disk on the other hand, is a managed disk attached to the VM running on your device. A data disk is used to store application data. Data disks are typically SCSI drives. The size of the VM determines how many data disks you can attach to a VM and the type of storage you can use to host the disks.<!--I am assuming because of the presence of LUN in the portal that these are SCSI drives?-->
@@ -42,7 +42,7 @@ A VM deployed on your device may sometimes contain a temporary disk. The tempora
 ## Prerequisites
 
 Before you begin to manage disks on the VMs running on your device via the Azure portal, make sure that:
-<!--Does the VM needs to be stopped or in running state when adding a disk like Azure VM? I was able to add a data disk while the VM was stopped -->
+<!--Does the VM needs to be stopped or in running state when adding a disk like Azure VM? I was able to add a data disk while the VM was stopped and also when it was running -->
 
 1. You have enabled a network interface for compute on your device. This action creates a virtual switch on that network interface on your VM. 
     1. In the local UI of your device, go to **Compute**. Select the network interface that you will use to create a virtual switch.
@@ -113,9 +113,9 @@ Follow these steps to edit a disk associated with a virtual machine deployed on 
 1. On the **Overview** page, the list of disks refreshes to display the updated disk.
 
 
-## Detach a data disk
+## Delete a data disk
 
-Follow these steps to detach or remove a data disk associated with a virtual machine deployed on your device.
+Follow these steps to delete or remove a data disk associated with a virtual machine deployed on your device.
 
 1. Go to the virtual machine that you have stopped and go to the **Overview** page. Select **Disks**.
 
