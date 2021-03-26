@@ -11,14 +11,14 @@ ms.author: trstalna
 # Sampling overrides (preview) - Azure Monitor Application Insights for Java
 
 > [!NOTE]
-> The sampling overrides feature is in preview.
+> The sampling overrides feature is in preview, starting from 3.0.3-BETA.2.
 
-Here are some use cases for sampling overrides:
- * Suppress collecting telemetry for health checks.
- * Suppress collecting telemetry for noisy dependency calls.
- * Reduce the noise from health checks or noisy dependency calls without suppressing them completely.
- * Collect 100% of telemetry for an important request type (e.g. `/login`) even though you have default sampling
-   configured to something lower.
+Sampling overrides allow you to override the [default sampling percentage](./java-standalone-config.md#sampling),
+for example:
+ * Set the sampling percentage to 0 (or some small value) for noisy health checks.
+ * Set the sampling percentage to 0 (or some small value) for noisy dependency calls.
+ * Set the sampling percentage to 100 for an important request type (e.g. `/login`)
+   even though you have the default sampling configured to something lower.
 
 ## Terminology
 
@@ -77,7 +77,7 @@ Only the first sampling override that matches is used.
 
 If no sampling overrides match:
 
-* If this is the first span in the trace, then the [normal sampling percentage](./java-standalone-config.md#sampling)
+* If this is the first span in the trace, then the [default sampling percentage](./java-standalone-config.md#sampling)
   is used.
 * If this is not the first span in the trace, then the parent sampling decision is used.
 
