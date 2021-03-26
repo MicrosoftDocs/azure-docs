@@ -215,7 +215,7 @@ For more assistance, see the following resources that were developed for real-wo
 |[Perfmon data collection automation by using Logman](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Perfmon%20Data%20Collection%20Automation%20Using%20Logman)|You can use the Logman tool to collect Perfmon data (to help you understand baseline performance) and get migration target recommendations. This tool uses logman.exe to create the command that will create, start, stop, and delete performance counters set on a remote SQL Server instance.|
 |[Database migration to Azure SQL Managed Instance by restoring full and differential backups](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Database%20migrations%20to%20Azure%20SQL%20DB%20Managed%20Instance%20-%20%20Restore%20with%20Full%20and%20Differential%20backups.pdf)|This white paper provides guidance and steps to help accelerate migrations from SQL Server to Azure SQL Managed Instance if you have only full and differential backups (and no log backup capability).|
 
-These resources were developed by the Data SQL Engineering team. A core charter of this team is to unblock and accelerate complex modernization and compete data platform migration projects to Microsoft's Azure data platform.
+The Data SQL Engineering team developed these resources. This team's core charter is to unblock and accelerate complex modernization for data platform migration projects to Microsoft's Azure data platform.
 
 
 ## Next steps
