@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/01/2021
+ms.date: 03/31/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -163,11 +163,11 @@ To enable consent information
 
 11. Open the downloaded JSON file. Search for the following text and customize it:
 
-    - **disclaimer_link_1_url**: Add  the URL for your privacy information.
+    - **disclaimer_link_1_url**: Change **override** to "true" and add the URL for your privacy information.
 
-    - **disclaimer_link_2_url**:Add the URL for your terms of use.  
+    - **disclaimer_link_2_url**: Change **override** to "true" and add the URL for your terms of use.  
 
-    - **disclaimer_msg_intro**: Change **override** to "true" and to change **value** to your desired disclaimer strings.  
+    - **disclaimer_msg_intro**: Change **override** to "true" and change **value** to your desired disclaimer strings.  
 
 12. Save the file. Under **Upload new overrides**, browse for the file and select it. Confirm that you see a “Successfully uploaded overrides” notification.
 
