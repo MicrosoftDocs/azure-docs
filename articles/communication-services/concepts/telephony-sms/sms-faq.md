@@ -52,5 +52,4 @@ In the United States, Azure Communication Services does not check for landline n
 ## Can I send messages to multiple recipients?
 
 
-Yes, you can make one request with multiple recipients. Follow this [quickstart](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/telephony-sms/send?pivots=programming-language-csharp) to send messages to multiple recipients.
-
+Yes, you can make one request with multiple recipients. Follow this [quickstart](https://docs.microsoft.com/azure/communication-services/quickstarts/telephony-sms/send?pivots=programming-language-csharp) to send messages to multiple recipients.
