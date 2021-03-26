@@ -38,13 +38,15 @@ Here are Always on AG/FCI parameters that can modified to achieve relaxed monito
 | **Failure-Condition Level**                    |
 | Conditions that trigger an automatic failover. |
 
- 
 Additionally, if you are concerned about primary and secondary replica connectivity timeout, you can review following parameter:
-|  **Session timeout**                                               |
+
+|  Session timeout                                |
 |-------------------------------------------------| 
 |Check communication issue between Primary and Secondary |
 |Default 10 seconds|
-## Constraints to follow  
+
+## Constraints to follow
+  
 Few things to consider before making any changes:
 
 |    Constraints                           |
@@ -55,6 +57,7 @@ Few things to consider before making any changes:
 |The lease interval (½ * LeaseTimeout) must be shorter than SameSubnetThreshold * SameSubnetDelay                                              | 
 
 ## Lease timeout
+
 Lease timeout prevents split brain scenario. On an Azure VM this can happen if there is resource contention like slow IO, high CPU or low memory. Here are some guidelines to relax the health timeout, if the underlying conditions cannot be avoided easily.  
 
 | Message ID | Description |

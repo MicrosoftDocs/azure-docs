@@ -42,7 +42,7 @@ Most platform updates don't affect customer VMs. When a no-impact update isn't p
 
 Memory-preserving maintenance works for more than 90 percent of Azure VMs. It doesn't work for G, M, N, and H series. Azure increasingly uses live-migration technologies and improves memory-preserving maintenance mechanisms to reduce the pause durations. When the VM is live-migrated to a different host, some sensitive workloads like SQL Server, might show a slight performance degradation in the few minutes leading up to the VM pause.
 
-If there is resource bottleneck   (See section [‘Resource limits’](#Resource_Limits) below, the node or the AG/FCI might appear to be down by the cluster service.
+If there is resource bottleneck   (See section [‘Resource limits’](#Resource-Limits) below, the node or the AG/FCI might appear to be down by the cluster service.
 
 ## Monitoring
 
@@ -58,7 +58,7 @@ There are two types of monitoring:
 When a failure is detected, Windows cluster takes a corrective action. This can be a restart of the AG/FCI on the same node or failover to another node. It is important to understand that corrective measures once initiated, can take some time to complete. Let’s take SQL Always On Availability groups (AG) with VNN as an example. Once AG is restarted or failed over to another node, because of the dependency, resources come online per the following sequence:
 
 * Listener IP comes online => Listener network name online => AG online => individual AG databases online => new connection through load balancer to the AG database.
-* Each step can take some time but online of AG database can be the longest and can take minuets depending on factors such as how much Redo is lagging.   Review [Estimating failover time (RTO) for details.](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/monitor-performance-for-always-on-availability-groups?view=sql-server-ver15#estimating-failover-time-rto)
+* Each step can take some time but online of AG database can be the longest and can take minuets depending on factors such as how much Redo is lagging.   Review [Estimating failover time (RTO) for details.](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/monitor-performance-for-always-on-availability-groups)
 * This means an aggressive monitoring set to detect a failure in 20 seconds can result in an outage of minutes if a transient event like a memory-preserving Azure VM maintenance happens (which can take up to 30 seconds). Setting the monitoring to relaxed value such as 40 seconds could have avoided this long interruption all together.  
 
 ## Cluster heartbeat

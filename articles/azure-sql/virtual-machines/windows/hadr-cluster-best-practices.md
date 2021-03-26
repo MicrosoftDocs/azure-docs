@@ -109,17 +109,17 @@ For example, setting *CrossSubnetDelay* to send a heartbeat every 2 seconds and 
 
 To ensure legitimate outages we recommended that you relax the delay and thresholds as per below, when running SQL Server HA with Windows Cluster on Azure VM:
 
-|     Parameter    |     Recommended   values for SQL Always on HA on Azure VM    |  |
+| Parameter | Recommended values for SQL Always on HA on Azure VM |  |
 |-|-|-|
-|  | Windows Server 2012 or later | Windows Server 2008 R2 |
-|     SameSubnetDelay    | 1 second | 2 second |
-|     SameSubnetThreshold    | 40 heartbeats | 10 heartbeats |
-|     CrossSubnetDelay    | 1 second | 2 second |
+|  | Windows Sever 2012 or later | Windows Server 2008/R2 |
+| SameSubnetDelay | 1 second | 2 second |
+| SameSubnetThreshold | 40 heartbeats | 10 heartbeats |
+| CrossSubnetDelay | 1 second | 2 second |
+| CrossSubnetThreshold | 40 heartbeats | 20 heartbeats |
 
-**Note 1**
 Maximum values for Windows Server 2008 R2 are as follows:
 SameSubnetThreshold = 10
-CrossSubnetThreshold 20
+CrossSubnetThreshold = 20
 
 **Note 2**
 Same subnet values should not be greater than cross subnet values. 
