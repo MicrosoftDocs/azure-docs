@@ -6,7 +6,7 @@ ms.author: abhishgu
 ms.service: postgresql
 ms.devlang: rust
 ms.topic: quickstart
-ms.date: 01/13/2021
+ms.date: 03/26/2021
 ---
 
 # Quickstart: Use Rust to connect and query data in Azure Database for PostgreSQL - Single Server
