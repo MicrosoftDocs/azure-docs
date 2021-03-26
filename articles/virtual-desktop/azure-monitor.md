@@ -3,7 +3,7 @@ title: Use Monitor Windows Virtual Desktop Monitor preview - Azure
 description: How to use Azure Monitor for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/22/2020
+ms.date: 03/25/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -17,6 +17,7 @@ Azure Monitor for Windows Virtual Desktop (preview) is a dashboard built on Azur
 ## Requirements
 
 Before you start using Azure Monitor for Windows Virtual Desktop, you'll need to set up the following things:
+
 - All Windows Virtual Desktop environments you monitor must be based on the latest release of Windows Virtual Desktop that’s compatible with Azure Resource Manager.
 - At least one configured Log Analytics Workspace. Use a designated Log Analytics workspace for your Windows Virtual Desktop session hosts to ensure that performance counters and events are only collected from session hosts in your Windows Virtual Desktop deployment.
 - Enable data collection for the following things in your Log Analytics workspace:
@@ -27,8 +28,9 @@ Before you start using Azure Monitor for Windows Virtual Desktop, you'll need to
  The data setup process described in this article is the only one you'll need to monitor Windows Virtual Desktop. You can disable all other items sending data to your Log Analytics workspace to save costs.
 
 Anyone monitoring Azure Monitor for Windows Virtual Desktop for your environment will also need the following read-access permissions:
-- Read access to the resource group where the environment's resources are located.
-- Read access to the resource group or groups where the environment’s session hosts are located
+
+- Read-access to the Azure subscriptions that hold your Windows Virtual Desktop resources
+- Read-access to the subscription's resource groups that hold your Windows Virtual Desktop session hosts
 - Read access to the Log Analytics workspace or workspaces
 
 >[!NOTE]
@@ -37,13 +39,14 @@ Anyone monitoring Azure Monitor for Windows Virtual Desktop for your environment
 ## Open Azure Monitor for Windows Virtual Desktop
 
 You can open Azure Monitor for Windows Virtual Desktop with one of the following methods:
+
 - Go to [aka.ms/azmonwvdi](https://portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks).
 - Search for and select **Windows Virtual Desktop** from the Azure portal, then select **Insights**.
 - Search for and select **Azure Monitor** from the Azure portal. Select **Insights Hub** under **Insights**, then select **Windows Virtual Desktop**.
 Once you have the page open, enter the **Subscription**, **Resource group**, **Host pool**, and **Time range** of the environment you want to monitor.
 
 >[!NOTE]
->Windows Virtual Desktop currently only supports monitoring one subscription, resource group, and host pool at a time. If you can't find the environment you want to monitor, see [our troubleshooting documentation](troubleshoot-azure-monitor.md) for known feature requests and issues.!
+>Windows Virtual Desktop currently only supports monitoring one subscription, resource group, and host pool at a time. If you can't find the environment you want to monitor, see [our troubleshooting documentation](troubleshoot-azure-monitor.md) for known feature requests and issues.
 
 ## Log Analytics settings
 
@@ -77,14 +80,17 @@ To set your resource diagnostic settings in the configuration workbook:
 To set up host pool diagnostics using the resource diagnostic settings section in the configuration workbook:
 
 1. Under **Host pool**, check to see whether Windows Virtual Desktop diagnostics are enabled. If they aren't, an error message will appear that says "No existing diagnostic configuration was found for the selected host pool." You'll need to enable the following supported diagnostic tables:
+
     - Checkpoint
     - Error
     - Management
     - Connection
     - HostRegistration
     - AgentHealthStatus
+    
     >[!NOTE]
     > If you don't see the error message, you don't need to do step 2-4.
+
 2. Select **Configure host pool**.
 3. Select **Deploy**.
 4. Refresh the configuration workbook.
@@ -94,12 +100,15 @@ To set up host pool diagnostics using the resource diagnostic settings section i
 To set up workspace diagnostics using the resource diagnostic settings section in the configuration workbook:
 
  1. Under **Workspace**, check to see whether Windows Virtual Desktop diagnostics are enabled for the Windows Virtual Desktop workspace. If they aren't, an error message will appear that says "No existing diagnostic configuration was found for the selected workspace." You'll need to enable the following supported diagnostics tables:
+ 
     - Checkpoint
     - Error
     - Management
     - Feed
+    
     >[!NOTE]
     > If you don't see the error message, you don't need to do steps 2-4.
+
 2. Select **Configure workspace**.
 3. Select **Deploy**.
 4. Refresh the configuration workbook.
@@ -118,13 +127,15 @@ To set the Log Analytics workspace where you want to collect session host data:
 #### Session hosts
 
 You'll need to install the Log Analytics agent on all session hosts in the host pool and send data from those hosts to your selected Log Analytics workspace. If Log Analytics isn't configured for all the session hosts in the host pool, you'll see a **Session hosts** section at the top of **Session host data settings** with the message "Some hosts in the host pool are not sending data to the selected Log Analytics workspace."
+
 >[!NOTE]
 > If you don't see the **Session hosts** section or error message, all session hosts are set up correctly. Skip ahead to set up instructions for [Workspace performance counters](#workspace-performance-counters).
 
 To set up your remaining session hosts using the configuration workbook:
 
 1. Select **Add hosts to workspace**. 
-3. Refresh the configuration workbook.
+2. Refresh the configuration workbook.
+
 >[!NOTE]
 >The host machine needs to be running to install the Log Analytics extension. If automatic deployment doesn't work, you can install the extension on a host manually instead. To learn how to install the extension manually, see [Log Analytics virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md).
 
