@@ -21,7 +21,7 @@ landingContent:
             url: overview.md
       - linkListType: concept
         links:
-          - text: Client library options
+          - text: SDK options
             url: concepts/sdk-options.md
           - text: Teams Interop
             url: concepts/teams-interop.md
@@ -40,7 +40,7 @@ landingContent:
           - text: Authentication and authorization
             url: concepts/authentication.md
           - text: Event handling
-            url: concepts/event-handling.md
+            url: https://docs.microsoft.com/azure/event-grid/event-schema-communication-services
           - text: Notifications
             url: concepts/notifications.md
   - title: Voice and video calling
@@ -49,13 +49,13 @@ landingContent:
         links:
           - text: Add voice and video calling to your app
             url: quickstarts/voice-video-calling/getting-started-with-calling.md
-          - text: Use the calling client library
+          - text: Use the Calling SDK
             url: quickstarts/voice-video-calling/calling-client-samples.md
       - linkListType: concept
         links:
           - text: Voice and video concepts
             url: concepts/voice-video-calling/about-call-types.md
-          - text: Calling client library overview
+          - text: Calling SDK overview
             url: concepts/voice-video-calling/calling-sdk-features.md
           - text: Call flows
             url: concepts/call-flows.md
@@ -73,7 +73,7 @@ landingContent:
         links:
           - text: SMS concepts
             url: concepts/telephony-sms/concepts.md
-          - text: SMS client library overview
+          - text: SMS SDK overview
             url: concepts/telephony-sms/sdk-features.md
           - text: Calling overview
             url: concepts/voice-video-calling/calling-sdk-features.md
@@ -89,7 +89,7 @@ landingContent:
         links:
           - text: Chat concepts
             url: concepts/chat/concepts.md
-          - text: Chat client library overview
+          - text: Chat SDK overview
             url: concepts/chat/sdk-features.md
   - title: Samples
     linkLists:

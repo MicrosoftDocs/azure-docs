@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for New Zealand ISM Restricted
 description: Details of the New Zealand ISM Restricted Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 03/10/2021
+ms.date: 03/24/2021
 ms.topic: sample
 ms.custom: generated
 ---
@@ -21,16 +21,19 @@ initiative definition, open **Policy** in the Azure portal and select the **Defi
 Then, find and select the **New Zealand ISM Restricted** Regulatory Compliance built-in
 initiative definition.
 
+This built-in initiative is deployed as part of the 
+[New Zealand ISM Restricted blueprint sample](../../blueprints/samples/new-zealand-ism.md).
+
 > [!IMPORTANT]
 > Each control below is associated with one or more [Azure Policy](../overview.md) definitions.
 > These policies may help you [assess compliance](../how-to/get-compliance-data.md) with the
-> control; however, there often is not a 1:1 or complete match between a control and one or more
-> policies. As such, **Compliant** in Azure Policy refers only to the policy definitions themselves;
-> this doesn't ensure you're fully compliant with all requirements of a control. In addition, the
-> compliance standard includes controls that aren't addressed by any Azure Policy definitions at
-> this time. Therefore, compliance in Azure Policy is only a partial view of your overall compliance
-> status. The associations between compliance domains, controls, and Azure Policy definitions for
-> this compliance standard may change over time. To view the change history, see the
+> control; however, there often is not a one-to-one or complete match between a control and one or
+> more policies. As such, **Compliant** in Azure Policy refers only to the policy definitions
+> themselves; this doesn't ensure you're fully compliant with all requirements of a control. In
+> addition, the compliance standard includes controls that aren't addressed by any Azure Policy
+> definitions at this time. Therefore, compliance in Azure Policy is only a partial view of your
+> overall compliance status. The associations between compliance domains, controls, and Azure Policy
+> definitions for this compliance standard may change over time. To view the change history, see the
 > [GitHub Commit History](https://github.com/Azure/azure-policy/commits/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/nz_ism.json).
 
 ## Information security monitoring
@@ -66,7 +69,7 @@ initiative definition.
 |[External accounts with owner permissions should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff8456c1c-aa66-4dfb-861a-25d127b775c9) |External accounts with owner permissions should be removed from your subscription in order to prevent unmonitored access. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_RemoveExternalAccountsWithOwnerPermissions_Audit.json) |
 |[External accounts with write permissions should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5c607a2e-c700-4744-8254-d77e7c9eb5e4) |External accounts with write privileges should be removed from your subscription in order to prevent unmonitored access. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_RemoveExternalAccountsWritePermissions_Audit.json) |
 |[System updates on virtual machine scale sets should be installed](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc3f317a7-a95c-4547-b7e7-11017ebdf2fe) |Audit whether there are any missing system security updates and critical updates that should be installed to ensure that your Windows and Linux virtual machine scale sets are secure. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VmssMissingSystemUpdates_Audit.json) |
-|[System updates should be installed on your machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F86b3d65f-7626-441e-b690-81a8b71cff60) |Missing security system updates on your servers will be monitored by Azure Security Center as recommendations |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_MissingSystemUpdates_Audit.json) |
+|[System updates should be installed on your machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F86b3d65f-7626-441e-b690-81a8b71cff60) |Missing security system updates on your servers will be monitored by Azure Security Center as recommendations |AuditIfNotExists, Disabled |[4.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_MissingSystemUpdates_Audit.json) |
 
 ## Software security
 

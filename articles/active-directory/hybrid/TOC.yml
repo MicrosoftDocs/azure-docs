@@ -40,6 +40,8 @@
        href: whatis-phs.md
      - name: How password hash synchronization works
        href: how-to-connect-password-hash-synchronization.md
+     - name: Selective password hash synchronization
+       href: how-to-connect-selective-password-hash-synchronization.md
    - name: Pass-through authentication
      items:
      - name: What is pass-through authentication?
@@ -242,6 +244,8 @@
       href: how-to-connect-fed-saml-idp.md
     - name: Post configuration tasks for Hybrid Azure AD join
       href: how-to-connect-fed-hybrid-azure-ad-join-post-config-tasks.md
+    - name: Emergency rotation of AD FS certificates
+      href: how-to-connect-emergency-ad-fs-certificate-rotation.md
   - name: Manage single sign-on 
     items:
 
@@ -310,6 +314,8 @@
       href: whatis-aadc-admin-agent.md
     - name: What is the ADConnectivityTools PowerShell module?
       href: how-to-connect-adconnectivitytools.md
+    - name: Azure AD Connect Single Object Sync 
+      href: how-to-connect-single-object-sync.md
     - name: Connectivity
       href: tshoot-connect-connectivity.md
     - name: Errors during synchronization
@@ -338,6 +344,8 @@
       href: tshoot-connect-install-issues.md
     - name: UPN changes
       href: howto-troubleshoot-upn-changes.md
+    - name: End-to-end troubleshooting of objects and attributes
+      href: https://docs.microsoft.com/troubleshoot/azure/active-directory/troubleshoot-aad-connect-objects-attributes
 - name: Reference
   items:
   - name: Hybrid Identity Required Ports and Protocols

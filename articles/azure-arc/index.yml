@@ -66,9 +66,9 @@ productDirectory:
     - title: Azure Arc enabled Kubernetes
       imageSrc: ./media/01088-icon-arc-kubernetes-menu.svg
       links:
-        - url: ./kubernetes/connect-cluster.md
+        - url: ./kubernetes/quickstart-connect-cluster.md
           text: Connect cluster
-        - url: ./kubernetes/use-gitops-connected-cluster.md
+        - url: ./kubernetes/tutorial-use-gitops-connected-cluster.md
           text: Deploy configurations using GitOps
         - url: ./kubernetes/index.yml
           text: See more...

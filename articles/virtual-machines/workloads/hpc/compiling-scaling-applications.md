@@ -5,7 +5,7 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 03/12/2021
+ms.date: 03/25/2021
 ms.author: amverma
 ms.reviewer: cynthn
 ---
@@ -13,6 +13,12 @@ ms.reviewer: cynthn
 # Scaling HPC applications
 
 Optimal scale-up and scale-out performance of HPC applications on Azure requires performance tuning and optimization experiments for the specific workload. This section and the VM series-specific pages offer general guidance for scaling your applications.
+
+## Application setup
+The [azurehpc repo](https://github.com/Azure/azurehpc) contains many examples of:
+- Setting up and running [applications](https://github.com/Azure/azurehpc/tree/master/apps) optimally.
+- Configuration of [file systems, and clusters](https://github.com/Azure/azurehpc/tree/master/examples).
+- [Tutorials](https://github.com/Azure/azurehpc/tree/master/tutorials) on how to get started easily with some common application workflows.
 
 ## Optimally scaling MPI 
 
@@ -33,6 +39,9 @@ The following suggestions apply for optimal application scaling efficiency, perf
    Max Connections = (processes per node) x (number of nodes per job) x (number of nodes per job) 
    ```
 
+## Adaptive Routing
+Adaptive Routing (AR) allows Azure Virtual Machines (VMs) running EDR and HDR InfiniBand to automatically detect and avoid network congestion by dynamically selecting more optimal network paths. As a result, AR offers improved latency and bandwidth on the InfiniBand network, which in turn drives higher performance and scaling efficiency. For more details, refer to the [TechCommunity article](https://techcommunity.microsoft.com/t5/azure-compute/adaptive-routing-on-azure-hpc/ba-p/1205217).
+
 ## Process pinning
 
 - Pin processes to cores using a sequential pinning approach (as opposed to an autobalance approach). 
@@ -43,6 +52,9 @@ The following suggestions apply for optimal application scaling efficiency, perf
 - For significantly larger scale runs, it is recommended to use UD or hybrid RC+UD transports. Many MPI libraries/runtime libraries do this internally (such as UCX or MVAPICH2). Check your transport configurations for large-scale runs.
 
 ## Compiling applications
+<br>
+<details>
+<summary>Click to expand</summary>
 
 Though not necessary, compiling applications with appropriate optimization flags provides the best scale-up performance on HB and HC-series VMs.
 
@@ -92,6 +104,7 @@ For HPC, AMD recommends GCC compiler 7.3 or newer. Older versions, such as 4.8.5
 ```bash
 gcc $(OPTIMIZATIONS) $(OMP) $(STACK) $(STREAM_PARAMETERS) stream.c -o stream.gcc
 ```
+</details>
 
 ## Next steps
 

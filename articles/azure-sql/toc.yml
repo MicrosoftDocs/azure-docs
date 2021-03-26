@@ -363,7 +363,7 @@
     items: 
     - name: From Access
       href: migration-guides/database/access-to-sql-database-guide.md
-    - name: From DB2
+    - name: From Db2
       href: migration-guides/database/db2-to-sql-database-guide.md
     - name: From Oracle
       href: migration-guides/database/oracle-to-sql-database-guide.md
@@ -799,7 +799,7 @@
 
   - name: Migration guides
     items: 
-    - name: From DB2
+    - name: From Db2
       href: migration-guides/managed-instance/db2-to-managed-instance-guide.md
     - name: From Oracle
       href: migration-guides/managed-instance/oracle-to-managed-instance-guide.md
@@ -961,8 +961,8 @@
             href: /sql/machine-learning/r/operationalizing-your-r-code?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
           - name: Convert R code for SQL Server
             href: /sql/machine-learning/r/converting-r-code-for-use-in-sql-server?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
-          - name: Create a stored procedure using sqlrutils
-            href: /sql/machine-learning/r/how-to-create-a-stored-procedure-using-sqlrutils?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
+          - name: Create a stored procedure using sqlrutils 
+            href: /machine-learning-server/r-reference/sqlrutils/how-to-create-a-stored-procedure-from-r
         - name: Predictions
           items:
           - name: Native scoring with PREDICT T-SQL
@@ -1110,18 +1110,26 @@
           href: virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md
         - name: Availability group (AG)
           href: virtual-machines/windows/availability-group-overview.md
-        - name: Failover cluster instance
+        - name: Failover cluster instance (FCI)
           href: virtual-machines/windows/failover-cluster-instance-overview.md
       - name: Best practices
         items:
-        - name: Performance
-          href: virtual-machines/windows/performance-guidelines-best-practices.md
         - name: Security 
           href: virtual-machines/windows/security-considerations-best-practices.md
         - name: Cluster configuration
           href: virtual-machines/windows/hadr-cluster-best-practices.md
         - name: Application patterns
           href: virtual-machines/windows/application-patterns-development-strategies.md
+        - name: Performance
+          items: 
+          - name: Quick checklist
+            href: virtual-machines/windows/performance-guidelines-best-practices-checklist.md
+          - name: VM size
+            href: virtual-machines/windows/performance-guidelines-best-practices-vm-size.md
+          - name: Storage
+            href: virtual-machines/windows/performance-guidelines-best-practices-storage.md
+          - name: Collect baseline 
+            href: virtual-machines/windows/performance-guidelines-best-practices-collect-baseline.md
       - name: Management
         items:
         - name: SQL IaaS Agent extension
@@ -1317,7 +1325,7 @@
     items: 
       - name: Overview
         href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview.md 
-      - name: From DB2
+      - name: From Db2
         href: migration-guides/virtual-machines/db2-to-sql-on-azure-vm-guide.md
       - name: From Oracle
         href: migration-guides/virtual-machines/oracle-to-sql-on-azure-vm-guide.md

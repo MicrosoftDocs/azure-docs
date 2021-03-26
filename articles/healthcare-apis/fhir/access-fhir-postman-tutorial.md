@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.reviewer: dseven
 ms.author: matjazl
 author: matjazl
-ms.date: 03/15/2021
+ms.date: 03/26/2021
 ---
 
 # Access Azure API for FHIR with Postman
@@ -19,12 +19,13 @@ A client application can access the Azure API for FHIR through a [REST API](http
 
 - A FHIR endpoint in Azure. 
 
-    There are two options to choose from when setting up a FHIR endpoint in Azure. You can use the managed Azure API for FHIR or the Open Source FHIR server for Azure. To deploy the managed Azure API for FHIR, you can use the [Azure portal](fhir-paas-portal-quickstart.md), [PowerShell](fhir-paas-powershell-quickstart.md), or [Azure CLI](fhir-paas-cli-quickstart.md).
+To deploy the Azure API for FHIR (a managed service), you can use the [Azure portal](fhir-paas-portal-quickstart.md), [PowerShell](fhir-paas-powershell-quickstart.md), or [Azure CLI](fhir-paas-cli-quickstart.md).
+
 - A registered [confidential client application](register-confidential-azure-ad-client-app.md) to access the FHIR service.
 - You have granted permissions to the confidential client application, for example, "FHIR Data Contributor", to access the FHIR service. For more information, see [Configure Azure RBAC for FHIR](./configure-azure-rbac.md).
 - Postman installed. 
     
-    For more information about Postman, see [Get Started with Postman](https://www.getpostman.com).
+For more information about Postman, see [Get Started with Postman](https://www.getpostman.com).
 
 ## FHIR server and authentication details
 
@@ -44,7 +45,7 @@ Finally, you should check that `https://www.getpostman.com/oauth2/callback` is a
 
 ## Connect to FHIR server
 
-Open Postman, and then click **GET** to make a request to `https://fhir-server-url/metadata`.
+Open Postman, and then select **GET** to make a request to `https://fhir-server-url/metadata`.
 
 ![Postman Metadata Capability Statement](media/tutorial-postman/postman-metadata.png)
 
@@ -57,11 +58,14 @@ If you attempt to access restricted resources, an "Authentication failed" respon
 ![Authentication Failed](media/tutorial-postman/postman-authentication-failed.png)
 
 ## Obtaining an access token
-To obtain a valid access token, click **Authorization** and select **OAuth 2.0** from the **TYPE** drop-down menu.
+
+Click **Get New Access Token**.
+
+To obtain a valid access token, select **Authorization** and select **OAuth 2.0** from the **TYPE** drop-down menu.
 
 ![Set OAuth 2.0](media/tutorial-postman/postman-select-oauth2.png)
 
-Click **Get New Access Token**.
+Select **Get New Access Token**.
 
 ![Request New Access Token](media/tutorial-postman/postman-request-token.png)
 
@@ -120,11 +124,11 @@ It's also possible to get a token for the [Azure API for FHIR using the Azure CL
 
 ## Inserting a patient
 
-With a valid access token, you can now insert a new patient. In Postman, change the method by clicking **Post**, and then add the following JSON document in the body of the request.
+With a valid access token, you can now insert a new patient. In Postman, change the method by selecting **Post**, and then add the following JSON document in the body of the request.
 
 [!code-json][(../samples/sample-patient.json)]
 
-Click **Send** to determine that the patient is successfully created.
+Select **Send** to determine that the patient is successfully created.
 
 ![Screenshot that shows that the patient is successfully created.](media/tutorial-postman/postman-patient-created.png)
 
@@ -134,7 +138,7 @@ If you repeat the patient search, you should now see the patient record:
 
 ## Next steps
 
-In this tutorial, you've accessed the Azure API for FHIR using Postman. For more information about the FHIR API features, see
+In this tutorial, you've accessed the Azure API for FHIR using Postman. For more information about the Azure API for FHIR features, see
  
 >[!div class="nextstepaction"]
 >[Supported features](fhir-features-supported.md)

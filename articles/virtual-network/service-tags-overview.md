@@ -20,7 +20,10 @@ ms.reviewer: kumud
 
 A service tag represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to network security rules.
 
-You can use service tags to define network access controls on [network security groups](./network-security-groups-overview.md#security-rules) or [Azure Firewall](../firewall/service-tags.md). Use service tags in place of specific IP addresses when you create security rules. By specifying the service tag name, such as **ApiManagement**, in the appropriate *source* or *destination* field of a rule, you can allow or deny the traffic for the corresponding service.
+You can use service tags to define network access controls on [network security groups](./network-security-groups-overview.md#security-rules) or [Azure Firewall](../firewall/service-tags.md). Use service tags in place of specific IP addresses when you create security rules. By specifying the service tag name, such as **ApiManagement**, in the appropriate *source* or *destination* field of a rule, you can allow or deny the traffic for the corresponding service. 
+
+> [!NOTE] 
+> As of March 2021, you can also use Service Tags in place of explicit IP ranges in [user defined routes](./virtual-networks-udr-overview.md). This feature is currently in Public Preview. 
 
 You can use service tags to achieve network isolation and protect your Azure resources from the general Internet while accessing Azure services that have public endpoints. Create inbound/outbound network security group rules to deny traffic to/from **Internet** and allow traffic to/from **AzureCloud** or other [available service tags](#available-service-tags) of specific Azure services.
 
@@ -70,7 +73,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureKeyVault** | Azure Key Vault.<br/><br/>*Note:* This tag has a dependency on the **AzureActiveDirectory** tag. | Outbound | Yes | Yes |
 | **AzureLoadBalancer** | The Azure infrastructure load balancer. The tag translates to the [virtual IP address of the host](./network-security-groups-overview.md#azure-platform-considerations) (168.63.129.16) where the Azure health probes originate. This only includes probe traffic, not real traffic to your backend resource. If you're not using Azure Load Balancer, you can override this rule. | Both | No | No |
 | **AzureMachineLearning** | Azure Machine Learning. | Both | No | Yes |
-| **AzureMonitor** | Log Analytics, Application Insights, AzMon, and custom metrics (GiG endpoints).<br/><br/>*Note:* For Log Analytics, this tag has a dependency on the **Storage** tag. | Outbound | No | Yes |
+| **AzureMonitor** | Log Analytics, Application Insights, AzMon, and custom metrics (GiG endpoints).<br/><br/>*Note:* For Log Analytics, the **Storage** tag is also required. If Linux agents are used, **GuestAndHybridManagement** tag is also required. | Outbound | No | Yes |
 | **AzureOpenDatasets** | Azure Open Datasets.<br/><br/>*Note:* This tag has a dependency on the **AzureFrontDoor.Frontend** and **Storage** tag. | Outbound | No | No |
 | **AzurePlatformDNS** | The basic infrastructure (default) DNS service.<br/><br>You can use this tag to disable the default DNS. Be cautious when you use this tag. We recommend that you read [Azure platform considerations](./network-security-groups-overview.md#azure-platform-considerations). We also recommend that you perform testing before you use this tag. | Outbound | No | No |
 | **AzurePlatformIMDS** | Azure Instance Metadata Service (IMDS), which is a basic infrastructure service.<br/><br/>You can use this tag to disable the default IMDS. Be cautious when you use this tag. We recommend that you read [Azure platform considerations](./network-security-groups-overview.md#azure-platform-considerations). We also recommend that you perform testing before you use this tag. | Outbound | No | No |

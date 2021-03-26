@@ -40,7 +40,7 @@ Additionally, use Azure Security Center and follow network protection recommenda
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Network**:
 
@@ -56,7 +56,7 @@ Additionally, use Azure Security Center and follow network protection recommenda
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Network**:
 
@@ -76,7 +76,7 @@ Note that you cannot create your own service tag, nor specify which IP addresses
 
 - [Azure Firewall service tags](service-tags.md)
 
-- [Available service tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags)
+- [Available service tags](../virtual-network/service-tags-overview.md#available-service-tags)
 
 - [IP groups in Azure Firewall](ip-groups.md)
 
@@ -94,7 +94,7 @@ You may also use Azure Blueprints to simplify large-scale Azure deployments by p
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy samples for networking](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network)
+- [Azure Policy samples for networking](../governance/policy/samples/built-in-policies.md#network)
 
 - [How to create an Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
 
@@ -108,9 +108,9 @@ You may also use Azure Blueprints to simplify large-scale Azure deployments by p
 
 - [Monitor Azure Firewall logs and metrics](firewall-diagnostics.md)
 
-- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log-view#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsibility**: Customer
 
@@ -124,7 +124,7 @@ You may also use Azure Blueprints to simplify large-scale Azure deployments by p
 
 **Guidance**: Microsoft maintains time sources for Azure resources for Azure Firewall. Customers need to create a network rule to allow this access, or for a time server that you use in their environment.
 
-- [NTP server access](https://docs.microsoft.com/azure/firewall/protect-windows-virtual-desktop#additional-considerations)
+- [NTP server access](./protect-windows-virtual-desktop.md#additional-considerations)
 
 **Responsibility**: Shared
 
@@ -148,7 +148,7 @@ Note: Both logs can be saved to a storage account, streamed to Event hubs and/or
 
 List of resource actions in activity logs: Azure Resource Manager Resource Provider operations
 
-- [How to collect platform logs and metrics with Azure Monitor ](/azure/azure-monitor/platform/diagnostic-settings)
+- [How to collect platform logs and metrics with Azure Monitor ](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -192,9 +192,9 @@ For more information, see the reference links below.
 
 - [Azure Firewall logs and metrics](logs-and-metrics.md)
 
-- [Change the data retention period in Log Analytics](/azure/azure-monitor/platform/manage-cost-storage)
+- [Change the data retention period in Log Analytics](../azure-monitor/logs/manage-cost-storage.md)
 
-- [How to configure retention policy for Azure Storage account logs](/azure/storage/common/storage-monitor-storage-account#configure-logging)
+- [How to configure retention policy for Azure Storage account logs](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Responsibility**: Customer
 
@@ -218,7 +218,7 @@ Azure Monitor logs can be used for general real-time monitoring of your applicat
 
 - [Azure Firewall logs and metrics](logs-and-metrics.md)
 
-- [Diagnostic Logs](https://docs.microsoft.com/azure/firewall/logs-and-metrics#diagnostic-logs)
+- [Diagnostic Logs](./logs-and-metrics.md#diagnostic-logs)
 
 **Responsibility**: Customer
 
@@ -234,7 +234,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel.
 
 - [How to manage alerts in Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [How to alert on log analytics log data](/azure/azure-monitor/learn/tutorial-response)
+- [How to alert on log analytics log data](../azure-monitor/alerts/tutorial-response.md)
 
 **Responsibility**: Customer
 
@@ -262,7 +262,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel.
 
 You can also enable a Just-In-Time / Just-Enough-Access by using Azure Active Directory (Azure AD) Privileged Identity Management Privileged Roles for Microsoft Services, and Azure Resource Manager.
 
-- [Learn more about Privileged Identity Management](/azure/active-directory/privileged-identity-management)
+- [Learn more about Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
 **Responsibility**: Customer
 
@@ -338,7 +338,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure Active Di
 
 **Guidance**: Azure Active Directory (Azure AD) provides logs to help discover stale accounts. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right Users have continued access.
 
-- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/)
+- [Understand Azure AD reporting](../active-directory/reports-monitoring/index.yml)
 
 - [How to use Azure Identity Access Reviews](../active-directory/governance/access-reviews-overview.md)
 
@@ -352,7 +352,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure Active Di
 
 You can streamline this process by creating Diagnostic Settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics workspace. You can configure desired Alerts within Log Analytics workspace.
 
-- [How to integrate Azure Activity Logs into Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Responsibility**: Customer
 
@@ -390,11 +390,11 @@ You can streamline this process by creating Diagnostic Settings for Azure AD use
 
 **Guidance**: Implement isolation using separate subscriptions and management groups for individual security domains such as environment type and data sensitivity level. You can restrict the level of access to your Azure Firewall resources that your applications and enterprise environments demand. You can control access to Azure resources via Azure role-based access control.
 
-- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
+- [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create Management Groups](/azure/governance/management-groups/create)
+- [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Responsibility**: Customer
 
@@ -418,7 +418,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 Follow Azure Security Center recommendations for encryption at rest and encryption in transit, where applicable. 
 
-- [Understand encryption in transit with Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
+- [Understand encryption in transit with Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
 **Responsibility**: Shared
 
@@ -460,7 +460,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 **Guidance**: Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place in Azure Firewall.
 
-- [How to create alerts for Azure Activity Log events](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsibility**: Customer
 
@@ -474,7 +474,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 **Guidance**: Apply tags to Azure Firewall and related resources giving metadata to logically organize them into a taxonomy. 
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Responsibility**: Customer
 
@@ -486,7 +486,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 - [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create Management Groups](/azure/governance/management-groups/create-management-group-portal)
+- [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
 - [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
@@ -530,7 +530,7 @@ Use Azure Resource Graph to query/discover Azure Firewall resources within their
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deny)
+- [How to deny a specific resource type with Azure Policy](../governance/policy/concepts/effects.md#deny)
 
 **Responsibility**: Customer
 
@@ -598,7 +598,7 @@ Azure policy is not fully supported for Azure Firewall at this time.
 
 **Guidance**: Use Azure DevOps to securely store and manage your code like custom Azure policies and Azure Resource Manager templates. To access the resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.
 
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
 - [About permissions and groups in Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -612,7 +612,7 @@ Azure policy is not fully supported for Azure Firewall at this time.
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to use Aliases](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
+- [How to use Aliases](../governance/policy/concepts/definition-structure.md#aliases)
 
 **Responsibility**: Customer
 
@@ -686,7 +686,7 @@ Azure policy is not fully supported for Azure Firewall at this time.
 
 **Guidance**: Use Azure DevOps to securely store and manage your code like custom Azure policies, Azure Resource Manager templates. To protect resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.
 
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
 - [About permissions and groups in Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -788,5 +788,5 @@ Continuous Export allows you to export alerts and recommendations either manuall
 
 ## Next steps
 
-- See the [Azure Security Benchmark V2 overview](/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure Security Benchmark V2 overview](../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)

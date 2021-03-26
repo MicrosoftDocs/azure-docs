@@ -5,7 +5,7 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 03/19/2021
 
 ---
 
@@ -59,8 +59,6 @@ Azure Cosmos DB transparently and automatically manages the placement of logical
 Azure Cosmos DB uses hash-based partitioning to spread logical partitions across physical partitions. Azure Cosmos DB hashes the partition key value of an item. The hashed result determines the physical partition. Then, Azure Cosmos DB allocates the key space of partition key hashes evenly across the physical partitions.
 
 Transactions (in stored procedures or triggers) are allowed only against items in a single logical partition.
-
-You can learn more about [how Azure Cosmos DB manages partitions](partitioning-overview.md). (It's not necessary to understand the internal details to build or run your applications, but added here for a curious reader.)
 
 ## Replica sets
 

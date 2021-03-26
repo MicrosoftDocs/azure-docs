@@ -19,7 +19,7 @@ If you're new to Azure Data Factory, see [Introduction to Azure Data Factory](in
 In this tutorial, you'll use the Azure Data Factory user interface (UX) to create a pipeline that copies and transforms data from an Azure Data Lake Storage (ADLS) Gen2 source to an ADLS Gen2 sink using mapping data flow. The configuration pattern in this tutorial can be expanded upon when transforming data using mapping data flow
 
  >[!NOTE]
-   >This tutorial is meant for mapping data flows in general. Data flows are available both in Azure Data Factory and Synapse Pipelines. If you are new to data flows in Azure Synapse Pipelines, please follow [Data Flow using Azure Synapse Pipelines](https://docs.microsoft.com/azure/synapse-analytics/concepts-data-flow-overview) 
+   >This tutorial is meant for mapping data flows in general. Data flows are available both in Azure Data Factory and Synapse Pipelines. If you are new to data flows in Azure Synapse Pipelines, please follow [Data Flow using Azure Synapse Pipelines](../synapse-analytics/concepts-data-flow-overview.md) 
    
 In this tutorial, you do the following steps:
 
@@ -49,7 +49,7 @@ In this step, you create a data factory and open the Data Factory UX to create a
 
    The name of the Azure data factory must be *globally unique*. If you receive an error message about the name value, enter a different name for the data factory. (for example, yournameADFTutorialDataFactory). For naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
 
-     ![New data factory](./media/doc-common-process/name-not-available-error.png)
+    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="New data factory error message for duplicate name.":::
 4. Select the Azure **subscription** in which you want to create the data factory.
 5. For **Resource Group**, take one of the following steps:
 

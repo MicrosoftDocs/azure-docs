@@ -46,8 +46,6 @@
     href: concepts-storage.md
   - name: Access and identity for private clouds
     href: concepts-identity.md
-  - name: vSphere role-based access control
-    href: concepts-role-based-access-control.md
   - name: Monitor and repair private clouds
     href: concepts-monitor-repair-private-cloud.md
   - name: Private cloud upgrades
@@ -61,7 +59,7 @@
   - name: Save costs with a reserved instance
     href: reserved-instance.md
   - name: Migration assessment
-    href: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
+    href: /azure/migrate/how-to-create-azure-vmware-solution-assessment?context=/azure/azure-vmware/context/context
   - name: Manage DHCP
     href: manage-dhcp.md
   - name: Configure NSX network components
@@ -78,6 +76,8 @@
     href: create-ipsec-tunnel.md
   - name: Windows Server Failover Cluster
     href: windows-server-failover-cluster.md
+  - name: Reset vSphere credentials
+    href: reset-vsphere-credentials.md
   - name: Azure native integration
     items:
     - name: API Management
@@ -110,6 +110,8 @@
     items:
     - name: Backup solutions for VMs
       href: ecosystem-back-up-vms.md
+    - name: Migration solutions for VMs
+      href: ecosystem-migration-vms.md
 - name: Resources
   items:
   - name: Troubleshooting
@@ -132,5 +134,9 @@
   items:
   - name: Azure CLI
     href: /cli/azure/ext/vmware/vmware
+  - name: Azure CLI datastore
+    href: /cli/azure/ext/vmware/vmware/datastore
   - name: Azure PowerShell
     href: /powershell/module/az.vmware/
+  - name: Terraform Azure provider
+    href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/vmware_private_cloud

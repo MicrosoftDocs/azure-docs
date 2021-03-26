@@ -125,10 +125,6 @@ az ad sp create-for-rbac --skip-assignment
 
 The following example output shows the application ID and password for your service principal. These values are used in additional steps to assign a role to the service principal and then create the AKS cluster:
 
-```azurecli
-az ad sp create-for-rbac --skip-assignment
-```
-
 ```output
 {
   "appId": "476b3636-5eda-4c0e-9751-849e70b5cfad",

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/18/2021
+ms.date: 03/12/2021
 ms.author: jeedes
 
 ---
@@ -33,9 +33,9 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* AWS Single Sign-on supports **SP and IDP** initiated SSO
+* AWS Single Sign-on supports **SP and IDP** initiated SSO.
 
-* AWS Single Sign-on supports [**Automated user provisioning**](https://docs.microsoft.com/azure/active-directory/saas-apps/aws-single-sign-on-provisioning-tutorial).
+* AWS Single Sign-on supports [**Automated user provisioning**](./aws-single-sign-on-provisioning-tutorial.md).
 
 ## Adding AWS Single Sign-on from the gallery
 
@@ -68,7 +68,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **AWS Single Sign-on** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -76,9 +76,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	a. Click **Upload metadata file**.
 
-    ![image1](common/upload-metadata.png)
-
-	b. Click on **folder logo** to select the metadata file and click **Upload**.
+	b. Click on **folder logo** to select the metadata file which you have downloaded from the **Configure AWS Single Sign-on SSO** section (point 8) and click **Add**.
 
 	![image2](common/browse-upload-metadata.png)
 
@@ -147,15 +145,45 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure AWS Single Sign-on SSO
 
-1. Open the **AWS SSO console** . 
+1. To automate the configuration within AWS Single Sign-on, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
+
+	![My apps extension](common/install-myappssecure-extension.png)
+
+2. After adding extension to the browser, click on **Set up AWS Single Sign-on** will direct you to the AWS Single Sign-on application. From there, provide the admin credentials to sign into AWS Single Sign-on. The browser extension will automatically configure the application for you and automate steps 3-10.
+
+	![Setup configuration](common/setup-sso.png)
+
+3. If you want to setup AWS Single Sign-on manually, in a different web browser window, sign in to your AWS Single Sign-on company site as an administrator.
+
+1. Go to the **Services -> Security, Identity, & Compliance -> AWS Single Sign-On**.
 2. In the left navigation pane, choose **Settings**.
-3. On the **Settings** page, find **Identity source**, choose **Change**.
-4. On the Change directory page, choose **External identity provider**.
-5. In the **Service provider metadata** section, find **AWS SSO SAML metadata** and select **Download metadata file** to download the metadata file and save it on your computer.
-6. In the **Identity provider metadata** section, choose **Browse** to upload the metadata file which you have downloaded from the Azure portal.
-7. Choose **Next: Review**.
-8. In the text box, type **CONFIRM** to confirm changing directory.
-9. Choose **Finish**.
+3. On the **Settings** page, find **Identity source** and click on **Change**.
+
+    ![Screenshot for Identity source change service](./media/aws-single-sign-on-tutorial/settings.png)
+
+4. On the Change identity source, choose **External identity provider**.
+
+    
+    ![Screenshot for selecting external identity provider section](./media/aws-single-sign-on-tutorial/external-identity-provider.png)
+
+
+1. Perform the below steps in the **Configure external identity provider** section:
+
+    ![Screenshot for download and upload metadata section](./media/aws-single-sign-on-tutorial/upload-metadata.png)
+
+    a. In the **Service provider metadata** section, find **AWS SSO SAML metadata** and select **Download metadata file** to download the metadata file and save it on your computer and use this metadata file to upload on Azure portal.
+
+    b. Copy **AWS SSO Sign-in URL** value, paste this value into the **Sign on URL** text box in the **Basic SAML Configuration section** in the Azure portal.
+
+    c. In the **Identity provider metadata** section, choose **Browse** to upload the metadata file which you have downloaded from the Azure portal.
+
+    d. Choose **Next: Review**.
+
+8. In the text box, type **ACCEPT** to change the identity source.
+
+    ![Screenshot for Confirming the configuration](./media/aws-single-sign-on-tutorial/accept.png)
+
+9. Click **Change identity source**.
 
 ### Create AWS Single Sign-on test user
 
@@ -202,7 +230,7 @@ about permission sets, see the AWS SSO **Permission Sets** page.
 10. Choose **Finish**.
 
 > [!NOTE]
-> AWS Single Sign-on also supports automatic user provisioning, you can find more details [here](https://docs.microsoft.com/azure/active-directory/saas-apps/aws-single-sign-on-provisioning-tutorial) on how to configure automatic user provisioning.
+> AWS Single Sign-on also supports automatic user provisioning, you can find more details [here](./aws-single-sign-on-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO 
 
@@ -218,11 +246,9 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the AWS Single Sign-on for which you set up the SSO 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the AWS Single Sign-on tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the AWS Single Sign-on for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+You can also use Microsoft My Apps to test the application in any mode. When you click the AWS Single Sign-on tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the AWS Single Sign-on for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## Next steps
 
-Once you configure AWS Single Sign-on you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Once you configure AWS Single Sign-on you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

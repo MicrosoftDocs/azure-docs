@@ -90,7 +90,7 @@ Azure Data Factory evaluates the outcome of all leaf-level activities. Pipeline 
 
 * Implement activity-level checks by following [How to handle pipeline failures and errors](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459).
 * Use Azure Logic Apps to monitor pipelines in regular intervals following [Query By Factory](/rest/api/datafactory/pipelineruns/querybyfactory).
-* [Visually Monitor Pipeline](https://docs.microsoft.com/azure/data-factory/monitor-visually)
+* [Visually Monitor Pipeline](./monitor-visually.md)
 
 ### How to monitor pipeline failures in regular intervals
 
@@ -100,7 +100,7 @@ You might need to monitor failed Data Factory pipelines in intervals, say 5 minu
 
 **Resolution**
 * You can set up an Azure logic app to query all of the failed pipelines every 5 minutes, as described in [Query By Factory](/rest/api/datafactory/pipelineruns/querybyfactory). Then, you can report incidents to your ticketing system.
-* [Visually Monitor Pipeline](https://docs.microsoft.com/azure/data-factory/monitor-visually)
+* [Visually Monitor Pipeline](./monitor-visually.md)
 
 ### Degree of parallelism  increase does not result in higher throughput
 
@@ -141,8 +141,8 @@ This can happen if you have not implemented time to live feature for Data Flow o
 
 **Resolution**
 
-* If each copy activity is taking up to 2 minutes to start, and the problem occurs primarily on a VNet join (vs. Azure IR), this can be a copy performance issue. To review troubleshooting steps, go to [Copy Performance Improvement.](https://docs.microsoft.com/azure/data-factory/copy-activity-performance-troubleshooting)
-* You can use time to live feature to decrease cluster start up time for data flow activities. Please review [Data Flow Integration Runtime.](https://docs.microsoft.com/azure/data-factory/control-flow-execute-data-flow-activity#data-flow-integration-runtime)
+* If each copy activity is taking up to 2 minutes to start, and the problem occurs primarily on a VNet join (vs. Azure IR), this can be a copy performance issue. To review troubleshooting steps, go to [Copy Performance Improvement.](./copy-activity-performance-troubleshooting.md)
+* You can use time to live feature to decrease cluster start up time for data flow activities. Please review [Data Flow Integration Runtime.](./control-flow-execute-data-flow-activity.md#data-flow-integration-runtime)
 
  ### Hitting capacity issues in SHIR(Self Hosted Integration Runtime)
  
@@ -152,7 +152,7 @@ This can happen if you have not scaled up SHIR as per your workload.
 
 **Resolution**
 
-* If you encounter a capacity issue from SHIR, upgrade the VM to increase the node to balance the activities. If you receive an error  message about a self-hosted IR general failure or error, a self-hosted IR upgrade, or self-hosted IR connectivity issues, which can generate a long queue, go to [Troubleshoot self-hosted integration runtime.](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-troubleshoot-guide)
+* If you encounter a capacity issue from SHIR, upgrade the VM to increase the node to balance the activities. If you receive an error  message about a self-hosted IR general failure or error, a self-hosted IR upgrade, or self-hosted IR connectivity issues, which can generate a long queue, go to [Troubleshoot self-hosted integration runtime.](./self-hosted-integration-runtime-troubleshoot-guide.md)
 
 ### Error messages due to long queues for ADF Copy and Data Flow
 
@@ -161,10 +161,10 @@ This can happen if you have not scaled up SHIR as per your workload.
 Long queue related error messages can appear for various reasons. 
 
 **Resolution**
-* If you receive an error message from any source or destination via connectors, which can generate a long queue, go to [Connector Troubleshooting Guide.](https://docs.microsoft.com/azure/data-factory/connector-troubleshoot-guide)
-* If you receive an error message about Mapping Data Flow, which can generate a long queue, go to [Data Flows Troubleshooting Guide.](https://docs.microsoft.com/azure/data-factory/data-flow-troubleshoot-guide)
-* If you receive an error message about other activities, such as Databricks, custom activities, or HDI, which can generate a long queue, go to [Activity Troubleshooting Guide.](https://docs.microsoft.com/azure/data-factory/data-factory-troubleshoot-guide)
-* If you receive an error message about running SSIS packages, which can generate a long queue, go to the [Azure-SSIS Package Execution Troubleshooting Guide](https://docs.microsoft.com/azure/data-factory/ssis-integration-runtime-ssis-activity-faq) and [Integration Runtime Management Troubleshooting Guide.](https://docs.microsoft.com/azure/data-factory/ssis-integration-runtime-management-troubleshoot)
+* If you receive an error message from any source or destination via connectors, which can generate a long queue, go to [Connector Troubleshooting Guide.](./connector-troubleshoot-guide.md)
+* If you receive an error message about Mapping Data Flow, which can generate a long queue, go to [Data Flows Troubleshooting Guide.](./data-flow-troubleshoot-guide.md)
+* If you receive an error message about other activities, such as Databricks, custom activities, or HDI, which can generate a long queue, go to [Activity Troubleshooting Guide.](./data-factory-troubleshoot-guide.md)
+* If you receive an error message about running SSIS packages, which can generate a long queue, go to the [Azure-SSIS Package Execution Troubleshooting Guide](./ssis-integration-runtime-ssis-activity-faq.md) and [Integration Runtime Management Troubleshooting Guide.](./ssis-integration-runtime-management-troubleshoot.md)
 
 
 ## Next steps

@@ -49,8 +49,6 @@
       href: ./linux/tutorial-load-balancer.md
     - name: 8 - Manage networking
       href: ./linux/tutorial-virtual-network.md
-    - name: 9 - Manage resources
-      href: ./linux/tutorial-govern-resources.md
   - name: Windows
     items:
     - name: 1 - Create / manage a VM
@@ -69,8 +67,6 @@
       href: ./windows/tutorial-load-balancer.md
     - name: 8 - Manage networking
       href: ./windows/tutorial-virtual-network.md
-    - name: 9 - Manage resources
-      href: ./windows/tutorial-govern-resources.md
 - name: Workloads
   items:
   - name: Red Hat
@@ -101,10 +97,14 @@
     href: ./workloads/sap/get-started.md
   - name: Oracle
     href: ./workloads/oracle/oracle-database-quick-create.md
+  - name: Azure for Gaming
+    href: https://docs.microsoft.com/gaming/azure/
   - name: Elasticsearch
     href: ./linux/tutorial-elasticsearch.md
   - name: Mainframe rehosting
     href: ./workloads/mainframe-rehosting/overview.md
+  - name: Azure Confidential Compute
+    href: ../confidential-computing/overview.md
   - name: SQL on Virtual Machines
     href: ../azure-sql/virtual-machines/index.yml
   - name: High Performance Computing (HPC)
@@ -119,8 +119,8 @@
     - name: Change the VM size
       items:
       - name: CLI
-        href: ./linux/change-vm-size.md
         displayName: Change, resize, update size
+        href: ./linux/change-vm-size.md
       - name: Portal or PowerShell
         displayName: Change, resize, update size
         href: ./windows/resize-vm.md
@@ -188,8 +188,8 @@
       - name: Optimize performance
         items:
         - name: Linux
-          href: ./linux/storage-performance.md
           displayName: performance, Linux, storage performance
+          href: ./linux/storage-performance.md
         - name: Windows
           displayName: performance, Windows, storage performance
           href: ./windows/storage-performance.md
@@ -334,9 +334,9 @@
       displayName: Reserved Instances, RI, prepay
       href: reserved-vm-instance-size-flexibility.md
   - name: Create Virtual Machines
-    items: 
+    items:
     - name: Linux
-      items: 
+      items:
       - name: Endorsed distributions
         href: ./linux/endorsed-distros.md
       - name: CLI
@@ -351,7 +351,7 @@
       - name: LAMP stack
         href: ./linux/tutorial-lamp-stack.md
       - name: Continuous delivery
-        items: 
+        items:
         - name: Configure Rolling deployment strategy
           href: ./linux/tutorial-devops-azure-pipelines-classic.md
         - name: Configure Canary deployment strategy
@@ -378,7 +378,7 @@
   - name: Connect to Virtual Machines
     items:
     - name: Linux
-      items: 
+      items:
       - name: Create and manage SSH keys locally
         href: ./linux/create-ssh-keys-detailed.md
       - name: Create and manage SSH keys in the portal
@@ -560,7 +560,7 @@
     - name: Issues with Python 3-enabled Linux systems
       href: ./extensions/issues-using-vm-extensions-python-3.md
   - name: Nested virtualization
-    href: ./windows/nested-virtualization.md
+    href: https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization
   - name: Migrate to Azure Resource Manager
     items:
     - name: Retirement starting March 1, 2023
@@ -595,10 +595,10 @@
   - name: Find Azure Marketplace images
     items:
     - name: CLI
-      displayName: Images, imaging, marketplace
+      displayName: Images, imaging, marketplace, publisher, plan, offer, URN, purchase plan, terms
       href: ./linux/cli-ps-findimage.md
     - name: PowerShell
-      displayName: Images, imaging, marketplace
+      displayName: Images, imaging, marketplace, URN, purchase plan, terms
       href: ./windows/cli-ps-findimage.md
     - name: Windows client images
       displayName: Images, imaging, marketplace, Windows, Client
@@ -653,26 +653,26 @@
       - name: Cloud-init overview
         href: ./linux/using-cloud-init.md
       - name: Deep dive
-        displayname: cloud-init
         href: ./linux/cloud-init-deep-dive.md
+        displayname: cloud-init
       - name: Troubleshooting
-        displayname: cloud-init
         href: ./linux/cloud-init-troubleshooting.md
+        displayname: cloud-init
       - name: Configure VM hostname
-        displayname: cloud-init
         href: ./linux/cloudinit-update-vm-hostname.md
+        displayname: cloud-init
       - name: Update packages in a VM
-        displayname: cloud-init
         href: ./linux/cloudinit-update-vm.md
+        displayname: cloud-init
       - name: Add a user on a VM
-        displayname: cloud-init
         href: ./linux/cloudinit-add-user.md
+        displayname: cloud-init
       - name: Configure swapfile
-        displayname: cloud-init
         href: ./linux/cloudinit-configure-swapfile.md
-      - name: Run existing bash script
         displayname: cloud-init
+      - name: Run existing bash script
         href: ./linux/cloudinit-bash-script.md
+        displayname: cloud-init
     - name: Create Linux images without a provisioning agent
       href: ./linux/no-agent.md
     - name: Disable Linux Agent provisioning
@@ -816,7 +816,7 @@
         href: ./windows/image-builder.md
     - name: PowerShell
       items:
-      - name: Windows 
+      - name: Windows
         displayName: Image builder, images, building, PowerShell
         href: ./windows/image-builder-powershell.md
       - name: Windows Virtual Desktop
@@ -901,7 +901,7 @@
       displayName: availability and scale, availability, scale, autoscale, availability sets, AV sets
       href: ./windows/change-availability-set.md
   - name: Availability zones
-    items: 
+    items:
     - name: Overview
       displayName: availability and scale, availability, scale, autoscale, availability zones, AV zones
       href: ../availability-zones/az-overview.md?context=/azure/virtual-machines/context/context
@@ -915,7 +915,7 @@
       displayName: availability and scale, availability, scale, autoscale, availability zones, AV zones
       href: ./windows/create-portal-availability-zone.md
   - name: Proximity Placement Groups
-    items: 
+    items:
     - name: Overview
       displayName: proximity placement groups, ppg
       href: co-location.md
@@ -929,7 +929,7 @@
       displayName: proximity placement groups, ppg
       href: ./windows/proximity-placement-groups-portal.md
   - name: Virtual Machine Scale Sets
-    items: 
+    items:
     - name: Overview
       displayName: virtual machine scale sets, VMSS, VM scale set, scale set
       href: ../virtual-machine-scale-sets/overview.md?context=/azure/virtual-machines/context/context
@@ -962,64 +962,64 @@
     - name: Server-side encryption
       items:
       - name: Server-side encryption overview
-        displayname: Server side encryption, encryption, ADE
         href: disk-encryption.md
+        displayname: Server side encryption, encryption, ADE
       - name: Enable customer-managed keys
         items:
         - name: Portal
-          displayname: Server side encryption, encryption, ADE
           href: disks-enable-customer-managed-keys-portal.md
+          displayname: Server side encryption, encryption, ADE
         - name: PowerShell
-          displayname: Server side encryption, encryption, ADE
           href: windows/disks-enable-customer-managed-keys-powershell.md
-        - name: CLI
           displayname: Server side encryption, encryption, ADE
+        - name: CLI
           href: linux/disks-enable-customer-managed-keys-cli.md
+          displayname: Server side encryption, encryption, ADE
       - name: Enable encryption at host
         items:
         - name: Portal
-          displayname: Encryption at host, encryption, ADE
           href: disks-enable-host-based-encryption-portal.md
+          displayname: Encryption at host, encryption, ADE
         - name: PowerShell
-          displayname: Encryption at host, encryption, ADE
           href: windows/disks-enable-host-based-encryption-powershell.md
-        - name: CLI
           displayname: Encryption at host, encryption, ADE
+        - name: CLI
           href: linux/disks-enable-host-based-encryption-cli.md
+          displayname: Encryption at host, encryption, ADE
       - name: Enable double encryption at rest
         items:
         - name: Portal
-          displayname: double encryption at rest, encryption, ADE
           href: disks-enable-double-encryption-at-rest-portal.md
+          displayname: double encryption at rest, encryption, ADE
         - name: PowerShell
-          displayname: double encryption at rest, encryption, ADE
           href: windows/disks-enable-double-encryption-at-rest-powershell.md
-        - name: CLI
           displayname: double encryption at rest, encryption, ADE
+        - name: CLI
           href: linux/disks-enable-double-encryption-at-rest-cli.md
+          displayname: double encryption at rest, encryption, ADE
     - name: Azure Disk Encryption
       items:
       - name: Linux
         items:
         - name: Overview
-          displayname: Azure disk encryption, encryption, ADE
           href: ./linux/disk-encryption-overview.md
+          displayname: Azure disk encryption, encryption, ADE
         - name: Quickstarts
           items:
           - name: Azure CLI
-            displayname: Azure disk encryption, encryption, ADE
             href: ./linux/disk-encryption-cli-quickstart.md
+            displayname: Azure disk encryption, encryption, ADE
           - name: Azure PowerShell
-            displayname: Azure disk encryption, encryption, ADE
             href: ./linux/disk-encryption-powershell-quickstart.md
-          - name: Azure portal
             displayname: Azure disk encryption, encryption, ADE
-            href: ./linux/disk-encryption-portal-quickstart.md    
+          - name: Azure portal
+            href: ./linux/disk-encryption-portal-quickstart.md
+            displayname: Azure disk encryption, encryption, ADE
         - name: Disk encryption scenarios for Linux
-          href: ./linux/disk-encryption-linux.md 
+          href: ./linux/disk-encryption-linux.md
         - name: Key vault for Azure Disk Encryption
-          displayname: Azure disk encryption, encryption, ADE, Key vault
           href: ./linux/disk-encryption-key-vault.md
+          displayname: Azure disk encryption, encryption, ADE, Key vault
         - name: Disk encryption sample scripts
           href: ./linux/disk-encryption-sample-scripts.md
         - name: Disk encryption on an isolated network
@@ -1076,40 +1076,40 @@
   - name: Performance and cost optimization
     items:
     - name: Ultra disks
-      displayname: Performance, cost, perf, disks, disk
       href: disks-enable-ultra-ssd.md
+      displayname: Performance, cost, perf, disks, disk
     - name: Virtual machine and disk performance
-      displayname: Performance, cost, perf, disks, disk
       href: disks-performance.md
+      displayname: Performance, cost, perf, disks, disk
     - name: Disk Storage reservations
-      displayname: Performance, cost, perf, disks, disk
       href: ../cost-management-billing/reservations/understand-disk-reservations.md?context=/azure/virtual-machines/context/context
+      displayname: Performance, cost, perf, disks, disk
     - name: Reserve Disk Storage
-      displayname: Performance, cost, perf, disks, disk
       href: disks-reserved-capacity.md
+      displayname: Performance, cost, perf, disks, disk
     - name: Design for high performance
-      displayname: Performance, cost, perf, disks, disk
       href: premium-storage-performance.md
+      displayname: Performance, cost, perf, disks, disk
     - name: Disk related metrics
-      displayname: Performance, cost, perf, disks, disk
       href: disks-metrics.md
+      displayname: Performance, cost, perf, disks, disk
     - name: Disk bursting models
-      displayname: Performance, cost, perf, disks, disk
       href: disk-bursting.md
+      displayname: Performance, cost, perf, disks, disk
     - name: Enable on-demand bursting
-      displayname: Performance, cost, perf, disks, disk
       href: disks-enable-bursting.md
-    - name: Disk performance tiers
       displayname: Performance, cost, perf, disks, disk
+    - name: Disk performance tiers
       href: disks-change-performance.md
+      displayname: Performance, cost, perf, disks, disk
     - name: Change disk performance tier
       items:
       - name: CLI and PowerShell
-        displayname: Performance, cost, perf, disks, disk, change disk performance tier
         href: disks-performance-tiers.md
-      - name: Portal
         displayname: Performance, cost, perf, disks, disk, change disk performance tier
+      - name: Portal
         href: disks-performance-tiers-portal.md
+        displayname: Performance, cost, perf, disks, disk, change disk performance tier
     - name: Enable write accelerator
       href: how-to-enable-write-accelerator.md
     - name: Benchmark a disk
@@ -1167,8 +1167,6 @@
       - name: PowerShell
         displayName: Unmanaged VM to Managed Disks
         href: ./windows/convert-unmanaged-to-managed-disks.md
-    - name: Copy a VM using CLI
-      href: ./linux/copy-vm.md
   - name: Add a data disk
     items:
     - name: Linux
@@ -1240,8 +1238,6 @@
       href: ./windows/azure-to-guest-disk-mapping.md
     - name: File storage
       items:
-      - name: Linux mount using SMB
-        href: ./linux/mount-azure-file-storage-on-linux-using-smb.md
       - name: Copy files to a Linux VM
         href: ./linux/copy-files-to-linux-vm-using-scp.md
     - name: Find unattached disks
@@ -1266,7 +1262,7 @@
       - name: Create a managed disk from a snapshot
         href: https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-snapshot.md
       - name: Copy a managed disk to the same or different subscription
-        href: https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md
+        href: https://github.com/Azure-Samples/azure-cli-samples/blob/master/virtual-machine/copy-managed-disks-to-same-or-different-subscription/copy-managed-disks-to-same-or-different-subscription.sh
       - name: Copy a snapshot to the same or different subscription
         href: https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-snapshot-to-same-or-different-subscription.md
       - name: Export a snapshot as a VHD to a storage account
@@ -1335,18 +1331,18 @@
   - name: Security baselines
     items:
     - name: Linux
-      displayname: Security baselines
       href: ./linux/security-baseline.md
+      displayname: Security baselines
     - name: Windows
       displayName: Security baselines
       href: ./windows/security-baseline.md
   - name: Recommendations
     href: security-recommendations.md
-  - name: Trusted launch 
+  - name: Trusted launch
     items:
     - name: Overview
-      DisplayName: Trusted Launch, shielded VM
       href: trusted-launch.md
+      DisplayName: Trusted Launch, shielded VM
     - name: Deploy using the portal
       href: trusted-launch-portal.md
   - name: Just-in-time access
@@ -1448,7 +1444,7 @@
       displayName: Automatic OS image upgrade, image, upgrade, OS
       href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?context=/azure/virtual-machines/context/context
     - name: Maintenance control for OS image upgrade
-      items: 
+      items:
       - name: Overview (Preview)
         displayName: Maintenance control for OS image upgrade, OS, image, upgrade
         href: virtual-machine-scale-sets-maintenance-control.md
@@ -1456,7 +1452,7 @@
         displayName: Maintenance control for OS image upgrade, OS, image, upgrade
         href: virtual-machine-scale-sets-maintenance-control-powershell.md
   - name: Automatic VM guest patching (Preview)
-    items: 
+    items:
     - name: Overview
       displayName: Automatic VM guest patching, guest, OS, patching
       href: automatic-vm-guest-patching.md
@@ -1486,7 +1482,7 @@
       - name: PowerShell
         displayName: Maintenance notifications
         href: maintenance-notifications-powershell.md
-    - name: Maintenance control 
+    - name: Maintenance control
       items:
       - name: Overview
         displayName: Maintenance control
@@ -1503,8 +1499,8 @@
     - name: Scheduled events
       items:
       - name: Linux
-        displayname: Scheduled events
         href: ./linux/scheduled-events.md
+        displayname: Scheduled events
       - name: Windows
         displayName: Scheduled events
         href: ./windows/scheduled-events.md
@@ -1649,17 +1645,17 @@
   - name: Tag a VM
     items:
     - name: CLI
-      displayname: tag, tagging, tag a vm
       href: tag-cli.md
+      displayname: tag, tagging, tag a vm
     - name: Portal
-      displayname: tag, tagging, tag a vm
       href: tag-portal.md
+      displayname: tag, tagging, tag a vm
     - name: PowerShell
-      displayname: tag, tagging, tag a vm
       href: tag-powershell.md
-    - name: Template
       displayname: tag, tagging, tag a vm
+    - name: Template
       href: tag-template.md
+      displayname: tag, tagging, tag a vm
   - name: Monitor metadata
     items:
     - name: CLI
@@ -1682,35 +1678,35 @@
   - name: Back up VMs
     items:
     - name: Overview
-      dispayName: backup VMs, Azure Backup, recovery
       href: ../backup/backup-azure-vms-introduction.md
+      dispayName: backup VMs, Azure Backup, recovery
     - name: Quickstarts
       items:
       - name: CLI
-        dispayName: backup VMs, Azure Backup, recovery
         href: ../backup/quick-backup-vm-cli.md
+        dispayName: backup VMs, Azure Backup, recovery
       - name: PowerShell
-        dispayName: backup VMs, Azure Backup, recovery
         href: ../backup/quick-backup-vm-powershell.md
+        dispayName: backup VMs, Azure Backup, recovery
       - name: Portal
-        dispayName: backup VMs, Azure Backup, recovery
         href: ../backup/quick-backup-vm-portal.md
-      - name: Template
         dispayName: backup VMs, Azure Backup, recovery
+      - name: Template
         href: ../backup/quick-backup-vm-template.md
+        dispayName: backup VMs, Azure Backup, recovery
     - name: Back up multiple VMs
       href: ../backup/tutorial-backup-vm-at-scale.md
     - name: Restore options
       href: ../backup/backup-azure-arm-restore-vms.md
     - name: Support matrix
-      dispayName: backup VMs, Azure Backup, recovery
       href: ../backup/backup-support-matrix-iaas.md
+      dispayName: backup VMs, Azure Backup, recovery
     - name: Pricing
-      dispayName: backup VMs, Azure Backup, recovery
       href: ../backup/azure-backup-pricing.md
-    - name: FAQ
       dispayName: backup VMs, Azure Backup, recovery
+    - name: FAQ
       href: ../backup/backup-azure-vm-backup-faq.yml
+      dispayName: backup VMs, Azure Backup, recovery
   - name: Disaster recovery
     items:
     - name: Overview
@@ -1757,8 +1753,8 @@
       - name: Migrate from Amazon Web Services (AWS) to Azure
         href: ./windows/aws-to-azure.md
       - name: Upload on-prem VM
-        displayname: Migrate from Amazon Web Services (AWS) to Azure
         href: ./linux/upload-vhd.md
+        displayname: Migrate from Amazon Web Services (AWS) to Azure
       - name: Use Azure Site Recovery
         href: ../site-recovery/migrate-overview.md?context=/azure/virtual-machines/context/context
 - name: Infrastructure automation

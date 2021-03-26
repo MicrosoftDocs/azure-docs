@@ -296,7 +296,7 @@ From a resource group deployment, you can switch to the level of a subscription 
                     "resources": [
                         {
                             "type": "Microsoft.Resources/resourceGroups",
-                            "apiVersion": "2020-06-01",
+                            "apiVersion": "2020-10-01",
                             "name": "[parameters('newResourceGroupName')]",
                             "location": "[parameters('location')]",
                             "properties": {}
