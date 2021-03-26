@@ -34,6 +34,9 @@ target cross-platform with .NET Core 3.1 or .NET 5.0.
 
 In this quickstart, you'll learn how to create and deploy your first ASP.NET web app to [Azure App Service](overview.md). App Service supports various versions of .NET apps, and provides a highly scalable, self-patching web hosting service. When you're finished, you'll have an Azure resource group consisting of an App Service hosting plan and an App Service with a deployed web application.
 
+> [!TIP]
+> The current LTS release of .NET is .NET Core 3.1. For more information, see [.NET support policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
+
 ## Prerequisites
 
 ::: zone pivot="development-environment-vs"
@@ -368,7 +371,9 @@ To deploy your web app using the Visual Studio Azure Tools extension:
     - Select **Create a new App Service plan**, provide a name and select the **F1 Free** pricing tier.
     - Select **Skip for now** for the Application Insights resource.
     - Select a location near you.
+
 1. Browse to the deployed application using your web browser.
+
 ::: zone-end
 
 ::: zone pivot="development-environment-cli"
@@ -400,20 +405,22 @@ The .NET Core sample code is running in App Service on Linux with a built-in ima
 
 ## Update the app and redeploy
 
-::: zone pivot="development-environment-vs"
-
 Follow these steps to update and redeploy your web app:
 
-1. In **Solution Explorer**, under your project, open **Pages** > **Index.cshtml**.
+::: zone pivot="development-environment-vs"
+
+1. In **Solution Explorer**, under your project, open **Index.cshtml**.
 1. Replace the entire `<div>` tag with the following code:
 
-   ```html
+   ```razor
    <div class="jumbotron">
        <h1>ASP.NET in Azure!</h1>
        <p class="lead">This is a simple app that we've built that demonstrates how to deploy a .NET app to Azure App Service.</p>
    </div>
    ```
-
+    
+   Save your changes.  
+    
 1. To redeploy to Azure, right-click the **MyFirstAzureWebApp** project in **Solution Explorer** and select **Publish**.
 1. In the **Publish** summary page, select **Publish**.
 
@@ -425,14 +432,38 @@ Follow these steps to update and redeploy your web app:
 
 ::: zone pivot="development-environment-vscode"
 
+1. Open **Index.cshtml**.
+1. Replace the entire `<div>` tag with the following code:
+
+   ```razor
+   <div class="jumbotron">
+       <h1>ASP.NET in Azure!</h1>
+       <p class="lead">This is a simple app that we've built that demonstrates how to deploy a .NET app to Azure App Service.</p>
+   </div>
+   ```
+
+   Save your changes. 
+
+1. Open the Visual Studio Code **Side Bar**, select the **Azure** icon to expand its options.
+1. Select the **Deploy to Web App...** button on the **App Service** panel.
+
+   <!-- TODO: update this with an image-->
+   > Pretend this is a screenshot.
+
+1. Select your recently used **Subscription** and **Web App** when prompted.
+1. Select **Deploy** when prompted.
+
 ::: zone-end
 
 ::: zone pivot="development-environment-cli"
 
-In the local directory, open the _Startup.cs_ file. Make a small change to the text in the method call `context.Response.WriteAsync`:
+In the local directory, open the Index.cshtml_ file. Replace the entire `<div>` tag:
 
-```csharp
-await context.Response.WriteAsync("Hello Azure!");
+```razor
+<div class="jumbotron">
+    <h1>ASP.NET in Azure!</h1>
+    <p class="lead">This is a simple app that we've built that demonstrates how to deploy a .NET app to Azure App Service.</p>
+</div>
 ```
 
 Save your changes, then redeploy the app using the `az webapp up` command again:
