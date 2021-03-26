@@ -129,7 +129,7 @@ Managed instance offers the same performance levels per compute and storage size
 
 One option is to [export a database to BACPAC](../database/database-export.md) and then [import the BACPAC file](../database/database-import.md). This is the recommended approach if your database is smaller than 100 GB.
 
-[Transactional replication](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017&preserve-view=true) can be used if all tables in the database have *primary* keys and there are no In-memory OLTP objects in the database.
+[Transactional replication](replication-two-instances-and-sql-server-configure-tutorial.md&preserve-view=true) can be used if all tables in the database have *primary* keys and there are no In-memory OLTP objects in the database.
 
 Native COPY_ONLY backups taken from managed instance cannot be restored to SQL Server because managed instance has a higher database version compared to SQL Server. For more details, see [Copy-only backup](/sql/relational-databases/backup-restore/copy-only-backups-sql-server?preserve-view=true&view=sql-server-ver15).
 
