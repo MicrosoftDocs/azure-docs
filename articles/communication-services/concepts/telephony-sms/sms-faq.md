@@ -15,7 +15,7 @@ ms.service: azure-communication-services
 # SMS FAQ
 ## Can a customer use Azure Communication Services for emergency purposes?
 
-Azure Communication Services does not support text-to-911 functionality in the United States, but it’s possible you may have an obligation to do so under the rules of the Federal Communications Commission (FCC).  You should assess whether the FCC’s text-to-911 rules apply to your service or application. To the extent you are covered by these rules, you will be responsible for routing 911 text messages to emergency call centers that request them.  You are free to determine your own text-to-911 delivery model, but one approach accepted by the FCC involves automatically launching the native dialer on the user’s mobile device to deliver 911 texts through the underlying mobile carrier.
+Azure Communication Services does not support text-to-911 functionality in the United States, but it’s possible that you may have an obligation to do so under the rules of the Federal Communications Commission (FCC).  You should assess whether the FCC’s text-to-911 rules apply to your service or application. To the extent you're covered by these rules, you'll be responsible for routing 911 text messages to emergency call centers that request them. You're free to determine your own text-to-911 delivery model, but one approach accepted by the FCC involves automatically launching the native dialer on the user’s mobile device to deliver 911 texts through the underlying mobile carrier.
 
 ## Are there any limits on sending messages?
 
@@ -51,7 +51,6 @@ In US, ACS does not check for landline numbers and will attempt to send it to ca
 
 
 Yes, you can make one request with multiple recipients. Follow this [quickstart](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/telephony-sms/send?pivots=programming-language-csharp) to send messages to multiple recipients.
-
 
 
 
