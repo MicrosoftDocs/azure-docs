@@ -19,13 +19,13 @@ A client application can access the Azure API for FHIR through a [REST API](http
 
 - A FHIR endpoint in Azure. 
 
-To deploy the Azure API for FHIR (a managed service), you can use the [Azure portal](fhir-paas-portal-quickstart.md), [PowerShell](fhir-paas-powershell-quickstart.md), or [Azure CLI](fhir-paas-cli-quickstart.md).
+  To deploy the Azure API for FHIR (a managed service), you can use the [Azure portal](fhir-paas-portal-quickstart.md), [PowerShell](fhir-paas-powershell-quickstart.md), or [Azure CLI](fhir-paas-cli-quickstart.md).
 
 - A registered [confidential client application](register-confidential-azure-ad-client-app.md) to access the FHIR service.
 - You have granted permissions to the confidential client application, for example, "FHIR Data Contributor", to access the FHIR service. For more information, see [Configure Azure RBAC for FHIR](./configure-azure-rbac.md).
 - Postman installed. 
     
-For more information about Postman, see [Get Started with Postman](https://www.getpostman.com).
+  For more information about Postman, see [Get Started with Postman](https://www.getpostman.com).
 
 ## FHIR server and authentication details
 
@@ -93,7 +93,7 @@ Refer to the **Access Token** field to view the newly populated token. If you se
 
 ![200 OK](media/tutorial-postman/postman-200-OK.png)
 
-In the *Patient search* example, there are no patients in the database; such as, the search result is empty.
+In the *Patient search* example, there are no patients in the database such that the search result is empty.
 
 You can inspect the access token using a tool like [jwt.ms](https://jwt.ms). An example of the content is shown below.
 
@@ -131,7 +131,7 @@ Select **Send** to determine that the patient is successfully created.
 
 ![Screenshot that shows that the patient is successfully created.](media/tutorial-postman/postman-patient-created.png)
 
-If you repeat the patient search, you should now see the patient record:
+If you repeat the patient search, you should now see the patient record.
 
 ![Patient Created](media/tutorial-postman/postman-patient-found.png)
 
