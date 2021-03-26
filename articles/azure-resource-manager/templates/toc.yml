@@ -8,13 +8,13 @@
     href: bicep-overview.md
 - name: Quickstarts
   items:
-  - name: Create templates - portal
-    href: quickstart-create-templates-use-the-portal.md
-  - name: Create templates - VS Code
+  - name: Create JSON templates - VS Code
     href: quickstart-create-templates-use-visual-studio-code.md
-  - name: Create Bicep - VS Code
+  - name: Create Bicep templates - VS Code
     href: quickstart-create-bicep-use-visual-studio-code.md
-  - name: Create & deploy template specs
+  - name: Create JSON templates - portal
+    href: quickstart-create-templates-use-the-portal.md
+  - name: Create template specs
     href: quickstart-create-template-specs.md
 - name: Tutorials
   items:
