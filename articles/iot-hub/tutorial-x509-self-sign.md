@@ -94,8 +94,6 @@ Navigate to your IoT Hub in the Azure portal and create a new IoT device identit
 * Select the **X.509 Self-Signed** authentication type.
 * Paste the hex string thumbprints that you copied from your device primary and secondary certificates. Make sure that the hex strings have no colon delimiters.
 
-illustration
-
 ## Next Steps
 
 Go to [Testing Certificate Authentication](tutorial-x509-test-certificate.md) to determine if your certificate can authenticate your device to your IoT Hub.
