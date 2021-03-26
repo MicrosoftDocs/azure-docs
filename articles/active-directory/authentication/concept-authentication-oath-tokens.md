@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 03/26/2021
 
 ms.author: justinha
 author: justinha
@@ -44,13 +44,13 @@ Once tokens are acquired they must be uploaded in a comma-separated values (CSV)
 
 ```csv
 upn,serial number,secret key,time interval,manufacturer,model
-Helga@contoso.com,1234567,2234567abcdef1234567abcdef,60,Contoso,HardwareKey
+Helga@contoso.com,1234567,2234567abcdef2234567abcdef,60,Contoso,HardwareKey
 ```  
 
 > [!NOTE]
 > Make sure you include the header row in your CSV file. If a UPN has a single quote, escape it with another single quote. For example, if the UPN is my’user@domain.com, change it to my’’user@domain.com when uploading the file.
 
-Once properly formatted as a CSV file, an administrator can then sign in to the Azure portal, navigate to **Azure Active Directory > Security > MFA > OATH tokens**, and upload the resulting CSV file.
+Once properly formatted as a CSV file, a Global Administrator can then sign in to the Azure portal, navigate to **Azure Active Directory > Security > MFA > OATH tokens**, and upload the resulting CSV file.
 
 Depending on the size of the CSV file, it may take a few minutes to process. Select the **Refresh** button to get the current status. If there are any errors in the file, you can download a CSV file that lists any errors for you to resolve. The field names in the downloaded CSV file are different than the uploaded version.  
 

@@ -2,10 +2,10 @@
 title: Setup Bicep development and deployment environments
 description: How to configure Bicep development and deployment environments
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 03/25/2021
 ---
 
-# Setup Bicep development and deployment environment
+# Install Bicep (Preview)
 
 Learn how to setup Bicep development and deployment environments.
 
@@ -26,7 +26,7 @@ You can deploy Bicep files by using Azure CLI or Azure PowerShell. For Azure CLI
 - [Install Azure CLI on macOS](/cli/azure/install-azure-cli-macos)
 
 > [!NOTE]
-> Currently, both Azure CLI and Azure PowerShell can only deploy local Bicep files. For more information about deploying Bicep files by using Azure CLI, see [Deploy - CLI](/deploy-cli.md#deploy-remote-template). For more information about deploying Bicep files by using Azure PowerShell, see [Deploy - PowerShell](/deploy-powershell.md#deploy-remote-template).
+> Currently, both Azure CLI and Azure PowerShell can only deploy local Bicep files. For more information about deploying Bicep files by using Azure CLI, see [Deploy - CLI](./deploy-cli.md#deploy-remote-template). For more information about deploying Bicep files by using Azure PowerShell, see [Deploy - PowerShell]( ./deploy-powershell.md#deploy-remote-template).
 
 After the supported version of Azure PowerShell or Azure CLI is installed, you can deploy a Bicep file with:
 

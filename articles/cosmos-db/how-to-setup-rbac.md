@@ -318,9 +318,9 @@ To use the Azure Cosmos DB RBAC in your application, you have to update the way 
 
 The way you create a `TokenCredential` instance is beyond the scope of this article. There are many ways to create such an instance depending on the type of AAD identity you want to use (user principal, service principal, group etc.). Most importantly, your `TokenCredential` instance must resolve to the identity (principal ID) that you've assigned your roles to. You can find examples of creating a `TokenCredential` class:
 
-- [in .NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme#credential-classes)
-- [in Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme#credential-classes)
-- [in JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme#credential-classes)
+- [in .NET](/dotnet/api/overview/azure/identity-readme#credential-classes)
+- [in Java](/java/api/overview/azure/identity-readme#credential-classes)
+- [in JavaScript](/javascript/api/overview/azure/identity-readme#credential-classes)
 
 The examples below use a service principal with a `ClientSecretCredential` instance.
 
