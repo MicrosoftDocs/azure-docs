@@ -38,6 +38,7 @@ Within an Azure Database for PostgreSQL server, you can create one or multiple d
 The following elements help ensure safe access to your database:
 
 | Security concept | Description |
+| :-- | :-- |
 | **Authentication and authorization** | Azure Database for PostgreSQL server supports native PostgreSQL authentication. You can connect and authenticate to server with the server's admin login. |
 | **Protocol** | The service supports a message-based protocol used by PostgreSQL. |
 | **TCP/IP** | The protocol is supported over TCP/IP, and over Unix-domain sockets. |
