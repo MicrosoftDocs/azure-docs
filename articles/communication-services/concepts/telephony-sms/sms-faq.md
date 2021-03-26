@@ -19,7 +19,7 @@ Azure Communication Services does not support text-to-911 functionality in the U
 
 ## Are there any limits on sending messages?
 
-To ensure that we continue offering the high quality of service consistent with our SLAs, ACS applies rate limits (different for each primitive). Developers who call our APIs beyond the limit will receive a 429 HTTP Status Code Response. If your company has requirements that exceed the rate-limits, please email us at phone@microsoft.com
+To ensure that we continue offering the high quality of service consistent with our SLAs, Azure Communication Services applies rate limits (different for each primitive). Developers who call our APIs beyond the limit will receive a 429 HTTP Status Code Response. If your company has requirements that exceed the rate-limits, please email us at phone@microsoft.com.
 
 Rate Limits for SMS:
 
@@ -51,7 +51,6 @@ In US, ACS does not check for landline numbers and will attempt to send it to ca
 
 
 Yes, you can make one request with multiple recipients. Follow this [quickstart](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/telephony-sms/send?pivots=programming-language-csharp) to send messages to multiple recipients.
-
 
 
 
