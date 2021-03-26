@@ -822,6 +822,8 @@
     href: /python/api/overview/azure/datafactory
   - name: Azure Policy built-ins
     href: policy-reference.md
+  - name: Azure CLI
+    href: /cli/azure/ext/datafactory/datafactory
 - name: Resources
   items:
   - name: Whitepapers

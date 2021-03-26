@@ -48,7 +48,7 @@ This quickstart uses an Azure Storage account, which includes a container with a
        --account-name adfquickstartstorage --auth-mode key
    ```
 
-1. In the local directory, create a file named `emp.txt` to upload. If you're working in Azure Cloud Shell, the local directory is the current Bash directory where you enter other commands. You can use standard Bash commands, like `CAT`, to create a file:
+1. In the local directory, create a file named `emp.txt` to upload. If you're working in Azure Cloud Shell, you can find the current working directory by using the `echo $PWD` Bash command. You can use standard Bash commands, like `cat`, to create a file:
 
    ```console
    cat > emp.txt
@@ -64,7 +64,7 @@ This quickstart uses an Azure Storage account, which includes a container with a
        --container-name adftutorial --file emp.txt --auth-mode key
    ```
 
-   This command uploads to a new folder named `input`. The rest of the quickstart uses that name for the folder.
+   This command uploads to a new folder named `input`.
 
 ## Create a data factory
 
@@ -96,7 +96,7 @@ Next, create a linked service and two datasets.
        --name adfquickstartstorage --key primary
    ```
 
-1. In your working directory, create a JSON file with this content, named `AzureStorageLinkedService.json`:
+1. In your working directory, create a JSON file with this content, which includes your own connection string from the previous step. Name the file `AzureStorageLinkedService.json`:
 
    ```json
    {
@@ -104,7 +104,7 @@ Next, create a linked service and two datasets.
            "typeProperties":{
            "connectionString":{
            "type": "SecureString",
-           "value":<the connection string, including quotation marks>
+           "value":"DefaultEndpointsProtocol=https;AccountName=adfquickstartstorage;AccountKey=K9F4Xk/EhYrMBIR98rtgJ0HRSIDU4eWQILLh2iXo05Xnr145+syIKNczQfORkQ3QIOZAd/eSDsvED19dAwW/tw==;EndpointSuffix=core.windows.net"
            }
        }
    }
