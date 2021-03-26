@@ -509,6 +509,8 @@ Remove-AzSqlVMGroup -ResourceGroupName "<resource group name>" -Name "<cluster n
 
 ## Next steps
 
+Once the availability group is deployed, consider optimizing the [cluster settings for availability groups](availability-group-recommended-cluster-settings.md). 
+
 For more information, see the following articles: 
 
 * [Overview of SQL Server VMs](sql-server-on-azure-vm-iaas-what-is-overview.md)

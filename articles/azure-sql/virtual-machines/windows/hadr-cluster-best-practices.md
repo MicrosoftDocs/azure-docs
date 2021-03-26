@@ -19,18 +19,22 @@ ms.author: mathoma
 # Cluster configuration best practices (SQL Server on Azure VMs)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-A cluster is used for high availability and disaster recovery (HADR) with SQL Server on Azure Virtual Machines (VMs). 
+A [Windows Server Failover Cluster](hadr-windows-server-failover-cluster-overview.md) is used for high availability and disaster recovery (HADR) with SQL Server on Azure Virtual Machines (VMs). 
 
 This article provides cluster configuration best practices for both [failover cluster instances (FCIs)](failover-cluster-instance-overview.md) and [availability groups](availability-group-overview.md) when you use them with SQL Server on Azure VMs. 
 
+## Overview
 
-## Networking
 
-Use a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy, which makes additional NICs and subnets unnecessary on an Azure virtual machine guest cluster. The cluster validation report will warn you that the nodes are reachable only on a single network. You can ignore this warning on Azure virtual machine guest failover clusters.
+## VM availability settings
 
-### Tuning Failover Cluster Network Thresholds
+To reduce the impact of downtime, we recommend the following high availability best practices for your virtual machines that are part SQL HA:
+•	Use proximity placement groups together with accelerated networking for lowest latency
+•	Use availability zones to protect from datacenter level failures
+•	Configure multiple virtual machines in an availability set for redundancy
+•	Use premium managed OS and data disks for VMs in an availability set
+•	Configure each application tier into separate availability sets
 
-When running Windows Failover Cluster nodes in Azure Vms with SQL Server AlwaysOn, changing the cluster setting to a more relaxed monitoring state is recommended.  This will make the cluster much more stable and reliable.  For details on this, see [IaaS with SQL AlwaysOn - Tuning Failover Cluster Network Thresholds](/windows-server/troubleshoot/iaas-sql-failover-cluster).
 
 ## Quorum
 
@@ -46,6 +50,17 @@ The following table lists the quorum options available in the order recommended 
 ||[Disk witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[Cloud witness](/windows-server/failover-clustering/deploy-cloud-witness)  |[File share witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
 |---------|---------|---------|---------|
 |**Supported OS**| All |Windows Server 2016+| All|
+
+### Recommended Adjustments to Quorum Voting
+
+When enabling or disabling a given WSFC node's vote, follow these guidelines:
+•	No vote by default. Assume that each node should not vote without explicit justification.
+•	Include all primary replicas. Each WSFC node that hosts an availability group primary replica or is the preferred owner of an FCI should have a vote.
+•	Include possible automatic failover owners. Each node that could host a primary replica, as the result of an automatic availability group failover or FCI failover, should have a vote. If there is only one availability group in the WSFC cluster and availability replicas are hosted only by standalone instances, this rule includes only the secondary replica that is the automatic failover target.
+•	Exclude secondary site nodes. In general, do not give votes to WSFC nodes that reside at a secondary disaster recovery site. You do not want nodes in the secondary site to contribute to a decision to take the cluster offline when there is nothing wrong with the primary site.
+•	Number of votes. If necessary, add a cloud witness, file share witness, a witness node, or a witness disk to the cluster and adjust the quorum mode to prevent possible ties in the quorum vote. It is recommended to have three or more quorum votes. 
+•	Re-assess vote assignments post-failover. You do not want to fail over into a cluster configuration that does not support a healthy quorum.
+
 
 
 ### Disk witness
@@ -79,54 +94,89 @@ To get started, see [Configure a file share witness](/windows-server/failover-cl
 
 **Supported OS**: Windows Server 2012 and later   
 
+## Networking
+
+Use a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy, which makes additional NICs and subnets unnecessary on an Azure virtual machine guest cluster. The cluster validation report will warn you that the nodes are reachable only on a single network. You can ignore this warning on Azure virtual machine guest failover clusters.
+
+## Heartbeat and threshold settings
+
+Tuning of Widows Cluster on Azure Virtual Machine 
+
+The default settings of Windows Failover Cluster are designed for highly tuned on premises networks and do not take into account the possibility of induced latency on a cloud environment such as Azure VM. The heartbeat network is maintained with UDP 3343, which is traditionally far less reliable than TCP and more prone to incomplete conversations. 
+Therefore, when running Windows Failover Cluster nodes on Azure VM for SQL Server Always On AG or FCI, changing the cluster setting to a more relaxed monitoring state is recommended to avoid any transient failures due to increased possibility of network latency/failures, possibility of Azure maintenance or possibility of needing higher computing resources by your application load than one selected, as discussed above.
+It is important to understand that both the delay and threshold have a cumulative effect on the total health detection.  For example, setting CrossSubnetDelay to send a heartbeat every 2 seconds and setting the CrossSubnetThreshold to 10 heartbeats missed before taking recovery, means that the cluster can have a total network tolerance of 20 seconds before recovery action is taken.  In general, continuing to send frequent heartbeats but having greater thresholds is the preferred method.
+To ensure legitimate outages we recommended that you relax the delay and thresholds as per below, when running SQL Server HA with Windows Cluster on Azure VM
+Parameter	Recommended values for SQL Always on HA on Azure VM
+	Windows Sever 2012 or later 	Windows Server 2008/R2   
+SameSubnetDelay	1 second	2 second
+SameSubnetThreshold	40 heartbeats  	10 heartbeats
+CrossSubnetDelay	1 second	2 second
+CrossSubnetThreshold	40 heartbeats	20 heartbeats
+
+Note 1
+Maximum values for Windows Server 2008 R2 are as follows:
+SameSubnetThreshold = 10
+CrossSubnetThreshold 20
+
+Note 2
+Same subnet values should not be greater than cross subnet values. 
+SameSubnetThreshold <= CrossSubnetThreshold
+SameSubnetDelay <= CrossSubnetDelay
+
+Please note that relaxed vales that you choose, should be based on how much down time is tolerable and how long will it take to corrective actions, depending on your application, your business needs and the environment.  We recommend that you adjust the thresholds to at least match Windows Server 2019 heartbeat default settings, in case if you cannot exceed it.  
+
+
+For details on this, see [IaaS with SQL AlwaysOn - Tuning Failover Cluster Network Thresholds](/windows-server/troubleshoot/iaas-sql-failover-cluster).
+
+## relaxed monitoring
+
+Relaxed monitoring of SQL AlwaysOn AG/FCI 
+If above actions do not result in improved performance such in the scenario where you are unable to move to a VM or disks with higher limit due to financial or other constraints, you can opt for relaxed monitoring of the SQL Always On AG/FCI. Please note that this will mask the underlying problem only and these are only temporary solution and reduces (not eliminates) the likelihood of a failure. You might need to do trial and error to find the optimum values for your environment.
+
+Here are Always on AG/FCI parameters that can modified to achieve relaxed monitoring:  
+•	Lease timeout 
+o	Prevents split-brain 
+o	Default: 20000
+•	HealthCheck timeout 
+o	determines health of the Primary replica 
+o	Default: 30000
+•	Failure-Condition Level 
+o	conditions that trigger an automatic failover
+
+Additionally, if you are concerned about primary and secondary replica connectivity timeout, you can review following parameter:
+•	Session timeout
+o	Check communication issue between Primary and Secondary
+o	Default 10 seconds
+
+Constraints to follow  
+Few things to consider before making any changes.
+•	It is not advised to lower any timeout values below their default values
+•	SameSubnetThreshold <= CrossSubnetThreshold
+•	SameSubnetDelay <= CrossSubnetDelay
+•	The lease interval (½ * LeaseTimeout) must be shorter than SameSubnetThreshold * SameSubnetDelay
+
+
+
+## Resource limits
+
+When resource bottlenecks are observed for the VM or the disks, you can take all or some of the following steps:
+•	Ensure your OS, drivers and SQL server are at the latest builds.
+•	Optimize SQL Server on Azure VM environment as described  in the Performance guidelines for SQL Server on Azure Virtual Machines
+•	Reduce or spread-out workload so that you don’t reach the resource limits 
+•	Optimize SQL Server, if there is any opportunity, such as
+o	Add/optimize indexes
+o	Update statistics if needed and if possible, with Full scan  
+o	Use features like resource governor to limit certain loads such as backup. Please note this Resource governor option is available in SQL Server 2014 or later enterprise edition only. 
+•	Move to VM or Disk that has higher limits and meets or exceeds your workload.   
+
+Relaxed monitoring of SQL AlwaysOn AG/FCI 
+If above actions do not result in improved performance such in the scenario where you are unable to move to a VM or disks with higher limit due to financial or other constraints, you can opt for relaxed monitoring of the SQL Always On AG/FCI. Please note that this will mask the underlying problem only and these are only temporary solution and reduces (not eliminates) the likelihood of a failure. You might need to do trial and error to find the optimum values for your environment.
+
 ## Connectivity
 
-In a traditional on-premises network environment, a SQL Server failover cluster instance appears to be a single instance of SQL Server running on a single computer. Because the failover cluster instance fails over from node to node, the virtual network name (VNN) for the instance provides a unified connection point and allows applications to connect to the SQL Server instance without knowing which node is currently active. When a failover occurs, the virtual network name is registered to the new active node after it starts. This process is transparent to the client or application that's connecting to SQL Server, and this minimizes the downtime that the client or application experiences during a failure. Likewise, the availability group listener uses a VNN to route traffic to the appropriate replica. 
+It's possible to configure a virtual network name, or a distributed network name for both failover cluster instances and availability groups. [Review the differences between the two](hadr-compare-virtual-distributed-network-name.md).
 
-Use a VNN with Azure Load Balancer or a distributed network name (DNN) to route traffic to the VNN of the failover cluster instance with SQL Server on Azure VMs or to replace the existing VNN listener in an availability group. 
-
-
-The following table compares HADR connection supportability: 
-
-| |**Virtual Network Name (VNN)**  |**Distributed Network Name (DNN)**  |
-|---------|---------|---------|
-|**Minimum OS version**| All | Windows Server 2016 |
-|**Minimum SQL Server version** |All |SQL Server 2019 CU2 (for FCI)<br/> SQL Server 2019 CU8 (for AG )|
-|**Supported HADR solution** | Failover cluster instance <br/> Availability group | Failover cluster instance <br/> Availability group|
-
-
-### Virtual Network Name (VNN)
-
-Because the virtual IP access point works differently in Azure, you need to configure [Azure Load Balancer](../../../load-balancer/index.yml) to route traffic to the IP address of the FCI nodes or the availability group listener. In Azure virtual machines, a load balancer holds the IP address for the VNN that the clustered SQL Server resources rely on. The load balancer distributes inbound flows that arrive at the front end, and then routes that traffic to the instances defined by the back-end pool. You configure traffic flow by using load-balancing rules and health probes. With SQL Server FCI, the back-end pool instances are the Azure virtual machines running SQL Server. 
-
-There is a slight failover delay when you're using the load balancer, because the health probe conducts alive checks every 10 seconds by default. 
-
-To get started, learn how to configure Azure Load Balancer for [failover cluster instance](failover-cluster-instance-vnn-azure-load-balancer-configure.md) or an [availability group](availability-group-vnn-azure-load-balancer-configure.md)
-
-**Supported OS**: All   
-**Supported SQL version**: All   
-**Supported HADR solution**: Failover cluster instance, and availability group   
-
-
-### Distributed Network Name (DNN)
-
-Distributed network name is a new Azure feature for SQL Server 2019. The DNN provides an alternative way for SQL Server clients to connect to the SQL Server failover cluster instance or availability group without using a load balancer. 
-
-When a DNN resource is created, the cluster binds the DNS name with the IP addresses of all the nodes in the cluster. The SQL client will try to connect to each IP address in this list to find which resource to connect to.  You can accelerate this process by specifying `MultiSubnetFailover=True` in the connection string. This setting tells the provider to try all IP addresses in parallel, so the client can connect to the FCI or listener instantly. 
-
-A distributed network name is recommended over a load balancer when possible because: 
-- The end-to-end solution is more robust since you no longer have to maintain the load balancer resource. 
-- Eliminating the load balancer probes minimizes failover duration. 
-- The DNN simplifies provisioning and management of the failover cluster instance or availability group listener with SQL Server on Azure VMs. 
-
-Most SQL Server features work transparently with FCI and availability groups when using the DNN, but there are certain features that may require special consideration. See [FCI and DNN interoperability](failover-cluster-instance-dnn-interoperability.md) and [AG and DNN interoperability](availability-group-dnn-interoperability.md) to learn more. 
-
-To get started, learn to configure a distributed network name resource for [a failover cluster instance](failover-cluster-instance-distributed-network-name-dnn-configure.md) or an [availability group](availability-group-distributed-network-name-dnn-listener-configure.md)
-
-**Supported OS**: Windows Server 2016 and later   
-**Supported SQL version**: SQL Server 2019 CU2 (FCI) and SQL Server 2019 CU8 (AG)   
-**Supported HADR solution**: Failover cluster instance, and availability group   
-
+The distributed network name is the recommended connectivity option, when available. 
 
 ## Limitations
 
@@ -140,6 +190,7 @@ On Azure Virtual Machines, MSDTC isn't supported for Windows Server 2016 or earl
 
 - The clustered MSDTC resource can't be configured to use shared storage. On Windows Server 2016, if you create an MSDTC resource, it won't show any shared storage available for use, even if storage is available. This issue has been fixed in Windows Server 2019.
 - The basic load balancer doesn't handle RPC ports.
+
 
 
 ## Next steps

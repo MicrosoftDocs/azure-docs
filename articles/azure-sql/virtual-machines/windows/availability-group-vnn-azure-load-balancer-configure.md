@@ -173,6 +173,8 @@ To test connectivity, sign in to another virtual machine in the same virtual net
 
 ## Next steps
 
+Once the VNN is created, consider optimizing the [cluster settings for availability groups](availability-group-recommended-cluster-settings.md). 
+
 To learn more about SQL Server HADR features in Azure, see [Availability groups](availability-group-overview.md) and [Failover cluster instance](failover-cluster-instance-overview.md). You can also learn [best practices](hadr-cluster-best-practices.md) for configuring your environment for high availability and disaster recovery. 
 
 

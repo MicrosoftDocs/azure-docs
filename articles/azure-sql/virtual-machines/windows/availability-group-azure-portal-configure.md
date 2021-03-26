@@ -265,6 +265,8 @@ This is an indication that the resource provider could not access the SQL Server
 
 ## Next steps
 
+Once the availability group is deployed, consider optimizing the [cluster settings for availability groups](availability-group-recommended-cluster-settings.md). 
+
 
 For more information about availability groups, see:
 
