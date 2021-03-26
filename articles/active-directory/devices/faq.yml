@@ -210,7 +210,7 @@ sections:
           
           
           
-      - question: Why do I get a *username or password is incorrect* message for a device I just joined to Azure AD?
+      - question: Why do I get a 'username or password is incorrect' message for a device I just joined to Azure AD?
         answer: |
           Common reasons for this scenario are as follows:
           
