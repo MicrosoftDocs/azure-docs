@@ -107,7 +107,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Authenticate the client
 
-Instantiate an `SmsClient` with your connection string. (Credential is the `Key` from the Azure portal. Learn how to [manage you resource's connection string](../../create-communication-resource.md#store-your-connection-string).
+Instantiate an `SmsClient` with your connection string. (Credential is the `Key` from the Azure portal. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string).
 
 Add the following code to the `main` method:
 
@@ -177,7 +177,7 @@ for (SmsSendResult result : sendResults) {
 }
 ```
 
-You should replace `<from-phone-number>` with an SMS enabled phone number associated with your Communication Services resource and `<to-phone-number>` with the phone number or a list of phone numbers you wish to send a message to.
+You should replace `<from-phone-number>` with an E.164 formatted SMS enabled phone number associated with your Communication Services resource and `<to-phone-number>` with the E.164 formatted phone number or a list of E.164 formatted phone numbers you wish to send a message to.
 
 ## Optional Parameters
 

@@ -83,7 +83,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Authenticate the client
 
- Open **Program.cs** in a text editor and replace the body of the `Main` method with code to initialize an `SmsClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage you resource's connection string](../../create-communication-resource.md#store-your-connection-string).
+ Open **Program.cs** in a text editor and replace the body of the `Main` method with code to initialize an `SmsClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string).
 
 
 ```csharp
@@ -100,14 +100,14 @@ To send an SMS message to a single recipient, call the `Send` or `SendAsync` fun
 
 ```csharp
 SmsSendResult sendResult = smsClient.Send(
-    from: "<from-phone-number>", // Your E.164 formatted from phone number used to send SMS
-    to: "<to-phone-number>", // E.164 formatted recipient phone number
+    from: "<from-phone-number>",
+    to: "<to-phone-number>",
     message: "Hello World via SMS"
 );
 
 Console.WriteLine($"Sms id: {sendResult.MessageId}");
 ```
-You should replace `<from-phone-number>` with an SMS-enabled phone number associated with your Communication Services resource and `<to-phone-number>` with the phone number you wish to send a message to.
+You should replace `<from-phone-number>` with an E.164 formatted SMS-enabled phone number associated with your Communication Services resource and `<to-phone-number>` with the E.164 formatted phone number you wish to send a message to.
 
 ## Send a 1:N SMS message with options
 To send an SMS message to a list of recipients, call the `Send` or `SendAsync` function from the SmsClient with a list of recipient's phone numbers. You may also pass in optional parameters to specify whether the delivery report should be enabled and to set custom tags.

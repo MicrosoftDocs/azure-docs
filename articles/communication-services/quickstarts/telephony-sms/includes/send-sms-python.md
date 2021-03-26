@@ -75,7 +75,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Authenticate the client
 
-Instantiate an **SmsClient** with your connection string. Learn how to [manage you resource's connection string](../../create-communication-resource.md#store-your-connection-string).
+Instantiate an **SmsClient** with your connection string. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string).
 
 ```python
 # Create the SmsClient object which will be used to send SMS messages
@@ -100,7 +100,7 @@ sms_responses = sms_client.send(
 
 ```
 
-You should replace `<from-phone-number>` with an SMS enabled phone number associated with your communication service and `<to-phone-number>` with the phone number you wish to send a message to. 
+You should replace `<from-phone-number>` with an E.164 formatted SMS enabled phone number associated with your communication service and `<to-phone-number>` with the E.164 formatted phone number you wish to send a message to. 
 
 > [!WARNING]
 > Note that phone numbers should be provided in E.164 international standard format. (e.g.: +12223334444).
@@ -121,7 +121,7 @@ sms_responses = sms_client.send(
 
 ```
 
-You should replace `<from-phone-number>` with an SMS enabled phone number associated with your communication service and `<to-phone-number-1>` and `<to-phone-number-2>` with the phone numbers you wish to send a message to. 
+You should replace `<from-phone-number>` with an E.164 formatted SMS enabled phone number associated with your communication service and `<to-phone-number-1>` and `<to-phone-number-2>` with the E.164 formatted phone numbers you wish to send a message to. 
 
 ## Optional Parameters
 
