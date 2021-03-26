@@ -7,13 +7,23 @@ ms.custom: devx-track-python
 ---
 # Profile Python apps memory usage in Azure Functions
 
-During your development or after deploying your local function app project into Azure Functions, it is a good practice to analyize the memory bottleneck in your Python functions. The following sections demonstrate how to properly doing memory profiling in Python function apps.
+During your development or after deploying your local function app project into Azure Functions, it is a good practice to analyize the memory bottleneck in your Python functions. Follow the instruction below to utilize the [memory-profiler](https://pypi.org/project/memory-profiler) Python package which provides line-by-line memory consumption analysis.
 
-## Tools and Services
+## Prerequisites
 
-Please ensure you have install [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools) if you want to do memory profiling on your local development environment. To enable memory profiling on your Azure Functions instances, you need to enable Application Insights for these function apps.
+Before you start developing a Python function app, you must meet these requirements:
 
-In the following tutorial, we will use the well known Python memory profiling package [memory-profiler](https://pypi.org/project/memory-profiler) which monitors Python process memory consumption line-by-line.
+* [Python 3.6.x or above](https://www.python.org/downloads/release/python-374/). (Python 3.7.x, 3.8.x, and 3.9.x are also verified with Azure Functions).
+
+* The [Azure Functions Core Tools](functions-run-local.md#v2) version 3.x.
+
+* [Visual Studio Code](https://code.visualstudio.com/) installed on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
+
+* An active Azure subscription.
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+In the following tutorial, we will
 
 ## Memory Profiling Tutorial
 
@@ -37,49 +47,43 @@ profiler_logstream = memory_profiler.LogFile('memory_profiler_logs', True)
 
 4. Test the memory profiler on your local machine by using azure Functions Core Tools command `func host start`. This should generate a memory usage report with file name, line of code, memory usage, memory increment, and the line content in it.
 
-5. To check the memory profiling logs on an existing function app instance in Azure, you can query the memory profiling logs in recent invocations by pasting the following Kusto queries  in Application Insights -> Logs blade.
+5. To check the memory profiling logs on an existing function app instance in Azure, you can query the memory profiling logs in recent invocations by pasting the following Kusto queries in Application Insights, Logs.
+
+:::image type="content" source="media/python-memory-profiler-reference/application-insights-query.png" alt-text="Query memory usage of a Python app in Application Insights":::
 
 ```kusto
 traces
 | where timestamp > ago(1d)
-| where message startswith_cs 'memory_profiler_logs:'
+| where message startswith_cs "memory_profiler_logs:"
 | parse message with "memory_profiler_logs: " LineNumber "  " TotalMem_MiB "  " IncreMem_MiB "  " Occurences "  " Contents
+| union (
+    traces
+    | where timestamp > ago(1d)
+    | where message startswith_cs "memory_profiler_logs: Filename: "
+    | parse message with "memory_profiler_logs: Filename: " FileName
+    | project timestamp, FileName, itemId
+)
+| project timestamp, LineNumber=iff(FileName != "", FileName, LineNumber), TotalMem_MiB, IncreMem_MiB, Occurences, Contents, RequestId=itemId
 | order by timestamp asc
-| project timestamp, LineNumber, TotalMem_MiB, IncreMem_MiB, Occurences, Contents, RequestId=itemId
 ```
 
-## Examples
+## Example
 
 Here is an example of performing memory profiling on an asynchronous and a synchronous HTTP triggers, named "HttpTriggerAsync" and "HttpTriggerSync" respectively. We will build a Python function app that simply sends out GET requests to the Microsoft's home page.
 
-### Folder Structure
+### Create a Python function app
 
-To scaffold the project, we recommend using the Azure Functions Core Tools by running the following commands:
+A Python function app should follow Azure Functions specified [folder structure](functions-reference-python.md#folder-structure). To scaffold the project, we recommend using the Azure Functions Core Tools by running the following commands:
 
 ```powershell
 mkdir PythonMemoryProfilingDemo
 cd PythonMemoryProfilingDemo
 func init --python
-func new -l python -t HttpTrigger -n HttpTriggerAsync
-func new -l python -t HttpTrigger -n HttpTriggerSync
+func new -l python -t HttpTrigger -n HttpTriggerAsync -a anonymous
+func new -l python -t HttpTrigger -n HttpTriggerSync -a anonymous
 ```
 
-The template project should have the following folder structure:
-
-```text
- <project_root>/
- | - HttpTriggerAsync/
- | | - functions.json
- | | - __init__.py
- | - HttpTriggerSync/
- | | - functions.json
- | | - __init__.py
- | - requirements.txt
- | - host.json
- | - local.settings.json
-```
-
-### File Contents
+### Update file contents
 
 The requirements.txt defines the packages that will be used in our project. Besides the Azure Functions SDK and memory-profiler, we introduce `aiohttp` for asynchronous HTTP requests and `requests` for synchronous HTTP calls.
 
@@ -102,11 +106,11 @@ import aiohttp
 import logging
 import memory_profiler
 
-
+# Update root logger's format to include the logger name. Ensure logs generated
+# from memory profiler can be filtered by "memory_profiler_logs" prefix.
 root_logger = logging.getLogger()
 root_logger.handlers[0].setFormatter(logging.Formatter("%(name)s: %(message)s"))
 profiler_logstream = memory_profiler.LogFile('memory_profiler_logs', True)
-
 
 async def main(req: func.HttpRequest) -> func.HttpResponse:
     await get_microsoft_page_async('https://microsoft.com')
@@ -115,7 +119,6 @@ async def main(req: func.HttpRequest) -> func.HttpResponse:
         status_code=200
     )
 
-
 @memory_profiler.profile(stream=profiler_logstream)
 async def get_microsoft_page_async(url: str):
     async with aiohttp.ClientSession() as client:
@@ -123,6 +126,7 @@ async def get_microsoft_page_async(url: str):
             await response.text()
     # @memory_profiler.profile does not support return for coroutines.
     # All returns become None in the parent functions.
+    # GitHub Issue: https://github.com/pythonprofilers/memory_profiler/issues/289
 ```
 
 For synchronous HTTP trigger, please refer to the following `HttpTriggerSync/__init__.py` code section:
@@ -135,11 +139,11 @@ import requests
 import logging
 import memory_profiler
 
-
+# Update root logger's format to include the logger name. Ensure logs generated
+# from memory profiler can be filtered by "memory_profiler_logs" prefix.
 root_logger = logging.getLogger()
 root_logger.handlers[0].setFormatter(logging.Formatter("%(name)s: %(message)s"))
 profiler_logstream = memory_profiler.LogFile('memory_profiler_logs', True)
-
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
     content = profile_get_request('https://microsoft.com')
@@ -148,14 +152,23 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         status_code=200
     )
 
-
 @memory_profiler.profile(stream=profiler_logstream)
 def profile_get_request(url: str):
     response = requests.get(url)
     return response.content
 ```
 
-After making all the above changes, simply run `func host start` in your command line window, and send a GET request to `https://localhost:7071/api/HttpTriggerAsync` or `https://localhost:7071/api/HttpTriggerSync`. It should show a memory profiling report similiar to below when the requests are processed.
+### Profile Python function app in local development environment
+
+After making all the above changes, there are a few more steps to initialize a Python virtual envionment for Azure Functions runtime.
+
+1. Open a Windows PowerShell or any Linux shell as you prefer.
+2. Create a Python virtual environment by `py -m venv .venv` in Windows, or `python3 -m venv .venv` in Linux.
+3. Activate the Python virutal environment with `.venv\Scripts\Activate.ps1` in Windows PowerShell or `source .venv/bin/activate` in Linux shell.
+4. Restore the Python dependencies with `pip install requirements.txt`
+5. Start the Azure Functions runtime locally with Azure Functions Core Tools `func host start`
+6. Send a GET request to `https://localhost:7071/api/HttpTriggerAsync` or `https://localhost:7071/api/HttpTriggerSync`.
+7. It should show a memory profiling report similiar to below section in Azure Functions Core Tools.
 
 ```
 Filename: <ProjectRoot>\HttpTriggerAsync\__init__.py

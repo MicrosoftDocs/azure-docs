@@ -15,6 +15,7 @@ Following is a list of troubleshooting guides for common issues in Python functi
 
 * [ModuleNotFoundError and ImportError](#troubleshoot-modulenotfounderror)
 * [Cannot import 'cygrpc'](#troubleshoot-cannot-import-cygrpc)
+* [Python exited with code 137](#troubleshoot-python-exited-with-code-137)
 * [Python exited with code 139](#troubleshoot-python-exited-with-code-139)
 
 ## Troubleshoot ModuleNotFoundError
@@ -177,13 +178,33 @@ If your Python interpreter version does not meet our expectation, please downloa
 
 ---
 
+## Troubleshoot Python Exited With Code 137
+
+This section helps you troubleshoot out-of-memory issues in your Python function app. These errors typically result in the following Azure Functions error message:
+
+> `Microsoft.Azure.WebJobs.Script.Workers.WorkerProcessExitException : python exited with code 137`
+
+This error occurs when a Python function app is forced to terminate by the operating system with a SIGKILL signal. This signal usually indicates an out-of-memory error in your Python process. The Azure Functions platform has a [service limitation](functions-scale.md#service-limits) which will terminate any function apps that exceeded this limit.
+
+Please visit the tutorial section in [memory profiling on Python functions](python-memory-profiler-reference.md#memory-profiling-tutorial) to analyze the memory bottleneck in your function app.
+
+---
+
 ## Troubleshoot Python Exited With Code 139
 
-This section helps you troubleshoot out-of-memory errors in your Python function app. These errors typically result in the following Azure Functions error message:
+This section helps you troubleshoot segmentation fault errors in your Python function app. These errors typically result in the following Azure Functions error message:
 
 > `Microsoft.Azure.WebJobs.Script.Workers.WorkerProcessExitException : python exited with code 139`
 
-This error occurs when a Python function app is force fully terminated by operating system with a SIGSEGV signal. This signal indicates a memory segmentation violation which usually means your function app is running out of [memory limitation](functions-scale.md#service-limits). Please visit the tutorial section in [memory profiling on Python functions](python-memory-profiler-reference.md#memory-profiling-tutorial) for more information.
+This error occurs when a Python function app is forced to terminate by the operating system with a SIGSEGV signal. This signal indicates a memory segmentation violation which can be caused by unexpectedly reading from or writing into a restricted memory region. In the following sections, we provide a list of common root causes.
+
+### A regression from third-party packages
+
+In your function app's requirements.txt, an unpinned package will be upgraded to the latest version in every Azure Functions deployment. Vendors of these packages may introduce regressions in their latest release. To recover from this issue, try commenting out the import statements, disabling the package references, or pinning the package to a previous version in requirements.txt.
+
+### Unpickling from a malformed .pkl file
+
+If your function app is using the Python pickel library to load Python object from .pkl file, it is possible that the .pkl contains malformed bytes string, or invalid address reference in it. To recover from this issue, try commenting out the pickle.load() function.
 
 ---
 
