@@ -31,14 +31,12 @@
   - name: Link your domain to your DID
     href: how-to-dnsbind.md
   - name: Opt out of verifiable credentials
-    href: how-to-dnsbind.md
-- name: Resources
+    href: how-to-opt-out.md
+- name: Samples
   expanded: true
   items:
-  - name: SDK
+  - name: Sample App
     href: https://github.com/Azure-Samples/active-directory-verifiable-credentials
-  - name: Pointer to PowerShell content (example)
-    href: verifiable-credentials-troubleshooting.md
 - name: Resources
   expanded: true
   items:

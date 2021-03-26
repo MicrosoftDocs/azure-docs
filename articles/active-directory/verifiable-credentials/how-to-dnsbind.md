@@ -1,5 +1,5 @@
 ---
-title: Link your Domain to your Distributed Identifier (DID) (preview)
+title: Link your Domain to your Decentralized Identifier (DID) (preview)
 description: Learn how to DNS Bind?
 documentationCenter: ''
 author: barclayn

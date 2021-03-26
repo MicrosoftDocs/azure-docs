@@ -34,15 +34,9 @@ There are currently 3 input types that that are available to configure in the ru
 
 **ID Token:** The Sample App and Tutorial use the ID Token. When this option is selected, you will need to provide an Open ID Connect configuration URI and include the claims that should be included in the VC. The user will be prompted to 'Sign In' on the Authenticator app in order to meet this requirement and add the associated claims from their account. 
 
-  ![ID Token](media/credential-design/id_token.png)
-
 **Verifiable Credentials:** The end result of an issuance flow is to produce a Verifiable Credential but you may also ask the user to Present a Verifiable Credential in order to issue one. The Rules File is able to take specific claims from the presented Verifiable Credential and include those claims in the newly issued Verifiable Credential from your organization. 
 
-![ID Token](media/credential-design/vc_for_vc.png)
-
 **Self Issued Claims:** When this option is selected, the user will be able to directly type information into Authenticator. At this time, strings are the only supported input for self issued claims. 
-
-![ID Token](media/credential-design/self_issued.png)
 
 **Static Claims:** Additionally we are able declare a static claim in the Rules file, however this input does not come from the user. The Issuer defines a static claim in the Rules file and would look like any other claim in the Verifiable Credential. Simply add a credentialSubject after vc.type and declare the attribute and the claim. 
 
