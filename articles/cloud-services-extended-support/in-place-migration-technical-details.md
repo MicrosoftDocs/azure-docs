@@ -93,8 +93,8 @@ As part of migration, the resource names are changed, and few Cloud Services fea
 
 ### Portal refreshed after Prepare. Experience restarted and Commit or Abort not visible anymore. 
 - Portal stores the migration information locally and therefore after refresh, it will start from validate phase even if the Cloud Service is in the prepare phase.  
+- You can use portal to go through the validate and prepare steps again to expose the Abort and Commit button. It will not cause any failures.
 - Customers can use PowerShell or Rest API to abort or commit. 
-- You can use portal to go through the validate and prepare steps again and it will not cause any failures.
 
 ### How much time can the operations take?<br>
 Validate is designed to be quick. Prepare is longest running and takes some time depending on total number of role instances being migrated. Abort and commit can also take time but will take less time compared to prepare. All operations will time out after 24 hrs. 
