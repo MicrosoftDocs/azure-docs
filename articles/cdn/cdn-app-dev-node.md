@@ -26,7 +26,7 @@ ms.custom: devx-track-js
 
 You can use the [Azure CDN SDK for JavaScript](https://www.npmjs.com/package/@azure/arm-cdn) to automate creation and management of CDN profiles and endpoints.  This tutorial walks through the creation of a simple Node.js console application that demonstrates several of the available operations.  This tutorial is not intended to describe all aspects of the Azure CDN SDK for JavaScript in detail.
 
-To complete this tutorial, you should already have [Node.js](https://www.nodejs.org) **4.x.x** or higher installed and configured.  You can use any text editor you want to create your Node.js application.  To write this tutorial, I used [Visual Studio Code](https://code.visualstudio.com).  
+To complete this tutorial, you should already have [Node.js](https://www.nodejs.org) **6.x.x** or higher installed and configured.  You can use any text editor you want to create your Node.js application.  To write this tutorial, I used [Visual Studio Code](https://code.visualstudio.com).  
 
 > [!TIP]
 > The [completed project from this tutorial](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74) is available for download on MSDN.
