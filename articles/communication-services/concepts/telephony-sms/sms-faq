@@ -16,3 +16,12 @@ ms.service: azure-communication-services
 ## Can a customer use ACS for emergency purposes?
 
 Azure Communication Services does not support text-to-911 functionality in the United States, but it’s possible you may have an obligation to do so under the rules of the Federal Communications Commission (FCC).  You should assess whether the FCC’s text-to-911 rules apply to your service or application. To the extent you are covered by these rules, you will be responsible for routing 911 text messages to emergency call centers that request them.  You are free to determine your own text-to-911 delivery model, but one approach accepted by the FCC involves automatically launching the native dialer on the user’s mobile device to deliver 911 texts through the underlying mobile carrier.
+
+## Are there any limits on sending messages?
+
+To ensure that we continue offering the high quality of service consistent with our SLAs, ACS applies rate limits (different for each primitive). Developers who call our APIs beyond the limit will receive a 429 HTTP Status Code Response. If your company has requirements that exceed the rate-limits, please email us at phone@microsoft.com
+
+Rate Limits for SMS:
+
+|Operation|Scope|Timeframe (s)| Limit (request #) | Message units per minute|
+|---------|-----|-------------|-------------------|-------------------------|
