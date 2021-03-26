@@ -32,9 +32,8 @@ To accomplish this goal, this tutorial walks you through creating a hierarchy of
 > * Add workloads to the devices in your hierarchy.
 > * Use the [IoT Edge API Proxy module](https://azuremarketplace.microsoft.com/marketplace/apps/azure-iot.azureiotedge-api-proxy?tab=Overview) to securely route HTTP traffic over a single port from your lower layer devices.
 
-<!-- Put in link to how-to in this note -->
 >[!NOTE]
->This tutorial provides a scripted nested IoT Edge experience, as it is an advanced scenario. For details on how to manually complete the steps taken by the setup script, see
+>This tutorial provides a scripted nested IoT Edge experience, as it is an advanced scenario. For details on how to manually complete the steps taken by the setup script, see the guide on [connecting downstream IoT Edge devices to an Azure IoT Edge gateway](how-to-connect-downstream-iot-edge-device.md).
 
 In this tutorial, the following network layers are defined:
 
@@ -57,20 +56,29 @@ To create a hierarchy of IoT Edge devices, you will need:
   * To see your current versions of the Azure CLI modules and extensions, run [az version](/cli/azure/reference-index?#az_version).
 * A Linux device to configure as an IoT Edge device for each device in your hierarchy. This tutorial uses two devices. If you don't have devices available, you can create Azure virtual machines for each device in your hierarchy by replacing the placeholder text in the following command and running it:
 
-<!-- Once VM ARM template is available, link here for VMs -->
-
    ```azurecli-interactive
-   az vm create \
-    --resource-group <REPLACE_WITH_RESOURCE_GROUP> \
-    --name <REPLACE_WITH_UNIQUE_NAMES_FOR_EACH_VM> \
-    --image UbuntuLTS \
-    --admin-username azureuser \
-    --admin-password <REPLACE_WITH_PASSWORD>
+   az deployment group create \
+    --name TestVM1 \
+    --resource-group TomsNestedEdgeResources \
+    --template-uri "https://raw.githubusercontent.com/ebertrams/iotedge-vm-deploy/1.2.0-rc4-nested/edgeDeploy.json" \
+    --parameters dnsLabelPrefix='nested-edge-test-vm1' \
+    --parameters adminUsername='azureuser' \
+    --parameters authenticationType='sshPublicKey' \
+    --parameters adminPasswordOrKey="$(< ~/.ssh/id_rsa.pub)
    ```
 
-   <!-- Image of successful virtual machine creation here; also tell users to note the IP address, as it will be used later -->
+    The virtual machine using SSH keys for authenticating users. If you are unfamiliar with creating and using SSH keys, you can follow [the instructions for SSH public-private key pairs for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
 
-   <!-- IoT Edge version 1.2 is preinstalled with this ARM template, saving the need to manually install the assets on your devices. -->
+    IoT Edge version 1.2 is preinstalled with this ARM template, saving the need to manually install the assets on your devices.
+
+    A successful creation of a virtual machine using this ARM template will create an output JSON. This JSON output contains the SSH handle, which you can use to log onto your virtual machines. Find the `public SSH` block in the `outputs` section, pictured below.
+
+   ![The virtual machine will output a JSON upon creation, which contains its SSH handle](./media/tutorial-nested-iot-edge/virtual-machine-creation-output.png)
+
+   >[!NOTE]
+   >You will use the public IP addresses or fully-qualified domain names (FQDN) of your virtual machines for configuration in later steps. If you wish to use the FQDN, they are included in the SSH handle in the form: `azureuser@<FQDN>`. 
+   >
+   >A method for obtaining the public IP addresses of your virtual machines is provided later in the tutorial.
 
 * Make sure that the following ports are open inbound for all devices except the lowest layer device: 8000, 443, 5671, 8883:
   * 8000: Used to pull Docker container images through the API proxy.
@@ -90,66 +98,66 @@ To create a hierarchy of IoT Edge devices, you will need:
 
 IoT Edge devices make up the layers of your hierarchy. This tutorial will create a hierarchy of two IoT Edge devices: the **top layer device** and its child, the **lower layer device**. You can create additional child devices, as needed.
 
-To create your IoT Edge devices, use the Azure CLI.
+To create and configure your hierarchy of IoT Edge devices, you'll use the `iotedge-config-cli` tool. This tool simplifies the configuration of the hierarchy by automating and condensing several steps into two:
 
-1. In the [Azure Cloud Shell](https://shell.azure.com/), clone the Git repository that contains the setup scripts:
+1. Setting up the cloud configuration and preparing each device configuration, which includes:
 
-   ```azurecli-interactive
+   * Creating devices in your IoT Hub
+   * Setting the parent-child relationships to authorize communication between devices
+   * Generating a chain of certificates for each device to establish secure communication between them
+   * Generating configuration files for each device
+
+1. Installing each device configuration, which includes:
+
+   * Installing certificates on each device
+   * Applying the configuration files for each device
+
+To use the `iotedge-config-cli` tool to create and configure your hierarchy, follow the steps below in the Azure CLI:
+
+1. In the [Azure Cloud Shell](https://shell.azure.com/), download the setup tool from OneDrive:
+
+   ```bash
    git clone https://github.com/Azure-Samples/iot-edge-for-iiot.git
    ```
 
 1. Make the script executable by changing its permissions:
 
-   ```azurecli-interactive
-   cd ./iot-edge-for-iiot
+   <!-- Update once repo for setup tool created -->
+
+   ```bash
+   cd ./iotedge-config-cli-tool
    find -name '*.sh' -print0 | xargs -0 chmod +x
    ```
 
 1. Open the script configuration and edit it with your information:
 
-   ```azurecli-interactive
-   code config.txt
+   ```bash
+   nano hierarchy-tutorial.txt
    ```
 
-   In the **IoT Hub** section, populate the IoT Hub Resource Group and IoT Hub Name fields with your information.
+   In the **iothub** section, populate the `iothub_hostname` and `iothub_name` fields with your information.
 
-   In the **Certificate** section, you can populate the fields with the absolute paths to your certificate and key. If you leave these fields blank, the script will automatically generate self-signed test certificates for your use.
+   In the optional **certificates** section, you can populate the fields with the absolute paths to your certificate and key. If you leave these fields blank, the script will automatically generate self-signed test certificates for your use.
 
-   Finally, edit the tree hierarchy section to reflect your desired hierarchy of nested IoT Edge devices or accept the default structure.
+   In the **edgedevices** section, for a production scenario, you could edit the hierarchy tree to reflect your desired structure. For the purposes of this tutorial, accept the default tree.
 
-   <!-- Screenshot of config file -->
+   ![The edgedevices section of the configuration file allows you to define your hierarchy](./media/tutorial-nested-iot-edge/hierarchy-config-sample.png)
 
-1. Run the script to create your hierarchy of IoT Edge devices:
-
-   ```azurecli-interactive
-   ./create_and_configure_device_hierarchy.sh
-   ```
-
-   Once completed, the script displays a topology of your hierarchy. The script also creates a configuration bundle for each device in your hierarchy. You will need access to the configuration bundles later on, so make sure they are in a safe location.
-
-   <!-- Screenshot of successful script run -->
-
-1. Save and close the file.
+1. Save and close the file:
 
    `CTRL + X`, `Y`, `Enter`
 
-If you completed the above steps correctly, you can use the following steps to double-check that your parent-child relationships are correct.
+1. Run the script to create your hierarchy of IoT Edge devices:
 
-1. In the [Azure Cloud Shell](https://shell.azure.com/) you can verify that any of your child devices successfully established their relationship with the parent device by getting the identity of the child device's acknowledged parent device. This will output the JSON configuration of the parent device, pictured above:
-
-   ```azurecli-interactive
-   az iot hub device-identity parent show --device-id {lower_layer_device_id} --hub-name {hub_name}
+   ```bash
+   ./iotedge_config_cli -c ./nested_quickstart_config.yaml -o ./outputs -f
    ```
 
-You can also child your hierarchy relationship's through querying your **top layer device**.
+   Once completed, the script displays a topology of your hierarchy. The script also creates a configuration bundle for each device in your hierarchy, which will be stored in the `./outputs` folder from the above command.
 
-1. List the child devices the parent device knows:
+   ![The script will display a topology of your hierarchy upon execution](./media/tutorial-nested-iot-edge/successful-setup-script-run.png)
 
-    ```azurecli-interactive
-    az iot hub device-identity children list --device-id {top_layer_device_id} --hub-name {hub_name}
-    ```
-
-Once you are satisfied your hierarchy is correctly structured, you are ready to proceed.
+Double-check that the topology output from the script looks correct. Once you are satisfied your hierarchy is correctly structured, you are ready to proceed.
 
 ### Configure the IoT Edge runtime
 
@@ -159,7 +167,7 @@ To configure the IoT Edge runtime, you need to apply the configuration bundles c
 
 Complete the steps below and restart the IoT Edge service to configure your devices.
 
-1. Acquire the IP address or fully-qualified domain name (FQDN) of each of your virtual machines.
+1. Acquire the IP address or FQDN of each of your virtual machines.
 
    If want to find the IP addresses, you can use the Azure CLI or Azure portal. In the portal, navigate to each of your virtual machines and look for the **Public IP address** field. In the Azure CLI, run the following command from the Azure CLI once for each virtual machine:
 
@@ -167,38 +175,57 @@ Complete the steps below and restart the IoT Edge service to configure your devi
    az vm show --show-details --resource-group <REPLACE_WITH_RESOURCE_GROUP> --name <REPLACE_WITH_UNIQUE_NAMES_FOR_EACH_VM> --query publicIps -o tsv
    ```
 
-   <!-- CLI method for FQDN? -->
+   The FQDN is part of the SSH handle, as described previously when you created your virtual machines. However, you can also find the FQDN through the Azure portal. In the portal, navigate to each of your virtual machines and look for the **DNS name** field.
 
-   If want to find the FQDN ou can use the Azure portal. In the portal, navigate to each of your virtual machines and look for the **DNS name** field. If the field has a prompt to configure the DNS name, you will need to set up the DNS name before you can use it.
-
-2. Each device needs its corresponding configuration bundle. You can use a USB drive or [secure file copy](https://www.ssh.com/ssh/scp/) to move the configuration bundles to each device. Be sure to send the correct configuration bundle to each device.
+1. Each device needs its corresponding configuration bundle. You can use a USB drive or [secure file copy](https://www.ssh.com/ssh/scp/) to move the configuration bundles to each device. Be sure to send the correct configuration bundle to each device.
 
    ```bash
    scp <PATH_TO_CONFIGURATION_BUNDLE> <USER>@<VM_IP_OR_FQDN>
    ```
 
-3. You need to be logged on to your virtual machine to apply the configuration bundle to the device:
+1. You need to be logged on to your virtual machine to apply the configuration bundle to the device:
 
    ```bash
    ssh <USER>@<VM_IP_OR_FQDN>
    ```
 
-4. On each device, unzip the configuration bundle and make the configuration executable by changing its permissions:
+1. On each device, unzip the configuration bundle and make the configuration executable by changing its permissions. You'll need to install zip first:
 
    ```bash
+   sudo apt-get install zip
    unzip ./<PATH_TO_CONFIGURATION_BUNDLE>/<CONFIGURATION_BUNDLE>.zip
    find -name '*.sh' -print0 | xargs -0 chmod +x
    ```
 
-5. On each device, apply the configuration bundle to the device:
+1. On each device, apply the configuration bundle to the device:
 
    ```bash
-   ./<PATH_TO_UNZIPPED_BUNDLE>/apply_config.sh
+   ./<PATH_TO_UNZIPPED_BUNDLE>/install.sh
    ```
 
    You will receive prompts to enter the device address and the parent device's address in the form of an IP or FQDN. You can use either, but be consistent in your choice across devices. Leave the parent device address empty for the **top layer device**.
 
-   <!-- Picture of configuration application output -->
+  ![Installing the configuration bundles will update the config.toml files on your device and restart all IoT Edge services automatically](./media/tutorial-nested-iot-edge/configuration-install-output.png)
+
+1. On your **lower layer device**, there is one change to the `config.toml` that must be applied manually. On **lower layer device**, open the `config.toml`:
+
+   ```bash
+   nano ~/config.toml
+   ```
+
+1. Edit the bootstrapping Edge Agent version to `$upstream:8000/azureiotedge-agent:1.2.0-rc4`, pictured below.
+
+   <!-- picture from config.toml here -->
+
+1. Save and close the file:
+
+   `CTRL + X`, `Y`, `Enter`
+
+1. Manually apply the configuration file:
+
+   ```bash
+   sudo iotedge config apply -c ~/config.toml
+   ```
 
 If you completed the above steps correctly, you can check your devices are configured correctly.
 
@@ -226,6 +253,8 @@ Once you are satisfied your configurations are correct on each device, you are r
 
 Modules serve to complete the deployment and the IoT Edge runtime to your devices and further define the structure of your hierarchy. The IoT Edge API Proxy module securely routs HTTP traffic over a single port from your lower layer devices. The Docker Registry module allows for a repository of Docker images that your lower layer devices can access by routing image pulls to the top layer device.
 
+<!-- Give the why here -->
+
 To deploy modules to your top layer device, you can use the Azure CLI.
 
 >[!NOTE]
@@ -238,6 +267,8 @@ To deploy modules to your top layer device, you can use the Azure CLI.
    ```
 
 1. Copy the contents of the JSON below into your deployment.json, save it, and close it.
+
+<!-- Remove experimental variables for GA -->
 
    ```json
    {
@@ -303,7 +334,14 @@ To deploy modules to your top layer device, you can use the Azure CLI.
                                "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
                            },
                            "type": "docker",
-                           "env": {},
+                           "env": {
+                               "experimentalFeatures__enabled": {
+                                   "value": "true"
+                               },
+                               "experimentalFeatures__nestedEdgeEnabled": {
+                                   "value": "true"
+                               }
+                           },
                            "status": "running",
                            "restartPolicy": "always"
                        }
@@ -337,6 +375,8 @@ If you completed the above steps correctly, your **top layer device** should rep
 
 Modules also serve as the workloads of your lower layer devices. The Simulated Temperature Sensor module creates sample telemetry data to provide a functional flow of data through your hierarchy of devices.
 
+<!-- Give the why here -->
+
 To deploy modules to your lower layer devices, you can use the Azure CLI.
 
 1. In the [Azure Cloud Shell](https://shell.azure.com/), enter the following command to create a deployment.json file:
@@ -346,6 +386,8 @@ To deploy modules to your lower layer devices, you can use the Azure CLI.
    ```
 
 1. Copy the contents of the JSON below into your deployment.json, save it, and close it.
+
+<!-- Remove experimental variables for GA -->
 
    ```json
    {
@@ -385,7 +427,14 @@ To deploy modules to your lower layer devices, you can use the Azure CLI.
                                "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
                            },
                            "type": "docker",
-                           "env": {},
+                           "env": {
+                               "experimentalFeatures__enabled": {
+                                   "value": "true"
+                               },
+                               "experimentalFeatures__nestedEdgeEnabled": {
+                                   "value": "true"
+                               }
+                           },
                            "status": "running",
                            "restartPolicy": "always"
                        }
