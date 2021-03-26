@@ -45,11 +45,10 @@ Azure Communication Services supports sending and receiving of long messages ove
 
 ## How are messages sent to landline numbers treated?
 
-In US, ACS does not check for landline numbers and will attempt to send it to carriers for delivery. Customers will be charged for messages sent to landline numbers. 
+In the United States, Azure Communication Services does not check for landline numbers and will attempt to send it to carriers for delivery. Customers will be charged for messages sent to landline numbers. 
 
 ## Can I send messages to multiple recipients?
 
 
 Yes, you can make one request with multiple recipients. Follow this [quickstart](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/telephony-sms/send?pivots=programming-language-csharp) to send messages to multiple recipients.
-
 
