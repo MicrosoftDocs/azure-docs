@@ -4,7 +4,7 @@ titleSuffix: Azure App Configuration
 description: In this tutorial, you learn how to dynamically update the configuration data for .NET Core apps
 services: azure-app-configuration
 documentationcenter: ''
-author: jken
+author: GrantMeStrength
 manager: zhenlan
 editor: ''
 
