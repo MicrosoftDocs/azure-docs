@@ -357,18 +357,18 @@ This article explores common troubleshooting methods for mapping data flows in A
 
 ### Improvement on CSV/CDM format in Data Flow 
 
-If you use the **Delimited Text or CDM formatting for mapping data flow in Azure Data Factory V2**, you may face the behavior changes to your existing pipelines because of the improvement for Delimited Text/CDM in data flow starting from 1 May 2021. 
+If you use the **Delimited Text or CDM formatting for mapping data flow in Azure Data Factory V2**, you may face the behavior changes to your existing pipelines because of the improvement for Delimited Text/CDM in data flow starting from **1 May 2021**. 
 
 You may encounter the following issues before the improvement, but after the improvement, the issues were fixed. Read the following content to determine whether this improvement affects you. 
 
-#### Scenario 1: Encounter the unexpected Row-Delimiter issue
+#### Scenario 1: Encounter the unexpected row delimiter issue
 
  You are affected if you are in the following conditions:
  - Using the Delimited Text/CDM with Multiline setting set to True as the source. 
  - The first row has more than 128 characters. 
  - The row delimiter in data files is not `\n`.
 
- Before the improvement, the default Row-Delimiter `\n` may be unexpectedly used to parse delimited text files, because when Multiline setting is set to True, it invalidates the Row-Delimiter setting, and the Row-Delimiter is automatically detected based on the first 128 characters. If you fail to detect the actual Row-Delimiter, it would fall back to `\n`.  
+ Before the improvement, the default row delimiter `\n` may be unexpectedly used to parse delimited text files, because when Multiline setting is set to True, it invalidates the row delimiter setting, and the row delimiter is automatically detected based on the first 128 characters. If you fail to detect the actual row delimiter, it would fall back to `\n`.  
 
  After the improvement, any one of the three row delimiters: `\r`, `\n`, `\r\n` should be worked.
  
@@ -379,12 +379,9 @@ You may encounter the following issues before the improvement, but after the imp
     `C1, C2, {long first row}, C128\r\n `<br/>
     `V1, V2, {values………………….}, V128\r\n `<br/>
  
-   Before the improvement, the parsed column result is:<br/>
+   Before the improvement, `\r` is kept in the column value, the parsed column result is:<br/>
    `C1 C2 {long first row} C128`**`\r`**<br/>
    `V1 V2 {values………………….} V128`**`\r`**<br/> 
-   
-   > [!NOTE]
-   > `\r` will be a part of the column value. 
 
    After the improvement, the parsed column result should be:<br/>
    `C1 C2 {long first row} C128`<br/>
@@ -405,7 +402,7 @@ You may encounter the following issues before the improvement, but after the imp
  **Example**:<br/>
   
  For the following column：<br/>
-  **`A\r\n`**`, B, C\r\n`<br/>
+  **`"A\r\n"`**`, B, C\r\n`<br/>
 
  Before the improvement, the parsed column result is:<br/>
   **`A\n`**` B C`<br/>
@@ -432,10 +429,10 @@ You may encounter the following issues before the improvement, but after the imp
  **`A\n`**` B C`<br/>
 
  Before the improvement, the CSV sink is:<br/>
-  **`A\r\n`**`, B, C\r\n\` <br/>
+  **`"A\r\n"`**`, B, C\r\n\` <br/>
 
  After the improvement, the CSV sink should be:<br/>
-  **`A\n`**`, B, C\r\n`<br/>
+  **`"A\n"`**`, B, C\r\n`<br/>
 
 #### Scenario 4: Encounter an issue of incorrectly reading empty string as NULL
  
