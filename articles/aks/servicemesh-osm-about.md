@@ -88,7 +88,7 @@ For a new AKS cluster deployment scenario, you will start with a brand new deplo
 In Azure, you allocate related resources to a resource group. Create a resource group by using [az group create](/cli/azure/group#az-group-create). The following example creates a resource group named _myOsmAksGroup_ in the _eastus2_ location (region):
 
 ```azurecli-interactive
-az group create --name myosmaksgroup --location eastus2
+az group create --name <myosmaksgroup> --location <eastus2>
 ```
 
 ### Deploy an AKS cluster with the OSM add-on enabled
@@ -99,7 +99,7 @@ You'll now deploy a new AKS cluster with the OSM add-on enabled.
 > Please be aware the following AKS deployment command utilizes OS ephemeral disks. You can find more information here about [Ephemeral OS disks for AKS](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os)
 
 ```azurecli-interactive
-az aks create -n osm-addon-cluster -g myOsmAksGroup --kubernetes-version 1.19.6 --node-osdisk-type Ephemeral --node-osdisk-size 30 --network-plugin azure --enable-managed-identity -a open-service-mesh
+az aks create -n osm-addon-cluster -g <myosmaksgroup> --kubernetes-version 1.19.6 --node-osdisk-type Ephemeral --node-osdisk-size 30 --network-plugin azure --enable-managed-identity -a open-service-mesh
 ```
 
 #### Get AKS Cluster Access Credentials
@@ -107,7 +107,7 @@ az aks create -n osm-addon-cluster -g myOsmAksGroup --kubernetes-version 1.19.6 
 Get access credentials for the new managed Kubernetes cluster.
 
 ```azurecli-interactive
-az aks get-credentials -n myOsmAksCluster -g myOsmAksGroup
+az aks get-credentials -n <myosmakscluster> -g <myosmaksgroup>
 ```
 
 ## Enable Open Service Mesh (OSM) Azure Kubernetes Service (AKS) add-on for an existing AKS cluster
@@ -147,7 +147,7 @@ There are several commands to run to check all of the components of the AKS OSM 
 First we can query the add-on profiles of the cluster to check the enabled state of the add-ons installed. The following command should return "true".
 
 ```azurecli-interactive
-az aks list -g <resource group name> | jq -r .[].addonProfiles.openServiceMesh.enabled
+az aks list -g <resource group name> -o json | jq -r '.[].addonProfiles.openServiceMesh.enabled'
 ```
 
 The following `kubectl` commands will report the status of the osm-controller.
@@ -191,7 +191,7 @@ The steps detailed in this walkthrough assume that you've created an AKS cluster
 You must have the following resources installed:
 
 - The Azure CLI, version 2.20.0 or later
-- The `azure-preview` extension version 0.5.5 or later
+- The `aks-preview` extension version 0.5.5 or later
 - OSM version v0.8.0 or later
 - apt-get install jq
 
@@ -276,7 +276,7 @@ deployment.apps/bookwarehouse created
 
 ### Checkpoint: What got installed?
 
-The example Bookstore application is a multi-tiered app that consists of four services, being the bookbuyer, bookthief, bookstore, and bookwarehouse. Both the bookbuyer and bookthief service communicate to the bookstore service to retrieve books from the bookstore service. The bookstore service retrievs books out of the bookwarehouse service to supply the bookbuyer and bookthief. This is a simple multi-tiered application that works well in showing how a service mesh can be used to protect and authorize communications between the applications services. As we continue through the walkthrough, we will be enabling and disabling Service Mesh Interface (SMI) policies to both allow and disallow the services to communicate via OSM. Below is an architecture diagram of what got installed for the bookstore application.
+The example Bookstore application is a multi-tiered app that consists of four services, being the bookbuyer, bookthief, bookstore, and bookwarehouse. Both the bookbuyer and bookthief service communicate to the bookstore service to retrieve books from the bookstore service. The bookstore service retrieves books out of the bookwarehouse service to supply the bookbuyer and bookthief. This is a simple multi-tiered application that works well in showing how a service mesh can be used to protect and authorize communications between the applications services. As we continue through the walkthrough, we will be enabling and disabling Service Mesh Interface (SMI) policies to both allow and disallow the services to communicate via OSM. Below is an architecture diagram of what got installed for the bookstore application.
 
 ![OSM bookbuyer app architecture](./media/aks-osm-addon/osm-bookstore-app-arch.png)
 
@@ -348,7 +348,7 @@ Navigate to the following url from a browser `http://localhost:8080`. You should
 
 As metioned earlier when viewing the OSM cluster configuration, the OSM configuration defaults to enabling permissive traffic mode policy. In this mode traffic policy enforcement is bypassed and OSM automatically discovers services that are a part of the service mesh and programs traffic policy rules on each Envoy proxy sidecar to be able to communicate with these services.
 
-We will now disable the permissive traffic mode policy and OSM will need explicit [SMI](https://smi-spec.io/) policies deployed to the cluster to allow communications in the mesh from each service. To disable permissive traffic mode, run the following command to update the configmap property changine the value from `true` to `false`.
+We will now disable the permissive traffic mode policy and OSM will need explicit [SMI](https://smi-spec.io/) policies deployed to the cluster to allow communications in the mesh from each service. To disable permissive traffic mode, run the following command to update the configmap property changing the value from `true` to `false`.
 
 ```azurecli-interactive
 kubectl patch ConfigMap -n kube-system osm-config --type merge --patch '{"data":{"permissive_traffic_policy_mode":"false"}}'
@@ -799,7 +799,7 @@ There are several techniques to update your deployment to add a kubernetes servi
 
 #### Deploy the necessary Service Mesh Interface (SMI) Policies
 
-The last step to allowing authorized traffic to flow in the mesh is to deploy the necessary [SMI](https://smi-spec.io/) traffic access policies for you application. The amount of configuration you can achieve with [SMI](https://smi-spec.io/) traffic access policies is beyond the scope of this walkthrough, but we will detail some of the common components of the specification and show how to configure both a simple TrafficTarget and HTTPRouteGroup policy to enable service-to-service communication for you application.
+The last step to allowing authorized traffic to flow in the mesh is to deploy the necessary [SMI](https://smi-spec.io/) traffic access policies for your application. The amount of configuration you can achieve with [SMI](https://smi-spec.io/) traffic access policies is beyond the scope of this walkthrough, but we will detail some of the common components of the specification and show how to configure both a simple TrafficTarget and HTTPRouteGroup policy to enable service-to-service communication for you application.
 
 The [SMI](https://smi-spec.io/) [**Traffic Access Control**](https://github.com/servicemeshinterface/smi-spec/blob/main/apis/traffic-access/v1alpha3/traffic-access.md#traffic-access-control) specification allows users to define the access control policy for their applications. We will focus on the **TrafficTarget** and **HTTPRoutGroup** api resources.
 
@@ -830,7 +830,7 @@ spec:
 
 In the above TrafficTarget spec, the `destination` denotes the service account that is configured for the destination source service. Remember the service account that was added to the deployment earlier will be used to authorize access to the deloyment it is attached to. The `rules` section , in this partricular example, defines the type of HTTP traffic that is allowed over the connection. You can configure fine grain regex patterns for the HTTP headers to be very specific on what traffic is allowed via HTTP. The `sources` section is the service originating communications. This spec reads bookbuyer needs to communicate to the bookstore.
 
-The HTTPRouteGroup resource consist of one or an array of matches of HTTP header information and is a requirment for the TrafficTarget spec. In the example below, you can see that the HTTPRouteGroup is authorizing three HTTP actions, two GET and one POST.
+The HTTPRouteGroup resource consists of one or an array of matches of HTTP header information and is a requirment for the TrafficTarget spec. In the example below, you can see that the HTTPRouteGroup is authorizing three HTTP actions, two GET and one POST.
 
 ```HTTPRouteGroup Example Spec
 apiVersion: specs.smi-spec.io/v1alpha4
