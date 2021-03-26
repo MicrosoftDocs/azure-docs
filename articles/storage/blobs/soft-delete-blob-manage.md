@@ -1,7 +1,7 @@
 ---
-title: Manage soft delete for blobs
+title: Manage and restore soft-deleted blobs
 titleSuffix: Azure Storage 
-description: Enable soft delete for blobs to more easily recover your data when it is erroneously modified or deleted.
+description: Manage and restore soft-deleted blobs.
 services: storage
 author: tamram
 
@@ -13,43 +13,54 @@ ms.subservice: blobs
 ms.custom: "devx-track-azurecli, devx-track-csharp"
 ---
 
-# Manage soft delete for blobs
+# Manage and restore soft-deleted blobs
 
 Blob soft delete protects an individual blob and its versions, snapshots, and metadata from accidental deletes or overwrites by maintaining the deleted data in the system for a specified period of time. During the retention period, you can restore the blob to its state at deletion. After the retention period has expired, the blob is permanently deleted.
 
 Blob soft delete is part of a comprehensive data protection strategy for blob data. To learn more about Microsoft's recommendations for data protection, see [Data protection overview](data-protection-overview.md). For more information about blob soft delete, see [Soft delete for blobs](soft-delete-blob-overview.md).
 
+## Manage soft-deleted blobs with the Azure portal
+
+To view soft-deleted blobs in the Azure portal, navigate to the **Overview** page for the container and toggle the **Show deleted blobs** setting. Soft-deleted blobs are displayed with a status of **Deleted**.
+
+:::image type="content" source="media/soft-delete-blob-manage/soft-deleted-blobs-list-portal.png" alt-text="Screenshot showing how to list soft-deleted blobs in Azure portal":::
+
+Next, select the deleted blob from the list of blobs to display its properties. Under the **Overview** tab, notice that the blob's status is set to **Deleted**. The portal also displays the number of days until the blob is permanently deleted.
+
+:::image type="content" source="media/soft-delete-blob-manage/soft-deleted-blob-properties-portal.png" alt-text="Screenshot showing properties of soft-deleted blob in Azure portal":::
+
+Deleting a blob also deletes any snapshots that blob has. If a soft-deleted blob has snapshots, the deleted snapshots can also be listed in the portal. Display the soft-deleted blob's properties, then navigate to the **Snapshots** tab, and toggle **Show deleted snapshots**.
+
+:::image type="content" source="media/soft-delete-blob-manage/soft-deleted-blob-snapshots-portal.png" alt-text="Screenshot showing ":::
+
+### Restore a soft-deleted blob (versioning disabled)
+
+To restore a soft-deleted blob in the Azure portal when blob versioning is not enabled, first display the blob's properties, then select the **Undelete** button on the **Overview** tab. Restoring a blob also restores any snapshots that were deleted during the soft-delete retention period.
+
+:::image type="content" source="media/soft-delete-blob-manage/undelete-soft-deleted-blob-portal.png" alt-text="Screenshot showing how to restore a soft-deleted blob in Azure portal":::
+
+### Restore a soft-deleted blob (versioning enabled)
+
+To restore a soft-deleted blob in the Azure portal when versioning is enabled, select the soft-deleted blob to display its properties, then select the **Versions** tab. Select the version that you want to promote to be the current version, then select **Make current version**.  
+
+:::image type="content" source="media/soft-delete-blob-manage/soft-deleted-blob-promote-version-portal.png" alt-text="Screenshot showing how to promote a version to restore a blob in Azure portal":::
+
+## Manage soft-deleted blobs with code
+
+### List soft-deleted blobs
 
 
-## Restore a deleted blob
+### Restore a soft-deleted blob (versioning disabled)
+
+
+### Restore a soft-deleted blob (versioning enabled)
 
 
 # [Portal](#tab/azure-portal)
 
 
-Remember that undeleting a blob will also undelete all associated snapshots. To undelete soft deleted snapshots for an active blob, click on the blob and select **Undelete all snapshots**.
-
-![Screenshot of the details of a soft deleted blob.](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-undelete-all-snapshots.png)
-
-Once you undelete a blob's snapshots, you can click **Promote** to copy a snapshot over the root blob, thereby restoring the blob to the snapshot.
-
-![Screenshot of the View snapshots page with the Promote option highlighted.](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-promote-snapshot.png)
-
 # [PowerShell](#tab/azure-powershell)
 
-To recover blobs that were accidentally deleted, call **Undelete Blob** on those blobs. Remember that calling **Undelete Blob**, both on active and soft deleted blobs, will restore all associated soft deleted snapshots as active. The following example calls **Undelete Blob** on all soft deleted and active blobs in a container:
-
-```azurepowershell
-# Create a context by specifying storage account name and key
-$ctx = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
-
-# Get the blobs in a given container and show their properties
-$Blobs = Get-AzStorageBlob -Container $StorageContainerName -Context $ctx -IncludeDeleted
-$Blobs.ICloudBlob.Properties
-
-# Undelete the blobs
-$Blobs.ICloudBlob.Undelete()
-```
 
 # [CLI](#tab/azure-CLI)
 

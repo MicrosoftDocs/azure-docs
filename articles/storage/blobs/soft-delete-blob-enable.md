@@ -87,30 +87,6 @@ az storage blob service-properties delete-policy show --account-name <storage-ac
 
 ---
 
-## View or list soft-deleted blobs
-
-Soft deleted objects are invisible unless explicitly listed.
-
-# [Portal](#tab/azure-portal)
-
-To view soft-deleted blobs in the Azure portal, toggle the **Show deleted blobs** setting. Soft-deleted blobs are displayed with a status of **Deleted**.
-
-![Screenshot showing how to view soft-deleted blobs in the Azure portal](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-view-soft-deleted.png)
-
-When you click on a soft deleted blob or snapshot, notice the new blob properties. They indicate when the object was deleted, and how many days are left until the blob or blob snapshot is permanently expired. If the soft deleted object is not a snapshot, you will also have the option to undelete it.
-
-![Screenshot of the details of a soft deleted object.](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-properties.png)
-
-# [PowerShell](#tab/azure-powershell)
-
-
-# [CLI](#tab/azure-CLI)
-
-
-
----
-
-
 ## Next steps
 
 - [Soft delete for blobs](soft-delete-blob-overview.md)
