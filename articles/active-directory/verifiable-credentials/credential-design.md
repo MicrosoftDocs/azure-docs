@@ -257,7 +257,7 @@ The display file has the following structure.
 | `card.issuedBy` | Displays the name of the issuing organization to the user. Recommended maximum length of 40 characters. |
 | `card.backgroundColor` | Determines the background color of the card, in hex format. A subtle gradient will be applied to all cards. |
 | `card.textColor` | Determines the text color of the card, in hex format. Recommended to use black or white. |
-| `card.logo` | A logo that is displayed on the card. The URL provided must be publicly addressable. Recommended maximum height of 36 px, and maximum width of 100 px. | 
+| `card.logo` | A logo that is displayed on the card. The URL provided must be publicly addressable. Recommended maximum height of 36 px, and maximum width of 100 px regardless of phone size. Recommend PNG with transparent background. | 
 | `card.description` | Supplemental text displayed alongside each card. Can be used for any purpose. Recommended maximum length of 100 characters. |
 | `consent.title` | Supplemental text displayed when a card is being issued. Used to provide details about the issuance process. Recommended length of 100 characters. |
 | `consent.instructions` | Supplemental text displayed when a card is being issued. Used to provide details about the issuance process. Recommended length of 100 characters. |
