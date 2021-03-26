@@ -94,27 +94,30 @@ You cannot specify **VNet peering** or **VirtualNetworkServiceEndpoint** as the 
 
 ### Service Tags for user-defined routes (Public Preview)
 
-You can now specify a [Service Tag](service-tags-overview.md) as the address prefix for a user-defined route instead of an explicit IP range. A Service Tag represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to user-defined routes and reducing the number of routes you need to create.</br>
+You can now specify a [Service Tag](service-tags-overview.md) as the address prefix for a user-defined route instead of an explicit IP range. A Service Tag represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to user-defined routes and reducing the number of routes you need to create. You can currently create 25 or less routes with Service Tags in each route table. </br>
 
-When there is overlap between the IP's in a route with an explicit IP prefix and a route with a Service Tag, preference is given to the route with the explicit prefix. When multiple routes with Service Tags have overlapping IP prefixes, routes will be evaluated in the following order: 
+
+#### Exact Match
+When there is an exact prefix match between a route with an explicit IP prefix and a route with a Service Tag, preference is given to the route with the explicit prefix. When multiple routes with Service Tags have matching IP prefixes, routes will be evaluated in the following order: 
 
    1. Regional tags (eg. Storage.EastUS, AppService.AustraliaCentral)
    2. Top level tags (eg. Storage, AppService)
    3. AzureCloud regional tags (eg. AzureCloud.canadacentral, AzureCloud.eastasia)
-   4. The AzureCloud tag </br>
+   4. The AzureCloud tag </br></br>
 
 To use this feature specify a Service Tag name for the address prefix parameter in route table commands. For example, in Powershell you can create a new route to direct traffic sent to an Azure Storage IP prefix to a virtual appliance by using: </br>
 
 ```azurepowershell-interactive
-New-AzRouteConfig -Name "StorageRoute" -AddressPrefix “Storage” -NextHopType "VirtualAppliance" 
+New-AzRouteConfig -Name "StorageRoute" -AddressPrefix “Storage” -NextHopType "VirtualAppliance" -NextHopIpAddress "10.0.100.4"
 ```
 
 The same command for CLI will be: </br>
 
 ```azurecli-interactive
-az network route-table route create -g MyResourceGroup --route-table-name MyRouteTable -n StorageRoute --address-prefix Storage --next-hop-type VirtualAppliance
+az network route-table route create -g MyResourceGroup --route-table-name MyRouteTable -n StorageRoute --address-prefix Storage --next-hop-type VirtualAppliance --next-hop-ip-address 10.0.100.4
 ```
 </br>
+
 
 > [!NOTE] 
 > While in Public Preview, there are several limitations. The feature is not currently supported in the Azure Portal and is only available through Powershell and CLI. There is no support for use with containers. 
