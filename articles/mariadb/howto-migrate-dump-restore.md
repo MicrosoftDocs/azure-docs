@@ -27,8 +27,6 @@ Use common utilities and tools such as MySQL Workbench or mysqldump to remotely 
 ## Common uses for dump and restore
 You can use MySQL utilities such as mysqldump and mysqlpump to dump and load databases into an Azure Database for MariaDB server in several common scenarios. 
 
-<!--In other scenarios, you may use the [Import and Export](howto-migrate-import-export.md) approach instead.-->
-
 - Use database dumps when you're migrating an entire database. This recommendation holds when you're moving a large amount of data, or when you want to minimize service interruption for live sites or applications. 
 -  Make sure that all tables in the database use the InnoDB storage engine when you're loading data into Azure Database for MariaDB. Azure Database for MariaDB supports only the InnoDB storage engine, and no other storage engines. If your tables are configured with other storage engines, convert them into the InnoDB engine format before you migrate them to Azure Database for MariaDB.
    
@@ -129,7 +127,3 @@ The importing process is similar to the exporting process. Do the following:
 
 ## Next steps
 - [Connect applications to Azure Database for MariaDB](./howto-connection-string.md).
- 
-<!--
-- For more information about migrating databases to Azure Database for MariaDB, see the [Database Migration Guide](https://aka.ms/datamigration).
--->
