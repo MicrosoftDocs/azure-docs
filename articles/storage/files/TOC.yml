@@ -105,6 +105,8 @@
       href: storage-files-how-to-create-nfs-shares.md
     - name: SQL Server FCI with premium file shares
       href: ../../azure-sql/virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Purchase storage reservations
+      href: files-reserve-capacity.md
   - name: Mount
     items:
     - name: Mount SMB file share to Windows
@@ -336,7 +338,7 @@
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=storage
-  - name: Azure Files and Azure NetApp Files Comparison
+  - name: Azure Files and Azure NetApp Files comparison
     href: storage-files-netapp-comparison.md
   - name: NuGet packages (.NET)
     items:

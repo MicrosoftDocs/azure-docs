@@ -42,6 +42,9 @@ The web server receives the request and replies with the requested information o
 ## Test case
 In this scenario, you'll publish the IIS webserver to the internet. Use the public IP feature in Azure VMware Solution to publish the website on a public IP address.  You'll also configure NAT rules on the firewall and access Azure VMware Solution resource (VMs with a web server) with public IP.
 
+>[!TIP]
+>To enable egress traffic, you must set Security configuration > Internet traffic to **Azure Firewall**.
+
 ## Deploy Virtual WAN
 
 1. Sign in to the Azure portal and then search for and select **Azure VMware Solution**.
@@ -146,7 +149,7 @@ Once all components are deployed, you can see them in the added Resource group. 
 
 ## Limitations
 
-You can have 100 public IPs per SDDCs.
+You can have 100 public IPs per private cloud.
 
 ## Next steps
 

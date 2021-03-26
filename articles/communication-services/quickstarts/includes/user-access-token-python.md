@@ -15,7 +15,7 @@ ms.author: tchladek
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Python](https://www.python.org/downloads/) 2.7, 3.5, or above.
+- [Python](https://www.python.org/downloads/) 2.7 or 3.6+.
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
 
 ## Setting Up
@@ -44,7 +44,7 @@ ms.author: tchladek
 
 ### Install the package
 
-While still in the application directory, install the Azure Communication Services Identity client library for Python package by using the `pip install` command.
+While still in the application directory, install the Azure Communication Services Identity SDK for Python package by using the `pip install` command.
 
 ```console
 pip install azure-communication-identity

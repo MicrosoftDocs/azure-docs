@@ -28,7 +28,7 @@ This article gives answers to frequently asked questions about Azure Media Servi
 - Customers attach their own storage accounts to their Azure Media Services account.  All asset data is stored in these associated storage accounts and the customer controls the location and replication type of this storage.
 - Additional data associated with the Media Services account (including Content Encryption Keys, token verification keys, JobInputHttp urls, and other entity metadata) is stored in Microsoft owned storage within the region selected for the Media Services account.
     - Due to [data residency requirements](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information) in Brazil South and Southeast Asia, the additional account data is stored in a zone-redundant fashion and is contained in a single region. For Southeast Asia, all the additional account data is stored in Singapore and for Brazil South, the data is stored in Brazil.
-    - In regions other than Brazil South and Southeast Asia, the additional account data may also be stored in Microsoft owned storage in the [paired region](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+    - In regions other than Brazil South and Southeast Asia, the additional account data may also be stored in Microsoft owned storage in the [paired region](../../best-practices-availability-paired-regions.md).
 - Azure Media Services is a regional service and does not provide [high availability](media-services-high-availability-encoding.md) or data replication. Customers needing these features are highly encouraged to build a solution using Media Services accounts in multiple regions.  A sample showing how to build a solution for High Availability with Media Services Video on Demand is available as a guide.
 
 ### What are the Azure portal limitations for Media Services v3?
@@ -44,12 +44,6 @@ See [Azure role-based access control (Azure RBAC) for Media Services accounts](r
 ### How do I stream to Apple iOS devices?
 
 Make sure you have **(format=m3u8-aapl)** at the end of your path (after the **/manifest** portion of the URL) to tell the streaming origin server to return HTTP Live Streaming (HLS) content for consumption on Apple iOS native devices. For details, see [Delivering content](dynamic-packaging-overview.md).
-
-### How do I configure Media Reserved Units?
-
-For the Audio Analysis and Video Analysis jobs that are triggered by Media Services v3 or Video Indexer, we recommend that you provision your account with 10 S3 Media Reserved Units (MRUs). If you need more than 10 S3 MRUs, open a support ticket by using the [Azure portal](https://portal.azure.com/).
-
-For details, see [Scale media processing](media-reserved-units-cli-how-to.md).
 
 ### What is the recommended method to process videos?
 

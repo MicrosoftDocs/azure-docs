@@ -398,16 +398,16 @@
     - name: Create multiple instances
       items:
       - name: Resources
-        displayName: iteration,copy
+        displayName: iteration,copy,multiple
         href: copy-resources.md
       - name: Properties
-        displayName: iteration,copy
+        displayName: iteration,copy,multiple
         href: copy-properties.md
       - name: Variables
-        displayName: iteration,copy
+        displayName: iteration,copy,multiple
         href: copy-variables.md
       - name: Outputs
-        displayName: iteration,copy
+        displayName: iteration,copy,multiple
         href: copy-outputs.md
   - name: Deploy templates
     items:
@@ -504,7 +504,7 @@
     - name: JobSizeExceeded
       href: error-job-size-exceeded.md
     - name: Linux deployment issues
-      href: ../../virtual-machines/troubleshooting/troubleshoot-deploy-vm-linux.md
+      href: /troubleshoot/azure/virtual-machines/troubleshoot-deploy-vm-linux
     - name: NoRegisteredProviderFound
       href: error-register-resource-provider.md
     - name: NotFound
@@ -512,9 +512,9 @@
     - name: ParentResourceNotFound
       href: error-parent-resource.md
     - name: Provisioning and allocation issues for Linux
-      href: ../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-linux.md
+      href: /troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-linux
     - name: Provisioning and allocation issues for Windows
-      href: ../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-windows.md
+      href: /troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-windows
     - name: RequestDisallowedByPolicy
       href: error-policy-requestdisallowedbypolicy.md
     - name: ReservedResourceName
@@ -524,7 +524,7 @@
     - name: SkuNotAvailable
       href: error-sku-not-available.md
     - name: Windows deployment issues
-      href: ../../virtual-machines/troubleshooting/troubleshoot-deploy-vm-windows.md
+      href: /troubleshoot/azure/virtual-machines/troubleshoot-deploy-vm-windows
 - name: Reference
   items:
   - name: Template reference
