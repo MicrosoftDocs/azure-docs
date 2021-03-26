@@ -3,7 +3,7 @@ title: "Quickstart: Create a C# ASP.NET app"
 description: Learn how to run web apps in Azure App Service by deploying your first ASP.NET app.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
-ms.date: 03/25/2021
+ms.date: 03/26/2021
 ms.custom: "devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1"
 zone_pivot_groups: app-service-ide
 adobe-target: true
@@ -13,6 +13,10 @@ adobe-target-content: ./quickstart-dotnetcore-uiex
 ---
 
 <!--
+
+I'm a .NET developer who wants to deploy my web app to App Service. I may develop apps with
+Visual Studio, Visual Studio for Mac, Visual Studio Code, or the .NET SDK/CLI. This article
+should be able to guide .NET devs, whether they're app is .NET Core, .NET, or .NET Framework.
 
 As a .NET developer, when choosing an IDE and .NET TFM - you map to various OS requirements.
 For example, if you choose Visual Studio - you're developing the app on Windows, but you can still
@@ -117,7 +121,7 @@ In this quickstart, you'll learn how to create and deploy your first ASP.NET web
    :::image type="content" source="media/quickstart-dotnet/configure-webapp-net.png" alt-text="Configure ASP.NET Core 3.1 web app" border="true":::
 
 1. You can deploy any type of ASP.NET web app to Azure. Select **.NET Core 3.1 (Long-term support)**.
-1. Make sure **Authentication Type** is set to **Nne**. Select **Create**.
+1. Make sure **Authentication Type** is set to **None**. Select **Create**.
 
    :::image type="content" source="media/quickstart-dotnet/vs-additional-info-netcoreapp3.1.png" alt-text="Visual Studio - .NET Core 3.1" border="true":::
 
@@ -134,7 +138,7 @@ In this quickstart, you'll learn how to create and deploy your first ASP.NET web
    :::image type="content" source="media/quickstart-dotnet/configure-webapp-net.png" alt-text="Configure ASP.NET 5.0 web app" border="true":::
 
 1. You can deploy any type of ASP.NET web app to Azure. Select **.NET Core 5.0 (Current)**.
-1. Make sure **Authentication Type** is set to **Nne**. Select **Create**.
+1. Make sure **Authentication Type** is set to **None**. Select **Create**.
 
    :::image type="content" source="media/quickstart-dotnet/vs-additional-info-net5.0.png" alt-text="Visual Studio - .NET Core 5.0" border="true":::
 
@@ -332,8 +336,6 @@ Follow these steps to create your App Service and publish your web app:
 
    ![Published ASP.NET web app running in Azure](./media/quickstart-dotnetcore/web-app-running-live.png)
 
-**Congratulations!** Your ASP.NET Core web app is running live in Azure App Service.
-
 ### [.NET Core 3.1](#tab/netcore31)
 
 Do we
@@ -353,13 +355,21 @@ Discuss hosting platform now?
 
 ::: zone pivot="development-environment-vscode"
 
-Deploy using Azure Tools 
+With Visual Studio Code, the .NET CLI, and the Azure Tools extension you can build and publish your web app to a local folder, and then deploy that folder to App Service.
+
+
+
+To deploy your web app using the Visual Studio Azure Tools extension:
+
+1. Open the [**Command Palette**](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette), <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>.
+1. Type "Azure App Service: Deploy to Web App", and select the resulting search item.
+1. 
 
 ::: zone-end
 
 ::: zone pivot="development-environment-cli"
 
-Deploy the code in your local folder *MyFirstAzureWebApp* using the `az webapp up` command:
+Deploy the code in your local *MyFirstAzureWebApp* directory using the [`az webapp up`](/cli/azure/webapp#az_webapp_up) command:
 
 ```azurecli
 az webapp up --sku F1 --name <app-name>
@@ -381,8 +391,6 @@ http://<app_name>.azurewebsites.net
 The .NET Core sample code is running in App Service on Linux with a built-in image.
 
 ![Sample app running in Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
-
-**Congratulations!** You've deployed your first .NET Core app to App Service on Linux.
 
 ::: zone-end
 
@@ -453,6 +461,26 @@ The **Overview** page for your web app, contains options for basic management li
 
 ![App Service in Azure portal](./media/quickstart-dotnetcore/web-app-overview-page.png)
 
+### Configure the web app
+
+In addition to managing the app in the Azure Portal, there are configuration options available for each of the .NET targets.
+
+### [.NET Core 3.1](#tab/netcore31)
+
+Apps targeting .NET Core 3.1, are cross-platform. They can be deployed on either Linux, Windows or as Docker containers. To configure the web app, see [Configure ASP.NET Core 3.1 app](configure-language-dotnetcore.md).
+
+### [.NET 5.0](#tab/net50)
+
+Apps targeting .NET 5.0, are cross-platform. They can be deployed on either Linux, Windows or as Docker containers. To configure the web app, see [Configure ASP.NET Core 5.0 app](configure-language-dotnetcore.md).
+
+### [.NET Framework 4.8](#tab/netframework48)
+
+Apps targeting .NET Framework 4.8, can only be deployed to Windows App Service instances. To configure the web app, see [Configure ASP.NET Framework app](configure-language-dotnet-framework.md)
+
+---
+
+For more information, see [Introduction to the App Service Environments](environment/intro.md).
+
 <!--
 ## Clean up resources - H2 added from the next three includes
 -->
@@ -470,12 +498,38 @@ The **Overview** page for your web app, contains options for basic management li
 
 ## Next steps
 
-In this quickstart, you used created and deployed an ASP.NET web app to Azure App Service. Advance to the next article to learn how to create expand this app to connect to a SQL database:
+In this quickstart, you created and deployed an ASP.NET web app to Azure App Service.
+
+### [.NET Core 3.1](#tab/netcore31)
+
+Advance to the next article to learn how to create a .NET Core app and connect it to a SQL Database:
 
 > [!div class="nextstepaction"]
 > [Tutorial: ASP.NET Core app with SQL database](tutorial-dotnetcore-sqldb-app.md)
 
 > [!div class="nextstepaction"]
-> [Configure ASP.NET Core app](configure-language-dotnetcore.md)
+> [Configure ASP.NET Core 3.1 app](configure-language-dotnetcore.md)
+
+### [.NET 5.0](#tab/net50)
+
+Advance to the next article to learn how to create a .NET Core app and connect it to a SQL Database:
+
+> [!div class="nextstepaction"]
+> [Tutorial: ASP.NET Core app with SQL database](tutorial-dotnetcore-sqldb-app.md)
+
+> [!div class="nextstepaction"]
+> [Configure ASP.NET Core 5.0 app](configure-language-dotnetcore.md)
+
+### [.NET Framework 4.8](#tab/netframework48)
+
+Advance to the next article to learn how to create a .NET Framework app and connect it to a SQL Database:
+
+> [!div class="nextstepaction"]
+> [Tutorial: ASP.NET app with SQL database](app-service-web-tutorial-dotnet-sqldatabase.md)
+
+> [!div class="nextstepaction"]
+> [Configure ASP.NET Framework app](configure-language-dotnet-framework.md)
+
+---
 
 [app-service-pricing-tier]: https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
