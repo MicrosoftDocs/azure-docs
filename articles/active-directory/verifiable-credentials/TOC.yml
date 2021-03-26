@@ -15,7 +15,7 @@
     - name: 1 - Set up Verifiable Credentials issuer in your own Azure AD
       href: enable-your-tenant-verifiable-credentials.md
     - name: 2- Connect your verifiable credentials issuer to your own Azure AD
-      href: verifiable-credentials-your-tenant.md
+      href: issue-verify-verifiable-credentials-your-tenant.md
 - name: Concepts
   expanded: true
   items:
