@@ -7,8 +7,8 @@ manager: nmurav
 services: azure-communication-services
 
 ms.author: prakulka
-ms.date: 03/25/2021
-ms.topic: sms faq
+ms.date: 03/26/2021
+ms.topic: sms-faq
 ms.service: azure-communication-services
 ---
 
