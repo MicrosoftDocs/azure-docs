@@ -62,7 +62,7 @@ Azure Synapse provides a single way for enterprises to manage analytics resource
 
 **Synapse Studio** is the user experience that ties everything together for data engineers. It allows them to do every task they need to build a complete analytics solution.
 
-* Key data engingeer tasks in one place: ingest, explore, prepare, orchestrate, visualize
+* Key data engineer tasks in one place: ingest, explore, prepare, orchestrate, visualize
 * Industry-leading productivity for writing SQL or Spark code: authoring, debugging, and performance optimization
 * Integrate with enterprise CI/CD process
 
