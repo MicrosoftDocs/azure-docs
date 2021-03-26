@@ -32,11 +32,11 @@ To provide room for the Azure hypervisor to operate without interfering with the
 
 The following diagram shows the topology of the server. We reserve these 8 hypervisor host cores (yellow) symmetrically across both CPU sockets, taking the first 2 cores from specific Core Complex Dies (CCDs) on each NUMA domain, with the remaining cores for the HBv3-series VM (green).
 
-![Segregation of cores reserved for Azure Hypervisor and HBv3-series VM](./media/architecture/hbv3/hbv3-topology-server.png)
+![Topology of the HBv3-series server](./media/architecture/hbv3/hbv3-topology-server.png)
 
 Note that the CCD boundary is not equivalent to a NUMA boundary. On HBv3, a group of four consecutive (4) CCDs is configured as a NUMA domain, both at the host sever level and within a guest VM. Thus, all HBv3 VM sizes expose 4 NUMA domains that will appear to a OS and application as shown below, 4 uniform NUMA domains, each with different number of cores depending on the specific [HBv3 VM size](../../hbv3-series.md).
 
-![Segregation of cores reserved for Azure Hypervisor and HBv3-series VM](./media/architecture/hbv3/hbv3-topology-vm.png)
+![Topology of the HBv3-series VM](./media/architecture/hbv3/hbv3-topology-vm.png)
 
 Each HBv3 VM size is similar in physical layout, features, and performance of a different CPU from the AMD EPYC 7003-series, as follows:
 | HBv3-series VM size             | NUMA domains | Cores per NUMA domain  | Similarity with AMD EPYC         |
@@ -60,31 +60,31 @@ lstopo-no-graphics --no-io --no-legend --of txt
 <details>
 <summary>Click to view lstopo output for Standard_HB120rs_v3</summary>
 
-![Segregation of cores reserved for Azure Hypervisor and HBv3-series VM](./media/architecture/hbv3/hbv3-120-lstopo.png)
+![lstopo output for HBv3-120 VM](./media/architecture/hbv3/hbv3-120-lstopo.png)
 </details>
 
 <details>
 <summary>Click to view lstopo output for Standard_HB120rs-96_v3</summary>
 
-![Segregation of cores reserved for Azure Hypervisor and HBv3-series VM](./media/architecture/hbv3/hbv3-96-lstopo.png)
+![lstopo output for HBv3-96 VM](./media/architecture/hbv3/hbv3-96-lstopo.png)
 </details>
 
 <details>
 <summary>Click to view lstopo output for Standard_HB120rs-64_v3</summary>
 
-![Segregation of cores reserved for Azure Hypervisor and HBv3-series VM](./media/architecture/hbv3/hbv3-64-lstopo.png)
+![lstopo output for HBv3-64 VM](./media/architecture/hbv3/hbv3-64-lstopo.png)
 </details>
 
 <details>
 <summary>Click to view lstopo output for Standard_HB120rs-32_v3</summary>
 
-![Segregation of cores reserved for Azure Hypervisor and HBv3-series VM](./media/architecture/hbv3/hbv3-32-lstopo.png)
+![lstopo output for HBv3-32 VM](./media/architecture/hbv3/hbv3-32-lstopo.png)
 </details>
 
 <details>
 <summary>Click to view lstopo output for Standard_HB120rs-16_v3</summary>
 
-![Segregation of cores reserved for Azure Hypervisor and HBv3-series VM](./media/architecture/hbv3/hbv3-16-lstopo.png)
+![lstopo output for HBv3-16 VM](./media/architecture/hbv3/hbv3-16-lstopo.png)
 </details>
 
 ## InfiniBand networking
