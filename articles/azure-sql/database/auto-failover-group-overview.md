@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
-ms.date: 12/26/2020
+ms.date: 03/26/2021
 ---
 
 # Use auto-failover groups to enable transparent and coordinated failover of multiple databases
@@ -173,6 +173,12 @@ When performing OLTP operations, use `<fog-name>.database.windows.net` as the se
 
 If you have a logically isolated read-only workload that is tolerant to certain staleness of data, you can use the secondary database in the application. For read-only sessions, use `<fog-name>.secondary.database.windows.net` as the server URL and the connection is automatically directed to the secondary. It is also recommended that you indicate read intent in the connection string by using `ApplicationIntent=ReadOnly`.
 
+> [!NOTE]
+> In Premium, Business Critical, and Hyperscale service tiers, SQL Database supports the use of [read-only replicas](read-scale-out.md) to run read-only query workloads using the capacity of one or more read-only replicas, using the `ApplicationIntent=ReadOnly` parameter in the connection string. When you have configured a geo-replicated secondary, you can use this capability to connect to either a read-only replica in the primary location or in the geo-replicated location.
+>
+> - To connect to a read-only replica in the primary location, use `ApplicationIntent=ReadOnly` and `<fog-name>.database.windows.net`.
+> - To connect to a read-only replica in the secondary location, use `ApplicationIntent=ReadOnly` and `<fog-name>.secondary.database.windows.net`.
+
 ### Preparing for performance degradation
 
 A typical Azure application uses multiple Azure services and consists of multiple components. The automated failover of the failover group is triggered based on the state the Azure SQL components alone. Other Azure services in the primary region may not be affected by the outage and their components may still be available in that region. Once the primary databases switch to the DR region, the latency between the dependent components may increase. To avoid the impact of higher latency on the application's performance, ensure the redundancy of all the application's components in the DR region and follow these [network security guidelines](#failover-groups-and-network-security).
@@ -262,7 +268,7 @@ When performing OLTP operations, use `<fog-name>.zone_id.database.windows.net` a
 If you have a logically isolated read-only workload that is tolerant to certain staleness of data, you can use the secondary database in the application. To connect directly to the geo-replicated secondary, use `<fog-name>.secondary.<zone_id>.database.windows.net` as the server URL and the connection is made directly to the geo-replicated secondary.
 
 > [!NOTE]
-> In Premium, Business Critical, and Hyperscale service tiers, SQL Database supports the use of [read-only replicas](read-scale-out.md) to run read-only query workloads using the capacity of one or more read-only replicas, using the `ApplicationIntent=ReadOnly` parameter in the connection string. When you have configured a geo-replicated secondary, you can use this capability to connect to either a read-only replica in the primary location or in the geo-replicated location.
+> In Business Critical tier, SQL Managed Instance supports the use of [read-only replicas](read-scale-out.md) to run read-only query workloads using the capacity of one or more read-only replicas, using the `ApplicationIntent=ReadOnly` parameter in the connection string. When you have configured a geo-replicated secondary, you can use this capability to connect to either a read-only replica in the primary location or in the geo-replicated location.
 >
 > - To connect to a read-only replica in the primary location, use `ApplicationIntent=ReadOnly` and `<fog-name>.<zone_id>.database.windows.net`.
 > - To connect to a read-only replica in the secondary location, use `ApplicationIntent=ReadOnly` and `<fog-name>.secondary.<zone_id>.database.windows.net`.
