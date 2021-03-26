@@ -851,6 +851,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory-b2c/create-user-flow.md",
+      "redirect_url": "/azure/active-directory-b2c/add-sign-up-and-sign-in-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/phone-authentication.md",
+      "redirect_url": "/azure/active-directory-b2c/phone-authentication-user-flows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/ropc-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/add-ropc-policy",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory-b2c/custom-policy-manage-sso-and-token-config.md",
       "redirect_url": "/azure/active-directory-b2c/configure-tokens-custom-policy",
       "redirect_document_id": false
@@ -10588,6 +10603,11 @@
       "source_path_from_root": "/articles/marketplace-consumer/mytemplates-getstarted.md",
       "redirect_url": "/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/preferred-solutions.md",
+      "redirect_url": "https://docs.microsoft.com/marketplace/appsource-overview#microsoft-preferred-solutions",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/resource-manager-template-walkthrough.md",
@@ -31698,6 +31718,11 @@
       "source_path_from_root": "/articles/scheduler/get-started-portal.md",
       "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
       "redirect_document_id": ""
+    },
+    {
+      "source_path_from_root": "/articles/search/search-autocomplete-tutorial.md",
+      "redirect_url": "/azure/search/search-add-autocomplete-suggestions",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/search/search-filters-language.md",
@@ -54458,23 +54483,28 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/manage-apps/troubleshoot-adding-apps.md",
+      "redirect_url": "/troubleshoot/azure/active-directory/troubleshoot-adding-apps",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/application-config-add-app-problem-problem-adding-gallery-app.md",
-      "redirect_url": "/azure/active-directory/manage-apps/troubleshoot-adding-apps",
+      "redirect_url": "/troubleshoot/azure/active-directory/troubleshoot-adding-apps",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-config-add-app-problem-problem-adding-non-gallery-app.md",
-      "redirect_url": "/azure/active-directory/manage-apps/troubleshoot-adding-apps",
+      "redirect_url": "/troubleshoot/azure/active-directory/troubleshoot-adding-apps",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/manage-apps/adding-gallery-app-common-problems.md",
-      "redirect_url": "/azure/active-directory/manage-apps/troubleshoot-adding-apps",
+      "redirect_url": "/troubleshoot/azure/active-directory/troubleshoot-adding-apps",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/manage-apps/adding-non-gallery-app-common-problems.md",
-      "redirect_url": "/azure/active-directory/manage-apps/troubleshoot-adding-apps",
+      "redirect_url": "/troubleshoot/azure/active-directory/troubleshoot-adding-apps",
       "redirect_document_id": false
     },
     {
@@ -56691,6 +56721,11 @@
       "source_path_from_root": "/articles/active-directory/active-directory-saas-intralinks-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/intralinks-tutorial",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-saas-iqnavigatorvms-tutorial.md",
