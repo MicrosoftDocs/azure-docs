@@ -38,9 +38,9 @@ The ora2pg tool connects your Oracle database, scans it automatically, and extra
 
 ![Screenshot of the ora2pg migration architecture.](media/howto-migrate-from-oracle/ora2pg-migration-architecture.png)
 
-After you provision the VM and Azure Database for PostgreSQL, you need two configurations to enable connectivity between them: **Allow Azure Services** and **Enforce SSL Connection**: 
+After you provision the VM and Azure Database for PostgreSQL, you need two configurations to enable connectivity between them: **Allow access to Azure services** and **Enforce SSL Connection**: 
 
-- **Connection Security** blade > **Allow access to Azure Services** > **ON**
+- **Connection Security** blade > **Allow access to Azure services** > **ON**
 
 - **Connection Security** blade > **SSL Settings** > **Enforce SSL Connection** > **DISABLED**
 
@@ -331,8 +331,8 @@ For more information about this migration scenario, see the following resources.
 
 | Resource | Description    |
 | -------------- | ------------------ |
-| [Oracle to Azure PostgreSQL migration cookbook](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20PostgreSQL%20Migration%20Cookbook.pdf) | This document helps architects, consultants, DBAs, and related roles quickly migrate workloads from Oracle to Azure Database for PostgreSQL by using ora2pg. |
-| [Oracle to Azure PostgreSQL migration workarounds](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20Database%20for%20PostgreSQL%20Migration%20Workarounds.pdf) | This document helps architects, consultants, DBAs, and related roles quickly fix or work around issues while migrating workloads from Oracle to Azure Database for PostgreSQL. |
+| [Oracle to Azure PostgreSQL migration cookbook](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20PostgreSQL%20Migration%20Cookbook.pdf) | This document helps architects, consultants, database administrators, and related roles quickly migrate workloads from Oracle to Azure Database for PostgreSQL by using ora2pg. |
+| [Oracle to Azure PostgreSQL migration workarounds](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20Database%20for%20PostgreSQL%20Migration%20Workarounds.pdf) | This document helps architects, consultants, database administrators, and related roles quickly fix or work around issues while migrating workloads from Oracle to Azure Database for PostgreSQL. |
 | [Steps to install ora2pg on Windows or Linux](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Windows%20and%20Linux.pdf)                       | This document provides a quick installation guide for migrating schema and data from Oracle to Azure Database for PostgreSQL by using ora2pg on Windows or Linux. For more information, see the [ora2pg documentation](http://ora2pg.darold.net/documentation.html). |
 
 These resources were developed as part of the Data SQL Ninja program, which is sponsored by the Azure Data Group engineering team. The core charter of the Data SQL Ninja program is to unblock and accelerate complex modernization and complete data platform migration opportunities to the Microsoft Azure Data platform. If your organization wants to participate in the Data SQL Ninja program, have your account team submit a nomination for you.
@@ -351,6 +351,3 @@ Documentation:
 - [ora2pg documentation](https://ora2pg.darold.net/documentation.html)
 - [PostgreSQL website](https://www.postgresql.org/)
 - [Autonomous transaction support in PostgreSQL](http://blog.dalibo.com/2016/08/19/Autonoumous_transactions_support_in_PostgreSQL.html) 
-
-Video resource: 
-- [Overview of the migration journey and the tools and services recommended for performing assessment and migration](https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/)
