@@ -37,7 +37,7 @@ Get started with Azure Communication Services by provisioning your first Communi
 ::: zone-end
 
 ::: zone pivot="platform-powershell"
-[!INCLUDE [.NET](./includes/create-resource-powershell.md)]
+[!INCLUDE [PowerShell](./includes/create-resource-powershell.md)]
 ::: zone-end
 
 
