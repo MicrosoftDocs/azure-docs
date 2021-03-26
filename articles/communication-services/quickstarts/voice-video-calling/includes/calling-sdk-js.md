@@ -167,7 +167,7 @@ The `callAgent` instance emits an `incomingCall` event when the logged-in identi
 ```js
 const incomingCallHander = async (args: { incomingCall: IncomingCall }) => {
 
-	//Get incoming call id
+	//Get incoming call ID
 	var incomingCallId = incomingCall.id
 
 	// Get information about caller
