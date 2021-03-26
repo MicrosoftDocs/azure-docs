@@ -23,17 +23,19 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 
 ## Prerequisites
 
-* Azure subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Node.js](https://nodejs.org/en/download/).
 * [Visual Studio Code](https://code.visualstudio.com/download) to edit project files, or [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) to run the project.
 
 > [!div renderon="docs"]
+>
 > ## Register and download the quickstart app
+>
 > To start the quickstart app, use either of the following options.
 >
 > ### Option 1 (express): Register and automatically configure the app, and then download the code sample
 >
-> 1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations</a> quickstart experience.
+> 1. Go to the [Azure portal - app registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) quickstart experience.
 > 1. Enter a name for your application, and then select **Register**.
 > 1. Go to the quickstart pane and view the Angular quickstart. Follow the instructions to download and automatically configure your new application.
 >
@@ -41,14 +43,16 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 >
 > #### Step 1: Register the application
 >
-> 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
+> 1. Sign in to the [Azure portal](https://portal.azure.com/).
 > 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
 > 1. Follow the instructions to [register a single-page application](./scenario-spa-app-registration.md) in the Azure portal.
 > 1. Add a new platform on the **Authentication** pane of your app registration and register the redirect URI: `http://localhost:4200/`.
 > 1. This quickstart uses the [implicit grant flow](v2-oauth2-implicit-grant-flow.md). In the **Implicit grant and hybrid flows** section, select **ID tokens** and **Access tokens**. ID tokens and access tokens are required because this app signs in users and calls an API.
 
 > [!div class="sxs-lookup" renderon="portal"]
+>
 > #### Step 1: Configure the application in the Azure portal
+>
 > For the code sample in this quickstart to work, you need to add a redirect URI as **http://localhost:4200/** and enable **Implicit grant**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make these changes for me]()
@@ -86,7 +90,6 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
 > > Enter_the_Supported_Account_Info_Here
-
 
 > [!div renderon="docs"]
 >
@@ -126,16 +129,15 @@ If you're using Node.js:
 1. Select **Login**.
 1. Select **Profile** to call Microsoft Graph.
 
-After the browser loads the application, select **Login**. The first time you start to sign in, you're prompted to provide your consent to allow the application to access your profile and sign you in. After you're signed in successfully, select **Profile**, and your user profile information will be displayed on the page.
+After the browser loads the application, select **Login**. The first time you sign in, you're prompted to provide your consent to allow the application to access your profile and sign you in. After you sign in successfully, select **Profile**. Your user profile information is displayed on the page.
 
 ## How the sample works
 
-![Diagram that shows how the sample app in this quickstart works](./media/quickstart-v2-angular/diagram-auth-flow-spa-angular.svg)
-
+![Diagram that shows how the sample app in this quickstart works.](./media/quickstart-v2-angular/diagram-auth-flow-spa-angular.svg)
 
 ## Next steps
 
-Next, learn how to sign in a user and acquire tokens in the Angular tutorial:
+Learn how to sign in a user and acquire tokens in the Angular tutorial:
 
 > [!div class="nextstepaction"]
 > [Angular tutorial](./tutorial-v2-angular.md)
