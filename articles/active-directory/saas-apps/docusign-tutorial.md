@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 03/26/2021
 ms.author: jeedes
 ---
 
@@ -40,8 +40,6 @@ In this tutorial, you'll configure and test Azure AD SSO in a test environment t
 * DocuSign supports **just-in-time** user provisioning.
 
 * DocuSign supports [automatic user provisioning](./docusign-provisioning-tutorial.md).
-
-* Once you configure DocuSign you can enforce Session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 ## Adding DocuSign from the gallery
 
@@ -74,7 +72,7 @@ To enable Azure AD SSO in the Azure portal, follow these steps:
 
 1. In the Azure portal, on the **DocuSign** application integration page, find the **Manage** section, and then select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, select the pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -92,8 +90,11 @@ To enable Azure AD SSO in the Azure portal, follow these steps:
     
     | Reply URL |
     |-------------|
-    |`https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login/<IDPID>`|
-    |`https://<subdomain>.docusign.net/SAML/`|
+    | Production : |
+    | `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login/<IDPID>` |
+    | `https://<subdomain>.docusign.net/SAML/` |
+    | QA Instance :|
+    | `https://<SUBDOMAIN>.docusign.com/organizations/saml2` |
 
 	> [!NOTE]
 	> These bracketed values are placeholders. Replace them with the values in the actual sign-on URL, Identifier and Reply URL. These details are explained in the "View SAML 2.0 Endpoints" section later in this tutorial.
@@ -230,7 +231,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 2. Go to DocuSign Sign-on URL directly and initiate the login flow from there.
 
-3. You can use Microsoft Access Panel. When you click the DocuSign tile in the Access Panel, you should be automatically signed in to the DocuSign for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+3. You can use Microsoft My Apps. When you click the DocuSign tile in the My Apps, you should be automatically signed in to the DocuSign for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## Next Steps
@@ -239,16 +240,16 @@ Once you configure DocuSign you can enforce Session control, which protects exfi
 
 <!--Image references-->
 
-[50]: ./media/docusign-tutorial/tutorial_docusign_18.png
-[51]: ./media/docusign-tutorial/tutorial_docusign_21.png
-[52]: ./media/docusign-tutorial/tutorial_docusign_22.png
-[53]: ./media/docusign-tutorial/tutorial_docusign_23.png
-[54]: ./media/docusign-tutorial/tutorial_docusign_19.png
-[55]: ./media/docusign-tutorial/tutorial_docusign_20.png
-[56]: ./media/docusign-tutorial/tutorial_docusign_24.png
-[57]: ./media/docusign-tutorial/tutorial_docusign_25.png
-[58]: ./media/docusign-tutorial/tutorial_docusign_26.png
-[59]: ./media/docusign-tutorial/tutorial_docusign_27.png
-[60]: ./media/docusign-tutorial/tutorial_docusign_28.png
-[61]: ./media/docusign-tutorial/tutorial_docusign_29.png
-[62]: ./media/docusign-tutorial/tutorial_docusign_30.png
+[50]: ./media/docusign-tutorial/tutorial-docusign-18.png
+[51]: ./media/docusign-tutorial/tutorial-docusign-21.png
+[52]: ./media/docusign-tutorial/tutorial-docusign-22.png
+[53]: ./media/docusign-tutorial/tutorial-docusign-23.png
+[54]: ./media/docusign-tutorial/tutorial-docusign-19.png
+[55]: ./media/docusign-tutorial/tutorial-docusign-20.png
+[56]: ./media/docusign-tutorial/tutorial-docusign-24.png
+[57]: ./media/docusign-tutorial/tutorial-docusign-25.png
+[58]: ./media/docusign-tutorial/tutorial-docusign-26.png
+[59]: ./media/docusign-tutorial/tutorial-docusign-27.png
+[60]: ./media/docusign-tutorial/tutorial-docusign-28.png
+[61]: ./media/docusign-tutorial/tutorial-docusign-29.png
+[62]: ./media/docusign-tutorial/tutorial-docusign-30.png
