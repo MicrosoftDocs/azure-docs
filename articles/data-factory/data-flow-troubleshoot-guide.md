@@ -429,7 +429,7 @@ You may encounter the following issues before the improvement, but after the imp
  **`A\n`**` B C`<br/>
 
  Before the improvement, the CSV sink is:<br/>
-  **`"A\r\n"`**`, B, C\r\n\` <br/>
+  **`"A\r\n"`**`, B, C\r\n` <br/>
 
  After the improvement, the CSV sink should be:<br/>
   **`"A\n"`**`, B, C\r\n`<br/>
