@@ -16,7 +16,7 @@ ms.date: 03/19/2021
 
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
 
-In this guide, you learn how to *discover*, *assess*, and *migrate* your user databases from SQL Server to an instance of SQL Server on Azure Virtual Machines by using backup and restore and log shipping that uses [Data Migration Assistant](/sql/dma/dma-overview) for assessment.
+In this guide, you learn how to *discover*, *assess*, and *migrate* your user databases from SQL Server to an instance of SQL Server on Azure Virtual Machines by using backup and restore and log shipping that uses [Data Migration Assistant (DMA)](/sql/dma/dma-overview) for assessment.
 
 You can migrate SQL Server running on-premises or on:
 
@@ -56,14 +56,14 @@ For more discovery tools, see the [services and tools](../../../dms/dms-tools-ma
 
 [!INCLUDE [assess-estate-with-azure-migrate](../../../../includes/azure-migrate-to-assess-sql-data-estate.md)]
 
-After you've discovered all the data sources, use [Data Migration Assistant](/sql/dma/dma-overview) to assess on-premises SQL Server instances migrating to an instance of SQL Server on Azure Virtual Machines to understand the gaps between the source and target instances.
+After you've discovered all the data sources, use [DMA](/sql/dma/dma-overview) to assess on-premises SQL Server instances migrating to an instance of SQL Server on Azure Virtual Machines to understand the gaps between the source and target instances.
 
 > [!NOTE]
 > If you're _not_ upgrading the version of SQL Server, skip this step and move to the [Migrate](#migrate) section.
 
 #### Assess user databases
 
-Data Migration Assistant assists your migration to a modern data platform by detecting compatibility issues that can affect database functionality in your new version of SQL Server. Data Migration Assistant recommends performance and reliability improvements for your target environment and also allows you to move your schema, data, and login objects from your source server to your target server.
+DMA assists your migration to a modern data platform by detecting compatibility issues that can affect database functionality in your new version of SQL Server. DMA recommends performance and reliability improvements for your target environment and also allows you to move your schema, data, and login objects from your source server to your target server.
 
 To learn more, see [assessment](/sql/dma/dma-migrateonpremsql).
 
@@ -71,30 +71,30 @@ To learn more, see [assessment](/sql/dma/dma-migrateonpremsql).
 >Based on the type of assessment, the permissions required on the source SQL Server can be different:
    > - For the *feature parity* advisor, the credentials provided to connect to the source SQL Server database must be a member of the *sysadmin* server role.
    > - For the *compatibility issues* advisor, the credentials provided must have at least `CONNECT SQL`, `VIEW SERVER STATE`, and `VIEW ANY DEFINITION` permissions.
-   > - Data Migration Assistant will highlight the permissions required for the chosen advisor before running the assessment.
+   > - DMA will highlight the permissions required for the chosen advisor before running the assessment.
 
 #### Assess the applications
 
-Typically, an application layer accesses user databases to persist and modify data. Data Migration Assistant can assess the data access layer of an application in two ways:
+Typically, an application layer accesses user databases to persist and modify data. DMA can assess the data access layer of an application in two ways:
 
 - By using captured [extended events](/sql/relational-databases/extended-events/extended-events) or [SQL Server Profiler traces](/sql/tools/sql-server-profiler/create-a-trace-sql-server-profiler) of your user databases. You can also use the [Database Experimentation Assistant](/sql/dea/database-experimentation-assistant-capture-trace) to create a trace log that can also be used for A/B testing.
 - By using the [Data Access Migration Toolkit (preview)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit), which provides discovery and assessment of SQL queries within the code and is used to migrate application source code from one database platform to another. This tool supports popular file types like C#, Java, XML, and plain text. For a guide on how to perform a Data Access Migration Toolkit assessment, see the [Use Data Migration Assistant](https://techcommunity.microsoft.com/t5/microsoft-data-migration/using-data-migration-assistant-to-assess-an-application-s-data/ba-p/990430) blog post.
 
-During the assessment of user databases, use Data Migration Assistant to [import](/sql/dma/dma-assesssqlonprem#add-databases-and-extended-events-trace-to-assess) captured trace files or Data Access Migration Toolkit files.
+During the assessment of user databases, use DMA to [import](/sql/dma/dma-assesssqlonprem#add-databases-and-extended-events-trace-to-assess) captured trace files or Data Access Migration Toolkit files.
 
-#### Scale the assessments
+#### Assessments at scale
 
-If you have multiple servers that require a Data Migration Assistant assessment, you can automate the process by using the [command-line interface](/sql/dma/dma-commandline). Using the interface, you can prepare assessment commands in advance for each SQL Server instance in the scope for migration.
+If you have multiple servers that require a DMA assessment, you can automate the process by using the [command-line interface](/sql/dma/dma-commandline). Using the interface, you can prepare assessment commands in advance for each SQL Server instance in the scope for migration.
 
-For summary reporting across large estates, Data Migration Assistant assessments can now be [consolidated into Azure Migrate](/sql/dma/dma-assess-sql-data-estate-to-sqldb).
+For summary reporting across large estates, DMA assessments can now be [consolidated into Azure Migrate](/sql/dma/dma-assess-sql-data-estate-to-sqldb).
 
 #### Refactor databases with Data Migration Assistant
 
-Based on the Data Migration Assistant assessment results, you might have a series of recommendations to ensure your user databases perform and function correctly after migration. Data Migration Assistant provides details on the impacted objects and resources for how to resolve each issue. Make sure to resolve all breaking changes and behavior changes before you start production migration.
+Based on the DMA assessment results, you might have a series of recommendations to ensure your user databases perform and function correctly after migration. DMA provides details on the impacted objects and resources for how to resolve each issue. Make sure to resolve all breaking changes and behavior changes before you start production migration.
 
 For deprecated features, you can choose to run your user databases in their original [compatibility](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level) mode if you want to avoid making these changes and speed up migration. This action will prevent [upgrading your database compatibility](/sql/database-engine/install-windows/compatibility-certification#compatibility-levels-and-database-engine-upgrades) until the deprecated items have been resolved.
 
-You need to script all Data Migration Assistant fixes and apply them to the target SQL Server database during the [post-migration](#post-migration) phase.
+You need to script all DMA fixes and apply them to the target SQL Server database during the [post-migration](#post-migration) phase.
 
 > [!CAUTION]
 > Not all SQL Server versions support all compatibility modes. Check that your [target SQL Server version](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level) supports your chosen database compatibility. For example, SQL Server 2019 doesn't support databases with level 90 compatibility (which is SQL Server 2005). These databases would require, at least, an upgrade to compatibility level 100.
@@ -142,8 +142,8 @@ The following table provides a list of components and recommended migration meth
 | --- | --- | --- |
 | **Databases** | Model | Script with SQL Server Management Studio. |
 || TempDB | Plan to move tempDB onto [Azure VM temporary disk (SSD)](../../virtual-machines/windows/performance-guidelines-best-practices.md#temporary-disk)) for best performance. Be sure to pick a VM size that has a sufficient local SSD to accommodate your tempDB. |
-|| User databases with FileStream | Use the [Backup and restore](../../virtual-machines/windows/migrate-to-vm-from-sql-server.md#back-up-and-restore) methods for migration. Data Migration Assistant doesn't support databases with FileStream. |
-| **Security** | SQL Server and Windows logins | Use Data Migration Assistant to [migrate user logins](/sql/dma/dma-migrateserverlogins). |
+|| User databases with FileStream | Use the [Backup and restore](../../virtual-machines/windows/migrate-to-vm-from-sql-server.md#back-up-and-restore) methods for migration. DMA doesn't support databases with FileStream. |
+| **Security** | SQL Server and Windows logins | Use DMA to [migrate user logins](/sql/dma/dma-migrateserverlogins). |
 || SQL Server roles | Script with SQL Server Management Studio. |
 || Cryptographic providers | Recommend [converting to use Azure Key Vault](../../virtual-machines/windows/azure-key-vault-integration-configure.md). This procedure uses the [SQL VM resource provider](../../virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md). |
 | **Server objects** | Backup devices | Replace with database backup by using [Azure Backup](../../../backup/backup-sql-server-database-azure-vms.md), or write backups to [Azure Storage](../../virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md) (SQL Server 2012 SP1 CU2 +). This procedure uses the [SQL VM resource provider](../../virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md).|
