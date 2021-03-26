@@ -12,13 +12,8 @@ ms.topic: tutorial
 ms.custom: "mvc, seodec18, devx-track-azurepowershell"
 ms.tgt_pltfrm: na
 ms.workload: na
-<<<<<<< HEAD
 ms.date: 03/25/2021
 ms.author: keithp
-=======
-ms.date: 07/14/2020
-ms.author: mbaldwin
->>>>>>> df4a6bd2135429d57fac83f03cea91eeeb43fd4d
 ---
 
 # Tutorial – Deploying HSMs into an existing virtual network using PowerShell

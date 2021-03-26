@@ -11,11 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-<<<<<<< HEAD
 ms.date: 03/25/2021
-=======
-ms.date: 12/10/2020
->>>>>>> df4a6bd2135429d57fac83f03cea91eeeb43fd4d
 ms.author: keithp
 #Customer intent: As an IT Pro, Decision maker I am looking for key storage capability within Azure Cloud that meets FIPS 140-2 Level 3 certification and that gives me exclusive access to the hardware.
 
@@ -67,11 +63,7 @@ Microsoft only offers the Thales Luna 7 HSM model A790 via the Dedicated HSM ser
 
 ### Q: Does Azure Dedicated HSM support payment (PIN/EFT) features?
 
-<<<<<<< HEAD
 The Azure Dedicated HSM service uses Thales Luna 7 HSMs. These devices do not support payment HSM specific functionality (such as PIN or EFT) or certifications. If you would like Azure Dedicated HSM service to support Payment HSMs in future, pass on the feedback to your Microsoft Account Representative.
-=======
-The Azure Dedicated HSM service uses Thales Network Luna HSM 7 devices. These devices do not support payment HSM-specific functionality (such as PIN or EFT) or certifications. If you would like Azure Dedicated HSM service to support payment HSMs in future,  pass on the feedback to your Microsoft Account Representative.
->>>>>>> df4a6bd2135429d57fac83f03cea91eeeb43fd4d
 
 ### Q: Which Azure regions is Dedicated HSM available in?
 
