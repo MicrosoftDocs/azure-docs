@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 03/25/2021
 ms.author: lajanuar
 ---
 
@@ -59,5 +59,7 @@ At any time, you can view a list of all the custom models under your subscriptio
 
 ## Next steps
 
-View **[Form Recognizer API reference](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5ed8c9843c2794cbb1a96291)** documentation to learn more.
+Learn more about the Form Recognizer client library by exploring our API reference documentation.
+> [!div class="nextstepaction"]
+> [Form Recognizer API reference](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5ed8c9843c2794cbb1a96291)
 >
