@@ -13,7 +13,7 @@ zone_pivot_groups: acs-plat-ios-android
 
 # Quickstart: Add joining a Teams meeting to your app
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Get started with Azure Communication Services by using the Communication Services Teams Embed SDK to add teams meetings to your app. 
 

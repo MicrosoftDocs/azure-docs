@@ -14,7 +14,7 @@ ms.service: azure-communication-services
 
 # SMS concepts
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include-phone-numbers.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-phone-numbers.md)]
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
