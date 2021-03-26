@@ -19,7 +19,7 @@ To access commercial marketplace analytics data programmatically, you need to be
 
 ## Create Azure Active Directory application
 
-Regular user credentials cannot be used for programmatic access of commercial marketplace analytics data. An Azure Active Directory (Azure AD) application needs to be created along with a secret to access the analytics APIs. To learn how to create an Azure AD application and secret, see [Quickstart: Register an application with the Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
+Regular user credentials cannot be used for programmatic access of commercial marketplace analytics data. An Azure Active Directory (Azure AD) application needs to be created along with a secret to access the analytics APIs. To learn how to create an Azure AD application and secret, see [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md).
 
 ## Associate the Azure AD application to the Partner Center tenant
 
@@ -36,7 +36,7 @@ The Azure AD application you created in Azure portal needs to be linked to your 
 
 ## Generate an Azure AD token
 
-You need to Generate an Azure AD token using the Application (client) ID. This ID helps to uniquely identify your client application in the Microsoft identity platform and the client secret from the previous step. For the steps to generate an Azure AD token, see [Service to service calls using client credentials (shared secret or certificate)](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow).
+You need to Generate an Azure AD token using the Application (client) ID. This ID helps to uniquely identify your client application in the Microsoft identity platform and the client secret from the previous step. For the steps to generate an Azure AD token, see [Service to service calls using client credentials (shared secret or certificate)](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md).
 
 > [!NOTE]
 > The token is valid for one hour.

@@ -78,9 +78,9 @@ We recommend the following migration tools:
 
 |Technology | Description|
 |---------|---------|
-| [Azure Migrate](/azure/migrate/how-to-create-azure-sql-assessment) | This Azure service helps you to discover and assess your SQL data estate at scale on VMware. It provides Azure SQL deployment recommendations, target sizing, and monthly estimates. | 
+| [Azure Migrate](../../../migrate/how-to-create-azure-sql-assessment.md) | This Azure service helps you discover and assess your SQL data estate at scale on VMware. It provides Azure SQL deployment recommendations, target sizing, and monthly estimates. | 
 |[Azure Database Migration Service](../../../dms/tutorial-sql-server-to-managed-instance.md)  | This Azure service supports migration in the offline mode for applications that can afford downtime during the migration process. Unlike the continuous migration in online mode, offline mode migration runs a one-time restore of a full database backup from the source to the target. | 
-|[Native backup and restore](../../managed-instance/restore-sample-database-quickstart.md) | SQL Managed Instance supports restore of native SQL Server database backups (.bak files). That makes it the easiest migration option for customers who can provide full database backups to Azure Storage. Full and differential backups are also supported and documented in the [section about migration assets](#migration-assets) later in this article.| 
+|[Native backup and restore](../../managed-instance/restore-sample-database-quickstart.md) | SQL Managed Instance supports restore of native SQL Server database backups (.bak files). It's the easiest migration option for customers who can provide full database backups to Azure Storage. Full and differential backups are also supported and documented in the [section about migration assets](#migration-assets) later in this article.| 
 |[Log Replay Service](../../managed-instance/log-replay-service-migrate.md) | This cloud service is enabled for SQL Managed Instance based on SQL Server log-shipping technology. It's a migration option for customers who can provide full, differential, and log database backups to Azure Storage. Log Replay Service is used to restore backup files from Azure Blob Storage to SQL Managed Instance.| 
 | | |
 
@@ -137,9 +137,6 @@ SQL Server Analysis Services tabular models from SQL Server 2012 and later can b
 
 Alternatively, you can consider migrating your on-premises Analysis Services tabular models to [Power BI Premium by using the new XMLA read/write endpoints](/power-bi/admin/service-premium-connect-tools). 
 
-> [!NOTE]
-> Power BI XMLA read/write endpoint functionality is currently in public preview. Don't consider it for production workloads until it becomes generally available.
-
 ### High availability
 
 The SQL Server high-availability features Always On failover cluster instances and Always On availability groups become obsolete on the target SQL managed instance. High-availability architecture is already built into both [General Purpose (standard availability model)](../../database/high-availability-sla.md#basic-standard-and-general-purpose-service-tier-locally-redundant-availability) and [Business Critical (premium availability model)](../../database/high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability) service tiers for SQL Managed Instance. The premium availability model also provides read scale-out that allows connecting into one of the secondary nodes for read-only purposes.     
@@ -194,7 +191,7 @@ If you have memory-optimized tables or memory-optimized table types in your on-p
    SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
    ```
 
-To learn more about in-memory technologies, see [Optimize performance by using in-memory technologies in Azure SQL Database and Azure SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/in-memory-oltp-overview).
+To learn more about in-memory technologies, see [Optimize performance by using in-memory technologies in Azure SQL Database and Azure SQL Managed Instance](../../in-memory-oltp-overview.md).
 
 ## Advanced features 
 
@@ -218,7 +215,7 @@ For more assistance, see the following resources that were developed for real-wo
 |[Perfmon data collection automation by using Logman](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Perfmon%20Data%20Collection%20Automation%20Using%20Logman)|You can use the Logman tool to collect Perfmon data (to help you understand baseline performance) and get migration target recommendations. This tool uses logman.exe to create the command that will create, start, stop, and delete performance counters set on a remote SQL Server instance.|
 |[Database migration to Azure SQL Managed Instance by restoring full and differential backups](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Database%20migrations%20to%20Azure%20SQL%20DB%20Managed%20Instance%20-%20%20Restore%20with%20Full%20and%20Differential%20backups.pdf)|This white paper provides guidance and steps to help accelerate migrations from SQL Server to Azure SQL Managed Instance if you have only full and differential backups (and no log backup capability).|
 
-These resources were developed as part of the Data SQL Ninja Program, which is sponsored by the Azure Data Group engineering team. The core charter of the Data SQL Ninja program is to unblock and accelerate complex modernization and compete migration opportunities to Microsoft's Azure data platform. If you think your organization would be interested in participating in the Data SQL Ninja program, ask your account team to submit a nomination.
+These resources were developed by the Data SQL Engineering team. A core charter of this team is to unblock and accelerate complex modernization and compete data platform migration projects to Microsoft's Azure data platform.
 
 
 ## Next steps
@@ -238,4 +235,4 @@ These resources were developed as part of the Data SQL Ninja Program, which is s
 
 - To assess the application access layer, see [Data Access Migration Toolkit (Preview)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit).
 
-- For details on how to perform A/B testing for the data access layer, see [Database Experimentation Assistant](/sql/dea/database-experimentation-assistant-overview).
+- For details on how to perform A/B testing at the data access layer, see [Database Experimentation Assistant](/sql/dea/database-experimentation-assistant-overview).

@@ -91,7 +91,7 @@ We recommend the following migration tools:
 
 |Technology | Description|
 |---------|---------|
-| [Azure Migrate](/azure/migrate/how-to-create-azure-sql-assessment) | This Azure service helps you to discover and assess your SQL data estate at scale on VMware. It provides Azure SQL deployment recommendations, target sizing, and monthly estimates. | 
+| [Azure Migrate](../../../migrate/how-to-create-azure-sql-assessment.md) | This Azure service helps you discover and assess your SQL data estate at scale on VMware. It provides Azure SQL deployment recommendations, target sizing, and monthly estimates. | 
 |[Data Migration Assistant](/sql/dma/dma-migrateonpremsqltosqldb)|This desktop tool from Microsoft provides seamless assessments of SQL Server and single-database migrations to Azure SQL Database (both schema and data). </br></br>The tool can be installed on a server on-premises or on your local machine that has connectivity to your source databases. The migration process is a logical data movement between objects in the source and target databases.|
 |[Azure Database Migration Service](../../../dms/tutorial-sql-server-to-azure-sql.md)|This Azure service can migrate SQL Server databases to Azure SQL Database through the Azure portal or automatically through PowerShell. Database Migration Service requires you to select a preferred Azure virtual network during provisioning to ensure connectivity to your source SQL Server databases. You can migrate single databases or at scale. |
 | | |
@@ -189,7 +189,7 @@ For more assistance, see the following resources that were developed for real-wo
 |[Perfmon data collection automation by using Logman](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Perfmon%20Data%20Collection%20Automation%20Using%20Logman)|You can use the Logman tool to collect Perfmon data (to help you understand baseline performance) and get migration target recommendations. This tool uses logman.exe to create the command that will create, start, stop, and delete performance counters set on a remote SQL Server instance.|
 |[Database migration to Azure SQL Database by using BACPAC](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Database%20migrations%20-%20Benchmarks%20and%20Steps%20to%20Import%20to%20Azure%20SQL%20DB%20Single%20Database%20from%20BACPAC.pdf)|This white paper provides guidance and steps to help accelerate migrations from SQL Server to Azure SQL Database by using BACPAC files.|
 
-These resources were developed as part of the Data SQL Ninja Program, which is sponsored by the Azure Data Group engineering team. The core charter of the Data SQL Ninja program is to unblock and accelerate complex modernization and compete migration opportunities to Microsoft's Azure data platform. If you think your organization would be interested in participating in the Data SQL Ninja program, ask your account team to submit a nomination.
+These resources were developed by the Data SQL Engineering team. A core charter of this team is to unblock and accelerate complex modernization and compete data platform migration projects to Microsoft's Azure data platform.
 
 
 ## Next steps

@@ -136,7 +136,7 @@ After creating a user account in a database, either based on a login or as a con
   - To add a user to a fixed database role:
 
     - In Azure SQL Database, use the [ALTER ROLE](/sql/t-sql/statements/alter-role-transact-sql) statement. For examples, see [ALTER ROLE examples](/sql/t-sql/statements/alter-role-transact-sql#examples)
-    - Azure Synapse, use the [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) statement. For examples, see [sp_addrolemember examples](/sql/t-sql/statements/alter-role-transact-sql).
+    - Azure Synapse, use the [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) statement. For examples, see [sp_addrolemember examples](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql#examples).
 
 - **Custom database role**
 
