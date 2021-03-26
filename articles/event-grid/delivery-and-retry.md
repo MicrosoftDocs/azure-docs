@@ -20,8 +20,8 @@ Event Grid defaults to sending each event individually to subscribers. The subsc
 
 Batched delivery has two settings:
 
-* **Max events per batch** - Maximum number of events Event Grid will deliver per batch. This number will never be exceeded, however fewer events may be delivered if no other events are available at the time of publish. Event Grid does not delay events in order to create a batch if fewer events are available. Must be between 1 and 5,000.
-* **Preferred batch size in kilobytes** - Target ceiling for batch size in kilobytes. Similar to max events, the batch size may be smaller if more events are not available at the time of publish. It is possible that a batch is larger than the preferred batch size *if* a single event is larger than the preferred size. For example, if the preferred size is 4 KB and a 10-KB event is pushed to Event Grid, the 10-KB event will still be delivered in its own batch rather than being dropped.
+* **Max events per batch** - Maximum number of events Event Grid will deliver per batch. This number will never be exceeded, however fewer events may be delivered if no other events are available at the time of publish. Event Grid doesn't delay events to create a batch if fewer events are available. Must be between 1 and 5,000.
+* **Preferred batch size in kilobytes** - Target ceiling for batch size in kilobytes. Similar to max events, the batch size may be smaller if more events aren't available at the time of publish. It's possible that a batch is larger than the preferred batch size *if* a single event is larger than the preferred size. For example, if the preferred size is 4 KB and a 10-KB event is pushed to Event Grid, the 10-KB event will still be delivered in its own batch rather than being dropped.
 
 Batched delivery in configured on a per-event subscription basis via the portal, CLI, PowerShell, or SDKs.
 
@@ -52,7 +52,7 @@ For more information on using Azure CLI with Event Grid, see [Route storage even
 
 When EventGrid receives an error for an event delivery attempt, EventGrid decides whether it should retry the delivery or dead-letter or drop the event based on the type of the error. 
 
-If the error returned by the subscribed endpoint is configuration related error that can't be fixed with retries (for example, if the endpoint is deleted), EventGrid will either perform dead lettering the event or drop the event if dead letter is not configured.
+If the error returned by the subscribed endpoint is configuration-related error that can't be fixed with retries (for example, if the endpoint is deleted), EventGrid will either perform dead lettering the event or drop the event if dead letter isn't configured.
 
 Following are the types of endpoints for which retry doesn't happen:
 
@@ -62,9 +62,9 @@ Following are the types of endpoints for which retry doesn't happen:
 | Webhook | 400 Bad Request, 413 Request Entity Too Large, 403 Forbidden, 404 Not Found, 401 Unauthorized |
  
 > [!NOTE]
-> If Dead-Letter is not configured for endpoint, events will be dropped when above errors happen. Consider configuring Dead-Letter, if you don't want these kinds of events to be dropped.
+> If Dead-Letter isn't configured for endpoint, events will be dropped when above errors happen. Consider configuring Dead-Letter, if you don't want these kinds of events to be dropped.
 
-If the error returned by the subscribed endpoint is not among the above list, EventGrid performs the retry using policies described below:
+If the error returned by the subscribed endpoint isn't among the above list, EventGrid performs the retry using policies described below:
 
 Event Grid waits 30 seconds for a response after delivering a message. After 30 seconds, if the endpoint hasn’t responded, the message is queued for retry. Event Grid uses an exponential backoff retry policy for event delivery. Event Grid retries delivery on the following schedule on a best effort basis:
 
@@ -92,7 +92,7 @@ By default, Event Grid expires all events that aren't delivered within 24 hours.
 
 As an endpoint experiences delivery failures, Event Grid will begin to delay the delivery and retry of events to that endpoint. For example, if the first 10 events published to an endpoint fail, Event Grid will assume that the endpoint is experiencing issues and will delay all subsequent retries *and new* deliveries for some time - in some cases up to several hours.
 
-The functional purpose of delayed delivery is to protect unhealthy endpoints as well as the Event Grid system. Without back-off and delay of delivery to unhealthy endpoints, Event Grid's retry policy and volume capabilities can easily overwhelm a system.
+The functional purpose of delayed delivery is to protect unhealthy endpoints and the Event Grid system. Without back-off and delay of delivery to unhealthy endpoints, Event Grid's retry policy and volume capabilities can easily overwhelm a system.
 
 ## Dead-letter events
 When Event Grid can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account. This process is known as **dead-lettering**. Event Grid dead-letters an event when **one of the following** conditions is met. 
@@ -104,7 +104,7 @@ If either of the conditions is met, the event is dropped or dead-lettered.  By d
 
 Event Grid sends an event to the dead-letter location when it has tried all of its retry attempts. If Event Grid receives a 400 (Bad Request) or 413 (Request Entity Too Large) response code, it immediately schedules the event for dead-lettering. These response codes indicate delivery of the event will never succeed.
 
-The time-to-live expiration is checked ONLY at the next scheduled delivery attempt. Therefore, even if time-to-live expires before the next scheduled delivery attempt, event expiry is checked only at the time of the next delivery and then subsequently dead-lettered. 
+The time-to-live expiration is checked ONLY at the next scheduled delivery attempt. So, even if time-to-live expires before the next scheduled delivery attempt, event expiry is checked only at the time of the next delivery and then subsequently dead-lettered. 
 
 There is a five-minute delay between the last attempt to deliver an event and when it is delivered to the dead-letter location. This delay is intended to reduce the number Blob storage operations. If the dead-letter location is unavailable for four hours, the event is dropped.
 
