@@ -58,8 +58,7 @@ If you attempt to access restricted resources, an "Authentication failed" respon
 ![Authentication Failed](media/tutorial-postman/postman-authentication-failed.png)
 
 ## Obtaining an access token
-
-Click **Get New Access Token**.
+Select **Get New Access Token**.
 
 To obtain a valid access token, select **Authorization** and select **OAuth 2.0** from the **TYPE** drop-down menu.
 
@@ -84,13 +83,13 @@ In the **Get New Access Token** dialog box, enter the following details:
 | State                 | `1234`     | [State](https://learning.postman.com/docs/sending-requests/authorization/) is an opaque value to prevent cross-site request forgery. It is optional and can take an arbitrary value such as '1234'.                           |
 | Client Authentication | Send client credentials in body                                                                                 |                 
 
-Click **Request Token** to be guided through the Azure Active Directory Authentication flow, and a token will be returned to Postman. If an authentication failure occurs, refer to the Postman Console for more details. **Note**: On the ribbon, click **View**, and then select **Show Postman Console**. The keyboard shortcut to the Postman Console is **Alt-Ctrl+C**.
+Select **Request Token** to be guided through the Azure Active Directory Authentication flow, and a token will be returned to Postman. If an authentication failure occurs, refer to the Postman Console for more details. **Note**: On the ribbon, select **View**, and then select **Show Postman Console**. The keyboard shortcut to the Postman Console is **Alt-Ctrl+C**.
 
-Scroll down to view the returned token screen, and then click **Use Token**.
+Scroll down to view the returned token screen, and then select **Use Token**.
 
 ![Use Token](media/tutorial-postman/postman-use-token.png)
 
-Refer to the **Access Token** field to view the newly populated token. If you click **Send** to repeat the `Patient` resource search, a **Status** `200 OK` gets returned. A returned status `200 OK` indicates a successful HTTP request.
+Refer to the **Access Token** field to view the newly populated token. If you select **Send** to repeat the `Patient` resource search, a **Status** `200 OK` gets returned. A returned status `200 OK` indicates a successful HTTP request.
 
 ![200 OK](media/tutorial-postman/postman-200-OK.png)
 
