@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Configure your Azure Active Directory to issue verifiable credentials (Preview)"
-description: In this tutorial you build the environment needed to deploy verifiable credentials in your tenant
+description: In this tutorial, you build the environment needed to deploy verifiable credentials in your tenant
 documentationCenter: ''
 author: barclayn
 manager: daveba
@@ -17,10 +17,10 @@ ms.reviewer:
 
 # Tutorial: Configure your Azure Active Directory to issue verifiable credentials (Preview)
 
-In this tutorial, we build on the work done in the [get started](get-started-verifiable-credentials.md) article and we get your Azure Active Directory (AAD) set up with its own [distributed identifier](https://www.microsoft.com/security/business/identity-access-management/decentralized-identity-blockchain?rtc=1#:~:text=Decentralized%20identity%20is%20a%20trust,protect%20privacy%20and%20secure%20transactions.) (DID).
+In this tutorial, we build on the work done in the [get started](get-started-verifiable-credentials.md) article and we get your Azure Active Directory (AAD) set up with its own [distributed identifier](https://www.microsoft.com/security/business/identity-access-management/decentralized-identity-blockchain?rtc=1#:~:text=Decentralized%20identity%20is%20a%20trust,protect%20privacy%20and%20secure%20transactions.) (DID). We issue a verifiable credential using the sample app and your issuer. In this tutorial, we still use the sample Azure B2C tenant for authentication.  
 
 > [!IMPORTANT]
-> Azure verifiable credentials is currently in public preview.
+> Azure Active Directory Verifiable Credentials is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -37,7 +37,7 @@ Before you can successfully complete this tutorial, you must first:
 
 - Complete the [Get started](get-started-verifiable-credentials.md).
 - Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Azure AD with a P2 [license](https://azure.microsoft.com/pricing/details/active-directory/).
+- Azure AD with a P2 [license](https://azure.microsoft.com/pricing/details/active-directory/). Follow the [How to create a free developer account](how-to-create-a-free-developer-account.md) if you do not have one.
 - An instance of [Azure Key Vault](../../key-vault/general/overview.md) where you have rights to create keys and secrets.
 
 ## Azure Active Directory
@@ -66,7 +66,7 @@ When working with verifiable credentials, you have complete control and manageme
 7. In the Access Policy screen, choose **Access Policy**
 
     >[!NOTE]
-    > By default the account that creates the key vault is the only one with access. The verifiable credential service needs access to key vault to get started. The key vault used needs an access policy allowing the Admin to **create keys***, have the ability to **delete keys** if you opt out, and **sign** to create the domain binding for verifiable credential. If you are using the same account while testing make sure to modify the default policy to grant the account **sign** in addition to the default permissions granted to vault creators.
+    > By default the account that creates the key vault is the only one with access. The verifiable credential service needs access to key vault. The key vault must have an access policy allowing the Admin to **create keys***, have the ability to **delete keys** if you opt out, and **sign** to create the domain binding for verifiable credential. If you are using the same account while testing make sure to modify the default policy to grant the account **sign** in addition to the default permissions granted to vault creators.
 
 8. For the User Admin, make sure the key permissions section has **Create**, **Delete**, and **Sign** enabled. By default Create and Delete are already enabled and Sign should be the only Key Permission that needs to be updated. 
 
@@ -89,34 +89,31 @@ Take note of the two properties listed below:
 
 ## Set up verifiable credentials Preview
 
-> [!Note]
-> While in Preview a P2 license is required. Please follow the [How to create a free developer account](#) if you do not have one. 
-
 Now we need to take the last step to set up your tenant for verifiable credentials.
 
-1. From the Azure portal, search for **verifiable credentials**. 
-2. Choose **Get started**
+1. From the Azure portal, search for **verifiable credentials**.
+1. Choose **Verifiable Credentials (Preview)**.
+1. Choose **Get started**
 1. We need to set up your organization and provide the organization name, domain, and key vault. Let's look at each one of the values.
 
       - **organization name**: This name is how you reference your business within the Verifiable Credential service. This value is not customer facing.
-      - **Domain:** The domain entered is added to a service endpoint in your DID document. [Microsoft Authenticator](../user-help/user-help-auth-app-download-install.md) and other wallets use this information to validate that your DID is linked to your domain. If the wallet can verify the DID, it displays a verified symbol. If the wallet is unable to verify the DID, it informs the user that the credential was issued by an organization it could not validate. The domain is what binds your DID to something tangible that the user may know about your business. See the example Presentation screen below.
+      - **Domain:** The domain entered is added to a service endpoint in your DID document. [Microsoft Authenticator](../user-help/user-help-auth-app-download-install.md) and other wallets use this information to validate that your DID is linked to your domain. If the wallet can verify the DID, it displays a verified symbol. If the wallet is unable to verify the DID, it informs the user that the credential was issued by an organization it could not validate. The domain is what binds your DID to something tangible that the user may know about your business.
       - **Key vault:** Provide the name of the Key Vault that we created earlier.
-
  
    >[!IMPORTANT]
    > The domain can not be a redirect, otherwise the DID and domain cannot be linked. Make sure to use https://www.domain.com format.
     
-3. Choose **Save and create credential**
+4. Choose **Save and create credential**
 
     ![set up your organizational identity](media/tutorial-verifiable-credentials-issuer/save-create.png)
 
-Congratulations, your tenant is now enabled for the Verifiable Credential preview! 
+Congratulations, your tenant is now enabled for the Verifiable Credential preview!
 
 ## Create a storage account
 
-Before creating our first Verifiable Credential, we need to create a Blob Storage container that can hold the needed files. 
+Before creating our first verifiable credential, we need to create a Blob Storage container that can hold our configuration and rules files.
 
-1. Create a storage account using the options shown below. For detailed steps review the [Create a storage account](../../storage/common/storage-account-create.md?tabs=azure-portal) article. 
+1. Create a storage account using the options shown below. For detailed steps review the [Create a storage account](../../storage/common/storage-account-create.md?tabs=azure-portal) article.
 
     - **Subscription:** Choose the subscription that we are using for these tutorials.
     - **Resource group:** Choose the same resource group we used in earlier tutorials (**vc-resource-group**).
@@ -128,7 +125,7 @@ Before creating our first Verifiable Credential, we need to create a Blob Storag
  
    ![Create a new storage account](media/tutorial-create-sample-card-your-issuer/create-storage-account.png)
 
-2. After creating the storage account, we need to create a container. Select Containers under Blob Storage and create a container using the values provided below:
+2. After creating the storage account, we need to create a container. Select **Containers** under **Blob Storage** and create a container using the values provided below:
 
     - **Name:** vc-container
     - **Public access level:** Private (no anonymous access)
@@ -139,9 +136,9 @@ Before creating our first Verifiable Credential, we need to create a Blob Storag
 
    ![upload rules file](media/tutorial-create-sample-card-your-issuer/blob-storage-upload-rules-display-files.png)
 
-## Assign the storage blob role data reader role to your account
+## Assign blob role
 
-Before creating the credential, we need to first give the signed in user the correct role assignment so that they can access the files in Storage Blob.
+Before creating the credential, we need to first give the signed in user the correct role assignment so they can access the files in Storage Blob.
 
 1. Navigate to **Storage** > **Container**.
 2. Choose **Access Control (IAM)** from the menu on the left.
@@ -156,12 +153,12 @@ Before creating the credential, we need to first give the signed in user the cor
    ![Add a role assignment](media/tutorial-create-sample-card-your-issuer/role-assignment.png)
 
   >[!IMPORTANT]
-  >By default, container creators get the **Owner** role assigned. Even if you created the container with the account you are using, the **Owner** role is not enough on its own. For more information review [Use the Azure portal to assign an Azure role for access to blob and queue data](../../storage/common/storage-auth-aad-rbac-portal.md) Your account needs  the **Storage Blob Data Reader** role.
+  >By default, container creators get the **Owner** role assigned. The **Owner** role is not enough on its own. Your account needs  the **Storage Blob Data Reader** role. For more information review [Use the Azure portal to assign an Azure role for access to blob and queue data](../../storage/common/storage-auth-aad-rbac-portal.md)
 
 
 ## Create a Modified Rules and Display File
 
-In this section, we are going to use the Rules and Display files from the Sample Issuer App and slightly modify them to create your tenant's first Verifiable Credential. 
+In this section, we use the rules and display files from the Sample issuer app and modify them slightly to create your tenant's first verifiable credential.
 
 1. Copy both the rules and display json files to a temporary folder and rename them **MyFirstVC-display.json** and **MyFirstVC-rules.json** respectively. You can find both files under **issuer\issuer_config**
 
@@ -199,8 +196,8 @@ Now let's change the type field to "MyFirstVC".
 ```
 Save this change. 
 
- >[!note]
-   > We are not changing the "configuration" or the "client_id" here. We will continue to use the Microsoft B2C tenant for this stage of the tutorial and we will change the IDP in the next section. 
+ >[!NOTE]
+   > We are not changing the "configuration" or the "client_id" here. We still use the Microsoft B2C tenant for this stage of the tutorial and we will change the IDP in the next section. 
 
 3. Open up the MyFirstVC-display.json file in your code editor. 
 
@@ -237,7 +234,7 @@ Save this change.
 }
 ```
 
-Lets make a few modifications so this Verifiable Credential looks visibly different than the Sample Code's version. 
+Lets make a few modifications so this verifiable credential looks visibly different from sample code's version. 
 
 ```json
    "card": {
@@ -250,9 +247,10 @@ Lets make a few modifications so this Verifiable Credential looks visibly differ
 Save these changes. 
 
 ## Create your VC in the Portal
-Now that you have modified the Rules and Display file, it's time to create the Verifiable Credential in the portal. 
 
-1. On the Azure portal, navigate to the verifiable credentials preview portal.
+Now that you have modified the the rules and display files, it's time to create a verifiable credential in the portal.
+
+1. On the Azure portal, search for **verifiable credentials** and go to the verifiable credentials preview portal.
 1. Select **Credentials** from the verifiable credentials preview page.
 
    ![verifiable credentials get started](media/tutorial-create-sample-card-your-issuer/verifiable-credentials-page-preview.png)
@@ -265,7 +263,7 @@ Now that you have modified the Rules and Display file, it's time to create the V
 6. In the Display file section, choose **Configure display file**
 7. In the **Storage accounts** section, select **contosovcstorage**.
 8. From the list of available containers choose **vc-container**.
-9. Choose **MyFirstVC-display.json** which we created earlier.
+9. Choose the **MyFirstVC-display.json** file we created earlier.
 10. From the **Create a new credential** in the **Rules file** section choose **Configure rules file**
 11. In the **Storage accounts** section, select **contosovcstorage**
 12. Choose **vc-container**.
@@ -278,34 +276,37 @@ Now that you have a new credential, copy the credential URL.
 
    ![The issue credential URL](media/tutorial-create-sample-card-your-issuer/issue-credential-url.png)
 
->[!note]
-    >The credential URL is the combination of the Rules and Display file and is the URL that Authenitcator will evaluate in order to show the User the requirements they need to meet in order to receive the Verifiable Credential.  
+>[!NOTE]
+>The credential URL is the combination of the rules and display files. It is the URL that Authenticator evaluates before displaying to the user verifiable credential issuance requirements.  
 
 ## Update the sample app
 
 Now we make modifications to the sample app's issuer code to update it with your verifiable credential URL. This allows you to issue verifiable credentials using your own tenant.
 
-1. Open your Issuer Sample code app.js file.
-2. Update the constant 'credential' with your new credential URL and the new credentialType 'MyFirstVC' and save the file.
+1. Go to the folder where you placed the sample app's files.
+2. Open the issuer folder and then open app.js in Visual Studio Code.
+3. Update the constant 'credential' with your new credential URL and the new credentialType 'MyFirstVC' and save the file.
 
     ![image of visual studio code showing the relevant areas highlighted](media/tutorial-create-sample-card-your-issuer/sample-app-vscode.png)
 
-3. Open a command prompt and open the issuer folder.
-4. Run the updated node app.
+4. Open a command prompt and open the issuer folder.
+5. Run the updated node app.
 
     ```cmd
     node ./app.js
     ```
-5. Using a different command prompt run ngrok to set up a URL on 8081
+
+6. Using a different command prompt run ngrok to set up a URL on 8081
 
     ```cmd
     ngrok http 8081
     ```
     
     >[!IMPORTANT]
-    > You may also notice a warning that this app or website may be risky. The message is expected at this time because we have not yet linked your DID to your domain. Follow the [DNS binding](how-to-dnsbind.md) instructions to configure this. 
+    > You may also notice a warning that this app or website may be risky. The message is expected at this time because we have not yet linked your DID to your domain. Follow the [DNS binding](how-to-dnsbind.md) instructions to configure this.
+
     
-6. Open the HTTPS URL generated by ngrok and test issuing the VC to yourself.
+7. Open the HTTPS URL generated by ngrok and test issuing the VC to yourself.
 
     ![NGROK forwarding endpoints](media/tutorial-create-sample-card-your-issuer/ngrok-url-screen.png)
 
@@ -323,10 +324,10 @@ Now that we've issued the verifiable credential from our own tenant, let's verif
 
 2. Now open up your app.js file in your Verifier Sample code and make the following changes:
 
-- credential: change to your credential URL
-- credentialType: 'MyFirstVC'
-- issuerDid: Copy this value from Azure portal>Verifiable credentials (Preview)>Settings>Decentralized identifier (DID)
-
+    - credential: change to your credential URL
+    - credentialType: 'MyFirstVC'
+    - issuerDid: Copy this value from Azure portal>Verifiable credentials (Preview)>Settings>Decentralized identifier (DID)
+    
    ![update the constant issuerDid to match your issuer identifier](media/tutorial-create-sample-card-your-issuer/constant-update.png)
 
 3. Now run your verifier app and present the VC.
@@ -351,8 +352,8 @@ Now that we've issued the verifiable credential from our own tenant, let's verif
     node app.js
     ```
 
->[!note]
->The Verifier DID is still from the Microsoft Sample App tenant. Since Microsoft's DID has been linked to a domain we own, you will not see the warning like we experienced during the Issuance flow. This will be updated in the next section. 
+>[!NOTE]
+The Verifier DID is still from the Microsoft Sample App tenant. Since Microsoft's DID has been linked to a domain we own, you will not see the warning like we experienced during the Issuance flow. This will be updated in the next section. 
 
 ## Next steps
 
