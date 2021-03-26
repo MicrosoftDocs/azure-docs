@@ -37,21 +37,27 @@ The platform supported migration provides following key benefits:
 
 For other benefits and why you should migrate, see [Cloud Services (extended support)](overview.md) and [Azure Resource Manager](../azure-resource-manager/management/overview.md). 
 
-## Access In-place Public Preview
+## Setup access for migration
 
-1. Register your subscription for Classic Infrastructure using PowerShell.
+To perform this migration, you must be added as a coadministrator for the subscription and register the providers needed. 
+
+1. Sign in to the Azure portal.
+3. On the Hub menu, select Subscription. If you don't see it, select All services.
+3. Find the appropriate subscription entry, and then look at the MY ROLE field. For a coadministrator, the value should be Account admin. If you're not able to add a co-administrator, contact a service administrator or co-administrator for the subscription to get yourself added.
+
+4. Register your subscription for Classic Infrastructure using PowerShell.
 
     ```powershell
-    Get-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate 
+    Register-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate 
     ```
  
-2. Register your subscription for Cloud Services (extended support) using PowerShell. 
+5. Register your subscription for Cloud Services (extended support) using PowerShell. 
 
     ```powershell
     Register-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute 
     ```
 
-3. Check the status of your registration. Registration can take a few minutes to complete. 
+6. Check the status of your registration. Registration can take a few minutes to complete. 
 
     ```powershell
     Get-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute 
@@ -175,9 +181,7 @@ Customers need to update their tooling and automation to start using the new API
 - Recreate rules and policies required to manage and scale cloud services 
     - [Auto Scale rules](configure-scaling.md) are not migrated. After migration, recreate the auto scale rules.  
     - [Alerts](enable-alerts.md) are not migrated. After migration, recreate the alerts.
-    - The Key Vault is created without any access policies. Create policies on the Key Vault to control access to the certificates.  
-
-The Key Vault is created without any access policies. Create policies on the Key Vault to control access to the certificates.
+    - The Key Vault is created without any access policies. [Create appropriate policies](../key-vault/general/assign-access-policy-portal.md) on the Key Vault to view or manage your certificates. Certificates will be visible under settings on the tab called secrets.
 
 ## Next steps
 - [Overview of Platform-supported migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-overview.md)
