@@ -35,7 +35,7 @@ Before you try this tutorial, consider the following items:
 The following are prerequisites required for completing this tutorial
 - A test environment with Azure AD Connect sync version 1.4.32.0 or later
 - An OU or group that is in scope of sync and can be used the pilot. We recommend starting with a small set of objects.
-- A server running Windows Server 2012 R2 or later that will host the provisioning agent.  This cannot be the same server as the Azure AD Connect server.
+- A server running Windows Server 2012 R2 or later that will host the provisioning agent.
 - Source anchor for Azure AD Connect sync should be either *objectGuid* or *ms-ds-consistencyGUID*
 
 ## Update Azure AD Connect

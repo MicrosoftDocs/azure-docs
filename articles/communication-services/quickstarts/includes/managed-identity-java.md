@@ -1,6 +1,6 @@
 ## Add managed identity to your Communication Services solution (Java)
 
-### Install the client library packages
+### Install the SDK packages
 In the pom.xml file, add the following dependency elements to the group of dependencies.
 
 ```xml
@@ -21,9 +21,9 @@ In the pom.xml file, add the following dependency elements to the group of depen
 </dependency>
 ```
 
-### Use the client library packages
+### Use the SDK packages
 
-Add the following `import` directives to your code to use the Azure Identity and Azure Communication client libraries.
+Add the following `import` directives to your code to use the Azure Identity and Azure Communication SDKs.
 
 ```java
 import com.azure.communication.common.*;
