@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Create a C# ASP.NET Core app"
+title: "Quickstart: Create a C# ASP.NET app"
 description: Learn how to run web apps in Azure App Service by deploying your first ASP.NET app.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
