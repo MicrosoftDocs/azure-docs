@@ -113,6 +113,29 @@ Follow these steps to edit a disk associated with a virtual machine deployed on 
 1. On the **Overview** page, the list of disks refreshes to display the updated disk.
 
 
+## Attach an existing disk
+
+Follow these steps to attach an existing disk to the virtual machine deployed on your device.
+
+1. Go to the virtual machine that you have stopped and then go to the **Overview** page. Select **Disks**.
+    
+    ![Select Disks on Overview page](./media/azure-stack-edge-gpu-manage-virtual-machine-disks-portal/list-data-disks-1.png)
+
+1. In the **Disks** blade, under **Data Disks**, select **Attach an existing disk**.
+
+    ![Select attach an existing disk](./media/azure-stack-edge-gpu-manage-virtual-machine-disks-portal/attach-existing-data-disk-1.png)
+
+1. Accept default LUN or assign a valid LUN. Choose an existing data disk from the dropdown list. Select Save.
+
+    ![Select an existing disk](./media/azure-stack-edge-gpu-manage-virtual-machine-disks-portal/attach-existing-data-disk-2.png)
+
+    Select **Save** and proceed.
+
+1. You'll see a notification that the virtual machine is updated. After the VM is updated, navigate back to the **Overview** page. Refresh the page to view the newly attached disk in the list of data disks.
+
+    ![View updated list of data disks on Overview page](./media/azure-stack-edge-gpu-manage-virtual-machine-disks-portal/list-data-disks-2.png)
+
+
 ## Delete a data disk
 
 Follow these steps to delete or remove a data disk associated with a virtual machine deployed on your device.

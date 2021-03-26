@@ -30,18 +30,18 @@ Before you resize a VM running on your device via the Azure portal, make sure th
 
 1. You have at least one VM deployed on your device. To create this VM, see the instructions in [Deploy VM on your Azure Stack Edge Pro via the Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md).
 
-1. Your VM should be in **Stopped** state. To stop your VM, go to **Virtual machines > Overview** and select the VM you want to stop. In the VM properties page, select **Stop** and then select **Yes** when prompted for confirmation. Before you resize your VM, you must stop the VM.
+1. Your VM should be in **Stopped** state. To stop your VM, go to **Virtual machines > Overview** and select the VM you want to stop. In the Overview page, select **Stop** and then select **Yes** when prompted for confirmation. Before you resize your VM, you must stop the VM.
 
-    ![Stop VM from VM properties page](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/stop-vm-2.png)
+    ![Stop VM from Overview page](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/stop-vm-2.png)
 
 
 ## Resize a VM
 
 Follow these steps to resize a virtual machine deployed on your device. 
 
-1. Go to the virtual machine that you have stopped and then go to the **VM Properties** page. Select **VM size (change)**.
+1. Go to the virtual machine that you have stopped and then go to the **Overview** page. Select **VM size (change)**.
     
-    ![Select Networking on VM properties page](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-1.png)
+    ![Select Networking on Overview page](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-1.png)
 
 2. In the **Disks** blade, from the command bar, select **+ Add network interface**.
 
@@ -68,34 +68,6 @@ Follow these steps to resize a virtual machine deployed on your device.
     ![Updated list of network interfaces](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-5.png)
 
 
-## Edit a data disk
-
-Follow these steps to edit a network interface associated with a virtual machine deployed on your device.
-
-1. Go to the virtual machine that you have stopped and go to the **VM Properties** page. Select **Networking**.
-
-1. In the list of network interfaces, select the interface that you wish to edit. In the far right of the network interface selected, select the edit icon (pencil).  
-
-    ![Select a network interface to edit](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/edit-nic-1.png)
-
-1. In the **Edit network interface** blade, you can only change the IP assignment of the network interface. The name, virtual network, and subnet associated with the network interface can't be changed once it is created. Change the **IP assignment** to static and save the changes.
-
-    ![Change IP assignment for the network interface](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/edit-nic-2.png)
-
-1. The list of network interface refreshes to display the updated network interface.
-
-
-## Detach a data disk
-
-Follow these steps to detach or remove a network interface associated with a virtual machine deployed on your device.
-
-1. Go to the virtual machine that you have stopped and go to the **VM Properties** page. Select **Disk**.
-
-1. In the list of network interfaces, select the interface that you wish to edit. In the far right of the network interface selected, select the detach icon (unplug).  
-
-    ![Select a network interface to detach](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/detach-nic-1.png)
-
-1. After the interface is detached, the list of network interfaces is refreshed to display the remaining interfaces.
 
 ## Next steps
 
