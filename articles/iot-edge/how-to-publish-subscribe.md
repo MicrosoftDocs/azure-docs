@@ -15,6 +15,8 @@ monikerRange: ">=iotedge-2020-11"
 
 # Publish and subscribe with Azure IoT Edge
 
+[!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
+
 You can use Azure IoT Edge MQTT broker to publish and subscribe messages. This article shows you how to connect to this broker, publish and subscribe to messages over user-defined topics, and use IoT Hub messaging primitives. The IoT Edge MQTT broker is built-in the IoT Edge hub. For more information, see [the brokering capabilities of the IoT Edge hub](iot-edge-runtime.md).
 
 > [!NOTE]
@@ -362,8 +364,8 @@ The [Azure IoT Device SDKs](https://github.com/Azure/azure-iot-sdks) already let
 
 Sending telemetry data to IoT Hub is similar to publishing on a user-defined topic, but using a specific IoT Hub topic:
 
-- For a device, telemetry is sent on topic: `devices/<device_name>/messages/events`
-- For a module, telemetry is sent on topic: `devices/<device_name>/<module_name>/messages/events`
+- For a device, telemetry is sent on topic: `devices/<device_name>/messages/events/`
+- For a module, telemetry is sent on topic: `devices/<device_name>/<module_name>/messages/events/`
 
 Additionally, create a route such as `FROM /messages/* INTO $upstream` to send telemetry from the IoT Edge MQTT broker to IoT hub. To learn more about routing, see [Declare routes](module-composition.md#declare-routes).
 

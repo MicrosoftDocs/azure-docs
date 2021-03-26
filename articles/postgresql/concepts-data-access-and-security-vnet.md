@@ -27,9 +27,9 @@ You can also consider using [Private Link](concepts-data-access-and-security-pri
 
 **Virtual network:** You can have virtual networks associated with your Azure subscription.
 
-**Subnet:** A virtual network contains **subnets**. Any Azure virtual machines (VMs) that you have are assigned to subnets. One subnet can contain multiple VMs or other compute nodes. Compute nodes that are outside of your virtual network cannot access your virtual network unless you configure your security to allow access.
+**Subnet:** A virtual network contains **subnets**. Any Azure virtual machines (VMs) within the VNet is assigned to a subnet. A subnet can contain multiple VMs and/or other compute nodes. Compute nodes that are outside of your virtual network cannot access your virtual network unless you configure your security to allow access.
 
-**Virtual Network service endpoint:** A [Virtual Network service endpoint][vm-virtual-network-service-endpoints-overview-649d] is a subnet whose property values include one or more formal Azure service type names. In this article we are interested in the type name of **Microsoft.Sql**, which refers to the Azure service named SQL Database. This service tag also applies to the Azure Database for PostgreSQL and MySQL services. It is important to note when applying the **Microsoft.Sql** service tag to a VNet service endpoint it will configure service endpoint traffic for all Azure SQL Database, Azure Database for PostgreSQL and Azure Database for MySQL servers on the subnet. 
+**Virtual Network service endpoint:** A [Virtual Network service endpoint][vm-virtual-network-service-endpoints-overview-649d] is a subnet whose property values include one or more formal Azure service type names. In this article we are interested in the type name of **Microsoft.Sql**, which refers to the Azure service named SQL Database. This service tag also applies to the Azure Database for PostgreSQL and MySQL services. It is important to note when applying the **Microsoft.Sql** service tag to a VNet service endpoint it will configure service endpoint traffic for Azure Database Services: SQL Database, Azure Synapse Analytics, Azure Database for PostgreSQL and Azure Database for MySQL servers on the subnet. 
 
 **Virtual network rule:** A virtual network rule for your Azure Database for PostgreSQL server is a subnet that is listed in the access control list (ACL) of your Azure Database for PostgreSQL server. To be in the ACL for your Azure Database for PostgreSQL server, the subnet must contain the **Microsoft.Sql** type name.
 
@@ -39,13 +39,13 @@ A virtual network rule tells your Azure Database for PostgreSQL server to accept
 
 ## Benefits of a virtual network rule
 
-Until you take action, the VMs on your subnets cannot communicate with your Azure Database for PostgreSQL server. One action that establishes the communication is the creation of a virtual network rule. The rationale for choosing the VNet rule approach requires a compare-and-contrast discussion involving the competing security options offered by the firewall.
+Until you take action, the VMs in your subnet(s) cannot communicate with your Azure Database for PostgreSQL server. One action that establishes the communication is the creation of a virtual network rule. The rationale for choosing the VNet rule approach requires a compare-and-contrast discussion involving the competing security options offered by the firewall.
 
-### A. Allow access to Azure services
+### Allow access to Azure services
 
 The Connection security pane has an **ON/OFF** button that is labeled **Allow access to Azure services**. The **ON** setting allows communications from all Azure IP addresses and all Azure subnets. These Azure IPs or subnets might not be owned by you. This **ON** setting is probably more open than you want your Azure Database for PostgreSQL Database to be. The virtual network rule feature offers much finer granular control.
 
-### B. IP rules
+### IP rules
 
 The Azure Database for PostgreSQL firewall allows you to specify IP address ranges from which communications are accepted into the Azure Database for PostgreSQL Database. This approach is fine for stable IP addresses that are outside the Azure private network. But many nodes inside the Azure private network are configured with *dynamic* IP addresses. Dynamic IP addresses might change, such as when your VM is restarted. It would be folly to specify a dynamic IP address in a firewall rule, in a production environment.
 

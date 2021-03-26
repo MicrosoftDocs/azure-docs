@@ -13,7 +13,7 @@ The first thing you'll need to do is create a LUIS account and app using the LUI
 
 Follow these instructions to create your LUIS app:
 
-* <a href="https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app" target="_blank">Quickstart: Build prebuilt domain app <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+* <a href="/azure/cognitive-services/luis/luis-get-started-create-app" target="_blank">Quickstart: Build prebuilt domain app </a>
 
 When you're done, you'll need four things:
 

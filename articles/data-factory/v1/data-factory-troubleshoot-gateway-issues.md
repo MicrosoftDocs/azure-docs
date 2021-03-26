@@ -1,20 +1,11 @@
 ---
 title: Troubleshoot Data Management Gateway issues 
 description: Provides tips to troubleshoot issues related to Data Management Gateway.
-services: data-factory
 author: nabhishek
-manager: anandsub
-
-
-ms.assetid: c6756c37-4e5a-4d1e-ab52-365f149b4128
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
-
 robots: noindex
 ---
 # Troubleshoot issues with using Data Management Gateway
@@ -98,7 +89,7 @@ If setup is current/ latest and gateway still exists on Portal, regenerate the g
 ### 6. Problem
 You might see the following error message when you're registering a gateway.
 
-`Error: Gateway has been online for a while, then shows “Gateway is not registered” with the status “Gateway key is invalid”`
+`Error: Gateway has been online for a while, then shows "Gateway is not registered" with the status "Gateway key is invalid"`
 
 ![Gateway key is invalid or empty](media/data-factory-troubleshoot-gateway-issues/gateway-not-registered-key-invalid.png)
 
@@ -108,7 +99,7 @@ This error might happen because either the gateway has been deleted or the assoc
 #### Resolution
 If the gateway has been deleted, re-create the gateway from the portal, click **Register**, copy the key from the portal, paste it, and try to register the gateway.
 
-If the gateway still exists but its key has been regenerated, use the new key to register the gateway. If you don’t have the key, regenerate the key again from the portal.
+If the gateway still exists but its key has been regenerated, use the new key to register the gateway. If you don't have the key, regenerate the key again from the portal.
 
 ### 7. Problem
 When you're registering a gateway, you might need to enter path and password for a certificate.
@@ -255,7 +246,7 @@ When you contact Microsoft Support to get help with troubleshooting gateway issu
 6. After the operation is complete, you see a dialog box as shown in the following screenshot.
 
     ![Data Management Gateway Send logs status](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-result.png)
-7. Save the **Report ID** and share it with Microsoft Support. The report ID is used to locate the gateway logs that you uploaded for troubleshooting.  The report ID is also saved in the event viewer.  You can find it by looking at the event ID “25”, and check the date and time.
+7. Save the **Report ID** and share it with Microsoft Support. The report ID is used to locate the gateway logs that you uploaded for troubleshooting.  The report ID is also saved in the event viewer.  You can find it by looking at the event ID "25", and check the date and time.
 
     ![Data Management Gateway Send logs report ID](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-report-id.png)    
 

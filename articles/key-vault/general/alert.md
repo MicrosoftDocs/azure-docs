@@ -26,6 +26,8 @@ This document will cover the following topics:
 + How to configure metrics and create a dashboard
 + How to create alerts at specified thresholds
 
+Azure Monitor for Key Vault combines both logs and metrics to provide a global monitoring solution. [Learn more about Azure Monitor for Key Vualt here](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview#introduction-to-azure-monitor-for-key-vault)
+
 ## Basic Key Vault metrics to monitor
 
 + Vault Availability  
@@ -201,13 +203,14 @@ Please see the following configuration parameters.
 
 7. Create the alert 
 
+### Example email alert 
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot that highlights the information needed to configure an email alert.](../media/alert-20.png)
 
 ## Next steps
 
 Congratulations, you have now successfully created a monitoring dashboard and configured alerts for your key vault! 
 Once you have followed all of the steps above, you should receive email alerts when your key vault meets the alert criteria you configured. An example is shown below. Use the tools you have set up in this article to actively monitor the health of your key vault. 
 
-### Example email alert 
 
-> [!div class="mx-imgBorder"]
-> ![Screenshot that highlights the information needed to configure an email alert.](../media/alert-20.png)

@@ -2,12 +2,10 @@
 title: Azure Monitor for SAP Solutions overview and architecture| Microsoft Docs
 description: This article provides answers to frequently asked questions about Azure monitor for SAP solutions
 author: rdeltcheva
-ms.service: virtual-machines
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
-ms.reviewer: cynthn
 
 ---
 
@@ -31,7 +29,7 @@ Supported databases:
 - SAP HANA Database
 - Microsoft SQL server
 
-Azure Monitor for SAP Solutions uses the power of existing [Azure Monitor](../../../azure-monitor/overview.md) capabilities such as Log Analytics and [Workbooks](../../../azure-monitor/platform/workbooks-overview.md) to provide more monitoring capabilities. Customers can create [custom visualizations](../../../azure-monitor/platform/workbooks-overview.md#getting-started) by editing the default Workbooks provided by Azure Monitor for SAP Solutions, write [custom queries](../../../azure-monitor/log-query/log-analytics-tutorial.md) and create [custom alerts](../../../azure-monitor/learn/tutorial-response.md) by using Azure Log Analytics workspace, take advantage of [flexible retention period](../../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) and connect monitoring data with their ticketing system.
+Azure Monitor for SAP Solutions uses the power of existing [Azure Monitor](../../../azure-monitor/overview.md) capabilities such as Log Analytics and [Workbooks](../../../azure-monitor/visualize/workbooks-overview.md) to provide more monitoring capabilities. Customers can create [custom visualizations](../../../azure-monitor/visualize/workbooks-overview.md#getting-started) by editing the default Workbooks provided by Azure Monitor for SAP Solutions, write [custom queries](../../../azure-monitor/logs/log-analytics-tutorial.md) and create [custom alerts](../../../azure-monitor/alerts/tutorial-response.md) by using Azure Log Analytics workspace, take advantage of [flexible retention period](../../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period) and connect monitoring data with their ticketing system.
 
 ## What data does Azure Monitor for SAP solutions collect?
 
@@ -87,9 +85,9 @@ The key components of the architecture are:
    - Azure Virtual Machine: Also known as *collector VM*. This is a Standard_B2ms VM. The main purpose of this VM is to host the *Monitoring Payload*. Monitoring payload refers to the logic of collecting telemetry from the source systems and transferring the collected data to the monitoring framework. In the above diagram, the monitoring payload contains the logic to connect to SAP HANA database over SQL port.
    - [Azure Key Vault](../../../key-vault/general/basic-concepts.md): This resource is deployed to securely hold SAP HANA database credentials and to store information about [providers](./azure-monitor-providers.md).
    - Log Analytics Workspace: the destination where the telemetry data resides.
-      - Visualization is built on top of telemetry in Log Analytics using [Azure Workbooks](../../../azure-monitor/platform/workbooks-overview.md). Customers can customize visualization. Customers can also pin their Workbooks or specific visualization within Workbooks to Azure dashboard for autorefresh capability with lowest granularity of 30 minutes.
+      - Visualization is built on top of telemetry in Log Analytics using [Azure Workbooks](../../../azure-monitor/visualize/workbooks-overview.md). Customers can customize visualization. Customers can also pin their Workbooks or specific visualization within Workbooks to Azure dashboard for autorefresh capability with lowest granularity of 30 minutes.
       - Customers can use their existing workspace within the same subscription as SAP monitor resource by choosing this option at the time of deployment.
-      - Customers can use Kusto query language (KQL) to run [queries](../../../azure-monitor/log-query/log-query-overview.md) against the raw tables inside Log Analytics workspace. Look at *Custom Logs*.
+      - Customers can use Kusto query language (KQL) to run [queries](../../../azure-monitor/logs/log-query-overview.md) against the raw tables inside Log Analytics workspace. Look at *Custom Logs*.
 
 > [!Note]
 > Customers are responsible for patching and maintaining the VM, deployed in the managed resource group.

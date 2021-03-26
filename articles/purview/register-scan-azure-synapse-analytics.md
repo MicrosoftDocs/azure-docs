@@ -39,7 +39,7 @@ There are three ways to set up authentication for Azure Synapse Analytics:
 
 ### Managed Identity (Recommended) 
    
-Your Purview account has its own Managed Identity which is basically your Purview name when you created it. You must create an Azure AD user in Azure Synapse Analytics (formerly SQL DW) with the exact Purview's Managed Identity name by following the prerequisites and tutorial on [Create Azure AD users using Azure AD applications](/azure/azure-sql/database/authentication-aad-service-principal-tutorial).
+Your Purview account has its own Managed Identity which is basically your Purview name when you created it. You must create an Azure AD user in Azure Synapse Analytics (formerly SQL DW) with the exact Purview's Managed Identity name by following the prerequisites and tutorial on [Create Azure AD users using Azure AD applications](../azure-sql/database/authentication-aad-service-principal-tutorial.md).
 
 Example SQL syntax to create user and grant permission:
 
@@ -81,7 +81,7 @@ It is required to get the Service Principal's application ID and secret:
 
 #### Granting the Service Principal access to your Azure Synapse Analytics (formerly SQL DW)
 
-In addition, you must also create an Azure AD user in Azure Synapse Analytics by following the prerequisites and tutorial on [Create Azure AD users using Azure AD applications](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-service-principal-tutorial). Example SQL syntax to create user and grant permission:
+In addition, you must also create an Azure AD user in Azure Synapse Analytics by following the prerequisites and tutorial on [Create Azure AD users using Azure AD applications](../azure-sql/database/authentication-aad-service-principal-tutorial.md). Example SQL syntax to create user and grant permission:
 
 ```sql
 CREATE USER [ServicePrincipalName] FROM EXTERNAL PROVIDER
@@ -121,7 +121,7 @@ To register a new Azure Synapse Analytics server in your Data Catalog, do the fo
 On the **Register sources (Azure Synapse Analytics)** screen, do the following:
 
 1. Enter a **Name** that the data source will be listed with in the Catalog.
-1. Choose how you want to point to your desired storage account:
+1. Choose how you want to point to your desired logical SQL Server:
    1. Select **From Azure subscription**, select the appropriate subscription from the **Azure subscription** drop down box and the appropriate server from the **Server name** drop down box.
    1. Or, you can select **Enter manually** and enter a **Server name**.
 1. **Finish** to register the data source.
@@ -134,4 +134,3 @@ On the **Register sources (Azure Synapse Analytics)** screen, do the following:
 
 - [Browse the Azure Purview Data catalog](how-to-browse-catalog.md)
 - [Search the Azure Purview Data Catalog](how-to-search-catalog.md)
-

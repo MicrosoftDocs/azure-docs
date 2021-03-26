@@ -2,25 +2,15 @@
 title: Convert portal template to template spec
 description: Describes how to convert an existing template in the Azure portal gallery to a template specs.
 ms.topic: conceptual
-ms.date: 01/22/2021
+ms.date: 02/04/2021
 ms.author: tomfitz
 author: tfitzmac
 ---
 # Convert template gallery in portal to template specs
 
-The Azure portal provides a way to store Azure Resource Manager templates (ARM templates) in your account. **This feature is being deprecated.** To continue using templates in this gallery, convert them to [template specs](template-specs.md).
+The Azure portal provides a way to store Azure Resource Manager templates (ARM templates) in your account. However, [template specs](template-specs.md) offers an easier way to share your templates with users in your organization, and link with other templates. This article shows how to convert existing templates in the template gallery to template specs.
 
-This article shows how to convert existing templates in the template gallery to template specs.
-
-In the portal, the feature being deprecated is called **Templates (Preview)**. To see if you have any templates to convert, view the [template gallery in the portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Gallery%2Fmyareas%2Fgalleryitems). These templates have the resource type `Microsoft.Gallery/myareas/galleryitems`.
-
-## Deprecation of portal feature
-
-The template gallery in the portal is being deprecated on January 21, 2021. You can continue using it until February 21. Starting on February 22, you can't create new templates in the portal gallery but you can still view and deploy existing templates.
-
-On June 22, the feature will be removed from the portal and all API operations will be blocked. You'll not be able to view or deploy any templates from the gallery.
-
-Before June 22, you should migrate any templates that you want to continue using. You can use one of the methods shown in this article to migrate the templates. After the feature has been removed, you'll need to open a support case to get any templates that you've not migrated.
+To see if you have any templates to convert, view the [template gallery in the portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Gallery%2Fmyareas%2Fgalleryitems). These templates have the resource type `Microsoft.Gallery/myareas/galleryitems`.
 
 ## Convert with PowerShell script
 

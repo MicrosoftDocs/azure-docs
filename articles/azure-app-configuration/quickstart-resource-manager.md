@@ -103,7 +103,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## Next steps
 
-To learn about creating other applications with Azure App Configuration, continue to the following article:
+To learn about adding feature flag and Key Vault reference to an App Configuration store, check below ARM template examples.
 
-> [!div class="nextstepaction"]
-> [Quickstart: Create an ASP.NET Core app with Azure App Configuration](quickstart-aspnet-core-app.md)
+- [101-app-configuration-store-ff](https://github.com/Azure/azure-quickstart-templates/tree/master/101-app-configuration-store-ff)
+- [101-app-configuration-store-keyvaultref](https://github.com/Azure/azure-quickstart-templates/tree/master/101-app-configuration-store-keyvaultref)

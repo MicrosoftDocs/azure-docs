@@ -20,34 +20,89 @@ Some features of Computer Vision support multiple languages; any features not me
 
 Computer Vision's OCR APIs support several languages. They do not require you to specify a language code. See [Optical Character Recognition (OCR)](concept-recognizing-text.md) for more information.
 
-|Language| Language code | OCR API | Read 3.0 and 3.1 | Read v3.2-preview.1 |
+|Language| Language code | OCR API | Read 3.0/3.1 | Read v3.2 preview |
 |:-----|:----:|:-----:|:---:|:---:|
+|Afrikaans|`af`| | |✔ |
+|Albanian |`sq`| | |✔ |
 |Arabic | `ar`|✔ | | |
+|Asturian |`ast`| | |✔ |
+|Basque  |`eu`| | |✔ |
+|Bislama   |`bi`| | |✔ |
+|Breton    |`br`| | |✔ |
+|Catalan    |`ca`| | |✔ |
+|Cebuano    |`ceb`| | |✔ |
+|Chamorro  |`ch`| | |✔ |
 |Chinese (Simplified) | `zh-Hans`|✔ | |✔ |
-|Chinese (Traditional) | `zh-Hant`|✔ | | |
-|Czech | `cs` |✔ | | |
-|Danish | `da` |✔ | | |
+|Chinese (Traditional) | `zh-Hant`|✔ | |✔ |
+|Cornish     |`kw`| | |✔ |
+|Corsican      |`co`| | |✔ |
+|Crimean Tatar (Latin)  |`crh`| | |✔ |
+|Czech | `cs` |✔ | |✔ |
+|Danish | `da` |✔ | |✔ |
 |Dutch | `nl` |✔ |✔ |✔ |
 |English | `en` |✔ |✔ |✔ |
-|Finnish | `fi` |✔ | | |
+|Estonian  |`crh`| | |✔ |
+|Fijian |`fj`| | |✔ |
+|Filipino  |`fil`| | |✔ |
+|Finnish | `fi` |✔ | |✔ |
 |French | `fr` |✔ |✔ |✔ |
+|Friulian  | `fur` | | |✔ |
+|Galician   | `gl` | | |✔ |
 |German | `de` |✔ |✔ |✔ |
+|Gilbertese    | `gil` | | |✔ |
 |Greek | `el` |✔ | | |
-|Hungarian | `hu` |✔ | | |
+|Greenlandic   | `kl` | | |✔ |
+|Haitian Creole  | `ht` | | |✔ |
+|Hani  | `hni` | | |✔ |
+|Hmong Daw (Latin) | `mww` | | |✔ |
+|Hungarian | `hu` |✔ | | ✔ |
+|Indonesian   | `id` | | |✔ |
+|Interlingua  | `ia` | | |✔ |
+|Inuktitut (Latin)  | `iu` | | |✔ |
+|Irish    | `ga` | | |✔ |
 |Italian | `it` |✔ |✔ |✔ |
 |Japanese | `ja` |✔ | |✔ |
-|Korean | `ko` |✔ | | |
+|Javanese | `jv` | | |✔ |
+|K’iche’  | `quc` | | |✔ |
+|Kabuverdianu | `kea` | | |✔ |
+|Kachin (Latin) | `kac` | | |✔ |
+|Kara-Kalpak | `kaa` | | |✔ |
+|Kashubian | `csb` | | |✔ |
+|Khasi  | `kha` | | |✔ |
+|Korean | `ko` |✔ | |✔ |
+|Kurdish (latin) | `kur` | | |✔ |
+|Luxembourgish  | `lb` | | |✔ |
+|Malay (Latin)  | `ms` | | |✔ |
+|Manx  | `gv` | | |✔ |
+|Neapolitan   | `nap` | | |✔ |
 |Norwegian | `nb` |✔ | | |
-|Polish | `pl` |✔ | | |
+|Norwegian | `no` | | |✔ |
+|Occitan | `oc` | | |✔ |
+|Polish | `pl` |✔ | |✔ |
 |Portuguese | `pt` |✔ |✔ |✔ |
 |Romanian | `ro` |✔ | | |
+|Romansh  | `rm` | | |✔ |
 |Russian | `ru` |✔ | | |
+|Scots  | `sco` | | |✔ |
+|Scottish Gaelic  | `gd` | | |✔ |
 |Serbian (Cyrillic) | `sr-Cyrl` |✔ | | |
 |Serbian (Latin) | `sr-Latn` |✔ | | |
 |Slovak | `sk` |✔ | | |
+|Slovenian  | `slv` | | |✔ |
 |Spanish | `es` |✔ |✔ |✔ |
-|Swedish | `sw` |✔ | | |
-|Turkish | `tr` |✔ | | |
+|Swahili (Latin)  | `sw` | | |✔ |
+|Swedish | `sv` |✔ | |✔ |
+|Tatar (Latin)  | `tat` | | |✔ |
+|Tetum    | `tet` | | |✔ |
+|Turkish | `tr` |✔ | |✔ |
+|Upper Sorbian  | `hsb` | | |✔ |
+|Uzbek (Latin)     | `uz` | | |✔ |
+|Volapük   | `vo` | | |✔ |
+|Walser    | `wae` | | |✔ |
+|Western Frisian | `fy` | | |✔ |
+|Yucatec Maya | `yua` | | |✔ |
+|Zhuang | `za` | | |✔ |
+|Zulu  | `zu` | | |✔ |
 
 ## Image analysis
 
@@ -60,10 +115,3 @@ Some actions of the [Analyze - Image](https://westcentralus.dev.cognitive.micros
 |Japanese | `ja`   | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Portuguese | `pt` | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Spanish | `es`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
-
-## Next steps
-
-Get started using the Computer Vision features mentioned in this guide.
-
-* [Analyze a local image (REST)](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/REST/CSharp-analyze.md)
-* [Extract printed text (REST)](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/REST/CSharp-print-text.md)

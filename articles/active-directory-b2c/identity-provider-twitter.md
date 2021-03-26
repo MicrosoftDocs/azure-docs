@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 03/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -41,8 +41,12 @@ To enable sign-in for users with a Twitter account in Azure AD B2C, you need to 
 1. Under **Authentication settings**, select **Edit**
     1. Select **Enable 3-legged OAuth** checkbox.
     1. Select **Request email address from users** checkbox.
-    1. For the **Callback URLs**, enter `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-user-flow-Id/oauth1/authresp`. Replace `your-tenant` with the name of your tenant name and `your-user-flow-Id` with the identifier of your user flow. For example, `b2c_1A_signup_signin_twitter`. Use all lowercase letters when entering your tenant name and user flow id even if they are defined with uppercase letters in Azure AD B2C.
-    1. For the **Website URL**, enter `https://your-tenant.b2clogin.com`. Replace `your-tenant` with the name of your tenant. For example, `https://contosob2c.b2clogin.com`.
+    1. For the **Callback URLs**, enter `https://your-tenant.b2clogin.com/your-tenant-name.onmicrosoft.com/your-user-flow-Id/oauth1/authresp`.  If you use a [custom domain](custom-domain.md), enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/your-user-flow-Id/oauth1/authresp`. Use all lowercase letters when entering your tenant name and user flow id even if they are defined with uppercase letters in Azure AD B2C. Replace:
+        - `your-tenant-name` with the name of your tenant name.
+        - `your-domain-name` with your custom domain.
+        - `your-user-flow-Id` with the identifier of your user flow. For example, `b2c_1a_signup_signin_twitter`. 
+    
+    1. For the **Website URL**, enter `https://your-tenant.b2clogin.com`. Replace `your-tenant` with the name of your tenant. For example, `https://contosob2c.b2clogin.com`. If you use a [custom domain](custom-domain.md), enter `https://your-domain-name`.
     1. Enter a URL for the **Terms of service**, for example `http://www.contoso.com/tos`. The policy URL is a page you maintain to provide terms and conditions for your application.
     1. Enter a URL for the **Privacy policy**, for example `http://www.contoso.com/privacy`. The policy URL is a page you maintain to provide privacy information for your application.
     1. Select **Save**.
@@ -62,13 +66,18 @@ To enable sign-in for users with a Twitter account in Azure AD B2C, you need to 
 
 ## Add Twitter identity provider to a user flow 
 
+At this point, the Twitter identity provider has been set up, but it's not yet available in any of the sign-in pages. To add the Twitter identity provider to a user flow:
+
 1. In your Azure AD B2C tenant, select **User flows**.
 1. Select the user flow that you want to add the Twitter identity provider.
 1. Under the **Social identity providers**, select **Twitter**.
 1. Select **Save**.
 1. To test your policy, select **Run user flow**.
 1. For **Application**, select the web application named *testapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
-1. Click **Run user flow**
+1. Select the **Run user flow** button.
+1. From the sign-up or sign-in page, select **Twitter** to sign in with Twitter account.
+
+If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
 
 ::: zone-end
 
@@ -161,7 +170,15 @@ You can define a Twitter account as a claims provider by adding it to the **Clai
 </OrchestrationStep>
 ```
 
-[!INCLUDE [active-directory-b2c-create-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
+[!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
+## Test your custom policy
+
+1. Select your relying party policy, for example `B2C_1A_signup_signin`.
+1. For **Application**, select a web application that you [previously registered](troubleshoot-custom-policies.md#troubleshoot-the-runtime). The **Reply URL** should show `https://jwt.ms`.
+1. Select the **Run now** button.
+1. From the sign-up or sign-in page, select **Twitter** to sign in with Twitter account.
+
+If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
 
 ::: zone-end

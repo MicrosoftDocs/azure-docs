@@ -1,5 +1,5 @@
 ---
-title: 'Inbound synchronization for cloud sync using MS Graph API'
+title: 'How to programmatically configure cloud sync using MS Graph API'
 description: This topic describes how to enable inbound synchronization using just the Graph API
 services: active-directory
 author: billmath
@@ -12,7 +12,7 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
-# Inbound synchronization for cloud sync using MS Graph API
+# How to programmatically configure cloud sync using MS Graph API
 
 The following document describes how to replicate a synchronization profile from scratch using only MSGraph APIs.  
 The structure of how to do this consists of the following steps.  They are:
@@ -22,6 +22,7 @@ The structure of how to do this consists of the following steps.  They are:
 - [Create Sync Job](#create-sync-job)
 - [Update targeted domain](#update-targeted-domain)
 - [Enable sync password hashes](#enable-sync-password-hashes-on-configuration-blade)
+- [Accidental deletes](#accidental-deletes)
 - [Start sync job](#start-sync-job)
 - [Review status](#review-status)
 
@@ -209,6 +210,71 @@ Here, the highlighted "Domain" value is the name of the on-premises Active Direc
 ```
 
  Add the Schema in the request body. 
+
+## Accidental deletes
+This section will cover how to programmatically enable/disable and use [accidental deletes](how-to-accidental-deletes.md) programmatically.
+
+
+### Enabling and setting the threshold
+There are two per job settings that you can use, they are:
+
+ - DeleteThresholdEnabled  - Enables accidental delete prevention for the job when set to 'true'. Set to 'true' by default.
+ - DeleteThresholdValue    - Defines the maximum number of deletes that will be allowed in each execution of the job when accidental deletes prevention is enabled. The value is set to 500 by default.  So, if the value is set to 500, the maximum number of deletes allowed will be 499 in each execution.
+
+The delete threshold settings are a part of the `SyncNotificationSettings` and can be modified via graph. 
+
+We're going to need to update the SyncNotificationSettings this configuration is targeting, so update the secrets.
+
+ ```
+ PUT – https://graph.microsoft.com/beta/servicePrincipals/[SERVICE_PRINCIPAL_ID]/synchronization/secrets
+ ```
+
+ Add the following Key/value pair in the below value array based on what you’re trying to do:
+
+```
+ Request body -
+ {
+   "value":[
+             {
+               "key":"SyncNotificationSettings",
+               "value": "{\"Enabled\":true,\"Recipients\":\"foobar@xyz.com\",\"DeleteThresholdEnabled\":true,\"DeleteThresholdValue\":50}"
+              }
+            ]
+  }
+
+
+```
+
+The "Enabled" setting in the example above is for enabling/disabling notification emails when the job is quarantined.
+
+
+Currently, we do not support PATCH requests for secrets, so you will need to add all the values in the body of the PUT request(like in the example above) in order to preserve the other values.
+
+The existing values for all the secrets can be retrieved by using 
+
+```
+GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secrets 
+```
+
+### Allowing deletes
+To allow the deletes to flow through after the job goes into quarantine, you need to issue a restart with just "ForceDeletes" as the scope. 
+
+```
+Request:
+POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/restart
+```
+
+```
+Request Body:
+{
+  "criteria": {"resetScope": "ForceDeletes"}
+}
+```
+
+
+
+
+
 
 ## Start sync job
 The job can be retrieved again via the following command:

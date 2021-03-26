@@ -91,5 +91,3 @@ January 23, 2019: Released for download
 * Revamped the Provisioning Agent and connector architecture for better performance, stability, and reliability 
 * Simplified the Provisioning Agent configuration using UI-driven installation wizard 
 * Added support for automatic agent updates
-
-

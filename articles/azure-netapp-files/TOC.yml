@@ -31,6 +31,8 @@
       href: azure-netapp-files-performance-metrics-volumes.md 
     - name: Performance benchmarks for Linux
       href: performance-benchmarks-linux.md
+    - name: Performance impact of Kerberos on NFSv4.1
+      href: performance-impact-kerberos.md
     - name: Oracle database performance on Azure NetApp Files single volumes
       href: performance-oracle-single-volumes.md
     - name: FAQs about SMB performance
@@ -61,10 +63,14 @@
         href: solutions-benefits-azure-netapp-files-electronic-design-automation.md
       - name: Benefits of using Azure NetApp Files with Windows Virtual Desktop
         href: solutions-windows-virtual-desktop.md
+      - name: Benefits of using Azure NetApp Files for SQL Server deployment
+        href: solutions-benefits-azure-netapp-files-sql-server.md
   - name: FAQs about Azure NetApp Files
     href: azure-netapp-files-faqs.md
   - name: What is Azure Application Consistent Snapshot Tool
     href: azacsnap-introduction.md
+  - name: What changing to volume hard quota means
+    href: volume-hard-quota-guidelines.md
 - name: How-to guides
   items:
   - name: Register for Azure NetApp Files
@@ -77,6 +83,8 @@
     href: manage-manual-qos-capacity-pool.md
   - name: Delegate a subnet to Azure NetApp Files
     href: azure-netapp-files-delegate-subnet.md
+  - name: Create and manage Active Directory connections
+    href: create-active-directory-connections.md
   - name: Create and manage an NFS volume
     items:
     - name: Create an NFS volume
@@ -125,7 +133,7 @@
       href: troubleshoot-capacity-pools.md
     - name: Troubleshoot cross-region replication
       href: troubleshoot-cross-region-replication.md
-    - name: Troubleshoot dual-protocol volumes
+    - name: Troubleshoot SMB or dual-protocol volumes
       href: troubleshoot-dual-protocol-volumes.md
     - name: Troubleshoot NFSv4.1 Kerberos volumes
       href: troubleshoot-nfsv41-kerberos-volumes.md
@@ -141,6 +149,8 @@
     href: /azure/templates/microsoft.netapp/allversions
   - name: Azure Application Consistent Snapshot Tool (AzAcSnap)
     items:
+    - name: Release Notes for AzAcSnap
+      href: azacsnap-release-notes.md
     - name: Get started with AzAcSnap
       href: azacsnap-get-started.md
     - name: Install AzAcSnap
@@ -175,3 +185,5 @@
     href: https://azure.microsoft.com/support/legal/sla/netapp/
   - name: Videos
     href: azure-netapp-files-videos.md
+  - name: Azure Files and Azure NetApp Files comparison
+    href: ../storage/files/storage-files-netapp-comparison.md

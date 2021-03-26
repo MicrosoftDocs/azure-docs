@@ -4,6 +4,7 @@ description: Technical deep dive on platform-supported migration of resources fr
 author: tanmaygore
 manager: vashan
 ms.service: virtual-machines
+ms.subservice: classic-to-arm-migration
 ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 12/17/2020

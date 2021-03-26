@@ -1,9 +1,6 @@
 ---
 title: What is Apache Spark - Azure HDInsight
 description: This article provides an introduction to Spark in HDInsight and the different scenarios in which you can use Spark cluster in HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: contperf-fy21q1
 ms.topic: overview
@@ -16,13 +13,13 @@ ms.date: 09/21/2020
 
 Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Apache Spark in Azure HDInsight is the Microsoft implementation of Apache Spark in the cloud. HDInsight makes it easier to create and configure a Spark cluster in Azure. Spark clusters in HDInsight are compatible with [Azure Blob storage](../../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen1](../../data-lake-store/data-lake-store-overview.md), or [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md). So you can use HDInsight Spark clusters to process your data stored in Azure. For the components and the versioning information, see [Apache Hadoop components and versions in Azure HDInsight](../hdinsight-component-versioning.md).
 
-![Spark: a unified framework](./media/apache-spark-overview/hdinsight-spark-overview.png)
+:::image type="content" source="./media/apache-spark-overview/hdinsight-spark-overview.png" alt-text="Spark: a unified framework" border="false":::
 
 ## What is Apache Spark?
 
 Spark provides primitives for in-memory cluster computing. A Spark job can load and cache data into memory and query it repeatedly. In-memory computing is much faster than disk-based applications, such as Hadoop, which shares data through Hadoop distributed file system (HDFS). Spark also integrates into the Scala programming language to let you manipulate distributed data sets like local collections. There's no need to structure everything as map and reduce operations.
 
-![Traditional MapReduce vs. Spark](./media/apache-spark-overview/map-reduce-vs-spark1.png)
+:::image type="content" source="./media/apache-spark-overview/map-reduce-vs-spark1.png" alt-text="Traditional MapReduce vs. Spark" border="false":::
 
 Spark clusters in HDInsight offer a fully managed Spark service. Benefits of creating a Spark cluster in HDInsight are listed here.
 
@@ -50,11 +47,11 @@ Apache Spark clusters in HDInsight include the following components that are ava
 * [Jupyter Notebook](https://jupyter.org)
 * [Apache Zeppelin notebook](http://zeppelin-project.org/)
 
-HDInsight Spark clusters an [ODBC driver](https://go.microsoft.com/fwlink/?LinkId=616229) for connectivity from BI tools such as Microsoft Power BI.
+HDInsight Spark clusters an [ODBC driver](/sql/connect/odbc/download-odbc-driver-for-sql-server) for connectivity from BI tools such as Microsoft Power BI.
 
 ## Spark cluster architecture
 
-![The architecture of HDInsight Spark](./media/apache-spark-overview/hdi-spark-architecture.png)
+:::image type="content" source="./media/apache-spark-overview/hdi-spark-architecture.png" alt-text="The architecture of HDInsight Spark" border="false":::
 
 It's easy to understand the components of Spark by understanding how Spark runs on HDInsight clusters.
 

@@ -79,13 +79,13 @@ For transact publishing scenarios, you can make a software license available fre
 
 In addition to using offer types and billing models to monetize an offer, you can transact a private offer, complete with negotiated, deal-specific pricing, or custom configurations. Private offers are supported by all three transact publishing options.
 
-This option allows higher or lower pricing than the publicly available offering. You can use private offers to discount or add a premium to an offer. You can make Private offers available to one or more customers by white-listing their Azure subscription at the offer level.
+This option allows higher or lower pricing than the publicly available offering. You can use private offers to discount or add a premium to an offer. You can make Private offers available to one or more customers by allowlisting their Azure subscription at the offer level.
 
 ### Commercial marketplace service fees
 
 We charge a 20% standard store service fee when customers purchase your transact offer from the commercial marketplace. For details of this fee, see section 5c of the [Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560).
 
-For certain transactable offers that you publish to the commercial marketplace, you may qualify for a reduced store service fee of 10%. For an offer to qualify, it must have been designated by Microsoft as Azure IP Co-sell incentivized. Eligibility must be met at least five business days before the end of each calendar month to receive the Reduced Marketplace Service Fee. Once eligibility is met, the reduced service fee is awarded to all transactions effective the first day of the following month until Azure IP Co-sell incentivized status is lost. For details about IP co-sell eligibility, see [Requirements for co-sell status](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
+For certain transactable offers that you publish to the commercial marketplace, you may qualify for a reduced store service fee of 10%. For an offer to qualify, it must have been designated by Microsoft as Azure IP Co-sell incentivized. Eligibility must be met at least five business days before the end of each calendar month to receive the Reduced Marketplace Service Fee. Once eligibility is met, the reduced service fee is awarded to all transactions effective the first day of the following month until Azure IP Co-sell incentivized status is lost. For details about IP co-sell eligibility, see [Requirements for co-sell status](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status).
 
 The Reduced Marketplace Service Fee applies to Azure IP Co-sell incentivized SaaS, VMs, Managed apps, and any other qualified transactable IaaS solutions made available through the commercial marketplace. Paid SaaS offers associated with one Microsoft Teams app or at least two Microsoft 365 add-ins (Excel, PowerPoint, Word, Outlook, and SharePoint) and published to Microsoft AppSource also receive this discount.
 

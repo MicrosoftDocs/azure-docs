@@ -30,7 +30,7 @@ The table summarizes discovery, assessment, and migration limits for Azure Migra
 
 **Scenario** | **Project** | **Discovery/Assessment** | **Migration**
 --- | --- | --- | ---
-**VMware VMs** | Discover and assess up to 35,000 VMs in a single Azure Migrate project. | Discover up to 10,000 VMware VMs with a single [Azure Migrate appliance](common-questions-appliance.md) for VMware. | **Agentless migration**: you can simultaneously replicate a maximum of 300 VMs. For best performance, we recommend creating multiple batches of VMs if you  have more than 50.<br/><br/> **Agent-based migration**: you can [scale out](./agent-based-migration-architecture.md#performance-and-scaling) the [replication appliance](migrate-replication-appliance.md) to replicate large numbers of VMs.<br/><br/> In the portal, you can select up to 10 machines at once for replication. To replicate more machines, add in batches of 10.
+**VMware VMs** | Discover and assess up to 35,000 VMs in a single Azure Migrate project. | Discover up to 10,000 VMware VMs with a single [Azure Migrate appliance](common-questions-appliance.md) for VMware. | **Agentless migration**: you can simultaneously replicate a maximum of 500 VMs from each vCenter Server. **Agent-based migration**: you can [scale out](./agent-based-migration-architecture.md#performance-and-scaling) the [replication appliance](migrate-replication-appliance.md) to replicate large numbers of VMs.<br/><br/> In the portal, you can select up to 10 machines at once for replication. To replicate more machines, add in batches of 10.
 **Hyper-V VMs** | Discover and assess up to 35,000 VMs in a single Azure Migrate project. | Discover up to 5,000 Hyper-V VMs with a single Azure Migrate appliance | An appliance isn't used for Hyper-V migration. Instead, the Hyper-V Replication Provider runs on each Hyper-V host.<br/><br/> Replication capacity is influenced by performance factors such as VM churn, and upload bandwidth for replication data.<br/><br/> In the portal, you can select up to 10 machines at once for replication. To replicate more machines, add in batches of 10.
 **Physical machines** | Discover and assess up to 35,000 machines in a single Azure Migrate project. | Discover up to 250 physical servers with a single Azure Migrate appliance for physical servers. | You can [scale out](./agent-based-migration-architecture.md#performance-and-scaling) the [replication appliance](migrate-replication-appliance.md) to replicate large numbers of servers.<br/><br/> In the portal, you can select up to 10 machines at once for replication. To replicate more machines, add in batches of 10.
 
@@ -81,7 +81,7 @@ Required changes are summarized in the table.
 --- | --- | --- | ---
 **Configure the SAN policy as Online All**<br/><br/> This ensures that Windows volumes in Azure VM use the same drive letter assignments as the on-premises VM. | Set automatically for machines running Windows Server 2008 R2 or later.<br/><br/> Configure manually for earlier operating systems. | Set automatically in most cases. | Configure manually.
 **Install Hyper-V Guest Integration** | [Install manually](prepare-windows-server-2003-migration.md#install-on-vmware-vms) on machines running Windows Server 2003. | [Install manually](prepare-windows-server-2003-migration.md#install-on-vmware-vms) on machines running Windows Server 2003. | [Install manually](prepare-windows-server-2003-migration.md#install-on-hyper-v-vms) on machines running Windows Server 2003.
-**Enable Azure Serial Console**.<br/><br/>[Enable the console](../virtual-machines/troubleshooting/serial-console-windows.md) on Azure VMs to help with troubleshooting. You don't need to reboot the VM. The Azure VM will boot by using the disk image. The disk image boot is equivalent to a reboot for the new VM. | Enable manually | Enable manually | Enable manually
+**Enable Azure Serial Console**.<br/><br/>[Enable the console](/troubleshoot/azure/virtual-machines/serial-console-windows) on Azure VMs to help with troubleshooting. You don't need to reboot the VM. The Azure VM will boot by using the disk image. The disk image boot is equivalent to a reboot for the new VM. | Enable manually | Enable manually | Enable manually
 **Connect after migration**<br/><br/> To connect after migration, there are a number of steps to take before you migrate. | [Set up](#prepare-to-connect-to-azure-windows-vms) manually. | [Set up](#prepare-to-connect-to-azure-windows-vms) manually. | [Set up](#prepare-to-connect-to-azure-windows-vms) manually.
 
 
@@ -106,12 +106,13 @@ Configure this setting manually as follows:
 
 Azure Migrate completes these actions automatically for these versions
 
-- Red Hat Enterprise Linux  7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x
-- Cent OS 7.7, 7.6, 7.5, 7.4, 6.x
+- Red Hat Enterprise Linux  7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x (Azure Linux VM agent is also installed automatically during migration)
+- Cent OS 7.7, 7.6, 7.5, 7.4, 6.x (Azure Linux VM agent is also installed automatically during migration)
 - SUSE Linux Enterprise Server 12 SP1+
 - SUSE Linux Enterprise Server 15 SP1
-- Ubuntu 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS
-- Debian 8, 7
+- Ubuntu 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS (Azure Linux VM agent is also installed automatically during migration)
+- Ubuntu 18.04LTS, 16.04LTS
+- Debian 9, 8, 7
 - Oracle Linux 7.7, 7.7-CI
 
 For other versions, prepare machines as summarized in the table.  
@@ -120,7 +121,7 @@ For other versions, prepare machines as summarized in the table.
 **Action** | **Details** | **Linux version**
 --- | --- | ---
 **Install Hyper-V Linux Integration Services** | Rebuild the Linux init image so it contains the necessary Hyper-V drivers. Rebuilding the init image ensures that the VM will boot in Azure. | Most new versions of Linux distributions have this included by default.<br/><br/> If not included, install manually for all versions except those called out above.
-**Enable Azure Serial Console logging** | Enabling console logging helps you troubleshoot. You don't need to reboot the VM. The Azure VM will boot by using the disk image. The disk image boot is equivalent to a reboot for the new VM.<br/><br/> Follow [these instructions](../virtual-machines/troubleshooting/serial-console-linux.md) to enable.
+**Enable Azure Serial Console logging** | Enabling console logging helps you troubleshoot. You don't need to reboot the VM. The Azure VM will boot by using the disk image. The disk image boot is equivalent to a reboot for the new VM.<br/><br/> Follow [these instructions](/troubleshoot/azure/virtual-machines/serial-console-linux) to enable.
 **Update device map file** | Update the device map file with the device name-to-volume associations, so you use persistent device identifiers. | Install manually for all versions except those called out above. (Only applicable in agent-based VMware scenario)
 **Update fstab entries** |	Update entries to use persistent volume identifiers.	| Update manually for all versions except those called out above.
 **Remove udev rule** | Remove any udev rules that reserves interface names based on mac address etc. | Remove manually for all versions except those called out above.
@@ -142,6 +143,7 @@ The following table summarizes the steps performed automatically for the operati
 
 Learn more about steps for [running a Linux VM on Azure](../virtual-machines/linux/create-upload-generic.md), and get instructions for some of the popular Linux distributions.
 
+Review the list of [required packages](../virtual-machines/extensions/agent-linux.md#requirements) to install Linux VM agent. Azure Migrate installs the Linux VM agent automatically for  RHEL6, RHEL7, CentOS7 (6 should be supported similar to RHEL), Ubuntu 14.04, Ubuntu 16.04, Ubuntu18.04 when using the agentless method of VMware migration.
 
 ## Check Azure VM requirements
 
@@ -180,7 +182,7 @@ After migration, complete these steps on the Azure VMs that are created:
 
 1. To connect to the VM over the internet, assign a public IP address to the VM. You must use a different public IP address for the Azure VM than you used for your on-premises machine. [Learn more](../virtual-network/virtual-network-public-ip-address.md).
 2. Check that network security group (NSG) rules on the VM allow incoming connections to the RDP or SSH port.
-3. Check [boot diagnostics](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine) to view the VM.
+3. Check [boot diagnostics](/troubleshoot/azure/virtual-machines/boot-diagnostics#enable-boot-diagnostics-on-existing-virtual-machine) to view the VM.
 
 
 ## Next steps
@@ -193,4 +195,4 @@ For VMware VMs, Server Migration supports [agentless or agent-based migration](s
 
 - **VMware VMs**: Verify [migration requirements and support](migrate-support-matrix-vmware-migration.md) for VMware VMs.
 - **Hyper-V VMs**: Verify [migration requirements and support](migrate-support-matrix-hyper-v-migration.md) for Hyper-V VMs.
-- **Physical machines**: Verify [migration requirements and support](migrate-support-matrix-physical-migration.md) for on-premises physical machines and other virtualized servers. 
+- **Physical machines**: Verify [migration requirements and support](migrate-support-matrix-physical-migration.md) for on-premises physical machines and other virtualized servers.

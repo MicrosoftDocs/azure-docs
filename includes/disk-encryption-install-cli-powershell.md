@@ -13,9 +13,9 @@ Azure Disk Encryption can be enabled and managed through the [Azure CLI](/cli/az
 
 ### Azure CLI
 
-The [Azure CLI 2.0](/cli/azure) is a command-line tool for managing Azure resources. The CLI is designed to flexibly query data, support long-running operations as non-blocking processes, and make scripting easy. You can install it locally by following the steps in [Install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+The [Azure CLI 2.0](/cli/azure) is a command-line tool for managing Azure resources. The CLI is designed to flexibly query data, support long-running operations as non-blocking processes, and make scripting easy. You can install it locally by following the steps in [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-To [Sign in to your Azure account with the Azure CLI](/cli/azure/authenticate-azure-cli), use the [az login](/cli/azure/reference-index?view=azure-cli-latest#az-login) command.
+To [Sign in to your Azure account with the Azure CLI](/cli/azure/authenticate-azure-cli), use the [az login](/cli/azure/reference-index#az-login) command.
 
 ```azurecli
 az login
@@ -41,13 +41,13 @@ The [Azure PowerShell az module](/powershell/azure/new-azureps-module-az) provid
 
 If you already have it installed locally, make sure you use the latest version of Azure PowerShell SDK version to configure Azure Disk Encryption. Download the latest version of [Azure PowerShell release](https://github.com/Azure/azure-powershell/releases).
 
-To [Sign in to your Azure account with Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-2.5.0), use the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) cmdlet.
+To [Sign in to your Azure account with Azure PowerShell](/powershell/azure/authenticate-azureps), use the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
 ```powershell
 Connect-AzAccount
 ```
 
-If you have multiple subscriptions and want to specify one, use the [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) cmdlet to list them, followed by the [Set-AzContext](/powershell/module/az.accounts/set-azcontext?view=azps-2.5.0) cmdlet:
+If you have multiple subscriptions and want to specify one, use the [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) cmdlet to list them, followed by the [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet:
 
 ```powershell
 Set-AzContext -Subscription -Subscription <SubscriptionId>

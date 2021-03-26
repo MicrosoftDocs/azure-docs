@@ -13,8 +13,9 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 03/10/2021
 ms.author: b-juche
+ms.custom: references_regions
 ---
 # Cross-region replication of Azure NetApp Files volumes
 
@@ -23,26 +24,32 @@ The Azure NetApp Files replication functionality provides data protection throug
 > [!IMPORTANT]
 > The cross-region replication feature is currently in public preview. You need to submit a waitlist request for accessing the feature through the [Azure NetApp Files cross-region replication waitlist submission page](https://aka.ms/anfcrrpreviewsignup). Wait for an official confirmation email from the Azure NetApp Files team before using the cross-region replication feature.
 
-## Supported region pairs
+## <a name="supported-region-pairs"></a>Supported cross-region replication pairs
 
-Azure NetApp Files volume replication is currently available in the following fixed region pairs:  
+Azure NetApp Files volume replication is supported between various [Azure regional pairs](../best-practices-availability-paired-regions.md#azure-regional-pairs) and non-pairs. Azure NetApp Files volume replication is currently available between the following regions:  
 
-* US West and US East
-* US West 2 and US East 
-* US South Central and US Central 
-* US South Central and US East
-* US South Central and US East 2 
-* US East and US East 2  
-* US East 2 and US Central 
+### Azure regional pairs
+
+* East US and West US
+* East US 2 and Central US
 * Australia East and Australia Southeast
 * Canada Central and Canada East
-* Central India and South India
+* South India and Central India 
 * Germany West Central and Germany North
 * Japan East and Japan West
 * North Europe and West Europe
-* Southeast Asia and Australia East
-* UK South and Germany West Central
 * UK South and UK West
+
+### Azure regional non-pairs
+
+*	West US 2 and East US
+*	South Central US and Central US
+*	South Central US and East US
+*	South Central US and East US 2
+*	East US and East US 2
+*	East US 2 and West US 2
+*	Australia East and Southeast Asia 
+*	Germany West Central and UK South
 
 ## Service-level objectives
 
@@ -111,8 +118,7 @@ Regular Azure NetApp Files storage capacity charge for Month 2 applies to the de
 * [Create volume replication](cross-region-replication-create-peering.md)
 * [Display health status of replication relationship](cross-region-replication-display-health-status.md)
 * [Manage disaster recovery](cross-region-replication-manage-disaster-recovery.md)
+* [Resize a cross-region replication destination volume](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
 * [Volume replication metrics](azure-netapp-files-metrics.md#replication)
 * [Delete volume replications or volumes](cross-region-replication-delete.md)
 * [Troubleshoot cross-region replication](troubleshoot-cross-region-replication.md)
-
-

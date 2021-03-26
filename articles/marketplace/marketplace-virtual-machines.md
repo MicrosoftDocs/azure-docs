@@ -25,10 +25,10 @@ The process of designing, building, and testing offers takes time and requires e
   - [Windows VMs](../virtual-machines/windows/tutorial-manage-vm.md)
 
 - Samples
-  - [Azure CLI samples for Linux VMs](../virtual-machines/linux/cli-samples.md)
-  - [Azure PowerShell for Linux VMs](../virtual-machines/linux/powershell-samples.md)
-  - [Azure CLI samples for Windows VMs](../virtual-machines/windows/cli-samples.md)
-  - [Azure PowerShell for Windows VMs](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md)
+  - [Azure CLI samples for Linux VMs](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)
+  - [Azure PowerShell for Linux VMs](https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine)
+  - [Azure CLI samples for Windows VMs](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)
+  - [Azure PowerShell for Windows VMs](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick)
 
 ## Technical requirements
 

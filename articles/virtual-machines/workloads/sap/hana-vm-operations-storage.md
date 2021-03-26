@@ -8,12 +8,11 @@ manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: 'SAP, Azure HANA, Storage Ultra disk, Premium storage'
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/23/2021
+ms.date: 02/03/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -77,7 +76,13 @@ Reading through the details, it is apparent that leveraging this functionality t
 
 
 ## Linux I/O Scheduler mode
-Linux has several different I/O scheduling modes. Common recommendation through Linux vendors and SAP is to reconfigure the I/O scheduler mode for disk volumes from the **mq-deadline** or **kyber** mode to the **noop** (non-multiqueue) or **none** for (multiqueue) mode. Details are referenced in [SAP Note #1984787](https://launchpad.support.sap.com/#/notes/1984787). 
+Linux has several different I/O scheduling modes. Common recommendation through Linux vendors and SAP is to reconfigure the I/O scheduler mode for disk volumes from the **mq-deadline** or **kyber** mode to the **noop** (non-multiqueue) or **none** for (multiqueue) mode if not done yet by the SLES saptune profiles. Details are referenced in: 
+
+- [SAP Note #1984787](https://launchpad.support.sap.com/#/notes/1984787)
+- [SAP Note #2578899](https://launchpad.support.sap.com/#/notes/2578899) 
+- [Issue with noop setting in SLES 12 SP4](https://www.suse.com/support/kb/doc/?id=000019547)
+
+On Red Hat, leave the settings as established by the specific tune profiles for the different SAP applications.
 
 
 ## Solutions with premium storage and Azure Write Accelerator for Azure M-Series virtual machines

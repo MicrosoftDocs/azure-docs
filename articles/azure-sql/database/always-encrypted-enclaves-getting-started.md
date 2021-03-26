@@ -65,40 +65,45 @@ See [Download SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server
 The required minimum version of SSMS is 18.8.
 
 
-## Step 1: Create a server and a DC-series database
+## Step 1: Create and configure a server and a DC-series database
 
- In this step, you will create a new Azure SQL Database logical server and a new database using the DC-series hardware configuration. Always Encrypted with secure enclaves in Azure SQL Database uses Intel SGX enclaves, which are supported in the DC-series hardware configuration. For more information, see [DC-series](service-tiers-vcore.md#dc-series).
+In this step, you will create a new Azure SQL Database logical server and a new database using the DC-series hardware generation, required for Always Encrypted with secure enclaves. For more information see [DC-series](service-tiers-vcore.md#dc-series).
 
-1. Open a PowerShell console and sign into Azure. If needed, [switch to the subscription](/powershell/azure/manage-subscriptions-azureps) you are using for this tutorial.
+1. Open a PowerShell console and import the required version of Az.
+
+  ```PowerShell
+  Import-Module "Az" -MinimumVersion "4.5.0"
+  ```
+  
+2. Sign into Azure. If needed, [switch to the subscription](/powershell/azure/manage-subscriptions-azureps) you are using for this tutorial.
 
   ```PowerShell
   Connect-AzAccount
-  $subscriptionId = <your subscription ID>
-  Set-AzContext -Subscription $serverSubscriptionId
+  $subscriptionId = "<your subscription ID>"
+  Set-AzContext -Subscription $subscriptionId
   ```
 
-2. Create a resource group to contain your database server. 
-
-  ```powershell
-  $serverResourceGroupName = "<server resource group name>"
-  $serverLocation = "<Azure region that supports DC-series in SQL Database>"
-  New-AzResourceGroup -Name $serverResourceGroupName -Location $serverLocation 
-  ```
+3. Create a new resource group. 
 
   > [!IMPORTANT]
-  > You need to create your resource group in a region that supports the DC-series hardware configuration. For the list of currently supported regions, see [DC-series availability](service-tiers-vcore.md#dc-series-1).
-
-3. Create a database server. When prompted, enter the server administrator name and a password.
+  > You need to create your resource group in a region (location) that supports both the DC-series hardware generation and Microsoft Azure Attestation. For the list of regions supporting DC-series, see [DC-series availability](service-tiers-vcore.md#dc-series-1). [Here](https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation) is the regional availability of Microsoft Azure Attestation.
 
   ```powershell
-  $serverName = "<server name>" 
-  New-AzSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName -Location $serverLocation
+  $resourceGroupName = "<your new resource group name>"
+  $location = "<Azure region supporting DC-series and Microsoft Azure Attestation>"
+  New-AzResourceGroup -Name $resourceGroupName -Location $location
   ```
 
-4. Create a server firewall rule that allows access from the specified IP range
+4. Create an Azure SQL logical server. When prompted, enter the server administrator name and a password. Make sure you remember the admin name and the password - you will need them later to connect to the server.
+
+  ```powershell
+  $serverName = "<your server name>" 
+  New-AzSqlServer -ServerName $serverName -ResourceGroupName $resourceGroupName -Location $location 
+  ```
+
+5. Create a server firewall rule that allows access from the specified IP range.
   
   ```powershell
-  # The ip address range that you want to allow to access your server
   $startIp = "<start of IP range>"
   $endIp = "<end of IP range>"
   $serverFirewallRule = New-AzSqlServerFirewallRule -ResourceGroupName $resourceGroupName `
@@ -106,21 +111,11 @@ The required minimum version of SSMS is 18.8.
     -FirewallRuleName "AllowedIPs" -StartIpAddress $startIp -EndIpAddress $endIp
   ```
 
-5. Assign a managed system identity to your server. You'll need it later to grant your server access to Microsoft Azure Attestation.
-
-  ```powershell
-  Set-AzSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName -AssignIdentity 
-  ```
-
-6. Retrieve an object ID of the identity assigned to your server. Save the resulting object ID. You'll need the ID in a later section.
-
-  > [!NOTE]
-  > It might take a few seconds for the newly assigned managed system identity to propagate in Azure Active Directory. If the below script return an empty result, retry it.
+6. Assign a managed system identity to your server. 
 
   ```PowerShell
-  $server = Get-AzSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName 
+  $server = Set-AzSqlServer -ServerName $serverName -ResourceGroupName $resourceGroupName -AssignIdentity
   $serverObjectId = $server.Identity.PrincipalId
-  $serverObjectId
   ```
 
 7. Create a DC-series database.
@@ -130,12 +125,26 @@ The required minimum version of SSMS is 18.8.
   $edition = "GeneralPurpose"
   $vCore = 2
   $generation = "DC"
-  New-AzSqlDatabase -ResourceGroupName $serverResourceGroupName -ServerName $serverName -DatabaseName $databaseName -Edition $edition -Vcore $vCore -ComputeGeneration $generation
+  New-AzSqlDatabase -ResourceGroupName $resourceGroupName `
+    -ServerName $serverName `
+    -DatabaseName $databaseName `
+    -Edition $edition `
+    -Vcore $vCore `
+    -ComputeGeneration $generation
   ```
 
-## Step 2: Configure an attestation provider
+8. Retrieve and save the information about your server and the database. You will need this information, as well as the admin name and the password from step 4 in this section, in later sections.
 
-In this step, You'll create and configure an attestation provider in Microsoft Azure Attestation. This is needed to attest the secure enclave in your database server.
+  ```powershell
+  Write-Host 
+  Write-Host "Fully qualified server name: $($server.FullyQualifiedDomainName)" 
+  Write-Host "Server Object Id: $serverObjectId"
+  Write-Host "Database name: $databaseName"
+  ```
+  
+## Step 2: Configure an attestation provider 
+
+In this step, You'll create and configure an attestation provider in Microsoft Azure Attestation. This is needed to attest the secure enclave your database uses.
 
 1. Copy the below attestation policy and save the policy in a text file (txt). For information about the below policy, see [Create and configure an attestation provider](always-encrypted-enclaves-configure-attestation.md#create-and-configure-an-attestation-provider).
 
@@ -151,60 +160,60 @@ In this step, You'll create and configure an attestation provider in Microsoft A
   };
   ```
 
-2. Import the required versions of `Az.Accounts` and `Az.Attestation`.  
+2. Import the required version of `Az.Attestation`.  
 
   ```powershell
-  Import-Module "Az.Accounts" -MinimumVersion "1.9.2"
   Import-Module "Az.Attestation" -MinimumVersion "0.1.8"
   ```
-
-3. Create a resource group for the attestation provider.
-
-  ```powershell
-  $attestationLocation = $serverLocation
-  $attestationResourceGroupName = "<attestation provider resource group name>"
-  New-AzResourceGroup -Name $attestationResourceGroupName -Location $location  
-  ```
-
-4. Create an attestation provider. 
+  
+3. Create an attestation provider. 
 
   ```powershell
-  $attestationProviderName = "<attestation provider name>" 
-  New-AzAttestation -Name $attestationProviderName -ResourceGroupName $attestationResourceGroupName -Location $attestationLocation
+  $attestationProviderName = "<your attestation provider name>" 
+  New-AzAttestation -Name $attestationProviderName -ResourceGroupName $resourceGroupName -Location $location
   ```
 
-5. Configure your attestation policy.
+4. Configure your attestation policy.
   
   ```powershell
-  $policyFile = "<the pathname of the file from step 1 in this section"
+  $policyFile = "<the pathname of the file from step 1 in this section>"
   $teeType = "SgxEnclave"
   $policyFormat = "Text"
   $policy=Get-Content -path $policyFile -Raw
-  Set-AzAttestationPolicy -Name $attestationProviderName -ResourceGroupName $attestationResourceGroupName -Tee $teeType -Policy $policy -PolicyFormat  $policyFormat
+  Set-AzAttestationPolicy -Name $attestationProviderName `
+    -ResourceGroupName $resourceGroupName `
+    -Tee $teeType `
+    -Policy $policy `
+    -PolicyFormat  $policyFormat
   ```
 
-6. Grant your Azure SQL logical server access to your attestation provider. In this step, We're using the object ID of the managed service identity that you assigned to your server earlier.
+5. Grant your Azure SQL logical server access to your attestation provider. In this step, you're using the object ID of the managed service identity that you assigned to your server earlier.
 
   ```powershell
-  New-AzRoleAssignment -ObjectId $serverObjectId -RoleDefinitionName "Attestation Reader" -ResourceGroupName $attestationResourceGroupName  
+  New-AzRoleAssignment -ObjectId $serverObjectId `
+    -RoleDefinitionName "Attestation Reader" `
+    -ResourceName $attestationProviderName `
+    -ResourceType "Microsoft.Attestation/attestationProviders" `
+    -ResourceGroupName $resourceGroupName  
   ```
 
-7. Retrieve the attestation URL.
+6. Retrieve the attestation URL that points to an attestation policy you configured for the SGX enclave. Save the URL, as you will need it later.
 
   ```powershell
-  $attestationProvider = Get-AzAttestation -Name $attestationProviderName -ResourceGroupName $attestationResourceGroupName 
+  $attestationProvider = Get-AzAttestation -Name $attestationProviderName -ResourceGroupName $resourceGroupName 
   $attestationUrl = $attestationProvider.AttestUri + “/attest/SgxEnclave”
-  Write-Host "Your attestation URL is: " $attestationUrl 
+  Write-Host
+  Write-Host "Your attestation URL is: $attestationUrl"
   ```
-
-8.	Save the resulting attestation URL that points to an attestation policy you configured for the SGX enclave. You'll need it later. The attestation URL should look like this: `https://contososqlattestation.uks.attest.azure.net/attest/SgxEnclave`
+  
+  The attestation URL should look like this: `https://contososqlattestation.uks.attest.azure.net/attest/SgxEnclave`
 
 ## Step 3: Populate your database
 
 In this step, you'll create a table and populate it with some data that you'll later encrypt and query.
 
 1. Open SSMS and connect to the **ContosoHR** database in the Azure SQL logical server you created **without** Always Encrypted enabled in the database connection.
-    1. In the **Connect to Server** dialog, specify your server name (for example, *myserver123.database.windows.net*), and enter the user name and the password you configured earlier.
+    1. In the **Connect to Server** dialog, specify the fully qualified name of your server (for example, *myserver123.database.windows.net*), and enter the administrator user name and the password you specified when you created the server.
     2. Click **Options >>** and select the **Connection Properties** tab. Make sure to select the **ContosoHR** database (not the default, master database). 
     3. Select the **Always Encrypted** tab.
     4. Make sure the **Enable Always Encrypted (column encryption)** checkbox is **not** selected.
@@ -286,7 +295,7 @@ In this step, you'll encrypt the data stored in the **SSN** and **Salary** colum
 
 1. Open a new SSMS instance and connect to your database **with** Always Encrypted enabled for the database connection.
     1. Start a new instance of SSMS.
-    2. In the **Connect to Server** dialog, specify your server name, select an authentication method, and specify your credentials.
+    2. In the **Connect to Server** dialog, specify the fully qualified name of your server (for example, *myserver123.database.windows.net*), and enter the administrator user name and the password you specified when you created the server.
     3. Click **Options >>** and select the **Connection Properties** tab. Make sure to select the **ContosoHR** database (not the default, master database). 
     4. Select the **Always Encrypted** tab.
     5. Make sure the **Enable Always Encrypted (column encryption)** checkbox is selected.

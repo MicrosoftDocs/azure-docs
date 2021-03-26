@@ -1,9 +1,9 @@
 ---
-title: Create an image from a VM  
+title: Create an image from a VM by using Azure CLI
 description: Learn how to create an image in a Shared Image Gallery from a VM in Azure.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/01/2020

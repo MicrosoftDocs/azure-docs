@@ -42,9 +42,9 @@ Follow these steps to create an Azure Arc data controller using the Deployment w
 1. Choose the desired subscription and resource group.
 1. Select an Azure location.
    
-   The Azure location selected here is the location in Azure where the *metadata* about the data controller and the database instances that it manages will be stored. The data controller and database instances will be actually crewted in your Kubernetes cluster wherever that may be.
+   The Azure location selected here is the location in Azure where the *metadata* about the data controller and the database instances that it manages will be stored. The data controller and database instances will be actually created in your Kubernetes cluster wherever that may be.
 
-10. Select the appropriate Connectivity Mode. Learn more on [Connectivity modes](https://docs.microsoft.com/azure/azure-arc/data/connectivity). **Click Next**.
+10. Select the appropriate Connectivity Mode. Learn more on [Connectivity modes](./connectivity.md). **Click Next**.
 
     If you select direct connectivity mode Service Principal credentials are required as described in [Create service principal](upload-metrics-and-logs-to-azure-monitor.md#create-service-principal).
 

@@ -2,13 +2,13 @@
 title: Troubleshooting dedicated SQL pool (formerly SQL DW)
 description: Troubleshooting dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics.
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 11/13/2020
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ---
@@ -71,6 +71,7 @@ This article lists common troubleshooting issues in dedicated SQL pool (formerly
 | Unsupported SQL Database data types   | See [Unsupported data types](sql-data-warehouse-tables-data-types.md#identify-unsupported-data-types).        |
 | Stored procedure limitations          | See [Stored procedure limitations](sql-data-warehouse-develop-stored-procedures.md#limitations) to understand some of the limitations of stored procedures. |
 | UDFs do not support SELECT statements | This is a current limitation of our UDFs.  See [CREATE FUNCTION](/sql/t-sql/statements/create-function-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) for the syntax we support. |
+| sp_rename (preview) for columns does not work on schemas outside of *dbo* | This is a current limitation of Synapse [sp_rename (preview) for columns](/sql/relational-databases/system-stored-procedures/sp-rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  Columns in objects that are not a part of *dbo* schema can renamed via a CTAS into a new table. |
 
 ## Next steps
 

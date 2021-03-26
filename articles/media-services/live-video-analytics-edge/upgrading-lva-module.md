@@ -33,7 +33,7 @@ In your deployment template, look for your Live Video Analytics on IoT Edge modu
 "image": "mcr.microsoft.com/media/live-video-analytics:2"
 ```
 > [!TIP]
-If you haven't modified the name of the Live Video Analytics on IoT Edge module, look for `lvaEdge` under the module node.
+> If you haven't modified the name of the Live Video Analytics on IoT Edge module, look for `lvaEdge` under the module node.
 
 ### Topology File changes
 In your topology files, make sure **`apiVersion`** is set to 2.0
@@ -54,9 +54,9 @@ In your topology files, make sure **`apiVersion`** is set to 2.0
 >The **`outputSelectors`** is an optional property. If this is not used, then the media graph will pass the audio (if enabled) and video from the RTSP camera downstream. 
 
 * In `MediaGraphHttpExtension` and `MediaGraphGrpcExtension` processors, note the following changes:  
-    * **Image properties**
-        * `MediaGraphImageFormatEncoded` is no longer supported. 
-        * Instead, use **`MediaGraphImageFormatBmp`** or **`MediaGraphImageFormatJpeg`** or **`MediaGraphImageFormatPng`**. For example,
+    #### Image properties
+    * `MediaGraphImageFormatEncoded` is no longer supported. 
+      * Instead, use **`MediaGraphImageFormatBmp`** or **`MediaGraphImageFormatJpeg`** or **`MediaGraphImageFormatPng`**. For example,
         ```
         "image": {
                 "scale": 
@@ -90,14 +90,14 @@ In your topology files, make sure **`apiVersion`** is set to 2.0
         >[!NOTE]
         > Possible values of pixelFormat include: `yuv420p`,`rgb565be`, `rgb565le`, `rgb555be`, `rgb555le`, `rgb24`, `bgr24`, `argb`, `rgba`, `abgr`, `bgra`  
 
-    * **extensionConfiguration for Grpc extension processor**  
-        * In `MediaGraphGrpcExtension` processor, a new property called **`extensionConfiguration`** is available, which is an optional string that can be used as a part of the gRPC contract. This field can be used to pass any data to the inference server and you can define how the inference server uses that data.  
-        One use case of this property is when you have multiple AI models packaged in a single inference server. With this property you will not need to expose a node for every AI model. Instead, for a graph instance, as an extension provider, you can define how to select the different AI models using the **`extensionConfiguration`** property and during execution, LVA will pass this string to the inferencing server,  which can use this to invoke the desired AI model.  
+    #### extensionConfiguration for Grpc extension processor  
+    * In `MediaGraphGrpcExtension` processor, a new property called **`extensionConfiguration`** is available, which is an optional string that can be used as a part of the gRPC contract. This field can be used to pass any data to the inference server and you can define how the inference server uses that data.  
+    One use case of this property is when you have multiple AI models packaged in a single inference server. With this property you will not need to expose a node for every AI model. Instead, for a graph instance, as an extension provider, you can define how to select the different AI models using the **`extensionConfiguration`** property and during execution, LVA will pass this string to the inferencing server,  which can use this to invoke the desired AI model.  
 
-    * **AI Composition**
-        * Live Video Analytics 2.0 now supports using more than one media graph extension processor within a topology. You can pass the media frames from the RTSP camera to different AI models either sequentially, in parallel or in a combination of both. Please see a sample topology showing two AI models being used sequentially.
+    #### AI Composition
+    * Live Video Analytics 2.0 now supports using more than one media graph extension processor within a topology. You can pass the media frames from the RTSP camera to different AI models either sequentially, in parallel or in a combination of both. Please see a sample topology showing two AI models being used sequentially.
 
-
+### Disk Space management with sink nodes
 * In your **File sink** node, you can now specify how much disk space the Live Video Analytics on IoT Edge module can use to store the processed images. To do so, add the **`maximumSizeMiB`** field to the FileSink node. A sample File Sink node is as follows:
     ```
     "sinks": [
@@ -150,6 +150,7 @@ In your topology files, make sure **`apiVersion`** is set to 2.0
     >[!NOTE]
     >  The **File sink** path is split into base directory path and file name pattern, whereas the **Asset sink** path includes the base directory path.  
 
+### Frame Rate management
 * **`MediaGraphFrameRateFilterProcessor`** is deprecated in **Live Video Analytics on IoT Edge 2.0** module.
     * To sample the incoming video for processing, add the **`samplingOptions`** property to the MediaGraph extension processors (`MediaGraphHttpExtension` or `MediaGraphGrpcExtension`)  
      ```
@@ -165,7 +166,7 @@ With this release, Telegraf can be used to send metrics to Azure Monitor. From t
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/telemetry-schema/telegraf.png" alt-text="Taxonomy of events":::
 
-You can produce a Telegraf image with a custom configuration easily using docker. Learn more about this in the [Monitoring and logging](monitoring-logging.md#azure-monitor-collection-via-telegraf) page.
+You can produce a Telegraf image with a custom configuration easily using docker. Learn more in the [Monitoring and logging](monitoring-logging.md#azure-monitor-collection-via-telegraf) page.
 
 ## Next steps
 

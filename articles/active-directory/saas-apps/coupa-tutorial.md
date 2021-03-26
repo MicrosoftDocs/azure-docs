@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/14/2021
+ms.date: 02/05/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Coupa
@@ -22,10 +22,10 @@ In this tutorial, you'll learn how to integrate Coupa with Azure Active Director
 
 ## Prerequisites
 
-To configure Azure AD integration with Coupa, you need the following items:
+To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
-* Coupa single sign-on enabled subscription.
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* Coupa single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
@@ -57,7 +57,7 @@ To configure and test Azure AD SSO with Coupa, perform the following steps:
     1. **[Create Coupa test user](#create-coupa-test-user)** - to have a counterpart of B.Simon inCoupa that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD SSO
+## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
@@ -123,17 +123,17 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-### Configure Coupa SSO
+## Configure Coupa SSO
 
 1. Sign on to your Coupa company site as an administrator.
 
 2. Go to **Setup \> Security Control**.
 
-    ![Security Controls](./media/coupa-tutorial/ic791900.png "Security Controls")
+    ![Security Controls](./media/coupa-tutorial/setup.png "Security Controls")
 
 3. In the **Log in using Coupa credentials** section, perform the following steps:
 
-    ![Coupa SP metadata](./media/coupa-tutorial/ic791901.png "Coupa SP metadata")
+    ![Coupa SP metadata](./media/coupa-tutorial/login.png "Coupa SP metadata")
 
     a. Select **Log in using SAML**.
 
@@ -153,15 +153,15 @@ In order to enable Azure AD users to log into Coupa, they must be provisioned in
 
 2. In the menu on the top, click **Setup**, and then click **Users**.
 
-    ![Users](./media/coupa-tutorial/ic791908.png "Users")
+    ![Users](./media/coupa-tutorial/user.png "Users")
 
 3. Click **Create**.
 
-    ![Create Users](./media/coupa-tutorial/ic791909.png "Create Users")
+    ![Create Users](./media/coupa-tutorial/create.png "Create Users")
 
 4. In the **User Create** section, perform the following steps:
 
-    ![User Details](./media/coupa-tutorial/ic791910.png "User Details")
+    ![User Details](./media/coupa-tutorial/details.png "User Details")
 
     a. Type the **Login**, **First name**, **Last Name**, **Single Sign-On ID**, **Email** attributes of a valid Azure Active Directory account you want to provision into the related textboxes.
 
@@ -174,7 +174,7 @@ In order to enable Azure AD users to log into Coupa, they must be provisioned in
 >[!NOTE]
 >You can use any other Coupa user account creation tools or APIs provided by Coupa to provision Azure AD user accounts.
 
-### Test SSO
+## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
@@ -182,8 +182,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Coupa Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Coupa tile in the My Apps, you should be automatically signed in to the Coupa for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* You can use Microsoft My Apps. When you click the Coupa tile in the My Apps, you should be automatically signed in to the Coupa for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
-Once you configure  Coupa you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)
+Once you configure  Coupa you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app)

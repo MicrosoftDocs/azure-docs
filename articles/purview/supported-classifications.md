@@ -1,18 +1,24 @@
 ---
 title: List of supported classifications
 description: This page lists the supported system classifications in Azure Purview.
-author: animukherjee
+author: anmuk601
 ms.author: anmuk
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: reference
-ms.date: 11/20/2020
+ms.date: 02/05/2021
 ## Customer intent: As a data steward or catalog administrator, I need to understand what's supported under classifications.
 ---
 
 # Supported classifications in Azure Purview
 
 This article lists the supported and defined system classifications in Azure Purview (Preview).
+
+
+- **Distinct match threshold**: The total number of distinct data values that need to be found in a column before the scanner runs the data pattern on it. Our system classification rules require there to be at least 8 distinct values in each column to subject them to classification. The system requires this value to make sure that the column contains enough data for the scanner to accurately classify it. For example, a column that contains multiple rows that all contain the value 1 won't be classified. Columns that contain one row with a value and the rest of the rows have null values also won't get classified. If you specify multiple patterns, this value applies to each of them.
+
+- **Minimum match threshold**: It is the minimum percentage of data value matches in a column that must be found by the scanner for the classification to be applied. The system classification value is set at 60%.
+
 
 ## Defined system classifications
 
@@ -50,6 +56,7 @@ Formatted:
 - four digits
 - a hyphen
 - a digit
+
 Unformatted: nine consecutive digits beginning with 0, 1, 2, 3, 6, 7, or 8
 
 ### Keywords
@@ -271,7 +278,7 @@ Driver's License#
 Driver's Licenses#
 ```
 
-## Australia medical account number
+## Australian medicare number
 
 ### Format
 
@@ -288,7 +295,7 @@ Driver's Licenses#
 
 ### Keywords
 
-#### Keyword_Australia_Medical_Account_Number
+#### Keyword_Australia_Medicare_Number
 
 ```
 bank account details

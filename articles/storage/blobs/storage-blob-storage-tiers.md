@@ -4,7 +4,7 @@ description: Read about hot, cool, and archive access tiers for Azure Blob Stora
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 01/11/2021
+ms.date: 03/18/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
@@ -82,7 +82,7 @@ Example usage scenarios for the archive access tier include:
 - Compliance and archival data that needs to be stored for a long time and is hardly ever accessed
 
 > [!NOTE]
-> The archive tier is not supported for ZRS, GZRS, or RA-GZRS accounts.
+> The archive tier is not supported for ZRS, GZRS, or RA-GZRS accounts. Migrating from LRS to GRS is not supported if the storage account contains blobs in the archive tier.
 
 ## Account-level tiering
 
@@ -96,7 +96,9 @@ Only hot and cool access tiers can be set as the default account access tier. Ar
 
 Blob-level tiering allows you to upload data to the access tier of your choice using the [Put Blob](/rest/api/storageservices/put-blob) or [Put Block List](/rest/api/storageservices/put-block-list) operations and change the tier of your data at the object level using the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation or [lifecycle management](#blob-lifecycle-management) feature. You can upload data to your required access tier then easily change the blob access tier among the hot, cool, or archive tiers as usage patterns change, without having to move data between accounts. All tier change requests happen immediately and tier changes between hot and cool are instantaneous. Rehydrating a blob from the archive tier can take several hours.
 
-The time of the last blob tier change is exposed via the **Access Tier Change Time** blob property. When overwriting a blob in the hot or cool tier, the newly created blob inherits the tier of the blob that was overwritten unless the new blob access tier is explicitly set on creation. If a blob is in the archive tier, it can't be overwritten, so uploading the same blob isn't permitted in this scenario.
+The time of the last blob tier change is exposed via the **Access Tier Change Time** blob property. **Access Tier Change Time** is a blob-level property and is not updated when the default account tier is changed. Account properties and blob properties are separate. It would be prohibitively expensive to update the **Access Tier Change Time** on every blob in a storage account whenever the account's default access tier is changed.
+
+When overwriting a blob in the hot or cool tier, the newly created blob inherits the tier of the blob that was overwritten unless the new blob access tier is explicitly set on creation. If a blob is in the archive tier, it can't be overwritten, so uploading the same blob isn't permitted in this scenario.
 
 > [!NOTE]
 > Archive storage and blob-level tiering only support block blobs.

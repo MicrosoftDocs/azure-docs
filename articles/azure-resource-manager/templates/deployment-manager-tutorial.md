@@ -18,7 +18,7 @@ To use Deployment Manager, you need to create two templates:
 * **A rollout template**: describes the steps to take when deploying your applications.
 
 > [!IMPORTANT]
-> If your subscription is marked for Canary to test out new Azure features, you can only use Azure Deployment Manager to deploy to the Canary regions. 
+> If your subscription is marked for Canary to test out new Azure features, you can only use Azure Deployment Manager to deploy to the Canary regions.
 
 This tutorial covers the following tasks:
 
@@ -36,17 +36,16 @@ This tutorial covers the following tasks:
 
 Additional resources:
 
-* The [Azure Deployment Manager REST API reference](/rest/api/deploymentmanager/).
+* [Azure Deployment Manager REST API reference](/rest/api/deploymentmanager/).
 * [Tutorial: Use health check in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
-
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Prerequisites
 
-To complete this article, you need:
+To complete this tutorial, you need:
 
+* Azure subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 * Some experience with developing [Azure Resource Manager templates](overview.md).
 * Azure PowerShell. For more information, see [Get started with Azure PowerShell](/powershell/azure/get-started-azureps).
 * Deployment Manager cmdlets. To install these prerelease cmdlets, you need the latest version of PowerShellGet. To get the latest version, see [Installing PowerShellGet](/powershell/scripting/gallery/installing-psget). After installing PowerShellGet, close your PowerShell window. Open a new elevated PowerShell window, and use the following command:
@@ -67,23 +66,23 @@ The following diagram illustrates the service topology used in this tutorial:
 
 ![Azure Deployment Manager tutorial scenario diagram](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-scenario-diagram.png)
 
-There are two services allocated in the west U.S. and the east U.S. locations.  Each service has two service units - a web application frontend and a storage account for the backend. The service unit definitions contain links to the template and parameter files for creating the web applications and the storage accounts.
+There are two services allocated in the West US and the East US locations. Each service has two service units: a front-end web application and a back-end storage account. The service unit definitions contain links to the template and parameter files that create the web applications and the storage accounts.
 
 ## Download the tutorial files
 
 1. Download [the templates and the artifacts](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMTutorial.zip) used by this tutorial.
-2. Unzip the files to your location computer.
+1. Unzip the files to your location computer.
 
 Under the root folder, there are two folders:
 
-* **ADMTemplates**: contains the Deployment Manager templates, that include:
-  * CreateADMServiceTopology.json
-  * CreateADMServiceTopology.Parameters.json
-  * CreateADMRollout.json
-  * CreateADMRollout.Parameters.json
-* **ArtifactStore**: contains both the template artifacts and the binary artifacts. See [Prepare the artifacts](#prepare-the-artifacts).
+* _ADMTemplates_: contains the Deployment Manager templates, that include:
+  * _CreateADMServiceTopology.json_
+  * _CreateADMServiceTopology.Parameters.json_
+  * _CreateADMRollout.json_
+  * _CreateADMRollout.Parameters.json_
+* _ArtifactStore_: contains both the template artifacts and the binary artifacts. See [Prepare the artifacts](#prepare-the-artifacts).
 
-Note there are two sets of templates.  One set is the Deployment Manager templates that are used to deploy the service topology and the rollout; the other set is called from the service units to create web services and storage accounts.
+There are two sets of templates. One set is the Deployment Manager templates that are used to deploy the service topology and the rollout. The other set is called from the service units to create web services and storage accounts.
 
 ## Prepare the artifacts
 
@@ -91,23 +90,23 @@ The ArtifactStore folder from the download contains two folders:
 
 ![Azure Deployment Manager tutorial artifact source diagram](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-artifact-source-diagram.png)
 
-* The **templates** folder: contains the template artifacts. **1.0.0.0** and **1.0.0.1** represent the two versions of the binary artifacts. Within each version, there is a folder for each service (Service East U.S. and Service West U.S.). Each service has a pair of template and parameter files for creating a storage account, and another pair for creating a web application. The web application template calls a compressed package, which contains the web application files. The compressed file is a binary artifact stored in the binaries folder.
-* The **binaries** folder: contains the binary artifacts. **1.0.0.0** and **1.0.0.1** represent the two versions of the binary artifacts. Within each version, there is one zip file for creating the web application in the west U.S. location, and the other zip file to create the web application in the east U.S. location.
+* The _templates_ folder: contains the template artifacts. The folders _1.0.0.0_ and _1.0.0.1_ represent the two versions of the binary artifacts. Within each version, there is a folder for each service: _ServiceEUS_ (Service East US) and _ServiceWUS_ (Service West US). Each service has a pair of template and parameter files for creating a storage account, and another pair for creating a web application. The web application template calls a compressed package, which contains the web application files. The compressed file is a binary artifact stored in the binaries folder.
+* The _binaries_ folder: contains the binary artifacts. The folders _1.0.0.0_ and _1.0.0.1_ represent the two versions of the binary artifacts. Within each version, there is one zip file for to create the web application in the West US location, and the other zip file to create the web application in the East US location.
 
 The two versions (1.0.0.0 and 1.0.0.1) are for the [revision deployment](#deploy-the-revision). Even though both the template artifacts and the binary artifacts have two versions, only the binary artifacts are different between the two versions. In practice, binary artifacts are updated more frequently comparing to template artifacts.
 
-1. Open **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateStorageAccount.json** in a text editor. It is a basic template for creating a storage account.
-2. Open **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplication.json**.
+1. Open _\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateStorageAccount.json_ in a text editor. It's a basic template to create a storage account.
+1. Open _\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplication.json_.
 
     ![Azure Deployment Manager tutorial create web application template](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-create-web-application-packageuri.png)
 
-    The template calls a deploy package, which contains the files of the web application. In this tutorial, the compressed package only contains an index.html file.
-3. Open  **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplicationParameters.json**.
+    The template calls a deploy package, which contains the files of the web application. In this tutorial, the compressed package only contains an _index.html_ file.
+1. Open  _\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplicationParameters.json_.
 
     ![Azure Deployment Manager tutorial create web application template parameters containerRoot](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-create-web-application-parameters-deploypackageuri.png)
 
-    The value of deployPackageUri is the path to the deployment package. The parameter contains a **$containerRoot** variable. The value of $containerRoot is provided in the [rollout template](#create-the-rollout-template) by concatenating the artifact source SAS location, artifact root, and deployPackageUri.
-4. Open **\ArtifactStore\binaries\1.0.0.0\helloWorldWebAppWUS.zip\index.html**.
+    The value of `deployPackageUri` is the path to the deployment package. The parameter contains a `$containerRoot` variable. The value of `$containerRoot` is provided in the [rollout template](#create-the-rollout-template) by concatenating the artifact source SAS location, artifact root, and `deployPackageUri`.
+1. Open _\ArtifactStore\binaries\1.0.0.0\helloWorldWebAppWUS.zip\index.html_.
 
     ```html
     <html>
@@ -121,16 +120,16 @@ The two versions (1.0.0.0 and 1.0.0.1) are for the [revision deployment](#deploy
     </html>
     ```
 
-    The html shows the location and the version information. The binary file in the 1.0.0.1 folder shows "Version 1.0.0.1". After you deploy the service, you can browse to these pages.
-5. Check out other artifact files. It helps you to understand the scenario better.
+    The HTML shows the location and the version information. The binary file in the _1.0.0.1_ folder shows _Version 1.0.0.1_. After you deploy the service, you can browse to these pages.
+1. Check out other artifact files. It helps you to understand the scenario better.
 
 Template artifacts are used by the service topology template, and binary artifacts are used by the rollout template. Both the topology template and the rollout template define an artifact source Azure resource, which is a resource used to point Resource Manager to the template and binary artifacts that are used in the deployment. To simplify the tutorial, one storage account is used to store both the template artifacts and the binary artifacts. Both artifact sources point to the same storage account.
 
 Run the following PowerShell script to create a resource group, create a storage container, create a blob container, upload the downloaded files, and then create a SAS token.
 
 > [!IMPORTANT]
-> **projectName** in the PowerShell script is used to generate names for the Azure services that are deployed in this tutorial. Different Azure services have different requirements on the names. To ensure the deployment is successful, choose a name with less than 12 characters with only lower case letters and numbers.
-> Save a copy of the project name. You use the same projectName through the tutorial.
+> `projectName` in the PowerShell script is used to generate names for the Azure services that are deployed in this tutorial. Different Azure services have different requirements on the names. To ensure the deployment is successful, choose a name with less than 12 characters with only lower case letters and numbers.
+> Save a copy of the project name. You use the same `projectName` throughout the tutorial.
 
 ```azurepowershell
 $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
@@ -172,9 +171,9 @@ $url = $storageAccount.PrimaryEndpoints.Blob + $containerName + $token
 Write-Host $url
 ```
 
-Make a copy of the URL with the SAS token. This URL is needed to populate a field in the two parameter files, topology parameters file and rollout parameters file.
+Make a copy of the URL with the SAS token. This URL is needed to populate a field in the two parameter files: topology parameters file and rollout parameters file.
 
-Open the container from the Azure portal and verify that both the **binaries** and the **templates** folders and the files are uploaded.
+Open the container from the Azure portal and verify that both the _binaries_ and the _templates_ folders, and the files are uploaded.
 
 ## Create the user-assigned managed identity
 
@@ -183,43 +182,43 @@ Later in the tutorial, you deploy a rollout. A user-assigned managed identity is
 You need to create a user-assigned managed identity and configure the access control for your subscription.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Create a [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
-3. From the portal, select **Subscriptions** from the left menu, and then select your subscription.
-4. Select **Access control (IAM)**, and then select **Add role assignment**.
-5. Enter or select the following values:
+1. Create a [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
+1. From the portal, select **Subscriptions** from the left menu, and then select your subscription.
+1. Select **Access control (IAM)**, and then select **Add role assignment**.
+1. Enter or select the following values:
 
     ![Azure Deployment Manager tutorial user-assigned managed identity access control](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-access-control.png)
 
     * **Role**: give sufficient permission to complete the artifact deployment (the web applications and the storage accounts). Select **Contributor** in this tutorial. In practice, you want to restrict the permissions to the minimum.
-    * **Assigned access to**: select **User Assigned Managed Identity**.
+    * **Assign access to**: select **User Assigned Managed Identity**.
     * Select the user-assigned managed identity you created earlier in the tutorial.
-6. Select **Save**.
+1. Select **Save**.
 
 ## Create the service topology template
 
-Open **\ADMTemplates\CreateADMServiceTopology.json**.
+Open _\ADMTemplates\CreateADMServiceTopology.json_.
 
 ### The parameters
 
 The template contains the following parameters:
 
-* **projectName**: This name is used to create the names for the Deployment Manager resources. For example, using "jdoe", the service topology name is **jdoe**ServiceTopology.  The resource names are defined in the variables section of this template.
-* **azureResourcelocation**: To simplify the tutorial, all resources share this location unless it is specified otherwise.
-* **artifactSourceSASLocation**: The SAS URI to the Blob container where service unit template and parameters files are stored for deployment.  See [Prepare the artifacts](#prepare-the-artifacts).
-* **templateArtifactRoot**: The offset path from the Blob container where the templates and parameters are stored. The default value is **templates/1.0.0.0**. Don't change this value unless you want to change the folder structure explained in [Prepare the artifacts](#prepare-the-artifacts). Relative paths are used in this tutorial.  The full path is constructed by concatenating **artifactSourceSASLocation**, **templateArtifactRoot**, and **templateArtifactSourceRelativePath** (or **parametersArtifactSourceRelativePath**).
-* **targetSubscriptionID**: The subscription ID to which the Deployment Manager resources are going to be deployed and billed. Use your subscription ID in this tutorial.
+* `projectName`: This name is used to create the names for the Deployment Manager resources. For example, using **demo**, the service topology name is **demo**ServiceTopology. The resource names are defined in the template's `variables` section.
+* `azureResourcelocation`: To simplify the tutorial, all resources share this location unless it's specified otherwise.
+* `artifactSourceSASLocation`: The SAS URI to the Blob container where service unit template and parameters files are stored for deployment. See [Prepare the artifacts](#prepare-the-artifacts).
+* `templateArtifactRoot`: The offset path from the Blob container where the templates and parameters are stored. The default value is _templates/1.0.0.0_. Don't change this value unless you want to change the folder structure explained in [Prepare the artifacts](#prepare-the-artifacts). Relative paths are used in this tutorial. The full path is constructed by concatenating `artifactSourceSASLocation`, `templateArtifactRoot`, and `templateArtifactSourceRelativePath` (or `parametersArtifactSourceRelativePath`).
+* `targetSubscriptionID`: The subscription ID to which the Deployment Manager resources are going to be deployed and billed. Use your subscription ID in this tutorial.
 
 ### The variables
 
-The variables section defines the names of the resources, the Azure locations for the two services: **Service WUS** and **Service EUS**, and the artifact paths:
+The variables section defines the names of the resources, the Azure locations for the two services: `ServiceWUS` and `ServiceEUS`, and the artifact paths:
 
 ![Azure Deployment Manager tutorial topology template variables](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-topology-template-variables.png)
 
-Compare the artifact paths with the folder structure that you uploaded to the storage account. Notice the artifact paths are relative paths. The full path is constructed by concatenating **artifactSourceSASLocation**, **templateArtifactRoot**, and **templateArtifactSourceRelativePath** (or **parametersArtifactSourceRelativePath**).
+Compare the artifact paths with the folder structure that you uploaded to the storage account. Notice the artifact paths are relative paths. The full path is constructed by concatenating `artifactSourceSASLocation`, `templateArtifactRoot`, and `templateArtifactSourceRelativePath` (or `parametersArtifactSourceRelativePath`).
 
 ### The resources
 
-On the root level, there are two resources defined: *an artifact source*,  and *a service topology*.
+On the root level, two resources are defined: *an artifact source*, and *a service topology*.
 
 The artifact source definition is:
 
@@ -229,28 +228,28 @@ The following screenshot only shows some parts of the service topology, services
 
 ![Azure Deployment Manager tutorial topology template resources service topology](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-topology-template-resources-service-topology.png)
 
-* **artifactSourceId** is used to associate the artifact source resource to the service topology resource.
-* **dependsOn**: All the service topology resources depend on the artifact source resource.
-* **artifacts** point to the template artifacts.  Relative paths are used here. The full path is constructed by concatenating artifactSourceSASLocation (defined in the artifact source), artifactRoot (defined in the artifact source), and templateArtifactSourceRelativePath (or parametersArtifactSourceRelativePath).
+* `artifactSourceId`: Used to associate the artifact source resource to the service topology resource.
+* `dependsOn`: All the service topology resources depend on the artifact source resource.
+* `artifacts`: Point to the template artifacts. Relative paths are used here. The full path is constructed by concatenating `artifactSourceSASLocation` (defined in the artifact source), `artifactRoot` (defined in the artifact source), and `templateArtifactSourceRelativePath` (or `parametersArtifactSourceRelativePath`).
 
 ### Topology parameters file
 
 You create a parameters file used with the topology template.
 
-1. Open **\ADMTemplates\CreateADMServiceTopology.Parameters** in Visual Studio Code or any text editor.
-2. Fill the parameter values:
+1. Open _\ADMTemplates\CreateADMServiceTopology.Parameters.json_ in Visual Studio Code or any text editor.
+1. Enter the parameter values:
 
-    * **projectName**: Enter a string with 4-5 characters. This name is used to create unique azure resource names.
-    * **azureResourceLocation**: If you are not familiar with Azure locations, use **centralus** in this tutorial.
-    * **artifactSourceSASLocation**: Enter the SAS URI to the root directory (the Blob container) where service unit template and parameters files are stored for deployment.  See [Prepare the artifacts](#prepare-the-artifacts).
-    * **templateArtifactRoot**: Unless you change the folder structure of the artifacts, use **templates/1.0.0.0** in this tutorial.
+    * `projectName`: Enter a string with 4-5 characters. This name is used to create unique Azure resource names.
+    * `azureResourceLocation`: If you're not familiar with Azure locations, use **centralus** in this tutorial.
+    * `artifactSourceSASLocation`: Enter the SAS URI to the root directory (the Blob container) where service unit template and parameters files are stored for deployment.  See [Prepare the artifacts](#prepare-the-artifacts).
+    * `templateArtifactRoot`: Unless you change the folder structure of the artifacts, use _templates/1.0.0.0_ in this tutorial.
 
 > [!IMPORTANT]
-> The topology template and the rollout template share some common parameters. These parameters must have the same values. These parameters are: **projectName**, **azureResourceLocation**, and **artifactSourceSASLocation** (both artifact sources share the same storage account in this tutorial).
+> The topology template and the rollout template share some common parameters. These parameters must have the same values. These parameters are: `projectName`, `azureResourceLocation`, and `artifactSourceSASLocation` (both artifact sources share the same storage account in this tutorial).
 
 ## Create the rollout template
 
-Open **\ADMTemplates\CreateADMRollout.json**.
+Open _\ADMTemplates\CreateADMRollout.json_.
 
 ### The parameters
 
@@ -258,15 +257,15 @@ The template contains the following parameters:
 
 ![Azure Deployment Manager tutorial rollout template parameters](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-rollout-template-parameters.png)
 
-* **projectName**: This name is used to create the names for the Deployment Manager resources. For example, using "jdoe", the rollout name is **jdoe**Rollout.  The names are defined in the variables section of the template.
-* **azureResourcelocation**: To simplify the tutorial, all Deployment Manager resources share this location unless it is specified otherwise.
-* **artifactSourceSASLocation**: The SAS URI to the root directory (the Blob container) where service unit template and parameters files are stored for deployment.  See [Prepare the artifacts](#prepare-the-artifacts).
-* **binaryArtifactRoot**:  The default value is **binaries/1.0.0.0**. Don't change this value unless you want to change the folder structure explained in [Prepare the artifacts](#prepare-the-artifacts). Relative paths are used in this tutorial.  The full path is constructed by concatenating **artifactSourceSASLocation**, **binaryArtifactRoot**, and the **deployPackageUri** specified in the CreateWebApplicationParameters.json.  See [Prepare the artifacts](#prepare-the-artifacts).
-* **managedIdentityID**: The user-assigned managed identity that performs the deployment actions. See [Create the user-assigned managed identity](#create-the-user-assigned-managed-identity).
+* `projectName`: This name is used to create the names for the Deployment Manager resources. For example, using **demo**, the rollout name is **demo**Rollout. The names are defined in the template's `variables` section.
+* `azureResourcelocation`: To simplify the tutorial, all Deployment Manager resources share this location unless it's specified otherwise.
+* `artifactSourceSASLocation`: The SAS URI to the root directory (the Blob container) where service unit template and parameters files are stored for deployment. See [Prepare the artifacts](#prepare-the-artifacts).
+* `binaryArtifactRoot`: The default value is _binaries/1.0.0.0_. Don't change this value unless you want to change the folder structure explained in [Prepare the artifacts](#prepare-the-artifacts). Relative paths are used in this tutorial. The full path is constructed by concatenating `artifactSourceSASLocation`, `binaryArtifactRoot`, and the `deployPackageUri` specified in _CreateWebApplicationParameters.json_. See [Prepare the artifacts](#prepare-the-artifacts).
+* `managedIdentityID`: The user-assigned managed identity that performs the deployment actions. See [Create the user-assigned managed identity](#create-the-user-assigned-managed-identity).
 
 ### The variables
 
-The variables section defines the names of the resources. Make sure the service topology name, the service names, and the service unit names match the names defined in the [topology template](#create-the-service-topology-template).
+The `variables` section defines the names of the resources. Make sure the service topology name, the service names, and the service unit names match the names defined in the [topology template](#create-the-service-topology-template).
 
 ![Azure Deployment Manager tutorial rollout template variables](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-rollout-template-variables.png)
 
@@ -274,44 +273,44 @@ The variables section defines the names of the resources. Make sure the service 
 
 On the root level, there are three resources defined: an artifact source, a step, and a rollout.
 
-The artifact source definition is identical to the one defined in the topology template.  See [Create the service topology template](#create-the-service-topology-template) for more information.
+The artifact source definition is identical to the one defined in the topology template. See [Create the service topology template](#create-the-service-topology-template) for more information.
 
-The following screenshot shows the wait step definition:
+The following screenshot shows the `wait` step definition:
 
 ![Azure Deployment Manager tutorial rollout template resources wait step](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-rollout-template-resources-wait-step.png)
 
-The duration is using the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601#Durations). **PT1M** (capital letters are required) is an example of a 1-minute wait.
+The duration uses the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601#Durations). **PT1M** (capital letters are required) is an example of a 1-minute wait.
 
 The following screenshot only shows some parts of the rollout definition:
 
 ![Azure Deployment Manager tutorial rollout template resources rollout](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-rollout-template-resources-rollout.png)
 
-* **dependsOn**: The rollout resource depends on the artifact source resource, and any of the steps defined.
-* **artifactSourceId**: used to associate the artifact source resource to the rollout resource.
-* **targetServiceTopologyId**: used to associate the service topology resource to the rollout resource.
-* **deploymentTargetId**: It is the service unit resource ID of the service topology resource.
-* **preDeploymentSteps** and **postDeploymentSteps**: contains the rollout steps. In the template, a wait step is called.
-* **dependsOnStepGroups**: configure the dependencies between the step groups.
+* `dependsOn`: The rollout resource depends on the artifact source resource, and any of the steps defined.
+* `artifactSourceId`: Used to associate the artifact source resource to the rollout resource.
+* `targetServiceTopologyId`: Used to associate the service topology resource to the rollout resource.
+* `deploymentTargetId`: It's the service unit resource ID of the service topology resource.
+* `preDeploymentSteps` and `postDeploymentSteps`: Contains the rollout steps. In the template, a `wait` step is called.
+* `dependsOnStepGroups`: Configure the dependencies between the step groups.
 
 ### Rollout parameters file
 
 You create a parameters file used with the rollout template.
 
-1. Open **\ADMTemplates\CreateADMRollout.Parameters** in Visual Studio Code or any text editor.
-2. Fill the parameter values:
+1. Open _\ADMTemplates\CreateADMRollout.Parameters.json_ in Visual Studio Code or any text editor.
+1. Enter the parameter values:
 
-    * **projectName**: Enter a string with 4-5 characters. This name is used to create unique azure resource names.
-    * **azureResourceLocation**: Specify an Azure location.
-    * **artifactSourceSASLocation**: Enter the SAS URI to the root directory (the Blob container) where service unit template and parameters files are stored for deployment.  See [Prepare the artifacts](#prepare-the-artifacts).
-    * **binaryArtifactRoot**: Unless you change the folder structure of the artifacts, use **binaries/1.0.0.0** in this tutorial.
-    * **managedIdentityID**: Enter the user-assigned managed identity. See [Create the user-assigned managed identity](#create-the-user-assigned-managed-identity). The syntax is:
+    * `projectName`: Enter a string with 4-5 characters. This name is used to create unique Azure resource names.
+    * `azureResourceLocation`: Specify an Azure location.
+    * `artifactSourceSASLocation`: Enter the SAS URI to the root directory (the Blob container) where service unit template and parameters files are stored for deployment.  See [Prepare the artifacts](#prepare-the-artifacts).
+    * `binaryArtifactRoot`: Unless you change the folder structure of the artifacts, use _binaries/1.0.0.0_ in this tutorial.
+    * `managedIdentityID`: Enter the user-assigned managed identity. See [Create the user-assigned managed identity](#create-the-user-assigned-managed-identity). The syntax is:
 
-        ```
+        ```json
         "/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userassignedidentities/<ManagedIdentityName>"
         ```
 
 > [!IMPORTANT]
-> The topology template and the rollout template share some common parameters. These parameters must have the same values. These parameters are: **projectName**, **azureResourceLocation**, and **artifactSourceSASLocation** (both artifact sources share the same storage account in this tutorial).
+> The topology template and the rollout template share some common parameters. These parameters must have the same values. These parameters are: `projectName`, `azureResourceLocation`, and `artifactSourceSASLocation` (both artifact sources share the same storage account in this tutorial).
 
 ## Deploy the templates
 
@@ -327,18 +326,18 @@ Azure PowerShell can be used to deploy the templates.
         -TemplateParameterFile "$filePath\ADMTemplates\CreateADMServiceTopology.Parameters.json"
     ```
 
-    If you run this script from a different PowerShell session from the one you ran the [Prepare the artifacts](#prepare-the-artifacts) script, you need to repopulate the variables first, which include **$resourceGroupName** and **$filePath**.
+    If you run this script from a different PowerShell session from the one you ran the [Prepare the artifacts](#prepare-the-artifacts) script, you need to repopulate the variables first, which include `$resourceGroupName` and `$filePath`.
 
     > [!NOTE]
-    > `New-AzResourceGroupDeployment` is an asynchronous call. The success message only means the deployment has successfully begun. To verify the deployment, see step 2 and step 4 of this procedure.
+    > `New-AzResourceGroupDeployment` is an asynchronous call. The success message only means the deployment has successfully begun. To verify the deployment, see Step 2 and Step 4 of this procedure.
 
-2. Verify the service topology and the underlined resources have been created successfully using the Azure portal:
+1. Verify the service topology and the underlined resources have been created successfully using the Azure portal:
 
     ![Azure Deployment Manager tutorial deployed service topology resources](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-deployed-topology-resources.png)
 
     **Show hidden types** must be selected to see the resources.
 
-3. <a id="deploy-the-rollout-template"></a>Deploy the rollout template:
+1. <a id="deploy-the-rollout-template"></a>Deploy the rollout template:
 
     ```azurepowershell
     # Create the rollout
@@ -348,7 +347,7 @@ Azure PowerShell can be used to deploy the templates.
         -TemplateParameterFile "$filePath\ADMTemplates\CreateADMRollout.Parameters.json"
     ```
 
-4. Check the rollout progress using the following PowerShell script:
+1. Check the rollout progress using the following PowerShell script:
 
     ```azurepowershell
     # Get the rollout status
@@ -359,11 +358,11 @@ Azure PowerShell can be used to deploy the templates.
         -Verbose
     ```
 
-    The Deployment Manager PowerShell cmdlets must be installed before you can run this cmdlet. See Prerequisites. The -Verbose switch can be used to see the whole output.
+    The Deployment Manager PowerShell cmdlets must be installed before you can run this cmdlet. See [Prerequisites](#prerequisites). The `-Verbose` parameter can be used to see the whole output.
 
     The following sample shows the running status:
 
-    ```
+    ```Output
     VERBOSE:
 
     Status: Succeeded
@@ -419,37 +418,37 @@ Azure PowerShell can be used to deploy the templates.
     Tags                    :
     ```
 
-    After the rollout is deployed successfully, you shall see two more resource groups created, one for each service.
+    After the rollout is deployed successfully, you'll see two more resource groups created, one for each service.
 
 ## Verify the deployment
 
 1. Open the [Azure portal](https://portal.azure.com).
-2. Browse to the newly create web applications under the new resource groups created by the rollout deployment.
-3. Open the web application in a web browser. Verify the location and the version on the index.html file.
+1. Browse to the newly created web applications under the new resource groups created by the rollout deployment.
+1. Open the web application in a web browser. Verify the location and the version on the _index.html_ file.
 
 ## Deploy the revision
 
 When you have a new version (1.0.0.1) for the web application. You can use the following procedure to redeploy the web application.
 
-1. Open CreateADMRollout.Parameters.json.
-2. Update **binaryArtifactRoot** to **binaries/1.0.0.1**.
-3. Redeploy the rollout as instructed in [Deploy the templates](#deploy-the-rollout-template).
-4. Verify the deployment as instructed in [Verify the deployment](#verify-the-deployment). The web page shall show the 1.0.0.1 version.
+1. Open _CreateADMRollout.Parameters.json_.
+1. Update `binaryArtifactRoot` to _binaries/1.0.0.1_.
+1. Redeploy the rollout as instructed in [Deploy the templates](#deploy-the-rollout-template).
+1. Verify the deployment as instructed in [Verify the deployment](#verify-the-deployment). The web page shall show the 1.0.0.1 version.
 
 ## Clean up resources
 
 When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group.
 
 1. From the Azure portal, select **Resource group** from the left menu.
-2. Use the **Filter by name** field to narrow down the resource groups created in this tutorial. There shall be 3-4:
+1. Use the **Filter by name** field to narrow down the resource groups created in this tutorial.
 
     * **&lt;projectName>rg**: contains the Deployment Manager resources.
     * **&lt;projectName>ServiceWUSrg**: contains the resources defined by ServiceWUS.
     * **&lt;projectName>ServiceEUSrg**: contains the resources defined by ServiceEUS.
     * The resource group for the user-defined managed identity.
-3. Select the resource group name.
-4. Select **Delete resource group** from the top menu.
-5. Repeat the last two steps to delete other resource groups created by this tutorial.
+1. Select the resource group name.
+1. Select **Delete resource group** from the top menu.
+1. Repeat the last two steps to delete other resource groups created by this tutorial.
 
 ## Next steps
 

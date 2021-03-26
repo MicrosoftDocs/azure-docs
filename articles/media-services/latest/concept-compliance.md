@@ -1,6 +1,5 @@
 ---
 title: Media Services regulatory compliance
-titleSuffix: Azure Media Services
 description: Azure Media Services complies with Azure Government.
 services: media-services
 documentationcenter: ''

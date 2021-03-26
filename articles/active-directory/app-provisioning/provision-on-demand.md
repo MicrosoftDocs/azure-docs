@@ -3,7 +3,7 @@ title: Provision a user on demand by using Azure Active Directory
 description: Force sync
 services: active-directory
 author: msmimart
-manager: CelesteDG
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity

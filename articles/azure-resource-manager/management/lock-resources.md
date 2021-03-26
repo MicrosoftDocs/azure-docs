@@ -2,13 +2,15 @@
 title: Lock resources to prevent changes
 description: Prevent users from updating or deleting Azure resources by applying a lock for all users and roles.
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 03/09/2021
 ms.custom: devx-track-azurecli
 ---
 
 # Lock resources to prevent unexpected changes
 
-As an administrator, you may need to lock a subscription, resource group, or resource to prevent other users in your organization from accidentally deleting or modifying critical resources. You can set the lock level to **CanNotDelete** or **ReadOnly**. In the portal, the locks are called **Delete** and **Read-only** respectively.
+As an administrator, you can lock a subscription, resource group, or resource to prevent other users in your organization from accidentally deleting or modifying critical resources. The lock overrides any permissions the user might have.
+
+You can set the lock level to **CanNotDelete** or **ReadOnly**. In the portal, the locks are called **Delete** and **Read-only** respectively.
 
 * **CanNotDelete** means authorized users can still read and modify a resource, but they can't delete the resource.
 * **ReadOnly** means authorized users can read a resource, but they can't delete or update the resource. Applying this lock is similar to restricting all authorized users to the permissions granted by the **Reader** role.
@@ -25,7 +27,11 @@ Resource Manager locks apply only to operations that happen in the management pl
 
 Applying locks can lead to unexpected results because some operations that don't seem to modify the resource actually require actions that are blocked by the lock. Locks will prevent any operations that require a POST request to the Azure Resource Manager API. Some common examples of the operations that are blocked by locks are:
 
-* A read-only lock on a **storage account** prevents all users from listing the keys. The list keys operation is handled through a POST request because the returned keys are available for write operations.
+* A read-only lock on a **storage account** prevents users from listing the account keys. The Azure Storage [List Keys](/rest/api/storagerp/storageaccounts/listkeys) operation is handled through a POST request to protect access to the account keys, which provide complete access to data in the storage account. When a read-only lock is configured for a storage account, users who do not possess the account keys must use Azure AD credentials to access blob or queue data. A read-only lock also prevents the assignment of Azure RBAC roles that are scoped to the storage account or to a data container (blob container or queue).
+
+* A cannot-delete lock on a **storage account** does not prevent data within that account from being deleted or modified. This type of lock only protects the storage account itself from being deleted, and does not protect blob, queue, table, or file data within that storage account. 
+
+* A read-only lock on a **storage account** does not prevent data within that account from being deleted or modified. This type of lock only protects the storage account itself from being deleted or modified, and does not protect blob, queue, table, or file data within that storage account. 
 
 * A read-only lock on an **App Service** resource prevents Visual Studio Server Explorer from displaying files for the resource because that interaction requires write access.
 

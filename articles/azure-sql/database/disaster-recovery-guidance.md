@@ -103,7 +103,7 @@ You need to make sure that all the logins used by your application exist on the 
 
 You need to make sure your existing alert rule settings are updated to map to the recovered database and the different server.
 
-For more information about database alert rules, see [Receive Alert Notifications](../../azure-monitor/platform/alerts-overview.md) and [Track Service Health](../../service-health/service-notifications.md).
+For more information about database alert rules, see [Receive Alert Notifications](../../azure-monitor/alerts/alerts-overview.md) and [Track Service Health](../../service-health/service-notifications.md).
 
 ### Enable auditing
 

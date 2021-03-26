@@ -54,6 +54,26 @@ If you have resolved all identified migration blockers and are continuing the mi
 
 SQL Managed Instance guarantees 99.99% availability even in critical scenarios, so overhead caused by these features cannot be disabled. For more information, see [the root causes that might cause different performance on SQL Server and Azure SQL Managed Instance](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/).
 
+#### In-Memory OLTP (Memory-optimized tables)
+
+SQL Server provides In-Memory OLTP capability that allows usage of memory-optimized tables, memory-optimized table types and natively compiled SQL modules to run workloads that have high throughput and low latency transactional processing requirements. 
+
+> [!IMPORTANT]
+> In-Memory OLTP is only supported in the Business Critical tier in Azure SQL Managed Instance (and not supported in the General Purpose tier).
+
+If you have memory-optimized tables or memory-optimized table types in your on-premises SQL Server and you are looking to migrate to Azure SQL Managed Instance, you should either:
+
+- Choose Business Critical tier for your target Azure SQL Managed Instance that supports In-Memory OLTP, Or
+- If you want to migrate to General Purpose tier in Azure SQL Managed Instance, remove memory-optimized tables, memory-optimized table types and natively compiled SQL modules that interact with memory-optimized objects before migrating your database(s). The following T-SQL query can be used to identify all objects that need to be removed before migration to General Purpose tier:
+
+```tsql
+SELECT * FROM sys.tables WHERE is_memory_optimized=1
+SELECT * FROM sys.table_types WHERE is_memory_optimized=1
+SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
+```
+
+To learn more about in-memory technologies, see [Optimize performance by using in-memory technologies in Azure SQL Database and Azure SQL Managed Instance](../in-memory-oltp-overview.md)
+
 ### Create a performance baseline
 
 If you need to compare the performance of your workload on a managed instance with your original workload running on SQL Server, you would need to create a performance baseline that will be used for comparison.

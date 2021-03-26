@@ -37,7 +37,7 @@ Before you start, make sure that you meet these prerequisites.
 
 ### Choose the appropriate identities
 
-[Azure Government](../../azure-government/index.yml) applications can use Azure AD Government identities and Azure AD Public identities to authenticate users. Because you can use any of these identities, you need to decide which authority endpoint you should choose for your scenario:
+[Azure Government](../../azure-government/index.yml) applications can use Azure AD Government identities and Azure AD Public identities to authenticate users. Because you can use any of these identities, decide which authority endpoint you should choose for your scenario:
 
 - Azure AD Public: Commonly used if your organization already has an Azure AD Public tenant to support Microsoft 365 (Public or GCC) or another application.
 - Azure AD Government: Commonly used if your organization already has an Azure AD Government tenant to support Office 365 (GCC High or DoD) or is creating a new tenant in Azure AD Government.
@@ -67,7 +67,7 @@ To enable your MSAL.js application for sovereign clouds:
 
 ### Step 1: Register your application
 
-1. Sign in to the <a href="https://portal.azure.us/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Sign in to the <a href="https://portal.azure.us/" target="_blank">Azure portal</a>.
 
    To find Azure portal endpoints for other national clouds, see [App registration endpoints](authentication-national-cloud.md#app-registration-endpoints).
 
@@ -81,7 +81,7 @@ To enable your MSAL.js application for sovereign clouds:
 1. On the **Overview** page, note down the **Application (client) ID** value for later use.
     This tutorial requires you to enable the [implicit grant flow](v2-oauth2-implicit-grant-flow.md). 
 1. Under **Manage**, select **Authentication**.
-1. Under **Implicit grant**, select **ID tokens** and **Access tokens**. ID tokens and access tokens are required because this app needs to sign in users and call an API.
+1. Under **Implicit grant and hybrid flows**, select **ID tokens** and **Access tokens**. ID tokens and access tokens are required because this app needs to sign in users and call an API.
 1. Select **Save**.
 
 ### Step 2:  Set up your web server or project

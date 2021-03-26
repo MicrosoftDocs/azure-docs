@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms 
 ms.author: mingshen
-ms.date: 10/27/2020
+ms.date: 03/10/2021
 ---
 
 # How to review and publish an offer to the commercial marketplace
@@ -69,6 +69,13 @@ The first step in the publishing process is a set of automated validations. Each
 - **Lead management validation and registration** (<15 min)
 
     We confirm that your lead management system can receive customer leads based on the details you provided on the **Offer setup** page. This step is only applicable for offers with lead management enabled.
+
+- **Offer validation** (<30 min)
+
+    For SaaS offers only, we perform quick validations for content and technical configurations. Preview creation will not be blocked on any validation issues detected in this step. If we find any issues that can fail certification, a **View validation report** link appears on the **Offer overview** page. The report will contain descriptions of any policy violations.
+
+    > [!IMPORTANT]
+    > Be sure to review and address all warnings from the Offer validation step before selecting the **Go live** button. Otherwise, you risk failing certification that will delay your offer from going live.
 
 ## Certification phase
 
@@ -138,16 +145,19 @@ If you want to publish the offer at a later time, you'll need to start the publi
 
 When the offer is ready for you to review and be signed off, we’ll send you an email to request that you review and approve your offer preview. You can also refresh the **Offer overview** page in your browser to see if your offer has reached the Publisher sign-off phase. If it has, the **Go live** button and preview links will be available.
 
-The following screenshot shows the **Offer overview** page for a SaaS offer. The validation steps you’ll see on this page vary depending on the offer type and the selections you made when you created the offer.
+The following screenshot shows the **Offer overview** page in the commercial marketplace program in Partner Center. The validation steps you’ll see on this page vary depending on the offer type and the selections you made when you created the offer. Note that the certification phase can happen during submission to preview or submission to live depending on the offer type.
 
 ![Illustrates the Offer overview page for an offer in Partner Center. The Go live button and preview links are shown.](./media/publish-status-publisher-signoff.png)
 
 ### Previewing and approving your offer
 
 > [!IMPORTANT]
-> To validate the end-to-end purchase and setup flow, purchase your offer while it is in Preview. First notify Microsoft with a [support ticket](https://aka.ms/marketplacesupport) to ensure we don't process a charge. If your offer is a Contact Me listing, test that a lead is created as expected by providing the Contact Me details during preview.
+> To validate the end-to-end purchase and setup flow, purchase your offer while it is in Preview. First notify Microsoft with a [support ticket](https://aka.ms/marketplacesupport) to ensure we don't process a charge. If your offer is a _Contact Me_ listing, test that a lead is created as expected by providing the Contact Me details during preview.
 
 On the **Offer overview** page, you will see preview links under the **Go live** button. There will be a link for either AppSource preview, Azure Marketplace preview, or both depending on the options you chose when creating your offer. If you chose to sell your offer through Microsoft, anyone who has been added to the preview audience can test the acquisition and deployment of your offer to ensure it meets your requirements during this stage.
+
+> [!IMPORTANT]
+> Be sure to review and address all warnings from the _Offer validation_ step before selecting the **Go live** button. Otherwise, you risk failing certification that will delay your offer from going live.
 
 After you approve your preview, select **Go live** to publish your offer live to the commercial marketplace. 
 

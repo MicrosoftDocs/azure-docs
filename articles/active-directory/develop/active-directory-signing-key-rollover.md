@@ -293,7 +293,7 @@ If you built an application on WIF v1.0, there is no provided mechanism to autom
 
 Instructions to use the FedUtil to update your configuration:
 
-1. Verify that you have the WIF v1.0 SDK installed on your development machine for Visual Studio 2008 or 2010. You can [download it from here](https://www.microsoft.com/en-us/download/details.aspx?id=4451) if you have not yet installed it.
+1. Verify that you have the WIF v1.0 SDK installed on your development machine for Visual Studio 2008 or 2010. You can [download it from here](https://www.microsoft.com/download/details.aspx?id=17331) if you have not yet installed it.
 2. In Visual Studio, open the solution, and then right-click the applicable project and select **Update federation metadata**. If this option is not available, FedUtil and/or the WIF v1.0 SDK has not been installed.
 3. From the prompt, select **Update** to begin updating your federation metadata. If you have access to the server environment where the application is hosted, you can optionally use FedUtil’s [automatic metadata update scheduler](/previous-versions/windows-identity-foundation/ee517272(v=msdn.10)).
 4. Click **Finish** to complete the update process.

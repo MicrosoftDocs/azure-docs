@@ -3,19 +3,19 @@ title: Reference for writing expressions for attribute mappings in Azure Active 
 description: Learn how to use expression mappings to transform attribute values into an acceptable format during automated provisioning of SaaS app objects in Azure Active Directory. Includes a reference list of functions.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/05/2020
+ms.date: 03/04/2021
 ms.author: kenwith
 ms.custom: contperf-fy21q2
 ---
 
 # Reference for writing expressions for attribute mappings in Azure AD
 
-When you configure provisioning to a SaaS application, one of the types of attribute mappings that you can specify is an expression mapping. For these, you must write a script-like expression that allows you to transform your users’ data into formats that are more acceptable for the SaaS application.
+When you configure provisioning to a SaaS application, one of the types of attribute mappings that you can specify is an expression mapping. For these, you must write a script-like expression that allows you to transform your users' data into formats that are more acceptable for the SaaS application.
 
 ## Syntax overview
 
@@ -34,7 +34,7 @@ The syntax for Expressions for Attribute Mappings is reminiscent of Visual Basic
 
 ## List of Functions
 
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [IIF](#iif) &nbsp;&nbsp;&nbsp;&nbsp;[InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [IIF](#iif) &nbsp;&nbsp;&nbsp;&nbsp;[InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [NumFromDate](#numfromdate) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
 
 ---
 ### Append
@@ -51,6 +51,19 @@ Takes a source string value and appends the suffix to the end of it.
 | --- | --- | --- | --- |
 | **source** |Required |String |Usually name of the attribute from the source object. |
 | **suffix** |Required |String |The string that you want to append to the end of the source value. |
+
+
+### Append constant suffix to user name
+Example: If you are using a Salesforce Sandbox, you might need to append an additional suffix to all your user names before synchronizing them.
+
+**Expression:** 
+`Append([userPrincipalName], ".test")`
+
+**Sample input/output:** 
+
+* **INPUT**: (userPrincipalName): "John.Doe@contoso.com"
+* **OUTPUT**:  "John.Doe@contoso.com.test"
+
 
 ---
 ### BitAnd
@@ -69,8 +82,8 @@ In other words, it returns 0 in all cases except when the corresponding bits of 
 
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
-| **value1** |Required |num |Numeric value that should be AND’ed with value2|
-| **value2** |Required |num |Numeric value that should be AND’ed with value1|
+| **value1** |Required |num |Numeric value that should be AND'ed with value2|
+| **value2** |Required |num |Numeric value that should be AND'ed with value1|
 
 **Example:**
 `BitAnd(&HF, &HF7)`
@@ -109,6 +122,19 @@ Returns the first source value that is not NULL. If all arguments are NULL and d
 | --- | --- | --- | --- |
 | **source1  … sourceN** | Required | String |Required, variable-number of times. Usually name of the attribute from the source object. |
 | **defaultValue** | Optional | String | Default value to be used when all source values are NULL. Can be empty string ("").
+
+### Flow mail value if not NULL, otherwise flow userPrincipalName
+Example: You wish to flow the mail attribute if it is present. If it is not, you wish to flow the value of userPrincipalName instead.
+
+**Expression:** 
+`Coalesce([mail],[userPrincipalName])`
+
+**Sample input/output:** 
+
+* **INPUT** (mail): NULL
+* **INPUT** (userPrincipalName): "John.Doe@contoso.com"
+* **OUTPUT**:  "John.Doe@contoso.com"
+
 
 ---
 ### ConvertToBase64
@@ -187,7 +213,7 @@ Returns "cn=Joe,dc=contoso,dc=com"
 DateFromNum(value)
 
 **Description:** 
-The DateFromNum function converts a value in AD’s date format to a DateTime type.
+The DateFromNum function converts a value in AD's date format to a DateTime type.
 
 **Parameters:** 
 
@@ -205,7 +231,7 @@ Returns a DateTime representing January 1, 2012 at 11:00PM.
 ---
 ### FormatDateTime
 **Function:** 
-FormatDateTime(source, inputFormat, outputFormat)
+FormatDateTime(source, dateTimeStyles, inputFormat, outputFormat)
 
 **Description:** 
 Takes a date string from one format and converts it into a different format.
@@ -215,8 +241,24 @@ Takes a date string from one format and converts it into a different format.
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Required |String |Usually name of the attribute from the source object. |
+| **dateTimeStyles** | Optional | String | Use this to specify the formatting options that customize string parsing for some date and time parsing methods. For supported values, see [DateTimeStyles doc](/dotnet/api/system.globalization.datetimestyles). If left empty, the default value used is DateTimeStyles.RoundtripKind, DateTimeStyles.AllowLeadingWhite, DateTimeStyles.AllowTrailingWhite  |
 | **inputFormat** |Required |String |Expected format of the source value. For supported formats, see [/dotnet/standard/base-types/custom-date-and-time-format-strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 | **outputFormat** |Required |String |Format of the output date. |
+
+
+
+### Output date as a string in a certain format
+Example: You want to send dates to a SaaS application like ServiceNow in a certain format. You can consider using the following expression. 
+
+**Expression:** 
+
+`FormatDateTime([extensionAttribute1], , "yyyyMMddHHmmss.fZ", "yyyy-MM-dd")`
+
+**Sample input/output:**
+
+* **INPUT** (extensionAttribute1): "20150123105347.1Z"
+* **OUTPUT**:  "2015-01-23"
+
 
 ---
 ### Guid
@@ -430,6 +472,19 @@ Requires one string argument. Returns the string, but with any diacritical chara
 | --- | --- | --- | --- |
 | **source** |Required |String | Usually a first name or last name attribute. |
 
+
+### Remove diacritics from a string
+Example: You need to replace characters containing accent marks with equivalent characters that don't contain accent marks.
+
+**Expression:** 
+NormalizeDiacritics([givenName])
+
+**Sample input/output:** 
+
+* **INPUT** (givenName): "Zoë"
+* **OUTPUT**:  "Zoe"
+
+
 ---
 ### Not
 **Function:** 
@@ -461,11 +516,11 @@ The NumFromDate function converts a DateTime value to Active Directory format th
 **Example:**
 * Workday example 
   Assuming you want to map the attribute *ContractEndDate* from Workday which is in the format *2020-12-31-08:00* to *accountExpires* field in AD, here is how you can use this function and change the timezone offset to match your locale. 
-  `NumFromDate(Join("", FormatDateTime([ContractEndDate], "yyyy-MM-ddzzz", "yyyy-MM-dd"), "T23:59:59-08:00"))`
+  `NumFromDate(Join("", FormatDateTime([ContractEndDate], ,"yyyy-MM-ddzzz", "yyyy-MM-dd"), "T23:59:59-08:00"))`
 
 * SuccessFactors example 
   Assuming you want to map the attribute *endDate* from SuccessFactors which is in the format *M/d/yyyy hh:mm:ss tt* to *accountExpires* field in AD, here is how you can use this function and change the time zone offset to match your locale.
-  `NumFromDate(Join("",FormatDateTime([endDate],"M/d/yyyy hh:mm:ss tt","yyyy-MM-dd"),"T23:59:59-08:00"))`
+  `NumFromDate(Join("",FormatDateTime([endDate], ,"M/d/yyyy hh:mm:ss tt","yyyy-MM-dd"),"T23:59:59-08:00"))`
 
 
 ---
@@ -523,6 +578,19 @@ Replaces values within a string in a case-sensitive manner. The function behaves
 | **replacementAttributeName** |Optional |String |Name of the attribute to be used for replacement value |
 | **template** |Optional |String |When **template** value is provided, we will look for **oldValue** inside the template and replace it with **source** value. |
 
+### Replace characters using a regular expression
+Example: You need to find characters that match a regular expression value and remove them.
+
+**Expression:** 
+
+Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
+
+**Sample input/output:**
+
+* **INPUT** (mailNickname: "john_doe72"
+* **OUTPUT**: "72"
+
+
 ---
 ### SelectUniqueValue
 **Function:** 
@@ -533,7 +601,7 @@ Requires a minimum of two arguments, which are unique value generation rules def
 
 
  - This is a top-level function, it cannot be nested.
- - This function cannot be applied to attributes that have a matching precedence. 	
+ - This function cannot be applied to attributes that have a matching precedence.     
  - This function is only meant to be used for entry creations. When using it with an attribute, set the **Apply Mapping** property to **Only during object creation**.
  - This function is currently only supported for "Workday to Active Directory User Provisioning" and "SuccessFactors to Active Directory User Provisioning". It cannot be used with other provisioning applications. 
 
@@ -543,6 +611,28 @@ Requires a minimum of two arguments, which are unique value generation rules def
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
 | **uniqueValueRule1  … uniqueValueRuleN** |At least 2 are required, no upper bound |String | List of unique value generation rules to evaluate. |
+
+### Generate unique value for userPrincipalName (UPN) attribute
+Example: Based on the user's first name, middle name and last name, you need to generate a value for the UPN attribute and check for its uniqueness in the target AD directory before assigning the value to the UPN attribute.
+
+**Expression:** 
+
+```ad-attr-mapping-expr
+    SelectUniqueValue( 
+        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"), 
+        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 1), [PreferredLastName]))), "contoso.com"),
+        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 2), [PreferredLastName]))), "contoso.com")
+    )
+```
+
+**Sample input/output:**
+
+* **INPUT** (PreferredFirstName): "John"
+* **INPUT** (PreferredLastName): "Smith"
+* **OUTPUT**: "John.Smith@contoso.com" if UPN value of John.Smith@contoso.com doesn't already exist in the directory
+* **OUTPUT**: "J.Smith@contoso.com" if UPN value of John.Smith@contoso.com already exists in the directory
+* **OUTPUT**: "Jo.Smith@contoso.com" if the above two UPN values already exist in the directory
+
 
 
 ---
@@ -573,6 +663,18 @@ Splits a string into a multi-valued array, using the specified delimiter charact
 | --- | --- | --- | --- |
 | **source** |Required |String |**source** value to update. |
 | **delimiter** |Required |String |Specifies the character that will be used to split the string (example: ",") |
+
+### Split a string into a multi-valued array
+Example: You need to take a comma-delimited list of strings, and split them into an array that can be plugged into a multi-value attribute like Salesforce's PermissionSets attribute. In this example, a list of permission sets has been populated in extensionAttribute5 in Azure AD.
+
+**Expression:** 
+Split([extensionAttribute5], ",")
+
+**Sample input/output:** 
+
+* **INPUT** (extensionAttribute5): "PermissionSetOne, PermissionSetTwo"
+* **OUTPUT**:  ["PermissionSetOne", "PermissionSetTwo"]
+
 
 ---
 ### StripSpaces
@@ -605,6 +707,19 @@ When **source** value matches a **key**, returns **value** for that **key**. If 
 | **key** |Required |String |**Key** to compare **source** value with. |
 | **value** |Required |String |Replacement value for the **source** matching the key. |
 
+### Replace a value based on predefined set of options
+Example: You need to define the time zone of the user based on the state code stored in Azure AD. 
+If the state code doesn't match any of the predefined options, use default value of "Australia/Sydney".
+
+**Expression:** 
+`Switch([state], "Australia/Sydney", "NSW", "Australia/Sydney","QLD", "Australia/Brisbane", "SA", "Australia/Adelaide")`
+
+**Sample input/output:**
+
+* **INPUT** (state): "QLD"
+* **OUTPUT**: "Australia/Brisbane"
+
+
 ---
 ### ToLower
 **Function:** 
@@ -619,6 +734,18 @@ Takes a *source* string value and converts it to lower case using the culture ru
 | --- | --- | --- | --- |
 | **source** |Required |String |Usually name of the attribute from the source object |
 | **culture** |Optional |String |The format for the culture name based on RFC 4646 is *languagecode2-country/regioncode2*, where *languagecode2* is the two-letter language code and *country/regioncode2* is the two-letter subculture code. Examples include ja-JP for Japanese (Japan) and en-US for English (United States). In cases where a two-letter language code is not available, a three-letter code derived from ISO 639-2 is used.|
+
+### Convert generated userPrincipalName (UPN) value to lower case
+Example: You would like to generate the UPN value by concatenating the PreferredFirstName and PreferredLastName source fields and converting all characters to lower case. 
+
+`ToLower(Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"))`
+
+**Sample input/output:**
+
+* **INPUT** (PreferredFirstName): "John"
+* **INPUT** (PreferredLastName): "Smith"
+* **OUTPUT**: "john.smith@contoso.com"
+
 
 ---
 ### ToUpper
@@ -667,8 +794,10 @@ Returns "has".
 ---
 
 ## Examples
+This section provides more expression function usage examples. 
+
 ### Strip known domain name
-You need to strip a known domain name from a user’s email to obtain a user name. 
+You need to strip a known domain name from a user's email to obtain a user name. 
 For example, if the domain is "contoso.com", then you could use the following expression:
 
 **Expression:** 
@@ -679,16 +808,6 @@ For example, if the domain is "contoso.com", then you could use the following ex
 * **INPUT** (mail): "john.doe@contoso.com"
 * **OUTPUT**:  "john.doe"
 
-### Append constant suffix to user name
-If you are using a Salesforce Sandbox, you might need to append an additional suffix to all your user names before synchronizing them.
-
-**Expression:** 
-`Append([userPrincipalName], ".test")`
-
-**Sample input/output:** 
-
-* **INPUT**: (userPrincipalName): "John.Doe@contoso.com"
-* **OUTPUT**:  "John.Doe@contoso.com.test"
 
 ### Generate user alias by concatenating parts of first and last name
 You need to generate a user alias by taking first 3 letters of user's first name and first 5 letters of user's last name.
@@ -702,109 +821,6 @@ You need to generate a user alias by taking first 3 letters of user's first name
 * **INPUT** (surname): "Doe"
 * **OUTPUT**:  "JohDoe"
 
-### Remove diacritics from a string
-You need to replace characters containing accent marks with equivalent characters that don't contain accent marks.
-
-**Expression:** 
-NormalizeDiacritics([givenName])
-
-**Sample input/output:** 
-
-* **INPUT** (givenName): "Zoë"
-* **OUTPUT**:  "Zoe"
-
-### Split a string into a multi-valued array
-You need to take a comma-delimited list of strings, and split them into an array that can be plugged into a multi-value attribute like Salesforce's PermissionSets attribute. In this example, a list of permission sets has been populated in extensionAttribute5 in Azure AD.
-
-**Expression:** 
-Split([extensionAttribute5], ",")
-
-**Sample input/output:** 
-
-* **INPUT** (extensionAttribute5): "PermissionSetOne, PermissionSetTwo"
-* **OUTPUT**:  ["PermissionSetOne", "PermissionSetTwo"]
-
-### Output date as a string in a certain format
-You want to send dates to a SaaS application in a certain format. 
-For example, you want to format dates for ServiceNow.
-
-**Expression:** 
-
-`FormatDateTime([extensionAttribute1], "yyyyMMddHHmmss.fZ", "yyyy-MM-dd")`
-
-**Sample input/output:**
-
-* **INPUT** (extensionAttribute1): "20150123105347.1Z"
-* **OUTPUT**:  "2015-01-23"
-
-### Replace a value based on predefined set of options
-
-You need to define the time zone of the user based on the state code stored in Azure AD. 
-If the state code doesn't match any of the predefined options, use default value of "Australia/Sydney".
-
-**Expression:** 
-`Switch([state], "Australia/Sydney", "NSW", "Australia/Sydney","QLD", "Australia/Brisbane", "SA", "Australia/Adelaide")`
-
-**Sample input/output:**
-
-* **INPUT** (state): "QLD"
-* **OUTPUT**: "Australia/Brisbane"
-
-### Replace characters using a regular expression
-You need to find characters that match a regular expression value and remove them.
-
-**Expression:** 
-
-Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
-
-**Sample input/output:**
-
-* **INPUT** (mailNickname: "john_doe72"
-* **OUTPUT**: "72"
-
-### Convert generated userPrincipalName (UPN) value to lower case
-In the example below, the UPN value is generated by concatenating the PreferredFirstName and PreferredLastName source fields and the ToLower function operates on the generated string to convert all characters to lower case. 
-
-`ToLower(Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"))`
-
-**Sample input/output:**
-
-* **INPUT** (PreferredFirstName): "John"
-* **INPUT** (PreferredLastName): "Smith"
-* **OUTPUT**: "john.smith@contoso.com"
-
-### Generate unique value for userPrincipalName (UPN) attribute
-Based on the user's first name, middle name and last name, you need to generate a value for the UPN attribute and check for its uniqueness in the target AD directory before assigning the value to the UPN attribute.
-
-**Expression:** 
-
-```ad-attr-mapping-expr
-    SelectUniqueValue( 
-        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"), 
-        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 1), [PreferredLastName]))), "contoso.com"),
-        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 2), [PreferredLastName]))), "contoso.com")
-    )
-```
-
-**Sample input/output:**
-
-* **INPUT** (PreferredFirstName): "John"
-* **INPUT** (PreferredLastName): "Smith"
-* **OUTPUT**: "John.Smith@contoso.com" if UPN value of John.Smith@contoso.com doesn't already exist in the directory
-* **OUTPUT**: "J.Smith@contoso.com" if UPN value of John.Smith@contoso.com already exists in the directory
-* **OUTPUT**: "Jo.Smith@contoso.com" if the above two UPN values already exist in the directory
-
-### Flow mail value if not NULL, otherwise flow userPrincipalName
-You wish to flow the mail attribute if it is present. If it is not, you wish to flow the value of userPrincipalName instead.
-
-**Expression:** 
-`Coalesce([mail],[userPrincipalName])`
-
-**Sample input/output:** 
-
-* **INPUT** (mail): NULL
-* **INPUT** (userPrincipalName): "John.Doe@contoso.com"
-* **OUTPUT**:  "John.Doe@contoso.com"
 
 ## Related Articles
 * [Automate User Provisioning/Deprovisioning to SaaS Apps](../app-provisioning/user-provisioning.md)

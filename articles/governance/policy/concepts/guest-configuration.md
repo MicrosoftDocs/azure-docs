@@ -6,6 +6,7 @@ ms.topic: conceptual
 ---
 # Understand Azure Policy's Guest Configuration
 
+
 Azure Policy can audit settings inside a machine, both for machines running in Azure and
 [Arc Connected Machines](../../../azure-arc/servers/overview.md). The validation is performed by the
 Guest Configuration extension and client. The extension, through the client, validates settings such
@@ -19,6 +20,8 @@ At this time, most Azure Policy Guest Configuration policy definitions only audi
 the machine. They don't apply configurations. The exception is one built-in policy
 [referenced below](#applying-configurations-using-guest-configuration).
 
+[A video walk-through of this document is available](https://youtu.be/Y6ryD3gTHOs).
+
 ## Enable Guest Configuration
 
 To audit the state of machines in your environment, including machines in Azure and Arc Connected
@@ -26,9 +29,9 @@ Machines, review the following details.
 
 ## Resource provider
 
-Before you can use Guest Configuration, you must register the resource provider. The resource
-provider is registered automatically if assignment of a Guest Configuration policy is done through
-the portal. You can manually register through the
+Before you can use Guest Configuration, you must register the resource provider. If assignment of a Guest Configuration policy is done through
+the portal, or if the subscription is enrolled in Azure Security Center, the resource
+provider is registered automatically. You can manually register through the
 [portal](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal),
 [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell),
 or
@@ -70,14 +73,14 @@ built-in content, Guest Configuration handles loading these tools automatically.
 
 ### Validation frequency
 
-The Guest Configuration client checks for new content every 5 minutes. Once a guest assignment is
+The Guest Configuration client checks for new or changed guest assignments every 5 minutes. Once a guest assignment is
 received, the settings for that configuration are rechecked on a 15-minute interval. Results are
 sent to the Guest Configuration resource provider when the audit completes. When a policy
 [evaluation trigger](../how-to/get-compliance-data.md#evaluation-triggers) occurs, the state of the
 machine is written to the Guest Configuration resource provider. This update causes Azure Policy to
 evaluate the Azure Resource Manager properties. An on-demand Azure Policy evaluation retrieves the
 latest value from the Guest Configuration resource provider. However, it doesn't trigger a new audit
-of the configuration within the machine.
+of the configuration within the machine. The status is simultaneously written to Azure Resource Graph.
 
 ## Supported client types
 
@@ -87,13 +90,13 @@ compatible. The following table shows a list of supported operating systems on A
 
 |Publisher|Name|Versions|
 |-|-|-|
-|Canonical|Ubuntu Server|14.04 - 18.04|
-|Credativ|Debian|8 and later|
-|Microsoft|Windows Server|2012 and later|
+|Canonical|Ubuntu Server|14.04 - 20.04|
+|Credativ|Debian|8 - 10|
+|Microsoft|Windows Server|2012 - 2019|
 |Microsoft|Windows Client|Windows 10|
-|OpenLogic|CentOS|7.3 and later|
-|Red Hat|Red Hat Enterprise Linux|7.4 - 7.8|
-|Suse|SLES|12 SP3-SP5|
+|OpenLogic|CentOS|7.3 -8|
+|Red Hat|Red Hat Enterprise Linux|7.4 - 8|
+|Suse|SLES|12 SP3-SP5, 15|
 
 Custom virtual machine images are supported by Guest Configuration policy definitions as long as
 they're one of the operating systems in the table above.
@@ -168,12 +171,33 @@ are met on the machine. The requirements are described in section
 > [!IMPORTANT]
 > In a prior release of Guest Configuration, an initiative was required to combine
 > **DeployIfNoteExists** and **AuditIfNotExists** definitions. **DeployIfNotExists** definitions are
-> no longer required. The definitions and intiaitives are labeled `[Deprecated]` but existing
+> no longer required. The definitions and initiatives are labeled `[Deprecated]` but existing
 > assignments will continue to function. For information see the blog post:
 > [Important change released for Guest Configuration audit policies](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
 
-Azure Policy uses the Guest Configuration resource provider **complianceStatus** property to report
-compliance in the **Compliance** node. For more information, see [getting compliance
+### What is a Guest Assignment?
+
+When an Azure Policy is assigned, if it's in the category "Guest Configuration"
+there's metadata included to describe a Guest Assignment.
+You can think of a Guest Assignment as a link between a machine and an Azure Policy scenario.
+For example, the snippet below associates the Azure Windows Baseline configuration
+with minimum version `1.0.0` to any machines in scope of the policy. By default,
+the Guest Assignment will only perform an audit of the machine.
+
+```json
+"metadata": {
+    "category": "Guest Configuration",
+    "guestConfiguration": {
+        "name": "AzureWindowsBaseline",
+        "version": "1.*"
+    }
+//additional metadata properties exist
+```
+
+Guest Assignments are created automatically per machine by the Guest Configuration
+service. The resource type is `Microsoft.GuestConfiguration/guestConfigurationAssignments`.
+Azure Policy uses the **complianceStatus** property of the Guest Assignment resource
+to report compliance status. For more information, see [getting compliance
 data](../how-to/get-compliance-data.md).
 
 #### Auditing operating system settings following industry baselines
@@ -215,12 +239,17 @@ The Audit policy definitions available for Guest Configuration include the
 [Azure Arc for servers](../../../azure-arc/servers/overview.md) that are in the scope of the policy
 assignment are automatically included.
 
+## Troubleshooting guest configuration
+
+For more information about troubleshooting Guest Configuration, see
+[Azure Policy troubleshooting](../troubleshoot/general.md).
+
 ### Multiple assignments
 
 Guest Configuration policy definitions currently only support assigning the same Guest Assignment
 once per machine, even if the Policy assignment uses different parameters.
 
-## Client log files
+### Client log files
 
 The Guest Configuration extension writes log files to the following locations:
 
@@ -261,6 +290,15 @@ logPath=/var/lib/GuestConfig/gc_agent_logs/gc_agent.log
 egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCManagedEngine' $logPath | tail
 ```
 
+### Client files
+
+The Guest Configuration client downloads content packages to a machine and extracts the contents.
+To verify what content has been downloaded and stored, view the folder locations given below.
+
+Windows: `c:\programdata\guestconfig\configurations`
+
+Linux: `/var/lib/guestconfig/configurations`
+
 ## Guest Configuration samples
 
 Guest Configuration built-in policy samples are available in the following locations:
@@ -268,6 +306,12 @@ Guest Configuration built-in policy samples are available in the following locat
 - [Built-in policy definitions - Guest Configuration](../samples/built-in-policies.md#guest-configuration)
 - [Built-in initiatives - Guest Configuration](../samples/built-in-initiatives.md#guest-configuration)
 - [Azure Policy samples GitHub repo](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest%20Configuration)
+
+### Video overview
+
+The following overview of Azure Policy Guest Configuration is from ITOps Talks 2021.
+
+[Governing baselines in hybrid server environments using Azure Policy Guest Configuration](https://techcommunity.microsoft.com/t5/itops-talk-blog/ops114-governing-baselines-in-hybrid-server-environments-using/ba-p/2109245)
 
 ## Next steps
 

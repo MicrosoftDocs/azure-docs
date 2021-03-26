@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 01/27/2021
 
 ms.author: justinha
 author: justinha
@@ -72,6 +72,7 @@ The two-gate policy requires two pieces of authentication data, such as an email
   * Partner Tier1 Support
   * Partner Tier2 Support
   * Exchange administrator
+  * Mailbox Administrator
   * Skype for Business administrator
   * User administrator
   * Directory writers
@@ -82,10 +83,12 @@ The two-gate policy requires two pieces of authentication data, such as an email
   * Security administrator
   * Privileged role administrator
   * Intune administrator
+  * Azure AD Joined Device Local Administrator
   * Application proxy service administrator
   * Dynamics 365 administrator
   * Power BI service administrator
   * Authentication administrator
+  * Password administrator
   * Privileged Authentication administrator
 
 * If 30 days have elapsed in a trial subscription; or

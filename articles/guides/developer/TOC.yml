@@ -148,8 +148,6 @@
     items:
     - name: Web and mobile apps
       href: ../../app-service/troubleshoot-diagnostic-logs.md
-    - name: Linux VM
-      href: ../../virtual-machines/linux/tutorial-monitor.md
     - name: Windows VM
       href: ../../virtual-machines/windows/tutorial-monitor.md
     - name: Microservices
@@ -187,7 +185,7 @@
     - name: Azure PowerShell
       href: /powershell/
   - name: Billing
-    href: ../../cost-management-billing/manage/usage-rate-card-overview.md
+    href: ../../cost-management-billing/manage/consumption-api-overview.md
 - name: Resources
   items:
   - name: Azure limits and quotas

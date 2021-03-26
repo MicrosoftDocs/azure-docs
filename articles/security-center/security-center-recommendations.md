@@ -1,44 +1,17 @@
 ---
 title: Security recommendations in Azure Security Center
 description: This document walks you through how recommendations in Azure Security Center help you protect your Azure resources and stay in compliance with security policies.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/24/2021
 ms.author: memildin
 
 ---
-# Security recommendations in Azure Security Center 
+# Review your security recommendations
 
 This topic explains how to view and understand the recommendations in Azure Security Center to help you protect your Azure resources.
-
-
-## What are security recommendations?
-
-Security Center periodically analyzes the security state of your Azure resources to identify potential security vulnerabilities. It then provides you with recommendations on how to remediate those vulnerabilities.
-
-Recommendations are actions for you to take in order to secure and harden your resources. 
-
-Each recommendation provides you with:
-
-- A short description of the issue
-- The remediation steps to carry out in order to implement the recommendation
-- The affected resources
-
-## How does Microsoft decide what needs securing and hardening?
-
-Security Center's recommendations are based on the Azure Security Benchmark. 
-
-Azure Security Benchmark is the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud-centric security.
-
-Learn more about [Azure Security Benchmark](../security/benchmarks/introduction.md).
 
 ## Monitor recommendations <a name="monitor-recommendations"></a>
 
@@ -58,9 +31,12 @@ Security Center analyzes the security state of your resources to identify potent
 
     The page includes:
 
-    1. **Enforce** and **Deny** buttons on supported recommendations (see [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md))
+    1. For supported recommendations, the top toolbar shows any or all of the following buttons:
+        - **Enforce** and **Deny** (see [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md))
+        - **View policy definition** to go directly to the Azure Policy entry for the underlying policy
     1. **Severity indicator**
-    1. **Freshness interval**  (where relevant) 
+    1. **Freshness interval** (where relevant)
+    1. **Count of exempted resources** if exemptions exist for this recommendation, this shows the number of resources that have been exempted
     1. **Description** - A short description of the issue
     1. **Remediation steps** - A description of the manual steps required to remediate the security issue on the affected resources. For recommendations with 'quick fix', you can select **View remediation logic** before applying the suggested fix to your resources. 
     1. **Affected resources** - Your resources are grouped into tabs:

@@ -28,6 +28,8 @@ The use Azure Purview in Synapse requires you to have access to that Purview acc
 
 To discover data registered and scanned by Azure Purview, you can use the Search bar at the top center of Synapse workspace. Make sure that you select Azure Purview to search for all of your organization data. 
 
+[![Search for Azure Purview assets](./media/purview-access.png)](./media/purview-access.png#lightbox)
+
 ## Azure Purview actions 
 
 Here is a list of the Azure Purview features that are available in Synapse: 

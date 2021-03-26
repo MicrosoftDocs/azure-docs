@@ -7,15 +7,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/22/2021
+ms.date: 03/16/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
 # Tutorial: Prepare to deploy Azure Stack Edge Pro  
 
-This is the first tutorial in the series of deployment tutorials that are required to completely deploy Azure Stack Edge Pro. This tutorial describes how to prepare the Azure portal to deploy an Azure Stack Edge resource.
+This is the first tutorial in the series of deployment tutorials that are required to completely deploy Azure Stack Edge Pro. This tutorial describes how to prepare the Azure portal to deploy an Azure Stack Edge resource. 
 
-You need administrator privileges to complete the setup and configuration process. The portal preparation takes less than 10 minutes.
+You need administrator privileges to complete the setup and configuration process. The portal preparation takes less than 10 minutes.  
 
 In this tutorial, you learn how to:
 
@@ -48,7 +48,7 @@ Following are the configuration prerequisites for your Azure Stack Edge resource
 
 Before you begin, make sure that:
 
-* Your Microsoft Azure subscription is enabled for an Azure Stack Edge resource. Make sure that you used a supported subscription such as [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](/partner-center/azure-plan-lp), or [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Pay-as-you-go subscriptions are not supported.
+* Your Microsoft Azure subscription is enabled for an Azure Stack Edge resource. Make sure that you used a supported subscription such as [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](/partner-center/azure-plan-lp), or [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Pay-as-you-go subscriptions aren't supported.
 
 * You have owner or contributor access at resource group level for the Azure Stack Edge / Data Box Gateway, IoT Hub, and Azure Storage resources.
 
@@ -79,71 +79,67 @@ Before you begin, make sure that:
 
 * For normal operating conditions of your Azure Stack Edge Pro, you have:
 
-  * A minimum of 10-Mbps download bandwidth to ensure the device stays updated.
-  * A minimum of 20-Mbps dedicated upload and download bandwidth to transfer files.
+  * A minimum of 10 Mbps download bandwidth to ensure the device stays updated.
+  * A minimum of 20 Mbps dedicated upload and download bandwidth to transfer files.
 
-## Create a new resource
+## Create new resource for existing device
 
-If you have an existing Azure Stack Edge resource to manage your physical device, skip this step and go to [Get the activation key](#get-the-activation-key).
+If you're an existing Azure Stack Edge Pro customer, use the following procedure to create a new resource if you need to replace or reset your existing device.
 
-To create an Azure Stack Edge resource, take the following steps in the Azure portal.
+If you're a new customer, we recommend that you explore using Azure Stack Edge Pro - GPU devices for your workloads. For more information, go to [What is Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-overview.md). For information about ordering an Azure Stack Edge Pro with GPU device, go to [Create a new resource for Azure Stack Edge Pro - GPU](azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#create-a-new-resource).
 
-1. Use your Microsoft Azure credentials to sign in to 
+To create a new Azure Stack Edge Pro resource for an existing device, take the following steps in the Azure portal.
+
+1. Use your Microsoft Azure credentials to sign in to:
 
     - The Azure portal at this URL: [https://portal.azure.com](https://portal.azure.com).
     - Or, the Azure Government portal at this URL: [https://portal.azure.us](https://portal.azure.us). For more details, go to [Connect to Azure Government using the portal](../azure-government/documentation-government-get-started-connect-with-portal.md).
 
-2. In the left-pane, select **+ Create a resource**. Search for and select **Azure Stack Edge / Data Box Gateway**. Select **Create**.
-3. Pick the subscription that you want to use for the Azure Stack Edge Pro device. Select the region where you want to deploy the Azure Stack Edge resource. For a list of all the regions where the Azure Stack Edge resource is available, see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all).
+1. Select **+ Create a resource**. Search for and select **Azure Stack Edge**. Then select **Create**.
 
-    Choose a location closest to the geographical region where you want to deploy your device. The region stores only the metadata for device management. The actual data can be stored in any storage account.
+1. Select the subscription for the Azure Stack Edge Pro device and the country to ship the device to in **Ship to**.
+
+   ![Select the subscription and ship-to country for your device](media/azure-stack-edge-deploy-prep/create-fpga-existing-resource-01.png)
+
+
+1. In the list of device types that is displayed, select **Azure Stack Edge Pro - FPGA**. Then choose **Select**. 
+
+   The **Azure Stack Edge Pro - FPGA** device type is only displayed if you have an existing device. If you need to order a new device, go to [Create a new resource for Azure Stack Edge Pro - GPU](azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#create-a-new-resource).
+
+   ![Search Azure Stack Edge service](media/azure-stack-edge-deploy-prep/create-fpga-existing-resource-02.png)
+
+1. On the **Basics** tab:
+
+   1. Enter or select the following **Project details**.
     
-    In the **Azure Stack Edge Pro** option, select **Create**.
+       |Setting  |Value  |
+       |---------|---------|
+       |Subscription    |This value is automatically populated based on the earlier selection. Subscription is linked to your billing account. |
+       |Resource group  |Select an existing group or create a new group.<br>Learn more about [Azure Resource Groups](../azure-resource-manager/management/overview.md).     |
 
-    ![Search Azure Stack Edge service](media/azure-stack-edge-deploy-prep/data-box-edge-sku.png)
+   1. Enter or select the following **Instance details**.
 
-3. On the **Basics** tab, enter or select the following **Project details**.
-    
-    |Setting  |Value  |
-    |---------|---------|
-    |Subscription    |This is automatically populated based on the earlier selection. Subscription is linked to your billing account. |
-    |Resource group  |Select an existing group or create a new group.<br>Learn more about [Azure Resource Groups](../azure-resource-manager/management/overview.md).     |
+       |Setting  |Value  |
+       |---------|---------|
+       |Name   | A friendly name to identify the resource.<br>The name has from 2 and 50 characters, including letters, numbers, and hyphens.<br> Name starts and ends with a letter or a number.        |
+       |Region     |For a list of all the regions where the Azure Stack Edge resource is available, see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). If using Azure Government, all the government regions are available as shown in the [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/).<br> Choose a location closest to the geographical region where you want to deploy your device.|
 
-4. Enter or select the following **Instance details**.
+   1. Select **Review + create**.
 
-    |Setting  |Value  |
-    |---------|---------|
-    |Name   | A friendly name to identify the resource.<br>The name has from 2 and 50 characters, including letters, numbers, and hyphens.<br> Name starts and ends with a letter or a number.        |
-    |Region     |For a list of all the regions where the Azure Stack Edge resource is available, see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). If using Azure Government, all the government regions are available as shown in the [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/).<br> Choose a location closest to the geographical region where you want to deploy your device.|
+    ![Project and instance details](media/azure-stack-edge-deploy-prep/create-fpga-existing-resource-03.png)
 
-    ![Project and instance details](media/azure-stack-edge-deploy-prep/data-box-edge-resource.png)
+1. On the **Review + create** tab, review the **Terms of use**, **Pricing details**, and the details for your resource. Then select **Create**.
 
-5. Select **Next: Shipping address**.
+    ![Review Azure Stack Edge resource details and privacy terms](media/azure-stack-edge-deploy-prep/create-fpga-existing-resource-04.png)
 
-    - If you already have a device, select the combo box for **I have an Azure Stack Edge device**.
-    - If this is the new device that you are ordering, enter the contact name, company, address to ship the device, and contact information.
+1. The resource creation takes a few minutes. After the resource is successfully created and deployed, you're notified. Select **Go to resource**.
 
-    ![Shipping address for new device](media/azure-stack-edge-deploy-prep/data-box-edge-resource1.png)
+   ![Go to the Azure Stack Edge resource](media/azure-stack-edge-deploy-prep/data-box-edge-resource-01.png)
 
-6. Select **Next: Review + create**.
+After the order is placed, Microsoft reviews the order and contacts you (via email) with shipping details.
 
-7. On the **Review + create** tab, review the **Pricing details**, **Terms of use**, and the details for your resource. Select the combo box for **I have reviewed the privacy terms**.
+![Notification for review of the Azure Stack Edge Pro order](media/azure-stack-edge-deploy-prep/data-box-edge-resource-02.png)
 
-    ![Review Azure Stack Edge resource details and privacy terms](media/azure-stack-edge-deploy-prep/data-box-edge-resource2.png)
-
-8. Select **Create**.
-
-   The resource creation takes a few minutes. After the resource is successfully created and deployed, you're notified. Select **Go to resource**.
-
-   ![Go to the Azure Stack Edge resource](media/azure-stack-edge-deploy-prep/data-box-edge-resource3.png)
-
-After the order is placed, Microsoft reviews the order and reaches out to you (via email) with shipping details.
-
-![Notification for review of the Azure Stack Edge Pro order](media/azure-stack-edge-deploy-prep/data-box-edge-resource4.png)
-
-
-> [!NOTE]
-> If you want to create multiple orders at one time or clone an existing order, you can use the [scripts in Azure Samples](https://github.com/Azure-Samples/azure-stack-edge-order). For more information, see the README file.
 
 ## Get the activation key
 
@@ -151,7 +147,7 @@ After the Azure Stack Edge resource is up and running, you'll need to get the ac
 
 1. Go to the resource that you created, and select **Overview**. You'll see a notification to the effect that your order is being processed.
 
-    ![Select Overview](media/azure-stack-edge-deploy-prep/data-box-edge-select-devicesetup.png)
+    ![Select Overview](media/azure-stack-edge-deploy-prep/data-box-edge-select-device-setup.png)
 
 2. After the order is processed and the device is on your way, the **Overview** updates. Accept the default **Azure Key Vault name** or enter a new one. Select **Generate activation key**. Select the copy icon to copy the key and save it for later use.
 

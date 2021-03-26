@@ -1,6 +1,6 @@
 ---
 title: Live transcription
-titleSuffix: Azure Media Services
+: Azure Media Services
 description: Learn about Azure Media Services live transcription.  
 services: media-services
 documentationcenter: ''

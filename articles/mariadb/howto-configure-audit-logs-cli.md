@@ -3,7 +3,7 @@ title: Access audit logs - Azure CLI - Azure Database for MariaDB
 description: This article describes how to configure and access the audit logs in Azure Database for MariaDB from the Azure CLI.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/24/2020 
 ms.custom: devx-track-azurecli

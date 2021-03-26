@@ -11,6 +11,11 @@ ms.custom: mvc, devcenter, devx-track-azurecli
 
 # Tutorial: Upgrade a Service Fabric application running in Service Fabric Mesh
 
+> [!IMPORTANT]
+> The preview of Azure Service Fabric Mesh has been retired. New deployments will no longer be permitted through the Service Fabric Mesh API. Support for existing deployments will continue through April 28, 2021.
+> 
+> For details, see [Azure Service Fabric Mesh Preview Retirement](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+
 This tutorial is part three of a series. You'll learn how to upgrade a Service Fabric application that was [previously deployed to Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md) by increasing the allocated CPU resources.  When you're finished, you'll have a web front-end service running with higher CPU resources.
 
 In part three of the series, you learn how to:

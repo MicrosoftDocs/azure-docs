@@ -3,7 +3,7 @@ title: TLS configuration - Azure portal - Azure Database for MariaDB
 description: Learn how to set TLS configuration using Azure portal for your Azure Database for MariaDB 
 author: mksuni
 ms.author: sumuth
-ms.service: jroth
+ms.service: mariadb
 ms.topic: how-to
 ms.date: 06/02/2020
 ---

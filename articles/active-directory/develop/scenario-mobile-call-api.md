@@ -114,7 +114,7 @@ task.resume()
 
 ## Make several API requests
 
-If you need to call the same API several times, or if you need to call multiple APIs, then consider the following subjects when you build your app:
+To call the same API several times, or call multiple APIs, then consider the following subjects when you build your app:
 
 - **Incremental consent**: The Microsoft identity platform allows apps to get user consent when permissions are required rather than all at the start. Each time your app is ready to call an API, it should request only the scopes that it needs.
 
@@ -122,7 +122,7 @@ If you need to call the same API several times, or if you need to call multiple 
 
 ## Call several APIs by using incremental consent and conditional access
 
-If you need to call several APIs for the same user, after you acquire a token for the user, you can avoid repeatedly asking the user for credentials by subsequently calling `AcquireTokenSilent` to get a token:
+To call several APIs for the same user, after you acquire a token for the user, you can avoid repeatedly asking the user for credentials by subsequently calling `AcquireTokenSilent` to get a token:
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")

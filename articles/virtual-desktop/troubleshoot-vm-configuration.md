@@ -187,7 +187,7 @@ The output of **qwinsta** will list **rdp-sxs** in the output if the side-by-sid
 > [!div class="mx-imgBorder"]
 > ![Side-by-side stack installed or enabled with qwinsta listed as rdp-sxs in the output.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
-Examine the registry entries listed below and confirm that their values match. If registry keys are missing or values are mismatched, follow the instructions in [Create a host pool with PowerShell](create-host-pools-powershell.md) on how to reinstall the side-by-side stack.
+Examine the registry entries listed below and confirm that their values match. If registry keys are missing or values are mismatched, make sure you're running [a supported operating system](troubleshoot-agent.md#error-operating-a-pro-vm-or-other-unsupported-os). If you are, follow the instructions in [Create a host pool with PowerShell](create-host-pools-powershell.md) on how to reinstall the side-by-side stack.
 
 ```registry
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal

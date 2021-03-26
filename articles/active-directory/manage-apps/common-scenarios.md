@@ -3,7 +3,7 @@ title: Common application management scenarios for Azure Active Directory | Micr
 description: Centralize application management with Azure AD
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-provisioning
@@ -38,7 +38,7 @@ No more managing password. Securely access all the resources you need with your 
 |Feature  | Description | Recommendation |
 |---------|---------|---------|
 |SSO|Standards-based federated SSO using trusted industry standards.|Always use [SAML / OIDC](../develop/v2-howto-app-gallery-listing.md) to enable SSO when your application supports it.|
-|My Apps|Offer your users a simple hub to discover and access all their applications. Enable them to be more productive with self-service capabilities, like requesting access to apps and groups, or managing access to resources on behalf of others.| Deploy [My Apps](./access-panel-deployment-plan.md) in your organization once you've integrated your apps with Azure AD for SSO.|
+|My Apps|Offer your users a simple hub to discover and access all their applications. Enable them to be more productive with self-service capabilities, like requesting access to apps and groups, or managing access to resources on behalf of others.| Deploy [My Apps](my-apps-deployment-plan.md) in your organization once you've integrated your apps with Azure AD for SSO.|
 
 ## Scenario 2: Automate provisioning and deprovisioning 
 

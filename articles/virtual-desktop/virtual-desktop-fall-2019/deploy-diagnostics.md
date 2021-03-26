@@ -33,8 +33,8 @@ You need to create an Azure Active Directory App Registration and a Log Analytic
 
 You also need to install these two PowerShell modules before you get started:
 
-- [Azure PowerShell module](/powershell/azure/install-az-ps?view=azps-2.4.0/&preserve-view=true)
-- [Azure AD module](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0/&preserve-view=true)
+- [Azure PowerShell module](/powershell/azure/install-az-ps)
+- [Azure AD module](/powershell/azure/active-directory/install-adv2)
 
 Make sure you have your Subscription ID ready for when you sign in.
 
@@ -111,7 +111,7 @@ Here's how to manually configure the recommended performance counters:
     -   Processor Information(\*)\\Processor Time
     -   User Input Delay per Session(\*)\\Max Input Delay
 
-Learn more about the performance counters at [Windows and Linux performance data sources in Azure Monitor](../../azure-monitor/platform/data-sources-performance-counters.md).
+Learn more about the performance counters at [Windows and Linux performance data sources in Azure Monitor](../../azure-monitor/agents/data-sources-performance-counters.md).
 
 >[!NOTE]
 >Any additional counters you configure won't show up in the diagnostics tool itself. To make it appear in the diagnostics tool, you need to configure the tool's config file. Instructions for how to do this with advanced administration will be available in GitHub at a later date.
@@ -194,7 +194,7 @@ To set the Redirect URI:
 
 Before you make the diagnostics tool available to your users, make sure they have the following permissions:
 
-- Users need read access for log analytics. For more information, see [Get started with roles, permissions, and security with Azure Monitor](../../azure-monitor/platform/roles-permissions-security.md).
+- Users need read access for log analytics. For more information, see [Get started with roles, permissions, and security with Azure Monitor](../../azure-monitor/roles-permissions-security.md).
 -  Users also need read access for the Windows Virtual Desktop tenant (RDS Reader role). For more information, see [Delegated access in Windows Virtual Desktop](delegated-access-virtual-desktop-2019.md).
 
 You also need to give your users the following information:

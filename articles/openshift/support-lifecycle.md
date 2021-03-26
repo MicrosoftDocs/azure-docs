@@ -3,7 +3,7 @@ title: Azure Red Hat OpenShift support lifecycle
 description: Understand the support lifecycle and supported versions for Azure Red Hat OpenShift
 author: sakthi-vetrivel
 ms.author: suvetriv
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 08/11/2020
 ---
