@@ -379,7 +379,7 @@ You may encounter the following issues before the improvement, but after the imp
     `C1, C2, {long first row}, C128\r\n `<br/>
     `V1, V2, {values………………….}, V128\r\n `<br/>
  
-   Before the improvement, `\r` is kept in the column value, the parsed column result is:<br/>
+   Before the improvement, `\r` is kept in the column value. The parsed column result is:<br/>
    `C1 C2 {long first row} C128`**`\r`**<br/>
    `V1 V2 {values………………….} V128`**`\r`**<br/> 
 
