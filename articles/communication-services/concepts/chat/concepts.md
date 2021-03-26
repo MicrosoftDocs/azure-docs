@@ -26,7 +26,7 @@ Chat conversations happen within **chat threads**. Chat threads have the followi
 - A chat thread is uniquely identified by its `ChatThreadId`. 
 - Chat threads can have one or many users as participants who can send messages to it. 
 - A user can be a part of one or many chat threads. 
-- Only the thread participants have access to a given chat thread, and only they can perform chat thread operations. These operations include sending and recieving messages, adding participants, and removing participants. 
+- Only the thread participants have access to a given chat thread, and only they can perform chat thread operations. These operations include sending and receiving messages, adding participants, and removing participants. 
 - Users are automatically added as a participant to any chat threads that they create.
 
 ### User access
@@ -48,8 +48,8 @@ There are two core parts to chat architecture: 1) Trusted Service and 2) Client 
 
 :::image type="content" source="../../media/chat-architecture.png" alt-text="Diagram showing Communication Services' chat architecture.":::	
 
- - **Trusted service:** To properly manage a chat session, you need a service that helps you connect to Communication Services by using your resource connection string. This service is responsible for creating chat threads, adding and removing participants, and issueing access tokens to users. More information about access tokens can be found in our [access tokens](../../quickstarts/access-tokens.md) quickstart.	
- - **Client app:**  The client application connects to your trusted service and receives the access tokens that are used by users to connect directly to Communication Services. Once your trusted service has created the chat thread and added users as aprticipants, they can use the client app to connect to the chat thread and send messages. Use real time notifications feature, which we will discuss below, in your client app to subscribe to message & thread updates from other participants.
+ - **Trusted service:** To properly manage a chat session, you need a service that helps you connect to Communication Services by using your resource connection string. This service is responsible for creating chat threads, adding and removing participants, and issuing access tokens to users. More information about access tokens can be found in our [access tokens](../../quickstarts/access-tokens.md) quickstart.	
+ - **Client app:**  The client application connects to your trusted service and receives the access tokens that are used by users to connect directly to Communication Services. Once your trusted service has created the chat thread and added users as participants, they can use the client app to connect to the chat thread and send messages. Use real time notifications feature, which we will discuss below, in your client app to subscribe to message & thread updates from other participants.
 	
     	
 ## Message types	
