@@ -1016,6 +1016,20 @@ groups:
     title: Go
   - id: platform-powershell
     title: PowerShell
+- id: acs-azp-java-net-python-csharp-js
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: platform-azp
+    title: Azure portal
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
 # Owner: memildin
 - id: non-azure-machines
   title: Non-Azure machines
