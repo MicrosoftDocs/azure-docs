@@ -21,7 +21,7 @@ We know that messaging requirements can seem daunting to learn, but they are rea
 - M - Message Content
 - S - Spoofing
 
-Simple, right? So, we developed this messaging policy to help you learn about the essential messaging rules that you will need to know to satisfy your regulatory requirements and maintain best practices. That means less time squinting at legal requirements and more time delivering a seamless experience for your customers. 
+We developed this messaging policy to help you satisfy regulatory requirements and maintain best practices. 
 
 [!INCLUDE [Notice](../../includes/messaging-policy-include.md)]
 
