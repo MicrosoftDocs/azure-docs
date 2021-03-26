@@ -107,6 +107,10 @@ You can now set the number of instances that you want to scale to manually.
 
 You can always return to Autoscale by clicking **Enable autoscale** and then **Save**.
 
+### Cool-down period effects
+
+Autoscale uses a cool-down period to prevent "flapping", which is the rapid, repetative up and down scaling of instances.  For more information, see [Autoscale evaluation steps](/azure/azure-monitor/autoscale/autoscale-understanding-settings#autoscale-evaluation) 
+
 ## Route traffic to healthy instances (App Service)
 
 <a id="health-check-path"></a>
@@ -130,6 +134,7 @@ To learn more about moving resources between regions and disaster recovery in Az
 ## Next steps
 - [Create an Activity Log Alert to monitor all Autoscale engine operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [Create an Activity Log Alert to monitor all failed Autoscale scale-in/scale-out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
+
 
 <!--Reference-->
 [1]:https://portal.azure.com
