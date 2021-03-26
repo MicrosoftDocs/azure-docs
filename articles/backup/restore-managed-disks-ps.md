@@ -1,11 +1,11 @@
 ---
-title: Restore Azure Managed Disks via Azure Powershell
-description: Learn how to restore Azure Managed Disks using Azure Powershell.
+title: Restore Azure Managed Disks via Azure PowerShell
+description: Learn how to restore Azure Managed Disks using Azure PowerShell.
 ms.topic: conceptual
 ms.date: 03/26/2021
 ---
 
-# Restore Azure Managed Disks using Azure Powershell
+# Restore Azure Managed Disks using Azure PowerShell
 
 This article explains how to restore [Azure Managed Disks](../virtual-machines/managed-disks-overview.md) from a restore point created by Azure Backup.
 
@@ -41,13 +41,13 @@ Fetch all instances using [Get-AzDataProtectionBackupInstance](/powershell/modul
 $AllInstances = Get-AzDataProtectionBackupInstance -ResourceGroupName "testBkpVaultRG" -VaultName $TestBkpVault.Name
 ```
 
-You can also use Az.Resourcegraph and the [Search-AzDataProtectionBackupInstanceInAzGraph](/powershell/module/az.dataprotection/search-azdataprotectionbackupinstanceinazgraph?view=azps-5.7.0) command to search across instances in many vaults and subscriptions.
+You can also use **Az.Resourcegraph** and the [Search-AzDataProtectionBackupInstanceInAzGraph](/powershell/module/az.dataprotection/search-azdataprotectionbackupinstanceinazgraph?view=azps-5.7.0) command to search across instances in many vaults and subscriptions.
 
 ```azurepowershell-interactive
 $AllInstances = Search-AzDataProtectionBackupInstanceInAzGraph -ResourceGroupName "testBkpVaultRG" -VaultName $TestBkpVault.Name -DatasourceType AzureDisk -ProtectionStatus ProtectionConfigured
 ```
 
-Once the instance is identified then fetch the relevant recovery point.
+Once the instance is identified, fetch the relevant recovery point.
 
 ```azurepowershell-interactive
 $rp = Get-AzDataProtectionRecoveryPoint -ResourceGroupName "testBkpVaultRG" -VaultName $TestBkpVault.Name -BackupInstanceName $AllInstances[2].BackupInstanceName
@@ -55,7 +55,7 @@ $rp = Get-AzDataProtectionRecoveryPoint -ResourceGroupName "testBkpVaultRG" -Vau
 
 ### Preparing the restore request
 
-Construct the ARM Id of the new disk to be created with the target resource group, to which permissions were assigned as detailed [above](#setting-up-permissions), and the desired disk name. We will use an example of a disk named "PSTestDisk2" under a resource group "targetrg" under a different subscription.
+Construct the ARM ID of the new disk to be created with the target resource group, to which permissions were assigned as detailed [above](#setting-up-permissions), and the required disk name. For example, a disk can be named **PSTestDisk2** under a resource group **targetrg** with a different subscription.
 
 ```azurepowershell-interactive
 $targetDiskId = /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourceGroups/targetrg/providers/Microsoft.Compute/disks/PSTestDisk2
@@ -77,9 +77,9 @@ Start-AzDataProtectionBackupInstanceRestore -BackupInstanceName $AllInstances[2]
 
 ## Tracking job
 
-Track all the jobs using the [Get-AzDataProtectionJob](/powershell/module/az.dataprotection/get-azdataprotectionjob?view=azps-5.7.0) command. You can list all jobs and fetch a particular job details.
+Track all the jobs using the [Get-AzDataProtectionJob](/powershell/module/az.dataprotection/get-azdataprotectionjob?view=azps-5.7.0) command. You can list all jobs and fetch a particular job detail.
 
-You can also use Az.ResourceGraph to track all jobs across all backup vaults. Use the [Search-AzDataProtectionJobInAzGraph](/powershell/module/az.dataprotection/search-azdataprotectionjobinazgraph?view=azps-5.7.0) command to get the relevant job which can be across any backup vault.
+You can also use **Az.ResourceGraph** to track all jobs across all backup vaults. Use the [Search-AzDataProtectionJobInAzGraph](/powershell/module/az.dataprotection/search-azdataprotectionjobinazgraph?view=azps-5.7.0) command to get the relevant job, which can be across any backup vault.
 
 ```azurepowershell-interactive
 $job = Search-AzDataProtectionJobInAzGraph -Subscription $sub -ResourceGroupName "testBkpVaultRG" -Vault $TestBkpVault.Name -DatasourceType AzureDisk -Operation OnDemandBackup

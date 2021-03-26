@@ -1,13 +1,13 @@
 ---
-title: Back up Azure Managed Disks using Azure Powershell
-description: Learn how to back up Azure Managed Disks using Azure Powershell.
+title: Back up Azure Managed Disks using Azure PowerShell
+description: Learn how to back up Azure Managed Disks using Azure PowerShell.
 ms.topic: conceptual
 ms.date: 03/26/2021
 ---
 
-# Back up Azure Managed Disks using Azure Powershell
+# Back up Azure Managed Disks using Azure PowerShell
 
-This article explains how to back up [Azure Managed Disk](../virtual-machines/managed-disks-overview.md) using Azure Powershell.
+This article explains how to back up [Azure Managed Disk](../virtual-machines/managed-disks-overview.md) using Azure PowerShell.
 
 In this article, you'll learn how to:
 
@@ -80,7 +80,7 @@ Name       : Default
 ObjectType : AzureRetentionRule
 ```
 
-The policy template consists of a trigger (which decides what triggers the backup) and a lifecycle (which decides when to delete/copy/move the backup). In Azure disk backup, the default values for trigger is a scheduled hourly trigger for every 4 hours (PT4H) and to retain each backup for 7 days.
+The policy template consists of a trigger (which decides what triggers the backup) and a lifecycle (which decides when to delete/copy/move the backup). In Azure disk backup, the default value for trigger is a scheduled hourly trigger for every 4 hours (PT4H) and to retain each backup for 7 days.
 
 ```azurepowershell-interactive
  $policyDefn.PolicyRule[0].Trigger | fl
@@ -129,7 +129,7 @@ Once the vault and policy are created, there are 3 critical points that the user
 
 #### Disk to be protected
 
-Fetch the ARM Id of the disk to be protected. This will serve as the identifier of the disk. We will use an example of a disk named "PSTestDisk" under a resource group "diskrg" under a different subscription.
+Fetch the ARM ID of the disk to be protected. This will serve as the identifier of the disk. We will use an example of a disk named "PSTestDisk" under a resource group "diskrg" under a different subscription.
 
 ```azurepowershell-interactive
 $DiskId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/diskrg/providers/Microsoft.Compute/disks/PSTestDisk"
@@ -137,7 +137,7 @@ $DiskId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/diskrg/provider
 
 #### Snapshot resource group
 
-The disk snapshots are stored in a resource group within in your subscription. As a guideline, it's recommended to create a dedicated resource group as a snapshot datastore to be used by the Azure Backup service. Having a dedicated resource group allows restricting access permissions on the resource group, providing safety and ease of management of the backup data. Note the ARM Id for the resource group where you wish to place the disk snapshots
+The disk snapshots are stored in a resource group within in your subscription. As a guideline, it's recommended to create a dedicated resource group as a snapshot datastore to be used by the Azure Backup service. Having a dedicated resource group allows restricting access permissions on the resource group, providing safety and ease of management of the backup data. Note the ARM ID for the resource group where you wish to place the disk snapshots
 
 ```azurepowershell-interactive
 $snapshotrg = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourceGroups/snapshotrg"
@@ -145,11 +145,11 @@ $snapshotrg = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourceGroups/snapshotrg"
 
 #### Backup vault
 
-The Backup vaults requires permissions on disk and the snapshot resource group to be able to trigger snapshots and manage their lifecyle. The system-assigned managed identity of the vault is used for assigning such permissions. Use the [Update-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/update-azrecoveryservicesvault?view=azps-5.7.0) command to enable system-assigned managed identity for the recovery services vault.
+The Backup vaults require permissions on disk and the snapshot resource group to be able to trigger snapshots and manage their lifecycle. The system-assigned managed identity of the vault is used for assigning such permissions. Use the [Update-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/update-azrecoveryservicesvault?view=azps-5.7.0) command to enable system-assigned managed identity for the recovery services vault.
 
 ### Assign permissions
 
-The user needs to assign few permissions via RBAC to vault (represented by vault MSI) and the relevant disk and/or the disk RG. These can be performed via Portal or Powershell. All related permissions are detailed in points 1,2,3 in [this section](backup-managed-disks.md#configure-backup).
+The user needs to assign few permissions via RBAC to vault (represented by vault MSI) and the relevant disk and/or the disk RG. These can be performed via Portal or PowerShell. All related permissions are detailed in points 1,2,3 in [this section](backup-managed-disks.md#configure-backup).
 
 ### Prepare the request
 
@@ -203,14 +203,14 @@ Backup-AzDataProtectionBackupInstanceAdhoc -BackupInstanceName $AllInstances[0].
 
 ## Tracking jobs
 
-Track all the jobs using the [Get-AzDataProtectionJob](/powershell/module/az.dataprotection/get-azdataprotectionjob?view=azps-5.7.0) command. You can list all jobs and fetch a particular job details.
+Track all the jobs using the [Get-AzDataProtectionJob](/powershell/module/az.dataprotection/get-azdataprotectionjob?view=azps-5.7.0) command. You can list all jobs and fetch a particular job detail.
 
 You can also use Az.ResourceGraph to track all jobs across all backup vaults. Use the [Search-AzDataProtectionJobInAzGraph](/powershell/module/az.dataprotection/search-azdataprotectionjobinazgraph?view=azps-5.7.0) command to get the relevant job which can be across any backup vault.
 
 ```azurepowershell-interactive
-$job = Search-AzDataProtectionJobInAzGraph -Subscription $sub -ResourceGroupName "testBkpVaultRG" -Vault $TestBkpVault.Name -DatasourceType AzureDisk -Operation OnDemandBackup
+  $job = Search-AzDataProtectionJobInAzGraph -Subscription $sub -ResourceGroupName "testBkpVaultRG" -Vault $TestBkpVault.Name -DatasourceType AzureDisk -Operation OnDemandBackup
 ```
 
 ## Next steps
 
-- [Restore Azure Managed Disks using Azure Powershell](restore-managed-disks-ps.md)
+- [Restore Azure Managed Disks using Azure PowerShell](restore-managed-disks-ps.md)
