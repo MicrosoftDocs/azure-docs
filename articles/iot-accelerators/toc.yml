@@ -37,7 +37,7 @@
 - name: Concepts
   items:
   - name: Industrial IoT
-      items:
+    items:
     - name: OPC Twin Architecture
       href: overview-opc-twin-architecture.md
     - name: OPC Vault Architecture
