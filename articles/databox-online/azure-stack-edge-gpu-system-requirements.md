@@ -103,6 +103,12 @@ We recommend that you set your firewall rules for outbound traffic, based on Azu
 | https://\*.azurecr.io                     | Personal and third-party container registries (optional) | 
 | https://\*.azure-devices.net              | IoT Hub access (required)                             | 
 
+### URL patterns for monitoring
+
+| URL pattern | Port number | Component or functionality |   
+|-------------|-------------|----------------------------|
+| http://\*ods.opinsights.azure.com<br><br>http://\*.oms.opinsights.azure.com<br><br>http://\*.dc.services.visualstudio.com | Port 443 |  Azure Monitor, for containerized version of Log Analytics agent for Linux |
+
 ### URL patterns for gateway for Azure Government
 
 [!INCLUDE [Azure Government URL patterns for firewall](../../includes/azure-stack-edge-gateway-gov-url-patterns-firewall.md)]
@@ -114,12 +120,6 @@ We recommend that you set your firewall rules for outbound traffic, based on Azu
 | https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Microsoft container registry (required)               |
 | https://\*.azure-devices.us              | IoT Hub access (required)           |
 | https://\*.azurecr.us                    | Personal and third-party container registries (optional) | 
-
-### URL patterns for monitoring
-
-| URL pattern | Port number | Component or functionality |   
-|-------------|-------------|----------------------------|
-| http://\*ods.opinsights.azure.com<br><br>http://\*.oms.opinsights.azure.com<br><br>http://\*.dc.services.visualstudio.com | Port 443 |  Azure Monitor, for containerized version of Log Analytics agent for Linux |
 
 ## Internet bandwidth
 
