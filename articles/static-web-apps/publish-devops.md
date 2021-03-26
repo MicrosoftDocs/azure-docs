@@ -59,7 +59,9 @@ In this tutorial, you learn to:
 
     :::image type="content" source="media/publish-devops/create-resource.png" alt-text="Deployment details - other":::
 
-1. Once the deployment is successful, select **Manage deployment token**.
+1. Once the deployment is successful, navigate to the new Static Web Apps resource.
+
+1. Select **Manage deployment token**.
 
 1. Copy the **deployment token** and paste it into a text editor for use in another screen.
 
