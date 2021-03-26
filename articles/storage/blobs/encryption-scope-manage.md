@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 03/23/2021
+ms.date: 03/26/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
@@ -22,7 +22,7 @@ This article shows how to create an encryption scope. It also shows how to speci
 
 ## Create an encryption scope
 
-You can create an encryption scope with a Microsoft-managed key or with a customer-managed key that's stored in an Azure Key Vault or in an Azure Key Vault Managed Hardware Security Model (HSM) (preview). To create an encryption scope with a customer-managed key, you must first create a key vault or managed HSM and add the key you intend to use for the scope. The key vault or managed HSM must have purge protection enabled and must be in the same region as the storage account.
+You can create an encryption scope that is protected with a Microsoft-managed key or with a customer-managed key that is stored in an Azure Key Vault or in an Azure Key Vault Managed Hardware Security Model (HSM) (preview). To create an encryption scope with a customer-managed key, you must first create a key vault or managed HSM and add the key you intend to use for the scope. The key vault or managed HSM must have purge protection enabled and must be in the same region as the storage account.
 
 An encryption scope is automatically enabled when you create it. After you create the encryption scope, you can specify it when you create a blob. You can also specify a default encryption scope when you create a container, which automatically applies to all blobs in the container.
 
@@ -212,7 +212,7 @@ az storage account encryption-scope list \
 
 When you create a container, you can specify a default encryption scope. Blobs in that container will use that scope by default.
 
-An individual blob can be created with its own encryption scope, unless the container is configured to require that all blobs use its default scope.
+An individual blob can be created with its own encryption scope, unless the container is configured to require that all blobs use the default scope. For more information, see [Encryption scopes for containers and blobs](encryption-scope-overview.md#encryption-scopes-for-containers-and-blobs).
 
 # [Portal](#tab/portal)
 
