@@ -25,7 +25,7 @@ In this article, learn how to set up your workspace to use these compute resourc
 * Azure Databricks
 * Azure Data Lake Analytics
 * Azure Container Instance
-* Kubernetes (preview)
+* Azure Kubernetes Service & Azure Arc enabled Kubernetes (preview)
 
 To use compute targets managed by Azure Machine Learning, see:
 
@@ -332,15 +332,15 @@ For a more detailed example, see an [example notebook](https://aka.ms/pl-adla) o
 
 Azure Container Instances (ACI) are created dynamically when you deploy a model. You cannot create or attach ACI to your workspace in any other way. For more information, see [Deploy a model to Azure Container Instances](how-to-deploy-azure-container-instance.md).
 
-## <a id="kubernetes"></a>Kubernetes attached compute (preview)
+## <a id="kubernetes"></a>Azure Kubernetes Service & Azure Arc enabled Kubernetes (preview)
 
-Azure Machine Learning provides you with the following options for attaching your own Kubernetes clusters for training:
+Azure Machine Learning provides you with the following options to attach your own Kubernetes clusters for training:
 
 * [Azure Kubernetes Service](/azure/aks/intro-kubernetes.md). Azure Kubernetes Service provides a managed cluster in Azure.
 * [Azure Arc Kubernetes](/azure/azure-arc/kubernetes/overview). Use Azure Arc enabled Kubernetes clusters if your cluster is hosted outside of Azure. For more information, see [Connect to your Kubernetes cluster using Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster)
 
 > [!IMPORTANT]
-> Training is only supported on Kubernetes clusters in the EastUS2EUAP, EastUS and West Europe regions.
+> Kubernetes attached compute clusters for training are only suppoerted in the EastUS2EUAP, EastUS and West Europe regions.
 
 To attach your Kubernetes cluster use the Azure Machine Learning SDK or the Azure Machine Learning studio. For more information on studio, see [Attach compute targets in Azure Machine Learning studio](how-to-create-attach-compute-studio.md#attached-compute).
 
