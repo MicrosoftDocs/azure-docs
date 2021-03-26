@@ -66,7 +66,7 @@ sections:
           A Media Services live event is the process of ingesting live video feeds and broadcasting them through an RTMPS protocol or Smooth Streaming. For more information about Media Services Live Events, see [Live events and live outputs in Media Services](live-events-outputs-concept.md)
       - question: How do I create a Media Services Live Event?
         answer: |
-          The first steps is to choose an on premises encoder.  We have provided examples for creating a Live Event with [Wirecast](live-events-wirecast-quickstart.md) and [OBS](live-events-obs-quickstart). If you would rather start with an overview of Media Services Live Events, see [Live Event Types](live-streaming-overview.md#live-event-types).
+          The first steps is to choose an on premises encoder.  We have provided examples for creating a Live Event with [Wirecast](live-events-wirecast-quickstart.md) and [OBS](live-events-obs-quickstart.md). If you would rather start with an overview of Media Services Live Events, see [Live Event Types](live-streaming-overview.md#live-event-types).
       - question: How do I do live transcription with a Media Services Live Event?
         answer: |
           Azure Media Service delivers video, audio, and text in different protocols. When you publish your live stream using MPEG-DASH or HLS/CMAF, then along with video and audio, our service delivers the transcribed text in IMSC1.1 compatible TTML. For more information about Live Transcription, see [Live transcription](live-transcription.md)
