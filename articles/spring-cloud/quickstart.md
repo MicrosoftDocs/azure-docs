@@ -409,7 +409,7 @@ The following procedure builds and deploys the application using the Azure CLI. 
     az extension add --name spring-cloud
     ```
     
-1. Create the app with public endpoint assigned.  If you are using Java 11, include the `--runtime-version=Java_11`switch.
+1. Create the app with public endpoint assigned. If you are using Java 11, include the `--runtime-version=Java_11` switch.
 
     ```azurecli
     az spring-cloud app create -n hellospring -s <service instance name> -g <resource group name> --assign-endpoint true
