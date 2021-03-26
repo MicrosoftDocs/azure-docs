@@ -115,7 +115,7 @@ For more information about these issues and the steps to mitigate them, see the 
    - [An overview of SQL Database](../../database/sql-database-paas-overview.md)
    - [Azure total cost of ownership calculator](https://azure.microsoft.com/pricing/tco/calculator/)  
 
-- To learn more about the framework and adoption cycle for cloud migrations, see
+- To learn more about the framework and adoption cycle for cloud migrations, see:
    -  [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
    -  [Best practices for costing and sizing workloads for migration to Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
 
