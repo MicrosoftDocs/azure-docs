@@ -54,9 +54,9 @@ For user generated messages, the message type can be set in `SendMessageOptions`
  - `html`: A formatted message using html, composed and sent by a user as part of chat thread. 
 
 Types of system messages: 
- - `participantAdded`: System message that indicates one or more participants have been added to the chat thread. For example:	
- - `participantRemoved`: System message that indicates a participant has been removed from the chat thread. For example:	
- - `topicUpdated`: System message that indicates the thread topic has been updated. For example:	
+ - `participantAdded`: System message that indicates one or more participants have been added to the chat thread.
+ - `participantRemoved`: System message that indicates a participant has been removed from the chat thread.
+ - `topicUpdated`: System message that indicates the thread topic has been updated.
 
 ## Real-time notifications 	
 
