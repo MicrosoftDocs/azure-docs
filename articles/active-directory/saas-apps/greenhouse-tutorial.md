@@ -170,7 +170,7 @@ In order to enable Azure AD users to log into Greenhouse, they must be provision
       >[!NOTE]
       >The Azure Active Directory account holders will receive an email including a link to confirm the account before it becomes active.
 
-### Test SSO 
+## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
