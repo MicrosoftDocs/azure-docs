@@ -1,5 +1,5 @@
 ---
-title: Setup Bicep development and deployment environments
+title: Set up Bicep development and deployment environments
 description: How to configure Bicep development and deployment environments
 ms.topic: conceptual
 ms.date: 03/26/2021
@@ -7,7 +7,7 @@ ms.date: 03/26/2021
 
 # Install Bicep (Preview)
 
-Learn how to setup Bicep development and deployment environments.
+Learn how to set up Bicep development and deployment environments.
 
 ## Development environment
 
@@ -20,7 +20,7 @@ To get the best Bicep authoring experience, you need two components:
 
 To deploy local Bicep files, you need two components:
 
-- Azure CLI version 2.20.0 or later, or Azure PowerShell version 5.6.0 or later. For the installation instructions, see:
+- **Azure CLI version 2.20.0 or later, or Azure PowerShell version 5.6.0 or later**. For the installation instructions, see:
 
   - [Install Azure PowerShell](/powershell/azure/install-az-ps)
   - [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows)
@@ -113,6 +113,15 @@ az bicep version
 
 Azure PowerShell does not have the capability to install the Bicep CLI yet. Azure PowerShell (v5.6.0 or later) expects that the Bicep CLI is already installed and available on the PATH. Follow one of the [manual install methods](#install-manually).
 
+To deploy Bicep files, Bicep CLI version 0.3.1 or later is required. To check the Bicep CLI version:
+
+```cmd
+bicep --version
+```
+
+> [!IMPORTANT]
+> Azure CLI installs its own self-contained version of Bicep CLI. Azure PowerShell deployment fails even if you have the required versions installed for Azure CLI.
+
 Once the Bicep CLI is installed, Bicep CLI is called whenever it is required for a deployment cmdlet. For example:
 
 ```azurepowershell
@@ -120,12 +129,6 @@ New-AzResourceGroupDeployment -ResourceGroupName myResourceGroup -TemplateFile a
 ```
 
 ### Install manually
-
-To deploy Bicep files, Bicep CLI version 0.3.1 or later is required. To check the Bicep CLI version:
-
-```cmd
-bicep --version
-```
 
 The following methods install the Bicep CLI and add it to your PATH.
 
