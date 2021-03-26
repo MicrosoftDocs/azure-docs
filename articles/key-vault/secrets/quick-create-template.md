@@ -123,7 +123,7 @@ The output looks similar to:
 
 # [CLI](#tab/CLI)
 
-![ARM template, Key Vault integration, deploy portal validation output](../media/quick-create-template/resource-manager-template-portal-deployment-cli-output.png)
+![Screenshot that shows the deploy portal validation output in CLI.](../media/quick-create-template/resource-manager-template-portal-deployment-cli-output.png)
 
 # [PowerShell](#tab/PowerShell)
 
@@ -161,4 +161,4 @@ In this quickstart, you created a key vault and a secret using an ARM template, 
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - Learn more about [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
-- Review [Azure Key Vault best practices](../general/best-practices.md)
+- Review the [Key Vault security overview](../general/security-overview.md)

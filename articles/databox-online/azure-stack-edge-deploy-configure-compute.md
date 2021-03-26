@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 01/06/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
 ---
@@ -38,30 +38,35 @@ Before you set up a compute role on your Azure Stack Edge Pro device, make sure 
 
 To configure compute on your Azure Stack Edge Pro, you'll create an IoT Hub resource.
 
-1. In the Azure portal of your Azure Stack Edge resource, go to Overview. In the right-pane, on the **Compute** tile, select **Get started**.
+1. In the Azure portal of your Azure Stack Edge resource, go to **Overview**. In the right-pane, select **IoT Edge**.
 
     ![Get started with compute](./media/azure-stack-edge-deploy-configure-compute/configure-compute-1.png)
 
-2. On the **Configure Edge compute** tile, select **Configure compute**.
-3. On the **Configure Edge compute** blade, input the following:
+1. On the **Enable IoT Edge** tile, select **Add**. This enables the IoT Edge service that lets you deploy IoT Edge modules locally on your device.
+
+    ![Get started with compute 2](./media/azure-stack-edge-deploy-configure-compute/configure-compute-2.png)
+
+1. On the **Create IoT Edge service** blade, input the following:
 
    
     |Field  |Value  |
     |---------|---------|
+    |Subscription     |Select a subscription for your IoT Hub resource. You can use the same subscription as that used by the Azure Stack Edge resource.         |
+    |Resource group     |Select a resource group for your IoT Hub resource. You can use the same resource group as that used by the Azure Stack Edge resource.         |
     |IoT Hub     | Choose from **New** or **Existing**. <br> By default, a Standard tier (S1) is used to create an IoT resource. To use a free tier IoT resource, create one and then select the existing resource. <br> In each case, the IoT Hub resource uses the same subscription and resource group that is used by the Azure Stack Edge resource.     |
     |Name     |Enter a name for your IoT Hub resource.         |
 
-    ![Get started with compute 2](./media/azure-stack-edge-deploy-configure-compute/configure-compute-2.png)
-
-4. Select **Create**. The IoT Hub resource creation takes a couple minutes. After the IoT Hub resource is created, the **Configure compute** tile updates to show the compute configuration. To confirm that the Edge compute role has been configured, select **View Compute** on the **Configure compute** tile.
-    
     ![Get started with compute 3](./media/azure-stack-edge-deploy-configure-compute/configure-compute-3.png)
 
-    > [!NOTE]
-    > If the **Configure Compute** dialog is closed before the IoT Hub is associated with the Azure Stack Edge Pro device, the IoT Hub gets created but is not shown in the compute configuration. 
-    
-    When the Edge compute role is set up on the Edge device, it creates two devices: an IoT device and an IoT Edge device. Both devices can be viewed in the IoT Hub resource. An IoT Edge Runtime is also running on this IoT Edge device. At this point, only the Linux platform is available for your IoT Edge device.
+4. Select **Review + Create**. The IoT Hub resource creation takes a couple minutes. After the IoT Hub resource is created, the **Overview** updates to indicate that the IoT Edge service is running. 
 
+    ![Get started with compute 4](./media/azure-stack-edge-deploy-configure-compute/configure-compute-4.png)    
+    
+    When the IoT Edge service is configured on the Edge device, it creates two devices: an IoT device and an IoT Edge device. Both devices can be viewed in the IoT Hub resource. An IoT Edge Runtime is also running on this IoT Edge device. At this point, only the Linux platform is available for your IoT Edge device.
+
+    To confirm that the Edge compute role has been configured, select **IoT Edge service > Properties** and view the IoT device and the IoT Edge device.
+
+    ![Get started with compute 5](./media/azure-stack-edge-deploy-configure-compute/configure-compute-5.png) 
 
 ## Add shares
 
@@ -69,8 +74,8 @@ For the simple deployment in this tutorial, you'll need two shares: one Edge sha
 
 1. Add an Edge share on the device by doing the following steps:
 
-    1. In your Azure Stack Edge resource, go to **Edge compute > Get started**.
-    2. On the **Add share(s)** tile, select **Add**.
+    1. In your Azure Stack Edge resource, go to **IoT Edge > Shares**.
+    2. From the command bar, select **+ Add share**.
     3. On the **Add share** blade, provide the share name and select the share type.
     4. To mount the Edge share, select the check box for **Use the share with Edge compute**.
     5. Select the **Storage account**, **Storage service**, an existing user, and then select **Create**.
@@ -90,7 +95,7 @@ For the simple deployment in this tutorial, you'll need two shares: one Edge sha
     ![Add an Edge local share](./media/azure-stack-edge-deploy-configure-compute/add-edge-share-2.png)
 
   
-3. Select **Add share(s)** to see the updated list of shares.
+3. Go to the **IoT Edge > Shares** to see the updated list of shares.
 
     ![Updated list of shares](./media/azure-stack-edge-deploy-configure-compute/add-edge-share-3.png) 
  
@@ -101,7 +106,7 @@ You could add a custom or a pre-built module. There are no custom modules on thi
 
 In this section, you add a custom module to the IoT Edge device that you created in [Develop a C# module for your Azure Stack Edge Pro](azure-stack-edge-create-iot-edge-module.md). This custom module takes files from an Edge local share on the Edge device and moves them to an Edge (cloud) share on the device. The cloud share then pushes the files to the Azure storage account that's associated with the cloud share.
 
-1. Go to **Edge compute > Get started**. On the **Add modules** tile, select the scenario type as **simple**. Select **Add**.
+1. Go to **IoT Edge > Modules**. From the device command bar, select **+ Add module**.
 2. In the **Configure and add module** blade, input the following values:
 
     
@@ -118,7 +123,7 @@ In this section, you add a custom module to the IoT Edge device that you created
 
     ![Add and configure module](./media/azure-stack-edge-deploy-configure-compute/add-module-1.png)
 
-3. Select **Add**. The module gets added. The **Add module** tile updates to indicate that the module is deployed. 
+3. Select **Add**. The module gets added. The **IoT Edge > Overview** page updates to indicate that the module is deployed. 
 
     ![Module deployed](./media/azure-stack-edge-deploy-configure-compute/add-module-2.png)
 

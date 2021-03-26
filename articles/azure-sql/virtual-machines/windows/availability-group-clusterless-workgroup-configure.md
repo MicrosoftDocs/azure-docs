@@ -9,6 +9,7 @@ tags: azure-service-management
 
 ms.assetid: 53981f7e-8370-4979-b26a-93a5988d905f
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -59,11 +60,11 @@ To configure the DNS suffix, follow these steps:
 1. Select **More...** to open the **DNS Suffix and NetBIOS Computer Name** dialog box. 
 1. Type the name of your DNS suffix under **Primary DNS suffix of this computer**, such as `ag.wgcluster.example.com` and then select **OK**: 
 
-   ![Add DNS suffix](./media/availability-group-clusterless-workgroup-configure/2-add-dns-suffix.png)
+   ![Screenshot shows the D N S Suffix and NetBIOS Computer Name dialog box where you can enter the value.](./media/availability-group-clusterless-workgroup-configure/2-add-dns-suffix.png)
 
 1. Confirm that the **Full computer name** is now showing the DNS suffix, and then select **OK** to save your changes: 
 
-   ![Add DNS suffix](./media/availability-group-clusterless-workgroup-configure/3-confirm-full-computer-name.png)
+   ![Screenshot shows where to see your Full computer name.](./media/availability-group-clusterless-workgroup-configure/3-confirm-full-computer-name.png)
 
 1. Reboot the server when you are prompted to do so. 
 1. Repeat these steps on any other nodes to be used for the availability group. 
@@ -288,6 +289,4 @@ In this final step, configure the load balancer using either the [Azure portal](
 
 ## Next steps
 
-You can also use [Az SQL VM CLI](availability-group-az-cli-configure.md) to configure an availability group. 
-
-
+You can also use [Az SQL VM CLI](./availability-group-az-commandline-configure.md) to configure an availability group.

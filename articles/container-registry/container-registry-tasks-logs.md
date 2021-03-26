@@ -89,18 +89,10 @@ az acr task logs --registry mycontainerregistry1220 \
 
 You can also save local log files to Azure Storage. For example, use the [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md), the [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md), or other methods to upload files to a storage account.
 
-
 ## Next steps
 
 * Learn more about [Azure Container Registry Tasks](container-registry-tasks-overview.md)
 
-<!-- LINKS - External -->
-[base-alpine]: https://hub.docker.com/_/alpine/
-[base-dotnet]: https://hub.docker.com/r/microsoft/dotnet/
-[base-node]: https://hub.docker.com/_/node/
-[base-windows]: https://hub.docker.com/r/microsoft/nanoserver/
-[sample-archive]: https://github.com/Azure-Samples/acr-build-helloworld-node/archive/master.zip
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli

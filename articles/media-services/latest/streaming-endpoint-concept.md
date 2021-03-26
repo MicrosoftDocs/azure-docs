@@ -1,7 +1,7 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Streaming Endpoints (Origin)
-titleSuffix: Azure Media Services
+: Azure Media Services
 description: Learn about Streaming Endpoints (Origin), a dynamic packaging and streaming service that delivers content directly to a client player app or to a Content Delivery Network (CDN). 
 services: media-services
 documentationcenter: ''
@@ -20,7 +20,7 @@ ms.author: inhenkel
 
 In Microsoft Azure Media Services, a [Streaming Endpoint](/rest/api/media/streamingendpoints) represents a dynamic (just-in-time) packaging and origin service that can deliver your live and on-demand content directly to a client player app using one of the common streaming media protocols (HLS or DASH). In addition, the **Streaming Endpoint** provides dynamic (just-in-time) encryption to industry-leading DRMs. 
 
-When you create a Media Services account, a **default** Streaming Endpoint is created for you in a stopped state. You can't delete the **default** Streaming Endpoint. More Streaming Endpoints can be created under the account (see [Quotas and limits](limits-quotas-constraints.md)).
+When you create a Media Services account, a **default** Streaming Endpoint is created for you in a stopped state. More Streaming Endpoints can be created under the account (see [Quotas and limits](limits-quotas-constraints.md)).
 
 > [!NOTE]
 > To start streaming videos, you need to start the **Streaming Endpoint** from which you want to stream the video.
@@ -75,6 +75,54 @@ Recommended usage |Recommended for the vast majority of streaming scenarios.|Pro
 
 <sup>1</sup> Only used directly on the Streaming Endpoint when the CDN isn't enabled on the endpoint.<br/>
 
+### Versions
+
+|Type|StreamingEndpointVersion|ScaleUnits|CDN|Billing|
+|--------------|----------|-----------------|-----------------|-----------------|
+|Classic|1.0|0|NA|Free|
+|Standard Streaming Endpoint (preview)|2.0|0|Yes|Paid|
+|Premium Streaming Units|1.0|>0|Yes|Paid|
+|Premium Streaming Units|2.0|>0|Yes|Paid|
+
+### Features
+
+Feature|Standard|Premium
+---|---|---
+Throughput |Up to 600 Mbps and can provide a much higher effective throughput when a CDN is used.|200 Mbps per streaming unit (SU). Can provide a much higher effective throughput when a CDN is used.
+CDN|Azure CDN, third party CDN, or no CDN.|Azure CDN, third party CDN, or no CDN.
+Billing is prorated| Daily|Daily
+Dynamic encryption|Yes|Yes
+Dynamic packaging|Yes|Yes
+Scale|Auto scales up to the targeted throughput.|Additional streaming units.
+IP filtering/G20/Custom host <sup>1</sup>|Yes|Yes
+Progressive download|Yes|Yes
+Recommended usage |Recommended for the vast majority of streaming scenarios.|Professional usage. 
+
+<sup>1</sup> Only used directly on the Streaming Endpoint when the CDN is not enabled on the endpoint.<br/>
+
+For SLA information, see [Pricing and SLA](https://azure.microsoft.com/pricing/details/media-services/).
+
+## Migration between types
+
+From | To | Action
+---|---|---
+Classic|Standard|Need to opt-in
+Classic|Premium| Scale(additional streaming units)
+Standard/Premium|Classic|Not available(If streaming endpoint version is 1.0. It is allowed to change to classic with setting scaleunits to "0")
+Standard (with/without CDN)|Premium with the same configurations|Allowed in the **started** state. (via Azure portal)
+Premium (with/without CDN)|Standard with the same configurations|Allowed in the **started** state (via Azure portal)
+Standard (with/without CDN)|Premium with different config|Allowed in the **stopped** state (via Azure portal). Not allowed in the running state.
+Premium (with/without CDN)|Standard with different config|Allowed in the **stopped** state (via Azure portal). Not allowed in the running state.
+Version 1.0 with SU >= 1 with CDN|Standard/Premium with no CDN|Allowed in the **stopped** state. Not allowed in the **started** state.
+Version 1.0 with SU >= 1 with CDN|Standard with/without CDN|Allowed in the **stopped** state. Not allowed in the **started** state. Version 1.0 CDN will be deleted and new one created and started.
+Version 1.0 with SU >= 1 with CDN|Premium with/without CDN|Allowed in the **stopped** state. Not allowed in the **started** state. Classic CDN will be deleted and new one created and started.
+
+
+
+
+
+
+
 ## Streaming Endpoint properties
 
 This section gives details about some of the Streaming Endpoint's properties. For examples of how to create a new streaming endpoint and descriptions of all properties, see [Streaming Endpoint](/rest/api/media/streamingendpoints/create).
@@ -95,7 +143,7 @@ This section gives details about some of the Streaming Endpoint's properties. Fo
 - `crossSiteAccessPolicies`: Used to specify cross site access policies for various clients. For more information, see [Cross-domain policy file specification](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) and [Making a Service Available Across Domain Boundaries](/previous-versions/azure/azure-services/gg185950(v=azure.100)). The settings only apply to Smooth Streaming.
 - `customHostNames`: Used to configure a Streaming Endpoint to accept traffic directed to a custom host name. This property is valid for Standard and Premium Streaming Endpoints and can be set when `cdnEnabled`: false.
 
-    The ownership of the domain name must be confirmed by Media Services. Media Services verifies the domain name ownership by requiring a `CName` record containing the Media Services account ID as a component to be added to the domain in use. As an example, for "sports.contoso.com" to be used as a custom host name for the streaming endpoint, a record for `<accountId>.contoso.com` must be configured to point to one of Media Services verification host names. The verification host name is composed of verifydns.\<mediaservices-dns-zone>.
+    The ownership of the domain name must be confirmed by Media Services. Media Services verifies the domain name ownership by requiring a `CName` record containing the Media Services account ID as a component to be added to the domain in use. As an example, for "sports.contoso.com" to be used as a custom host name for the streaming endpoint, a record for `<accountId>.contoso.com` must be configured to point to one of Media Services verification host names. The verification host name is composed of verifydns.`\<mediaservices-dns-zone>`.
 
     The following are the expected DNS zones to be used in the verify record for different Azure regions.
   

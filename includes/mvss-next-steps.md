@@ -15,4 +15,4 @@ You can see how to modify the [basic scale set template](../articles/virtual-mac
 
 You can see how to modify the [basic scale set template](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) to [deploy a Linux scale set with guest-based autoscale](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md).
 
-For more information about scale sets, refer to the [scale set overview page](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md).
+For more information about scale sets, refer to the [scale set overview page](../articles/virtual-machine-scale-sets/overview.md).

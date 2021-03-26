@@ -1,8 +1,8 @@
 --- 
 title: Azure VMware Solution by CloudSimple - Set up firewall tables and rules
 description: Describes how to set up Private Cloud firewall tables and rules to restrict traffic on subnets and VLANs.  
-author: sharaths-cs 
-ms.author: b-shsury 
+author: Ajayan1008 
+ms.author: v-hborys 
 ms.date: 08/15/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 

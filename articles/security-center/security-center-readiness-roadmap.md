@@ -55,7 +55,6 @@ Security Center automatically collects, analyzes, and integrates log data from y
 Use the following resources to assist you to manage security alerts and protect your resources.
 
 Articles    
-- [Security health monitoring in Azure Security Center](./security-center-monitoring.md)
 - [Protecting your network in Azure Security Center](./security-center-network-recommendations.md)
 - [Protecting Azure SQL service and data in Azure Security Center](./security-center-remediate-recommendations.md)
 
@@ -74,7 +73,7 @@ Videos
 
 Articles    
 * [Using Azure Security Center for an incident response](./tutorial-security-incident.md)
-* [Automate response with Workflow Automation](workflow-automation.md)
+* [Use automation to respond to Security Center triggers](workflow-automation.md)
 
 ## Advanced cloud defense
 

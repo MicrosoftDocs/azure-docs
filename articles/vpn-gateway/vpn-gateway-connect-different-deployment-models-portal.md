@@ -6,8 +6,9 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/24/2019
+ms.date: 02/10/2021
 ms.author: cherylmc
+
 ---
 # Connect virtual networks from different deployment models using the portal
 
@@ -83,7 +84,7 @@ In this section, you create the classic VNet, the local network (local site), an
 
 ### 1. <a name="classicvnet"></a>Create a classic VNet
 
-If you don't have a classic VNet and are running these steps as an exercise, you can create a VNet by using [this article](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) and the [Example](#values) settings values from above.
+If you don't have a classic VNet and are running these steps as an exercise, you can create a VNet by using [this article](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal) and the [Example](#values) settings values from above.
 
 If you already have a VNet with a VPN gateway, verify that the gateway is Dynamic. If it's Static, you must first delete the VPN gateway before you proceed to [Configure the local site](#local).
 

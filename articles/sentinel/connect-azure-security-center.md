@@ -12,7 +12,7 @@ ms.author: yelevin
 ---
 # Connect Azure Defender alert data from Azure Security Center
 
-Use the Azure Defender alert connector to ingest Azure Defender alerts from [Azure Security Center](../security-center/security-center-intro.md) and stream them into Azure Sentinel. 
+Use the Azure Defender alert connector to ingest Azure Defender alerts from [Azure Security Center](../security-center/security-center-introduction.md) and stream them into Azure Sentinel. 
 
 ## Prerequisites
 
@@ -33,6 +33,8 @@ Use the Azure Defender alert connector to ingest Azure Defender alerts from [Azu
 1. To use the relevant schema in Log Analytics for the Azure Defender alerts, search for **SecurityAlert**.
 
 ## Next steps
+
 In this document, you learned how to connect Azure Defender to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
+
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).

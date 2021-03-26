@@ -9,9 +9,9 @@ manager: nitinme
 ms.service: cognitive-services 
 ms.subservice: computer-vision 
 ms.topic: overview
-ms.date: 09/11/2020
+ms.date: 11/23/2020
 ms.author: pafarley
-ms.custom: [seodec18, cog-serv-seo-aug-2020]
+ms.custom: [seodec18, cog-serv-seo-aug-2020, contperf-fy21q2]
 keywords: computer vision, computer vision applications, computer vision service
 #Customer intent: As a developer, I want to evaluate image processing functionality, so that I can determine if it will work for my information extraction or object detection scenarios.
 ---
@@ -22,19 +22,25 @@ keywords: computer vision, computer vision applications, computer vision service
 
 Azure's Computer Vision service gives you access to advanced algorithms that process images and return information based on the visual features you're interested in. For example, Computer Vision can determine whether an image contains adult content, find specific brands or objects, or find human faces.
 
-You can create Computer Vision applications through a client library SDK or by calling the REST API directly. This page broadly covers what you can do with Computer Vision.
+You can create Computer Vision applications through a [client library SDK](./quickstarts-sdk/client-library.md) or by calling the [REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) directly. This page broadly covers what you can do with Computer Vision.
+
+This documentation contains the following types of articles:
+* The [quickstarts](./quickstarts-sdk/client-library.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
+* The [how-to guides](./Vision-API-How-to-Topics/HowToCallVisionAPI.md) contain instructions for using the service in more specific or customized ways.
+* The [conceptual articles](concept-recognizing-text.md) provide in-depth explanations of the service's functionality and features.
+* The [tutorials](./tutorials/storage-lab-tutorial.md) are longer guides that show you how to use this service as a component in broader business solutions.
+
+## Optical Character Recognition (OCR)
+
+Computer Vision includes [Optical Character Recognition (OCR)](concept-recognizing-text.md) capabilities. You can use the new Read API to extract printed and handwritten text from images and documents. It uses deep learning based models and works with text on a variety of surfaces and backgrounds. These include business documents, invoices, receipts, posters, business cards, letters, and whiteboards. The OCR APIs support extracting printed text in [several languages](./language-support.md). Follow a [quickstart](./quickstarts-sdk/client-library.md) to get started.
 
 ## Computer Vision for digital asset management
 
 Computer Vision can power many digital asset management (DAM) scenarios. DAM is the business process of organizing, storing, and retrieving rich media assets and managing digital rights and permissions. For example, a company may want to group and identify images based on visible logos, faces, objects, colors, and so on. Or, you might want to automatically [generate captions for images](./Tutorials/storage-lab-tutorial.md) and attach keywords so they're searchable. For an all-in-one DAM solution using Cognitive Services, Azure Cognitive Search, and intelligent reporting, see the [Knowledge Mining Solution Accelerator Guide](https://github.com/Azure-Samples/azure-search-knowledge-mining) on GitHub. For other DAM examples, see the [Computer Vision Solution Templates](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates) repository.
 
-## Optical Character Recognition (OCR)
-
-Computer Vision includes [Optical Character Recognition (OCR)](concept-recognizing-text.md) capabilities. You can use the new Read API to extract printed and handwritten text from images and documents. It uses the latest models and works with text on a variety of surfaces and backgrounds. These include receipts, posters, business cards, letters, and whiteboards. The two OCR APIs support extracting printed text in [several languages](./language-support.md). Follow a [quickstart](#next-steps) to get started.
-
 ## Analyze images for insight
 
-You can analyze images to provide insights about their visual features and characteristics. All of the features in the table below are provided by the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API. Follow a [quickstart](#next-steps) to get started.
+You can analyze images to provide insights about their visual features and characteristics. All of the features in the table below are provided by the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API. Follow a [quickstart](./quickstarts-sdk/client-library.md) to get started.
 
 
 ### Tag visual features
@@ -59,7 +65,7 @@ Generate a description of an entire image in human-readable language, using comp
 
 ### Detect faces
 
-Detect faces in an image and provide information about each detected face. Computer Vision returns the coordinates, rectangle, gender, and age for each detected face.<br/>Computer Vision provides a subset of the [Face](/azure/cognitive-services/face/) service functionality. You can use the Face service for more detailed analysis, such as facial identification and pose detection. [Detect faces](concept-detecting-faces.md)
+Detect faces in an image and provide information about each detected face. Computer Vision returns the coordinates, rectangle, gender, and age for each detected face.<br/>Computer Vision provides a subset of the [Face](../face/index.yml) service functionality. You can use the Face service for more detailed analysis, such as facial identification and pose detection. [Detect faces](concept-detecting-faces.md)
 
 ### Detect image types
 
@@ -85,13 +91,12 @@ Analyze the contents of an image to return the coordinates of the *area of inter
 
 You can use Computer Vision to [detect adult content](concept-detecting-adult-content.md) in an image and return confidence scores for different classifications. The threshold for flagging content can be set on a sliding scale to accommodate your preferences.
 
-## Use containers
+## Deploy on premises using Docker containers
 
-Use Computer Vision Docker containers to use the service on-premises. Currently there are two containers available:
+Use Computer Vision containers to deploy API features on-premises. These Docker containers enable you to bring the service closer to your data for compliance, security or other operational reasons. Computer Vision offers the following containers:
 
-* The [Computer Vision read container](computer-vision-how-to-install-containers.md) lets you recognize printed and handwritten text in images.
-
-* The [Computer Vision spatial analysis container](spatial-analysis-container.md) lets you to analyze real-time streaming video to understand spatial relationships between people and their movement through physical environments.
+* The [Computer Vision read OCR container (preview)](computer-vision-how-to-install-containers.md) lets you recognize printed and handwritten text in images.
+* The [Computer Vision spatial analysis container (preview)](spatial-analysis-container.md) lets you to analyze real-time streaming video to understand spatial relationships between people and their movement through physical environments.
 
 ## Image requirements
 
@@ -108,8 +113,6 @@ As with all of the Cognitive Services, developers using the Computer Vision serv
 
 ## Next steps
 
-Get started with Computer Vision by following a quickstart guide:
+Get started with Computer Vision by following the quickstart guide in your preferred development language:
 
-- [Quickstart: Computer Vision .NET client library](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
-- [Quickstart: Computer Vision Python client library](./quickstarts-sdk/client-library.md?pivots=programming-language-python)
-- [Quickstart: Computer Vision Java client library](./quickstarts-sdk/client-library.md?pivots=programming-language-java)
+- [Quickstart: Computer Vision REST API or client libraries](./quickstarts-sdk/client-library.md)

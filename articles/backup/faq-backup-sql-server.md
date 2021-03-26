@@ -95,10 +95,18 @@ You can select the database, which is now renamed and configure protection on it
 A database that you [add to an autoprotected instance](backup-sql-server-database-azure-vms.md#enable-auto-protection) might not immediately appear under protected items. This is because the discovery typically runs every 8 hours. However, you can discover and protect new databases immediately if you manually run a discovery by selecting **Rediscover DBs**, as shown in the following image:
 
   ![Manually discover a newly added database](./media/backup-azure-sql-database/view-newly-added-database.png)
-  
+
+## Can I protect databases on virtual machines that have Azure Disk Encryption (ADE) enabled?
+Yes, you can protect databases on virtual machines that have Azure Disk Encryption (ADE) enabled.
+
 ## Can I protect databases that have TDE (Transparent Data Encryption) turned on and will the database stay encrypted through the entire backup process?
 
-Yes, Azure Backup supports backup of SQL Server databases or server with TDE enabled. Backup supports [TDE](/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) with keys managed by Azure, or with customer-managed keys (BYOK).  Backup doesn't perform any SQL encryption as part of the backup process so the database will stay encrypted when backed up.
+Yes, Azure Backup supports backup of SQL Server databases or server with TDE enabled. Backup supports [TDE](/sql/relational-databases/security/encryption/transparent-data-encryption) with keys managed by Azure, or with customer-managed keys (BYOK).  Backup doesn't perform any SQL encryption as part of the backup process so the database will stay encrypted when backed up.
+
+## Does Azure Backup perform a checksum operation on the data stream?
+
+We do perform a checksum operation on the data stream. However, this isn't to be confused with [SQL checksum](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server).
+Azure workload backup computes the checksum on the data stream and stores it explicitly during the backup operation. This checksum stream is then taken as a reference and cross-verified with the checksum of the data stream during the restore operation to make sure that the data is consistent.
 
 ## Next steps
 

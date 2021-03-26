@@ -1,12 +1,11 @@
 ---
 title: Mapping data flow transformation overview
 description: An overview of the different transformations available in mapping data flow
-author: djpmsft
-ms.author: daperlov
-manager: anandsub
+author: dcstwh
+ms.author: weetok
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 03/10/2020
+ms.date: 10/27/2020
 ---
 
 # Mapping data flow transformation overview
@@ -27,7 +26,9 @@ Below is a list of the transformations currently supported in mapping data flow.
 | [Join](data-flow-join.md) | Multiple inputs/outputs |  Combine data from two sources or streams. |
 | [Lookup](data-flow-lookup.md) | Multiple inputs/outputs | Reference data from another source. |
 | [New branch](data-flow-new-branch.md) | Multiple inputs/outputs | Apply multiple sets of operations and transformations against the same data stream. |
+| [Parse](data-flow-new-branch.md) | Formatter | Parse text columns in your data stream that are strings of JSON, delimited text, or XML formatted text. |
 | [Pivot](data-flow-pivot.md) | Schema modifier | An aggregation where one or more grouping columns has its distinct row values transformed into individual columns. |
+| [Rank](data-flow-rank.md) | Schema modifier | Generate an ordered ranking based upon sort conditions |
 | [Select](data-flow-select.md) | Schema modifier | Alias columns and stream names, and drop or reorder columns |
 | [Sink](data-flow-sink.md) | - | A final destination for your data |
 | [Sort](data-flow-sort.md) | Row modifier | Sort incoming rows on the current data stream |

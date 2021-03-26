@@ -3,7 +3,7 @@ title: CLI - Create an image from a snapshot or Managed Disk in a Shared Image G
 description: Learn how to Create an image from a snapshot or Managed Disk in a Shared Image Gallery using the Azure CLI.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 06/30/2020
@@ -65,11 +65,11 @@ Image definitions create a logical grouping for images. They are used to manage 
 
 When making your image definition, make sure is has all of the correct information. In this example, we are assuming that the snapshot or Managed Disk are from a VM that is in use, and hasn't been generalized. If the Managed Disk or snapshot was taken of a generalized OS (after running Sysprep for Windows or [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` or `-deprovision+user` for Linux) then change the `-OsState` to `generalized`. 
 
-For more information about the values you can specify for an image definition, see [Image definitions](./linux/shared-image-galleries.md#image-definitions).
+For more information about the values you can specify for an image definition, see [Image definitions](./shared-image-galleries.md#image-definitions).
 
 Create an image definition in the gallery using [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
-In this example, the image definition is named *myImageDefinition*, and is for a [specialized](./linux/shared-image-galleries.md#generalized-and-specialized-images) Linux OS image. To create a definition for images using a Windows OS, use `--os-type Windows`. 
+In this example, the image definition is named *myImageDefinition*, and is for a [specialized](./shared-image-galleries.md#generalized-and-specialized-images) Linux OS image. To create a definition for images using a Windows OS, use `--os-type Windows`. 
 
 In this example, the gallery is named *myGallery*, it is in the *myGalleryRG* resource group, and the image definition name will be *mImageDefinition*.
 

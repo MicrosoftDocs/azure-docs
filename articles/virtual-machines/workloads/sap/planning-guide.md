@@ -4,13 +4,13 @@ description: Azure Virtual Machines planning and implementation for SAP NetWeave
 author: MSSedusch
 manager: juergent
 tags: azure-resource-manager
-ms.service: virtual-machines-linux
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, devx-track-azurecli
 ---
 # Azure Virtual Machines planning and implementation for SAP NetWeaver
 
@@ -267,7 +267,7 @@ ms.custom: H1Hack27Feb2017
 [virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]:../../linux/add-disk.md#format-and-mount-the-disk
 [virtual-machines-linux-tutorial]:../../linux/quick-create-cli.md
 [virtual-machines-linux-update-agent]:../../linux/update-agent.md
-[virtual-machines-manage-availability]:../../linux/manage-availability.md
+[virtual-machines-manage-availability]:../../linux/availability.md
 [virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:virtual-machines-windows-create-powershell.md
 [virtual-machines-sizes-linux]:../../linux/sizes.md
 [virtual-machines-sizes-windows]:../../windows/sizes.md
@@ -1826,7 +1826,7 @@ There are two types of Azure platform events that can affect the availability of
 * Planned maintenance events are periodic updates made by Microsoft to the underlying Azure platform to improve overall reliability, performance, and security of the platform infrastructure that your virtual machines run on.
 * Unplanned maintenance events occur when the hardware or physical infrastructure underlying your virtual machine has faulted in some way. This may include local network failures, local disk failures, or other rack level failures. When such a failure is detected, the Azure platform will automatically migrate your virtual machine from the unhealthy physical server hosting your virtual machine to a healthy physical server. Such events are rare, but may also cause your virtual machine to reboot.
 
-For more details, see [Availability of Windows virtual machines in Azure](../../manage-availability.md) and [Availability of Linux virtual machines in Azure](../../manage-availability.md).
+For more details, see [Availability of Windows virtual machines in Azure](../../availability.md) and [Availability of Linux virtual machines in Azure](../../availability.md).
 
 #### Azure Storage Redundancy
 
@@ -1853,7 +1853,7 @@ Azure managed disks are automatically placed in the Fault Domain of the virtual 
 
 A sample architecture of an SAP NetWeaver system that uses Azure infrastructure HA and storage accounts could look like this:
 
-![Utilizing Azure infrastructure HA to achieve SAP application higher availability][planning-guide-figure-2900]
+![Diagram that shows an SAP NetWeaver system that uses Azure infrastructure HA and storage accounts.][planning-guide-figure-2900]
 
 A sample architecture of an SAP NetWeaver system that uses Azure infrastructure HA and Managed Disks could look like this:
 
@@ -1913,7 +1913,7 @@ Unmanaged disks only: The concepts as explained below may need to be compromised
 
 ##### ![Windows logo.][Logo_Windows] HA on Windows
 
-![SAP NetWeaver Application HA Architecture with SQL Server in Azure IaaS][planning-guide-figure-3200]
+![Diagram that shows the SAP NetWeaver Application HA Architecture with SQL Server in Azure IaaS.][planning-guide-figure-3200]
 
 The following Azure constructs are used for the SAP NetWeaver system, to minimize impact by infrastructure issues and host patching:
 
@@ -1972,7 +1972,7 @@ The offline backup would basically require a shutdown of the VM through the Azur
 
 A restore of that state would consist of deleting the base VM as well as the original disks of the base VM and mounted disks, copying back the saved disks to the original Storage Account or resource group for managed disks and then redeploying the system.
 This article shows an example how to script this process in PowerShell:
-<http://www.westerndevs.com/azure-snapshots/>
+<https://www.westerndevs.com/_/azure-snapshots/>
 
 Make sure to install a new SAP license since restoring a VM backup as described above creates a new hardware key.
 

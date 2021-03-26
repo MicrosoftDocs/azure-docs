@@ -1,9 +1,6 @@
 ---
 title: Analyze & process JSON with Apache Hive - Azure HDInsight
 description: Learn how to use JSON documents and analyze them by using Apache Hive in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
@@ -91,7 +88,7 @@ The **SELECT** statement only returns one row.
 
 Here is the output of the **SELECT** statement:
 
-![HDInsight flattening the JSON document](./media/using-json-in-hive/hdinsight-flatten-json.png)
+:::image type="content" source="./media/using-json-in-hive/hdinsight-flatten-json.png" alt-text="HDInsight flattening the JSON document" border="true":::
 
 ## Analyze JSON documents in Hive
 
@@ -117,7 +114,7 @@ FROM StudentsOneLine;
 
 Here is the output when you run this query in the console window:
 
-![Apache Hive gets json object UDF](./media/using-json-in-hive/hdinsight-get-json-object.png)
+:::image type="content" source="./media/using-json-in-hive/hdinsight-get-json-object.png" alt-text="Apache Hive gets json object UDF" border="true":::
 
 There are limitations of the get_json_object UDF:
 
@@ -139,7 +136,7 @@ LATERAL VIEW JSON_TUPLE(jt.json_body, 'StudentId', 'Grade') q1
 
 The output of this script in the Hive console:
 
-![Apache Hive json query results](./media/using-json-in-hive/hdinsight-json-tuple.png)
+:::image type="content" source="./media/using-json-in-hive/hdinsight-json-tuple.png" alt-text="Apache Hive json query results" border="true":::
 
 The `json_tuple` UDF uses the [lateral view](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) syntax in Hive, which enables json\_tuple to create a virtual table by applying the UDT function to each row of the original table. Complex JSONs become too unwieldy because of the repeated use of **LATERAL VIEW**. Furthermore, **JSON_TUPLE** can't handle nested JSONs.
 
@@ -155,5 +152,5 @@ The type of JSON operator in Hive that you choose depends on your scenario. With
 
 For related articles, see:
 
-* [Use Apache Hive and HiveQL with Apache Hadoop in HDInsight to analyze a sample Apache log4j file](../hdinsight-use-hive.md)
+* [Use Apache Hive and HiveQL with Apache Hadoop in HDInsight to analyze a sample Apache log4j file](./hdinsight-use-hive.md)
 * [Analyze flight delay data by using Interactive Query in HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)

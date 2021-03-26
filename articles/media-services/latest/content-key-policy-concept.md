@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Content Key Policies in Media Services - Azure | Microsoft Docs
+title: Content Key Policies in Media Services - Azure 
 description: This article gives an explanation of what Content Key Policies are, and how they are used by Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -62,4 +62,4 @@ See [Filtering, ordering, paging of Media Services entities](entities-overview.m
 
 * [Use AES-128 dynamic encryption and the key delivery service](protect-with-aes128.md)
 * [Use DRM dynamic encryption and license delivery service](protect-with-drm.md)
-* [EncodeHTTPAndPublishAESEncrypted](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/EncodeHTTPAndPublishAESEncrypted)
+* [Basic AES Clear Key Encryption and streaming sample code](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/ContentProtection/BasicAESClearKey)

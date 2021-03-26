@@ -8,14 +8,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 12/09/2020
 ---
 
 # How to work with search results in Azure Cognitive Search
 
-This article explains how to get a query response that comes back with a total count of matching documents, paginated results, sorted results, and hit-highlighted terms.
+This article explains how to formulate a query response in Azure Cognitive Search. The structure of a response is determined by parameters in the query: [Search Document](/rest/api/searchservice/Search-Documents) in the REST API, or [SearchResults Class](/dotnet/api/azure.search.documents.models.searchresults-1) in the .NET SDK. Parameters on the query can be used to structure the result set in the following ways:
 
-The structure of a response is determined by parameters in the query: [Search Document](/rest/api/searchservice/Search-Documents) in the REST API, or [DocumentSearchResult Class](/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) in the .NET SDK.
++ Limit or batch the number of documents in the results (50 by default)
++ Select fields to include in the results
++ Order results
++ Highlight a matching whole or partial term in the body of the search results
 
 ## Result composition
 
@@ -34,6 +37,14 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 
 > [!NOTE]
 > If want to include image files in a result, such as a product photo or logo, store them outside of Azure Cognitive Search, but include a field in your index to reference the image URL in the search document. Sample indexes that support images in the results include the **realestate-sample-us** demo, featured in this [quickstart](search-create-app-portal.md), and the [New York City Jobs demo app](https://aka.ms/azjobsdemo).
+
+### Tips for unexpected results
+
+Occasionally, the substance and not the structure of results are unexpected. When query outcomes are unexpected, you can try these query modifications to see if results improve:
+
++ Change **`searchMode=any`** (default) to **`searchMode=all`** to require matches on all criteria instead of any of the criteria. This is especially true when boolean operators are included the query.
+
++ Experiment with different lexical analyzers or custom analyzers to see if it changes the query outcome. The default analyzer will break up hyphenated words and reduce words to root forms, which usually improves the robustness of a query response. However, if you need to preserve hyphens, or if strings include special characters, you might need to configure custom analyzers to ensure the index contains tokens in the right format. For more information, see [Partial term search and patterns with special characters (hyphens, wildcard, regex, patterns)](search-query-partial-matching.md).
 
 ## Paging results
 
@@ -76,9 +87,9 @@ Notice that document 2 is fetched twice. This is because the new document 5 has 
 
 ## Ordering results
 
-For full text search queries, results are automatically ranked by a search score, calculated based on term frequency and proximity in a document, with higher scores going to documents having more or stronger matches on a search term. 
+For full text search queries, results are automatically ranked by a search score, calculated based on term frequency and proximity in a document (derived from [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)), with higher scores going to documents having more or stronger matches on a search term. 
 
-Search scores convey general sense of relevance, reflecting the strength of match as compared to other documents in the same result set. Scores are not always consistent from one query to the next, so as you work with queries, you might notice small discrepancies in how search documents are ordered. There are several explanations for why this might occur.
+Search scores convey general sense of relevance, reflecting the strength of match relative to other documents in the same result set. But scores are not always consistent from one query to the next, so as you work with queries, you might notice small discrepancies in how search documents are ordered. There are several explanations for why this might occur.
 
 | Cause | Description |
 |-----------|-------------|
@@ -86,11 +97,11 @@ Search scores convey general sense of relevance, reflecting the strength of matc
 | Multiple replicas | For services using multiple replicas, queries are issued against each replica in parallel. The index statistics used to calculate a search score are calculated on a per-replica basis, with results merged and ordered in the query response. Replicas are mostly mirrors of each other, but statistics can differ due to small differences in state. For example, one replica might have deleted documents contributing to their statistics, which were merged out of other replicas. Typically, differences in per-replica statistics are more noticeable in smaller indexes. |
 | Identical scores | If multiple documents have the same score, any one of them might appear first.  |
 
-### Consistent ordering
+### How to get consistent ordering
 
-Given the flex in results ordering, you might want to explore other options if consistency is an application requirement. The easiest approach is sorting by a field value, such as rating or date. For scenarios where you want to sort by a specific field, such as a rating or date, you can explicitly define an [`$orderby` expression](query-odata-filter-orderby-syntax.md), which can be applied to any field that is indexed as **Sortable**.
+If consistent ordering is an application requirement, you can explicitly define an [**`$orderby`** expression](query-odata-filter-orderby-syntax.md) on a field. Only fields that are indexed as **`sortable`** can be used to order results. Fields commonly used in an **`$orderby`** include rating, date, and location fields if you specify the value of the **`orderby`** parameter to include field names and calls to the [**`geo.distance()` function**](query-odata-filter-orderby-syntax.md) for geospatial values.
 
-Another option is using a [custom scoring profile](index-add-scoring-profiles.md). Scoring profiles give you more control over the ranking of items in search results, with the ability to boost matches found in specific fields. The additional scoring logic can help override minor differences among replicas because the search scores for each document are farther apart. We recommend the [ranking algorithm](index-ranking-similarity.md) for this approach.
+Another approach that promotes consistency is using a [custom scoring profile](index-add-scoring-profiles.md). Scoring profiles give you more control over the ranking of items in search results, with the ability to boost matches found in specific fields. The additional scoring logic can help override minor differences among replicas because the search scores for each document are farther apart. We recommend the [ranking algorithm](index-ranking-similarity.md) for this approach.
 
 ## Hit highlighting
 

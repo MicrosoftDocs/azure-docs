@@ -22,7 +22,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure SQL Server Stretch Database?
-            url: https://docs.microsoft.com/sql/sql-server/stretch-database/stretch-database
+            url: /sql/sql-server/stretch-database/stretch-database
       - linkListType: video
         links:
           - text: Azure SQL Server Stretch Database video
@@ -30,6 +30,6 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Identify databases and tables for Stretch Database with Data Migration Assistant
-            url: https://docs.microsoft.com/sql/sql-server/stretch-database/stretch-database-databases-and-tables-stretch-database-advisor
+            url: /sql/sql-server/stretch-database/stretch-database-databases-and-tables-stretch-database-advisor
           - text: Get started by running the Enable Database for Stretch Wizard
-            url: https://docs.microsoft.com/sql/sql-server/stretch-database/get-started-by-running-the-enable-database-for-stretch-wizard
+            url: /sql/sql-server/stretch-database/get-started-by-running-the-enable-database-for-stretch-wizard

@@ -2,13 +2,12 @@
 title: "Quickstart: Create Azure Storage queues in the portal"
 description: Use the Azure portal to create a queue. Then, use the Azure portal to add a message, view the message properties, and dequeue the message.
 author: mhopkins-msft
-
 ms.author: mhopkins
+ms.reviewer: dineshm
 ms.date: 08/13/2020
+ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
-ms.topic: quickstart
-ms.reviewer: dineshm
 ---
 
 # Quickstart: Create a queue and add a message with the Azure portal
@@ -24,7 +23,7 @@ In this quickstart, you learn how to use the [Azure portal](https://portal.azure
 To create a queue in the Azure portal, follow these steps:
 
 1. Navigate to your new storage account in the Azure portal.
-2. In the left menu for the storage account, scroll to the **Queue service** section, then select **Queues**.
+2. In the left menu for the storage account, scroll to the **Queue Storage** section, then select **Queues**.
 3. Select the **+ Queue** button.
 4. Type a name for your new queue. The queue name must be lowercase, must start with a letter or number, and can include only letters, numbers, and the dash (-) character.
 6. Select **OK** to create the queue.
@@ -51,9 +50,9 @@ After you add a message, the Azure portal displays a list of all of the messages
 
 ## Dequeue a message
 
-You can dequeue a message from the front of the queue from the Azure portal. When you dequeue a message, the message is deleted. 
+You can dequeue a message from the front of the queue from the Azure portal. When you dequeue a message, the message is deleted.
 
-Dequeueing always removes the oldest message in the queue. 
+Dequeueing always removes the oldest message in the queue.
 
 ![Screenshot showing how to dequeue a message from the portal](media/storage-quickstart-queues-portal/dequeue-message.png)
 
@@ -62,4 +61,4 @@ Dequeueing always removes the oldest message in the queue.
 In this quickstart, you learned how to create a queue, add a message, view message properties, and dequeue a message in the Azure portal.
 
 > [!div class="nextstepaction"]
-> [What are Azure Queues?](storage-queues-introduction.md)
+> [What is Azure Queue Storage?](storage-queues-introduction.md)

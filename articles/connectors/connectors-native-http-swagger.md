@@ -22,6 +22,8 @@ With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in H
   Typically, the REST endpoint must meet this criteria for the connector to work:
 
   * The Swagger file must be hosted on an HTTPS URL that's publicly accessible.
+  
+  * The Swagger file must contain an `operationID` for each operation in the definition. If not, the connector only shows the last operation in the Swagger file. 
 
   * The Swagger file must have [Cross-Origin Resource Sharing (CORS)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) enabled.
 
@@ -49,7 +51,7 @@ This built-in trigger sends an HTTP request to a URL for a Swagger file that des
 
    `https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/export?DocumentFormat=Swagger&ApiName=Face%20API%20-%20V1.0`
 
-   ![Screenshot that shows the Logic App Designer with the"H T T P + Swagger" trigger and the "Swagger Endpoint U R L" property set to a U R L value.](./media/connectors-native-http-swagger/http-swagger-trigger-parameters.png)
+   ![Screenshot that shows the Logic App Designer with the "H T T P + Swagger" trigger and the "Swagger Endpoint U R L" property set to a U R L value.](./media/connectors-native-http-swagger/http-swagger-trigger-parameters.png)
 
 1. When the designer shows the operations described by the Swagger file, select the operation that you want to use.
 
@@ -161,4 +163,3 @@ Here is more information about the outputs from an HTTP + Swagger trigger or act
 ## Next steps
 
 * Learn about other [Logic Apps connectors](../connectors/apis-list.md)
-

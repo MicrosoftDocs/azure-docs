@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2019
+ms.date: 12/15/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
@@ -33,7 +33,11 @@ A Service SAS provides the ability to grant limited access to objects in a stora
 
 ## Prerequisites
 
-[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+- An understanding of Managed identities. If you're not familiar with the managed identities for Azure resources feature, see this [overview](overview.md). 
+- An Azure account, [sign up for a free account](https://azure.microsoft.com/free/).
+- "Owner" permissions at the appropriate scope (your subscription or resource group) to perform required resource creation and role management steps. If you need assistance with role assignment, see [Assign Azure roles to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
+- You also need a Windows Virtual machine that has system assigned managed identities enabled.
+  - If you need to create  a virtual machine for this tutorial, you can follow the article titled [Create a virtual machine with system-assigned identity enabled](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity)
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
@@ -44,7 +48,7 @@ If you don't already have one, you will now create a storage account. You can al
 1. Click the **+/Create new service** button found on the upper left-hand corner of the Azure portal.
 2. Click **Storage**, then **Storage Account**, and a new "Create storage account" panel will display.
 3. Enter a name for the storage account, which you will use later.  
-4. **Deployment model** and **Account kind** should be set to "Resource manager" and "General purpose", respectively. 
+4. **Deployment model** and **Account kind** should be set to "Resource Manager" and "General purpose", respectively. 
 5. Ensure the **Subscription** and **Resource Group** match the ones you specified when you created your VM in the previous step.
 6. Click **Create**.
 
@@ -77,14 +81,14 @@ Azure Storage does not natively support Azure AD authentication.  However, you c
 
 ## Get an access token using the VM's identity and use it to call Azure Resource Manager 
 
-For the remainder of the tutorial, we will work from the VM we created earlier.
+For the remainder of the tutorial, we will work from your VM.
 
 You will need to use the Azure Resource Manager PowerShell cmdlets in this portion.  If you don’t have it installed, [download the latest version](/powershell/azure/) before continuing.
 
 1. In the Azure portal, navigate to **Virtual Machines**, go to your Windows virtual machine, then from the **Overview** page click **Connect** at the top.
 2. Enter in your **Username** and **Password** for which you added when you created the Windows VM. 
-3. Now that you have created a **Remote Desktop Connection** with the virtual machine, open PowerShell in the remote session. 
-4. Using Powershell’s Invoke-WebRequest, make a request to the local managed identity for Azure resources endpoint to get an access token for Azure Resource Manager.
+3. Now that you have created a **Remote Desktop Connection** with the virtual machine.
+4. Open PowerShell in the remote session and use Invoke-WebRequest to get an Azure Resource Manager token from the local managed identity for Azure resources endpoint.
 
     ```powershell
        $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}

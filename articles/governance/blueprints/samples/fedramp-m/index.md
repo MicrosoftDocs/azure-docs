@@ -1,7 +1,7 @@
 ---
 title: FedRAMP Moderate blueprint sample overview
 description: Overview of the FedRAMP Moderate blueprint sample. This blueprint sample helps customers assess specific FedRAMP Moderate controls.
-ms.date: 07/31/2020
+ms.date: 01/08/2021
 ms.topic: sample
 ---
 # Overview of the FedRAMP Moderate blueprint sample

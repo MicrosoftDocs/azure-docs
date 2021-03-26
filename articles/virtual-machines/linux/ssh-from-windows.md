@@ -3,8 +3,9 @@ title: Use SSH keys to connect to Linux VMs
 description: Learn how to generate and use SSH keys from a Windows computer to connect to a Linux virtual machine on Azure.
 author: cynthn
 ms.service: virtual-machines
+ms.collection: linux
 ms.workload: infrastructure-services
-ms.date: 07/09/2020
+ms.date: 10/31/2020
 ms.topic: how-to
 ms.author: cynthn
 
@@ -14,7 +15,7 @@ ms.author: cynthn
 This article is for Windows users who want to [create](#create-an-ssh-key-pair) and use *secure shell* (SSH) keys to [connect](#connect-to-your-vm) to Linux virtual machines (VMs) in Azure. You can also [generate and store SSH keys in the Azure portal](../ssh-keys-portal.md) to use when creating VMs in the portal.
 
 
-To use SSH keys from a Linux or macOS client, see the [quick](mac-create-ssh-keys.md). For a more detailed overview of SSH, see [Detailed steps: Create and manage SSH keys for authentication to a Linux VM in Azure](create-ssh-keys-detailed.md).
+To use SSH keys from a Linux or macOS client, see the [quick steps](mac-create-ssh-keys.md). For a more detailed overview of SSH, see [Detailed steps: Create and manage SSH keys for authentication to a Linux VM in Azure](create-ssh-keys-detailed.md).
 
 ## Overview of SSH and keys
 
@@ -62,7 +63,7 @@ az vm create \
    --name myVM \
    --image UbuntuLTS\
    --admin-username azureuser \
-   --ssh-key-value ~/.ssh/id_rsa.pub
+   --ssh-key-value ~/.ssh/id_rsa
 ```
 
 With PowerShell, use `New-AzVM` and add the SSH key to the VM configuration using`. For an example, see [Quickstart: Create a Linux virtual machine in Azure with PowerShell](quick-create-powershell.md).
@@ -91,4 +92,4 @@ If the VM is using the just-in-time access policy, you need to request access be
 
 - You can also use PowerShell in Azure Cloud Shell to generate SSH keys and make SSH connections to Linux VMs. See the [PowerShell quickstart](../../cloud-shell/quickstart-powershell.md#ssh).
 
-- If you have difficulty using SSH to connect to your Linux VMs, see [Troubleshoot SSH connections to an Azure Linux VM](../troubleshooting/troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json).
+- If you have difficulty using SSH to connect to your Linux VMs, see [Troubleshoot SSH connections to an Azure Linux VM](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

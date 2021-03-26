@@ -3,9 +3,8 @@ title: Customize user-defined routes (UDR) in Azure Kubernetes Service (AKS)
 description: Learn how to define a custom egress route in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.author: juluk
 ms.date: 06/29/2020
-author: jluk
+
 
 #Customer intent: As a cluster operator, I want to define my own egress paths with user-defined routes. Since I define this up front I do not want AKS provided load balancer configurations.
 ---
@@ -81,5 +80,5 @@ See [Azure networking UDR overview](../virtual-network/virtual-networks-udr-over
 See [how to create, change, or delete a route table](../virtual-network/manage-route-table.md).
 
 <!-- LINKS - internal -->
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [byo-route-table]: configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet

@@ -11,6 +11,5 @@ ms.custom: include file
 ---
 
 > [!div class="op_single_selector"]
-> * [Azure portal](../articles/iot-hub/iot-hub-auto-device-config.md)
-> * [CLI](../articles/iot-hub/iot-hub-auto-device-config-cli.md)
-
+> * [Azure portal](../articles/iot-hub/iot-hub-automatic-device-management.md)
+> * [CLI](../articles/iot-hub/iot-hub-automatic-device-management-cli.md)

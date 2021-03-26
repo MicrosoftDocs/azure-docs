@@ -1,7 +1,7 @@
 ---
-author: bucurb
-ms.author: bobuc
-ms.date: 09/18/2019
+author: msftradford
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.service: azure-spatial-anchors
 ms.topic: include
 ---

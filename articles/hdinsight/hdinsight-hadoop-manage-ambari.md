@@ -1,13 +1,10 @@
 ---
 title: Monitor and manage Azure HDInsight using Ambari Web UI 
 description: Learn how to use Apache Ambari UI to monitor and manage HDInsight clusters.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/16/2020
+ms.date: 01/12/2021
 ---
 
 # Manage HDInsight clusters by using the Apache Ambari Web UI
@@ -42,7 +39,7 @@ When connecting to the Ambari Web UI, you're prompted to authenticate to the pag
 
 When the page opens, note the bar at the top. This bar contains the following information and controls:
 
-![Apache Ambari dashboard overview](./media/hdinsight-hadoop-manage-ambari/apache-ambari-dashboard.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/apache-ambari-dashboard.png" alt-text="Apache Ambari dashboard overview":::
 
 |Item |Description |
 |---|---|
@@ -71,47 +68,47 @@ Alerts other than **OK** cause the **# alerts** entry at the top of the page to 
 
 Alerts are organized into several default groups, which can be viewed from the **Alerts** page.
 
-![Apache Ambari alerts page summary](./media/hdinsight-hadoop-manage-ambari/hdinsight-alerts-page.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/hdinsight-alerts-page.png" alt-text="Apache Ambari alerts page summary":::
 
 You can manage the groups by using the **Actions** menu and selecting **Manage Alert Groups**.
 
-![Apache Ambari manage alert groups](./media/hdinsight-hadoop-manage-ambari/ambari-manage-alerts.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/ambari-manage-alerts.png" alt-text="Apache Ambari manage alert groups":::
 
 You manage alerting methods, and create alert notifications from the **Actions** menu by selecting __Manage Notifications__. Any current notifications are displayed. Create notifications from here. Notifications can be sent via **EMAIL** or **SNMP** when specific alert/severity combinations occur. For example, you can send an email message when any of the alerts in the **YARN Default** group is set to **Critical**.
 
-![Apache Ambari create alert notification](./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png" alt-text="Apache Ambari create alert notification":::
 
 Finally, selecting __Manage Alert Settings__ from the __Actions__ menu allows you to set the number of times an alert must occur before a notification is sent. This setting can be used to prevent notifications for transient errors.
 
-For a tutorial of an alert notification using a free [SendGrid account](https://docs.microsoft.com/azure/sendgrid-dotnet-how-to-send-email), see [Configure Apache Ambari email notifications in Azure HDInsight](./apache-ambari-email.md).
+For a tutorial of an alert notification using a free [SendGrid account](../sendgrid-dotnet-how-to-send-email.md), see [Configure Apache Ambari email notifications in Azure HDInsight](./apache-ambari-email.md).
 
 ### Cluster
 
 The **Metrics** tab of the dashboard contains a series of widgets that make it easy to monitor the status of your cluster at a glance. Several widgets, such as **CPU Usage**, provide additional information when clicked.
 
-![Apache Ambari dashboard with metrics](./media/hdinsight-hadoop-manage-ambari/hdi-metrics-dashboard.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/hdi-metrics-dashboard.png" alt-text="Apache Ambari dashboard with metrics":::
 
 The **Heatmaps** tab displays metrics as colored heatmaps, going from green to red.
 
-![Apache Ambari dashboard with heatmaps](./media/hdinsight-hadoop-manage-ambari/hdi-heatmap-dashboard.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/hdi-heatmap-dashboard.png" alt-text="Apache Ambari dashboard with heatmaps":::
 
 For more information on the nodes within the cluster, select **Hosts**. Then select the specific node you're interested in.
 
-![Apache Ambari host summary details](./media/hdinsight-hadoop-manage-ambari/ambari-host-details1.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/ambari-host-details1.png" alt-text="Apache Ambari host summary details":::
 
 ### Services
 
 The **Services** sidebar on the dashboard provides quick insight into the status of the services running on the cluster. Various icons are used to indicate status or actions that should be taken. For example, a yellow recycle symbol is displayed if a service needs to be recycled.
 
 
-![Apache Ambari services side bar](./media/hdinsight-hadoop-manage-ambari/apache-ambari-service-bar.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/apache-ambari-service-bar.png" alt-text="Apache Ambari services side bar":::
 
 > [!NOTE]  
 > The services displayed differ between HDInsight cluster types and versions. The services displayed here may be different than the services displayed for your cluster.
 
 Selecting a service displays more detailed information on the service.
 
-![Apache Ambari service summary information](./media/hdinsight-hadoop-manage-ambari/ambari-service-details.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/ambari-service-details.png" alt-text="Apache Ambari service summary information":::
 
 #### Quick links
 
@@ -134,13 +131,13 @@ Selecting any of these links opens a new tab in your browser, which displays the
 Working with users, groups, and permissions is supported. For local administration, see [Authorize users for Apache Ambari Views](./hdinsight-authorize-users-to-ambari.md). For domain-joined clusters, see [Manage domain-joined HDInsight clusters](./domain-joined/hdinsight-security-overview.md).
 
 > [!WARNING]  
-> Do not change the password of the Ambari watchdog (hdinsightwatchdog) on your Linux-based HDInsight cluster. Changing the password breaks the ability to use script actions or perform scaling operations with your cluster.
+> Do not delete or change the password of the Ambari watchdog (hdinsightwatchdog) on your Linux-based HDInsight cluster. Changing the password breaks the ability to use script actions or perform scaling operations with your cluster.
 
 ### Hosts
 
 The **Hosts** page lists all hosts in the cluster. To manage hosts, follow these steps.
 
-![Apache Ambari hosts page overview](./media/hdinsight-hadoop-manage-ambari/hdinsight-hosts-page.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/hdinsight-hosts-page.png" alt-text="Apache Ambari hosts page overview":::
 
 > [!NOTE]  
 > Adding, decommissioning, and recommissioning a host should not be used with HDInsight clusters.
@@ -177,7 +174,7 @@ While the **Actions** button can restart all services, often you want to start, 
 
 2. From the top of the **Summary** tab, use the **Service Actions** button and select the action to take. This action restarts the service on all nodes.
 
-    ![Apache Ambari individual service actions](./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png)
+    :::image type="content" source="./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png" alt-text="Apache Ambari individual service actions":::
 
    > [!NOTE]  
    > Restarting some services while the cluster is running may generate alerts. To avoid alerts, you can use the **Service Actions** button to enable **Maintenance mode** for the service before performing the restart.
@@ -193,7 +190,7 @@ To configure a service, use the following steps:
 
 2. Select the **Configs** tab. The current configuration is displayed. A list of previous configurations is also displayed.
 
-    ![Apache Ambari service configuration](./media/hdinsight-hadoop-manage-ambari/ambari-service-configs.png)
+    :::image type="content" source="./media/hdinsight-hadoop-manage-ambari/ambari-service-configs.png" alt-text="Apache Ambari service configuration":::
 
 3. Use the fields displayed to modify the configuration, and then select **Save**. Or select a previous configuration and then select **Make current** to roll back to the previous settings.
 

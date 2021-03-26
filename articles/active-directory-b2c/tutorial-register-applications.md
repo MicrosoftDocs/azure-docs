@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/10/2020
+ms.date: 03/18/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -33,7 +33,7 @@ If you haven't already created your own [Azure AD B2C Tenant](tutorial-create-te
 
 ## Register a web application
 
-To register a web application in your Azure AD B2C tenant, you can use our new unified **App registrations** experience or our legacy  **Applications (Legacy)** experience. [Learn more about the new experience](https://aka.ms/b2cappregtraining).
+To register a web application in your Azure AD B2C tenant, you can use our new unified **App registrations** experience or our legacy  **Applications (Legacy)** experience. [Learn more about the new experience](./app-registrations-training-guide.md).
 
 #### [App registrations](#tab/app-reg-ga/)
 
@@ -76,7 +76,7 @@ To register a web application in your Azure AD B2C tenant, you can use our new u
 
 ## Create a client secret
 
-For a web application, you need to create an application secret. This secret will be used by your application to exchange an authorization code for an access token.
+For a web application, you need to create an application secret. The client secret is also known as an *application password*. The secret will be used by your application to exchange an authorization code for an access token.
 
 #### [App registrations](#tab/app-reg-ga/)
 
@@ -85,7 +85,7 @@ For a web application, you need to create an application secret. This secret wil
 1. Select **New client secret**.
 1. Enter a description for the client secret in the **Description** box. For example, *clientsecret1*.
 1. Under **Expires**, select a duration for which the secret is valid, and then select **Add**.
-1. Record the secret's **Value**. You use this value as the application secret in your application's code.
+1. Record the secret's **Value** for use in your client application code. This secret value is never displayed again after you leave this page. You use this value as the application secret in your application's code.
 
 #### [Applications (Legacy)](#tab/applications-legacy/)
 
@@ -94,6 +94,17 @@ For a web application, you need to create an application secret. This secret wil
 1. Select **Save** to view the key. Make note of the **App key** value. You use this value as the application secret in your application's code.
 
 * * *
+
+> [!NOTE]
+> For security purposes, you can roll over the application secret periodically, or immediately in case of emergency. Any application that integrates with Azure AD B2C should be prepared to handle a secret rollover event, no matter how frequently it may occur. You can set two application secrets, allowing your application to keep using the old secret during an application secret rotation event. To add another client secret, repeat steps in this section. 
+
+## Enable ID token implicit grant
+
+The defining characteristic of the implicit grant is that tokens, such as ID and access tokens, are returned directly from Azure AD B2C to the application. For web apps, such as ASP.NET Core web apps and [https://jwt.ms](https://jwt.ms), that request an ID token directly from the authorization endpoint, enable the implicit grant flow in the app registration.
+
+1. In the left menu, under **Manage**, select **Authentication**.
+1. Under Implicit grant, select both the **Access tokens** and **ID tokens** check boxes.
+1. Select **Save**.
 
 ## Next steps
 

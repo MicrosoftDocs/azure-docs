@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Create Azure API Management instance using CLI (preview)
+title: Quickstart - Create Azure API Management instance using CLI
 description: Create a new Azure API Management service instance by using the Azure CLI.
 author: dlepow
 ms.service: api-management
@@ -9,17 +9,17 @@ ms.date: 09/10/2020
 ms.author: apimpm
 ---
 
-# Quickstart: Create a new Azure API Management service instance by using the Azure CLI (preview)
+# Quickstart: Create a new Azure API Management service instance by using the Azure CLI
 
 Azure API Management (APIM) helps organizations publish APIs to external, partner, and internal developers to unlock the potential of their data and services. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security, and protection. APIM enables you to create and manage modern API gateways for existing backend services hosted anywhere. For more information, see the [Overview](api-management-key-concepts.md).
 
-This quickstart describes the steps for creating a new API Management instance using [az apim](/cli/azure/apim) commands in the Azure CLI. The commands in the `az apim` command group are currently in preview and may be changed or removed in a future release.
+This quickstart describes the steps for creating a new API Management instance using [az apim](/cli/azure/apim) commands in the Azure CLI.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this quickstart. If you'd like to use it locally, version 2.11.1 or later is recommended. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+- This article requires version 2.11.1 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 

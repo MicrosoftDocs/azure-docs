@@ -18,7 +18,7 @@ zone_pivot_groups: code-editors-set-one
 
 In this article, you learn how to use Visual Studio Code to locally create and test a "hello world" durable function.  This function orchestrates and chains-together calls to other functions. You then publish the function code to Azure. These tools are available as part of the VS Code [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions).
 
-![Running durable function in Azure](./media/durable-functions-create-first-csharp/functions-vscode-complete.png)
+![Screenshot shows a Visual Studio Code window with a durable function.](./media/durable-functions-create-first-csharp/functions-vscode-complete.png)
 
 ## Prerequisites
 
@@ -162,7 +162,7 @@ You have used Visual Studio Code to create and publish a C# durable function app
 
 In this article, you learn how to Visual Studio 2019 to locally create and test a "hello world" durable function.  This function orchestrates and chains-together calls to other functions. You then publish the function code to Azure. These tools are available as part of the Azure development workload in Visual Studio 2019.
 
-![Running durable function in Azure](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
+![Screenshot shows a Visual Studio 2019 window with a durable function.](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
 
 ## Prerequisites
 
@@ -234,7 +234,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
 3. Paste the URL for the HTTP request into your browser's address bar and execute the request. The following shows the response in the browser to the local GET request returned by the function:
 
-    ![Function localhost response in the browser](./media/durable-functions-create-first-csharp/functions-vs-status.png)
+    ![Screenshot shows a browser window with statusQueryGetUri called out.](./media/durable-functions-create-first-csharp/functions-vs-status.png)
 
     The response is the initial result from the HTTP function letting us know the durable orchestration has started successfully.  It is not yet the end result of the orchestration.  The response includes a few useful URLs.  For now, let's query the status of the orchestration.
 

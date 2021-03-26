@@ -1,9 +1,6 @@
 ---
 title: Upload data for Apache Hadoop jobs in HDInsight
 description: Learn how to upload and access data for Apache Hadoop jobs in HDInsight. Use Azure classic CLI, Azure Storage Explorer, Azure PowerShell, the Hadoop command line, or Sqoop.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdiseo17may2017,seoapr2020
@@ -83,7 +80,7 @@ There are also several applications that provide a graphical interface for worki
 
 ## Mount Azure Storage as Local Drive
 
-See [Mount Azure Storage as Local Drive](https://docs.microsoft.com/archive/blogs/bigdatasupport/mount-azure-blob-storage-as-local-drive).
+See [Mount Azure Storage as Local Drive](/archive/blogs/bigdatasupport/mount-azure-blob-storage-as-local-drive).
 
 ## Upload using services
 

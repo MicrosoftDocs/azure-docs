@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure SQL Managed Instance documentation
-summary: Find documentation about Azure SQL Managed Instance, a managed instance in Azure based on the latest stable version of Microsoft SQL Server.
+summary: Find documentation about Azure SQL Managed Instance, a managed instance in Azure based on the latest stable version of Microsoft SQL Server. 
 
 metadata:
   title: Azure SQL Managed Instance documentation
@@ -10,9 +10,9 @@ metadata:
   ms.service: sql-managed-instance
   ms.subservice: operations
   ms.topic: landing-page
-  author: MashaMSFT
-  ms.author: mathoma
-  ms.reviewer: sstein
+  author: stevestein
+  ms.author: sstein
+  ms.reviewer:
   ms.date: 05/27/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -24,6 +24,12 @@ landingContent:
   # Card 
   - title: Azure SQL Managed Instance 
     linkLists:
+      - linkListType: whats-new
+        links:
+          - text: What's new? 
+            url: ../database/doc-changes-updates-release-notes.md?tabs=managed-instance
+          - text: Feedback? Take the survey! 
+            url: https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456 
       - linkListType: quickstart
         links:
           - text: Create SQL Managed Instance
@@ -34,8 +40,6 @@ landingContent:
             url: https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Managed-Instance-Overview-6-of-61
       - linkListType: concept
         links:
-          - text: What's new? 
-            url: ../database/doc-changes-updates-release-notes.md?tabs=managed-instance
           - text: What is SQL Managed Instance?
             url: sql-managed-instance-paas-overview.md
           - text: Purchasing options
@@ -81,7 +85,7 @@ landingContent:
         - text: Azure SQL for beginners
           url: https://aka.ms/azuresql4beginners
         - text: Azure SQL fundamentals 
-          url: https://docs.microsoft.com/learn/paths/azure-sql-fundamentals/
+          url: /learn/paths/azure-sql-fundamentals/
         - text: Azure SQL hands-on labs
           url: https://aka.ms/asqlworkshop
         - text: Azure SQL bootcamp 
@@ -117,11 +121,11 @@ landingContent:
           - text: Transact-SQL (T-SQL)
             url: /sql/t-sql/language-reference
           - text: Azure CLI
-            url: https://docs.microsoft.com/cli/azure/sql
+            url: /cli/azure/sql
           - text: PowerShell
-            url: https://docs.microsoft.com/powershell/module/az.sql
+            url: /powershell/module/az.sql
           - text: REST API
-            url: https://docs.microsoft.com/rest/api/sql/
+            url: /rest/api/sql/
 
   # Card 
   - title: Business continuity  
@@ -151,11 +155,22 @@ landingContent:
           - text: Configure
             url: instance-pools-configure.md
 
+  # Card 
+  - title: Planned maintenance
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Plan for Azure maintenance events
+            url: ../database/planned-maintenance.md
+          - text: Maintenance window
+            url: ../database/maintenance-window.md
+          - text: Resource health
+            url: ../database/resource-health-to-troubleshoot-connectivity.md
 
-
-
-
-
-
-
-
+      - linkListType: how-to-guide
+        links:
+          - text: Maintenance window
+            url: ../database/maintenance-window-configure.md
+          - text: Maintenance Window Notifications
+            url: ../database/advance-notifications.md
+ 

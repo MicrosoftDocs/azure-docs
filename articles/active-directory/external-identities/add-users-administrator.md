@@ -93,7 +93,7 @@ To add B2B collaboration users to an application, follow these steps:
    - If the guest user already exists in the directory, search for the B2B user. Select the user, click **Select**, and then click **Assign** to add the user to the app.
    - If the guest user does not already exist in the directory, under **Select member or invite an external user**, type the user's email address. In the message box, type an optional personal message. Under the message box, click **Invite**.
            
-       ![Add invite button to add guest members](./media/add-users-administrator/AppInviteUsers.png)
+       ![Screenshot that highlights where to add the user's email address, the personalized message, and also highlights the Invite button.](./media/add-users-administrator/AppInviteUsers.png)
    
       Click **Select**, and then click **Assign** to add the user to the app. An invitation automatically goes out to the invited user.
 
@@ -112,12 +112,11 @@ If a guest user has not yet redeemed their invitation, you can resend the invita
 3. Under **Manage**, select **Users**.
 5. Select the user account.
 6. Under **Manage**, select **Profile**.
-7. If the user has not yet accepted the invitation, a **Resend invitation** option is available. Select this button to resend.
-
-   ![Resend invitation option in the user profile](./media/add-users-administrator/b2b-user-resend-invitation.png)
+7. If the user has not yet accepted the invitation, in the **Identity** section, **Invitation accepted** will be set to **No**. To resend the invitation, select **(manage)**. Then in the **Manage invitations** page, next to **Resend invite?" select **Yes**, and select **Done**.
 
 > [!NOTE]
 > If you resend an invitation that originally directed the user to a specific app, understand that the link in the new invitation takes the user to the top-level Access Panel instead.
+> Additionally, only users with inviting permissions will be able to resend invitations.
 
 ## Next steps
 

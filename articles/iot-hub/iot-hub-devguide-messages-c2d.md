@@ -8,7 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.custom: mqtt
+ms.custom: mqtt, devx-track-azurecli
 
 ---
 
@@ -87,6 +87,8 @@ As explained in [Endpoints](iot-hub-devguide-endpoints.md), the IoT hub delivers
 | UserId       | `{iot hub name}` |
 | ContentType  | `application/vnd.microsoft.iothub.feedback.json` |
 
+The system will send out the feedback either when the batch reaches to 64 messages, or in 15 seconds from last sent, whichever come first. 
+
 The body is a JSON-serialized array of records, each with the following properties:
 
 | Property           | Description |
@@ -143,7 +145,7 @@ You can set the configuration options in one of the following ways:
 
     ![Set configuration options for cloud-to-device messaging in the portal](./media/iot-hub-devguide-messages-c2d/c2d-configuration-portal.png)
 
-* **Azure CLI**: Use the [az iot hub update](/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-update) command:
+* **Azure CLI**: Use the [az iot hub update](/cli/azure/iot/hub#az-iot-hub-update) command:
 
     ```azurecli
     az iot hub update --name {your IoT hub name} \

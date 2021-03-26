@@ -16,6 +16,11 @@ ms.custom: devx-track-csharp
 
 # Quickstart: Get image insights using the Bing Visual Search REST API and C#
 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+
 This quickstart demonstrates how to upload an image to the Bing Visual Search API and view the insights that it returns.
 
 ## Prerequisites

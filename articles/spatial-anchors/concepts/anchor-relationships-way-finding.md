@@ -1,12 +1,12 @@
 ---
 title: Anchor relationships and way-finding
 description: Learn about the conceptual model behind anchor relationships. Learn to connect anchors within a space and to use the Nearby API to fulfill a way-finding scenario.
-author: ramonarguelles
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
-ms.author: rgarcia
-ms.date: 02/24/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ---
@@ -59,7 +59,7 @@ You can connect spatial anchors over multiple sessions. Using this method, you c
 
 To connect anchors over multiple sessions:
 
-1. The app creates some anchors in one CloudSpatialAnchorSession.
+1. The app creates some anchors (Anchors A and B) in one CloudSpatialAnchorSession.
 2. At a different time, the app locates one of these anchors (for example, Anchor A) by using a new CloudSpatialAnchorSession.
 3. Walk to a new location. The underlying mixed-reality or augmented-reality platform tracks the movement.
 4. Create Anchor C by using the same CloudSpatialAnchorSession. Anchors A, B, and C are now connected. The Spatial Anchors service maintains this relationship.

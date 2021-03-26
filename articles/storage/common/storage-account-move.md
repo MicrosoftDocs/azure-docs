@@ -30,7 +30,7 @@ In this article, you'll learn how to:
 
 - Ensure that the services and features that your account uses are supported in the target region.
 
-- For preview features, ensure that your subscription is whitelisted for the target region.
+- For preview features, ensure that your subscription is allowlisted for the target region.
 
 <a id="prepare"></a>
 
@@ -219,7 +219,7 @@ The following table lists these features along with guidance for adding them to 
 | **Lifecycle management policies** | [Manage the Azure Blob storage lifecycle](../blobs/storage-lifecycle-management-concepts.md) |
 | **Static websites** | [Host a static website in Azure Storage](../blobs/storage-blob-static-website-how-to.md) |
 | **Event subscriptions** | [Reacting to Blob storage events](../blobs/storage-blob-event-overview.md) |
-| **Alerts** | [Create, view, and manage activity log alerts by using Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md) |
+| **Alerts** | [Create, view, and manage activity log alerts by using Azure Monitor](../../azure-monitor/alerts/alerts-activity-log.md) |
 | **Content Delivery Network (CDN)** | [Use Azure CDN to access blobs with custom domains over HTTPS](../blobs/storage-https-custom-domain-cdn.md) |
 
 > [!NOTE] 
@@ -268,5 +268,5 @@ Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storage
 In this tutorial, you moved an Azure storage account from one region to another and cleaned up the source resources.  To learn more about moving resources between regions and disaster recovery in Azure, refer to:
 
 
-- [Move resources to a new resource group or subscription](/azure/azure-resource-manager/resource-group-move-resources)
-- [Move Azure VMs to another region](/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Move Azure VMs to another region](../../site-recovery/azure-to-azure-tutorial-migrate.md)

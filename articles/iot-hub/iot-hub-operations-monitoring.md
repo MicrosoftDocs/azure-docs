@@ -1,13 +1,13 @@
 ---
 title: Azure IoT Hub operations monitoring (deprecated) | Microsoft Docs
 description: How to use Azure IoT Hub operations monitoring to monitor the status of operations on your IoT hub in real time.
-author: nberdy
-manager: briz
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
-ms.author: nberdy
+ms.author: robinsh
 ms.custom: "amqp, devx-track-csharp"
 ---
 
@@ -16,7 +16,7 @@ ms.custom: "amqp, devx-track-csharp"
 IoT Hub operations monitoring enables you to monitor the status of operations on your IoT hub in real time. IoT Hub tracks events across several categories of operations. You can opt into sending events from one or more categories to an endpoint of your IoT hub for processing. You can monitor the data for errors or set up more complex processing based on data patterns.
 
 >[!NOTE]
->IoT Hub **operations monitoring is deprecated and has been removed from IoT Hub on March 10, 2019**. For monitoring the operations and health of IoT Hub, see [Monitor the health of Azure IoT Hub and diagnose problems quickly](iot-hub-monitor-resource-health.md). For more information about the deprecation timeline, see [Monitor your Azure IoT solutions with Azure Monitor and Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health).
+>IoT Hub **operations monitoring is deprecated and has been removed from IoT Hub on March 10, 2019**. For monitoring the operations and health of IoT Hub, see [Monitor IoT Hub](monitor-iot-hub.md). For more information about the deprecation timeline, see [Monitor your Azure IoT solutions with Azure Monitor and Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health).
 
 IoT Hub monitors six categories of events:
 
@@ -262,8 +262,8 @@ class Program
 
 ## Next steps
 
-To further explore the capabilities of IoT Hub, see:
+To further explore using Azure Monitor to monitor IoT Hub, see:
 
-* [IoT Hub developer guide](iot-hub-devguide.md)
+* [Monitor IoT Hub](monitor-iot-hub.md)
 
-* [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/quickstart-linux.md)
+* [Migrate from IoT Hub operations monitoring to Azure Monitor](iot-hub-migrate-to-diagnostics-settings.md)

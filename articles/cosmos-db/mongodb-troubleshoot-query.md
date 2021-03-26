@@ -4,12 +4,14 @@ description: Learn how to identify, diagnose, and troubleshoot Azure Cosmos DB's
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 10/12/2020
+ms.subservice: cosmosdb-mongo
+ms.date: 03/02/2021
 ms.author: tisande
 ms.reviewer: sngun
 ---
 
 # Troubleshoot query issues when using the Azure Cosmos DB API for MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 This article walks through a general recommended approach for troubleshooting queries in Azure Cosmos DB. Although you shouldn't consider the steps outlined in this article a complete defense against potential query issues, we've included the most common performance tips here. You should use this article as a starting place for troubleshooting slow or expensive queries in Azure Cosmos DB's API for MongoDB. If you are using the Azure Cosmos DB core (SQL) API, see the [SQL API query troubleshooting guide](troubleshoot-query-performance.md) article.
 
@@ -23,7 +25,7 @@ If you reduce the RU charge of a query, you'll typically decrease latency as wel
 This article provides examples that you can re-create by using the [nutrition dataset](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
 
 > [!NOTE] 
-> This article assumes you are using version 3.6 of Azure Cosmos DB"s API for MongoDB. Some queries that perform poorly in version 3.2 have significant improvements in version 3.6. Upgrade to version 3.6 by filing a [support request](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+> This article assumes you are using Azure Cosmos DB's API for MongoDB accounts with version 3.6 and higher. Some queries that perform poorly in version 3.2 have significant improvements in versions 3.6+. Upgrade to version 3.6 by filing a [support request](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## Use $explain command to get metrics
 

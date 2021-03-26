@@ -12,5 +12,5 @@ ms.custom: include file
 
 | |
 |--|
-|If what you're seeing on your screen doesn't match what's being covered in this article, it means that your administrator hasn't turned on this experience yet. Until this experience is turned on, you must follow the instructions and information in the [My Apps portal help](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-overview) section.|
+|If what you're seeing on your screen doesn't match what's being covered in this article, it means that your administrator hasn't turned on this experience yet. Until this experience is turned on, you must follow the instructions and information in the [My Apps portal help](../articles/active-directory/user-help/my-apps-portal-end-user-access.md) section.|
 | |

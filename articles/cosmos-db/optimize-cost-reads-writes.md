@@ -9,6 +9,7 @@ ms.date: 10/14/2020
 ---
 
 # Optimize request cost in Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 This article describes how read and write requests translate into [Request Units](request-units.md) and how to optimize the cost of these requests. Read operations include point reads and queries. Write operations include insert, replace, delete, and upsert of items.
 
@@ -99,7 +100,7 @@ The RU cost of writing an item depends on:
 - The item size.
 - The number of properties covered by the [indexing policy](index-policy.md) and needed to be indexed.
 
-Inserting a 1 KB item with less than 5 properties to index costs around 5 RUs. Replacing an item costs two times the charge required to insert the same item.
+Inserting a 1 KB item without indexing costs around ~5.5 RUs. Replacing an item costs two times the charge required to insert the same item.
 
 ### Optimizing writes
 

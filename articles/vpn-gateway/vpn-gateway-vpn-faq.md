@@ -6,7 +6,7 @@ author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 03/22/2021
 ms.author: yushwang
 ---
 # VPN Gateway FAQ
@@ -15,11 +15,15 @@ ms.author: yushwang
 
 ### Can I connect virtual networks in different Azure regions?
 
-Yes. In fact, there is no region constraint. One virtual network can connect to another virtual network in the same region, or in a different Azure region. 
+Yes. In fact, there is no region constraint. One virtual network can connect to another virtual network in the same region, or in a different Azure region.
 
 ### Can I connect virtual networks in different subscriptions?
 
 Yes.
+
+### Can I specify private DNS servers in my VNet when configuring VPN Gateway?
+
+If you specified a DNS server or servers when you created your VNet, VPN Gateway will use the DNS servers that you specified. If you specify a DNS server, verify that your DNS server can resolve the domain names needed for Azure.
 
 ### Can I connect to multiple sites from a single virtual network?
 
@@ -27,13 +31,13 @@ You can connect to multiple sites by using Windows PowerShell and the Azure REST
 
 ### Is there an additional cost for setting up a VPN gateway as active-active?
 
-No. 
+No.
 
 ### What are my cross-premises connection options?
 
 The following cross-premises connections are supported:
 
-* Site-to-Site – VPN connection over IPsec (IKE v1 and IKE v2). This type of connection requires a VPN device or RRAS. For more information, see [Site-to-Site](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+* Site-to-Site – VPN connection over IPsec (IKE v1 and IKE v2). This type of connection requires a VPN device or RRAS. For more information, see [Site-to-Site](./tutorial-site-to-site-portal.md).
 * Point-to-Site – VPN connection over SSTP (Secure Socket Tunneling Protocol) or IKE v2. This connection does not require a VPN device. For more information, see [Point-to-Site](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 * VNet-to-VNet – This type of connection is the same as a Site-to-Site configuration. VNet to VNet is a VPN connection over IPsec (IKE v1 and IKE v2). It does not require a VPN device. For more information, see [VNet-to-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 * Multi-Site – This is a variation of a Site-to-Site configuration that allows you to connect multiple on-premises sites to a virtual network. For more information, see [Multi-Site](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md).
@@ -43,7 +47,7 @@ For more information about VPN gateway connections, see [About VPN Gateway](vpn-
 
 ### What is the difference between a Site-to-Site connection and Point-to-Site?
 
-**Site-to-Site** (IPsec/IKE VPN tunnel) configurations are between your on-premises location and Azure. This means that you can connect from any of your computers located on your premises to any virtual machine or role instance within your virtual network, depending on how you choose to configure routing and permissions. It's a great option for an always-available cross-premises connection and is well-suited for hybrid configurations. This type of connection relies on an IPsec VPN appliance (hardware device or soft appliance), which must be deployed at the edge of your network. To create this type of connection, you must have an externally facing IPv4 address.
+**Site-to-Site** (IPsec/IKE VPN tunnel) configurations are between your on-premises location and Azure. This means that you can connect from any of your computers located on your premises to any virtual machine or role instance within your virtual network, depending on how you choose to configure routing and permissions. It's a great option for an always-available cross-premises connection and is well suited for hybrid configurations. This type of connection relies on an IPsec VPN appliance (hardware device or soft appliance), which must be deployed at the edge of your network. To create this type of connection, you must have an externally facing IPv4 address.
 
 **Point-to-Site** (VPN over SSTP) configurations let you connect from a single computer from anywhere to anything located in your virtual network. It uses the Windows in-box VPN client. As part of the Point-to-Site configuration, you install a certificate and a VPN client configuration package, which contains the settings that allow your computer to connect to any virtual machine or role instance within the virtual network. It's great when you want to connect to a virtual network, but aren't located on-premises. It's also a good option when you don't have access to VPN hardware or an externally facing IPv4 address, both of which are required for a Site-to-Site connection.
 
@@ -61,17 +65,20 @@ Policy-based gateways implement policy-based VPNs. Policy-based VPNs encrypt and
 
 ### What is a route-based (dynamic-routing) gateway?
 
-Route-based gateways implement the route-based VPNs. Route-based VPNs use "routes" in the IP forwarding or routing table to direct packets into their corresponding tunnel interfaces. The tunnel interfaces then encrypt or decrypt the packets in and out of the tunnels. The policy or traffic selector for route-based VPNs are configured as any-to-any (or wild cards).
+Route-based gateways implement the route-based VPNs. Route-based VPNs use "routes" in the IP forwarding or routing table to direct packets into their corresponding tunnel interfaces. The tunnel interfaces then encrypt or decrypt the packets in and out of the tunnels. The policy or traffic selectors for route-based VPNs are configured as any-to-any (or wild cards).
 
 ### Can I update my policy-based VPN gateway to route-based?
 
-No. An Azure Vnet gateway type cannot be changed from policy-based to route-based or the other way. The gateway must be deleted and recreated, a process taking around 60 minutes. The IP address of the gateway will not be preserved nor will the Pre-Shared Key (PSK).
-1. Delete any connections associated with the gateway to be deleted.
-1. Delete the gateway:
-   - [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
-   - [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-   - [Azure PowerShell - classic](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-1. [Create a new gateway of the type you want and complete the VPN setup](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway).
+No. A gateway type cannot be changed from policy-based to route-based, or from route-based to policy-based. To change a gateway type, the gateway must be deleted and recreated. This process takes about 60 minutes. When you create the new gateway, you cannot retain the IP address of the original gateway.
+
+1. Delete any connections associated with the gateway.
+
+1. Delete the gateway using one of the following articles:
+
+   * [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
+   * [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+   * [Azure PowerShell - classic](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+1. Create a new gateway using the gateway type that you want, and then complete the VPN setup. For steps, see the [Site-to-Site tutorial](./tutorial-site-to-site-portal.md#VNetGateway).
 
 ### Do I need a 'GatewaySubnet'?
 
@@ -97,7 +104,7 @@ For non-zone-redundant and non-zonal gateways (gateway SKUs that do _not_ have _
 
 ### How does my VPN tunnel get authenticated?
 
-Azure VPN uses PSK (Pre-Shared Key) authentication. We generate a pre-shared key (PSK) when we create the VPN tunnel. You can change the auto-generated PSK to your own with the Set Pre-Shared Key PowerShell cmdlet or REST API.
+Azure VPN uses PSK (Pre-Shared Key) authentication. We generate a pre-shared key (PSK) when we create the VPN tunnel. You can change the autogenerated PSK to your own with the Set Pre-Shared Key PowerShell cmdlet or REST API.
 
 ### Can I use the Set Pre-Shared Key API to configure my policy-based (static routing) gateway VPN?
 
@@ -116,11 +123,7 @@ We are limited to using pre-shared keys (PSK) for authentication.
 
 #### Classic deployment model
 
-* Azure portal: navigate to the classic virtual network > VPN connections > Site-to-site VPN connections > Local site name > Local site > Client address space. 
-
-### Can I configure Force Tunneling?
-
-Yes. See [Configure force tunneling](vpn-gateway-about-forced-tunneling.md).
+* Azure portal: navigate to the classic virtual network > VPN connections > Site-to-site VPN connections > Local site name > Local site > Client address space.
 
 ### Can I use NAT-T on my VPN connections?
 
@@ -220,10 +223,13 @@ Yes, this is supported. For more information, see [Configure ExpressRoute and Si
 
 [!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-faq-ipsecikepolicy-include.md)]
 
-
-## <a name="bgp"></a>BGP
+## <a name="bgp"></a>BGP and routing
 
 [!INCLUDE [vpn-gateway-faq-bgp-include](../../includes/vpn-gateway-faq-bgp-include.md)]
+
+### Can I configure forced tunneling?
+
+Yes. See [Configure forced tunneling](vpn-gateway-about-forced-tunneling.md).
 
 ## <a name="vms"></a>Cross-premises connectivity and VMs
 
@@ -240,7 +246,6 @@ No. Only the traffic that has a destination IP that is contained in the virtual 
 ### How do I troubleshoot an RDP connection to a VM
 
 [!INCLUDE [Troubleshoot VM connection](../../includes/vpn-gateway-connect-vm-troubleshoot-include.md)]
-
 
 ## <a name="faq"></a>Virtual Network FAQ
 

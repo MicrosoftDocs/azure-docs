@@ -18,7 +18,7 @@ For examples on how to use these suggestions, see [Add logging to your Service F
 
 ## Application Insights SDK
 
-Application Insights has a rich integration with Service Fabric out of the box. Users can add the AI Service Fabric nuget packages and receive data and logs created and collected viewable in the Azure portal. Additionally, users are encouraged to add their own telemetry in order to diagnose and debug their applications and track which services and parts of their application are used the most. The [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) class in the SDK provides many ways to track telemetry in your applications. Check out an example of how to instrument and add application insights to your application in our tutorial for [monitoring and diagnosing a .NET application](service-fabric-tutorial-monitoring-aspnet.md)
+Application Insights has a rich integration with Service Fabric out of the box. Users can add the AI Service Fabric nuget packages and receive data and logs created and collected viewable in the Azure portal. Additionally, users are encouraged to add their own telemetry in order to diagnose and debug their applications and track which services and parts of their application are used the most. The [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient) class in the SDK provides many ways to track telemetry in your applications. Check out an example of how to instrument and add application insights to your application in our tutorial for [monitoring and diagnosing a .NET application](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## EventSource
 

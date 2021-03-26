@@ -1,14 +1,8 @@
 ---
 title: Run SSIS package with Stored Procedure Activity - Azure 
 description: This article describes how to run a SQL Server Integration Services (SSIS) package in an Azure Data Factory pipeline by using the Stored Procedure Activity.
-services: data-factory
-documentationcenter: ''
 author: swinarko
-manager: anandsub
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 07/09/2020
@@ -27,7 +21,7 @@ This article describes how to run an SSIS package in an Azure Data Factory pipel
 The walkthrough in this article uses Azure SQL Database to host the SSIS catalog. You can also use Azure SQL Managed Instance.
 
 ## Create an Azure-SSIS integration runtime
-Create an Azure-SSIS integration runtime if you don't have one by following the step-by-step instruction in the [Tutorial: Deploy SSIS packages](tutorial-create-azure-ssis-runtime-portal.md).
+Create an Azure-SSIS integration runtime if you don't have one by following the step-by-step instruction in the [Tutorial: Deploy SSIS packages](./tutorial-deploy-ssis-packages-azure.md).
 
 ## Data Factory UI (Azure portal)
 In this section, you use Data Factory UI to create a Data Factory pipeline with a stored procedure activity that invokes an SSIS package.

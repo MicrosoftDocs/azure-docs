@@ -49,10 +49,27 @@ WAF currently supports CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#o
 
 For more information, see [OWASP top-10 vulnerabilities](https://owasp.org/www-project-top-ten/).
 
+## What content types does WAF support?
+
+Application Gateway WAF support the following content types for managed rules:
+
+* application/json
+* application/xml
+* application/x-www-form-urlencoded
+* multipart/form-data
+
+And for custom rules:
+
+* application/x-www-form-urlencoded
+* multipart/form-data
+
 ## Does WAF support DDoS protection?
 
 Yes. You can enable DDoS protection on the virtual network where the application gateway is deployed. This setting ensures that the Azure DDoS Protection service also protects the application gateway virtual IP (VIP).
 
+### Does WAF store customer data?
+
+No, WAF does not store customer data.
 
 ## Next steps
 

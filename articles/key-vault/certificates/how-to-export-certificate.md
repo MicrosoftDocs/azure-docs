@@ -8,22 +8,22 @@ tags: azure-key-vault
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: how-to
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc
 ms.date: 08/11/2020
 ms.author: sebansal
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store certificates in Azure.
 ---
 # Export certificates from Azure Key Vault
 
-Learn how to export certificates from Azure Key Vault. You can export certificates by using the Azure CLI, Azure PowerShell, or the Azure portal. You can also use the Azure portal to export Azure App Service certificates.
+Learn how to export certificates from Azure Key Vault. You can export certificates by using the Azure CLI, Azure PowerShell, or the Azure portal. 
 
 ## About Azure Key Vault certificates
 
-Azure Key Vault allows you to easily provision, manage, and deploy digital certificates for your network. It also enables secure communications for applications. See [Azure Key Vault certificates](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates) for more information.
+Azure Key Vault allows you to easily provision, manage, and deploy digital certificates for your network. It also enables secure communications for applications. See [Azure Key Vault certificates](./about-certificates.md) for more information.
 
 ### Composition of a certificate
 
-When a Key Vault certificate is created, an addressable *key* and *secret* are created that have the same name. The Key Vault key allows key operations. The Key Vault secret allows retrieval of the certificate value as a secret. A Key Vault certificate also contains public x509 certificate metadata. Go to [Composition of a certificate](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate) for more information.
+When a Key Vault certificate is created, an addressable *key* and *secret* are created that have the same name. The Key Vault key allows key operations. The Key Vault secret allows retrieval of the certificate value as a secret. A Key Vault certificate also contains public x509 certificate metadata. Go to [Composition of a certificate](./about-certificates.md#composition-of-a-certificate) for more information.
 
 ### Exportable and non-exportable keys
 
@@ -32,10 +32,10 @@ After a Key Vault certificate is created, you can retrieve it from the addressab
 - **Exportable**: The policy used to create the certificate indicates the key is exportable.
 - **Non-exportable**: The policy used to create the certificate indicates the key is non-exportable. In this case, the private key isn't part of the value when it's retrieved as a secret.
 
-Supported keytypes: RSA, RSA-HSM, EC, EC-HSM, oct (listed [here](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype))
+Supported keytypes: RSA, RSA-HSM, EC, EC-HSM, oct (listed [here](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype))
 Exportable is only allowed with RSA, EC. HSM keys would be non-exportable.
 
-See [About Azure Key Vault certificates](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#exportable-or-non-exportable-key) for more information.
+See [About Azure Key Vault certificates](./about-certificates.md#exportable-or-non-exportable-key) for more information.
 
 ## Export stored certificates
 
@@ -58,7 +58,7 @@ az keyvault certificate download --file
                                  [--version]
 ```
 
-View [examples and parameter definitions](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-download) for more information.
+View [examples and parameter definitions](/cli/azure/keyvault/certificate#az-keyvault-certificate-download) for more information.
 
 Downloading as certificate means getting the public portion. If you want both the private key and public metadata then you can download it as secret.
 
@@ -72,7 +72,7 @@ az keyvault secret download -–file {nameofcert.pfx}
                             [--version]
 ```
 
-For more information, see [parameter definitions](https://docs.microsoft.com/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-download).
+For more information, see [parameter definitions](/cli/azure/keyvault/secret#az-keyvault-secret-download).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -80,18 +80,26 @@ Use this command in Azure PowerShell to get the certificate named **TestCert01**
 
 ```azurepowershell
 $cert = Get-AzKeyVaultCertificate -VaultName "ContosoKV01" -Name "TestCert01"
-$kvSecret = Get-AzKeyVaultSecret -VaultName "ContosoKV01" -Name $Cert.Name
-$kvSecretBytes = [System.Convert]::FromBase64String($kvSecret.SecretValueText)
-$certCollection = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2Collection
-$certCollection.Import($kvSecretBytes,$null,[System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]::Exportable)
-$password = '******'
-$protectedCertificateBytes = $certCollection.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12, $password)
-$pfxPath = [Environment]::GetFolderPath("Desktop") + "\MyCert.pfx"
-[System.IO.File]::WriteAllBytes($pfxPath, $protectedCertificateBytes)
+$secret = Get-AzKeyVaultSecret -VaultName "ContosoKV01" -Name $cert.Name
+$secretValueText = '';
+$ssPtr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secret.SecretValue)
+try {
+    $secretValueText = [System.Runtime.InteropServices.Marshal]::PtrToStringBSTR($ssPtr)
+} finally {
+    [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ssPtr)
+}
+$secretByte = [Convert]::FromBase64String($secretValueText)
+$x509Cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate2
+$x509Cert.Import($secretByte, "", "Exportable,PersistKeySet")
+$type = [System.Security.Cryptography.X509Certificates.X509ContentType]::Pfx
+$pfxFileByte = $x509Cert.Export($type, $password)
+
+# Write to a file
+[System.IO.File]::WriteAllBytes("KeyVault.pfx", $pfxFileByte)
 ```
 
-This command exports the entire chain of certificates with private key. The certificate is password protected.
-For more information on the **Get-AzKeyVaultCertificate** command and parameters, see [Get-AzKeyVaultCertificate - Example 2](https://docs.microsoft.com/powershell/module/az.keyvault/Get-AzKeyVaultCertificate?view=azps-4.4.0).
+This command exports the entire chain of certificates with private key (i.e. the same as it was imported). The certificate is password protected.
+For more information on the **Get-AzKeyVaultCertificate** command and parameters, see [Get-AzKeyVaultCertificate - Example 2](/powershell/module/az.keyvault/Get-AzKeyVaultCertificate?view=azps-4.4.0).
 
 # [Portal](#tab/azure-portal)
 
@@ -103,11 +111,11 @@ To download the certificate, select **Download in CER format** or **Download in 
 
 **Export Azure App Service certificates**
 
-Azure App Service certificates are a convenient way to purchase SSL certificates. You can assign them to Azure Apps from within the portal. You can also export these certificates from the portal as PFX files to be used elsewhere. After you import them, the App Service certificates are located under **secrets**.
+Azure App Service certificates are a convenient way to purchase SSL certificates. You can assign them to Azure Apps from within the portal. After you import them, the App Service certificates are located under **secrets**.
 
 For more information, see the steps to [export Azure App Service certificates](https://social.technet.microsoft.com/wiki/contents/articles/37431.exporting-azure-app-service-certificates.aspx).
 
 ---
 
 ## Read more
-* [Various certificate file types and definitions](https://docs.microsoft.com/archive/blogs/kaushal/various-ssltls-certificate-file-typesextensions)
+* [Various certificate file types and definitions](/archive/blogs/kaushal/various-ssltls-certificate-file-typesextensions)

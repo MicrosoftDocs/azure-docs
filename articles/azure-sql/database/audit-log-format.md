@@ -37,7 +37,7 @@ Audit events are written to the namespace and event hub that was defined during 
 
 ### Log Analytics
 
-Audit events are written to Log Analytics workspace defined during auditing configuration, to the `AzureDiagnostics` table with the category `SQLSecurityAuditEvents`. For additional useful information about Log Analytics search language and commands, see [Log Analytics search reference](../../azure-monitor/log-query/log-query-overview.md).
+Audit events are written to Log Analytics workspace defined during auditing configuration, to the `AzureDiagnostics` table with the category `SQLSecurityAuditEvents`. For additional useful information about Log Analytics search language and commands, see [Log Analytics search reference](../../azure-monitor/logs/log-query-overview.md).
 
 ## <a id="subheading-1"></a>Audit log fields
 
@@ -84,8 +84,8 @@ Audit events are written to Log Analytics workspace defined during auditing conf
 | target_server_principal_name | target_server_principal_name_s | Target login of action. NULL if not applicable | sysname | string |
 | target_server_principal_sid | target_server_principal_sid_s | SID of target login. NULL if not applicable | varbinary | string |
 | transaction_id | transaction_id_d | SQL Server only (starting with 2016) - 0 for Azure SQL Database | bigint | int |
-| user_defined_event_id | user_defined_event_id_d | User defined event ID passed as an argument to sp_audit_write. NULL for system events (default) and non-zero for user-defined event. For more information, see [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | smallint | int |
-| user_defined_information | user_defined_information_s | User defined information passed as an argument to sp_audit_write. NULL for system events (default) and non-zero for user-defined event. For more information, see [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | nvarchar(4000) | string |
+| user_defined_event_id | user_defined_event_id_d | User defined event ID passed as an argument to sp_audit_write. NULL for system events (default) and non-zero for user-defined event. For more information, see [sp_audit_write (Transact-SQL)](/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | smallint | int |
+| user_defined_information | user_defined_information_s | User defined information passed as an argument to sp_audit_write. NULL for system events (default) and non-zero for user-defined event. For more information, see [sp_audit_write (Transact-SQL)](/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | nvarchar(4000) | string |
 
 ## Next steps
 

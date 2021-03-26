@@ -2,9 +2,8 @@
 title: Troubleshoot Azure Automation runbook issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation runbooks.
 services: automation
-ms.date: 07/28/2020
-ms.topic: conceptual
-ms.service: automation
+ms.date: 02/11/2021
+ms.topic: troubleshooting
 ms.custom: has-adal-ref
 ---
 
@@ -37,7 +36,7 @@ When you receive errors during runbook execution in Azure Automation, you can us
     * [Renew the certificate](../manage-runas-account.md#cert-renewal) if the Run As account has expired.
     * [Renew the webhook](../automation-webhooks.md#renew-a-webhook) if you're trying to use an expired webhook to start the runbook.
     * [Check job statuses](../automation-runbook-execution.md#job-statuses) to determine current runbook statuses and some possible causes of the issue.
-    * [Add additional output](../automation-runbook-output-and-messages.md#monitor-message-streams) to the runbook to identify what happens before the runbook is suspended.
+    * [Add additional output](../automation-runbook-output-and-messages.md#working-with-message-streams) to the runbook to identify what happens before the runbook is suspended.
     * [Handle any exceptions](../automation-runbook-execution.md#exceptions) that are thrown by your job.
 
 1. Do this step if the runbook job or the environment on Hybrid Runbook Worker doesn't respond.
@@ -129,7 +128,7 @@ Run Login-AzureRMAccount to login.
 
 ### Cause
 
-This error can occur when you're not using a Run As account or the Run As account has expired. For more information, see [Manage Azure Automation Run As accounts](../manage-runas-account.md).
+This error can occur when you're not using a Run As account or the Run As account has expired. For more information, see [Azure Automation Run As accounts overview](../automation-security-overview.md#run-as-accounts).
 
 This error has two primary causes:
 
@@ -156,7 +155,7 @@ If you're trying to access resources in another subscription, follow these steps
 
 1. Copy the name of the subscription.
 
-1. You can now use the following runbook code to test the permissions from your Automation account to the other subscription. Replace `"\<CertificateThumbprint\>"` with the value copied in step 1. Replace `"\<SubscriptionName\>"` with the value copied in step 4.
+1. You can now use the following runbook code to test the permissions from your Automation account to the other subscription. Replace `<CertificateThumbprint>` with the value copied in step 1. Replace `"<SubscriptionName>"` with the value copied in step 4.
 
     ```powershell
     $Conn = Get-AutomationConnection -Name AzureRunAsConnection
@@ -196,7 +195,7 @@ This error can occur if:
 Follow these steps to determine if you've authenticated to Azure and have access to the subscription that you're trying to select:
 
 1. To make sure that your script works standalone, test it outside of Azure Automation.
-1. Make sure that your script runs the [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount?view=azps-3.7.0) cmdlet before running the `Select-*` cmdlet.
+1. Make sure that your script runs the [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) cmdlet before running the `Select-*` cmdlet.
 1. Add `Disable-AzContextAutosave –Scope Process` to the beginning of your runbook. This cmdlet ensures that any credentials apply only to the execution of the current runbook.
 1. If you still see the error message, modify your code by adding the `AzContext` parameter for `Connect-AzAccount`, and then execute the code.
 
@@ -219,37 +218,46 @@ When executing runbooks, the runbook fails to manage Azure resources.
 
 ### Cause
 
-The runbook isn't using the correct context when running.
+The runbook isn't using the correct context when running. This may be because the runbook is accidentally trying to access the incorrect subscription.
+
+You may see errors like this one:
+
+```error
+Get-AzVM : The client '<automation-runas-account-guid>' with object id '<automation-runas-account-guid>' does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope '/subscriptions/<subcriptionIdOfSubscriptionWichDoesntContainTheVM>/resourceGroups/REsourceGroupName/providers/Microsoft.Compute/virtualMachines/VMName '.
+   ErrorCode: AuthorizationFailed
+   StatusCode: 403
+   ReasonPhrase: Forbidden Operation
+   ID : <AGuidRepresentingTheOperation> At line:51 char:7 + $vm = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $UNBV... +
+```
 
 ### Resolution
 
-The subscription context might be lost when a runbook invokes multiple runbooks. To ensure that the subscription context is passed to the runbooks, have the client runbook pass the context to the `Start-AzureRmAutomationRunbook` cmdlet in the `AzureRmContext` parameter. Use the `Disable-AzureRmContextAutosave` cmdlet with the `Scope` parameter set to `Process` to ensure that the specified credentials are only used for the current runbook. For more information, see [Subscriptions](../automation-runbook-execution.md#subscriptions).
+The subscription context might be lost when a runbook invokes multiple runbooks. To avoid accidentally trying to access the incorrect subscription you should follow the guidance below.
 
-```azurepowershell-interactive
-# Ensures that any credentials apply only to the execution of this runbook
-Disable-AzContextAutosave –Scope Process
+* To avoid referencing the wrong subscription, disable context saving in your Automation runbooks by using the following code at the start of each runbook.
 
-# Connect to Azure with Run As account
-$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
+   ```azurepowershell-interactive
+   Disable-AzContextAutosave –Scope Process
+   ```
 
-Connect-AzAccount `
-    -ServicePrincipal `
-    -Tenant $ServicePrincipalConnection.TenantId `
-    -ApplicationId $ServicePrincipalConnection.ApplicationId `
-    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
+* The Azure PowerShell cmdlets support the `-DefaultProfile` parameter. This was added to all Az and AzureRm cmdlets to support running multiple PowerShell scripts in the same process, allowing you to specify the context and which subscription to use for each cmdlet. With your runbooks, you should save the context object in your runbook when the runbook is created (that is, when an account signs in) and every time it's changed, and reference the context when you specify an Az cmdlet.
 
-$AzContext = Select-AzSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+   > [!NOTE]
+   > You should pass in a context object even when manipulating the context directly using cmdlets such as [Set-AzContext](/powershell/module/az.accounts/Set-AzContext) or [Select-AzSubscription](/powershell/module/servicemanagement/azure.service/set-azuresubscription).
 
-$params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
-
-Start-AzAutomationRunbook `
-    –AutomationAccountName 'MyAutomationAccount' `
-    –Name 'Test-ChildRunbook' `
-    -ResourceGroupName 'LabRG' `
-    -AzContext $AzureContext `
-    –Parameters $params –wait
-```
-
+   ```azurepowershell-interactive
+   $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName 
+   $context = Add-AzAccount `
+             -ServicePrincipal `
+             -TenantId $servicePrincipalConnection.TenantId `
+             -ApplicationId $servicePrincipalConnection.ApplicationId `
+             -Subscription 'cd4dxxxx-xxxx-xxxx-xxxx-xxxxxxxx9749' `
+             -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint 
+   $context = Set-AzContext -SubscriptionName $subscription `
+       -DefaultProfile $context
+   Get-AzVm -DefaultProfile $context
+   ```
+  
 ## <a name="auth-failed-mfa"></a>Scenario: Authentication to Azure fails because multifactor authentication is enabled
 
 ### Issue
@@ -393,7 +401,7 @@ If the stream contains objects, `Start-AzAutomationRunbook` doesn't handle the O
 
 ### Resolution
 
-Implement a polling logic, and use the [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.7.0) cmdlet to retrieve the output. A sample of this logic is defined here:
+Implement a polling logic, and use the [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput) cmdlet to retrieve the output. A sample of this logic is defined here:
 
 ```powershell
 $automationAccountName = "ContosoAutomationAccount"
@@ -471,14 +479,14 @@ You receive the following error message when running the `Get-AzAutomationJobOut
 
 ### Cause
 
-This error can occur when retrieving job output from a runbook that has many [verbose streams](../automation-runbook-output-and-messages.md#monitor-verbose-stream).
+This error can occur when retrieving job output from a runbook that has many [verbose streams](../automation-runbook-output-and-messages.md#write-output-to-verbose-stream).
 
 ### Resolution
 
 Do one of the following to resolve this error:
 
 * Edit the runbook, and reduce the number of job streams that it emits​.
-* Reduce the number of streams to be retrieved when running the cmdlet. To do this, you can set the value of the `Stream` parameter for the [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.7.0) cmdlet to retrieve only Output streams. ​
+* Reduce the number of streams to be retrieved when running the cmdlet. To do this, you can set the value of the `Stream` parameter for the [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput) cmdlet to retrieve only Output streams. ​
 
 ## <a name="quota-exceeded"></a>Scenario: Runbook job fails because allocated quota was exceeded
 
@@ -571,7 +579,7 @@ This error might indicate that runbooks that run in an Azure sandbox can't run i
 
 There are two ways to resolve this error:
 
-* Instead of using [Start-Job](/powershell/module/microsoft.powershell.core/start-job?view=powershell-7), use [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) to start the runbook.
+* Instead of using [Start-Job](/powershell/module/microsoft.powershell.core/start-job), use [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook) to start the runbook.
 * Try running the runbook on a Hybrid Runbook Worker.
 
 To learn more about this behavior and other behaviors of Azure Automation runbooks, see [Runbook execution in Azure Automation](../automation-runbook-execution.md).
@@ -600,8 +608,8 @@ Another solution is to optimize the runbook by creating [child runbooks](../auto
 
 The PowerShell cmdlets that enable the child runbook scenario are:
 
-* [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0). This cmdlet allows you to start a runbook and pass parameters to the runbook.
-* [Get-AzAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0). If there are operations that need to be performed after the child runbook completes, this cmdlet allows you to check the job status for each child.
+* [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook). This cmdlet allows you to start a runbook and pass parameters to the runbook.
+* [Get-AzAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob). If there are operations that need to be performed after the child runbook completes, this cmdlet allows you to check the job status for each child.
 
 ## <a name="get-serializationsettings"></a>Scenario: Error in job streams about the get_SerializationSettings method
 
@@ -637,7 +645,7 @@ When your runbook or application attempts to run in an Azure sandbox, the enviro
 
 ### Cause
 
-This issue can occur because Azure sandboxes prevent access to all out-of-process COM servers. For example, a sandboxed application or runbook can't call into Windows Management Instrumentation (WMI) or into the Windows Installer service (msiserver.exe). 
+This issue can occur because Azure sandboxes prevent access to all out-of-process COM servers. For example, a sandboxed application or runbook can't call into Windows Management Instrumentation (WMI) or into the Windows Installer service (msiserver.exe).
 
 ### Resolution
 

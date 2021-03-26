@@ -106,11 +106,9 @@ Parameters are case-sensitive.
 }
 ```
 
-## Notes
-If empty, a sentiment score is not returned for those records.
-
-## Error cases
-If a language is not supported, an error is generated and no sentiment score is returned.
+## Warning cases
+If your text is empty, a warning is generated and no sentiment score is returned.
+If a language is not supported, a warning is generated and no sentiment score is returned.
 
 ## See also
 

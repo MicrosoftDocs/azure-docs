@@ -1,18 +1,16 @@
 ---
 title: Plan and manage costs for Azure Data Factory
 description: This article describes how you can plan and manage costs for Azure Data Factory
-documentationcenter: ''
 author: shirleywangmsft
 ms.author: shwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/14/2020
 ---
 
 # Plan and manage costs for Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure Data Factory is a serverless and elastic data integration service built for cloud scale.  This means there is not a fixed-size compute that you need to plan for peak load; rather you specify how much resource to allocate on demand per operation, which allows you to design the ETL processes in a much more scalable manner. In addition, ADF is billed on a consumption-based plan, which means you only pay for what you use.
 
@@ -51,13 +49,13 @@ Now you can plug 30 activity runs and 380 DIU-hours into ADF pricing calculator 
 
 ## Use budgets and cost alerts
 
-You can create [budgets](https://docs.microsoft.com/azure/cost-management/tutorial-acm-create-budgets) to manage costs and create alerts that automatically notify stakeholders of spending anomalies and overspending risks.  Alerts are based on spending compared to budget and cost thresholds.  When you create a budget, you can either do it at the subscription level or at a lower granularity by adding additional filters such as resource ID and meter name.  But you cannot create budgets for individual pipelines within a factory.
+You can create [budgets](../cost-management-billing/costs/tutorial-acm-create-budgets.md) to manage costs and create alerts that automatically notify stakeholders of spending anomalies and overspending risks.  Alerts are based on spending compared to budget and cost thresholds.  When you create a budget, you can either do it at the subscription level or at a lower granularity by adding additional filters such as resource ID and meter name.  But you cannot create budgets for individual pipelines within a factory.
 
 ## Monitor costs at factory level
 
-As you start using Azure Data Factory, you can see the costs incurred in the [cost analysis](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis) pane in the Azure portal.
+As you start using Azure Data Factory, you can see the costs incurred in the [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md) pane in the Azure portal.
 
-1. To view [cost analysis](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis), open the **Cost Management + Billing** window, select **Cost management** from the menu and then select **Open cost analysis**.
+1. To view [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md), open the **Cost Management + Billing** window, select **Cost management** from the menu and then select **Open cost analysis**.
 2. The default view shows accumulated costs for the current month.  You can switch to a different time range and a different granularity such as daily or monthly.
 3. To narrow costs for a single service such as Azure Data Factory, select **Add filter** and then select **Service name**.  Then choose **Azure data factory v2** from the list.
 4. You can add additional filters to analyze cost for specific factory instance and specific ADF meter granularity.
@@ -76,7 +74,7 @@ Clicking the **Consumption** button next to the pipeline name will display a pop
 
 ![Pipeline consumption details](media/plan-manage-costs/pipeline-consumption-details.png)
 
-The pipeline run consumption view shows you the amount consumed for each ADF meter for the specific pipeline run, but it does not show the actual price charged, because the amount billed to you is dependent on the type of Azure account you have and the type of currency used.  To view the full list of supported account types, see [Understand Cost Management data](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-cost-mgt-data).
+The pipeline run consumption view shows you the amount consumed for each ADF meter for the specific pipeline run, but it does not show the actual price charged, because the amount billed to you is dependent on the type of Azure account you have and the type of currency used.  To view the full list of supported account types, see [Understand Cost Management data](../cost-management-billing/costs/understand-cost-mgt-data.md).
 
 ## Monitor consumption at activity-run level
 Once you understand the aggregated consumption at pipeline-run level, there are scenarios where you need to further drill down and identify which is the most costly activity within the pipeline.
@@ -96,5 +94,5 @@ And here is a sample out from a Mapping Data Flow activity run:
 See the following articles to learn more about how pricing works in Azure Data Factory:
 
 - [Azure Data Factory pricing page](https://azure.microsoft.com/pricing/details/data-factory/ssis/)
-- [Understanding Azure Data Factory through examples](https://docs.microsoft.com/azure/data-factory/pricing-concepts)
+- [Understanding Azure Data Factory through examples](./pricing-concepts.md)
 - [Azure Data Factory pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=data-factory)

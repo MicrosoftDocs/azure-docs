@@ -126,11 +126,11 @@ To configure Azure AD single sign-on with PlanMyLeave, perform the following ste
 
 2. Go to **System Setup**. Then on the **Security Management** section click **Company SAML settings** .
 
-	![Configure Single Sign-On On App Side](./media/planmyleave-tutorial/tutorial_planmyleave_002.png) 
+	![Screenshot that shows the "System setup" page with the "Security Management" section highlighted and the "Company S A M L Settings" action selected.](./media/planmyleave-tutorial/tutorial_planmyleave_002.png) 
 
 3. On the **SAML Settings** section, click editor icon.
 
-	![Configure Single Sign-On On App Side](./media/planmyleave-tutorial/tutorial_planmyleave_003.png)
+	![Screenshot that shows the "S A M L Settings" section with the "editor" icon selected in the top-right of the section.](./media/planmyleave-tutorial/tutorial_planmyleave_003.png)
 
 4. On the **Update SAML Settings** section, perform the following steps:
 

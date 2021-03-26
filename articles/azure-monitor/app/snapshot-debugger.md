@@ -4,6 +4,8 @@ description: Debug snapshots are automatically collected when exceptions are thr
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 10/23/2019
+author: cweining
+ms.author: cweining
 
 ms.reviewer: cweining
 ---
@@ -18,11 +20,15 @@ Debug snapshots are stored for 15 days. This retention policy is set on a per-ap
 ## Enable Application Insights Snapshot Debugger for your application
 Snapshot collection is available for:
 * .NET Framework and ASP.NET applications running .NET Framework 4.5 or later.
-* .NET Core 2.0 and ASP.NET Core 2.0 applications running on Windows.
+* .NET Core and ASP.NET Core applications running .NET Core 2.1 (LTS) or 3.1 (LTS) on Windows.
+* .NET 5.0 applications on Windows.
+
+We don't recommend using .NET Core 2.0, 2.2 or 3.0 since they are out of support.
 
 The following environments are supported:
 
 * [Azure App Service](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Function](snapshot-debugger-function-app.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) running OS family 4 or later
 * [Azure Service Fabric services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) running on Windows Server 2012 R2 or later
 * [Azure Virtual Machines and virtual machine scale sets](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) running Windows Server 2012 R2 or later
@@ -35,7 +41,7 @@ If you've enabled Snapshot Debugger but aren't seeing snapshots, check our [Trou
 
 ## Grant permissions
 
-Access to snapshots is protected by role-based access control (RBAC). To inspect a snapshot, you must first be added to the necessary role by a subscription owner.
+Access to snapshots is protected by Azure role-based access control (Azure RBAC). To inspect a snapshot, you must first be added to the necessary role by a subscription owner.
 
 > [!NOTE]
 > Owners and contributors do not automatically have this role. If they want to view snapshots, they must add themselves to the role.
@@ -128,6 +134,7 @@ However, in Azure App Services, the Snapshot Collector can deoptimize throwing m
 Enable Application Insights Snapshot Debugger for your application:
 
 * [Azure App Service](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Function](snapshot-debugger-function-app.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Virtual Machines and virtual machine scale sets](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)

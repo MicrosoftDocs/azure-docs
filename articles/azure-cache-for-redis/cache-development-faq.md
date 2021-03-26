@@ -50,7 +50,7 @@ Usually the default values of the client are sufficient. You can fine-tune the o
 * **Retries**
   * For ConnectRetry and ConnectTimeout, the general guidance is to fail fast and retry again. This guidance is based on your workload and how much time on average it takes for your client to issue a Redis command and receive a response.
   * Let StackExchange.Redis automatically reconnect instead of checking connection status and reconnecting yourself. **Avoid using the ConnectionMultiplexer.IsConnected property**.
-  * Snowballing - sometimes you may run into an issue where you are retrying and the retries snowball and never recovers. If snowballing occurs, you should consider using an exponential backoff retry algorithm as described in [Retry general guidance](../best-practices-retry-general.md) published by the Microsoft Patterns & Practices group.
+  * Snowballing - sometimes you may run into an issue where you are retrying and the retries snowball and never recovers. If snowballing occurs, you should consider using an exponential backoff retry algorithm as described in [Retry general guidance](/azure/architecture/best-practices/transient-faults) published by the Microsoft Patterns & Practices group.
   
 * **Timeout values**
   * Consider your workload and set the values accordingly. If you are storing large values, set the timeout to a higher value.
@@ -58,12 +58,12 @@ Usually the default values of the client are sufficient. You can fine-tune the o
   * Use a single ConnectionMultiplexer instance for the application. You can use a LazyConnection to create a single instance that is returned by a Connection property, as shown in [Connect to the cache using the ConnectionMultiplexer class](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
   * Set the `ConnectionMultiplexer.ClientName` property to an app instance unique name for diagnostic purposes.
   * Use multiple `ConnectionMultiplexer` instances for custom workloads.
-	  * You can follow this model if you have varying load in your application. For example:
-	  * You can have one multiplexer for dealing with large keys.
-	  * You can have one multiplexer for dealing with small keys.
-	  * You can set different values for connection timeouts and retry logic for each ConnectionMultiplexer that you use.
-	  * Set the `ClientName` property on each multiplexer to help with diagnostics.
-	  * This guidance may lead to more streamlined latency per `ConnectionMultiplexer`.
+    * You can follow this model if you have varying load in your application. For example:
+    * You can have one multiplexer for dealing with large keys.
+    * You can have one multiplexer for dealing with small keys.
+    * You can set different values for connection timeouts and retry logic for each ConnectionMultiplexer that you use.
+    * Set the `ClientName` property on each multiplexer to help with diagnostics.
+    * This guidance may lead to more streamlined latency per `ConnectionMultiplexer`.
 
 ### What Azure Cache for Redis clients can I use?
 One of the great things about Redis is that there are many clients supporting many different development languages. For a current list of clients, see [Redis clients](https://redis.io/clients). For tutorials that cover several different languages and clients, see [How to use Azure Cache for Redis](cache-dotnet-how-to-use-azure-redis-cache.md) and it's sibling articles in the table of contents.
@@ -103,7 +103,7 @@ You can use any of the commands listed at [Redis commands](https://redis.io/comm
 * `redis-cli -h <Azure Cache for Redis name>.redis.cache.windows.net -a <key>`
 
 > [!NOTE]
-> The Redis command-line tools do not work with the TLS port, but you can use a utility such as `stunnel` to securely connect the tools to the TLS port by following the directions in the [How to use the Redis command-line tool with Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-redis-cli-tool) article.
+> The Redis command-line tools do not work with the TLS port, but you can use a utility such as `stunnel` to securely connect the tools to the TLS port by following the directions in the [How to use the Redis command-line tool with Azure Cache for Redis](./cache-how-to-redis-cli-tool.md) article.
 >
 >
 

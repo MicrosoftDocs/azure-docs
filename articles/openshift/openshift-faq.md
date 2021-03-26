@@ -3,7 +3,7 @@ title: Frequently asked questions for Azure Red Hat OpenShift
 description: Here are answers to common questions about Microsoft Azure Red Hat OpenShift
 author: jimzim
 ms.author: jzim
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 07/31/2020
 ---
@@ -16,7 +16,7 @@ This article answers frequently asked questions (FAQs) about Microsoft Azure Red
 
 ### Which Azure regions are supported?
 
-For a list of supported regions for Azure Red Hat OpenShift 4.x, see [Available regions](https://docs.openshift.com/aro/4/welcome/index.html#available-regions).
+For a list of supported regions for Azure Red Hat OpenShift 4.x, see [Available regions](https://azure.microsoft.com/global-infrastructure/services/?products=openshift&regions=all).
 
 For a list of supported regions for Azure Red Hat OpenShift 3.11, see [Products available by region](supported-resources.md#azure-regions).
 
@@ -76,7 +76,7 @@ Nodes are rebooted as a part of an upgrade.
 
 ### Can I use Prometheus to monitor my applications?
 
-Prometheus comes pre-installed and configured for Azure Red Hat OpenShift 4.x clusters. Read more about [cluster monitoring](https://docs.openshift.com/container-platform/3.11/install_config/prometheus_cluster_monitoring.html).
+Prometheus comes pre-installed and configured for Azure Red Hat OpenShift 4.x clusters. Read more about [cluster monitoring](https://docs.openshift.com/container-platform/4.6/operators/operator_sdk/osdk-monitoring-prometheus.html).
 
 For Azure Red Hat OpenShift 3.11 clusters, you can deploy Prometheus in your namespace and monitor applications in your namespace. For more information, see [Deploy Prometheus instance in Azure Red Hat OpenShift cluster](howto-deploy-prometheus.md).
 
@@ -92,7 +92,7 @@ Logs from underlying VMs are handled by the managed service and aren't exposed t
 
 ### How can a customer get access to metrics like CPU/memory at the node level to take action to scale, debug issues, etc.? I cannot seem to run kubectl top on an Azure Red Hat OpenShift cluster.
 
-For Azure Red Hat OpenShift 4.x clusters, the OpenShift web console contains all metrics at the node level. For more information, see the Red Hat documentation on [viewing cluster information](https://docs.openshift.com/aro/4/web_console/using-dashboard-to-get-cluster-information.html).
+For Azure Red Hat OpenShift 4.x clusters, the OpenShift web console contains all metrics at the node level. For more information, see the Red Hat documentation on [viewing cluster information](https://docs.openshift.com/container-platform/4.6/web_console/using-dashboard-to-get-cluster-information.html).
 
 For Azure Red Hat OpenShift 3.11 clusters, customers can access the CPU/Memory metrics at the node level by using the command `oc adm top nodes` or `kubectl top nodes` with the customer-admin cluster role. Customers can also access the CPU/Memory metrics of `pods` with the command `oc adm top pods` or `kubectl top pods`.
 
@@ -111,14 +111,14 @@ Caution must be used when using specific labels:
 - Hostname must not be used. Hostname gets rotated often with upgrades and updates and is guaranteed to change.
 - If the customer has a request for specific labels or a deployment strategy, this could be accomplished but would require engineering efforts and is not supported today.
 
-For more information, see [Controlling pod placement](https://docs.openshift.com/aro/4/nodes/scheduling/nodes-scheduler-about.html).
+For more information, see [Controlling pod placement](https://docs.openshift.com/container-platform/4.6/nodes/scheduling/nodes-scheduler-about.html).
 
 ### Is the image registry available externally so I can use tools such as Jenkins?
 
 For 4.x clusters, you need to expose a secure registry and configure authentication. For more information, see the following Red Hat documentation:
 
-- [Exposing a registry](https://docs.openshift.com/aro/4/registry/securing-exposing-registry.html)
-- [Accessing the registry](https://docs.openshift.com/aro/4/registry/accessing-the-registry.html)
+- [Exposing a registry](https://docs.openshift.com/container-platform/4.6/registry/securing-exposing-registry.html)
+- [Accessing the registry](https://docs.openshift.com/container-platform/4.6/registry/accessing-the-registry.html)
 
 For 3.11 clusters, the Docker image registry is available. The Docker registry is available from `https://docker-registry.apps.<clustername>.<region>.azmosa.io/`. You can also use Azure Container Registry.
 
@@ -176,24 +176,24 @@ oc adm policy \
 
 For more information, see the OpenShift documentation on disabling self-provisioning for your cluster version:
 
-- [Disabling self-provisioning in 4.3 clusters](https://docs.openshift.com/aro/4/applications/projects/configuring-project-creation.html#disabling-project-self-provisioning_configuring-project-creation)
+- [Disabling self-provisioning in 4.6 clusters](https://docs.openshift.com/container-platform/4.6/applications/projects/configuring-project-creation.html#disabling-project-self-provisioning_configuring-project-creation)
 - [Disabling self-provisioning in 3.11 clusters](https://docs.openshift.com/container-platform/3.11/admin_guide/managing_projects.html#disabling-self-provisioning)
 
 ### Which UNIX rights (in IaaS) are available for Masters/Infra/App Nodes?
 
-For 4.x clusters, node access is available through the cluster-admin role. For more information, see [RBAC overview](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
+For 4.x clusters, node access is available through the cluster-admin role. For more information, see [Kubernetes RBAC overview](https://docs.openshift.com/container-platform/4.6/authentication/using-rbac.html).
 
 For 3.11 clusters, node access is forbidden.
 
 ### Which OCP rights do we have? Cluster-admin? Project-admin?
 
-For 4.x clusters, the cluster-admin role is available. For more information, see [RBAC overview](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
+For 4.x clusters, the cluster-admin role is available. For more information, see [Kubernetes RBAC overview](https://docs.openshift.com/container-platform/4.6/authentication/using-rbac.html).
 
 For 3.11 clusters, see the [cluster administration overview](https://docs.openshift.com/aro/admin_guide/index.html) for more details.
 
 ### Which identity providers are available?
 
-For 4.x clusters, you configure your own identity provider. For more information, see the Red Hat documentation on [configuring identity prodivers](https://docs.openshift.com/aro/4/authentication/identity_providers/configuring-ldap-identity-provider.html).
+For 4.x clusters, you configure your own identity provider. For more information, see the Red Hat documentation on [configuring identity providers](https://docs.openshift.com/container-platform/4.6/authentication/identity_providers/configuring-ldap-identity-provider.html).
 
 For 3.11 clusters, you can use the Azure AD integration. 
 
@@ -205,13 +205,13 @@ By default, data is encrypted at rest. The Azure Storage platform automatically 
 
 ### Is data stored in etcd encrypted on Azure Red Hat OpenShift?
 
-For Azure Red Hat OpenShift 4 clusters, data is not encrypted by default but you do have the option to enable encryption. For more information, see the guide on [encrypting etcd](https://docs.openshift.com/container-platform/4.3/authentication/encrypting-etcd.html).
+For Azure Red Hat OpenShift 4 clusters, data is not encrypted by default but you do have the option to enable encryption. For more information, see the guide on [encrypting etcd](https://docs.openshift.com/container-platform/4.6/security/encrypting-etcd.html).
 
 For 3.11 clusters, data is not encrypted on the etcd level. The option to turn encryption on is currently unsupported. OpenShift supports this feature, but engineering efforts are required to make it on the road map. The data is encrypted at the disk level. Refer to [Encrypting Data at Datastore Layer](https://docs.openshift.com/container-platform/3.11/admin_guide/encrypting_data.html) for more information.
 
 ### Can we choose any persistent storage solution, like OCS? 
 
-For 4.x clusters, Azure Disk (Premium_LRS) is configured as the default storage class. For additional storage providers, and for configuration details (including Azure File), see the Red Hat documentation on [persistent storage](https://docs.openshift.com/aro/4/storage/understanding-persistent-storage.html).
+For 4.x clusters, Azure Disk (Premium_LRS) is configured as the default storage class. For additional storage providers, and for configuration details (including Azure File), see the Red Hat documentation on [persistent storage](https://docs.openshift.com/container-platform/4.6/storage/understanding-persistent-storage.html).
 
 For 3.11 clusters, two storage classes are provided by default: one for Azure Disk (Premium_LRS) and one for Azure File.
 

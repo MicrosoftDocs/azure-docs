@@ -1,20 +1,11 @@
 ---
 title: High availability with data management gateway in Azure Data Factory 
 description: This article explains how you can scale out a data management gateway by adding more nodes and scale up by increasing number of concurrent jobs that can run on a node.    
-services: data-factory
-documentationcenter: ''
 author: nabhishek
-manager: anandsub
-editor: 
-
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
-
 robots: noindex
 ---
 # Data Management Gateway - high availability and scalability (Preview)
@@ -64,58 +55,58 @@ This section assumes that you have gone through the following two articles or fa
 
 1. In the [walkthrough](data-factory-move-data-between-onprem-and-cloud.md#create-gateway), while creating a logical gateway, enable the **High Availability & Scalability** feature. 
 
-	![Data Management Gateway - enable high availability and scalability](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-enable-high-availability-scalability.png)
+    ![Data Management Gateway - enable high availability and scalability](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-enable-high-availability-scalability.png)
 2. In the **Configure** page, use either **Express Setup** or **Manual Setup** link to install a gateway on the first node (an on-premises Windows machine).
 
-	![Data Management Gateway - express or manual setup](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-express-manual-setup.png)
+    ![Data Management Gateway - express or manual setup](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-express-manual-setup.png)
 
-	> [!NOTE]
-	> If you use the express setup option, the node-to-node communication is done without encryption. The node name is same as the machine name. Use manual setup if the node-node communication needs to be encrypted or you want to specify a node name of your choice. Node names cannot be edited later.
+    > [!NOTE]
+    > If you use the express setup option, the node-to-node communication is done without encryption. The node name is same as the machine name. Use manual setup if the node-node communication needs to be encrypted or you want to specify a node name of your choice. Node names cannot be edited later.
 3. If you choose **express setup**
-	1. You see the following message after the gateway is successfully installed:
+    1. You see the following message after the gateway is successfully installed:
 
-		![Data Management Gateway - express setup success](media/data-factory-data-management-gateway-high-availability-scalability/express-setup-success.png)
-	2. Launch Data Management Configuration Manager for the gateway by following [these instructions](data-factory-data-management-gateway.md#configuration-manager). You see the gateway name, node name, status, etc.
+        ![Data Management Gateway - express setup success](media/data-factory-data-management-gateway-high-availability-scalability/express-setup-success.png)
+    2. Launch Data Management Configuration Manager for the gateway by following [these instructions](data-factory-data-management-gateway.md#configuration-manager). You see the gateway name, node name, status, etc.
 
-		![Data Management Gateway - installation successful](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
+        ![Screenshot that shows where you can see the gateway name, node name, and status.](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
 4. If you choose **manual setup**:
-	1. Download the installation package from the Microsoft Download Center, run it to install gateway on your machine.
-	2. Use the **authentication key** from the **Configure** page to register the gateway.
-	
-		![Data Management Gateway - installation successful](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-authentication-key.png)
-	3. In the **New gateway node** page, you can provide a custom **name** to the gateway node. By default, node name is same as the machine name.    
+    1. Download the installation package from the Microsoft Download Center, run it to install gateway on your machine.
+    2. Use the **authentication key** from the **Configure** page to register the gateway.
+    
+        ![Screenshot that shows where to use the authentication key.](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-authentication-key.png)
+    3. In the **New gateway node** page, you can provide a custom **name** to the gateway node. By default, node name is same as the machine name.    
 
-		![Data Management Gateway - specify name](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-name.png)
-	4. In the next page, you can choose whether to **enable encryption for node-to-node communication**. Click **Skip** to disable encryption (default).
+        ![Data Management Gateway - specify name](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-name.png)
+    4. In the next page, you can choose whether to **enable encryption for node-to-node communication**. Click **Skip** to disable encryption (default).
 
-		![Data Management Gateway - enable encryption](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-node-encryption.png)  
-	
-		> [!NOTE]
-		> Changing of encryption mode is only supported when you have a single gateway node in the logical gateway. To change the encryption mode when a gateway has multiple nodes, do the following steps: delete all the nodes except one node, change the encryption mode, and then add the nodes again.
-		> 
-		> See [TLS/SSL certificate requirements](#tlsssl-certificate-requirements) section for a list of requirements for using an TLS/SSL certificate. 
-	5. After the gateway is successfully installed, click Launch Configuration Manager:
-	
-		![Manual setup - launch configuration manager](media/data-factory-data-management-gateway-high-availability-scalability/manual-setup-launch-configuration-manager.png)	 
-	6. you see Data Management Gateway Configuration Manager on the node (on-premises Windows machine), which shows connectivity status, **gateway name**, and **node name**.  
+        ![Data Management Gateway - enable encryption](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-node-encryption.png)  
+    
+        > [!NOTE]
+        > Changing of encryption mode is only supported when you have a single gateway node in the logical gateway. To change the encryption mode when a gateway has multiple nodes, do the following steps: delete all the nodes except one node, change the encryption mode, and then add the nodes again.
+        > 
+        > See [TLS/SSL certificate requirements](#tlsssl-certificate-requirements) section for a list of requirements for using an TLS/SSL certificate. 
+    5. After the gateway is successfully installed, click Launch Configuration Manager:
+    
+        ![Manual setup - launch configuration manager](media/data-factory-data-management-gateway-high-availability-scalability/manual-setup-launch-configuration-manager.png)     
+    6. you see Data Management Gateway Configuration Manager on the node (on-premises Windows machine), which shows connectivity status, **gateway name**, and **node name**.  
 
-		![Data Management Gateway - installation successful](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
+        ![Data Management Gateway - installation successful](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
 
-		> [!NOTE]
-		> If you are provisioning the gateway on an Azure VM, you can use [this Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-mutiple-vms-with-data-management-gateway). This script creates a logical gateway, sets up VMs with Data Management Gateway software installed, and registers them with the logical gateway. 
+        > [!NOTE]
+        > If you are provisioning the gateway on an Azure VM, you can use [this Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-mutiple-vms-with-data-management-gateway). This script creates a logical gateway, sets up VMs with Data Management Gateway software installed, and registers them with the logical gateway. 
 6. In Azure portal, launch the **Gateway** page: 
-	1. On the data factory home page in the portal, click **Linked Services**.
-	
-		![Data factory home page](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-home-page.png)
-	2. select the **gateway** to see the **Gateway** page:
-	
-		![Data factory home page](media/data-factory-data-management-gateway-high-availability-scalability/linked-services-gateway.png)
-	4. You see the **Gateway** page:   
+    1. On the data factory home page in the portal, click **Linked Services**.
+    
+        ![Screenshot that highlights the Linked services tile.](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-home-page.png)
+    2. select the **gateway** to see the **Gateway** page:
+    
+        ![Data factory home page](media/data-factory-data-management-gateway-high-availability-scalability/linked-services-gateway.png)
+    4. You see the **Gateway** page:   
 
-    	![Gateway with single node view](media/data-factory-data-management-gateway-high-availability-scalability/gateway-first-node-portal-view.png) 
+        ![Gateway with single node view](media/data-factory-data-management-gateway-high-availability-scalability/gateway-first-node-portal-view.png) 
 7. Click **Add Node** on the toolbar to add a node to the logical gateway. If you are planning to use express setup, do this step from the on-premises machine that will be added as a node to the gateway. 
 
-	![Data Management Gateway - add node menu](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-add-node-menu.png)
+    ![Data Management Gateway - add node menu](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-add-node-menu.png)
 8. Steps are similar to setting up the first node. The Configuration Manager UI lets you set the node name if you choose the manual installation option: 
 
     ![Configuration Manager - install second gateway](media/data-factory-data-management-gateway-high-availability-scalability/install-second-gateway.png)
@@ -133,20 +124,20 @@ You can upgrade an existing gateway to use the high availability and scalability
 1. Update the gateway on the on-premises machine to the latest version by following by downloading and running an MSI setup package from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). See [installation](data-factory-data-management-gateway.md#installation) section for details.  
 2. Navigate to the Azure portal. Launch the **Data Factory page** for your data factory. Click Linked services tile to launch the **linked services page**. Select the gateway to launch the **gateway page**. Click and enable **Preview Feature** as shown in the following image: 
 
-	![Data Management Gateway - enable preview feature](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-existing-gateway-enable-high-availability.png)   
+    ![Data Management Gateway - enable preview feature](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-existing-gateway-enable-high-availability.png)   
 2. Once the preview feature is enabled in the portal, close all pages. Reopen the **gateway page** to see the new preview user interface (UI).
  
-	![Data Management Gateway - enable preview feature success](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-preview-success.png)
+    ![Data Management Gateway - enable preview feature success](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-preview-success.png)
 
-	![Data Management Gateway - preview UI](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-preview.png)
+    ![Data Management Gateway - preview UI](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-preview.png)
 
-	> [!NOTE]
-	> During the upgrade, name of the first node is the name of the machine. 
+    > [!NOTE]
+    > During the upgrade, name of the first node is the name of the machine. 
 3. Now, add a node. In the **Gateway** page, click **Add Node**.  
 
-	![Data Management Gateway - add node menu](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-add-node-menu.png)
+    ![Data Management Gateway - add node menu](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-add-node-menu.png)
 
-	Follow instructions from the previous section to set up the node. 
+    Follow instructions from the previous section to set up the node. 
 
 ### Installation best practices
 
@@ -198,7 +189,7 @@ Role | There are two types of roles – Dispatcher and worker. All nodes are wor
 
 The following table provides possible statuses of a **gateway node**: 
 
-Status	| Comments/Scenarios
+Status    | Comments/Scenarios
 :------- | :------------------
 Online | Node connected to Data Factory service.
 Offline | Node is offline.
@@ -244,11 +235,11 @@ When the available memory and CPU are not utilized well, but the idle capacity i
 - You cannot register a gateway node to a logical gateway when the node version is lower than the logical gateway version. Delete all nodes of the logical gateway from portal so that you can register a lower version node(downgrade) it. If you delete all nodes of a logical gateway, manually install and register new nodes to that logical gateway. Express setup is not supported in this case.
 - You cannot use express setup to install nodes to an existing logical gateway, which is still using cloud credentials. You can check where the credentials are stored from the Gateway Configuration Manager on the Settings tab.
 - You cannot use express setup to install nodes to an existing logical gateway, which has node-to-node encryption enabled. As setting the encryption mode involves manually adding certificates, express install is no more an option. 
-- For a file copy from on-premises environment, you should not use \\localhost or C:\files anymore since localhost or local drive might not be accessible via all nodes. Instead, use \\ServerName\files to specify files’ location.
+- For a file copy from on-premises environment, you should not use \\localhost or C:\files anymore since localhost or local drive might not be accessible via all nodes. Instead, use \\ServerName\files to specify files' location.
 
 
 ## Rolling back from the preview 
-To roll back from the preview, delete all nodes but one node. It doesn’t matter which nodes you delete, but ensure you have at least one node in the logical gateway. You can delete a node either by uninstalling gateway on the machine or by using the Azure portal. In the Azure portal, in the **Data Factory** page, click Linked services to launch the **Linked services** page. Select the gateway to launch the **Gateway** page. In the Gateway page, you can see the nodes associated with the gateway. The page lets you delete a node from the gateway.
+To roll back from the preview, delete all nodes but one node. It doesn't matter which nodes you delete, but ensure you have at least one node in the logical gateway. You can delete a node either by uninstalling gateway on the machine or by using the Azure portal. In the Azure portal, in the **Data Factory** page, click Linked services to launch the **Linked services** page. Select the gateway to launch the **Gateway** page. In the Gateway page, you can see the nodes associated with the gateway. The page lets you delete a node from the gateway.
  
 After deleting, click **preview features** in the same Azure portal page, and disable the preview feature. You have reset your gateway to one node GA (general availability) gateway.
 

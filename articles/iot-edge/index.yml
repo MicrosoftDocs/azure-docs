@@ -47,12 +47,14 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Install the IoT Edge runtime
-            url: how-to-install-iot-edge.md
-          - text: Register and provision a single device
-            url: how-to-manual-provision-symmetric-key.md
+          - text: Register a single device
+            url: how-to-register-device.md
           - text: Register and provision devices at scale
             url: how-to-auto-provision-symmetric-keys.md
+          - text: Install the IoT Edge runtime on Linux devices
+            url: how-to-install-iot-edge.md
+          - text: Install the IoT Edge runtime on Windows devices
+            url: how-to-install-iot-edge-on-windows.md
   - title: Engage with the open-source community
     linkLists:
       - linkListType: get-started

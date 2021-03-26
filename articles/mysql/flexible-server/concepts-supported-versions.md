@@ -1,8 +1,8 @@
 ---
 title: Supported versions - Azure Database for MySQL Flexible Server
 description: Learn which versions of the MySQL server are supported in the Azure Database for MySQL Flexible Server
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
@@ -38,6 +38,6 @@ The service automatically manages patching for bug fix version updates. For exam
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Build a PHP app on Windows with MySQL](../../app-service/app-service-web-tutorial-php-mysql.md)<br/>
->[Build PHP app on Linux with MySQL](../../app-service/containers/tutorial-php-mysql-app.md)<br/>
->[Build Java based Spring App with MySQL](https://docs.microsoft.com/azure/developer/java/spring-framework/spring-app-service-e2e?tabs=bash)<br/>
+>[Build a PHP app on Windows with MySQL](../../app-service/tutorial-php-mysql-app.md)<br/>
+>[Build PHP app on Linux with MySQL](../../app-service/tutorial-php-mysql-app.md?pivots=platform-linux%253fpivots%253dplatform-linux)<br/>
+>[Build Java based Spring App with MySQL](/azure/developer/java/spring-framework/spring-app-service-e2e?tabs=bash)<br/>

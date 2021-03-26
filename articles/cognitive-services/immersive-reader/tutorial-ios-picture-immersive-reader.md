@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
-ms.author: metan
+ms.author: metang
 #Customer intent: As a developer, I want to integrate two Cognitive Services, the Immersive Reader and the Read API into my iOS application so that I can view any text from a photo in the Immersive Reader.
 ---
 
@@ -17,7 +17,7 @@ ms.author: metan
 
 The [Immersive Reader](https://www.onenote.com/learningtools) is an inclusively designed tool that implements proven techniques to improve reading comprehension.
 
-The [Computer Vision Cognitive Services Read API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) detects text content in an image using Microsoft's latest recognition models and converts the identified text into a machine-readable character stream.
+The [Computer Vision Cognitive Services Read API](../computer-vision/concept-recognizing-text.md) detects text content in an image using Microsoft's latest recognition models and converts the identified text into a machine-readable character stream.
 
 In this tutorial, you will build an iOS app from scratch and integrate the Read API, and the Immersive Reader by using the Immersive Reader SDK. A full working sample of this tutorial is available [here](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios).
 

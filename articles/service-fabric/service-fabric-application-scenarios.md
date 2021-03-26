@@ -3,7 +3,6 @@ title: Application scenarios and design
 description: Overview of categories of cloud applications in Service Fabric. Discusses application design that uses stateful and stateless services.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.custom: sfrev
 ---
 # Service Fabric application scenarios
 
@@ -68,7 +67,7 @@ Here's an example application that uses stateful services:
 * Get started building stateless and stateful services with the Service Fabric
   [Reliable Services](service-fabric-reliable-services-quick-start.md) and [Reliable Actors](service-fabric-reliable-actors-get-started.md) programming models.
 * Visit the Azure Architecture Center for guidance on [building microservices on Azure](/azure/architecture/microservices/).
-* Go to [Azure Service Fabric application and cluster best practices](service-fabric-best-practices-overview.md) for application design guidance.
+* Go to [Azure Service Fabric application and cluster best practices](./service-fabric-best-practices-security.md) for application design guidance.
 
 * See also:
   * [Understanding microservices](service-fabric-overview-microservices.md)

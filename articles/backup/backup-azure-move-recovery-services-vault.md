@@ -12,24 +12,20 @@ This article explains how to move a Recovery Services vault configured for Azure
 
 ## Supported regions
 
-Resource move for Recovery Services vault is supported in Australia East, Australia South East, Canada Central, Canada East, South East Asia, East Asia, Central US, North Central US, East US, East US 2, South Central US, West Central US, West Central US 2, West US, West US 2, Brazil South, Central India, South India, Japan East, Japan West, Korea Central, Korea South, North Europe, West Europe, South Africa North, South Africa West, UK South, and UK West.
-
-## Unsupported regions
-
-France Central, France South, Germany Northeast, Germany Central, US Gov Iowa, China North, China North2, China East, China East2
+All public regions and sovereign regions are supported, except France Central, France South, Germany Northeast, Germany Central, China North, China North2, China East, and China East2.
 
 ## Prerequisites for moving Recovery Services vault
 
 - During vault move across resource groups, both the source and target resource groups are locked preventing the write and delete operations. For more information, see this [article](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 - Only admin subscription has the permissions to move a vault.
-- For moving vaults across subscriptions, the target subscription must reside in the same tenant as the source subscription and its state should be enabled.
+- For moving vaults across subscriptions, the target subscription must reside in the same tenant as the source subscription and its state must be enabled. To move a vault to a different Azure AD directory, see [Transfer subscription to a different directory](../role-based-access-control/transfer-subscription.md) and [Recovery Service vault FAQs](backup-azure-backup-faq.md#recovery-services-vault).
 - You must have permission to perform write operations on the target resource group.
 - Moving the vault only changes the resource group. The Recovery Services vault will reside on the same location and it can't be changed.
 - You can move only one Recovery Services vault, per region, at a time.
 - If a VM doesn't move with the Recovery Services vault across subscriptions, or to a new resource group, the current VM recovery points will remain intact in the vault until they expire.
 - Whether the VM is moved with the vault or not, you can always restore the VM from the retained backup history in the vault.
 - The Azure Disk Encryption requires that the key vault and VMs reside in the same Azure region and subscription.
-- To move a virtual machine with managed disks, see this [article](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription).
+- To move a virtual machine with managed disks, see this [article](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 - The options for moving resources deployed through the Classic model differ depending on whether you're moving the resources within a subscription, or to a new subscription. For more information, see this [article](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 - Backup policies defined for the vault are retained after the vault moves across subscriptions or to a new resource group.
 - You can only move a vault that contains any of the following types of backup items. Any backup items of types not listed below will need to be stopped and the data permanently deleted before moving the vault.
@@ -64,7 +60,7 @@ To move a Recovery Services vault and its associated resources to different reso
 
    ![Move Subscription](./media/backup-azure-move-recovery-services/move-resource.png)
 
-5. To add the target resource group, in the **Resource group** drop-down list select an existing resource group or select **create a new group** option.
+5. To add the target resource group, in the **Resource group** drop-down list, select an existing resource group or select **create a new group** option.
 
    ![Create Resource](./media/backup-azure-move-recovery-services/create-a-new-resource.png)
 
@@ -94,7 +90,7 @@ You can move a Recovery Services vault and its associated resources to a differe
    ![move resource](./media/backup-azure-move-recovery-services/move-resource-source-subscription.png)
 
 5. Select the target subscription from the **Subscription** drop-down list, where you want the vault to be moved.
-6. To add the target resource group, in the **Resource group** drop-down list select an existing resource group or select **create a new group** option.
+6. To add the target resource group, in the **Resource group** drop-down list, select an existing resource group or select **create a new group** option.
 
    ![Add Subscription](./media/backup-azure-move-recovery-services/add-subscription.png)
 

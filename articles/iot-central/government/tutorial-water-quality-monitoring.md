@@ -3,7 +3,7 @@ title: 'Tutorial: Create a water quality monitoring app with Azure IoT Central'
 description: 'Tutorial: Learn how to create a water quality monitoring application using Azure IoT Central application templates.'
 author: miriambrus
 ms.author: miriamb
-ms.date: 11/12/2019
+ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -12,8 +12,6 @@ manager: abjork
 
 
 # Tutorial: Create a water quality monitoring application in Azure IoT Central
-
-
 
 This tutorial guides you through the creation of a water quality monitoring application in Azure IoT Central. You create the application from the Azure IoT Central **Water quality monitoring** application template.
 
@@ -54,7 +52,7 @@ In this section, you use the Azure IoT Central **Water quality monitoring** temp
     * **URL**: You can enter any URL you want or change the URL value later.
     * If you have an Azure subscription, enter values for **Directory**, **Azure subscription**, and **Region**. If you don't have a subscription, you can turn on **7-day free trial** and complete the required contact information.
 
-    For more information about directories and subscriptions, see the [Create an application](../core/quick-deploy-iot-central.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) quickstart.
+    For more information about directories and subscriptions, see the [Create an application](../core/quick-deploy-iot-central.md) quickstart.
 
 1. Select the **Create** button on the lower-left part of the page.
 
@@ -184,7 +182,7 @@ On the **Devices** tab, select **+ New** to add a new device.
 
 ## Explore and configure rules
 
-In Azure IoT Central, you can create rules that automatically monitor device telemetry. These rules trigger an action when any of their conditions are met. One possible action is to send email notifications. Other possibilities include a Microsoft Flow action or a webhook action to send data to other services.
+In Azure IoT Central, you can create rules that automatically monitor device telemetry. These rules trigger an action when any of their conditions are met. One possible action is to send email notifications. Other possibilities include a Power Automate action or a webhook action to send data to other services.
 
 The water quality monitoring application you created has two preconfigured rules.
 

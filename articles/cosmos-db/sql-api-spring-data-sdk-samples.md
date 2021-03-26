@@ -11,6 +11,7 @@ ms.author: anfeldma
 
 ---
 # Azure Cosmos DB SQL API: Spring Data Azure Cosmos DB v3 examples
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET V2 SDK Examples](sql-api-dotnet-samples.md)

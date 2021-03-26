@@ -3,7 +3,7 @@ title: 'ML Studio (classic): Net# custom neural networks - Azure'
 description: Syntax guide for the Net# neural networks specification language. Learn how to create custom neural network models in Azure Machine Learning Studio (classic).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: reference
 
 author: likebupt
@@ -13,14 +13,14 @@ ms.date: 03/01/2018
 ---
 # Guide to Net# neural network specification language for Machine Learning Studio (classic)
 
-**APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 Net# is a language developed by Microsoft that is used to define complex neural network architectures such as deep neural networks or convolutions of arbitrary dimensions. You can use complex structures to improve learning on data such as image, video, or audio.
 
 You can use a Net# architecture specification in these contexts:
 
-+ All neural network modules in Microsoft Azure Machine Learning Studio (classic): [Multiclass Neural Network](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network), [Two-Class Neural Network](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network), and [Neural Network Regression](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
-+ Neural network functions in Microsoft ML Server: [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) and [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet)for the R language, and [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) for Python.
++ All neural network modules in Microsoft Azure Machine Learning Studio (classic): [Multiclass Neural Network](/azure/machine-learning/studio-module-reference/multiclass-neural-network), [Two-Class Neural Network](/azure/machine-learning/studio-module-reference/two-class-neural-network), and [Neural Network Regression](/azure/machine-learning/studio-module-reference/neural-network-regression)
++ Neural network functions in Microsoft ML Server: [NeuralNet](/machine-learning-server/r-reference/microsoftml/neuralnet) and [rxNeuralNet](/machine-learning-server/r-reference/microsoftml/rxneuralnet)for the R language, and [rx_neural_network](/machine-learning-server/python-reference/microsoftml/rx-neural-network) for Python.
 
 
 This article describes the basic concepts and syntax needed to develop a custom neural network using Net#:
@@ -220,7 +220,7 @@ There are two sets of properties that control padding, the properties being mutu
 
 For more information about convolutional networks and their applications, see these articles:
 
-+ [http://deeplearning.net/tutorial/lenet.html](http://deeplearning.net/tutorial/lenet.html)
++ [http://d2l.ai/chapter_convolutional-neural-networks/lenet.html ](http://d2l.ai/chapter_convolutional-neural-networks/lenet.html )
 + [https://research.microsoft.com/pubs/68920/icdar03.pdf](https://research.microsoft.com/pubs/68920/icdar03.pdf)
 
 ## Pooling bundles
@@ -459,4 +459,4 @@ output Digit [10] from Hid3 all;
 
 ## Acknowledgements
 
-The Net# language for customizing the architecture of neural networks was developed at Microsoft by Shon Katzenberger (Architect, Machine Learning) and Alexey Kamenev (Software Engineer, Microsoft Research). It is used internally for machine learning projects and applications ranging from image detection to text analytics. For more information, see [Neural Nets in Azure Machine Learning studio - Introduction to Net#](https://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)
+The Net# language for customizing the architecture of neural networks was developed at Microsoft by Shon Katzenberger (Architect, Machine Learning) and Alexey Kamenev (Software Engineer, Microsoft Research). It is used internally for machine learning projects and applications ranging from image detection to text analytics. For more information, see [Neural Nets in Azure Machine Learning studio - Introduction to Net#](/archive/blogs/machinelearning/neural-nets-in-azure-ml-introduction-to-net)

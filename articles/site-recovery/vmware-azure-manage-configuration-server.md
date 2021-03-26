@@ -1,11 +1,12 @@
 ---
 title: Manage the configuration server for disaster recovery with Azure Site Recovery
+description: Learn about the common tasks to manage an on-premises configuration server for disaster recovery of VMware VMs and physical servers to Azure with Azure Site Recovery.
 author: Rajeswari-Mamilla
+ms.author: ramamill
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.author: ramamill
 ---
 
 # Manage the configuration server for VMware VM/physical server disaster recovery
@@ -179,13 +180,13 @@ Upgrade the server as follows:
     ![Update](./media/vmware-azure-manage-configuration-server/update2.png)
 3. Download the update installer file to the configuration server.
 
-    ![Update](./media/vmware-azure-manage-configuration-server/update1.png)
+    ![Screenshot that shows where to click to download the update installer file.](./media/vmware-azure-manage-configuration-server/update1.png)
 
 4. Double-click to run the installer.
 5. The installer detects the current version running on the machine. Click **Yes** to start the upgrade.
 6. When the upgrade completes the server configuration validates.
 
-    ![Update](./media/vmware-azure-manage-configuration-server/update3.png)
+    ![Screenshot that shows the completed server validation configuration.](./media/vmware-azure-manage-configuration-server/update3.png)
 
 7. Click **Finish** to close the installer.
 8. To upgrade rest of the Site Recovery components, refer to our [upgrade guidance](./service-updates-how-to.md#vmware-vmphysical-server-disaster-recovery-to-azure).

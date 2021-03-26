@@ -32,7 +32,7 @@ Use this article to migrate your applications from the Microsoft Translator Spee
 | Multiple languages translated in a single request | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | SDKs available                                    | :heavy_minus_sign:                                              | :heavy_check_mark:                 | See the [Speech service documentation](index.yml) for available SDKs.                                                                                                                                                    |
 | WebSockets connections                            | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| Languages API                                     | :heavy_check_mark:                                              | :heavy_minus_sign:                 | The Speech service supports the same range of languages described in the [Translator languages reference](../translator-speech/languages-reference.md) article. |
+| Languages API                                     | :heavy_check_mark:                                              | :heavy_minus_sign:                 | The Speech service supports the same range of languages described in the [Translator languages reference]() article. |
 | Profanity Filter and Marker                       | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | .WAV/PCM as input                                 | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Other file types as input                         | :heavy_minus_sign:                                              | :heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
@@ -57,9 +57,9 @@ If you or your organization have applications in development or production that 
 ## Next steps
 
 * [Try out Speech service for free](overview.md#try-the-speech-service-for-free)
-* [Quickstart: Recognize speech in a UWP app using the Speech SDK](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
+* [Quickstart: Recognize speech in a UWP app using the Speech SDK](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=uwp)
 
 ## See also
 
 * [What is the Speech service](overview.md)
-* [Speech service and Speech SDK documentation](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg)
+* [Speech service and Speech SDK documentation](./speech-devices-sdk-quickstart.md?pivots=platform-android)

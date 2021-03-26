@@ -64,17 +64,17 @@
 - name: Reference
   items:
   - name: REST v7 API
-    href: https://aka.ms/bingvisualsearchreferencedoc
+    href: /rest/api/cognitiveservices/bingvisualsearch/images/visualsearch
   - name: SDKs
     items:
       - name: .NET
-        href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-dotnet
+        href: /dotnet/api/overview/azure/cognitiveservices/bing-visual-search-readme
       - name: Java
-        href:  https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-java-stable
+        href:  /java/api/overview/azure/cognitiveservices/client/bingvisualsearch
       - name: Python
-        href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/visualsearch?view=azure-python
+        href: /python/api/azure-cognitiveservices-search-visualsearch/
       - name: Node.js
-        href: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-visualsearch/?view=azure-node-latest
+        href: /javascript/api/@azure/cognitiveservices-visualsearch/
   - name: Use and display requirements
     href: ../Bing-Web-Search/use-display-requirements.md
     maintainContext: true

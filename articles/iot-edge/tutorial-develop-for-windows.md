@@ -11,11 +11,16 @@ services: iot-edge
 ms.custom: mvc
 ---
 
-# Tutorial: Develop IoT Edge modules for Windows devices
+# Tutorial: Develop IoT Edge modules using Windows containers
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 Use Visual Studio to develop and deploy code to Windows devices running IoT Edge.
 
-In the quickstart, you created an IoT Edge device using a Windows virtual machine and deployed a pre-built module from the Azure Marketplace. This tutorial walks through what it takes to develop and deploy your own code to an IoT Edge device. This tutorial is a useful prerequisite for the other tutorials, which go into more detail about specific programming languages or Azure services.
+>[!NOTE]
+>IoT Edge 1.1 LTS is the last release channel that will support Windows containers. Starting with version 1.2, Windows containers are not supported. Consider using or moving to [IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md) to run IoT Edge on Windows devices.
+
+This tutorial walks through what it takes to develop and deploy your own code to an IoT Edge device. This tutorial is a useful prerequisite for the other tutorials, which go into more detail about specific programming languages or Azure services.
 
 This tutorial uses the example of deploying a **C# module to a Windows device**. This example was chosen because it's the most common development scenario. If you're interested in developing in a different language, or plan on deploying Azure services as modules, this tutorial will still be helpful to learn about the development tools. Once you understand the development concepts, then you can choose your preferred language or Azure service to dive into the details.
 
@@ -27,6 +32,24 @@ In this tutorial, you learn how to:
 > * Use the IoT Edge tools for Visual Studio to create a new project.
 > * Build your project as a container and store it in an Azure container registry.
 > * Deploy your code to an IoT Edge device.
+
+## Prerequisites
+
+A development machine:
+
+* Windows 10 with 1809 update or newer.
+* You can use your own computer or a virtual machine, depending on your development preferences.
+  * Make sure that your development machine supports nested virtualization. This capability is necessary for running a container engine, which you install in the next section.
+* Install [Git](https://git-scm.com/).
+
+An Azure IoT Edge device on Windows:
+
+* [Install and manage Azure IoT Edge with Windows containers](how-to-install-iot-edge-windows-on-windows.md).
+* We recommend that you don't run IoT Edge on your development machine, but instead use a separate device if possible. This distinction between development machine and IoT Edge device more accurately mirrors a true deployment scenario, and helps to keep the different concepts straight.
+
+Cloud resources:
+
+* A free or standard-tier [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -45,24 +68,6 @@ The following table lists the supported development scenarios for **Windows cont
 | **Azure services** | Azure Functions <br> Azure Stream Analytics |   |
 | **Languages** | C# (debugging not supported) | C <br> C# |
 | **More information** | [Azure IoT Edge for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge Tools for Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)<br>[Azure IoT Edge Tools for Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
-
-## Prerequisites
-
-A development machine:
-
-* Windows 10 with 1809 update or newer.
-* You can use your own computer or a virtual machine, depending on your development preferences.
-  * Make sure that your development machine supports nested virtualization. This capability is necessary for running a container engine, which you install in the next section.
-* Install [Git](https://git-scm.com/).
-
-An Azure IoT Edge device on Windows:
-
-* We recommend that you don't run IoT Edge on your development machine, but instead use a separate device. This distinction between development machine and IoT Edge device more accurately mirrors a true deployment scenario, and helps to keep the different concepts straight.
-* If you don't have a second device available, use the quickstart article to create an IoT Edge device in Azure with a [Windows virtual machine](quickstart.md).
-
-Cloud resources:
-
-* A free or standard-tier [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
 
 ## Install container engine
 

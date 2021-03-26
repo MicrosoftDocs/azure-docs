@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 09/22/2020
+ms.date: 03/05/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
@@ -22,15 +22,14 @@ You can choose to use either Microsoft-managed keys or customer-managed keys sto
 
 After you have created an encryption scope, you can specify that encryption scope on a request to create a container or a blob. For more information about how to create an encryption scope, see [Create and manage encryption scopes (preview)](encryption-scope-manage.md).
 
-> [!NOTE]
+> [!IMPORTANT]
+> Encryption scopes are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+> To avoid unexpected costs, be sure to disable any encryption scopes that you do not currently need.
+>
 > Encryption scopes are not supported with read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS) accounts during preview.
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
-
-> [!IMPORTANT]
-> The encryption scopes preview is intended for non-production use only. Production service-level agreements (SLAs) are not currently available.
->
-> To avoid unexpected costs, be sure to disable any encryption scopes that you do not currently need.
 
 ## Create a container or blob with an encryption scope
 
@@ -48,8 +47,8 @@ When an encryption scope is disabled, you are no longer billed for it. Disable a
 
 If your encryption scope is protected with customer-managed keys, then you can also delete the associated key in the key vault in order to disable the encryption scope. Keep in mind that customer-managed keys are protected by soft delete and purge protection in the key vault, and a deleted key is subject to the behavior defined for by those properties. For more information, see one of the following topics in the Azure Key Vault documentation:
 
-- [How to use soft-delete with PowerShell](../../key-vault/general/soft-delete-powershell.md)
-- [How to use soft-delete with CLI](../../key-vault/general/soft-delete-cli.md)
+- [How to use soft-delete with PowerShell](../../key-vault/general/key-vault-recovery.md)
+- [How to use soft-delete with CLI](../../key-vault/general/key-vault-recovery.md)
 
 > [!NOTE]
 > It is not possible to delete an encryption scope.

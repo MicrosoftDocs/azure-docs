@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/17/2020
+ms.date: 10/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
 # List Azure role assignments using Azure CLI
 
-[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] This article describes how to list role assignments using Azure CLI.
+[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control/definition-list.md)] This article describes how to list role assignments using Azure CLI.
 
 > [!NOTE]
 > If your organization has outsourced management functions to a service provider who uses [Azure delegated resource management](../lighthouse/concepts/azure-delegated-resource-management.md), role assignments authorized by that service provider won't be shown here.
 
 ## Prerequisites
 
-- [Bash in Azure Cloud Shell](/azure/cloud-shell/overview) or [Azure CLI](/cli/azure)
+- [Bash in Azure Cloud Shell](../cloud-shell/overview.md) or [Azure CLI](/cli/azure)
 
 ## List role assignments for a user
 
@@ -157,15 +157,15 @@ az role assignment list --scope /providers/Microsoft.Management/managementGroups
 
 ## List role assignments for a managed identity
 
-1. Get the object ID of the system-assigned or user-assigned managed identity.
+1. Get the principal ID of the system-assigned or user-assigned managed identity.
 
-    To get the object ID of a user-assigned managed identity, you can use [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) or [az identity list](/cli/azure/identity#az-identity-list).
+    To get the principal ID of a user-assigned managed identity, you can use [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) or [az identity list](/cli/azure/identity#az-identity-list).
 
     ```azurecli
     az ad sp list --display-name "{name}" --query [].objectId --output tsv
     ```
 
-    To get the object ID of a system-assigned managed identity, you can use [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list).
+    To get the principal ID of a system-assigned managed identity, you can use [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list).
 
     ```azurecli
     az ad sp list --display-name "{vmname}" --query [].objectId --output tsv
@@ -181,4 +181,4 @@ az role assignment list --scope /providers/Microsoft.Management/managementGroups
 
 ## Next steps
 
-- [Add or remove Azure role assignments using Azure CLI](role-assignments-cli.md)
+- [Assign Azure roles using Azure CLI](role-assignments-cli.md)

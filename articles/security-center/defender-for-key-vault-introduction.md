@@ -21,8 +21,8 @@ Enable **Azure Defender for Key Vault** for Azure-native, advanced threat protec
 
 |Aspect|Details|
 |----|:----|
-|Release state:|Generally available (GA)|
-|Pricing:|**Azure Defender for Key Vault** is billed as shown on [the pricing page](security-center-pricing.md)|
+|Release state:|General Availability (GA)|
+|Pricing:|**Azure Defender for Key Vault** is billed as shown on [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/)|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
 |||
 
@@ -51,5 +51,5 @@ In this article, you learned about Azure Defender for Key Vault.
 For related material, see the following articles: 
 
 - [Key Vault security alerts](alerts-reference.md#alerts-azurekv)--The Key Vault section of the reference table for all Azure Security Center alerts
-- [Exporting alerts to a SIEM](continuous-export.md)
+- [Continuously export Security Center data](continuous-export.md)
 - [Suppress alerts from Azure Defender](alerts-suppression-rules.md)

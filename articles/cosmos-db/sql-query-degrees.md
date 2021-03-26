@@ -3,12 +3,15 @@ title: DEGREES in Azure Cosmos DB query language
 description: Learn about the DEGREES SQL system function in Azure Cosmos DB to return the corresponding angle in degrees for an angle specified in radians
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ---
 # DEGREES (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns the corresponding angle in degrees for an angle specified in radians.  
   
 ## Syntax

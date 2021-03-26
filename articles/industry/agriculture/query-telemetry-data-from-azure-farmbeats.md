@@ -106,7 +106,7 @@ In the above example response, the queried sensor telemetry gives data for two t
 
 FarmBeats leverages [Azure Time Series Insights (TSI)](https://azure.microsoft.com/services/time-series-insights/) to ingest, store, query, and visualize data at IoT scale--data that's highly contextualized and optimized for time series.
 
-Telemetry data is received on an EventHub and then processed and pushed to a TSI environment within FarmBeats resource group. Data can then be directly queried from the TSI. For more information, see [TSI documentation](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer)
+Telemetry data is received on an EventHub and then processed and pushed to a TSI environment within FarmBeats resource group. Data can then be directly queried from the TSI. For more information, see [TSI documentation](../../time-series-insights/time-series-insights-explorer.md)
 
 Follow the steps to visualize data on TSI:
 

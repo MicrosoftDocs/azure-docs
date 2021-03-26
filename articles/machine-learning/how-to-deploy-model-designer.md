@@ -1,21 +1,23 @@
 ---
 title: Use the studio to deploy models trained in the designer
 titleSuffix: Azure Machine Learning
-description: 'Use Azure Machine Learning studio to deploy models trained in the designer.'
+description: Use Azure Machine Learning studio to deploy machine learning models without writing a single line of code.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: keli19
 author: likebupt
 ms.reviewer: peterlu
-ms.date: 10/12/2020
+ms.date: 10/29/2020
 ms.topic: conceptual
-ms.custom: how-to, deploy, studio
+ms.custom: how-to, deploy, studio, designer
 ---
 
 # Use the studio to deploy models trained in the designer
 
-In this article, you learn how to deploy a trained model from the designer as a real-time endpoint in Azure Machine Learning studio.
+In this article, you learn how to deploy a designer model as a real-time endpoint in Azure Machine Learning studio.
+
+Once registered or downloaded, you can use designer trained models just like any other model. Exported models can be deployed in use cases such as internet of things (IoT) and local deployments.
 
 Deployment in the studio consists of the following steps:
 
@@ -56,7 +58,6 @@ After the training pipeline completes, register the trained model to your Azure 
 After registering your model, you can find it in the **Models** asset page in the studio.
     
 ![Screenshot of registered model in the Models asset page](./media/how-to-deploy-model-designer/models-asset-page.png)
-
 
 ## Download the entry script file and conda dependencies file
 
@@ -294,6 +295,7 @@ score_params = dict(
 ## Next steps
 
 * [Train a model in the designer](tutorial-designer-automobile-price-train-score.md)
+* [Deploy models with Azure Machine Learning SDK](how-to-deploy-and-where.md)
 * [Troubleshoot a failed deployment](how-to-troubleshoot-deployment.md)
 * [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Create client applications to consume web services](how-to-consume-web-service.md)

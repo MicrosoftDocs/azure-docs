@@ -10,10 +10,11 @@ ms.date: 07/29/2020
 ---
 
 # Create a resource lock for Azure Cosmos Gremlin API database and graph using Azure CLI
+[!INCLUDE[appliesto-gremlin-api](../../../includes/appliesto-gremlin-api.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.9.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+- This article requires version 2.9.1 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 > [!IMPORTANT]
 > Resource locks do not work for changes made by users connecting using any Gremlin SDK or the Azure Portal unless the Cosmos DB account is first locked with the `disableKeyBasedMetadataWriteAccess` property enabled. To learn more about how to enable this property see, [Preventing changes from SDKs](../../../role-based-access-control.md#prevent-sdk-changes).
@@ -35,8 +36,8 @@ This script uses the following commands. Each command in the table links to comm
 
 ## Next steps
 
--[Lock resources to prevent unexpected changes](../../../../azure-resource-manager/management/lock-resources.md)
+- [Lock resources to prevent unexpected changes](../../../../azure-resource-manager/management/lock-resources.md)
 
--[Azure Cosmos DB CLI documentation](/cli/azure/cosmosdb).
+- [Azure Cosmos DB CLI documentation](/cli/azure/cosmosdb).
 
--[Azure Cosmos DB CLI GitHub Repository](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
+- [Azure Cosmos DB CLI GitHub Repository](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).

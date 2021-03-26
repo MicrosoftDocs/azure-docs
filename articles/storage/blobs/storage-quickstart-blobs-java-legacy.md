@@ -5,10 +5,10 @@ author: mhopkins-msft
 
 ms.custom: devx-track-java
 ms.author: mhopkins
-ms.date: 07/24/2020
+ms.date: 01/19/2021
 ms.service: storage
 ms.subservice: blobs
-ms.topic: conceptual
+ms.topic: quickstart
 ---
 
 # Quickstart: Manage blobs with Java v8 SDK
@@ -100,7 +100,7 @@ The first thing to do is create the references to the objects used to access and
     Once you have the **CloudBlobContainer**, you can create an instance of the [CloudBlockBlob](/java/api/com.microsoft.azure.storage.blob.cloudblockblob) object that points to the specific blob you're interested in, and perform an upload, download, copy, or other operation.
 
 > [!IMPORTANT]
-> Container names must be lowercase. For more information about containers, see [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+> Container names must be lowercase. For more information about containers, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
 ### Create a container
 
@@ -121,7 +121,7 @@ container.createIfNotExists(BlobContainerPublicAccessType.CONTAINER, new BlobReq
 
 ### Upload blobs to the container
 
-To upload a file to a block blob, get a reference to the blob in the target container. Once you have the blob reference, you can upload data to it by using [Cloud​Block​Blob.​Upload​](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob.cloudblockblob.upload). This operation creates the blob if it doesn't already exist, or overwrites the blob if it already exists.
+To upload a file to a block blob, get a reference to the blob in the target container. Once you have the blob reference, you can upload data to it by using [Cloud​Block​Blob.​Upload​](/java/api/com.microsoft.azure.storage.blob.cloudblockblob.upload). This operation creates the blob if it doesn't already exist, or overwrites the blob if it already exists.
 
 The sample code creates a local file to be used for the upload and download, storing the file to be uploaded as **source** and the name of the blob in **blob**. The following example uploads the file to your container called **quickstartcontainer**.
 
@@ -147,7 +147,7 @@ Block blobs can be any type of text or binary file. Page blobs are primarily use
 
 ### List the blobs in a container
 
-You can get a list of files in the container using [Cloud​Blob​Container.​List​Blobs](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.listblobs). The following code retrieves the list of blobs, then loops through them, showing the URIs of the blobs found. You can copy the URI from the command window and paste it into a browser to view the file.
+You can get a list of files in the container using [Cloud​Blob​Container.​List​Blobs](/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.listblobs). The following code retrieves the list of blobs, then loops through them, showing the URIs of the blobs found. You can copy the URI from the command window and paste it into a browser to view the file.
 
 ```java
 //Listing contents of container
@@ -158,7 +158,7 @@ for (ListBlobItem blobItem : container.listBlobs()) {
 
 ### Download blobs
 
-Download blobs to your local disk using [Cloud​Blob.​Download​To​File](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob.cloudblob.downloadtofile).
+Download blobs to your local disk using [Cloud​Blob.​Download​To​File](/java/api/com.microsoft.azure.storage.blob.cloudblob.downloadtofile).
 
 The following code downloads the blob uploaded in a previous section, adding a suffix of "_DOWNLOADED" to the blob name so you can see both files on local disk.
 
@@ -173,7 +173,7 @@ blob.downloadToFile(downloadedFile.getAbsolutePath());
 
 ### Clean up resources
 
-If you no longer need the blobs that you have uploaded, you can delete the entire container using [Cloud​Blob​Container.​DeleteIfExists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.deleteifexists). This method also deletes the files in the container.
+If you no longer need the blobs that you have uploaded, you can delete the entire container using [Cloud​Blob​Container.​DeleteIfExists](/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.deleteifexists). This method also deletes the files in the container.
 
 ```java
 try {
@@ -197,5 +197,5 @@ sourceFile.deleteOnExit();
 In this article, you learned how to transfer files between a local disk and Azure Blob storage using Java. To learn more about working with Java, continue to our GitHub source code repository.
 
 > [!div class="nextstepaction"]
-> [Java API Reference](https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy)
+> [Java API Reference](/java/api/overview/azure/storage?view=azure-java-legacy&preserve-view=true)
 > [Code Samples for Java](../common/storage-samples-java.md)

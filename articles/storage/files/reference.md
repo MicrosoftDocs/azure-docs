@@ -21,7 +21,7 @@ The following table lists reference and sample documentation for Azure Files .NE
 |  Version  | Reference documentation | Package | Quickstart |
 | :-------: | ----------------------- | ------- | ---------- |
 | 12.x | [Azure Files client library v12 for .NET](/dotnet/api/overview/azure/storage.files.shares-readme) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Files/) | &nbsp; |
-| 11.x | [Microsoft.Azure.Storage.File Namespace](/dotnet/api/microsoft.azure.storage.file) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/) | [Develop for Azure Files with .NET](/azure/storage/files/storage-dotnet-how-to-use-files) |
+| 11.x | [Microsoft.Azure.Storage.File Namespace](/dotnet/api/microsoft.azure.storage.file) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/) | [Develop for Azure Files with .NET](./storage-dotnet-how-to-use-files.md) |
 
 ### Storage management
 
@@ -46,7 +46,7 @@ The following table lists reference and sample documentation for Azure Files Jav
 |  Version  | Reference documentation | Package | Quickstart |
 | :-------: | ----------------------- | ------- | ---------- |
 | 12.x | [Azure Files client library for Java](/java/api/overview/azure/storage-file-share-readme) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-file-share) | &nbsp; |
-| 8.x | [com.microsoft.azure.storage.file](/java/api/com.microsoft.azure.storage.file) | [Package (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) | [Develop for Azure Files with Java](/azure/storage/files/storage-java-how-to-use-file-storage) |
+| 8.x | [com.microsoft.azure.storage.file](/java/api/com.microsoft.azure.storage.file) | [Package (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) | [Develop for Azure Files with Java](./storage-java-how-to-use-file-storage.md) |
 
 ### Storage management
 
@@ -63,7 +63,7 @@ The following table lists reference and sample documentation for Azure Files Pyt
 |  Version  | Reference documentation | Package | Quickstart |
 | :-------: | ----------------------- | ------- | ---------- |
 | 12.x | [Azure Storage client libraries v12 for Python](/azure/developer/python/sdk/storage/overview) | [Package (PyPI)](https://pypi.org/project/azure-storage-file/12.0.0b4/) | [Examples](/python/api/overview/azure/storage-file-share-readme#examples) |
-| 2.x | [Azure Storage client libraries v2 for Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v2&preserve-view=true) | [Package (PyPI)](https://pypi.org/project/azure-storage-file/2.1.0/) | [Develop for Azure Files with Python](/azure/storage/files/storage-python-how-to-use-file-storage) |
+| 2.x | [Azure Storage client libraries v2 for Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v2&preserve-view=true) | [Package (PyPI)](https://pypi.org/project/azure-storage-file/2.1.0/) | [Develop for Azure Files with Python](./storage-python-how-to-use-file-storage.md) |
 
 ## JavaScript client libraries
 
@@ -102,7 +102,7 @@ The following table contains links to the latest version of reference content.
 
 | Version | Platform |
 | ------- | -------- |
-|  4.x  | [PowerShell](/powershell/module/az.storage/?view=azps-4.6.1&preserve-view=true) |
+|  4.x  | [PowerShell](/powershell/module/az.storage/?view=azps-4.8.0&preserve-view=true) |
 |  3.x  | [PowerShell](/powershell/module/az.storage/?view=azps-3.8.0&preserve-view=true) |
 |  2.x  | [PowerShell](/powershell/module/az.storage/?view=azps-2.8.0&preserve-view=true) |
 

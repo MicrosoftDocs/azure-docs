@@ -12,9 +12,9 @@ manager: philmea
 
 # Azure Maps geocoding coverage
 
-The Azure Maps [Search service](https://docs.microsoft.com/rest/api/maps/search) supports geocoding, which means that your API request can have search terms, like an address or the name of a place, and returns the result as latitude and longitude coordinates. For example, the Azure Maps [Get Search Address API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) receives queries that contain location information, and returns results as latitude and longitude coordinates.
+The Azure Maps [Search service](/rest/api/maps/search) supports geocoding, which means that your API request can have search terms, like an address or the name of a place, and returns the result as latitude and longitude coordinates. For example, the Azure Maps [Get Search Address API](/rest/api/maps/search/getsearchaddress) receives queries that contain location information, and returns results as latitude and longitude coordinates.
 
-However, the Azure Maps [Search service](https://docs.microsoft.com/rest/api/maps/search) doesn't have the same level of information and accuracy for all regions and countries. Use this article to determine what kind of locations you can reliably search for in each region.
+However, the Azure Maps [Search service](/rest/api/maps/search) doesn't have the same level of information and accuracy for all regions and countries. Use this article to determine what kind of locations you can reliably search for in each region.
 
 The ability to geocode in a country/region is dependent upon the road data coverage and geocoding precision of the geocoding service. The following categorizations are used to specify the level of geocoding support in each country/region.
 
@@ -296,4 +296,4 @@ The ability to geocode in a country/region is dependent upon the road data cover
 
 Learn more about Azure Maps geocoding:
 > [!div class="nextstepaction"]
-> [Azure Maps Search service](https://docs.microsoft.com/rest/api/maps/search)
+> [Azure Maps Search service](/rest/api/maps/search)

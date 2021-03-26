@@ -4,7 +4,7 @@ description: Learn how to provide single sign-on for on-premises applications th
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -29,9 +29,9 @@ SAML SSO with Application Proxy also works with the SAML token encryption featur
 
 The protocol diagrams below describe the single sign-on sequence for both a service provider-initiated (SP-initiated) flow and an identity provider-initiated (IdP-initiated) flow. Application Proxy works with SAML SSO by caching the SAML request and response to and from the on-premises application.
 
-  ![SAML SP Flow](./media/application-proxy-configure-single-sign-on-on-premises-apps/saml-sp-initiated-flow.png)
+  ![Diagram shows interactions of Application, Application Proxy, Client, and Azure A D for S P-Initiated single sign-on.](./media/application-proxy-configure-single-sign-on-on-premises-apps/saml-sp-initiated-flow.png)
 
-  ![SAML SP Flow](./media/application-proxy-configure-single-sign-on-on-premises-apps/saml-idp-initiated-flow.png)
+  ![Diagram shows interactions of Application, Application Proxy, Client, and Azure A D for I d P-Initiated single sign-on.](./media/application-proxy-configure-single-sign-on-on-premises-apps/saml-idp-initiated-flow.png)
 
 ## Create an application and set up SAML SSO
 
@@ -93,5 +93,5 @@ When you've completed all these steps, your app should be up and running. To tes
 
 ## Next steps
 
-- [How does Azure AD Application Proxy provide single sign-on?](application-proxy-single-sign-on.md)
+- [How does Azure AD Application Proxy provide single sign-on?](./what-is-single-sign-on.md)
 - [Troubleshoot Application Proxy](application-proxy-troubleshoot.md)

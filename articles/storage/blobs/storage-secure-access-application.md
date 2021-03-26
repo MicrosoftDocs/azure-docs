@@ -11,7 +11,7 @@ ms.topic: tutorial
 ms.date: 06/10/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.custom: "mvc, devx-track-csharp"
+ms.custom: "mvc, devx-track-csharp, devx-track-azurecli"
 ---
 
 # Secure access to application data

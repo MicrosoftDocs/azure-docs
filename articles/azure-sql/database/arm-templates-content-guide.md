@@ -34,7 +34,7 @@ The following table includes links to Azure Resource Manager templates for Azure
 | [Azure Web App with SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database) | This sample creates a free Azure web app and a database in Azure SQL Database at the "Basic" service level.|
 | [Azure Web App and Redis Cache with SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-redis-cache-sql-database) | This template creates a web app, Redis Cache, and database in the same resource group and creates two connection strings in the web app for the database and Redis Cache.|
 | [Import data from Blob storage using ADF V2](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-v2-blob-to-sql-copy) | This Azure Resource Manager template creates an instance of Azure Data Factory V2 that copies data from Azure Blob storage to SQL Database.|
-| [HDInsight cluster with a database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database) | This template allows you to create an HDInsight cluster, a logical SQL server, a database, and two tables. This template is used by the [Use Sqoop with Hadoop in HDInsight article](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-use-sqoop). |
+| [HDInsight cluster with a database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database) | This template allows you to create an HDInsight cluster, a logical SQL server, a database, and two tables. This template is used by the [Use Sqoop with Hadoop in HDInsight article](../../hdinsight/hadoop/hdinsight-use-sqoop.md). |
 | [Azure Logic App that runs a SQL Stored Procedure on a schedule](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sql-proc) | This template allows you to create a logic app that will run a SQL stored procedure on schedule. Any arguments for the procedure can be put into the body section of the template.|
 
 ## [Azure SQL Managed Instance](#tab/managed-instance)
@@ -49,4 +49,3 @@ The following table includes links to Azure Resource Manager templates for Azure
 | [SQL Managed Instance with a virtual machine](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-jumpbox) | This deployment will create an Azure virtual network with two subnets, `ManagedInstance` and `Management`. SQL Managed Instance will be deployed in the `ManagedInstance` subnet. A virtual machine with the latest version of SQL Server Management Studio (SSMS) will be deployed in the `Management` subnet. |
 
 ---
-

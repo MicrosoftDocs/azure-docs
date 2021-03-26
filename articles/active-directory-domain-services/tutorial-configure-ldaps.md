@@ -1,15 +1,15 @@
 ---
 title: Tutorial - Configure LDAPS for Azure Active Directory Domain Services | Microsoft Docs
 description: In this tutorial, you learn how to configure secure lightweight directory access protocol (LDAPS) for an Azure Active Directory Domain Services managed domain.
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/06/2020
-ms.author: joflore
+ms.date: 03/04/2021
+ms.author: justinha
 
 #Customer intent: As an identity administrator, I want to secure access to an Azure Active Directory Domain Services managed domain using secure lightweight directory access protocol (LDAPS)
 ---
@@ -108,7 +108,7 @@ To use secure LDAP, the network traffic is encrypted using public key infrastruc
 * A **private** key is applied to the managed domain.
     * This private key is used to *decrypt* the secure LDAP traffic. The private key should only be applied to the managed domain and not widely distributed to client computers.
     * A certificate that includes the private key uses the *.PFX* file format.
-    * The encryption algorithm for the certificate must be *TripleDES-SHA1*.
+    * When exporting the certificate, you must specify the *TripleDES-SHA1* encryption algorithm. This is applicable to the .pfx file only and does not impact the algorithm used by the certificate itself. Note that the *TripleDES-SHA1* option is available only beginning with Windows Server 2016.
 * A **public** key is applied to the client computers.
     * This public key is used to *encrypt* the secure LDAP traffic. The public key can be distributed to client computers.
     * Certificates without the private key use the *.CER* file format.
@@ -149,6 +149,11 @@ Before you can use the digital certificate created in the previous step with you
 1. As this certificate is used to decrypt data, you should carefully control access. A password can be used to protect the use of the certificate. Without the correct password, the certificate can't be applied to a service.
 
     On the **Security** page, choose the option for **Password** to protect the *.PFX* certificate file. The encryption algorithm must be *TripleDES-SHA1*. Enter and confirm a password, then select **Next**. This password is used in the next section to enable secure LDAP for your managed domain.
+
+    If you export using the [PowerShell export-pfxcertificate cmdlet](/powershell/module/pkiclient/export-pfxcertificate), you need to pass the *-CryptoAlgorithmOption* flag using TripleDES_SHA1.
+
+    ![Screenshot of how to encrypt the password](./media/tutorial-configure-ldaps/encrypt.png)
+
 1. On the **File to Export** page, specify the file name and location where you'd like to export the certificate, such as *C:\Users\accountname\azure-ad-ds.pfx*. Keep a note of the password and location of the *.PFX* file as this information would be required in next steps.
 1. On the review page, select **Finish** to export the certificate to a *.PFX* certificate file. A confirmation dialog is displayed when the certificate has been successfully exported.
 1. Leave the MMC open for use in the following section.
@@ -210,6 +215,12 @@ A notification is displayed that secure LDAP is being configured for the managed
 It takes a few minutes to enable secure LDAP for your managed domain. If the secure LDAP certificate you provide doesn't match the required criteria, the action to enable secure LDAP for the managed domain fails.
 
 Some common reasons for failure are if the domain name is incorrect, the encryption algorithm for the certificate isn't *TripleDES-SHA1*, or the certificate expires soon or has already expired. You can re-create the certificate with valid parameters, then enable secure LDAP using this updated certificate.
+
+## Change an expiring certificate
+
+1. Create a replacement secure LDAP certificate by following the steps to [create a certificate for secure LDAP](#create-a-certificate-for-secure-ldap).
+1. To apply the replacement certificate to Azure AD DS, in the left menu for Azure AD DS in the Azure portal, select **Secure LDAP**, and then select **Change Certificate**.
+1. Distribute the certificate to any clients that connect by using secure LDAP. 
 
 ## Lock down secure LDAP access over the internet
 

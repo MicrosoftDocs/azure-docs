@@ -1,0 +1,109 @@
+- name: Cloud Services (extended support) documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Cloud Services (extended support)
+    href: overview.md
+  - name: Prerequisites for deployment
+    href: deploy-prerequisite.md
+  - name: Config files and packaging
+    href: cloud-services-model-and-package.md
+- name: Tutorials
+  items: 
+  - name: Deploy a Cloud Service - Portal
+    href: deploy-portal.md
+  - name: Deploy a Cloud Service - PowerShell
+    href: deploy-powershell.md
+  - name: Deploy a Cloud Service - Template
+    href: deploy-template.md
+  - name: Deploy a Cloud Service - SDK
+    href: deploy-sdk.md
+  - name: Deploy a Cloud Service - Visual Studio
+    href: /visualstudio/azure/cloud-services-extended-support?context=%2fazure%2fcloud-services-extended-support%2fcontext%2fcontext
+  expanded: true
+- name: Concepts
+  items: 
+  - name: Extensions
+    href: extensions.md
+  - name: Available VM sizes
+    href: available-sizes.md
+  - name: Guest OS patches
+    href: ../cloud-services/cloud-services-guestos-msrc-releases.md?context=/azure/cloud-services-extended-support/context/context
+  - name: Guest OS retirement
+    href: ../cloud-services/cloud-services-guestos-retirement-policy.md?context=/azure/cloud-services-extended-support/context/context
+  - name: Guest OS release news
+    href: ../cloud-services/cloud-services-guestos-update-matrix.md?context=/azure/cloud-services-extended-support/context/context
+  - name: XML schema
+    items:
+    - name: Csdef XML schema
+      href: schema-csdef-file.md
+    - name: LoadBalancerProbe schema
+      href: schema-csdef-loadbalancerprobe.md
+    - name: WebRole schema
+      href: schema-csdef-webrole.md
+    - name: WorkerRole schema
+      href: schema-csdef-workerrole.md
+    - name: NetworkTrafficRules schema
+      href: schema-csdef-networktrafficrules.md
+    - name: Cscfg XML schema
+      href: schema-cscfg-file.md
+    - name: Role schema
+      href: schema-cscfg-role.md
+    - name: NetworkConfiguration schema
+      href: schema-cscfg-networkconfiguration.md
+  - name: Frequently Asked Questions
+    href: faq.md
+- name: How To
+  items:
+  - name: Apply Remote Desktop extension
+    href: enable-rdp.md
+  - name: Apply WAD extension
+    href: enable-wad.md
+  - name: Enable alerts
+    href: enable-alerts.md
+  - name: Configure scaling
+    href: configure-scaling.md
+  - name: Certificates
+    href: certificates-and-key-vault.md
+  - name: Generate ARM Template using Portal
+    href: generate-template-portal.md
+- name: Samples
+  items: 
+  - name: Sample Templates
+    href: https://github.com/Azure-Samples/cloud-services-extended-support
+  - name: Create a new Cloud Service
+    href: sample-create-cloud-service.md
+  - name: Get Cloud Service details
+    href: sample-get-cloud-service.md
+  - name: Reset a Cloud Service
+    href: sample-reset-cloud-service.md
+- name: Reference
+  items:
+  - name: Sample Deployment files
+    href: https://github.com/Azure-Samples/cloud-services-extended-support
+  - name: Az.CloudService Module
+    href: https://www.powershellgallery.com/packages/Az.CloudService/0.1.0
+  - name: PowerShell cmdlets
+    href: /powershell/module/az.cloudservice/#cloudservice
+  - name: ARM Template Reference
+    href: /azure/templates/microsoft.compute/cloudservices
+  - name: REST
+    href: /rest/api/compute/cloudservices
+  - name: .NET
+    href: /dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet-preview
+  - name: SDK
+    href: https://www.nuget.org/packages/Microsoft.Azure.Management.Compute/43.0.0-preview
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=compute
+  - name: Learning path
+    href: /learn/paths/azure-fundamentals/
+  - name: Microsoft Q&A
+    href: /answers/topics/azure-cloud-services.html
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cloud-services/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=

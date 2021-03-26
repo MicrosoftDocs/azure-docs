@@ -5,12 +5,13 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 05/23/2019
+ms.date: 01/06/2021
 ms.author: sngun
 ms.custom: devx-track-csharp
 
 ---
 # Tuning query performance with Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB provides a [SQL API for querying data](./sql-query-getting-started.md), without requiring schema or secondary indexes. This article provides the following information for developers:
 
@@ -137,7 +138,6 @@ The following are the most common factors that impact Azure Cosmos DB query perf
 | Provisioned throughput | Measure RU per query, and ensure that you have the required provisioned throughput for your queries. | 
 | Partitioning and partition keys | Favor queries with the partition key value in the filter clause for low latency. |
 | SDK and query options | Follow SDK best practices like direct connectivity, and tune client-side query execution options. |
-| Network latency | Account for network overhead in measurement, and use multi-homing APIs to read from the nearest region. |
 | Indexing Policy | Ensure that you have the required indexing paths/policy for the query. |
 | Query execution metrics | Analyze the query execution metrics to identify potential rewrites of query and data shapes.  |
 

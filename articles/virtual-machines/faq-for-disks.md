@@ -72,7 +72,7 @@ Depending on the region where the availability set that uses Managed Disks is lo
 
 You set up a private storage account for VM diagnostics.
 
-**What kind of Role-Based Access Control support is available for Managed Disks?**
+**What kind of Azure role-based access control support is available for Managed Disks?**
 
 Managed Disks supports three key default roles:
 
@@ -147,7 +147,7 @@ Azure disk reservation provides the option to purchase Premium SSDs in the speci
 Reservations are made in the form of disks, not capacity. In other words, when you reserve a P80 (32 TiB) disk, you get a single P80 disk, you cannot then divide that specific reservation up into two smaller P70 (16 TiB) disks. You can, of course, reserve as many or as few disks as you like, including two separate P70 (16 TiB) disks.
 
 **How is Azure disk reservation applied?**    
-Disks reservation follows a model similar to reserved virtual machine (VM) instances. The difference being that a disk reservation cannot be applied to different SKUs, while a VM instance can. See [Save costs with Azure Reserved VM Instances](./linux/prepay-reserved-vm-instances.md) for more information on VM instances.     
+Disks reservation follows a model similar to reserved virtual machine (VM) instances. The difference being that a disk reservation cannot be applied to different SKUs, while a VM instance can. See [Save costs with Azure Reserved VM Instances](./prepay-reserved-vm-instances.md) for more information on VM instances.     
 
 **Can I use my data storage purchased through Azure disks reservation across multiple regions?**    
 Azure disks reservation are purchased for a specific region and SKU (like P30 in East US 2), and therefore cannot be used outside these constructs. You can always purchase an additional Azure Disks Reservation for your disk storage needs in other regions or SKUs.    
@@ -167,7 +167,7 @@ No, it is only supported for ultra disks and premium SSD managed disks.
 
 **What regions support shared disks?**
 
-For regional information, see our [conceptual article](./linux/disks-shared.md).
+For regional information, see our [conceptual article](disks-shared.md).
 
 **Can shared disks be used as an OS disk?**
 
@@ -175,7 +175,7 @@ No, shared disks are only supported for data disks.
 
 **What disk sizes support shared disks?**
 
-For supported sizes, see our [conceptual article](./linux/disks-shared.md).
+For supported sizes, see our [conceptual article](disks-shared.md).
 
 **If I have an existing disk, can I enable shared disks on it?**
 
@@ -378,11 +378,9 @@ There is no downside to the use of TRIM on Azure disks on either premium or stan
 
 **What regions support bursting capability for applicable premium SSD disk size?**
 
-The bursting capability is currently supported in all regions in Azure Public Cloud, with support for sovereign clouds coming soon. 
+Credit-based bursting is currently supported in all regions in Azure Public Cloud, sovereign clouds are not currently supported.
 
-**What regions are 4/8/16 GiB Managed Disk sizes (P1/P2/P3, E1/E2/E3) supported in?**
-
-These new disk sizes are currently supported in all regions in Azure Public Cloud, with support for sovereign clouds coming soon. 
+On-demand bursting is only available in West Central US.
 
 **Are P1/P2/P3 disk sizes supported for unmanaged disks or page blobs?**
 

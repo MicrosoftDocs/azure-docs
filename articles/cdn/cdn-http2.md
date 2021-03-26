@@ -64,4 +64,4 @@ To learn more about HTTP/2, visit the following resources:
 *   [Official HTTP/2 FAQ](https://http2.github.io/faq/)
 *   [Akamai HTTP/2 information](https://http2.akamai.com/)
 
-To learn more about Azure CDN's available features, see the [Azure CDN Overview](https://azure.microsoft.com/documentation/articles/cdn-overview/).
+To learn more about Azure CDN's available features, see the [Azure CDN Overview](./cdn-overview.md).

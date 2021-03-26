@@ -1,16 +1,21 @@
 ---
-title: 'Tutorial: Use Creator to create indoor maps'
-description: Tutorial on how to use Azure Maps Creator to create indoor maps
+title: 'Tutorial: Use Microsoft Azure Maps Creator (Preview) to create indoor maps'
+description: Tutorial on how to use Microsoft Azure Maps Creator (Preview) to create indoor maps
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 09/22/2020
+ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ---
 
-# Tutorial: Use Creator to create indoor maps
+# Tutorial: Use Creator (Preview) to create indoor maps
+
+> [!IMPORTANT]
+> Azure Maps Creator services are currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This tutorial shows you how to create indoor maps. In this tutorial, you'll learn how to use the API to:
 
@@ -29,7 +34,7 @@ To create indoor maps:
 
 1. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
-3. [Create a Creator resource](how-to-manage-creator.md)
+3. [Create a Creator (Preview) resource](how-to-manage-creator.md)
 4. Download the [Sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples/blob/master/Sample%20-%20Contoso%20Drawing%20Package.zip).
 
 This tutorial uses the [Postman](https://www.postman.com/) application, but you may choose a different API development environment.
@@ -39,7 +44,7 @@ This tutorial uses the [Postman](https://www.postman.com/) application, but you 
 
 ## Upload a Drawing package
 
-Use the [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) to upload the Drawing package to Azure Maps resources.
+Use the [Data Upload API](/rest/api/maps/data/uploadpreview) to upload the Drawing package to Azure Maps resources.
 
 The Data Upload API is a long running transaction that implements the pattern defined here. Once the operation completes, we'll use the `udid` to access the uploaded package to convert it. Follow the steps below to obtain the `udid`.
 
@@ -106,7 +111,8 @@ The Data Upload API is a long running transaction that implements the pattern de
     ```
 
     >[!IMPORTANT]
-    > The API urls in this document may have to be adjusted according to the location of your Creator resource. For more details, see [Access to Creator Services](how-to-manage-creator.md#access-to-creator-services).
+    > The API urls in this document may have to be adjusted according to the location of your Creator resource. For more details, see [Access to Creator services (Preview) ](how-to-manage-creator.md#access-to-creator-services).
+    > If you receive an error with code `"RequiresCreatorResource"`, make sure that you have [provisioned an Azure Maps Creator resource](how-to-manage-creator.md) in you Azure Maps account.
 
 3. Click the **Send** button and wait for the request to process. Once the request completes, go to the **Headers** tab of the response, and look for the **Location** key. Copy the value of the **Location** key, which is the `status URL` for the conversion request. You will use this in the next step.
 
@@ -159,11 +165,11 @@ The sample Drawing package should be converted without errors or warnings. Howev
 
 ## Create a dataset
 
-The dataset is a collection of map features, such as buildings, levels, and rooms. To create a dataset, use the [Dataset Create API](https://docs.microsoft.com/rest/api/maps/dataset/createpreview). The dataset Create API takes the `conversionId` for the converted Drawing package and returns a `datasetId` of the created dataset. The steps below show you how to create a dataset.
+The dataset is a collection of map features, such as buildings, levels, and rooms. To create a dataset, use the [Dataset Create API](/rest/api/maps/dataset/createpreview). The dataset Create API takes the `conversionId` for the converted Drawing package and returns a `datasetId` of the created dataset. The steps below show you how to create a dataset.
 
 1. In the Postman application, select **New**. In the **Create New** window, select **Request**. Enter a **Request name** and select a collection. Click **Save**
 
-2. Make a **POST** request to the [Dataset Create API](https://docs.microsoft.com/rest/api/maps/dataset/createpreview) to create a new dataset. Before submitting the request, append both your subscription key and the `conversionId` with the `conversionId` obtained during the Conversion process in step 5.  The request should look like the following URL:
+2. Make a **POST** request to the [Dataset Create API](/rest/api/maps/dataset/createpreview) to create a new dataset. Before submitting the request, append both your subscription key and the `conversionId` with the `conversionId` obtained during the Conversion process in step 5.  The request should look like the following URL:
 
     ```http
     https://atlas.microsoft.com/dataset/create?api-version=1.0&conversionID={conversionId}&type=facility&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -219,7 +225,7 @@ A tileset is a set of vector tiles that render on the map. Tilesets are created 
 
 ## Query datasets with WFS API
 
- Datasets can be queried using  [WFS API](https://docs.microsoft.com/rest/api/maps/wfs). With the WFS API you can query for feature collections, a specific collection, or a specific feature with a feature **ID**. The feature **ID** uniquely identifies the feature within the dataset. It's used, for example, to identify which feature state should be updated in a given stateset.
+ Datasets can be queried using  [WFS API](/rest/api/maps/wfs). With the WFS API you can query for feature collections, a specific collection, or a specific feature with a feature **ID**. The feature **ID** uniquely identifies the feature within the dataset. It's used, for example, to identify which feature state should be updated in a given stateset.
 
 1. In the Postman application, select **New**. In the **Create New** window, select **Request**. Enter a **Request name** and select a collection. Click **Save**
 
@@ -229,7 +235,7 @@ A tileset is a set of vector tiles that render on the map. Tilesets are created 
     https://atlas.microsoft.com/wfs/datasets/{datasetId}/collections?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0
     ```
 
-3. The response body will be delivered in GeoJSON format and will contain all collections in the dataset. For simplicity, the example here only shows the `unit` collection. To see an example that contains all collections, see [WFS Describe Collections API](https://docs.microsoft.com/rest/api/maps/wfs/collectiondescriptionpreview). To learn more about any collection, you can click on any of the URLs inside the `link` element.
+3. The response body will be delivered in GeoJSON format and will contain all collections in the dataset. For simplicity, the example here only shows the `unit` collection. To see an example that contains all collections, see [WFS Describe Collections API](/rest/api/maps/wfs/collectiondescriptionpreview). To learn more about any collection, you can click on any of the URLs inside the `link` element.
 
     ```json
     {
@@ -299,13 +305,13 @@ A tileset is a set of vector tiles that render on the map. Tilesets are created 
 
 1. In the Postman application, select **New**. In the **Create New** window, select **Request**. Enter a **Request name** and select a collection. Click **Save**
 
-2. Make a **POST** request to the [Create Stateset API](https://docs.microsoft.com/rest/api/maps/featurestate/createstatesetpreview). Use the `datasetId` of the dataset that contains the state you want to modify. The request should look like the following URL:
+2. Make a **POST** request to the [Create Stateset API](/rest/api/maps/featurestate/createstatesetpreview). Use the `datasetId` of the dataset that contains the state you want to modify. The request should look like the following URL:
 
     ```http
     https://atlas.microsoft.com/featureState/stateset?api-version=1.0&datasetId={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. In the **Headers** of the **POST** request, set `Content-Type` to `application/json`. In the **Body**, provide the styles below to reflect changes to the `occupied` and `temperature` *states*. When you're done, click **Send**.
+3. In the **Headers** of the **POST** request, set `Content-Type` to `application/json`. In the **Body**, provide the raw json styles below to reflect changes to the `occupied` and `temperature` *states*. When you're done, click **Send**.
 
     ```json
     {
@@ -397,9 +403,13 @@ A tileset is a set of vector tiles that render on the map. Tilesets are created 
 
 7. Upon a successful update, you'll receive a `200 OK` HTTP status code. If you have  [dynamic styling implemented](indoor-map-dynamic-styling.md) for an indoor map, the update will display in your rendered map at the specified time stamp.
 
-The [Feature Get States API](https://docs.microsoft.com/rest/api/maps/featurestate/getstatespreview) allows you to retrieve the state of a feature using its feature `ID`. You can also delete the stateset and its resources by using the [Feature State Delete API](https://docs.microsoft.com/rest/api/maps/featurestate/deletestatesetpreview).
+The [Feature Get States API](/rest/api/maps/featurestate/getstatespreview) allows you to retrieve the state of a feature using its feature `ID`. You can also delete the stateset and its resources by using the [Feature State Delete API](/rest/api/maps/featurestate/deletestatesetpreview).
 
-To learn more about the different Azure Maps Creator services discussed in this article see, [Creator Indoor Maps](creator-indoor-maps.md).
+To learn more about the different Azure Maps Creator services (Preview) discussed in this article see, [Creator Indoor Maps](creator-indoor-maps.md).
+
+## Clean up resources
+
+There are no resources that require cleanup.
 
 ## Next steps
 

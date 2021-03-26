@@ -15,7 +15,7 @@ ms.custom: codepen
 
 This article shows you how to search for location of interest and show the search results on the map.
 
-There are two ways to search for a location of interest. One way is to use a service module to make a search request. The other way is to make a search request to [Azure Maps Fuzzy search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) through the [Fetch API](https://fetch.spec.whatwg.org/). Both ways are discussed below.
+There are two ways to search for a location of interest. One way is to use a service module to make a search request. The other way is to make a search request to [Azure Maps Fuzzy search API](/rest/api/maps/search/getsearchfuzzy) through the [Fetch API](https://fetch.spec.whatwg.org/). Both ways are discussed below.
 
 ## Make a search request via service module
 
@@ -24,15 +24,15 @@ There are two ways to search for a location of interest. One way is to use a ser
 
 In the code above, the first block constructs a map object and sets the authentication mechanism to use the access token. You can see [create a map](./map-create.md) for instructions.
 
-The second block of code creates a `TokenCredential` to authenticate HTTP requests to Azure Maps with the access token. It then passes the `TokenCredential` to `atlas.service.MapsURL.newPipeline()` and creates a [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline) instance. The `searchURL` represents a URL to Azure Maps [Search](https://docs.microsoft.com/rest/api/maps/search) operations.
+The second block of code creates a `TokenCredential` to authenticate HTTP requests to Azure Maps with the access token. It then passes the `TokenCredential` to `atlas.service.MapsURL.newPipeline()` and creates a [Pipeline](/javascript/api/azure-maps-rest/atlas.service.pipeline) instance. The `searchURL` represents a URL to Azure Maps [Search](/rest/api/maps/search) operations.
 
-The third block of code creates a data source object using the [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource) class and add search results to it. A [symbol layer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer) uses text or icons to render point-based data wrapped in the [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource) as symbols on the map.  A symbol layer is then created. The data source is added to the symbol layer, which is then added to the map.
+The third block of code creates a data source object using the [DataSource](/javascript/api/azure-maps-control/atlas.source.datasource) class and add search results to it. A [symbol layer](/javascript/api/azure-maps-control/atlas.layer.symbollayer) uses text or icons to render point-based data wrapped in the [DataSource](/javascript/api/azure-maps-control/atlas.source.datasource) as symbols on the map.  A symbol layer is then created. The data source is added to the symbol layer, which is then added to the map.
 
-The fourth code block uses the [SearchFuzzy](/javascript/api/azure-maps-rest/atlas.service.models.searchgetsearchfuzzyoptionalparams) method in the [service module](how-to-use-services-module.md). It allows you to perform a free form text search via the [Get Search Fuzzy rest API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) to search for point of interest. Get requests to the Search Fuzzy API can handle any combination of fuzzy inputs. A GeoJSON feature collection from the response is then extracted using the `geojson.getFeatures()` method and added to the data source, which automatically results in the data being rendered on the map via the symbol layer.
+The fourth code block uses the [SearchFuzzy](/javascript/api/azure-maps-rest/atlas.service.models.searchgetsearchfuzzyoptionalparams) method in the [service module](how-to-use-services-module.md). It allows you to perform a free form text search via the [Get Search Fuzzy rest API](/rest/api/maps/search/getsearchfuzzy) to search for point of interest. Get requests to the Search Fuzzy API can handle any combination of fuzzy inputs. A GeoJSON feature collection from the response is then extracted using the `geojson.getFeatures()` method and added to the data source, which automatically results in the data being rendered on the map via the symbol layer.
 
-The last block of code adjusts the camera bounds for the map using the Map's [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) property.
+The last block of code adjusts the camera bounds for the map using the Map's [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) property.
 
-The search request, data source, symbol layer, and camera bounds are inside the [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events) of the map. We want to ensure that the results are displayed after the map fully loads.
+The search request, data source, symbol layer, and camera bounds are inside the [event listener](/javascript/api/azure-maps-control/atlas.map#events) of the map. We want to ensure that the results are displayed after the map fully loads.
 
 
 ## Make a search request via Fetch API
@@ -44,13 +44,13 @@ In the code above, the first block of code constructs a map object. It sets the 
 
 The second block of code creates a URL to make a search request to. It also creates two arrays to store bounds and pins for search results.
 
-The third block of code uses the [Fetch API](https://fetch.spec.whatwg.org/). The [Fetch API](https://fetch.spec.whatwg.org/) is used to make a request to [Azure Maps Fuzzy search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) to search for the points of interest. The Fuzzy search API can handle any combination of fuzzy inputs. It then handles and parses the search response and adds the result pins to the searchPins array.
+The third block of code uses the [Fetch API](https://fetch.spec.whatwg.org/). The [Fetch API](https://fetch.spec.whatwg.org/) is used to make a request to [Azure Maps Fuzzy search API](/rest/api/maps/search/getsearchfuzzy) to search for the points of interest. The Fuzzy search API can handle any combination of fuzzy inputs. It then handles and parses the search response and adds the result pins to the searchPins array.
 
-The fourth block of code creates a data source object using the [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource) class. In the code, we add search results to the source object. A [symbol layer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer) uses text or icons to render point-based data wrapped in the [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource) as symbols on the map. A symbol layer is then created. The data source is added to the symbol layer, which is then added to the map.
+The fourth block of code creates a data source object using the [DataSource](/javascript/api/azure-maps-control/atlas.source.datasource) class. In the code, we add search results to the source object. A [symbol layer](/javascript/api/azure-maps-control/atlas.layer.symbollayer) uses text or icons to render point-based data wrapped in the [DataSource](/javascript/api/azure-maps-control/atlas.source.datasource) as symbols on the map. A symbol layer is then created. The data source is added to the symbol layer, which is then added to the map.
 
-The last block of code creates a [BoundingBox](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.boundingbox) object. It uses the array of results, and then it adjusts the camera bounds for the map using the Map's [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-). It then renders the result pins.
+The last block of code creates a [BoundingBox](/javascript/api/azure-maps-control/atlas.data.boundingbox) object. It uses the array of results, and then it adjusts the camera bounds for the map using the Map's [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-). It then renders the result pins.
 
-The search request, the data source, symbol layer, and the camera bounds are set within the map's [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events) to ensure that the results are displayed after the map loads fully.
+The search request, the data source, symbol layer, and the camera bounds are set within the map's [event listener](/javascript/api/azure-maps-control/atlas.map#events) to ensure that the results are displayed after the map loads fully.
 
 ## Next steps
 
@@ -60,12 +60,12 @@ The search request, the data source, symbol layer, and the camera bounds are set
 Learn more about **Fuzzy Search**:
 
 > [!div class="nextstepaction"]
-> [Azure Maps Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
+> [Azure Maps Fuzzy Search API](/rest/api/maps/search/getsearchfuzzy)
 
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Map](/javascript/api/azure-maps-control/atlas.map)
 
 See the following articles for full code examples:
 

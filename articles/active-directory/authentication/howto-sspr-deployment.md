@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 >
 > **If you're an end user and need to get back into your account, go to [https://aka.ms/sspr](https://aka.ms/sspr)**.
 
-[Self-Service Password Reset (SSPR)](https://www.youtube.com/watch?v=tnb2Qf4hTP8) is an Azure Active Directory (AD) feature that enables users to reset their passwords without contacting IT staff for help. The users can quickly unblock themselves and continue working no matter where they are or time of day. By allowing the employees to unblock themselves, your organization can reduce the non-productive time and high support costs for most common password-related issues.
+[Self-Service Password Reset (SSPR)](https://www.youtube.com/watch?v=pS3XwfxJrMo) is an Azure Active Directory (AD) feature that enables users to reset their passwords without contacting IT staff for help. The users can quickly unblock themselves and continue working no matter where they are or time of day. By allowing the employees to unblock themselves, your organization can reduce the non-productive time and high support costs for most common password-related issues.
 
 SSPR has the following key capabilities:
 
@@ -75,6 +75,7 @@ For more information about pricing, see [Azure Active Directory pricing](https:/
 | Videos| [Empower your users with better IT scalability](https://youtu.be/g9RpRnylxS8) 
 | |[What is self-service password reset?](https://youtu.be/hc97Yx5PJiM)|
 | |[Deploying self-service password reset](https://www.youtube.com/watch?v=Pa0eyqjEjvQ&index=18&list=PLLasX02E8BPBm1xNMRdvP6GtA6otQUqp0)|
+| |[How to enable and configure SSPR in Azure AD](https://www.youtube.com/watch?v=rA8TvhNcCvQ)|
 | |[How to configure self-service password reset for users in Azure AD?](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/) |
 | |[How to [prepare users to] register [their] security information for Azure Active Directory](https://youtu.be/gXuh0XS18wA) |
 | Online courses|[Managing Identities in Microsoft Azure Active Directory](https://www.pluralsight.com/courses/microsoft-azure-active-directory-managing-identities) Use SSPR to give your users a modern, protected experience. See especially the "[Managing Azure Active Directory Users and Groups](https://app.pluralsight.com/library/courses/microsoft-azure-active-directory-managing-identities/table-of-contents)" module. |
@@ -112,7 +113,7 @@ Before deploying SSPR, you may opt to determine the number and the average cost 
 
 Microsoft recommends that organizations enable the combined registration experience for SSPR and multi-factor authentication. When you enable this combined registration experience, users need only select their registration information once to enable both features.
 
-The combined registration experience does not require organizations to enable both SSPR and Azure Multi-Factor Authentication. Combined registration provides organizations a better user experience. For more information, see [Combined security information registration](concept-registration-mfa-sspr-combined.md)
+The combined registration experience does not require organizations to enable both SSPR and Azure AD Multi-Factor Authentication. Combined registration provides organizations a better user experience. For more information, see [Combined security information registration](concept-registration-mfa-sspr-combined.md)
 
 ## Plan the deployment project
 
@@ -120,7 +121,7 @@ Consider your organizational needs while you determine the strategy for this dep
 
 ### Engage the right stakeholders
 
-When technology projects fail, they typically do so due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you are engaging the right stakeholders](https://aka.ms/deploymentplans) and that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and accountabilities.
+When technology projects fail, they typically do so due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you are engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md) and that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and accountabilities.
 
 #### Required administrator roles
 
@@ -318,11 +319,11 @@ Audit logs for registration and password reset are available for 30 days. If sec
 
 ### Authentication methods- Usage and Insights
 
-[Usage and insights](./howto-authentication-methods-usage-insights.md) enable you to understand how authentication methods for features like Azure MFA and SSPR are working in your organization. This reporting capability provides your organization with the means to understand what methods register and how to use them.
+[Usage and insights](./howto-authentication-methods-activity.md) enable you to understand how authentication methods for features like Azure AD MFA and SSPR are working in your organization. This reporting capability provides your organization with the means to understand what methods register and how to use them.
 
 ### Troubleshoot
 
-* Refer to [Troubleshoot self-service password reset](./active-directory-passwords-troubleshoot.md) 
+* Refer to [Troubleshoot self-service password reset](./troubleshoot-sspr.md) 
 
 * Follow [Password management frequently asked questions](./active-directory-passwords-faq.md) 
 

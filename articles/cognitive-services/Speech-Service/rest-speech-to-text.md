@@ -8,30 +8,62 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: devx-track-csharp
 ---
 
 # Speech-to-text REST API
 
-As an alternative to the [Speech SDK](speech-sdk.md), the Speech service allows you to convert speech-to-text using a REST API. Each accessible endpoint is associated with a region. Your application requires a subscription key for the endpoint you plan to use. The REST API is very limited, and it should only be used in cases were the [Speech SDK](speech-sdk.md) cannot.
+Speech-to-text has two different REST APIs. Each API serves its special purpose and uses different sets of endpoints.
 
-Before using the speech-to-text REST API, consider the following:
+The Speech-to-text REST APIs are:
+- [Speech-to-text REST API v3.0](#speech-to-text-rest-api-v30) is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). v3.0 is a [successor of v2.0](./migrate-v2-to-v3.md).
+- [Speech-to-text REST API for short audio](#speech-to-text-rest-api-for-short-audio) is used for online transcription as an alternative to the [Speech SDK](speech-sdk.md). Requests using this API can transmit only up to 60 seconds of audio per request. 
 
-* Requests that use the REST API and transmit audio directly can only contain up to 60 seconds of audio.
-* The speech-to-text REST API only returns final results. Partial results are not provided.
+## Speech-to-text REST API v3.0
 
-If sending longer audio is a requirement for your application, consider using the [Speech SDK](speech-sdk.md) or a file-based REST API, like [batch transcription](batch-transcription.md).
+Speech-to-text REST API v3.0 is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). If you need to communicate with the online transcription via REST, use [Speech-to-text REST API for short audio](#speech-to-text-rest-api-for-short-audio).
+
+Use REST API v3.0 to:
+- Copy models to other subscriptions in case you want colleagues to have access to a model you built, or in cases where you want to deploy a model to more than one region
+- Transcribe data from a container (bulk transcription) as well as provide multiple audio file URLs
+- Upload data from Azure Storage accounts through the use of a SAS Uri
+- Get logs per endpoint if logs have been requested for that endpoint
+- Request the manifest of the models you create, for the purpose of setting up on-premises containers
+
+REST API v3.0 includes such features as:
+- **Notifications-Webhooks**—All running processes of the service now support webhook notifications. REST API v3.0 provides the calls to enable you to register your webhooks where notifications are sent
+- **Updating models behind endpoints** 
+- **Model adaptation with multiple data sets**—Adapt a model using multiple data set combinations of acoustic, language, and pronunciation data
+- **Bring your own storage**—Use your own storage accounts for logs, transcription files, and other data
+
+See examples on using REST API v3.0 with the Batch transcription is [this article](batch-transcription.md).
+
+If you are using Speech-to-text REST API v2.0, see how you can migrate to v3.0 in [this guide](./migrate-v2-to-v3.md).
+
+See the full Speech-to-text REST API v3.0 Reference [here](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0).
+
+## Speech-to-text REST API for short audio
+
+As an alternative to the [Speech SDK](speech-sdk.md), the Speech service allows you to convert Speech-to-text using a REST API.
+The REST API for short audio is very limited, and it should only be used in cases were the [Speech SDK](speech-sdk.md) cannot.
+
+Before using the Speech-to-text REST API for short audio, consider the following:
+
+* Requests that use the REST API for short audio and transmit audio directly can only contain up to 60 seconds of audio.
+* The Speech-to-text REST API for short audio only returns final results. Partial results are not provided.
+
+If sending longer audio is a requirement for your application, consider using the [Speech SDK](speech-sdk.md) or [Speech-to-text REST API v3.0](#speech-to-text-rest-api-v30).
 
 > [!TIP]
-> See the  Azure government [documentation](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure) for government cloud (FairFax) endpoints.
+> See [this article](sovereign-clouds.md) for Azure Government and Azure China endpoints.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
-## Regions and endpoints
+### Regions and endpoints
 
-The endpoint for the REST API has this format:
+The endpoint for the REST API for short audio has this format:
 
 ```
 https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
@@ -44,7 +76,7 @@ Replace `<REGION_IDENTIFIER>` with the identifier matching the region of your su
 > [!NOTE]
 > The language parameter must be appended to the URL to avoid receiving an 4xx HTTP error. For example, the language set to US English using the West US endpoint is: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`.
 
-## Query parameters
+### Query parameters
 
 These parameters may be included in the query string of the REST request.
 
@@ -53,11 +85,11 @@ These parameters may be included in the query string of the REST request.
 | `language` | Identifies the spoken language that is being recognized. See [Supported languages](language-support.md#speech-to-text). | Required |
 | `format` | Specifies the result format. Accepted values are `simple` and `detailed`. Simple results include `RecognitionStatus`, `DisplayText`, `Offset`, and `Duration`. Detailed responses include four different representations of display text. The default setting is `simple`. | Optional |
 | `profanity` | Specifies how to handle profanity in recognition results. Accepted values are `masked`, which replaces profanity with asterisks, `removed`, which removes all profanity from the result, or `raw`, which includes the profanity in the result. The default setting is `masked`. | Optional |
-| `cid` | When using the [Custom Speech portal](how-to-custom-speech.md) to create custom models, you can use custom models via their **Endpoint ID** found on the **Deployment** page. Use the **Endpoint ID** as the argument to the `cid` query string parameter. | Optional |
+| `cid` | When using the [Custom Speech portal](./custom-speech-overview.md) to create custom models, you can use custom models via their **Endpoint ID** found on the **Deployment** page. Use the **Endpoint ID** as the argument to the `cid` query string parameter. | Optional |
 
-## Request headers
+### Request headers
 
-This table lists required and optional headers for speech-to-text requests.
+This table lists required and optional headers for Speech-to-text requests.
 
 |Header| Description | Required / Optional |
 |------|-------------|---------------------|
@@ -69,7 +101,7 @@ This table lists required and optional headers for speech-to-text requests.
 | `Expect` | If using chunked transfer, send `Expect: 100-continue`. The Speech service acknowledges the initial request and awaits additional data.| Required if sending chunked audio data. |
 | `Accept` | If provided, it must be `application/json`. The Speech service provides results in JSON. Some request frameworks provide an incompatible default value. It is good practice to always include `Accept`. | Optional, but recommended. |
 
-## Audio formats
+### Audio formats
 
 Audio is sent in the body of the HTTP `POST` request. It must be in one of the formats in this table:
 
@@ -79,16 +111,16 @@ Audio is sent in the body of the HTTP `POST` request. It must be in one of the f
 | OGG    | OPUS  | 256 kpbs | 16 kHz, mono |
 
 >[!NOTE]
->The above formats are supported through REST API and WebSocket in the Speech service. The [Speech SDK](speech-sdk.md) currently supports the WAV format with PCM codec as well as [other formats](how-to-use-codec-compressed-audio-input-streams.md).
+>The above formats are supported through REST API for short audio and WebSocket in the Speech service. The [Speech SDK](speech-sdk.md) currently supports the WAV format with PCM codec as well as [other formats](how-to-use-codec-compressed-audio-input-streams.md).
 
-## Pronunciation assessment parameters
+### Pronunciation assessment parameters
 
 This table lists required and optional parameters for pronunciation assessment.
 
-| Parameter | Description | Required / Optional |
+| Parameter | Description | Required? |
 |-----------|-------------|---------------------|
 | ReferenceText | The text that the pronunciation will be evaluated against. | Required |
-| GradingSystem | The point system for score calibration. Accepted values are `FivePoint` and `HundredMark`. The default setting is `FivePoint`. | Optional |
+| GradingSystem | The point system for score calibration. The `FivePoint` system gives a 0-5 floating point score, and `HundredMark` gives a 0-100 floating point score. Default: `FivePoint`. | Optional |
 | Granularity | The evaluation granularity. Accepted values are `Phoneme`, which shows the score on the full text, word and phoneme level, `Word`, which shows the score on the full text and word level, `FullText`, which shows the score on the full text level only. The default setting is `Phoneme`. | Optional |
 | Dimension | Defines the output criteria. Accepted values are `Basic`, which shows the accuracy score only, `Comprehensive` shows scores on more dimensions (e.g. fluency score and completeness score on the full text level, error type on word level). Check [Response parameters](#response-parameters) to see definitions of different score dimensions and word error types. The default setting is `Basic`. | Optional |
 | EnableMiscue | Enables miscue calculation. With this enabled, the pronounced words will be compared to the reference text, and will be marked with omission/insertion based on the comparison. Accepted values are `False` and `True`. The default setting is `False`. | Optional |
@@ -116,9 +148,9 @@ var pronAssessmentHeader = Convert.ToBase64String(pronAssessmentParamsBytes);
 We strongly recommend streaming (chunked) uploading while posting the audio data, which can significantly reduce the latency. See [sample code in different programming languages](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/PronunciationAssessment) for how to enable streaming.
 
 >[!NOTE]
->The pronunciation assessment feature is currently only available on `westus`, `eastasia` and `centralindia` regions. And this feature is currently only available on `en-US` language.
+>The pronunciation assessment feature is currently only available on `en-US` language.
 
-## Sample request
+### Sample request
 
 The sample below includes the hostname and required headers. It's important to note that the service also expects audio data, which is not included in this sample. As mentioned earlier, chunking is recommended, however, not required.
 
@@ -138,7 +170,7 @@ To enable pronunciation assessment, you can add below header. See [Pronunciation
 Pronunciation-Assessment: eyJSZWZlcm...
 ```
 
-## HTTP status codes
+### HTTP status codes
 
 The HTTP status code for each response indicates success or common errors.
 
@@ -150,9 +182,9 @@ The HTTP status code for each response indicates success or common errors.
 | `401` | Unauthorized | Subscription key or authorization token is invalid in the specified region, or invalid endpoint. |
 | `403` | Forbidden | Missing subscription key or authorization token. |
 
-## Chunked transfer
+### Chunked transfer
 
-Chunked transfer (`Transfer-Encoding: chunked`) can help reduce recognition latency. It allows the Speech service to begin processing the audio file while it is transmitted. The REST API does not provide partial or interim results.
+Chunked transfer (`Transfer-Encoding: chunked`) can help reduce recognition latency. It allows the Speech service to begin processing the audio file while it is transmitted. The REST API for short audio does not provide partial or interim results.
 
 This code sample shows how to send audio in chunks. Only the first chunk should contain the audio file's header. `request` is an `HttpWebRequest` object connected to the appropriate REST endpoint. `audioFile` is the path to an audio file on disk.
 
@@ -186,7 +218,7 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 }
 ```
 
-## Response parameters
+### Response parameters
 
 Results are provided as JSON. The `simple` format includes these top-level fields.
 
@@ -228,7 +260,7 @@ The object in the `NBest` list can include:
 | `PronScore` | Overall score indicating the pronunciation quality of the given speech. This is aggregated from `AccuracyScore`, `FluencyScore` and `CompletenessScore` with weight. |
 | `ErrorType` | This value indicates whether a word is omitted, inserted or badly pronounced, compared to `ReferenceText`. Possible values are `None` (meaning no error on this word), `Omission`, `Insertion` and `Mispronunciation`. |
 
-## Sample responses
+### Sample responses
 
 A typical response for `simple` recognition:
 
@@ -302,5 +334,7 @@ A typical response for recognition with pronunciation assessment:
 ## Next steps
 
 - [Create a free Azure account](https://azure.microsoft.com/free/cognitive-services/)
-- [Customize acoustic models](how-to-customize-acoustic-models.md)
-- [Customize language models](how-to-customize-language-model.md)
+- [Customize acoustic models](./how-to-custom-speech-train-model.md)
+- [Customize language models](./how-to-custom-speech-train-model.md)
+- [Get familiar with Batch transcription](batch-transcription.md)
+

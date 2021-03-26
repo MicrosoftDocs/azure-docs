@@ -63,7 +63,7 @@ landingContent:
           - text: Manage with Azure portal
             url: windows/manage-sql-vm-portal.md
           - text: Register with SQL VM resource provider
-            url: windows/sql-vm-resource-provider-register.md
+            url: windows/sql-agent-extension-manually-register-single-vm.md
           - text: Automated patching
             url: windows/automated-patching.md 
           - text: Change license type 
@@ -89,7 +89,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Availability group (Az CLI)
-            url: windows/availability-group-az-cli-configure.md
+            url: ./windows/availability-group-az-commandline-configure.md
           - text: Clusterless availability group
             url: windows/availability-group-clusterless-workgroup-configure.md
           - text: FCI (Storage Spaces Direct) 
@@ -113,7 +113,7 @@ landingContent:
         - text: Azure SQL for beginners
           url: https://aka.ms/azuresql4beginners
         - text: Azure SQL fundamentals 
-          url: https://docs.microsoft.com/learn/paths/azure-sql-fundamentals/
+          url: /learn/paths/azure-sql-fundamentals/
         - text: Azure SQL hands-on labs
           url: https://aka.ms/asqlworkshop
         - text: Azure SQL bootcamp 
@@ -151,12 +151,8 @@ landingContent:
           - text: Transact-SQL (T-SQL)
             url: /sql/t-sql/language-reference
           - text: Azure CLI
-            url: https://docs.microsoft.com/cli/azure/sql
+            url: /cli/azure/sql
           - text: PowerShell
-            url: https://docs.microsoft.com/powershell/module/az.sql
+            url: /powershell/module/az.sql
           - text: REST API
-            url: https://docs.microsoft.com/rest/api/sql/
-
-
-
-
+            url: /rest/api/sql/

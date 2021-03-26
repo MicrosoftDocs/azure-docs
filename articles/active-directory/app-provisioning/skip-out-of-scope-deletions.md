@@ -3,7 +3,7 @@ title: Skip deletion of out of scope users
 description: Learn how to override the default behavior of de-provisioning out of scope users.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
@@ -84,7 +84,7 @@ You should get the output as "Success – Status Code 204".
 
 You can test this flag results in expected behavior by updating your scoping rules to skip a specific user. In the example below, we are excluding the employee with ID 21173 (who was earlier in scope) by adding a new scoping rule: 
 
-   ![Scoping example](./media/skip-out-of-scope-deletions/skip-07.png)
+   ![Screenshot that shows the "Add Scoping Filter" section with an example user highlighted.](./media/skip-out-of-scope-deletions/skip-07.png)
 
 In the next provisioning cycle, the Azure AD provisioning service will identify that the user 21173 has gone out of scope and if the SkipOutOfScopeDeletions property is enabled, then the synchronization rule for that user will display a message as shown below: 
 

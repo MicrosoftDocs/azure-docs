@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Connect using PHP - Azure Database for MySQL - Flexible Server'
 description: This quickstart provides several PHP code samples you can use to connect and query data from Azure Database for MySQL - Flexible Server.
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
@@ -29,7 +29,7 @@ This quickstart uses the resources created in either of these guides as a starti
 
 ### Install PHP
 
-Install PHP on your own server, or create an Azure [web app](https://docs.microsoft.com/azure/app-service/overview) that includes PHP.  Refer to [create and manage firewall rules](./how-to-manage-firewall-portal.md) to learn how to create firewall rules.
+Install PHP on your own server, or create an Azure [web app](../../app-service/overview.md) that includes PHP.  Refer to [create and manage firewall rules](./how-to-manage-firewall-portal.md) to learn how to create firewall rules.
 
 #### macOS
 

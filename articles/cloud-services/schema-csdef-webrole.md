@@ -1,22 +1,20 @@
 ---
-title: "Azure Cloud Services Def. WebRole Schema | Microsoft Docs"
+title: Azure Cloud Services (classic) Def. WebRole Schema | Microsoft Docs
 description: Azure web role is customized for web application programming supporting ASP.NET, PHP, WCF, and FastCGI. Learn about service definition elements of a web role.
-ms.custom: ""
-ms.date: "04/14/2015"
-services: cloud-services
-ms.reviewer: ""
-ms.service: "cloud-services"
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
-ms.assetid: 85368e4e-a0db-4c02-8dbc-8e2928fa6091
-caps.latest.revision: 60
-author: tgore03
+ms.topic: article
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: 
 ---
 
-# Azure Cloud Services Definition WebRole Schema
+# Azure Cloud Services (classic) Definition WebRole Schema
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+
 The Azure web role is a role that is customized for web application programming as supported by IIS 7, such as ASP.NET, PHP, Windows Communication Foundation, and FastCGI.
 
 The default extension for the service definition file is .csdef.

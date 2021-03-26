@@ -34,7 +34,7 @@ For audit to write to a storage account behind a VNet or firewall, the following
 > [!div class="checklist"]
 >
 > * A general-purpose v2 storage account. If you have a general-purpose v1 or blob storage account, [upgrade to a general-purpose v2 storage account](../../storage/common/storage-account-upgrade.md). For more information, see [Types of storage accounts](../../storage/common/storage-account-overview.md#types-of-storage-accounts).
-> * The storage account must be on the same subscription and at the same location as the [logical SQL server](logical-servers.md).
+> * The storage account must be on the same subscription and at the same location as the [logical SQL Server](logical-servers.md).
 > * The Azure Storage account requires `Allow trusted Microsoft services to access this storage account`. Set this on the Storage Account **Firewalls and Virtual networks**.
 > * You must have `Microsoft.Authorization/roleAssignments/write` permission on the selected storage account. For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
@@ -71,7 +71,7 @@ The sample scripts in this section require you to update the script before you r
 |:-----|:-----|
 |`<subscriptionId>`| Azure subscription ID|
 |`<resource group>`| Resource group|
-|`<logical SQL server>`| Server name|
+|`<logical SQL Server>`| Server name|
 |`<administrator login>`| Administrator account |
 |`<complex password>`| Complex password for the administrator account|
 
@@ -87,7 +87,7 @@ To configure SQL Audit to write events to a storage account behind a VNet or Fir
    Set-AzSqlServer -ResourceGroupName <your resource group> -ServerName <azure server name> -AssignIdentity
    ```
 
-   [**REST API**](https://docs.microsoft.com/rest/api/sql/servers/createorupdate):
+   [**REST API**](/rest/api/sql/servers/createorupdate):
 
    Sample request
 
@@ -108,6 +108,7 @@ To configure SQL Audit to write events to a storage account behind a VNet or Fir
      "administratorLoginPassword": "<complex password>",
      "version": "12.0",
      "state": "Ready"
+     }
    }
    ```
 
@@ -147,7 +148,7 @@ You can configure auditing to write database events on a storage account behind 
 > [!IMPORTANT]
 > In order to use storage account behind virtual network and firewall, you need to set **isStorageBehindVnet** parameter to true
 
-- [Deploy an Azure SQL server with Auditing enabled to write audit logs to a blob storage](https://azure.microsoft.com/resources/templates/201-sql-auditing-server-policy-to-blob-storage)
+- [Deploy an Azure SQL Server with Auditing enabled to write audit logs to a blob storage](https://azure.microsoft.com/resources/templates/201-sql-auditing-server-policy-to-blob-storage)
 
 > [!NOTE]
 > The linked sample is on an external public repository and is provided 'as is', without warranty, and are not supported under any Microsoft support program/service.

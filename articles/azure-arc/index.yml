@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page
   author: MGoedtel
   ms.author: magoedte
-  ms.date: 09/23/2020
+  ms.date: 03/02/2021
 
 # highlightedContent section (optional)
 # Maximum of 8 items
@@ -24,11 +24,15 @@ highlightedContent:
       itemType: overview
       url:  overview.md
     # Card
+    - title: Jumpstart
+      itemType: sample
+      url: https://azurearcjumpstart.io/overview/
+      # Card
     - title: Azure Arc enabled servers
       itemType: overview
       url: ./servers/overview.md
     # Card
-    - title: Azure Arc enabled Kubernetes (preview)
+    - title: Azure Arc enabled Kubernetes
       itemType: overview
       url: ./kubernetes/overview.md
     # Card
@@ -59,12 +63,12 @@ productDirectory:
         - url: ./servers/index.yml
           text: See more...
     # Card
-    - title: Azure Arc enabled Kubernetes (preview)
+    - title: Azure Arc enabled Kubernetes
       imageSrc: ./media/01088-icon-arc-kubernetes-menu.svg
       links:
-        - url: ./kubernetes/connect-cluster.md
+        - url: ./kubernetes/quickstart-connect-cluster.md
           text: Connect cluster
-        - url: ./kubernetes/use-gitops-connected-cluster.md
+        - url: ./kubernetes/tutorial-use-gitops-connected-cluster.md
           text: Deploy configurations using GitOps
         - url: ./kubernetes/index.yml
           text: See more...
@@ -111,7 +115,7 @@ conceptualContent:
           itemType: how-to-guide
           text: Manage and use Azure VM extensions
     # Card
-    - title: Azure Arc enabled Kubernetes (preview)
+    - title: Azure Arc enabled Kubernetes
       links:
         - url: ./kubernetes/use-gitops-with-helm.md
           itemType: deploy
@@ -119,7 +123,7 @@ conceptualContent:
         - url: ./kubernetes/use-azure-policy.md
           itemType: how-to-guide
           text: Enforce GitOps using Azure Policy
-        - url: ../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/toc.json
+        - url: ../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=%2fazure%2fazure-arc%2ftoc.json
           itemType: tutorial
           text: Monitor using Azure Monitor for containers
         - url: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/toc.json

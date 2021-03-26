@@ -1,17 +1,18 @@
 ---
 title: Use the graph bulk executor .NET library with Azure Cosmos DB Gremlin API
 description: Learn how to use the bulk executor library to massively import graph data into an Azure Cosmos DB Gremlin API container.
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 05/28/2019
-ms.author: jasonh
+ms.author: chrande
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
 ---
 
 # Using the graph bulk executor .NET library to perform bulk operations in Azure Cosmos DB Gremlin API
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 This tutorial provides instructions about using Azure CosmosDB's bulk executor .NET library to import and update graph objects into an Azure Cosmos DB Gremlin API container. This process makes use of the Graph class in the [bulk executor library](./bulk-executor-overview.md) to create Vertex and Edge objects programmatically to then insert multiple of them per network request. This behavior is configurable through the bulk executor library to make optimal use of both database and local memory resources.
 
@@ -19,12 +20,12 @@ As opposed to sending Gremlin queries to a database, where the command is evalua
 
 ## Bulk operations with graph data
 
-The [bulk executor library](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?preserve-view=true&view=azure-dotnet) contains a `Microsoft.Azure.CosmosDB.BulkExecutor.Graph` namespace to provide functionality for creating and importing graph objects. 
+The [bulk executor library](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph) contains a `Microsoft.Azure.CosmosDB.BulkExecutor.Graph` namespace to provide functionality for creating and importing graph objects. 
 
 The following process outlines how data migration can be used for a Gremlin API container:
 1. Retrieve records from the data source.
 2. Construct `GremlinVertex` and `GremlinEdge` objects from the obtained records and add them into an `IEnumerable` data structure. In this part of the application the logic to detect and add relationships should be implemented, in case the data source is not a graph database.
-3. Use the [Graph BulkImportAsync method](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph.graphbulkexecutor.bulkimportasync?preserve-view=true&view=azure-dotnet) to insert the graph objects into the collection.
+3. Use the [Graph BulkImportAsync method](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph.graphbulkexecutor.bulkimportasync) to insert the graph objects into the collection.
 
 This mechanism will improve the data migration efficiency as compared to using a Gremlin client. This improvement is experienced because inserting data with Gremlin will require the application send a query at a time that will need to be validated, evaluated, and then executed to create the data. The bulk executor library will handle the validation in the application and send multiple graph objects at a time for each network request.
 
@@ -154,4 +155,4 @@ Setting|Description
 
 * To learn about NuGet package details and release notes of bulk executor .NET library, see [bulk executor SDK details](sql-api-sdk-bulk-executor-dot-net.md). 
 * Check out the [Performance Tips](./bulk-executor-dot-net.md#performance-tips) to further optimize the usage of bulk executor.
-* Review the [BulkExecutor.Graph Reference article](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?preserve-view=true&view=azure-dotnet) for more details about the classes and methods defined in this namespace.
+* Review the [BulkExecutor.Graph Reference article](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph) for more details about the classes and methods defined in this namespace.

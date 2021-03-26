@@ -1,9 +1,6 @@
 ---
 title: SCP.NET programming guide for Storm in Azure HDInsight
 description: Learn how to use SCP.NET to create .NET-based Storm topologies for use with Storm running in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: "hdinsightactive, devx-track-csharp"
@@ -27,7 +24,7 @@ The data in SCP is modeled as continuous streams of tuples. Typically, the tuple
 1. Are picked up and transformed by business logic hosted inside a Storm topology.
 1. Either have their output piped as tuples to another SCP system or are committed to stores like distributed file systems and databases like SQL Server.
 
-![A diagram of a queue feeding data to processing, which in turn feeds a data store](./media/apache-storm-scp-programming-guide/queue-feeding-data-to-processing-to-data-store.png)
+:::image type="content" source="./media/apache-storm-scp-programming-guide/queue-feeding-data-to-processing-to-data-store.png" alt-text="A diagram of a queue feeding data to processing, which in turn feeds a data store" border="false":::
 
 In Storm, an application topology defines a computation graph. Each node in a topology contains processing logic. Links between nodes indicate data flow.
 
@@ -569,7 +566,7 @@ Here, `examples\HybridTopology\java\target\` is the folder containing the Java s
 
 An SCP component includes the Java side and the C# side. To interact with native Java spouts/bolts, serialization and deserialization must occur between the Java side and the C# side, as illustrated in the following graph:
 
-![Diagram of Java component sending to SCP component, which then sends to a different Java component](./media/apache-storm-scp-programming-guide/java-compent-sending-to-scp-component-sending-to-java-component.png)
+:::image type="content" source="./media/apache-storm-scp-programming-guide/java-compent-sending-to-scp-component-sending-to-java-component.png" alt-text="Diagram of Java component sending to SCP component, which then sends to a different Java component" border="false":::
 
 #### Serialization in the Java side and deserialization in the C# side
 

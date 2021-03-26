@@ -134,9 +134,9 @@ Use Event Viewer logs to locate the phase and error code for the join failures.
 1. Open the **User Device Registration** event logs in event viewer. Located under **Applications and Services Log** > **Microsoft** > **Windows** > **User Device Registration**
 2. Look for events with the following eventIDs 304, 305, 307.
 
-![Failure Log Event](./media/troubleshoot-hybrid-join-windows-current/1.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/1.png" alt-text="Screenshot of the event viewer. An event with I D 304 is selected, and its information is displayed, with the error code and phase highlighted." border="false":::
 
-![Failure Log Event](./media/troubleshoot-hybrid-join-windows-current/2.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/2.png" alt-text="Screenshot of the event viewer. An event with I D 305 is visible, and its information is displayed, with the error code highlighted." border="false":::
 
 ### Step 4: Check for possible causes and resolutions from the lists below
 
@@ -209,7 +209,7 @@ Use Event Viewer logs to locate the phase and errorcode for the join failures.
 1. Open the **User Device Registration** event logs in event viewer. Located under **Applications and Services Log** > **Microsoft** > **Windows** > **User Device Registration**
 2. Look for events with the following eventIDs 201
 
-![Failure Log Event](./media/troubleshoot-hybrid-join-windows-current/5.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/5.png" alt-text="Screenshot of the event viewer. An event with I D 201 is selected, and its information is displayed, with the error code highlighted." border="false":::
 
 ###### Network errors
 
@@ -254,7 +254,7 @@ Use Event Viewer logs to locate the error code, suberror code, server error code
 1. Open the **User Device Registration** event logs in event viewer. Located under **Applications and Services Log** > **Microsoft** > **Windows** > **User Device Registration**
 2. Look for events with the following eventID 305
 
-![Failure Log Event](./media/troubleshoot-hybrid-join-windows-current/3.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/3.png" alt-text="Screenshot of the event viewer. An event with I D 305 is visible. Its information is displayed, with the A D A L error codes and status highlighted." border="false":::
 
 ##### Configuration errors
 
@@ -329,7 +329,7 @@ Use Event Viewer logs to locate the phase and errorcode for the join failures.
 1. Open the **User Device Registration** event logs in event viewer. Located under **Applications and Services Log** > **Microsoft** > **Windows** > **User Device Registration**
 2. Look for events with the following eventIDs 204
 
-![Failure Log Event](./media/troubleshoot-hybrid-join-windows-current/4.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/4.png" alt-text="Screenshot of the event viewer. Information on an event with I D 204 is displayed, with the error code, H T T P status, and message highlighted." border="false":::
 
 ##### HTTP errors returned from DRS server
 
@@ -386,7 +386,7 @@ Use Event Viewer logs to locate the phase and errorcode for the join failures.
 
 ### Step 5: Collect logs and contact Microsoft Support
 
-Download the file Auth.zip from [https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH](https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH)
+Download the file Auth.zip from [https://github.com/CSS-Identity/DRS/tree/main/Auth](https://github.com/CSS-Identity/DRS/tree/main/Auth)
 
 1. Unzip the files and rename the included files **start-auth.txt** and **stop-auth.txt** to **start-auth.cmd** and **stop-auth.cmd**.
 1. From an elevated command prompt, run **start-auth.cmd**.

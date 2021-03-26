@@ -5,12 +5,12 @@ author: RonyMSFT
 ms.service: synapse-analytics 
 ms.topic: overview
 ms.subservice: security 
-ms.date: 04/15/2020 
+ms.date: 10/16/2020 
 ms.author: ronytho 
 ms.reviewer: jrasnick
 ---
 
-# Azure Synapse workspace managed identity (preview)
+# Azure Synapse workspace managed identity
 
 In this article, you'll learn about managed identity in Azure Synapse workspace.
 
@@ -18,7 +18,7 @@ In this article, you'll learn about managed identity in Azure Synapse workspace.
 
 Managed identity for Azure resources is a feature of Azure Active Directory. The feature provides Azure services with an automatically managed identity in Azure AD. You can use the Managed Identity capability to authenticate to any service that support Azure AD authentication.
 
-Managed identities for Azure resources are the new name for the service formerly known as Managed Service Identity (MSI). See [Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) to learn more.
+Managed identities for Azure resources are the new name for the service formerly known as Managed Service Identity (MSI). See [Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md) to learn more.
 
 ## Azure Synapse workspace managed identity
 
@@ -27,7 +27,7 @@ A system-assigned managed identity is created for your Azure Synapse workspace w
 >[!NOTE]
 >This workspace managed identity will be referred to as managed identity through the rest of this document.
 
-Azure Synapse uses the managed identity to orchestrate pipelines. The managed identity lifecycle is directly tied to the Azure Synapse workspace. If you delete the Azure Synapse workspace, then the managed identity is also cleaned up.
+Azure Synapse uses the managed identity to integrate pipelines. The managed identity lifecycle is directly tied to the Azure Synapse workspace. If you delete the Azure Synapse workspace, then the managed identity is also cleaned up.
 
 The workspace managed identity needs permissions to perform operations in the pipelines. You can use the object ID or your Azure Synapse workspace name to find the managed identity when granting permissions.
 

@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 08/17/2020
+ms.date: 11/06/2020
 ---
 
 # Overview: Automate deployment for Azure Logic Apps by using Azure Resource Manager templates
@@ -81,7 +81,7 @@ A logic app template has multiple `parameters` objects that exist at different l
 * Connections that your logic uses to access other services and systems through [managed connectors](../connectors/apis-list.md)
 * Other resources that your logic app needs for deployment
 
-  For example, if your logic app uses an [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) for business-to-business (B2B) scenarios, the template's top-level `parameters` object declares the parameter that accepts the resource ID for that integration account.
+  For example, if your logic app uses an [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) for business-to-business (B2B) scenarios, the template's top level `parameters` object declares the parameter that accepts the resource ID for that integration account.
 
 Here is the general structure and syntax for a parameter definition, which is fully described by [Parameters - Resource Manager template structure and syntax](../azure-resource-manager/templates/template-syntax.md#parameters):
 
@@ -202,7 +202,7 @@ Here is the structure inside the parameters file, which includes a key vault ref
       "<secured-parameter-name>": {
          "reference": {
             "keyVault": {
-               "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/Microsoft.KeyVault/vaults/<key-vault-name>",
+               "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/Microsoft.KeyVault/vaults/<key-vault-name>"
             },
             "secretName: "<secret-name>"
          }
@@ -283,7 +283,7 @@ Your logic app's [workflow resource definition in a template](/azure/templates/m
 * The ID for any integration account used by your logic app
 * Your logic app's workflow definition
 * A `parameters` object that sets the values to use at runtime
-* Other resource information about your logic app, such as name, type, location, and so on
+* Other resource information about your logic app, such as name, type, location, any runtime configuration settings, and so on
 
 ```json
 {
@@ -302,7 +302,8 @@ Your logic app's [workflow resource definition in a template](/azure/templates/m
             },
             "definition": {<workflow-definition>},
             "parameters": {<workflow-definition-parameter-values>},
-            "accessControl": {}
+            "accessControl": {},
+            "runtimeConfiguration": {}
          },
          "name": "[parameters('LogicAppName')]", // Template parameter reference
          "type": "Microsoft.Logic/workflows",
@@ -329,7 +330,8 @@ Here are the attributes that are specific to your logic app resource definition:
 | `definition` | Yes | Object | Your logic app's underlying workflow definition, which is the same object that appears in code view and is fully described in the [Schema reference for Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md) topic. In this workflow definition, the `parameters` object declares parameters for the values to use at logic app runtime. For more information, see [Workflow definition and parameters](#workflow-definition-parameters). <p><p>To view the attributes in your logic app's workflow definition, switch from "design view" to "code view" in the Azure portal or Visual Studio, or by using a tool such as [Azure Resource Explorer](https://resources.azure.com). |
 | `parameters` | No | Object | The [workflow definition parameter values](#workflow-definition-parameters) to use at logic app runtime. The parameter definitions for these values appear inside your [workflow definition's parameters object](#workflow-definition-parameters). Also, if your logic app uses [managed connectors](../connectors/apis-list.md) for accessing other services and systems, this object includes a `$connections` object that sets the connection values to use at runtime. |
 | `accessControl` | No | Object | For specifying security attributes for your logic app, such as restricting IP access to request triggers or run history inputs and outputs. For more information, see [Secure access to logic apps](../logic-apps/logic-apps-securing-a-logic-app.md). |
-||||
+| `runtimeConfiguration` | No | Object | For specifying any `operationOptions` properties that control the way that your logic app behaves at run time. For example, you can run your logic app in [high throughput mode](../logic-apps/logic-apps-limits-and-config.md#run-high-throughput-mode). |
+|||||
 
 For more information about resource definitions for these Logic Apps objects, see [Microsoft.Logic resource types](/azure/templates/microsoft.logic/allversions):
 
@@ -435,7 +437,7 @@ This syntax shows where you can declare parameters at both the template and work
 }
 ```
 
-<a name="secure-workflow-definition-parmameters"></a>
+<a name="secure-workflow-definition-parameters"></a>
 
 ### Secure workflow definition parameters
 
@@ -623,7 +625,7 @@ When your logic app creates and uses connections to other services and system by
 }
 ```
 
-Connection resource definitions reference the template's top-level parameters for their values, which means you can provide these values at deployment by using a parameters file. Make sure that connections use the same Azure resource group and location as your logic app.
+Connection resource definitions reference the template's top-level parameters for their values so you can provide these values at deployment by using a parameters file. Make sure that connections use the same Azure resource group and location as your logic app.
 
 Here is an example resource definition for an Office 365 Outlook connection and the corresponding template parameters:
 
@@ -742,12 +744,12 @@ This example shows the interactions between your logic app's resource definition
                      }
                   }
                }
-            },
-            <other-logic-app-resource-information>,
-            "dependsOn": [
-               "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]"
-            ]
-         }
+            }
+         },
+         <other-logic-app-resource-information>,
+         "dependsOn": [
+            "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]"
+         ]
          // End logic app resource definition
       },
       // Office 365 Outlook API connection resource definition
@@ -978,7 +980,7 @@ Some connections support using an Azure Active Directory (Azure AD) [service pri
 
 **Template parameter definitions**
 
-The template's top-level `parameters` object declares these parameters for the example connection:
+The template's top level `parameters` object declares these parameters for the example connection:
 
 ```json
 {

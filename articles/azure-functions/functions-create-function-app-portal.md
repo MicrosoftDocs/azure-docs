@@ -1,41 +1,76 @@
 ---
-title: Create a function app from the Azure portal 
-description: Create a new function app in Azure from the portal. 
+title: Create your first function in the Azure portal
+description: Learn how to create your first Azure Function for serverless execution using the Azure portal.
 ms.topic: how-to
-ms.date: 08/29/2019
-ms.custom: mvc
-
+ms.date: 03/26/2020
+ms.custom: "devx-track-csharp, mvc, devcenter, cc996988-fb4f-47"
 ---
-# Create a function app from the Azure portal
 
-This topic shows you how to use Azure Functions to create a function app in the Azure portal. A function app is the container that hosts the execution of individual functions. 
+# Create your first function in the Azure portal
+
+Azure Functions lets you run your code in a serverless environment without having to first create a virtual machine (VM) or publish a web application. In this article, you learn how to use Azure Functions to create a "hello world" HTTP trigger function in the Azure portal.
+
+[!INCLUDE [functions-in-portal-editing-note](../../includes/functions-in-portal-editing-note.md)] 
+
+We instead recommend that you [develop your functions locally](functions-develop-local.md) and publish to a function app in Azure.  
+Use one of the following links to get started with your chosen local development environment and language:
+
+| Visual Studio Code | Terminal/command prompt | Visual Studio |
+| --- | --- | --- |
+|  &bull;&nbsp;[Get started with C#](./create-first-function-vs-code-csharp.md)<br/>&bull;&nbsp;[Get started with Java](./create-first-function-vs-code-java.md)<br/>&bull;&nbsp;[Get started with JavaScript](./create-first-function-vs-code-node.md)<br/>&bull;&nbsp;[Get started with PowerShell](./create-first-function-vs-code-powershell.md)<br/>&bull;&nbsp;[Get started with Python](./create-first-function-vs-code-python.md) |&bull;&nbsp;[Get started with C#](./create-first-function-cli-csharp.md)<br/>&bull;&nbsp;[Get started with Java](./create-first-function-cli-java.md)<br/>&bull;&nbsp;[Get started with JavaScript](./create-first-function-cli-node.md)<br/>&bull;&nbsp;[Get started with PowerShell](./create-first-function-cli-powershell.md)<br/>&bull;&nbsp;[Get started with Python](./create-first-function-cli-python.md) | [Get started with C#](functions-create-your-first-function-visual-studio.md) |
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## Sign in to Azure
+
+Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 ## Create a function app
 
-[!INCLUDE [functions-create-function-app-portal](../../includes/functions-create-function-app-portal.md)]
+You must have a function app to host the execution of your functions. A function app lets you group functions as a logical unit for easier management, deployment, scaling, and sharing of resources.
 
-After the function app is created, you can create individual functions in one or more different languages. Create functions [by using the portal](functions-create-first-azure-function.md#create-function), [continuous deployment](functions-continuous-deployment.md), or by [uploading with FTP](https://github.com/projectkudu/kudu/wiki/Accessing-files-via-ftp).
+[!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-## Service plans
+Next, create a function in the new function app.
 
-Azure Functions has three different service plans: Consumption plan, Premium plan, and Dedicated (App Service) plan. You must choose your service plan when your function app is created, and it cannot subsequently be changed. For more information, see [Choose an Azure Functions hosting plan](functions-scale.md).
+## <a name="create-function"></a>Create an HTTP trigger function
 
-If you are planning to run JavaScript functions on a Dedicated (App Service) plan, you should choose a plan with fewer cores. For more information, see the [JavaScript reference for Functions](functions-reference-node.md#choose-single-vcpu-app-service-plans).
+1. From the left menu of the **Functions** window, select **Functions**, then select **Add** from the top menu. 
+ 
+1. From the **Add Function** window, select the **Http trigger** template.
 
-<a name="storage-account-requirements"></a>
+    ![Choose HTTP trigger function](./media/functions-create-first-azure-function/function-app-select-http-trigger.png)
 
-## Storage account requirements
+1. Under **Template details** use `HttpExample` for **New Function**, choose **Anonymous** from the **[Authorization level](functions-bindings-http-webhook-trigger.md#authorization-keys)** drop-down list, and then select **Add**.
 
-When creating a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. Internally, Functions uses Storage for operations such as managing triggers and logging function executions. Some storage accounts do not support queues and tables, such as blob-only storage accounts, Azure Premium Storage, and general-purpose storage accounts with ZRS replication. These accounts are filtered out of from the Storage Account blade when creating a function app.
+    Azure creates the HTTP trigger function. Now, you can run the new function by sending an HTTP request.
 
->[!NOTE]
->When using the Consumption hosting plan, your function code and binding configuration files are stored in Azure File storage in the main storage account. When you delete the main storage account, this content is deleted and cannot be recovered.
+## Test the function
 
-To learn more about storage account types, see [Introducing the Azure Storage Services](../storage/common/storage-introduction.md#core-storage-services). 
+1. In your new HTTP trigger function, select **Code + Test** from the left menu, then select **Get function URL** from the top menu.
+
+    ![Select Get function URL](./media/functions-create-first-azure-function/function-app-select-get-function-url.png)
+
+1. In the **Get function URL** dialog box, select **default** from the drop-down list, and then select the **Copy to clipboard** icon. 
+
+    ![Copy the function URL from the Azure portal](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
+
+1. Paste the function URL into your browser's address bar. Add the query string value `?name=<your_name>` to the end of this URL and press Enter to run the request. 
+
+    The following example shows the response in the browser:
+
+    ![Function response in the browser.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
+
+    If the request URL included an [access key](functions-bindings-http-webhook-trigger.md#authorization-keys) (`?code=...`), it means you choose **Function** instead of **Anonymous** access level when creating the function. In this case, you should instead append `&name=<your_name>`.
+
+1. When your function runs, trace information is written to the logs. To see the trace output, return to the **Code + Test** page in the portal and expand the **Logs** arrow at the bottom of the page.
+
+   ![Functions log viewer in the Azure portal.](./media/functions-create-first-azure-function/function-view-logs.png)
+
+## Clean up resources
+
+[!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 
 ## Next steps
 
-While the Azure portal makes it easy to create and try out Functions, we recommend [local development](functions-develop-local.md). After creating a function app in the portal, you still need to add a function. 
-
-> [!div class="nextstepaction"]
-> [Add an HTTP triggered function](functions-create-first-azure-function.md#create-function)
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
