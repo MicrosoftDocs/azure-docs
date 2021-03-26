@@ -1,8 +1,8 @@
 ---
 title: Azure Percept AI models
 description: Learn more about the AI models available for prototyping and deployment
-author: elqu20
-ms.author: v-elqu
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/23/2021

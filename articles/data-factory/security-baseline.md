@@ -163,9 +163,9 @@ You may use Azure PowerShell or Azure CLI to look up or perform actions on resou
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to your Azure Data Factory instances. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
-- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsibility**: Customer
 
@@ -181,7 +181,7 @@ You may use Azure PowerShell or Azure CLI to look up or perform actions on resou
 
 Alternatively, you may enable and on-board data to Azure Sentinel or a third-party Security Incident and Event Management (SIEM).You can also integrate Azure Data Factory with Git to leverage several source control benefits, such as the ability to track/audit changes and the ability to revert changes that introduce bugs.
 
-- [How to configure diagnostic settings](/azure/azure-monitor/platform/diagnostic-settings#create-in-azure-portal)
+- [How to configure diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md#create-in-azure-portal)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -199,7 +199,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 Use diagnostic settings to configure diagnostic logs for noncompute resources in Azure Data Factory, such as metrics and pipeline-run data. Azure Data Factory stores pipeline-run data for 45 days. To retain this data for  longer period of time, save your diagnostic logs to a storage account for auditing or manual inspection and specify the retention time in days.  You can also stream the logs to Azure Event Hubs or send the logs to a Log Analytics workspace for analysis.
 
-- [How to enable Diagnostic Settings for Azure Activity Log](/azure/azure-monitor/platform/activity-log)
+- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 - [Understand Azure Data Factory diagnostic logs](monitor-using-azure-monitor.md)
 
@@ -213,9 +213,9 @@ Use diagnostic settings to configure diagnostic logs for noncompute resources in
 
 If your organization would like to retain the  security event log data, it can be stored within a Data Collection tier, at which point it can be queried in Log Analytics.
 
-- [How to collect data from Azure Virtual Machines in Azure Monitor](/azure/azure-monitor/learn/quick-collect-azurevm)
+- [How to collect data from Azure Virtual Machines in Azure Monitor](../azure-monitor/vm/quick-collect-azurevm.md)
 
-- [Enabling Data Collection in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier)
+- [Enabling Data Collection in Azure Security Center](../security-center/security-center-enable-data-collection.md#data-collection-tier)
 
 **Responsibility**: Customer
 
@@ -227,7 +227,7 @@ If your organization would like to retain the  security event log data, it can b
 
 - [How to enable diagnostic logs in Azure Data Factory](monitor-using-azure-monitor.md)
 
-- [How to set log retention parameters for Log Analytics Workspaces](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [How to set log retention parameters for Log Analytics Workspaces](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Responsibility**: Customer
 
@@ -241,9 +241,9 @@ If you are running your Integration Runtime in an Azure Virtual Machine (VM), en
 
 Alternatively, you may enable and on-board data to Azure Sentinel or a third-party SIEM.
 
-- [Log Analytics schema](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#schema-of-logs-and-events)
+- [Log Analytics schema](./monitor-using-azure-monitor.md#schema-of-logs-and-events)
 
-- [How to collect data from an Azure Virtual Machine with Azure Monitor](/azure/azure-monitor/learn/quick-collect-azurevm)
+- [How to collect data from an Azure Virtual Machine with Azure Monitor](../azure-monitor/vm/quick-collect-azurevm.md)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -259,11 +259,11 @@ Configure diagnostic settings for Azure Data Factory and send logs to a Log Anal
 
 Additionally, ensure that you enable diagnostic settings for services related to your data stores. You can refer to each service's security baseline for guidance.
 
-- [Alerts in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/monitor-visually#alerts)
+- [Alerts in Azure Data Factory](./monitor-visually.md#alerts)
 
-- [All supported metrics page](/azure/azure-monitor/platform/metrics-supported)
+- [All supported metrics page](../azure-monitor/essentials/metrics-supported.md)
 
-- [How to configure alerts in Log Analytics Workspace](/azure/azure-monitor/platform/alerts-log)
+- [How to configure alerts in Log Analytics Workspace](../azure-monitor/alerts/alerts-log.md)
 
 **Responsibility**: Customer
 
@@ -285,7 +285,7 @@ Additionally, ensure that you enable diagnostic settings for services related to
 
 **Guidance**: If you are running your Integration Runtime in an Azure Virtual Machine (VM), you can enable command-line audit logging. The Azure Security Center provides Security Event log monitoring for Azure VMs.  Security Center provisions the Microsoft Monitoring Agent on all supported Azure VMs and any new ones that are created if automatic provisioning is enabled or you can install the agent manually.  The agent enables the process creation event 4688 and the CommandLine field inside event 4688. New processes created on the VM are recorded by EventLog and monitored by Security Center's detection services.
 
-- [Data collection in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier)
+- [Data collection in Azure Security Center](../security-center/security-center-enable-data-collection.md#data-collection-tier)
 
 **Responsibility**: Customer
 
@@ -311,7 +311,7 @@ While Azure AD is the recommended method to administrate user access, keep in mi
 
 - [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
-- [Information for Local Accounts](https://docs.microsoft.com/azure/active-directory/devices/assign-local-admin#manage-the-device-administrator-role)
+- [Information for Local Accounts](../active-directory/devices/assign-local-admin.md#manage-the-device-administrator-role)
 
 **Responsibility**: Customer
 
@@ -440,7 +440,7 @@ If you are running your Runtime Integration in an Azure Virtual Machine, you wil
 
 - [How to use Azure Identity Access Reviews](../active-directory/governance/access-reviews-overview.md)
 
-- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/)
+- [Understand Azure AD reporting](../active-directory/reports-monitoring/index.yml)
 
 - [How to use Azure Identity Access Reviews](../active-directory/governance/access-reviews-overview.md)
 
@@ -454,7 +454,7 @@ If you are running your Runtime Integration in an Azure Virtual Machine, you wil
 
 If you are running your Integration Runtime in an Azure Virtual Machine (VM), on-board that VM to Azure Sentinel. Microsoft Azure Sentinel is a scalable, cloud-native, security information event management (SIEM) and security orchestration automated response (SOAR) solution. Azure Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response.
 
-- [How to integrate Azure Activity Logs into Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Authorize access to Event Hubs resources using Azure AD](../event-hubs/authorize-access-azure-active-directory.md)
 
@@ -474,7 +474,7 @@ If you are running your Integration Runtime in an Azure Virtual Machine (VM), on
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Configure and manage Azure AD authentication with SQL](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell)
+- [Configure and manage Azure AD authentication with SQL](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell)
 
 - [Enable Azure AD authentication for Azure-SSIS Integration Runtime](enable-aad-authentication-azure-ssis-ir.md)
 
@@ -626,9 +626,9 @@ You can store credentials or secret values in an Azure Key Vault and use them du
 
 **Guidance**: Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to Azure Data Factory and related resources.
 
-- [How to create alerts for Azure Activity Log events](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
-- [How to create alerts for Azure Activity Log events](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Azure Storage analytics logging](../storage/common/storage-analytics-logging.md)
 
@@ -1025,7 +1025,7 @@ You can also store credentials or secret values in an Azure Key Vault and use th
 
 - [How to integrate with Azure Managed Identities](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-- [How to create a Key Vault](/azure/key-vault/quick-create-portal)
+- [How to create a Key Vault](../key-vault/secrets/quick-create-portal.md)
 
 - [How to authenticate to Key Vault](../key-vault/general/authentication.md)
 
@@ -1249,5 +1249,5 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 ## Next steps
 
-- see [Azure Security Benchmark V2 overview](/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
+- see [Azure Security Benchmark V2 overview](../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)

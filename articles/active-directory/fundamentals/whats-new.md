@@ -266,20 +266,20 @@ Customers can work around this requirement for testing purposes by using a featu
  
 ---
 
-### Public Preview - Customize and configure Android shared devices for Frontline Workers at scale
+### Public Preview - Customize and configure Android shared devices for frontline workers at scale
 
 **Type:** New feature  
 **Service category:** Device Registration and Management  
 **Product capability:** Identity Security & Protection
  
-Azure AD and Microsoft Endpoint Manager teams have combined to bring the capability to customize, scale, and secure your Frontline Worker devices.
+Azure AD and Microsoft Endpoint Manager teams have combined to bring the capability to customize, scale, and secure your frontline worker devices.
 
 The following preview capabilities will allow you to:
 - Provision Android shared devices at scale with Microsoft Endpoint Manager
 - Secure your access for shift workers using device-based conditional access
 - Customize sign-in experiences for the shift workers with Managed Home Screen
 
-To learn more, refer to [Customize and configure shared devices for Frontline Workers at scale](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/customize-and-configure-shared-devices-for-firstline-workers-at/ba-p/1751708).
+To learn more, refer to [Customize and configure shared devices for frontline workers at scale](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/customize-and-configure-shared-devices-for-firstline-workers-at/ba-p/1751708).
 
 ---
 
@@ -625,7 +625,7 @@ Azure Active Directory (Azure AD) Application Proxy natively supports single sig
 **Service category:** B2C - Consumer Identity Management  
 **Product capability:** B2B/B2C
 
-With phone number sign-up and sign-in, developers and enterprises can allow their customers to sign up and sign in using a one-time password sent to the user's phone number via SMS. This feature also lets the customer change their phone number if they lose access to their phone. With the power of custom policies, allow developers and enterprises to communicate their brand through page customization. Find out how to [set up phone sign-up and sign-in with custom policies in Azure AD B2C](../../active-directory-b2c/phone-authentication.md).
+With phone number sign-up and sign-in, developers and enterprises can allow their customers to sign up and sign in using a one-time password sent to the user's phone number via SMS. This feature also lets the customer change their phone number if they lose access to their phone. With the power of custom policies, allow developers and enterprises to communicate their brand through page customization. Find out how to [set up phone sign-up and sign-in with custom policies in Azure AD B2C](../../active-directory-b2c/phone-authentication-user-flows.md).
  
 ---
 

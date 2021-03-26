@@ -14,7 +14,7 @@ ms.service: azure-communication-services
 
 # Get started with the web calling sample
 
-The web calling sample is a web application that serves as a step-by-step walkthrough of the various capabilities provided by the Communication Services web calling client library.
+The web calling sample is a web application that serves as a step-by-step walkthrough of the various capabilities provided by the Communication Services web Calling SDK.
 
 This sample was built for developers and makes it very easy for you to get started with Communication Services. Its user interface is divided into multiple sections, each featuring a "Show code" button that allows you to copy code directly from your browser into your own Communication Services application.
 
@@ -47,7 +47,7 @@ You're now ready to begin placing calls using your Communication Services resour
 
 ## Placing and receiving calls
 
-The Communication Services web calling SDK allows for **1:1**, **1:N**, and **group** calling.
+The Communication Services web Calling SDK allows for **1:1**, **1:N**, and **group** calling.
 
 For 1:1 or 1:N outgoing calls, you can specify multiple Communication Services User Identities to call using comma-separated values. You can can also specify traditional (PSTN) phone numbers to call using comma-separated values.
 
@@ -82,7 +82,7 @@ This sample also provides code snippets for the following capabilities:
 
 For more information, see the following articles:
 
-- Familiarize yourself with [using the calling client library](../quickstarts/voice-video-calling/calling-client-samples.md)
+- Familiarize yourself with [using the Calling SDK](../quickstarts/voice-video-calling/calling-client-samples.md)
 - Learn more about [how calling works](../concepts/voice-video-calling/about-call-types.md)
 - Review the [API Reference docs](/javascript/api/azure-communication-services/@azure/communication-calling/)
 - Review the [Contoso Med App](https://github.com/Azure-Samples/communication-services-contoso-med-app) sample

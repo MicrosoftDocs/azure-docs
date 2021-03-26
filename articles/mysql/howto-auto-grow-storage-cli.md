@@ -1,8 +1,8 @@
 ---
 title: Auto grow storage - Azure CLI - Azure Database for MySQL
 description: This article describes how you can enable auto grow storage using the Azure CLI in Azure Database for MySQL.
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020 
