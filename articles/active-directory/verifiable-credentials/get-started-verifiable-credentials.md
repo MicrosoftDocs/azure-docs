@@ -139,7 +139,7 @@ After a successful presentation three things should have been updated:
 - In Authenticator, there should be an entry for recent activity of this presentation.
 
  >[!note]
-    >While running the verifier app, ngrok may stop working and display an error that there are too many connections. We've found this can be avoided by registering your account with ngrok. 
+> While running the verifier app, ngrok may stop working and display an error that there are too many connections. We've found this can be avoided by registering your account with ngrok. 
 
 ## Next steps
 
