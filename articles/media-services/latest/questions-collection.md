@@ -1,7 +1,7 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Azure Media Services v3 frequently asked questions
-description: This article gives answers to frequently asked questions about Azure Media Services v3.
+title: Azure Media Services v3 question collection
+description: This article gives answers to a collection of questions about Azure Media Services v3.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -11,11 +11,12 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 08/31/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
 ---
+<!-- NOTE this file is temporary and a placeholder until the FAQ file update is completed. -->
 
-# Media Services v3 frequently asked questions
+# Media Services v3 questions collection
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
