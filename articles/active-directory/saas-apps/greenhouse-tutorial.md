@@ -77,6 +77,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<COMPANYNAME>.greenhouse.io`
 
     b. In the **Reply URL** text box, type a URL using one of the following patterns:
+    
     | Reply URL|
     | -------------- |
     | `https://<COMPANYNAME>.greenhouse.io/users/saml/consume` |
