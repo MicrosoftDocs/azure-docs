@@ -102,7 +102,7 @@ In this tutorial, you learn to:
     ```
 
     > [!NOTE]
-    > If you are not using the sample app, values entered for _app_location_, _api_location_, and _output_location_ will need to be modified for your app.  
+    > If you are not using the sample app, the values for `app_location`, `api_location`, and `output_location` need  to change to match the values in your application.
 
     [!INCLUDE [static-web-apps-folder-structure](../../includes/static-web-apps-folder-structure.md)]
 
