@@ -97,7 +97,7 @@ To send an SMS message to a list of recipients, call the `send` function from th
 async function main() {
   const sendResults = await smsClient.send({
     from: "<from-phone-number>",
-    to: ["<to-phone-numbers>"],
+    to: ["<to-phone-number-1>", "<to-phone-number-2>"],
     message: "Hello World 👋🏻 via SMS"
   });
 
@@ -114,7 +114,10 @@ async function main() {
 
 main();
 ```
-You should replace `<from-phone-number>` with an E.164 formatted formatted SMS-enabled phone number associated with your Communication Services resource and `<to-phone-numbers>` and `<to-phone-numbers>` with one or more E.164 formatted phone numbers you wish to send a message to.
+You should replace `<from-phone-number>` with an SMS-enabled phone number associated with your Communication Services resource and `<to-phone-numbers>` and `<to-phone-number-1>` and `<to-phone-number-2>` with the phone number(s) you wish to send a message to.
+
+> [!WARNING]
+> Note that phone numbers should be provided in E.164 international standard format. (e.g.: +14255550123).
 
 ## Send a 1:N SMS message with options
 
@@ -125,10 +128,10 @@ You may also pass in an options object to specify whether the delivery report sh
 async function main() {
   const sendResults = await smsClient.send({
     from: "<from-phone-number>",
-    to: ["<to-phone-numbers>"],
+    to: ["<to-phone-number-1>", "<to-phone-number-2>"],
     message: "Weekly Promotion!"
   }, {
-    //Optional parameter
+    //Optional parameters
     enableDeliveryReport: true,
     tag: "marketing"
   });

@@ -100,10 +100,10 @@ sms_responses = sms_client.send(
 
 ```
 
-You should replace `<from-phone-number>` with an E.164 formatted SMS enabled phone number associated with your communication service and `<to-phone-number>` with the E.164 formatted phone number you wish to send a message to. 
+You should replace `<from-phone-number>` with an SMS enabled phone number associated with your communication service and `<to-phone-number>` with the phone number you wish to send a message to. 
 
 > [!WARNING]
-> Note that phone numbers should be provided in E.164 international standard format. (e.g.: +12223334444).
+> Note that phone numbers should be provided in E.164 international standard format. (e.g.: +14255550123).
 
 ## Send a 1:N SMS Message
 
@@ -121,13 +121,11 @@ sms_responses = sms_client.send(
 
 ```
 
-You should replace `<from-phone-number>` with an E.164 formatted SMS enabled phone number associated with your communication service and `<to-phone-number-1>` and `<to-phone-number-2>` with the E.164 formatted phone numbers you wish to send a message to. 
-
-## Optional Parameters
+### Optional Parameters
 
 The `enable_delivery_report` parameter is an optional parameter that you can use to configure Delivery Reporting. This is useful for scenarios where you want to emit events when SMS messages are delivered. See the [Handle SMS Events](../handle-sms-events.md) quickstart to configure Delivery Reporting for your SMS messages.
 
-The `tag` parameter is an optional parameter that you can use to configure custom tagging.
+The `tag` parameter is an optional parameter that you can use to apply a tag to the Delivery Report.
 
 ## Run the code
 Run the application from your application directory with the `python` command.
