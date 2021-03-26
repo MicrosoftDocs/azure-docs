@@ -19,15 +19,14 @@ ms.custom: devx-track-csharp
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-## Compliance, Privacy, and Security
- 
-As an important reminder, you must comply with all applicable laws in your use of analytics in Azure Media Services. You must not use Azure Media Services or any other Azure service in a manner that violates the rights of others. Before uploading any videos, including any biometric data, to the Azure Media Services service for processing and storage, you must have all the proper rights, including all appropriate consents, from the individuals in the video. To learn about compliance, privacy and security in Azure Media Services, the Azure [Cognitive Services Terms](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). For Microsoft’s privacy obligations and handling of your data, review Microsoft’s [Privacy Statement](https://privacy.microsoft.com/PrivacyStatement), the [Online Services Terms](https://www.microsoft.com/licensing/product-licensing/products) (OST) and [Data Processing Addendum](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) (“DPA”). More privacy information, including on data retention, deletion/destruction, is available in the OST and [here](../video-indexer/faq.md). By using Azure Media Services, you agree to be bound by the Cognitive Services Terms, the OST, DPA, and the Privacy Statement.
-
-## Overview
-
 Azure Media Services v3 API includes a Face Detector preset that offers scalable face detection and redaction (blurring) in the cloud. Face redaction enables you to modify your video in order to blur faces of selected individuals. You may want to use the face redaction service in public safety and news media scenarios. A few minutes of footage that contains multiple faces can take hours to redact manually, but with this preset the face redaction process will require just a few simple steps.
 
 This article gives details about **Face Detector Preset** and shows how to use it with Azure Media Services SDK for .NET.
+
+## Compliance, privacy, and security
+ 
+As an important reminder, you must comply with all applicable laws in your use of analytics in Azure Media Services. You must not use Azure Media Services or any other Azure service in a manner that violates the rights of others. Before uploading any videos, including any biometric data, to the Azure Media Services service for processing and storage, you must have all the proper rights, including all appropriate consents, from the individuals in the video. To learn about compliance, privacy and security in Azure Media Services, the Azure [Cognitive Services Terms](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). For Microsoft’s privacy obligations and handling of your data, review Microsoft’s [Privacy Statement](https://privacy.microsoft.com/PrivacyStatement), the [Online Services Terms](https://www.microsoft.com/licensing/product-licensing/products) (OST) and [Data Processing Addendum](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) (“DPA”). More privacy information, including on data retention, deletion/destruction, is available in the OST and [here](../video-indexer/faq.md). By using Azure Media Services, you agree to be bound by the Cognitive Services Terms, the OST, DPA, and the Privacy Statement
+
 
 ## Face redaction modes
 
@@ -149,23 +148,23 @@ You can find samples of the blur types below.
 
 #### Low
 
-![Low](./media/media-services-face-redaction/blur1.png)
+![Low resolution blur setting example.](./media/media-services-face-redaction/blur-1.png)
 
 #### Med
 
-![Med](./media/media-services-face-redaction/blur2.png)
+![Medium resolution blur setting example.](./media/media-services-face-redaction/blur-2.png)
 
 #### High
 
-![High](./media/media-services-face-redaction/blur3.png)
+![High resolution blur setting example.](./media/media-services-face-redaction/blur-3.png)
 
 #### Box
 
-![Box](./media/media-services-face-redaction/blur4.png)
+![Box mode for use in debugging your output.](./media/media-services-face-redaction/blur-4.png)
 
 #### Black
 
-![Black](./media/media-services-face-redaction/blur5.png)
+![Black box mode covers all faces with black boxes.](./media/media-services-face-redaction/blur-5.png)
 
 ## Elements of the output JSON file
 
@@ -177,10 +176,10 @@ The Redaction MP provides high precision face location detection and tracking th
 
 The following program shows how to use the **Combined** single-pass redaction mode:
 
-1. Create an asset and upload a media file into the asset.
-1. Configure the the Face Detector preset that uses the mode and blurType settings.
-1. Create a new Transform using the Face Detector preset
-1. Download the output redacted video file.
+- Create an asset and upload a media file into the asset.
+- Configure the the Face Detector preset that uses the mode and blurType settings.
+- Create a new Transform using the Face Detector preset
+- Download the output redacted video file.
 
 ## Download and configure the sample
 
@@ -192,11 +191,15 @@ Clone a GitHub repository that contains the .NET sample to your machine using th
 
 The sample is located in the [FaceRedactor](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoAnalytics/FaceRedactor) folder. Open [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/VideoAnalytics/FaceRedactor/appsettings.json) in your downloaded project. Replace the values with the credentials you got from [accessing APIs](./access-api-howto.md).
 
-**Optionally** you can copy the **[sample.env](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/sample.env)** file at the root of the repository and fill out the details in there, and rename that file to **.env ** (Note the dot on the front!) so that it can be used across all sample projects in the repository.  This eliminates the need to have a populated appsettings.json file in each sample, and also protects you from checking any settings into your own Git hub cloned repositories.
+**Optionally** you can copy the **[sample.env](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/sample.env)** file at the root of the repository and fill out the details in there, and rename that file to **.env** (Note the dot on the front!) so that it can be used across all sample projects in the repository.  This eliminates the need to have a populated appsettings.json file in each sample, and also protects you from checking any settings into your own Git hub cloned repositories.
 
-#### Example
+#### Examples
+
+This code shows how to setup the **FaceDetectorPreset** for a **Combined** mode blur.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet/VideoAnalytics/FaceRedactor/Program.cs#FaceDetectorPreset)]
+
+This code sample shows how the preset is passed into a Transform object during creation. After creating the Transform, jobs may be submitted directly to it.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet/VideoAnalytics/FaceRedactor/Program.cs#FaceDetectorPresetTransform)]
 
