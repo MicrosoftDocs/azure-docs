@@ -108,20 +108,58 @@ In this quickstart, you'll learn how to create and deploy your first ASP.NET web
 
 ::: zone pivot="development-environment-vs"
 
-1. Open Visual Studio and then select **Create a new project**.
-1. In **Create a new project**, find and choose **ASP.NET Web Application (.NET Framework)**, then select **Next**.
-1. In **Configure your new project**, name the application _MyFirstAzureWebApp_, and then select **Create**.
+### [.NET Core 3.1](#tab/netcore31)
 
-   ![Configure your web app project](./media/quickstart-dotnet-framework/configure-web-app-project-framework.png)
+1. Open Visual Studio and then select **Create a new project**.
+1. In **Create a new project**, find and choose **ASP.NET Web App**, then select **Next**.
+1. In **Configure your new project**, name the application _MyFirstAzureWebApp_, and then select **Next**.
+
+   :::image type="content" source="media/quickstart-dotnet/configure-webapp-net.png" alt-text="Configure ASP.NET Core 3.1 web app" border="true":::
 
 1. You can deploy any type of ASP.NET web app to Azure. For this quickstart, choose the **MVC** template.
 1. Make sure authentication is set to **No Authentication**. Select **Create**.
 
-   ![Create ASP.NET Web Application](./media/quickstart-dotnet-framework/select-mvc-template-vs2019.png)
+   :::image type="content" source="media/quickstart-dotnet/vs-additional-info-netcoreapp3.1.png" alt-text="Visual Studio - .NET Core 3.1" border="true":::
 
 1. From the Visual Studio menu, select **Debug** > **Start Without Debugging** to run the web app locally.
 
-   ![Run app locally](./media/quickstart-dotnet-framework/local-web-app.png)
+   :::image type="content" source="media/quickstart-dotnet/local-webapp-net.png" alt-text="Visual Studio - .NET Core 3.1 browse locally" border="true":::
+
+### [.NET 5.0](#tab/net50)
+
+1. Open Visual Studio and then select **Create a new project**.
+1. In **Create a new project**, find and choose **ASP.NET Web App**, then select **Next**.
+1. In **Configure your new project**, name the application _MyFirstAzureWebApp_, and then select **Next**.
+
+   :::image type="content" source="media/quickstart-dotnet/configure-webapp-net.png" alt-text="Configure ASP.NET 5.0 web app" border="true":::
+
+1. You can deploy any type of ASP.NET web app to Azure. For this quickstart, choose the **MVC** template.
+1. Make sure authentication is set to **No Authentication**. Select **Create**.
+
+   :::image type="content" source="media/quickstart-dotnet/vs-additional-info-net5.0.png" alt-text="Visual Studio - .NET Core 5.0" border="true":::
+
+1. From the Visual Studio menu, select **Debug** > **Start Without Debugging** to run the web app locally.
+
+   :::image type="content" source="media/quickstart-dotnet/local-webapp-net.png" alt-text="Visual Studio - .NET 5.0 browse locally" border="true":::
+
+### [.NET Framework 4.8](#tab/netframework48)
+
+1. Open Visual Studio and then select **Create a new project**.
+1. In **Create a new project**, find and choose **ASP.NET Web Application (.NET Framework)**, then select **Next**.
+1. In **Configure your new project**, name the application _MyFirstAzureWebApp_, and then select **Create**.
+
+   :::image type="content" source="media/quickstart-dotnet/configure-webapp-netframework48.png" alt-text="Configure ASP.NET Framework 4.8 web app" border="true":::
+
+1. You can deploy any type of ASP.NET web app to Azure. For this quickstart, choose the **MVC** template.
+1. Make sure authentication is set to **No Authentication**. Select **Create**.
+
+   :::image type="content" source="media/quickstart-dotnet/vs-mvc-no-auth-netframework48.png" alt-text="Select MVC" border="true":::
+
+1. From the Visual Studio menu, select **Debug** > **Start Without Debugging** to run the web app locally.
+
+   :::image type="content" source="media/quickstart-dotnet/vs-local-webapp-netframework48.png" alt-text="Visual Studio - .NET Framework 4.8 browse locally" border="true":::
+
+---
 
 ::: zone-end
 
@@ -150,15 +188,34 @@ dotnet new webapp --target-framework-override net48
 > [!IMPORTANT]
 > The `--target-framework-override` flag is a free-form text replacement of the target framework moniker (TFM) for the project, and makes *no guarantees* that the supporting template exists or compiles. You can only build and run .NET Framework apps on Windows.
 
+---
+
 From the **Terminal** in Visual Studio Code, run the application locally using the [`dotnet run`](/dotnet/core/tools/dotnet-run) command.
 
 ```dotnetcli
 dotnet run
 ```
 
-Open a web browser, and navigate to the app at `https://localhost:5001`. You'll see the template ASP.NET Framework 4.8 web app displayed in the page.
+Open a web browser, and navigate to the app at `https://localhost:5001`.
 
-![Test with browser](media/quickstart-dotnet/local-webapp-net48.png)
+
+### [.NET Core 3.1](#tab/netcore31)
+
+You'll see the template ASP.NET Core 3.1 web app displayed in the page.
+
+:::image type="content" source="media/quickstart-dotnet/local-webapp-net.png" alt-text="VS Code - run .NET Core 3.1 in browser locally" lightbox="media/quickstart-dotnet/local-webapp-net.png" border="true":::
+
+### [.NET 5.0](#tab/net50)
+
+You'll see the template ASP.NET Core 5.0 web app displayed in the page.
+
+:::image type="content" source="media/quickstart-dotnet/local-webapp-net.png" alt-text="VS Code - run .NET 5.0 in browser locally" lightbox="media/quickstart-dotnet/local-webapp-net.png" border="true":::
+
+### [.NET Framework 4.8](#tab/netframework48)
+
+You'll see the template ASP.NET Framework 4.8 web app displayed in the page.
+
+:::image type="content" source="media/quickstart-dotnet/local-webapp-net48.png" alt-text="VS Code - run .NET 4.8 in browser locally" lightbox="media/quickstart-dotnet/local-webapp-net48.png" border="true":::
 
 ---
 
@@ -197,19 +254,26 @@ From the same terminal session, run the application locally using the [`dotnet r
 dotnet run
 ```
 
-Open a web browser, and navigate to the app at `https://localhost:5001`. You'll see the ASP.NET web app template displayed in the page.
+Open a web browser, and navigate to the app at `https://localhost:5001`.
+
 
 ### [.NET Core 3.1](#tab/netcore31)
 
-![Run ASP.NET Core 3.1 app locally](media/quickstart-dotnet/local-webapp-net.png)
+You'll see the template ASP.NET Core 3.1 web app displayed in the page.
+
+:::image type="content" source="media/quickstart-dotnet/local-webapp-net.png" alt-text="VS Code - run .NET Core 3.1 in browser locally" lightbox="media/quickstart-dotnet/local-webapp-net.png" border="true":::
 
 ### [.NET 5.0](#tab/net50)
 
-![Run ASP.NET Core 5.0 app locally](media/quickstart-dotnet/local-webapp-net.png)
+You'll see the template ASP.NET Core 5.0 web app displayed in the page.
+
+:::image type="content" source="media/quickstart-dotnet/local-webapp-net.png" alt-text="VS Code - run .NET 5.0 in browser locally" lightbox="media/quickstart-dotnet/local-webapp-net.png" border="true":::
 
 ### [.NET Framework 4.8](#tab/netframework48)
 
-![Run ASP.NET Framework 4.8 app locally](media/quickstart-dotnet/local-webapp-net48.png)
+You'll see the template ASP.NET Framework 4.8 web app displayed in the page.
+
+:::image type="content" source="media/quickstart-dotnet/local-webapp-net48.png" alt-text="VS Code - run .NET 4.8 in browser locally" lightbox="media/quickstart-dotnet/local-webapp-net48.png" border="true":::
 
 ---
 
