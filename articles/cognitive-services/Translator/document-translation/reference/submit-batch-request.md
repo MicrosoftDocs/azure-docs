@@ -51,7 +51,7 @@ Request headers are:
 |--- |--- |--- |
 |inputs|BatchRequest[]|BatchRequest listed below. The input list of documents or folders containing documents. Media Types: "application/json", "text/json", "application/*+json".|
 
-### inputs
+### Inputs
 
 Definition for the input batch translation request.
 
@@ -100,7 +100,7 @@ Destination for the finished translated documents.
 |storageSource|StorageSource []|False|StorageSource [] listed above.|
 |version|string|False|Version.|
 
-## Example Request
+## Example request
 
 The following are examples of batch requests.
 
@@ -223,7 +223,7 @@ The following are the possible HTTP status codes that a request returns.
 |503|Service is currently unavailable.  Please try again later.|
 |Other Status Codes|<ul><li>Too many requests</li><li>Server temporary unavailable</li></ul>|
 
-## Error Response
+## Error response
 
 |Name|Type|Description|
 |--- |--- |--- |
@@ -235,7 +235,7 @@ The following are the possible HTTP status codes that a request returns.
 
 ## Examples
 
-### Example Successful Response
+### Example successful response
 
 The following information is returned in a successful response.
 
@@ -245,7 +245,7 @@ You can find the job ID in the POST method's response Header Operation-Location 
 Operation-Location: https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0.preview.1/operation/0FA2822F-4C2A-4317-9C20-658C801E0E55
 ```
 
-### Example Error Response
+### Example error response
 
 ```JSON
 {

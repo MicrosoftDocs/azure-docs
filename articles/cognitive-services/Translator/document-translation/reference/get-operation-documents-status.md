@@ -21,7 +21,10 @@ The documents included in the response are sorted by document ID in descending o
 
 $top and $skip query parameters can be used to specify a number of results to return and an offset for the collection. The server honors the values specified by the client. However, clients must be prepared to handle responses that contain a different page size or contain a continuation token.
 
-When both $top and $skip are included, the server should first apply $skip and then $top on the collection. Note: If the server can't honor $top and/or $skip, the server must return an error to the client informing about it instead of just ignoring the query options. This reduces the risk of the client making assumptions about the data returned.
+When both $top and $skip are included, the server should first apply $skip and then $top on the collection.
+
+> [!NOTE]
+> If the server can't honor $top and/or $skip, the server must return an error to the client informing about it instead of just ignoring the query options. This reduces the risk of the client making assumptions about the data returned.
 
 ## Request URL
 
@@ -69,9 +72,9 @@ The following are the possible HTTP status codes that a request returns.
 |Other Status Codes|<ul><li>Too many requests</li><li>Server temporary unavailable</li></ul>|
 
 
-## Get Operation Documents Status Response
+## Get operation documents status response
 
-### Successful Get Operation Documents Status Response
+### Successful get operation documents status response
 
 The following information is returned in a successful response.
 
@@ -88,7 +91,7 @@ The following information is returned in a successful response.
 |value.id|string|Document ID.|
 |value.characterCharged|integer|Characters charged by the API.|
 
-### Error Response
+### Error response
 
 |Name|Type|Description|
 |--- |--- |--- |
@@ -101,7 +104,7 @@ The following information is returned in a successful response.
 
 ## Examples
 
-### Example Successful Response
+### Example successful response
 
 The following is an example of a successful response.
 
@@ -123,7 +126,7 @@ The following is an example of a successful response.
 }
 ```
 
-### Example Error Response
+### Example error response
 
 The following is an example of an error response. The schema for other error codes is the same.
 

@@ -50,11 +50,11 @@ The following are the possible HTTP status codes that a request returns.
 |Other Status Codes|<ul><li>Too many requests</li><li>Server temporary unavailable</li></ul>|
 
 
-## Get Glossary Formats Response
+## Get glossary formats response
 
 Base type for list return in the Get Glossary Formats API.
 
-### Successful Get Glossary Formats Response
+### Successful get glossary formats response
 
 Base type for list return in the Get Glossary Formats API.
 
@@ -64,7 +64,7 @@ Base type for list return in the Get Glossary Formats API.
 |500|Internal Server Error.|
 |Other Status Codes|Too many requestsServer temporary unavailable|
 
-### Error Response
+### Error response
 
 |Name|Type|Description|
 |--- |--- |--- |
@@ -76,7 +76,8 @@ Base type for list return in the Get Glossary Formats API.
 
 ## Examples
 
-### Example Successful Response
+### Example successful response
+
 The following is an example of a successful response.
 
 ```JSON
@@ -111,8 +112,8 @@ The following is an example of a successful response.
 }
 ```
 
-### Example Error Response
-The following is an example of an error response. The schema for other error codes is the same.
+### Example error response
+the following is an example of an error response. The schema for other error codes is the same.
 
 Status code: 500
 

@@ -23,7 +23,10 @@ $top and $skip query parameters can be used to specify a number of results to re
 
 The server honors the values specified by the client. However, clients must be prepared to handle responses that contain a different page size or contain a continuation token.
 
-When both $top and $skip are included, the server should first apply $skip and then $top on the collection. Note: If the server can't honor $top and/or $skip, the server must return an error to the client informing about it instead of just ignoring the query options. This reduces the risk of the client making assumptions about the data returned.
+When both $top and $skip are included, the server should first apply $skip and then $top on the collection. 
+
+> [!NOTE]
+> If the server can't honor $top and/or $skip, the server must return an error to the client informing about it instead of just ignoring the query options. This reduces the risk of the client making assumptions about the data returned.
 
 ## Request URL
 
@@ -68,9 +71,9 @@ The following are the possible HTTP status codes that a request returns.
 |500|Internal Server Error.|
 |Other Status Codes|<ul><li>Too many requests</li><li>Server temporary unavailable</li></ul>|
 
-## Get Operations Response
+## Get operations response
 
-### Successful Get Operations Response
+### Successful get operations response
 
 The following information is returned in a successful response.
 
@@ -89,7 +92,7 @@ The following information is returned in a successful response.
 |summary.cancelled|integer|Count of documents canceled.|
 |summary.totalCharacterCharged|integer|Total count of characters charged.|
 
-### Error Response
+###Error response
 
 |Name|Type|Description|
 |--- |--- |--- |
@@ -102,7 +105,7 @@ The following information is returned in a successful response.
 
 ## Examples
 
-### Example Successful Response
+### Example successful response
 
 The following is an example of a successful response.
 
@@ -128,7 +131,7 @@ The following is an example of a successful response.
 }
 ```
 
-### Example Error Response
+### Example error response
 
 The following is an example of an error response. The schema for other error codes is the same.
 

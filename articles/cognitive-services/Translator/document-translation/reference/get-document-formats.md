@@ -49,9 +49,9 @@ The following are the possible HTTP status codes that a request returns.
 |500|Internal Server Error.|
 |Other Status Codes|<ul><li>Too many requests</li><li>Server temporary unavailable</li></ul>|
 
-## File Format Response
+## File format response
 
-### Successful FileFormatListResult Response
+### Successful fileFormatListResult response
 
 The following information is returned in a successful response.
 
@@ -63,7 +63,7 @@ The following information is returned in a successful response.
 |value.contentTypes|string[]|Name of the format.|
 |value.versions|String[]|Supported Version.|
 
-### Error Response
+### Error response
 
 |Name|Type|Description|
 |--- |--- |--- |
@@ -75,7 +75,7 @@ The following information is returned in a successful response.
 
 ## Examples
 
-### Example Successful Response
+### Example successful response
 The following is an example of a successful response.
 
 Status code: 200
@@ -157,7 +157,8 @@ Status code: 200
 }
 ```
 
-### Example Error Response
+### Example error response
+
 The following is an example of an error response. The schema for other error codes is the same.
 
 Status code: 500

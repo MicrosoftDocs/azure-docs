@@ -49,9 +49,9 @@ The following are the possible HTTP status codes that a request returns.
 |500|Internal Server Error.|
 |Other Status Codes|<ul><li>Too many requests</li><li>Server temporary unavailable</li></ul>|
 
-## Get Document Storage Source Response
+## Get document storage source response
 
-### Successful Get Document Storage Source Response
+### Successful get document storage source response
 Base type for list return in the Get Document Storage Source API.
 
 |Name|Type|Description|
@@ -59,7 +59,7 @@ Base type for list return in the Get Document Storage Source API.
 |value|string []|List of objects.|
 
 
-### Error Response
+### Error response
 
 |Name|Type|Description|
 |--- |--- |--- |
@@ -71,7 +71,7 @@ Base type for list return in the Get Document Storage Source API.
 
 ## Examples
 
-### Example Successful Response
+### Example successful response
 
 The following is an example of a successful response.
 
@@ -83,7 +83,7 @@ The following is an example of a successful response.
 }
 ```
 
-### Example Error Response
+### Example error response
 The following is an example of an error response. The schema for other error codes is the same.
 
 Status code: 500

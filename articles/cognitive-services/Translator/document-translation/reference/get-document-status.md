@@ -59,9 +59,9 @@ The following are the possible HTTP status codes that a request returns.
 |500|Internal Server Error.|
 |Other Status Codes|<ul><li>Too many requests</li><li>Server temporary unavailable</li></ul>|
 
-## Get Document Status Response
+## Get document status response
 
-### Successful Get Document Status Response
+### Successful get document status response
 
 |Name|Type|Description|
 |--- |--- |--- |
@@ -74,7 +74,7 @@ The following are the possible HTTP status codes that a request returns.
 |id|string|Document ID.|
 |characterCharged|integer|Characters charged by the API.|
 
-### Error Response
+### Error response
 
 |Name|Type|Description|
 |--- |--- |--- |
@@ -86,7 +86,7 @@ The following are the possible HTTP status codes that a request returns.
 
 ## Examples
 
-### Example Successful Response
+### Example successful response
 The following JSON object is an example of a successful response.
 
 ```JSON
@@ -102,7 +102,7 @@ The following JSON object is an example of a successful response.
 }
 ```
 
-### Example Error Response
+### Example error response
 
 The following JSON object is an example of an error response. The schema for other error codes is the same.
 

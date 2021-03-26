@@ -60,9 +60,9 @@ The following are the possible HTTP status codes that a request returns.
 |500|Internal Server Error.|
 |Other Status Codes|<ul><li>Too many requests</li><li>Server temporary unavailable</li></ul>|
 
-## Get Operation Status Response
+## Get operation status response
 
-### Successful Get Operation Status Response
+### Successful get operation status response
 
 The following information is returned in a successful response.
 
@@ -81,7 +81,7 @@ The following information is returned in a successful response.
 |summary.cancelled|integer|Number of canceled.|
 |summary.totalCharacterCharged|integer|Total characters charged by the API.|
 
-### Error Response
+###Error response
 
 |Name|Type|Description|
 |--- |--- |--- |
@@ -94,7 +94,7 @@ The following information is returned in a successful response.
 
 ## Examples
 
-### Example Successful Response
+### Example successful response
 
 The following JSON object is an example of a successful response.
 
@@ -116,7 +116,7 @@ The following JSON object is an example of a successful response.
 }
 ```
 
-### Example Error Response
+### Example error response
 
 The following JSON object is an example of an error response. The schema for other error codes is the same.
 
