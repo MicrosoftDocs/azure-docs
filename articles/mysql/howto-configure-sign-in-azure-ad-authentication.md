@@ -1,8 +1,8 @@
 ---
 title: Use Azure Active Directory - Azure Database for MySQL
 description: Learn about how to set up Azure Active Directory (Azure AD) for authentication with Azure Database for MySQL
-author: lfittl-msft
-ms.author: lufittl
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 07/23/2020
