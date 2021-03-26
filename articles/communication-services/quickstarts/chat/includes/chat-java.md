@@ -131,7 +131,7 @@ public class App
 Use the `createChatThread` method to create a chat thread.
 `createChatThreadOptions` is used to describe the thread request.
 
-- Use `topic` parameter of the constructor to give a topic to this chat; Topic can be updated after the chat thread is created using the `UpdateThread` function.
+- Use the `topic` parameter of the constructor to give a topic to this chat; Topic can be updated after the chat thread is created using the `UpdateThread` function.
 - Use `participants` to list the thread participants to be added to the thread. `ChatParticipant` takes the user you created in the [User Access Token](../../access-tokens.md) quickstart.
 
 `CreateChatThreadResult` is the response returned from creating a chat thread. 
