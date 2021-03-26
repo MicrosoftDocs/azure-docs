@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/25/2020
+ms.date: 03/26/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Greenhouse
@@ -34,7 +34,7 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Greenhouse supports **SP** initiated SSO
+* Greenhouse supports **SP and IDP** initiated SSO.
 
 ## Adding Greenhouse from the gallery
 
@@ -67,20 +67,22 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **Greenhouse** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, perform the following steps:
+1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
+    In the **Identifier** text box, type a URL using the following pattern:
     `https://<companyname>.greenhouse.io`
 
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
+
+    In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<companyname>.greenhouse.io`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Greenhouse Client support team](https://www.greenhouse.io/contact) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier and Sign on URL. Contact [Greenhouse Client support team](https://www.greenhouse.io/contact) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -123,7 +125,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![screenshot for the sso page](./media/greenhouse-tutorial/configure.png)
 
-1. Perform the following steps in the Single Sign-On page.
+1. Perform the following steps in the **Single Sign-On** page.
 
     ![screenshot for the sso configuration page](./media/greenhouse-tutorial/sso-page.png)
 
@@ -172,11 +174,18 @@ In order to enable Azure AD users to log into Greenhouse, they must be provision
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Greenhouse Sign-on URL where you can initiate the login flow. 
+#### SP initiated:
+
+* Click on **Test this application** in Azure portal. This will redirect to Greenhouse Sign on URL where you can initiate the login flow.  
 
 * Go to Greenhouse Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Greenhouse tile in the My Apps, this will redirect to Greenhouse Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+#### IDP initiated:
+
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the Greenhouse for which you set up the SSO 
+
+You can also use Microsoft My Apps to test the application in any mode. When you click the Greenhouse tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Greenhouse for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
 
 
 ## Next steps
