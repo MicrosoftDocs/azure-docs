@@ -1,0 +1,18 @@
+---
+title: SMS FAQ in Azure Communication Services
+titleSuffix: An Azure Communication Services concept document
+description: Learn about Communication Services SMS concepts.
+author: prakulka
+manager: nmurav
+services: azure-communication-services
+
+ms.author: prakulka
+ms.date: 03/25/2021
+ms.topic: SMS FAQ
+ms.service: azure-communication-services
+---
+
+# SMS FAQ
+## Can a customer use ACS for emergency purposes?
+
+Azure Communication Services does not support text-to-911 functionality in the United States, but it’s possible you may have an obligation to do so under the rules of the Federal Communications Commission (FCC).  You should assess whether the FCC’s text-to-911 rules apply to your service or application. To the extent you are covered by these rules, you will be responsible for routing 911 text messages to emergency call centers that request them.  You are free to determine your own text-to-911 delivery model, but one approach accepted by the FCC involves automatically launching the native dialer on the user’s mobile device to deliver 911 texts through the underlying mobile carrier.
