@@ -36,7 +36,12 @@ See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download
 
 - If you set the `--delete-destination` flag to `true`, AzCopy deletes files without providing a prompt. If you want a prompt to appear before AzCopy deletes a file, set the `--delete-destination` flag to `prompt`.
 
+- If you plan to set the `--delete-destination` flag to `prompt` or `false`, consider using the [copy](storage-ref-azcopy-copy.md) command instead of the 
+[sync](storage-ref-azcopy-sync.md) command and set the `--overwrite` parameter to `ifSourceNewer`. The [copy](storage-ref-azcopy-copy.md) command consumes less memory and incurs less billing costs. Because the [copy](storage-ref-azcopy-copy.md) doesn't perform a comparison of files on the source with files at a destination, it doesn't have to index the source or destination prior to moving files. 
+
 - To prevent accidental deletions, make sure to enable the [soft delete](../blobs/soft-delete-blob-overview.md) feature before you use the `--delete-destination=prompt|true` flag.
+
+- The machine on which you run the sync command should have an accurate system clock because the last modified times are critical in determining whether a file should be transferred. If your system has significant clock skew, avoid modifying files at the destination too close to the time that you plan to run a sync command.
 
 ## Update a container with changes to a local file system
 
@@ -116,7 +121,10 @@ You can tweak your sync operation by using optional flags. Here's a few examples
 |Exclude files based on a pattern.|**--exclude-path**|
 |Specify how detailed you want your sync-related log entries to be.|**--log-level**=\[WARNING\|ERROR\|INFO\|NONE\]|
 
-For a complete list, see [options](storage-ref-azcopy-sync.md#options).
+For a complete list of flags, see [options](storage-ref-azcopy-sync.md#options).
+
+> [NOTE]
+> The `--recursive` flag is set to `true` by default. The `--exclude-pattern` and `--include-pattern` flags apply to only to file names and not other parts of the file path. 
 
 ## Next steps
 

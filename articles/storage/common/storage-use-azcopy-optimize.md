@@ -44,31 +44,31 @@ If you prefer to run this test by downloading data, set the `mode` parameter to 
 
 ## Optimize for large numbers of small files
 
-Throughput can decrease when transferring small files, especially when transferring large numbers of them. To maximize performance reduce the size of each job. For download and upload operations, increase concurrency, decrease log activity, and turn off features that incur high performance costs.
+Throughput can decrease when transferring small files, especially when transferring large numbers of them. To maximize performance, reduce the size of each job. For download and upload operations, increase concurrency, decrease log activity, and turn off features that incur high performance costs.
 
 #### Reduce the size of each job
 
-To achieve optimal performance, ensure that each jobs transfers fewer than 10 million files. Jobs that transfer more than 50 million files can perform poorly because the AzCopy job tracking mechanism incurs a significant amount of overhead.
+To achieve optimal performance, ensure that each jobs transfers fewer than 10 million files. Jobs that transfer more than 50 million files can perform poorly because the AzCopy job tracking mechanism incurs a significant amount of overhead. To reduce overhead, consider dividing large jobs into smaller ones. 
 
-Consider dividing large jobs into smaller ones. AzCopy commands provide parameters that help you limit jobs to specific directories or file types.
+One way to reduce the size of a job is to limit the number of files affected by a job. You can use command parameters to do that. For example, a job can copy only a subset of directories by using the `include path` parameter as part of the [azcopy copy](storage-ref-azcopy-copy.md) command. 
 
-For example, you can copy specific directories by using the `include path` parameter of the [azcopy copy](storage-ref-azcopy-copy.md) command. You can use the `include-pattern` to copy files that have a specific extension (for example: `*.pdf`), and then use the `exclude-pattern` parameter in a separate job that copies all files that don't have that extension. For examples, see [Upload specific files](storage-use-azcopy-blobs-upload.md#upload-specific-files) and [Download specific blobs](#storage-use-azcopy-blobs-download#download-specific-blobs).
+Use the `include-pattern` parameter to copy files that have a specific extension (for example: `*.pdf`). In a separate job, use the `exclude-pattern` parameter to copy all files that don't have `*.pdf` extension. See [Upload specific files](storage-use-azcopy-blobs-upload.md#upload-specific-files) and [Download specific blobs](#storage-use-azcopy-blobs-download#download-specific-blobs) for examples.
 
 After you've decided how to divide large jobs into smaller ones, consider running jobs on more than one Virtual Machine (VM).
 
 #### Increase concurrency
 
-If you're uploading or downloading files, use the `AZCOPY_CONCURRENCY_VALUE` environment variable to increase the number of concurrent requests that can occur on your machine. Set this variable as high as you can without compromising the performance of your machine. To learn more about this variable, see the [Increase the number of concurrent requests](#increase-the-number-of-concurrent-requests) section of this article.
+If you're uploading or downloading files, use the `AZCOPY_CONCURRENCY_VALUE` environment variable to increase the number of concurrent requests that can occur on your machine. Set this variable as high as possible without compromising the performance of your machine. To learn more about this variable, see the [Increase the number of concurrent requests](#increase-the-number-of-concurrent-requests) section of this article.
 
-If you're job copies blobs between storage accounts, consider setting the value of the `AZCOPY_CONCURRENCY_VALUE` environment variable to a value greater than `1000`. You can set this variable high because AzCopy uses server-to-server APIs, so data is copied directly between storage servers.  
+If you're copying blobs between storage accounts, consider setting the value of the `AZCOPY_CONCURRENCY_VALUE` environment variable to a value greater than `1000`. You can set this variable high because AzCopy uses server-to-server APIs, so data is copied directly between storage servers and does not use your machines processing power.  
 
 #### Decrease the number of logs generated
 
-If you're uploading or downloading files, you can improve performance by reducing the number of log entries that AzCopy creates as it completes an operation. By default, AzCopy logs all activity related to an operation. To achieve optimal performance, consider setting the `log-level` parameter of the [azcopy copy](storage-ref-azcopy-copy.md), [azcopy sync](storage-ref-azcopy-sync), or [azcopy list](storage-ref-azcopy-list.md) command to `ERROR`. That way, AzCopy logs only errors. By default, the value log level is set to `INFO`. 
+If you're uploading or downloading files, you can improve performance by reducing the number of log entries that AzCopy creates as it completes an operation. By default, AzCopy logs all activity related to an operation. To achieve optimal performance, consider setting the `log-level` parameter of your copy, sync, or remove command to `ERROR`. That way, AzCopy logs only errors. By default, the value log level is set to `INFO`. 
 
 #### Turn off length checking 
 
-If you're uploading or downloading files, consider setting the `--check-length` of the [azcopy copy](storage-ref-azcopy-copy.md), [azcopy sync](storage-ref-azcopy-sync) commands to `false`. This prevents AzCopy from verifying the length of a file after a transfer. By default, AzCopy checks the length to ensure that source and destination files match after a transfer completes. AzCopy performs this check after each file transfer. This check can degrade performance when jobs transfer large numbers of small files. 
+If you're uploading or downloading files, consider setting the `--check-length` of your copy and sync commands to `false`. This prevents AzCopy from verifying the length of a file after a transfer. By default, AzCopy checks the length to ensure that source and destination files match after a transfer completes. AzCopy performs this check after each file transfer. This check can degrade performance when jobs transfer large numbers of small files. 
 
 #### Turn off scanning (Linux)
 
