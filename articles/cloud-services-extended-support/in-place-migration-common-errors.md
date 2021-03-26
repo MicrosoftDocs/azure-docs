@@ -38,7 +38,7 @@ Common migration errors and mitigation steps.
 
 | Error message	| Details | 
 |---|---|
-| The resource type could not be found in the namespace `Microsoft.Compute` for api version '2020-10-01-preview'. | [Register the subscription](in-place-migration-overview.md#access-in-place-public-preview) for CloudServices feature flag to access public preview. | 
+| The resource type could not be found in the namespace `Microsoft.Compute` for api version '2020-10-01-preview'. | [Register the subscription](in-place-migration-overview.md#setup-access-for-migration) for CloudServices feature flag to access public preview. | 
 | The server encountered an internal error. Retry the request. | Retry the operation, use [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-cloud-services-extended-support.html) or contact support. | 
 | The server encountered an unexpected error while trying to allocate network resources for the cloud service. Retry the request. | Retry the operation, use [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-cloud-services-extended-support.html) or contact support. | 
 | Deployment deployment-name in cloud service cloud-service-name must be within a virtual network to be migrated. | Deployment is not located in a virtual network. Refer [this](in-place-migration-technical-details.md#migration-of-deployments-not-in-a-virtual-network) document for more details. | 
