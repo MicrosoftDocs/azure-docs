@@ -84,9 +84,6 @@ In this tutorial, you learn to:
 
 1. Copy and paste the following YAML into your pipeline.
 
-    > [!NOTE]
-    > The values entered for _app_location_,_api_location_, and _output_location_ will need to be modified for your app.  
-
     ```yaml
     trigger:​
       - main​
@@ -105,7 +102,7 @@ In this tutorial, you learn to:
     ```
 
     > [!NOTE]
-    > If you are not using the sample app, configure the Azure Static Web App inputs according to the folder structure of your application.
+    > If you are not using the sample app, values entered for _app_location_, _api_location_, and _output_location_ will need to be modified for your app.  
 
     [!INCLUDE [static-web-apps-folder-structure](../../includes/static-web-apps-folder-structure.md)]
 
