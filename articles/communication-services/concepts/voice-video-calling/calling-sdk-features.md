@@ -67,17 +67,17 @@ The following list presents the set of features which are currently available in
 |                   | Set / update scaling mode                                                                                           | ✔️   | ✔️            | ✔️ 
 |                   | Render remote video stream                                                                                          | ✔️   | ✔️            | ✔️
 
-## Calling client library streaming support
-The Communication Services Calling client library supports the following streaming configurations:
+## Calling SDK streaming support
+The Communication Services Calling SDK supports the following streaming configurations:
 
 | Limit          |Web | Android/iOS|
 |-----------|----|------------|
 |**# of outgoing streams that can be sent simultaneously** |1 video + 1 screen sharing | 1 video + 1 screen sharing|
 |**# of incoming streams that can be rendered simultaneously** |1 video + 1 screen sharing| 6 video + 1 screen sharing |
 
-## Calling client library timeouts
+## Calling SDK timeouts
 
-The following timeouts apply to the Communication Services Calling client libraries:
+The following timeouts apply to the Communication Services Calling SDKs:
 
 | Action           | Timeout in seconds |
 | -------------- | ---------- |

@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Create server - Azure portal - Azure Database for PostgreSQL - Flexible Server'
 description: Quickstart guide to creating and managing an Azure Database for PostgreSQL - Flexible Server by using the Azure portal user interface.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart

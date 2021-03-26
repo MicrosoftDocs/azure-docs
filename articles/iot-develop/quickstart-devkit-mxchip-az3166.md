@@ -14,6 +14,8 @@ ms.date: 03/17/2021
 **Applies to**: [Embedded device development](about-iot-develop.md#embedded-device-development)<br>
 **Total completion time**:  30 minutes
 
+[![Browse code](media/common/browse-github-code.png)](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166)
+
 In this tutorial you use Azure RTOS to connect an MXCHIP AZ3166 IoT DevKit (hereafter, MXCHIP DevKit) to Azure IoT. The article is part of the series [Get started with Azure IoT embedded device development](quickstart-device-development.md). The series introduces device developers to Azure RTOS, and shows how to connect several device evaluation kits to Azure IoT.
 
 You will complete the following tasks:
@@ -21,9 +23,6 @@ You will complete the following tasks:
 * Install a set of embedded development tools for programming an MXCHIP DevKit in C
 * Build an image and flash it onto the MXCHIP DevKit
 * Use Azure IoT Central to create cloud components, view properties, view device telemetry, and call direct commands
-
-> [!NOTE]
-> If you prefer to only view the code and not complete this article, see the sample at [Connect an MXCHIP AZ3166 to Azure IoT](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166). If you plan to complete this article, you'll clone the GitHub repo in a later step.
 
 ## Prerequisites
 

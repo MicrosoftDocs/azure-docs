@@ -343,7 +343,7 @@
       - name: Create a suggester
         href: index-add-suggesters.md
       - name: Add autocomplete and suggestions
-        href: search-autocomplete-tutorial.md
+        href: search-add-autocomplete-suggestions.md
     - name: Paging and counts
       href: search-pagination-page-layout.md
     - name: Syntax reference
