@@ -7,7 +7,7 @@ ms.author: vlvinogr
 ---
 ## Append other APIs
 
-An API can be composed of APIs exposed by different services, including the OpenAPI Specification, a SOAP API, a web API hosted in Azure App Service, Azure Function App, Azure Logic Apps, and Azure Service Fabric.
+An API can be composed of APIs exposed by different services, including the OpenAPI Specification, a SOAP API, an Azure Web App, Azure Function App, Azure Logic Apps, and Azure Service Fabric.
 
 ![Import an API](./media/api-management-append-apis/import.png)
 

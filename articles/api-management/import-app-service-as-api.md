@@ -1,5 +1,5 @@
 ---
-title: Import web app from App Service to Azure API Management  | Microsoft Docs
+title: Import Azure Web App to Azure API Management  | Microsoft Docs
 description: This article shows you how to use Azure API Management to import a web API hosted in Azure App Service.
 services: api-management
 documentationcenter: ''
@@ -7,28 +7,28 @@ author: vladvino
 
 ms.service: api-management
 ms.topic: article
-ms.date: 03/22/2021
+ms.date: 03/26/2021
 ms.author: apimpm
 
 ---
-# Import a web app from App Service
+# Import an Azure Web App as an API
 
-This article shows how to import a web app hosted in Azure App Service to Azure API Management and test the imported API.
+This article shows how to import an Azure Web App to Azure API Management and test the imported API.
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
-> * Import a web app hosted in App Service
+> * Import a Web App hosted in App Service
 > * Test the API in the Azure portal
 
-## Expose web API with API Management
+## Expose Web App with API Management
 
-[Azure App Service](../app-service/overview.md) is an HTTP-based service for hosting web applications, REST APIs, and mobile backends. API developers can use their preferred technology stacks and pipelines to develop APIs and publish their API backends in App Service's isolated, secure, scalable environment. Then, use API Management to expose the web apps, manage and protect the APIs throughout their lifecycle, and publish them to consumers.
+[Azure App Service](../app-service/overview.md) is an HTTP-based service for hosting web applications, REST APIs, and mobile backends. API developers can use their preferred technology stacks and pipelines to develop APIs and publish their API backends as Web Apps in an isolated, secure, scalable environment. Then, use API Management to expose the Web Apps, manage and protect the APIs throughout their lifecycle, and publish them to consumers.
 
-API Management is the recommended environment to expose an API hosted in App Service, for several reasons:
+API Management is the recommended environment to expose a Web App-hosted API, for several reasons:
 
-* Decouple managing and securing the front end you expose to API consumers from managing and monitoring the backend web app
-* Manage APIs hosted in App Service in the same environment as your other APIs
+* Decouple managing and securing the front end you expose to API consumers from managing and monitoring the backend Web App
+* Manage web APIs hosted in Web Apps in the same environment as your other APIs
 * Apply [policies](api-management-policies.md) to change API behavior, such as to apply call rate limiting
 * Direct API consumers to API Management's customizable [developer portal](api-management-howto-developer-portal.md) to discover your APIs, learn how to use them, request access, and try them out
 
@@ -36,31 +36,31 @@ For more information, see [About API Management](api-management-key-concepts.md)
 
 ## OpenAPI specification versus wildcard operations
 
-API Management supports import of APIs hosted in App Service that include an OpenAPI specification (Swagger definitions), but an OpenAPI specification isn't required.
+API Management supports import of Web Apps hosted in App Service that include an OpenAPI specification (Swagger definitions). However, an OpenAPI specification isn't required.
 
 * If the API includes an OpenAPI specification, API Management creates API operations that map directly to the definitions, including required paths, parameters, and response types. 
 
 * If an OpenAPI specification isn't provided, API Management generates wildcard operations for the common HTTP verbs (GET, PUT, and so on). You can append a path or parameters to a wildcard operation to pass an API request through to the backend API.
 
-For example, your backend API hosted on App Service might support two GET operations: 
+For example, your backend Web App might support two GET operations: 
 *  `https://myappservice.azurewebsites.net/customer/{id}`
 *  `https://myappservice.azurewebsites.net/customers`
 
-You import the API to your API Management service at the path `https://contosoapi.azureapi.net/store`. The following table shows the operations that are imported to API Management, either with or without an OpenAPI specification: 
+You import the Web App to your API Management service at a path such as `https://contosoapi.azureapi.net/store`. The following table shows the operations that are imported to API Management, either with or without an OpenAPI specification: 
 
-| Type |Imported operations  |Sample calls |
+| Type |Imported operations  |Sample requests |
 |---------|---------|---------|
-|OpenAPI specification    | `GET  /customer/{id}`<br/><br/> `GET  /customers`         |  `GET https://contosoapi/azureapi.net/store/customer/1`<br/><br/>`GET https://contosoapi/azureapi.net/store/customers`       |
+|OpenAPI specification    | `GET  /customer/{id}`<br/><br/> `GET  /customers`         |  `GET https://contosoapi.azureapi.net/store/customer/1`<br/><br/>`GET https://contosoapi.azureapi.net/store/customers`       |
 |Wildcard     | `GET  /*`         | `GET https://contosoapi.azureapi.net/store/customer/1`<br/><br/>`GET https://contosoapi.azureapi.net/store/customers`  |
 
-The wildcard operation allows the same calls to the backend service as the operations in the OpenAPI specification. However, the OpenAPI-specified operations can be validated, managed, secured, and updated separately in API Management. In either case, you can [edit](edit-api.md) or [add](add-api-manually.md) operations to the imported API.
+The wildcard operation allows the same requests to the backend service as the operations in the OpenAPI specification. However, the OpenAPI-specified operations can be validated, managed, secured, and updated separately in API Management. In either case, you can [edit](edit-api.md) or [add](add-api-manually.md) operations to the imported API.
 
 ## Prerequisites
 
 + Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 + Make sure there is an App Service in your subscription. For more information, see [App Service documentation](../app-service/index.yml).
 
-  For sample steps to create a web API and publish to App Service, see:
+  For steps to create an example web API and publish as an Azure Web App, see:
 
     * [Tutorial: Create a web API with ASP.NET Core](/aspnet/core/tutorials/first-web-api)
     * [Publish an ASP.NET Core app to Azure with Visual Studio Code](/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode)
@@ -70,14 +70,14 @@ The wildcard operation allows the same calls to the backend service as the opera
 ## <a name="create-api"> </a>Import and publish a backend API
 
 > [!TIP]
-> The following steps start the import by using Azure API Management in the Azure portal. You can also link to API Management directly from your App Service app, by selecting **API Management** from the app's **API** menu.  
+> The following steps start the import by using Azure API Management in the Azure portal. You can also link to API Management directly from your Web App, by selecting **API Management** from the app's **API** menu.  
 
 1. Navigate to your API Management service in the Azure portal and select **APIs** from the menu.
 1. Select **App Service** from the **Add a new API** list.
 
     :::image type="content" source="media/import-app-service-as-api/app-service.png" alt-text="Create from App Service":::
 1. Select **Browse** to see the list of App Services in your subscription.
-1. Select the app. If there is an OpenAPI definition associated with the selected app, API Management fetches it and imports it. 
+1. Select an App Service. If there is an OpenAPI definition associated with the selected Web App, API Management fetches it and imports it. 
 
     If an OpenAPI definition isn't found, API Management exposes the API by generating wildcard operations for common HTTP verbs. 
 1. Add an API URL suffix. The suffix is a name that identifies this specific API in this API Management instance. It has to be unique in this APIM instance.
