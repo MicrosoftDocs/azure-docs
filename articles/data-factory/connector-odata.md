@@ -326,7 +326,7 @@ When you copy data from OData, the following mappings are used between OData dat
 To copy data from Project Online, you can use the OData connector and an access token obtained from tools like Postman.
 
 > [!CAUTION]
-> The access token expires in 1 hour by default, please refresh the access token when it expires.
+> The access token expires in 1 hour by default, you need to get a new access token when it expires.
 
 1. Use **Postman** to get the access token:
 
