@@ -109,7 +109,10 @@ conceptualContent:
             text: Media analytics
           - url: ./latest/analyze-videos-tutorial-with-api.md
             itemType: tutorial
-            text: Analyze videos            
+            text: Analyze videos     
+          - url: ./latest/analyze-face-redaction-concept.md
+            itemType: concept
+            text: Face Detect and Redaction       
 
     - title: Learn about Media Services specifications
       links:
