@@ -36,6 +36,11 @@ Get started with Azure Communication Services by provisioning your first Communi
 [!INCLUDE [.NET](./includes/create-resource-net.md)]
 ::: zone-end
 
+::: zone pivot="platform-powershell"
+[!INCLUDE [.NET](./includes/create-resource-powershell.md)]
+::: zone-end
+
+
 ## Access your connection strings and service endpoints
 
 Connection strings allow the Communication Services SDKs to connect and authenticate to Azure. You can access your Communication Services connection strings and service endpoints from the Azure portal or programmatically with Azure Resource Manager APIs.
