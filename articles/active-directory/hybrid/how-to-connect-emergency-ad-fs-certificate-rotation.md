@@ -123,7 +123,7 @@ Optionally, verify whether an update is required by checking the current certifi
 To update the certificate information in Azure AD, run the following command: `Update-MsolFederatedDomain` and then enter the domain name when prompted.
 
 >[!Note]
-> If you see an error when running this command, run the following command: Update-MsolFederatedDomain –SupportMultipleDomain, and then enter the domain name when prompted.
+> If you see an error when running this command, run the following command: `Update-MsolFederatedDomain –SupportMultipleDomain`, and then enter the domain name when prompted.
 
 ## Replace SSL certificates
 In the event that you need to replace your token-signing certificate because of a compromise, you should also revoke and replace the SSL certificates for AD FS and your WAP servers.  
