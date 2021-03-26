@@ -1584,7 +1584,62 @@ curl -H 'Host: bookbuyer.contoso.com' http://$appGWPIP/
 You should see the following output
 
 ```Output
+<!doctype html>
+<html itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+  <head>
+      <meta content="Bookbuyer" name="description">
+      <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+      <title>Bookbuyer</title>
+      <style>
+        #navbar {
+            width: 100%;
+            height: 50px;
+            display: table;
+            border-spacing: 0;
+            white-space: nowrap;
+            line-height: normal;
+            background-color: #0078D4;
+            background-position: left top;
+            background-repeat-x: repeat;
+            background-image: none;
+            color: white;
+            font: 2.2em "Fira Sans", sans-serif;
+        }
+        #main {
+            padding: 10pt 10pt 10pt 10pt;
+            font: 1.8em "Fira Sans", sans-serif;
+        }
+        li {
+            padding: 10pt 10pt 10pt 10pt;
+            font: 1.2em "Consolas", sans-serif;
+        }
+      </style>
+      <script>
+        setTimeout(function(){window.location.reload(1);}, 1500);
+      </script>
+  </head>
+  <body bgcolor="#fff">
+    <div id="navbar">
+      &#128214; Bookbuyer
+    </div>
+    <div id="main">
+      <ul>
+        <li>Total books bought: <strong>5969</strong>
+          <ul>
+            <li>from bookstore V1: <strong>277</strong>
+            <li>from bookstore V2: <strong>5692</strong>
+          </ul>
+        </li>
+      </ul>
+    </div>
 
+    <br/><br/><br/><br/>
+    <br/><br/><br/><br/>
+    <br/><br/><br/><br/>
+
+    Current Time: <strong>Fri, 26 Mar 2021 16:34:30 UTC</strong>
+  </body>
+</html>
 ```
 
 ### Troubleshooting
