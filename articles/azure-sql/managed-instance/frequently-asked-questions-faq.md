@@ -208,7 +208,7 @@ Yes, you can purchase add-on storage, independently from compute, to some extent
 
 **How can I optimize my storage performance in General Purpose service tier?**
 
-To optimize storage performance, see [Storage best practices in General Purpose](https://techcommunity.microsoft.com).
+To optimize storage performance, see [Storage best practices in General Purpose](https://techcommunity.microsoft.com/t5/datacat/storage-performance-best-practices-and-considerations-for-azure/ba-p/305525).
 
 ## Backup and restore
 

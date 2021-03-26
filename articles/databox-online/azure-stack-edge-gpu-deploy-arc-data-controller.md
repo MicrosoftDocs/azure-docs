@@ -339,4 +339,4 @@ kubectl delete ns <Name of your namespace>
 
 ## Next steps
 
-- [Deploy a stateless application on your Azure Stack Edge Pro](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md).
+- [Deploy a stateless application on your Azure Stack Edge Pro](./azure-stack-edge-gpu-deploy-stateless-application-kubernetes.md).

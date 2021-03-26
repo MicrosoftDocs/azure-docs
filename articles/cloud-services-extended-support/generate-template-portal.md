@@ -12,7 +12,7 @@ ms.custom:
 
 # Generate ARM Template for Cloud Services (extended support) using the Azure portal
 
-This article explains how to get the ARM template and parameter file from the [Azure portal](https://portal.azure.com) after the cloud service (extended support) is deployed. The ARM template and parameter file can be used in future deployments to upgrade or update a cloud service (extended support)
+This article explains how to download the ARM template and parameter file from the [Azure portal](https://portal.azure.com) after the Cloud Service (extended support) is deployed. The ARM template and parameter file can be used in future deployments to upgrade or update a cloud service (extended support)
 
 ## Get ARM template via portal
 

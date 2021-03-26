@@ -97,7 +97,7 @@ When you try to connect to source in the Azure Database Migration service projec
 
 | Cause         | Resolution    |
 | ------------- | ------------- |
-| When using [ExpressRoute](https://azure.microsoft.com/services/expressroute/), Azure Database Migration Service [requires](./tutorial-sql-server-azure-sql-online.md) provisioning three service endpoints on the Virtual Network subnet associated with the service:<br> -- Service Bus endpoint<br> -- Storage endpoint<br> -- Target database endpoint (e.g. SQL endpoint, Cosmos DB endpoint)<br><br><br><br><br> | [Enable](./tutorial-sql-server-azure-sql-online.md) the required service endpoints for ExpressRoute connectivity between source and Azure Database Migration Service. <br><br><br><br><br><br><br><br> |
+| When using [ExpressRoute](https://azure.microsoft.com/services/expressroute/), Azure Database Migration Service [requires](./tutorial-sql-server-to-azure-sql.md) provisioning three service endpoints on the Virtual Network subnet associated with the service:<br> -- Service Bus endpoint<br> -- Storage endpoint<br> -- Target database endpoint (e.g. SQL endpoint, Cosmos DB endpoint)<br><br><br><br><br> | [Enable](./tutorial-sql-server-to-azure-sql.md) the required service endpoints for ExpressRoute connectivity between source and Azure Database Migration Service. <br><br><br><br><br><br><br><br> |
 
 ## Lock wait timeout error when migrating a MySQL database to Azure DB for MySQL
 
@@ -121,7 +121,7 @@ When you try to connect Azure Database Migration Service to SQL Server source th
 
 ## Additional known issues
 
-* [Known issues/migration limitations with online migrations to Azure SQL Database](./known-issues-azure-sql-online.md)
+* [Known issues/migration limitations with online migrations to Azure SQL Database](./index.yml)
 * [Known issues/migration limitations with online migrations to Azure Database for MySQL](./known-issues-azure-mysql-online.md)
 * [Known issues/migration limitations with online migrations to Azure Database for PostgreSQL](./known-issues-azure-postgresql-online.md)
 

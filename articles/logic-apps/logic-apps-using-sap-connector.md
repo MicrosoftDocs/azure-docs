@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 03/08/2021
+ms.date: 03/24/2021
 tags: connectors
 ---
 
@@ -122,9 +122,6 @@ The managed SAP connector integrates with SAP systems through your [on-premises 
 ### ISE prerequisites
 
 These prerequisites apply if you're running your logic app in a Premium-level ISE. However, they don't apply to logic apps running in a Developer-level ISE. An ISE provides access to resources that are protected by an Azure virtual network and offers other ISE-native connectors that let logic apps directly access on-premises resources without using on-premises data gateway.
-
-> [!NOTE]
-> While the SAP ISE connector is visible inside of a Developer-level ISE, attempts to install the connector won't succeed.
 
 1. If you don't already have an Azure Storage account with a blob container, create a container using either the [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
 
@@ -575,7 +572,7 @@ You can [export all of your gateway's configuration and service logs](/data-inte
 
 #### Capture ETW events
 
-Optionally, advanced users can capture ETW events directly. You can then [consume your data in Azure Diagnostics in Event Hubs](../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md) or [collect your data to Azure Monitor Logs](/azure/azure-monitor/agents/diagnostics-extension-logs). For more information, see the [best practices for collecting and storing data](/azure/architecture/best-practices/monitoring#collecting-and-storing-data). You can use [PerfView](https://github.com/Microsoft/perfview/blob/master/README.md) to work with the resulting ETL files, or you can write your own program. This walkthrough uses PerfView:
+Optionally, advanced users can capture ETW events directly. You can then [consume your data in Azure Diagnostics in Event Hubs](../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md) or [collect your data to Azure Monitor Logs](../azure-monitor/agents/diagnostics-extension-logs.md). For more information, see the [best practices for collecting and storing data](/azure/architecture/best-practices/monitoring#collecting-and-storing-data). You can use [PerfView](https://github.com/Microsoft/perfview/blob/master/README.md) to work with the resulting ETL files, or you can write your own program. This walkthrough uses PerfView:
 
 1. In the PerfView menu, select **Collect** &gt; **Collect** to capture the events.
 
@@ -770,7 +767,7 @@ Here's an example that shows how to extract individual IDocs from a packet by us
 
    ![Add SAP trigger to logic app](./media/logic-apps-using-sap-connector/first-step-trigger.png)
 
-1. [Add a response action to your logic app](/azure/connectors/connectors-native-reqres#add-a-response-action) to reply immediately with the status of your SAP request. It's a best practice to add this action immediately after your trigger, to free up the communication channel with your SAP server. Choose one of the following status codes (`statusCode`) to use in your response action:
+1. [Add a response action to your logic app](../connectors/connectors-native-reqres.md#add-a-response-action) to reply immediately with the status of your SAP request. It's a best practice to add this action immediately after your trigger, to free up the communication channel with your SAP server. Choose one of the following status codes (`statusCode`) to use in your response action:
 
     * **202 Accepted**, which means the request has been accepted for processing but the processing isn't complete yet.
 

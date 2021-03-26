@@ -45,7 +45,7 @@ curl --location --request POST 'https://login.microsoftonline.com/{TenantId}/oau
 }
 ```
 
-For more information about how to obtain an Azure AD token for your application, see [Access analytics data using Store services](https://docs.microsoft.com/windows/uwp/monetize/access-analytics-data-using-windows-store-services#step-2-obtain-an-azure-ad-access-token).
+For more information about how to obtain an Azure AD token for your application, see [Access analytics data using Store services](/windows/uwp/monetize/access-analytics-data-using-windows-store-services#step-2-obtain-an-azure-ad-access-token).
 
 ## Programmatic API call
 

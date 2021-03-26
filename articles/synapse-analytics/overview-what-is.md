@@ -6,7 +6,7 @@ author: saveenr
 ms.service: synapse-analytics 
 ms.topic: overview 
 ms.subservice: overview
-ms.date: 03/27/2021 
+ms.date: 03/24/2021 
 ms.author: saveenr 
 ms.reviewer: jrasnick
 ---
@@ -41,7 +41,7 @@ Azure Synapse removes the traditional technology barriers between using SQL and 
 * SQL and Spark can directly explore and analyze Parquet, CSV, TSV, and JSON files stored in the data lake.
 * Fast scalable load and unload for data going between SQL and Spark databases
 
-## Built-in data integration via pipelines
+## Built-in data integration
 
 Azure Synapse contains the same Data Integration engine and experiences as Azure Data Factory, allowing you to create rich at-scale ETL pipelines without leaving Azure Synapse Analytics.
 

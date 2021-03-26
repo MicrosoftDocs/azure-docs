@@ -12,7 +12,7 @@ ms.date: 09/25/2020
 # Tutorial: Configure and run the Azure Key Vault provider for the Secrets Store CSI driver on Kubernetes
 
 > [!IMPORTANT]
-> Secrets Store CSI Driver is an open source project that is not supported by Azure technical support. Please report all feedback and issues related to CSI Driver Key Vault integration on the github link at the bottom of the page. This tool is provided for users to self-install into clusters and gather feedback from our community.
+> Secrets Store CSI Driver is an open source project that is not supported by Azure technical support. Please report all feedback and issues related to CSI Driver Key Vault integration on the CSI driver [github](https://github.com/kubernetes-sigs/secrets-store-csi-driver). This tool is provided for users to self-install into clusters and gather feedback from our community.
 
 In this tutorial, you access and retrieve secrets from your Azure key vault by using the Secrets Store Container Storage Interface (CSI) driver to mount the secrets into Kubernetes pods as a volume.
 

@@ -24,7 +24,7 @@ Azure Monitor Metrics is a feature of Azure Monitor that collects numeric data f
 ## What can you do with Azure Monitor Metrics?
 The following table lists the different ways that you can use Metrics in Azure Monitor.
 
-|  |  |
+|  | Description |
 |:---|:---|
 | **Analyze** | Use [metrics explorer](metrics-charts.md) to analyze collected metrics on a chart and compare metrics from different resources. |
 | **Alert** | Configure a [metric alert rule](../alerts/alerts-metric.md) that sends a notification or takes [automated action](../alerts/action-groups.md) when the metric value crosses a threshold. |

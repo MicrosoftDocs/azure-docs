@@ -140,7 +140,7 @@ Multiple APIs are available to read and write metrics and logs to and from Azure
 ## Next steps
 Learn more about:
 
-* [Metrics and logs](https://docs.microsoft.com/azure/azure-monitor/data-platform#metrics) for the data collected by Azure Monitor.
+* [Metrics and logs](./data-platform.md#metrics) for the data collected by Azure Monitor.
 * [Data sources](agents/data-sources.md) for how the different components of your application send telemetry.
 * [Log queries](logs/log-query-overview.md) for analyzing collected data.
 * [Best practices](/azure/architecture/best-practices/monitoring) for monitoring cloud applications and services.

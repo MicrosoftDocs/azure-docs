@@ -174,9 +174,6 @@
   - name: Azure Remote Rendering
     tocHref: /azure/remote-rendering/
     topicHref: /azure/remote-rendering/   
-  - name: Azure Object Understanding
-    tocHref: /azure/object-understanding/
-    topicHref: /azure/object-understanding/
   - name: Container Registry
     tocHref: /azure/container-registry/
     topicHref: /azure/container-registry/
@@ -207,7 +204,13 @@
     topicHref: /azure/vmware-cloudsimple/
   - name: Azure portal documentation
     tocHref: /azure/azure-portal/
-    topicHref: /azure/azure-portal/\
+    topicHref: /azure/azure-portal/
+  - name: Azure portal documentation
+    tocHref: /azure/virtual-machines/
+    topicHref: /azure/azure-portal/index
+  - name: Azure portal documentation
+    tocHref: /power-bi
+    topicHref: /azure/azure-portal/index
   - name: Internet of Things
     tocHref: /azure/iot-fundamentals/
     topicHref: /azure/iot-fundamentals/

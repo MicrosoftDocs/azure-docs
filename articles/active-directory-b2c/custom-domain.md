@@ -191,7 +191,7 @@ Replace:
 - **policy-name** with your policy name. [Learn more about Azure AD B2C policies](technical-overview.md#identity-experiences-user-flows-or-custom-policies). 
 
 
-The [SAML service provider](connect-with-saml-service-providers.md) metadata may look like the following: 
+The [SAML service provider](./saml-service-provider.md) metadata may look like the following: 
 
 ```html
 https://custom-domain-name/tenant-name/policy-name/Samlp/metadata
@@ -265,4 +265,3 @@ To use your own web application firewall in front of Azure Front Door, you need 
 ## Next steps
 
 Learn about [OAuth authorization requests](protocols-overview.md).
-

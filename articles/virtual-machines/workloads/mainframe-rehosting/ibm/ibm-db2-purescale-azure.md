@@ -5,7 +5,7 @@ author: njray
 manager: edprice
 editor: edprice
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: mainframe-rehosting
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/09/2018

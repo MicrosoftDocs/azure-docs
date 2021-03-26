@@ -309,7 +309,7 @@ conceptualContent:
         - url: ./app/automate-custom-reports.md
           itemType: how-to-guide
           text: Custom e-mail reports
-        - url: ./app/usage-send-user-context.md
+        - url: ./app/usage-overview.md
           itemType: how-to-guide
           text: Send user context IDs
         - url: ./app/custom-endpoints.md
@@ -396,7 +396,7 @@ conceptualContent:
         - url: ./app/visual-studio.md
           itemType: how-to-guide
           text:  F5 insights
-        - url: ./app/visual-studio-trends.md
+        - url: ./app/visual-studio.md
           itemType: how-to-guide
           text:  Trends
         - url: ./app/visual-studio-codelens.md

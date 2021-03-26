@@ -2,7 +2,7 @@
 author: msftradford
 ms.service: azure-spatial-anchors
 ms.topic: include
-ms.date: 03/16/2021
+ms.date: 03/18/2021
 ms.author: parkerra
 ---
 To download the required packages, you will need to have <a href="https://www.npmjs.com/get-npm" target="_blank">NPM</a> installed.
@@ -22,7 +22,7 @@ npm pack com.microsoft.azure.spatial-anchors-sdk.core@<version_number> --registr
 > ```
 
 > [!WARNING]
-> The minimum supported version of the ASA SDK is 2.7.0
+> ASA SDK 2.7.0 is the minimum supported version. If using Unity 2020, ASA SDK 2.9.0 is the minimum supported version.
 
 The Azure Spatial Anchors core package will be downloaded to the folder where you ran the command.
 

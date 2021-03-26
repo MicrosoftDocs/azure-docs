@@ -15,7 +15,7 @@ zone_pivot_groups: acs-plat-web-ios-android
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 
-Get started with Azure Communication Services by using the Communication Services calling client library to add PSTN calling to your app.
+Get started with Azure Communication Services by using the Communication Services Calling SDK to add PSTN calling to your app.
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Calling with JavaScript](./includes/pstn-call-js.md)]
@@ -37,5 +37,5 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 For more information, see the following articles:
 
-- Learn about [calling client library capabilities](./calling-client-samples.md)
+- Learn about [Calling SDK capabilities](./calling-client-samples.md)
 - Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md)

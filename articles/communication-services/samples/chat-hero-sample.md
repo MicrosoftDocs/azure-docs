@@ -27,7 +27,7 @@ ms.service: azure-communication-services
 > [This sample is available on GitHub.](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 
 
-The Azure Communication Services **Group Chat Hero Sample** demonstrates how the Communication Services Chat Web client library can be used to build a group calling experience.
+The Azure Communication Services **Group Chat Hero Sample** demonstrates how the Communication Services Chat Web SDK can be used to build a group calling experience.
 
 In this Sample quickstart, we'll learn how the sample works before we run the sample on your local machine. We'll then deploy the sample to Azure using your own Azure Communication Services resources.
 
@@ -109,7 +109,7 @@ If you want to clean up and remove a Communication Services subscription, you ca
 For more information, see the following articles:
 
 - Learn about [chat concepts](../concepts/chat/concepts.md)
-- Familiarize yourself with our [chat client library](../concepts/chat/sdk-features.md)
+- Familiarize yourself with our [Chat SDK](../concepts/chat/sdk-features.md)
 - Review the [Contoso Med App](https://github.com/Azure-Samples/communication-services-contoso-med-app) sample
 
 ## Additional reading
