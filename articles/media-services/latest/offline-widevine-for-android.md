@@ -2,19 +2,13 @@
 title: Stream Widevine Android offline
 description: This topic shows how to configure your Azure Media Services v3 account for offline streaming of Widevine protected content.
 services: media-services
-keywords: DASH, DRM, Widevine Offline Mode, ExoPlayer, Android
-documentationcenter: ''
 author: willzhan
-manager: steveng
-editor: ''
+manager: femila
 ms.service: media-services
 ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.author: willzhan
-ms.custom: devx-track-csharp
+ms.date: 03/25/2021
+ms.author: inhenkel
 ---
 
 # Offline Widevine streaming for Android with Media Services v3
@@ -42,7 +36,7 @@ The article also answers some common questions related to offline streaming of W
 > [!NOTE]
 > Offline DRM is only billed for making a single request for a license when you download the content. Any errors are not billed.
 
-## Prerequisites 
+## Prerequisites
 
 Before implementing offline DRM for Widevine on Android devices, you should first:
 
@@ -153,14 +147,8 @@ The above open-source PWA app is authored in Node.js. If you want to host your o
     - The certificate must have trusted CA and a self-signed development certificate does not work
     - The certificate must have a CN matching the DNS name of the web server or gateway
 
-## FAQs
+## More information
 
-For more information, see [Widevine FAQs](frequently-asked-questions.md#widevine-streaming-for-android).
-
-## Additional notes
+For more information, see [Widevine in the Questions Collection](questions-collection.md#widevine-streaming-for-android).
 
 Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
-
-## Summary
-
-This article discussed how to implement offline mode playback for DASH content protected by Widevine on Android devices.  It also answered some common questions related to offline streaming of Widevine protected content.
