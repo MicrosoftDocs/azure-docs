@@ -47,7 +47,9 @@ Once your VM is ready, you can capture it in a Azure shared image gallery. Follo
 8. Select **Review + create** to review your choices.
 9. Once the validation is passed, select **Create**.
 
-The Azure subscription containing the SIG must be under the same tenant as the publisher account in order to publish. Also, the publisher account must have an Owner access to the SIG. To grant access:
+The Azure subscription containing the SIG must be under the same tenant as the publisher account in order to publish. Also, the publisher account must have an Owner access to the SIG. 
+
+To grant access:
 
 1. Go to the Shared Image Gallery.
 2. Select **Access control** (IAM) on the left panel.
