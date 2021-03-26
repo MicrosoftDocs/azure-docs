@@ -173,7 +173,9 @@ $appgw = New-AzApplicationGateway `
 
 ## Create a virtual machine scale set
 
-In this example, you create a virtual machine scale set to provide servers for the backend pool in the application gateway. You assign the scale set to the backend pool when you configure the IP settings.
+In this example, you create a virtual machine scale set to provide servers for the backend pool in the application gateway. You assign the scale set to the backend pool when you configure the IP settings. 
+
+Replace *\<username>* and *\<password>* with your values before you run this script.
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
@@ -302,4 +304,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 
 ## Next steps
 
-[Customize web application firewall rules](application-gateway-customize-waf-rules-portal.md)
+- [Customize web application firewall rules](application-gateway-customize-waf-rules-portal.md)
