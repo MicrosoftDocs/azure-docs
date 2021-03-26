@@ -135,7 +135,7 @@ In the application's `Main` method, add variables and code, shown in the followi
 
 We use subscription key and authoring key interchangably. For more details on authoring key, follow [Keys in QnA Maker](../concepts/azure-resources.md?tabs=v1#keys-in-qna-maker).
 
-- The value of QNA_MAKER_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Go to the Azure portal and find the key and endpoint for the QnA Maker resource you created in the prerequisites. Click on **Keys and Endpoint** page, under **resource management** to locate authoring (subscription) key and QnA Maker Endpoint.
+- The value of QNA_MAKER_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Go to the Azure portal and find the QnA Maker resource you created in the prerequisites. Click on **Keys and Endpoint** page, under **resource management** to locate authoring (subscription) key and QnA Maker Endpoint.
 
  ![QnA Maker Authoring Endpoint](../media/keys-endpoint.png)
 
@@ -149,12 +149,9 @@ We use subscription key and authoring key interchangably. For more details on au
 
 # [QnA Maker managed (preview release)](#tab/version-2)
 
-> [!IMPORTANT]
-> Go to the Azure portal and find the key and endpoint for the QnA Maker resource you created in the prerequisites. They will be located on the resource's **key and endpoint** page, under **resource management**. 
-
 We use subscription key and authoring key interchangably. For more details on authoring key, follow [Keys in QnA Maker](../concepts/azure-resources.md?tabs=v2#keys-in-qna-maker).
 
-- The value of QNA_MAKER_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Go to the QnA Maker resource in the Azure portal and click on **Keys and Endpoint** to locate authoring(subscription) key and QnA Maker Endpoint.
+- The value of QNA_MAKER_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Go to the Azure portal and find the QnA Maker resource you created in the prerequisites. Click on **Keys and Endpoint** page, under **resource management** to locate authoring (subscription) key and QnA Maker Endpoint.
 
  ![QnA Maker Authoring Endpoint](../media/keys-endpoint.png)
 
