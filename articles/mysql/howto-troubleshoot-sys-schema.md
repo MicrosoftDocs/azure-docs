@@ -79,4 +79,4 @@ Indexes are great tools to improve read performance, but they do incur additiona
 In summary, the sys_schema is a great tool for both performance tuning and database maintenance. Make sure to take advantage of this feature in your Azure Database for MySQL. 
 
 ## Next steps
-- To find peer answers to your most concerned questions or post a new question/answer, visit [Microsoft Q&A question page](/answers/topics/azure-database-mysql.html) or [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
+- To find peer answers to your most concerned questions or post a new question/answer, visit [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
