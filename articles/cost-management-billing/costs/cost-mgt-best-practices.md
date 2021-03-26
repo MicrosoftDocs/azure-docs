@@ -98,7 +98,7 @@ To learn more about the various options, visit [How to buy Azure](https://azure.
 
 #### [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/)
 
-- Options for up-front monetary commitments
+- Options for up-front Azure Prepayment (previously called monetary commitment)
 - Access to reduced Azure pricing
 
 #### [Azure in CSP](https://azure.microsoft.com/offers/ms-azr-0145p/)

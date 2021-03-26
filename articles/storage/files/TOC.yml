@@ -39,8 +39,6 @@
       href: storage-snapshots-files.md
     - name: Development
       items:
-      - name: Manage concurrency
-        href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
       - name: Shared key authentication
         href: /rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
       - name: Shared access signatures (SAS)
@@ -65,14 +63,24 @@
       href: storage-sync-files-planning.md
     - name: Networking considerations for hybrid access
       href: storage-sync-files-networking-overview.md
-    - name: About cloud tiering
-      href: storage-sync-cloud-tiering.md
+    - name: Cloud tiering
+      items:
+      - name: Cloud tiering overview
+        href: storage-sync-cloud-tiering-overview.md
+      - name: Cloud tiering policies overview
+        href: storage-sync-cloud-tiering-policy.md
+      - name: Choose your cloud tiering policies
+        href: storage-sync-choose-cloud-tiering-policies.md
+      - name: Monitor cloud tiering
+        href: storage-sync-monitor-cloud-tiering.md
   - name: Performance and scale
     items:
     - name: SMB Multichannel performance
       href: storage-files-smb-multichannel-performance.md
     - name: Scalability and performance targets
       href: storage-files-scale-targets.md
+  - name: Understanding billing
+    href: understanding-billing.md
   - name: Prevent accidental data deletion
     href: storage-files-prevent-file-share-deletion.md
   - name: Back up file shares
@@ -80,29 +88,25 @@
   - name: Encryption at-rest
     href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Encryption at-rest with customer-managed keys
-    href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    href: ../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Compliance offerings
     href: ../common/storage-compliance-offerings.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: FAQ
     href: storage-files-faq.md
 - name: How-to guides
   items:
-  - name: Create
+  - name: Deploy
     items:
     - name: Create an SMB file share
       href: storage-how-to-create-file-share.md
-    - name: Create a premium file share
-      href: storage-how-to-create-premium-fileshare.md
-    - name: Create an NFS share
-      href: storage-files-how-to-create-nfs-shares.md
-  - name: Deploy
-    items:
-    - name: Deploy Azure Files
-      href: storage-files-deployment-guide.md
     - name: Deploy Azure File Sync
       href: storage-sync-files-deployment-guide.md
+    - name: Create an NFS share
+      href: storage-files-how-to-create-nfs-shares.md
     - name: SQL Server FCI with premium file shares
-      href: ../../azure-sql/virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json
+      href: ../../azure-sql/virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Purchase storage reservations
+      href: files-reserve-capacity.md
   - name: Mount
     items:
     - name: Mount SMB file share to Windows
@@ -161,6 +165,10 @@
       href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Initiate an account failover
       href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Move resources to other resource groups, subscriptions and AAD tenants
+      href: storage-sync-resource-move.md
+    - name: How to manage tiered files
+      href: storage-sync-how-to-manage-tiered-files.md
   - name: Data protection
     items:
     - name: Enable soft delete
@@ -227,6 +235,8 @@
         href: storage-files-migration-linux-hybrid.md
       - name: Migrate from an on-premises NAS to a hybrid file server with Azure File Sync
         href: storage-files-migration-nas-hybrid.md
+      - name: Migrate from an on-premises NAS to a hybrid file server with DataBox
+        href: storage-files-migration-nas-hybrid-databox.md
     - name: From StorSimple
       items:
       - name: StorSimple 8100 and 8600 migration guide
@@ -328,6 +338,8 @@
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=storage
+  - name: Azure Files and Azure NetApp Files comparison
+    href: storage-files-netapp-comparison.md
   - name: NuGet packages (.NET)
     items:
     - name: Microsoft.Azure.Storage.Common (version 11.x)

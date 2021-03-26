@@ -5,11 +5,17 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: srrengar
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, devx-track-azurecli
 
 ---
 
 # Monitoring and diagnostics
+
+> [!IMPORTANT]
+> The preview of Azure Service Fabric Mesh has been retired. New deployments will no longer be permitted through the Service Fabric Mesh API. Support for existing deployments will continue through April 28, 2021.
+> 
+> For details, see [Azure Service Fabric Mesh Preview Retirement](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+
 Azure Service Fabric Mesh is a fully managed service that enables developers to deploy microservices applications without managing virtual machines, storage, or networking. Monitoring and diagnostics for Service Fabric Mesh is categorized into three main types of diagnostics data:
 
 - Application logs - these are defined as the logs from your containerized applications, based on how you have instrumented your application (e.g. docker logs)
@@ -22,7 +28,7 @@ This article discusses the monitoring and diagnostics options for the latest pre
 
 You can view your docker logs from your deployed containers, on a per container basis. In the Service Fabric Mesh application model, each container is a code package in your application. To see the associated logs with a code package, use the following command:
 
-```cli
+```azurecli
 az mesh code-package-log get --resource-group <nameOfRG> --app-name <nameOfApp> --service-name <nameOfService> --replica-name <nameOfReplica> --code-package-name <nameOfCodePackage>
 ```
 
@@ -31,7 +37,7 @@ az mesh code-package-log get --resource-group <nameOfRG> --app-name <nameOfApp> 
 
 Here is what this looks like for seeing the logs from the VotingWeb.Code container from the voting application:
 
-```cli
+```azurecli
 az mesh code-package-log get --resource-group <nameOfRG> --application-name SbzVoting --service-name VotingWeb --replica-name 0 --code-package-name VotingWeb.Code
 ```
 
@@ -54,7 +60,7 @@ The Mesh environment exposes a handful of metrics indicating how your containers
 | RestartCount | Number of container restarts | N/A |
 
 > [!NOTE]
-> The ServiceStatus and ServiceReplicaStatus values are the same as the [HealthState](/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet) in Service Fabric. 
+> The ServiceStatus and ServiceReplicaStatus values are the same as the [HealthState](/dotnet/api/system.fabric.health.healthstate) in Service Fabric.
 
 Each metric is available on different dimensions so you can see aggregates at different levels. The current list of dimensions are as follows:
 
@@ -70,7 +76,7 @@ Each dimension corresponds to different components of the [Service Fabric Applic
 
 ### Azure Monitor CLI
 
-A full list of commands is available in the [Azure Monitor CLI docs](/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list) but we have included a few helpful examples below 
+A full list of commands is available in the [Azure Monitor CLI docs](/cli/azure/monitor/metrics#az-monitor-metrics-list) but we have included a few helpful examples below 
 
 In each example, the Resource ID follows this pattern
 
@@ -79,21 +85,21 @@ In each example, the Resource ID follows this pattern
 
 * CPU Utilization of the containers in an application
 
-```cli
+```azurecli
     az monitor metrics list --resource <resourceId> --metric "CpuUtilization"
 ```
 * Memory Utilization for each Service Replica
-```cli
+```azurecli
     az monitor metrics list --resource <resourceId> --metric "MemoryUtilization" --dimension "ServiceReplicaName"
 ``` 
 
 * Restarts for each container in a 1 hour window 
-```cli
+```azurecli
     az monitor metrics list --resource <resourceId> --metric "RestartCount" --start-time 2019-02-01T00:00:00Z --end-time 2019-02-01T01:00:00Z
 ``` 
 
 * Average CPU Utilization across services named "VotingWeb" in a 1 hour window
-```cli
+```azurecli
     az monitor metrics list --resource <resourceId> --metric "CpuUtilization" --start-time 2019-02-01T00:00:00Z --end-time 2019-02-01T01:00:00Z --aggregation "Average" --filter "ServiceName eq 'VotingWeb'"
 ``` 
 
@@ -114,4 +120,4 @@ In addition to the metrics explorer, we also have a dashboard available out of t
 
 ## Next steps
 * To learn more about Service Fabric Mesh, read the [Service Fabric Mesh overview](service-fabric-mesh-overview.md).
-* To learn more about the Azure Monitor metrics commands, check out the [Azure Monitor CLI docs](/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list).
+* To learn more about the Azure Monitor metrics commands, check out the [Azure Monitor CLI docs](/cli/azure/monitor/metrics#az-monitor-metrics-list).

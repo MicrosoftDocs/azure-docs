@@ -86,7 +86,7 @@ The ISM section on multi-factor authentication recommends implementing it in the
 
 Azure Active Directory provides Multi-Factor Authentication that can be enabled for either all, or a subset of users (for example, only Privileged Accounts). Microsoft also provides a solution called Conditional Access, which allows more granular control over how Multi-Factor Authentication is applied (for example, only when users sign in from remote IP address ranges).
 
-Azure Multi-Factor Authentication supports the following ISM acceptable forms of validation:
+Azure AD Multi-Factor Authentication supports the following ISM acceptable forms of validation:
 
 * Phone call
 * SMS message

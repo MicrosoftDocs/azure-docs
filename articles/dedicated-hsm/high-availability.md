@@ -1,4 +1,4 @@
-﻿---
+---
 title: High availability - Azure Dedicated HSM | Microsoft Docs
 description: Learn about basic considerations for Azure Dedicated HSM high availability. This article includes an example.
 services: dedicated-hsm
@@ -10,8 +10,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
+<<<<<<< HEAD
 ms.date: 03/25/2021
 ms.author: keithp
+=======
+ms.date: 01/15/2021
+ms.author: mbaldwin
+>>>>>>> df4a6bd2135429d57fac83f03cea91eeeb43fd4d
 
 ---
 # Azure Dedicated HSM high availability
@@ -20,7 +25,11 @@ Azure Dedicated HSM is underpinned by Microsoft’s highly available datacenters
 
 ## High availability example
 
+<<<<<<< HEAD
 Information on how to configure HSM devices for high availability at the software level is in the 'Thales Luna 7 HSM Administration Guide'. This document is available at the  [Thales HSM Page](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms).
+=======
+Information on how to configure HSM devices for high availability at the software level is in the 'Thales Luna 7 HSM Administration Guide'. This document is available at the  [Thales HSM Page](https://thalesdocs.com/gphsm/Content/luna/network/luna_network_releases.htm).
+>>>>>>> df4a6bd2135429d57fac83f03cea91eeeb43fd4d
 
 The following diagram shows a highly available architecture. It uses multiple devices in region and multiple devices paired in a separate region. This architecture uses a minimum of four HSM devices and virtual networking components.
 
@@ -37,4 +46,8 @@ Further concept level topics:
 * [Supportability](supportability.md)
 * [Monitoring](monitoring.md)
 
+<<<<<<< HEAD
 For specific details on configuring HSM devices for high availability, please refer to the [Thales customer support portal](https://supportportal.thalesgroup.com/csm) for the Administrator Guides and see section 6.
+=======
+For specific details on configuring HSM devices for high availability, please refer to the Thales Customer Support Portal for the Administrator Guides and see section 6.
+>>>>>>> df4a6bd2135429d57fac83f03cea91eeeb43fd4d

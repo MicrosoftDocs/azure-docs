@@ -6,7 +6,7 @@ author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 9/1/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
@@ -15,10 +15,10 @@ ms.author: mikben
 ## Prerequisites
 Before you get started, make sure to:
 
-- Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Install [Node.js](https://nodejs.org/en/download/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../create-communication-resource.md). You'll need to record your resource **endpoint** for this quickstart.
-- A [User Access Token](../../access-tokens.md). Be sure to set the scope to "chat", and note the token string as well as the userId string.
+- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../create-communication-resource.md). You'll need to **record your resource endpoint** for this quickstart.
+- Create *three* ACS Users and issue them a user access token [User Access Token](../../access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the userId string**. The full demo creates a thread with two initial participants and then adds a third participant to the thread.
 
 ## Setting up
 
@@ -29,23 +29,21 @@ First, open your terminal or command window create a new directory for your app,
 ```console
 mkdir chat-quickstart && cd chat-quickstart
 ```
-   
+
 Run `npm init -y` to create a **package.json** file with default settings.
 
 ```console
 npm init -y
 ```
 
-Use a text editor to create a file called **start-chat.js** in the project root directory. You'll add all the source code for this quickstart to this file in the following sections.
-
 ### Install the packages
 
-Use the `npm install` command to install the below Communication Services client libraries for JavaScript.
+Use the `npm install` command to install the below Communication Services SDKs for JavaScript.
 
 ```console
 npm install @azure/communication-common --save
 
-npm install @azure/communication-administration --save
+npm install @azure/communication-identity --save
 
 npm install @azure/communication-signaling --save
 
@@ -63,9 +61,28 @@ This quickstart uses webpack to bundle the application assets. Run the following
 npm install webpack webpack-cli webpack-dev-server --save-dev
 ```
 
-Create an **index.html** file in the root directory of your project. We'll use this file as a template to add chat capability using the Azure Communication Chat client library for JavaScript.
+Create a `webpack.config.js` file in the root directory. Copy the following configuration into this file:
 
-Here is the code:
+```
+module.exports = {
+  entry: "./client.js",
+  output: {
+    filename: "bundle.js"
+  },
+  devtool: "inline-source-map",
+  mode: "development"
+}
+```
+
+Add a `start` script to your `package.json`, we will use this for running the app. Inside the `scripts` section of `package.json` add the following:
+
+```
+"scripts": {
+  "start": "webpack serve --config ./webpack.config.js"
+}
+```
+
+Create an **index.html** file in the root directory of your project. We'll use this file as a template to add chat capability using the Azure Communication Chat SDK for JavaScript.
 
 ```html
 <!DOCTYPE html>
@@ -80,35 +97,39 @@ Here is the code:
   </body>
 </html>
 ```
-Create a file in the root directory of your project called **client.js** to contain the application logic for this quickstart. 
+
+Create a file in the root directory of your project called **client.js** to contain the application logic for this quickstart.
 
 ### Create a chat client
 
-To create a chat client in your web app, you'll use the Communications Service endpoint and the access token that was generated as part of pre-requisite steps. User access tokens enable you to build client applications that directly authenticate to Azure Communication Services. Once you generate these tokens on your server, pass them back to a client device. You need to use the `AzureCommunicationUserCredential` class from the `Common client library` to pass the token to your chat client.
+To create a chat client in your web app, you'll use the Communications Service **endpoint** and the **access token** that was generated as part of prerequisite steps.
 
-Create a **client.js** file in the root directory of your project. We'll use this file to add chat capability using the Azure Communication Chat client library for JavaScript.
+User access tokens enable you to build client applications that directly authenticate to Azure Communication Services. This quickstart does not cover creating a service tier to manage tokens for your chat application. See [chat concepts](../../../concepts/chat/concepts.md) for more information about chat architecture, and [user access tokens](../../access-tokens.md) for more information about access tokens.
+
+Inside **client.js** use the endpoint and access token in the code below to add chat capability using the Azure Communication Chat SDK for JavaScript.
 
 ```JavaScript
 
 import { ChatClient } from '@azure/communication-chat';
-import { AzureCommunicationUserCredential } from '@azure/communication-common';
+import { AzureCommunicationTokenCredential } from '@azure/communication-common';
 
 // Your unique Azure Communication service endpoint
 let endpointUrl = 'https://<RESOURCE_NAME>.communication.azure.com';
+// The user access token generated as part of the pre-requisites
 let userAccessToken = '<USER_ACCESS_TOKEN>';
 
-let chatClient = new ChatClient(endpointUrl, new AzureCommunicationUserCredential(userAccessToken));
+let chatClient = new ChatClient(endpointUrl, new AzureCommunicationTokenCredential(userAccessToken));
 console.log('Azure Communication Chat client created!');
 ```
-Replace **ENDPOINT** with the one created before based on the [Create an Azure Communication Resource](../../create-communication-resource.md) documentation.
-Replace **USER_ACCESS_TOKEN** with a token issued based on the [User Access Token](../../access-tokens.md) documentation.
-Add this code to **client.js** file
+- Replace **endpointUrl** with the Communication Services resource endpoint, see [Create an Azure Communication Resource](../../create-communication-resource.md) if you have not already done so.
+- Replace **userAccessToken** with the token that you issued.
 
 
 ### Run the code
-Use the `webpack-dev-server` to build and run your app. Run the following command to bundle application host in on a local webserver:
+
+Run the following command to bundle application host in on a local webserver:
 ```console
-npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
+npm run start
 ```
 Open your browser and navigate to http://localhost:8080/.
 In the developer tools console within your browser you should see following:
@@ -117,8 +138,8 @@ In the developer tools console within your browser you should see following:
 Azure Communication Chat client created!
 ```
 
-## Object model 
-The following classes and interfaces handle some of the major features of the Azure Communication Services Chat client library for JavaScript.
+## Object model
+The following classes and interfaces handle some of the major features of the Azure Communication Services Chat SDK for JavaScript.
 
 | Name                                   | Description                                                                                                                                                                           |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -132,56 +153,55 @@ Use the `createThread` method to create a chat thread.
 
 `createThreadRequest` is used to describe the thread request:
 
-- Use `topic` to give a topic to this chat; Topic can be updated after the chat thread is created using the `UpdateThread` function. 
-- Use `members` to list the members to be added to the chat thread;
+- Use `topic` to give a topic to this chat. Topics can be updated after the chat thread is created using the `UpdateThread` function.
+- Use `participants` to list the participants to be added to the chat thread.
 
-When resolved, `createChatThread` method returns `threadId` which is used to perform operations on the newly created chat thread like adding members to the chat thread, sending messages, deleting message, etc.
+When resolved, `createChatThread` method returns a `CreateChatThreadResult`. This model contains a `chatThread` property where you can access the `id` of the newly created thread. You can then use the `id` to get an instance of a `ChatThreadClient`. The `ChatThreadClient` can then be used to perform operation within the thread such as sending messages or listing participants.
 
-```Javascript
+```JavaScript
 async function createChatThread() {
-   let createThreadRequest = {
-       topic: 'Preparation for London conference',
-       members: [{
-                   user: { communicationUserId: '<USER_ID_FOR_JACK>' },
-                   displayName: 'Jack'
-               }, {
-                   user: { communicationUserId: '<USER_ID_FOR_GEETA>' },
-                   displayName: 'Geeta'
-               }]
-   };
-   let chatThreadClient= await chatClient.createChatThread(createThreadRequest);
-   let threadId = chatThreadClient.threadId;
-   return threadId;
-}
+    let createThreadRequest = {
+        topic: 'Preparation for London conference',
+        participants: [{
+                    id: { communicationUserId: '<USER_ID_FOR_JACK>' },
+                    displayName: 'Jack'
+                }, {
+                    id: { communicationUserId: '<USER_ID_FOR_GEETA>' },
+                    displayName: 'Geeta'
+                }]
+    };
+    let createChatThreadResult = await chatClient.createChatThread(createThreadRequest);
+    let threadId = createChatThreadResult.chatThread.id;
+    return threadId;
+    }
 
 createChatThread().then(async threadId => {
-   console.log(`Thread created:${threadId}`);
-   // PLACEHOLDERS
-   // <CREATE CHAT THREAD CLIENT>
-   // <RECEIVE A CHAT MESSAGE FROM A CHAT THREAD>
-   // <SEND MESSAGE TO A CHAT THREAD>
-   // <LIST MESSAGES IN A CHAT THREAD>
-   // <ADD NEW MEMBER TO THREAD>
-   // <LIST MEMBERS IN A THREAD>
-   // <REMOVE MEMBER FROM THREAD>
-});
+    console.log(`Thread created:${threadId}`);
+    // PLACEHOLDERS
+    // <CREATE CHAT THREAD CLIENT>
+    // <RECEIVE A CHAT MESSAGE FROM A CHAT THREAD>
+    // <SEND MESSAGE TO A CHAT THREAD>
+    // <LIST MESSAGES IN A CHAT THREAD>
+    // <ADD NEW PARTICIPANT TO THREAD>
+    // <LIST PARTICIPANTS IN A THREAD>
+    // <REMOVE PARTICIPANT FROM THREAD>
+    });
 ```
 
-Replace **USER_ID_FOR_JACK** and **USER_ID_FOR_GEETA** with the user ids obtained from the previous step ( Create users and issue [User Access Tokens](../../access-tokens.md))
+Replace **USER_ID_FOR_JACK** and **USER_ID_FOR_GEETA** with the user IDs obtained from creating users and tokens ([User Access Tokens](../../access-tokens.md))
 
-When you refresh your browser tab you should see the following in the console
+When you refresh your browser tab you should see the following in the console:
 ```console
-Thread created: <threadId>
+Thread created: <thread_id>
 ```
 
 ## Get a chat thread client
 
-The `getChatThreadClient` method returns a `chatThreadClient` for a thread that already exists. It can be used for performing operations on the created thread: add members, send message, etc. threadId is the unique ID of the existing chat thread.
+The `getChatThreadClient` method returns a `chatThreadClient` for a thread that already exists. It can be used for performing operations on the created thread: add participants, send message, etc. threadId is the unique ID of the existing chat thread.
 
 ```JavaScript
-
-let chatThreadClient = await chatClient.getChatThreadClient(threadId);
-console.log(`Chat Thread client for threadId:${chatThreadClient.threadId}`);
+let chatThreadClient = chatClient.getChatThreadClient(threadId);
+console.log(`Chat Thread client for threadId:${threadId}`);
 
 ```
 Add this code in place of the `<CREATE CHAT THREAD CLIENT>` comment in **client.js**, refresh your browser tab and check the console, you should see:
@@ -191,35 +211,33 @@ Chat Thread client for threadId: <threadId>
 
 ## Send a message to a chat thread
 
-Use `sendMessage` method to send a chat message to the thread you just created, identified by threadId.
+Use `sendMessage` method to sends a message to a thread identified by threadId.
 
-`sendMessageRequest` describes the required fields of chat message request:
+`sendMessageRequest` is used to describe the message request:
 
 - Use `content` to provide the chat message content;
 
-`sendMessageOptions` describes the optional fields of chat message request:
+`sendMessageOptions` is used to describe the operation optional params:
 
-- Use `priority` to specify the chat message priority level, such as 'Normal' or 'High'; this property can be used to have UI indicator for the recipient user in your app to bring attention to the message or execute custom business logic.   
 - Use `senderDisplayName` to specify the display name of the sender;
+- Use `type` to specify the message type, such as 'text' or 'html' ;
 
-The response `sendChatMessageResult` contains an "id", which is the unique ID of that message.
+`SendChatMessageResult` is the response returned from sending a message, it contains an ID, which is the unique ID of the message.
 
 ```JavaScript
-
 let sendMessageRequest =
 {
     content: 'Hello Geeta! Can you share the deck for the conference?'
 };
 let sendMessageOptions =
 {
-    priority: 'Normal',
-    senderDisplayName : 'Jack'
+    senderDisplayName : 'Jack',
+    type: 'text'
 };
 let sendChatMessageResult = await chatThreadClient.sendMessage(sendMessageRequest, sendMessageOptions);
 let messageId = sendChatMessageResult.id;
-console.log(`Message sent!, message id:${messageId}`);
-
 ```
+
 Add this code in place of the `<SEND MESSAGE TO A CHAT THREAD>` comment in **client.js**, refresh your browser tab and check the console.
 ```console
 Message sent!, message id:<number>
@@ -242,22 +260,22 @@ chatClient.on("chatMessageReceived", (e) => {
 Add this code in place of `<RECEIVE A CHAT MESSAGE FROM A CHAT THREAD>` comment in **client.js**.
 Refresh your browser tab, you should see in the console a message `Notification chatMessageReceived`;
 
-Alternatively you can retrieve chat messages by polling the `listMessages` method at specified intervals. 
+Alternatively you can retrieve chat messages by polling the `listMessages` method at specified intervals.
 
 ```JavaScript
 
 let pagedAsyncIterableIterator = await chatThreadClient.listMessages();
 let nextMessage = await pagedAsyncIterableIterator.next();
- while (!nextMessage.done) {
-     let chatMessage = nextMessage.value;
-     console.log(`Message :${chatMessage.content}`);
-     // your code here
-     nextMessage = await pagedAsyncIterableIterator.next();
- }
+    while (!nextMessage.done) {
+        let chatMessage = nextMessage.value;
+        console.log(`Message :${chatMessage.content}`);
+        // your code here
+        nextMessage = await pagedAsyncIterableIterator.next();
+    }
 
 ```
 Add this code in place of the `<LIST MESSAGES IN A CHAT THREAD>` comment in **client.js**.
-Refresh your tab, in the console you should find list of messages sent in this chat thread.
+Refresh your tab, in the console you should find the list of messages sent in this chat thread.
 
 
 `listMessages` returns the latest version of the message, including any edits or deletes that happened to the message using `updateMessage` and `deleteMessage`.
@@ -265,48 +283,49 @@ For deleted messages `chatMessage.deletedOn` returns a datetime value indicating
 
 `listMessages` returns different types of messages which can be identified by `chatMessage.type`. These types are:
 
-- `Text`: Regular chat message sent by a thread member.
+- `Text`: Regular chat message sent by a thread participant.
 
 - `ThreadActivity/TopicUpdate`: System message that indicates the topic has been updated.
 
-- `ThreadActivity/AddMember`: System message that indicates one or more members have been added to the chat thread.
+- `ThreadActivity/AddParticipant`: System message that indicates one or more participants have been added to the chat thread.
 
-- `ThreadActivity/RemoveMember`: System message that indicates a member has been removed from the chat thread.
+- `ThreadActivity/RemoveParticipant`: System message that indicates a participant has been removed from the chat thread.
 
 For more details, see [Message Types](../../../concepts/chat/concepts.md#message-types).
 
-## Add a user as member to the chat thread
+## Add a user as a participant to the chat thread
 
-Once a chat thread is created, you can then add and remove users from it. By adding users, you give them access to send messages to the chat thread, and add/remove other members. 
-Before calling `addMembers` method, ensure that you have acquired a new access token and identity for that user. The user will need that access token in order to initialize their chat client.
+Once a chat thread is created, you can then add and remove users from it. By adding users, you give them access to send messages to the chat thread, and add/remove other participants.
 
-`addMembersRequest` describes the request object wherein `members` lists the members to be added to the chat thread;
-- `user`, required, is the communication user to be added to the chat thread.
-- `displayName`, optional, is the display name for the thread member.
-- `shareHistoryTime`, optional, is the time from which the chat history is shared with the member. To share history since the inception of the chat thread, set this property to any date equal to, or less than the thread creation time. To share no history previous to when the member was added, set it to the current date. To share partial history, set it to the date of your choice.
+Before calling the `addParticipants` method, ensure that you have acquired a new access token and identity for that user. The user will need that access token in order to initialize their chat client.
+
+`addParticipantsRequest` describes the request object wherein `participants` lists the participants to be added to the chat thread;
+- `id`, required, is the communication identifier to be added to the chat thread.
+- `displayName`, optional, is the display name for the thread participant.
+- `shareHistoryTime`, optional, is the time from which the chat history is shared with the participant. To share history since the inception of the chat thread, set this property to any date equal to, or less than the thread creation time. To share no history previous to when the participant was added, set it to the current date. To share partial history, set it to the date of your choice.
 
 ```JavaScript
 
-let addMembersRequest =
+let addParticipantsRequest =
 {
-    members: [
+    participants: [
         {
-            user: { communicationUserId: '<NEW_MEMBER_USER_ID>' },
+            id: { communicationUserId: '<NEW_PARTICIPANT_USER_ID>' },
             displayName: 'Jane'
         }
     ]
 };
 
-await chatThreadClient.addMembers(addMembersRequest);
+await chatThreadClient.addParticipants(addParticipantsRequest);
 
 ```
-Replace **NEW_MEMBER_USER_ID** with a [new user Id](../../access-tokens.md)
-Add this code in place of the `<ADD NEW MEMBER TO THREAD>` comment in **client.js**
+Replace **NEW_PARTICIPANT_USER_ID** with a [new user ID](../../access-tokens.md)
+Add this code in place of the `<ADD NEW PARTICIPANT TO THREAD>` comment in **client.js**
 
 ## List users in a chat thread
 ```JavaScript
-async function listThreadMembers() {
-   let pagedAsyncIterableIterator = await chatThreadClient.listMembers();
+async function listParticipants() {
+   let pagedAsyncIterableIterator = await chatThreadClient.listParticipants();
    let next = await pagedAsyncIterableIterator.next();
    while (!next.done) {
       let user = next.value;
@@ -314,20 +333,20 @@ async function listThreadMembers() {
       next = await pagedAsyncIterableIterator.next();
    }
 }
-await listThreadMembers();
+await listParticipants();
 ```
-Add this code in place of the `<LIST MEMBERS IN A THREAD>` comment in **client.js**, refresh your browser tab and check the console, you should see information about users in a thread.
+Add this code in place of the `<LIST PARTICIPANTS IN A THREAD>` comment in **client.js**, refresh your browser tab and check the console, you should see information about users in a thread.
 
 ## Remove user from a chat thread
 
-Similar to adding a member, you can remove members from a chat thread. In order to remove, you'll need to track the ids of the members you have added.
+Similar to adding a participant, you can remove participants from a chat thread. In order to remove, you'll need to track the IDs of the participants you have added.
 
-Use `removeMember` method where `member` is the communication user to be removed from the thread.
+Use `removeParticipant` method where `participant` is the communication user to be removed from the thread.
 
 ```JavaScript
 
-await chatThreadClient.removeMember({ communicationUserId: <MEMBER_ID> });
-await listThreadMembers();
+await chatThreadClient.removeParticipant({ communicationUserId: <PARTICIPANT_ID> });
+await listParticipants();
 ```
-Replace **MEMBER_ID** with a User ID used in the previous step (<NEW_MEMBER_USER_ID>).
-Add this code in place of the `<REMOVE MEMBER FROM THREAD>` comment in **client.js**,
+Replace **PARTICIPANT_ID** with a User ID used in the previous step (<NEW_PARTICIPANT_USER_ID>).
+Add this code in place of the `<REMOVE PARTICIPANT FROM THREAD>` comment in **client.js**,

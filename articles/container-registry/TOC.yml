@@ -57,8 +57,14 @@
       href: container-registry-image-tag-version.md
     - name: Geo-replication
       href: container-registry-geo-replication.md
+    - name: Zone redundancy
+      displayName: availability zone
+      href: zone-redundancy.md
     - name: Registry best practices
       href: container-registry-best-practices.md
+    - name: Multi-arch images
+      href: push-multi-architecture-images.md
+      displayName: multi-architecture
     - name: Manage public images
       href: buffer-gate-public-content.md
   - name: How-to guides
@@ -98,6 +104,8 @@
         href: container-registry-access-selected-networks.md
       - name: Restrict access using service endpoint (preview)
         href: container-registry-vnet.md
+      - name: Allow access by trusted services
+        href: allow-access-trusted-services.md
       - name: Encrypt with customer-managed key
         href: container-registry-customer-managed-keys.md
       - name: Access behind a firewall
@@ -126,7 +134,7 @@
       - name: Content trust
         href: container-registry-content-trust.md
       - name: Image scanning with Security Center
-        href: ../security-center/defender-for-container-registries-introduction.md?bc=%252fazure%252fcontainer-registry%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fcontainer-registry%252ftoc.json
+        href: ../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json
     - name: Registries and other Azure services
       expanded: false
       items:
@@ -154,6 +162,7 @@
           href: container-registry-troubleshoot-performance.md
         - name: Detect common issues
           href: container-registry-check-health.md
+          displayName: check, health
         - name: FAQ
           href: container-registry-faq.md
 - name: Tasks

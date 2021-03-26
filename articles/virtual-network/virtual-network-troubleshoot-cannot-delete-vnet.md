@@ -69,7 +69,7 @@ If there is an application gateway, you must remove it before you can delete the
 
 1. Delete the subnet or virtual network again.
 
-If these steps don't resolve the issue, use these [Azure CLI commands](https://docs.microsoft.com/azure/container-instances/container-instances-vnet#clean-up-resources) to clean up resources. 
+If these steps don't resolve the issue, use these [Azure CLI commands](../container-instances/container-instances-vnet.md#clean-up-resources) to clean up resources. 
 
 ### Check whether Azure Active Directory Domain Service is enabled in the virtual network
 

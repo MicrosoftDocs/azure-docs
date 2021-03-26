@@ -1,4 +1,4 @@
-﻿- name: IoT Hub Documentation
+﻿- name: IoT Hub documentation
   href: index.yml
 - name: Overview
   items:
@@ -167,24 +167,28 @@
           href: iot-hub-devguide-sdks.md
         - name: MQTT support
           href: iot-hub-mqtt-support.md
+        - name: MQTT 5 support (preview)
+          items:
+            - name: MQTT 5 overview
+              href: iot-hub-mqtt-5.md
+            - name: MQTT 5 API reference
+              href: iot-hub-mqtt-5-reference.md
         - name: AMQP support
           href: iot-hub-amqp-support.md
-        - name: Glossary
-          href: iot-hub-devguide-glossary.md
     - name: Security
       items:
         - name: Security baseline
           href: security-baseline.md
         - name: Recommendations
-          href: ../iot-fundamentals/security-recommendations.md?context=azure%252fiot-hub%252frc%252frc
+          href: ../iot-fundamentals/security-recommendations.md?context=%2fazure%2fiot-hub%2frc%2frc
         - name: Security from the ground up
-          href: ../iot-fundamentals/iot-security-ground-up.md?context=azure%252fiot-hub%252frc%252frc
+          href: ../iot-fundamentals/iot-security-ground-up.md?context=%2fazure%2fiot-hub%2frc%2frc
         - name: Security best practices
-          href: ../iot-fundamentals/iot-security-best-practices.md?context=azure%252fiot-hub%252frc%252frc
+          href: ../iot-fundamentals/iot-security-best-practices.md?context=%2fazure%2fiot-hub%2frc%2frc
         - name: Security architecture
-          href: ../iot-fundamentals/iot-security-architecture.md?context=azure%252fiot-hub%252frc%252frc
+          href: ../iot-fundamentals/iot-security-architecture.md?context=%2fazure%2fiot-hub%2frc%2frc
         - name: Secure your IoT deployment
-          href: ../iot-fundamentals/iot-security-deployment.md?context=azure%252fiot-hub%252frc%252frc
+          href: ../iot-fundamentals/iot-security-deployment.md?context=%2fazure%2fiot-hub%2frc%2frc
         - name: Security controls by Azure Policy
           displayName: regulatory, compliance, standards, domains
           href: ./security-controls-policy.md
@@ -343,6 +347,16 @@
           href: iot-hub-azure-service-health-integration.md
         - name: Order device connection state events from Event Grid
           href: iot-hub-how-to-order-connection-state-events.md
+    - name: Deploy updates
+      items:
+        - name: Create a device update account
+          href: ../iot-hub-device-update/create-device-update-account.md
+        - name: Import an update
+          href: ../iot-hub-device-update/import-update.md
+        - name: Create an update group
+          href: ../iot-hub-device-update/create-update-group.md
+        - name: Deploy an update
+          href: ../iot-hub-device-update/deploy-update.md
     - name: Use real devices
       items:
         - name: Use an online simulator
@@ -475,10 +489,14 @@
           href: iot-hub-migrate-to-diagnostics-settings.md
         - name: TLS 1.0 and 1.1 deprecation
           href: iot-hub-tls-deprecating-1-0-and-1-1.md
+        - name: Classic IP filter
+          href: iot-hub-ip-filter-classic.md
 - name: Resources
   items:
     - name: Support and help options
-      href: ../iot-fundamentals/iot-support-help.md
+      href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
+    - name: IoT Glossary
+      href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
     - name: Azure IoT services
       items:
       - name: IoT Hub
@@ -489,10 +507,10 @@
         href: /microsoft-iot-central/
       - name: IoT Edge
         href: ../iot-edge/index.yml
-      - name: IoT solution accelerators
-        href: ../iot-accelerators/index.yml
       - name: IoT Plug and Play
         href: ../iot-pnp/index.yml
+      - name: IoT solution accelerators
+        href: ../iot-accelerators/index.yml
       - name: Azure Maps
         href: ../azure-maps/index.yml
       - name: Time Series Insights

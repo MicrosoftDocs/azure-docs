@@ -2,14 +2,14 @@
 title: "Tutorial: Create a form processing app with AI Builder - Form Recognizer"
 titleSuffix: Azure Cognitive Services
 description: In this tutorial, you'll use AI Builder to create and train a form processing application.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 10/23/2020
-ms.author: pafarley
+ms.date: 11/23/2020
+ms.author: lajanuar
 ---
 
 # Tutorial: Create a form-processing app with AI Builder

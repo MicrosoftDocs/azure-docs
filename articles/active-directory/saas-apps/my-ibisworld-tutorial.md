@@ -78,27 +78,26 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
 
-1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-    In the **Sign-on URL** text box, type the URL:
-    `https://my.ibisworld.com/account/login`
+   * To configure the application in **SP** initiated mode, request the URL from IBISWorld, and then enter the URL in the **Sign-on URL** text box.
+   
+   * To configure the application in **IdP** initiated mode, in the **Relay State** text box, enter the URL `RPID=http://fedlogin.ibisworld.com`. Leave the **Sign-on URL** text box empty.
 
 1. Click **Save**.
 
 1. My IBISWorld application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![image](common/default-attributes.png)
+   ![image](common/default-attributes.png)
 
 1. In addition to above, My IBISWorld application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 	
-	| Name | Source Attribute|
-	| --------------- | --------- |
-	| department | user.department |
-	| language | user.preferredlanguage |
-	| phone | user.telephonenumber |
-	| title | user.jobtitle |
-    | userid | user.employeeid |
-    | country | user.country |
+   | Name | Source Attribute|
+   | --------------- | --------- |
+   | department | user.department |
+   | language | user.preferredlanguage |
+   | phone | user.telephonenumber |
+   | title | user.jobtitle |
+   | userid | user.employeeid |
+   | country | user.country |
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 

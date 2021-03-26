@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Microsoft Azure Attestation (preview)
+title: Microsoft Azure Attestation 
 summary: Learn how to use Azure Attestation 
 metadata:
   title: Azure Attestation documentation
@@ -30,10 +30,14 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
-          - text: PowerShell quickstart
-            url: quickstart-powershell.md
           - text: ARM template quickstart
             url: quickstart-template.md
+          - text: PowerShell quickstart
+            url: quickstart-powershell.md
+          - text: Portal quickstart
+            url: quickstart-portal.md
+          - text: CLI quickstart
+            url: quickstart-azure-cli.md
 
   # Card
   - title: Concepts
@@ -56,6 +60,8 @@ landingContent:
         links:
           - text: Authoring an attestation policy
             url: author-sign-policy.md
+          - text: Create a Private Endpoint - PowerShell
+            url: private-endpoint-powershell.md
           - text: SGX attestation code samples
             url: /samples/browse/?expanded=azure&terms=attestation
 

@@ -4,7 +4,7 @@ description: Troubleshoot common issues in a deployment on Azure File Sync, whic
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 6/12/2020
+ms.date: 2/1/2021
 ms.author: jeffpatt
 ms.subservice: files
 ---
@@ -47,9 +47,11 @@ To resolve this issue , install [KB2919355](https://support.microsoft.com/help/2
 <a id="server-registration-missing-subscriptions"></a>**Server Registration does not list all Azure Subscriptions**  
 When registering a server using ServerRegistration.exe, subscriptions are missing when you click the Azure Subscription drop-down.
 
-This issue occurs because ServerRegistration.exe does not currently support multi-tenant environments. This issue will be fixed in a future Azure File Sync agent update.
+This issue occurs because ServerRegistration.exe will only retrieve subscriptions from the first 5 Azure AD tenants. 
 
-To workaround this issue, use the following PowerShell commands to register the server:
+To increase the Server Registration tenant limit on the server, create a DWORD value called ServerRegistrationTenantLimit under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync with a value greater than 5.
+
+You can also workaround this issue by using the following PowerShell commands to register the server:
 
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
@@ -67,8 +69,8 @@ To install the Az or AzureRM module on PowerShell 5.1, perform the following ste
 
 1. Type **powershell** from an elevated command prompt and hit enter.
 2. Install the latest Az or AzureRM module by following the documentation:
-    - [Az module (requires .NET 4.7.2)](/powershell/azure/install-az-ps?viewFallbackFrom=azps-1.1.0)
-    - [AzureRM module]( https://go.microsoft.com/fwlink/?linkid=856959)
+    - [Az module (requires .NET 4.7.2)](/powershell/azure/install-az-ps)
+    - [AzureRM module](https://go.microsoft.com/fwlink/?linkid=856959)
 3. Run ServerRegistration.exe, and complete the wizard to register the server with a Storage Sync Service.
 
 <a id="server-already-registered"></a>**Server Registration displays the following message: "This server is already registered"** 
@@ -106,7 +108,7 @@ This error occurs if the Azure file share is already in use by another cloud end
 If you see this message and the Azure file share currently is not in use by a cloud endpoint, complete the following steps to clear the Azure File Sync metadata on the Azure file share:
 
 > [!Warning]  
-> Deleting the metadata on an Azure file share that is currently in use by a cloud endpoint causes Azure File Sync operations to fail. 
+> Deleting the metadata on an Azure file share that is currently in use by a cloud endpoint causes Azure File Sync operations to fail. If you then use this file share for sync in a different sync group, data loss for files in the old sync group is almost certain.
 
 1. In the Azure portal, go to your Azure file share.  
 2. Right-click the Azure file share, and then select **Edit metadata**.
@@ -195,10 +197,19 @@ On the server that is showing as "Appears offline" in the portal, look at Event 
 - If **GetNextJob completed with status: 0** is logged, the server can communicate with the Azure File Sync service. 
     - Open Task Manager on the server and verify the Storage Sync Monitor (AzureStorageSyncMonitor.exe) process is running. If the process is not running, first try restarting the server. If restarting the server does not resolve the issue, upgrade to the latest Azure File Sync [agent version](./storage-files-release-notes.md). 
 
-- If **GetNextJob completed with status: -2134347756** is logged, the server is unable to communicate with the Azure File Sync service due to a firewall or proxy. 
+- If **GetNextJob completed with status: -2134347756** is logged, the server is unable to communicate with the Azure File Sync service due to a firewall, proxy or TLS cipher suite order configuration. 
     - If the server is behind a firewall, verify port 443 outbound is allowed. If the firewall restricts traffic to specific domains, confirm the domains listed in the Firewall [documentation](./storage-sync-files-firewall-and-proxy.md#firewall) are accessible.
     - If the server is behind a proxy, configure the machine-wide or app-specific proxy settings by following the steps in the Proxy [documentation](./storage-sync-files-firewall-and-proxy.md#proxy).
     - Use the Test-StorageSyncNetworkConnectivity cmdlet to check network connectivity to the service endpoints. To learn more, see [Test network connectivity to service endpoints](./storage-sync-files-firewall-and-proxy.md#test-network-connectivity-to-service-endpoints).
+    - If the TLS cipher suite order is configured on the server, you can use group policy or TLS cmdlets to add cipher suites:
+        - To use group policy, see [Configuring TLS Cipher Suite Order by using Group Policy](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-group-policy).
+        - To use TLS cmdlets, see [Configuring TLS Cipher Suite Order by using TLS PowerShell Cmdlets](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-tls-powershell-cmdlets).
+    
+        Azure File Sync currently supports the following cipher suites for TLS 1.2 protocol:  
+        - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+        - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+        - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+        - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256  
 
 - If **GetNextJob completed with status: -2134347764** is logged, the server is unable to communicate with the Azure File Sync service due to an expired or deleted certificate.  
     - Run the following PowerShell command on the server to reset the certificate used for authentication:
@@ -894,6 +905,22 @@ This error occurs because Azure File Sync does not support HTTP redirection (3xx
 
 This error occurs when a data ingestion operation exceeds the timeout. This error can be ignored if sync is making progress (AppliedItemCount is greater than 0). See [How do I monitor the progress of a current sync session?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
+<a id="-2134375814"></a>**Sync failed because the server endpoint path cannot be found on the server.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c8027a |
+| **HRESULT (decimal)** | -2134375814 |
+| **Error string** | ECS_E_SYNC_ROOT_DIRECTORY_NOT_FOUND |
+| **Remediation required** | Yes |
+
+This error occurs if the directory used as the server endpoint path was renamed or deleted. If the directory was renamed, rename the directory back to the original name and restart the Storage Sync Agent service (FileSyncSvc).
+
+If the directory was deleted, perform the following steps to remove the existing server endpoint and create a new server endpoint using a new path:
+
+1. Remove the server endpoint in the sync group by following the steps documented in [Remove a server endpoint](./storage-sync-files-server-endpoint.md#remove-a-server-endpoint).
+2. Create a new server endpoint in the sync group by following the steps documented in [Add a server endpoint](./storage-sync-files-server-endpoint.md#add-a-server-endpoint).
+
 ### Common troubleshooting steps
 <a id="troubleshoot-storage-account"></a>**Verify the storage account exists.**  
 # [Portal](#tab/azure-portal)
@@ -1262,7 +1289,24 @@ If you encounter issues with Azure File Sync on a server, start by completing th
 
 If the issue is not resolved, run the AFSDiag tool and send its .zip file output to the support engineer assigned to your case for further diagnosis.
 
-To run AFSDiag, perform the following steps:
+To run AFSDiag, perform the steps below.
+
+For agent version v11 and later:
+1. Open an elevated PowerShell window, and then run the following commands (press Enter after each command):
+
+    > [!NOTE]
+    >AFSDiag will create the output directory and a temp folder within it prior to collecting logs and will delete the temp folder after execution. Specify an output location which does not contain data.
+    
+    ```powershell
+    cd "c:\Program Files\Azure\StorageSyncAgent"
+    Import-Module .\afsdiag.ps1
+    Debug-AFS -OutputDirectory C:\output -KernelModeTraceLevel Verbose -UserModeTraceLevel Verbose
+    ```
+
+2. Reproduce the issue. When you're finished, enter **D**.
+3. A .zip file that contains logs and trace files is saved to the output directory that you specified. 
+
+For agent version v10 and earlier:
 1. Create a directory where the AFSDiag output will be saved (for example, C:\Output).
     > [!NOTE]
     >AFSDiag will delete all content in the output directory prior to collecting logs. Specify an output location which does not contain data.
@@ -1278,6 +1322,7 @@ To run AFSDiag, perform the following steps:
 4. For the Azure File Sync user mode trace level, enter **1** (unless otherwise specified, to create more verbose traces), and then press Enter.
 5. Reproduce the issue. When you're finished, enter **D**.
 6. A .zip file that contains logs and trace files is saved to the output directory that you specified.
+
 
 ## See also
 - [Monitor Azure File Sync](storage-sync-files-monitoring.md)

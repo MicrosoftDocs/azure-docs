@@ -20,19 +20,19 @@ highlightedContent:
     # Card
     - title: Introduction to the core storage services
       itemType: concept
-      url: /azure/storage/common/storage-introduction?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      url: ./common/storage-introduction.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - title: Learn about storage account types
       itemType: concept
-      url: /azure/storage/common/storage-account-overview?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      url: ./common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - title: Create a storage account
       itemType: how-to-guide
-      url: /azure/storage/common/storage-account-create?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      url: ./common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - title: Learn about data redundancy
       itemType: concept
-      url: /azure/storage/common/storage-redundancy?toc=%2fazure%2fstorage%2fblobs%2ftoc.json    
+      url: ./common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - title: Transfer data to Azure
       itemType: concept
-      url: /azure/storage/common/storage-choose-data-transfer-solution?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      url: ./common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
 
  
 # additionalContent section (optional)
@@ -45,54 +45,54 @@ additionalContent:
         # Card
         - title: Object storage for your apps
           links:
-          - url: /azure/storage/blobs/storage-blobs-introduction
+          - url: ./blobs/storage-blobs-introduction.md
             text: Learn about storage for unstructured data (Blob storage)
           - url: /rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs
             text: Understand block, append, and page blobs  
-          - url: /azure/storage/blobs/
+          - url: ./blobs/index.yml
             text: See more >
         # Card
         - title: Storage for big data analytics
           links:
-          - url: /azure/storage/blobs/data-lake-storage-introduction
+          - url: ./blobs/data-lake-storage-introduction.md
             text: Learn about storage for enterprise data lakes (Data Lake Storage)
-          - url: /azure/storage/blobs/data-lake-storage-data-scenarios
+          - url: ./blobs/data-lake-storage-data-scenarios.md
             text: Understand options and tools to process big data    
         # Card
         - title: Cloud-hosted file shares
           links:
-          - url: /azure/storage/files/storage-files-introduction
+          - url: ./files/storage-files-introduction.md
             text: Use files shares provided by the core Azure Storage platform (Azure Files)
-          - url: /azure/azure-netapp-files/azure-netapp-files-introduction
+          - url: ../azure-netapp-files/azure-netapp-files-introduction.md
             text: Use volumes provided by NetApp ONTAP (Azure NetApp Files)
         # Card
         - title: Disk storage for IaaS workloads
           links:
-          - url: /azure/virtual-machines/windows/managed-disks-overview
+          - url: ../virtual-machines/managed-disks-overview.md
             text: Learn about block-level storage volumes for Azure VMs
-          - url: /azure/virtual-machines/windows/disks-types  
+          - url: ../virtual-machines/disks-types.md
             text: Understand the available disk types
-          - url: /azure/virtual-machines/windows/attach-managed-disk-portal
+          - url: ../virtual-machines/windows/attach-managed-disk-portal.md
             text: Add a new disk to a VM - Windows
-          - url: /azure/virtual-machines/linux/attach-disk-portal
+          - url: ../virtual-machines/linux/attach-disk-portal.md
             text: Attach a data disk to a VM - Linux
         # Card
         - title: Storage for asynchronous message queuing
           links:
-          - url: /azure/storage/queues/storage-queues-introduction
+          - url: ./queues/storage-queues-introduction.md
             text: Learn about the Azure Storage solution for queues (Queue storage)
-          - url: /azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted
+          - url: ../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md
             text: Compare Queue storage and Service Bus queues  
-          - url: /azure/storage/queues/
+          - url: ./queues/index.yml
             text: See more >
         # Card
         - title: Storage for structured NoSQL data
           links:
-          - url: /azure/storage/tables/table-storage-overview
+          - url: ./tables/table-storage-overview.md
             text: Store structured NoSQL data in the cloud (Table storage and Cosmos DB)
-          - url: /azure/cosmos-db/table-support  
+          - url: ../cosmos-db/table-support.md
             text: Compare Table storage and Cosmos DB Table API
-          - url: /azure/storage/tables/
+          - url: ./tables/index.yml
             text: See more >
 
     - title: Hybrid storage solutions
@@ -100,29 +100,29 @@ additionalContent:
         # Card
         - title: Expand on-premises file share to the cloud
           links:
-          - url: /azure/storage/files/storage-sync-files-planning
+          - url: ./files/storage-sync-files-planning.md
             text: Sync Azure file shares with Windows file server (Azure FileSync)
-          - url: /azure/storage/files/storage-sync-files-deployment-guide
+          - url: ./files/storage-sync-files-deployment-guide.md
             text: Deploy Azure File Sync
-          - url: /azure/storage/files/
+          - url: ./files/index.yml
             text: See more >
         # Card
         - title: Online data transfer (on-premises to Azure)
           links:
-          - url: /azure/databox-online/data-box-gateway-overview
+          - url: ../databox-gateway/data-box-gateway-overview.md
             text: Seamlessly transfer data to Azure (Data Box Gateway)
-          - url: /azure/databox-online/data-box-edge-overview
+          - url: ../databox-online/azure-stack-edge-overview.md
             text: Locally process data before transfer to Azure (Azure Stack Edge)
-          - url: /azure/databox-online/
+          - url: ../databox-online/index.yml
             text: See more >
         # Card
         - title: Caching for high-performance computing (HPC) workloads
           links:
-          - url: /azure/hpc-cache/hpc-cache-overview
+          - url: ../hpc-cache/hpc-cache-overview.md
             text: Use a fully-managed file caching service (Azure HPC Cache)
-          - url: /azure/avere-vfxt/avere-vfxt-overview
+          - url: ../avere-vfxt/avere-vfxt-overview.md
             text: Cache on-premises NAS in Azure (Avere vFXT for Azure) 
-          - url: /azure/fxt-edge-filer/fxt-overview
+          - url: ../fxt-edge-filer/fxt-overview.md
             text: Deploy an on-premises caching appliance (Azure FXT Edge Filer)
 
     - title: Data operations
@@ -130,42 +130,41 @@ additionalContent:
         # Card
         - title: Offline bulk transfer to Azure
           links:
-          - url: /azure/databox/data-box-disk-overview
+          - url: ../databox/data-box-disk-overview.md
             text: Transfer < 40 TB of data (Data Box Disk)
-          - url: /azure/databox/data-box-overview
+          - url: ../databox/data-box-overview.md
             text: Transfer 40 - 500 TB of data (Data Box)
-          - url: /azure/databox/data-box-heavy-overview
+          - url: ../databox/data-box-heavy-overview.md
             text: Transfer > 500 TB of data (Data Box Heavy)
-          - url: /azure/databox/
+          - url: ../databox/index.yml
             text: See more >
         # Card
         - title: Transfer small datasets (online)
           links:
-          - url: /azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - url: ./common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             text: Use the AzCopy command-line tool
-          - url: /azure/storage/blobs/storage-quickstart-blobs-storage-explorer
+          - url: ./blobs/storage-quickstart-blobs-storage-explorer.md
             text: Use the Azure Storage Explorer GUI-based tool              
         # Card
         - title: Control costs
           links:
-          - url: /azure/storage/blobs/storage-blob-storage-tiers
+          - url: ./blobs/storage-blob-storage-tiers.md
             text: Tier blob data in cost-effective manner (hot, cool, archive)
         # Card
         - title: Share your data
           links:
-          - url: /azure/data-share/
+          - url: ../data-share/index.yml
             text: Share data with customers and partners (Azure Data Share)
-          - url: /azure/data-share/supported-data-stores
+          - url: ../data-share/supported-data-stores.md
             text: Supported data stores for sharing
-          - url: /azure/data-share/
+          - url: ../data-share/index.yml
             text: See more >
         # Card
         - title: Back up data
           links:
-          - url: /azure/backup/quick-backup-vm-portal
+          - url: ../backup/quick-backup-vm-portal.md
             text: Back up VMs (Azure Backup)
-          - url: /azure/backup/tutorial-backup-azure-files
+          - url: ../backup/backup-afs.md
             text: Back up Azure file shares
-          - url: /azure/backup/
-            text: See more >                
-
+          - url: ../backup/index.yml
+            text: See more >

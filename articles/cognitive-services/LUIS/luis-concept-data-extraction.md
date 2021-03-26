@@ -228,9 +228,9 @@ Getting names from an utterance is difficult because a name can be almost any co
 
 ### Names of people
 
-People's name can have some slight format depending on language and culture. Use either a prebuilt **[personName](luis-reference-prebuilt-person.md)** entity or a **[simple entity](luis-concept-entity-types.md#simple-entity)** with [roles](luis-concept-roles.md) of first and last name.
+People's name can have some slight format depending on language and culture. Use either a prebuilt **[personName](luis-reference-prebuilt-person.md)** entity or a **[simple entity](luis-concept-entity-types.md)** with roles of first and last name.
 
-If you use the simple entity, make sure to give examples that use the first and last name in different parts of the utterance, in utterances of different lengths, and utterances across all intents including the None intent. [Review](luis-how-to-review-endoint-utt.md) endpoint utterances on a regular basis to label any names that were not predicted correctly.
+If you use the simple entity, make sure to give examples that use the first and last name in different parts of the utterance, in utterances of different lengths, and utterances across all intents including the None intent. [Review](./luis-how-to-review-endpoint-utterances.md) endpoint utterances on a regular basis to label any names that were not predicted correctly.
 
 ### Names of places
 
@@ -238,17 +238,17 @@ Location names are set and known such as cities, counties, states, provinces, an
 
 ### New and emerging names
 
-Some apps need to be able to find new and emerging names such as products or companies. These types of names are the most difficult type of data extraction. Begin with a **[simple entity](luis-concept-entity-types.md#simple-entity)** and add a [phrase list](luis-concept-feature.md). [Review](luis-how-to-review-endoint-utt.md) endpoint utterances on a regular basis to label any names that were not predicted correctly.
+Some apps need to be able to find new and emerging names such as products or companies. These types of names are the most difficult type of data extraction. Begin with a **[simple entity](luis-concept-entity-types.md#simple-entity)** and add a [phrase list](luis-concept-feature.md). [Review](./luis-how-to-review-endpoint-utterances.md) endpoint utterances on a regular basis to label any names that were not predicted correctly.
 
 ## Pattern.any entity data
 
 [Pattern.any](reference-entity-pattern-any.md) is a variable-length placeholder used only in a pattern's template utterance to mark where the entity begins and ends. The entity used in the pattern must be found in order for the pattern to be applied.
 
 ## Sentiment analysis
-If Sentiment analysis is configured while [publishing](luis-how-to-publish-app.md#sentiment-analysis), the LUIS json response includes sentiment analysis. Learn more about sentiment analysis in the [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) documentation.
+If Sentiment analysis is configured while [publishing](luis-how-to-publish-app.md#sentiment-analysis), the LUIS json response includes sentiment analysis. Learn more about sentiment analysis in the [Text Analytics](../text-analytics/index.yml) documentation.
 
 ## Key phrase extraction entity data
-The [key phrase extraction entity](luis-reference-prebuilt-keyphrase.md) returns key phrases in the utterance, provided by [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
+The [key phrase extraction entity](luis-reference-prebuilt-keyphrase.md) returns key phrases in the utterance, provided by [Text Analytics](../text-analytics/index.yml).
 
 ## Data matching multiple entities
 

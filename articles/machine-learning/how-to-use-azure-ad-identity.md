@@ -19,7 +19,7 @@ In this how-to, you learn how to assign an Azure Active Directory (Azure AD) ide
 
 ## Prerequisites
 
-- The [Azure CLI extension for the Machine Learning service](reference-azure-machine-learning-cli.md), the [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py), or the [Azure Machine Learning Visual Studio Code extension](tutorial-setup-vscode-extension.md).
+- The [Azure CLI extension for the Machine Learning service](reference-azure-machine-learning-cli.md), the [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](tutorial-setup-vscode-extension.md).
 
 - Access to your AKS cluster using the `kubectl` command. For more information, see [Connect to the cluster](../aks/kubernetes-walkthrough.md#connect-to-the-cluster)
 
@@ -27,13 +27,13 @@ In this how-to, you learn how to assign an Azure Active Directory (Azure AD) ide
 
 ## Create and install an Azure Identity
 
-1. To determine if your AKS cluster is RBAC enabled, use the following command:
+1. To determine if your AKS cluster is Kubernetes RBAC enabled, use the following command:
 
     ```azurecli-interactive
     az aks show --name <AKS cluster name> --resource-group <resource group name> --subscription <subscription id> --query enableRbac
     ```
 
-    This command returns a value of `true` if RBAC is enabled. This value determines the command to use in the next step.
+    This command returns a value of `true` if Kubernetes RBAC is enabled. This value determines the command to use in the next step.
 
 1. Install [Azure AD Pod Identity](https://azure.github.io/aad-pod-identity/docs/getting-started/installation/) in your AKS cluster.
 

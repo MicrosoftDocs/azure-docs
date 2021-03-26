@@ -15,7 +15,7 @@ ms.date: 07/11/2019
 # SQL Server instance migration to Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-In this article, you learn about the methods for migrating a SQL Server 2005 or later version instance to [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md). For information on migrating to a single database or elastic pool, see [Migrate to SQL Database](../database/migrate-to-database-from-sql-server.md). For migration information about migrating from other platforms, see [Azure Database Migration Guide](https://datamigration.microsoft.com/).
+In this article, you learn about the methods for migrating a SQL Server 2005 or later version instance to [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md). For information on migrating to a single database or elastic pool, see [Migration overview: SQL Server to SQL Database](../migration-guides/database/sql-server-to-sql-database-overview.md). For migration information about migrating from other platforms and guidance on tools and options, see [Migrate to Azure SQL](../migration-guides/index.yml).
 
 > [!NOTE]
 > If you want to quickly start and try Azure SQL Managed Instance, you might want to go to the [quickstart guide](quickstart-content-reference-guide.md) instead of this page.
@@ -53,6 +53,26 @@ If you have resolved all identified migration blockers and are continuing the mi
 - New features that you are using such as Transparent Database Encryption (TDE) or auto-failover groups might impact CPU and IO usage.
 
 SQL Managed Instance guarantees 99.99% availability even in critical scenarios, so overhead caused by these features cannot be disabled. For more information, see [the root causes that might cause different performance on SQL Server and Azure SQL Managed Instance](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/).
+
+#### In-Memory OLTP (Memory-optimized tables)
+
+SQL Server provides In-Memory OLTP capability that allows usage of memory-optimized tables, memory-optimized table types and natively compiled SQL modules to run workloads that have high throughput and low latency transactional processing requirements. 
+
+> [!IMPORTANT]
+> In-Memory OLTP is only supported in the Business Critical tier in Azure SQL Managed Instance (and not supported in the General Purpose tier).
+
+If you have memory-optimized tables or memory-optimized table types in your on-premises SQL Server and you are looking to migrate to Azure SQL Managed Instance, you should either:
+
+- Choose Business Critical tier for your target Azure SQL Managed Instance that supports In-Memory OLTP, Or
+- If you want to migrate to General Purpose tier in Azure SQL Managed Instance, remove memory-optimized tables, memory-optimized table types and natively compiled SQL modules that interact with memory-optimized objects before migrating your database(s). The following T-SQL query can be used to identify all objects that need to be removed before migration to General Purpose tier:
+
+```tsql
+SELECT * FROM sys.tables WHERE is_memory_optimized=1
+SELECT * FROM sys.table_types WHERE is_memory_optimized=1
+SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
+```
+
+To learn more about in-memory technologies, see [Optimize performance by using in-memory technologies in Azure SQL Database and Azure SQL Managed Instance](../in-memory-oltp-overview.md)
 
 ### Create a performance baseline
 

@@ -1,9 +1,9 @@
 ---
-author: ramonarguelles
+author: msftradford
 ms.service: azure-spatial-anchors
 ms.topic: include
-ms.date: 08/14/2020
-ms.author: rgarcia
+ms.date: 11/20/2020
+ms.author: parkerra
 ---
 Select **Build**. On the pane that opens, select a folder to export the Xcode project to.
 
@@ -24,9 +24,9 @@ open ./Unity-iPhone.xcodeproj
 
 Select the root **Unity-iPhone** node to view the project settings, and then select the **General** tab.
 
-Under **Signing**, make sure that **Automatically manage signing** is enabled. If it's not, enable it, and then reset the build settings by selecting **Enable Automatic** on the pane that appears.
+Under **Deployment Info**, make sure that the deployment target is set to **iOS 11.0**.
 
-Under **Deployment Info**, make sure that **Deployment Target** is set to **11.0**.
+Select the **Signing & Capabilities** tab and make sure that **Automatically manage signing** is enabled. If it's not, enable it, and then reset the build settings by selecting **Enable Automatic** on the pane that appears.
 
 ## Deploy the app to your iOS device
 

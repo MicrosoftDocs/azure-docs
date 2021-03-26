@@ -43,7 +43,7 @@ ms.custom: cli,portal, devx-track-azurecli
 
 ### See also
 
-* [Azure CLI](/cli/azure/ams?view=azure-cli-latest)
+* [Azure CLI](/cli/azure/ams)
 
 ---
 

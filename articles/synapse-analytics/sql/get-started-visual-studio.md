@@ -25,7 +25,7 @@ ms.reviewer: jrasnick
 Use Visual Studio to query dedicated SQL pool using Azure Synapse Analytics. This method uses the SQL Server Data Tools (SSDT) extension in Visual Studio 2019. 
 
 > [!NOTE]
-> Serverless SQL pool (preview) is not supported by SSDT.
+> Serverless SQL pool is not supported by SSDT.
 
 ## Prerequisites
 

@@ -41,10 +41,10 @@ The quickstart uses the `copy` element to create multiple instances of key-value
 
 Two Azure resources are defined in the template:
 
-- [Microsoft.AppConfiguration/configurationStores](/azure/templates/microsoft.appconfiguration/2020-06-01/configurationstores): create an App Configuration store.
-- Microsoft.AppConfiguration/configurationStores/keyValues: create a key-value inside the App Configuration store.
+- [Microsoft.AppConfiguration/configurationStores](/azure/templates/microsoft.appconfiguration/2020-07-01-preview/configurationstores): create an App Configuration store.
+- [Microsoft.AppConfiguration/configurationStores/keyValues](/azure/templates/microsoft.appconfiguration/2020-07-01-preview/configurationstores/keyvalues): create a key-value inside the App Configuration store.
 
-> [!NOTE]
+> [!TIP]
 > The `keyValues` resource's name is a combination of key and label. The key and label are joined by the `$` delimiter. The label is optional. In the above example, the `keyValues` resource with name `myKey` creates a key-value without a label.
 >
 > Percent-encoding, also known as URL encoding, allows keys or labels to include characters that are not allowed in ARM template resource names. `%` is not an allowed character either, so `~` is used in its place. To correctly encode a name, follow these steps:
@@ -54,6 +54,13 @@ Two Azure resources are defined in the template:
 > 3. Replace `%` with `~`
 >
 > For example, to create a key-value pair with key name `AppName:DbEndpoint` and label name `Test`, the resource name should be `AppName~3ADbEndpoint$Test`.
+
+> [!NOTE]
+> App Configuration allows key-value data access over a [private link](concept-private-endpoint.md) from your virtual network. By default, when the feature is enabled, all requests for your App Configuration data over the public network are denied. Because the ARM template runs outside your virtual network, data access from an ARM template isn't allowed. To allow data access from an ARM template when a private link is used, you can enable public network access by using the following Azure CLI command. It's important to consider the security implications of enabling public network access in this scenario.
+>
+> ```azurecli-interactive
+> az appconfig update -g MyResourceGroup -n MyAppConfiguration --enable-public-network true
+> ```
 
 ## Deploy the template
 
@@ -96,7 +103,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## Next steps
 
-To learn about creating other applications with Azure App Configuration, continue to the following article:
+To learn about adding feature flag and Key Vault reference to an App Configuration store, check below ARM template examples.
 
-> [!div class="nextstepaction"]
-> [Quickstart: Create an ASP.NET Core app with Azure App Configuration](quickstart-aspnet-core-app.md)
+- [101-app-configuration-store-ff](https://github.com/Azure/azure-quickstart-templates/tree/master/101-app-configuration-store-ff)
+- [101-app-configuration-store-keyvaultref](https://github.com/Azure/azure-quickstart-templates/tree/master/101-app-configuration-store-keyvaultref)

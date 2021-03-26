@@ -1,24 +1,24 @@
 ---
-title: Troubleshoot issues when using the Azure Cosmos emulator
-description: Learn how to troubleshot service unavailable, certificate, encryption, and versioning issues when using the Azure Cosmos emulator. 
+title: Troubleshoot issues when using the Azure Cosmos DB Emulator
+description: Learn how to troubleshot service unavailable, certificate, encryption, and versioning issues when using the Azure Cosmos DB Emulator. 
 ms.service: cosmos-db
 ms.topic: troubleshooting
 author: markjbrown
 ms.author: mjbrown
 ms.date: 09/17/2020
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ---
 
-# Troubleshoot issues when using the Azure Cosmos emulator
+# Troubleshoot issues when using the Azure Cosmos DB Emulator
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-The Azure Cosmos emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Use the tips in this article to help troubleshoot issues you encounter when installing or using the Azure Cosmos Emulator. 
+The Azure Cosmos DB Emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Use the tips in this article to help troubleshoot issues you encounter when installing or using the Azure Cosmos DB Emulator. 
 
-If you installed a new version of the emulator and are experiencing errors, ensure you reset your data. You can reset your data by right-clicking the Azure Cosmos emulator icon on the system tray, and then clicking Reset Data…. If that does not fix the errors, you can uninstall the emulator and any older versions of the emulator if found, remove *C:\Program files\Azure Cosmos DB Emulator* directory and reinstall the emulator. See [Uninstall the local emulator](local-emulator.md#uninstall) for instructions. Alternatively if resetting the data doesn't work, navigate to `%LOCALAPPDATA%\CosmosDBEmulator` location and delete the folder.
+If you installed a new version of the emulator and are experiencing errors, ensure you reset your data. You can reset your data by right-clicking the Azure Cosmos DB  Emulator icon on the system tray, and then clicking Reset Data…. If that does not fix the errors, you can uninstall the emulator and any older versions of the emulator if found, remove *C:\Program files\Azure Cosmos DB Emulator* directory and reinstall the emulator. See [Uninstall the local emulator](local-emulator.md#uninstall) for instructions. Alternatively if resetting the data doesn't work, navigate to `%LOCALAPPDATA%\CosmosDBEmulator` location and delete the folder.
 
 ## Troubleshoot corrupted windows performance counters
 
-* If the Azure Cosmos emulator crashes, collect the dump files from `%LOCALAPPDATA%\CrashDumps` folder, compress them, and open a support ticket from the [Azure portal](https://portal.azure.com).
+* If the Azure Cosmos DB Emulator crashes, collect the dump files from `%LOCALAPPDATA%\CrashDumps` folder, compress them, and open a support ticket from the [Azure portal](https://portal.azure.com).
 
 * If you experience crashes in `Microsoft.Azure.Cosmos.ComputeServiceStartupEntryPoint.exe`, this might be a symptom where the Performance Counters are in a corrupted state. Usually running the following command from an admin command prompt fixes the issue:
 
@@ -46,7 +46,7 @@ To collect debugging traces, run the following commands from an administrative c
    cd /d "%ProgramFiles%\Azure Cosmos DB Emulator"
    ```
 
-1. Shut down the emulator and watch the system tray to make sure the program has shut down. It may take a minute to complete. You can also select **Exit** in the Azure Cosmos emulator user interface.
+1. Shut down the emulator and watch the system tray to make sure the program has shut down. It may take a minute to complete. You can also select **Exit** in the Azure Cosmos DB Emulator user interface.
 
    ```bash
    Microsoft.Azure.Cosmos.Emulator.exe /shutdown
@@ -80,5 +80,5 @@ To collect debugging traces, run the following commands from an administrative c
 
 In this article, you've learned how to debug issues with the local emulator. You can now proceed to the next articles:
 
-* [Export the Azure Cosmos emulator certificates for use with Java, Python, and Node.js apps](local-emulator-export-ssl-certificates.md)
+* [Export the Azure Cosmos DB Emulator certificates for use with Java, Python, and Node.js apps](local-emulator-export-ssl-certificates.md)
 * [Use command line parameters and PowerShell commands to control the emulator](emulator-command-line-parameters.md)

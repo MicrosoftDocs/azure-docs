@@ -11,7 +11,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
+<<<<<<< HEAD
 ms.date: 03/25/2021
+=======
+ms.date: 12/10/2020
+>>>>>>> df4a6bd2135429d57fac83f03cea91eeeb43fd4d
 ms.author: keithp
 #Customer intent: As an IT Pro, Decision maker I am looking for key storage capability within Azure Cloud that meets FIPS 140-2 Level 3 certification and that gives me exclusive access to the hardware.
 
@@ -46,11 +50,11 @@ Customers can provision HSMs in specific regions using PowerShell or command-lin
 
 Thales supplies all software for the HSM device once provisioned by Microsoft. The software is available at the [Thales customer support portal](https://supportportal.thalesgroup.com/csm). Customers using the Dedicated HSM service are required to be registered for Thales support and have a Customer ID that enables access and download of relevant software. The supported client software is version 7.2, which is compatible with the FIPS 140-2 Level 3 validated firmware version 7.0.3. 
 
-### Q: What extra costs may be incured with Dedicated HSM service?
+### Q: What extra costs may be incurred with Dedicated HSM service?
 
 The following items will incur extra cost when using the Dedicated HSM service. 
-* Use of dedicated on-premesis backup device is feasible to use with Dedicated HSM service, however this will incur an extra cost and should be directly sourced from Thales.
-* Dedicated HSM is provided with a 10 partition license. If a customer requires more partitions, this will incure an extra cost for additional licenses directly sourced from Thales.
+* Use of dedicated on-premises backup device is feasible to use with Dedicated HSM service, however this will incur an extra cost, and should be directly sourced from Thales.
+* Dedicated HSM is provided with a 10 partition license. If a customer requires more partitions, this will incur an extra cost for additional licenses directly sourced from Thales.
 * Dedicated HSM requires networking infrastructure (VNET, VPN Gateway, Etc.) and resources such as virtual machines for device configuration. These additional resources will incur extra costs and are not included in the Dedicated HSM service pricing.
 
 ### Q: Does Azure Dedicated HSM offer Password-based and PED-based authentication?
@@ -63,7 +67,11 @@ Microsoft only offers the Thales Luna 7 HSM model A790 via the Dedicated HSM ser
 
 ### Q: Does Azure Dedicated HSM support payment (PIN/EFT) features?
 
+<<<<<<< HEAD
 The Azure Dedicated HSM service uses Thales Luna 7 HSMs. These devices do not support payment HSM specific functionality (such as PIN or EFT) or certifications. If you would like Azure Dedicated HSM service to support Payment HSMs in future, pass on the feedback to your Microsoft Account Representative.
+=======
+The Azure Dedicated HSM service uses Thales Network Luna HSM 7 devices. These devices do not support payment HSM-specific functionality (such as PIN or EFT) or certifications. If you would like Azure Dedicated HSM service to support payment HSMs in future,  pass on the feedback to your Microsoft Account Representative.
+>>>>>>> df4a6bd2135429d57fac83f03cea91eeeb43fd4d
 
 ### Q: Which Azure regions is Dedicated HSM available in?
 
@@ -134,7 +142,7 @@ PKCS#11, Java (JCA/JCE), Microsoft CAPI, and CNG, OpenSSL
 
 ### Q: Can I import/migrate keys from Luna 5/6 HSMs to Azure Dedicated HSMs?
 
-Yes. Please contact your Thales representative for the approriate Thales migration guide. 
+Yes. Contact your Thales representative for the appropriate Thales migration guide. 
 
 ## Using your HSM
 
@@ -159,7 +167,7 @@ No. Dedicated HSM is provisioned directly into a customer's private IP Address s
 
 ## Administration, access, and control
 
-### Q: Does the customer get full exclusive control over the HSMs with Dedicated HSMs?
+### Q: Does the customer get full exclusive control over the HSMs with Dedicated '?
 
 Yes. Each HSM appliance is fully dedicated to one single customer and no one else has administrative control once provisioned and the administrator password changed.
 
@@ -167,9 +175,9 @@ Yes. Each HSM appliance is fully dedicated to one single customer and no one els
 
 Microsoft does not have any administrative or cryptographic control over the HSM. Microsoft does have monitor level access via serial port connection to retrieve basic telemetry such as temperature and component health. This allows Microsoft to provide proactive notification of health issues. If necessary, the customer can disable this account.
 
-### Q: What is the "tenantadmin" account Microsoft uses, I am used to the admin user being "admin" on Thales Luna HSMs?
+### Q: What is the "tenant admin" account Microsoft uses, I am used to the admin user being "admin" on Thales Luna HSMs?
 
-The HSM device ships with a default user of admin with its usual default password. Microsoft did not want to have default passwords in use while any device is in a pool waiting to be provisioned by customers. This would not meet our strict security requirements. For this reason, we set a strong password, which is discarded at provisioning time. Also, at provisioning time we create a new user in the admin role called "tenantadmin". This user has the default password and customers change this as the first action when first logging into the newly provisioned device. This process ensures high degrees of security and maintains our promise of sole administrative control for our customers. It should be noted that the "tenantadmin" user can be used to reset the admin user password if a customer prefers to use that account. 
+The HSM device ships with a default user of admin with its usual default password. Microsoft did not want to have default passwords in use while any device is in a pool waiting to be provisioned by customers. This would not meet our strict security requirements. For this reason, we set a strong password, which is discarded at provisioning time. Also, at provisioning time we create a new user in the admin role called "tenant admin". This user has the default password and customers change this as the first action when first logging into the newly provisioned device. This process ensures high degrees of security and maintains our promise of sole administrative control for our customers. It should be noted that the "tenant admin" user can be used to reset the admin user password if a customer prefers to use that account. 
 
 ### Q: Can Microsoft or anyone at Microsoft access keys in my Dedicated HSM?
 
@@ -274,8 +282,8 @@ Full Suite B support
   * RC5
   * CAST
   * Hash/Message Digest/HMAC: SHA-1, SHA-2, SM3
-  * Key Derivation: SP800-108 Counter Mode
-  * Key Wrapping: SP800-38F
+  * Key Derivation: SP 800-108 Counter Mode
+  * Key Wrapping: SP 800-38F
   * Random Number Generation: FIPS 140-2 approved DRBG (SP 800-90 CTR mode), complying with BSI DRG.4
 
 ### Q: Is Dedicated HSM FIPS 140-2 Level 3 validated?

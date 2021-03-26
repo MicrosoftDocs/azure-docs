@@ -2,11 +2,11 @@
 title: Deploy application packages to compute nodes
 description: Use the application packages feature of Azure Batch to easily manage multiple applications and versions for installation on Batch compute nodes.
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 03/24/2021
 ms.custom: 
    - H1Hack27Feb2017
    - devx-track-csharp
-   - contperfq1
+   - contperf-fy21q1
 
 ---
 # Deploy applications to compute nodes with Batch application packages
@@ -54,6 +54,9 @@ With application packages, your pool's start task doesn't have to specify a long
 ## Upload and manage applications
 
 You can use the [Azure portal](https://portal.azure.com) or the Batch Management APIs to manage the application packages in your Batch account. The following sections explain how to link a storage account, and how to add and manage applications and application packages in the Azure portal.
+
+> [!NOTE]
+> While you can define application values in the [Microsoft.Batch/batchAccounts](/templates/microsoft.batch/batchaccounts) resource of an [ARM template](quick-create-template.md), it's not currently possible to use an ARM template to upload application packages to use in your Batch account. You must upload them to your linked storage account as described [below](#add-a-new-application).
 
 ### Link a storage account
 

@@ -2,18 +2,18 @@
 title: Source Control Integration
 description: Enterprise-class Database DevOps experience for dedicated SQL pool with native source control integration using Azure Repos (Git and GitHub).
 services: synapse-analytics
-author: kevinvngo 
+author: gaursa 
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql-dw 
 ms.date: 08/23/2019
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: igorstan
 ---
 # Source Control Integration for dedicated SQL pool in Azure Synapse Analytics
 
-This tutorial outlines how to integrate your SQL Server Data tools (SSDT) database project with source control.  Source control integration is the first step in building your continuous integration and deployment pipeline with the dedicated SQL pool resource in Azure Synapse Analytics.
+This tutorial outlines how to integrate your SQL Server Data Tools (SSDT) database project with source control.  Source control integration is the first step in building your continuous integration and deployment pipeline with the dedicated SQL pool resource in Azure Synapse Analytics.
 
 ## Before you begin
 
@@ -32,18 +32,20 @@ This tutorial outlines how to integrate your SQL Server Data tools (SSDT) databa
    ![Manage Connections](./media/sql-data-warehouse-source-control-integration/2-manage-connections.png "Manage Connections")
 
 3. Connect to your project by selecting **Manage Connections**, then **Connect to a project**.
- ![Connect1](./media/sql-data-warehouse-source-control-integration/3-connect-project.png "Connect")
+ 
+    ![Connect1](./media/sql-data-warehouse-source-control-integration/3-connect-project.png "Connect")
 
 
 4. Find the project you created in step one, select **Connect**.
-![Connect2](./media/sql-data-warehouse-source-control-integration/3.5-connect.png "Connect")
+ 
+    ![Connect2](./media/sql-data-warehouse-source-control-integration/3.5-connect.png "Connect")
 
 
 3. Clone your Azure DevOps repository from your project to your local machine.
 
    ![Clone repo](./media/sql-data-warehouse-source-control-integration/4-clone-repo.png "Clone repo")
 
-For more information about connecting projects using Visual Studio, see the [Connect to projects in Team Explorer](https://docs.microsoft.com/visualstudio/ide/connect-team-project?view=vs-2019). For guidance on cloning a repo using Visual Studio, review the [Clone an exiting Git repo](https://docs.microsoft.com/azure/devops/repos/git/clone?view=azure-devops&tabs=visual-studio) article. 
+For more information about connecting projects using Visual Studio, see the [Connect to projects in Team Explorer](/visualstudio/ide/connect-team-project?view=vs-2019&preserve-view=true). For guidance on cloning a repo using Visual Studio, review the [Clone an exiting Git repo](/azure/devops/repos/git/clone?tabs=visual-studio) article. 
 
 ## Create and connect your project
 
@@ -79,7 +81,7 @@ For more information about connecting projects using Visual Studio, see the [Con
 
    ![Verify](./media/sql-data-warehouse-source-control-integration/10-verify-column-change-pushed.png "Verify changes")
 
-4. (**Optional**) Use Schema Compare and update the changes to your target data warehouse using SSDT to ensure the object definitions in your Azure Repo repository and local repository reflect your data warehouse.
+4. (**Optional**) Use Schema Compare and update the changes to your target dedicated SQL pool using SSDT to ensure the object definitions in your Azure Repo repository and local repository reflect your dedicated SQL pool.
 
 ## Next steps
 

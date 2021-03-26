@@ -4,7 +4,7 @@ description: The Azure Front Door security baseline provides procedural guidance
 author: msmbaldwin
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 11/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
@@ -20,23 +20,7 @@ To see how Azure Front Door completely maps to the Azure Security Benchmark, see
 
 ## Network Security
 
-*For more information, see the [Azure Security Benchmark: Network Security](/azure/security/benchmarks/security-controls-v2-network-security).*
-
-### NS-2: Connect private networks together
-
-**Guidance**: Not applicable; Azure Front Door is not designed to deploy into or be secured to a private network, this control is intended to describe network connectivity and does not apply.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Unset. Please provide a value in the work item.
-
-### NS-3: Establish private network access to Azure services
-
-**Guidance**: Not applicable, Azure Front Door is not designed to deployed into or secured by a virtual network for private network access..
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Unset. Please provide a value in the work item.
+*For more information, see the [Azure Security Benchmark: Network Security](../security/benchmarks/security-controls-v2-network-security.md).*
 
 ### NS-4: Protect applications and services from external network attacks
 
@@ -50,7 +34,7 @@ To see how Azure Front Door completely maps to the Azure Security Benchmark, see
 
 ### NS-6: Simplify network security rules
 
-**Guidance**: Use Virtual Network Service tags to define network access controls on network security groups configured for your Azure Front Door offering resources. Service tags can be used in place of specific IP addresses when creating security rules. By specifying the service tag name( AzureFrontDoor.Frontend, AzureFrontDoor.Backend,AzureFrontDoor.FirstParty) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. 
+**Guidance**: Use Virtual Network Service tags to define network access controls on network security groups configured for your Azure Front Door offering resources. Service tags can be used in place of specific IP addresses when creating security rules. By specifying the service tag name( AzureFrontDoor.Frontend, AzureFrontDoor.Backend, AzureFrontDoor.FirstParty) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. 
 
 Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
@@ -62,7 +46,7 @@ Microsoft manages the address prefixes encompassed by the service tag and automa
 
 ## Identity Management
 
-*For more information, see the [Azure Security Benchmark: Identity Management](/azure/security/benchmarks/security-controls-v2-identity-management).*
+*For more information, see the [Azure Security Benchmark: Identity Management](../security/benchmarks/security-controls-v2-identity-management.md).*
 
 ### IM-6: Restrict Azure resource access based on conditions
 
@@ -76,7 +60,7 @@ Microsoft manages the address prefixes encompassed by the service tag and automa
 
 ## Privileged Access
 
-*For more information, see the [Azure Security Benchmark: Privileged Access](/azure/security/benchmarks/security-controls-v2-privileged-access).*
+*For more information, see the [Azure Security Benchmark: Privileged Access](../security/benchmarks/security-controls-v2-privileged-access.md).*
 
 ### PA-2: Restrict administrative access to business-critical systems
 
@@ -100,9 +84,9 @@ Ensure restricted access to management, identity, and security systems that have
 
 Use highly secured user workstations with Azure Bastion for administrative tasks. Choose Azure Active Directory (Azure AD), Microsoft Defender Advanced Threat Protection (ATP), and Microsoft Intune to deploy secure and managed user workstations for administrative tasks. The secured workstations must be centrally managed to enforce secured configuration including strong authentication, software and hardware baselines, restricted logical and network access.
 
-- [Understand privileged access workstations](../active-directory/devices/concept-azure-managed-workstation.md) 
+- [Understand privileged access workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) 
 
-- [Deploy a privileged access workstation](../active-directory/devices/howto-azure-managed-workstation.md)
+- [Deploy a privileged access workstation](/security/compass/privileged-access-deployment)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -118,7 +102,7 @@ Use built-in roles to allocate permission and only create custom roles based on 
 
 - [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) 
 
-- [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md) 
+- [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md) 
 
 - [How to use Azure AD identity and access reviews](../active-directory/governance/access-reviews-overview.md)
 
@@ -128,23 +112,25 @@ Use built-in roles to allocate permission and only create custom roles based on 
 
 ## Data Protection
 
-*For more information, see the [Azure Security Benchmark: Data Protection](/azure/security/benchmarks/security-controls-v2-data-protection).*
+*For more information, see the [Azure Security Benchmark: Data Protection](../security/benchmarks/security-controls-v2-data-protection.md).*
 
 ### DP-4: Encrypt sensitive information in transit
 
-**Guidance**: Use encryption to protect traffic on external and public networks as it is critical for data protection. Additionally:
+**Guidance**: To complement access controls, data in transit should be protected against ‘out of band’ attacks (e.g. traffic capture) using encryption to ensure that attackers cannot easily read or modify the data.
 
-- Use access controls,
+Front Door supports TLS versions 1.0, 1.1 and 1.2. TLS 1.3 is not yet supported. All Front Door profiles created after September 2019 use TLS 1.2 as the default minimum.
 
-- protect data in transit against ‘out of band’ attacks (such as traffic capture) using encryption to ensure that attackers cannot easily read or modify the data.
-- Ensure that any clients connecting to your Azure resources for HTTP traffic can negotiate TLS v1.2 or greater.
-- Use SSH (for Linux) or RDP/TLS (for Windows) for remote management, instead of unencrypted protocols
+While this is optional for traffic on private networks, this is critical for traffic on external and public networks. For HTTP traffic, ensure that any clients connecting to your Azure resources can negotiate TLS v1.2 or greater. For remote management, use SSH (for Linux) or RDP/TLS (for Windows) instead of an unencrypted protocol. Obsoleted SSL, TLS, and SSH versions and protocols, and weak ciphers should be disabled.
 
-- Disable obsoleted SSL/TLS/SSH versions, protocols, and weak ciphers
-
-By default, Azure provides data in transit encryption for data traffic between Azure data centers. 
+By default, Azure provides encryption for data in transit between Azure data centers.
 
 - [Tutorial -  How to Configure HTTPS on a Front Door custom domain](front-door-custom-domain-https.md)
+
+- [Understand encryption in transit with Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit) 
+
+- [Information on TLS Security](/security/engineering/solving-tls1-problem) 
+
+- [Double encryption for Azure data in transit](../security/fundamentals/double-encryption.md#data-in-transit)
 
 **Azure Security Center monitoring**: Yes
 
@@ -152,7 +138,7 @@ By default, Azure provides data in transit encryption for data traffic between A
 
 ## Asset Management
 
-*For more information, see the [Azure Security Benchmark: Asset Management](/azure/security/benchmarks/security-controls-v2-asset-management).*
+*For more information, see the [Azure Security Benchmark: Asset Management](../security/benchmarks/security-controls-v2-asset-management.md).*
 
 ### AM-1: Ensure security team has visibility into risks for assets
 
@@ -180,7 +166,7 @@ Note: that additional permissions may be required for visibility into workloads 
 
 - [Azure Security Center asset inventory management](../security-center/asset-inventory.md) 
 
-- [Resource naming and tagging decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+- [Resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
 **Azure Security Center monitoring**: Yes
 
@@ -204,7 +190,7 @@ Use Azure Monitor to create rules to trigger alerts when a non-approved service 
 
 ### AM-4: Ensure security of asset lifecycle management
 
-**Guidance**: Not applicable; Azure Front Door can not be used for ensuring security of assets in a lifecycle management process. It is the customer's responsibility to maintain attributes and network configurations of assets which are considered high-impact. 
+**Guidance**: It is the customer's responsibility to maintain attributes and network configurations of Azure Front Door assets which are considered high-impact.
 
 It is recommended that the customer create a process to capture the attribute and network-configuration changes, measure the change-impact and create remediation tasks, as applicable.
 
@@ -214,11 +200,11 @@ It is recommended that the customer create a process to capture the attribute an
 
 ## Logging and Threat Detection
 
-*For more information, see the [Azure Security Benchmark: Logging and Threat Detection](/azure/security/benchmarks/security-controls-v2-logging-threat-protection).*
+*For more information, see the [Azure Security Benchmark: Logging and Threat Detection](../security/benchmarks/security-controls-v2-logging-threat-detection.md).*
 
 ### LT-3: Enable logging for Azure network activities
 
-**Guidance**: Azure Frond Door is not intended to deploy into virtual networks; because of this customers are unable to enable network security group flow logging, route traffic through a firewall or perform packet captures.
+**Guidance**: Azure Front Door is not intended to deploy into virtual networks; because of this customers are unable to enable network security group flow logging, route traffic through a firewall or perform packet captures.
 
 Azure Front Door logs all network traffic that it processes for customer access. Enable the network flow logs feature and configure these logs to be sent to a storage account for long term retention and auditing.
 
@@ -234,9 +220,9 @@ Azure Front Door logs all network traffic that it processes for customer access.
 
 Enable Azure resource logs for  Azure Front Door. You can use Azure Security Center and Azure Policy to enable resource logs and log data collecting. These logs can be critical for later investigating security incidents and performing forensic exercises.
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Understand logging and different log types in Azure](../azure-monitor/platform/platform-logs-overview.md) 
+- [Understand logging and different log types in Azure](../azure-monitor/essentials/platform-logs-overview.md) 
 
 - [Understand Azure Security Center data collection](../security-center/security-center-enable-data-collection.md)
 
@@ -246,7 +232,7 @@ Enable Azure resource logs for  Azure Front Door. You can use Azure Security Cen
 
 ## Incident Response
 
-*For more information, see the [Azure Security Benchmark: Incident Response](/azure/security/benchmarks/security-controls-v2-incident-response).*
+*For more information, see the [Azure Security Benchmark: Incident Response](../security/benchmarks/security-controls-v2-incident-response.md).*
 
 ### IR-1: Preparation – update incident response process for Azure
 
@@ -328,7 +314,7 @@ Additionally, mark resources using tags and create a naming system to identify a
 
 - [Security alerts in Azure Security Center](../security-center/security-center-alerts-overview.md)
 
-- [Use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags)
+- [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -351,7 +337,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 
 ## Posture and Vulnerability Management
 
-*For more information, see the [Azure Security Benchmark: Posture and Vulnerability Management](/azure/security/benchmarks/security-controls-v2-vulnerability-management).*
+*For more information, see the [Azure Security Benchmark: Posture and Vulnerability Management](../security/benchmarks/security-controls-v2-posture-vulnerability-management.md).*
 
 ### PV-3: Establish secure configurations for compute resources
 
@@ -392,7 +378,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 
 ## Governance and Strategy
 
-*For more information, see the [Azure Security Benchmark: Governance and Strategy](/azure/security/benchmarks/security-controls-v2-governance-strategy).*
+*For more information, see the [Azure Security Benchmark: Governance and Strategy](../security/benchmarks/security-controls-v2-governance-strategy.md).*
 
 ### GS-1: Define asset management and data protection strategy 
 
@@ -418,11 +404,11 @@ This strategy should include documented guidance, policy, and standards for the 
 
 More information is available at the referenced links.
 
-- [Azure Security Architecture Recommendation - Storage, data, and encryption](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
+- [Azure Security Architecture Recommendation - Storage, data, and encryption](/azure/architecture/framework/security/storage-data-encryption?bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Azure Security Fundamentals - Azure Data security, encryption, and storage](../security/fundamentals/encryption-overview.md)
 
-- [Azure Security Benchmark - Data Protection](/azure/security/benchmarks/security-benchmark-v2-data-protection)
+- [Azure Security Benchmark - Data Protection](../security/benchmarks/security-controls-v2-data-protection.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -450,7 +436,7 @@ Ensure that the segmentation strategy is implemented consistently across control
 
 **Guidance**: Continuously measure and mitigate risks to your individual assets and the environment they are hosted in. Prioritize high value assets and highly-exposed attack surfaces, such as published applications, network ingress and egress points, user and administrator endpoints, and so on.
 
-- [Azure Security Benchmark - Posture and vulnerability management](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
+- [Azure Security Benchmark - Posture and vulnerability management](../security/benchmarks/security-controls-v2-posture-vulnerability-management.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -492,7 +478,7 @@ More information is available at the referenced links.
 
 - [Azure Security Best Practice 11 - Architecture. Single unified security strategy](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Azure Security Benchmark - Network Security](/azure/security/benchmarks/security-benchmark-v2-network-security)
+- [Azure Security Benchmark - Network Security](../security/benchmarks/security-controls-v2-network-security.md)
 
 - [Azure network security overview](../security/fundamentals/network-overview.md)
 
@@ -518,9 +504,9 @@ This strategy should include documented guidance, policy, and standards for the 
 
 For more information, see the following references:
 
-- [Azure Security Benchmark - Identity management](/azure/security/benchmarks/security-benchmark-v2-identity-management)
+- [Azure Security Benchmark - Identity management](../security/benchmarks/security-controls-v2-identity-management.md)
 
-- [Azure Security Benchmark - Privileged access](/azure/security/benchmarks/security-benchmark-v2-privileged-access)
+- [Azure Security Benchmark - Privileged access](../security/benchmarks/security-controls-v2-privileged-access.md)
 
 - [Azure Security Best Practice 11 - Architecture. Single unified security strategy](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
@@ -552,9 +538,9 @@ This strategy should include documented guidance, policy, and standards for the 
 
 More information is available at the referenced links.
 
-- [Azure Security Benchmark - Logging and threat detection](/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
+- [Azure Security Benchmark - Logging and threat detection](../security/benchmarks/security-controls-v2-logging-threat-detection.md)
 
-- [Azure Security Benchmark - Incident response](/azure/security/benchmarks/security-benchmark-v2-incident-response)
+- [Azure Security Benchmark - Incident response](../security/benchmarks/security-controls-v2-incident-response.md)
 
 - [Azure Security Best Practice 4 - Process. Update Incident Response Processes for Cloud](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
@@ -566,5 +552,5 @@ More information is available at the referenced links.
 
 ## Next steps
 
-- See the [Azure Security Benchmark V2 overview](/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure Security Benchmark V2 overview](../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)

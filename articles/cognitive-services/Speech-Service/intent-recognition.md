@@ -24,7 +24,7 @@ Using intent recognition, your applications, tools, and devices can determine wh
 
 * LUIS integrates with the Speech service to recognize intents from speech. You don't need a Speech service subscription, just LUIS.
 * Speech intent recognition is integrated with the SDK. You can use a LUIS key with the Speech service.
-* Intent recognition through the Speech SDK is [offered at a subset of regions supported by LUIS](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#intent-recognition).
+* Intent recognition through the Speech SDK is [offered at a subset of regions supported by LUIS](./regions.md#intent-recognition).
 
 ## Get started
 
@@ -34,8 +34,8 @@ See the [quickstart](quickstarts/intent-recognition.md) to get started with inte
 
 Sample code for intent recognition:
 
-* [Quickstart: Use prebuilt Home automation app](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app)
-* [Recognize intents from speech using the Speech SDK for C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp)
+* [Quickstart: Use prebuilt Home automation app](../luis/luis-get-started-create-app.md)
+* [Recognize intents from speech using the Speech SDK for C#](./how-to-recognize-intents-from-speech-csharp.md)
 * [Intent recognition and other Speech services using Unity in C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/unity/speechrecognizer)
 * [Recognize intents using Speech SDK for Python](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/console)
 * [Intent recognition and other Speech services using the Speech SDK for C++ on Windows](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/cpp/windows/console)
@@ -44,7 +44,7 @@ Sample code for intent recognition:
 
 ## Reference docs
 
-* [Speech SDK](speech-sdk-reference.md)
+* [Speech SDK](./speech-sdk.md)
 
 ## Next steps
 

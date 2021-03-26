@@ -3,7 +3,7 @@ title: What's new in Windows Virtual Desktop? - Azure
 description: New features and product updates for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 11/11/2020
+ms.date: 03/20/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
@@ -19,6 +19,153 @@ Windows Virtual Desktop updates on a regular basis. This article is where you'll
 - Bug fixes
 
 This article is updated monthly. Make sure to check back here often to keep up with new updates.
+
+## Client updates
+
+Check out these articles to learn about updates for our clients for Windows Virtual Desktop and Remote Desktop Services:
+
+- [Windows](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
+- [macOS](/windows-server/remote/remote-desktop-services/clients/mac-whatsnew)
+- [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
+- [Android](/windows-server/remote/remote-desktop-services/clients/android-whatsnew)
+- [Web](/windows-server/remote/remote-desktop-services/clients/web-client-whatsnew)
+
+## Windows Virtual Desktop Agent updates
+
+The Windows Virtual Desktop agent updates at least once per month.
+
+Here's what's changed in Windows Virtual Desktop Agent:
+
+- Version 1.0.2800.2800: This update was released in March 2021 and fixed a reverse connection issue.
+- Version 1.0.2800.2700: This update was released in February 2021 and fixed an access denied orchestration issue.
+
+## FSLogix updates
+
+Curious about the latest updates for FSLogix? Check out [What's new at FSLogix](/fslogix/whats-new).
+
+## February 2021
+
+Here's what changed in February 2021.
+
+### Portal experience
+
+We've improved the Azure portal experience in the following ways:
+
+- Bulk drain mode on hosts in the session host grid tab. 
+- MSIX app attach is now available for public preview.
+- Fixed host pool overview info for dark mode.
+
+### EU metadata storage now in public preview
+
+We're now hosting a public preview of the Europe (EU) geography as a storage option for service metadata in Windows Virtual Desktop. Customers can choose between West or North Europe when they create their service objects. The service objects and metadata for the host pools will be stored in the Azure geography associated with each region. To learn more, read [our blog post announcing the public preview](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/announcing-public-preview-of-windows-virtual-desktop-service/m-p/2143939).
+
+### Teams on Windows Virtual Desktop plugin updates
+
+We've improved video call quality on the Windows Virtual Desktop plugin by addressing the most commonly reported issues, such as when the screen would suddenly go dark or the video and sound desynchronized. These improvements should increase the performance of single-video view with active speaker switching. We also fixed an issue where hardware devices with special characters weren't available in Teams.
+
+## January 2021
+
+Here's what changed in January 2021:
+
+### New Windows Virtual Desktop offer
+
+New customers save 30 percent on Windows Virtual Desktop computing costs for D-series and Bs-series virtual machines for up to 90 days when using the native Microsoft solution. You can redeem this offer in the Azure portal before March 31, 2021. Learn more at our [Windows Virtual Desktop offer page](https://azure.microsoft.com/services/virtual-desktop/offer/).
+
+### networkSecurityGroupRules value change 
+
+In the Azure Resource Manager nested template, we changed the default value for networkSecurityGroupRules from an object to an array. This will prevent any errors if you use managedDisks-customimagevm.json without specifying a value for networkSecurityGroupRules. This wasn't a breaking change and is backward compatible.
+
+### FSLogix hotfix update
+
+We’ve released FSLogix, version 2009 HF_01 (2.9.7654.46150) to solve issues in the previous release (2.9.7621.30127). We recommend you stop using the previous version and update FSLogix as soon as possible.
+
+For more information, see the release notes in [What's new in FSLogix](/fslogix/whats-new#fslogix-apps-2009-hf_01-29765446150).
+
+### Azure portal experience improvements
+
+We've made the following improvements to the Azure portal experience:
+
+- You can now add local VM admin credentials directly instead of having to add a local account created with the Active Directory domain join account credentials.
+- Users can now list both individual and group assignments in separate tabs for individual users and groups.
+- The version number of the Windows Virtual Desktop Agent is now visible in the Virtual Machine overview for host pools.
+- Added bulk delete for host pools and application groups.
+- You can now enable or disable drain mode for multiple session hosts in a host pool.
+- Removed the public IP field from the VM details page.
+
+### Windows Virtual Desktop Agent troubleshooting
+
+We recently set up the [Windows Virtual Desktop Agent troubleshooting guide](troubleshoot-agent.md) to help customers who have encountered common issues.
+
+### Microsoft Defender for Endpoint integration
+
+Microsoft Defender for Endpoint integration is now generally available. This feature gives your Windows Virtual Desktop VMs the same investigation experience as a local Windows 10 machine. If you're using Windows 10 Enterprise multi-session, Microsoft Defender for Endpoint will support up to 50 concurrent user connections, giving you the cost savings of Windows 10 Enterprise multi-session and the confidence of Microsoft Defender for Endpoint. For more information, check out our [blog post](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/windows-virtual-desktop-support-is-now-generally-available/ba-p/2103712).
+
+### Azure Security baseline for Windows Virtual Desktop
+
+We've recently published [an article about the Azure security baseline](security-baseline.md) for Windows Virtual Desktop that we'd like to call your attention to. These guidelines include information about how to apply the Azure Security Benchmark, version 2.0 to Windows Virtual Desktop. The Azure Security Benchmark describes the settings and practices we recommend you use to secure your cloud solutions on Azure.
+
+## December 2020
+
+Here's what changed in December 2020: 
+
+### Azure Monitor for Windows Virtual Desktop
+
+The public preview for Azure Monitor for Windows Virtual Desktop is now available. This new feature includes a robust dashboard built on top of Azure Monitor Workbooks to help IT professionals understand their Windows Virtual Desktop environments. Check out [the announcement on our blog](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/azure-monitor-for-windows-virtual-desktop-public-preview/m-p/1946587) for more details. 
+
+### Azure Resource Manager template change 
+
+In the latest update, we've removed all public IP address parameter from the Azure Resource Manager template for creating and provisioning host pools. We highly recommend you avoid using public IPs for Windows Virtual Desktop to keep your deployment secure. If your deployment relied on public IPs, you'll need to reconfigure it to use private IPs instead, otherwise your deployment won't work properly.
+
+### MSIX app attach public preview 
+
+MSIX app attach is another service that began its public preview this month. MSIX app attach is a service that dynamically presents MSIX applications to your Windows Virtual Desktop Session host VMs. Check out [the announcement on our blog](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/msix-app-attach-azure-portal-integration-public-preview/m-p/1986231) for more details. 
+
+### Screen capture protection 
+
+This month also marked the beginning of the public preview for screen capture protection. You can use this feature to prevent sensitive information from being captured on the client endpoints. Give screen capture protection a try by going to [this page](https://aka.ms/WVDScreenCaptureProtection).  
+
+### Built-in roles
+
+We've added new built-in roles for Windows Virtual Desktop for admin permissions. For more information, see [Built-in roles for Windows Virtual Desktop](rbac.md). 
+
+### Application group limit increase
+
+We've increased the default application group limit per Azure Active Directory tenant to 200 groups.
+
+### Client updates for December 2020
+
+We've released new versions of the following clients: 
+
+- Android
+- macOS
+- Windows
+
+For more information about client updates, see [Client updates](whats-new.md#client-updates).
+
+## November 2020
+
+### Azure portal experience
+
+We've fixed two bugs in the Azure portal user experience:
+
+- The Desktop application friendly name is no longer overwritten on the "Add VM" workflow.
+- The session host tab will now load if session hosts are part of scale sets.
+
+### FSLogix client, version 2009 
+
+We've released a new version of the FSLogix client with many fixes and improvements. Learn more at [our blog post](https://social.msdn.microsoft.com/Forums/en-US/defe5828-fba4-4715-a68c-0e4d83eefa6b/release-notes-for-fslogix-apps-release-2009-29762130127?forum=FSLogix).
+
+### RDP Shortpath public preview
+
+RDP Shortpath introduces direct connectivity to your Windows Virtual Desktop session host using point-to-site and site-to-site VPNs and ExpressRoute. It also introduces the URCP transport protocol. RDP Shortpath is designed to reduce latency and network hops in order to improve user experience. Learn more at [Windows Virtual Desktop RDP Shortpath](shortpath.md).
+
+### Az.DesktopVirtualization, version 2.0.1
+
+We've released version 2.0.1 of the Windows Virtual Desktop cmdlets. This update includes cmdlets that will let you manage MSIX App Attach. You can download the new version at [the PowerShell gallery](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/2.0.1).
+
+### Azure Advisor updates
+
+Azure Advisor now has a new recommendation for proximity guidance in Windows Virtual Desktop, and a new recommendation for optimizing performance in depth-first load balanced host pools. Learn more at [the Azure website](https://azure.microsoft.com/updates/new-recommendations-from-azure-advisor/).
 
 ## October 2020
 
@@ -104,7 +251,7 @@ Here's what changed in August 2020:
 
 - Azure Advisor is now a part of Windows Virtual Desktop. When you access Windows Virtual Desktop through the Azure portal, you can see recommendations for optimizing your Windows Virtual Desktop environment. Learn more at [Azure Advisor](azure-advisor.md).
 
-- Azure CLI now supports Windows Virtual Desktop (`az desktopvirtualization`) to help you automate your Windows Virtual Desktop deployments. Check out [desktopvirtualization](/cli/azure/ext/desktopvirtualization/?view=azure-cli-latest&preserve-view=true) for a list of extension commands.
+- Azure CLI now supports Windows Virtual Desktop (`az desktopvirtualization`) to help you automate your Windows Virtual Desktop deployments. Check out [desktopvirtualization](/cli/azure/ext/desktopvirtualization/) for a list of extension commands.
 
 - We've updated our deployment templates to make them fully compatible with the Windows Virtual Desktop Azure Resource Manager interfaces. You can find the templates on [GitHub](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates).
 
@@ -163,12 +310,11 @@ Here's what this change does for you:
 
 - In this update, you no longer need to run Azure Marketplace or the GitHub template repeatedly to expand a host pool. All you need to expand a host pool is to go to your host pool in the Azure portal and select **+ Add** to deploy additional session hosts.
 
-- Host pool deployment is now fully integrated with the [Azure Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md). Shared Image Gallery is a separate Azure service that stores virtual machine (VM) image definitions, including image versioning. You can also use global replication to copy and send your images to other Azure regions for local deployment.
+- Host pool deployment is now fully integrated with the [Azure Shared Image Gallery](../virtual-machines/shared-image-galleries.md). Shared Image Gallery is a separate Azure service that stores virtual machine (VM) image definitions, including image versioning. You can also use global replication to copy and send your images to other Azure regions for local deployment.
 
 - Monitoring functions that used to be done through PowerShell or the Diagnostics Service web app have now moved to Log Analytics in the Azure portal. You also now have two options to visualize your reports. You can run Kusto queries and use Workbooks to create visual reports.
 
 - You're no longer required to complete Azure Active Directory (Azure AD) consent to use Windows Virtual Desktop. In this update, the Azure AD tenant on your Azure subscription authenticates your users and provides Azure RBAC controls for your admins.
-
 
 ### PowerShell support
 
@@ -176,7 +322,7 @@ We've added new AzWvd cmdlets to the Azure PowerShell Az Module with this update
 
 To install the module, follow the instructions in [Set up the PowerShell module for Windows Virtual Desktop](powershell-module.md).
 
-You can also see a list of available commands at the [AzWvd PowerShell reference](/powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization&preserve-view=true).
+You can also see a list of available commands at the [AzWvd PowerShell reference](/powershell/module/az.desktopvirtualization/#desktopvirtualization).
 
 For more information about the new features, check out [our blog post](https://techcommunity.microsoft.com/t5/itops-talk-blog/windows-virtual-desktop-spring-update-enters-public-preview/ba-p/1340245).
 
@@ -189,16 +335,6 @@ We've added a new gateway cluster in South Africa to reduce connection latency.
 We've made some improvements to Microsoft Teams for Windows Virtual Desktop. Most importantly, Windows Virtual Desktop now supports audio and visual redirection for calls. Redirection improves latency by creating direct paths between users when they call using audio or video. Less distance means fewer hops, which makes calls look and sound smoother.
 
 To learn more, see [our blog post](https://azure.microsoft.com/updates/windows-virtual-desktop-media-optimization-for-microsoft-teams-is-now-available-in-public-preview/).
-
-## Client updates
-
-Check out these articles to learn about updates for our clients for Windows Virtual Desktop and Remote Desktop Services:
-
-- [Windows](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
-- [macOS](/windows-server/remote/remote-desktop-services/clients/mac-whatsnew)
-- [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
-- [Android](/windows-server/remote/remote-desktop-services/clients/android-whatsnew)
-- [Web](/windows-server/remote/remote-desktop-services/clients/web-client-whatsnew)
 
 ## Next steps
 

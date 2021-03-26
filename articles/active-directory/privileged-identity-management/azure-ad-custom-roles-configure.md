@@ -63,9 +63,9 @@ Also, you can choose one of these *active* assignment duration options:
 - **Allow permanent active assignment**: Administrators can assign permanent active membership.
 - **Expire active assignment after**: Administrators can require that all active assignments have a specified start and end date.
 
-### Require Azure Multi-Factor Authentication
+### Require Azure AD Multi-Factor Authentication
 
-Privileged Identity Management provides optional enforcement of Azure Multi-Factor Authentication for two distinct scenarios.
+Privileged Identity Management provides optional enforcement of Azure AD Multi-Factor Authentication for two distinct scenarios.
 
 - **Require Multi-Factor Authentication on active assignment**
 
@@ -73,7 +73,7 @@ Privileged Identity Management provides optional enforcement of Azure Multi-Fact
 
 - **Require Multi-Factor Authentication on activation**
 
-  You can require eligible users assigned to a role to enroll in Azure Multi-Factor Authentication before they can activate. This process ensures that the user who is requesting activation is who they say they are with reasonable certainty. Enforcing this option protects critical roles in situations when the user account might have been compromised. To require an eligible member to run Azure Multi-Factor Authentication before activation, select the **Require Multi-Factor Authentication on activation** box.
+  You can require eligible users assigned to a role to enroll in Azure AD Multi-Factor Authentication before they can activate. This process ensures that the user who is requesting activation is who they say they are with reasonable certainty. Enforcing this option protects critical roles in situations when the user account might have been compromised. To require an eligible member to run Azure AD Multi-Factor Authentication before activation, select the **Require Multi-Factor Authentication on activation** box.
 
 For more information, see [Multi-factor authentication and Privileged Identity Management](pim-how-to-require-mfa.md).
 

@@ -3,7 +3,7 @@ title: Troubleshoot common deployment errors
 description: Describes how to resolve common errors when you deploy resources to Azure using Azure Resource Manager.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 09/09/2020
+ms.date: 01/20/2021
 ---
 # Troubleshoot common Azure deployment errors with Azure Resource Manager
 
@@ -17,7 +17,7 @@ If you're looking for information about an error code and that information isn't
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | Follow naming restrictions for storage accounts. | [Resolve storage account name](error-storage-account-name.md) |
 | AccountPropertyCannotBeSet | Check available storage account properties. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
-| AllocationFailed | The cluster or region doesn't have resources available or can't support the requested VM size. Retry the request at a later time, or request a different VM size. | [Provisioning and allocation issues for Linux](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-linux.md), [Provisioning and allocation issues for Windows](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-windows.md) and [Troubleshoot allocation failures](../../virtual-machines/troubleshooting/allocation-failure.md)|
+| AllocationFailed | The cluster or region doesn't have resources available or can't support the requested VM size. Retry the request at a later time, or request a different VM size. | [Provisioning and allocation issues for Linux](/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-linux), [Provisioning and allocation issues for Windows](/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-windows) and [Troubleshoot allocation failures](/troubleshoot/azure/virtual-machines/allocation-failure)|
 | AnotherOperationInProgress | Wait for concurrent operation to complete. | |
 | AuthorizationFailed | Your account or service principal doesn't have sufficient access to complete the deployment. Check the role your account belongs to, and its access for the deployment scope.<br><br>You might receive this error when a required resource provider isn't registered. | [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)<br><br>[Resolve registration](error-register-resource-provider.md) |
 | BadRequest | You sent deployment values that don't match what is expected by Resource Manager. Check the inner status message for help with troubleshooting. | [Template reference](/azure/templates/) and [Supported locations](resource-location.md) |
@@ -28,10 +28,10 @@ If you're looking for information about an error code and that information isn't
 | DeploymentNameLengthLimitExceeded | The deployment names are limited to 64 characters.  | |
 | DeploymentFailed | The DeploymentFailed error is a general error that doesn't provide the details you need to solve the error. Look in the error details for an error code that provides more information. | [Find error code](#find-error-code) |
 | DeploymentQuotaExceeded | If you reach the limit of 800 deployments per resource group, delete deployments from the history that are no longer needed. | [Resolve error when deployment count exceeds 800](deployment-quota-exceeded.md) |
-| DeploymentSizeExceeded | Simplify your template to reduce size. | [Resolve template size errors](error-job-size-exceeded.md) |
+| DeploymentJobSizeExceeded | Simplify your template to reduce size. | [Resolve template size errors](error-job-size-exceeded.md) |
 | DnsRecordInUse | The DNS record name must be unique. Enter a different name. | |
 | ImageNotFound | Check VM image settings. |  |
-| InUseSubnetCannotBeDeleted | You might get this error when trying to update a resource, and the request is processed by deleting and creating the resource. Make sure to specify all unchanged values. | [Update resource](/azure/architecture/building-blocks/extending-templates/update-resource) |
+| InUseSubnetCannotBeDeleted | You might get this error when trying to update a resource, and the request is processed by deleting and creating the resource. Make sure to specify all unchanged values. | [Update resource](/azure/architecture/guide/azure-resource-manager/advanced-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | Get access token for the appropriate tenant. You can only get the token from the tenant that your account belongs to. | |
 | InvalidContentLink | You've most likely attempted to link to a nested template that isn't available. Double check the URI you provided for the nested template. If the template exists in a storage account, make sure the URI is accessible. You might need to pass a SAS token. Currently, you can't link to a template that is in a storage account behind an [Azure Storage firewall](../../storage/common/storage-network-security.md). Consider moving your template to another repository, like GitHub. | [Linked templates](linked-templates.md) |
 | InvalidDeploymentLocation | When deploying at the subscription level, you've provided a different location for a previously used deployment name. | [Subscription level deployments](deploy-to-subscription.md) |
@@ -58,7 +58,7 @@ If you're looking for information about an error code and that information isn't
 | PasswordTooLong | You might have selected a password with too many characters, or converted your password value to a secure string before passing it as a parameter. If the template includes a **secure string** parameter, you don't need to convert the value to a secure string. Provide the password value as text. |  |
 | PrivateIPAddressInReservedRange | The specified IP address includes an address range required by Azure. Change IP address to avoid reserved range. | [IP addresses](../../virtual-network/public-ip-addresses.md) |
 | PrivateIPAddressNotInSubnet | The specified IP address is outside of the subnet range. Change IP address to fall within subnet range. | [IP addresses](../../virtual-network/public-ip-addresses.md) |
-| PropertyChangeNotAllowed | Some properties can't be changed on a deployed resource. When updating a resource, limit your changes to permitted properties. | [Update resource](/azure/architecture/building-blocks/extending-templates/update-resource) |
+| PropertyChangeNotAllowed | Some properties can't be changed on a deployed resource. When updating a resource, limit your changes to permitted properties. | [Update resource](/azure/architecture/guide/azure-resource-manager/advanced-templates/update-resource) |
 | RequestDisallowedByPolicy | Your subscription includes a resource policy that prevents an action you're trying to perform during deployment. Find the policy that blocks the action. If possible, change your deployment to meet the limitations from the policy. | [Resolve policies](error-policy-requestdisallowedbypolicy.md) |
 | ReservedResourceName | Provide a resource name that doesn't include a reserved name. | [Reserved resource names](error-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | Wait for deletion to complete. | |
@@ -70,10 +70,10 @@ If you're looking for information about an error code and that information isn't
 | StorageAccountAlreadyTaken | Provide a unique name for the storage account. | [Resolve storage account name](error-storage-account-name.md) |
 | StorageAccountNotFound | Check the subscription, resource group, and name of the storage account that you're trying to use. | |
 | SubnetsNotInSameVnet | A virtual machine can only have one virtual network. When deploying several NICs, make sure they belong to the same virtual network. | [Multiple NICs](../../virtual-machines/windows/multiple-nics.md) |
-| SubscriptionNotFound | A specified subscription for deployment can't be accessed. It could be the subscription ID is wrong, the user deploying the template doesn't have adequate permissions to deploy to the subscription, or the subscription ID is in the wrong format. When using nested deployments to [deploy across scopes](cross-scope-deployment.md), provide the GUID for the subscription. | |
+| SubscriptionNotFound | A specified subscription for deployment can't be accessed. It could be the subscription ID is wrong, the user deploying the template doesn't have adequate permissions to deploy to the subscription, or the subscription ID is in the wrong format. When using nested deployments to [deploy across scopes](./deploy-to-resource-group.md), provide the GUID for the subscription. | |
 | SubscriptionNotRegistered | When deploying a resource, the resource provider must be registered for your subscription. When you use an Azure Resource Manager template for deployment, the resource provider is automatically registered in the subscription. Sometimes, the automatic registration doesn't complete in time. To avoid this intermittent error, register the resource provider before deployment. | [Resolve registration](error-register-resource-provider.md) |
 | TemplateResourceCircularDependency | Remove unnecessary dependencies. | [Resolve circular dependencies](error-invalid-template.md#circular-dependency) |
-| TooManyTargetResourceGroups | Reduce number of resource groups for a single deployment. | [Cross scope deployment](cross-scope-deployment.md) |
+| TooManyTargetResourceGroups | Reduce number of resource groups for a single deployment. | [Cross scope deployment](./deploy-to-resource-group.md) |
 
 ## Find error code
 
@@ -197,7 +197,7 @@ To log debug information for a nested template, use the **debugSetting** element
 ```json
 {
   "type": "Microsoft.Resources/deployments",
-  "apiVersion": "2016-09-01",
+  "apiVersion": "2020-10-01",
   "name": "nestedTemplate",
   "properties": {
     "mode": "Incremental",

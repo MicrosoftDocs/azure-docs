@@ -1,20 +1,14 @@
 ---
 title: Azure VM extensions and features for Linux 
 description: Learn what extensions are available for Azure virtual machines on Linux, grouped by what they provide or improve.
-services: virtual-machines-linux
-documentationcenter: ''
-author: axayjo
-manager: gwallace
-editor: ''
-tags: azure-service-management,azure-resource-manager
-
-ms.assetid: 52f5d0ec-8f75-49e7-9e15-88d46b420e63
-ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
+ms.service: virtual-machines
+ms.subservice: extensions
+author: amjads1
+ms.author: amjads
+ms.collection: linux
 ms.date: 03/30/2018
-ms.author: akjosh
+
 ---
 
 # Virtual machine extensions and features for Linux
@@ -28,7 +22,7 @@ This article provides an overview of VM extensions, prerequisites for using Azur
 Several different Azure VM extensions are available, each with a specific use case. Some examples include:
 
 - Apply PowerShell Desired State configurations to a VM with the DSC extension for Linux. For more information, see [Azure Desired State configuration extension](https://github.com/Azure/azure-linux-extensions/tree/master/DSC).
-- Configure monitoring of a VM with the Microsoft Monitoring Agent VM extension. For more information, see [How to monitor a Linux VM](../linux/tutorial-monitor.md).
+- Configure monitoring of a VM with the Microsoft Monitoring Agent VM extension. For more information, see [How to monitor a Linux VM](/previous-versions/azure/virtual-machines/linux/tutorial-monitor).
 - Configure monitoring of your Azure infrastructure with the Chef or Datadog extension. For more information, see the [Chef docs](https://docs.chef.io/azure_portal.html) or [Datadog blog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
 In addition to process-specific extensions, a Custom Script extension is available for both Windows and Linux virtual machines. The Custom Script extension for Linux allows any Bash script to be run on a VM. Custom scripts are useful for designing Azure deployments that require configuration beyond what native Azure tooling can provide. For more information, see [Linux VM Custom Script extension](custom-script-linux.md).
@@ -247,7 +241,7 @@ The output is similar to the following example:
 
 ```bash
 WALinuxAgent-2.2.17 running on ubuntu 16.04
-Python: 3.5.2
+Python: 3.6.0
 Goal state agent: 2.2.18
 ```
 

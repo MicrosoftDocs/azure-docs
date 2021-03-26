@@ -74,8 +74,11 @@ Azure Static Web Apps uses GitHub to publish your website. The following steps s
 1. Push your local repo up to GitHub.
 
    ```bash
-   git push --set-upstream origin master
+   git push --set-upstream origin main
    ```
+
+   > [!NOTE]
+   > Your git branch may be named differently than `main`. Replace `main` in this command with the correct value.
 
 ## Deploy your web app
 
@@ -111,7 +114,7 @@ The following steps show you how to create a new static site app and deploy it t
 
 1. Select the **jekyll-static-app** as the _Repository_.
 
-1. For the _Branch_ select **master**.
+1. For the _Branch_ select **main**.
 
     :::image type="content" source="./media/publish-jekyll/completed-github-info.png" alt-text="Completed GitHub information":::
 
@@ -141,11 +144,11 @@ Next, you add configuration settings that the build process uses to build your a
 
 1. Open the Jekyll app in a text editor and open the _.github/workflows/azure-pages-<WORKFLOW_NAME>.yml_ file.
 
-1. After the line `- uses: actions/checkout@v2` add the following configuration block.
+1. Before the line `- name: Build And Deploy` add the following configuration block.
 
     ```yml
     - name: Set up Ruby
-      uses: ruby/setup-ruby@ec106b438a1ff6ff109590de34ddc62c540232e0
+      uses: ruby/setup-ruby@v1.59.1
       with:
         ruby-version: 2.6
     - name: Install dependencies

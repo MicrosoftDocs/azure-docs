@@ -1,19 +1,21 @@
 ---
-title: Set up the IoT resources you need for IoT Plug and Play | Microsoft Docs
-description: Create an IoT Hub and Device Provisioning Service instance to use with the IoT Plug and Play quickstarts and tutorials.
+title: Quickstart - Set up the IoT resources you need for IoT Plug and Play | Microsoft Docs
+description: Quickstart - Create an IoT Hub and Device Provisioning Service instance to use with the IoT Plug and Play quickstarts and tutorials.
 author: dominicbetts
 ms.author: dobett
 ms.date: 08/11/2020
-ms.topic: how-to
+ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 
 # Setup IoT Hub and DPS one time before completing any quickstart,tutorial,or how-to
 ---
 
-# Set up your environment for the IoT Plug and Play quickstarts and tutorials
+# Quickstart: Set up your environment for the IoT Plug and Play quickstarts and tutorials
 
 Before you can complete any of the IoT Plug and Play quickstarts and tutorials, you need to configure an IoT hub and the Device Provisioning Service (DPS) in your Azure subscription. You'll also need local copies of the model files used by the sample applications and the Azure IoT explorer tool.
+
+## Prerequisites
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -127,7 +129,7 @@ Configure the tool to use the model files you downloaded previously. From the ho
 
 To learn more, see [Install and use Azure IoT explorer](howto-use-iot-explorer.md).
 
-## Remove the resources
+## Clean up resources
 
 You can use the IoT hub and DPS instance for all the IoT Plug and Play quickstarts and tutorials, so you only need to complete the steps in this article once. When you're finished, you can remove them from your subscription with the following command:
 
@@ -140,4 +142,4 @@ az group delete --name my-pnp-resourcegroup
 Now that you've set up your environment, you can try one of the quickstarts or tutorials such as:
 
 > [!div class="nextstepaction"]
-> [Connect a sample IoT Plug and Play device application to IoT Hub (Node.js)](quickstart-connect-device-node.md)
+> [Connect a sample IoT Plug and Play device application to IoT Hub](quickstart-connect-device.md)

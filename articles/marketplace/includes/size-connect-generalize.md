@@ -33,60 +33,31 @@ The following process generalizes a Linux VM and redeploys it as a separate VM. 
     1. In the Azure portal, select your resource group (RG) and de-allocate the VM.
     2. Your VM is now generalized and you can create a new VM using this VM disk.
 
-### Take a snapshot of the VM disk
+### Capture image
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
-2. Starting at the upper-left, select **Create a resource**, then search for and select **Snapshot**.
-3. In the Snapshot blade, select  **Create**.
-4. Enter a **Name** for the snapshot.
-5. Select an existing resource group or enter the name for a new one.
-6. For **Source disk**, select the managed disk to snapshot.
-7. Select the **Account type** to use to store the snapshot. Use **Standard HDD** unless you need it stored on a high performing SSD.
-8. Select **Create**.
+Once your VM is ready, you can capture it in a Azure shared image gallery. Follow the below steps to capture:
 
-#### Extract the VHD
+1. On [Azure portal](https://ms.portal.azure.com/), go to your Virtual Machine’s page.
+2. Select **Capture**.
+3. Under **Share image to Shared image gallery**, select **Yes, share it to a gallery as an image version**.
+4. Under **Operating system state** select Generalized.
+5. Select a Target image gallery or **Create New**.
+6. Select a Target image definition or **Create New**.
+7. Provide a **Version number** for the image.
+8. Select **Review + create** to review your choices.
+9. Once the validation is passed, select **Create**.
 
-Use the following script to export the snapshot into a VHD in your storage account.
+To publish, the publisher account must have an Owner access to the SIG. To grant access:
 
-```JSON
-#Provide the subscription Id where the snapshot is created
-subscriptionId=yourSubscriptionId
+1. Go to the Shared Image Gallery.
+2. Select **Access control** (IAM) on the left panel.
+3. Select **Add** and then **Add role assignment**.
+4. Select a **Role** or **Owner**.
+5. Under **Assign access to** select **User, group, or service principal**.
+6. Select the Azure email of the person who will be publishing the image.
+7. Select **Save**.
 
-#Provide the name of your resource group where the snapshot is created
-resourceGroupName=myResourceGroupName
+:::image type="content" source="../media/create-vm/add-role-assignment.png" alt-text="Displays the add role assignment window.":::
 
-#Provide the snapshot name
-snapshotName=mySnapshot
-
-#Provide Shared Access Signature (SAS) expiry duration in seconds (such as 3600)
-#Know more about SAS here: https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1
-sasExpiryDuration=3600
-
-#Provide storage account name where you want to copy the underlying VHD file. 
-storageAccountName=mystorageaccountname
-
-#Name of the storage container where the downloaded VHD will be stored.
-storageContainerName=mystoragecontainername
-
-#Provide the key of the storage account where you want to copy the VHD 
-storageAccountKey=mystorageaccountkey
-
-#Give a name to the destination VHD file to which the VHD will be copied.
-destinationVHDFileName=myvhdfilename.vhd
-
-az account set --subscription $subscriptionId
-
-sas=$(az snapshot grant-access --resource-group $resourceGroupName --name $ snapshotName --duration-in-seconds $sasExpiryDuration --query [accessSas] -o tsv)
-
-az storage blob copy start --destination-blob $destinationVHDFileName --destination-container $storageContainerName --account-name $storageAccountName --account-key $storageAccountKey --source-uri $sas
-```
-
-#### Script explanation
-
-This script uses following commands to generate the SAS URI for a snapshot and copies the underlying VHD to a storage account using the SAS URI. Each command in the table links to command specific documentation.
-
-| Command | Notes |
-| --- | --- |
-| az disk grant-access | Generates read-only SAS that is used to copy the underlying VHD file to a storage account or download it to on-premises
-| az storage blob copy start | Copies a blob asynchronously from one storage account to another. Use `az storage blob show` to check the status of the new blob. |
-|
+> [!NOTE]
+> You don’t need to generate SAS URIs as you can now publish a SIG Image on Partner Center. However, if you still need to refer to the SAS URI generation steps, see [How to generate a SAS URI for a VM image](../azure-vm-get-sas-uri.md).

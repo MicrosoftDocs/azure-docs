@@ -3,16 +3,17 @@ title: Maintenance control for Azure virtual machines using CLI
 description: Learn how to control when maintenance is applied to your Azure VMs using Maintenance control and CLI.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: maintenance-control
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 04/20/2020
+ms.date: 11/20/2020
 ms.author: cynthn
 #pmcontact: shants
 ---
 
 # Control updates with Maintenance Control and the Azure CLI
 
-Maintenance control lets you decide when to apply updates to your isolated VMs and Azure dedicated hosts. This topic covers the Azure CLI options for Maintenance control. For more about benefits of using Maintenance control, its limitations, and other management options, see [Managing platform updates with Maintenance Control](maintenance-control.md).
+Maintenance control lets you decide when to apply platform updates to host infrastructure of your isolated VMs and Azure dedicated hosts. This topic covers the Azure CLI options for Maintenance control. For more about benefits of using Maintenance control, its limitations, and other management options, see [Managing platform updates with Maintenance Control](maintenance-control.md).
 
 ## Create a maintenance configuration
 
@@ -24,14 +25,14 @@ az group create \
    --name myMaintenanceRG
 az maintenance configuration create \
    -g myMaintenanceRG \
-   --name myConfig \
-   --maintenanceScope host\
+   --resource-name myConfig \
+   --maintenance-scope host\
    --location eastus
 ```
 
 Copy the configuration ID from the output to use later.
 
-Using `--maintenanceScope host` ensures that the maintenance config is used for controlling updates to the host.
+Using `--maintenance-scope host` ensures that the maintenance configuration is used for controlling updates to the host infrastructure.
 
 If you try to create a configuration with the same name, but in a different location, you will get an error. Configuration names must be unique to your resource group.
 
@@ -40,6 +41,30 @@ You can query for available maintenance configurations using `az maintenance con
 ```azurecli-interactive
 az maintenance configuration list --query "[].{Name:name, ID:id}" -o table 
 ```
+
+### Create a maintenance configuration with scheduled window
+You can also declare a scheduled window when Azure will apply the updates on your resources. This example creates a maintenance configuration named myConfig with a scheduled window of 5 hours on the fourth Monday of every month. Once you create a scheduled window you no longer have to apply the updates manually.
+
+```azurecli-interactive
+az maintenance configuration create \
+   -g myMaintenanceRG \
+   --resource-name myConfig \
+   --maintenance-scope host \
+   --location eastus \
+   --maintenance-window-duration "05:00" \
+   --maintenance-window-recur-every "Month Fourth Monday" \
+   --maintenance-window-start-date-time "2020-12-30 08:00" \
+   --maintenance-window-time-zone "Pacific Standard Time"
+```
+
+> [!IMPORTANT]
+> Maintenance **duration** must be *2 hours* or longer. Maintenance **recurrence** must be set to at least occur once in 35-days.
+
+Maintenance recurrence can be expressed as daily, weekly or monthly. Some examples are:
+- **daily**- maintenance-window-recur-every: "Day" **or** "3Days"
+- **weekly**- maintenance-window-recur-every: "3Weeks" **or** "Week Saturday,Sunday"
+- **monthly**- maintenance-window-recur-every: "Month day23,day24" **or** "Month Last Sunday" **or** "Month Fourth Monday"
+
 
 ## Assign the configuration
 
@@ -247,7 +272,7 @@ Use `az maintenance configuration delete` to delete a maintenance configuration.
 az maintenance configuration delete \
    --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
    -g myResourceGroup \
-   --name myConfig
+   --resource-name myConfig
 ```
 
 ## Next steps

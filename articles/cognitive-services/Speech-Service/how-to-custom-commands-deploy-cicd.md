@@ -20,7 +20,7 @@ In this article, you learn how to set up continuous deployment for your Custom C
 > [!div class = "checklist"]
 > * A Custom Commands application for development (DEV)
 > * A Custom Commands application for production (PROD)
-> * Sign up for [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops)
+> * Sign up for [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-sign-up)
 
 ## Export/Import/Publish
 
@@ -94,7 +94,7 @@ The scripts are hosted at [Cognitive Services Voice Assistant - Custom Commands]
 
 ## Deploy from source code
 
-In case you want to keep the definition of your application in a repository, we provide the scripts for deployments from source code. Since the scripts are in bash, If you are using Windows you'll need to install the [Linux subsystem](https://docs.microsoft.com/windows/wsl/install-win10).
+In case you want to keep the definition of your application in a repository, we provide the scripts for deployments from source code. Since the scripts are in bash, If you are using Windows you'll need to install the [Linux subsystem](/windows/wsl/install-win10).
 
 The scripts are hosted at [Cognitive Services Voice Assistant - Custom Commands](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/tree/master/custom-commands). Clone the scripts in the bash directory to your repository. Make sure you maintain the same path.
 

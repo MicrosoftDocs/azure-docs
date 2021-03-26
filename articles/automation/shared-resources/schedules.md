@@ -3,7 +3,7 @@ title: Manage schedules in Azure Automation
 description: This article tells how to create and work with a schedule in Azure Automation.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 09/10/2020
+ms.date: 03/19/2021
 ms.topic: conceptual
 ---
 
@@ -33,7 +33,7 @@ The cmdlets in the following table create and manage Automation schedules with P
 
 ## Create a schedule
 
-You can create a new schedule for your runbooks in the Azure portal or with PowerShell. To avoid affecting your runbooks and the processes they automate, you should first test any runbooks that have linked schedules with an Automation account dedicated for testing. A test validates that your scheduled runbooks continue to work correctly. If you see a problem, you can troubleshoot and apply any changes required before you migrate the updated runbook version to production.
+You can create a new schedule for your runbooks from the Azure portal, with PowerShell, or using an Azure Resource Manager (ARM) template. To avoid affecting your runbooks and the processes they automate, you should first test any runbooks that have linked schedules with an Automation account dedicated for testing. A test validates that your scheduled runbooks continue to work correctly. If you see a problem, you can troubleshoot and apply any changes required before you migrate the updated runbook version to production.
 
 > [!NOTE]
 > Your Automation account doesn't automatically get any new versions of modules unless you've updated them manually by selecting the [Update Azure modules](../automation-update-azure-modules.md) option from **Modules**. Azure Automation uses the latest modules in your Automation account when a new scheduled job is run. 
@@ -114,6 +114,47 @@ The following example shows how to create a recurring schedule that runs on the 
 ```azurepowershell-interactive
 $StartTime = (Get-Date "18:00:00").AddDays(1)
 New-AzAutomationSchedule -AutomationAccountName "TestAzureAuto" -Name "1st, 15th and Last" -StartTime $StartTime -DaysOfMonth @("One", "Fifteenth", "Last") -ResourceGroupName "TestAzureAuto" -MonthInterval 1
+```
+
+## Create a schedule with a Resource Manager template
+
+In this example, we use an Automation Resource Manager (ARM) template that creates a new job schedule. For general information about this template to manage Automation job schedules, see [Microsoft.Automation automationAccounts/jobSchedules template reference](/azure/templates/microsoft.automation/2015-10-31/automationaccounts/jobschedules#quickstart-templates).
+
+Copy this template file into a text editor:
+
+```json
+{
+  "name": "5d5f3a05-111d-4892-8dcc-9064fa591b96",
+  "type": "Microsoft.Automation/automationAccounts/jobSchedules",
+  "apiVersion": "2015-10-31",
+  "properties": {
+    "schedule": {
+      "name": "scheduleName"
+    },
+    "runbook": {
+      "name": "runbookName"
+    },
+    "runOn": "hybridWorkerGroup",
+    "parameters": {}
+  }
+}
+```
+
+Edit the following parameter values and save the template as a JSON file:
+
+* Job schedule object name: A GUID (Globally Unique Identifier) is used as the name of the job schedule object.
+
+   >[!IMPORTANT]
+   > For each job schedule deployed with an ARM template, the GUID must be unique. Even if you're rescheduling an existing schedule, you'll need to change the GUID. This applies even if you've previously deleted an existing job schedule that was created with the same template. Reusing the same GUID results in a failed deployment.</br></br>
+   > There are services online that can generate a new GUID for you, such as this [Free Online GUID Generator](https://guidgenerator.com/).
+
+* Schedule name: Represents the name of the Automation job schedule that will be linked to the specified runbook.
+* Runbook name: Represents the name of the Automation runbook the job schedule is to be associated with.
+
+Once the file has been saved, you can create the runbook job schedule with the following PowerShell command. The command uses the `TemplateFile` parameter to specify the path and filename of the template.
+
+```powershell
+New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "<path>\RunbookJobSchedule.json"
 ```
 
 ## Link a schedule to a runbook

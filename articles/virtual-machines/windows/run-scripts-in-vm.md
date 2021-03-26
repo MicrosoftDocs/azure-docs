@@ -3,6 +3,7 @@ title: Run scripts in an Azure Windows VM
 description: This topic describes how to run scripts within a Windows virtual machine
 services: automation
 ms.service: virtual-machines
+ms.collection: windows
 author: bobbytreed
 ms.author: robreed
 ms.date: 05/02/2018
@@ -28,7 +29,7 @@ The [Custom Script Extension](../extensions/custom-script-windows.md) is primari
 The [Run Command](run-command.md) feature enables virtual machine and application management and troubleshooting using scripts, and is available even when the machine is not reachable, for example if the guest firewall doesn't have the RDP or SSH port open.
 
 * Run scripts in Azure virtual machines.
-* Can be run using [Azure portal](run-command.md), [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), or [PowerShell](/powershell/module/az.compute/invoke-azvmruncommand)
+* Can be run using [Azure portal](run-command.md), [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [Azure CLI](/cli/azure/vm/run-command#az-vm-run-command-invoke), or [PowerShell](/powershell/module/az.compute/invoke-azvmruncommand)
 * Quickly run a script and view output and repeat as needed in the Azure portal.
 * Script can be typed directly or you can run one of the built-in scripts.
 * Run PowerShell script in Windows machines and Bash script in Linux machines.
@@ -51,7 +52,7 @@ The [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md
 
 ## Serial console
 
-The [Serial console](../troubleshooting/serial-console-windows.md) provides direct access to a VM, similar to having a keyboard connected to the VM.
+The [Serial console](/troubleshoot/azure/virtual-machines/serial-console-windows) provides direct access to a VM, similar to having a keyboard connected to the VM.
 
 * Run commands in Azure virtual machines.
 * Can be run using a text-based console to the machine in the Azure portal.
@@ -65,4 +66,4 @@ Learn more about the different features that are available to run scripts and co
 * [Custom Script Extension](../extensions/custom-script-windows.md)
 * [Run Command](run-command.md)
 * [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md)
-* [Serial console](../troubleshooting/serial-console-windows.md)
+* [Serial console](/troubleshoot/azure/virtual-machines/serial-console-windows)

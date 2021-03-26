@@ -1,17 +1,12 @@
 ---
 title: Configure a self-hosted integration runtime as a proxy for SSIS
 description: Learn how to configure a self-hosted integration runtime as a proxy for an Azure-SSIS Integration Runtime. 
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
-ms.reviewer: douglasl
-manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 11/15/2020
+ms.date: 11/19/2020
 ---
 
 # Configure a self-hosted IR as a proxy for an Azure-SSIS IR in Azure Data Factory
@@ -49,7 +44,7 @@ Finally, you download and install the latest version of the self-hosted IR, as w
 
 ### Enable Windows authentication for on-premises staging tasks
 
-If on-premises staging tasks on your self-hosted IR require Windows authentication, [configure your SSIS packages to use the same Windows authentication](/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth?view=sql-server-ver15). 
+If on-premises staging tasks on your self-hosted IR require Windows authentication, [configure your SSIS packages to use the same Windows authentication](/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth). 
 
 Your on-premises staging tasks will be invoked with the self-hosted IR service account (*NT SERVICE\DIAHostService*, by default), and your data stores will be accessed with the Windows authentication account. Both accounts require certain security policies to be assigned to them. On the self-hosted IR machine, go to **Local Security Policy** > **Local Policies** > **User Rights Assignment**, and then do the following:
 
@@ -65,7 +60,7 @@ If you haven't already done so, create an Azure Blob Storage linked service in t
 - For **Authentication method**, select **Account key**, **SAS URI**, **Service Principal**, or **Managed Identity**.  
 
 >[!TIP]
->If you select the **Service Principal** method, grant your service principal at least a *Storage Blob Data Contributor* role. For more information, see [Azure Blob Storage connector](connector-azure-blob-storage.md#linked-service-properties). If you select the **Managed Identity** method, grant your ADF managed identity proper roles to access Azure Blob Storage. For more information, see [Access Azure Blob Storage using Azure Active Directory authentication with ADF managed identity](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-storage-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication).
+>If you select the **Service Principal** method, grant your service principal at least a *Storage Blob Data Contributor* role. For more information, see [Azure Blob Storage connector](connector-azure-blob-storage.md#linked-service-properties). If you select the **Managed Identity** method, grant your ADF managed identity proper roles to access Azure Blob Storage. For more information, see [Access Azure Blob Storage using Azure Active Directory authentication with ADF managed identity](/sql/integration-services/connection-manager/azure-storage-connection-manager#managed-identities-for-azure-resources-authentication).
 
 ![Prepare the Azure Blob storage-linked service for staging](media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png)
 
@@ -127,7 +122,7 @@ Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
 
 By using the latest SSDT as either the SSIS Projects extension for Visual Studio or a standalone installer, you can find a new `ConnectByProxy` property that has been added in the connection managers for supported data flow components.
 * [Download the SSIS Projects extension for Visual Studio](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects)
-* [Download the standalone installer](/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017#ssdt-for-vs-2017-standalone-installer)   
+* [Download the standalone installer](/sql/ssdt/download-sql-server-data-tools-ssdt#ssdt-for-vs-2017-standalone-installer)   
 
 When you design new packages containing data flow tasks with components that access data on premises, you can enable this property by setting it to *True* in the **Properties** pane of the relevant connection managers.
 
@@ -152,7 +147,7 @@ You can also enable this property when you run existing packages, without having
 
 ## Debug the on-premises and cloud staging tasks
 
-On your self-hosted IR, you can find the runtime logs in the *C:\ProgramData\SSISTelemetry* folder and the execution logs of on-premises staging tasks in the *C:\ProgramData\SSISTelemetry\ExecutionLog* folder.  You can find the execution logs of cloud staging tasks in your SSISDB, specified logging file paths, or Azure Monitor depending on whether you store your packages in SSISDB, enable [Azure Monitor integration](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#monitor-ssis-operations-with-azure-monitor), etc. You can also find the unique IDs of on-premises staging tasks in the execution logs of cloud staging tasks. 
+On your self-hosted IR, you can find the runtime logs in the *C:\ProgramData\SSISTelemetry* folder and the execution logs of on-premises staging tasks in the *C:\ProgramData\SSISTelemetry\ExecutionLog* folder.  You can find the execution logs of cloud staging tasks in your SSISDB, specified logging file paths, or Azure Monitor depending on whether you store your packages in SSISDB, enable [Azure Monitor integration](./monitor-using-azure-monitor.md#monitor-ssis-operations-with-azure-monitor), etc. You can also find the unique IDs of on-premises staging tasks in the execution logs of cloud staging tasks. 
 
 ![Unique ID of the first staging task](media/self-hosted-integration-runtime-proxy-ssis/shir-first-staging-task-guid.png)
 
@@ -168,10 +163,12 @@ The cloud staging tasks that run on your Azure-SSIS IR are not be billed separat
 
 To enable your custom/3rd party components to access data on premises using self-hosted IR as a proxy for Azure-SSIS IR, follow these instructions:
 
-1. Install your custom/3rd party components targeting SQL Server 2017 on Azure-SSIS IR via [standard/express custom setups](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup).
+1. Install your custom/3rd party components targeting SQL Server 2017 on Azure-SSIS IR via [standard/express custom setups](./how-to-configure-azure-ssis-ir-custom-setup.md).
 
-1. Create the following DTSPath registry keys on self-hosted IR if they don’t exist already: `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath` and `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath`.
- 
+1. Create the following DTSPath registry keys on self-hosted IR if they don’t exist already:
+   1. `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath` set to `C:\Program Files\Microsoft SQL Server\140\DTS\`
+   1. `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath` set to `C:\Program Files (x86)\Microsoft SQL Server\140\DTS\`
+   
 1. Install your custom/3rd party components targeting SQL Server 2017 on self-hosted IR under the DTSPath above and ensure that your installation process:
 
    1. Creates `<DTSPath>`, `<DTSPath>/Connections`, `<DTSPath>/PipelineComponents`, and `<DTSPath>/UpgradeMappings` folders if they don't exist already.
@@ -180,7 +177,7 @@ To enable your custom/3rd party components to access data on premises using self
    
    1. Installs all assemblies referenced by your custom/3rd party component assemblies in the global assembly cache (GAC).
 
-Here's an [example of 3rd party component](https://www.aecorsoft.com/blog/2020/11/8/using-azure-data-factory-to-bring-sap-data-to-azure-via-self-hosted-ir-and-ssis-ir) that uses an express custom setup and self-hosted IR as a proxy for Azure-SSIS IR.
+Here are examples from our partners, [Theobald Software](https://kb.theobald-software.com/xtract-is/XIS-for-Azure-SHIR) and [Aecorsoft](https://www.aecorsoft.com/blog/2020/11/8/using-azure-data-factory-to-bring-sap-data-to-azure-via-self-hosted-ir-and-ssis-ir), who have adapted their components to use our express custom setup and self-hosted IR as a proxy for Azure-SSIS IR.
 
 ## Enforce TLS 1.2
 
@@ -190,7 +187,7 @@ If you need to use strong cryptography/more secure network protocol (TLS 1.2) an
 
 ## Current limitations
 
-- Only data flow components that are built-in/preinstalled on Azure-SSIS IR Standard Edition, except Hadoop/HDFS/DQS components, are currently supported, see [all built-in/preinstalled components on Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/built-in-preinstalled-components-ssis-integration-runtime).
+- Only data flow components that are built-in/preinstalled on Azure-SSIS IR Standard Edition, except Hadoop/HDFS/DQS components, are currently supported, see [all built-in/preinstalled components on Azure-SSIS IR](./built-in-preinstalled-components-ssis-integration-runtime.md).
 - Only custom/3rd party data flow components that are written in managed code (.NET Framework) are currently supported - Those written in native code (C++) are currently unsupported.
 - Changing variable values in both on-premises and cloud staging tasks is currently unsupported.
 - Changing variable values of type object in on-premises staging tasks won't be reflected in other tasks.

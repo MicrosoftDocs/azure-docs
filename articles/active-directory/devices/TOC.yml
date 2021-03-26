@@ -30,8 +30,6 @@
     href: azuread-join-sso.md
   - name: Primary Refresh Tokens
     href: concept-primary-refresh-token.md
-  - name: Azure-managed workstations
-    href: concept-azure-managed-workstation.md
 - name: How-to guides
   expanded: false
   items:
@@ -55,8 +53,6 @@
     href: howto-vm-sign-in-azure-ad-windows.md
   - name: Virtual desktop infrastructure
     href: howto-device-identity-virtual-desktop-infrastructure.md
-  - name: Deploy Azure-managed workstations
-    href: howto-azure-managed-workstation.md
   - name: Troubleshoot device identities
     items: 
     - name: Troubleshoot hybrid Azure AD joined Windows current devices
@@ -84,7 +80,7 @@
   - name: Graph APIs
     items: 
     - name: Device identity API
-      href: /graph/api/resources/device?view=graph-rest-1.0
+      href: /graph/api/resources/device
 - name: Resources
   items:
   - name: Azure feedback forum

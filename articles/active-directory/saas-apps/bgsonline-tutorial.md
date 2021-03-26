@@ -45,19 +45,19 @@ To configure the integration of BGS Online into Azure AD, you need to add BGS On
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
-	![The Azure Active Directory button](common/select-azuread.png)
+    ![The Azure Active Directory button](common/select-azuread.png)
 
 2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+    ![The Enterprise applications blade](common/enterprise-applications.png)
 
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button](common/add-new-app.png)
+    ![The New application button](common/add-new-app.png)
 
 4. In the search box, type **BGS Online**, select **BGS Online** from result panel then click **Add** button to add the application.
 
-	 ![BGS Online in the results list](common/search-new-app.png)
+    ![BGS Online in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -89,7 +89,7 @@ To configure Azure AD single sign-on with BGS Online, perform the following step
 
 3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-	![Edit Basic SAML Configuration](common/edit-urls.png)
+    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 4. On the **Set up Single Sign-On with SAML** page, perform the following steps:
 
@@ -107,22 +107,22 @@ To configure Azure AD single sign-on with BGS Online, perform the following step
 
     For test environment, use this pattern `https://millwardbrown.marketingtracker.nl/mt5/sso/saml/AssertionConsumerService.aspx`
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [BGS Online support team](mailTo:bgsdashboardteam@millwardbrown.com) to get these values.
+    > [!NOTE]
+    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [BGS Online support team](mailTo:bgsdashboardteam@millwardbrown.com) to get these values.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-	![The Certificate download link](common/metadataxml.png)
+    ![The Certificate download link](common/metadataxml.png)
 
 6. On the **Set up BGS Online** section, copy the appropriate URL(s) as per your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	a. Login URL
+    a. Login URL
 
-	b. Azure Ad Identifier
+    b. Azure Ad Identifier
 
-	c. Logout URL
+    c. Logout URL
 
 ### Configure BGS Online Single Sign-On
 
@@ -145,7 +145,7 @@ The objective of this section is to create a test user in the Azure portal calle
     ![The User dialog box](common/user-properties.png)
 
     a. In the **Name** field enter **BrittaSimon**.
-  
+
     b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
@@ -159,11 +159,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **BGS Online**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
 2. In the applications list, select **BGS Online**.
 
-	![The BGS Online link in the Applications list](common/all-applications.png)
+    ![The BGS Online link in the Applications list](common/all-applications.png)
 
 3. In the menu on the left, select **Users and groups**.
 

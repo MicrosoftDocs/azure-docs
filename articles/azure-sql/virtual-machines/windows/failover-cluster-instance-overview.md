@@ -7,6 +7,7 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: overview
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -42,11 +43,11 @@ In traditional on-premises clustered environments, a Windows failover cluster us
 
 SQL Server on Azure VMs offers various options as a shared storage solution for a deployment of SQL Server failover cluster instances: 
 
-||[Azure shared disks](../../../virtual-machines/windows/disks-shared.md)|[Premium file shares](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Storage Spaces Direct (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
+||[Azure shared disks](../../../virtual-machines/disks-shared.md)|[Premium file shares](../../../storage/files/storage-how-to-create-file-share.md) |[Storage Spaces Direct (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
 |---------|---------|---------|---------|
 |**Minimum OS version**| All |Windows Server 2012|Windows Server 2016|
 |**Minimum SQL Server version**|All|SQL Server 2012|SQL Server 2016|
-|**Supported VM availability** |Availability sets with proximity placement groups |Availability sets and availability zones|Availability sets |
+|**Supported VM availability** |Availability sets with proximity placement groups (For Premium SSD) </br> Same availability zone (For Ultra SSD) |Availability sets and availability zones|Availability sets |
 |**Supports FileStream**|Yes|No|Yes |
 |**Azure blob cache**|No|No|Yes|
 
@@ -54,7 +55,7 @@ The rest of this section lists the benefits and limitations of each storage opti
 
 ### Azure shared disks
 
-[Azure shared disks](../../../virtual-machines/windows/disks-shared.md) are a feature of [Azure managed disks](../../../virtual-machines/managed-disks-overview.md). Windows Server Failover Clustering supports using Azure shared disks with a failover cluster instance. 
+[Azure shared disks](../../../virtual-machines/disks-shared.md) are a feature of [Azure managed disks](../../../virtual-machines/managed-disks-overview.md). Windows Server Failover Clustering supports using Azure shared disks with a failover cluster instance. 
 
 **Supported OS**: All   
 **Supported SQL version**: All     
@@ -65,12 +66,16 @@ The rest of this section lists the benefits and limitations of each storage opti
 - Supports shared Azure Premium SSD and Azure Ultra Disk storage.
 - Can use a single shared disk or stripe multiple shared disks to create a shared storage pool. 
 - Supports Filestream.
+- Premium SSDs support availability sets. 
 
 
 **Limitations**: 
-- Virtual machines must be placed in the same availability set and proximity placement group.
-- Availability zones are not supported.
+- It is recommended to place the virtual machines in the same availability set and proximity placement group.
+- Ultra disks do not support availability sets. 
+- Availability zones are supported for Ultra Disks, but the VMs must be in the same availability zone, which reduces the availability of the virtual machine. 
+- Regardless of the chosen hardware availability solution, the availability of the failover cluster is always 99.9% when using Azure Shared Disks. 
 - Premium SSD disk caching is not supported.
+
  
 To get started, see [SQL Server failover cluster instance with Azure shared disks](failover-cluster-instance-azure-shared-disks-manually-configure.md). 
 
@@ -98,7 +103,7 @@ To get started, see [SQL Server failover cluster instance with Storage Spaces Di
 
 ### Premium file share
 
-[Premium file shares](../../../storage/files/storage-how-to-create-premium-fileshare.md) are a feature of [Azure Files](../../../storage/files/index.yml). Premium file shares are SSD backed and have consistently low latency. They're fully supported for use with failover cluster instances for SQL Server 2012 or later on Windows Server 2012 or later. Premium file shares give you greater flexibility, because you can resize and scale a file share without any downtime.
+[Premium file shares](../../../storage/files/storage-how-to-create-file-share.md) are a feature of [Azure Files](../../../storage/files/index.yml). Premium file shares are SSD backed and have consistently low latency. They're fully supported for use with failover cluster instances for SQL Server 2012 or later on Windows Server 2012 or later. Premium file shares give you greater flexibility, because you can resize and scale a file share without any downtime.
 
 **Supported OS**: Windows Server 2012 and later   
 **Supported SQL version**: SQL Server 2012 and later   

@@ -14,16 +14,13 @@ ms.custom: devx-track-js
 
 # Static website hosting in Azure Storage
 
-You can serve static content (HTML, CSS, JavaScript, and image files) directly from a storage container named *$web*. Hosting your content in Azure Storage enables you to use serverless architectures that include [Azure Functions](/azure/azure-functions/functions-overview) and other Platform as a service (PaaS) services. Azure Storage static website hosting is a great option in cases where you don't require a web server to render content.
+You can serve static content (HTML, CSS, JavaScript, and image files) directly from a storage container named *$web*. Hosting your content in Azure Storage enables you to use serverless architectures that include [Azure Functions](../../azure-functions/functions-overview.md) and other Platform as a service (PaaS) services. Azure Storage static website hosting is a great option in cases where you don't require a web server to render content.
 
 [App Service Static Web Apps](https://azure.microsoft.com/services/app-service/static/) is a great alternative to Azure Storage static website hosting and is also appropriate in cases where you don't require a web server to render content. App Service Static Web Apps provide you with a fully managed continuous integration and continuous delivery (CI/CD) workflow from GitHub source to global deployment.
 
 If you need a web server to render content, you can use [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
-
-> [!NOTE]
-> Make sure to create a general-purpose v2 Standard storage account . Static websites aren't available in any other type of storage account.
 
 ## Setting up a static website
 
@@ -56,7 +53,7 @@ Users can view site content from a browser by using the public URL of the websit
 If the server returns a 404 error, and you have not specified an error document when you enabled the website, then a default 404 page is returned to the user.
 
 > [!NOTE]
-> [Cross-Origin Resource Sharing (CORS) support for Azure Storage](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) is not supported with static website.
+> [Cross-Origin Resource Sharing (CORS) support for Azure Storage](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) is not supported with static website.
 
 ### Regional codes
 
@@ -99,13 +96,13 @@ If the storage account is configured to [require secure transfer](../common/stor
 
 ## Adding HTTP headers
 
-There's no way to configure headers as part of the static website feature. However, you can use Azure CDN to add headers and append (or overwrite) header values. See [Standard rules engine reference for Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-standard-rules-engine-reference).
+There's no way to configure headers as part of the static website feature. However, you can use Azure CDN to add headers and append (or overwrite) header values. See [Standard rules engine reference for Azure CDN](../../cdn/cdn-standard-rules-engine-reference.md).
 
-If you want to use headers to control caching, see [Control Azure CDN caching behavior with caching rules](https://docs.microsoft.com/azure/cdn/cdn-caching-rules).
+If you want to use headers to control caching, see [Control Azure CDN caching behavior with caching rules](../../cdn/cdn-caching-rules.md).
 
 ## Multi-region website hosting
 
-If you plan to host a website in multiple geographies, we recommend that you use a [Content Delivery Network](https://docs.microsoft.com/azure/cdn/) for regional caching. Use [Azure Front Door](https://docs.microsoft.com/azure/frontdoor/) if you want to serve different content in each region. It also provides failover capabilities. [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/) is not recommended if you plan to use a custom domain. Issues can arise because of how Azure Storage verifies custom domain names.
+If you plan to host a website in multiple geographies, we recommend that you use a [Content Delivery Network](../../cdn/index.yml) for regional caching. Use [Azure Front Door](../../frontdoor/index.yml) if you want to serve different content in each region. It also provides failover capabilities. [Azure Traffic Manager](../../traffic-manager/index.yml) is not recommended if you plan to use a custom domain. Issues can arise because of how Azure Storage verifies custom domain names.
 
 
 ## Pricing
@@ -122,7 +119,7 @@ To enable metrics on your static website pages, see [Enable metrics on static we
 
 * [Host a static website in Azure Storage](storage-blob-static-website-how-to.md)
 * [Map a custom domain to an Azure Blob Storage endpoint](storage-custom-domain-name.md)
-* [Azure Functions](/azure/azure-functions/functions-overview)
-* [Azure App Service](/azure/app-service/overview)
-* [Build your first serverless web app](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
+* [Azure Functions](../../azure-functions/functions-overview.md)
+* [Azure App Service](../../app-service/overview.md)
+* [Build your first serverless web app](/azure/functions/tutorial-static-website-serverless-api-with-database)
 * [Tutorial: Host your domain in Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)

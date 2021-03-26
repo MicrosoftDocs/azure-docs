@@ -1,5 +1,6 @@
 ---
-title: Build a web API that calls web APIs - Microsoft identity platform | Azure
+title: Build a web API that calls web APIs | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to build a web API that calls downstream web APIs (overview).
 services: active-directory
 author: jmprieur
@@ -9,10 +10,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 03/03/2021
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-#Customer intent: As an application developer, I want to know how to write a web API that calls web APIs by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a web API that calls web APIs by using the Microsoft identity platform.
 ---
 
 # Scenario: A web API that calls web APIs
@@ -26,9 +27,7 @@ This scenario, in which a protected web API calls other web APIs, builds on [Sce
 ## Overview
 
 - A web, desktop, mobile, or single-page application client (not represented in the accompanying diagram) calls a protected web API and provides a JSON Web Token (JWT) bearer token in its "Authorization" HTTP header.
-- The protected web API validates the token and uses the Microsoft Authentication Library (MSAL) `AcquireTokenOnBehalfOf` method to request another token from Azure Active Directory (Azure AD) so that the protected web API can call a second web API, or downstream web API, on behalf of the user.
-- The protected web API can also call `AcquireTokenSilent`later to request tokens for other downstream APIs on behalf of the same user. `AcquireTokenSilent` refreshes the token when needed.
-
+- The protected web API validates the token and uses the Microsoft Authentication Library (MSAL) `AcquireTokenOnBehalfOf` method to request another token from Azure Active Directory (Azure AD) so that the protected web API can call a second web API, or downstream web API, on behalf of the user. `AcquireTokenOnBehalfOf` refreshes the token when needed.
 ![Diagram of a web API calling a web API](media/scenarios/web-api.svg)
 
 ## Specifics

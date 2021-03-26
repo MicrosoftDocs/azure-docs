@@ -1,21 +1,13 @@
 ---
 title: Add monitoring & diagnostics to an Azure virtual machine 
 description: Use an Azure Resource Manager template to create a new Windows virtual machine with Azure diagnostics extension.
-services: virtual-machines-windows
-documentationcenter: ''
-author: mimckitt
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 8cde8fe7-977b-43d2-be74-ad46dc946058
-ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
+ms.service: virtual-machines
+ms.subservice: extensions
+author: amjads1
+ms.author: amjads
+ms.collection: windows
 ms.date: 05/31/2017
-ms.author: mimckitt
-ms.custom: H1Hack27Feb2017
 
 ---
 # Use monitoring and diagnostics with a Windows VM and Azure Resource Manager templates
@@ -75,7 +67,7 @@ The value of the *name* property can be used to refer to the extension in the re
 
 The *typeHandlerVersion* specifies the version of the extension you would like to use. Setting *autoUpgradeMinorVersion* minor version to **true** ensures that you get the latest Minor version of the extension that is available. It is highly recommended that you always set *autoUpgradeMinorVersion* to always be **true** so that you always get to use the latest available diagnostics extension with all the new features and bug fixes. 
 
-The *settings* element contains configurations properties for the extension that can be set and read back from the extension (sometimes referred to as public configuration). The *xmlcfg* property contains xml based configuration for the diagnostics logs, performance counters etc that are collected by the diagnostics agent. See [Diagnostics Configuration Schema](../../azure-monitor/platform/diagnostics-extension-schema-windows.md) for more information about the xml schema itself. A common practice is to store the actual xml configuration as a variable in the Azure Resource Manager template and then concatenate and base64 encode them to set the value for *xmlcfg*. See the section on [diagnostics configuration variables](#diagnostics-configuration-variables) to understand more about how to store the xml in variables. The *storageAccount* property specifies the name of the storage account to which diagnostics data is transferred. 
+The *settings* element contains configurations properties for the extension that can be set and read back from the extension (sometimes referred to as public configuration). The *xmlcfg* property contains xml based configuration for the diagnostics logs, performance counters etc that are collected by the diagnostics agent. See [Diagnostics Configuration Schema](../../azure-monitor/agents/diagnostics-extension-schema-windows.md) for more information about the xml schema itself. A common practice is to store the actual xml configuration as a variable in the Azure Resource Manager template and then concatenate and base64 encode them to set the value for *xmlcfg*. See the section on [diagnostics configuration variables](#diagnostics-configuration-variables) to understand more about how to store the xml in variables. The *storageAccount* property specifies the name of the storage account to which diagnostics data is transferred. 
 
 The properties in *protectedSettings* (sometimes referred to as private configuration) can be set but cannot be read back after being set. The write-only nature of *protectedSettings* makes it useful for storing secrets like the storage account key where the diagnostics data is written.    
 
@@ -114,7 +106,7 @@ The preceding diagnostics extension json snippet defines an *accountid* variable
 
 The *xmlcfg* property for the diagnostics extension is defined using multiple variables that are concatenated together. The values of these variables are in xml so they need to be escaped correctly when setting the json variables.
 
-The following example describes the diagnostics configuration xml that collects standard system level performance counters along with some windows event logs and diagnostics infrastructure logs. It has been escaped and formatted correctly so that the configuration can directly be pasted into the variables section of your template. See the [Diagnostics Configuration Schema](../../azure-monitor/platform/diagnostics-extension-schema-windows.md) for a more human readable example of the configuration xml.
+The following example describes the diagnostics configuration xml that collects standard system level performance counters along with some windows event logs and diagnostics infrastructure logs. It has been escaped and formatted correctly so that the configuration can directly be pasted into the variables section of your template. See the [Diagnostics Configuration Schema](../../azure-monitor/agents/diagnostics-extension-schema-windows.md) for a more human readable example of the configuration xml.
 
 ```json
 "wadlogs": "<WadCfg> <DiagnosticMonitorConfiguration overallQuotaInMB=\"4096\" xmlns=\"http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration\"> <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter=\"Error\"/> <WindowsEventLog scheduledTransferPeriod=\"PT1M\" > <DataSource name=\"Application!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"Security!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"System!*[System[(Level = 1 or Level = 2)]]\" /></WindowsEventLog>",
@@ -175,5 +167,5 @@ Each WADMetrics table contains the following columns:
 
 ## Next Steps
 * For a complete sample template of a Windows virtual machine with diagnostics extension, see [201-vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
-* Deploy the Azure Resource Manager template using [Azure PowerShell](../windows/ps-template.md) or [Azure Command Line](../linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* Deploy the Azure Resource Manager template using [Azure PowerShell](../windows/ps-template.md) or [Azure Command Line](../linux/create-ssh-secured-vm-from-template.md)
 * Learn more about [authoring Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md)

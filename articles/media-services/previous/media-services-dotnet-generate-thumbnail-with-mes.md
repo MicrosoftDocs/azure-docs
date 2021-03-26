@@ -3,20 +3,18 @@ title: How to generate thumbnails using Media Encoder Standard with .NET
 description: This topic shows how to use .NET to encode an asset and generate thumbnails at the same time using Media Encoder Standard.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: b8dab73a-1d91-4b6d-9741-a92ad39fc3f7
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-
 ---
 # How to generate thumbnails using Media Encoder Standard with .NET
 
@@ -27,7 +25,7 @@ You can use Media Encoder Standard to generate one or more thumbnails from your 
 For more details on the elements that are used in sample presets, you should review [Media Encoder Standard schema](media-services-mes-schema.md).
 
 Make sure to review the [Considerations](media-services-dotnet-generate-thumbnail-with-mes.md#considerations) section.
-	
+    
 ## Example of a "single PNG file" preset
 
 The following JSON and XML preset can be used to produce a single output PNG file from the first few seconds of the input video, where the encoder makes a best-effort attempt at finding an “interesting” frame. Note that the output image dimensions have been set to 100%, meaning these match the dimensions of the input video. Note also how the “Format” setting in "Outputs" is required to match the use of "PngLayers" in the “Codecs” section. 
@@ -35,53 +33,53 @@ The following JSON and XML preset can be used to produce a single output PNG fil
 ### JSON preset
 
 ```json
-	{
-	  "Version": 1.0,
-	  "Codecs": [
-	    {
-	      "PngLayers": [
-	        {
-	          "Type": "PngLayer",
-	          "Width": "100%",
-	          "Height": "100%"
-	        }
-	      ],
-	      "Start": "{Best}",
-	      "Type": "PngImage"
-	    }
-	  ],
-	  "Outputs": [
-	    {
-	      "FileName": "{Basename}_{Index}{Extension}",
-	      "Format": {
-	        "Type": "PngFormat"
-	      }
-	    }
-	  ]
-	}
+    {
+      "Version": 1.0,
+      "Codecs": [
+        {
+          "PngLayers": [
+            {
+              "Type": "PngLayer",
+              "Width": "100%",
+              "Height": "100%"
+            }
+          ],
+          "Start": "{Best}",
+          "Type": "PngImage"
+        }
+      ],
+      "Outputs": [
+        {
+          "FileName": "{Basename}_{Index}{Extension}",
+          "Format": {
+            "Type": "PngFormat"
+          }
+        }
+      ]
+    }
 ```
-	
+    
 ### XML preset
 
 ```xml
-	<?xml version="1.0" encoding="utf-16"?>
-	<Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
-	  <Encoding>
-	    <PngImage Start="{Best}">
-	      <PngLayers>
-	        <PngLayer>
-	          <Width>100%</Width>
-	          <Height>100%</Height>
-	        </PngLayer>
-	      </PngLayers>
-	    </PngImage>
-	  </Encoding>
-	  <Outputs>
-	    <Output FileName="{Basename}_{Index}{Extension}">
-	      <PngFormat />
-	    </Output>
-	  </Outputs>
-	</Preset>
+    <?xml version="1.0" encoding="utf-16"?>
+    <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
+      <Encoding>
+        <PngImage Start="{Best}">
+          <PngLayers>
+            <PngLayer>
+              <Width>100%</Width>
+              <Height>100%</Height>
+            </PngLayer>
+          </PngLayers>
+        </PngImage>
+      </Encoding>
+      <Outputs>
+        <Output FileName="{Basename}_{Index}{Extension}">
+          <PngFormat />
+        </Output>
+      </Outputs>
+    </Preset>
 ```
 
 ## Example of a "series of JPEG images" preset
@@ -91,57 +89,57 @@ The following JSON and XML preset can be used to produce a set of 10 images at t
 ### JSON preset
 
 ```json
-	{
-	  "Version": 1.0,
-	  "Codecs": [
-	    {
-	      "JpgLayers": [
-	        {
-	          "Quality": 90,
-	          "Type": "JpgLayer",
-	          "Width": "25%",
-	          "Height": "25%"
-	        }
-	      ],
-	      "Start": "5%",
-	      "Step": "10%",
-	      "Range": "96%",
-	      "Type": "JpgImage"
-	    }
-	  ],
-	  "Outputs": [
-	    {
-	      "FileName": "{Basename}_{Index}{Extension}",
-	      "Format": {
-	        "Type": "JpgFormat"
-	      }
-	    }
-	  ]
-	}
+    {
+      "Version": 1.0,
+      "Codecs": [
+        {
+          "JpgLayers": [
+            {
+              "Quality": 90,
+              "Type": "JpgLayer",
+              "Width": "25%",
+              "Height": "25%"
+            }
+          ],
+          "Start": "5%",
+          "Step": "10%",
+          "Range": "96%",
+          "Type": "JpgImage"
+        }
+      ],
+      "Outputs": [
+        {
+          "FileName": "{Basename}_{Index}{Extension}",
+          "Format": {
+            "Type": "JpgFormat"
+          }
+        }
+      ]
+    }
 ```
 
 ### XML preset
-	
+    
 ```xml
-	<?xml version="1.0" encoding="utf-16"?>
-	<Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
-	  <Encoding>
-	    <JpgImage Start="5%" Step="10%" Range="96%">
-	      <JpgLayers>
-	        <JpgLayer>
-	          <Width>25%</Width>
-	          <Height>25%</Height>
-	          <Quality>90</Quality>
-	        </JpgLayer>
-	      </JpgLayers>
-	    </JpgImage>
-	  </Encoding>
-	  <Outputs>
-	    <Output FileName="{Basename}_{Index}{Extension}">
-	      <JpgFormat />
-	    </Output>
-	  </Outputs>
-	</Preset>
+    <?xml version="1.0" encoding="utf-16"?>
+    <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
+      <Encoding>
+        <JpgImage Start="5%" Step="10%" Range="96%">
+          <JpgLayers>
+            <JpgLayer>
+              <Width>25%</Width>
+              <Height>25%</Height>
+              <Quality>90</Quality>
+            </JpgLayer>
+          </JpgLayers>
+        </JpgImage>
+      </Encoding>
+      <Outputs>
+        <Output FileName="{Basename}_{Index}{Extension}">
+          <JpgFormat />
+        </Output>
+      </Outputs>
+    </Preset>
 ```
 
 ## Example of a "one image at a specific timestamp" preset
@@ -151,56 +149,56 @@ The following JSON and XML preset can be used to produce a single JPEG image at 
 ### JSON preset
 
 ```json
-	{
-	  "Version": 1.0,
-	  "Codecs": [
-	    {
-	      "JpgLayers": [
-	        {
-	          "Quality": 90,
-	          "Type": "JpgLayer",
-	          "Width": "25%",
-	          "Height": "25%"
-	        }
-	      ],
-	      "Start": "00:00:30",
-	      "Step": "1",
-	      "Range": "1",
-	      "Type": "JpgImage"
-	    }
-	  ],
-	  "Outputs": [
-	    {
-	      "FileName": "{Basename}_{Index}{Extension}",
-	      "Format": {
-	        "Type": "JpgFormat"
-	      }
-	    }
-	  ]
-	}
+    {
+      "Version": 1.0,
+      "Codecs": [
+        {
+          "JpgLayers": [
+            {
+              "Quality": 90,
+              "Type": "JpgLayer",
+              "Width": "25%",
+              "Height": "25%"
+            }
+          ],
+          "Start": "00:00:30",
+          "Step": "1",
+          "Range": "1",
+          "Type": "JpgImage"
+        }
+      ],
+      "Outputs": [
+        {
+          "FileName": "{Basename}_{Index}{Extension}",
+          "Format": {
+            "Type": "JpgFormat"
+          }
+        }
+      ]
+    }
 ```
 
 ### XML preset
 ```xml
-	<?xml version="1.0" encoding="utf-16"?>
-	<Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
-	  <Encoding>
-	    <JpgImage Start="00:00:30" Step="00:00:01" Range="00:00:01">
-	      <JpgLayers>
-	        <JpgLayer>
-	          <Width>25%</Width>
-	          <Height>25%</Height>
-	          <Quality>90</Quality>
-	        </JpgLayer>
-	      </JpgLayers>
-	    </JpgImage>
-	  </Encoding>
-	  <Outputs>
-	    <Output FileName="{Basename}_{Index}{Extension}">
-	      <JpgFormat />
-	    </Output>
-	  </Outputs>
-	</Preset>
+    <?xml version="1.0" encoding="utf-16"?>
+    <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
+      <Encoding>
+        <JpgImage Start="00:00:30" Step="00:00:01" Range="00:00:01">
+          <JpgLayers>
+            <JpgLayer>
+              <Width>25%</Width>
+              <Height>25%</Height>
+              <Quality>90</Quality>
+            </JpgLayer>
+          </JpgLayers>
+        </JpgImage>
+      </Encoding>
+      <Outputs>
+        <Output FileName="{Basename}_{Index}{Extension}">
+          <JpgFormat />
+        </Output>
+      </Outputs>
+    </Preset>
 ```
 
 ## Example of a "thumbnails at different resolutions" preset
@@ -212,68 +210,68 @@ Note the use of {Resolution} macro in the FileName; it indicates to the encoder 
 ### JSON preset
 
 ```json
-	{
-	  "Version": 1.0,
-	  "Codecs": [
-	    {
-	      "JpgLayers": [
-		{
-		  "Quality": 90,
-		  "Type": "JpgLayer",
-		  "Width": "100%",
-		  "Height": "100%"
-		},
-		{
-		  "Quality": 90,
-		  "Type": "JpgLayer",
-		  "Width": "50%",
-		  "Height": "50%"
-		}
+    {
+      "Version": 1.0,
+      "Codecs": [
+        {
+          "JpgLayers": [
+        {
+          "Quality": 90,
+          "Type": "JpgLayer",
+          "Width": "100%",
+          "Height": "100%"
+        },
+        {
+          "Quality": 90,
+          "Type": "JpgLayer",
+          "Width": "50%",
+          "Height": "50%"
+        }
 
-	      ],
-	      "Start": "5%",
-	      "Step": "10%",
-	      "Range": "96%",
-	      "Type": "JpgImage"
-	    }
-	  ],
-	  "Outputs": [
-	    {
-	      "FileName": "{Basename}_{Resolution}_{Index}{Extension}",
-	      "Format": {
-		"Type": "JpgFormat"
-	      }
-	    }
-	  ]
-	}
+          ],
+          "Start": "5%",
+          "Step": "10%",
+          "Range": "96%",
+          "Type": "JpgImage"
+        }
+      ],
+      "Outputs": [
+        {
+          "FileName": "{Basename}_{Resolution}_{Index}{Extension}",
+          "Format": {
+        "Type": "JpgFormat"
+          }
+        }
+      ]
+    }
 ```
 
 ### XML preset
 ```xml
-	<?xml version="1.0" encoding="utf-8"?>
-	<Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
-	<Encoding>
-	<JpgImage Start="5%" Step="10%" Range="96%"><JpgImage Start="00:00:01" Step="00:00:15">
-	  <JpgLayers>
-	   <JpgLayer>
-	    <Width>100%</Width>
-	    <Height>100%</Height>
-	    <Quality>90</Quality>
-	   </JpgLayer>
-	   <JpgLayer>
-	    <Width>50%</Width>
-	    <Height>50%</Height>
-	    <Quality>90</Quality>
-	   </JpgLayer>
-	  </JpgLayers>
-	</JpgImage>
-	</Encoding>
-	<Outputs>
-	  <Output FileName="{Basename}_{Resolution}_{Index}{Extension}">
-	    <JpgFormat/>
-	  </Output>
-	</Outputs>
-	</Preset>
+    <?xml version="1.0" encoding="utf-8"?>
+    <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
+    <Encoding>
+    <JpgImage Start="5%" Step="10%" Range="96%"><JpgImage Start="00:00:01" Step="00:00:15">
+      <JpgLayers>
+       <JpgLayer>
+        <Width>100%</Width>
+        <Height>100%</Height>
+        <Quality>90</Quality>
+       </JpgLayer>
+       <JpgLayer>
+        <Width>50%</Width>
+        <Height>50%</Height>
+        <Quality>90</Quality>
+       </JpgLayer>
+      </JpgLayers>
+    </JpgImage>
+    </Encoding>
+    <Outputs>
+      <Output FileName="{Basename}_{Resolution}_{Index}{Extension}">
+        <JpgFormat/>
+      </Output>
+    </Outputs>
+    </Preset>
 ```
 
 ## Example of generating a thumbnail while encoding
@@ -284,120 +282,120 @@ While all of the above examples have discussed how you can submit an encoding ta
 For information about schema, see [this](./media-services-mes-schema.md) article.
 
 ```json
-	{
-	  "Version": 1.0,
-	  "Codecs": [
-	    {
-	      "KeyFrameInterval": "00:00:02",
-	      "SceneChangeDetection": "true",
-	      "H264Layers": [
-	        {
-	          "Profile": "Auto",
-	          "Level": "auto",
-	          "Bitrate": 4500,
-	          "MaxBitrate": 4500,
-	          "BufferWindow": "00:00:05",
-	          "Width": 1280,
-	          "Height": 720,
-	          "ReferenceFrames": 3,
-	          "EntropyMode": "Cabac",
-	          "AdaptiveBFrame": true,
-	          "Type": "H264Layer",
-	          "FrameRate": "0/1"
-	
-	        }
-	      ],
-	      "Type": "H264Video"
-	    },
-	    {
-	      "JpgLayers": [
-	        {
-	          "Quality": 90,
-	          "Type": "JpgLayer",
-	          "Width": "100%",
-	          "Height": "100%"
-	        }
-	      ],
-	      "Start": "{Best}",
-	      "Type": "JpgImage"
-	    },
-	    {
-	      "Channels": 2,
-	      "SamplingRate": 48000,
-	      "Bitrate": 128,
-	      "Type": "AACAudio"
-	    }
-	  ],
-	  "Outputs": [
-	    {
-	      "FileName": "{Basename}_{Index}{Extension}",
-	      "Format": {
-	        "Type": "JpgFormat"
-	      }
-	    },
-	    {
-	      "FileName": "{Basename}_{Resolution}_{VideoBitrate}.mp4",
-	      "Format": {
-	        "Type": "MP4Format"
-	      }
-	    }
-	  ]
-	}
+    {
+      "Version": 1.0,
+      "Codecs": [
+        {
+          "KeyFrameInterval": "00:00:02",
+          "SceneChangeDetection": "true",
+          "H264Layers": [
+            {
+              "Profile": "Auto",
+              "Level": "auto",
+              "Bitrate": 4500,
+              "MaxBitrate": 4500,
+              "BufferWindow": "00:00:05",
+              "Width": 1280,
+              "Height": 720,
+              "ReferenceFrames": 3,
+              "EntropyMode": "Cabac",
+              "AdaptiveBFrame": true,
+              "Type": "H264Layer",
+              "FrameRate": "0/1"
+    
+            }
+          ],
+          "Type": "H264Video"
+        },
+        {
+          "JpgLayers": [
+            {
+              "Quality": 90,
+              "Type": "JpgLayer",
+              "Width": "100%",
+              "Height": "100%"
+            }
+          ],
+          "Start": "{Best}",
+          "Type": "JpgImage"
+        },
+        {
+          "Channels": 2,
+          "SamplingRate": 48000,
+          "Bitrate": 128,
+          "Type": "AACAudio"
+        }
+      ],
+      "Outputs": [
+        {
+          "FileName": "{Basename}_{Index}{Extension}",
+          "Format": {
+            "Type": "JpgFormat"
+          }
+        },
+        {
+          "FileName": "{Basename}_{Resolution}_{VideoBitrate}.mp4",
+          "Format": {
+            "Type": "MP4Format"
+          }
+        }
+      ]
+    }
 ```
 
 ### <a id="xml"></a>XML preset
 For information about schema, see [this](./media-services-mes-schema.md) article.
 
-```csharp
-	<?xml version="1.0" encoding="utf-16"?>
-	<Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
-	  <Encoding>
-	    <H264Video>
-	      <KeyFrameInterval>00:00:02</KeyFrameInterval>
-	      <SceneChangeDetection>true</SceneChangeDetection>
-	      <H264Layers>
-	        <H264Layer>
-	          <Bitrate>4500</Bitrate>
-	          <Width>1280</Width>
-	          <Height>720</Height>
-	          <FrameRate>0/1</FrameRate>
-	          <Profile>Auto</Profile>
-	          <Level>auto</Level>
-	          <BFrames>3</BFrames>
-	          <ReferenceFrames>3</ReferenceFrames>
-	          <Slices>0</Slices>
-	          <AdaptiveBFrame>true</AdaptiveBFrame>
-	          <EntropyMode>Cabac</EntropyMode>
-	          <BufferWindow>00:00:05</BufferWindow>
-	          <MaxBitrate>4500</MaxBitrate>
-	        </H264Layer>
-	      </H264Layers>
-	    </H264Video>
-	    <AACAudio>
-	      <Profile>AACLC</Profile>
-	      <Channels>2</Channels>
-	      <SamplingRate>48000</SamplingRate>
-	      <Bitrate>128</Bitrate>
-	    </AACAudio>
-	    <JpgImage Start="{Best}">
-	      <JpgLayers>
-	        <JpgLayer>
-	          <Width>100%</Width>
-	          <Height>100%/Height>
-	          <Quality>90</Quality>
-	        </JpgLayer>
-	      </JpgLayers>
-	    </JpgImage>
-	  </Encoding>
-	  <Outputs>
-	    <Output FileName="{Basename}_{Resolution}_{VideoBitrate}.mp4">
-	      <MP4Format />
-	    </Output>
-	    <Output FileName="{Basename}_{Index}{Extension}">
-	      <JpgFormat />
-	    </Output>
-	  </Outputs>
-	</Preset>	
+```xml
+    <?xml version="1.0" encoding="utf-16"?>
+    <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
+      <Encoding>
+        <H264Video>
+          <KeyFrameInterval>00:00:02</KeyFrameInterval>
+          <SceneChangeDetection>true</SceneChangeDetection>
+          <H264Layers>
+            <H264Layer>
+              <Bitrate>4500</Bitrate>
+              <Width>1280</Width>
+              <Height>720</Height>
+              <FrameRate>0/1</FrameRate>
+              <Profile>Auto</Profile>
+              <Level>auto</Level>
+              <BFrames>3</BFrames>
+              <ReferenceFrames>3</ReferenceFrames>
+              <Slices>0</Slices>
+              <AdaptiveBFrame>true</AdaptiveBFrame>
+              <EntropyMode>Cabac</EntropyMode>
+              <BufferWindow>00:00:05</BufferWindow>
+              <MaxBitrate>4500</MaxBitrate>
+            </H264Layer>
+          </H264Layers>
+        </H264Video>
+        <AACAudio>
+          <Profile>AACLC</Profile>
+          <Channels>2</Channels>
+          <SamplingRate>48000</SamplingRate>
+          <Bitrate>128</Bitrate>
+        </AACAudio>
+        <JpgImage Start="{Best}">
+          <JpgLayers>
+            <JpgLayer>
+              <Width>100%</Width>
+              <Height>100%/Height>
+              <Quality>90</Quality>
+            </JpgLayer>
+          </JpgLayers>
+        </JpgImage>
+      </Encoding>
+      <Outputs>
+        <Output FileName="{Basename}_{Resolution}_{VideoBitrate}.mp4">
+          <MP4Format />
+        </Output>
+        <Output FileName="{Basename}_{Index}{Extension}">
+          <JpgFormat />
+        </Output>
+      </Outputs>
+    </Preset>	
 ```
 
 ## <a id="code_sample"></a>Encode video and generate thumbnail with .NET

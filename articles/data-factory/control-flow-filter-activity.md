@@ -1,14 +1,10 @@
 ---
 title: Filter activity in Azure Data Factory 
 description: The Filter activity filters the inputs. 
-services: data-factory
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
-ms.reviewer: maghan
+author: dcstwh
+ms.author: weetok
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/04/2018
 ---
@@ -21,12 +17,12 @@ You can use a Filter activity in a pipeline to apply a filter expression to an i
 
 ```json
 {
-	"name": "MyFilterActivity",
-	"type": "filter",
-	"typeProperties": {
-		"condition": "<condition>",
-		"items": "<input array>"
-	}
+    "name": "MyFilterActivity",
+    "type": "filter",
+    "typeProperties": {
+        "condition": "<condition>",
+        "items": "<input array>"
+    }
 }
 ```
 
@@ -45,65 +41,65 @@ In this example, the pipeline has two activities: **Filter** and **ForEach**. Th
 
 ```json
 {
-	"name": "PipelineName",
-	"properties": {
-		"activities": [{
-				"name": "MyFilterActivity",
-				"type": "filter",
-				"typeProperties": {
-					"condition": "@greater(item(),3)",
-					"items": "@pipeline().parameters.inputs"
-				}
-			},
-			{
-			"name": "MyForEach",
-			"type": "ForEach",
-			"dependsOn": [
-				{
-					"activity": "MyFilterActivity",
-					"dependencyConditions": [
-						"Succeeded"
-					]
-				}
-			],
-			"userProperties": [],
-			"typeProperties": {
-				"items": {
-					"value": "@activity('MyFilterActivity').output.value",
-					"type": "Expression"
-				},
-				"isSequential": "false",
-				"batchCount": 1,
-				"activities": [
-					{
-						"name": "Set Variable1",
-						"type": "SetVariable",
-						"dependsOn": [],
-						"userProperties": [],
-						"typeProperties": {
-							"variableName": "test",
-							"value": {
-								"value": "@string(item())",
-								"type": "Expression"
-							}
-						}
-					}
-				]
-			}
-		}],
-		"parameters": {
-			"inputs": {
-				"type": "Array",
-				"defaultValue": [1, 2, 3, 4, 5, 6]
-			}
-		},
+    "name": "PipelineName",
+    "properties": {
+        "activities": [{
+                "name": "MyFilterActivity",
+                "type": "filter",
+                "typeProperties": {
+                    "condition": "@greater(item(),3)",
+                    "items": "@pipeline().parameters.inputs"
+                }
+            },
+            {
+            "name": "MyForEach",
+            "type": "ForEach",
+            "dependsOn": [
+                {
+                    "activity": "MyFilterActivity",
+                    "dependencyConditions": [
+                        "Succeeded"
+                    ]
+                }
+            ],
+            "userProperties": [],
+            "typeProperties": {
+                "items": {
+                    "value": "@activity('MyFilterActivity').output.value",
+                    "type": "Expression"
+                },
+                "isSequential": "false",
+                "batchCount": 1,
+                "activities": [
+                    {
+                        "name": "Set Variable1",
+                        "type": "SetVariable",
+                        "dependsOn": [],
+                        "userProperties": [],
+                        "typeProperties": {
+                            "variableName": "test",
+                            "value": {
+                                "value": "@string(item())",
+                                "type": "Expression"
+                            }
+                        }
+                    }
+                ]
+            }
+        }],
+        "parameters": {
+            "inputs": {
+                "type": "Array",
+                "defaultValue": [1, 2, 3, 4, 5, 6]
+            }
+        },
         "variables": {
             "test": {
                 "type": "String"
             }
         },
         "annotations": []
-	}
+    }
 }
 ```
 

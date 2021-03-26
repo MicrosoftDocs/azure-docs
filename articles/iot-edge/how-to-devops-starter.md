@@ -1,7 +1,7 @@
 ---
 title: CI/CD pipeline with Azure DevOps Starter - Azure IoT Edge | Microsoft Docs
 description: Azure DevOps Starter makes it easy to get started on Azure. It helps you launch an Azure IoT Edge app of your choice in few quick steps.
-author: shizn
+author: kgremban
 ms.author: kgremban
 ms.date: 08/25/2020
 ms.topic: conceptual
@@ -10,6 +10,8 @@ services: iot-edge
 ---
 
 # Create a CI/CD pipeline for IoT Edge with Azure DevOps Starter
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Configure continuous integration (CI) and continuous delivery (CD) for your IoT Edge application with DevOps Projects. DevOps Starter simplifies the initial configuration of a build and release pipeline in Azure Pipelines.
 
@@ -24,6 +26,16 @@ DevOps Starter creates a CI/CD pipeline in Azure DevOps. You can create a new Az
 1. In the left pane, select **Create a resource**, and then search for **DevOps Starter**.  
 
 1. Select **Create**.
+
+1. By default, the DevOps Starter is set up with GitHub. To utilize the features in this how-to, switch the DevOps Starter to set up using Azure DevOps. Follow the **change settings here** link.
+
+   ![Select change settings here to switch from GitHub to Azure DevOps](./media/how-to-devops-starter/create-with-github-change-settings.png)
+
+1. In the right pane, choose the **Azure DevOps** tile, and select **Done**.
+
+   ![Select Azure DevOps to set up your DevOps Starter](./media/how-to-devops-starter/select-azure-devops.png)
+
+   You should now see that the DevOps Starter is setting up with Azure DevOps.
 
 ## Create a new application pipeline
 
@@ -69,14 +81,14 @@ DevOps Starter created a Git repository for your project in Azure Repos. In this
 
    ![View repository generated in Azure Repos](./media/how-to-devops-starter/view-repositories.png)
 
-> [!NOTE]
-> The following steps walk through using the web browser to make code changes. If you want to clone your repository locally instead, select **Clone** from the top right of the window. Use the provided URL to clone your Git repository in Visual Studio Code or your preferred development tool.
+   > [!NOTE]
+   > The following steps walk through using the web browser to make code changes. If you want to clone your repository locally instead, select **Clone** from the top right of the window. Use the provided URL to clone your Git repository in Visual Studio Code or your preferred development tool.
 
 2. The repository already contains code for a module called **FilterModule** based on the application language that you chose in the creation process. Open the **modules/FilterModule/module.json** file.
 
    ![Open module.json file in Azure Repos](./media/how-to-devops-starter/open-module-json.png)
 
-3. Notice that this file uses [Azure DevOps build variables](/azure/devops/pipelines/build/variables?view=vsts#build-variables) in the **version** parameter. This configuration ensures that a new version of the module will be created every time a new build runs.
+3. Notice that this file uses [Azure DevOps build variables](/azure/devops/pipelines/build/variables#build-variables) in the **version** parameter. This configuration ensures that a new version of the module will be created every time a new build runs.
 
 ## Examine the CI/CD pipeline
 

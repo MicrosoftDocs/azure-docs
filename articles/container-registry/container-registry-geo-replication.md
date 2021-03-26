@@ -12,10 +12,11 @@ Companies that want a local presence, or a hot backup, choose to run services fr
 
 A geo-replicated registry provides the following benefits:
 
-* Single registry/image/tag names can be used across multiple regions
-* Network-close registry access from regional deployments
-* No additional egress fees, as images are pulled from a local, replicated registry in the same region as your container host
+* Single registry, image, and tag names can be used across multiple regions
+* Improve performance and reliability of regional deployments with network-close registry access
+* Reduce data transfer costs by pulling image layers from a local, replicated registry in the same or nearby region as your container host
 * Single management of a registry across multiple regions
+* Registry resilience if a regional outage occurs
 
 > [!NOTE]
 > If you need to maintain copies of container images in more than one Azure container registry, Azure Container Registry also supports [image import](container-registry-import-images.md). For example, in a DevOps workflow, you can import an image from a development registry to a production registry, without needing to use Docker commands.
@@ -50,8 +51,12 @@ Typical challenges of multiple registries include:
 Using the geo-replication feature of Azure Container Registry, these benefits are realized:
 
 * Manage a single registry across all regions: `contoso.azurecr.io`
-* Manage a single configuration of image deployments as all regions used the same image URL: `contoso.azurecr.io/public/products/web:1.2`
-* Push to a single registry, while ACR manages the geo-replication. You can configure regional [webhooks](container-registry-webhook.md) to notify you of events in specific replicas.
+* Manage a single configuration of image deployments as all regions use the same image URL: `contoso.azurecr.io/public/products/web:1.2`
+* Push to a single registry, while ACR manages the geo-replication. ACR only replicates unique layers, reducing data transfer across regions. 
+* Configure regional [webhooks](container-registry-webhook.md) to notify you of events in specific replicas.
+* Provide a highly available registry that is resilient to regional outages.
+
+Azure Container Registry also supports [availability zones](zone-redundancy.md) to create a resilient and high availability Azure container registry within an Azure region. The combination of availability zones for redundancy within a region, and geo-replication across multiple regions, enhances both the reliability and performance of a registry.
 
 ## Configure geo-replication
 

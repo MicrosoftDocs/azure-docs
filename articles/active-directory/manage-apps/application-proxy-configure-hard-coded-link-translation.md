@@ -4,7 +4,7 @@ description: Learn how to redirect hard-coded links for apps published with Azur
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -59,6 +59,9 @@ To use this feature, the user needs to download the extension and be logged in. 
 
 To learn more, including how to configure this option, please see the [MyApps Browser Extension](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension) documentation.
 
+> [!NOTE]
+> The MyApps Browser Extension does not support link translation for wildcard URLs.
+
 ### Option 3: Link Translation Setting 
 
 When link translation is enabled, the Application Proxy service searches through HTML and CSS for published internal links and translates them so that your users get an uninterrupted experience. Using the MyApps Browser Extension is preferred to the Link Translation Setting since it gives a more performant experience to users.
@@ -81,28 +84,28 @@ There are two common types of internal links in on-premises applications:
 - **Relative internal links** that point to a shared resource in a local file structure like `/claims/claims.html`. These links automatically work in apps that are published through Application Proxy, and continue to work with or without link translation. 
 - **Hard-coded internal links** to other on-premises apps like `http://expenses` or published files like `http://expenses/logo.jpg`. The link translation feature works on hard-coded internal links, and changes them to point to the external URLs that remote users need to go through.
 
-The complete list of HTML code tags that Application Proxy supports link translation for include:
-* a
-* audio
-* base
-* button
-* div
-* embed
-* form
-* frame
-* head
-* html
-* iframe
-* img
-* input
-* link
-* menuitem
-* meta
-* object
-* script
-* source
-* track
-* video
+The complete list of attributes in HTML code tags that Application Proxy supports link translation for include:
+* a (href)
+* audio (src)
+* base (href)
+* button (formaction)
+* div (data-background, style, data-src)
+* embed (src)
+* form (action)
+* frame (src)
+* head (profile)
+* html (manifest)
+* iframe (longdesc, src)
+* img (longdesc, src)
+* input (formaction, src, value)
+* link (href)
+* menuitem (icon)
+* meta (content)
+* object (archive, data, codebase)
+* script (src)
+* source (src)
+* track (src)
+* video (src, poster)
 
 Additionally, within CSS the URL attribute is also translated.
 

@@ -34,9 +34,9 @@ Beginning in November 2019, the Azure AD roles portion of Privileged Identity Ma
 
 Follow the steps in this article to approve or deny requests for Azure AD roles.
 
-# [New version](#tab/new)
+## [New version](#tab/new)
 
-## View pending requests
+### View pending requests
 
 As a delegated approver, you'll receive an email notification when an Azure AD role request is pending your approval. You can view these pending requests in Privileged Identity Management.
 
@@ -50,7 +50,7 @@ As a delegated approver, you'll receive an email notification when an Azure AD r
 
     In the **Requests for role activations** section, you'll see a list of requests pending your approval.
 
-## Approve requests
+### Approve requests
 
 1. Find and select the request that you want to approve. An approve or deny page appears.
 
@@ -62,7 +62,7 @@ As a delegated approver, you'll receive an email notification when an Azure AD r
 
     ![Approve notification showing request was approved](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png))
 
-## Deny requests
+### Deny requests
 
 1. Find and select the request that you want to deny. An approve or deny page appears.
 
@@ -72,7 +72,7 @@ As a delegated approver, you'll receive an email notification when an Azure AD r
 
 1. Select **Deny**. A notification appears with your denial.
 
-## Workflow notifications
+### Workflow notifications
 
 Here's some information about workflow notifications:
 
@@ -84,9 +84,9 @@ Here's some information about workflow notifications:
 >[!NOTE]
 >A Global admin or Privileged role admin who believes that an approved user should not be active can remove the active role assignment in Privileged Identity Management. Although administrators are not notified of pending requests unless they are an approver, they can view and cancel any pending requests for all users by viewing pending requests in Privileged Identity Management.
 
-# [Previous version](#tab/previous)
+## [Previous version](#tab/previous)
 
-## View pending requests
+### View pending requests
 
 As a delegated approver, you'll receive an email notification when an Azure AD role request is pending your approval. You can view these pending requests in Privileged Identity Management.
 
@@ -102,7 +102,7 @@ As a delegated approver, you'll receive an email notification when an Azure AD r
 
     You'll see a list of requests pending your approval.
 
-## Approve requests
+### Approve requests
 
 1. Select the requests you want to approve and then click **Approve** to open the Approve selected requests pane.
 
@@ -118,7 +118,7 @@ As a delegated approver, you'll receive an email notification when an Azure AD r
 
     ![Approve selected requests pane after Approve button clicked](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
 
-## Deny requests
+### Deny requests
 
 1. Select the requests you want to deny and then click **Deny** to open the Deny selected requests pane.
 

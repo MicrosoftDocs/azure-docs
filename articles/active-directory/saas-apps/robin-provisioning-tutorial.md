@@ -84,7 +84,7 @@ Before configuring Robin for automatic user provisioning with Azure AD, you need
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Robin based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Robin , following the instructions provided in the [Robin Single sign-on tutorial](./robin-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
+> You may also choose to enable SAML-based single sign-on for Robin, following the instructions provided in the [Robin Single sign-on tutorial](./robin-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
 
 ### To configure automatic user provisioning for Robin in Azure AD:
 

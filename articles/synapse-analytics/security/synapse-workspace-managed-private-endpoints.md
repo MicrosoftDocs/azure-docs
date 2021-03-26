@@ -5,38 +5,31 @@ author: RonyMSFT
 ms.service: synapse-analytics 
 ms.topic: overview
 ms.subservice: security
-ms.date: 10/16/2020
+ms.date: 01/12/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
 ---
 
-# Synapse Managed private endpoints (preview)
+# Synapse Managed private endpoints
 
 This article will explain Managed private endpoints in Azure Synapse Analytics.
 
 ## Managed private endpoints
 
-Managed private endpoints are private endpoints created in the Managed workspace Microsoft Azure Virtual Network establishing a private link to  Azure resources. Azure Synapse manages these private endpoints on your behalf.
+Managed private endpoints are private endpoints created in a Managed Virtual Network associated with your Azure Synapse workspace. Managed private endpoints establish a private link to Azure resources. Azure Synapse manages these private endpoints on your behalf. You can create Managed private endpoints from your Azure Synapse workspace to access Azure services (such as Azure Storage or Azure Cosmos DB) and Azure hosted customer/partner services.
 
-Azure Synapse supports private links. Private link enables you to access Azure services (such as Azure Storage and Azure Cosmos DB) and Azure hosted customer/partner services from your Azure Virtual Network securely.
+When you use Managed private endpoints, traffic between your Azure Synapse workspace and other Azure resources traverse entirely over the Microsoft backbone network. Managed private endpoints protect against data exfiltration. A Managed private endpoint uses private IP address from your Managed Virtual Network to effectively bring the Azure service that your Azure Synapse workspace is communicating into your Virtual Network. Managed private endpoints are mapped to a specific resource in Azure and not the entire service. Customers can limit connectivity to a specific resource approved by their organization. 
 
-When you use a private link, traffic between your Virtual Network and workspace traverses entirely over the Microsoft backbone network. Private Link protects against data exfiltration risks. You establish a private link to a resource by creating a private endpoint.
-
-Private endpoint uses a private IP address from your Virtual Network to effectively bring the service into your Virtual Network. Private endpoints are mapped to a specific resource in Azure and not the entire service. Customers can limit connectivity to a specific resource approved by their organization. 
-
-Learn more about [private links and private endpoints](https://docs.microsoft.com/azure/private-link/).
+Learn more about [private links and private endpoints](../../private-link/index.yml).
 
 >[!IMPORTANT]
 >Managed private endpoints are only supported in Azure Synapse workspaces with a Managed workspace Virtual Network.
 
 >[!NOTE]
->All outbound traffic from the Managed workspace Virtual Network except through Managed private endpoints will be blocked in the future. It's recommended that you create Managed private endpoints to connect to all your Azure data sources external to the workspace. 
+>When creating an Azure Synapse workspace, you can choose to associate a Managed Virtual Network to it. If you choose to have a Managed Virtual Network associated to your workspace, you can also choose to limit outbound traffic from your workspace to only approved targets. You must create Managed private endpoints to these targets. 
 
-A private endpoint connection is created in a "Pending" state when you create a Managed private endpoint in Azure Synapse. An approval workflow is started. The private link resource owner is responsible to approve or reject the connection.
 
-If the owner approves the connection, the private link is established. But, if the owner doesn't approve the connection, then the private link won't be established. In either case, the Managed private endpoint will be updated with the status of the connection.
-
-Only a Managed private endpoint in an approved state can send traffic to a given private link resource.
+A private endpoint connection is created in a "Pending" state when you create a Managed private endpoint in Azure Synapse. An approval workflow is started. The private link resource owner is responsible to approve or reject the connection. If the owner approves the connection, the private link is established. But, if the owner doesn't approve the connection, then the private link won't be established. In either case, the Managed private endpoint will be updated with the status of the connection. Only a Managed private endpoint in an approved state can be used to send traffic to the private link resource that is linked to the Managed private endpoint.
 
 ## Managed private endpoints for dedicated SQL pool and serverless SQL pool
 

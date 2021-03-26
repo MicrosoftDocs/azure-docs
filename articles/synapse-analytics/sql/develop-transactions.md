@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
-ms.reviewer: igorstan
+ms.reviewer: igorstan 
 ---
 
 # Use transactions with dedicated SQL pool in Azure Synapse Analytics
@@ -22,9 +22,9 @@ As you would expect, dedicated SQL pool supports transactions as part of the dat
 
 ## Transaction isolation levels
 
-SQL pool implements ACID transactions. The isolation level of the transactional support is default to READ UNCOMMITTED.  You can change it to READ COMMITTED SNAPSHOT ISOLATION by turning ON the READ_COMMITTED_SNAPSHOT database option for a user database when connected to the master database.  
+Dedicated SQL pool implements ACID transactions. The isolation level of the transactional support is default to READ UNCOMMITTED.  You can change it to READ COMMITTED SNAPSHOT ISOLATION by turning ON the READ_COMMITTED_SNAPSHOT database option for a user database when connected to the master database.  
 
-Once enabled, all transactions in this database are executed under READ COMMITTED SNAPSHOT ISOLATION and setting READ UNCOMMITTED on session level will not be honored. Check [ALTER DATABASE SET options (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest&preserve-view=true) for details.
+Once enabled, all transactions in this database are executed under READ COMMITTED SNAPSHOT ISOLATION and setting READ UNCOMMITTED on session level will not be honored. Check [ALTER DATABASE SET options (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?preserve-view=true&view=azure-sqldw-latest) for details.
 
 ## Transaction size
 A single data modification transaction is limited in size. The limit is applied per distribution. As such, the total allocation can be calculated by multiplying the limit by the distribution count. 
@@ -84,7 +84,7 @@ To optimize and minimize the amount of data written to the log, refer to the [Tr
 
 ## Transaction state
 
-SQL pool uses the XACT_STATE() function to report a failed transaction using the value -2. This value means the transaction has failed and is marked for rollback only.
+Dedicated SQL pool uses the XACT_STATE() function to report a failed transaction using the value -2. This value means the transaction has failed and is marked for rollback only.
 
 > [!NOTE]
 > The use of -2 by the XACT_STATE function to denote a failed transaction represents different behavior to SQL Server. SQL Server uses the value -1 to represent an uncommittable transaction. SQL Server can tolerate some errors inside a transaction without it having to be marked as uncommittable. For example `SELECT 1/0` would cause an error but not force a transaction into an uncommittable state. SQL Server also permits reads in the uncommittable transaction. However, dedicated SQL pool does not let you do this. If an error occurs inside a dedicated SQL pool transaction it will automatically enter the -2 state and you will not be able to make any further select statements until the statement has been rolled back. It is therefore important to check that your application code to see if it uses  XACT_STATE() as you may need to make code modifications.
@@ -189,7 +189,7 @@ THROW is the more modern implementation for raising exceptions in dedicated SQL 
 
 ## Limitations
 
-SQL pool does have a few other restrictions that relate to transactions. They are as follows:
+Dedicated SQL pool does have a few other restrictions that relate to transactions. They are as follows:
 
 * No distributed transactions
 * No nested transactions permitted
@@ -200,4 +200,4 @@ SQL pool does have a few other restrictions that relate to transactions. They ar
 
 ## Next steps
 
-To learn more about optimizing transactions, see [Transactions best practices](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Additional best practices guides are also provided for [SQL pool](best-practices-sql-pool.md) and [serverless SQL pool (preview)](best-practices-sql-on-demand.md).
+To learn more about optimizing transactions, see [Transactions best practices](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Additional best practices guides are also provided for [Dedicated SQL pool](best-practices-dedicated-sql-pool.md) and [serverless SQL pool](best-practices-serverless-sql-pool.md).

@@ -12,65 +12,31 @@
   - name: Set up your environment
     href: set-up-environment.md
   - name: Connect a device to IoT Hub
-    items:
-      - name: C
-        href: quickstart-connect-device-c.md
-      - name: Node.js
-        href: quickstart-connect-device-node.md
-      - name: Python
-        href: quickstart-connect-device-python.md
-      - name: C#
-        href: quickstart-connect-device-csharp.md
-      - name: Java
-        href: quickstart-connect-device-java.md
+    href: quickstart-connect-device.md
   - name: Interact with a device from your solution
-    items:
-      - name: Node.js
-        href: quickstart-service-node.md
-      - name: Python
-        href: quickstart-service-python.md
-      - name: C#
-        href: quickstart-service-csharp.md
-      - name: Java
-        href: quickstart-service-java.md
+    href: quickstart-service.md
 - name: Tutorials
   items:
-  - name: Connect a multiple component device (C)
-    href: tutorial-multiple-components-c.md
-  - name: Connect a multiple component device (C#)
-    href: tutorial-multiple-components-csharp.md
-  - name: Connect a multiple component device (Java)
-    href: tutorial-multiple-components-java.md
-  - name: Connect a multiple component device (Node.js)
-    href: tutorial-multiple-components-node.md
-  - name: Connect a multiple component device (Python)
-    href: tutorial-multiple-components-python.md
+  - name: Connect a multiple component device
+    href: tutorial-multiple-components.md
   - name: Use MQTT to connect a device
     href: tutorial-use-mqtt.md
   - name: Interact with an MXChip device (Sample)
     href: /samples/azure-samples/mxchip-iot-devkit-pnp-get-started/sample/
   - name: Connect a device module
     href: tutorial-migrate-device-to-module.md
+  - name: Preview - Connect and analyze data with Time Series Insights Gen2
+    href: tutorial-configure-tsi.md
 - name: Concepts
   items:
   - name: Architecture
     href: concepts-architecture.md
   - name: Device developer guide
-    items:
-    - name: C#
-      href: concepts-developer-guide-device-csharp.md
-    - name: Node.js
-      href: concepts-developer-guide-device-node.md
-    - name: Java
-      href: concepts-developer-guide-device-java.md
-    - name: Python
-      href: concepts-developer-guide-device-python.md
-    - name: C
-      href: concepts-developer-guide-device-c.md
+    href: concepts-developer-guide-device.md
   - name: Service developer guide
     href: concepts-developer-guide-service.md
-  - name: Components
-    href: concepts-components.md
+  - name: Modeling guide
+    href: concepts-modeling-guide.md
   - name: IoT Plug and Play conventions
     href: concepts-convention.md
   - name: IoT Plug and Play bridge
@@ -85,14 +51,10 @@
     href: concepts-model-discovery.md
   - name: Model parser
     href: concepts-model-parser.md
-  - name: Glossary
-    href: iot-plug-and-play-glossary.md
 - name: How-to guides
   items:
   - name: Install and use IoT explorer
     href: howto-use-iot-explorer.md
-  - name: Install and use IoT Plug and Play bridge
-    href: howto-use-iot-pnp-bridge.md
   - name: Install and use DTDL authoring tools
     href: howto-use-dtdl-authoring-tools.md
   - name: Use embedded C
@@ -101,6 +63,12 @@
     href: howto-manage-digital-twin.md
   - name: Certify a device
     href: howto-certify-device.md
+  - name: How to connect an IoT Plug and Play bridge sample
+    href: howto-use-iot-pnp-bridge.md
+  - name: Build and deploy IoT Plug and Play bridge
+    href: howto-build-deploy-extend-pnp-bridge.md
+  - name: Extend IoT Plug and Play bridge
+    href: howto-author-pnp-bridge-adapter.md
 - name: Reference
   items:
   - name: Libraries and SDKs
@@ -112,7 +80,9 @@
 - name: Resources
   items:
   - name: Support and help options
-    href: ../iot-fundamentals/iot-support-help.md
+    href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-pnp/toc.json&bc=/azure/iot-pnp/breadcrumb/toc.json
+  - name: IoT Glossary
+    href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-pnp/toc.json&bc=/azure/iot-pnp/breadcrumb/toc.json
   - name: Azure IoT services
     items:
     - name: IoT Hub

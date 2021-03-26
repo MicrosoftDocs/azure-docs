@@ -8,7 +8,7 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: duau
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 
 ---
 # ExpressRoute workflows for circuit provisioning and circuit states
@@ -73,8 +73,12 @@ Configure routing domains. If your connectivity provider manages Layer 3 configu
 
 Enable private peering to connect to VMs and cloud services deployed within the Azure virtual network.
 
-* Peering subnet for path 1 (/30)
-* Peering subnet for path 2 (/30)
+* IPv4 subnets:
+    * Peering subnet for path 1 (/30)
+    * Peering subnet for path 2 (/30)
+* IPv6 subnets (optional):
+    * Peering subnet for path 1 (/126)
+    * Peering subnet for path 2 (/126)
 * VLAN ID for peering
 * ASN for peering
 * ExpressRoute ASN = 12076
@@ -84,8 +88,12 @@ Enable private peering to connect to VMs and cloud services deployed within the 
 
 Enable this to access Microsoft online services, such as Microsoft 365. Additionally, all Azure PaaS services are accessible through Microsoft peering. You must ensure that you use a separate proxy/edge to connect to Microsoft than the one you use for the Internet. Using the same edge for both ExpressRoute and the Internet will cause asymmetric routing and cause connectivity outages for your network.
 
-* Peering subnet for path 1 (/30) - must be public IP
-* Peering subnet for path 2 (/30) - must be public IP
+* IPv4 subnets:
+    * Peering subnet for path 1 (/30) - must be public IP
+    * Peering subnet for path 2 (/30) - must be public IP
+* IPv6 subnets (optional):
+    * Peering subnet for path 1 (/126) - must be public IP
+    * Peering subnet for path 2 (/126) - must be public IP
 * VLAN ID for peering
 * ASN for peering
 * Advertised prefixes - must be public IP prefixes
@@ -156,7 +164,7 @@ You can choose to re-enable it if needed, or run PowerShell cmdlets to delete th
 
 ## Routing session configuration state
 
-The BGP provisioning state reports if the BGP session has been enabled on the Microsoft edge. The state must be enabled to use private or Microsoft peering.
+The BGP provisioning state reports if the BGP session has been enabled on the Microsoft Edge. The state must be enabled to use private or Microsoft peering.
 
 It is important to check the BGP session state especially for Microsoft peering. In addition to the BGP provisioning state, there is another state called *advertised public prefixes state*. The advertised public prefixes state must be in the *configured* state, both for the BGP session to be up and for your routing to work end-to-end. 
 

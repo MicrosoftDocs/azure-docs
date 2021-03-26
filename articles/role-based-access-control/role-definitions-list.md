@@ -347,7 +347,7 @@ To list role definitions, use the [Role Definitions - List](/rest/api/authorizat
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | Resource |
 
-    In the previous example, microsoft.web is a resource provider that refers to an App Service instance. Similarly, you can use any other resource providers and specify the scope. For more information, see [Azure Resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md) and supported [Azure Resource Manager resource provider operations](resource-provider-operations.md).  
+    In the previous example, microsoft.web is a resource provider that refers to an App Service instance. Similarly, you can use any other resource providers and specify the scope. For more information, see [Azure Resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md) and supported [Azure resource provider operations](resource-provider-operations.md).  
      
 1. Replace *{filter}* with the condition that you want to apply to filter the role definition list.
 
@@ -475,4 +475,4 @@ The following shows an example of the output:
 - [Azure built-in roles](built-in-roles.md)
 - [Azure custom roles](custom-roles.md)
 - [List Azure role assignments using the Azure portal](role-assignments-list-portal.md)
-- [Add or remove Azure role assignments using the Azure portal](role-assignments-portal.md)
+- [Assign Azure roles using the Azure portal](role-assignments-portal.md)

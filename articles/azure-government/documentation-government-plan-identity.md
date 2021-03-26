@@ -117,9 +117,9 @@ The following diagram is the simplest of the scenarios to implement.
 <div></div>
 </div>
 
-While using cloud identities is the simplest approach, it is also the least secure because passwords are used as an authentication factor. We recommend [Azure Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md), Microsoft's two-step verification solution, to add a critical second layer of security to secure access to Azure subscriptions when using cloud identities.
+While using cloud identities is the simplest approach, it is also the least secure because passwords are used as an authentication factor. We recommend [Azure AD Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md), Microsoft's two-step verification solution, to add a critical second layer of security to secure access to Azure subscriptions when using cloud identities.
 
-See [How Azure Multi-Factor Authentication works](../active-directory/authentication/concept-mfa-howitworks.md) to learn more about the available methods for two-step verification.
+See [How Azure AD Multi-Factor Authentication works](../active-directory/authentication/concept-mfa-howitworks.md) to learn more about the available methods for two-step verification.
 
 ### Using hybrid and cloud identities for multi-cloud subscription administration
 

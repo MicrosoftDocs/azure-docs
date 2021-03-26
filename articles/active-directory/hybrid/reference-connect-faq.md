@@ -157,8 +157,8 @@ Synced users might be authored or mastered on premises. If the account is enable
 **Q: Why doesn't the userPrincipalName (UPN) attribute in Azure AD match the on-premises UPN?**  
 For information, see these articles:
 
-* [Usernames in Microsoft 365, Azure, or Intune don't match the on-premises UPN or alternate login ID](https://support.microsoft.com/kb/2523192)
-* [Changes aren't synced by the Azure Active Directory sync tool after you change the UPN of a user account to use a different federated domain](https://support.microsoft.com/kb/2669550)
+* [Usernames in Microsoft 365, Azure, or Intune don't match the on-premises UPN or alternate login ID](https://mskb.pkisolutions.com/kb/2523192)
+* [Changes aren't synced by the Azure Active Directory sync tool after you change the UPN of a user account to use a different federated domain](https://mskb.pkisolutions.com/kb/2669550)
 
 You can also configure Azure AD to allow the sync engine to update the UPN, as described in [Azure AD Connect sync service features](how-to-connect-syncservice-features.md).
 
@@ -196,7 +196,7 @@ Depending on the size of the environment, the process can take a couple of hours
 **Q: I received an email telling me that my auto upgrade no longer works and I need to install a new version. Why do I need to do this?**  
 Last year, we released a version of Azure AD Connect that, under certain circumstances, might have disabled the auto-upgrade feature on your server. We have fixed the issue in Azure AD Connect version 1.1.750.0. If you have been affected by the issue, you can mitigate it by running a PowerShell script to repair it or by manually upgrading to the latest version of Azure AD Connect. 
 
-To run the PowerShell script, [download the script](https://aka.ms/repairaadconnect) and run it on your Azure AD Connect server in an administrative PowerShell window. To learn how to run the script, [view this short video](https://aka.ms/repairaadcau).
+To run the PowerShell script, [download the script](/samples/browse/?redirectedfrom=TechNet-Gallery) and run it on your Azure AD Connect server in an administrative PowerShell window. To learn how to run the script, [view this short video](https://aka.ms/repairaadcau).
 
 To manually upgrade, you must download and run the latest version of the AADConnect.msi file.
  
@@ -257,7 +257,7 @@ If you need help upgrading to a newer version of Azure AD Connect, open a suppor
 Below are some best practices you should implement when syncing between Windows Server Active Directory and Azure Active Directory.
 
 **Apply Multi-Factor Authentication for all synced accounts**
-Azure Multi-Factor Authentication helps safeguard access to data and applications while maintaining simplicity for users. It provides additional security by requiring a second form of authentication and delivers strong authentication via a range of easy to use authentication methods. Users may or may not be challenged for MFA based on configuration decisions that an administrator makes. You can read more about MFA here: https://www.microsoft.com/security/business/identity/mfa?rtc=1
+Azure AD Multi-Factor Authentication helps safeguard access to data and applications while maintaining simplicity for users. It provides additional security by requiring a second form of authentication and delivers strong authentication via a range of easy to use authentication methods. Users may or may not be challenged for MFA based on configuration decisions that an administrator makes. You can read more about MFA here: https://www.microsoft.com/security/business/identity/mfa?rtc=1
 
 **Follow the Azure AD Connect server security guidelines**
 The Azure AD Connect server contains critical identity data and should be treated as a Tier 0 component as documented in the [Active Directory administrative tier model](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material). Please also refer to our [guidelines for securing your AADConnect server](./how-to-connect-install-prerequisites.md#azure-ad-connect-server).

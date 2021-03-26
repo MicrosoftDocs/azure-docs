@@ -1,5 +1,5 @@
 ---
-title: Add autocomplete and suggestions in a search box
+title: Add autocomplete to a search box
 titleSuffix: Azure Cognitive Search
 description: Enable search-as-you-type query actions in Azure Cognitive Search by creating suggesters and formulating requests that autocomplete a search box with finished terms or phrases. You can also return suggested matches.
 
@@ -8,17 +8,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 03/24/2021
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
-# Add autocomplete and suggestions to client apps
+# Add autocomplete and suggestions to client apps using Azure Cognitive Search
 
-Search-as-you-type is a common technique for improving the productivity of user-initiated queries. In Azure Cognitive Search, this experience is supported through *autocomplete*, which finishes a term or phrase based on partial input (completing "micro" with "microsoft"). Another form is *suggestions*: a short list of matching documents (returning book titles with an ID so that you can link to a detail page). Both autocomplete and suggestions are predicated on a match in the index. The service won't offer queries that return zero results.
+Search-as-you-type is a common technique for improving query productivity. In Azure Cognitive Search, this experience is supported through *autocomplete*, which finishes a term or phrase based on partial input (completing "micro" with "microsoft"). A second user experience is *suggestions*, or a short list of matching documents (returning book titles with an ID so that you can link to a detail page about that book). Both autocomplete and suggestions are predicated on a match in the index. The service won't offer queries that return zero results.
 
 To implement these experiences in Azure Cognitive Search, you will need:
 
-+ A *suggester* on the back end.
++ A *suggester* definition that's embedded in the index schema.
 + A *query* specifying [Autocomplete](/rest/api/searchservice/autocomplete) or [Suggestions](/rest/api/searchservice/suggestions) API on the request.
 + A *UI control* to handle search-as-you-type interactions in your client app. We recommend using an existing JavaScript library for this purpose.
 
@@ -59,13 +59,16 @@ Follow these links for the REST and .NET SDK reference pages:
 
 Responses for autocomplete and suggestions are what you might expect for the pattern: [Autocomplete](/rest/api/searchservice/autocomplete#response) returns a list of terms, [Suggestions](/rest/api/searchservice/suggestions#response) returns terms plus a document ID so that you can fetch the document (use the [Lookup Document](/rest/api/searchservice/lookup-document) API to fetch the specific document for a detail page).
 
-Responses are shaped by the parameters on the request. For Autocomplete, set [**autocompleteMode**](/rest/api/searchservice/autocomplete#autocomplete-modes) to determine whether text completion occurs on one or two terms. For Suggestions, the field you choose determines the contents of the response.
+Responses are shaped by the parameters on the request:
 
-For suggestions, you should further refine the response to avoid duplicates or what appears to be unrelated results. To control results, include more parameters on the request. The following parameters apply to both autocomplete and suggestions, but are perhaps more necessary for suggestions, especially when a suggester includes multiple fields.
++ For Autocomplete, set the [**autocompleteMode**](/rest/api/searchservice/autocomplete#query-parameters) to determine whether text completion occurs on one or two terms. 
+
++ For Suggestions, set [**$select**](/rest/api/searchservice/suggestionse#query-parameters) to return fields containing unique or differentiating values, such as names and description. Avoid fields that contain duplicate values (such as a category or city).
+
+The following additional parameters apply to both autocomplete and suggestions, but are perhaps more necessary for suggestions, especially when a suggester includes multiple fields.
 
 | Parameter | Usage |
 |-----------|-------|
-| **$select** | If you have multiple **sourceFields** in a suggester, use **$select** to choose which field contributes values (`$select=GameTitle`). |
 | **searchFields** | Constrain the query to specific fields. |
 | **$filter** | Apply match criteria on the result set (`$filter=Category eq 'ActionAdventure'`). |
 | **$top** | Limit the results to a specific number (`$top=5`).|

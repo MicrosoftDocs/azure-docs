@@ -5,13 +5,13 @@ description: Auto-failover groups allow you to manage replication and automatic 
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: high-availability
-ms.custom: sqldbrb=2
+ms.custom: sqldbrb=2, devx-track-azurecli
 ms.devlang: 
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
-ms.date: 11/16/2020
+ms.date: 12/26/2020
 ---
 
 # Use auto-failover groups to enable transparent and coordinated failover of multiple databases
@@ -31,7 +31,7 @@ When you are using auto-failover groups with automatic failover policy, any outa
 - [Azure portal](geo-distributed-application-configure-tutorial.md)
 - [Azure CLI: Failover Group](scripts/add-database-to-failover-group-cli.md)
 - [PowerShell: Failover Group](scripts/add-database-to-failover-group-powershell.md)
-- [REST API: Failover group](/rest/api/sql/failovergroups).
+- [REST API: Failover group](/rest/api/sql/failovergroups)
 
 After failover, ensure the authentication requirements for your database and server, or instance are configured on the new primary. For details, see [SQL Database security after disaster recovery](active-geo-replication-security-configure.md).
 
@@ -110,7 +110,7 @@ To achieve real business continuity, adding database redundancy between datacent
 
   - Perform disaster recovery (DR) drills in production when the data loss is not acceptable
   - Relocate the databases to a different region
-  - Return the databases to the primary region after the outage has been mitigated (failback).
+  - Return the databases to the primary region after the outage has been mitigated (failback)
 
 - **Unplanned failover**
 
@@ -122,7 +122,7 @@ To achieve real business continuity, adding database redundancy between datacent
 
 - **Grace period with data loss**
 
-  Because the primary and secondary databases are synchronized using asynchronous replication, the failover may result in data loss. You can customize the automatic failover policy to reflect your application’s tolerance to data loss. By configuring `GracePeriodWithDataLossHours`, you can control how long the system waits before initiating the failover that is likely to result data loss.
+  Because the primary and secondary databases are synchronized using asynchronous replication, the failover may result in data loss. You can customize the automatic failover policy to reflect your application’s tolerance to data loss. By configuring `GracePeriodWithDataLossHours`, you can control how long the system waits before initiating the failover that is likely to result in data loss.
 
 - **Multiple failover groups**
 
@@ -137,15 +137,15 @@ Permissions for a failover group are managed via [Azure role-based access contro
 
 ### Create failover group
 
-To create a failover group, you need RBAC write access to both the primary and secondary servers, and to all databases in the failover group. For a SQL Managed Instance, you need RBAC write access to both the primary and secondary SQL Managed Instance, but permissions on individual databases are not relevant, because individual SQL Managed Instance databases cannot be added to or removed from a failover group.
+To create a failover group, you need Azure RBAC write access to both the primary and secondary servers, and to all databases in the failover group. For a SQL Managed Instance, you need Azure RBAC write access to both the primary and secondary SQL Managed Instance, but permissions on individual databases are not relevant, because individual SQL Managed Instance databases cannot be added to or removed from a failover group.
 
 ### Update a failover group
 
-To update a failover group, you need RBAC write access to the failover group, and all databases on the current primary server or managed instance.  
+To update a failover group, you need Azure RBAC write access to the failover group, and all databases on the current primary server or managed instance.  
 
 ### Fail over a failover group
 
-To fail over a failover group, you need RBAC write access to the failover group on the new primary server or managed instance.
+To fail over a failover group, you need Azure RBAC write access to the failover group on the new primary server or managed instance.
 
 ## Best practices for SQL Database
 
@@ -171,7 +171,7 @@ When performing OLTP operations, use `<fog-name>.database.windows.net` as the se
 
 ### Using read-only listener for read-only workload
 
-If you have a logically isolated read-only workload that is tolerant to certain staleness of data, you can use the secondary database in the application. For read-only sessions, use `<fog-name>.secondary.database.windows.net` as the server URL and the connection is automatically directed to the secondary. It is also recommended that you indicate in connection string read intent by using `ApplicationIntent=ReadOnly`.
+If you have a logically isolated read-only workload that is tolerant to certain staleness of data, you can use the secondary database in the application. For read-only sessions, use `<fog-name>.secondary.database.windows.net` as the server URL and the connection is automatically directed to the secondary. It is also recommended that you indicate read intent in the connection string by using `ApplicationIntent=ReadOnly`.
 
 ### Preparing for performance degradation
 
@@ -224,7 +224,7 @@ If your application uses SQL Managed Instance as the data tier, follow these gen
 
 ### Creating the secondary instance
 
-To ensure non-interrupted connectivity to the primary SQL Managed Instance after failover both the primary and secondary instances must be in the same DNS zone. It will guarantee that the same multi-domain (SAN) certificate can be used to authenticate the client connections to either of the two instances in the failover group. When your application is ready for production deployment, create a secondary SQL Managed Instance in a different region and make sure it shares the DNS zone with the primary SQL Managed Instance. You can do it by specifying the optional `DNS Zone Partner` parameter using the Azure portal, PowerShell, or the REST API.
+To ensure non-interrupted connectivity to the primary SQL Managed Instance after failover both the primary and secondary instances must be in the same DNS zone. It will guarantee that the same multi-domain (SAN) certificate can be used to authenticate the client connections to either of the two instances in the failover group. When your application is ready for production deployment, create a secondary SQL Managed Instance in a different region and make sure it shares the DNS zone with the primary SQL Managed Instance. You can do it by specifying the optional  parameter during creation. If you are using PowerShell or the REST API, the name of the optional parameter is `DNS Zone Partner`, and the name of the corresponding optional field in the Azure portal is Primary Managed Instance.
 
 > [!IMPORTANT]
 > The first managed instance created in the subnet determines DNS zone for all subsequent instances in the same subnet. This means that two instances from the same subnet cannot belong to different DNS zones.
@@ -405,7 +405,7 @@ Be aware of the following limitations:
 
 ## Programmatically managing failover groups
 
-As discussed previously, auto-failover groups and active geo-replication can also be managed programmatically using Azure PowerShell and the REST API. The following tables describe the set of commands available. Active geo-replication includes a set of Azure Resource Manager APIs for management, including the [Azure SQL Database REST API](/rest/api/sql/) and [Azure PowerShell cmdlets](/powershell/azure/). These APIs require the use of resource groups and support role-based security (RBAC). For more information on how to implement access roles, see [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
+As discussed previously, auto-failover groups and active geo-replication can also be managed programmatically using Azure PowerShell and the REST API. The following tables describe the set of commands available. Active geo-replication includes a set of Azure Resource Manager APIs for management, including the [Azure SQL Database REST API](/rest/api/sql/) and [Azure PowerShell cmdlets](/powershell/azure/). These APIs require the use of resource groups and support Azure role-based access control (Azure RBAC). For more information on how to implement access roles, see [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
 
 ### Manage SQL Database failover
 

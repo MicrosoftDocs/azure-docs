@@ -56,7 +56,7 @@ For the video frames (images), use the following images:
 
 ![Video frame thumbnail 1](images/ams-video-frame-thumbnails-1.PNG) | ![Video frame thumbnail 2](images/ams-video-frame-thumbnails-2.PNG) | ![Video frame thumbnail 3](images/ams-video-frame-thumbnails-3.PNG) |
 | :---: | :---: | :---: |
-[Frame 1](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame1-00-17.PNG) | [Frame 2](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame-2-01-04.PNG) | [Frame 3](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame-3-02-24.PNG) |
+Frame 1 | Frame 2 | Frame 3 |
 
 ## Create your Visual Studio project
 
@@ -547,7 +547,3 @@ Finally, you see the video review in your Content Moderator review tool account 
 ## Next steps
 
 Get the [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) and the [Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET.
-
-Learn how to add [transcript moderation](video-transcript-moderation-review-tutorial-dotnet.md) to the video review. 
-
-Check out the detailed tutorial on how to develop a [complete video moderation solution](video-transcript-moderation-review-tutorial-dotnet.md).

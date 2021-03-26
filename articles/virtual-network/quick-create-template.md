@@ -31,8 +31,8 @@ The template used in this quickstart is from [Azure Quickstart templates](https:
 :::code language="json" source="~/quickstart-templates/101-vnet-two-subnets/azuredeploy.json" range="001-96" highlight="56-92":::
 
 The following Azure resources have been defined in the template:
-- [**Microsoft.Network/virtualNetworks**](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks): create an Azure virtual network.
--  [**Microsoft.Network/virtualNetworks/subnets**](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks/subnets) - create a subnet.
+- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks): create an Azure virtual network.
+-  [**Microsoft.Network/virtualNetworks/subnets**](/azure/templates/microsoft.network/virtualnetworks/subnets) - create a subnet.
 
 ## Deploy the template
 
@@ -51,7 +51,7 @@ Deploy Resource Manager template to Azure:
 
 Explore the resources that were created with the virtual network.
 
-To learn about the JSON syntax and properties for a virtual network in a template, see [Microsoft.Network/virtualNetworks](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
+To learn about the JSON syntax and properties for a virtual network in a template, see [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks).
 
 ## Clean up resources
 

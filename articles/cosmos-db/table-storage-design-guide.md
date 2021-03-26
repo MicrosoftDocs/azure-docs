@@ -637,7 +637,7 @@ For this option, use index entities that store the following data:
 
 :::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE15.png" alt-text="Screenshot that shows the Employee index entity that contains a list of employee IDs for employees with the last name stored in the RowKey and PartitionKey.":::
 
-The `EmployeeIDs` property contains a list of employee IDs for employees with the last name stored in the `RowKey` and `PartitionKey`.  
+The `EmployeeDetails` property contains a list of employee IDs and department name pairs for employees with the last name stored in the `RowKey`.
 
 You can't use EGTs to maintain consistency, because the index entities are in a separate partition from the employee entities. Ensure that the index entities are eventually consistent with the employee entities.  
 
@@ -1114,7 +1114,7 @@ Exceptions thrown when the Storage Client Library runs an EGT typically include 
 You should also consider how your design affects how your client application handles concurrency and update operations.  
 
 #### Managing concurrency
-By default, Table storage implements optimistic concurrency checks at the level of individual entities for insert, merge, and delete operations, although it's possible for a client to force Table storage to bypass these checks. For more information, see [Managing concurrency in Microsoft Azure Storage](../storage/common/storage-concurrency.md).  
+By default, Table storage implements optimistic concurrency checks at the level of individual entities for insert, merge, and delete operations, although it's possible for a client to force Table storage to bypass these checks. For more information, see [Managing concurrency in Microsoft Azure Storage](../storage/blobs/concurrency-manage.md).  
 
 #### Merge or replace
 The `Replace` method of the `TableOperation` class always replaces the complete entity in Table storage. If you don't include a property in the request when that property exists in the stored entity, the request removes that property from the stored entity. Unless you want to remove a property explicitly from a stored entity, you must include every property in the request.  

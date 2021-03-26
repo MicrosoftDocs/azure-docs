@@ -37,7 +37,7 @@ Perform the following steps to create a StorSimple Data Manager service.
 
    2. Choose a **Subscription** from the dropdown list. The subscription is linked to your billing account. This field is automatically populated (and not selectable) if you have only one subscription.
 
-   3. Select an existing resource group or create a new group. For more information, see [Azure resource groups](/azure/azure-resource-manager/management/manage-resource-groups-portal).
+   3. Select an existing resource group or create a new group. For more information, see [Azure resource groups](../azure-resource-manager/management/manage-resource-groups-portal.md).
 
    4. Specify the **Location** for your service that houses your storage accounts and your StorSimple Data Manager service. Your StorSimple Device Manager service, Data Manager service, and the associated storage account should all be in the supported regions.
     

@@ -25,7 +25,7 @@ The information in this guide summarizes these differences. It supplements the i
 Official information might also be available in other locations, such as:
 * [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/ "Microsoft Azure Trust Center") 
 * [Azure blog](https://azure.microsoft.com/blog/ "Azure blog")
-* [Azure Germany blog](https://blogs.msdn.microsoft.com/azuregermany/ "Azure Germany blog")
+* [Azure Germany blog](/archive/blogs/azuregermany/ "Azure Germany blog")
 
 ## Guidance for developers
 Most of the currently available technical content assumes that applications are being developed for global Azure rather than for Azure Germany. For this reason, it's important to be aware of two key differences in applications that you develop for hosting in Azure Germany:
@@ -64,6 +64,5 @@ For more information about Azure Germany, see the following resources:
 * [Acquiring Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)
 * [Sign-in page](https://portal.microsoftazure.de/) if you already have an Azure Germany account
 * [Azure Germany overview](./germany-welcome.md)
-* [Azure Germany blog](https://blogs.msdn.microsoft.com/azuregermany/)
+* [Azure Germany blog](/archive/blogs/azuregermany/)
 * [Azure compliance](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings)
-

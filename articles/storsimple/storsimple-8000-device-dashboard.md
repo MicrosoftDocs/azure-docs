@@ -77,7 +77,7 @@ The essentials area captures some of the important properties such as, the statu
      In this context, *primary storage* refers to the total amount of data written by the host, and can be broken down by volume type: *primary tiered storage* includes both locally stored data and data tiered to the cloud. *Primary locally pinned storage* includes just data stored locally. *Cloud storage*, on the other hand, is a measurement of the total amount of data stored in the cloud. This storage includes tiered data and backups. The data stored in the cloud is deduplicated and compressed, whereas primary storage indicates the amount of storage used before the data is deduplicated and compressed. (You can compare these two numbers to get an idea of the compression rate.) For both primary and cloud storage, the amounts shown are based on the tracking frequency you configure. For example, if you choose a one week frequency, then the chart shows data for each day in the previous week.
 
      To see the amount of cloud storage consumed over time, select the **CLOUD STORAGE USED** option. To see the total storage that has been written by the host, select the **PRIMARY TIERED STORAGE USED** and **PRIMARY LOCALLY PINNED STORAGE USED** options. 
-     For more information, see [Use the StorSimple Device Manager service to monitor your StorSimple device](storsimple-monitor-device.md).
+     For more information, see [Use the StorSimple Device Manager service to monitor your StorSimple device](./storsimple-8000-monitor-device.md).
 
 
 * The **Capacity** tile displays the primary storage that is provisioned and remaining across the device relative to the total storage available for the same. **Provisioned** refers to the amount of storage that is prepared and allocated for use, **Remaining** refers to the remaining capacity that can be provisioned across this device. 
@@ -92,4 +92,3 @@ The essentials area captures some of the important properties such as, the statu
 ## Next steps
 * Learn more about the [StorSimple service summary blade](storsimple-8000-service-dashboard.md).
 * Learn more about [using the StorSimple Device Manager service to administer your StorSimple device](storsimple-8000-manager-service-administration.md).
-

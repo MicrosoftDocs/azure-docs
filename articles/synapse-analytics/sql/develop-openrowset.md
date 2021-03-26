@@ -1,6 +1,6 @@
 ---
-title: How to use OPENROWSET in serverless SQL pool (preview)
-description: This article describes syntax of OPENROWSET in serverless SQL pool (preview) and explains how to use arguments.
+title: How to use OPENROWSET in serverless SQL pool
+description: This article describes syntax of OPENROWSET in serverless SQL pool and explains how to use arguments.
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -11,9 +11,9 @@ ms.author: fipopovi
 ms.reviewer: jrasnick
 ---
 
-# How to use OPENROWSET using serverless SQL pool (preview) in Azure Synapse Analytics
+# How to use OPENROWSET using serverless SQL pool in Azure Synapse Analytics
 
-The `OPENROWSET(BULK...)` function allows you to access files in Azure Storage. `OPENROWSET` function reads content of a remote data source (for example file) and returns the content as a set of rows. Within the serverless SQL pool (preview) resource, the OPENROWSET bulk rowset provider is accessed by calling the OPENROWSET function and specifying the BULK option.  
+The `OPENROWSET(BULK...)` function allows you to access files in Azure Storage. `OPENROWSET` function reads content of a remote data source (for example file) and returns the content as a set of rows. Within the serverless SQL pool resource, the OPENROWSET bulk rowset provider is accessed by calling the OPENROWSET function and specifying the BULK option.  
 
 The `OPENROWSET` function can be referenced in the `FROM` clause of a query as if it were a table name `OPENROWSET`. It supports bulk operations through a built-in BULK provider that enables data from a file to be read and returned as a rowset.
 
@@ -79,7 +79,7 @@ OPENROWSET
     FORMAT = 'CSV'
     [ <bulk_options> ] }  
 )  
-WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })  
+WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })  
 [AS] table_alias(column_alias,...n)
  
 <bulk_options> ::=  
@@ -92,6 +92,7 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })
 [ , PARSER_VERSION = 'parser_version' ]
 [ , HEADER_ROW = { TRUE | FALSE } ]
 [ , DATAFILETYPE = { 'char' | 'widechar' } ]
+[ , CODEPAGE = { 'ACP' | 'OEM' | 'RAW' | 'code_page' } ]
 ```
 
 ## Arguments
@@ -116,7 +117,7 @@ Below you'll find the relevant <storage account path> values that will link to y
 | Azure Blob Storage         | wasb[s]  | \<container>@\<storage_account>.blob.core.windows.net/path/file |
 | Azure Data Lake Store Gen1 | http[s]  | \<storage_account>.azuredatalakestore.net/webhdfs/v1 |
 | Azure Data Lake Store Gen2 | http[s]  | \<storage_account>.dfs.core.windows.net /path/file   |
-| Azure Data Lake Store Gen2 | aufs[s]  | [\<file_system>@\<account_name>.dfs.core.windows.net/path/file](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md#uri-syntax)              |
+| Azure Data Lake Store Gen2 | abfs[s]  | [\<file_system>@\<account_name>.dfs.core.windows.net/path/file](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md#uri-syntax)              |
 ||||
 
 '\<storage_path>'
@@ -143,7 +144,7 @@ In the example below, if the unstructured_data_path=`https://mystorageaccount.df
 
 The WITH clause allows you to specify columns that you want to read from files.
 
-- For CSV data files, to read all the columns, provide column names and their data types. If you want a subset of columns, use ordinal numbers to pick the columns from the originating data files by ordinal. Columns will be bound by the ordinal designation. 
+- For CSV data files, to read all the columns, provide column names and their data types. If you want a subset of columns, use ordinal numbers to pick the columns from the originating data files by ordinal. Columns will be bound by the ordinal designation. If HEADER_ROW = TRUE is used, then column binding is done by column name instead of ordinal position.
     > [!TIP]
     > You can omit WITH clause for CSV files also. Data types will be automatically inferred from file content. You can use HEADER_ROW argument to specify existence of header row in which case column names will be read from header row. For details check [automatic schema discovery](#automatic-schema-discovery).
     
@@ -152,7 +153,7 @@ The WITH clause allows you to specify columns that you want to read from files.
     > Column names in Parquet files are case sensitive. If you specify column name with casing different from column name casing in Parquet file, NULL values will be returned for that column.
 
 
-column_name = Name for the output column. If provided, this name overrides the column name in the source file.
+column_name = Name for the output column. If provided, this name overrides the column name in the source file and column name provided in JSON path if there is one. If json_path is not provided, it will be automatically added as '$.column_name'. Check json_path argument for behavior.
 
 column_type = Data type for the output column. The implicit data type conversion will take place here.
 
@@ -166,6 +167,11 @@ WITH (
     --[population] bigint
 )
 ```
+
+json_path = [JSON path expression](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true) to column or nested property. Default [path mode](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true#PATHMODE) is lax.
+
+> [!NOTE]
+> In strict mode query will fail with error if provided path does not exist. In lax mode query will succeed and JSON path expression will evaluate to NULL.
 
 **\<bulk_options>**
 
@@ -213,17 +219,25 @@ CSV parser version 1.0 specifics:
 CSV parser version 2.0 specifics:
 
 - Not all data types are supported.
+- Maximum character column length is 8000.
 - Maximum row size limit is 8 MB.
 - Following options aren't supported: DATA_COMPRESSION.
 - Quoted empty string ("") is interpreted as empty string.
+- Supported format for DATE data type: YYYY-MM-DD
+- Supported format for TIME data type: HH:MM:SS[.fractional seconds]
+- Supported format for DATETIME2 data type: YYYY-MM-DD HH:MM:SS[.fractional seconds]
 
 HEADER_ROW = { TRUE | FALSE }
 
-Specifies whether CSV file contains header row. Default is FALSE. Supported in PARSER_VERSION='2.0'. If TRUE, column names will be read from first row according to FIRSTROW argument.
+Specifies whether CSV file contains header row. Default is FALSE. Supported in PARSER_VERSION='2.0'. If TRUE, column names will be read from first row according to FIRSTROW argument. If TRUE and schema is specified using WITH, binding of column names will be done by column name, not ordinal positions.
 
 DATAFILETYPE = { 'char' | 'widechar' }
 
 Specifies encoding: char is used for UTF8, widechar is used for UTF16 files.
+
+CODEPAGE = { 'ACP' | 'OEM' | 'RAW' | 'code_page' }
+
+Specifies the code page of the data in the data file. The default value is 65001 (UTF-8 encoding). See more details about this option [here](/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15#codepage).
 
 ## Fast delimited text parsing
 
@@ -355,6 +369,32 @@ WITH (
 	[stateName] VARCHAR (50),
 	[population] bigint
 ) AS [r]
+```
+
+### Specify columns using JSON paths
+
+The following example shows how you can use [JSON path expressions](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true) in WITH clause and demonstrates difference between strict and lax path modes: 
+
+```sql
+SELECT 
+    TOP 1 *
+FROM  
+    OPENROWSET(
+        BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet',
+        FORMAT='PARQUET'
+    )
+WITH (
+	--lax path mode samples
+	[stateName] VARCHAR (50), -- this one works as column name casing is valid - it targets the same column as the next one
+	[stateName_explicit_path] VARCHAR (50) '$.stateName', -- this one works as column name casing is valid
+	[COUNTYNAME] VARCHAR (50), -- STATEname column will contain NULLs only because of wrong casing - it targets the same column as the next one
+	[countyName_explicit_path] VARCHAR (50) '$.COUNTYNAME', -- STATEname column will contain NULLS only because of wrong casing and default path mode being lax
+
+	--strict path mode samples
+	[population] bigint 'strict $.population' -- this one works as column name casing is valid
+	--,[population2] bigint 'strict $.POPULATION' -- this one fails because of wrong casing and strict path mode
+)
+AS [r]
 ```
 
 ## Next steps

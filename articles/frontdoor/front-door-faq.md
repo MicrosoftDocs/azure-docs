@@ -82,6 +82,9 @@ Routes for your Front Door are not ordered and a specific route is selected base
 
 ### How do I lock down the access to my backend to only Azure Front Door?
 
+> [!NOTE]
+> New SKU Front Door Premium provides a more recommended way to lock down your application via Private Endpoint. [Learn more about Private Endpoint](./standard-premium/concept-private-link.md)
+
 To lock down your application to accept traffic only from your specific Front Door, you will need to set up IP ACLs for your backend and then restrict the traffic on your backend to the specific value of the header 'X-Azure-FDID' sent by Front Door. These steps are detailed out as below:
 
 - Configure IP ACLing for your backends to accept traffic from Azure Front Door's backend IP address space and Azure's infrastructure services only. Refer the IP details below for ACLing your backend:
@@ -92,30 +95,30 @@ To lock down your application to accept traffic only from your specific Front Do
     > [!WARNING]
     > Front Door's backend IP space may change later, however, we will ensure that before that happens, that we would have integrated with [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519). We recommend that you subscribe to [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) for any changes or updates.
 
--    Perform a GET operation on your Front Door with the API version `2020-01-01` or higher. In the API call, look for `frontdoorID` field. Filter on the incoming header '**X-Azure-FDID**' sent by Front Door to your backend with the value as that of the field `frontdoorID`. You can also find `Front Door ID` value under the Overview section from Front Door portal page. 
+- Look for the `Front Door ID` value under the Overview section from Front Door portal page. You can then filter on the incoming header '**X-Azure-FDID**' sent by Front Door to your backend with that value to ensure only your own specific Front Door instance is allowed (because the IP ranges above are shared with other Front Door instances of other customers).
 
-- Apply rule filtering in your backend web server to restrict traffic based on the resulting 'X-Azure-FDID' header value.
+- Apply rule filtering in your backend web server to restrict traffic based on the resulting 'X-Azure-FDID' header value. Note that some services like Azure App Service provide this [header based filtering](../app-service/app-service-ip-restrictions.md#restrict-access-to-a-specific-azure-front-door-instance) capability without needing to change your application or host.
 
   Here's an example for [Microsoft Internet Information Services (IIS)](https://www.iis.net/):
 
-	``` xml
-	<?xml version="1.0" encoding="UTF-8"?>
-	<configuration>
-		<system.webServer>
-			<rewrite>
-				<rules>
-					<rule name="Filter_X-Azure-FDID" patternSyntax="Wildcard" stopProcessing="true">
-						<match url="*" />
-						<conditions>
-							<add input="{HTTP_X_AZURE_FDID}" pattern="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" negate="true" />
-						</conditions>
-						<action type="AbortRequest" />
-					</rule>
-				</rules>
-			</rewrite>
-		</system.webServer>
-	</configuration>
-	```
+    ``` xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <configuration>
+        <system.webServer>
+            <rewrite>
+                <rules>
+                    <rule name="Filter_X-Azure-FDID" patternSyntax="Wildcard" stopProcessing="true">
+                        <match url="*" />
+                        <conditions>
+                            <add input="{HTTP_X_AZURE_FDID}" pattern="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" negate="true" />
+                        </conditions>
+                        <action type="AbortRequest" />
+                    </rule>
+                </rules>
+            </rewrite>
+        </system.webServer>
+    </configuration>
+    ```
 
 
 
@@ -230,7 +233,7 @@ Yes, OCSP stapling is supported by default by Front Door and no configuration is
 
 ### Does Azure Front Door also support re-encryption of traffic to the backend?
 
-Yes, Azure Front Door supports TLS/SSL offload, and end to end TLS, which re-encrypts the traffic to the backend. In fact, since the connections to the backend happen over it's public IP, it is recommended that you configure your Front Door to use HTTPS as the forwarding protocol.
+Yes, Azure Front Door supports TLS/SSL offload, and end to end TLS, which re-encrypts the traffic to the backend. In fact, since the connections to the backend happen over its public IP, it is recommended that you configure your Front Door to use HTTPS as the forwarding protocol.
 
 ### Does Front Door support self-signed certificates on the backend for HTTPS connection?
 

@@ -8,8 +8,8 @@ ms.author: dpalled
 manager: diviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
-ms.topic: conceptual 
-ms.date: 10/02/2020
+ms.topic: conceptual
+ms.date: 01/21/2021
 ms.custom: seodec18
 ---
 
@@ -22,7 +22,7 @@ This article describes how to use the Azure portal to add an event source that r
 
 ## Prerequisites
 
-* Create an [Azure Time Series Insights environment](time-series-insights-update-create-environment.md).
+* Create an [Azure Time Series Insights environment](./tutorial-set-up-environment.md).
 * Create an [IoT hub by using the Azure portal](../iot-hub/iot-hub-create-through-portal.md).
 * The IoT hub must have active message events being sent in.
 * Create a dedicated consumer group in the IoT hub for the Azure Time Series Insight environment to consume from. Each Azure Time Series Insight event source must have its own dedicated consumer group that isn't shared with any other consumer. If multiple readers consume events from the same consumer group, all readers are likely to exhibit failures. For details, read the [Azure IoT Hub developer guide](../iot-hub/iot-hub-devguide.md).
@@ -102,7 +102,7 @@ To add a new consumer group to your IoT hub:
 
 ## Next steps
 
-* [Define data access policies](time-series-insights-data-access.md) to secure the data.
+* [Define data access policies](./concepts-access-policies.md) to secure the data.
 
 * [Send events](time-series-insights-send-events.md) to the event source.
 

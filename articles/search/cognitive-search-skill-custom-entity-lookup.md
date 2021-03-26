@@ -37,7 +37,9 @@ Parameters are case-sensitive.
 | `entitiesDefinitionUri`    | Path to a JSON or CSV file containing all the target text to match against. This entity definition is read at the beginning of an indexer run; any updates to this file mid-run won't be realized until subsequent runs. This config must be accessible over HTTPS. See [Custom Entity Definition](#custom-entity-definition-format) Format" below for expected CSV or JSON schema.|
 |`inlineEntitiesDefinition` | Inline JSON entity definitions. This parameter supersedes the entitiesDefinitionUri parameter if present. No more than 10 KB of configuration may be provided inline. See [Custom Entity Definition](#custom-entity-definition-format) below for expected JSON schema. |
 |`defaultLanguageCode` |    (Optional) Language code of the input text used to tokenize and delineate input text. The following languages are supported: `da, de, en, es, fi, fr, it, ko, pt`. The default is English (`en`). If you pass a languagecode-countrycode format, only the languagecode part of the format is used.  |
-
+|`globalDefaultCaseSensitive` | (Optional) Default case sensitive value for the skill. If `defaultCaseSensitive` value of an entity is not specified, this value will become the `defaultCaseSensitive` value for that entity. |
+|`globalDefaultAccentSensitive` | (Optional) Default accent sensitive value for the skill. If `defaultAccentSensitive` value of an entity is not specified, this value will become the `defaultAccentSensitive` value for that entity. |
+|`globalDefaultFuzzyEditDistance` | (Optional) Default fuzzy edit distance value for the skill. If `defaultFuzzyEditDistance` value of an entity is not specified, this value will become the `defaultFuzzyEditDistance` value for that entity. |
 
 ## Skill inputs
 
@@ -147,8 +149,10 @@ The tables below describe in more details the different configuration parameters
 | `subtype` | (Optional) This field can be used as a passthrough for custom metadata about the matched text(s). The value of this field will appear with every match of its entity in the skill output. |
 | `id` | (Optional) This field can be used as a passthrough for custom metadata about the matched text(s). The value of this field will appear with every match of its entity in the skill output. |
 | `caseSensitive` | (Optional) Defaults to false. Boolean value denoting whether comparisons with the entity name should be sensitive to character casing. Sample case insensitive matches of "Microsoft" could be: microsoft, microSoft, MICROSOFT |
+| `accentSensitive` | (Optional) Defaults to false. Boolean value denoting whether accented and unaccented letters such as 'é' and 'e' should be identical. |
 | `fuzzyEditDistance` | (Optional) Defaults to 0. Maximum value of 5. Denotes the acceptable number of divergent characters that would still constitute a match with the entity name. The smallest possible fuzziness for any given match is returned.  For instance, if the edit distance is set to 3, "Windows 10" would still match "Windows", "Windows10" and "windows 7". <br/> When case sensitivity is set to false, case differences do NOT count towards fuzziness tolerance, but otherwise do. |
-| `defaultCaseSensitive` | (Optional) Changes the default case sensitivity value for this entity. It be used to change the default value of all aliases caseSensitive values. |
+| `defaultCaseSensitive` | (Optional) Changes the default case sensitivity value for this entity. It can be used to change the default value of all aliases caseSensitive values. |
+| `defaultAccentSensitive` | (Optional) Changes the default accent sensitivity value for this entity. It can be used to change the default value of all aliases accentSensitive values.|
 | `defaultFuzzyEditDistance` | (Optional) Changes the default fuzzy edit distance value for this entity. It can be used to change the default value of all aliases fuzzyEditDistance values. |
 | `aliases` | (Optional) An array of complex objects that can be used to specify alternative spellings or synonyms to the root entity name. |
 
@@ -156,6 +160,7 @@ The tables below describe in more details the different configuration parameters
 |------------------|-------------|
 | `text`  | The alternative spelling or representation of some target entity name.  |
 | `caseSensitive` | (Optional) Acts the same as root entity "caseSensitive" parameter above, but applies to only this one alias. |
+| `accentSensitive` | (Optional) Acts the same as root entity "accentSensitive" parameter above, but applies to only this one alias. |
 | `fuzzyEditDistance` | (Optional) Acts the same as root entity "fuzzyEditDistance" parameter above, but applies to only this one alias. |
 
 

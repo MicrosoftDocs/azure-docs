@@ -21,6 +21,10 @@
     href: work-remotely-support.md
   - name: Bastion and VNet peering
     href: vnet-peering.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
 - name: How-to guides
   items:
   - name: Create a host
@@ -53,6 +57,8 @@
     href: diagnostic-logs.md
   - name: Monitor and manage sessions
     href: session-monitoring.md
+  - name: Metrics, monitoring, and alerts
+    href: howto-metrics-monitor-alert.md
   - name: Troubleshoot
     href: troubleshoot.md
 - name: Reference

@@ -3,7 +3,7 @@ title: Common application management scenarios for Azure Active Directory | Micr
 description: Centralize application management with Azure AD
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-provisioning
@@ -38,7 +38,7 @@ No more managing password. Securely access all the resources you need with your 
 |Feature  | Description | Recommendation |
 |---------|---------|---------|
 |SSO|Standards-based federated SSO using trusted industry standards.|Always use [SAML / OIDC](../develop/v2-howto-app-gallery-listing.md) to enable SSO when your application supports it.|
-|My Apps|Offer your users a simple hub to discover and access all their applications. Enable them to be more productive with self-service capabilities, like requesting access to apps and groups, or managing access to resources on behalf of others.| Deploy [My Apps](./access-panel-deployment-plan.md) in your organization once you've integrated your apps with Azure AD for SSO.|
+|My Apps|Offer your users a simple hub to discover and access all their applications. Enable them to be more productive with self-service capabilities, like requesting access to apps and groups, or managing access to resources on behalf of others.| Deploy [My Apps](my-apps-deployment-plan.md) in your organization once you've integrated your apps with Azure AD for SSO.|
 
 ## Scenario 2: Automate provisioning and deprovisioning 
 
@@ -57,7 +57,7 @@ Identity is the linchpin for security. If an identity gets compromised, it's inc
 
 |Feature  |Description| Recommendation |
 |---------|---------| ---------|
-|Azure MFA|Azure Multi-Factor Authentication (MFA) is Microsoft's two-step verification solution. Using admin-approved authentication methods, Azure MFA helps safeguard access to your data and applications while meeting the demand for a simple sign-in process.| [Enable MFA](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124) for your users.  |
+|Azure AD MFA|Azure AD Multi-Factor Authentication (MFA) is Microsoft's two-step verification solution. Using admin-approved authentication methods, Azure AD MFA helps safeguard access to your data and applications while meeting the demand for a simple sign-in process.| [Enable MFA](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124) for your users.  |
 |Conditional Access|With Conditional Access, you can implement automated access control decisions for who can access your cloud apps, based on conditions.| Review the [security defaults](../fundamentals/concept-fundamentals-security-defaults.md) and [common policies](../conditional-access/concept-conditional-access-policy-common.md) customers are using. | 
 |Identity Protection|Identity Protection uses the learnings Microsoft has acquired from their position in organizations with Azure AD, the consumer space with Microsoft Accounts, and in gaming with Xbox to protect your users. Microsoft analyses 6.5 trillion signals per day to identify and protect customers from threats.|Enable the [default identity protection policies](../identity-protection/concept-identity-protection-policies.md) provided by our service. | 
 

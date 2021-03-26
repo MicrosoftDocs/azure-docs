@@ -5,11 +5,11 @@
   - name: About AKS
     href: intro-kubernetes.md
   - name: Solution architectures
-    href: /azure/architecture/reference-architectures/containers/aks-start-here?bc=%2fazure%2faks%2fbreadcrumb%2ftoc.json&toc=%2fazure%2faks%2ftoc.json
+    href: /azure/architecture/reference-architectures/containers/aks-start-here?bc=%2fazure%2faks%2fbreadcrumb%2ftoc.json&toc=%2fazure%2faks%2ftoc.json?WT.mc_id=AKSDOCSTOC
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create an AKS Cluster
+  - name: Deploy an AKS Cluster
     expanded: true
     items:
     - name: Use the Azure CLI
@@ -102,24 +102,24 @@
     href: quotas-skus-regions.md
   - name: Migrate to AKS
     items:
-    - name: Plan and execute a migration 
+    - name: Plan and execute a migration
       href: aks-migration.md
-    - name: Spring Boot 
+    - name: Spring Boot
       href: /azure/developer/java/migration/migrate-spring-boot-to-azure-kubernetes-service
       maintainContext: false
-    - name: Tomcat 
+    - name: Tomcat
       href: /azure/developer/java/migration/migrate-tomcat-to-containers-on-azure-kubernetes-service
       maintainContext: false
-    - name: Wildfly 
+    - name: Wildfly
       href: /azure/developer/java/migration/migrate-wildfly-to-wildfly-on-azure-kubernetes-service
       maintainContext: false
-    - name: WebLogic 
+    - name: WebLogic
       href: /azure/developer/java/migration/migrate-weblogic-to-wildfly-on-azure-kubernetes-service
       maintainContext: false
-    - name: WebSphere 
+    - name: WebSphere
       href: /azure/developer/java/migration/migrate-websphere-to-wildfly-on-azure-kubernetes-service
       maintainContext: false
-    - name: JBoss EAP 
+    - name: JBoss EAP
       href: /azure/developer/java/migration/migrate-jboss-eap-to-wildfly-on-azure-kubernetes-service
       maintainContext: false
   - name: Supported Kubernetes version
@@ -136,8 +136,10 @@
     items:
     - name: Scale an AKS cluster
       href: scale-cluster.md
-    - name: Stop an AKS cluster (preview)
+    - name: Stop an AKS cluster
       href: start-stop-cluster.md
+    - name: Use planned maintenance (preview)
+      href: planned-maintenance.md  
     - name: Upgrade an AKS cluster
       href: upgrade-cluster.md
     - name: Use Uptime SLA
@@ -146,10 +148,14 @@
       href: reduce-latency-ppg.md
     - name: Upgrade the node image
       href: node-image-upgrade.md
+    - name: Upgrade the node image automatically with GitHub Actions
+      href: node-upgrade-github-actions.md
     - name: Process node OS updates
       href: node-updates-kured.md
     - name: Configure an AKS cluster
       href: cluster-configuration.md
+    - name: Custom node configuration (preview)
+      href: custom-node-configuration.md
     - name: Integrate ACR with an AKS cluster
       href: cluster-container-registry-integration.md
     - name: Create virtual nodes
@@ -175,7 +181,7 @@
     - name: Deploy AKS with Terraform
       href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
       maintainContext: true
-    - name: Use the Kubernetes resource viewer (Preview)
+    - name: Azure portal Kubernetes resource view
       href: kubernetes-portal.md
     - name: Use the Kubernetes dashboard
       href: kubernetes-dashboard.md
@@ -252,17 +258,19 @@
       href: kubernetes-service-principal.md
     - name: Use managed identities
       href: use-managed-identity.md
+    - name: Use AAD pod identity (preview)
+      href: use-azure-ad-pod-identity.md
     - name: Limit access to cluster configuration file
       href: control-kubeconfig-access.md
     - name: Secure pod traffic with network policies
       href: use-network-policies.md
-    - name: Secure pods with Azure Policy
-      href: use-pod-security-on-azure-policy.md
+    - name: Use Azure Policy
+      href: use-azure-policy.md
     - name: Use pod security policies (preview)
       href: use-pod-security-policies.md
     - name: Define API server authorized IP ranges
       href: api-server-authorized-ip-ranges.md
-    - name: Control deployments with Azure Policy (preview)
+    - name: Control deployments with Azure Policy
       href: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/aks/toc.json
     - name: Update cluster credentials
       href: update-credentials.md
@@ -288,14 +296,14 @@
   - name: Monitoring and logging
     items:
     - name: Azure Monitor for containers
-      href: ../azure-monitor/insights/container-insights-overview.md
+      href: ../azure-monitor/containers/container-insights-overview.md
       maintainContext: true
-    - name: View the master component logs
-      href: view-master-logs.md
+    - name: View the control plane component logs
+      href: view-control-plane-logs.md
     - name: View the kubelet logs
       href: kubelet-logs.md
     - name: View container data real-time
-      href: ../azure-monitor/insights/container-insights-livedata-overview.md
+      href: ../azure-monitor/containers/container-insights-livedata-overview.md
       maintainContext: true
   - name: Use Windows Server containers
     items:
@@ -327,9 +335,13 @@
       href: spark-job.md
     - name: Use GPUs
       href: gpu-cluster.md
-    - name: Use Azure Database for PostgreSQL
-      href: ../postgresql/concepts-aks.md
+    - name: Build app with PostgreSQL
+      href: ../postgresql/flexible-server/tutorial-django-aks-database.md
+    - name: Build app with MySQL
+      href: ../mysql/flexible-server/tutorial-deploy-wordpress-on-aks.md  
       maintainContext: true
+    - name: Build app with Open Liberty or WebSphere Liberty
+      href: howto-deploy-java-liberty-app.md
     - name: Use Azure API Management
       href: ../api-management/api-management-kubernetes.md
       maintainContext: true

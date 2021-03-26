@@ -1,6 +1,6 @@
 ---
-title: Secure resources with Azure MFA and ADFS - Azure Active Directory
-description: This is the Azure Multi-Factor authentication page that describes how to get started with Azure MFA and AD FS in the cloud.
+title: Secure resources with Azure AD MFA and ADFS - Azure Active Directory
+description: This is the Azure AD Multi-Factor Authentication page that describes how to get started with Azure AD MFA and AD FS in the cloud.
 
 services: multi-factor-authentication
 ms.service: active-directory
@@ -8,16 +8,16 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/11/2018
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
 ---
-# Securing cloud resources with Azure Multi-Factor Authentication and AD FS
+# Securing cloud resources with Azure AD Multi-Factor Authentication and AD FS
 
-If your organization is federated with Azure Active Directory, use Azure Multi-Factor Authentication or Active Directory Federation Services (AD FS) to secure resources that are accessed by Azure AD. Use the following procedures to secure Azure Active Directory resources with either Azure Multi-Factor Authentication or Active Directory Federation Services.
+If your organization is federated with Azure Active Directory, use Azure AD Multi-Factor Authentication or Active Directory Federation Services (AD FS) to secure resources that are accessed by Azure AD. Use the following procedures to secure Azure Active Directory resources with either Azure AD Multi-Factor Authentication or Active Directory Federation Services.
 
 ## Secure Azure AD resources using AD FS
 
@@ -45,7 +45,7 @@ To secure your cloud resource, set up a claims rule so that Active Directory Fed
 
 ## Trusted IPs for federated users
 
-Trusted IPs allow administrators to by-pass two-step verification for specific IP addresses, or for federated users that have requests originating from within their own intranet. The following sections describe how to configure Azure Multi-Factor Authentication Trusted IPs with federated users and by-pass two-step verification when a request originates from within a federated users intranet. This is achieved by configuring AD FS to use a pass-through or filter an incoming claim template with the Inside Corporate Network claim type.
+Trusted IPs allow administrators to by-pass two-step verification for specific IP addresses, or for federated users that have requests originating from within their own intranet. The following sections describe how to configure Azure AD Multi-Factor Authentication Trusted IPs with federated users and by-pass two-step verification when a request originates from within a federated users intranet. This is achieved by configuring AD FS to use a pass-through or filter an incoming claim template with the Inside Corporate Network claim type.
 
 This example uses Microsoft 365 for our Relying Party Trusts.
 
@@ -81,7 +81,7 @@ The first thing we need to do is to configure the AD FS claims. Create two claim
 15. Click **Ok**.
 16. Close AD FS Management.
 
-### Configure Azure Multi-Factor Authentication Trusted IPs with Federated Users
+### Configure Azure AD Multi-Factor Authentication Trusted IPs with Federated Users
 
 Now that the claims are in place, we can configure trusted IPs.
 

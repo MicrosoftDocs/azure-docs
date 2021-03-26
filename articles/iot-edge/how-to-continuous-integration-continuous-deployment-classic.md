@@ -12,6 +12,8 @@ services: iot-edge
 
 # Continuous integration and continuous deployment to Azure IoT Edge devices (classic editor)
 
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
 You can easily adopt DevOps with your Azure IoT Edge applications with the built-in Azure IoT Edge tasks in Azure Pipelines. This article demonstrates how you can use the continuous integration and continuous deployment features of Azure Pipelines to build, test, and deploy applications quickly and efficiently to your Azure IoT Edge using the classic editor. Alternatively, you can [use YAML](how-to-continuous-integration-continuous-deployment.md).
 
 ![Diagram - CI and CD branches for development and production](./media/how-to-continuous-integration-continuous-deployment-classic/model.png)
@@ -27,15 +29,15 @@ In this article, you learn how to use the built-in [Azure IoT Edge tasks](/azure
 
 Unless otherwise specified, the procedures in this article do not explore all the functionality available through task parameters. For more information, see the following:
 
-* [Task version](/azure/devops/pipelines/process/tasks?tabs=classic&view=azure-devops#task-versions)
+* [Task version](/azure/devops/pipelines/process/tasks?tabs=classic#task-versions)
 * **Advanced** - If applicable, specify modules that you do not want built.
-* [Control Options](/azure/devops/pipelines/process/tasks?tabs=classic&view=azure-devops#task-control-options)
-* [Environment Variables](/azure/devops/pipelines/process/variables?tabs=yaml%252cbatch&view=azure-devops#environment-variables)
-* [Output variables](/azure/devops/pipelines/process/variables?tabs=yaml%252cbatch&view=azure-devops#use-output-variables-from-tasks)
+* [Control Options](/azure/devops/pipelines/process/tasks?tabs=classic#task-control-options)
+* [Environment Variables](/azure/devops/pipelines/process/variables?tabs=classic#environment-variables)
+* [Output variables](/azure/devops/pipelines/process/variables?tabs=classic#use-output-variables-from-tasks)
 
 ## Prerequisites
 
-* An Azure Repos repository. If you don't have one, you can [Create a new Git repo in your project](/azure/devops/repos/git/create-new-repo?tabs=new-nav&view=vsts). For this article, we created a repository called **IoTEdgeRepo**.
+* An Azure Repos repository. If you don't have one, you can [Create a new Git repo in your project](/azure/devops/repos/git/create-new-repo). For this article, we created a repository called **IoTEdgeRepo**.
 * An IoT Edge solution committed and pushed to your repository. If you want to create a new sample solution for testing this article, follow the steps in [Develop and debug modules in Visual Studio Code](how-to-vs-code-develop-module.md) or [Develop and debug C# modules in Visual Studio](./how-to-visual-studio-develop-module.md). For this article, we created a solution in our repository called **IoTEdgeSolution**, which has the code for a module named **filtermodule**.
 
    For this article, all you need is the solution folder created by the IoT Edge templates in either Visual Studio Code or Visual Studio. You don't need to build, push, deploy, or debug this code before proceeding. You'll set up those processes in Azure Pipelines.
@@ -79,7 +81,7 @@ In this section, you create a new build pipeline. You configure the pipeline to 
 
    * If you would like to build your modules in platform amd64 for Linux containers, choose **ubuntu-16.04**
 
-   * If you would like to build your modules in platform amd64 for Windows 1809 containers, you need to [set up self-hosted agent on Windows](/azure/devops/pipelines/agents/v2-windows?view=vsts).
+   * If you would like to build your modules in platform amd64 for Windows 1809 containers, you need to [set up self-hosted agent on Windows](/azure/devops/pipelines/agents/v2-windows).
 
    * If you would like to build your modules in platform arm32v7 or arm64 for Linux containers, you need to [set up self-hosted agent on Linux](https://devblogs.microsoft.com/iotdev/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent).
 
@@ -131,14 +133,14 @@ In this section, you create a new build pipeline. You configure the pipeline to 
     | Display name | Use the default name or customize |
     | Source folder | The folder with the files to be copied. |
     | Contents | Add two lines: `deployment.template.json` and `**/module.json`. These two files serve as inputs to generate the IoT Edge deployment manifest. |
-    | Target Folder | Specify the variable `$(Build.ArtifactStagingDirectory)`. See [Build variables](/azure/devops/pipelines/build/variables?tabs=yaml&view=azure-devops#build-variables) to learn about the description. |
+    | Target Folder | Specify the variable `$(Build.ArtifactStagingDirectory)`. See [Build variables](/azure/devops/pipelines/build/variables#build-variables) to learn about the description. |
 
 10. Select the **Publish Build Artifacts** task to edit it. Provide artifact staging directory path to the task so that the path can be published to release pipeline.
 
     | Parameter | Description |
     | --- | --- |
     | Display name | Use the default name or customize. |
-    | Path to publish | Specify the variable `$(Build.ArtifactStagingDirectory)`. See [Build variables](/azure/devops/pipelines/build/variables?tabs=yaml&view=azure-devops#build-variables) to learn more. |
+    | Path to publish | Specify the variable `$(Build.ArtifactStagingDirectory)`. See [Build variables](/azure/devops/pipelines/build/variables#build-variables) to learn more. |
     | Artifact name | Use the default name: **drop** |
     | Artifact publish location | Use the default location: **Azure Pipelines** |
 
@@ -155,7 +157,7 @@ This pipeline is now configured to run automatically when you push new code to y
 >[!NOTE]
 >If you wish to use **layered deployments** in your pipeline, layered deployments are not yet supported in Azure IoT Edge tasks in Azure DevOps.
 >
->However, you can use an [Azure CLI task in Azure DevOps](/azure/devops/pipelines/tasks/deploy/azure-cli) to create your deployment as a layered deployment. For the **Inline Script** value, you can use the [az iot edge deployment create command](/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment):
+>However, you can use an [Azure CLI task in Azure DevOps](/azure/devops/pipelines/tasks/deploy/azure-cli) to create your deployment as a layered deployment. For the **Inline Script** value, you can use the [az iot edge deployment create command](/cli/azure/ext/azure-iot/iot/edge/deployment):
 >
 >   ```azurecli-interactive
 >   az iot edge deployment create -d {deployment_name} -n {hub_name} --content modules_content.json --layered true

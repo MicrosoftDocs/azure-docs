@@ -3,14 +3,14 @@ title: Translator Dictionary Examples Method
 titleSuffix: Azure Cognitive Services
 description: The Translator Dictionary Examples method provides examples that show how terms in the dictionary are used in context.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 01/21/2020
-ms.author: swmachan
+ms.author: lajanuar
 ---
 
 # Translator 3.0: Dictionary Examples
@@ -39,7 +39,7 @@ Request headers include:
 
 | Headers  | Description |
 | ------ | ----------- |
-| Authentication header(s) <img width=200/>  | **Required request header**.<br/>See <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">available options for authentication</a>. |
+| Authentication header(s) <img width=200/>  | **Required request header**.<br/>See <a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">available options for authentication</a>. |
 | Content-Type | **Required request header**.<br/>Specifies the content type of the payload. Possible values are: `application/json`. |
 | Content-Length   | **Required request header**.<br/>The length of the request body. |
 | X-ClientTraceId   | **Optional**.<br/>A client-generated GUID to uniquely identify the request. You can omit this header if you include the trace ID in the query string using a query parameter named `ClientTraceId`. |

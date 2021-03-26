@@ -2,7 +2,7 @@
 title: Automatically scale compute nodes in an Azure Batch pool
 description: Enable automatic scaling on a cloud pool to dynamically adjust the number of compute nodes in the pool.
 ms.topic: how-to
-ms.date: 10/08/2020
+ms.date: 11/23/2020
 ms.custom: "H1Hack27Feb2017, fasttrack-edit, devx-track-csharp"
 
 ---
@@ -123,12 +123,16 @@ You can get the value of these service-defined variables to make adjustments tha
 | $PendingTasks |The sum of $ActiveTasks and $RunningTasks. |
 | $SucceededTasks |The number of tasks that finished successfully. |
 | $FailedTasks |The number of tasks that failed. |
+| $TaskSlotsPerNode |The number of task slots that can be used to run concurrent tasks on a single compute node in the pool. |
 | $CurrentDedicatedNodes |The current number of dedicated compute nodes. |
 | $CurrentLowPriorityNodes |The current number of low-priority compute nodes, including any nodes that have been preempted. |
 | $PreemptedNodeCount | The number of nodes in the pool that are in a preempted state. |
 
 > [!TIP]
 > These read-only service-defined variables are *objects* that provide various methods to access data associated with each. For more information, see [Obtain sample data](#obtain-sample-data) later in this article.
+
+> [!NOTE]
+> Use `$RunningTasks` when scaling based on the number of tasks running at a point in time, and `$ActiveTasks` when scaling based on the number of tasks that are queued up to run.
 
 ## Types
 
@@ -376,7 +380,7 @@ $NodeDeallocationOption = taskcompletion;
 ```
 
 > [!NOTE]
-> If you choose to, you can include both comments and line breaks in formula strings.
+> If you choose to, you can include both comments and line breaks in formula strings. Also be aware that missing semicolons may result in evaluation errors.
 
 ## Automatic scaling interval
 

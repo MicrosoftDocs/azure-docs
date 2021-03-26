@@ -27,7 +27,11 @@ The Azure Dedicated HSM service has two distinct facets. Firstly, the registrati
 
 ## HSM Registration
 
+<<<<<<< HEAD
 Dedicated HSM is not freely available for use as it is delivering hardware resources in the cloud and hence is a precious resource that needs protecting. We therefore use a allowlisiting process via email using HSMrequest@microsoft.com. 
+=======
+Dedicated HSM is not freely available for use as it is delivering hardware resources in the cloud and hence is a precious resource that needs protecting. We therefore use a allowlisting process via email using HSMrequest@microsoft.com. 
+>>>>>>> df4a6bd2135429d57fac83f03cea91eeeb43fd4d
 
 ### Getting access to Dedicated HSM
 
@@ -67,7 +71,11 @@ Deployments can fail if you exceed 2 HSMs per stamp and 4 HSMs per region. To av
 When a particular stamp or region is becoming full, that is, nearly all free HSMs are provisioned, this can lead to deployment failures. Each stamp has 12 HSMs available for customers, which means 24 per region. There are also 2 spares and 1 test device in each stamp. If you believe you may have hit a limit, then email HSMrequest@microsoft.com for information on fill-level of specific stamps.
 
 ###  How do I see HSMs when provisioned?
+<<<<<<< HEAD
 Due to Dedicated HSM being a allowlisted service, it is considered a "Hidden Type" in the Azure portal. To see the HSM resources, you must check the "Show hidden types" check box as shown below. The NIC resource always follows the HSM and is a good place to find out the IP address of the HSM prior to using SSH to connect.
+=======
+Due to Dedicated HSM being an allowlisted service, it is considered a "Hidden Type" in the Azure portal. To see the HSM resources, you must check the "Show hidden types" check box as shown below. The NIC resource always follows the HSM and is a good place to find out the IP address of the HSM prior to using SSH to connect.
+>>>>>>> df4a6bd2135429d57fac83f03cea91eeeb43fd4d
 
 ![Screenshot that highlights the Show hidden types check](./media/troubleshoot/hsm-provisioned.png)
 

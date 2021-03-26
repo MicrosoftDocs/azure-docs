@@ -69,7 +69,10 @@ For more information about creating a new CSR, see [Create and merge a CSR in Ke
 Azure Key Vault also handles autorenewal of self-signed certificates. To learn more about changing the issuance policy and updating a certificate's lifecycle attributes, see [Configure certificate autorotation in Key Vault](./tutorial-rotate-certificates.md#update-lifecycle-attributes-of-a-stored-certificate).
 
 ## Troubleshoot
-If the issued certificate is in *disabled* status in the Azure portal, go to **Certificate Operation** to view the certificate's error message.
+* If the issued certificate is in *disabled* status in the Azure portal, go to **Certificate Operation** to view the certificate's error message.
+* Error type "The CSR used to get your certificate has already been used. Please try to generate a new certificate with a new CSR."
+  Go to 'Advanced Policy' section of the certificate and check if **'reuse key on renewal'** option is turned off.
+
 
 ## Frequently asked questions
 

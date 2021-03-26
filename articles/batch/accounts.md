@@ -2,7 +2,7 @@
 title: Batch accounts and Azure Storage accounts
 description: Learn about Azure Batch accounts and how they are used from a development standpoint.
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 01/26/2021
 
 ---
 # Batch accounts and Azure Storage accounts
@@ -15,9 +15,10 @@ All processing and resources are associated with a Batch account. When your appl
 
 You can run multiple Batch workloads in a single Batch account. You can also distribute your workloads among Batch accounts that are in the same subscription but located in different Azure regions.
 
+You can create a Batch account using the [Azure portal](batch-account-create-portal.md) or programmatically, such as with the [Batch Management .NET library](batch-management-dotnet.md). When creating the account, you can associate an Azure storage account for storing job-related input and output data or applications.
+
 [!INCLUDE [batch-account-mode-include](../../includes/batch-account-mode-include.md)]
 
-You can create a Batch account using the [Azure portal](batch-account-create-portal.md) or programmatically, such as with the [Batch Management .NET library](batch-management-dotnet.md). When creating the account, you can associate an Azure storage account for storing job-related input and output data or applications.
 
 ## Azure Storage accounts
 
@@ -36,4 +37,5 @@ You can associate a storage account with your Batch account when you create the 
 ## Next steps
 
 - Learn about [Nodes and pools](nodes-and-pools.md).
-- Learn how to create a Batch account using the [Azure portal](batch-account-create-portal.md).
+- Learn how to create and manage Batch accounts using the [Azure portal](batch-account-create-portal.md) or [Batch Management .NET](batch-management-dotnet.md).
+- Learn how to use [private endpoints](private-connectivity.md) with Azure Batch accounts.

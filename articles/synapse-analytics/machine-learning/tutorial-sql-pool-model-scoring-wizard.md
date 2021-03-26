@@ -12,67 +12,67 @@ author: nelgson
 ms.author: negust
 ---
 
-# Tutorial: Machine learning model scoring wizard for dedicated SQL pools
+# Tutorial: Machine learning model scoring wizard (preview) for dedicated SQL pools
 
-Learn how to easily enrich your data in dedicated SQL pools with predictive machine learning models.  The models that your data scientists create are now easily accessible to data professionals for predictive analytics. A data professional in Synapse can simply select a model from the Azure Machine Learning model registry for deployment in Synapse SQL pools and launch predictions to enrich the data.
+Learn how to easily enrich your data in dedicated SQL pools with predictive machine learning models. The models that your data scientists create are now easily accessible to data professionals for predictive analytics. A data professional in Azure Synapse Analytics can simply select a model from the Azure Machine Learning model registry for deployment in Azure Synapse SQL pools and launch predictions to enrich the data.
 
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
-> - Train a predictive machine learning model and register the model in Azure Machine Learning model registry
-> - Use the SQL scoring wizard to launch predictions in dedicated SQL pool
+> - Train a predictive machine learning model and register the model in the Azure Machine Learning model registry.
+> - Use the SQL scoring wizard to launch predictions in a dedicated SQL pool.
 
 If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
 
 ## Prerequisites
 
-- [Synapse Analytics workspace](../get-started-create-workspace.md) with an ADLS Gen2 storage account configured as the default storage. You need to be the **Storage Blob Data Contributor** of the ADLS Gen2 filesystem that you work with.
-- Dedicated SQL pool in your Synapse Analytics workspace. For details, see [Create a dedicated SQL pool](../quickstart-create-sql-pool-studio.md).
-- Azure Machine Learning linked service in your Synapse Analytics workspace. For details, see [Create an Azure Machine Learning linked service in Synapse](quickstart-integrate-azure-machine-learning.md).
+- [Azure Synapse Analytics workspace](../get-started-create-workspace.md) with an Azure Data Lake Storage Gen2 storage account configured as the default storage. You need to be the *Storage Blob Data Contributor* of the Data Lake Storage Gen2 file system that you work with.
+- Dedicated SQL pool in your Azure Synapse Analytics workspace. For details, see [Create a dedicated SQL pool](../quickstart-create-sql-pool-studio.md).
+- Azure Machine Learning linked service in your Azure Synapse Analytics workspace. For details, see [Create an Azure Machine Learning linked service in Azure Synapse](quickstart-integrate-azure-machine-learning.md).
 
 ## Sign in to the Azure portal
 
-Sign in to the [Azure portal](https://portal.azure.com/)
+Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Train a model in Azure Machine Learning
 
-Before you begin, verify that your version of **sklearn** is 0.20.3.
+Before you begin, verify that your version of sklearn is 0.20.3.
 
-Before running all cells in the notebook, check if the compute instance is running.
+Before you run all cells in the notebook, check that the compute instance is running.
 
-![Verify AML compute](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-train-00b.png)
+![Screenshot that shows verification of Azure Machine Learning compute.](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-train-00b.png)
 
-1. Navigate to your Azure Machine Learning workspace.
+1. Go to your Azure Machine Learning workspace.
 
 1. Download [Predict NYC Taxi Tips.ipynb](https://go.microsoft.com/fwlink/?linkid=2144301).
 
-1. Launch the Azure Machine Learning workspace in [Azure Machine Learning studio](https://ml.azure.com).
+1. Open the Azure Machine Learning workspace in [Azure Machine Learning Studio](https://ml.azure.com).
 
-1. Go to **Notebooks** and click **Upload files**, select "Predict NYC Taxi Tips.ipynb" that you downloaded and upload the file.
-   ![Upload file](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-train-00a.png)
+1. Go to **Notebooks** > **Upload files**. Then select the **Predict NYC Taxi Tips.ipynb** file that you downloaded and upload it.
+   ![Screenshot of the button for uploading a file.](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-train-00a.png)
 
-1. After the notebook is uploaded and opened, click **Run all cells**.
+1. After the notebook is uploaded and opened, select **Run all cells**.
 
-   One of the cells may fail and ask you to authenticate to Azure. Keep an eye out for this in the cell outputs, and authenticate in your browser by following the link and entering the code. Then re-run the Notebook.
+   One of the cells might fail and ask you to authenticate to Azure. Watch for this in the cell outputs, and authenticate in your browser by following the link and entering the code. Then re-run the notebook.
 
-1. The notebook will train an ONNX model and register it with MLFlow. Go to **Models** to check if the new model is registered properly.
-   ![Model in registry](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-train-00c.png)
+1. The notebook will train an ONNX model and register it with MLflow. Go to **Models** to check that the new model is registered properly.
+   ![Screenshot that shows the model in the registry.](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-train-00c.png)
 
-1. Running the notebook will also export the test data into a CSV file. Download the CSV file to your local system. Later, you will import the CSV file into dedicated SQL pool and use the data to test the model.
+1. Running the notebook will also export the test data into a CSV file. Download the CSV file to your local system. Later, you'll import the CSV file into a dedicated SQL pool and use the data to test the model.
 
-   The CSV file is created in the same folder as your notebook file. Click "Refresh" on the file explorer if you don't see it right away.
+   The CSV file is created in the same folder as your notebook file. Select **Refresh** in File Explorer if you don't see it right away.
 
-   ![CSV file](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-train-00d.png)
+   ![Screenshot that shows the C S V file.](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-train-00d.png)
 
-## Launch predictions with SQL scoring wizard
+## Launch predictions with the SQL scoring wizard
 
-1. Open the Synapse workspace with Synapse Studio.
+1. Open the Azure Synapse workspace with Synapse Studio.
 
-1. Navigate to **Data** -> **Linked** -> **Storage Accounts**. Upload `test_data.csv` to the default storage account.
+1. Go to **Data** > **Linked** > **Storage Accounts**. Upload `test_data.csv` to the default storage account.
 
-   ![Upload data](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00a.png)
+   ![Screenshot that shows selections for uploading data.](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00a.png)
 
-1. Go to **Develop** -> **SQL scripts**. Create a new SQL script to load `test_data.csv` into your dedicated SQL pool.
+1. Go to **Develop** > **SQL scripts**. Create a new SQL script to load `test_data.csv` into your dedicated SQL pool.
 
    > [!NOTE]
    > Update the file URL in this script before running it.
@@ -115,34 +115,36 @@ Before running all cells in the notebook, check if the compute instance is runni
 
    ![Load data to dedicated SQL pool](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00b.png)
 
-1. Go to **Data** -> **Workspace**. Open the SQL scoring wizard by right-clicking the dedicated SQL pool table. Select **Machine Learning** -> **Enrich with existing model**.
+1. Go to **Data** > **Workspace**. Open the SQL scoring wizard by right-clicking the dedicated SQL pool table. Select **Machine Learning** > **Enrich with existing model**.
 
    > [!NOTE]
-   > The machine learning option does not appear unless you have a linked service created for Azure Machine Learning (see **Prerequisites** at the beginning of this tutorial).
+   > The machine learning option does not appear unless you have a linked service created for Azure Machine Learning. (See [Prerequisites](#prerequisites) at the beginning of this tutorial.)
 
-   ![Machine Learning option](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00c.png)
+   ![Screenshot that shows the machine Learning option.](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00c.png)
 
-1. Select a linked Azure Machine Learning workspace in the drop-down box. This loads a list of machine learning models from the model registry of the chosen Azure Machine Learning workspace. Currently, only ONNX models are supported so this will display only ONNX models.
+1. Select a linked Azure Machine Learning workspace in the drop-down box. This step loads a list of machine learning models from the model registry of the chosen Azure Machine Learning workspace. Currently, only ONNX models are supported, so this step will display only ONNX models.
 
-1. Select the model you just trained then click **Continue**.
+1. Select the model that you just trained, and then select **Continue**.
 
-   ![Select Azure Machine Learning model](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00d.png)
+   ![Screenshot that shows selecting the Azure Machine Learning model.](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00d.png)
 
-1. Next, map the table columns to the model inputs and specify the model outputs. If the model is saved in the MLFlow format and the model signature is populated, the mapping will be done automatically for you using a logic based on the similarity of names. The interface also supports manual mapping.
+1. Map the table columns to the model inputs and specify the model outputs. If the model is saved in the MLflow format and the model signature is populated, the mapping will be done automatically for you by using a logic based on the similarity of names. The interface also supports manual mapping.
 
-   Click **Continue**.
+   Select **Continue**.
 
-   ![Table to model mapping](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00e.png)
+   ![Screenshot that shows table-to-model mapping.](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00e.png)
 
-1. The generated T-SQL code is wrapped inside a Stored Procedure. This is why you need to provide a stored procedure a name. The model binary including metadata (version, description, etc.) will be physically copied from Azure Machine Learning to a dedicated SQL pool table. So you need to specify which table to save the model in. You can choose either to "Use an existing table" or to "Create a new table". Once done, click **Deploy model + open editor** to deploy the model and generate a T-SQL prediction script.
+1. The generated T-SQL code is wrapped inside a stored procedure. This is why you need to provide a stored procedure name. The model binary, including metadata (version, description, and other information), will be physically copied from Azure Machine Learning to a dedicated SQL pool table. So you need to specify which table to save the model in. 
 
-   ![Create procedure](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00f.png)
+   You can choose either **Existing table** or **Create new**. When you're done, select **Deploy model + open script** to deploy the model and generate a T-SQL prediction script.
 
-1. Once the script is generated, click "Run" to execute the scoring and get predictions.
+   ![Screenshot that shows selections for creating a stored procedure.](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00f.png)
 
-   ![Run predictions](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00g.png)
+1. After the script is generated, select **Run** to execute the scoring and get predictions.
+
+   ![Screenshot that shows scoring and predictions.](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00g.png)
 
 ## Next steps
 
-- [Quickstart: Create a new Azure Machine Learning linked service in Synapse](quickstart-integrate-azure-machine-learning.md)
-- [Machine Learning capabilities in Azure Synapse Analytics (workspaces preview)](what-is-machine-learning.md)
+- [Quickstart: Create a new Azure Machine Learning linked service in Azure Synapse](quickstart-integrate-azure-machine-learning.md)
+- [Machine Learning capabilities in Azure Synapse Analytics](what-is-machine-learning.md)

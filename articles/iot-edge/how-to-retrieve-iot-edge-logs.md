@@ -4,7 +4,7 @@ description: IoT Edge module log retrieval and upload to Azure Blob Storage.
 author: v-tcassi
 manager: philmea
 ms.author: v-tcassi
-ms.date: 09/14/2020
+ms.date: 11/12/2020
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge 
@@ -12,6 +12,8 @@ ms.custom: devx-track-azurecli
 services: iot-edge
 ---
 # Retrieve logs from IoT Edge deployments
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Retrieve logs from your IoT Edge deployments without needing physical or SSH access to the device by using the direct methods included in the IoT Edge agent module. Direct methods are implemented on the device, and then can be invoked from the cloud. The IoT Edge agent includes direct methods that help you monitor and manage your IoT Edge devices remotely. The direct methods discussed in this article are generally available with the 1.0.10 release.
 
@@ -27,7 +29,18 @@ While not required, for best compatibility with this feature, the recommended lo
 <{Log Level}> {Timestamp} {Message Text}
 ```
 
-`{Log Level}` should follow the [Syslog severity level format](https://wikipedia.org/wiki/Syslog#Severity_lnevel) and `{Timestamp}` should be formatted as `yyyy-mm-dd hh:mm:ss.fff zzz`.
+`{Timestamp}` should be formatted as `yyyy-MM-dd hh:mm:ss.fff zzz`, and `{Log Level}` should follow the table below, which derives its severity levels from the [Severity code in the Syslog standard](https://wikipedia.org/wiki/Syslog#Severity_level).
+
+| Value | Severity |
+|-|-|
+| 0 | Emergency |
+| 1 | Alert |
+| 2 | Critical |
+| 3 | Error |
+| 4 | Warning |
+| 5 | Notice |
+| 6 | Informational |
+| 7 | Debug |
 
 The [Logger class in IoT Edge](https://github.com/Azure/iotedge/blob/master/edge-util/src/Microsoft.Azure.Devices.Edge.Util/Logger.cs) serves as a canonical implementation.
 
@@ -44,10 +57,10 @@ This method accepts a JSON payload with the following schema:
           {
              "id": "regex string",
              "filter": {
-                "tail": int,
-                "since": int,
-                "until": int,
-                "loglevel": int,
+                "tail": "int",
+                "since": "string",
+                "until": "string",
+                "loglevel": "int",
                 "regex": "regex string"
              }
           }
@@ -64,8 +77,8 @@ This method accepts a JSON payload with the following schema:
 | ID | string | A regular expression that supplies the module name. It can match multiple modules on an edge device. [.NET Regular Expressions](/dotnet/standard/base-types/regular-expressions) format is expected. |
 | filter | JSON section | Log filters to apply to the modules matching the `id` regular expression in the tuple. |
 | tail | integer | Number of log lines in the past to retrieve starting from the latest. OPTIONAL. |
-| since | integer | Only return logs since this time, as a duration (1 d, 90 m, 2 days 3 hours 2 minutes), rfc3339 timestamp, or UNIX timestamp.  If both `tail` and `since` are specified, the logs are retrieved using the `since` value first. Then, the `tail` value is applied to the result, and the final result is returned. OPTIONAL. |
-| until | integer | Only return logs before the specified time, as an rfc3339 timestamp, UNIX timestamp, or duration (1 d, 90 m, 2 days 3 hours 2 minutes). OPTIONAL. |
+| since | string | Only return logs since this time, as a duration (1 d, 90 m, 2 days 3 hours 2 minutes), rfc3339 timestamp, or UNIX timestamp.  If both `tail` and `since` are specified, the logs are retrieved using the `since` value first. Then, the `tail` value is applied to the result, and the final result is returned. OPTIONAL. |
+| until | string | Only return logs before the specified time, as an rfc3339 timestamp, UNIX timestamp, or duration (1 d, 90 m, 2 days 3 hours 2 minutes). OPTIONAL. |
 | log level | integer | Filter log lines less than or equal to specified log level. Log lines should follow recommended logging format and use [Syslog severity level](https://en.wikipedia.org/wiki/Syslog#Severity_level) standard. OPTIONAL. |
 | regex | string | Filter log lines that have content that match the specified regular expression using [.NET Regular Expressions](/dotnet/standard/base-types/regular-expressions) format. OPTIONAL. |
 | encoding | string | Either `gzip` or `none`. Default is `none`. |
@@ -135,6 +148,14 @@ az iot hub invoke-module-method \
 
 Use the **UploadModuleLogs** direct method to send the requested logs to a specified Azure Blob Storage container.
 
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+
+> [!NOTE]
+> If you wish to upload logs from a device behind a gateway device, you will need to have the [API proxy and blob storage modules](how-to-configure-api-proxy-module.md) configured on the top layer device. These modules route the logs from your lower layer device through your gateway device to your storage in the cloud.
+
+::: moniker-end
+
 This method accepts a JSON payload similar to **GetModuleLogs**, with the addition of the "sasUrl" key:
 
 ```json
@@ -145,10 +166,10 @@ This method accepts a JSON payload similar to **GetModuleLogs**, with the additi
           {
              "id": "regex string",
              "filter": {
-                "tail": int,
-                "since": int,
-                "until": int,
-                "loglevel": int,
+                "tail": "int",
+                "since": "string",
+                "until": "string",
+                "loglevel": "int",
                 "regex": "regex string"
              }
           }
@@ -255,6 +276,14 @@ In the Azure portal, invoke the method with the method name `UploadModuleLogs` a
 
 Use the **UploadSupportBundle** direct method to bundle and upload a zip file of IoT Edge module logs to an available Azure Blob Storage container. This direct method runs the [`iotedge support-bundle`](./troubleshoot.md#gather-debug-information-with-support-bundle-command) command on your IoT Edge device to obtain the logs.
 
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+
+> [!NOTE]
+> If you wish to upload logs from a device behind a gateway device, you will need to have the [API proxy and blob storage modules](how-to-configure-api-proxy-module.md) configured on the top layer device. These modules route the logs from your lower layer device through your gateway device to your storage in the cloud.
+
+::: moniker-end
+
 This method accepts a JSON payload with the following schema:
 
 ```json
@@ -271,8 +300,8 @@ This method accepts a JSON payload with the following schema:
 |-|-|-|
 | schemaVersion | string | Set to `1.0` |
 | sasURL | string (URI) | [Shared Access Signature URL with write access to Azure Blob Storage container](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer) |
-| since | integer | Only return logs since this time, as a duration (1 d, 90 m, 2 days 3 hours 2 minutes), rfc3339 timestamp, or UNIX timestamp. OPTIONAL. |
-| until | integer | Only return logs before the specified time, as an rfc3339 timestamp, UNIX timestamp, or duration (1 d, 90 m, 2 days 3 hours 2 minutes). OPTIONAL. |
+| since | string | Only return logs since this time, as a duration (1 d, 90 m, 2 days 3 hours 2 minutes), rfc3339 timestamp, or UNIX timestamp. OPTIONAL. |
+| until | string | Only return logs before the specified time, as an rfc3339 timestamp, UNIX timestamp, or duration (1 d, 90 m, 2 days 3 hours 2 minutes). OPTIONAL. |
 | edgeRuntimeOnly | boolean | If true, only return logs from Edge Agent, Edge Hub, and the Edge Security Daemon. Default: false.  OPTIONAL. |
 
 > [!IMPORTANT]

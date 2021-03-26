@@ -2,11 +2,10 @@
 title: FAQ - Azure Monitor for SAP Solutions | Microsoft Docs
 description: In this article, learn answers to frequently asked questions (FAQ) about Azure Monitor for SAP solutions.
 author: rdeltcheva
-ms.service: virtual-machines
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
-ms.reviewer: cynthn
 
 ---
 

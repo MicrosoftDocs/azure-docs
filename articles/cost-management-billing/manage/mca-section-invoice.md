@@ -16,6 +16,10 @@ Your billing account for Microsoft Customer Agreement provides you flexibility t
 
 This article describes how you can use the Azure portal to organize your costs. It applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
+Watch the [Organize costs by customizing your Microsoft Customer Agreement billing account](https://www.youtube.com/watch?v=7RxTfShGHwU) video to learn how to organize costs for your billing account.
+
+>[!VIDEO https://www.youtube.com/embed/7RxTfShGHwU]
+
 ## Structure your account with billing profiles and invoice sections
 
 In the billing account for a Microsoft Customer Agreement, you use billing profiles and invoice sections to organize your costs.

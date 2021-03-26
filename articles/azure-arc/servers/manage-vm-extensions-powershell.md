@@ -1,7 +1,7 @@
 ---
 title: Enable VM extension using Azure PowerShell
 description: This article describes how to deploy virtual machine extensions to Azure Arc enabled servers running in hybrid cloud environments using Azure PowerShell.
-ms.date: 11/06/2020
+ms.date: 01/05/2021
 ms.topic: conceptual
 ---
 
@@ -30,8 +30,10 @@ The following example enables the Log Analytics VM extension on a Arc enabled Li
 ```powershell
 PS C:\> $Setting = @{ "workspaceId" = "workspaceId" }
 PS C:\> $protectedSetting = @{ "workspaceKey" = "workspaceKey" }
-PS C:\> New-AzConnectedMachineExtension -Name OMSLinuxAgent -ResourceGroupName "myResourceGroup" -MachineName "myMachine" -Location "eastus" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -TypeHandlerVersion "1.10" -Settings $Setting -ProtectedSetting $protectedSetting -ExtensionType OmsAgentforLinux"
+PS C:\> New-AzConnectedMachineExtension -Name OMSLinuxAgent -ResourceGroupName "myResourceGroup" -MachineName "myMachine" -Location "eastus" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -TypeHandlerVersion "1.10" -Settings $Setting -ProtectedSetting $protectedSetting -ExtensionType "OmsAgentForLinux"
 ```
+
+To enable the Log Analytics VM extension on an Arc enabled Windows server, change the value for the `-ExtensionType` parameter to `"MicrosoftMonitoringAgent"` in the previous example.
 
 The following example enables the Custom Script Extension on an Arc enabled server:
 
@@ -51,14 +53,14 @@ The following example enables the Key Vault VM extension (preview) on an Arc ena
 # Build settings
     $settings = @{
       secretsManagementSettings = @{
-       observedCertificates = @{
+       observedCertificates = @(
         "observedCert1"
-       }
+       )
       certificateStoreLocation = "myMachineName" # For Linux use "/var/lib/waagent/Microsoft.Azure.KeyVault.Store/"
       certificateStore = "myCertificateStoreName"
       pollingIntervalInS = "pollingInterval"
       }
-    authenticationLocationSettings = @{
+    authenticationSettings = @{
      msiEndpoint = "http://localhost:40342/metadata/identity"
      }
     }

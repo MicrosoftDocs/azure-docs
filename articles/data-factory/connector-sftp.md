@@ -1,17 +1,12 @@
 ---
 title: Copy data from and to SFTP server
 description: Learn how to copy data from and to SFTP server by using Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/28/2020
+ms.date: 03/17/2021
 ---
 
 # Copy data from and to the SFTP server by using Azure Data Factory
@@ -34,7 +29,7 @@ The SFTP connector is supported for the following activities:
 
 Specifically, the SFTP connector supports:
 
-- Copying files from and to the SFTP server by using *Basic* or *SshPublicKey* authentication.
+- Copying files from and to the SFTP server by using **Basic**, **SSH public key** or **multi-factor** authentication.
 - Copying files as is or by parsing or generating files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
 ## Prerequisites
@@ -58,7 +53,7 @@ The following properties are supported for the SFTP linked service:
 | port | The port on which the SFTP server is listening.<br/>The allowed value is an integer, and the default value is *22*. |No |
 | skipHostKeyValidation | Specify whether to skip host key validation.<br/>Allowed values are *true* and *false* (default).  | No |
 | hostKeyFingerprint | Specify the fingerprint of the host key. | Yes, if the "skipHostKeyValidation" is set to false.  |
-| authenticationType | Specify the authentication type.<br/>Allowed values are *Basic* and *SshPublicKey*. For more properties, see the [Use basic authentication](#use-basic-authentication) section. For JSON examples, see the [Use SSH public key authentication](#use-ssh-public-key-authentication) section. |Yes |
+| authenticationType | Specify the authentication type.<br/>Allowed values are *Basic*, *SshPublicKey* and *MultiFactor*. For more properties, see the [Use basic authentication](#use-basic-authentication) section. For JSON examples, see the [Use SSH public key authentication](#use-ssh-public-key-authentication) section. |Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. To learn more, see the [Prerequisites](#prerequisites) section. If the integration runtime isn't specified, the service uses the default Azure Integration Runtime. |No |
 
 ### Use basic authentication
@@ -75,7 +70,6 @@ To use basic authentication, set the *authenticationType* property to *Basic*, a
 ```json
 {
     "name": "SftpLinkedService",
-    "type": "linkedservices",
     "properties": {
         "type": "Sftp",
         "typeProperties": {
@@ -117,7 +111,6 @@ To use SSH public key authentication, set "authenticationType" property as **Ssh
 ```json
 {
     "name": "SftpLinkedService",
-    "type": "Linkedservices",
     "properties": {
         "type": "Sftp",
         "typeProperties": {
@@ -161,6 +154,43 @@ To use SSH public key authentication, set "authenticationType" property as **Ssh
             "passPhrase": {
                 "type": "SecureString",
                 "value": "<pass phrase>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of integration runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### Use multi-factor authentication
+
+To use multi-factor authentication which is a combination of basic and SSH public key authentications, specify the user name, password and the private key info described in above sections.
+
+**Example: multi-factor authentication**
+
+```json
+{
+    "name": "SftpLinkedService",
+    "properties": {
+        "type": "Sftp",
+        "typeProperties": {
+            "host": "<host>",
+            "port": 22,
+            "authenticationType": "MultiFactor",
+            "userName": "<username>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            },
+            "privateKeyContent": {
+                "type": "SecureString",
+                "value": "<base64 encoded private key content>"
+            },
+            "passPhrase": {
+                "type": "SecureString",
+                "value": "<passphrase for private key>"
             }
         },
         "connectVia": {
@@ -227,7 +257,7 @@ The following properties are supported for SFTP under the `storeSettings` settin
 | ***Locate the files to copy*** |  |  |
 | OPTION 1: static path<br> | Copy from the folder/file path that's specified in the dataset. If you want to copy all files from a folder, additionally specify `wildcardFileName` as `*`. |  |
 | OPTION 2: wildcard<br>- wildcardFolderPath | The folder path with wildcard characters to filter source folders. <br>Allowed wildcards are `*` (matches zero or more characters) and `?` (matches zero or a single character); use `^` to escape if your actual folder name has a wildcard or this escape char inside. <br>For more examples, see [Folder and file filter examples](#folder-and-file-filter-examples). | No                                            |
-| OPTION 2: wildcard<br>- wildcardFileName | The file name with wildcard characters under the specified folderPath/wildcardFolderPath to filter source files. <br>Allowed wildcards are `*` (matches zero or more characters) and `?` (matches zero or a single character); use `^` to escape if your actual folder name has wildcard or this escape char inside.  For more examples, see [Folder and file filter examples](#folder-and-file-filter-examples). | Yes |
+| OPTION 2: wildcard<br>- wildcardFileName | The file name with wildcard characters under the specified folderPath/wildcardFolderPath to filter source files. <br>Allowed wildcards are `*` (matches zero or more characters) and `?` (matches zero or a single character); use `^` to escape if your actual file name has wildcard or this escape char inside.  For more examples, see [Folder and file filter examples](#folder-and-file-filter-examples). | Yes |
 | OPTION 3: a list of files<br>- fileListPath | Indicates to copy a specified file set. Point to a text file that includes a list of files you want to copy (one file per line, with the relative path to the path configured in the dataset).<br/>When you use this option, don't specify the file name in the dataset. For more examples, see [File list examples](#file-list-examples). |No |
 | ***Additional settings*** |  | |
 | recursive | Indicates whether the data is read recursively from the subfolders or only from the specified folder. When recursive is set to true and the sink is a file-based store, an empty folder or subfolder isn't copied or created at the sink. <br>Allowed values are *true* (default) and *false*.<br>This property doesn't apply when you configure `fileListPath`. |No |
@@ -236,7 +266,7 @@ The following properties are supported for SFTP under the `storeSettings` settin
 | modifiedDatetimeEnd      | Same as above.                                               | No                                            |
 | enablePartitionDiscovery | For files that are partitioned, specify whether to parse the partitions from the file path and add them as additional source columns.<br/>Allowed values are **false** (default) and **true**. | No                                            |
 | partitionRootPath | When partition discovery is enabled, specify the absolute root path in order to read partitioned folders as data columns.<br/><br/>If it is not specified, by default,<br/>- When you use file path in dataset or list of files on source, partition root path is the path configured in dataset.<br/>- When you use wildcard folder filter, partition root path is the sub-path before the first wildcard.<br/><br/>For example, assuming you configure the path in dataset as "root/folder/year=2020/month=08/day=27":<br/>- If you specify partition root path as "root/folder/year=2020", copy activity will generate two more columns `month` and `day` with value "08" and "27" respectively, in addition to the columns inside the files.<br/>- If partition root path is not specified, no extra column will be generated. | No                                            |
-| maxConcurrentConnections | The number of connections that can connect to the storage store concurrently. Specify a value only when you want to limit the concurrent connection to the data store. | No                                            |
+| maxConcurrentConnections | The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No                                            |
 
 **Example:**
 
@@ -289,7 +319,7 @@ The following properties are supported for SFTP under `storeSettings` settings i
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | The *type* property under `storeSettings` must be set to *SftpWriteSettings*. | Yes      |
 | copyBehavior             | Defines the copy behavior when the source is files from a file-based data store.<br/><br/>Allowed values are:<br/><b>- PreserveHierarchy (default)</b>: Preserves the file hierarchy in the target folder. The relative path of the source file to the source folder is identical to the relative path of the target file to the target folder.<br/><b>- FlattenHierarchy</b>: All files from the source folder are in the first level of the target folder. The target files have autogenerated names. <br/><b>- MergeFiles</b>: Merges all files from the source folder to one file. If the file name is specified, the merged file name is the specified name. Otherwise, it's an autogenerated file name. | No       |
-| maxConcurrentConnections | The number of connections that can connect to the storage store concurrently. Specify a value only when you want to limit the concurrent connection to the data store. | No       |
+| maxConcurrentConnections | The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections. | No       |
 | useTempFileRename | Indicate whether to upload to temporary files and rename them, or directly write to the target folder or file location. By default, Azure Data Factory first writes to temporary files and then renames them when the upload is finished. This sequence helps to (1) avoid conflicts that might result in a corrupted file if you have other processes writing to the same file, and (2) ensure that the original version of the file exists during the transfer. If your SFTP server doesn't support a rename operation, disable this option and make sure that you don't have a concurrent write to the target file. For more information, see the troubleshooting tip at the end of this table. | No. Default value is *true*. |
 | operationTimeout | The wait time before each write request to SFTP server times out. Default value is 60 min (01:00:00).|No |
 
@@ -422,7 +452,7 @@ For information about Delete activity properties, see [Delete activity in Azure 
 |:--- |:--- |:--- |
 | type | The *type* property of the Copy activity source must be set to *FileSystemSource* |Yes |
 | recursive | Indicates whether the data is read recursively from the subfolders or only from the specified folder. When recursive is set to *true* and the sink is a file-based store, empty folders and subfolders won't be copied or created at the sink.<br/>Allowed values are *true* (default) and *false* | No |
-| maxConcurrentConnections | The number of connections that can connect to a storage store concurrently. Specify a number only when you want to limit the concurrent connections to the data store. | No |
+| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
 
 **Example:**
 

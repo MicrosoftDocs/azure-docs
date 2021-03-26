@@ -4,7 +4,7 @@ description: See examples of how to use blob index tags to categorize, manage, a
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 10/19/2020
+ms.date: 03/05/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -16,8 +16,10 @@ ms.custom: devx-track-csharp
 
 Blob index tags categorize data in your storage account using key-value tag attributes. These tags are automatically indexed and exposed as a searchable multi-dimensional index to easily find data. This article shows you how to set, get, and find data using blob index tags.
 
-> [!NOTE]
-> Blob index is in public preview, and is available in the **Canada Central**, **Canada East**, **France Central** and **France South** regions. To learn more about this feature along with known issues and limitations, see [Manage and find Azure Blob data with blob index tags (preview)](storage-manage-find-blobs.md).
+> [!IMPORTANT]
+> Blob index tags are currently in **PREVIEW** and is available in all public regions. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+To learn more about this feature along with known issues and limitations, see [Manage and find Azure Blob data with blob index tags (preview)](storage-manage-find-blobs.md).
 
 ## Prerequisites
 
@@ -34,7 +36,7 @@ As blob index is in preview, the .NET storage package is released in the preview
 
 2. In the NuGet Package Manager, Find the **Azure.Storage.Blobs** package, and install version **12.7.0-preview.1** or newer to your project. You can also run the PowerShell command: `Install-Package Azure.Storage.Blobs -Version 12.7.0-preview.1`
 
-   To learn how, see [Find and install a package](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package).
+   To learn how, see [Find and install a package](/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package).
 
 3. Add the following using statements to the top of your code file.
 
@@ -52,7 +54,7 @@ As blob index is in preview, the .NET storage package is released in the preview
 
 ## Upload a new blob with index tags
 
-Uploading a new blob with index tags can be performed by the [Storage Blob Data Owner](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). In addition, users with the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [role-based access control](/azure/role-based-access-control/overview) permission can perform this operation.
+This task can be performed by a [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) or a security principal that has been given permission to the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) via a custom Azure role.
 
 # [Portal](#tab/azure-portal)
 
@@ -110,9 +112,9 @@ static async Task BlobIndexTagsOnCreate()
 
 ## Get, set, and update blob index tags
 
-Getting blob index tags can be performed by the [Storage Blob Data Owner](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). In addition, users with the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` [role-based access control](/azure/role-based-access-control/overview) permission can perform this operation.
+Getting blob index tags can be performed by a [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) or a security principal that has been given permission to the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) via a custom Azure role.
 
-Setting and updating blob index tags can be performed by the [Storage Blob Data Owner](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). In addition, users with the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [role-based access control](/azure/role-based-access-control/overview) permission can perform this operation.
+Setting and updating blob index tags can be performed by a [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) or a security principal that has been given permission to the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) via a custom Azure role.
 
 # [Portal](#tab/azure-portal)
 
@@ -189,7 +191,7 @@ static async Task BlobIndexTagsExample()
 
 ## Filter and find data with blob index tags
 
-Searching and filtering by blob index tags can be performed by the [Storage Blob Data Owner](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). In addition, users with the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` [role-based access control](/azure/role-based-access-control/overview) permission can perform this operation.
+This task can be performed by a [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) or a security principal that has been given permission to the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) via a custom Azure role.
 
 # [Portal](#tab/azure-portal)
 

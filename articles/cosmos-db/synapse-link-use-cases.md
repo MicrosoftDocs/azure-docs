@@ -6,6 +6,7 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
+ms.custom: synapse-cosmos-db
 ---
 
 # Azure Synapse Link for Azure Cosmos DB: Near real-time analytics use cases
@@ -48,9 +49,9 @@ Based on previous architecture, you can achieve the following use cases with Syn
 
   Synapse Link for Azure Cosmos DB enables rich business intelligence (BI)/reporting scenarios:
 
-  * Query operational data from Azure Cosmos DB analytical store by using native integration with Synapse SQL serverless and full expressiveness of T-SQL language.
+  * Query operational data from Azure Cosmos DB analytical store by using native integration with serverless SQL pool and full expressiveness of T-SQL language.
 
-  * Model and publish auto refreshing BI dashboards over Azure Cosmos DB through Synapse SQL serverless support for familiar BI tools. For example, Azure Analysis Services, Power BI Premium, etc.
+  * Model and publish auto refreshing BI dashboards over Azure Cosmos DB through serverless SQL pool support for familiar BI tools. For example, Azure Analysis Services, Power BI Premium, etc.
 
 The following is some guidance for data integration for batch & streaming data into Azure Cosmos DB:
 
@@ -139,4 +140,4 @@ To learn more, see the following docs:
 
 * [Apache Spark in Azure Synapse Analytics](../synapse-analytics/spark/apache-spark-concepts.md)
 
-* [SQL serverless runtime support in Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md)
+* [Serverless SQL pool runtime support in Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md)

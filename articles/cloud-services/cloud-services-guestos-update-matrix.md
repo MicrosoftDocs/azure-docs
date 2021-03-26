@@ -3,15 +3,15 @@ title: Learn about the latest Azure Guest OS Releases | Microsoft Docs
 description: The latest release news and SDK compatibility for Azure Cloud Services Guest OS.
 services: cloud-services
 documentationcenter: na
-author: yohaddad
+author: gunnarcms
 editor: ''
 ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
 ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/12/2020
-ms.author: yohaddad
+ms.date: 2/19/2021
+ms.author: gunnarc
 ---
 # Azure Guest OS releases and SDK compatibility matrix
 Provides you with up-to-date information about the latest Azure Guest OS releases for Cloud Services. This information helps you plan your upgrade path before a Guest OS is disabled. If you configure your roles to use *automatic* Guest OS updates as described in [Azure Guest OS Update Settings][Azure Guest OS Update Settings], it is not vital that you read this page.
@@ -35,6 +35,21 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 Unsure about how to update your Guest OS? Check [this][cloud updates] out.
 
 ## News updates
+
+###### **February 19, 2021**
+The February Guest OS has released. 
+
+###### **February 5, 2021**
+The January Guest OS has released. 
+
+###### **January 15, 2021**
+The December Guest OS has released. 
+
+###### **December 19, 2020**
+The November Guest OS has released. 
+
+###### **November 17, 2020**
+The October Guest OS has released. 
 
 ###### **October 10, 2020**
 The September Guest OS has released. 
@@ -137,8 +152,13 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-|  WA-GUEST-OS-6.23_202009-01  |  October 10, 2020  |  Post 6.25  |  
-|  WA-GUEST-OS-6.22_202008-02  |  September 5, 2020  |  Post 6.24  |  
+|  WA-GUEST-OS-6.28_202102-01 |  February 19, 2021  |  Post 6.30  |  
+|  WA-GUEST-OS-6.27_202101-01 |  February 5, 2021  |  Post 6.29  |  
+|~~WA-GUEST-OS-6.26_202012-01~~|  January 15, 2021  |  February 19, 2021  |  
+|~~WA-GUEST-OS-6.25_202011-01~~|  December 19, 2020  |  February 5, 2021  |  
+|~~WA-GUEST-OS-6.24_202010-02~~|  November 17, 2020  |  January 15, 2021  |  
+|~~WA-GUEST-OS-6.23_202009-01~~|  October 10, 2020  |  December 19, 2020  |  
+|~~WA-GUEST-OS-6.22_202008-02~~|  September 5, 2020  |  November 17, 2020  |  
 |~~WA-GUEST-OS-6.21_202007-01~~|  August 17, 2020  |  October 10, 2020  |  
 |~~WA-GUEST-OS-6.20_202006-02~~|  August 10, 2020  |  September 5, 2020  |  
 |~~WA-GUEST-OS-6.19_202005-02~~|  June 2, 2020  |  August 17, 2020  |  
@@ -173,8 +193,13 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-|  WA-GUEST-OS-5.47_202009-01  |  October 10, 2020  |  Post 5.49  | 
-|  WA-GUEST-OS-5.46_202008-02  |  September 5, 2020  |  Post 5.48  |  
+|  WA-GUEST-OS-5.52_202102-01  |  February 19, 2021  |  Post 5.54  | 
+|  WA-GUEST-OS-5.51_202101-01  |  February 5, 2021  |  Post 5.53  | 
+|~~WA-GUEST-OS-5.50_202012-01~~|  January 15, 2021  |  February 19, 2021  | 
+|~~WA-GUEST-OS-5.49_202011-01~~|  December 19, 2020  |  February 5, 2021  | 
+|~~WA-GUEST-OS-5.48_202010-02~~|  November 17, 2020  |  January 15, 2021  | 
+|~~WA-GUEST-OS-5.47_202009-01~~|  October 10, 2020  |  December 19, 2020  | 
+|~~WA-GUEST-OS-5.46_202008-02~~|  September 5, 2020  |  November 17, 2020  |  
 |~~WA-GUEST-OS-5.45_202007-01~~|  August 17, 2020  |  October 10, 2020  |  
 |~~WA-GUEST-OS-5.44_202006-02~~|  August 10, 2020  |  September 5, 2020  |  
 |~~WA-GUEST-OS-5.43_202005-02~~|  June 2, 2020  |  August 17, 2020  |  
@@ -206,8 +231,13 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-|  WA-GUEST-OS-4.82_202009-01  |  October 10, 2020  |  Post 4.84  | 
-|  WA-GUEST-OS-4.81_202008-02  |  September 5, 2020  |  Post 4.83  | 
+|  WA-GUEST-OS-4.87_202102-01  |  February 19, 2021  |  Post 4.89  | 
+|  WA-GUEST-OS-4.86_202101-01  |  February 5, 2021  |  Post 4.88  | 
+|~~WA-GUEST-OS-4.85_202012-01~~|  January 15, 2021  |  February 19, 2021  | 
+|~~WA-GUEST-OS-4.84_202011-01~~|  December 19, 2020  |  February 5, 2021  | 
+|~~WA-GUEST-OS-4.83_202010-02~~|  November 17, 2020  |  January 15, 2021  | 
+|~~WA-GUEST-OS-4.82_202009-01~~|  October 10, 2020  |  December 19, 2020  | 
+|~~WA-GUEST-OS-4.81_202008-02~~|  September 5, 2020  |  November 17, 2020  | 
 |~~WA-GUEST-OS-4.80_202007-01~~|  August 17, 2020  |  October 10, 2020  | 
 |~~WA-GUEST-OS-4.79_202006-02~~|  August 10, 2020  |  September 5, 2020  | 
 |~~WA-GUEST-OS-4.78_202005-02~~|  June 2, 2020  |  August 17, 2020  |  
@@ -239,8 +269,13 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-|  WA-GUEST-OS-3.89_202009-01  |  October 10, 2020  |  Post 3.91  |  
-|  WA-GUEST-OS-3.88_202008-02  |  September 5, 2020  |  Post 3.90  |  
+|  WA-GUEST-OS-3.94_202102-01  |  February 19, 2021  |  Post 3.96  |
+|  WA-GUEST-OS-3.93_202101-01  |  February 5, 2021  |  Post 3.95  |
+|~~WA-GUEST-OS-3.92_202012-01~~|  January 15, 2021  |  February 19, 2021  |  
+|~~WA-GUEST-OS-3.91_202011-01~~|  December 19, 2020  |  February 5, 2021  |  
+|~~WA-GUEST-OS-3.90_202010-02~~|  November 17, 2020  |  January 15, 2021  |  
+|~~WA-GUEST-OS-3.89_202009-01~~|  October 10, 2020  |  December 19, 2020  |  
+|~~WA-GUEST-OS-3.88_202008-02~~|  September 5, 2020  |  November 17, 2020  |  
 |~~WA-GUEST-OS-3.87_202007-01~~|  August 17, 2020  |  October 10, 2020  |  
 |~~WA-GUEST-OS-3.86_202006-02~~|  August 10, 2020  |  September 5, 2020  |  
 |~~WA-GUEST-OS-3.85_202005-02~~|  June 2, 2020  |  August 17, 2020  |  
@@ -272,8 +307,13 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-|  WA-GUEST-OS-2.102_202009-01  |  October 10, 2020  |  Post 2.104  |  
-|  WA-GUEST-OS-2.101_202008-02  |  September 5, 2020  |  Post 2.103  |  
+|  WA-GUEST-OS-2.107_202102-01  |  February 19, 2021  |  Post 2.109  |  
+|  WA-GUEST-OS-2.106_202101-01  |  February 5, 2021  |  Post 2.108  |  
+|~~WA-GUEST-OS-2.105_202012-01~~|  January 15, 2021  |  February 19, 2021  |  
+|~~WA-GUEST-OS-2.104_202011-01~~|  December 19, 2020  |  February 5, 2021  |  
+|~~WA-GUEST-OS-2.103_202010-02~~|  November 17, 2020  |  January 15, 2021  |  
+|~~WA-GUEST-OS-2.102_202009-01~~|  October 10, 2020  |  December 19, 2020  |  
+|~~WA-GUEST-OS-2.101_202008-02~~|  September 5, 2020  |  November 17, 2020 |    
 |~~WA-GUEST-OS-2.100_202007-01~~|  August 17, 2020  |  October 10, 2020  |  
 |~~WA-GUEST-OS-2.99_202006-02~~|  August 10, 2020  | September 5, 2020  |  
 |~~WA-GUEST-OS-2.98_202005-02~~|  June 2, 2020  |  August 17, 2020  |  

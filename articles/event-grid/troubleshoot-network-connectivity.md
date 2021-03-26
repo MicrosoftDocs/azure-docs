@@ -45,7 +45,7 @@ telnet {sampletopicname}.{region}-{suffix}.eventgrid.azure.net 443
 
 When you're working with Azure, sometimes you have to allow specific IP address ranges or URLs in your corporate firewall or proxy to access all Azure services you're using or trying to use. Verify that the traffic is allowed on IP addresses used by Event Grid. For IP addresses used by Azure Event Grid: see [Azure IP Ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519) and [Service tag - AzureEventGrid](network-security.md#service-tags).
 
-The [Azure IP Ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519) document also lists IP addresses **by region**. You can allow address ranges for the **topic's region** and the **paired region** in your corporate firewall or proxy. For a paired region for a region, see [Business continuity and disaster recovery (BCDR): Azure Paired Regions](/azure/best-practices-availability-paired-regions). 
+The [Azure IP Ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519) document also lists IP addresses **by region**. You can allow address ranges for the **topic's region** and the **paired region** in your corporate firewall or proxy. For a paired region for a region, see [Business continuity and disaster recovery (BCDR): Azure Paired Regions](../best-practices-availability-paired-regions.md). 
 
 > [!NOTE]
 > New IP addresses could be added to AzureEventGrid service tag, though it's not usual. So it's good to do a weekly check on the service tags.

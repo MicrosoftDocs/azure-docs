@@ -3,12 +3,11 @@ title: Quickstart - Monitor your devices in Azure IoT Central
 description: Quickstart - As an operator, learn how to use your Azure IoT Central application to monitor your devices.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/12/2020
+ms.date: 11/16/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-manager: philmea
 ---
 
 # Quickstart: Use Azure IoT Central to monitor your devices
@@ -23,29 +22,33 @@ Before you begin, you should complete the three previous quickstarts [Create an 
 
 ## Receive a notification
 
-Azure IoT Central sends notifications about devices as email messages. The builder added a rule to send a notification when the temperature in a connected device sensor exceeded a threshold. Check the emails sent to the account the builder chose to receive notifications.
+Azure IoT Central sends notifications about devices as email messages. As a builder, you added a rule to send a notification to an operator when the humidity in a connected device sensor exceeded a threshold. As an operator, you check your emails for notifications.
 
 Open the email message you received at the end of the [Configure rules and actions for your device](quick-configure-rules.md) quickstart. In the email, select the link to the device:
 
-![Alert notification email](media/quick-monitor-devices/email.png)
+:::image type="content" source="media/quick-monitor-devices/email.png" alt-text="Screenshot that shows notification email":::
 
 The **Overview** view for the simulated device you created in the previous quickstarts opens in your browser:
 
-![Device that triggered the notification email message](media/quick-monitor-devices/dashboard.png)
+:::image type="content" source="media/quick-monitor-devices/dashboard.png" alt-text="Screenshot that shows overview of device that triggered the notification":::
 
 ## Investigate an issue
 
 As an operator, you can view information about the device on the **Overview**, **About**, and **Commands** views. The builder created a **Manage device** view for you to edit device information and set device properties.
 
-The chart on the dashboard shows a plot of the device temperature. You decide that the device temperature is too high.
+The chart on the dashboard shows a plot of the device humidity. You decide that the device humidity is too high.
 
 ## Remediate an issue
 
 To make a change to the device, use the **Manage device** page.
 
-Change **Fan Speed** to 500 to cool the device. Choose **Save** to update the device. When the device confirms the settings change, the status of the property changes to **synced**:
+Change **Target temperature** to 80 to warm the device and reduce the humidity. Choose **Save** to update the device. When the device confirms the settings change, the status of the property changes to **synced**:
 
-![Update settings](media/quick-monitor-devices/change-settings.png)
+:::image type="content" source="media/quick-monitor-devices/change-settings.png" alt-text="Screenshot that shows the updated target temperature setting for the device":::
+
+## Clean up resources
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
 
 ## Next steps
 

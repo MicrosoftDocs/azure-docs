@@ -49,7 +49,7 @@ Disallowing public access for the storage account prevents anonymous access to a
 
 To allow or disallow public access for a storage account, configure the account's **AllowBlobPublicAccess** property. This property is available for all storage accounts that are created with the Azure Resource Manager deployment model. For more information, see [Storage account overview](../common/storage-account-overview.md).
 
-The **AllowBlobPublicAccess** property is not set by default and does not return a value until you explicitly set it. The storage account permits public access when the property value is either **null** or **true**.
+The **AllowBlobPublicAccess** property is not set for a storage account by default and does not return a value until you explicitly set it. The storage account permits public access when the property value is either **null** or **true**.
 
 # [Azure portal](#tab/portal)
 

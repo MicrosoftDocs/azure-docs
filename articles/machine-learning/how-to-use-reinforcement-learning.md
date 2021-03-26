@@ -9,7 +9,7 @@ ms.author: peterlu
 author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.custom: how-to, devx-track-python, contperf-fy21q2
 
 ---
 
@@ -20,9 +20,9 @@ ms.custom: how-to, devx-track-python
 > [!NOTE]
 > Azure Machine Learning Reinforcement Learning is currently a preview feature. Only Ray and RLlib frameworks are supported at this time.
 
-In this article, you learn how to train a reinforcement learning (RL) agent to play the video game Pong. You will use the open-source Python library [Ray RLlib](https://ray.readthedocs.io/en/master/rllib.html) with Azure Machine Learning to manage the complexity of distributed RL jobs.
+In this article, you learn how to train a reinforcement learning (RL) agent to play the video game Pong. You use the open-source Python library [Ray RLlib](https://ray.readthedocs.io/en/master/rllib.html) with Azure Machine Learning to manage the complexity of distributed RL.
 
-In this article you will learn how to:
+In this article you learn how to:
 > [!div class="checklist"]
 > * Set up an experiment
 > * Define head and worker nodes
@@ -34,7 +34,7 @@ This article is based on the [RLlib Pong example](https://aka.ms/azureml-rl-pong
 
 ## Prerequisites
 
-Run this code in either of the following environments. We recommend that you try Azure Machine Learning compute instance for the fastest start-up experience. The reinforcement sample notebooks are available to quickly clone and run on Azure Machine Learning compute instance.
+Run this code in either of these environments. We recommend you try Azure Machine Learning compute instance for the fastest start-up experience. You can quickly clone and run the reinforcement sample notebooks on an Azure Machine Learning compute instance.
 
  - Azure Machine Learning compute instance
 
@@ -45,10 +45,10 @@ Run this code in either of the following environments. We recommend that you try
  
  - Your own Jupyter Notebook server
 
-    - Install the [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
-    - Install the [Azure Machine Learning RL SDK](/python/api/azureml-contrib-reinforcementlearning/?preserve-view=true&view=azure-ml-py): `pip install --upgrade azureml-contrib-reinforcementlearning`
+    - Install the [Azure Machine Learning SDK](/python/api/overview/azure/ml/install).
+    - Install the [Azure Machine Learning RL SDK](/python/api/azureml-contrib-reinforcementlearning/): `pip install --upgrade azureml-contrib-reinforcementlearning`
     - Create a [workspace configuration file](how-to-configure-environment.md#workspace).
-    - Run the virtual network [setup notebook](https://aka.ms/azure-rl-env-setup) to open network ports used for distributed reinforcement learning.
+    - Run the virtual network to open network ports used for distributed reinforcement learning.
 
 
 ## How to train a Pong-playing agent
@@ -57,19 +57,21 @@ Reinforcement learning (RL) is an approach to machine learning that learns by do
 
 Your training agents learn to play Pong in a **simulated environment**. Training agents make a decision every frame of the game to move the paddle up, down, or stay in place. It looks at the state of the game (an RGB image of the screen) to make a decision.
 
-RL uses **rewards** to tell the agent if its decisions are successful. In this environment, the agent gets a positive reward when it scores a point and a negative reward when a point is scored against it. Over many iterations, the training agent learns to choose the action, based on its current state, that optimizes for the sum of expected future rewards.
-
-It's common to use a **deep neural network** (DNN) model to perform this optimization in RL. Initially, the learning agent will perform poorly, but every game will generate additional samples to further improve the model.
+RL uses **rewards** to tell the agent if its decisions are successful. In this example, the agent gets a positive reward when it scores a point and a negative reward when a point is scored against it. Over many iterations, the training agent learns to choose the action, based on its current state, that optimizes for the sum of expected future rewards. It's common to use **deep neural networks** (DNN) to perform this optimization in RL. 
 
 Training ends when the agent reaches an average reward score of 18 in a training epoch. This means that the agent has beaten its opponent by an average of at least 18 points in matches up to 21.
 
-The process of iterating through simulation and retraining a DNN is computationally expensive, and requires large amounts of data. One way to improve performance of RL jobs is by **parallelizing work** so that multiple training agents can act and learn simultaneously. However, managing a distributed RL environment can be a complex undertaking.
+The process of iterating through simulation and retraining a DNN is computationally expensive, and requires a lot of data. One way to improve performance of RL jobs is by **parallelizing work** so that multiple training agents can act and learn simultaneously. However, managing a distributed RL environment can be a complex undertaking.
 
 Azure Machine Learning provides the framework to manage these complexities to scale out your RL workloads.
 
 ## Set up the environment
 
-Set up the local RL environment by loading the required Python packages, initializing your workspace, creating an experiment, and specifying a configured virtual network.
+Set up the local RL environment by:
+1. Loading the required Python packages
+1. Initializing your workspace
+1. Creating an experiment
+1. Specifying a configured virtual network.
 
 ### Import libraries
 
@@ -93,9 +95,7 @@ from azureml.contrib.train.rl import WorkerConfiguration
 
 ### Initialize a workspace
 
-The [Azure Machine Learning workspace](concept-workspace.md) is the top-level resource for Azure Machine Learning. It provides you with a centralized place to work with all the artifacts you create.
-
-Initialize a workspace object from the `config.json` file created in the [prerequisites section](#prerequisites). If you are executing this code in an Azure Machine Learning Compute Instance, the configuration file has already been created for you.
+Initialize a [workspace](concept-workspace.md) object from the `config.json` file created in the [prerequisites section](#prerequisites). If you are executing this code in an Azure Machine Learning Compute Instance, the configuration file has already been created for you.
 
 ```Python
 ws = Workspace.from_config()
@@ -103,7 +103,7 @@ ws = Workspace.from_config()
 
 ### Create a reinforcement learning experiment
 
-Create an [experiment](/python/api/azureml-core/azureml.core.experiment.experiment?preserve-view=true&view=azure-ml-py) to track your reinforcement learning run. In Azure Machine Learning, experiments are logical collections of related trials to organize run logs, history, outputs, and more.
+Create an [experiment](/python/api/azureml-core/azureml.core.experiment.experiment) to track your reinforcement learning run. In Azure Machine Learning, experiments are logical collections of related trials to organize run logs, history, outputs, and more.
 
 ```python
 experiment_name='rllib-pong-multi-node'
@@ -113,7 +113,9 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 ### Specify a virtual network
 
-For RL jobs that use multiple compute targets, you must specify a virtual network with open ports that allow worker nodes and head nodes to communicate with each other. The virtual network can be in any resource group, but it should be in the same region as your workspace. For more information on setting up your virtual network, see the [workspace setup notebook](https://aka.ms/azure-rl-env-setup) that can found in the prerequisites section. Here, you specify the name of the virtual network in your resource group.
+For RL jobs that use multiple compute targets, you must specify a virtual network with open ports that allow worker nodes and head nodes to communicate with each other.
+
+The virtual network can be in any resource group, but it should be in the same region as your workspace. For more information on setting up your virtual network, see the workspace setup notebook in the prerequisites section. Here, you specify the name of the virtual network in your resource group.
 
 ```python
 vnet = 'your_vnet'
@@ -121,13 +123,13 @@ vnet = 'your_vnet'
 
 ## Define head and worker compute targets
 
-This example uses separate compute targets for the Ray head and workers nodes. These settings let you scale your compute resources up and down depending on the expected workload. Set the number of nodes, and the size of each node, based on your experiment's needs.
+This example uses separate compute targets for the Ray head and workers nodes. These settings let you scale your compute resources up and down depending on your workload. Set the number of nodes, and the size of each node, based on your needs.
 
 ### Head computing target
 
-This example uses a GPU-equipped head cluster to optimize deep learning performance. The head node trains the neural network that the agent uses to make decisions. The head node also collects data points from the worker nodes to further train the neural network.
+You can use a GPU-equipped head cluster to improve deep learning performance. The head node trains the neural network that the agent uses to make decisions. The head node also collects data points from the worker nodes to train the neural network.
 
-The head compute uses a single [`STANDARD_NC6` virtual machine](../virtual-machines/nc-series.md) (VM). It has 6 virtual CPUs, which means that it can distribute work across 6 working CPUs.
+The head compute uses a single [`STANDARD_NC6` virtual machine](../virtual-machines/nc-series.md) (VM). It has 6 virtual CPUs to distribute work across.
 
 
 ```python
@@ -169,7 +171,7 @@ else:
 
 ### Worker computing cluster
 
-This example uses four [`STANDARD_D2_V2` VMs](../virtual-machines/nc-series.md) for the worker compute target. Each worker node has 2 available CPUs for a total of 8 available CPUs to parallelize work.
+This example uses four [`STANDARD_D2_V2` VMs](../virtual-machines/nc-series.md) for the worker compute target. Each worker node has 2 available CPUs for a total of 8 available CPUs.
 
 GPUs aren't necessary for the worker nodes since they aren't performing deep learning. The workers run the game simulations and collect data.
 
@@ -208,14 +210,13 @@ else:
 ```
 
 ## Create a reinforcement learning estimator
+Use the [ReinforcementLearningEstimator](/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator) to submit a training job to Azure Machine Learning.
 
-In this section, you learn how to use the [ReinforcementLearningEstimator](/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?preserve-view=true&view=azure-ml-py) to submit a training job to Azure Machine Learning.
-
-Azure Machine Learning uses estimator classes to encapsulate run configuration information. This lets you easily specify how to configure a script execution. 
+Azure Machine Learning uses estimator classes to encapsulate run configuration information. This lets you specify how to configure a script execution. 
 
 ### Define a worker configuration
 
-The WorkerConfiguration object tells Azure Machine Learning how to initialize the worker cluster that will run the entry script.
+The WorkerConfiguration object tells Azure Machine Learning how to initialize the worker cluster that runs the entry script.
 
 ```python
 # Pip packages we will use for both head and worker
@@ -242,9 +243,11 @@ worker_conf = WorkerConfiguration(
 
 The entry script `pong_rllib.py` accepts a list of parameters that defines how to execute the training job. Passing these parameters through the estimator as a layer of encapsulation makes it easy to change script parameters and run configurations independently of each other.
 
-Specifying the correct `num_workers` will make the most out of your parallelization efforts. Set the number of workers to the same as the number of available CPUs. For this example you can calculate this as follows:
+Specifying the correct `num_workers` makes the most out of your parallelization efforts. Set the number of workers to the same as the number of available CPUs. For this example, you can use the following calculation:
 
-The head node is a [Standard_NC6](../virtual-machines/nc-series.md) with 6 vCPUs. The worker cluster is 4 [Standard_D2_V2 VMs](../cloud-services/cloud-services-sizes-specs.md#dv2-series) with 2 CPUs each, for a total of 8 CPUs. However, you must subtract 1 CPU from the worker count since 1 must be dedicated to the head node role. 6 CPUs + 8 CPUs - 1 head CPU = 13 simultaneous workers. Azure Machine Learning uses head and worker clusters to distinguish compute resources. However, Ray does not distinguish between head and workers, and all CPUs are available CPUs for worker thread execution.
+The head node is a [Standard_NC6](../virtual-machines/nc-series.md) with 6 vCPUs. The worker cluster is 4 [Standard_D2_V2 VMs](../cloud-services/cloud-services-sizes-specs.md#dv2-series) with 2 CPUs each, for a total of 8 CPUs. However, you must subtract 1 CPU from the worker count since 1 must be dedicated to the head node role.
+
+6 CPUs + 8 CPUs - 1 head CPU = 13 simultaneous workers. Azure Machine Learning uses head and worker clusters to distinguish compute resources. However, Ray does not distinguish between head and workers, and all CPUs are available as worker threads.
 
 
 ```python
@@ -395,7 +398,7 @@ def on_train_result(info):
 
 ## Submit a run
 
-[Run](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) handles the run history of in-progress or complete jobs. 
+[Run](/python/api/azureml-core/azureml.core.run%28class%29) handles the run history of in-progress or complete jobs. 
 
 ```python
 run = exp.submit(config=rl_estimator)
@@ -405,7 +408,7 @@ run = exp.submit(config=rl_estimator)
 
 ## Monitor and view results
 
-Use the Azure Machine Learning Jupyter widget to see the status of your runs in real time. In this example, the widget shows two child runs: one for head and one for workers. 
+Use the Azure Machine Learning Jupyter widget to see the status of your runs in real time. The widget shows two child runs: one for head and one for workers. 
 
 ```python
 from azureml.widgets import RunDetails
@@ -417,7 +420,7 @@ run.wait_for_completion()
 1. Wait for the widget to load.
 1. Select the head run in the list of runs.
 
-Select **Click here to see the run in Azure Machine Learning studio** for additional run information in the studio. You can access this information while the run is in progress, or after it has completed.
+Select **Click here to see the run in Azure Machine Learning studio** for additional run information in the studio. You can access this information while the run is in progress or after it completes.
 
 ![Line graph showing how run details widget](./media/how-to-use-reinforcement-learning/pong-run-details-widget.png)
 
@@ -425,7 +428,7 @@ The **episode_reward_mean** plot shows the mean number of points scored per trai
 
 If you browse logs of the child run, you can see the evaluation results recorded in driver_log.txt file. You may need to wait several minutes before these metrics become available on the Run page.
 
-In short work, you have learned to configure multiple compute resources to train a reinforcement learning agent to play Pong very well.
+In short work, you have learned to configure multiple compute resources to train a reinforcement learning agent to play Pong very well against a computer oppponent.
 
 ## Next steps
 

@@ -13,7 +13,7 @@
     href: invite-users.md
 - name: Tutorials
   items:
-  - name: Create a new account connected to Azure
+  - name: Create a new account
     href: connect-to-azure.md
   - name: Use Video Indexer API
     href: video-indexer-use-apis.md
@@ -25,6 +25,8 @@
     href: https://github.com/Azure-Samples/media-services-video-indexer
 - name: Concepts
   items:
+  - name: Overview
+    href: concepts-overview.md
   - name: Compare Video Indexer and Media Services presets
     href: compare-video-indexer-with-media-services-presets.md   
   - name: Manage multiple tenants
@@ -54,6 +56,7 @@
   - name: Examine Video Indexer output
     href: video-indexer-output-json-v2.md
   - name: Find exact moments within videos
+    displayName: search
     href: video-indexer-search.md
   - name: Detect scenes, shots, keyframes
     href: scenes-shots-keyframes.md
@@ -65,12 +68,14 @@
     href: use-editor-create-project.md
   - name: Embed widgets into your application
     href: video-indexer-embed-widgets.md
+  - name: Considerations when using Video Indexer at scale
+    href: considerations-when-use-at-scale.md
   - name: Disaster recovery
     href: video-indexer-disaster-recovery.md        
   - name: Customize content models
     items:
     - name: Animated characters
-      href: animated-characters-recognition.md
+      href: animated-characters-recognition-how-to.md
     - name: Person
       items: 
       - name: using Video Indexer website
@@ -113,6 +118,6 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/search?q=video-indexer
   - name: User voice
-    href: https://cognitive.uservoice.com/forums/598144-video-indexer
+    href: https://aka.ms/UserVoiceVI
   - name: Blogs
     href: https://azure.microsoft.com/blog/tag/video-indexer/

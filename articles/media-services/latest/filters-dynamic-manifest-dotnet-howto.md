@@ -21,11 +21,11 @@ ms.custom: devx-track-csharp
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-When delivering your content to customers (streaming Live events or Video on Demand) your client might need more flexibility than what's described in the default asset's manifest file. Azure Media Services enables you to define account filters and asset filters for your content. 
+When delivering your content to customers (streaming Live events or Video on Demand) your client might need more flexibility than what's described in the default asset's manifest file. Azure Media Services enables you to define account filters and asset filters for your content.
 
 For detailed description of this feature and scenarios where it is used, see [Dynamic Manifests](filters-dynamic-manifest-overview.md) and [Filters](filters-concept.md).
 
-This topic shows how to use Media Services .NET SDK to define a filter for a Video on Demand asset and create [Account Filters](/dotnet/api/microsoft.azure.management.media.models.accountfilter?view=azure-dotnet) and [Asset Filters](/dotnet/api/microsoft.azure.management.media.models.assetfilter?view=azure-dotnet). 
+This topic shows how to use Media Services .NET SDK to define a filter for a Video on Demand asset and create [Account Filters](/dotnet/api/microsoft.azure.management.media.models.accountfilter) and [Asset Filters](/dotnet/api/microsoft.azure.management.media.models.assetfilter). 
 
 > [!NOTE]
 > Make sure to review [presentationTimeRange](filters-concept.md#presentationtimerange).
@@ -39,7 +39,7 @@ This topic shows how to use Media Services .NET SDK to define a filter for a Vid
 
 ## Define a filter  
 
-In .NET, you configure track selections with [FilterTrackSelection](/dotnet/api/microsoft.azure.management.media.models.filtertrackselection?view=azure-dotnet) and [FilterTrackPropertyCondition](/dotnet/api/microsoft.azure.management.media.models.filtertrackpropertycondition?view=azure-dotnet) classes. 
+In .NET, you configure track selections with [FilterTrackSelection](/dotnet/api/microsoft.azure.management.media.models.filtertrackselection) and [FilterTrackPropertyCondition](/dotnet/api/microsoft.azure.management.media.models.filtertrackpropertycondition) classes. 
 
 The following code defines a filter that includes any audio tracks that are EC-3 and any video tracks that have bitrate in the 0-1000000 range.
 

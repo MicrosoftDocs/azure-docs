@@ -10,37 +10,37 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
-ms.date: 09/15/2020
+ms.date: 03/25/2021
 ---
 
 # Resource limits for Azure SQL Database and Azure Synapse Analytics servers
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-This article provides an overview of the resource limits for the logical server used by Azure SQL Database and Azure Synapse Analytics. It provides information on what happens when those resource limits are hit or exceeded and describes the resource governance mechanisms used to enforce these limits.
+This article provides an overview of the resource limits for the [logical server](logical-servers.md) used by Azure SQL Database and Azure Synapse Analytics. It provides information on what happens when those resource limits are hit or exceeded and describes the resource governance mechanisms used to enforce these limits.
 
 > [!NOTE]
-> For Azure SQL Managed Instance limits, see [SQL Database resource limits for managed instances](../managed-instance/resource-limits.md).
+> For Azure SQL Managed Instance limits, see [resource limits for managed instances](../managed-instance/resource-limits.md).
 
 ## Maximum resource limits
 
 | Resource | Limit |
 | :--- | :--- |
-| Databases per server | 5000 |
-| Default number of servers per subscription in any region | 20 |
-| Max number of servers per subscription in any region | 200 |  
-| DTU / eDTU quota per server | 54,000 |  
-| vCore quota per server/instance | 540 |
-| Max pools per server | Limited by number of DTUs or vCores. For example, if each pool is 1000 DTUs, then a server can support 54 pools.|
+| Databases per logical server | 5000 |
+| Default number of logical servers per subscription in a region | 20 |
+| Max number of logical servers per subscription in a region | 200 |  
+| DTU / eDTU quota per logical server | 54,000 |  
+| vCore quota per logical server | 540 |
+| Max pools per logical server | Limited by number of DTUs or vCores. For example, if each pool is 1000 DTUs, then a server can support 54 pools.|
 |||
 
 > [!IMPORTANT]
-> As the number of databases approaches the limit per server, the following can occur:
+> As the number of databases approaches the limit per logical server, the following can occur:
 >
-> - Increasing latency in running queries against the master database.  This includes views of resource utilization statistics such as sys.resource_stats.
+> - Increasing latency in running queries against the master database.  This includes views of resource utilization statistics such as `sys.resource_stats`.
 > - Increasing latency in management operations and rendering portal viewpoints that involve enumerating databases in the server.
 
 > [!NOTE]
-> To obtain more DTU/eDTU quota, vCore quota, or more servers than the default amount, submit a new support request in the Azure portal. For more information, see [Request quota increases for Azure SQL Database](quota-increase-request.md).
+> To obtain more DTU/eDTU quota, vCore quota, or more logical servers than the default amount, submit a new support request in the Azure portal. For more information, see [Request quota increases for Azure SQL Database](quota-increase-request.md).
 
 ### Storage size
 
@@ -64,7 +64,8 @@ When encountering high space utilization, mitigation options include:
 
 - Increasing the max size of the database or elastic pool, or adding more storage. See [Scale single database resources](single-database-scale.md) and [Scale elastic pool resources](elastic-pool-scale.md).
 - If the database is in an elastic pool, then alternatively the database can be moved outside of the pool so that its storage space isn't shared with other databases.
-- Shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](file-space-manage.md)
+- Shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](file-space-manage.md).
+- Check if high space utilization is due to a spike in the size of Persistent Version Store (PVS). PVS is a part of each database, and is used to implement  [Accelerated Database Recovery](../accelerated-database-recovery.md). To determine current PVS size, see [PVS troubleshooting](/sql/relational-databases/accelerated-database-recovery-management#troubleshooting). A common reason for large PVS size is a transaction that is open for a long time (hours), preventing cleanup of older versions in PVS.
 
 ### Sessions and workers (requests)
 
@@ -75,7 +76,7 @@ When encountering high session or worker utilization, mitigation options include
 - Increasing the service tier or compute size of the database or elastic pool. See [Scale single database resources](single-database-scale.md) and [Scale elastic pool resources](elastic-pool-scale.md).
 - Optimizing queries to reduce the resource utilization of each query if the cause of increased worker utilization is due to contention for compute resources. For more information, see [Query Tuning/Hinting](performance-guidance.md#query-tuning-and-hinting).
 - Reducing the [MAXDOP](/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option#Guidelines) (maximum degree of parallelism) setting.
-- Optimizing query workload to reduce number of occurrences and duration of query blocking.
+- Optimizing query workload to reduce number of occurrences and duration of query blocking. For more information, see [Understand and resolve Azure SQL blocking problems](understand-resolve-blocking.md).
 
 ### Memory
 
@@ -100,11 +101,11 @@ When encountering out-of-memory errors, mitigation options include:
 
 ## Resource consumption by user workloads and internal processes
 
-CPU and memory consumption by user workloads in each database is reported in the [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) and [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) views, in `avg_cpu_percent` and `avg_memory_usage_percent` columns. For elastic pools, pool-level resource consumption is reported in the [sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) view. User workload CPU consumption is also reported via the `cpu_percent` Azure Monitor metric, for [single databases](../../azure-monitor/platform/metrics-supported.md#microsoftsqlserversdatabases) and [elastic pools](../../azure-monitor/platform/metrics-supported.md#microsoftsqlserverselasticpools) at the pool level.
+CPU and memory consumption by user workloads in each database is reported in the [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) and [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) views, in `avg_cpu_percent` and `avg_memory_usage_percent` columns. For elastic pools, pool-level resource consumption is reported in the [sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) view. User workload CPU consumption is also reported via the `cpu_percent` Azure Monitor metric, for [single databases](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserversdatabases) and [elastic pools](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserverselasticpools) at the pool level.
 
 Azure SQL Database requires compute resources to implement core service features such as high availability and disaster recovery, database backup and restore, monitoring, Query Store, Automatic tuning, etc. The system sets aside a certain limited portion of the overall resources for these internal processes using [resource governance](#resource-governance) mechanisms, making the remainder of resources available for user workloads. At times when internal processes aren't using compute resources, the system makes them available to user workloads.
 
-Total CPU and memory consumption by user workloads and internal processes is reported in the [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) and [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) views, in `avg_instance_cpu_percent` and `avg_instance_memory_percent` columns. This data is also reported via the `sqlserver_process_core_percent` and `sqlserver_process_memory_percent` Azure Monitor metrics, for [single databases](../../azure-monitor/platform/metrics-supported.md#microsoftsqlserversdatabases) and [elastic pools](../../azure-monitor/platform/metrics-supported.md#microsoftsqlserverselasticpools) at the pool level.
+Total CPU and memory consumption by user workloads and internal processes is reported in the [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) and [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) views, in `avg_instance_cpu_percent` and `avg_instance_memory_percent` columns. This data is also reported via the `sqlserver_process_core_percent` and `sqlserver_process_memory_percent` Azure Monitor metrics, for [single databases](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserversdatabases) and [elastic pools](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserverselasticpools) at the pool level.
 
 A more detailed breakdown of recent resource consumption by user workloads and internal processes is reported in the [sys.dm_resource_governor_resource_pools_history_ex](/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-history-ex-azure-sql-database) and [sys.dm_resource_governor_workload_groups_history_ex](/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-workload-groups-history-ex-azure-sql-database) views. For details on resource pools and workload groups referenced in these views, see [Resource governance](#resource-governance). These views report on resource utilization by user workloads and specific internal processes in the associated resource pools and workload groups.
 

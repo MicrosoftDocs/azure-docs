@@ -3,7 +3,7 @@ title: Real-time event processing using Azure Stream Analytics
 description: This article describes the reference architecture to achieve real-time event processing and analytics using Azure Stream Analytics.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
+
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/24/2017

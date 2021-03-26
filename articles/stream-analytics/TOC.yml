@@ -30,20 +30,21 @@
       href: create-cluster.md
 - name: Tutorials
   items:
-  - name: 1 - Create / manage a job
-    href: stream-analytics-manage-job.md
-  - name: 2 - Run Azure Functions
+  - name: Visualize fraudulent calls in Power BI
+    href: stream-analytics-real-time-fraud-detection.md
+  - name: Run Azure Functions
     href: stream-analytics-with-azure-functions.md
-  - name: 3 - Deploy with CI/CD in Azure Pipelines
-    href: stream-analytics-tools-visual-studio-cicd-vsts.md
-  - name: 4 - Run a C# UDF
+  - name: Run a C# UDF
     href: stream-analytics-edge-csharp-udf.md
-  - name: 5 - Create custom .NET deserializer
+  - name: Create a custom .NET deserializer
     href: custom-deserializer.md
+  - name: Create an IoT Edge job
+    href: ../iot-edge/tutorial-deploy-stream-analytics.md
+    maintainContext: true
 - name: Samples
   items:
   - name: Code samples
-    href: https://azure.microsoft.com/resources/samples/?service=stream-analytics
+    href: /samples/browse/?products=azure-stream-analytics
 - name: Concepts
   items:
   - name: End-to-end solution patterns
@@ -56,6 +57,8 @@
     href: develop-locally.md
   - name: Security
     items:
+    - name: Connect jobs to Azure Virtual Network (VNet)
+      href: connect-job-to-vnet.md
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
@@ -129,6 +132,8 @@
       href: repartition.md
     - name: Increase throughput of your job
       href: stream-analytics-scale-jobs.md
+  - name: IoT Edge
+    href: stream-analytics-edge.md
   - name: States of a job
     href: job-states.md
   - name: Window functions
@@ -181,32 +186,31 @@
       href: stream-analytics-job-reliability.md
     - name: Use SQL reference data
       href: sql-reference-data.md
-    - name: Authenticate with managed identity
-      items:
-      - name: ADLS Gen 1
-        href: stream-analytics-managed-identities-adls.md
-        displayName: managed identity, identities, authenticate
-      - name: Blob storage
-        href: blob-output-managed-identity.md
-        displayName: managed identity, identities, authenticate
-      - name: Power BI
-        href: powerbi-output-managed-identity.md
-        displayName: managed identity, identities, authenticate
-      - name: Azure SQL DB
-        href: sql-database-output-managed-identity.md
-        displayName: managed identity, identities, authenticate
     - name: Encrypt your data
       href: data-protection.md
     - name: Geo-redundancy
       href: geo-redundancy.md
+  - name: Authenticate with managed identity
+    items:
+    - name: ADLS Gen 1
+      href: stream-analytics-managed-identities-adls.md
+      displayName: managed identity, identities, authenticate
+    - name: Blob storage
+      href: blob-output-managed-identity.md
+      displayName: managed identity, identities, authenticate
+    - name: Event Hubs
+      href: event-hubs-managed-identity.md
+      displayName: managed identity, identities, authenticate
+    - name: Power BI
+      href: powerbi-output-managed-identity.md
+      displayName: managed identity, identities, authenticate
+    - name: Azure SQL & Azure Synapse
+      href: sql-database-output-managed-identity.md
+      displayName: managed identity, identities, authenticate
   - name: Build solutions
     items:
     - name: Twitter sentiment analysis
       href: stream-analytics-twitter-sentiment-analysis-trends.md
-    - name: Real-time fraud detection
-      href: stream-analytics-real-time-fraud-detection.md
-    - name: Run jobs on IoT Edge
-      href: stream-analytics-edge.md
     - name: Run jobs on Azure Stack
       href: on-azure-stack.md
     - name: Toll booth sensor data analysis
@@ -284,6 +288,8 @@
       href: debug-locally-using-job-diagram-vs-code.md
     - name: Explore jobs
       href: visual-studio-code-explore-jobs.md
+    - name: Create and debug .NET custom deserializer
+      href: visual-studio-code-custom-deserializer.md
     - name: JobConfig.json fields
       href: job-config-json.md
   - name: Troubleshoot
@@ -310,13 +316,13 @@
         href: external-error-codes.md
       - name: Internal errors
         href: internal-error-codes.md
-  - name: Integrate with machine learnings
+  - name: Integrate with Machine Learning
     items:
     - name: Sentiment analysis with ML models
       href: stream-analytics-machine-learning-integration-tutorial.md
     - name: Anomaly detection
       href: stream-analytics-machine-learning-anomaly-detection.md
-    - name: Use REST APIs
+    - name: Use ML REST APIs
       href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
   - name: Debug using job diagram
     href: stream-analytics-job-diagram-with-metrics.md
@@ -682,7 +688,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Blog
-    href: https://azure.microsoft.com/blog/tag/azure-stream-analytics/
+    href: https://techcommunity.microsoft.com/t5/analytics-on-azure/bg-p/AnalyticsonAzure
   - name: Feedback forum
     href: https://feedback.azure.com/forums/270577-azure-stream-analytics
   - name: Microsoft Q&A question page
@@ -699,5 +705,3 @@
     href: https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest
   - name: Customer case studies
     href: https://azure.microsoft.com/case-studies/?service=stream-analytics
-  - name: Whitepaper - Real-time event processing
-    href: stream-analytics-real-time-event-processing-reference-architecture.md

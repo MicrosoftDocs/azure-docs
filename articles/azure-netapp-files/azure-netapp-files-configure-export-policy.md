@@ -34,7 +34,7 @@ You can create up to five export policy rules.
       * Read & Write
       * Read Only
 
-    * **Read-only** and **Read/Write**: If you use Kerberos encryption with NFSv4.1, follow the instructions in [Configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md).  For performance impact of Kerberos, see [Performance impact of Kerberos on NFSv4.1](configure-kerberos-encryption.md#kerberos_performance). 
+    * **Read-only** and **Read/Write**: If you use Kerberos encryption with NFSv4.1, follow the instructions in [Configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md).  For performance impact of Kerberos, see [Performance impact of Kerberos on NFSv4.1 volumes](performance-impact-kerberos.md). 
 
       ![Kerberos security options](../media/azure-netapp-files/kerberos-security-options.png) 
 

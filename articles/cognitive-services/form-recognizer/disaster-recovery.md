@@ -2,18 +2,18 @@
 title: Disaster recovery guidance for Azure Form Recognizer
 titleSuffix: Azure Cognitive Services
 description: Learn how to use the copy model API to back up your Form Recognizer resources.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 05/27/2020
-ms.author: pafarley
+ms.date: 03/15/2021
+ms.author: lajanuar
 ---
 
 # Back up and recover your Form Recognizer models
 
-When you create a Form Recognizer resource in the Azure portal, you specify a region. From then on, your resource and all of its operations stay associated with that particular Azure server region. It's rare, but not impossible, to encounter a network issue that hits an entire region. If your solution needs to always be available, then you should design it to either fail-over into another region or split the workload between two or more regions. Both approaches require at least two Form Recognizer resources in different regions and the ability to sync [custom models](./quickstarts/curl-train-extract.md) across regions.
+When you create a Form Recognizer resource in the Azure portal, you specify a region. From then on, your resource and all of its operations stay associated with that particular Azure server region. It's rare, but not impossible, to encounter a network issue that hits an entire region. If your solution needs to always be available, then you should design it to either fail-over into another region or split the workload between two or more regions. Both approaches require at least two Form Recognizer resources in different regions and the ability to sync custom models across regions.
 
 The Copy API enables this scenario by allowing you to copy custom models from one Form Recognizer account or into others, which can exist in any supported geographical region. This guide shows you how to use the Copy REST API with cURL. You can also use an HTTP request service like Postman to issue the requests.
 
@@ -23,7 +23,7 @@ If your app or business depends on the use of a Form Recognizer custom model, we
 
 ##  Prerequisites
 
-1. Two Form Recognizer Azure resources in different Azure regions. If you don't have them, go to the Azure portal and <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title="Create a new Form Recognizer resource" target="_blank">create a new Form Recognizer resource <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Two Form Recognizer Azure resources in different Azure regions. If you don't have them, go to the Azure portal and <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title="Create a new Form Recognizer resource" target="_blank">create a new Form Recognizer resource </a>.
 1. The subscription key, endpoint URL, and subscription ID of your Form Recognizer resource. You can find these values on the resource's **Overview** tab on the Azure portal.
 
 
@@ -34,9 +34,6 @@ The process for copying a custom model consists of the following steps:
 1. First you issue a copy authorization request to the target resource&mdash;that is, the resource that will receive the copied model. You get back the URL of the newly created target model, which will receive the copied data.
 1. Next you send the copy request to the source resource&mdash;the resource that contains the model to be copied. You'll get back a URL that you can query to track the progress of the operation.
 1. You'll use your source resource credentials to query the progress URL until the operation is a success. You can also query the new model ID in the target resource to get the status of the new model.
-
-> [!CAUTION]
-> The Copy API currently does not support model IDs for [composed custom models](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/Compose). Model compose is a preview feature in v2.1-preview.1 preview. 
 
 ## Generate Copy authorization request
 
@@ -64,7 +61,7 @@ POST https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/cust
 Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_API_KEY}
 ```
 
-The body of your request needs to have the following format. You'll need to enter the resource ID and region name of your target resource. You'll also need the model ID, access token, and expiration value that you copied from the previous step.
+The body of your request needs to have the following format. You'll need to enter the resource ID and region name of your target resource. You can find your resource ID on the **Properties** tab of your resource in the Azure portal, and you can find the region name on the **Keys and endpoint** tab. You'll also need the model ID, access token, and expiration value that you copied from the previous step.
 
 ```json
 {
@@ -160,4 +157,4 @@ curl -i GET "https://<SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT>/formrecognizer/v
 ## Next steps
 
 In this guide, you learned how to use the Copy API to back up your custom models to a secondary Form Recognizer resource. Next, explore the API reference docs to see what else you can do with Form Recognizer.
-* [REST API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)
+* [REST API reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm)

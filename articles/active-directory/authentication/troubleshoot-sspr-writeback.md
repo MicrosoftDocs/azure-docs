@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 08/26/2020
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 
@@ -39,6 +39,11 @@ For Azure AD Connect version *1.1.443.0* and above, *outbound HTTPS* access is r
 
 * *\*.passwordreset.microsoftonline.com*
 * *\*.servicebus.windows.net*
+
+Azure [GOV endpoints](../../azure-government/compare-azure-government-global-azure.md#guidance-for-developers):
+
+* *\*.passwordreset.microsoftonline.us*
+* *\*.servicebus.usgovcloudapi.net*
 
 If you need more granularity, see the [list of Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653). This list is updated every Wednesday and goes into effect the next Monday.
 

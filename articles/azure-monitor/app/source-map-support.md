@@ -2,8 +2,8 @@
 title: Source map support for JavaScript applications - Azure Monitor Application Insights
 description: Learn how to upload source maps to your own storage account Blob container using Application Insights.
 ms.topic: conceptual
-author: markwolff
-ms.author: marwolff
+author: DavidCBerry13
+ms.author: daberry
 ms.date: 06/23/2020
 ms.custom: devx-track-js
 ---
@@ -62,7 +62,7 @@ If you would like to configure or change the storage account or Blob container t
 
 ## Troubleshooting
 
-### Required role-based access control (RBAC) settings on your Blob container
+### Required Azure role-based access control (Azure RBAC) settings on your Blob container
 
 Any user on the Portal using this feature must be at least assigned as a [Storage Blob Data Reader][storage blob data reader] to your Blob container. You must assign this role to anyone else that will be using the source maps through this feature.
 
@@ -78,7 +78,7 @@ Any user on the Portal using this feature must be at least assigned as a [Storag
 
 ## Next Steps
 
-* [Azure File Copy task](/azure/devops/pipelines/tasks/deploy/azure-file-copy?view=azure-devops)
+* [Azure File Copy task](/azure/devops/pipelines/tasks/deploy/azure-file-copy)
 
 
 <!-- Remote URLs -->

@@ -29,13 +29,13 @@ Keep in mind that once the TDE protector is deleted in Key Vault, in up to 10 mi
 This how-to guide goes over two approaches depending on the desired result after a compromised incident response:
 
 - To make the databases in Azure SQL Database / Azure Synapse Analytics **inaccessible**.
-- To make the databases in Azure SQL Database / Azure Azure Synapse Analytics (formerly SQL Data Warehouse) **inaccessible**.
+- To make the databases in Azure SQL Database / Azure Azure Synapse Analytics **inaccessible**.
 
 ## Prerequisites
 
 - You must have an Azure subscription and be an administrator on that subscription
 - You must have Azure PowerShell installed and running.
-- This how-to guide assumes that you are already using a key from Azure Key Vault as the TDE protector for an Azure SQL Database or Azure Synapse (formerly SQL Data Warehouse). See [Transparent Data Encryption with BYOK Support](transparent-data-encryption-byok-overview.md) to learn more.
+- This how-to guide assumes that you are already using a key from Azure Key Vault as the TDE protector for an Azure SQL Database or Azure Synapse. See [Transparent Data Encryption with BYOK Support](transparent-data-encryption-byok-overview.md) to learn more.
 
 # [PowerShell](#tab/azure-powershell)
 

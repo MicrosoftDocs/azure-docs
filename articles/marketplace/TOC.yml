@@ -13,9 +13,11 @@
     href: partner-center-portal/company-work-accounts.md  
   - name: Account migration from CPP to Partner Center
     href: partner-center-portal/account-migration-from-cpp-to-pc.md 
+  - name: Notifying Microsoft
+    href: submit-legal-notice.md 
 - name: Concepts
   items: 
-  - name: Publishing options and considerations
+  - name: Listing options
     href: determine-your-listing-type.md
   - name: Transacting in the commercial marketplace
     href: marketplace-commercial-transaction-capabilities-and-considerations.md
@@ -41,24 +43,31 @@
         href: test-drive-hosted-detailed-config.md
       - name: Set up Azure subscription for hosted test drives
         href: test-drive-azure-subscription-setup.md
-  - name: Azure partner customer usage attribution
+  - name: Azure customer usage attribution
     href: azure-partner-customer-usage-attribution.md
   - name: Go-to-market options
     items:
     - name: Your marketplace benefits
-      href: gtm-your-marketplace-benefits.md 
-    - name: Co-sell partner engagement
-      href: marketplace-co-sell.md 
-    - name: Co-sell option in Partner Center
-      href: partner-center-portal/commercial-marketplace-co-sell.md 
+      href: gtm-your-marketplace-benefits.md
+      items: 
+    - name: Co-sell with Microsoft
+      items:
+      - name: Co-sell overview
+        href: co-sell-overview.md
+      - name: Co-sell requirements
+        href: co-sell-requirements.md 
+      - name: Configure co-sell
+        href: co-sell-configure.md
+      - name: Verify co-sell status
+        href: co-sell-status.md   
+      - name: Migrate co-sell solutions from OCP GTM
+        href: co-sell-solution-migration.md 
     - name: Resell through CSP Partners
       href: cloud-solution-providers.md  
     - name: Connect Program onboarding guide  
       href: business-applications-isv-program.md
     - name: Azure consumption commitment benefit
       href: azure-consumption-commitment-benefit.md
-    - name: Preferred solutions
-      href: preferred-solutions.md
     - name: Integrated solutions
       href: integrated-solutions-for-publishers.md
   - name: Activate marketplace rewards
@@ -73,7 +82,7 @@
       href: /partner-center/payment-thresholds-methods-timeframes?context=/azure/marketplace/context/context
     - name: Payout statements
       href: /partner-center/payout-statement?context=/azure/marketplace/context/context
-    - name: Payout policy details
+    - name: Payout schedules and processes
       href: /partner-center/payout-policy-details?context=/azure/marketplace/context/context
     - name: Tax details
       href: /partner-center/tax-details-marketplace?context=/azure/marketplace/context/context
@@ -125,12 +134,12 @@
     items: 
     - name: Plan an Azure Container offer
       href: marketplace-containers.md
+    - name: Prepare technical assets
+      href: create-azure-container-technical-assets.md
     - name: Create and publish an Azure Container offer
       items:
-      - name: Prepare technical assets
-        href: partner-center-portal/create-azure-container-technical-assets.md
       - name: Create an Azure Container offer
-        href: partner-center-portal/create-azure-container-offer.md
+        href: create-azure-container-offer.md
   - name: Azure virtual machine offers
     items:
     - name: Plan a VM offer
@@ -201,10 +210,20 @@
       href: partner-center-portal/azure-iot-edge-module-creation.md
     - name: Prepare IoT Edge module technical assets
       href: partner-center-portal/create-iot-edge-module-asset.md
+    - name: Pre-certification checklist
+      href: iot-edge-checklist.md
   - name: Managed Service offers
     items:
+    - name: Plan a Managed Service offer
+      href: plan-managed-service-offer.md
     - name: Create a Managed Service offer
-      href: partner-center-portal/create-new-managed-service-offer.md
+      href: create-managed-service-offer.md
+    - name: Configure Managed Service listing
+      href: create-managed-service-offer-listing.md
+    - name: Add a preview audience
+      href: create-managed-service-offer-preview.md
+    - name: Create plans
+      href: create-managed-service-offer-plans.md
   - name: Power BI app offers
     items:
     - name: Plan a Power BI app offer
@@ -238,10 +257,12 @@
       - name: Add technical details
         href: create-new-saas-offer-technical.md  
       - name: Create plans
-        href: create-new-saas-offer-plans.md        
+        href: create-new-saas-offer-plans.md
+      - name: Create a test offer
+        href: create-saas-dev-test-offer.md
       - name: Test and publish a SaaS offer
         href: test-publish-saas-offer.md
-    - name: Market your SaaS offer
+    - name: Sell your SaaS offer
       href: create-new-saas-offer-marketing.md 
   - name: Review and publish offers
     href: review-publish-offer.md
@@ -289,6 +310,50 @@
     href: partner-center-portal/downloads-dashboard.md
   - name: Ratings and reviews dashboard
     href: partner-center-portal/ratings-reviews.md
+  - name: Programmatic access to analytics
+    items:
+    - name: Get started
+      href: analytics-get-started.md
+    - name: Programmatic access prerequisites
+      href: analytics-prerequisites.md 
+    - name: Programmatic access paradigm
+      href: analytics-programmatic-access.md
+    - name: Make your first API call
+      href: analytics-make-your-first-api-call.md
+    - name: List of system queries
+      href: analytics-system-queries.md
+    - name: Sample queries
+      href: analytics-sample-queries.md
+    - name: Sample application
+      href: analytics-sample-application.md
+    - name: Custom query specification
+      href: analytics-custom-query-specification.md
+    - name: Programmatic analytics FAQ
+      href: analytics-programmatic-faq.md  
+    - name: Analytics API reference
+      items:
+      - name: List of APIs 
+        href: analytics-available-apis.md
+      - name: Get all datasets
+        href: analytics-api-get-all-datasets.md
+      - name: Get report queries API
+        href: analytics-api-get-report-queries.md
+      - name: Delete report queries API
+        href: analytics-api-delete-report-queries.md
+      - name: Try report queries API
+        href: analytics-api-try-report-queries.md
+      - name: Get report API
+        href: analytics-api-get-report.md
+      - name: Update report API
+        href: analytics-api-update-report.md
+      - name: Delete report API
+        href: analytics-api-delete-report.md        
+      - name: Pause report executions API
+        href: analytics-api-pause-report-executions.md
+      - name: Resume report executions API
+        href: analytics-api-resume-report-executions.md
+  - name: Manage metered billing anomalies 
+    href: anomaly-detection.md
   - name: Analytics common questions 
     href: analytics-faq.md 
 - name: Policies and terms
@@ -299,8 +364,6 @@
     href: /legal/marketplace/certification-policies?context=/azure/marketplace/context/context
   - name: Commercial marketplace review policies
     href: /legal/marketplace/rating-review-policies?context=/azure/marketplace/context/context
-  - name: Azure Marketplace participation policies
-    href: /legal/marketplace/participation-policy?context=/azure/marketplace/context/context
   - name: Azure Marketplace terms
     href: /legal/marketplace/terms?context=/azure/marketplace/context/context
 - name: Reference
@@ -349,15 +412,14 @@
     items:
     - name: SaaS Fulfillment API overview
       href: partner-center-portal/pc-saas-fulfillment-apis.md
-      items:
-      - name: Register a SaaS application
-        href: partner-center-portal/pc-saas-registration.md
-      - name: SaaS Fulfillment APIs v2
-        href: partner-center-portal/pc-saas-fulfillment-api-v2.md
-      - name: SaaS Fulfillment APIs v1 (deprecated)
-        href: partner-center-portal/pc-saas-fulfillment-api-v1.md
-      - name: SaaS fulfillment APIs - FAQ
-        href: partner-center-portal/saas-fulfillment-apis-faq.md 
+    - name: Register a SaaS application
+      href: partner-center-portal/pc-saas-registration.md
+    - name: SaaS Fulfillment APIs v2
+      href: partner-center-portal/pc-saas-fulfillment-api-v2.md
+    - name: SaaS Fulfillment APIs v1 (deprecated)
+      href: partner-center-portal/pc-saas-fulfillment-api-v1.md
+    - name: SaaS fulfillment APIs - FAQ
+      href: partner-center-portal/saas-fulfillment-apis-faq.md 
 - name: Resources
   items:
   - name: Commercial marketplace FAQ
@@ -383,8 +445,12 @@
   - name: Supported countries and regions
     href: sell-from-countries.md  
   - name: Co-sell country and region codes
-    href: partner-center-portal/commercial-marketplace-co-sell-countries.md 
+    href: commercial-marketplace-co-sell-countries.md 
   - name: Co-sell state codes
-    href: partner-center-portal/commercial-marketplace-co-sell-states.md
+    href: commercial-marketplace-co-sell-states.md
+  - name: Reference Architecture Diagram
+    href: reference-architecture-diagram.md  
+  - name: Categories and subcategories
+    href: categories.md  
   - name: Supported HTML tags
     href: supported-html-tags.md

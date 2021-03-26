@@ -1,6 +1,5 @@
 ---
-title: Store Azure Media Services events in Azure Log Analytics
-titleSuffix: Azure Media Services
+title: Store Media Services events in Azure Log Analytics
 description: Learn how to store Azure Media Services events in Azure Log Analytics.
 services: media-services
 documentationcenter: ''
@@ -18,7 +17,7 @@ ms.author: inhenkel
 
 ## Azure Media Services Events
 
-Azure Media Services v3 emits events on [Azure Event Grid](media-services-event-schemas.md). You can subscribe to events in many ways and store them in data stores. In this tutorial, you will subscribe to Media Services events using a [Log App Flow](https://azure.microsoft.com/services/logic-apps/). The Logic App will be triggered for each event and store the body of the event in Azure Log Analytics. Once the events are in Azure Log Analytics, you can use other Azure services to create a dashboard, monitor, and alert on these events, though we won't be covering that in this tutorial.
+Azure Media Services v3 emits events on [Azure Event Grid](monitoring/media-services-event-schemas.md). You can subscribe to events in many ways and store them in data stores. In this tutorial, you will subscribe to Media Services events using a [Log App Flow](https://azure.microsoft.com/services/logic-apps/). The Logic App will be triggered for each event and store the body of the event in Azure Log Analytics. Once the events are in Azure Log Analytics, you can use other Azure services to create a dashboard, monitor, and alert on these events, though we won't be covering that in this tutorial.
 
 > [!NOTE]
 > It would be helpful if you are already familiar with using FFmpeg as your on-premises encoder.  If not, that's okay. The command line and instructions for streaming a video is included below.
@@ -38,11 +37,11 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 > * An [Azure subscription](how-to-set-azure-subscription.md)
 > * A [Media Services](create-account-howto.md) account and resource group.
 > * An installation of [FFmpeg](https://ffmpeg.org/download.html) for your OS.
-> * A [Log Analytics](../../azure-monitor/learn/quick-create-workspace.md) workspace
+> * A [Log Analytics](../../azure-monitor/logs/quick-create-workspace.md) workspace
 
 ## Subscribe to a Media Services event with Logic App
 
-1. In the Azure portal, if you haven't done so already, create a [Log Analytics](../../azure-monitor/learn/quick-create-workspace.md) workspace. You'll need the Workspace ID and one of the keys, so keep that browser window open. Then, open the portal in another tab or window.
+1. In the Azure portal, if you haven't done so already, create a [Log Analytics](../../azure-monitor/logs/quick-create-workspace.md) workspace. You'll need the Workspace ID and one of the keys, so keep that browser window open. Then, open the portal in another tab or window.
 
 1. Navigate to your Azure Media Services account and select **Events**. This will show all the methods for subscribing to Azure Media Services events.
     > [!div class="mx-imgBorder"]
@@ -226,4 +225,4 @@ If you don't want to continue to use the resources you created during this tutor
 
 ## Next steps
 
-You can create different queries and save them. These can be added to [Azure Dashboard](../../azure-monitor/learn/tutorial-logs-dashboards.md).
+You can create different queries and save them. These can be added to [Azure Dashboard](../../azure-monitor/visualize/tutorial-logs-dashboards.md).

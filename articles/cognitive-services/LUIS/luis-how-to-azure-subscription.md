@@ -46,16 +46,13 @@ To change the ownership of a resource, you can take one of these actions:
 * Transfer the [ownership](../../cost-management-billing/manage/billing-subscription-transfer.md) of your subscription.
 * Export the LUIS app as a file, and then import the app on a different subscription. Export is available on the **My apps** page in the LUIS portal.
 
-
 ## Resource limits
 
 ### Authoring key creation limits
 
-You can create as many as 10 authoring keys per region, per subscription.
+You can create as many as 10 authoring keys per region, per subscription. Publishing regions are different from authoring regions. Make sure you create an app in the authoring region that corresponds to the publishing region where you want your client application to be located. For information on how authoring regions map to publishing regions, see [Authoring and publishing regions](luis-reference-regions.md). 
 
-For more information, see [key limits](luis-limits.md#key-limits) and [Azure regions](luis-reference-regions.md).
-
-Publishing regions are different from authoring regions. Make sure you create an app in the authoring region that corresponds to the publishing region where you want your client application to be located.
+For more information on key limits, see [key limits](luis-limits.md#key-limits).
 
 ### Errors for key usage limits
 
@@ -171,7 +168,7 @@ You can control who can see your LUIS prediction runtime endpoint key by calling
 
 ### Create resources in the Azure CLI
 
-Use the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) to create each resource individually.
+Use the [Azure CLI](/cli/azure/install-azure-cli) to create each resource individually.
 
 Resource `kind`:
 
@@ -234,6 +231,10 @@ For automated processes like CI/CD pipelines, you might want to automate the ass
 
 1. Get an Azure Resource Manager token from [this website](https://resources.azure.com/api/token?plaintext=true). This token does expire, so use it right away. The request returns an Azure Resource Manager token.
 
+    ```azurecli
+    az account get-access-token --resource=https://management.core.windows.net/ --query accessToken --output tsv
+    ```
+    
     ![Screenshot that shows the website for requesting an Azure Resource Manager token.](./media/luis-manage-keys/get-arm-token.png)
 
 1. Use the token to request the LUIS runtime resources across subscriptions. Use the [Get LUIS Azure accounts API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c), which your user account has access to.

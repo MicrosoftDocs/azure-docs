@@ -3,7 +3,7 @@ title: Azure Active Directory Application Proxy frequently asked questions
 description: Learn answers to frequently asked questions (FAQ) about using Azure AD Application Proxy to publish internal, on-premises applications to remote users.  
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,7 +11,7 @@ ms.topic: reference
 ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: contperfq2
+ms.custom: contperf-fy21q2
 ---
 
 # Active Directory (Azure AD) Application Proxy frequently asked questions
@@ -32,6 +32,21 @@ If your license expires, Application Proxy will automatically be disabled. Your 
 Make sure you have at least an Azure AD Premium P1 or P2 license and an Azure AD Application Proxy Connector installed. After you successfully install your first connector, the Azure AD Application Proxy service will be enabled automatically.
 
 ## Connector configuration
+
+### Why is my connector still using an older version and not auto-upgraded to latest version?
+
+This may be due to either the updater service not working correctly or if there are no new updates available that the service can install.
+
+The updater service is healthy if it’s running and there are no errors recorded in the event log (Applications and Services logs -> Microsoft -> AadApplicationProxy -> Updater -> Admin). 
+
+> [!IMPORTANT]
+> Only major versions are released for auto-upgrade. We recommend updating your connector manually only if it's necessary. For example, you cannot wait for a major release, because you must fix a known problem or you want to use a new feature. For more information on new releases, the type of the release (download, auto-upgrade), bug fixes and new features see, [Azure AD Application Proxy: Version release history](application-proxy-release-version-history.md).
+
+To manually upgrade a connector:
+
+-  Download the latest version of the connector. (You will find it under Application Proxy on the Azure Portal. You can also find the link at [Azure AD Application Proxy: Version release history](application-proxy-release-version-history.md).
+-	The installer restarts the Azure AD Application Proxy Connector services. In some cases, a reboot of the server might be required if the installer cannot replace all files. Therefore we recommend closing all applications (i.e. Event Viewer) before you start the upgrade.
+-	Run the installer. The upgrade process is quick and does not require providing any credentials and the connector will not be re-registered.
 
 ### Can Application Proxy Connector services run in a different user context than the default?
 
@@ -75,10 +90,12 @@ There are Performance Monitor counters that are installed along with the connect
 The connector isn't required to be on the same subnet. However, it needs name resolution (DNS, hosts file) to the resource and the necessary network connectivity (routing to the resource, ports open on the resource, etc.). For recommendations, see [Network topology considerations when using Azure Active Directory Application Proxy](application-proxy-network-topology.md).
 
 ### What versions of Windows Server can I install a connector on?
+
 Application Proxy requires Windows Server 2012 R2 or later. There is currently a limitation on HTTP2 for Windows Server 2019. In order to successfully use the connector on Windows Server 2019, you will need to add the following registry key and restart the server:
-	```
-	HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
-	```
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
+```
 
 ## Application configuration
 
@@ -94,6 +111,19 @@ Here are some tips for troubleshooting this error:
 ### What is the length of the default and "long" back-end timeout? Can the timeout be extended?
 
 The default length is 85 seconds. The "long" setting is 180 seconds. The timeout limit can't be extended.
+
+### Can a service principal manage Application Proxy using Powershell or Microsoft Graph APIs?
+
+No, this is currently not supported.
+
+### What happens if I delete CWAP_AuthSecret (the client secret) in the app registration?
+
+The client secret, also called *CWAP_AuthSecret*, is automatically added to the application object (app registration) when the Azure AD Application Proxy app is created.
+
+The client secret is valid for one year. A new one-year client secret is automatically created before the current valid client secret expires. Three CWAP_AuthSecret client secrets are kept in the application object at all times. 
+
+> [!IMPORTANT]
+> Deleting CWAP_AuthSecret breaks pre-authentication for Azure AD Application Proxy. Don't delete CWAP_AuthSecret.
 
 ### How do I change the landing page my application loads?
 
@@ -176,11 +206,11 @@ No. Azure AD Application Proxy is designed to work with Azure AD and doesn’t f
 
 ## WebSocket
 
-### Does WebSocket support work for applications other than QlikSense?
+### Does WebSocket support work for applications other than QlikSense and Remote Desktop Web Client (HTML5)?
 
 Currently, WebSocket protocol support is still in public preview and it may not work for other applications. Some customers have had mixed success using WebSocket protocol with other applications. If you test such scenarios, we would love to hear your results. Please send us your feedback at aadapfeedback@microsoft.com.
 
-Features (Eventlogs, PowerShell and Remote Desktop Services) in Windows Admin Center (WAC) or Remote Desktop Web Client (HTML5) do not work through Azure AD Application Proxy presently.
+Features (Eventlogs, PowerShell and Remote Desktop Services) in Windows Admin Center (WAC) do not work through Azure AD Application Proxy presently.
 
 ## Link translation
 
@@ -199,5 +229,5 @@ This scenario isn't supported directly. Your options for this scenario are:
 1. Publish both the HTTP and HTTPS URLs as separate applications with a wildcard, but give each of them a different custom domain. This configuration will work since they have different external URLS.
 
 2. Publish the HTTPS URL through a wildcard application. Publish the HTTP applications separately using these Application Proxy PowerShell cmdlets:
-   - [Application Proxy Application Management](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management&preserve-view=true)
-   - [Application Proxy Connector Management](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management&preserve-view=true)
+   - [Application Proxy Application Management](/powershell/module/azuread/#application_proxy_application_management&preserve-view=true)
+   - [Application Proxy Connector Management](/powershell/module/azuread/#application_proxy_connector_management&preserve-view=true)

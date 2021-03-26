@@ -1,7 +1,7 @@
 ---
-title: Create Connection Monitor Preview - Azure portal
+title: Create Connection Monitor - Azure portal
 titleSuffix: Azure Network Watcher
-description: This article describes how to create a monitor in Connection Monitor Preview by using the Azure portal.
+description: This article describes how to create a monitor in Connection Monitor by using the Azure portal.
 services: network-watcher
 documentationcenter: na
 author: vinigam
@@ -10,17 +10,21 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 07/30/2020
+ms.date: 11/23/2020
 ms.author: vinigam
-#Customer intent: I need to create a connection monitor preview to monitor communication between one VM and another.
+#Customer intent: I need to create a connection monitor to monitor communication between one VM and another.
 ---
-# Create a monitor in Connection Monitor Preview by using the Azure portal
+# Create a monitor in Connection Monitor by using the Azure portal
 
-Learn how to use Connection Monitor Preview to monitor communication between your resources. This article describes how to create a monitor by using the Azure portal. Connection Monitor supports hybrid and Azure cloud deployments.
+> [!IMPORTANT]
+> Starting 1 July 2021, you will not be able to add new tests in an existing workspace or enable a new workspace in Network Performance Monitor. You will also not be able to add new connection monitors in Connection Monitor (classic). You can continue to use the tests and connection monitors created prior to 1 July 2021. To minimize service disruption to your current workloads, [migrate your tests from Network Performance Monitor ](migrate-to-connection-monitor-from-network-performance-monitor.md) or  [migrate from Connection Monitor (classic)](migrate-to-connection-monitor-from-connection-monitor-classic.md) to the new Connection Monitor in Azure Network Watcher before 29 February 2024.
+
+Learn how to use Connection Monitor to monitor communication between your resources. This article describes how to create a monitor by using the Azure portal. Connection Monitor supports hybrid and Azure cloud deployments.
+
 
 ## Before you begin 
 
-In connection monitors that you create by using Connection Monitor Preview, you can add both on-premises machines and Azure VMs as sources. These connection monitors can also monitor connectivity to endpoints. The endpoints can be on Azure or on any other URL or IP.
+In connection monitors that you create by using Connection Monitor, you can add both on-premises machines and Azure VMs as sources. These connection monitors can also monitor connectivity to endpoints. The endpoints can be on Azure or on any other URL or IP.
 
 Here are some definitions to get you started:
 
@@ -42,17 +46,17 @@ Here are some definitions to get you started:
 
 ## Create a connection monitor
 
-To create a monitor in Connection Monitor Preview by using the Azure portal:
+To create a monitor in Connection Monitor by using the Azure portal:
 
 1. On the Azure portal home page, go to **Network Watcher**.
-1. In the left pane, in the **Monitoring** section, select **Connection monitor (Preview)**.
+1. In the left pane, in the **Monitoring** section, select **Connection monitor**.
 
-   You'll see all the connection monitors that were created in Connection Monitor Preview. To see the connection monitors that were created in the classic Connection Monitor, go to the **Connection monitor** tab.
+   You'll see all the connection monitors that were created in Connection Monitor. To see the connection monitors that were created in the classic Connection Monitor, go to the **Connection monitor** tab.
 
-   :::image type="content" source="./media/connection-monitor-2-preview/cm-resource-view.png" alt-text="Screenshot that shows connection monitors created in Connection Monitor Preview.":::
+   :::image type="content" source="./media/connection-monitor-2-preview/cm-resource-view.png" alt-text="Screenshot that shows connection monitors created in Connection Monitor.":::
    
 	
-1. In the **Connection Monitor (Preview)** dashboard, in the upper-left corner, select **Create**.
+1. In the **Connection Monitor** dashboard, in the upper-left corner, select **Create**.
 
    
 
@@ -81,13 +85,13 @@ To create a monitor in Connection Monitor Preview by using the Azure portal:
 1. On the **Review + create** tab, review the basic information and test groups before you create the connection monitor. If you need to edit the connection monitor, you can do so by going back to the respective tabs. 
    :::image type="content" source="./media/connection-monitor-2-preview/review-create-cm.png" alt-text="Screenshot that shows the Review + create tab in Connection Monitor.":::
    > [!NOTE] 
-   > The **Review + create** tab shows the cost per month during the Connection Monitor Preview stage. Currently, the **Current Cost/Month** column shows no charge. When Connection Monitor becomes generally available, this column will show a monthly charge. 
+   > The **Review + create** tab shows the cost per month during the Connection Monitor stage. Currently, the **Current Cost/Month** column shows no charge. When Connection Monitor becomes generally available, this column will show a monthly charge. 
    > 
-   > Even during the Connection Monitor Preview stage, Log Analytics ingestion charges apply.
+   > Even during the Connection Monitor stage, Log Analytics ingestion charges apply.
 
 1. When you're ready to create the connection monitor, at the bottom of the **Review + create** tab, select **Create**.
 
-Connection Monitor Preview creates the connection monitor resource in the background.
+Connection Monitor creates the connection monitor resource in the background.
 
 ## Create test groups in a connection monitor
 
@@ -97,7 +101,7 @@ In the Azure portal, to create a test group in a connection monitor, you specify
 
 * **Disable test group**: You can select this check box to disable monitoring for all sources and destinations that the test group specifies. This selection is cleared by default.
 * **Name**: Name your test group.
-* **Sources**: You can specify both Azure VMs and on-premises machines as sources if agents are installed on them. To learn about installing an agent for your source, see [Install monitoring agents](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#install-monitoring-agents).
+* **Sources**: You can specify both Azure VMs and on-premises machines as sources if agents are installed on them. To learn about installing an agent for your source, see [Install monitoring agents](./connection-monitor-overview.md#install-monitoring-agents).
    * To choose Azure agents, select the **Azure endpoints** tab. Here you see only VMs that are bound to the region that you specified when you created the connection monitor. By default, VMs are grouped into the subscription that they belong to. These groups are collapsed. 
    
        You can drill down from the **Subscription** level to other levels in the hierarchy:
@@ -112,7 +116,7 @@ In the Azure portal, to create a test group in a connection monitor, you specify
 
    * To choose on-premises agents, select the **Non–Azure endpoints** tab. By default, agents are grouped into workspaces by region. All these workspaces have the Network Performance Monitor configured. 
    
-       If you need to add Network Performance Monitor to your workspace, get it from [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). For information about how to add Network Performance Monitor, see [Monitoring solutions in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/solutions). 
+       If you need to add Network Performance Monitor to your workspace, get it from [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/solarwinds.solarwinds-orion-network-performance-monitor?tab=Overview). For information about how to add Network Performance Monitor, see [Monitoring solutions in Azure Monitor](../azure-monitor/insights/solutions.md). 
    
        Under **Create Connection Monitor**, on the **Basics** tab, the default region is selected. If you change the region, you can choose agents from workspaces in the new region. You can select one or more agents or subnets. In the **Subnet** view, you can select specific IPs for monitoring. If you add multiple subnets, a custom on-premises network named **OnPremises_Network_1** will be created. You can also change the **Group by** selector to group by agents.
 
@@ -135,7 +139,7 @@ In the Azure portal, to create a test group in a connection monitor, you specify
     
     * To choose non-Azure agents as destinations, select the **Non-Azure endpoints** tab. By default, agents are grouped into workspaces by region. All these workspaces have Network Performance Monitor configured. 
     
-      If you need to add Network Performance Monitor to your workspace, get it from Azure Marketplace. For information about how to add Network Performance Monitor, see [Monitoring solutions in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/solutions). 
+      If you need to add Network Performance Monitor to your workspace, get it from Azure Marketplace. For information about how to add Network Performance Monitor, see [Monitoring solutions in Azure Monitor](../azure-monitor/insights/solutions.md). 
 
       Under **Create Connection Monitor**, on the **Basics** tab, the default region is selected. If you change the region, you can choose agents from workspaces in the new region. You can select one or more agents or subnets. In the **Subnet** view, you can select specific IPs for monitoring. If you add multiple subnets, a custom on-premises network named **OnPremises_Network_1** will be created.  
 
@@ -177,7 +181,7 @@ In the Azure portal, to create alerts for a connection monitor, you specify valu
 
 - **Condition name**: The alert is created on the `Test Result(preview)` metric. When the result of the connection monitor test is a failing result, the alert rule will fire. 
 
-- **Action group name**: You can enter your email directly or you can create alerts via action groups. If you enter your email directly, an action group with the name **NPM Email ActionGroup** is created. The email ID is added to that action group. If you choose to use action groups, you need to select a previously created action group. To learn how to create an action group, see [Create action groups in the Azure portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups). After the alert is created, you can [manage your alerts](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric#view-and-manage-with-azure-portal). 
+- **Action group name**: You can enter your email directly or you can create alerts via action groups. If you enter your email directly, an action group with the name **NPM Email ActionGroup** is created. The email ID is added to that action group. If you choose to use action groups, you need to select a previously created action group. To learn how to create an action group, see [Create action groups in the Azure portal](../azure-monitor/alerts/action-groups.md). After the alert is created, you can [manage your alerts](../azure-monitor/alerts/alerts-metric.md#view-and-manage-with-azure-portal). 
 
 - **Alert rule name**: The name of the connection monitor.
 
@@ -196,5 +200,5 @@ Connection monitors have these scale limits:
 
 ## Next steps
 
-* Learn [how to analyze monitoring data and set alerts](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#analyze-monitoring-data-and-set-alerts).
-* Learn [how to diagnose problems in your network](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#diagnose-issues-in-your-network).
+* Learn [how to analyze monitoring data and set alerts](./connection-monitor-overview.md#analyze-monitoring-data-and-set-alerts).
+* Learn [how to diagnose problems in your network](./connection-monitor-overview.md#diagnose-issues-in-your-network).

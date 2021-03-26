@@ -29,12 +29,12 @@ This script uses the following commands to create a resource group and an Azure 
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | Creates a resource group in which all resources are stored. |
-| [az redis create](https://docs.microsoft.com/cli/azure/redis) | Create Azure Cache for Redis instance. |
+| [az group create](/cli/azure/group) | Creates a resource group in which all resources are stored. |
+| [az redis create](/cli/azure/redis) | Create Azure Cache for Redis instance. |
 
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
 Additional Azure Cache for Redis CLI script samples can be found in the [Azure Cache for Redis documentation](../cli-samples.md).

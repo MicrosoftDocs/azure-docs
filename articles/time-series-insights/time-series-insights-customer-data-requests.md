@@ -29,7 +29,7 @@ A tenant administrator can delete customer data using the Azure portal.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-However, before you delete customer data through the portal, you should remove the user's access policies from the Time Series Insights environment within the Azure portal. For more information, read [Grant data access to a Time Series Insights environment using Azure portal](time-series-insights-data-access.md).
+However, before you delete customer data through the portal, you should remove the user's access policies from the Time Series Insights environment within the Azure portal. For more information, read [Grant data access to a Time Series Insights environment using Azure portal](./concepts-access-policies.md).
 
 You can also perform delete operations on access policies using the REST API. For more information, read [Access Policies - Delete](/rest/api/time-series-insights/management(gen1/gen2)/accesspolicies/delete).
 
@@ -41,7 +41,7 @@ Similarly to deleting data, a tenant administrator can view and export data stor
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-If you are a tenant administrator, you can view data access policies within the Time Series Insights environment in the Azure portal. For more information, read [Grant data access to a Time Series Insights environment using Azure portal](time-series-insights-data-access.md).
+If you are a tenant administrator, you can view data access policies within the Time Series Insights environment in the Azure portal. For more information, read [Grant data access to a Time Series Insights environment using Azure portal](./concepts-access-policies.md).
 
 It is also possible to perform export operations on access policies using the "list by environment" operation in the provided REST API. For more information, read [Access Policies - List By Environment](/rest/api/time-series-insights/management(gen1/gen2)/accesspolicies/listbyenvironment).
 
@@ -63,7 +63,7 @@ For more information, read [Configuring retention in Time Series Insights](time-
 
 ## Next steps
 
-* Read more about [granting data access to your Azure Time Series Insights environment](./time-series-insights-data-access.md).
+* Read more about [granting data access to your Azure Time Series Insights environment](./concepts-access-policies.md).
 
 * View the [Azure Time Series Insights explorer](time-series-insights-explorer.md).
 

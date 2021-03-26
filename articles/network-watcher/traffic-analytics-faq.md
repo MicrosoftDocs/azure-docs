@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure traffic analytics frequently asked questions | Microsoft Docs
 description: Get answers to some of the most frequently asked questions about traffic analytics.
 services: network-watcher
@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 03/08/2018
+ms.date: 01/04/2021
 ms.author: damendo
 ---
 
@@ -54,7 +54,7 @@ To check roles assigned to a user for a subscription:
 3. To list all the roles that are assigned to a specified user, use
     **Get-AzRoleAssignment -SignInName [user email] -IncludeClassicAdministrators**. 
 
-If you are not seeing any output, contact the respective subscription admin to get access to run the commands. For more details, see [Add or remove Azure role assignments using Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
+If you are not seeing any output, contact the respective subscription admin to get access to run the commands. For more details, see [Add or remove Azure role assignments using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 
 
 ## In which Azure regions is Traffic Analytics available?
@@ -122,7 +122,7 @@ Yes.
 
 ## Can I use an existing workspace?
 
-Yes. If you select an existing workspace, make sure that it has been migrated to the new query language. If you do not want to upgrade the workspace, you need to create a new one. For more information about the new query language, see [Azure Monitor logs upgrade to new log search](../log-analytics/log-analytics-log-search-upgrade.md).
+Yes. If you select an existing workspace, make sure that it has been migrated to the new query language. If you do not want to upgrade the workspace, you need to create a new one. For more information about the new query language, see [Azure Monitor logs upgrade to new log search](../azure-monitor/logs/log-query-overview.md).
 
 ## Can my Azure Storage Account be in one subscription and my Log Analytics workspace be in a different subscription?
 
@@ -172,7 +172,7 @@ You are seeing the resources information on the dashboard; however, no flow-rela
 
 ## Can I configure traffic analytics using PowerShell or an Azure Resource Manager template or client?
 
-You can configure traffic analytics by using Windows PowerShell from version 6.2.1 onwards. To configure flow logging and traffic analytics for a specific NSG by using the Set cmdlet, see [Set-AzNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). To get the flow logging and traffic analytics status for a specific NSG, see [Get-AzNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
+You can configure traffic analytics by using Windows PowerShell from version 6.2.1 onwards. To configure flow logging and traffic analytics for a specific NSG by using the Set cmdlet, see [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). To get the flow logging and traffic analytics status for a specific NSG, see [Get-AzNetworkWatcherFlowLogStatus](/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
 
 Currently, you can't use an Azure Resource Manager template to configure traffic analytics.
 
@@ -247,7 +247,7 @@ For example, as per the [pricing plan](https://azure.microsoft.com/pricing/detai
 
 ## How frequently does Traffic Analytics process data?
 
-Refer to the [data aggregation section](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) in Traffic Analytics Schema and Data Aggregation Document
+Refer to the [data aggregation section](./traffic-analytics-schema.md#data-aggregation) in Traffic Analytics Schema and Data Aggregation Document
 
 ## How does Traffic Analytics decide that an IP is malicious? 
 
@@ -261,7 +261,7 @@ Steps :
 - You can use the shortlink for Log Analytics in Traffic Analytics. 
 - Use the [schema documented here](traffic-analytics-schema.md) to write your queries 
 - Click "New alert rule" to create the alert
-- Refer to [log alerts documentation](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) to create the alert
+- Refer to [log alerts documentation](../azure-monitor/alerts/alerts-log.md) to create the alert
 
 ## How do I check which VMs are receiving most on-premises traffic?
 
@@ -399,4 +399,7 @@ The virtual subnetworks topology page contains two main sections:
 - After you have selected any filter on the banner and pressed `Ctrl+F6`, focus moves to one of the highlighted nodes (**Subnet**) in the topology view.
 - To move to other highlighted nodes in the topology view, use the `Shift+Right arrow` key for forward movement. 
 - On highlighted nodes, focus moves to the **Information Tool Box** for the node. By default, focus moves to the **More details** button on the **Information Tool Box**. To further move inside the **Box** view, use `Right arrow` and `Left arrow` keys to move forward and backward, respectively. Pressing `Enter` has same effect as selecting the focused button in the **Information Tool Box**.
-- On selection of any such nodes, you can visit all its connections, one by one, by pressing `Shift+Left arrow` key. Focus moves to the **Information Tool Box** of that connection. At any point, the focus can be shifted back to the node by pressing `Shift+Right arrow` again.    
+- On selection of any such nodes, you can visit all its connections, one by one, by pressing `Shift+Left arrow` key. Focus moves to the **Information Tool Box** of that connection. At any point, the focus can be shifted back to the node by pressing `Shift+Right arrow` again.
+
+## Are Classic NSGs supported?
+No, Traffic Analytics does not support classic NSG. It is recommended to migrate IaaS resources from classic to Azure Resource Manager as classic resources will be [deprecated](../virtual-machines/classic-vm-deprecation.md). Refer this article to understand [how to migrate](../virtual-machines/migration-classic-resource-manager-overview.md).

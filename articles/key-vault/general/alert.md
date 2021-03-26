@@ -23,8 +23,10 @@ Once you have started to use key vault to store your production secrets, it is i
 This document will cover the following topics:
 
 + Basic Key Vault metrics to monitor
-+ How to configure metrics and create a dashboard 
-+ How to create alerts at specified thresholds 
++ How to configure metrics and create a dashboard
++ How to create alerts at specified thresholds
+
+Azure Monitor for Key Vault combines both logs and metrics to provide a global monitoring solution. [Learn more about Azure Monitor for Key Vualt here](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview#introduction-to-azure-monitor-for-key-vault)
 
 ## Basic Key Vault metrics to monitor
 
@@ -38,7 +40,7 @@ This document will cover the following topics:
 
 **Vault Saturation** – The number of requests per second that a key vault can serve is based on the type of operation being performed. Some vault operations have a lower requests-per-second threshold. This metric aggregates the total usage of your key vault across all operation types to come up with a percentage value that indicates your current key vault usage. For a full list of key vault service limits, see the following document. [Azure Key Vault Service Limits](service-limits.md)
 
-**Service API Latency** - This metric shows the average latency of a call to key vault. Although your key vault may be within service limits, a high utilization of key vault could introduce latency that causes applications downstream to fail. 
+**Service API Latency** - This metric shows the average latency of calls to key vault, measured at the service. It does not include time consumed by client or by the network between client and service.
 
 **Total API Hits** - This metric shows all of the calls made to your key vault. This will help you identify which applications are calling your key vault. 
 
@@ -201,13 +203,14 @@ Please see the following configuration parameters.
 
 7. Create the alert 
 
+### Example email alert 
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot that highlights the information needed to configure an email alert.](../media/alert-20.png)
 
 ## Next steps
 
 Congratulations, you have now successfully created a monitoring dashboard and configured alerts for your key vault! 
 Once you have followed all of the steps above, you should receive email alerts when your key vault meets the alert criteria you configured. An example is shown below. Use the tools you have set up in this article to actively monitor the health of your key vault. 
 
-### Example email alert 
 
-> [!div class="mx-imgBorder"]
-> ![Screenshot that highlights the information needed to configure an email alert.](../media/alert-20.png)

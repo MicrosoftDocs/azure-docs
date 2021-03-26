@@ -45,7 +45,7 @@ Additionally, you need the following in your local development environment:
 
 In the second tutorial that you completed as part of the prerequisites, you registered a web application in Azure AD B2C. To enable communication with the code sample in this tutorial, add a reply URL (also called a redirect URI) to the application registration.
 
-To update an application in your Azure AD B2C tenant, you can use our new unified **App registrations** experience or our legacy  **Applications (Legacy)** experience. [Learn more about the new experience](https://aka.ms/b2cappregtraining).
+To update an application in your Azure AD B2C tenant, you can use our new unified **App registrations** experience or our legacy  **Applications (Legacy)** experience. [Learn more about the new experience](./app-registrations-training-guide.md).
 
 #### [App registrations](#tab/app-reg-ga/)
 
@@ -181,4 +181,4 @@ In this tutorial, you configured a Python Flask web application to work with a u
 Next, learn how to customize the UI of the user flow pages displayed to your users by Azure AD B2C:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Customize the interface of user experiences in Azure AD B2C >](tutorial-customize-ui.md)
+> [Customize the interface of user experiences in Azure AD B2C >](customize-ui.md)

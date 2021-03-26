@@ -3,9 +3,8 @@ title: HBv2-series VM size performance
 description: Learn about performance testing results for HBv2-series VM sizes in Azure.  
 services: virtual-machines 
 author: vermagit 
-manager: gwallace
-
-ms.service: virtual-machines 
+ms.service: virtual-machines
+ms.subservice: hpc
 ms.workload: infrastructure-services 
 ms.topic: article 
 ms.date: 09/28/2020 
@@ -64,5 +63,5 @@ numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 
 ## Next steps
 
-- Read about the latest announcements and some High Performance Computing (HPC) examples and results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Read about the latest announcements, HPC workload examples, and performance results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - For a higher-level architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).

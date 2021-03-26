@@ -16,9 +16,9 @@ You can use the Azure CLI to create and manage Azure resources from the command 
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-If you install and use the CLI locally, for this quickstart, you must run Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+- This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 If you have multiple subscriptions, choose the subscription that contains the resource or the subscription in which you are billed. To select a specific subscription ID in your account, use the [az account set](/cli/azure/account#az-account-set) command:
 

@@ -3,6 +3,7 @@ title: HC-series VM overview - Azure Virtual Machines| Microsoft Docs
 description: Learn about the preview support for the HC-series VM size in Azure. 
 author: vermagit
 ms.service: virtual-machines
+ms.subservice: hpc
 ms.topic: article
 ms.date: 08/19/2020
 ms.author: amverma
@@ -26,7 +27,7 @@ Intel Xeon Platinum, Gold, and Silver CPUs also introduce an on-die 2D mesh netw
 
 The following diagram shows the segregation of cores reserved for Azure Hypervisor and the HC-series VM.
 
-![Segregation of cores reserved for Azure Hypervisor and HC-series VM](./media/hc-series-overview/segregation-cores.png)
+![Segregation of cores reserved for Azure Hypervisor and HC-series VM](./media/architecture/hc-segregation-cores.png)
 
 ## Hardware specifications
 
@@ -46,13 +47,13 @@ The following diagram shows the segregation of cores reserved for Azure Hypervis
 |-----------------------------|-----------------------|
 | Max MPI Job Size            | 13200 cores (300 VMs in a single virtual machine scale set with singlePlacementGroup=true)  |
 | MPI Support                 | HPC-X, Intel MPI, OpenMPI, MVAPICH2, MPICH, Platform MPI  |
-| Additional Frameworks       | Unified Communication X, libfabric, PGAS |
+| Additional Frameworks       | UCX, libfabric, PGAS |
 | Azure Storage Support       | Standard and Premium Disks (maximum 4 disks) |
-| OS Support for SRIOV RDMA   | CentOS/RHEL 7.6+, SLES 12 SP4+, WinServer 2016+  |
-| Orchestrator Support        | CycleCloud, Batch  |
+| OS Support for SRIOV RDMA   | CentOS/RHEL 7.6+, Ubuntu 16.04+, SLES 12 SP4+, WinServer 2016+  |
+| Orchestrator Support        | CycleCloud, Batch, AKS; [cluster configuration options](../../sizes-hpc.md#cluster-configuration-options)  |
 
 ## Next steps
 
-- Learn more about [Intel Xeon SP architecture](https://bit.ly/2RCYkiE).
-- Read about the latest announcements and some HPC examples and results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Learn more about [Intel Xeon SP architecture](https://software.intel.com/content/www/us/en/develop/articles/intel-xeon-processor-scalable-family-technical-overview.html).
+- Read about the latest announcements, HPC workload examples, and performance results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - For a higher level architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).

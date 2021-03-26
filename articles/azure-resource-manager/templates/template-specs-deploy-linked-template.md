@@ -2,7 +2,7 @@
 title: Deploy a template spec as a linked template
 description: Learn how to deploy an existing template spec in a linked deployment.
 ms.topic: conceptual
-ms.date: 11/03/2020
+ms.date: 11/17/2020
 
 ---
 
@@ -15,7 +15,7 @@ Learn how to deploy an existing [template spec](template-specs.md) by using a [l
 An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> Template Specs is currently in preview. To use it, you must [sign up for the preview](https://aka.ms/templateSpecOnboarding).
+> Template Specs is currently in preview. To use it with Azure PowerShell, you must install [version 5.0.0 or later](/powershell/azure/install-az-ps). To use it with Azure CLI, use [version 2.14.2 or later](/cli/azure/install-azure-cli).
 
 ## Create a template spec
 
@@ -87,7 +87,7 @@ To deploy a template spec in an ARM template, add a [deployments resource](/azur
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2020-10-01",
       "name": "createStorage",
       "properties": {
         "mode": "Incremental",

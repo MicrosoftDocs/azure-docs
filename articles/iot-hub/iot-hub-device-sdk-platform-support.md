@@ -29,7 +29,7 @@ Microsoft publishes open-source SDKs on GitHub for the following languages: C, .
 
 For each of the listed SDKs, Microsoft:
 
-* Continuously builds and runs end-to-end tests against the master branch of the relevant SDK in GitHub on several popular platforms.  To provide test coverage across different compiler versions, we generally test against the latest LTS version and the most popular version.
+* Continuously builds and runs end-to-end tests against the main branch of the relevant SDK in GitHub on several popular platforms.  To provide test coverage across different compiler versions, we generally test against the latest LTS version and the most popular version.
 
 * Provides installation guidance or installation packages if applicable.
 
@@ -54,9 +54,9 @@ The [Azure IoT Hub Python device SDK](https://github.com/Azure/azure-iot-sdk-pyt
 
 | OS                  | Compiler                          |
 |---------------------|-----------------------------------|
-| Linux               | Python 2.7.*, 3.5 or later |
-| macOS High Sierra   | Python 2.7.*, 3.5 or later |
-| Windows 10 family   | Python 2.7.*, 3.5 or later |
+| Linux               | Python 2.7.*, 3.6 or later |
+| macOS High Sierra   | Python 2.7.*, 3.6 or later |
+| Windows 10 family   | Python 2.7.*, 3.6 or later |
 
 Only Python version 3.5.3 or later support the asynchronous APIs, we recommend using version 3.7 or later.
 

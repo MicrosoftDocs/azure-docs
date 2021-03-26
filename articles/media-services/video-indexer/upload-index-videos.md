@@ -9,7 +9,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 11/12/2020
+ms.date: 03/04/2021
 ms.author: juliako
 ms.custom: devx-track-csharp
 ---
@@ -70,27 +70,7 @@ This parameter enables you to specify an ID that will be associated with the vid
 
 #### callbackUrl
 
-A URL that is used to notify the customer (using a POST request) about the following events:
-
-- Indexing state change: 
-    - Properties:    
-    
-        |Name|Description|
-        |---|---|
-        |id|The video ID|
-        |state|The video state|  
-    - Example: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
-- Person identified in video:
-  - Properties
-    
-      |Name|Description|
-      |---|---|
-      |id| The video ID|
-      |faceId|The face ID that appears in the video index|
-      |knownPersonId|The person ID that is unique within a face model|
-      |personName|The name of the person|
-        
-    - Example: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
+[!INCLUDE [callback url](./includes/callback-url.md)]
 
 ##### Other considerations
 
@@ -99,18 +79,22 @@ A URL that is used to notify the customer (using a POST request) about the follo
 
 #### indexingPreset
 
-Use this parameter if raw or external recordings contain background noise. This parameter is used to configure the indexing process. You can specify the following values:
+Use this parameter to define the AI bundle you would like to apply on your audio or video file . This parameter is used to configure the indexing process. You can specify the following values:
 
-- `AudioOnly` – Index and extract insights using audio only (ignoring video)
-- `VideoOnly` - Index and extract insights using video only (ignoring audio)
-- `Default` – Index and extract insights using both audio and video
-- `DefaultWithNoiseReduction` – Index and extract insights from both audio and video, while applying noise reduction algorithms on audio stream
+- `AudioOnly` – Index and extract insights using audio only (ignoring video).
+- `VideoOnly` - Index and extract insights using video only (ignoring audio).
+- `Default` – Index and extract insights using both audio and video.
+- `DefaultWithNoiseReduction` – Index and extract insights from both audio and video, while applying noise reduction algorithms on audio stream.
+
+    The `DefaultWithNoiseReduction` value is now mapped to default preset (deprecated).
+- `BasicAudio` - Index and extract insights using audio only (ignoring video), including only basic audio features (transcription, translation, format output captions and subtitles).
+ - `AdvancedAudio` - Index and extract insights using audio only (ignoring video), including advanced audio features (audio event detection) in addition to the standard audio analysis.
 
 > [!NOTE]
 > Video Indexer covers up to two tracks of audio. If there are more audio tracks in the file, they will be treated as one track.<br/>
 If you want to index the tracks separately, you will need to extract the relevant audio file and index it as `AudioOnly`.
 
-Price depends on the selected indexing option.  
+Price depends on the selected indexing option. For more information refer to [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/).
 
 #### priority
 

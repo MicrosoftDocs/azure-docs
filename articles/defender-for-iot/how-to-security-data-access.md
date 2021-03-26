@@ -1,19 +1,8 @@
 ---
 title: Access security & recommendation data
 description: Learn about how to access your security alert and recommendation data when using Defender for IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/04/2020
-ms.author: mlottner
 ---
 
 # Access your security data
@@ -33,7 +22,7 @@ To access your alerts and recommendations in your Log Analytics workspace after 
 1. Choose an alert or recommendation in Defender for IoT.
 1. Click **further investigation**, then click **To see which devices have this alert click here and view the DeviceId column**.
 
-For details on querying data from Log Analytics, see [Get started with queries in Log Analytics](https://docs.microsoft.com//azure/log-analytics/query-language/get-started-queries).
+For details on querying data from Log Analytics, see [Get started with queries in Log Analytics](../azure-monitor/logs/get-started-queries.md).
 
 ## Security alerts
 

@@ -43,17 +43,17 @@
     - name: Access Azure Cosmos DB
       href: tutorial-linux-vm-access-cosmos-db.md
     - name: Access Azure Container Registry
-      href: ../../container-registry/container-registry-authentication-managed-identity.md?context=azure%2factive-directory%2fmanaged-identities-azure-resources%2fcontext%2fmsi-context
+      href: ../../container-registry/container-registry-authentication-managed-identity.md?context=%2fazure%2factive-directory%2fmanaged-identities-azure-resources%2fcontext%2fmsi-context
     - name: Access Azure Resource Manager with a user-assigned managed identity
       href: msi-tutorial-linux-vm-access-arm.md
   - name: Azure Service Bus
-    href: ../../service-bus-messaging/service-bus-managed-service-identity.md?context=azure%2factive-directory%2fmanaged-identities-azure-resources%2fcontext%2fmsi-context
+    href: ../../service-bus-messaging/service-bus-managed-service-identity.md?context=%2fazure%2factive-directory%2fmanaged-identities-azure-resources%2fcontext%2fmsi-context
   - name: Azure App Service and Functions
-    href: ../../app-service/overview-managed-identity.md?context=azure%2factive-directory%2fmanaged-identities-azure-resources%2fcontext%2fmsi-context
+    href: ../../app-service/overview-managed-identity.md?context=%2fazure%2factive-directory%2fmanaged-identities-azure-resources%2fcontext%2fmsi-context
   - name: Azure Event Hubs
-    href: ../../event-hubs/authenticate-managed-identity.md?context=azure%2factive-directory%2fmanaged-identities-azure-resources%2fcontext%2fmsi-context
+    href: ../../event-hubs/authenticate-managed-identity.md?context=%2fazure%2factive-directory%2fmanaged-identities-azure-resources%2fcontext%2fmsi-context
   - name: Azure Container Instances
-    href: ../../container-instances/container-instances-managed-identity.md?context=azure%2factive-directory%2fmanaged-identities-azure-resources%2fcontext%2fmsi-context
+    href: ../../container-instances/container-instances-managed-identity.md?context=%2fazure%2factive-directory%2fmanaged-identities-azure-resources%2fcontext%2fmsi-context
 - name: Concepts
   items:
     - name: Managed identities and Azure VMs
@@ -128,17 +128,21 @@
       href: how-to-view-managed-identity-service-principal-cli.md
     - name: PowerShell
       href: how-to-view-managed-identity-service-principal-powershell.md
+  - name: Assign a managed identity to an app role
+    items:
+    - name: PowerShell
+      href: how-to-assign-app-role-managed-identity-powershell.md
 
 - name: Reference
   items:
   - name: .NET
-    href: /dotnet/api/overview/azure/identity-readme?view=azure-dotnet
+    href: /dotnet/api/overview/azure/identity-readme
   - name: Java
-    href: /java/api/overview/azure/identity-readme?view=azure-java-stable
+    href: /java/api/overview/azure/identity-readme
   - name: JavaScript
-    href: /javascript/api/overview/azure/identity-readme?view=azure-node-latest
+    href: /javascript/api/overview/azure/identity-readme
   - name: Python
-    href: /python/api/overview/azure/identity-readme?view=azure-python
+    href: /python/api/overview/azure/identity-readme
   - name: Go
     href: https://golang.org/doc/
 - name: Resources

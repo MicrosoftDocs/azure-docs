@@ -1,33 +1,33 @@
 ---
 title: Azure App Configuration REST API - HMAC authentication
-description: Use HMAC to authenticate to Azure App Configuration using the REST API
-author: lisaguthrie
-ms.author: lcozzens
+description: Use HMAC to authenticate to Azure App Configuration by using the REST API
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
 ---
 
-# HMAC Authentication - REST API Reference
+# HMAC authentication - REST API reference
 
-HTTP requests may be authenticated using the **HMAC-SHA256** authentication scheme. These requests must be transmitted over TLS.
+You can authenticate HTTP requests by using the HMAC-SHA256 authentication scheme. (HMAC refers to hash-based message authentication code.) These requests must be transmitted over TLS.
 
 ## Prerequisites
 
 - **Credential** - \<Access Key ID\>
 - **Secret** - base64 decoded Access Key Value. ``base64_decode(<Access Key Value>)``
 
-The values for credential (also called 'id') and secret (also called 'value') must be obtained from the Azure App Configuration instance, which can be done using the [Azure portal](https://portal.azure.com) or the [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true).
+The values for credential (also called `id`) and secret (also called `value`) must be obtained from the instance of Azure App Configuration. You can do this by using the [Azure portal](https://portal.azure.com) or the [Azure CLI](/cli/azure/).
 
-Provide each request with all HTTP headers required for Authentication. The minimum required are:
+Provide each request with all HTTP headers required for authentication. The minimum required are:
 
-|  Request Header | Description  |
+|  Request header | Description  |
 | --------------- | ------------ |
-| **Host** | Internet host and port number. See section  [3.2.2](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.2.2) |
-| **Date** | Date and Time at which the request was originated. It cannot be more than 15 min off from current GMT. The value is an HTTP-date, as described in section [3.3.1](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1)
-| **x-ms-date** | Same as ```Date``` above. It can be used instead when the agent can't directly access ```Date``` request header or a proxy modifies it. If ```x-ms-date``` and ```Date``` are both provided, ```x-ms-date``` takes precedence. |
+| **Host** | Internet host and port number. For more information, see section  [3.2.2](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.2.2). |
+| **Date** | Date and time at which the request was originated. It can't be more than 15 minutes off from the current Coordinated Universal Time (Greenwich Mean Time). The value is an HTTP-date, as described in section [3.3.1](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1).
+| **x-ms-date** | Same as ```Date``` above. You can use it instead when the agent can't directly access the ```Date``` request header, or a proxy modifies it. If ```x-ms-date``` and ```Date``` are both provided, ```x-ms-date``` takes precedence. |
 | **x-ms-content-sha256** | base64 encoded SHA256 hash of the request body. It must be provided even if there is no body. ```base64_encode(SHA256(body))```|
-| **Authorization** | Authentication information required by **HMAC-SHA256** scheme. Format and details are explained below. |
+| **Authorization** | Authentication information required by the HMAC-SHA256 scheme. Format and details are explained later in this article. |
 
 **Example:**
 
@@ -38,7 +38,7 @@ x-ms-content-sha256: {SHA256 hash of the request body}
 Authorization: HMAC-SHA256 Credential={Access Key ID}&SignedHeaders=x-ms-date;host;x-ms-content-sha256&Signature={Signature}
 ```
 
-## Authorization Header
+## Authorization header
 
 ### Syntax
 
@@ -46,18 +46,18 @@ Authorization: HMAC-SHA256 Credential={Access Key ID}&SignedHeaders=x-ms-date;ho
 
 |  Argument | Description  |
 | ------ | ------ |
-| **HMAC-SHA256** | Authorization Scheme _(required)_ |
-| **Credential** | The ID of the access key used to compute the Signature. _(required)_ |
-| **SignedHeaders** | HTTP Request Headers added to the signature. _(required)_ |
-| **Signature** | base64 encoded HMACSHA256 of **String-To-Sign**. _(required)_|
+| **HMAC-SHA256** | Authorization scheme. _(required)_ |
+| **Credential** | The ID of the access key used to compute the signature. _(required)_ |
+| **SignedHeaders** | HTTP request headers added to the signature. _(required)_ |
+| **Signature** | base64 encoded HMACSHA256 of String-To-Sign. _(required)_|
 
 ### Credential
 
-ID of the access key used to compute the **Signature**.
+ID of the access key used to compute the signature.
 
-### Signed Headers
+### Signed headers
 
-Semicolon separated HTTP request header names required to sign the request. These HTTP headers must be correctly provided with the request as well. **Don't use whitespaces**.
+HTTP request header names, separated by semicolons, required to sign the request. These HTTP headers must be correctly provided with the request as well. Don't use white spaces.
 
 ### Required HTTP request headers
 
@@ -71,7 +71,7 @@ x-ms-date;host;x-ms-content-sha256;```Content-Type```;```Accept```
 
 ### Signature
 
-Base64 encoded HMACSHA256 hash of the **String-To-Sign** using the access key identified by `Credential`.
+Base64 encoded HMACSHA256 hash of the String-To-Sign. It uses the access key identified by `Credential`.
 ```base64_encode(HMACSHA256(String-To-Sign, Secret))```
 
 ### String-To-Sign
@@ -86,9 +86,9 @@ _String-To-Sign=_
 
 |  Argument | Description  |
 | ------ | ------ |
-| **HTTP_METHOD** | Uppercased HTTP method name used with the request. See [section 9](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) |
-|**path_and_query** | Concatenation of request absolute URI path and query string. See [section 3.3](https://tools.ietf.org/html/rfc3986#section-3.3).
-| **signed_headers_values** | Semicolon separated values of all HTTP request headers listed in **SignedHeaders**. The format follows **SignedHeaders** semantic. |
+| **HTTP_METHOD** | Uppercase HTTP method name used with the request. For more information, see [section 9](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). |
+|**path_and_query** | Concatenation of request absolute URI path and query string. For more information, see [section 3.3](https://tools.ietf.org/html/rfc3986#section-3.3).
+| **signed_headers_values** | Semicolon-separated values of all HTTP request headers listed in `SignedHeaders`. The format follows `SignedHeaders` semantics. |
 
 **Example:**
 
@@ -107,16 +107,18 @@ HTTP/1.1 401 Unauthorized
 WWW-Authenticate: HMAC-SHA256, Bearer
 ```
 
-**Reason:** Authorization request header with HMAC-SHA256 scheme is not provided.
-**Solution:** Provide valid ```Authorization``` HTTP request header
+**Reason:** Authorization request header with HMAC-SHA256 scheme isn't provided.
+
+**Solution:** Provide a valid ```Authorization``` HTTP request header.
 
 ```http
 HTTP/1.1 401 Unauthorized
 WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="The access token has expired", Bearer
 ```
 
-**Reason:** ```Date``` or ```x-ms-date``` request header is more than 15 minutes off from the current GMT time.
-**Solution:** Provide correct date and time
+**Reason:** ```Date``` or ```x-ms-date``` request header is more than 15 minutes off from the current Coordinated Universal Time (Greenwich Mean Time).
+
+**Solution:** Provide the correct date and time.
 
 
 ```http
@@ -124,22 +126,23 @@ HTTP/1.1 401 Unauthorized
 WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="Invalid access token date", Bearer
 ```
 
-**Reason:** Missing or invalid ```Date``` or ```x-ms-date``` request header
+**Reason:** Missing or invalid ```Date``` or ```x-ms-date``` request header.
 
 ```http
 HTTP/1.1 401 Unauthorized
 WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="[Credential][SignedHeaders][Signature] is required", Bearer
 ```
 
-**Reason:** Missing a required parameter from ```Authorization``` request header
+**Reason:** Missing a required parameter from the ```Authorization``` request header.
 
 ```http
 HTTP/1.1 401 Unauthorized
 WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="Invalid Credential", Bearer
 ```
 
-**Reason:** Provided [```Host```]/[Access Key ID] is not found.
-**Solution:** Check the ```Credential``` parameter of the ```Authorization``` request header and make sure it is a valid Access Key ID. Make sure the ```Host``` header points to the registered account.
+**Reason:** The provided [```Host```]/[Access Key ID] isn't found.
+
+**Solution:** Check the ```Credential``` parameter of the ```Authorization``` request header. Make sure it's a valid Access Key ID, and make sure the ```Host``` header points to the registered account.
 
 ```http
 HTTP/1.1 401 Unauthorized
@@ -147,15 +150,17 @@ WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="Invalid S
 ```
 
 **Reason:** The ```Signature``` provided doesn't match what the server expects.
-**Solution:** Make sure the ```String-To-Sign``` is correct. Make sure the ```Secret``` is correct and properly used (base64 decoded prior to using). See **Examples** section.
+
+**Solution:** Make sure the ```String-To-Sign``` is correct. Make sure the ```Secret``` is correct and properly used (base64 decoded prior to using).
 
 ```http
 HTTP/1.1 401 Unauthorized
 WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="Signed request header 'xxx' is not provided", Bearer
 ```
 
-**Reason:** Missing request header required by ```SignedHeaders``` parameter in ```Authorization``` header.
-**Solution:** Provide the required header with correct value.
+**Reason:** Missing request header required by ```SignedHeaders``` parameter in the  ```Authorization``` header.
+
+**Solution:** Provide the required header, with the correct value.
 
 ```http
 HTTP/1.1 401 Unauthorized
@@ -163,7 +168,8 @@ WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="XXX is re
 ```
 
 **Reason:** Missing parameter in ```SignedHeaders```.
-**Solution:** Check **Signed Headers** minimum requirements.
+
+**Solution:** Check Signed Headers minimum requirements.
 
 ## Code snippets
 
@@ -349,17 +355,17 @@ private static String buildContentHash(HttpUriRequest request) throws IOExceptio
 
 ```golang
 import (
-	"bytes"
-	"crypto/hmac"
-	"crypto/sha256"
-	"encoding/base64"
-	"io/ioutil"
-	"net/http"
-	"strings"
-	"time"
+    "bytes"
+    "crypto/hmac"
+    "crypto/sha256"
+    "encoding/base64"
+    "io/ioutil"
+    "net/http"
+    "strings"
+    "time"
 )
 
-//SignRequest Setup the auth header for accessing Azure AppConfiguration service
+//SignRequest Setup the auth header for accessing Azure App Configuration service
 func SignRequest(id string, secret string, req *http.Request) error {
 	method := req.Method
 	host := req.URL.Host

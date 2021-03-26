@@ -9,8 +9,7 @@ metadata:
   title: Data Science Virtual Machine documentation - Azure
   description: The Azure Data Science Virtual Machine (DSVM) is a virtual machine image pre-loaded 
     with data science & machine learning tools.  
-  ms.service: machine-learning
-  ms.subservice: data-science-vm
+  ms.service: data-science-vm
   ms.topic: landing-page
   ms.collection: collection
   author: gvashishtha
@@ -65,4 +64,4 @@ landingContent:
           - text: Azure Machine Learning compute instance
             url: ../concept-compute-instance.md
           - text: Compare our ML products
-            url: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure%252fmachine-learning%252fstudio%252fcontext%252fml-context
+            url: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=%2fazure%2fmachine-learning%2fstudio%2fcontext%2fml-context

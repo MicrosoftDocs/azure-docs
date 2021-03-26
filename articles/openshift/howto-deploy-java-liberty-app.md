@@ -3,7 +3,7 @@ title: Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure
 description: Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift 4 cluster.
 author: jiangma
 ms.author: jiangma
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 10/30/2020
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aro, openshift, red hat
@@ -20,26 +20,26 @@ This guide demonstrates how to run your Java, Java EE, [Jakarta EE](https://jaka
 Complete the following prerequisites to successfully walk through this guide.
 
 > [!NOTE]
-> Azure Red Hat OpenShift requires a minimum of 40 cores to create and run an OpenShift cluster. The default Azure resource quota for a new Azure subscription does not meet this requirement. To request an increase in your resource limit, see [Standard quota: Increase limits by VM series](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests). Note that the free trial subscription isn't eligible for a quota increase, [upgrade to a Pay-As-You-Go subscription](https://docs.microsoft.com/azure/cost-management-billing/manage/upgrade-azure-subscription) before requesting a quota increase.
+> Azure Red Hat OpenShift requires a minimum of 40 cores to create and run an OpenShift cluster. The default Azure resource quota for a new Azure subscription does not meet this requirement. To request an increase in your resource limit, see [Standard quota: Increase limits by VM series](../azure-portal/supportability/per-vm-quota-requests.md). Note that the free trial subscription isn't eligible for a quota increase, [upgrade to a Pay-As-You-Go subscription](../cost-management-billing/manage/upgrade-azure-subscription.md) before requesting a quota increase.
 
 1. Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, macOS).
 1. Install a Java SE implementation (for example, [AdoptOpenJDK OpenJDK 8 LTS/OpenJ9](https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=openj9)).
 1. Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
 1. Install [Docker](https://docs.docker.com/get-docker/) for your OS.
-1. Install [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) 2.0.75 or later.
+1. Install [Azure CLI](/cli/azure/install-azure-cli) 2.0.75 or later.
 1. Check and install [`envsubst`](https://command-not-found.com/envsubst) if it's not pre-installed in your operating system.
 1. Clone the code for this sample on your local system. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aro).
-1. Follow the instructions in [Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster).
+1. Follow the instructions in [Create an Azure Red Hat OpenShift 4 cluster](./tutorial-create-cluster.md).
 
    Though the "Get a Red Hat pull secret" step is labeled as optional, **it is required for this article**.  The pull secret enables your Azure Red Hat OpenShift cluster to find the Open Liberty Operator.
 
    If you plan to run memory-intensive applications on the cluster, specify the proper virtual machine size for the worker nodes using the `--worker-vm-size` parameter. For example, `Standard_E4s_v3` is the minimum virtual machine size to install the Elasticsearch Operator on a cluster. For more information, see:
 
-   * [Azure CLI to create a cluster](https://docs.microsoft.com/cli/azure/aro?view=azure-cli-latest&preserve-view=true#az-aro-create)
-   * [Supported virtual machine sizes for memory optimized](/azure/openshift/support-policies-v4#memory-optimized)
+   * [Azure CLI to create a cluster](/cli/azure/aro#az-aro-create)
+   * [Supported virtual machine sizes for memory optimized](./support-policies-v4.md#memory-optimized)
    * [Prerequisites to install the Elasticsearch Operator](https://docs.openshift.com/container-platform/4.3/logging/cluster-logging-deploying.html#cluster-logging-deploy-eo-cli_cluster-logging-deploying)
 
-1. Connect to the cluster by following the steps in [Connect to an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-connect-cluster).
+1. Connect to the cluster by following the steps in [Connect to an Azure Red Hat OpenShift 4 cluster](./tutorial-connect-cluster.md).
    * Be sure to follow the steps in "Install the OpenShift CLI" because we'll use the `oc` command later in this article.
    * Write down the cluster console URL which looks like `https://console-openshift-console.apps.<random>.<region>.aroapp.io/`.
    * Take note of the `kubeadmin` credentials.
@@ -121,7 +121,7 @@ To run the application on Open Liberty, you need to create an Open Liberty serve
    [INFO] Source compilation was successful.
    ```
 
-1. Open [http://localhost:9080/](http://localhost:9080/) in your browser to visit the application home page. The application will look similar to the following image:
+1. Open `http://localhost:9080/` in your browser to visit the application home page. The application will look similar to the following image:
 
    ![JavaEE Cafe Web UI](./media/howto-deploy-java-liberty-app/javaee-cafe-web-ui.png)
 1. Press **Control-C** to stop the application and Open Liberty server.
@@ -159,7 +159,7 @@ Before deploying the containerized application to a remote cluster, run with you
 
 1. Run `docker run -it --rm -p 9080:9080 javaee-cafe-simple:1.0.0` in your console.
 2. Wait for Liberty server to start and the application to deploy successfully.
-3. Open [http://localhost:9080/](http://localhost:9080/) in your browser to visit the application home page.
+3. Open `http://localhost:9080/` in your browser to visit the application home page.
 4. Press **Control-C** to stop the application and Liberty server.
 
 ### Push the image to the container image registry
@@ -309,7 +309,7 @@ oc delete -f openlibertyapplication.yaml
 
 ## Clean up resources
 
-Delete the ARO cluster by following the steps in [Tutorial: Delete an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-delete-cluster)
+Delete the ARO cluster by following the steps in [Tutorial: Delete an Azure Red Hat OpenShift 4 cluster](./tutorial-delete-cluster.md)
 
 ## Next steps
 

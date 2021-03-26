@@ -1,14 +1,18 @@
 ---
 title: Quickstart - Add VOIP calling to a web app using Azure Communication Services
-description: In this tutorial, you learn how to use the Azure Communication Services Calling client library for JavaScript
+description: In this tutorial, you learn how to use the Azure Communication Services Calling SDK for JavaScript
 author: ddematheu
 ms.author: nimag
-ms.date: 08/11/2020
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 
-In this quickstart, you'll learn how start a call using the Azure Communication Services Calling client library for JavaScript.
+In this quickstart, you'll learn how start a call using the Azure Communication Services Calling SDK for JavaScript.
+
+> [!NOTE]
+> This document uses version 1.0.0-beta.10 of the Calling SDK.
+
 
 ## Prerequisites
 
@@ -17,52 +21,10 @@ In this quickstart, you'll learn how start a call using the Azure Communication 
 - An active Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
 - A User Access Token to instantiate the call client. Learn how to [create and manage user access tokens](../../access-tokens.md).
 
-## Setting up
 
-### Create a new Node.js application
+[!INCLUDE [Calling with JavaScript](./get-started-javascript-setup.md)]
 
-Open your terminal or command window create a new directory for your app, and navigate to it.
-
-```console
-mkdir calling-quickstart && cd calling-quickstart
-```
-
-Run `npm init -y` to create a **package.json** file with default settings.
-
-```console
-npm init -y
-```
-
-### Install the package
-
-Use the `npm install` command to install the Azure Communication Services Calling client library for JavaScript.
-
-```console
-npm install @azure/communication-common --save
-npm install @azure/communication-calling --save
-```
-
-The following versions of webpack are recommended for this quickstart:
-
-```console
-"webpack": "^4.42.0",
-"webpack-cli": "^3.3.11",
-"webpack-dev-server": "^3.10.3"
-```
-
-The `--save` option lists the library as a dependency in your **package.json** file.
-
-### Set up the app framework
-
-This quickstart uses webpack to bundle the application assets. Run the following command to install the webpack, webpack-cli and webpack-dev-server npm packages and list them as development dependencies in your **package.json**:
-
-```console
-npm install webpack webpack-cli webpack-dev-server --save-dev
-```
-
-Create an **index.html** file in the root directory of your project. We'll use this file to configure a basic layout that will allow the user to place a call to an Azure Communications Bot.
-
-Here is the code:
+Here's the code:
 
 ```html
 <!DOCTYPE html>
@@ -97,7 +59,7 @@ Create a file in the root directory of your project called **client.js** to cont
 
 ```javascript
 import { CallClient, CallAgent } from "@azure/communication-calling";
-import { AzureCommunicationUserCredential } from '@azure/communication-common';
+import { AzureCommunicationTokenCredential } from '@azure/communication-common';
 
 let call;
 let callAgent;
@@ -108,23 +70,23 @@ const hangUpButton = document.getElementById("hang-up-button");
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services Calling client library:
+The following classes and interfaces handle some of the major features of the Azure Communication Services Calling SDK:
 
 | Name                             | Description                                                                                                                                 |
 | ---------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------- |
-| CallClient                       | The CallClient is the main entry point to the Calling client library.                                                                       |
+| CallClient                       | The CallClient is the main entry point to the Calling SDK.                                                                       |
 | CallAgent                        | The CallAgent is used to start and manage calls.                                                                                            |
-| AzureCommunicationUserCredential | The AzureCommunicationUserCredential class implements the CommunicationUserCredential interface which is used to instantiate the CallAgent. |
+| AzureCommunicationTokenCredential | The AzureCommunicationTokenCredential class implements the CommunicationTokenCredential interface which is used to instantiate the CallAgent. |
 
 
 ## Authenticate the client
 
-You need to replace `<USER_ACCESS_TOKEN>` with a valid user access token for your resource. Refer to the [user access token](../../access-tokens.md) documentation if you don't already have a token available. Using the `CallClient`, initialize a `CallAgent` instance with a `CommunicationUserCredential` which will enable us to make and receive calls. Add the following code to **client.js**:
+You need to replace `<USER_ACCESS_TOKEN>` with a valid user access token for your resource. Refer to the [user access token](../../access-tokens.md) documentation if you don't already have a token available. Using the `CallClient`, initialize a `CallAgent` instance with a `CommunicationTokenCredential` which will enable us to make and receive calls. Add the following code to **client.js**:
 
 ```javascript
 async function init() {
     const callClient = new CallClient();
-    const tokenCredential = new AzureCommunicationUserCredential("<USER ACCESS TOKEN>");
+    const tokenCredential = new AzureCommunicationTokenCredential("<USER ACCESS TOKEN>");
     callAgent = await callClient.createCallAgent(tokenCredential);
     callButton.disabled = false;
 }
@@ -139,8 +101,8 @@ Add an event handler to initiate a call when the `callButton` is clicked:
 callButton.addEventListener("click", () => {
     // start a call
     const userToCall = calleeInput.value;
-    call = callAgent.call(
-        [{ communicationUserId: userToCall }],
+    call = callAgent.startCall(
+        [{ id: userToCall }],
         {}
     );
     // toggle button states

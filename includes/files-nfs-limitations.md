@@ -5,18 +5,21 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: "include"
-ms.date: 09/15/2020
+ms.date: 12/04/2020
 ms.author: rogarana
 ms.custom: "include file"
 ---
 While in preview, NFS has the following limitations:
 
-- NFS 4.1 currently only supports the mandatory features from the [protocol specification](https://tools.ietf.org/html/rfc5661). Optional features such as delegations and callback of all kinds, lock upgrades and downgrades, and Kerberos authentication and encryption are not supported.
+- NFS 4.1 currently only supports most features from the [protocol specification](https://tools.ietf.org/html/rfc5661). Some features such as delegations and callback of all kinds, lock upgrades and downgrades, Kerberos authentication, and encryption are not supported.
 - If the majority of your requests are metadata-centric, then the latency will be worse when compared to read/write/update operations.
 - Must create a new storage account in order to create an NFS share.
 - Only the management plane REST APIs are supported. Data plane REST APIs are not available, which means that tools like Storage Explorer will not work with NFS shares nor will you be able to browse NFS share data in the Azure portal.
+- AzCopy is not currently supported.
 - Only available for the premium tier.
-- Currently only available with locally redundant storage (LRS).
+- NFS shares only accept numeric UID/GID. To avoid your clients sending alphanumeric UID/GID, you should disable ID mapping.
+- Shares can only be mounted from one storage account on an individual VM, when using private links. Attempting to mount shares from other storage accounts will fail.
+- It is best to rely on the permissions assigned to primary group. Sometimes, permissions allocated to the non-primary group of the user may result in access denied due to a known bug.
 
 ### Azure Storage features not yet supported
 

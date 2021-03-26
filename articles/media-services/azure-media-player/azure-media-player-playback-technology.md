@@ -39,8 +39,8 @@ Given the recommended tech order with streaming content from Azure Media Service
 
 | Browser        | OS                                                       | Expected Tech (Clear)  | Expected Tech (AES)  | Expected Tech (DRM)          |
 |----------------|----------------------------------------------------------|------------------------|----------------------|------------------------------|
-| EdgeIE 11      | Windows 10, Windows 8.1, Windows Phone 101               | azureHtml5JS           | azureHtml5JS         | azureHtml5JS (PlayReady)     |
-| IE 11IE 9-101  | Windows 7, Windows Vista<sup>1</sup>                     | flashSS                | flashSS              | silverlightSS (PlayReady)    |
+| EdgeIE 11      | Windows 10, Windows 8.1, Windows Phone 10<sup>1</sup>               | azureHtml5JS           | azureHtml5JS         | azureHtml5JS (PlayReady)     |
+| IE 11          | Windows 7, Windows Vista<sup>1</sup>                     | flashSS                | flashSS              | silverlightSS (PlayReady)    |
 | IE 11          | Windows Phone 8.1                                        | azureHtml5JS           | azureHtml5JS         | not supported                |
 | Edge           | Xbox One<sup>1</sup> (Nov 2015 update)                   | azureHtml5JS           | azureHtml5JS         | not supported                |
 | Chrome 37+     | Windows 10, Windows 8.1, macOS X Yosemite<sup>1</sup>   | azureHtml5JS           | azureHtml5JS         | azureHtml5JS (Widevine)      |
@@ -53,7 +53,7 @@ Given the recommended tech order with streaming content from Azure Media Service
 | Chrome 37+     | Android 4.4.4+<sup>2</sup>                               | azureHtml5JS           | azureHtml5JS         | azureHtml5JS (Widevine)      |
 | Chrome 37+     | Android 4.02                                             | html5                  | html5 (no token)<sup>3</sup>    | not supported                |
 | Firefox 42+    | Android 5.0+<sup>2</sup>                                 | azureHtml5JS           | azureHtml5JS         | not supported                |
-| IE 8           | Windows                                                  | not supported          | not supported        | not supported                |
+| IE 8, IE 9, IE 10  | Windows                                                  | not supported          | not supported        | not supported                |
 
 <sup>1</sup> Configuration not supported or tested; listed as reference for completion.
 

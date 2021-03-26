@@ -1,9 +1,6 @@
 ---
 title: Security options for Hive in Azure HDInsight
 description: Security options for Hive in Standard and ESP clusters.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
@@ -14,7 +11,7 @@ ms.date: 10/02/2020
 
 This document describes the recommended security options for Hive in HDInsight. These options can be configured through Ambari.
 
-![`Security Options for Hive`](./media/hdinsight-security-options-for-hive/security-options-hive.png "Security Options for Hive")
+:::image type="content" source="./media/hdinsight-security-options-for-hive/security-options-hive.png " alt-text="`Security Options for Hive`" border="true":::
 
 ## HiveServer2 authentication
 
@@ -36,6 +33,6 @@ Enabling Hiveserver2 SSL is not recommended for either standard or ESP clusters.
 
 ## Next steps
 * [Overview of HiveServer2 Authentication](https://cwiki.apache.org/confluence/display/Hive/Setting+up+HiveServer2#SettingUpHiveServer2-Authentication/SecurityConfiguration)
-* [Overview of HiveServer2 Authorization](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Authorization#:~:text=%20Overview%20of%20Authorization%20Modes%20%201%201,and%20Apache%20Sentry%20are%20apache%20projects...%20More%20)
+* [Overview of HiveServer2 Authorization](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Authorization)
 * [Enabling SQL Standards Based Hive Authorization](https://community.cloudera.com/t5/Community-Articles/Getting-started-with-SQLStdAuth/ta-p/244263)
 * [Apache Ranger with Hive](../domain-joined/apache-domain-joined-run-hive.md)

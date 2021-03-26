@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -17,6 +17,9 @@ ms.custom: fasttrack-edit
 # Web sign-in with OpenID Connect in Azure Active Directory B2C
 
 OpenID Connect is an authentication protocol, built on top of OAuth 2.0, that can be used to securely sign users in to web applications. By using the Azure Active Directory B2C (Azure AD B2C) implementation of OpenID Connect, you can outsource sign-up, sign-in, and other identity management experiences in your web applications to Azure Active Directory (Azure AD). This guide shows you how to do so in a language-independent manner. It describes how to send and receive HTTP messages without using any of our open-source libraries.
+
+> [!NOTE]
+> Most of the open-source authentication libraries acquire and validate the JWT tokens for your application. We recommend exploring those options, rather than implementing your own code. For more information, see [Overview of the Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-overview.md), and [Microsoft Identity Web authentication library](../active-directory/develop/microsoft-identity-web.md).
 
 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) extends the OAuth 2.0 *authorization* protocol for use as an *authentication* protocol. This authentication protocol allows you to perform single sign-on. It introduces the concept of an *ID token*, which allows the client to verify the identity of the user and obtain basic profile information about the user.
 
@@ -53,6 +56,9 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | redirect_uri | No | The `redirect_uri` parameter of your application, where authentication responses can be sent and received by your application. It must exactly match one of the `redirect_uri` parameters that you registered in the Azure portal, except that it must be URL encoded. |
 | response_mode | No | The method that is used to send the resulting authorization code back to your application. It can be either `query`, `form_post`, or `fragment`.  The `form_post` response mode is recommended for best security. |
 | state | No | A value included in the request that's also returned in the token response. It can be a string of any content that you want. A randomly generated unique value is typically used for preventing cross-site request forgery attacks. The state is also used to encode information about the user's state in the application before the authentication request occurred, such as the page they were on. |
+| login_hint | No| Can be used to pre-fill the sign-in name field of the sign-in page. For more information, see [Prepopulate the sign-in name](direct-signin.md#prepopulate-the-sign-in-name).  |
+| domain_hint | No| Provides a hint to Azure AD B2C about the social identity provider that should be used for sign-in. If a valid value is included, the user goes directly to the identity provider sign-in page.  For more information, see [Redirect sign-in to a social provider](direct-signin.md#redirect-sign-in-to-a-social-provider). |
+| Custom parameters | No| Custom parameters that can be used with [custom policies](custom-policy-overview.md). For example, [dynamic custom page content URI](customize-ui-with-html.md?pivots=b2c-custom-policy#configure-dynamic-custom-page-content-uri), or [key-value claim resolvers](claim-resolver-overview.md#oauth2-key-value-parameters). |
 
 At this point, the user is asked to complete the workflow. The user might have to enter their username and password, sign in with a social identity, or sign up for the directory. There could be any other number of steps depending on how the user flow is defined.
 
@@ -90,7 +96,10 @@ error=access_denied
 
 ## Validate the ID token
 
-Just receiving an ID token is not enough to authenticate the user. Validate the ID token's signature and verify the claims in the token per your application's requirements. Azure AD B2C uses [JSON Web Tokens (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) and public key cryptography to sign tokens and verify that they are valid. There are many open-source libraries that are available for validating JWTs, depending on your language of preference. We recommend exploring those options rather than implementing your own validation logic.
+Just receiving an ID token is not enough to authenticate the user. Validate the ID token's signature and verify the claims in the token per your application's requirements. Azure AD B2C uses [JSON Web Tokens (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) and public key cryptography to sign tokens and verify that they are valid. 
+
+> [!NOTE]
+> Most of the open-source authentication libraries validate the JWT tokens for your application. We recommend exploring those options, rather than implementing your own validation logic. For more information, see [Overview of the Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-overview.md), and [Microsoft Identity Web authentication library](../active-directory/develop/microsoft-identity-web.md).
 
 Azure AD B2C has an OpenID Connect metadata endpoint, which allows an application to get information about Azure AD B2C at runtime. This information includes endpoints, token contents, and token signing keys. There is a JSON metadata document for each user flow in your B2C tenant. For example, the metadata document for the `b2c_1_sign_in` user flow in `fabrikamb2c.onmicrosoft.com` is located at:
 
@@ -120,9 +129,9 @@ There are also several more validations that you should perform. The validations
 
 - Ensuring that the user/organization has signed up for the application.
 - Ensuring that the user has proper authorization/privileges.
-- Ensuring that a certain strength of authentication has occurred, such as Azure Multi-Factor Authentication.
+- Ensuring that a certain strength of authentication has occurred, such as Azure AD Multi-Factor Authentication.
 
-After you validate the ID token, you can begin a session with the user. You can use the claims in the ID token to obtain information about the user in your application. Uses for this information include display, records, and authorization.
+After the ID token is validated, you can begin a session with the user. You can use the claims in the ID token to obtain information about the user in your application. Uses for this information include display, records, and authorization.
 
 ## Get a token
 
@@ -258,7 +267,7 @@ Error responses look like:
 
 ## Send a sign-out request
 
-When you want to sign the user out of the application, it isn't enough to clear the application's cookies or otherwise end the session with the user. Redirect the user to Azure AD B2C to sign out. If you fail to do so, the user might be able to reauthenticate to your application without entering their credentials again. For more information, see [Azure AD B2C session](session-overview.md).
+When you want to sign the user out of the application, it isn't enough to clear the application's cookies or otherwise end the session with the user. Redirect the user to Azure AD B2C to sign out. If you fail to do so, the user might be able to reauthenticate to your application without entering their credentials again. For more information, see [Azure AD B2C session](session-behavior.md).
 
 To sign out the user, redirect the user to the `end_session` endpoint that is listed in the OpenID Connect metadata document described earlier:
 
@@ -279,8 +288,8 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 
 After logout, the user is redirected to the URI specified in the `post_logout_redirect_uri` parameter, regardless of the reply URLs that have been specified for the application. However, if a valid `id_token_hint` is passed, and the **Require ID Token in logout requests** is turned on, Azure AD B2C verifies that the value of `post_logout_redirect_uri` matches one of the application's configured redirect URIs before performing the redirect. If no matching reply URL was configured for the application, an error message is displayed and the user is not redirected.
 
-To set the required ID Token in logout requests, see [Configure session behavior in Azure Active Directory B2C](session-behavior-custom-policy.md#secure-your-logout-redirect), and [Configure session behavior using custom policies in Azure Active Directory B2C](session-behavior-custom-policy.md#secure-your-logout-redirect).
+To set the required ID Token in logout requests, see [Configure session behavior in Azure Active Directory B2C](session-behavior.md#secure-your-logout-redirect).
 
 ## Next steps
 
-- Learn more about [Azure AD B2C session](session-overview.md).
+- Learn more about [Azure AD B2C session](session-behavior.md).

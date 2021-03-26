@@ -29,11 +29,11 @@ ms.custom: devx-track-csharp
 | **IoT Cloud Gateway** | <ul><li>[Connect to Cloud Gateway using least-privileged tokens](#cloud-least-privileged)</li></ul> |
 | **Azure Event Hub** | <ul><li>[Use a send-only permissions SAS Key for generating device tokens](#sendonly-sas)</li><li>[Do not use access tokens that provide direct access to the Event Hub](#access-tokens-hub)</li><li>[Connect to Event Hub using SAS keys that have the minimum permissions required](#sas-minimum-permissions)</li></ul> |
 | **Azure Document DB** | <ul><li>[Use resource tokens to connect to Azure Cosmos DB whenever possible](#resource-docdb)</li></ul> |
-| **Azure Trust Boundary** | <ul><li>[Enable fine-grained access management to Azure Subscription using RBAC](#grained-rbac)</li></ul> |
-| **Service Fabric Trust Boundary** | <ul><li>[Restrict client's access to cluster operations using RBAC](#cluster-rbac)</li></ul> |
+| **Azure Trust Boundary** | <ul><li>[Enable fine-grained access management to Azure Subscription using Azure RBAC](#grained-rbac)</li></ul> |
+| **Service Fabric Trust Boundary** | <ul><li>[Restrict client's access to cluster operations using Azure RBAC](#cluster-rbac)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Perform security modeling and use Field Level Security where required](#modeling-field)</li></ul> |
 | **Dynamics CRM Portal** | <ul><li>[Perform security modeling of portal accounts keeping in mind that the security model for the portal differs from the rest of CRM](#portal-security)</li></ul> |
-| **Azure Storage** | <ul><li>[Grant fine-grained permission on a range of entities in Azure Table Storage](#permission-entities)</li><li>[Enable Role-Based Access Control (RBAC) to Azure storage account using Azure Resource Manager](#rbac-azure-manager)</li></ul> |
+| **Azure Storage** | <ul><li>[Grant fine-grained permission on a range of entities in Azure Table Storage](#permission-entities)</li><li>[Enable Azure role-based access control (Azure RBAC) to Azure storage account using Azure Resource Manager](#rbac-azure-manager)</li></ul> |
 | **Mobile Client** | <ul><li>[Implement implicit jailbreak or rooting detection](#rooting-detection)</li></ul> |
 | **WCF** | <ul><li>[Weak Class Reference in WCF](#weak-class-wcf)</li><li>[WCF-Implement Authorization control](#wcf-authz)</li></ul> |
 | **Web API** | <ul><li>[Implement proper authorization mechanism in ASP.NET Web API](#authz-aspnet)</li></ul> |
@@ -226,7 +226,7 @@ Please note that RLS as an out-of-the-box database feature is applicable only to
 | **References**              | N/A  |
 | **Steps** | A resource token is associated with an Azure Cosmos DB permission resource and captures the relationship between the user of a database and the permission that user has for a specific Azure Cosmos DB application resource (e.g. collection, document). Always use a resource token to access the Azure Cosmos DB if the client cannot be trusted with handling master or read-only keys - like an end user application like a mobile or desktop client.Use Master key or read-only keys from backend applications which can store these keys securely.|
 
-## <a id="grained-rbac"></a>Enable fine-grained access management to Azure Subscription using RBAC
+## <a id="grained-rbac"></a>Enable fine-grained access management to Azure Subscription using Azure RBAC
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
@@ -234,10 +234,10 @@ Please note that RLS as an out-of-the-box database feature is applicable only to
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Use role assignments to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md)  |
-| **Steps** | Azure role-based access control (Azure RBAC) enables fine-grained access management for Azure. Using RBAC, you can grant only the amount of access that users need to perform their jobs.|
+| **References**              | [Assign Azure roles to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md)  |
+| **Steps** | Azure role-based access control (Azure RBAC) enables fine-grained access management for Azure. Using Azure RBAC, you can grant only the amount of access that users need to perform their jobs.|
 
-## <a id="cluster-rbac"></a>Restrict client's access to cluster operations using RBAC
+## <a id="cluster-rbac"></a>Restrict client's access to cluster operations using Service Fabric RBAC
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
@@ -245,7 +245,7 @@ Please note that RLS as an out-of-the-box database feature is applicable only to
 | **SDL Phase**               | Deployment |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | Environment - Azure |
-| **References**              | [Role-based access control for Service Fabric clients](../../service-fabric/service-fabric-cluster-security-roles.md) |
+| **References**              | [Service Fabric role-based access control for Service Fabric clients](../../service-fabric/service-fabric-cluster-security-roles.md) |
 | **Steps** | <p>Azure Service Fabric supports two different access control types for clients that are connected to a Service Fabric cluster: administrator and user. Access control allows the cluster administrator to limit access to certain cluster operations for different groups of users, making the cluster more secure.</p><p>Administrators have full access to management capabilities (including read/write capabilities). Users, by default, have only read access to management capabilities (for example, query capabilities), and the ability to resolve applications and services.</p><p>You specify the two client roles (administrator and client) at the time of cluster creation by providing separate certificates for each.</p>|
 
 ## <a id="modeling-field"></a>Perform security modeling and use Field Level Security where required
@@ -281,7 +281,7 @@ Please note that RLS as an out-of-the-box database feature is applicable only to
 | **References**              | [How to delegate access to objects in your Azure storage account using SAS](../../storage/blobs/security-recommendations.md#identity-and-access-management) |
 | **Steps** | In certain business scenarios, Azure Table Storage may be required to store sensitive data that caters to different parties. E.g., sensitive data pertaining to different countries/regions. In such cases, SAS signatures can be constructed by specifying the partition and row key ranges, such that a user can access data specific to a particular country/region.| 
 
-## <a id="rbac-azure-manager"></a>Enable Role-Based Access Control (RBAC) to Azure storage account using Azure Resource Manager
+## <a id="rbac-azure-manager"></a>Enable Azure role-based access control (Azure RBAC) to Azure storage account using Azure Resource Manager
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
@@ -289,7 +289,7 @@ Please note that RLS as an out-of-the-box database feature is applicable only to
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [How to secure your storage account with Role-Based Access Control (RBAC)](../../storage/blobs/security-recommendations.md) |
+| **References**              | [How to secure your storage account with Azure role-based access control (Azure RBAC)](../../storage/blobs/security-recommendations.md) |
 | **Steps** | <p>When you create a new storage account, you select a deployment model of Classic or Azure Resource Manager. The Classic model of creating resources in Azure only allows all-or-nothing access to the subscription, and in turn, the storage account.</p><p>With the Azure Resource Manager model, you put the storage account in a resource group and control access to the management plane of that specific storage account using Azure Active Directory. For example, you can give specific users the ability to access the storage account keys, while other users can view information about the storage account, but cannot access the storage account keys.</p>|
 
 ## <a id="rooting-detection"></a>Implement implicit jailbreak or rooting detection

@@ -4,7 +4,7 @@ description: Azure Security Benchmark V2 Privileged Access
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -14,20 +14,22 @@ ms.custom: security-benchmark
 
 Privileged Access covers controls to protect privileged access to your Azure tenant and resources. This includes a range of controls to protect your administrative model, administrative accounts, and privileged access workstations against deliberate and inadvertent risk.
 
+To see the applicable built-in Azure Policy, see [Details of the Azure Security Benchmark Regulatory Compliance built-in initiative: Privileged Access](../../governance/policy/samples/azure-security-benchmark.md#privileged-access)
+
 ## PA-1: Protect and limit highly privileged users
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | PA-1 | 4.3, 4.8 | AC-2 |
 
 Limit the number of highly privileged user accounts, and protect these accounts at an elevated level. 
 The most critical built-in roles in Azure AD are Global Administrator and the Privileged Role Administrator, because users assigned to these two roles can delegate administrator roles. With these privileges, users can directly or indirectly read and modify every resource in your Azure environment:
 
-- Global Administrator / Company Administrator: Users with this role have access to all administrative features in Azure AD, as well as services that use Azure AD identities.
+- Global Administrator: Users with this role have access to all administrative features in Azure AD, as well as services that use Azure AD identities.
 
 - Privileged Role Administrator: Users with this role can manage role assignments in Azure AD, as well as within Azure AD Privileged Identity Management (PIM). In addition, this role allows management of all aspects of PIM and administrative units.
 
-Note: You may have other critical roles that need to be governed if you use custom roles with certain privileged permissions assigned. And you may also want to apply similar controls to the administrator account of critical business assets.  
+Note: You may have other critical roles that need to be governed if you use custom roles with certain privileged permissions assigned. And you may also want to apply similar controls to the administrator account of critical business assets.
 
 You can enable just-in-time (JIT) privileged access to Azure resources and Azure AD using Azure AD Privileged Identity Management (PIM). JIT grants temporary permissions to perform privileged tasks only when users need it. PIM can also generate security alerts when there is suspicious or unsafe activity in your Azure AD organization.
 
@@ -51,7 +53,7 @@ You can enable just-in-time (JIT) privileged access to Azure resources and Azure
 
 ## PA-2: Restrict administrative access to business-critical systems
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | PA-2 | 13.2, 2.10 | AC-2, SC-3, SC-7 |
 
@@ -80,7 +82,7 @@ Ensure to assign separate privileged accounts that are distinct from the standar
 
 ## PA-3: Review and reconcile user access regularly
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | PA-3 | 4.1, 16.9, 16.10 | AC-2 |
 
@@ -105,7 +107,7 @@ Note: Some Azure services support local users and roles that aren't managed thro
 
 ## PA-4: Set up emergency access in Azure AD
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | PA-4 | 16 | AC-2, CP-2 |
 
@@ -128,7 +130,7 @@ You should ensure that the credentials (such as password, certificate, or smart 
 
 ## PA-5: Automate entitlement management
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | PA-5 | 16 | AC-2, AC-5, PM-10 |
 
@@ -149,15 +151,13 @@ Use Azure AD entitlement management features to automate access request workflow
 
 ## PA-6: Use privileged access workstations
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
-| PA-6 | 4.6, 11.6, 12.12 | AC-2, SC-3,  SC-7 |
+| PA-6 | 4.6, 11.6, 12.12 | AC-2, SC-3, SC-7 |
 
-Secured, isolated workstations are critically important for the security of sensitive roles like administrators, developers, and critical service operators. Use highly secured user workstations and/or Azure Bastion for administrative tasks. Use Azure Active Directory, Microsoft Defender Advanced Threat Protection (ATP), and/or Microsoft Intune to deploy a secure and managed user workstation for administrative tasks. The secured workstations can be centrally managed to enforce secured configuration, including strong authentication, software and hardware baselines, and restricted logical and network access. 
+Secured, isolated workstations are critically important for the security of sensitive roles like administrator, developer, and critical service operator. Use highly secured user workstations and/or Azure Bastion for administrative tasks. Use Azure Active Directory, Microsoft Defender Advanced Threat Protection (ATP), and/or Microsoft Intune to deploy a secure and managed user workstation for administrative tasks. The secured workstations can be centrally managed to enforce secured configuration, including strong authentication, software and hardware baselines, and restricted logical and network access. 
 
-- [Understand privileged access workstations](../../active-directory/devices/concept-azure-managed-workstation.md)
-
-- [Deploy a privileged access workstation](../../active-directory/devices/howto-azure-managed-workstation.md)
+- [Understand privileged access workstations](/security/compass/privileged-access-deployment)
 
 **Responsibility**: Customer
 
@@ -171,12 +171,13 @@ Secured, isolated workstations are critically important for the security of sens
 
 ## PA-7: Follow just enough administration (least privilege principle)
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | PA-7 | 14.6 | AC-2, AC-3, SC-3 |
 
 Azure role-based access control (Azure RBAC) allows you to manage Azure resource access through role assignments. You can assign these roles to users, group service principals, and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell, and the Azure portal. The privileges you assign to resources through Azure RBAC should always be limited to what's required by the roles. Limited privileges complement the just in time (JIT) approach of Azure AD Privileged Identity Management (PIM), and those privileges should be reviewed periodically.
-Use built-in roles to allocate permission and only create custom role when required. 
+
+Use built-in roles to allocate permissions and only create custom roles when required.
 
 - [What is Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md)
 
@@ -190,15 +191,15 @@ Use built-in roles to allocate permission and only create custom role when requi
 
 - [Application security and DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-- [Security Compliance Management](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management) 
+- [Security Compliance Management](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
-- [Posture management](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)    
+- [Posture management](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [Identity and key management](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
 ## PA-8: Choose approval process for Microsoft support 
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | PA-8 | 16 | AC-2, AC-3, AC-4 |
 
@@ -215,4 +216,3 @@ In support scenarios where Microsoft needs to access customer data, Customer Loc
 - [Security Compliance Management](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management) 
 
 - [Identity and key management](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
-

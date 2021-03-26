@@ -33,23 +33,7 @@ Marker tags are modeled as a [DTDL](https://github.com/Azure/opendigitaltwins-dt
 
 Here is an excerpt from a twin model implementing a marker tag as a property:
 
-```json
-{
-  "@type": "Property",
-  "name": "tags",
-  "schema": {
-    "@type": "Map",
-    "mapKey": {
-      "name": "tagName",
-      "schema": "string"
-    },
-    "mapValue": {
-      "name": "tagValue",
-      "schema": "boolean"
-    }
-  }
-}
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/tags.json" range="2-16":::
 
 ### Add marker tags to digital twins
 
@@ -57,11 +41,7 @@ Once the `tags` property is part of a digital twin's model, you can set the mark
 
 Here is an example that populates the marker `tags` for three twins:
 
-```csharp
-entity-01: "tags": { "red": true, "round": true } 
-entity-02: "tags": { "blue": true, "round": true } 
-entity-03: "tags": { "red": true, "large": true } 
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesMarker":::
 
 ### Query with marker tags
 
@@ -69,15 +49,11 @@ Once tags have been added to digital twins, the tags can be used to filter the t
 
 Here is a query to get all twins that have been tagged as "red": 
 
-```sql
-select * from digitaltwins where is_defined(tags.red) 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerTags1":::
 
 You can also combine tags for more complex queries. Here is a query to get all twins that are round, and not red: 
 
-```sql
-select * from digitaltwins where not is_defined(tags.red) and is_defined(tags.round) 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerTags2":::
 
 ## Value tags 
 
@@ -89,23 +65,7 @@ Value tags are modeled as a [DTDL](https://github.com/Azure/opendigitaltwins-dtd
 
 Here is an excerpt from a twin model implementing a value tag as a property:
 
-```json
-{
-  "@type": "Property",
-  "name": "tags",
-  "schema": {
-    "@type": "Map",
-    "mapKey": {
-      "name": "tagName",
-      "schema": "string"
-    },
-    "mapValue": {
-      "name": "tagValue",
-      "schema": "string"
-    }
-  }
-} 
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/tags.json" range="17-31":::
 
 ### Add value tags to digital twins
 
@@ -113,11 +73,7 @@ As with marker tags, you can set the value tag in a digital twin by setting the 
 
 Here is an example that populates the value `tags` for three twins:
 
-```csharp
-entity-01: "tags": { "red": "", "size": "large" } 
-entity-02: "tags": { "purple": "", "size": "small" } 
-entity-03: "tags": { "red": "", "size": "small" } 
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesValue":::
 
 Note that `red` and `purple` are used as marker tags in this example.
 
@@ -125,22 +81,18 @@ Note that `red` and `purple` are used as marker tags in this example.
 
 As with marker tags, you can use value tags to filter the twins in queries. You can also use value tags and marker tags together.
 
-From the example above, `red` is being used as a marker tag. Here is a query to get all twins that have been tagged as "red": 
+From the example above, `red` is being used as a marker tag. Remember that this is a query to get all twins that have been tagged as "red": 
 
-```sql
-select * from digitaltwins where is_defined(tags.red) 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerTags1":::
 
 Here is a query to get all entities that are small (value tag), and not red: 
 
-```sql
-select * from digitaltwins where not is_defined(tags.red) and tags.size = 'small' 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerValueTags":::
 
 ## Next steps
 
 Read more about designing and managing digital twin models:
-* [*How-to: Manage custom models*](how-to-manage-model.md)
+* [*How-to: Manage DTDL models*](how-to-manage-model.md)
 
 Read more about querying the twin graph:
 * [*How-to: Query the twin graph*](how-to-query-graph.md)

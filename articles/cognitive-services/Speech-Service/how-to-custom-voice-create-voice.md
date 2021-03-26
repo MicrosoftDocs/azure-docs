@@ -47,17 +47,22 @@ The following table shows the processing states for imported datasets:
 
 After validation is complete, you can see the total number of matched utterances for each of your datasets in the **Utterances** column. If the data type you have selected requires long-audio segmentation, this column only reflects the utterances we have segmented for you either based on your transcripts or through the speech transcription service. You can further download the dataset validated to view the detail results of the utterances successfully imported and their mapping transcripts. Hint: long-audio segmentation can take more than an hour to complete data processing.
 
-For en-US and zh-CN datasets, you can further download a report to check the pronunciation scores and the noise level for each of your recordings. The pronunciation score ranges from 0 to 100. A score below 70 normally indicates a speech error or script mismatch. A heavy accent can reduce your pronunciation score and impact the generated digital voice.
+In the data detail view, you can further check the pronunciation scores and the noise level for each of your datasets. The pronunciation score ranges from 0 to 100. A score below 70 normally indicates a speech error or script mismatch. A heavy accent can reduce your pronunciation score and impact the generated digital voice.
 
 A higher signal-to-noise ratio (SNR) indicates lower noise in your audio. You can typically reach a 50+ SNR by recording at professional studios. Audio with an SNR below 20 can result in obvious noise in your generated voice.
 
 Consider re-recording any utterances with low pronunciation scores or poor signal-to-noise ratios. If you can't re-record, you might exclude those utterances from your dataset.
 
+> [!NOTE]
+> It is required that if you are using Custom Neural Voice, you must register your voice talent in the **Voice Talent** tab. When preparing your recording script, make sure you include the below sentence to acquire the voice talent acknowledgement of using their voice data to create a TTS voice model and generate synthetic speech. 
+“I [state your first and last name] am aware that recordings of my voice will be used by [state the name of the company] to create and use a synthetic version of my voice.”
+This sentence will be used to verify if the recordings in your training datasets are done by the same person that makes the consent. [Read more about how your data will be processed and how voice talent verification is done here](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext). 
+
 ## Build your custom voice model
 
 After your dataset has been validated, you can use it to build your custom voice model.
 
-1.	Navigate to **Text-to-Speech > Custom Voice > [name of project] > Training**.
+1.	Navigate to **Text-to-Speech > Custom Voice > [name of project] > Model**.
 
 2.	Click **Train model**.
 
@@ -67,15 +72,22 @@ After your dataset has been validated, you can use it to build your custom voice
 
     A common use of the **Description** field is to record the names of the datasets that were used to create the model.
 
-4.	From the **Select training data** page, choose one or multiple datasets that you would like to use for training. Check the number of utterances before you submit them. You can start with any number of utterances for en-US and zh-CN voice models. For other locales, you must select more than 2,000 utterances to be able to train a voice.
+4.	From the **Select training data** page, choose one or multiple datasets that you would like to use for training. Check the number of utterances before you submit them. You can start with any number of utterances for en-US and zh-CN voice models using the "Adaptive" training method. For other locales, you must select more than 2,000 utterances to be able to train a voice using a standard tier including the "Statistical parametric" and "Concatenative" training methods, and more than 300 utterances to train a custom neural voice. 
 
     > [!NOTE]
     > Duplicate audio names will be removed from the training. Make sure the datasets you select do not contain the same audio names across multiple .zip files.
 
     > [!TIP]
-    > Using the datasets from the same speaker is required for quality results. When the datasets you have submitted for training contain a total number of less than 6,000 distinct utterances, you will train your voice model through the Statistical Parametric Synthesis technique. In the case where your training data exceeds a total number of 6,000 distinct utterances, you will kick off a training process with the Concatenation Synthesis technique. Normally the concatenation technology can result in more natural, and higher-fidelity voice results. [Contact the Custom Voice team](https://go.microsoft.com/fwlink/?linkid=2108737) if you want to train a model with the latest Neural TTS technology that can produce a digital voice equivalent to the publicly available [neural voices](language-support.md#neural-voices).
+    > Using the datasets from the same speaker is required for quality results. Different training methods require different training data size. To train a model with the "Statistical parametric" method, at least 2,000 distinct utterances are required. For the "Concatenative" method, it's 6,000 utterances, while for "Neural", the minimum data size requirement is 300 utterances.
 
-5.	Click **Train** to begin creating your voice model.
+5. Select the **training method** in the next step. 
+
+    > [!NOTE]
+    > If you would like to train a neural voice, you must specify a voice talent profile with the audio consent file provided of the voice talent acknowledging to use his/her speech data to train a custom voice model. Custom Neural Voice is available with limited access. Make sure you understand the [responsible AI requirements](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) and [apply the access here](https://aka.ms/customneural). 
+    
+    On this page you can also select to upload your script for testing. The testing script must be a txt file, less than 1Mb. Supported encoding format includes ANSI/ASCII, UTF-8, UTF-8-BOM, UTF-16-LE, or UTF-16-BE. Each paragraph of the utterance will result in a separate audio. If you want to combine all sentences into one audio, make them in one paragraph. 
+
+6. Click **Train** to begin creating your voice model.
 
 The Training table displays a new entry that corresponds to this newly created model. The table also displays the status: Processing, Succeeded, Failed.
 
@@ -87,10 +99,13 @@ The status that's shown reflects the process of converting your dataset to a voi
 | Succeeded	| Your voice model has been created and can be deployed. |
 | Failed | Your voice model has been failed in training due to many reasons, for example unseen data problems or network issues. |
 
-Training time varies depending on the volume of audio data processed. Typical times range from about 30 minutes for hundreds of utterances to 40 hours for 20,000 utterances. Once your model training is succeeded, you can start to test it.
+Training time varies depending on the volume of audio data processed and the training method you have selected. It can range from 30 minutes to 40 hours. Once your model training is succeeded, you can start to test it. 
 
 > [!NOTE]
 > Free subscription (F0) users can train one voice font simultaneously. Standard subscription (S0) users can train three voices simultaneously. If you reach the limit, wait until at least one of your voice fonts finishes training, and then try again.
+
+> [!NOTE]
+> Training of custom neural voices is not free. Check the [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) here. 
 
 > [!NOTE]
 > The maximum number of voice models allowed to be trained per subscription is 10 models for free subscription (F0) users and 100 for standard subscription (S0) users.
@@ -99,32 +114,27 @@ If you are using the neural voice training capability, you can select to train a
 
 ## Test your voice model
 
-After your voice font is successfully built, you can test it before deploying it for use.
+Each training will generate 100 sample audio files automatically to help you test the model. After your voice model is successfully built, you can test it before deploying it for use.
 
-1.	Navigate to **Text-to-Speech > Custom Voice > [name of project] > Testing**.
+1.	Navigate to **Text-to-Speech > Custom Voice > [name of project] > Model**.
 
-2.	Click **Add test**.
+2.	Click the name of the model you would like to test.
 
-3.	Select one or multiple models that you would like to test.
+3.	On the model detail page, you can find the sample audio files under the **Testing** tab. 
 
-4.	Provide the text you want the voice(s) to speak. If you have selected to test multiple models at one time, the same text will be used for the testing for different models.
-
-    > [!NOTE]
-    > The language of your text must be the same as the language of your voice font. Only successfully trained models can be tested. Only plain text is supported in this step.
-
-5.	Click **Create**.
-
-Once you have submitted your test request, you will return to the test page. The table now includes an entry that corresponds to your new request and the status column. It can take a few minutes to synthesize speech. When the status column says **Succeeded**, you can play the audio, or download the text input (a .txt file) and audio output (a .wav file), and further audition the latter for quality.
-
-You can also find the test results in the detail page of each models you have selected for testing. Go to the **Training** tab, and click the model name to enter the model detail page.
+The quality of the voice depends on a number of factors, including the size of the training data, the quality of the recording, the accuracy of the transcript file, how well the recorded voice in the training data matches the personality of the designed voice for your intended use case, and more. [Check here to learn more about the capabilities and limits of our technology and the best practice to improve your model quality](/legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext). 
 
 ## Create and use a custom voice endpoint
 
 After you've successfully created and tested your voice model, you deploy it in a custom Text-to-Speech endpoint. You then use this endpoint in place of the usual endpoint when making Text-to-Speech requests through the REST API. Your custom endpoint can be called only by the subscription that you have used to deploy the font.
 
-To create a new custom voice endpoint, go to **Text-to-Speech > Custom Voice > Deployment**. Select **Add endpoint** and enter a **Name** and **Description** for your custom endpoint. Then select the custom voice model you would like to associate with this endpoint.
+To create a new custom voice endpoint, go to **Text-to-Speech > Custom Voice > Endpoint**. Select **Add endpoint** and enter a **Name** and **Description** for your custom endpoint. Then select the custom voice model you would like to associate with this endpoint.
 
 After you have clicked the **Add** button, in the endpoint table, you will see an entry for your new endpoint. It may take a few minutes to instantiate a new endpoint. When the status of the deployment is **Succeeded**, the endpoint is ready for use.
+
+You can **Suspend** and **Resume** your endpoint if you don't use it all the time. When an endpoint is reactivated after suspension, the endpoint URL will be kept the same so you don't need to change your code in your apps. 
+
+You can also update the endpoint to a new model. To change the model, make sure the new model is named the same as the one your want to update. 
 
 > [!NOTE]
 > Free subscription (F0) users can have only one model deployed. Standard subscription (S0) users can create up to 50 endpoints, each with its own custom voice.

@@ -15,7 +15,7 @@ ms.date: 09/02/2020
 Offers sold through the Microsoft commercial marketplace must have at least one plan. You can create a variety of plans with different options within the same offer. These plans (sometimes referred to as SKUs) can differ in terms of version, monetization, or tiers of service. For detailed guidance on plans, see [Plans and pricing for commercial marketplace offers](plans-pricing.md).
 
 > [!NOTE]
-> If you choose to process transactions independently, you will not see this option. Instead, skip to [How to market your SaaS offer](create-new-saas-offer-marketing.md).
+> If you choose to process transactions independently, you will not see this option. Instead, skip to [How to sell your SaaS offer](create-new-saas-offer-marketing.md).
 
 ## Create a plan
 
@@ -145,7 +145,11 @@ The actions that are available in the **Action** column of the **Plan overview**
 - If the plan status is **Draft**, the link in the **Action** column will say **Delete draft**.
 - If the plan status is **Live**, the link in the **Action** column will be either **Stop sell plan** or **Sync private audience**. The **Sync private audience** link will publish only the changes to your private audiences, without publishing any other updates you might have made to the offer.
 
+## Before you publish your offer
+
+If you haven't already done so, create a development and test (DEV) offer to test your offer before publishing your production offer live. To learn more, see [Create a development and test offer](create-saas-dev-test-offer.md).
+
 ## Next steps
 
-- Learn [How to market your SaaS offer](create-new-saas-offer-marketing.md) through the **Co-sell with Microsoft** and **Resell through CSPs** programs.
+- Learn [How to sell your SaaS offer](create-new-saas-offer-marketing.md) through the **Co-sell with Microsoft** and **Resell through CSPs** programs.
 - [How to test and publish a SaaS offer to the commercial marketplace](test-publish-saas-offer.md).

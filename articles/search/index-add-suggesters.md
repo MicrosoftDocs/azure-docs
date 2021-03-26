@@ -8,13 +8,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 11/24/2020
 ms.custom: devx-track-csharp
 ---
 
 # Create a suggester to enable autocomplete and suggested results in a query
 
-In Azure Cognitive Search, "search-as-you-type" is enabled through a **suggester** construct added to a [search index](search-what-is-an-index.md). A suggester supports two experiences: *autocomplete*, which completes a partial input for a whole term query, and *suggestions* that invite click through to a particular match. Autocomplete produces a query. Suggestions produce a matching document.
+In Azure Cognitive Search, "search-as-you-type" is enabled through a *suggester*. A suggester is an internal data structure that consists of a fields collection. The fields undergo additional tokenization, generating prefix sequences to support matches on partial terms.
+
+For example, if a suggester includes a City field, resulting prefix combinations of "sea", "seat", "seatt", and "seattl" would be created for the term "Seattle". Prefixes are stored in inverted indexes, one for each field specified in a suggester fields collection.
+
+## Typeahead experiences in Cognitive Search
+
+A suggester supports two experiences: *autocomplete*, which completes a partial input for a whole term query, and *suggestions* that invite click through to a particular match. Autocomplete produces a query. Suggestions produce a matching document.
 
 The following screenshot from [Create your first app in C#](tutorial-csharp-type-ahead-and-suggestions.md) illustrates both. Autocomplete anticipates a potential term, finishing "tw" with "in". Suggestions are mini search results, where a field like hotel name represents a matching hotel search document from the index. For suggestions, you can surface any field that provides descriptive information.
 
@@ -28,17 +34,15 @@ You can use these features separately or together. To implement these behaviors 
 
 Search-as-you-type support is enabled on a per-field basis for string fields. You can implement both typeahead behaviors within the same search solution if you want an experience similar to the one indicated in the screenshot. Both requests target the *documents* collection of specific index and responses are returned after a user has provided at least a three character input string.
 
-## What is a suggester?
-
-A suggester is an internal data structure that supports search-as-you-type behaviors by storing prefixes for matching on partial queries. As with tokenized terms, prefixes are stored in inverted indexes, one for each field specified in a suggester fields collection.
-
 ## How to create a suggester
 
 To create a suggester, add one to an [index definition](/rest/api/searchservice/create-index). A suggester gets a name and a collection of fields over which the typeahead experience is enabled. and [set each property](#property-reference). The best time to create a suggester is when you are also defining the field that will use it.
 
-+ Use string fields only
++ Use string fields only.
 
-+ Use the default standard Lucene analyzer (`"analyzer": null`) or a [language analyzer](index-add-language-analyzers.md) (for example, `"analyzer": "en.Microsoft"`) on the field
++ If the string field is part of a complex type (for example, a City field within Address), include the parent in the field: `"Address/City"` (REST and C# and Python), or `["Address"]["City"]` (JavaScript).
+
++ Use the default standard Lucene analyzer (`"analyzer": null`) or a [language analyzer](index-add-language-analyzers.md) (for example, `"analyzer": "en.Microsoft"`) on the field.
 
 If you try to create a suggester using pre-existing fields, the API will disallow it. Prefixes are generated during indexing, when partial terms in two or more character combinations are tokenized alongside whole terms. Given that existing fields are already tokenized, you will have to rebuild the index if you want to add them to a suggester. For more information, see [How to rebuild an Azure Cognitive Search index](search-howto-reindex.md).
 
@@ -58,7 +62,7 @@ Your choice of an analyzer determines how fields are tokenized and subsequently 
 
 When evaluating analyzers, consider using the [Analyze Text API](/rest/api/searchservice/test-analyzer) for insight into how terms are processed. Once you build an index, you can try various analyzers on a string to view token output.
 
-Fields that use [custom analyzers](index-add-custom-analyzers.md) or [predefined analyzers](index-add-custom-analyzers.md#predefined-analyzers-reference) (with the exception of standard Lucene) are explicitly disallowed to prevent poor outcomes.
+Fields that use [custom analyzers](index-add-custom-analyzers.md) or [built-in analyzers](index-add-custom-analyzers.md#built-in-analyzers) (with the exception of standard Lucene) are explicitly disallowed to prevent poor outcomes.
 
 > [!NOTE]
 > If you need to work around the analyzer constraint, for example if you need a keyword or ngram analyzer for certain query scenarios, you should use two separate fields for the same content. This will allow one of the fields to have a suggester, while the other can be set up with a custom analyzer configuration.
@@ -113,7 +117,7 @@ In the REST API, add suggesters through [Create Index](/rest/api/searchservice/c
 
 ## Create using .NET
 
-In C#, define a [SearchSuggester object](/dotnet/api/azure.search.documents.indexes.models.searchsuggester). `Suggesters` is a collection on a SearchIndex object, but it can only take one item. 
+In C#, define a [SearchSuggester object](/dotnet/api/azure.search.documents.indexes.models.searchsuggester). `Suggesters` is a collection on a SearchIndex object, but it can only take one item. Add a suggester to the index definition.
 
 ```csharp
 private static void CreateIndex(string indexName, SearchIndexClient indexClient)
@@ -121,12 +125,9 @@ private static void CreateIndex(string indexName, SearchIndexClient indexClient)
     FieldBuilder fieldBuilder = new FieldBuilder();
     var searchFields = fieldBuilder.Build(typeof(Hotel));
 
-    //var suggester = new SearchSuggester("sg", sourceFields = "HotelName", "Category");
-
     var definition = new SearchIndex(indexName, searchFields);
 
-    var suggester = new SearchSuggester("sg", new[] { "HotelName", "Category"});
-
+    var suggester = new SearchSuggester("sg", new[] { "HotelName", "Category", "Address/City", "Address/StateProvince" });
     definition.Suggesters.Add(suggester);
 
     indexClient.CreateOrUpdateIndex(definition);

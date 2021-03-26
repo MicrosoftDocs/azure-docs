@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 
 # Migrate to cloud authentication using staged rollout (preview)
 
-Staged rollout allows you to selectively test groups of users with cloud authentication capabilities like Azure Multi-Factor Authentication (MFA), Conditional Access, Identity Protection for leaked credentials, Identity Governance, and others, before cutting over your domains.  This article discusses how to make the switch. Before you begin the staged rollout, however, you should consider the implications if one or more of the following conditions is true:
+Staged rollout allows you to selectively test groups of users with cloud authentication capabilities like Azure AD Multi-Factor Authentication (MFA), Conditional Access, Identity Protection for leaked credentials, Identity Governance, and others, before cutting over your domains.  This article discusses how to make the switch. Before you begin the staged rollout, however, you should consider the implications if one or more of the following conditions is true:
     
 -  You're currently using an on-premises Multi-Factor Authentication server. 
 -  You're using smart cards for authentication. 
@@ -41,7 +41,7 @@ For an overview of the feature, view this "Azure Active Directory: What is stage
 
 -   You have configured all the appropriate tenant-branding and conditional access policies you need for users who are being migrated to cloud authentication.
 
--   If you plan to use Azure Multi-Factor Authentication, we recommend that you use [combined registration for self-service password reset (SSPR) and Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) to have your users register their authentication methods once. Note- when using SSPR to reset password or change password using MyProfile page while in Staged rollout, Azure AD Connect needs to sync the new password hash which can take up to 2 minutes after reset.
+-   If you plan to use Azure AD Multi-Factor Authentication, we recommend that you use [combined registration for self-service password reset (SSPR) and Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) to have your users register their authentication methods once. Note- when using SSPR to reset password or change password using MyProfile page while in Staged rollout, Azure AD Connect needs to sync the new password hash which can take up to 2 minutes after reset.
 
 -   To use the staged rollout feature, you need to be a global administrator on your tenant.
 
@@ -57,11 +57,16 @@ The following scenarios are supported for staged rollout. The feature works only
 - Users who are provisioned to Azure AD by using Azure AD Connect. It does not apply to cloud-only users.
 
 - User sign-in traffic on browsers and *modern authentication* clients. Applications or cloud services that use legacy authentication will fall back to federated authentication flows. An example might be Exchange online with modern authentication turned off, or Outlook 2010, which does not support modern authentication.
+
 - Group size is currently limited to 50,000 users.  If you have groups that are larger then 50,000 users, it is recommended to split this group over multiple groups for staged rollout.
+
+- Windows 10 Hybrid Join or Azure AD Join primary refresh token acquisition without line-of-sight to the federation server for Windows 10 version 1903 and newer, when user’s UPN is routable and domain suffix is verified in Azure AD.
 
 ## Unsupported scenarios
 
 The following scenarios are not supported for staged rollout:
+
+- Legacy authentication such as POP3 and SMTP are not supported.
 
 - Certain applications send the "domain_hint" query parameter to Azure AD during authentication. These flows will continue, and users who are enabled for staged rollout will continue to use federation for authentication.
 
@@ -74,15 +79,17 @@ The following scenarios are not supported for staged rollout:
     - Dynamic groups are *not supported* for staged rollout.
     - Contact objects inside the group will block the group from being added.
 
-- You still need to make the final cutover from federated to cloud authentication by using Azure AD Connect or PowerShell. Staged rollout doesn't switch domains from federated to managed.  For more information about domain cutover, see [Migrate from federation to password hash synchronization](plan-migrate-adfs-password-hash-sync.md) and [Migrate from federation to pass-through authentication](plan-migrate-adfs-pass-through-authentication.md)
-
-
-
 - When you first add a security group for staged rollout, you're limited to 200 users to avoid a UX time-out. After you've added the group, you can add more users directly to it, as required.
 
 - While users are in Staged Rollout, when EnforceCloudPasswordPolicyForPasswordSyncedUsers is enabled, password expiration policy is set to 90 days with no option to customize it. 
 
+- Windows 10 Hybrid Join or Azure AD Join primary refresh token acquisition for Windows 10 version older than 1903. This scenario will fall back to the WS-Trust endpoint of the federation server, even if the user signing in is in scope of staged rollout.
 
+- Windows 10 Hybrid Join or Azure AD Join primary refresh token acquisition for all versions, when user’s on-premises UPN is not routable. This scenario will fall back to the WS-Trust endpoint while in staged rollout mode, but will stop working when staged migration is complete and user sign-on is no longer relying on federation server.
+
+  >[!NOTE]
+  >You still need to make the final cutover from federated to cloud authentication by using Azure AD Connect or PowerShell. Staged rollout doesn't switch domains from  federated to managed.  For more information about domain cutover, see [Migrate from federation to password hash synchronization](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso) and [Migrate from federation to pass-through authentication](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
+  
 ## Get started with staged rollout
 
 To test the *password hash sync* sign-in by using staged rollout, follow the pre-work instructions in the next section.
@@ -173,7 +180,7 @@ Do the following:
 
    >[!NOTE]
    >The members in a group are automatically enabled for staged rollout. Nested and dynamic groups are not supported for staged rollout.
-   >When adding a new group, users in the group (up to 200 users for a new group) will be updated to use managed auth immidiatly. 
+   >When adding a new group, users in the group (up to 200 users for a new group) will be updated to use managed auth immediately. 
    >Editing a group (adding or removing users), it can take up to 24 hours for changes to take effect.
    >Seamless SSO will apply only if users are in the Seamless SSO group and also in either a PTA or PHS group.
 
@@ -245,3 +252,5 @@ A: Yes. To learn how to use PowerShell to perform staged rollout, see [Azure AD 
 
 ## Next steps
 - [Azure AD 2.0 preview](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )
+- [Change the sign-in method to password hash synchronization](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
+- [Change sign-in method to pass-through authentication](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)

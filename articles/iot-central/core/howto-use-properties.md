@@ -3,7 +3,7 @@ title: Use properties in an Azure IoT Central solution
 description: Learn how to use read-only and writable properties in an Azure IoT Central solution.
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/12/2020
+ms.date: 11/06/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -12,33 +12,33 @@ services: iot-central
 
 # Use properties in an Azure IoT Central solution
 
-This article shows you how to use device properties that are defined in a device template in your Azure IoT Central application.
+This how-to guide shows you how, as a device developer, to use device properties that are defined in a device template in your Azure IoT Central application.
 
-Properties represent point-in-time values. For example, a device can use a property to report the target temperature it's trying to reach. Properties also let you synchronize state between your device and your Azure IoT Central application. You can set writable properties from Azure IoT Central.
+Properties represent point-in-time values. For example, a device can use a property to report the target temperature it's trying to reach. By default, device properties are read-only in IoT Central. Writable properties let you synchronize state between your device and your Azure IoT Central application.
 
 You can also define cloud properties in an Azure IoT Central application. Cloud property values are never exchanged with a device and are out of scope for this article.
 
 ## Define your properties
 
-Properties are data fields that represent the state of your device. Use properties to represent the durable state of the device, such as the on/off state of a device. Properties can also represent basic device properties, such as the software version of the device. You can declare properties as read-only or writable.
+Properties are data fields that represent the state of your device. Use properties to represent the durable state of the device, such as the on/off state of a device. Properties can also represent basic device properties, such as the software version of the device. You declare properties as read-only or writable.
 
 The following screenshot shows a property definition in an Azure IoT Central application.
 
-![Screenshot that shows a property definition in an Azure IoT Central application.](./media/howto-use-properties/property-definition.png)
+:::image type="content" source="media/howto-use-properties/property-definition.png" alt-text="Screenshot that shows a property definition in an Azure IoT Central application.":::
 
 The following table shows the configuration settings for a property capability.
 
 | Field           | Description                                                                                                                                                                                                                        |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Display name    | The display name for the property value used on dashboards and forms.                                                                                                                                                              |
-| Name            | The name of the property. Azure IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. This field must be alphanumeric.                                                 |
+| Name            | The name of the property. Azure IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. This field must be alphanumeric.  The device code uses this **Name** value.           |
 | Capability type | Property.                                                                                                                                                                                                                          |
 | Semantic type   | The semantic type of the property, such as temperature, state, or event. The choice of semantic type determines which of the following fields are available.                                                                       |
 | Schema          | The property data type, such as double, string, or vector. The available choices are determined by the semantic type. Schema isn't available for the event and state semantic types.                                               |
-| Writeable       | If the property isn't writeable, the device can report property values to Azure IoT Central. If the property is writeable, the device can report property values to Azure IoT Central. Then Azure IoT Central can send property updates to the device. |
+| Writable       | If the property isn't writeable, the device can report property values to Azure IoT Central. If the property is writeable, the device can report property values to Azure IoT Central. Then Azure IoT Central can send property updates to the device. |
 | Severity        | Only available for the event semantic type. The severities are **Error**, **Information**, or **Warning**.                                                                                                                         |
 | State values    | Only available for the state semantic type. Define the possible state values, each of which has display name, name, enumeration type, and value.                                                                                   |
-| Unit            | A unit for the property value, such as **mph**, **%**, or **&deg; C**.                                                                                                                                                              |
+| Unit            | A unit for the property value, such as **mph**, **%**, or **&deg;C**.                                                                                                                                                              |
 | Display unit    | A display unit for use on dashboards and forms.                                                                                                                                                                                    |
 | Comment         | Any comments about the property capability.                                                                                                                                                                                        |
 | Description     | A description of the property capability.                                                                                                                                                                                          |
@@ -47,83 +47,63 @@ The properties can also be defined in an interface in a device template as shown
 
 ``` json
 {
-  "@type": "Property",
-  "displayName": "Device State",
-  "description": "The state of the device. Two states online/offline are available.",
-  "name": "state",
-  "schema": "boolean"
-},
-{
-  "@type": "Property",
-  "displayName": "Customer Name",
-  "description": "The name of the customer currently operating the device.",
-  "name": "name",
-  "schema": "string",
+  "@type": [
+    "Property",
+    "Temperature"
+  ],
+  "name": "targetTemperature",
+  "schema": "double",
+  "displayName": "Target Temperature",
+  "description": "Allows to remotely specify the desired target temperature.",
+  "unit" : "degreeCelsius",
   "writable": true
 },
 {
- "@type": "Property",
- "displayName": "Date ",
- "description": "The date on which the device is currently operating",
- "name": "date",
- "writable": true,
- "schema": "date"
-},
-{ 
- "@type": "Property",
- "displayName": "Location",
- "description": "The current location of the device",
- "name": "location",
- "writable": true,
- "schema": "geopoint"
-},
-{
- "@type": "Property",
- "displayName": "Vector Level",
- "description": "The Vector level of the device",
- "name": "vector",
- "writable": true,
- "schema": "vector"
+  "@type": [
+    "Property",
+    "Temperature"
+  ],
+  "name": "maxTempSinceLastReboot",
+  "schema": "double",
+  "unit" : "degreeCelsius",
+  "displayName": "Max temperature since last reboot.",
+  "description": "Returns the max temperature since last device reboot."
 }
 ```
 
-This example shows five properties. These properties can be related to the property definition in the UI as shown here:
+This example shows two properties. These properties relate to the property definition in the UI:
 
-* `@type` to specify the type of capability: `Property`
-* `name` for the property value.
-* `schema` specify the data type for the property. This value can be a primitive type, such as double, integer, Boolean, or string. Complex object types, arrays, and maps are also supported.
+* `@type` specifies the type of capability: `Property`. The previous example also shows the semantic type `Temperature` for both properties.
+* `name` for the property.
+* `schema` specifies the data type for the property. This value can be a primitive type, such as double, integer, Boolean, or string. Complex object types and maps are also supported.
 * `writable` By default, properties are read-only. You can mark a property as writeable by using this field.
 
 Optional fields, such as display name and description, let you add more details to the interface and capabilities.
 
-When you create a property, you can specify the complex **Schema** types like Object and Enum.
+When you create a property, you can specify complex schema types such as **Object** and **Enum**.
 
 ![Screenshot that shows how to add a capability.](./media/howto-use-properties/property.png)
 
 When you select the complex **Schema**, such as **Object**, you need to define the object, too.
 
-![Screenshot that shows how to define an object.](./media/howto-use-properties/object.png)
+:::image type="content" source="media/howto-use-properties/object.png" alt-text="Screenshot that shows how to define an object":::
 
 The following code shows the definition of an Object property type. This object has two fields with types string and integer.
 
 ``` json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "ObjectProperty"
   },
   "name": "ObjectProperty",
   "schema": {
-    "@id": "<element id>",
     "@type": "Object",
     "displayName": {
       "en": "Object"
     },
     "fields": [
       {
-        "@id": "<element id>",
-        "@type": "SchemaField",
         "displayName": {
           "en": "Field1"
         },
@@ -131,8 +111,6 @@ The following code shows the definition of an Object property type. This object 
         "schema": "integer"
       },
       {
-        "@id": "<element id>",
-        "@type": "SchemaField",
         "displayName": {
           "en": "Field2"
         },
@@ -146,15 +124,14 @@ The following code shows the definition of an Object property type. This object 
 
 ## Implement read-only properties
 
-By default, properties are read-only. Read-only properties mean that the device reports property value updates to your Azure IoT Central application. Your Azure IoT Central application can't set the value of a read-only property.
+By default, properties are read-only. Read-only properties let a device report property value updates to your Azure IoT Central application. Your Azure IoT Central application can't set the value of a read-only property.
 
 Azure IoT Central uses device twins to synchronize property values between the device and the Azure IoT Central application. Device property values use device twin reported properties. For more information, see [device twins](../../iot-hub/tutorial-device-twins.md).
 
-The following snippet from a device capability model shows the definition of a read-only property type:
+The following snippet from a device model shows the definition of a read-only property type:
 
 ``` json
 {
-  "@type": "Property",
   "name": "model",
   "displayName": "Device model",
   "schema": "string",
@@ -162,7 +139,7 @@ The following snippet from a device capability model shows the definition of a r
 }
 ```
 
-Read-only properties are sent by the device to Azure IoT Central. The properties are sent as JSON payload. For more information, see [payloads](./concepts-telemetry-properties-commands.md).
+Property updates are sent by a device as a JSON payload. For more information, see [payloads](./concepts-telemetry-properties-commands.md).
 
 You can use the Azure IoT device SDK to send a property update to your Azure IoT Central application.
 
@@ -179,20 +156,17 @@ hubClient.getTwin((err, twin) => {
 });
 ```
 
-This article uses Node.js for simplicity. For complete information about device application examples, see the following tutorials:
-
-* [Create and connect a client application to your Azure IoT Central application (Node.js)](tutorial-connect-device-nodejs.md)
-* [Create and connect a client application to your Azure IoT Central application (Python)](tutorial-connect-device-python.md)
+This article uses Node.js for simplicity. For other language examples, see the [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md) tutorial.
 
 The following view in Azure IoT Central application shows the properties you can see. The view automatically makes the **Device model** property a _read-only device property_.
 
-![Screenshot that shows the view of a read-only property.](./media/howto-use-properties/read-only.png)
+:::image type="content" source="media/howto-use-properties/read-only.png" alt-text="Screenshot that shows the view of a read-only property":::
 
 ## Implement writable properties
 
 Writable properties are set by an operator in the Azure IoT Central application on a form. Azure IoT Central sends the property to the device. Azure IoT Central expects an acknowledgment from the device.
 
-The following snippet from a device capability model shows the definition of a writable property type:
+The following snippet from a device model shows the definition of a writable property type:
 
 ``` json
 {
@@ -203,12 +177,6 @@ The following snippet from a device capability model shows the definition of a w
   "writable": true,
   "schema": "long"
 }
-```
-
-A device client should send a JSON payload that looks like the following example as a reported property in the device twin:
-
-``` json
-{ "Brightness Level": 2 }
 ```
 
 To define and handle the writeable properties your device responds to, you can use the following code:
@@ -245,7 +213,6 @@ The response message should include the `ac` and `av` fields. The `ad` field is 
 | `'ac': 4xx` | Error | The requested property change wasn't valid or had an error. |
 | `'ac': 5xx` | Error | The device experienced an unexpected error when processing the requested change. |
 
-
 For more information on device twins, see [Configure your devices from a back-end service](../../iot-hub/tutorial-device-twins.md).
 
 When the operator sets a writeable property in the Azure IoT Central application, the application uses a device twin desired property to send the value to the device. The device then responds by using a device twin reported property. When Azure IoT Central receives the reported property value, it updates the property view with a status of **Accepted**.
@@ -261,4 +228,4 @@ The following view shows the writable properties. When you enter the value and s
 Now that you've learned how to use properties in your Azure IoT Central application, see:
 
 * [Payloads](concepts-telemetry-properties-commands.md)
-* [Create and connect a client application to your Azure IoT Central application (Node.js)](tutorial-connect-device-nodejs.md)
+* [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md)

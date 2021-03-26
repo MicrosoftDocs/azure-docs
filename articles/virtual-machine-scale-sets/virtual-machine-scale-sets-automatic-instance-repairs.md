@@ -31,9 +31,9 @@ Before enabling automatic instance repairs policy, ensure that the scale set ins
 
 For instances marked as "Unhealthy", automatic repairs are triggered by the scale set. Ensure the application endpoint is correctly configured before enabling the automatic repairs policy in order to avoid unintended instance repairs, while the endpoint is getting configured.
 
-**Enable single placement group**
+**Maximum number of instances in the scale set**
 
-This feature is currently available only for scale sets deployed as single placement group. The property *singlePlacementGroup* should be set to *true* for your scale set to use automatic instance repairs feature. Learn more about [placement groups](./virtual-machine-scale-sets-placement-groups.md#placement-groups).
+This feature is currently available only for scale sets that have a maximum of 200 instances. The scale set can be deployed as either a single placement group or a multi-placement group, however the instance count cannot be above 200 if automatic instance repairs is enabled for the scale set.
 
 **API version**
 
@@ -136,7 +136,7 @@ New-AzVmssConfig `
 
 ### Azure CLI 2.0
 
-The following example enables the automatic repairs policy while creating a new scale set using *[az vmss create](/cli/azure/vmss?view=azure-cli-latest#az-vmss-create)*. First create a resource group, then create a new scale set with automatic repairs policy grace period set to 30 minutes.
+The following example enables the automatic repairs policy while creating a new scale set using *[az vmss create](/cli/azure/vmss#az-vmss-create)*. First create a resource group, then create a new scale set with automatic repairs policy grace period set to 30 minutes.
 
 ```azurecli-interactive
 az group create --name <myResourceGroup> --location <VMSSLocation>
@@ -204,7 +204,7 @@ Update-AzVmss `
 
 ### Azure CLI 2.0
 
-The following is an example for updating the automatic instance repairs policy of an existing scale set, using *[az vmss update](/cli/azure/vmss?view=azure-cli-latest#az-vmss-update)*.
+The following is an example for updating the automatic instance repairs policy of an existing scale set, using *[az vmss update](/cli/azure/vmss#az-vmss-update)*.
 
 ```azurecli-interactive
 az vmss update \  
@@ -254,7 +254,7 @@ Use *setOrchestrationServiceState* API with API version 2019-12-01 or higher on 
 
 ### Azure CLI 
 
-Use [get-instance-view](/cli/azure/vmss?view=azure-cli-latest#az-vmss-get-instance-view) cmdlet to view the *serviceState* for automatic instance repairs. 
+Use [get-instance-view](/cli/azure/vmss#az-vmss-get-instance-view) cmdlet to view the *serviceState* for automatic instance repairs. 
 
 ```azurecli-interactive
 az vmss get-instance-view \
@@ -262,7 +262,7 @@ az vmss get-instance-view \
     --resource-group MyResourceGroup
 ```
 
-Use [set-orchestration-service-state](/cli/azure/vmss?view=azure-cli-latest#az-vmss-set-orchestration-service-state) cmdlet to update the *serviceState* for automatic instance repairs. Once the scale set is opted into the automatic repair feature, then you can use this cmdlet to suspend or resume automatic repairs for you scale set. 
+Use [set-orchestration-service-state](/cli/azure/vmss#az-vmss-set-orchestration-service-state) cmdlet to update the *serviceState* for automatic instance repairs. Once the scale set is opted into the automatic repair feature, then you can use this cmdlet to suspend or resume automatic repairs for you scale set. 
 
 ```azurecli-interactive
 az vmss set-orchestration-service-state \
@@ -273,7 +273,7 @@ az vmss set-orchestration-service-state \
 ```
 ### Azure PowerShell
 
-Use [Get-AzVmss](/powershell/module/az.compute/get-azvmss?view=azps-3.7.0) cmdlet with parameter *InstanceView* to view the *ServiceState* for automatic instance repairs.
+Use [Get-AzVmss](/powershell/module/az.compute/get-azvmss) cmdlet with parameter *InstanceView* to view the *ServiceState* for automatic instance repairs.
 
 ```azurepowershell-interactive
 Get-AzVmss `

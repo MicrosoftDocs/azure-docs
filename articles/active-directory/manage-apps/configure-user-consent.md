@@ -3,7 +3,7 @@ title: Configure how end-users consent to applications using Azure AD
 description: Learn how to manage how and when users can consent to applications that will have access to your organization's data.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.custom: contperfq2
+ms.custom: contperf-fy21q2
 ---
 
 # Configure how end-users consent to applications
@@ -43,7 +43,7 @@ By choosing which app consent policies apply for all users, you can set limits o
 
 To configure user consent settings through the Azure portal:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator--company-administrator).
+1. Sign in to the [Azure portal](https://portal.azure.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
 1. Select **Azure Active Directory** > **Enterprise applications** > **Consent and permissions** > **User consent settings**.
 1. Under **User consent for applications**, select which consent setting you'd like to configure for all users.
 1. Select **Save** to save your settings.
@@ -180,4 +180,4 @@ To learn more:
 * [Permissions and consent in the Microsoft identity platform](../develop/v2-permissions-and-consent.md)
 
 To get help or find answers to your questions:
-* [Azure AD on StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Azure AD on Microsoft Q&A.](/answers/topics/azure-active-directory.html)
