@@ -4,8 +4,7 @@
   items:
   - name: About Media Services
     href: media-services-overview.md
-  - name: What's new in Media Services
-    displayName: release notes
+  - name: Release notes
     href: release-notes.md
   - name: Media Services compliance
     href: concept-compliance.md
