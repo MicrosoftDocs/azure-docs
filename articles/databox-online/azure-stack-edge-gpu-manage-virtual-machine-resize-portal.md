@@ -21,7 +21,11 @@ This article explains how to resize the virtual machines (VMs) deployed on your 
        
 ## About VM sizing
 
-The VM size determines the amount of compute resources (like CPU, GPU, and memory) that are made available to the VM. You should create virtual machines by using a VM size appropriate for your application workload. Even though all the machines will be running on the same hardware, machine sizes have different limits for disk access. This can help you manage overall disk access across your VMs. If a workload increases, you can also resize an existing virtual machine.
+The VM size determines the amount of compute resources (like CPU, GPU, and memory) that are made available to the VM. You should create virtual machines by using a VM size appropriate for your application workload. 
+
+Even though all the machines will be running on the same hardware, machine sizes have different limits for disk access. This can help you manage overall disk access across your VMs. If a workload increases, you can also resize an existing virtual machine.
+
+For more information, see [Supported VM sizes for your device](azure-stack-edge-gpu-virtual-machine-sizes.md).
 
 
 ## Prerequisites
