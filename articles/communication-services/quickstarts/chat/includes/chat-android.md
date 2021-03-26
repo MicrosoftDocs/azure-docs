@@ -34,8 +34,8 @@ Before you get started, make sure to:
 We'll use Gradle to install the necessary Communication Services dependencies. From the command line, navigate inside the root directory of the `ChatQuickstart` project. Open the app's build.gradle file and add the following dependencies to the `ChatQuickstart` target:
 
 ```
-implementation 'com.azure.android:azure-communication-common:1.0.0-beta.8'
-implementation 'com.azure.android:azure-communication-chat:1.0.0-beta.8'
+implementation 'com.azure.android:azure-communication-common:1.0.0-beta.9'
+implementation 'com.azure.android:azure-communication-chat:1.0.0-beta.9'
 ```
 
 #### Exclude meta files in packaging options in root build.gradle
@@ -76,7 +76,7 @@ To import the library into your project using the [Maven](https://maven.apache.o
 <dependency>
   <groupId>com.azure.android</groupId>
   <artifactId>azure-communication-chat</artifactId>
-  <version>1.0.0-beta.7</version>
+  <version>1.0.0-beta.9</version>
 </dependency>
 ```
 
