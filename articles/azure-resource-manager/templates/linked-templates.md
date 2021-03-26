@@ -2,7 +2,7 @@
 title: Link templates for deployment
 description: Describes how to use linked templates in an Azure Resource Manager template (ARM template) to create a modular template solution. Shows how to pass parameters values, specify a parameter file, and dynamically created URLs.
 ms.topic: conceptual
-ms.date: 01/26/2021
+ms.date: 03/25/2021
 ---
 # Using linked and nested templates when deploying Azure resources
 
@@ -438,6 +438,8 @@ You may reference templates using parameters that include HTTP or HTTPS. For exa
 If you're linking to a template in GitHub, use the raw URL. The link has the format: `https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-with-templates/quickstart-template/azuredeploy.json`. To get the raw link, select **Raw**.
 
 :::image type="content" source="./media/linked-templates/select-raw.png" alt-text="Select raw URL":::
+
+[!INCLUDE [Deploy templates in private GitHub repo](../../../includes/resource-manager-private-github-repo-templates.md)]
 
 ### Parameters for linked template
 

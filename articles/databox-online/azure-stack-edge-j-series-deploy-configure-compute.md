@@ -112,9 +112,9 @@ For the simple deployment in this tutorial, you'll need two shares: one Edge sha
 
 ## Add a module
 
-You could add a custom or a pre-built module. There are no custom modules on this Edge device. To learn how to create a custom module, go to [Develop a C# module for your Azure Stack Edge Pro device](azure-stack-edge-j-series-create-iot-edge-module.md).
+You could add a custom or a pre-built module. There are no custom modules on this Edge device. To learn how to create a custom module, go to [Develop a C# module for your Azure Stack Edge Pro device](./azure-stack-edge-gpu-create-iot-edge-module.md).
 
-In this section, you add a custom module to the IoT Edge device that you created in [Develop a C# module for your Azure Stack Edge Pro](azure-stack-edge-j-series-create-iot-edge-module.md). This custom module takes files from an Edge local share on the Edge device and moves them to an Edge (cloud) share on the device. The cloud share then pushes the files to the Azure storage account that's associated with the cloud share.
+In this section, you add a custom module to the IoT Edge device that you created in [Develop a C# module for your Azure Stack Edge Pro](./azure-stack-edge-gpu-create-iot-edge-module.md). This custom module takes files from an Edge local share on the Edge device and moves them to an Edge (cloud) share on the device. The cloud share then pushes the files to the Azure storage account that's associated with the cloud share.
 
 1. Go to **Edge compute > Get started**. On the **Add modules** tile, select the scenario type as **simple**. Select **Add**.
 2. In the **Configure and add module** blade, input the following values:
