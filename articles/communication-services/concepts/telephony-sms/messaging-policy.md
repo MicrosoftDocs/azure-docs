@@ -32,7 +32,7 @@ Consent is an agreement between you and the message recipient for you to send au
 The messages that you send must be the same type of messages that the recipient agreed to receive and should only be sent to the number that the recipient provided to you. If you intend to send informational messages, such as appointment reminders or alerts, then consent may be either written or oral. If you intend to send promotional messages, such as sales or marketing messages that promote a product or service, then consent must be written.
 
 ### How do you obtain consent?
-Consent may be obtained in a variety of ways, such as when an individual enters their telephone number into a website, initiates a text message exchange, or sends a sign-up keyword to your phone number. No matter how consent is obtained, you and your customers must ensure that the consent is unambiguous and that the scope of the consent is clear to the recipient.
+Consent can be obtained in a variety of ways, such as when an individual enters their telephone number into a website, initiates a text message exchange, or sends a sign-up keyword to your phone number. No matter how consent is obtained, you and your customers must ensure that the consent is unambiguous and that the scope of the consent is clear to the recipient.
 
 ### Consent Requirements:
 - Provide a “Call to Action” Before Obtaining Consent. You and your customers should provide potential message recipients with a “call to action” that invites them to opt-in to your messaging program. The call to action should include, at a minimum: (1) the identity of the message sender, (2) clear opt-in instructions, (3) opt-out instructions, and (4) any associated messaging fees.
