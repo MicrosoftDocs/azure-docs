@@ -3,7 +3,7 @@ title: Troubleshoot Monitor Windows Virtual Desktop preview - Azure
 description: How to troubleshoot issues with Azure Monitor for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 03/22/2020
+ms.date: 03/25/2020
 ms.author: helohr
 manager: lizross
 ---
