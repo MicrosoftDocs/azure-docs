@@ -36,9 +36,9 @@ If you don’t have access to the **My Apps** portal, contact your organization'
 
 You can get to the **My Apps** portal from any of the following web browser. Microsoft recommends that you use the most up-to-date browser that's compatible with your operating system.
 
-- Microsoft Edge (latest version)
-- Safari (latest version, Mac only)
-- Chrome (latest version)
+- Microsoft Edge (latest version, desktop and mobile)
+- Safari (latest version, Mac and iOS)
+- Chrome (latest version, desktop and mobile)
 - Firefox (latest version)
 
 You can access and use the My Apps portal on your computer, or from the mobile version of the Edge browser on an iOS or Android mobile device.
