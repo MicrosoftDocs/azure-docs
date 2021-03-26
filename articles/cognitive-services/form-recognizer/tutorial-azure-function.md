@@ -2,14 +2,14 @@
 title: "Tutorial: Use an Azure Function to process stored documents"
 titleSuffix: Azure Cognitive Services
 description: This guide shows you how to use an Azure function to trigger the processing of documents that are uploaded to an Azure blob storage container. 
-author: PatrickFarley
+author: laujan
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 10/28/2020
-ms.author: pafarley
+ms.date: 03/19/2021
+ms.author: lajanuar
 ---
 
 # Tutorial: Use an Azure Function to process stored documents
@@ -36,9 +36,9 @@ In this tutorial, you learn how to:
 * A local PDF document to analyze. You can download this [sample document](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/sample-layout.pdf) to use.
 * [Python 3.8.x](https://www.python.org/downloads/) installed.
 * [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) installed.
-* [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash#install-the-azure-functions-core-tools) installed.
+* [Azure Functions Core Tools](../../azure-functions/functions-run-local.md?tabs=windows%2ccsharp%2cbash#install-the-azure-functions-core-tools) installed.
 * Visual Studio Code with the following extensions installed:
-  * [Azure Functions extension](https://docs.microsoft.com/azure/developer/python/tutorial-vs-code-serverless-python-01#visual-studio-code-python-and-the-azure-functions-extension)
+  * [Azure Functions extension](/azure/developer/python/tutorial-vs-code-serverless-python-01#visual-studio-code-python-and-the-azure-functions-extension)
   * [Python extension](https://code.visualstudio.com/docs/python/python-tutorial#_install-visual-studio-code-and-the-python-extension)
 
 ## Create an Azure Storage account
@@ -146,7 +146,7 @@ The following code block calls the Form Recognizer [Analyze Layout](https://west
 # This is the call to the Form Recognizer endpoint
     endpoint = r"Your Form Recognizer Endpoint"
     apim_key = "Your Form Recognizer Key"
-    post_url = endpoint + "/formrecognizer/v2.1-preview.2/Layout/analyze"
+    post_url = endpoint + "/formrecognizer/v2.1-preview.3/Layout/analyze"
     source = myblob.read()
 
     headers = {

@@ -7,7 +7,7 @@ manager: jken
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 09/30/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
@@ -16,7 +16,7 @@ ms.service: azure-communication-services
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 
-The Azure Communication Services chat and calling client libraries create a real-time messaging channel that allows signaling messages to be pushed to connected clients in an efficient, reliable manner. This enables you to build rich, real-time communication functionality into your applications without the need to implement complicated HTTP polling logic. However, on mobile applications, this signaling channel only remains connected when your application is active in the foreground. If you want your users to receive incoming calls or chat messages while your application is in the background, you should use push notifications.
+The Azure Communication Services chat and calling SDKs create a real-time messaging channel that allows signaling messages to be pushed to connected clients in an efficient, reliable manner. This enables you to build rich, real-time communication functionality into your applications without the need to implement complicated HTTP polling logic. However, on mobile applications, this signaling channel only remains connected when your application is active in the foreground. If you want your users to receive incoming calls or chat messages while your application is in the background, you should use push notifications.
 
 Push notifications allow you to send information from your application to users' mobile devices. You can use push notifications to show a dialog, play a sound, or display incoming call UI. Azure Communication Services provides integrations with [Azure Event Grid](../../event-grid/overview.md) and [Azure Notification Hubs](../../notification-hubs/notification-hubs-push-notification-overview.md) that enable you to add push notifications to your apps.
 
@@ -26,7 +26,7 @@ Azure Communication Services integrates with [Azure Event Grid](https://azure.mi
 
 :::image type="content" source="./media/notifications/acs-events-int.png" alt-text="Diagram showing how Communication Services integrates with Event Grid.":::
 
-Learn more about [event handling in Azure Communication Services](./event-handling.md).
+Learn more about [event handling in Azure Communication Services](https://docs.microsoft.com/azure/event-grid/event-schema-communication-services).
 
 ## Deliver push notifications via Azure Notification Hubs
 

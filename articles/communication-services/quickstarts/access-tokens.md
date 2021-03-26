@@ -1,12 +1,12 @@
 ---
 title: Quickstart - Create and manage access tokens
 titleSuffix: An Azure Communication Services quickstart
-description: Learn how to manage identities and access tokens using the Azure Communication Services Identity client library.
+description: Learn how to manage identities and access tokens using the Azure Communication Services Identity SDK.
 author: tomaschladek
 manager: nmurav
 services: azure-communication-services
 ms.author: tchladek
-ms.date: 08/20/2020
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
@@ -14,7 +14,7 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Quickstart: Create and manage access tokens
 
-Get started with Azure Communication Services by using the Communication Services Identity client library. It allows you to create identities and manage your access tokens. Identity is representing entity of your application in the Azure Communication Service (for example, user or device). Access tokens let your Chat and Calling client libraries authenticate directly against Azure Communication Services. We recommend generating access tokens on a server-side service. Access tokens are then used to initialize the Communication Services client libraries on client devices.
+Get started with Azure Communication Services by using the Communication Services Identity SDK. It allows you to create identities and manage your access tokens. Identity is representing entity of your application in the Azure Communication Service (for example, user or device). Access tokens let your Chat and Calling SDKs authenticate directly against Azure Communication Services. We recommend generating access tokens on a server-side service. Access tokens are then used to initialize the Communication Services SDKs on client devices.
 
 Any prices seen in images throughout this tutorial are for demonstration purposes only.
 
@@ -62,7 +62,7 @@ In this quickstart, you learned how to:
 > [!div class="checklist"]
 > * Manage identities
 > * Issue access tokens
-> * Use the Communication Services Identity client library
+> * Use the Communication Services Identity SDK
 
 
 > [!div class="nextstepaction"]

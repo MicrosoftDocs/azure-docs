@@ -1,14 +1,14 @@
 ---
 title: Quickstart - Join a Teams meeting from a web app
-description: In this tutorial, you learn how to join a Teams meeting using the Azure Communication Services Calling client library for JavaScript
+description: In this tutorial, you learn how to join a Teams meeting using the Azure Communication Services Calling SDK for JavaScript
 author: chpalm
 ms.author: mikben
-ms.date: 10/10/2020
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 
-In this quickstart, you'll learn how to join a Teams meeting using the Azure Communication Services Calling client library for JavaScript.
+In this quickstart, you'll learn how to join a Teams meeting using the Azure Communication Services Calling SDK for JavaScript.
 
 ## Prerequisites
 

@@ -7,7 +7,7 @@ manager: jken
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 09/29/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
@@ -20,7 +20,7 @@ Prices for Azure Communication Services are generally based on a pay-as-you-go m
 
 ## Voice/Video calling and screen sharing
 
-Azure Communication Services allow for adding voice/video calling and screen sharing to your applications. You can embed the experience into your applications using JavaScript, Objective-C (Apple), Java (Android), or .NET client libraries. Refer to our [full list of available client libraries](./sdk-options.md).
+Azure Communication Services allow for adding voice/video calling and screen sharing to your applications. You can embed the experience into your applications using JavaScript, Objective-C (Apple), Java (Android), or .NET SDKs. Refer to our [full list of available SDKs](./sdk-options.md).
 
 ### Pricing
 
@@ -28,9 +28,9 @@ Calling and screen-sharing services are charged on a per minute per participant 
 
 Each participant of the call will count in billing for each minute they're connected to the call. This holds true regardless of whether the user is video calling, voice calling, or screen-sharing.
 
-### Pricing example: Group audio/video call using JS and iOS client libraries
+### Pricing example: Group audio/video call using JS and iOS SDKs
 
-Alice made a group call with her colleagues, Bob and Charlie. Alice and Bob used the JS client libraries, Charlie iOS client libraries.
+Alice made a group call with her colleagues, Bob and Charlie. Alice and Bob used the JS SDKs, Charlie iOS SDKs.
 
 - The call lasts a total of 60 minutes.
 - Alice and Bob participated for the entire call. Alice turned on her video for five minutes and shared her screen for 23 minutes. Bob had the video on for the whole call (60 minutes) and shared his screen for 12 minutes.
@@ -43,9 +43,9 @@ Alice made a group call with her colleagues, Bob and Charlie. Alice and Bob used
 
 **Total cost for the group call**: $0.48 + $0.172 = $0.652
 
-### Pricing example: A user of the Communication Services JS client library joins a scheduled Microsoft Teams meeting
+### Pricing example: A user of the Communication Services JavaScript SDK joins a scheduled Microsoft Teams meeting
 
-Alice is a doctor meeting with her patient, Bob. Alice will be joining the visit from the Teams Desktop application. Bob will receive a link to join using the healthcare provider website, which connects to the meeting using the Communication Services JS client library. Bob will use his mobile phone to enter the meeting using a web browser (iPhone with Safari). Chat will be available during the virtual visit.
+Alice is a doctor meeting with her patient, Bob. Alice will be joining the visit from the Teams Desktop application. Bob will receive a link to join using the healthcare provider website, which connects to the meeting using the Communication Services JavaScript SDK. Bob will use his mobile phone to enter the meeting using a web browser (iPhone with Safari). Chat will be available during the virtual visit.
 
 - The call lasts a total of 30 minutes.
 - Alice and Bob participate for the entire call. Alice turns on her video five minutes after the call starts and shares her screen for 13 minutes. Bob has his video on for the whole call.
@@ -62,13 +62,13 @@ Alice is a doctor meeting with her patient, Bob. Alice will be joining the visit
 *Alice's participation is covered by her Teams license. Your Azure invoice will show the minutes and chat messages that Teams users had with Communication Services Users for your convenience, but those minutes and messages originating from the Teams client will not cost.
 
 **Total cost for the visit**:
-- User joining using the Communication Services JS client library: $0.12 + $0.0024 = $0.1224
+- User joining using the Communication Services JavaScript SDK: $0.12 + $0.0024 = $0.1224
 - User joining on Teams Desktop Application: $0 (covered by Teams license)
 
 
 ## Chat
 
-With Communication Services you can enhance your application with the ability to send and receive chat messages between two or more users. Chat client libraries are available for JavaScript, .NET, Python and Java. Refer to [this page to learn about client libraries](./sdk-options.md)
+With Communication Services you can enhance your application with the ability to send and receive chat messages between two or more users. Chat SDKs are available for JavaScript, .NET, Python and Java. Refer to [this page to learn about SDKs](./sdk-options.md)
 
 ### Price
 

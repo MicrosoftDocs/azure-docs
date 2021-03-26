@@ -12,7 +12,7 @@ ms.date: 12/10/2020
 
 # Mapping data flows in Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 ## What are mapping data flows?
 

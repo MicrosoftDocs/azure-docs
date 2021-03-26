@@ -6,7 +6,7 @@ author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 2/11/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
@@ -126,7 +126,7 @@ This quickstart does not cover creating a service tier to manage tokens for your
 Learn more about [User Access Tokens](../../access-tokens.md).
 
 ## Object model 
-The following classes and interfaces handle some of the major features of the Azure Communication Services Chat client library for JavaScript.
+The following classes and interfaces handle some of the major features of the Azure Communication Services Chat SDK for JavaScript.
 
 | Name                                   | Description                                                                                                                                                                           |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

@@ -36,7 +36,7 @@ A sample C# solution with code to accompany this article is available on [GitHub
    * Use the Azure portal to create an Application Insights *resource*. Select the *General* **Application type**.
 
    * Copy the [instrumentation 
-key](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) from the portal. It is required later in this article.
+key](../azure-monitor/app/create-new-resource.md#copy-the-instrumentation-key) from the portal. It is required later in this article.
   
   > [!NOTE]
   > You may be [charged](https://azure.microsoft.com/pricing/details/application-insights/) for the data stored in Application Insights. 

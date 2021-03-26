@@ -71,4 +71,4 @@ If you want to set system-wide TLS 1.2 for your environment, follow the guidelin
 
 ## Next steps
 
-[Connect to Azure Resource Manager](azure-stack-edge-j-series-connect-resource-manager.md)
+[Connect to Azure Resource Manager](./azure-stack-edge-gpu-connect-resource-manager.md)
