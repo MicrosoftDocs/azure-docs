@@ -31,7 +31,7 @@ Dedicated HSM is not freely available for use as it is delivering hardware resou
 
 ### Getting access to Dedicated HSM
 
-First ask yourself what use cases do you have that cannot be addressed by [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/general/overview) or [Azure Managed HSM](https://docs.microsoft.com/en-us/azure/key-vault/managed-hsm/overview). If then you believe only Dedicated HSM will fit your key storage requirements, then email HSMrequest@microsoft.com to request access. Outline your application and use cases, the regions you would like HSMs and the volume of HSMs you are looking for. If you work with a Microsoft representative, such as an Account Executive or Cloud Solution Architect for example, then include them in any request.
+First ask yourself what use cases do you have that cannot be addressed by [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview) or [Azure Managed HSM](https://docs.microsoft.com/azure/key-vault/managed-hsm/overview). If then you believe only Dedicated HSM will fit your key storage requirements, then email HSMrequest@microsoft.com to request access. Outline your application and use cases, the regions you would like HSMs and the volume of HSMs you are looking for. If you work with a Microsoft representative, such as an Account Executive or Cloud Solution Architect for example, then include them in any request.
 
 ## HSM Provisioning
 
