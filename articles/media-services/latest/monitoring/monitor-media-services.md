@@ -6,6 +6,7 @@ ms.author: inhenkel
 manager: femilia
 ms.topic: how-to 
 ms.service: media-services
+ms.custom: subject-monitoring
 ms.date: 03/17/2021
 ---
 

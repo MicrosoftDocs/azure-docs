@@ -203,9 +203,9 @@ No. Azure NetApp Files is not supported by Azure Storage Explorer.
 
 ### How do I determine if a directory is approaching the limit size?
 
-You can use the `stat` command from a client to see whether a directory is approaching the maximum size limit for directory metadata (320 MB).
+You can use the `stat` command from a client to see whether a directory is approaching the maximum size limit for directory metadata (320 MB).   
 
-For a 320 MB directory, the number of blocks is 655360, with each block size being 512 bytes.  (That is, 320x1024x1024/512.)  
+For a 320-MB directory, the number of blocks is 655360, with each block size being 512 bytes.  (That is, 320x1024x1024/512.)  This number translates to approximately 4 million files maximum for a 320-MB directory. However, the actual number of maximum files might be lower, depending on factors such as the number of files containing non-ASCII characters in the directory. As such, you should use the `stat` command as follows to determine whether your directory is approaching its limit.  
 
 Examples:
 
