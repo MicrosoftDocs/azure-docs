@@ -233,7 +233,7 @@ The following table summarizes how Azure IoT Central device features map on to I
 | Telemetry | Device-to-cloud messaging |
 | Offline commands | Cloud-to-device messaging |
 | Property | Device twin reported properties |
-| Property (writeable) | Device twin desired and reported properties |
+| Property (writable) | Device twin desired and reported properties |
 | Command | Direct methods |
 
 ### Protocols
