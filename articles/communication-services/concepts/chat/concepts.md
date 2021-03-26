@@ -21,7 +21,13 @@ See the [Communication Services Chat SDK Overview](./sdk-features.md) to learn m
 
 ## Chat overview 	
 
-Chat conversations happen within chat threads. A chat thread, uniquely identified by `ChatThreadId`, can have one or many users as participants who can send messages to it. A user can be a part of one or many chat threads. Only the thread participants have access to it and can do operations like send and recieve messages, add or remove others users or themselves. A user that created the chat thread is automatically added as participant to it.
+Chat conversations happen within **chat threads**. Chat threads have the following properties:
+
+- A chat thread is uniquely identified by its `ChatThreadId`. 
+- Chat threads can have one or many users as participants who can send messages to it. 
+- A user can be a part of one or many chat threads. 
+- Only the thread participants have access to a given chat thread, and only they can perform chat thread operations. These operations include sending and recieving messages, adding participants, and removing participants. 
+- Users are automatically added as a participant to any chat threads that they create.
 
 ### User access
 Typically the thread creator and participants have same level of access to the thread and can execute all related operations available in the SDK, including deleting it. Participants don't have write access to messages sent by other participants, which means only the message sender can update or delete their sent messages. If another participant tries to do that, they'll get an error. 
@@ -48,7 +54,8 @@ There are two core parts to chat architecture: 1) Trusted Service and 2) Client 
     	
 ## Message types	
 
-As part of message history, Chat shares user-generated messages as well as system-generated messages. System messages are generated when a chat thread is updated and can help identify when a participant was added or removed or when the chat thread topic was updated. When you call `List Messages` or `Get Messages` on a chat thread, the result will contain both kind of messages in chronological order.  
+As part of message history, Chat shares user-generated messages as well as system-generated messages. System messages are generated when a chat thread is updated and can help identify when a participant was added or removed or when the chat thread topic was updated. When you call `List Messages` or `Get Messages` on a chat thread, the result will contain both kind of messages in chronological order.
+
 For user generated messages, the message type can be set in `SendMessageOptions` when sending a message to chat thread. If no value is provided, Communication Services will default to `text` type. Setting this value is important when sending HTML. When `html` is specified, Communication Services will sanitize the content to ensure that it's rendered safely on client devices.
  - `text`: A plain text message composed and sent by a user as part of a chat thread. 
  - `html`: A formatted message using html, composed and sent by a user as part of chat thread. 
