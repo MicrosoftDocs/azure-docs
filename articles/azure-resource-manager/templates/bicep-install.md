@@ -2,10 +2,10 @@
 title: Setup Bicep development and deployment environments
 description: How to configure Bicep development and deployment environments
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 03/25/2021
 ---
 
-# Setup Bicep development and deployment environment
+# Install Bicep (Preview)
 
 Learn how to setup Bicep development and deployment environments.
 
