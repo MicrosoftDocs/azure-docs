@@ -60,9 +60,6 @@ Now that you've registered your application, you must select which API permissio
 
     :::image type="content" source="media/conf-client-app/confidential-client-add-permission.png" alt-text="Confidential client. Delegated Permissions":::
 
-1. Select **Grant admin consent for Microsoft**. The image below is an example of granted admin consent for *Health Architectures*.
-
-   ![Grant admin consent for Microsoft](media/how-to-aad/grant_admin_consent.png)
 
 ## Application secret
 
