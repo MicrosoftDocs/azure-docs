@@ -38,7 +38,7 @@ dotnet build
 
 ### Install the package
 
-Install the Azure Communication Chat client library for .NET
+Install the Azure Communication Chat SDK for .NET
 
 ```PowerShell
 dotnet add package Azure.Communication.Chat --version 1.0.0-beta.5
@@ -46,7 +46,7 @@ dotnet add package Azure.Communication.Chat --version 1.0.0-beta.5
 
 ## Object model
 
-The following classes handle some of the major features of the Azure Communication Services Chat client library for C#.
+The following classes handle some of the major features of the Azure Communication Services Chat SDK for C#.
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
@@ -55,7 +55,7 @@ The following classes handle some of the major features of the Azure Communicati
 
 ## Create a chat client
 
-To create a chat client, you'll use your Communication Services endpoint and the access token that was generated as part of the prerequisite steps. You need to use the `CommunicationIdentityClient` class from the Identity client library to create a user and issue a token to pass to your chat client.
+To create a chat client, you'll use your Communication Services endpoint and the access token that was generated as part of the prerequisite steps. You need to use the `CommunicationIdentityClient` class from the Identity SDK to create a user and issue a token to pass to your chat client.
 
 Learn more about [User Access Tokens](../../access-tokens.md).
 

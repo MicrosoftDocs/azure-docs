@@ -22,7 +22,7 @@ The following sections describe the configuration differences between the DEV an
 
 We recommend that you use the same alias in the **Alias** box of both offers but append “_test” to the alias of the DEV offer. For example, if the alias of your PROD offer is “contososolution” then the alias of the DEV offer should be “contososolution_test”. This way, you can easily identify which your DEV offer from your PROD offer.
 
-In the **Customer leads** section, use and Azure table or a test CRM environment for the DEV offer. Use the intended lead management system for the PROD offer.
+In the **Customer leads** section, use an Azure table or a test CRM environment for the DEV offer. Use the intended lead management system for the PROD offer.
 
 ## Properties page
 
@@ -34,7 +34,7 @@ Configure this page the same in both the DEV and PROD offers.
 
 ## Preview audience
 
-In the DEV offer, include the Azure Active Directory (AAD) user principal name or Microsoft account (MSA) email address of developers and testers, including yourself. Please note the user principal name of a user on AAD can be different than the email of the user. For example, jane.doe@contoso.com will not work but janedoe@contoso.com will work. These are the people who will have access to the DEV offer when you share the **Preview** link during the development and testing phase.
+In the DEV offer, include the Azure Active Directory (AAD) user principal names or Microsoft account (MSA) email addresses of developers and testers, including yourself. The user principal name of a user on AAD can be different than the email of that user. For example, jane.doe@contoso.com will not work but janedoe@contoso.com will. The users you designate will have access to the DEV offer when you share the **Preview** link during the development and testing phase.
 
 In the PROD offer, include the Azure AD user principal name or Microsoft Account email of the users who will validate the offer before selecting the **Go Live button** to publish the offer live.
 
@@ -72,10 +72,10 @@ Select the same markets for the DEV and PROD offers.
 
 Use the DEV offer to experiment with pricing models. After you verify which pricing model or models work best, you’ll create the plans in the PROD offer with the pricing models and prices you want.
 
-The DEV offer should have plans with zero or very low prices in the plans. The PROD offer will have the prices you want to charge to customers.
+The DEV offer should have plans with zero or low prices in the plans. The PROD offer will have the prices you want to charge to customers.
 
-> [!NOTE]
-> Information the user should notice even if skimmingPurchases made in Preview will be processed for both DEV and PROD offers. If an offer has a $100/mo price, your company will be charged $100. If this happens, you can open a [support ticket](support.md) and we will issue a payout for the full amount (and take no agency fee).
+> [!IMPORTANT]
+> Purchases made in Preview will be processed for both DEV and PROD offers. If an offer has a $100/mo price, your company will be charged $100. If this happens, you can open a [support ticket](support.md) and we will issue a payout for the full amount (and take no store service fee).
 
 #### Pricing model
 
@@ -92,7 +92,7 @@ To reduce your cost for testing the pricing models, including Marketplace custom
 | $50.00 and above | Use this price range to test payout. For information about our payment schedule, see [Payout schedules and processes](/partner-center/payout-policy-details). |
 |||
 
-To avoid being charged a processing fee on your test, open a [support ticket](support.md).
+To avoid being charged a store service fee on your test, open a [support ticket](support.md).
 
 #### Free trial
 
