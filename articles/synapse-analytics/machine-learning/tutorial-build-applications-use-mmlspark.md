@@ -8,8 +8,8 @@ ms.topic: tutorial
 ms.reviewer: 
 
 ms.date: 03/08/2021
-author: ruxu
-ms.author: ruxu
+author: ruixinxu
+ms.author: ruixinxu
 ---
 
 
@@ -19,9 +19,9 @@ In this article, you will learn how to use Microsoft Machine Learning for Apache
 MMLSpark expands the distributed machine learning solution of Apache Spark by adding many deep learning and data science tools, such as [Azure Cognitive Services](../../cognitive-services/big-data/cognitive-services-for-big-data.md), [OpenCV](https://opencv.org/), [LightGBM](https://github.com/Microsoft/LightGBM) and more.  MMLSpark allows you to build powerful and highly scalable predictive and analytical models from various Spark data sources.
 Synapse Spark provide built-in MMLSpark libraries including:
 
-- [Vowpal Wabbit](https://github.com/VowpalWabbit/vowpal_wabbit) – Library services for Machine learning to enable Text analytics like sentiment analysis in tweets.
-- [Cognitive Services on Spark](../../cognitive-services/big-data/cognitive-services-for-big-data.md) – To combine the feature of Azure Cognitive Services in SparkML pipelines in order to derive solution design for cognitive data modeling services like anomaly detection.
-- [LightBGM](https://github.com/Azure/mmlspark/blob/master/docs/lightgbm.md) – Machine learning model to enable training the model for predictive analysis like face ID detection.
+- [Vowpal Wabbit](https://github.com/Azure/mmlspark/blob/master/docs/vw.md) – Library services for Machine learning to enable Text analytics like sentiment analysis in tweets.
+- [Cognitive Services on Spark](https://github.com/Azure/mmlspark/blob/master/docs/cogsvc.md) – To combine the feature of Azure Cognitive Services in SparkML pipelines in order to derive solution design for cognitive data modeling services like anomaly detection.
+- [LightBGM](https://github.com/Azure/mmlspark/blob/master/docs/lightgbm.md) – LightGBM is a gradient boosting framework that uses tree based learning algorithms. It is designed to be distributed and higher efficiency.
 - Conditional KNN - Scalable KNN Models with Conditional Queries.
 - [HTTP on Spark](https://github.com/Azure/mmlspark/blob/master/docs/http.md) – Enables distributed Microservices orchestration in integrating Spark and HTTP protocol-based accessibility.
 
@@ -42,7 +42,7 @@ If you don't have an Azure subscription, [create a free account before you begin
 
 
 ## Get started
-To get started, import mmlspark and configurate service keys.
+To get started, import mmlspark and configurate service keys. 
 
 ```python
 import mmlspark
@@ -57,13 +57,16 @@ service_key =  "ADD_YOUR_SUBSCRIPION_KEY"
 bing_search_key = "ADD_YOUR_SUBSCRIPION_KEY" 
 # An Anomaly Dectector subscription key
 anomaly_key =  "ADD_YOUR_SUBSCRIPION_KEY" 
+# Your linked key vault for Synapse workspace
+key_vault = "YOUR_KEY_VAULT_NAME"
 
 
-cognitive_service_key = mssparkutils.credentials.getSecret("keyvaultForSynapse", service_key)
-bingsearch_service_key = mssparkutils.credentials.getSecret("keyvaultForSynapse", bing_search_key)
-anomalydetector_key = mssparkutils.credentials.getSecret("keyvaultForSynapse", anomaly_key)
+cognitive_service_key = mssparkutils.credentials.getSecret(key_vault, service_key)
+bingsearch_service_key = mssparkutils.credentials.getSecret(key_vault, bing_search_key)
+anomalydetector_key = mssparkutils.credentials.getSecret(key_vault, anomaly_key)
 
 ```
+
 
 ## Text analytics sample
 
