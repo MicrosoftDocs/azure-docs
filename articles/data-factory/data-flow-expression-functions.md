@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/10/2021
+ms.date: 03/26/2021
 ---
 
 # Data transformation expressions in mapping data flow
@@ -143,13 +143,6 @@ ___
 Returns the first not null value from a set of inputs. All inputs should be of the same type.  
 * ``coalesce(10, 20) -> 10``  
 * ``coalesce(toString(null), toString(null), 'dumbo', 'bo', 'go') -> 'dumbo'``  
-___
-### <code>collect</code>
-<code><b>collect(<i>&lt;value1&gt;</i> : any) => array</b></code><br/><br/>
-Collects all values of the expression in the aggregated group into an array. Structures can be collected and transformed to alternate structures during this process. The number of items will be equal to the number of rows in that group and can contain null values. The number of collected items should be small.  
-* ``collect(salesPerson)``
-* ``collect(firstName + lastName))``
-* ``collect(@(name = salesPerson, sales = salesAmount) )``
 ___
 ### <code>columnNames</code>
 <code><b>columnNames(<i>&lt;value1&gt;</i> : string) => array</b></code><br/><br/>
@@ -868,6 +861,13 @@ ___
 Based on a criteria gets the average of values of a column.  
 * ``avgIf(region == 'West', sales)``  
 ___
+### <code>collect</code>
+<code><b>collect(<i>&lt;value1&gt;</i> : any) => array</b></code><br/><br/>
+Collects all values of the expression in the aggregated group into an array. Structures can be collected and transformed to alternate structures during this process. The number of items will be equal to the number of rows in that group and can contain null values. The number of collected items should be small.  
+* ``collect(salesPerson)``
+* ``collect(firstName + lastName))``
+* ``collect(@(name = salesPerson, sales = salesAmount) )``
+___
 ### <code>count</code>
 <code><b>count([<i>&lt;value1&gt;</i> : any]) => long</b></code><br/><br/>
 Gets the aggregate count of values. If the optional column(s) is specified, it ignores NULL values in the count.  
@@ -912,6 +912,11 @@ Gets the first value of a column group. If the second parameter ignoreNulls is o
 * ``first(sales)``  
 * ``first(sales, false)``  
 ___
+### <code>isDistinct</code>
+<code><b>isDistinct(<i>&lt;value1&gt;</i> : any , <i>&lt;value1&gt;</i> : any) => boolean</b></code><br/><br/>
+Finds if a column or set of columns is distinct. It does not count null as a distinct value
+*	``isDistinct(custId, custName) => boolean``
+*	___
 ### <code>kurtosis</code>
 <code><b>kurtosis(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Gets the kurtosis of a column.  
