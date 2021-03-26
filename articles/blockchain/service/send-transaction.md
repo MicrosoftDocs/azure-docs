@@ -113,7 +113,7 @@ The **HelloBlockchain** contract's **SendRequest** function changes the **Reques
 
 Truffle executes the script on your blockchain network.
 
-![Script output](./media/send-transaction/execute-transaction.png)
+![Output showing transaction has been sent](./media/send-transaction/execute-transaction.png)
 
 When you execute a contract's function via a transaction, the transaction isn't processed until a block is created. Functions meant to be executed via a transaction return a transaction ID instead of a return value.
 
@@ -168,13 +168,13 @@ Smart contract functions can return the current value of state variables. Let's 
 
 The script queries the smart contract by calling the getMessage function. The current value of the **RequestMessage** state variable is returned.
 
-![Script output](./media/send-transaction/execute-get.png)
+![Output from getmessage query showing the current value of RequestMessage state variable](./media/send-transaction/execute-get.png)
 
 Notice the value is not **Hello, blockchain!**. Instead, the returned value is a placeholder. When you change and deploy the contract, the changed contract is deployed at a new address and the state variables are assigned values in the smart contract constructor. The Truffle sample **2_deploy_contracts.js** migration script deploys the smart contract and passes a placeholder value as an argument. The constructor sets the **RequestMessage** state variable to the placeholder value and that's what is returned.
 
 1. To set the **RequestMessage** state variable and query the value, run the **sendrequest.js** and **getmessage.js** scripts again.
 
-    ![Script output](./media/send-transaction/execute-set-get.png)
+    ![Output from sendrequest and getmessage scripts showing RequestMessage has been set](./media/send-transaction/execute-set-get.png)
 
     **sendrequest.js** sets the **RequestMessage** state variable to **Hello, blockchain!** and **getmessage.js** queries the contract for value of **RequestMessage** state variable and returns **Hello, blockchain!**.
 ## Clean up resources
