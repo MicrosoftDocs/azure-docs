@@ -14,7 +14,7 @@ The Azure Arc enabled servers Connected Machine agent enables you to manage your
 
 ## Agent component details
 
-:::image type="content" source="media/agent-overview/connected-machine-agent.png" alt-text="Arc enabled servers agent overview." border="true":::
+:::image type="content" source="media/agent-overview/connected-machine-agent.png" alt-text="Arc enabled servers agent overview." border="false":::
 
 The Azure Connected Machine agent package contains several logical components, which are bundled together.
 
