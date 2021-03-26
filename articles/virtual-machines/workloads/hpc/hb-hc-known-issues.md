@@ -26,7 +26,6 @@ If in the midst of running any MPI workloads, InfiniBand QP creation errors such
 
 ```bash
 ib_mlx5_dv.c:150  UCX  ERROR mlx5dv_devx_obj_create(QP) failed, syndrome 0: Invalid argument
-ib_mlx5dv_md.c:826  UCX  ERROR ibv_create_cq() failed: Invalid argument
 ```
 
 You may verify the values of the maximum number of queue-pairs when the issue is observed as follows.
