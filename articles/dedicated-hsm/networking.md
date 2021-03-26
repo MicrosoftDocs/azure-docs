@@ -10,8 +10,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: mbaldwin
+ms.date: 03/25/2021
+ms.author: keithp
 
 ---
 
@@ -82,6 +82,60 @@ For globally distributed applications or for high availability regional failover
 > Global Vnet peering is not available in cross-region connectivity scenarios with Dedicated HSMs at this time and VPN gateway should be used instead. 
 
 ![Diagram shows two regions connected by two V P N gateways. Each region contains peered virtual networks.](media/networking/global-vnet.png)
+
+## Networking Restrictions
+> [!NOTE]
+> A constraint of the Dedicated HSM service using subnet delegation is imposed restrictions that should be considered when designing the target network architecture for an HSM deployment. Use of subnet delegation means NSGs, UDRs and Global VNet Peering are not supported for Dedicated HSM. The sections below give help with alternative techniques to achieve the same or a similar outcome for these capabilities. 
+
+The HSM NIC which resides in the Dedicated HSM VNet cannot use Network Security Groups, or User Defined Routes. This means that it is not possible to set default-deny policies from standpoint of the Dedicated HSM VNet, and that other network segments must be allowlisted to gain access to the Dedicated HSM service. 
+
+Adding the Network Virtual Appliances (NVA) Proxy solution also allows for an NVA firewall in the transit/DMZ hub to be logically placed in front of the HSM NIC, thus providing the needed alternative to NSGs and UDRs.
+
+### Solution Architecture
+This networking design requires the following elements:
+1.	A transit or DMZ hub VNet with an NVA proxy tier. Ideally two or more NVAs are present. 
+2.	An ExpressRoute circuit with a private peering enabled and a connection to the transit hub VNet.
+3.	A VNet peering between the transit hub VNet and the Dedicated HSM VNet.
+4.	An NVA firewall or Azure Firewall can be deployed offer DMZ services in the hub as an option. 
+5.	Additional workload spoke VNets can be peered to the hub VNet. The Gemalto client can access the dedicated HSM service through the hub VNet.
+
+![Diagram shows a DMZ hub VNet with an NVA proxy tier for NSG and UDR workaround](media/networking/network-architecture.png)
+
+Since adding the NVA proxy solution also allows for an NVA firewall in the transit/DMZ hub to be logically placed in front of the HSM NIC, thus providing the needed default-deny policies. In our example, we will use the Azure Firewall for this purpose and will need the following elements in place:
+1. An Azure Firewall deployed into subnet “AzureFirewallSubnet” in the DMZ hub VNet
+2. A Routing Table with a UDR that directs traffic headed to the Azure ILB private endpoint into the Azure Firewall. This Routing Table will be applied to the GatewaySubnet where the customer ExpressRoute Virtual Gateway resides
+3. Network security rules within the AzureFirewall to allow forwarding between a trusted source range and the Azure IBL private endpoint listening on TCP port 1792. This security logic will add the necessary “default deny” policy against the Dedicated HSM service. Meaning, only trusted source IP ranges will be allowed into the Dedicated HSM service. All other ranges will be dropped.  
+4. A Routing Table with a UDR that directs traffic headed to on-prem into the Azure Firewall. This Routing Table will be applied to the NVA proxy subnet. 
+5. An NSG applied to the Proxy NVA subnet to trust only the subnet range of the Azure Firewall as a source, and to only allow forwarding to the HSM NIC IP address over TCP port 1792. 
+
+> [!NOTE]
+> Because the NVA proxy tier will SNAT the client IP address as it forwards to the HSM NIC, no UDRs are required between the HSM VNet and the DMZ hub VNet.  
+
+### Alternative to UDRs
+The NVA tier solution mentioned above works as an alternative to UDRs. There are some important points to note.
+1.	Network Address Translation should be configured on NVA to allow for return traffic to be routed correctly.
+2. Customers should disable the client ip-check in Luna HSM configuration to use VNA for NAT. The following commands servce as an example.
+```
+Disable:
+[hsm01] lunash:>ntls ipcheck disable
+NTLS client source IP validation disabled
+Command Result : 0 (Success)
+
+Show:
+[hsm01] lunash:>ntls ipcheck show
+NTLS client source IP validation : Disable
+Command Result : 0 (Success)
+```
+3.	Deploy UDRs for ingress traffic into the NVA tier. 
+4. As per design, HSM subnets will not initiate an outbound connection request to the platform tier.
+
+### Alternative to using Global VNET Peering
+There are a couple of architectures you can use as an alternative to Global VNet peering.
+1.	Use [Vnet-to-Vnet VPN Gateway Connection](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal) 
+2.	Connect HSM VNET with another VNET with an ER circuit. This works best when a direct on-premises path is required or VPN VNET. 
+
+#### HSM with direct Express Route connectivity
+![Diagram shows HSM with direct Express Route connectivity](media/networking/expressroute-connectivity.png)
 
 ## Next steps
 

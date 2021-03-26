@@ -36,9 +36,6 @@ Synapse team brought the new notebooks component into Synapse Studio to provide 
 |%%html| Not supported |&#9745;|
 |Drag and drop to move a cell| Not supported |&#9745;|
 |Persistent Display() output|&#9745;| Not available |
-|Cancel all| &#9745;| Not available|
-|Run all cells above|&#9745;| Not available |
-|Run all cells below|&#9745;| Not available |
 |Format text cell with toolbar buttons|&#9745;| Not available |
 |Undo cell operation| &#9745;| Not available |
 
@@ -268,28 +265,38 @@ Select the **Run All** button to run all the cells in current notebook in sequen
    ![run-all-cells](./media/apache-spark-development-using-notebooks/synapse-run-all.png)
 
 
-# [Classical Notebook](#tab/classical)
-
 ### Run all cells above or below
+
+# [Classical Notebook](#tab/classical)
 
 To Access the additional cell actions menu at the far right, select the ellipses (**...**). Then, select **Run cells above** to run all the cells above the current in sequence. Select **Run cells below** to run all the cells below the current in sequence.
 
    ![run-cells-above-or-below](./media/apache-spark-development-using-notebooks/synapse-run-cells-above-or-below.png)
 
+# [Preview Notebook](#tab/preview)
+
+Expand the dropdown list from **Run all** button, then select **Run cells above** to run all the cells above the current in sequence. Select **Run cells below** to run all the cells below the current in sequence.
+
+   ![azure-notebook-run-cells-above-or-below](./media/apache-spark-development-using-notebooks/synapse-aznb-run-cells-above-or-below.png)
+
+---
 
 ### Cancel all running cells
+
+# [Classical Notebook](#tab/classical)
 Select the **Cancel All** button to cancel the running cells or cells waiting in the queue. 
    ![cancel-all-cells](./media/apache-spark-development-using-notebooks/synapse-cancel-all.png) 
 
 # [Preview Notebook](#tab/preview)
 
-Cancel all running cells is not available for the preview notebook experience yet. 
+Select the **Cancel All** button to cancel the running cells or cells waiting in the queue. 
+   ![azure-notebook-cancel-all-cells](./media/apache-spark-development-using-notebooks/synapse-aznb-cancel-all.png) 
 
 ---
 
 
 
-### Reference notebook
+### Notebook reference
 
 # [Classical Notebook](#tab/classical)
 
@@ -300,6 +307,11 @@ Not supported.
 You can use ```%run <notebook path>``` magic command to reference another notebook within current notebook's context. All the variables defined in the reference notebook are available in the current notebook. ```%run``` magic command supports nested calls but not support recursive calls. You will receive an exception if the statement depth is larger than five. ```%run``` command currently only supports to pass a notebook path as parameter. 
 
 Example: ``` %run /path/notebookA ```.
+
+> [!NOTE]
+> Notebook reference is not supported in Synapse pipeline.
+>
+>
 
 ---
 
@@ -341,7 +353,10 @@ You can also specify spark session settings via a magic command **%%configure**.
     }
 }
 ```
-
+> [!NOTE]
+> Spark session config magic command is not supported in Synapse pipeline.
+>
+>
 
 ## Bring data to a notebook
 
@@ -415,6 +430,11 @@ In the notebook properties, you can configure whether to include the cell output
 ## Magic commands
 You can use familiar Jupyter magic commands in Azure Synapse Studio notebooks. Review the following list as the current available magic commands. Tell us [your use cases on GitHub](https://github.com/MicrosoftDocs/azure-docs/issues/new) so that we can continue to build out more magic commands to meet your needs.
 
+> [!NOTE]
+> Only following magic commands are supported in Synapse pipeline : %%pyspark, %%spark, %%csharp, %%sql. 
+>
+>
+
 # [Classical Notebook](#tab/classical)
 
 Available line magics:
@@ -428,7 +448,7 @@ Available cell magics:
 # [Preview Notebook](#tab/preview)
 
 Available line magics:
-[%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%history](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-history), [%run](#reference-notebook), [%load](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-load)
+[%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%history](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-history), [%run](#notebook-reference), [%load](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-load)
 
 Available cell magics:
 [%%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%%capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%%writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%%sql](#use-multiple-languages), [%%pyspark](#use-multiple-languages), [%%spark](#use-multiple-languages), [%%csharp](#use-multiple-languages), [%%html](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-html), [%%configure](#spark-session-config-magic-command)
