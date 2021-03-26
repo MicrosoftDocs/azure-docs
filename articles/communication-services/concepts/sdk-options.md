@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 ---
 # SDKs and REST APIs
 
-Azure Communication Services capabilities are conceptually organized into six areas. Most areas have fully open-sourced client libraries programmed against published REST APIs that you can use directly over the Internet. The Calling client library uses proprietary network interfaces and is currently closed-source. Samples and more technical details for SDKs are published in the [Azure Communication Services GitHub repo](https://github.com/Azure/communication).
+Azure Communication Services capabilities are conceptually organized into six areas. Most areas have fully open-sourced SDKs programmed against published REST APIs that you can use directly over the Internet. The Calling SDK uses proprietary network interfaces and is currently closed-source. Samples and more technical details for SDKs are published in the [Azure Communication Services GitHub repo](https://github.com/Azure/communication).
 
 ## REST APIs
 Communication Services APIs are documented alongside other Azure REST APIs in [docs.microsoft.com](/rest/api/azure/). This documentation will tell you how to structure your HTTP messages and offers guidance for using Postman. This documentation is also offered in Swagger format on [GitHub](https://github.com/Azure/azure-rest-api-specs).
@@ -24,14 +24,14 @@ Communication Services APIs are documented alongside other Azure REST APIs in [d
 | Assembly | Namespaces| Protocols | Capabilities |
 |------------------------|-------------------------------------|---------------------------------|--------------------------------------------------------------------------------------------|
 | Azure Resource Manager | Azure.ResourceManager.Communication | [REST](https://docs.microsoft.com/rest/api/communication/communicationservice)| Provision and manage Communication Services resources|
-| Common | Azure.Communication.Common| REST | Provides base types for other client libraries |
+| Common | Azure.Communication.Common| REST | Provides base types for other SDKs |
 | Identity | Azure.Communication.Identity| [REST](https://docs.microsoft.com/rest/api/communication/communicationidentity)| Manage users, access tokens|
 | Phone numbers _(beta)_| Azure.Communication.PhoneNumbers| [REST](https://docs.microsoft.com/rest/api/communication/phonenumberadministration)| Acquire and manage phone numbers |
 | Chat | Azure.Communication.Chat| [REST](https://docs.microsoft.com/rest/api/communication/) with proprietary signaling | Add real-time text based chat to your applications |
 | SMS| Azure.Communication.SMS | [REST](https://docs.microsoft.com/rest/api/communication/sms)| Send and receive SMS messages|
 | Calling| Azure.Communication.Calling | Proprietary transport | Use voice, video, screen-sharing, and other real-time data communication capabilities |
 
-The Azure Resource Manager, Identity, and SMS client libraries are focused on service integration, and in many cases security issues arise if you integrate these functions into end-user applications. The Common and Chat client libraries are suitable for service and client applications. The Calling client library is designed for client applications. A client library focused on service scenarios is in development.
+The Azure Resource Manager, Identity, and SMS SDKs are focused on service integration, and in many cases security issues arise if you integrate these functions into end-user applications. The Common and Chat SDKs are suitable for service and client applications. The Calling SDK is designed for client applications. An SDK focused on service scenarios is in development.
 
 
 ### Languages and publishing locations
@@ -56,7 +56,7 @@ Certain REST APIs and corresponding SDK methods have throttle limits you should 
 | API                                                                                                                          | Throttle            |
 |------------------------------------------------------------------------------------------------------------------------------|---------------------|
 | [All Search Telephone Number Plan APIs](https://docs.microsoft.com/rest/api/communication/phonenumberadministration)         | 4 requests/day      |
-| [Purchase Telephone Number Plan](https://docs.microsoft.com/rest/api/communication/phonenumberadministration/purchasesearch) | 1 request/day       |
+| [Purchase Telephone Number Plan](https://docs.microsoft.com/rest/api/communication/phonenumberadministration/purchasesearch) | 1 purchase a month  |
 | [Send SMS](https://docs.microsoft.com/rest/api/communication/sms/send)                                                       | 200 requests/minute |
 
 
