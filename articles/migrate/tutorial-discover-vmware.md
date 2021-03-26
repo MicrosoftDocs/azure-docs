@@ -19,7 +19,6 @@ This tutorial shows you how to discover servers running in VMware environment wi
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-
 > * Set up an Azure account.
 > * Prepare the VMware environment for discovery.
 > * Create a project.
