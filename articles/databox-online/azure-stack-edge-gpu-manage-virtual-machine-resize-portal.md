@@ -1,6 +1,6 @@
 ---
-title: How to resize VMs on Azure Stack Edge Pro via the Azure portal
-description: Learn how to resize the virtual machines (VM) running on your Azure Stack Edge Pro GPU via the Azure portal.
+title: Resize VMs on Azure Stack Edge Pro GPU, Pro R, Mini R via the Azure portal
+description: Learn how to resize the virtual machines (VM) running on your Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, Azure Stack Edge Mini R via the Azure portal.
 services: databox
 author: alkohli
 
@@ -28,7 +28,7 @@ The VM size determines the amount of compute resources (like CPU, GPU, and memor
 
 Before you resize a VM running on your device via the Azure portal, make sure that:
 
-1. You have atleast one VM deployed on your device. To create this VM, see the instructions in [Deploy VM on your Azure Stack Edge Pro via the Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md).
+1. You have at least one VM deployed on your device. To create this VM, see the instructions in [Deploy VM on your Azure Stack Edge Pro via the Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md).
 
 1. Your VM should be in **Stopped** state. To stop your VM, go to **Virtual machines > Overview** and select the VM you want to stop. In the VM properties page, select **Stop** and then select **Yes** when prompted for confirmation. Before you resize your VM, you must stop the VM.
 
