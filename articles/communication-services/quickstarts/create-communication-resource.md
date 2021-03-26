@@ -10,7 +10,7 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-zone_pivot_groups: acs-plat-azp-net
+zone_pivot_groups: acs-plat-azp-azcli-net-ps
 ---
 # Quickstart: Create and manage Communication Services resources
 
