@@ -789,9 +789,7 @@
     - name: Pipeline Triggers 
       href: pipeline-trigger-troubleshoot-guide.md 
     - name: Data Flows
-      items:
-      - name: Data flows overview
-        href: data-flow-troubleshoot-guide.md
+      href: data-flow-troubleshoot-guide.md
     - name: Continuous Integration and Deployment 
       href: ci-cd-github-troubleshoot-guide.md      
     - name: Security and access control

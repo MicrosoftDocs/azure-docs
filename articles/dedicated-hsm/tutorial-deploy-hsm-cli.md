@@ -12,8 +12,8 @@ ms.topic: tutorial
 ms.custom: "mvc, seodec18, devx-track-azurecli"
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2020
-ms.author: mbaldwin
+ms.date: 03/25/2021
+ms.author: keithp
 ---
 
 # Tutorial: Deploying HSMs into an existing virtual network using the Azure CLI
@@ -229,14 +229,14 @@ The output should look as shown on the image below:
 
 ![Screenshot shows output in PowerShell window.](media/tutorial-deploy-hsm-cli/hsm-show-output.png)
 
-At this point, you have allocated all resources for a highly available, two HSM deployment and validated access and operational state. Any further configuration or testing involves more work with the HSM device itself. For this, you should follow the instructions in the Thales Luna Network HSM 7 Administration Guide chapter 7 to initialize the HSM and create partitions. All documentation and software are available directly from Thales for download once you are registered in the Thales Customer Support Portal and have a Customer ID. Download Client Software version 7.2 to get all required components.
+At this point, you have allocated all resources for a highly available, two HSM deployment and validated access and operational state. Any further configuration or testing involves more work with the HSM device itself. For this, you should follow the instructions in the Thales Luna 7 HSM Administration Guide chapter 7 to initialize the HSM and create partitions. All documentation and software are available directly from Thales for download once you are registered in the [Thales customer support portal](https://supportportal.thalesgroup.com/csm) and have a Customer ID. Download Client Software version 7.2 to get all required components.
 
 ## Delete or clean up resources
 
 If you have finished with just the HSM device, then it can be deleted as a resource and returned to the free pool. The obvious concern when doing this is any sensitive customer data that is on the device. The best way to "zeroize" a device is to get the HSM admin password wrong 3 times (note: this is not appliance admin, it's the actual HSM admin). As a safety measure to protect key material, the device cannot be deleted as an Azure resource until it is in the zeroized state.
 
 > [!NOTE]
-> if you have issue with any Thales device configuration you should contact [Thales customer support](https://safenet.gemalto.com/technical-support/).
+> if you have issue with any Thales device configuration you should contact [Thales customer support](https://supportportal.thalesgroup.com/csm).
 
 If you have finished with all resources in this resource group, then you can remove them all with the following command:
 

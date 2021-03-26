@@ -242,7 +242,7 @@ step1_output_ds = step1_output_data.register_on_complete(name='processed_data',
 Azure does not automatically delete intermediate data written with `OutputFileDatasetConfig`. To avoid storage charges for large amounts of unneeded data, you should either:
 
 * Programmatically delete intermediate data at the end of a pipeline run, when it is no longer needed
-* Use blob storage with a short-term storage policy for intermediate data (see [Optimize costs by automating Azure Blob Storage access tiers](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal)) 
+* Use blob storage with a short-term storage policy for intermediate data (see [Optimize costs by automating Azure Blob Storage access tiers](../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal)) 
 * Regularly review and delete no-longer-needed data
 
 For more information, see [Plan and manage costs for Azure Machine Learning](concept-plan-manage-cost.md).

@@ -1,8 +1,8 @@
 ---
 title: Compute and Storage Options - Azure Database for PostgreSQL - Flexible Server
 description: This article describes the compute and storage options in Azure Database for PostgreSQL - Flexible Server.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/19/2021
@@ -116,7 +116,7 @@ You can monitor your I/O consumption in the Azure portal or by using Azure CLI c
 When marked with a \*, IOPS are limited by the VM type you selected. Otherwise IOPS are limited by the selected storage size.
 
 >[!NOTE]
-> You may see higher IOPS in the metrics due to disk level bursting. Please see the [documentation](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting) for more details. 
+> You may see higher IOPS in the metrics due to disk level bursting. Please see the [documentation](../../virtual-machines/disk-bursting.md#disk-level-bursting) for more details. 
 
 ### Maximum I/O bandwidth (MiB/sec) for your configuration
 

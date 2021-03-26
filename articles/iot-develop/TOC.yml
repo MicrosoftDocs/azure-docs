@@ -26,7 +26,7 @@
 - name: Tutorials
   items:
     - name: Securely connect IoT devices to the cloud
-      href: /learn/paths/securely-connect-iot-devices/
+      href: /learn/paths/securely-connect-iot-devices/?wt.mc_id=iothub_connect_docs_tutorials
 - name: Concepts
   items:
   - name: Connection options for device developers
