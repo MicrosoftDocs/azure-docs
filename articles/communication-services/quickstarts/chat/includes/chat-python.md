@@ -85,49 +85,17 @@ Use the `create_chat_thread` method to create a chat thread.
 - Use `topic` to give a thread topic; Topic can be updated after the chat thread is created using the `update_thread` function.
 - Use `thread_participants` to list the `ChatThreadParticipant` to be added to the chat thread, the `ChatThreadParticipant` takes `CommunicationUserIdentifier` type as `user`, which is what you got after you
 created by [Create a user](../../access-tokens.md#create-an-identity)
-- Use `idempotency_token` to direct that the request is repeatable. The client can make the request multiple times with the same Idempotency-Token and get back an appropriate response without the server executing the request multiple times.
 
 `CreateChatThreadResult` is the result returned from creating a thread, you can use it to fetch the `id` of 
 the chat thread that got created. This `id` can then be used to fetch a `ChatThreadClient` object using 
 the `get_chat_thread_client` method. `ChatThreadClient` can be used to perform other chat operations to this chat thread.
 
-#### Without Idempotency-Token
 ```python
 from azure.communication.chat import ChatThreadParticipant
 
 topic="test topic"
 
 create_chat_thread_result = chat_client.create_chat_thread(topic)
-chat_thread_client = chat_client.get_chat_thread_client(create_chat_thread_result.chat_thread.id)
-```
-
-#### With Idempotency-Token
-```python
-from datetime import datetime
-from azure.communication.chat import ChatThreadParticipant
-
-# from azure.communication.identity import CommunicationIdentityClient
-# 
-# # create an user
-# identity_client = CommunicationIdentityClient.from_connection_string('<connection_string>')
-# user = identity_client.create_user()
-# 
-# ## OR pass existing user
-# # from azure.communication.identity import CommunicationUserIdentifier
-# # user_id = 'some_user_id'
-# # user = CommunicationUserIdentifier(user_id)
-
-topic="test topic"
-participants = [ChatThreadParticipant(
-    user=user,
-    display_name='name',
-    share_history_time=datetime.utcnow()
-)]
-
-idempotency_token = 'b66d6031-fdcc-41df-8306-e524c9f226b8' # some unique identifier
-create_chat_thread_result = chat_client.create_chat_thread(topic, 
-                                                    thread_participants=participants, 
-                                                    idempotency_token=idempotency_token)
 chat_thread_client = chat_client.get_chat_thread_client(create_chat_thread_result.chat_thread.id)
 ```
 
@@ -173,20 +141,6 @@ Use `send_message` method to send a message to a chat thread you just created, i
 
 `SendChatMessageResult` is the response returned from sending a message, it contains an id, which is the unique ID of the message.
 
-#### Message type not specified
-```python
-topic = "test topic"
-create_chat_thread_result = chat_client.create_chat_thread(topic)
-thread_id = create_chat_thread_result.chat_thread.id
-chat_thread_client = chat_client.get_chat_thread_client(create_chat_thread_result.chat_thread.id)
-
-content='hello world'
-
-send_message_result = chat_thread_client.send_message(content)
-print("Message sent: id: ", send_message_result.id)
-```
-
-#### Message type specified
 ```python
 from azure.communication.chat import ChatMessageType
 
@@ -202,10 +156,6 @@ sender_display_name='sender name'
 # specify chat message type with pre-built enumerations
 send_message_result_w_enum = chat_thread_client.send_message(content=content, sender_display_name=sender_display_name, chat_message_type=ChatMessageType.TEXT)
 print("Message sent: id: ", send_message_result_w_enum.id)
-
-# specify chat message type as string
-send_message_result_w_str = chat_thread_client.send_message(content=content, sender_display_name=sender_display_name, chat_message_type='text')
-print("Message sent: id: ", send_message_result_w_str.id)
 ```
 
 
