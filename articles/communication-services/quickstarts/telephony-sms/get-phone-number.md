@@ -34,6 +34,10 @@ Get started with Azure Communication Services by using the Azure portal or the C
 [!INCLUDE [Python](./includes/phone-numbers-python.md)]
 ::: zone-end
 
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [JavaScript](./includes/phone-numbers-js.md)]
+::: zone-end
+
 ## Troubleshooting
 
 Common questions and issues:
