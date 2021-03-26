@@ -23,20 +23,6 @@ In the event that you need to rotate the AD FS certificates immediately, you can
 > Microsoft highly recommends using a Hardware Security Module (HSM) to protect and secure certificates.
 > For more information see [Hardware Security Module](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#hardware-security-module-hsm) under best practices for securing AD FS.
 
-## Steps for emergency rotation of AD FS certificates steps
-The following items are the steps required to rotate your certificates and are outlined in more detail below.
-
- - [Determine your Token Signing Certificate thumbprint](#determine-your-token-signing-certificate-thumbprint)
- - [Determine whether AD FS renews the certificates automatically](#determine-whether-ad-fs-renews-the-certificates-automatically)
- - [Generating new self-signed certificate if AutoCertificateRollover is set to TRUE](#generating-new-self-signed-certificate-if-autocertificaterollover-is-set-to-true)
- - [Generating new certificates manually if AutoCertificateRollover is set to FALSE](#generating-new-certificates-manually-if-autocertificaterollover-is-set-to-false)
- - [Update Azure AD with the new token-signing certificate](#update-azure-ad-with-the-new-token-signing-certificate)
- - [Replace SSL certificates](#replace-ssl-certificates)
- - [Remove your old certificates](#remove-your-old-certificates)
- - [Updating federation partners who can consume Federation Metadata](#updating-federation-partners-who-can-consume-federation-metadata)
- - [Updating federation partners who can NOT consume Federation Metadata](#updating-federation-partners-who-can-not-consume-federation-metadata)
- - [Revoke refresh tokens via PowerShell](#revoke-refresh-tokens-via-powershell)
-
 ## Determine your Token Signing Certificate thumbprint
 In order to revoke the old Token Signing Certificate which AD FS is currently using, you need to determine the thumbprint of the token-sigining certificate.  To do this, use the following steps below:
 
