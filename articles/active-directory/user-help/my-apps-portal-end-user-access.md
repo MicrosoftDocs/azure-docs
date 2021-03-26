@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 01/19/2021
+ms.date: 03/26/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: "user-help, seo-update-azuread-jan"
@@ -34,11 +34,12 @@ If you don’t have access to the **My Apps** portal, contact your organization'
 
 ## Supported browsers
 
-You can get to the **My Apps** portal from any of the following web browsers:
+You can get to the **My Apps** portal from any of the following web browser. Microsoft recommends that you use the most up-to-date browser that's compatible with your operating system.
 
-- Microsoft Edge (the mobile version of Edge is currently the only supported mobile browser)
-- Google Chrome
-- Mozilla Firefox, version 26.0 or later
+- Microsoft Edge (latest version)
+- Safari (latest version, Mac only)
+- Chrome (latest version)
+- Firefox (latest version)
 
 You can access and use the My Apps portal on your computer, or from the mobile version of the Edge browser on an iOS or Android mobile device.
 
