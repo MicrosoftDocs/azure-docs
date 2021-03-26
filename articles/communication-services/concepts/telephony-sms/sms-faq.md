@@ -1,7 +1,7 @@
 ---
 title: SMS FAQ
 titleSuffix: An Azure Communication Services concept document
-description: Learn about SMS messaging policies.
+description: SMS FAQ
 author: prakulka
 manager: nmurav
 services: azure-communication-services
