@@ -251,19 +251,19 @@ Once a chat thread is created, you can then add and remove users from it. By add
 Use `addParticipants` method to add participants to the thread.
 
 - `communicationIdentifier`, required, is the CommunicationIdentifier you've created by the CommunicationIdentityClient in the [User Access Token](../../access-tokens.md) quickstart.
-- `display_name`, optional, is the display name for the thread participant.
-- `share_history_time`, optional, is the time from which the chat history is shared with the participant. To share history since the inception of the chat thread, set this property to any date equal to, or less than the thread creation time. To share no history previous to when the participant was added, set it to the current date. To share partial history, set it to the required date.
+- `displayName`, optional, is the display name for the thread participant.
+- `shareHistoryTime`, optional, is the time from which the chat history is shared with the participant. To share history since the inception of the chat thread, set this property to any date equal to, or less than the thread creation time. To share no history previous to when the participant was added, set it to the current date. To share partial history, set it to the required date.
 
 ```Java
 List<ChatParticipant> participants = new ArrayList<ChatParticipant>();
 
 ChatParticipant thirdThreadParticipant = new ChatParticipant()
     .setCommunicationIdentifier(user3)
-    .setDisplayName("Display Name 1");
+    .setDisplayName("Display Name 3");
 
 ChatParticipant fourthThreadParticipant = new ChatParticipant()
     .setCommunicationIdentifier(user4)
-    .setDisplayName("Display Name 2");
+    .setDisplayName("Display Name 4");
 
 participants.add(thirdThreadParticipant);
 participants.add(fourthThreadParticipant);
