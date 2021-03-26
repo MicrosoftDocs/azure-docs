@@ -245,7 +245,7 @@ Message sent!, message id:<number>
 
 ## Receive chat messages from a chat thread
 
-With real-time signaling, you can subscribe to listen for new incoming messages and update the current messages in memory accordingly. Azure Communication Services supports a [list of events that you can subscribe to](../../../concepts/chat/concepts.md#real-time-signaling).
+With real-time signaling, you can subscribe to listen for new incoming messages and update the current messages in memory accordingly. Azure Communication Services supports a [list of events that you can subscribe to](../../../concepts/chat/concepts.md#real-time-notifications).
 
 ```JavaScript
 // open notifications channel
@@ -281,17 +281,6 @@ Refresh your tab, in the console you should find the list of messages sent in th
 `listMessages` returns the latest version of the message, including any edits or deletes that happened to the message using `updateMessage` and `deleteMessage`.
 For deleted messages `chatMessage.deletedOn` returns a datetime value indicating when that message was deleted. For edited messages, `chatMessage.editedOn` returns a datetime indicating when the message was edited. The original time of message creation can be accessed using `chatMessage.createdOn` which can be used for ordering the messages.
 
-`listMessages` returns different types of messages which can be identified by `chatMessage.type`. These types are:
-
-- `Text`: Regular chat message sent by a thread participant.
-
-- `ThreadActivity/TopicUpdate`: System message that indicates the topic has been updated.
-
-- `ThreadActivity/AddParticipant`: System message that indicates one or more participants have been added to the chat thread.
-
-- `ThreadActivity/RemoveParticipant`: System message that indicates a participant has been removed from the chat thread.
-
-For more details, see [Message Types](../../../concepts/chat/concepts.md#message-types).
 
 ## Add a user as a participant to the chat thread
 
