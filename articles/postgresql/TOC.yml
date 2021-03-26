@@ -124,14 +124,14 @@
       href: concepts-supported-versions.md
     - name: PostgreSQL extensions
       href: concepts-extensions.md
+    - name: Limits
+      href: concepts-limits.md
     - name: Understand pricing tiers
       items:
       - name: Pricing tiers
         href: concepts-pricing-tiers.md
       - name: Prepay for reserved capacity
         href: concept-reserved-pricing.md
-      - name: Limits
-        href: concepts-limits.md
     - name: Security
       items:
       - name: Security overview
