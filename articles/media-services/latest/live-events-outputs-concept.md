@@ -111,47 +111,68 @@ Also see [Streaming Endpoints naming conventions](streaming-endpoint-concept.md#
 Once the live event is created, you can get ingest URLs that you'll provide to the live on-premises encoder. The live encoder uses these URLs to input a live stream. For more information, see [Recommended on-premises live encoders](recommended-on-premises-live-encoders.md).
 
 >[!NOTE]
-> As of the 2020-05-01 API release, vanity URLs are known as Static Host Names
+> As of the 2020-05-01 API release, "vanity" URLs are known as Static Host Names (useStaticHostname: true)
 
-You can either use non-vanity URLs or vanity URLs.
 
 > [!NOTE]
-> For an ingest URL to be predictive, set the "vanity" mode.
+> For an ingest URL to be static and predictable for use in a hardware encoder setup, set the **useStaticHostname** property to true and set the **accessToken** property to the same GUID on each creation. 
 
-* Non-vanity URL
+### Example LiveEvent and LiveEventInput configuration settings for a static (non random) ingest RTMP URL.
 
-    Non-vanity URL is the default mode in Media Services v3. You potentially get the live event quickly but ingest URL is known only when the live event is started. The URL will change if you do stop/start the live event. Non-Vanity is useful in scenarios when an end user wants to stream using an app where the app wants to get a live event ASAP and having a dynamic ingest URL isn't a problem.
+```csharp
+             LiveEvent liveEvent = new LiveEvent(
+                    location: mediaService.Location,
+                    description: "Sample LiveEvent from .NET SDK sample",
+                    // Set useStaticHostname to true to make the ingest and preview URL host name the same. 
+                    // This can slow things down a bit. 
+                    useStaticHostname: true,
+
+                    // 1) Set up the input settings for the Live event...
+                    input: new LiveEventInput(
+                        streamingProtocol: LiveEventInputProtocol.RTMP,  // options are RTMP or Smooth Streaming ingest format.
+                                                                         // This sets a static access token for use on the ingest path. 
+                                                                         // Combining this with useStaticHostname:true will give you the same ingest URL on every creation.
+                                                                         // This is helpful when you only want to enter the URL into a single encoder one time for this Live Event name
+                        accessToken: "acf7b6ef-8a37-425f-b8fc-51c2d6a5a86a",  // Use this value when you want to make sure the ingest URL is static and always the same. If omitted, the service will generate a random GUID value.
+                        accessControl: liveEventInputAccess, // controls the IP restriction for the source encoder.
+                        keyFrameIntervalDuration: "PT2S" // Set this to match the ingest encoder's settings
+                    ),
+```
+
+* Non static hostname
+
+    A non static hostname is the default mode in Media Services v3 when creating a **LiveEvent**. You can get the live event allocated slightly more quickly, but the ingest URL that you would need for your live encoding hardware or software will be randomized . The URL will change if you do stop/start the live event. Non static hostnames are only useful in scenarios where an end user wants to stream using an app that needs to get a live event very quickly and having a dynamic ingest URL isn't a problem.
 
     If a client app doesn't need to pre-generate an ingest URL before the live event is created, let Media Services auto-generate the Access Token for the live event.
 
-* Vanity URL
+* Static Hostnames 
 
-    Vanity mode is preferred by large media broadcasters who use hardware broadcast encoders and don't want to reconfigure their encoders when they start the live event. These broadcasters want a predictive ingest URL which doesn't change over time.
+    Static hostname mode is preferred by most operators that wish to pre-configure their live encoding hardware or software with an RTMP ingest URL that never changes on creation or stop/start of a specific live event. These operators want a predictive RTMP ingest URL which doesn't change over time. This is also very useful when you need to push a static RTMP ingest URL into the configuration settings of a hardware encoding device like the BlackMagic Atem Mini Pro, or similar hardware encoding and production tools. 
 
     > [!NOTE]
-    > In the Azure portal, the vanity URL is named "*Static hostname prefix*".
+    > In the Azure portal, the static hostname URL is called "*Static hostname prefix*".
 
     To specify this mode in the API, set `useStaticHostName` to `true` at creation time (default is `false`). When `useStaticHostname` is set to true, the `hostnamePrefix` specifies the first part of the hostname assigned to the live event preview and ingest endpoints. The final hostname would be a combination of this prefix, the media service account name and a short code for the Azure Media Services data center.
 
     To avoid a random token in the URL, you also need to pass your own access token (`LiveEventInput.accessToken`) at creation time.  The access token has to be a valid GUID string (with or without the hyphens). Once the mode is set, it can't be updated.
 
-    The access token needs to be unique in your data center. If your app needs to use a vanity URL, it's recommended to always create a new GUID instance for your access token (instead of reusing any existing GUID).
+    The access token needs to be unique in your Azure region and Media Services account. If your app needs to use a static hostname ingest URL, it's recommended to always create fresh GUID instance for use with a specific combination of region, media services account, and live event.
 
-    Use the following APIs to enable the Vanity URL and set the access token to a valid GUID (for example, `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`).  
+    Use the following APIs to enable the static hostname URL and set the access token to a valid GUID (for example, `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`).  
 
-    |Language|Enable vanity URL|Set access token|
+    |Language|Enable static hostname URL|Set access token|
     |---|---|---|
-    |REST|[properties.vanityUrl](/rest/api/media/liveevents/create#liveevent)|[LiveEventInput.accessToken](/rest/api/media/liveevents/create#liveeventinput)|
-    |CLI|[--vanity-url](/cli/azure/ams/live-event#az-ams-live-event-create)|[--access-token](/cli/azure/ams/live-event#optional-parameters)|
-    |.NET|[LiveEvent.VanityUrl](/dotnet/api/microsoft.azure.management.media.models.liveevent#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput.AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
+    |REST|[properties.useStaticHostname](/rest/api/media/liveevents/create#liveevent)|[LiveEventInput.useStaticHostname](/rest/api/media/liveevents/create#liveeventinput)|
+    |CLI|[--use-static-hostname](/cli/azure/ams/live-event#az-ams-live-event-create)|[--access-token](/cli/azure/ams/live-event#optional-parameters)|
+    |.NET|[LiveEvent.useStaticHostname](/dotnet/api/microsoft.azure.management.media.models.liveevent.usestatichostname?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_UseStaticHostname)|[LiveEventInput.AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
 
 ### Live ingest URL naming rules
 
 * The *random* string below is a 128-bit hex number (which is composed of 32 characters of 0-9 a-f).
-* *your access token*: The valid GUID string you set when using the vanity mode. For example, `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
+* *your access token*: The valid GUID string you set when using the static hostname setting. For example, `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
 * *stream name*: Indicates the stream name for a specific connection. The stream name value is usually added by the live encoder you use. You can configure the live encoder to use any name to describe the connection, for example: "video1_audio1", "video2_audio1", "stream".
 
-#### Non-vanity URL
+#### Non-static hostname ingest URL
 
 ##### RTMP
 
@@ -165,7 +186,7 @@ You can either use non-vanity URLs or vanity URLs.
 `http://<random 128bit hex string>.channel.media.azure.net/<auto-generated access token>/ingest.isml/streams(<stream name>)`<br/>
 `https://<random 128bit hex string>.channel.media.azure.net/<auto-generated access token>/ingest.isml/streams(<stream name>)`<br/>
 
-#### Vanity URL
+#### Static hostname ingest URL
 
 In the following paths, `<live-event-name>` means either the name given to the event or the custom name used in the creation of the live event.
 
