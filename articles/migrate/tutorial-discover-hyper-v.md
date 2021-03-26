@@ -5,14 +5,14 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 03/10/2021
+ms.date: 03/25/2021
 ms.custom: mvc
 #Customer intent: As a Hyper-V admin, I want to discover my on-premises servers on Hyper-V.
 ---
 
 # Tutorial: Discover servers running on Hyper-V with Azure Migrate: Discovery and assessment
 
-As part of your migration journey to Azure, you discover your on-premises inventory and workloads. 
+As part of your migration journey to Azure, you discover your on-premises inventory and workloads.
 
 This tutorial shows you how to discover on-premises servers on Hyper-V hosts with the Azure Migrate: Discovery and assessment tool, using a lightweight Azure Migrate appliance. You deploy the appliance as a server on Hyper-V host, to continuously discover machine and performance metadata.
 
@@ -38,7 +38,7 @@ Before you start this tutorial, check you have these prerequisites in place.
 --- | ---
 **Hyper-V host** | Hyper-V hosts on which servers are located can be standalone, or in a cluster.<br/><br/> The host must be running Windows Server 2019, Windows Server 2016, or Windows Server 2012 R2.<br/><br/> Verify inbound connections are allowed on WinRM port 5985 (HTTP), so that the appliance can connect to pull server metadata and performance data, using a Common Information Model (CIM) session.
 **Appliance deployment** | Hyper-V host needs resources to allocate a server for the appliance:<br/><br/> - 16 GB of RAM, 8 vCPUs, and around 80 GB of disk storage.<br/><br/> - An external virtual switch, and internet access on the appliance, directly or via a proxy.
-**Servers** | Servers can be running any Windows or Linux operating system. 
+**Servers** | Servers can be running any Windows or Linux operating system.
 
 ## Prepare an Azure user account
 
@@ -52,7 +52,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
     ![Search box to search for the Azure subscription](./media/tutorial-discover-hyper-v/search-subscription.png)
 
-2. In the **Subscriptions** page, select the subscription in which you want to create a project. 
+2. In the **Subscriptions** page, select the subscription in which you want to create a project.
 3. In the subscription, select **Access control (IAM)** > **Check access**.
 4. In **Check access**, search for the relevant user account.
 5. In **Add a role assignment**, click **Add**.
@@ -97,7 +97,7 @@ Delegate credentials if server disks are located on remote SMB shares | Delegate
     ```powershell
     C:\>CertUtil -HashFile C:\Users\Administrators\Desktop\ MicrosoftAzureMigrate-Hyper-V.ps1 SHA256
     ```
-3. After validating the script integrity, run the script on each Hyper-V host with this PowerShell command:
+3. After validating the script integrity, run the script on each Hyper-V host with this PowerShell command with elevated permissions:
 
     ```powershell
     PS C:\Users\Administrators\Desktop> MicrosoftAzureMigrate-Hyper-V.ps1
@@ -172,7 +172,7 @@ Check that the zipped file is secure, before you deploy it.
 
         **Scenario** | **Download** | **SHA256**
         --- | --- | ---
-        Hyper-V (8.91 GB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140422) |  40aa037987771794428b1c6ebee2614b092e6d69ac56d48a2bbc75eeef86c99a
+        Hyper-V (8.91 GB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140422) |  79c151588de049cc102f61b910d6136e02324dc8d8a14f47772da351b46d9127
 
     - For Azure Government:
 
@@ -289,5 +289,3 @@ After discovery finishes, you can verify that the servers appear in the portal.
 
 - [Assess servers on Hyper-V environment](tutorial-assess-hyper-v.md) for migration to Azure VMs.
 - [Review the data](migrate-appliance.md#collected-data---hyper-v) that the appliance collects during discovery.
-
-

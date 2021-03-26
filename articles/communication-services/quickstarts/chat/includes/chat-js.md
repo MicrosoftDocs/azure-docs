@@ -38,7 +38,7 @@ npm init -y
 
 ### Install the packages
 
-Use the `npm install` command to install the below Communication Services client libraries for JavaScript.
+Use the `npm install` command to install the below Communication Services SDKs for JavaScript.
 
 ```console
 npm install @azure/communication-common --save
@@ -82,7 +82,7 @@ Add a `start` script to your `package.json`, we will use this for running the ap
 }
 ```
 
-Create an **index.html** file in the root directory of your project. We'll use this file as a template to add chat capability using the Azure Communication Chat client library for JavaScript.
+Create an **index.html** file in the root directory of your project. We'll use this file as a template to add chat capability using the Azure Communication Chat SDK for JavaScript.
 
 ```html
 <!DOCTYPE html>
@@ -106,7 +106,7 @@ To create a chat client in your web app, you'll use the Communications Service *
 
 User access tokens enable you to build client applications that directly authenticate to Azure Communication Services. This quickstart does not cover creating a service tier to manage tokens for your chat application. See [chat concepts](../../../concepts/chat/concepts.md) for more information about chat architecture, and [user access tokens](../../access-tokens.md) for more information about access tokens.
 
-Inside **client.js** use the endpoint and access token in the code below to add chat capability using the Azure Communication Chat client library for JavaScript.
+Inside **client.js** use the endpoint and access token in the code below to add chat capability using the Azure Communication Chat SDK for JavaScript.
 
 ```JavaScript
 
@@ -139,7 +139,7 @@ Azure Communication Chat client created!
 ```
 
 ## Object model
-The following classes and interfaces handle some of the major features of the Azure Communication Services Chat client library for JavaScript.
+The following classes and interfaces handle some of the major features of the Azure Communication Services Chat SDK for JavaScript.
 
 | Name                                   | Description                                                                                                                                                                           |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

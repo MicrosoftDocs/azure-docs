@@ -1,8 +1,8 @@
 ---
 title: Connect with Managed Identity - Azure Database for MySQL
 description: Learn about how to connect and authenticate using Managed Identity for authentication with Azure Database for MySQL
-author: lfittl-msft
-ms.author: lufittl
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 05/19/2020

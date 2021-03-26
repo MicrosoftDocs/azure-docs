@@ -58,7 +58,7 @@ map.setTraffic(
 
 ::: zone-end
 
-The following screenshot shows the above code rending real-time traffic information on the map.
+The following screenshot shows the above code rendering real-time traffic information on the map.
 
 ![Map showing real-time traffic information](media/how-to-show-traffic-android/android-show-traffic.png)
 
@@ -174,7 +174,7 @@ map.events.add(OnFeatureClick { features: List<Feature>? ->
 
 ::: zone-end
 
-The following screenshot shows the above code rending real-time traffic information on the map with a toast message displaying incident details.
+The following screenshot shows the above code rendering real-time traffic information on the map with a toast message displaying incident details.
 
 ![Map showing real-time traffic information with a toast message displaying incident details](media/how-to-show-traffic-android/android-traffic-details.png)
 
