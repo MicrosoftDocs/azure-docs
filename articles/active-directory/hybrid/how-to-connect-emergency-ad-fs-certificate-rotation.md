@@ -17,7 +17,7 @@ ms.author: billmath
 In the event that you need to rotate the AD FS certificates immediately, you can follow the steps outlined below in this section.
 
 > [!IMPORTANT]
-> Conducting the steps below in the AD FS environment will revoke the old certifciates immediately.  Because this is done immediately, the normal time usually allowed for your federation partners to consume your new certificate is by-passed. It might result in a service outage as trusts update to use the new certificates.  This should resolve once all of the federation partners have the new certificates.
+> Conducting the steps below in the AD FS environment will revoke the old certificates immediately.  Because this is done immediately, the normal time usually allowed for your federation partners to consume your new certificate is by-passed. It might result in a service outage as trusts update to use the new certificates.  This should resolve once all of the federation partners have the new certificates.
 
 > [!IMPORTANT]
 > Microsoft highly recommends using a Hardware Security Module (HSM) to protect and secure certificates.
@@ -31,7 +31,7 @@ The following table summarized the steps that are outlined below.
 |1| [Determine your Token Signing Certificate thumbprint](#determine-your-token-signing-certificate-thumbprint)| Determine the thumbprint of your old token-signing certificate.|
 |2|[Determine whether AD FS renews the certificates automatically](#determine-whether-ad-fs-renews-the-certificates-automatically)|Determine whether the AutoCertificateRollover property is set to TRUE or FALSE|
 |3 a|[Generating new self-signed certificate if AutoCertificateRollover is set to TRUE](#generating-new-self-signed-certificate-if-autocertificaterollover-is-set-to-true)|Create new certificates if you have AutoCertificateRollover property set to TRUE|
-|3 b|[Generating new certificates manually if AutoCertificateRollover is set to FALSE](#generating-new-certificates-manually-if-autocertificaterollover-is-set-to-false)|Import new certifcates for users who use manually imported certificates and have the AutoCertificateRollover property set to FALSE|
+|3 b|[Generating new certificates manually if AutoCertificateRollover is set to FALSE](#generating-new-certificates-manually-if-autocertificaterollover-is-set-to-false)|Import new certificates for users who use manually imported certificates and have the AutoCertificateRollover property set to FALSE|
 |4|[Update Azure AD with the new token-signing certificate](#update-azure-ad-with-the-new-token-signing-certificate)|Send an update to Azure AD to use the new certificate|
 |5|[Replace SSL certificates](#replace-ssl-certificates)|Update the SSL certificates used by AD FS and WAP servers|
 |6|[Remove your old certificates](#remove-your-old-certificates)|Remove the old token-signing certificate.|
@@ -132,7 +132,7 @@ In the event that you need to replace your token-signing certificate because of 
 
 Revoking your SSL certificates must be done at the certificate authority (CA) that issued the certificate.  These certificates are often issued by 3rd party providers such as GoDaddy.  For an example, see (Revoke a certificate | SSL Certificates - GoDaddy Help US).  For more information see [How Certificate Revocation Works](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee619754(v=ws.10)?redirectedfrom=MSDN).
 
-Once the old SSL certificate has been revoked and a new one issued, you can replaceing the SSL certificates. For more information see [Replacing the SSL certificate for AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap#replacing-the-ssl-certificate-for-ad-fs).
+Once the old SSL certificate has been revoked and a new one issued, you can replacing the SSL certificates. For more information see [Replacing the SSL certificate for AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap#replacing-the-ssl-certificate-for-ad-fs).
 
 
 ## Remove your old certificates
