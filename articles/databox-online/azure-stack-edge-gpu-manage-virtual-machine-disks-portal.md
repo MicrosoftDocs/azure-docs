@@ -119,7 +119,7 @@ Follow these steps to attach an existing disk to the virtual machine deployed on
 
 1. Go to the virtual machine that you have stopped and then go to the **Overview** page. Select **Disks**.
     
-    ![Select Disks on Overview page](./media/azure-stack-edge-gpu-manage-virtual-machine-disks-portal/list-data-disks-1.png)
+    ![Select Disks ](./media/azure-stack-edge-gpu-manage-virtual-machine-disks-portal/list-data-disks-1.png)
 
 1. In the **Disks** blade, under **Data Disks**, select **Attach an existing disk**.
 
