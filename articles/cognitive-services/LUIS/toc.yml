@@ -20,10 +20,10 @@
     href: luis-get-started-create-app.md
   - name: Use LUIS portal
     items:
-    - name: 1. Create an app
+    - name: Create an app
       href: get-started-portal-build-app.md
       displayName: intent, entity, create app, test, example utterance
-    - name: 2. Deploy an app
+    - name: Deploy an app
       href: get-started-portal-deploy-app.md
       displayName: assign key, assign resource, add key, add resource, test, deploy, endpoint, query, publish
   - name: Use browser
@@ -53,6 +53,10 @@
     - name: Add features
       displayName: synonym, interchange, phrase list, descriptor, feature
       href: luis-how-to-add-features.md
+    - name: Get intent using the REST API
+      href: luis-get-started-get-intent-from-rest.md
+    - name: Change the model using the REST API
+      href: get-started-get-model-rest-apis.md
   - name: Integrate your app
     items:
     - name: With Bing Spell Check v7
@@ -115,10 +119,6 @@
       diplayName: import, export, container
     - name: With Traffic Manager
       href: luis-traffic-manager.md
-  - name: Get intent using the REST API
-    href: luis-get-started-get-intent-from-rest.md
-  - name: Change model using the REST API
-    href: get-started-get-model-rest-apis.md
   - name: Deploy LUIS
     items:
     - name: Use containers

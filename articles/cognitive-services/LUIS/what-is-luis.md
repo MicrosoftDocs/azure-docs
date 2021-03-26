@@ -141,8 +141,6 @@ Learn about LUIS with hands-on quickstarts using the [portal](get-started-portal
 
 * [What's new](whats-new.md "What's new") with the service and documentation
 * [Plan your app](luis-how-plan-your-app.md "Plan your app") with [intents](luis-concept-intent.md "intents") and [entities](luis-concept-entity-types.md "entities").
-* [Query the prediction endpoint](luis-get-started-get-intent-from-browser.md "Query the prediction endpoint").
-* [Developer resources](developer-reference-resource.md "Developer resources") for LUIS.
 
 [bot-framework]: /bot-framework/
 [flow]: /connectors/luis/

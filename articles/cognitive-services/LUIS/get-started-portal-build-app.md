@@ -4,7 +4,7 @@ description: In this quickstart, you create the basic parts of an app, intents, 
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 11/30/2020
+ms.date: 03/26/2021
 ---
 
 # Quickstart: Create a new app in the LUIS portal
@@ -159,4 +159,4 @@ When you're done with this quickstart and aren't moving on to the next quickstar
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [2. Deploy an app](get-started-portal-deploy-app.md)
+> [Deploy an app](get-started-portal-deploy-app.md)
