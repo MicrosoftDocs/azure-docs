@@ -46,7 +46,7 @@ To use the Azure portal to assign a custom role for Start VM on Connect:
 2. Go to **Access control (IAM)** and select **Add a custom role**.
 
     > [!div class="mx-imgBorder"]
-    > ![A screenshot of a drop-down menu from the Add button in Access control (IAM). "Add a custom role" is highlighted in red.](/media/add-custom-role.png)
+    > ![A screenshot of a drop-down menu from the Add button in Access control (IAM). "Add a custom role" is highlighted in red.](media/add-custom-role.png)
 
 3. Next, name the custom role and add a description. We recommend you name it “start VM on connect.”
 
@@ -106,7 +106,6 @@ Now that you've assigned your subscription the role, it's time to configure the 
 
 There are three ways you can configure the feature:
 
-- [Use the Azure portal](#use-the-azure-portal)
 - [Use PowerShell](#use-powershell)
 - [Use REST API](#use-rest-api)
 
@@ -138,14 +137,6 @@ To configure Start VM on Connect using PowerShell:
     ```powershell
     Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -StartVMOnConnect:$false
     ```
-
-### Use REST API
-
-Follow the instructions in [Create or update a host pool](/rest/api/desktopvirtualization/hostpools/createorupdate) with the following property:
-
-| Name  | Required | Type | Description     |
-|----|---|----|----|
-| `Properties.startVMOnConnect` |   No           | Boolean  | Configure if VM should start from deallocated or stopped state. |
 
 ## User experience
 
