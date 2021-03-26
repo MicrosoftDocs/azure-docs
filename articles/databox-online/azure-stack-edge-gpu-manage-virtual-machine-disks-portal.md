@@ -77,11 +77,11 @@ Follow these steps to add a disk to a virtual machine deployed on your device.
     |Field  |Description  |
     |---------|---------|
     |Name     | A unique name within the resource group. The name cannot be changed after the data disk is created.     |
-    |Size| The size of your data disk in GiB. The maximum size of a data disk is determined by the Vm size that you have selected. When provisioning a disk, you should also consider the actual space on your device and other VM workloads that are running that consume capacity.  |         
+    |Size| The size of your data disk in GiB. The maximum size of a data disk is determined by the VM size that you have selected. When provisioning a disk, you should also consider the actual space on your device and other VM workloads that are running that consume capacity.  |         
 
     ![Create a new disk blade](./media/azure-stack-edge-gpu-manage-virtual-machine-disks-portal/add-data-disk-3.png)
 
-    Select **Save** and proceed.
+    Select **OK** and proceed.
 
 1. In the **Overview** page, under **Disks**, you'll see an entry corresponding to the new disk. Accept the default or assign a valid Logical Unit Number (LUN) to the disk and select **Save**. A LUN is a unique identifier for a SCSI disk. For more information, see [What is a LUN?](../virtual-machines/linux/azure-to-guest-disk-mapping.md#what-is-a-lun).
 
@@ -144,15 +144,14 @@ Follow these steps to delete or remove a data disk associated with a virtual mac
 
     ![Select Disks](./media/azure-stack-edge-gpu-manage-virtual-machine-disks-portal/list-data-disks-1.png)
 
-1. In the list of disks, select the disk that you wish to delete. In the far right of the disk selected, select the delete icon (cross). 
+1. In the list of disks, select the disk that you wish to delete. In the far right of the disk selected, select the delete icon (cross). The selected entry will be deleted. Select **Save**. 
 
     ![Select a disk to delete](./media/azure-stack-edge-gpu-manage-virtual-machine-disks-portal/delete-data-disk-1.png)
 
-1. The selected entry will be deleted. Select **Save**. 
+1. After the disk is deleted, the virtual machine is updated. Refresh the **Overview** page to view the updated list of data disks.
 
     ![Select save](./media/azure-stack-edge-gpu-manage-virtual-machine-disks-portal/list-data-disks-2.png)
 
-1. After the disk is deleted, the virtual machine is updated. Refresh the **Overview** page to view the updated list of data disks.
 
 ## Next steps
 
