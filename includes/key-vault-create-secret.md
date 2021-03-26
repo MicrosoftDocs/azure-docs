@@ -4,14 +4,14 @@ ms.service: key-vault
 ms.topic: include
 ms.date: 07/20/2020
 ms.author: msmbaldwin
-
+ms.custom: "devx-track-azurepowershell"
 # Used by articles that register native client applications in the B2C tenant.
 
 ---
 
 Let's create a secret called **mySecret**, with a value of **Success!**. A secret might be a password, a SQL connection string, or any other information that you need to keep both secure and available to your application. 
 
-To add a secret to your newly created key vault, use the Azure CLI [az keyvault secret set](/cli/azure/keyvault/secret#az-keyvault-secret-set) command:
+To add a secret to your newly created key vault, use the following command:
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli

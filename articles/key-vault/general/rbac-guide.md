@@ -94,7 +94,7 @@ To add role assignments, you must have:
 > [!Note]
 > It's recommended to use the unique role ID instead of the role name in scripts. Therefore, if a role is renamed, your scripts would continue to work. In this document role name is used only for readability.
 
-Azure CLI command to create a role assignment:
+Run the following command to create a role assignment:
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
@@ -153,12 +153,6 @@ Above role assignment provides ability to list key vault objects in key vault.
 
     ![Role assignment - key vault](../media/rbac/image-6.png)
 
- Azure CLI:
-
-```azurecli
-az role assignment create --role "Key Vault Secrets Officer" --assignee {i.e jalichwa@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}
-```
-
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
 az role assignment create --role "Key Vault Secrets Officer" --assignee {i.e jalichwa@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}
@@ -189,8 +183,6 @@ After creating above role assignment you can create/update/delete secrets.
     ![Role assignment - secret](../media/rbac/image-8.png)
 
 3. Create Key Secrets Officer role "Key Vault Secrets Officer" for current user, same like it was done above for the Key Vault.
-
-Azure CLI:
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
@@ -248,8 +240,6 @@ Create new secret ( Secrets \> +Generate/Import) should show below error:
 ### Creating custom roles 
 
 [az role definition create command](/cli/azure/role/definition#az-role-definition-create)
-
-**(CLI bash script)</br>**
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli

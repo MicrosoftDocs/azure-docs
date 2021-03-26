@@ -47,7 +47,7 @@ Before you start coding you need to create some resources, put a secret into you
 
 ### Sign in to Azure
 
-To sign in to Azure by using the Azure CLI, enter:
+To sign in to Azure by using following command:
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli

@@ -48,7 +48,7 @@ You can use this deployment link if you don't have an existing key vault and exi
 
     ![Screenshot that shows how to create a resource group.](../media/secrets/rotation-dual/dual-rotation-1.png)
 
-You'll now have a key vault and two storage accounts. You can verify this setup in the Azure CLI by running this command:
+You'll now have a key vault and two storage accounts. You can verify this setup in the Azure CLI or Azure PowerShell by running this command:
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
 az resource list -o table -g vaultrotation
