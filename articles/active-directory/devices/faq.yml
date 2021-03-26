@@ -323,7 +323,7 @@ sections:
           - During the first access try, your users are prompted to enroll the device by using the company portal.
           
 additionalContent: |
-  
+
   ## Next steps
 
   - Learn more about [Azure AD registered devices](concept-azure-ad-register.md)
