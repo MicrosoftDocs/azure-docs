@@ -1,5 +1,5 @@
 ---
-title: How to resize on your Azure Stack Edge Pro via the Azure portal
+title: How to resize VMs on Azure Stack Edge Pro via the Azure portal
 description: Learn how to resize the virtual machines (VM) running on your Azure Stack Edge Pro GPU via the Azure portal.
 services: databox
 author: alkohli
@@ -12,7 +12,7 @@ ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to resize VMs running on an Azure Stack Edge Pro device so that I can use it to run applications using Edge compute before sending it to Azure.
 ---
 
-# Use the Azure portal to manage disks on the VMs on your Azure Stack Edge Pro GPU
+# Use the Azure portal to resize the VMs on your Azure Stack Edge Pro GPU
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
@@ -95,7 +95,7 @@ Follow these steps to detach or remove a network interface associated with a vir
 
     ![Select a network interface to detach](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/detach-nic-1.png)
 
-1. After the interface is completely detached, the list of network interfaces is refreshed to display the remaining interfaces.
+1. After the interface is detached, the list of network interfaces is refreshed to display the remaining interfaces.
 
 ## Next steps
 

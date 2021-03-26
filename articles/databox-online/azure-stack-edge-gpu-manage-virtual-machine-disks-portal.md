@@ -16,7 +16,7 @@ Customer intent: As an IT admin, I need to understand how to manage disks on a V
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-You can provision disks on the virtual machines (VMs) deployed on your Azure Stack Edge Pro device using the Azure portal. The disks are provisioned on the device via the local Azure Resource Manager and consume the device capacity. The operations such as adding a disk, detaching a disk can be done via the Azure portal which in turn makes calls to the local Azure Resource Manager to provision the storage. <!--Disks are provisioned in local ARM via the portal. Use the Storage RP/Disk RP-->
+You can provision disks on the virtual machines (VMs) deployed on your Azure Stack Edge Pro device using the Azure portal. The disks are provisioned on the device via the local Azure Resource Manager and consume the device capacity. The operations such as adding a disk, detaching a disk can be done via the Azure portal, which in turn makes calls to the local Azure Resource Manager to provision the storage. <!--Disks are provisioned in local ARM via the portal. Use the Storage RP/Disk RP-->
 
 This article explains how to add a data disk to an existing VM, detach a data disk, and finally resize the VM itself via the Azure portal. 
 
@@ -114,7 +114,7 @@ Follow these steps to detach or remove a network interface associated with a vir
 
     ![Select a network interface to detach](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/detach-nic-1.png)
 
-1. After the interface is completely detached, the list of network interfaces is refreshed to display the remaining interfaces.
+1. After the interface is detached, the list of network interfaces is refreshed to display the remaining interfaces.
 
 ## Next steps
 
