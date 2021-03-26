@@ -112,7 +112,16 @@ If you want to deploy to a remote target device instead of your local device and
 
    ![Select your device to verify it is supported](./media/how-to-install-iot-edge-on-windows/evaluate-supported-device.png)
 
-1. Accept the default settings on the **2.2 Settings** tab.
+1. On the **2.2 Settings** tab, review the configuration settings of your deployment. Once you are satisfied with the settings, select **Next**.
+
+   ![Review the configuration settings of your deployment](./media/how-to-install-iot-edge-on-windows/default-deployment-configuration-settings.png)
+
+   >[!NOTE]
+   >If you are using a Windows virtual machine, it is recommended to use a default switch rather than an external switch to ensure the Linux virtual machine created in the deployment can obtain an IP address.
+   >
+   >Using a default switch assigns the Linux virtual machine an internal IP address. This internal IP address cannot be reached from outside the Windows virtual machine, but it can be connected to locally while logged onto the Windows virtual machine.
+   >
+   >If you are using Windows Server, please note that Azure IoT Edge for Linux on Windows does not automatically support the default switch. For a local Windows Server virtual machine, ensure the Linux virtual machine can obtain an IP address through the external switch. For a Windows Server virtual machine in Azure, set up an internal switch before deploying IoT Edge for Linux on Windows.
 
 1. On the **2.3 Deployment** tab, you can watch the progress of the deployment. The full process includes downloading the Azure IoT Edge for Linux on Windows package, installing the package, configuring the host device, and setting up the Linux virtual machine. This process may take several minutes to complete. A successful deployment is pictured below.
 
@@ -163,7 +172,7 @@ Install IoT Edge for Linux on Windows onto your target device if you have not al
    ```
 
    > [!NOTE]
-   > You can run this command without parameters or optionally customize deployment with parameters. You can refer to [the IoT Edge for Linux on Windows PowerShell script reference](reference-iot-edge-for-linux-on-windows-scripts.md#deploy-eflow) to see their meaning​s.
+   > You can run this command without parameters or optionally customize deployment with parameters. You can refer to [the IoT Edge for Linux on Windows PowerShell script reference](reference-iot-edge-for-linux-on-windows-scripts.md#deploy-eflow) to see parameter meaning​s and default values.
 
 1. Enter 'Y' to accept the license terms.
 
