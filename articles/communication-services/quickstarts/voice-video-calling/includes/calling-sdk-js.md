@@ -436,7 +436,7 @@ const streamType: MediaStreamType = remoteVideoStream.mediaStreamType;
 
 To render `RemoteVideoStream`, you have to subscribe to an `isAvailableChanged` event. If the `isAvailable` property changes to `true`, a remote participant is sending a stream. After that happens, create a new instance of `VideoStreamRenderer`, and then create a new `VideoStreamRendererView` instance by using the asynchronous `createView` method.  You can then attach `view.target` to any UI element.
 
-Whenever availability of a remote stream changes you can choose to destroy the whole VideoStreamRenderer, a specific `VideoStreamRendererView`
+Whenever availability of a remote stream changes you can choose to destroy the whole `VideoStreamRenderer`, a specific `VideoStreamRendererView`
 or keep them, but this will result in displaying blank video frame.
 
 ```js
@@ -481,7 +481,7 @@ Remote video streams have the following properties:
   const type: boolean = remoteVideoStream.isAvailable;
   ```
 
-### Renderer methods and properties
+### VideoStreamRenderer methods and properties
 
 Create a `VideoStreamRendererView` instance that can be attached in the application UI to render the remote video stream, use asynchronous `createView()` method, it resolves when stream is ready to render and returns an object with `target` property that represents `video` element that can be appended anywhere in the DOM tree
 
@@ -489,13 +489,13 @@ Create a `VideoStreamRendererView` instance that can be attached in the applicat
   videoStreamRenderer.createView()
   ```
 
-Dispose of videoStreamRenderer and all associated `VideoStreamRendererView` instances:
+Dispose of `videoStreamRenderer` and all associated `VideoStreamRendererView` instances:
 
   ```js
   videoStreamRenderer.dispose()
   ```
 
-### RendererView methods and properties
+### VideoStreamRendererView methods and properties
 
 When you create a `VideoStreamRendererView`, you can specify the `scalingMode` and `isMirrored` properties. `scalingMode` can be `Stretch`, `Crop`, or `Fit`. If `isMirrored` is specified, the rendered stream is flipped vertically.
 
@@ -560,7 +560,7 @@ await deviceManager.selectSpeaker(localSpeakers[0]);
 
 ### Local camera preview
 
-You can use `deviceManager` and `Renderer` to begin rendering streams from your local camera. This stream won't be sent to other participants; it's a local preview feed.
+You can use `deviceManager` and `VideoStreamRenderer` to begin rendering streams from your local camera. This stream won't be sent to other participants; it's a local preview feed.
 
 ```js
 const cameras = await deviceManager.getCameras();
