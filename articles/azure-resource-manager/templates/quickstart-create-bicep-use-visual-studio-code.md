@@ -2,7 +2,7 @@
 title: Create Bicep files - Visual Studio Code
 description: Use Visual Studio Code and the Bicep extension to Bicep files for deploy Azure resources
 author: mumian
-ms.date: 03/02/2021
+ms.date: 03/26/2021
 ms.topic: quickstart
 ms.author: jgao
 
