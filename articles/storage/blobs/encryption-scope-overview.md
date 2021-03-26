@@ -28,13 +28,13 @@ Read operations on a blob that belongs to an encryption scope happen transparent
 
 ### Key management
 
-When you define an encryption scope, you can specify whether the scope is protected with a Microsoft-managed key or with a customer-managed key that is stored in Azure Key Vault. Different encryption scopes on the same storage account can use either Microsoft-managed or customer-managed keys. You can also switch the type of key used to protect an encryption scope from a customer-managed key to  a Microsoft-managed key, or vice versa, at any time. For more information about customer-managed keys, see [Customer-managed keys for Azure Storage encryption](../common/customer-managed-keys-overview.md). For more information about Microsoft-managed keys, see [About encryption key management](storage-service-encryption.md#about-encryption-key-management).
+When you define an encryption scope, you can specify whether the scope is protected with a Microsoft-managed key or with a customer-managed key that is stored in Azure Key Vault. Different encryption scopes on the same storage account can use either Microsoft-managed or customer-managed keys. You can also switch the type of key used to protect an encryption scope from a customer-managed key to  a Microsoft-managed key, or vice versa, at any time. For more information about customer-managed keys, see [Customer-managed keys for Azure Storage encryption](../common/customer-managed-keys-overview.md). For more information about Microsoft-managed keys, see [About encryption key management](../common/storage-service-encryption.md#about-encryption-key-management).
 
 If you define an encryption scope with a customer-managed key, then you can choose to update the key version either automatically or manually. If you choose to automatically update the key version, then Azure Storage checks the key vault or managed HSM daily for a new version of the customer-managed key and automatically updates the key to the latest version. For more information about updating the key version for a customer-managed key, see [Update the key version](../common/customer-managed-keys-overview.md#update-the-key-version).
 
 A storage account may have up to 10,000 encryption scopes that are protected with customer-managed keys for which the key version is automatically updated. If your storage account already has 10,000 encryption scopes that are protected with customer-managed keys that are being automatically updated, then the key version must be updated manually for any additional encryption scopes that are protected with customer-managed keys.  
 
-### Specifying a default encryption scope for a container
+### Encryption scopes for containers and blobs
 
 When you create a container, you can specify a default encryption scope for the blobs that are subsequently uploaded to that container. When you specify a default encryption scope for a container, you can decide how the default encryption scope is enforced:
 
@@ -49,8 +49,6 @@ The following table summarizes the behavior of a blob upload operation, dependin
 | A default encryption scope with overrides prohibited | Succeeds | Fails |
 
 A default encryption scope must be specified for a container at the time that the container is created.
-
-### Specifying an encryption scope for a blob
 
 If no default encryption scope is specified for the container, then you can upload a blob using any encryption scope that you've defined for the storage account. The encryption scope must be specified at the time that the blob is uploaded.
 
