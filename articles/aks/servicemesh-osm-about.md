@@ -172,7 +172,9 @@ Output of the OSM configmap should look like the following:
 {
   "egress": "true",
   "enable_debug_server": "true",
+  "enable_privileged_init_container": "false",
   "envoy_log_level": "error",
+  "outbound_ip_range_exclusion_list": "169.254.169.254,168.63.129.16,20.193.57.43",
   "permissive_traffic_policy_mode": "true",
   "prometheus_scraping": "false",
   "service_cert_validity_duration": "24h",
@@ -962,16 +964,16 @@ kubectl get configmap -n kube-system osm-config -o json | jq '.data'
 
 Output shows the current OSM configuration for the cluster.
 
-```Output
+```json
 {
-  "egress": "false",
-  "enable_debug_server": "false",
+  "egress": "true",
+  "enable_debug_server": "true",
   "enable_privileged_init_container": "false",
   "envoy_log_level": "error",
-  "permissive_traffic_policy_mode": "true",
-  "prometheus_scraping": "true",
+  "outbound_ip_range_exclusion_list": "169.254.169.254,168.63.129.16,20.193.57.43",
+  "permissive_traffic_policy_mode": "false",
+  "prometheus_scraping": "false",
   "service_cert_validity_duration": "24h",
-  "tracing_enable": "false",
   "use_https_ingress": "false"
 }
 ```
@@ -1055,6 +1057,28 @@ deployment.apps/bookstore created
 serviceaccount/bookwarehouse created
 service/bookwarehouse created
 deployment.apps/bookwarehouse created
+```
+
+### Update the Bookbuyer Service
+
+The current bookbuyer application has an incorrect port used. We will update the bookbuyer service to the correct configuration with the following service manifest.
+
+```azurecli-interactive
+kubectl apply -f - <<EOF
+apiVersion: v1
+kind: Service
+metadata:
+  name: bookbuyer
+  namespace: bookbuyer
+  labels:
+    app: bookbuyer
+spec:
+  ports:
+  - port: 14001
+    name: inbound-port
+  selector:
+    app: bookbuyer
+EOF
 ```
 
 ### Verify the Bookstore application running inside the AKS cluster
@@ -1174,7 +1198,7 @@ ingress.extensions/bookbuyer-ingress created
 ```azurecli-interactive
 POD=$(kubectl get pods -n ingress-basic | grep 'nginx-ingress' | awk '{print $1}')
 
-kubectl logs $POD -f
+kubectl logs $POD -n ingress-basic -f
 ```
 
 Output shows the NGINX ingress controller status when ingress rule has been applied successfully:
@@ -1194,14 +1218,76 @@ kubectl get services -n ingress-basic
 ```
 
 ```Output
-NAME                                     TYPE           CLUSTER-IP     EXTERNAL-IP    PORT(S)                      AGE
-nginx-ingress-1616041155-nginx-ingress   LoadBalancer   10.0.120.194   EXTERNAL-IP    80:32237/TCP,443:31563/TCP   23m
+NAME                                               TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)                      AGE
+nginx-ingress-ingress-nginx-controller             LoadBalancer   10.0.100.23   20.193.1.74   80:31742/TCP,443:32683/TCP   4m15s
+nginx-ingress-ingress-nginx-controller-admission   ClusterIP      10.0.163.98   <none>        443/TCP                      4m15s
 ```
 
 Since the host name in the ingress manifest is a psuedo name used for testing, the DNS name will not be available on the internet. We can alternatively use the curl program and past the hostname header to the NGINX public IP address and receive a 200 code succesfully connecting us to the bookbuyer service.
 
 ```azurecli-interactive
 curl -H 'Host: bookbuyer.contoso.com' http://EXTERNAL-IP/
+```
+
+You should see the following output:
+
+```Output
+<!doctype html>
+<html itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+  <head>
+      <meta content="Bookbuyer" name="description">
+      <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+      <title>Bookbuyer</title>
+      <style>
+        #navbar {
+            width: 100%;
+            height: 50px;
+            display: table;
+            border-spacing: 0;
+            white-space: nowrap;
+            line-height: normal;
+            background-color: #0078D4;
+            background-position: left top;
+            background-repeat-x: repeat;
+            background-image: none;
+            color: white;
+            font: 2.2em "Fira Sans", sans-serif;
+        }
+        #main {
+            padding: 10pt 10pt 10pt 10pt;
+            font: 1.8em "Fira Sans", sans-serif;
+        }
+        li {
+            padding: 10pt 10pt 10pt 10pt;
+            font: 1.2em "Consolas", sans-serif;
+        }
+      </style>
+      <script>
+        setTimeout(function(){window.location.reload(1);}, 1500);
+      </script>
+  </head>
+  <body bgcolor="#fff">
+    <div id="navbar">
+      &#128214; Bookbuyer
+    </div>
+    <div id="main">
+      <ul>
+        <li>Total books bought: <strong>1833</strong>
+          <ul>
+            <li>from bookstore V1: <strong>277</strong>
+            <li>from bookstore V2: <strong>1556</strong>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <br/><br/><br/><br/>
+    <br/><br/><br/><br/>
+    <br/><br/><br/><br/>
+
+    Current Time: <strong>Fri, 26 Mar 2021 15:02:53 UTC</strong>
+  </body>
+</html>
 ```
 
 ## Tutorial: Deploy an application managed by Open Service Mesh (OSM) using Azure Application Gateway ingress AKS add-on
@@ -1890,6 +1976,14 @@ kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/v0.8.2/ch
 
 ```azurecli-interactive
 kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/v0.8.2/charts/osm/crds/split.yaml
+```
+
+## Disable Open Service Mesh (OSM) add-on for your AKS cluster
+
+To disable the OSM add-on, run the following command:
+
+```azurecli-interactive
+az aks disable-addons -n <AKS-cluster-name> -g <AKS-resource-group-name> -a open-service-mesh
 ```
 
 <!-- LINKS - internal -->

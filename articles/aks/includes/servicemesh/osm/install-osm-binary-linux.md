@@ -20,7 +20,7 @@ curl -sL "https://github.com/openservicemesh/osm/releases/download/$OSM_VERSION/
 The `osm` client binary runs on your client machine and allows you to manage OSM in your AKS cluster. Use the following commands to install the OSM `osm` client binary in a bash-based shell on Linux or [Windows Subsystem for Linux][install-wsl]. These commands copy the `osm` client binary to the standard user program location in your `PATH`.
 
 ```bash
-sudo mv .linux-amd64/osm /usr/local/bin/osm
+sudo mv ./linux-amd64/osm /usr/local/bin/osm
 sudo chmod +x /usr/local/bin/osm
 ```
 
