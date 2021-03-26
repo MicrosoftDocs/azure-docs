@@ -2,12 +2,12 @@
 title: SMS client library overview for Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Provides an overview of the SMS client library and its offerings.
-author: mikben
-manager: jken
+author: prakulka
+manager: nmurav
 services: azure-communication-services
 
-ms.author: mikben
-ms.date: 03/10/2021
+ms.author: prakulka
+ms.date: 03/26/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
@@ -29,7 +29,7 @@ The following list presents the set of features which are currently available in
 | Core Capabilities | Send and receive SMS messages </br> *Unicode emojis supported*                        | ✔️   | ✔️    | ✔️    | ✔️      |
 |                   | Receive Delivery Reports for messages sent                                            | ✔️   | ✔️    | ✔️    | ✔️      |
 |                   | All character sets (language/unicode support)                                         | ✔️   | ✔️    | ✔️    | ✔️      |
-|                   | Support for long messages (up to 2048 char)                                           | ✔️   | ✔️    | ✔️    | ✔️      |
+|                   | Support for long messages (up to 2048 bytes)                                          | ✔️   | ✔️    | ✔️    | ✔️      |
 |                   | Auto-concatenation of long messages                                                   | ✔️   | ✔️    | ✔️    | ✔️      |
 |                   | Send messages to multiple recipients at a time                                        | ✔️   | ✔️    | ✔️    | ✔️      |
 |                   | Support for idempotency                                                               | ✔️   | ✔️    | ✔️    | ✔️      |
