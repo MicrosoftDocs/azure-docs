@@ -25,7 +25,7 @@ Performance expectations using common HPC microbenchmarks are as follows:
 
 ## Process pinning
 
-[Process pinning](compiling-scaling-applications#process-pinning) works well on HBv3-series VMs because we expose the underlying silicon as-is to the guest VM. We strongly recommend process pinning for optimal performance and consistency.
+[Process pinning](compiling-scaling-applications.md#process-pinning) works well on HBv3-series VMs because we expose the underlying silicon as-is to the guest VM. We strongly recommend process pinning for optimal performance and consistency.
 
 ## MPI latency
 
@@ -40,7 +40,7 @@ The MPI bandwidth test from the OSU microbenchmark suite can be executed per bel
 ./mvapich2-2.3.install/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./mvapich2-2.3/osu_benchmarks/mpi/pt2pt/osu_bw
 ```
 ## Mellanox Perftest
-The [Mellanox Perftest package](https://community.mellanox.com/s/article/perftest-package) has many InfiniBand tests such as latency (ib_send_lat) and bandwidth (ib_send_bw). An example command is below. 
+The [Mellanox Perftest package](https://community.mellanox.com/s/article/perftest-package) has many InfiniBand tests such as latency (ib_send_lat) and bandwidth (ib_send_bw). An example command is below.
 ```console
 numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 ```
