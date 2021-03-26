@@ -83,7 +83,7 @@ In addition to keywords, other common opt-out mechanisms include providing custo
 
 
 ### How We Handle Opt-Out Requests:
-If an individual requests to opt-out of future messages from a particular campaign on an Azure Communication Services toll-free number by responding with STOP message, then all further traffic from that number will automatically be stopped. However, you must still ensure that you do not send additional messages for that messaging campaign from new or different numbers. If you have separately obtained express consent for a different messaging campaign, then you may continue to send messages from a different number for that campaign. Check out our FAQ section to learn more on [Opt-out handling](https://github.com/Prakulka/azure-docs-pr/blob/master/articles/communication-services/concepts/telephony-sms/sms-faq.md#how-can-i-receive-messages-using-azure-communication-services)
+If an individual requests to opt-out of future messages on an Azure Communication Services toll-free number, then all further traffic from that number will be automatically stopped. However, you must still ensure that you do not send additional messages for that messaging campaign from new or different numbers. If you have separately obtained express consent for a different messaging campaign, then you may continue to send messages from a different number for that campaign. Check out our FAQ section to learn more on [Opt-out handling](https://github.com/Prakulka/azure-docs-pr/blob/master/articles/communication-services/concepts/telephony-sms/sms-faq.md#how-can-i-receive-messages-using-azure-communication-services)
 
 ## Message Content
 
