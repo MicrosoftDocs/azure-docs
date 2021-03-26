@@ -55,7 +55,10 @@ The estimated latency to change the service tier, scale the compute size of a si
 > Additionally, for Standard (S2-S12) and General Purpose databases, latency for moving a database in/out of an elastic pool or between elastic pools will be proportional to database size if the database is using Premium File Share ([PFS](../../storage/files/storage-files-introduction.md)) storage.
 >
 > To determine if a database is using PFS storage, execute the following query in the context of the database. If the value in the AccountType column is `PremiumFileStorage` or `PremiumFileStorage-ZRS`, the database is using PFS storage.
- 
+
+[!NOTE]
+ The zone redundant property will remain the same by default when scaling from the Business Critical to the General Purpose tier. Latency for this downgrade when zone redundancy is enabled as well as latency for switching to zone redundancy for the General Purpose tier will be proportional to database size.
+
 ```sql
 SELECT s.file_id,
        s.type_desc,

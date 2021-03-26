@@ -168,7 +168,7 @@ Follow these steps to recover the data from local shares:
 
 1. [Configure compute on the device](azure-stack-edge-gpu-deploy-configure-compute.md).
 1. Add all the local shares on the target device. See the detailed steps in [Add a local share](azure-stack-edge-gpu-manage-shares.md#add-a-local-share).
-1. Accessing the SMB shares on the source device will use the IP addresses whereas on the target device, you'll use device name. See [Connect to an SMB share on Azure Stack Edge Pro GPU](azure-stack-edge-j-series-deploy-add-shares.md#connect-to-an-smb-share). To connect to NFS shares on the target device, you'll need to use the new IP addresses associated with the device. See [Connect to an NFS share on Azure Stack Edge Pro GPU](azure-stack-edge-j-series-deploy-add-shares.md#connect-to-an-nfs-share). 
+1. Accessing the SMB shares on the source device will use the IP addresses whereas on the target device, you'll use device name. See [Connect to an SMB share on Azure Stack Edge Pro GPU](./azure-stack-edge-gpu-deploy-add-shares.md#connect-to-an-smb-share). To connect to NFS shares on the target device, you'll need to use the new IP addresses associated with the device. See [Connect to an NFS share on Azure Stack Edge Pro GPU](./azure-stack-edge-gpu-deploy-add-shares.md#connect-to-an-nfs-share). 
 
     If you copied your share data to an intermediate server over SMB or NFS, you can copy the data from the intermediate server to shares on the target device. If both the source and the target device are *online*, you can also copy the data directly from the source device.
 
