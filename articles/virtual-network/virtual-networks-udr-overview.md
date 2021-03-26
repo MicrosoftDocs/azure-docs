@@ -92,6 +92,36 @@ You can specify the following next hop types when creating a user-defined route:
 
 You cannot specify **VNet peering** or **VirtualNetworkServiceEndpoint** as the next hop type in user-defined routes. Routes with the **VNet peering** or **VirtualNetworkServiceEndpoint** next hop types are only created by Azure, when you configure a virtual network peering, or a service endpoint.
 
+### Service Tags for user-defined routes (Public Preview)
+
+You can now specify a [Service Tag](service-tags-overview.md) as the address prefix for a user-defined route instead of an explicit IP range. A Service Tag represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to user-defined routes and reducing the number of routes you need to create. You can currently create 25 or less routes with Service Tags in each route table. </br>
+
+
+#### Exact Match
+When there is an exact prefix match between a route with an explicit IP prefix and a route with a Service Tag, preference is given to the route with the explicit prefix. When multiple routes with Service Tags have matching IP prefixes, routes will be evaluated in the following order: 
+
+   1. Regional tags (eg. Storage.EastUS, AppService.AustraliaCentral)
+   2. Top level tags (eg. Storage, AppService)
+   3. AzureCloud regional tags (eg. AzureCloud.canadacentral, AzureCloud.eastasia)
+   4. The AzureCloud tag </br></br>
+
+To use this feature specify a Service Tag name for the address prefix parameter in route table commands. For example, in Powershell you can create a new route to direct traffic sent to an Azure Storage IP prefix to a virtual appliance by using: </br>
+
+```azurepowershell-interactive
+New-AzRouteConfig -Name "StorageRoute" -AddressPrefix “Storage” -NextHopType "VirtualAppliance" -NextHopIpAddress "10.0.100.4"
+```
+
+The same command for CLI will be: </br>
+
+```azurecli-interactive
+az network route-table route create -g MyResourceGroup --route-table-name MyRouteTable -n StorageRoute --address-prefix Storage --next-hop-type VirtualAppliance --next-hop-ip-address 10.0.100.4
+```
+</br>
+
+
+> [!NOTE] 
+> While in Public Preview, there are several limitations. The feature is not currently supported in the Azure Portal and is only available through Powershell and CLI. There is no support for use with containers. 
+
 ## Next hop types across Azure tools
 
 The name displayed and referenced for next hop types is different between the Azure portal and command-line tools, and the Azure Resource Manager and classic deployment models. The following table lists the names used to refer to each next hop type with the different tools and [deployment models](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json):
@@ -105,6 +135,8 @@ The name displayed and referenced for next hop types is different between the Az
 |None                            |None                                            |Null (not available in the classic CLI in asm mode)|
 |Virtual network peering         |VNet peering                                    |Not applicable|
 |Virtual network service endpoint|VirtualNetworkServiceEndpoint                   |Not applicable|
+
+
 
 ### Border gateway protocol
 
