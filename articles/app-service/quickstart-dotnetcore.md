@@ -343,15 +343,31 @@ Follow these steps to create your App Service and publish your web app:
 
 ::: zone pivot="development-environment-vscode"
 
-With Visual Studio Code, the .NET CLI, and the Azure Tools extension you can build and publish your web app to a local folder, and then deploy that folder to App Service.
-
-
-
 To deploy your web app using the Visual Studio Azure Tools extension:
 
 1. Open the [**Command Palette**](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette), <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>.
-1. Type "Azure App Service: Deploy to Web App", and select the resulting search item.
-1. 
+1. Search for and select "Azure App Service: Deploy to Web App".
+1. Respond to the prompts as follows:
+
+    - Select *MyFirstAzureWebApp* as the folder to deploy.
+    - Select **Add Config** when prompted.
+    - If prompted, sign in to you existing Azure account or create a new one.
+
+    :::image type="content" source="media/quickstart-dotnet/vscode-sign-in-to-azure.png" alt-text="Visual Studio Code - Sign in to Azure" border="true":::
+
+    - Select your **Subscription** account.
+    - Select **Create new Web App...**. Don't select the "Advanced" option.
+    - For **Enter a globally unique name**, use a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). A good pattern is to use a combination of your company name and an app identifier.
+    - Select **Create new resource group** and provide a name like `myResourceGroup`.
+    - When prompted to **Select a runtime stack**:
+      - For *.NET Core 3.1*, select **.NET Core 3.1 (LTS)**
+      - For *.NET 5.0*, select **.NET 5**
+      - For *.NET Framework 4.8*, select **ASP.NET V4.8**
+    - Select an operating system (Windows or Linux).
+        - For *.NET Framework 4.8*, Windows will be selected implicitly.
+    - Select **Create a new App Service plan**, provide a name and select the **F1 Free** pricing tier.
+    - Select **Skip for now** for the Application Insights resource.
+    - Select a location near you.
 
 ::: zone-end
 
