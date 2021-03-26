@@ -47,7 +47,7 @@ The following table summarizes native DRM support on different platforms and EME
 | **Windows 10** | PlayReady | Microsoft Edge/IE11 for PlayReady|
 | **Android devices (phone, tablet, TV)** |Widevine |Chrome for Widevine |
 | **iOS** | FairPlay | Safari for FairPlay (since iOS 11.2) |
-| **macOS** | FairPlay | Safari for FairPlay (since Safari 9+ on Mac OS X 10.11+ El Capitan)|
+| **macOS** | FairPlay | Safari for FairPlay (since Safari 9+ on macOS X 10.11+ El Capitan)|
 | **tvOS** | FairPlay | |
 
 Considering the current state of deployment for each DRM, a service typically wants to implement two or three DRMs to make sure you address all the types of endpoints in the best way.
