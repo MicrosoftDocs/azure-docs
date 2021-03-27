@@ -872,7 +872,7 @@ groups:
   prompt: Choose a programming language
   pivots:
   - id: platform-azp
-    title: Azure Portal
+    title: Azure portal
   - id: platform-azcli
     title: Azure CLI
   - id: platform-net
