@@ -12,9 +12,9 @@ ms.service: iot-hub-device-update
 
 Device Update for IoT Hub supports two forms of updates – image-based and package-based.
 
-Package-based updates are targeted updates that alter only a specific component or application on the device. This leads to lower consumption of bandwidth and helps reduce the time to download and install the update. Package updates typically allow for less downtime of devices when applying an update and avoid the overhead of creating images.
+Package-based updates are targeted updates that alter only a specific component or application on the device. Package-based updates lead to lower consumption of bandwidth and helps reduce the time to download and install the update. Package updates typically allow for less downtime of devices when applying an update and avoid the overhead of creating images.
 
-This tutorial walks you through the steps to complete an end-to-end package-based update through Device Update for IoT Hub. For this tutorial we use an Ubuntu Server 18.04 x64 running Azure IoT Edge and the Device Update package agent. The tutorial demonstrates updating a sample package, but using similar steps you could update other packages such as Azure IoT Edge or the container engine it uses.
+This tutorial walks you through the steps to complete an end-to-end package-based update through Device Update for IoT Hub. For this tutorial, we use an Ubuntu Server 18.04 x64 running Azure IoT Edge and the Device Update package agent. The tutorial demonstrates updating a sample package, but using similar steps you could update other packages such as Azure IoT Edge or the container engine it uses.
 
 The tools and concepts in this tutorial still apply even if you plan to use a different OS platform configuration. Complete this introduction to an end-to-end update process, then choose your preferred form of updating and OS platform to dive into the details.
 
@@ -35,7 +35,7 @@ In this tutorial you will learn how to:
 ## Prepare a device
 ### Using the Automated Deploy to Azure Button
 
-For convenience, this tutorial uses a [cloud-init](../virtual-machines/linux/using-cloud-init.md)-based [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) to help you quickly set up an Ubuntu 18.04 LTS virtual machine. It installs both the Azure IoT Edge runtime and the Device Update package agent and then automatically configures the device with provisioning information using the device connection string for an IoT Edge device (prerequisite) that you supply. This avoids the need to start an SSH session to complete setup.
+For convenience, this tutorial uses a [cloud-init](../virtual-machines/linux/using-cloud-init.md)-based [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) to help you quickly set up an Ubuntu 18.04 LTS virtual machine. It installs both the Azure IoT Edge runtime and the Device Update package agent and then automatically configures the device with provisioning information using the device connection string for an IoT Edge device (prerequisite) that you supply. The Azure Resource Manager template also avoids the need to start an SSH session to complete setup.
 
 1. To begin, click the button below:
 
@@ -70,7 +70,7 @@ For convenience, this tutorial uses a [cloud-init](../virtual-machines/linux/usi
 
 1. Verify that the deployment has completed successfully. Allow a few minutes after deployment completes for the post-installation and configuration to finish installing IoT Edge and the Device Package update agent.
 
-   A virtual machine resource should have been deployed into the selected resource group.  Take note of the machine name, this should be in the format `vm-0000000000000`. Also, take note of the associated **DNS Name**, which should be in the format `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
+   A virtual machine resource should have been deployed into the selected resource group.  Take note of the machine name that should be in the format `vm-0000000000000`. Also, take note of the associated **DNS Name**, which should be in the format `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
 
     The **DNS Name** can be obtained from the **Overview** section of the newly deployed virtual machine within the Azure portal.
 
@@ -82,7 +82,7 @@ For convenience, this tutorial uses a [cloud-init](../virtual-machines/linux/usi
     `ssh <adminUsername>@<DNS_Name>`
 
 ### (Optional) Manually prepare a device
-The following manual steps to install and configure the device are equivalent to those that were automated by this [cloud-init script](https://github.com/Azure/iotedge-vm-deploy/blob/1.2.0-rc4/cloud-init.txt). They can be used to prepare a physical device.
+Similar to the steps automated by the [cloud-init script](https://github.com/Azure/iotedge-vm-deploy/blob/1.2.0-rc4/cloud-init.txt), following are manual steps to install and configure the device. These steps can be used to prepare a physical device.
 
 1. Follow the instructions to [Install the Azure IoT Edge runtime](../iot-edge/how-to-install-iot-edge.md?view=iotedge-2020-11&preserve-view=true).
    > [!NOTE]
@@ -106,7 +106,7 @@ Read the license terms prior to using a package. Your installation and use of a 
 
 1. Log into [Azure portal](https://portal.azure.com) and navigate to the IoT Hub.
 
-2. From 'IoT Edge' on the left navigation pane find your IoT Edge device and navigate to the Device Twin or Module Twin.
+2. From 'IoT Edge' on the left navigation pane, find your IoT Edge device and navigate to the Device Twin or Module Twin.
 
 3. In the Module Twin of the Device Update agent module, delete any existing Device Update tag value by setting them to null. If you are using Device identity with Device Update agent make these changes on the Device Twin.
 
@@ -135,7 +135,7 @@ Read the license terms prior to using a package. Your installation and use of a 
 5. Select the folder icon or text box under "Select an Import Manifest File". You will see a file picker dialog. Select the `sample-package-update-1.0.1-importManifest.json` import manifest from the folder you downloaded previously. Next, select the folder icon or text box under "Select one or more update files". You will see a file picker dialog. Select the `sample-1.0.1-libcurl4-doc-apt-manifest.json` apt manifest update file from the folder you downloaded previously.
 This update will install the latest available version of `libcurl4-doc package` to your device.
 
-   Alternatively, you can select the `sample-package-update-2-2.0.1-importManifest.json` import manifest file and `sample-2.0.1-libcurl4-doc-7.58-apt-manifest.json` apt manifest update file from the folder you downloaded previously. This will install specific version v7.58.0 of the `libcurl4-doc package` to your device.
+   Alternatively, you can select the `sample-package-update-2-2.0.1-importManifest.json` import manifest file and `sample-2.0.1-libcurl4-doc-7.58-apt-manifest.json` apt manifest update file from the folder you downloaded previously. It will install specific version v7.58.0 of the `libcurl4-doc package` to your device.
 
    :::image type="content" source="media/import-update/select-update-files.png" alt-text="Screenshot showing update file selection." lightbox="media/import-update/select-update-files.png":::
 
@@ -147,7 +147,7 @@ This update will install the latest available version of `libcurl4-doc package` 
 
 8. Select "Submit" to start the import process.
 
-9. The import process begins, and the screen changes to the "Import History" section. Select "Refresh" to view progress until the import process completes. Depending on the size of the update, this may complete in a few minutes but could take longer.
+9. The import process begins, and the screen changes to the "Import History" section. Select "Refresh" to view progress until the import process completes. Depending on the size of the update, the import process may complete in a few minutes but could take longer.
 
    :::image type="content" source="media/import-update/update-publishing-sequence-2.png" alt-text="Screenshot showing update import sequence." lightbox="media/import-update/update-publishing-sequence-2.png":::
 
@@ -216,7 +216,7 @@ You have now completed a successful end-to-end package update using Device Updat
 
 ## Clean up resources
 
-When no longer needed, clean up your device update account, instance, IoT Hub and the IoT Edge device (if you created the VM via the Deploy to Azure button). You can do so, by going to each individual resource and selecting "Delete". Note that you need to clean up a device update instance before cleaning up the device update account.
+When no longer needed, clean up your device update account, instance, IoT Hub, and the IoT Edge device (if you created the VM via the Deploy to Azure button). You can do so, by going to each individual resource and selecting "Delete". You need to clean up a device update instance before cleaning up the device update account.
 
 ## Next steps
 
