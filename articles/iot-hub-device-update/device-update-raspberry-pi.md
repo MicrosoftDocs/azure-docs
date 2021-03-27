@@ -85,7 +85,7 @@ Read the license terms prior to using the agent. Your installation and use const
 Now, the device needs to be added to the Azure IoT Hub.  From within Azure
 IoT Hub, a connection string will be generated for the device.
 
-1. From the Azure portal, launch the Device Update IoT Hub.
+1. From the Azure portal, launch the Azure IoT Hub.
 2. Create a new device.
 3. On the left-hand side of the page, navigate to 'Explorers' > 'IoT Devices' >
    Select "New".
@@ -110,9 +110,9 @@ IoT Hub, a connection string will be generated for the device.
  
 Replace `<device connection string>` with your connection string
  ```markdown
-	echo "connection_string=<device connection string>" > adu-conf.txt  
-	echo "aduc_manufacturer=ADUTeam" >> adu-conf.txt
-	echo "aduc_model=RefDevice" >> adu-conf.txt
+	echo "connection_string=<device connection string>" > /adu/adu-conf.txt  
+	echo "aduc_manufacturer=ADUTeam" >> /adu/adu-conf.txt
+	echo "aduc_model=RefDevice" >> /adu/adu-conf.txt
    ```
 
 ## Connect the device in Device Update IoT Hub
