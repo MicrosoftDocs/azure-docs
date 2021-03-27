@@ -38,9 +38,9 @@
   items:
   - name: Industrial IoT
     items:
-    - name: OPC Twin Architecture
+    - name: OPC Twin architecture
       href: overview-opc-twin-architecture.md
-    - name: OPC Vault Architecture
+    - name: OPC Vault architecture
       href: overview-opc-vault-architecture.md
 - name: How-to guides
   items:
@@ -134,6 +134,10 @@
     - name: Download
       href: /azure/architecture/reference-architectures/iot
   - name: FAQ
-    href: iot-accelerators-faq.md
+    items:
+    - name: Solution Accelerators FAQ
+      href: iot-accelerators-faq.md
+    - name: Connected Factory FAQ
+      href: iot-accelerators-faq-cf.md 
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite
