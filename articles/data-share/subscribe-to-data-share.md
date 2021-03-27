@@ -155,7 +155,7 @@ Follow the steps below to configure where you want to receive data.
 
    ![Map to target](./media/dataset-map-target.png "Map to target") 
 
-1. Select a target data store type that you'd like the data to land in. Any data files or tables in the target data store with the same path and name will be overwritten. If you are receiving data into Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW), check the checkbox "Allow Data Share to run the above 'create user' script on my behalf.
+1. Select a target data store type that you'd like the data to land in. Any data files or tables in the target data store with the same path and name will be overwritten. If you are receiving data into Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW), check the checkbox **Allow Data Share to run the above 'create user' script on my behalf**.
 
    For in-place sharing, select a data store in the Location specified. The Location is the Azure data center where data provider's source data store is located at. Once dataset is mapped, you can follow the link in the Target Path to access the data.
 
