@@ -130,30 +130,28 @@ If you choose to use the standard contract, you have the option to add universal
 > [!NOTE]
 > After you publish an offer using the standard contract for the commercial marketplace, you cannot use your own custom terms and conditions. It is an "or" scenario. You either offer your solution under the standard contract or your own terms and conditions. If you want to modify the terms of the standard contract you can do so through Standard Contract Amendments.
 
-## Microsoft 365 App integration 
 
-Integration with the Microsoft 365 platform allows your SaaS offer to provide connected experience across multiple [Microsoft 365 App](https://developer.microsoft.com/en-us/microsoft-365/blogs/building-microsoft-365-apps-connected-experiences-across-devices/) surfaces through related free consumptions clients like Office add-ins, Teams apps, and SharePoint solutions. You can help your customers easily discover all facets of an application: web service + related consumption clients; and deploy them within one process by providing the following information.  
+## Microsoft 365 integration
 
-- If your SaaS offer integrates with Microsoft Graph API and the Azure Active Directory (AAD) App ID used by your SaaS offer for the integration. Administrators will use this AAD App ID to review access permissions required for the functionalities of your SaaS offer and grant access if advanced admin permission is needed.  
+Integration with Microsoft 365 allows your SaaS offer to provide connected experience across multiple Microsoft 365 App surfaces through related free add-ins like Teams apps, Office add-ins, and SharePoint Framework solutions. You can help your customers easily discover all facets of your E2E solution (web service + related add-ins) and deploy them within one process by providing the following information. 
 
- 
+    •	If your SaaS offer integrates with Microsoft Graph, then provide the Azure Active Directory (AAD) App ID used by your SaaS offer for the integration. Administrators can review access permissions required for the proper functioning of your SaaS offer as set on the AAD App ID and grant access if advanced admin permission is needed at deployment time. 
+    
+    If you choose to sell your offer through Microsoft, then this is the same AAD App ID that you have registered to use on your landing page to get basic user information needed to complete customer subscription activation. For detailed guidance, see [Build the landing page for your transactable SaaS offer in the commercial marketplace](azure-ad-transactable-saas-landing-page.md). 
+	
+    •	Provide a list of related add-ins that work with your SaaS offer you want to link. Customers will be able to discover your E2E solution on AppSource and administrators can deploy both the SaaS and all the related add-ins you have linked in the same process via Microsoft 365 admin center.
+    
+    To link related add-ins, you need to provide the AppSource link of the add-in, this means the add-in must be first published to AppSource. Supported add-in types you can link are: Teams apps, Office add-ins, and SharePoint Framework (SPFx) solutions. Each linked add-in must be unique for a SaaS offer. 
 
-    - If you choose to sell your offer through Microsoft, then this is the same AAD ID that you have registered to use on your landing page to get basic user information to complete customer subscription activation. For detailed guidance, see [Build the landing page for your transactable SaaS offer in the commercial marketplace](azure-ad-transactable-saas-landing-page.md).  
+For linked products, search on AppSource will return with one result that includes both SaaS and all linked add-ins. Customer can navigate between the product detail pages of the SaaS offer and linked add-ins. 
+IT admins can review and deploy both the SaaS and linked add-ins within the same process through an integrated and connected experience within the Microsoft 365 admin center. To learn more, see [Test and deploy Microsoft 365 Apps - Microsoft 365 admin](/microsoft-365/admin/manage/test-and-deploy-microsoft-365-apps).
 
- - Related Microsoft 365 App consumption clients that work with your SaaS offer. Customers will be able to discover and deploy all the related consumption clients you have linked as a single solution.
-     - To link related consumption clients, you need to provide the AppSource link of the product, so the product must be first published to AppSource.  Supported product types are: Office add-in, Teams apps, and SharePoint Framework (SPFx) solution. Each linked product must be unique for a SaaS offer.  
+### Microsoft 365 integration support limitations
+Discovery as a single E2E solution is supported on AppSource for all cases, however, simplified deployment of the E2E solution as described above via the Microsoft 365 admin center is not supported for the following scenarios:
 
-For linked products, search on AppSource will show single icon for both SaaS and all linked consumption clients. The customer can navigate between the product detail pages of the SaaS offer and the related consumption clients.  
-
-Microsoft 365 Admin users can review and deploy both the SaaS and linked consumption clients within the same process through an integrated and connected experience within the Microsoft 365 admin center. To learn more, see [Test and deploy Microsoft 365 Apps - Microsoft 365 admin](/microsoft-365/admin/manage/test-and-deploy-microsoft-365-apps?view=o365-worldwide&preserve-view=true). 
-
-Following scenarios are not supported by the unified delivery described above through the Microsoft 365 admin center, however, AppSource discovery as a single solution is supported for all cases: 
-
-- The same consumption client is linked to more than one SaaS offer. 
-
-- The SaaS offer is linked to consumption clients, but it does not integrate with Microsoft Graph API and no AAD App ID is provided. 
-
-- The SaaS offer is linked to consumption clients, but AAD App ID provided for Microsoft Graph API integration is shared by multiple SaaS offers. 
+    •	The same add-in is linked to more than one SaaS offer.
+    •	The SaaS offer is linked to add-ins, but it does not integrate with Microsoft Graph and no AAD App ID is provided.
+    •	The SaaS offer is linked to add-ins, but AAD App ID provided for Microsoft Graph integration is shared across multiple SaaS offers.
 
  
 ## Offer listing details
