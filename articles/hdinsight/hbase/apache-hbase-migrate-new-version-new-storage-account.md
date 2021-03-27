@@ -7,7 +7,7 @@ ms.custom: hdinsightactive
 ms.date: 03/22/2021
 ---
 
-# Migrate Apache HBase to a new version and Storage account
+# Migrate Apache HBase to a new version and storage account
 
 This article discusses how to update your Apache HBase cluster on Azure HDInsight to a newer version with a different Azure Storage account.
 
@@ -78,7 +78,7 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
    
 1. Flush the source HBase cluster you're upgrading.
    
-   HBase writes incoming data to an in-memory store called a *memstore*. After the memstore reaches a certain size, HBase flushes it to disk for long-term storage in the cluster's storage account. Deleting the source cluster after upgrading also deletes any data in the memstores. To retain the data, manually flush each table's memstore to disk before upgrading, by running this [script to flush all HBase tables](https://raw.githubusercontent.com/Azure/hbase-utils/master/scripts/flush_all_tables.sh):
+   HBase writes incoming data to an in-memory store called a *memstore*. After the memstore reaches a certain size, HBase flushes it to disk for long-term storage in the cluster's storage account. Deleting the source cluster after upgrading also deletes any data in the memstores. To retain the data, manually flush each table's memstore to disk before upgrading, by running the following `flush_all_tables` script from Azure's [hbase-utils GitHub repository](https://github.com/Azure/hbase-utils/):
    
    :::code language="bash" source="~/hbase-utils/scripts/flush_all_tables.sh":::
    
