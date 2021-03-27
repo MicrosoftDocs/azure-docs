@@ -11,7 +11,7 @@ The VM size determines the amount of compute resources (like CPU, GPU, and memor
 The following VMs are supported for creation on your Azure Stack Edge device.
 
 ### Dv2-series
-|Size     |vCPU     |Memory (GiB) | Resource disk size (GiB)   | Max data disks | Max NICs |
+|Size     |vCPU     |Memory (GiB) | Temp storage (GiB)   | Max data disks | Max NICs |
 |-------------------|----|----|-----|----|------|
 |**Standard_D1_v2** |1   |3.5 |50   | 4    |2 |
 |**Standard_D2_v2** |2   |7   |100  | 8    |4 |
@@ -23,7 +23,7 @@ The following VMs are supported for creation on your Azure Stack Edge device.
 |**Standard_D13_v2** |8   |56  |400  | 32  |8 |
 
 ### DSv2-series
-|Size     |vCPU     |Memory (GiB) |  Resource disk size (GiB)  | Max data disks| 
+|Size     |vCPU     |Memory (GiB) | Temp storage (GiB)  | Max data disks| 
 |--------------------|----|----|----|-----|
 |**Standard_DS1_v2** |1   |3.5 |4000  |4  | 
 |**Standard_DS2_v2** |2   |7   |8000  |8  | 
@@ -41,7 +41,7 @@ For more information, see [Dv2 and DSv2-series](../articles/virtual-machines/dv2
 
 These sizes are supported for GPU VMs on your device and are optimized for compute-intensive GPU-accelerated applications. This series is focused on inference workloads featuring Nvidia's Tesla T4 GPU. 
 
-|Size     |vCPU     |Memory (GiB) | Resource disk size (GiB)  | GPU | GPU memory (GiB) | Max NICs |
+|Size     |vCPU     |Memory (GiB) | Temp storage (GiB)  | GPU | GPU memory (GiB) | Max NICs |
 |---------------------|----|----|-----|-----|-------|--------------|
 |**Standard_NC4as_T4_v3** |4   |28  |180   |1 |16   |4 |
 |**Standard_NC8as_T4_v3** |8   |56  |360   |1 |16  |8 |
@@ -52,7 +52,7 @@ For more information, see [NCasT4_v3-series](../articles/virtual-machines/nct4-v
 
 These series are optimized for computational workloads and run on Intel Xeon processors. 
 
-| Size | vCPU's | Memory: GiB |Resource disk size (GiB) |  Max data disks | Max NICs |
+| Size | vCPU's | Memory: GiB | Temp storage (GiB) |  Max data disks | Max NICs |
 |---|---|---|---|---|---|
 | Standard_F1  | 1  | 2   |16      | 4  |  2 |
 | Standard_F2 | 2  | 4 |32      | 8  |  4 |
