@@ -191,7 +191,7 @@ For cases when passwords aren't avoidable, make sure they're secured.
 
 - If avoiding passwords or secrets aren't possible, store user passwords and application secrets in Azure Key Vault and manage access through Key Vault access policies.
 
-- Various app development frameworks may also offer framework-specific mechanisms for protecting secrets in the app. For example: [ASP.NET core app](/aspnet/core/security/app-secrets?tabs=windows&view=aspnetcore-2.1).
+- Various app development frameworks may also offer framework-specific mechanisms for protecting secrets in the app. For example: [ASP.NET core app](/aspnet/core/security/app-secrets?tabs=windows).
 
 ### Use SQL authentication for legacy applications
 
