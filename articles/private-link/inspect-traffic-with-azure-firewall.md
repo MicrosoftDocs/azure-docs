@@ -559,7 +559,7 @@ In this section, you'll connect privately to the SQL Database using the private 
     Address: 10.2.0.4
     ```
 
-2. Install [SQL Server command-line tools](/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-ver15#tools).
+2. Install [SQL Server command-line tools](/sql/linux/quickstart-install-connect-ubuntu#tools).
 
 3. Run the following command to connect to the SQL Server. Use the server admin and password you defined when you created the SQL Server in the previous steps.
 
