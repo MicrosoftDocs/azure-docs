@@ -5,7 +5,7 @@ author: linda33wj
 ms.service: data-factory
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/16/2021
+ms.date: 03/27/2021
 ms.author: jingwang
 ---
 # Quickstart: Create a data factory and pipeline using .NET SDK
