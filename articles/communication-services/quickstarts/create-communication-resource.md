@@ -49,7 +49,7 @@ After navigating to your Communication Services resource, select **Keys** from t
 
 You can also access key information using Azure CLI, like your resource group or the keys for a specific resource. 
 
-Install [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?tabs=azure-cli) and use the following command to login. You will need to provide your credentials to connect with your azure account.
+Install [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?tabs=azure-cli) and use the following command to login. You will need to provide your credentials to connect with your Azure account.
 ```azurecli
 az login
 ```
