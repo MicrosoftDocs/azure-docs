@@ -42,7 +42,7 @@ Most platform updates don't affect customer VMs. When a no-impact update isn't p
 
 Memory-preserving maintenance works for more than 90 percent of Azure VMs. It doesn't work for G, M, N, and H series. Azure increasingly uses live-migration technologies and improves memory-preserving maintenance mechanisms to reduce the pause durations. When the VM is live-migrated to a different host, some sensitive workloads like SQL Server, might show a slight performance degradation in the few minutes leading up to the VM pause.
 
-If there is resource bottleneck   (See section [‘Resource limits’](#resource-Limits) below, the node or the AG/FCI might appear to be down by the cluster service.
+If there is resource bottleneck   (See section [‘Resource limits’](#resource-limits) below, the node or the AG/FCI might appear to be down by the cluster service.
 
 ## Monitoring
 
