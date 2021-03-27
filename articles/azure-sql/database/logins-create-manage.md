@@ -116,7 +116,7 @@ You can create accounts for non-administrative users using one of two methods:
 
 For examples showing how to create logins and users, see:
 
-- [Create login for Azure SQL Database](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current#examples-1)
+- [Create login for Azure SQL Database](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1)
 - [Create login for Azure SQL Managed Instance](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true#examples-2)
 - [Create login for Azure Synapse](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest#examples-3)
 - [Create user](/sql/t-sql/statements/create-user-transact-sql#examples)
