@@ -25,7 +25,6 @@ This article provides cluster configuration best practices for both [failover cl
 
 ## Overview
 
-
 ## VM availability settings
 
 To reduce the impact of downtime, we recommend the following high availability best practices for your virtual machines that are part SQL HA:
@@ -34,7 +33,6 @@ To reduce the impact of downtime, we recommend the following high availability b
 * Configure multiple virtual machines in an availability set for redundancy
 * Use premium-managed OS and data disks for VMs in an availability set
 * Configure each application tier into separate availability sets
-
 
 ## Quorum
 
@@ -110,7 +108,7 @@ For example, setting *CrossSubnetDelay* to send a heartbeat every 2 seconds and 
 To ensure legitimate outages we recommended that you relax the delay and thresholds as per below, when running SQL Server HA with Windows Cluster on Azure VM:
 
 | Parameter | Recommended values for SQL Always on HA on Azure VM  |  |
-|-|-|---|
+|-|---|---|
 |  | Windows Sever 2012 or later | Windows Server 2008/R2 |
 | SameSubnetDelay | 1 second | 2 second |
 | SameSubnetThreshold | 40 heartbeats | 10 heartbeats |
@@ -118,26 +116,23 @@ To ensure legitimate outages we recommended that you relax the delay and thresho
 | CrossSubnetThreshold | 40 heartbeats | 20 heartbeats |
 
 Maximum values for Windows Server 2008 R2 are as follows:
-SameSubnetThreshold = 10
-CrossSubnetThreshold = 20
+* SameSubnetThreshold = 10
+* CrossSubnetThreshold = 20
 
-**Note 2**
 Same subnet values should not be greater than cross subnet values. 
-SameSubnetThreshold <= CrossSubnetThreshold
-SameSubnetDelay <= CrossSubnetDelay
+* SameSubnetThreshold <= CrossSubnetThreshold
+* SameSubnetDelay <= CrossSubnetDelay
 
-Please note that relaxed vales that you choose, should be based on how much down time is tolerable and how long will it take to corrective actions, depending on your application, your business needs and the environment.  We recommend that you adjust the thresholds to at least match Windows Server 2019 heartbeat default settings, in case if you cannot exceed it.  
-
+Relaxed values that you choose, should be based on how much down time is tolerable and how long will it take to corrective actions, depending on your application, your business needs and the environment.  We recommend that you adjust the thresholds to at least match Windows Server 2019 heartbeat default settings, in case if you cannot exceed it.  
 
 For details on this, see [IaaS with SQL AlwaysOn - Tuning Failover Cluster Network Thresholds](/windows-server/troubleshoot/iaas-sql-failover-cluster).
 
 ## Relaxed monitoring
 
 Relaxed monitoring of *SQL AlwaysOn AG/FCI* 
-If above actions do not result in improved performance such in the scenario where you are unable to move to a VM or disks with higher limit due to financial or other constraints, you can opt for relaxed monitoring of the *SQL Always On AG/FCI*. Please note that this will mask the underlying problem only and these are only temporary solution and reduces (not eliminates) the likelihood of a failure. You might need to do trial and error to find the optimum values for your environment.
+If above actions do not result in improved performance such in the scenario where you are unable to move to a VM or disks with higher limit due to financial or other constraints, you can opt for relaxed monitoring of the *SQL Always On AG/FCI*. This will mask the underlying problem only and these are only temporary solution and reduces (not eliminates) the likelihood of a failure. You might need to do trial and error to find the optimum values for your environment.
 
 Here are Always on AG/FCI parameters that can modified to achieve relaxed monitoring:  
-
 
 |    AG/FCI Parameters                           |
 |------------------------------------------------|
@@ -150,7 +145,7 @@ Here are Always on AG/FCI parameters that can modified to achieve relaxed monito
 | **Failure-Condition Level**                    |
 | Conditions that trigger an automatic failover. |
 
-Additionally, if you are concerned about primary and secondary replica connectivity timeout, you can review following parameter:
+If you are concerned about primary and secondary replica connectivity timeout, you can review following parameter:
 
 | Session timeout
 ----------------------------------| 
@@ -161,7 +156,7 @@ Additionally, if you are concerned about primary and secondary replica connectiv
 Few things to consider before making any changes.
 
 | Constraints |
-|:-:|
+|:-|
 | It is not advised to lower any timeout values below their default values. |
 | SameSubnetThreshold <= CrossSubnetThreshold |
 | SameSubnetDelay <= CrossSubnetDelay |
