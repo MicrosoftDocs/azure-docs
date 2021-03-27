@@ -28,14 +28,14 @@ The following actions are available to use in Azure Front Door rule set.
 Use the **cache expiration** action to overwrite the time to live (TTL) value of the endpoint for requests that the rules match conditions specify.
 
 > [!NOTE]
-> TODO note that won't be able to cache content that is explicitly specified as not cacheable
+> Origins may specify not to cache specific responses using the `Cache-Control` header with a value of `no-cache`, `private`, or `no-store`. In these circumstances, Front Door will never cache the content and this action will be ignored.
 
 ### Properties
 
 | Property | Supported values |
 |-------|------------------|
-| Cache behavior | <ul><li>**Bypass cache:** The content should not be cached. In ARM templates, use the `cacheBehavior` value of `TODO`.</li><li>**Override:** The TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. For cache-control response header with values "no-cache", "private", "no-store", the action won't be applicable. In ARM templates, use the `cacheBehavior` value of `TODO`.</li><li>**Set if missing:** If no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. For cache-control response header with values "no-cache", "private", "no-store", the action won't be applicable. In ARM templates, use the `cacheBehavior` value of `SetIfMissing`.</li></ul> |
-| Cache duration | When _Cache behavior_ is set to `Override` or `Set if missing`, these fields must specify the cache duration to use. <ul><li>In the Azure portal: specify the days, hours, minutes, and seconds.</li><li>In ARM templates: specify the duration in the format `d.hh:mm:ss`. |
+| Cache behavior | <ul><li>**Bypass cache:** The content should not be cached. In ARM templates, set the `cacheBehavior` property to `BypassCache`.</li><li>**Override:** The TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. In ARM templates, set the `cacheBehavior` property to `Override`.</li><li>**Set if missing:** If no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. In ARM templates, set the `cacheBehavior` property to `SetIfMissing`.</li></ul> |
+| Cache duration | When _Cache behavior_ is set to `Override` or `Set if missing`, these fields must specify the cache duration to use. The maximum duration is 366 days.<ul><li>In the Azure portal: specify the days, hours, minutes, and seconds.</li><li>In ARM templates: specify the duration in the format `d.hh:mm:ss`. |
 
 ### Example
 
@@ -77,32 +77,64 @@ In this example, we override the cache expiration to 6 hours, for matched reques
 
 ## Cache key query string
 
-Use this action to modify the cache key based on query strings.
+Use the **cache key query string** action to modify the cache key based on query strings. The cache key is the way that Front Door identifies unique requests to cache.
 
-### Required fields
+### Properties
 
-The following description applies when selecting these behaviors and the rule matches:
+| Property | Supported values |
+|-------|------------------|
+| Behavior | <ul><li>**Include:** Query strings specified in the parameters get included when the cache key gets generated. In ARM templates, set the `queryStringBehavior` property to `Include`.</li><li>**Cache every unique URL:** Each unique URL has its own cache key. In ARM templates, use the `queryStringBehavior` of `IncludeAll`.</li><li>**Exclude:** Query strings specified in the parameters get excluded when the cache key gets generated. In ARM templates, set the `queryStringBehavior` property to `Exclude`.</li><li>**Ignore query strings:** Query strings aren't considered when the cache key gets generated. In ARM templates, set the `queryStringBehavior` property to `ExcludeAll`.</li></ul>  |
+| Parameters | The list of query string parameter names, separated by commas. |
 
-Behavior | Description
----------|------------
-Include | Query strings specified in the parameters get included when the cache key gets generated. 
-Cache every unique URL | Each unique URL has its own cache key. 
-Exclude | Query strings specified in the parameters get excluded when the cache key gets generated.
-Ignore query strings | Query strings aren't considered when the cache key gets generated. 
+### Example
+
+In this example, we modify the cache key to include a query string parameter named `customerId`.
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="../media/concept-rule-set-actions/cache-key-query-string.png" alt-text="Portal screenshot showing cache key query string action.":::
+
+# [JSON](#tab/json)
+
+```json
+{
+  "name": "CacheKeyQueryString",
+  "parameters": {
+    "queryStringBehavior": "Include",
+    "queryParameters": "customerId",
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleCacheKeyQueryStringBehaviorActionParameters"
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'CacheKeyQueryString'
+  parameters: {
+    queryStringBehavior: 'Include'
+    queryParameters: 'customerId'
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleCacheKeyQueryStringBehaviorActionParameters'
+  }
+}
+```
+
+---
 
 ## Modify request header
 
-Use this action to modify headers that are present in requests sent to your origin.
+Use the **modify request header** action to modify the headers in the request when it is sent to your origin.
 
-### Required fields
+### Properties
 
-The following description applies when selecting these actions and the rule matches:
+| Property | Supported values |
+|-------|------------------|
+| Operator | <ul><li>**Append:** The specified header gets added to the request with the specified value. If the header is already present, the value is appended to the existing value.</li><li>**Overwrite:** The specified header gets added to the request with the specified value. If the header is already present, the specified value overwrites the existing value.</li><li>**Delete:** If the header specified in the rule is present, the header gets deleted from the request.</li></ul> |
+| Header name | The name of the header to modify. |
+| Header value | The value to append or overwrite. |
 
-Action | HTTP header name | Value
--------|------------------|------
-Append | The header specified in **Header name** gets added to the request with the specified value. If the header is already present, the value is appended to the existing value. | String
-Overwrite | The header specified in **Header name** gets added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. | String
-Delete | If the header specified in the rule is present, the header gets deleted from the request. | String
+<!--TODO how does the append work - just straight string concatenation?-->
 
 ## Modify response header
 
