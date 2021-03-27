@@ -9,7 +9,7 @@ ms.service: iot-hub-device-update
 ---
 
 # Device Update Agent Provisioning
-This section describes how to provision the Device Update agent as a module identity to run alongside other system processes as well as [IoT Edge modules](https://docs.microsoft.com/azure/iot-edge/iot-edge-modules) that connect to your IoT Hub as part of the same logical device.
+The Device Update Module agent can run alongside other system processes as well as [IoT Edge modules](https://docs.microsoft.com/azure/iot-edge/iot-edge-modules) that connect to your IoT Hub as part of the same logical device. This section describes how to provision the Device Update agent as a module identity. 
 Module Identity vs Device Identity: In IoT Hub, under each device identity, you can create up to 50 module identities. Each module identity implicitly generates a module twin. On the device side, the IoT Hub device SDKs enable you to create modules where each one opens an independent connection to IoT Hub. Module identity and module twin provide the similar capabilities as device identity and device twin but at a finer granularity. [Learn more about Module Identities in IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins)
 
 Currently supported IoT device types with Device Update:
@@ -46,7 +46,7 @@ If you are setting up the IoT device/IoT Edge device to do [package based update
    ```
 
 ## How to provision the Device Update agent as a Module Identity
-This section describes how to provision the Device Update agent as a module identity to run alongside other system processes as well as IoT Edge modules that connect to your IoT Hub as part of the same logical device. 
+This section describes how to provision the Device Update agent as a module identity.
 
 ### 1. On IoT Edge enabled devices
 Follow these instructions to provision the Device Update agent on [IoT Edge enabled devices](https://docs.microsoft.com/azure/iot-edge).
@@ -63,12 +63,12 @@ Follow these instructions to provision the Device Update agent on your IoT Linux
    sudo apt-get install aziot-identity-service
    ```
 2.	Provisioning IoT Identity service to get the IoT device information.
-    * Create a custom copy of the configuration template so we can add the provisioning information. In a terminal enter the below command.
+    * Create a custom copy of the configuration template so we can add the provisioning information. In a terminal, enter the below command.
    ```shell
    sudo cp /etc/aziot/config.toml.template /etc/aziot/config.toml 
    ```
    
-3. Next edit the configuration file to include the connection string of the device you wish to act as the provisioner for this device or machine. In a terminal enter the below command.
+3. Next edit the configuration file to include the connection string of the device you wish to act as the provisioner for this device or machine. In a terminal, enter the below command.
    ```shell
    sudo nano /etc/aziot/config.toml
    ```
@@ -76,40 +76,40 @@ Follow these instructions to provision the Device Update agent on your IoT Linux
 4. You should be greeted with a view like below:
 :::image type="content" source="media/understand-device-update/config.png" alt-text="Diagram of IoT Identity Service config file." lightbox="media/understand-device-update/config.png"::: 
     * In the same nano window as above find the block with “Manual provisioning with connection string”.
-    * In the window delete the “#” symbol ahead of 'provisioning'
-    * In the window delete the “#” symbol ahead of 'source' 
-    * In the window delete the “#” symbol ahead of 'connection_string'
-    * In the window delete the string within the quotes to the right of 'connection_string' and then add your connection string there 
+    * In the window, delete the “#” symbol ahead of 'provisioning'
+    * In the window, delete the “#” symbol ahead of 'source' 
+    * In the window, delete the “#” symbol ahead of 'connection_string'
+    * In the window, delete the string within the quotes to the right of 'connection_string' and then add your connection string there 
     * Save your changes to the file with 'Ctrl+X' and then 'Y' and hit the 'enter' key to save your changes. 
-5.	Now apply and restart the IoT Identity service with the command below. You should now see a “Done!” printout which means you have successfully configured the IoT Identity Service. Note: The IoT Identity service registers    module identities with IoT Hub using symmetric keys currently.
+5.	Now apply and restart the IoT Identity service with the command below. You should now see a “Done!” printout that means you have successfully configured the IoT Identity Service. Note: The IoT Identity service registers    module identities with IoT Hub using symmetric keys currently.
    ```shell
    sudo aziotctl config apply
    ```
 6.	Finally install the Device Update agent from [Artifacts](https://github.com/Azure/iot-hub-device-update/releases) and you are now ready to start the Device Update agent on your IoT Edge device.
 
 ### 3. Other IoT devices
-The device Update agent can also be configured without the IoT Identity service by using the connection string (from the Module or Device Id) for specific scenarios using the Device Update Configuration File. To manually provision the Device Update agent for testing or on constrained devices using the connection string follow the below steps.
+The Device Update agent can also be configured without the IoT Identity service for testing or on constrained devices. Follow the below steps to provision the Device Update agent using a connection string (from the Module or Device).
 1.	Install Device Update agent from [Artifacts](https://github.com/Azure/iot-hub-device-update/releases).
 2.	Log onto the machine or IoT Edge device/IoT device.
 3.	Open a terminal window.
 4.	Add the connection string to the [Device Update configuration file](device-update-configuration-file.md):
-    * Enter the following into your terminal:
-       - When testing [Package updates](device-update-ubuntu-agent.md) use: sudo nano /etc/adu/adu-conf.txt
-       - When testing [Image updates](device-update-raspberry-pi.md) use: sudo nano /adu/adu-conf.txt
-    * You should see a window open with some text in it. If this is your first-time provisioning on this device delete the whole contents of the file. It is just place holder text.
-    * In the terminal replace <your-connection-string> with the connection string of the device for your instance of Device Update agent (NOTE DO NOT ADD QUOTES AROUND THE CONNECTION STRING)
+    * Enter the below in the terminal window:
+       - [Package updates](device-update-ubuntu-agent.md) use: sudo nano /etc/adu/adu-conf.txt
+       - [Image updates](device-update-raspberry-pi.md) use: sudo nano /adu/adu-conf.txt
+    * You should see a window open with some text in it. If this is your first-time provisioning on the IoT device, delete the whole contents of the file. It is just place holder text.
+    * In the terminal, replace <your-connection-string> with the connection string of the device for your instance of Device Update agent (NOTE DO NOT ADD QUOTES AROUND THE CONNECTION STRING)
        - connection_string=<your-connection-string>
     * Enter and save.
 5.	Now you are now ready to start the Device Update agent on your IoT Edge device. 
 
 ## How to start the Device Update Agent
 This section describes how to start and verify the Device Update agent as a module identity running successfully on your IoT device.
-1.	Log into the machine or device which has the Device Update agent installed.
+1.	Log into the machine or device that has the Device Update agent installed.
 2.	Open a Terminal window, and enter the command below.
    ```shell
    sudo systemctl restart adu-agent
    ```
-3.	You can check the status of the agent using the command below. If you see any issues, please refer to this [troubleshooting guide](troubleshoot-device-update.md).
+3.	You can check the status of the agent using the command below. If you see any issues, refer to this [troubleshooting guide](troubleshoot-device-update.md).
    ```shell
    sudo systemctl status adu-agent
    ```
