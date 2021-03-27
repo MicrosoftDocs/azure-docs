@@ -43,7 +43,7 @@ To create an encryption scope in the Azure portal, follow these steps:
 
 # [PowerShell](#tab/powershell)
 
-To create an encryption scope with PowerShell, install the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) PowerShell module, version 3.4.0 or later.
+To create an encryption scope with PowerShell, install the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) PowerShell module, version 3.2.0 or later.
 
 ### Create an encryption scope protected by Microsoft-managed keys
 
@@ -231,12 +231,11 @@ To create a container with a default encryption scope with PowerShell, call the 
 
 ```powershell
 $containerName1 = "container1"
-$containerName2 = "container2"
+$ctx = New-AzStorageContext -StorageAccountName $accountName -UseConnectedAccount
 
 # Create a container with a default encryption scope that cannot be overridden.
-New-AzStorageContainer -ResourceGroupName $rgName `
-    -StorageAccountName $accountName `
-    -Name $containerName1 `
+New-AzStorageContainer -Name $containerName1 `
+    -Context $ctx `
     -DefaultEncryptionScope $scopeName1 `
     -PreventEncryptionScopeOverride $true
 ```
@@ -267,7 +266,7 @@ When you upload a blob, you can specify an encryption scope for that blob, or us
 
 # [Portal](#tab/portal)
 
-To upload a blob with an encryption scope specified in the Azure portal, first create the encryption scope as described in [Create an encryption scope](#create-an-encryption-scope). Next, follow these steps to create the blob:
+To upload a blob with an encryption scope via the Azure portal, first create the encryption scope as described in [Create an encryption scope](#create-an-encryption-scope). Next, follow these steps to create the blob:
 
 1. Navigate to the container to which you want to upload the blob.
 1. Select the **Upload** button, and locate the blob to upload.
@@ -279,22 +278,28 @@ To upload a blob with an encryption scope specified in the Azure portal, first c
 
 # [PowerShell](#tab/powershell)
 
-To upload a blob with an encryption scope specified by using PowerShell, call the [Set-AzStorageBlobContent](/powershell/module/az.storage/set-azstorageblobcontent) command and provide the encryption scope for the blob.
+To upload a blob with an encryption scope via PowerShell, call the [Set-AzStorageBlobContent](/powershell/module/az.storage/set-azstorageblobcontent) command and provide the encryption scope for the blob.
 
 ```powershell
 $containerName2 = "container2"
 $localSrcFile = "C:\temp\helloworld.txt"
-$ctx = (Get-AzStorageAccount -ResourceGroupName $rgName -StorageAccountName $accountName).Context
+$ctx = New-AzStorageContext -StorageAccountName $accountName -UseConnectedAccount
 
 # Create a new container with no default scope defined.
 New-AzStorageContainer -Name $containerName2 -Context $ctx
+
 # Upload a block upload with an encryption scope specified.
-Set-AzStorageBlobContent -Context $ctx -Container $containerName2 -File $localSrcFile -Blob "helloworld.txt" -BlobType Block -EncryptionScope $scopeName2
+Set-AzStorageBlobContent -Context $ctx `
+    -Container $containerName2 `
+    -File $localSrcFile `
+    -Blob "helloworld.txt" `
+    -BlobType Block `
+    -EncryptionScope $scopeName2
 ```
 
 # [Azure CLI](#tab/cli)
 
-To upload a blob with an encryption scope specified by using Azure CLI, call the [az storage blob upload](/cli/azure/storage/blob#az-storage-blob-upload) command and provide the encryption scope for the blob.
+To upload a blob with an encryption scope via Azure CLI, call the [az storage blob upload](/cli/azure/storage/blob#az-storage-blob-upload) command and provide the encryption scope for the blob.
 
 If you are using Azure Cloud Shell, follow the steps described in [Upload a blob](storage-quickstart-blobs-cli.md#upload-a-blob) to create a file in the root directory. You can then upload this file to a blob using the following sample.
 
