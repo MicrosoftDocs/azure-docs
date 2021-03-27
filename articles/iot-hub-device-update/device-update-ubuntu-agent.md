@@ -106,9 +106,9 @@ Read the license terms prior to using a package. Your installation and use of a 
 
 1. Log into [Azure portal](https://portal.azure.com) and navigate to the IoT Hub.
 
-2. From 'IoT Edge' on the left navigation pane find your IoT Edge device and navigate to the Device Twin.
+2. From 'IoT Edge' on the left navigation pane find your IoT Edge device and navigate to the Device Twin or Module Twin.
 
-3. In the Device Twin, delete any existing Device Update tag value by setting them to null.
+3. In the Device Twin or Module Twin, delete any existing Device Update tag value by setting them to null.
 
 4. Add a new Device Update tag value as shown below.
 
