@@ -79,7 +79,7 @@ At this point, your server or managed instance is only configured for access usi
 
   - Create an additional SQL login in the master database.
   - Add the login to the [sysadmin fixed server role](/sql/relational-databases/security/authentication-access/server-level-roles) using the [ALTER SERVER ROLE](/sql/t-sql/statements/alter-server-role-transact-sql) statement. This login will have full administrative permissions.
-  - Alternatively, create an [Azure AD login](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance) using the [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) syntax.
+  - Alternatively, create an [Azure AD login](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance) using the [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) syntax.
 
 - **In SQL Database, create SQL logins with limited administrative permissions**
 
@@ -117,7 +117,7 @@ You can create accounts for non-administrative users using one of two methods:
 For examples showing how to create logins and users, see:
 
 - [Create login for Azure SQL Database](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current#examples-1)
-- [Create login for Azure SQL Managed Instance](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current#examples-2)
+- [Create login for Azure SQL Managed Instance](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true#examples-2)
 - [Create login for Azure Synapse](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest#examples-3)
 - [Create user](/sql/t-sql/statements/create-user-transact-sql#examples)
 - [Creating Azure AD contained users](authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities)
