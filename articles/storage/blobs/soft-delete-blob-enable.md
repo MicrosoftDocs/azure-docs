@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/26/2021
+ms.date: 03/27/2021
 ms.author: tamram
 ms.subservice: blobs 
 ms.custom: "devx-track-azurecli, devx-track-csharp"
@@ -33,11 +33,9 @@ To enable blob soft delete for your storage account by using the Azure portal, f
 1. Specify a retention period between 1 and 365 days. Microsoft recommends a minimum retention period of seven days.
 1. Save your changes.
 
-![Screenshot showing how to enable soft delete in the Azure portal](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-configuration.png)
+:::image type="content" source="media/soft-delete-blob-enable/blob-soft-delete-configuration-portal.png" alt-text="Screenshot showing how to enable soft delete in the Azure portal":::
 
 # [PowerShell](#tab/azure-powershell)
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 To enable blob soft delete with PowerShell, call the [Enable-AzStorageDeleteRetentionPolicy](/powershell/module/az.storage/enable-azstoragedeleteretentionpolicy) command, specifying the retention period in days.
 
@@ -90,5 +88,4 @@ az storage blob service-properties delete-policy show --account-name <storage-ac
 ## Next steps
 
 - [Soft delete for blobs](soft-delete-blob-overview.md)
-- [Soft delete for containers (preview)](soft-delete-container-overview.md)
-- [Blob versioning](versioning-overview.md)
+- [Manage and restore soft-deleted blobs](soft-delete-blob-manage.md)

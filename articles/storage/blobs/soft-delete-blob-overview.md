@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/24/2021
+ms.date: 03/27/2021
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -18,13 +18,13 @@ Blob soft delete protects an individual blob and its versions, snapshots, and me
 
 ## Recommended data protection configuration
 
-For optimal protection for your blob data, Microsoft recommends enabling all of the following data protection features:
+Blob soft delete is part of a comprehensive data protection strategy for blob data. For optimal protection for your blob data, Microsoft recommends enabling all of the following data protection features:
 
 - Container soft delete, to restore a container that has been deleted. To learn how to enable container soft delete, see [Enable and manage soft delete for containers](soft-delete-container-enable.md).
 - Blob versioning, to automatically maintain previous versions of a blob. When blob versioning is enabled, you can restore an earlier version of a blob to recover your data if it is erroneously modified or deleted. To learn how to enable blob versioning, see [Enable and manage blob versioning](versioning-enable.md).
 - Blob soft delete, to restore a blob or version that has been deleted. To learn how to enable blob soft delete, see [Enable and manage soft delete for blobs](soft-delete-blob-enable.md).
 
-For more information, see [Data protection overview](data-protection-overview.md).
+To learn more about Microsoft's recommendations for data protection, see [Data protection overview](data-protection-overview.md).
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 

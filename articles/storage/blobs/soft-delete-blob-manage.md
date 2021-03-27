@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/26/2021
+ms.date: 03/27/2021
 ms.author: tamram
 ms.subservice: blobs 
 ms.custom: "devx-track-azurecli, devx-track-csharp"
@@ -15,19 +15,25 @@ ms.custom: "devx-track-azurecli, devx-track-csharp"
 
 # Manage and restore soft-deleted blobs
 
-Blob soft delete protects an individual blob and its versions, snapshots, and metadata from accidental deletes or overwrites by maintaining the deleted data in the system for a specified period of time. During the retention period, you can restore the blob to its state at deletion. After the retention period has expired, the blob is permanently deleted.
+Blob soft delete protects an individual blob and its versions, snapshots, and metadata from accidental deletes or overwrites by maintaining the deleted data in the system for a specified period of time. During the retention period, you can restore the blob to its state at deletion. After the retention period has expired, the blob is permanently deleted. For more information about blob soft delete, see [Soft delete for blobs](soft-delete-blob-overview.md).
 
-Blob soft delete is part of a comprehensive data protection strategy for blob data. To learn more about Microsoft's recommendations for data protection, see [Data protection overview](data-protection-overview.md). For more information about blob soft delete, see [Soft delete for blobs](soft-delete-blob-overview.md).
+Blob soft delete is part of a comprehensive data protection strategy for blob data. To learn more about Microsoft's recommendations for data protection, see [Data protection overview](data-protection-overview.md).
 
 ## Manage soft-deleted blobs with the Azure portal
 
-To view soft-deleted blobs in the Azure portal, navigate to the **Overview** page for the container and toggle the **Show deleted blobs** setting. Soft-deleted blobs are displayed with a status of **Deleted**.
+You can use the Azure portal to view soft-deleted blobs and snapshots, and to restore them.
+
+### View deleted blobs
+
+When blobs are soft-deleted, they are invisible in the Azure portal by default. To view soft-deleted blobs, navigate to the **Overview** page for the container and toggle the **Show deleted blobs** setting. Soft-deleted blobs are displayed with a status of **Deleted**.
 
 :::image type="content" source="media/soft-delete-blob-manage/soft-deleted-blobs-list-portal.png" alt-text="Screenshot showing how to list soft-deleted blobs in Azure portal":::
 
 Next, select the deleted blob from the list of blobs to display its properties. Under the **Overview** tab, notice that the blob's status is set to **Deleted**. The portal also displays the number of days until the blob is permanently deleted.
 
 :::image type="content" source="media/soft-delete-blob-manage/soft-deleted-blob-properties-portal.png" alt-text="Screenshot showing properties of soft-deleted blob in Azure portal":::
+
+### View deleted snapshots
 
 Deleting a blob also deletes any snapshots that blob has. If a soft-deleted blob has snapshots, the deleted snapshots can also be listed in the portal. Display the soft-deleted blob's properties, then navigate to the **Snapshots** tab, and toggle **Show deleted snapshots**.
 
@@ -49,25 +55,14 @@ To restore a soft-deleted blob in the Azure portal when versioning is enabled, s
 
 ### List soft-deleted blobs
 
+# [.NET v12](#tab/dotnet)
+
+
+# [.NET v11](#tab/dotnet11)
+
+---
 
 ### Restore a soft-deleted blob (versioning disabled)
-
-
-### Restore a soft-deleted blob (versioning enabled)
-
-
-# [Portal](#tab/azure-portal)
-
-
-# [PowerShell](#tab/azure-powershell)
-
-
-# [CLI](#tab/azure-CLI)
-
-
-# [Python](#tab/python)
-
-N/A
 
 # [.NET v12](#tab/dotnet)
 
@@ -106,6 +101,16 @@ CloudBlockBlob copySource = allBlobVersions.First(version => ((CloudBlockBlob)ve
     ((CloudBlockBlob)version).Name == blockBlob.Name) as CloudBlockBlob;
 blockBlob.StartCopy(copySource);
 ```  
+
+---
+
+### Restore a soft-deleted blob (versioning enabled)
+
+# [.NET v12](#tab/dotnet)
+
+
+# [.NET v11](#tab/dotnet11)
+
 
 ---
 
