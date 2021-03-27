@@ -227,16 +227,14 @@ To create a container with a default encryption scope in the Azure portal, first
 
 # [PowerShell](#tab/powershell)
 
-To create a container with a default encryption scope with PowerShell, call the [New-AzRmStorageContainer](/powershell/module/az.storage/new-azrmstoragecontainer) command, specifying the scope for the `-DefaultEncryptionScope` parameter. The **New-AzRmStorageContainer** command creates a container by using the Azure Storage resource provider, which enables configuration of encryption scopes and other resource management operations.
-
-To force all blobs in a container to use the container's default scope, set the `-PreventEncryptionScopeOverride` parameter to `true`.
+To create a container with a default encryption scope with PowerShell, call the [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer) command, specifying the scope for the `-DefaultEncryptionScope` parameter. To force all blobs in a container to use the container's default scope, set the `-PreventEncryptionScopeOverride` parameter to `true`.
 
 ```powershell
 $containerName1 = "container1"
 $containerName2 = "container2"
 
 # Create a container with a default encryption scope that cannot be overridden.
-New-AzRmStorageContainer -ResourceGroupName $rgName `
+New-AzStorageContainer -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
     -Name $containerName1 `
     -DefaultEncryptionScope $scopeName1 `
