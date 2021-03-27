@@ -48,7 +48,7 @@ This category contains the following entity:
     :::column span="2":::
         **Details**
 
-        Names of people. 
+        Names of people. Also returned with `domain=phi`.
 
         To get this entity category, add `Person` to the `pii-categories` parameter. `Person` will be returned in the API response if detected.
       
@@ -135,7 +135,7 @@ This category contains the following entity:
     :::column span="2":::
         **Details**
 
-        Companies, political groups, musical bands, sport clubs, government bodies, and public organizations. Nationalities and religions are not included in this entity type.
+        Companies, political groups, musical bands, sport clubs, government bodies, and public organizations. Nationalities and religions are not included in this entity type. Also returned with `domain=phi`.
 
         To get this entity category, add `Organization` to the `pii-categories` parameter. `Organization` will be returned in the API response if detected.
       
@@ -236,7 +236,7 @@ This category contains the following entity:
     :::column span="2":::
         **Details**
 
-        Full mailing address.
+        Full mailing address. Also returned with `domain=phi`.
 
         To get this entity category, add `Address` to the `pii-categories` parameter. `Address` will be returned in the API response if detected.
       
