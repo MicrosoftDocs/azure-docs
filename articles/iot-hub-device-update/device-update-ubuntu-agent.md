@@ -108,7 +108,7 @@ Read the license terms prior to using a package. Your installation and use of a 
 
 2. From 'IoT Edge' on the left navigation pane find your IoT Edge device and navigate to the Device Twin or Module Twin.
 
-3. In the Device Twin or Module Twin, delete any existing Device Update tag value by setting them to null.
+3. In the Module Twin of the Device Update agent module, delete any existing Device Update tag value by setting them to null. If you are using Device identity with Device Update agent make these changes on the Device Twin.
 
 4. Add a new Device Update tag value as shown below.
 
