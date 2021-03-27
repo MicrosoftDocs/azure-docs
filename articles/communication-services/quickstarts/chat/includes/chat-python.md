@@ -75,7 +75,7 @@ pip install azure-communication-identity
 from azure.communication.chat import ChatClient, CommunicationTokenCredential
 
 endpoint = "https://<RESOURCE_NAME>.communication.azure.com"
-chat_client = ChatClient(endpoint, CommunicationTokenCredential(<Access Token>))
+chat_client = ChatClient(endpoint, CommunicationTokenCredential("<Access Token>"))
 ```
 
 ## Start a chat thread
