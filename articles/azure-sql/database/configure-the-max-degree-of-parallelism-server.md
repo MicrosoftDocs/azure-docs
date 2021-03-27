@@ -91,7 +91,7 @@ ms.reviewer:
 
 #### To configure the MAXDOP database scoped configuration   
 
-  This example shows how to use [ALTER DATABASE SCOPED CONFIGURATION](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) statement to configure the `max degree of parallelism` option to `2`. The setting takes effect immediately. The PowerShell cmdlet [Invoke-SqlCmd](/powershell/module/sqlserver/invoke-sqlcmd?view=sqlserver-ps) executes the T-SQL queries to set and the return the MAXDOP database scoped configuration. 
+  This example shows how to use [ALTER DATABASE SCOPED CONFIGURATION](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) statement to configure the `max degree of parallelism` option to `2`. The setting takes effect immediately. The PowerShell cmdlet [Invoke-SqlCmd](/powershell/module/sqlserver/invoke-sqlcmd) executes the T-SQL queries to set and the return the MAXDOP database scoped configuration. 
 
 ```powershell
 $dbName = "sample" 
@@ -115,13 +115,14 @@ $params = @{
 ### Transact-SQL
   
   You can use the [Azure Portal query editor](connect-query-portal.md), [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms), or [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) to execute T-SQL queries against your Azure SQL Database.
+
+1.  Connect to the Azure SQL Database. Note that you cannot change the database scoped configurations in the master database.
   
-    1.  Connect to the Azure SQL Database. Note that you cannot change the database scoped configurations in the master database.
-      
-    2.  From the Standard bar, click **New Query**.   
-      
-    3.  Copy and paste the following example into the query window and click **Execute**. 
-    
+2.  From the Standard bar, click **New Query**.   
+  
+3.  Copy and paste the following example into the query window and click **Execute**. 
+
+
 #### To determine the current MAXDOP database scoped configuration
 
   This example shows how to determine the current database MAXDOP database scoped configuration using the [sys.database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql) system catalog view.
@@ -168,7 +169,7 @@ REBUILD WITH
 * [Configure Parallel Index Operations](/sql/relational-databases/indexes/configure-parallel-index-operations.md)    
 * [Query Hints &#40;Transact-SQL&#41;](/sql/t-sql/queries/hints-transact-sql-query.md)     
 * [Set Index Options](/sql/relational-databases/indexes/set-index-options.md)     
-* [Understand and resolve Azure SQL Database blocking problems](database/understand-resolve-blocking.md)
+* [Understand and resolve Azure SQL Database blocking problems](understand-resolve-blocking.md)
 
 ## Next steps
 
