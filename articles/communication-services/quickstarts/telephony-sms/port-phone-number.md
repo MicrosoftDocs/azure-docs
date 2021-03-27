@@ -37,8 +37,8 @@ Record your resource's **Azure ID** and **Immutable Resource ID**:
 
 Toll-free and geographic numbers based in the United States are eligible for porting. Use one of the following forms to submit your port request:
 
-- For toll-free numbers: [Toll-free number port request](todo)
-- For geographic numbers based in the US: [Geographic number port request](todo)
+- For toll-free numbers: [Toll-free number port request](https://aka.ms/acs-port-form-tollfree)
+- For geographic numbers based in the US: [Geographic number port request](https://aka.ms/acs-port-form-geographic)
 
 When completed, send your completed port request form to acsporting@microsoft.com. Please ensure that your email subject line begins with "ACS Port-In Request".
 
