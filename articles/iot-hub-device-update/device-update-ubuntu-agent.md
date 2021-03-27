@@ -206,7 +206,7 @@ This update will install the latest available version of `libcurl4-doc package` 
 
 1. Select Refresh to view the latest status details. Continue this process until the status changes to Succeeded.
 
-You have now completed a successful end-to-end package update using Device Update for IoT Hub on a Ubuntu Server 18.04 x64 device. 
+You have now completed a successful end-to-end package update using Device Update for IoT Hub on an Ubuntu Server 18.04 x64 device. 
 
 ## Bonus steps
 
