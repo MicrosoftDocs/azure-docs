@@ -77,7 +77,7 @@ Now that our lab is created, let's modify the template machine with the software
 
 ## Visual Studio
 
-The image chosen above includes [Visual Studio 2019 Community](https://visualstudio.microsoft.com/vs/community/).  All workloads and tool sets are already installed on the image.  Use the Visual Studio Installer to [install any optional tools](/visualstudio/install/modify-visual-studio?view=vs-2019) you may want.  [Sign in to Visual Studio](/visualstudio/ide/signing-in-to-visual-studio?view=vs-2019#how-to-sign-in-to-visual-studio) to unlock the community edition.
+The image chosen above includes [Visual Studio 2019 Community](https://visualstudio.microsoft.com/vs/community/).  All workloads and tool sets are already installed on the image.  Use the Visual Studio Installer to [install any optional tools](/visualstudio/install/modify-visual-studio?view=vs-2019&preserve-view=true) you may want.  [Sign in to Visual Studio](/visualstudio/ide/signing-in-to-visual-studio?view=vs-2019&preserve-view=true#how-to-sign-in-to-visual-studio) to unlock the community edition.
 
 Visual Studio includes the **Data storage and processing** tool set, which includes SQL Server Data Tools (SSDT).  For more information about SSDT's capabilities, see [SQL Server Data Tools overview](/sql/ssdt/sql-server-data-tools).  To verify connection to the shared SQL Server for the class will be successful, see [connect to a database and browse existing objects](/sql/ssdt/how-to-connect-to-a-database-and-browse-existing-objects). If prompted add the template machine IP to the [list of allowed computers](../azure-sql/database/firewall-configure.md) that can connect to your SQL Server instance.
 
