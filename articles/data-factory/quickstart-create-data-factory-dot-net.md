@@ -113,6 +113,9 @@ Next, create a C# .NET console application in Visual Studio:
        SubscriptionId = subscriptionId };
    ```
 
+> [!NOTE]
+> For US Azure Gov accounts, you have to use BaseUri of  *https://management.usgovcloudapi.net* instead of *https://management.azure.com/*, and then create management client. 
+>
 ## Create a data factory
 
 Add the following code to the **Main** method that creates a **data factory**. 
