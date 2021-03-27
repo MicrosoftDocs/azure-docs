@@ -1061,7 +1061,7 @@ deployment.apps/bookwarehouse created
 
 ### Update the Bookbuyer Service
 
-The current bookbuyer application has an incorrect port used. We will update the bookbuyer service to the correct configuration with the following service manifest.
+Update the bookbuyer service to the correct inbound port configuration with the following service manifest.
 
 ```azurecli-interactive
 kubectl apply -f - <<EOF
@@ -1425,7 +1425,7 @@ deployment.apps/bookwarehouse created
 
 ### Update the Bookbuyer Service
 
-The current bookbuyer application has an incorrect port used. We will update the bookbuyer service to the correct configuration with the following service manifest.
+Update the bookbuyer service to the correct inbound port configuration with the following service manifest.
 
 ```azurecli-interactive
 kubectl apply -f - <<EOF
@@ -1675,6 +1675,9 @@ In this tutorial, you will:
 > - Create and deploy a Prometheus instance
 > - Configure OSM to allow Prometheus scraping
 > - Update the Prometheus Configmap
+> - Create and deploy a Grafana instance
+> - Configure Grafana with the Prometheus datasource
+> - Import OSM dashboard for Grafana
 
 ### Deploy and configure a Prometheus instance for OSM
 
