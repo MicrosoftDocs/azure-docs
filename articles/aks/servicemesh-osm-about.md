@@ -591,7 +591,7 @@ trafficsplit.split.smi-spec.io/bookstore-split created
 
 Setup a port forward tunnel to the bookbuyer pod and you should now see books being purchased from the bookstore v2 service. If you continue to watch the increment of purchases you should notice a faster increment of purchases happening through the bookstore v2 service.
 
-![OSM bookbuyer traffic split diagram](./media/aks-osm-addon/osm-bookbuyer-traffic-split-ui.png)
+![OSM bookbuyer books boough UI](./media/aks-osm-addon/osm-bookbuyer-traffic-split-ui.png)
 
 ## Manage existing deployed applications to be managed by the Open Service Mesh (OSM) Azure Kubernetes Service (AKS) add-on
 
@@ -2101,7 +2101,7 @@ You can directly import dashboard by their ID on `Grafana.com`. For example, our
 
 As soon as you click import, it will bring you automatically to your imported dashboard.
 
-![OSM Grafana Dashboard Import Page UI image](./media/aks-osm-addon/osm-grafana-mesh-dashboard-details.png)
+![OSM Grafana Dashboard Mesh Details Page UI image](./media/aks-osm-addon/osm-grafana-mesh-dashboard-details.png)
 
 ## Open Service Mesh (OSM) AKS add-on Troubleshooting Guides
 
