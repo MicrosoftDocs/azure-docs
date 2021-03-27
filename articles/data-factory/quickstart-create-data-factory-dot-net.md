@@ -99,6 +99,9 @@ Next, create a C# .NET console application in Visual Studio:
    string blobDatasetName = "BlobDataset";
    string pipelineName = "Adfv2QuickStartPipeline";
    ```
+> [!NOTE]
+> For US Azure Gov accounts, you have to use BaseUri of  *https://management.usgovcloudapi.net* instead of *https://management.azure.com/*, and then create data factory management client. 
+> 
 
 3. Add the following code to the **Main** method that creates an instance of **DataFactoryManagementClient** class. You use this object to create a data factory, a linked service, datasets, and a pipeline. You also use this object to monitor the pipeline run details.
 
@@ -113,9 +116,7 @@ Next, create a C# .NET console application in Visual Studio:
        SubscriptionId = subscriptionId };
    ```
 
-> [!NOTE]
-> For US Azure Gov accounts, you have to use BaseUri of  *https://management.usgovcloudapi.net* instead of *https://management.azure.com/*, and then create management client. 
->
+
 ## Create a data factory
 
 Add the following code to the **Main** method that creates a **data factory**. 
