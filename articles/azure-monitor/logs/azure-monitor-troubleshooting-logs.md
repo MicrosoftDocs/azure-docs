@@ -34,6 +34,10 @@ Troubleshooting Logs decrees your charges by giving you basic capabilities for t
 ## Turn on Troubleshooting Logs on your tables
 
 To turn on Troubleshooting Logs in your workspace, you need to use the following API call.
+ ```azurecli-interactive
+PUT https://management.azure.com/subscriptions/'subscriptionId'/resourcegroups/'resourceGroupName'/providers/Microsoft.OperationalInsights/workspaces/'workspaceName'/tables/'tableName'?api-version=2020-10-01
+```
+
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{tableName}?api-version=2020-10-01
 
