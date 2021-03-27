@@ -43,7 +43,7 @@ To create an encryption scope in the Azure portal, follow these steps:
 
 # [PowerShell](#tab/powershell)
 
-To create an encryption scope with PowerShell, install the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) PowerShell module, version 3.2.0 or later.
+To create an encryption scope with PowerShell, install the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) PowerShell module, version 3.4.0 or later.
 
 ### Create an encryption scope protected by Microsoft-managed keys
 
