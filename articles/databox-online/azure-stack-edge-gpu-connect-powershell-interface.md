@@ -67,6 +67,8 @@ A Multi-Process Service (MPS) on Nvidia GPUs provides a mechanism where GPUs can
 
 [!INCLUDE [Enable MPS](../../includes/azure-stack-edge-gateway-enable-mps.md)]
 
+> [!NOTE]
+> When the device software and the Kubernetes cluster are updated, the MPS setting is not retained for the workloads. You'll need to enable MPS again.
 
 ## Reset your device
 
