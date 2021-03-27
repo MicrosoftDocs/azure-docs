@@ -145,6 +145,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
         **Details**
         Also returned with `domain=phi`.
+        
         To get this entity category, add `ARNationalIdentityNumber` to the `pii-categories` parameter. `ARNationalIdentityNumber` will be returned in the API response if detected.
       
     :::column-end:::
