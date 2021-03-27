@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 11/17/2020
+ms.date: 03/25/2020
 ms.author: aahi
 ---
 
@@ -1350,6 +1350,24 @@ This container image has the following tags available. You can also find a full 
 | `3.0-nl`   | Sentiment Analysis v3 (Dutch)                 |
 | `2.1`    | Sentiment Analysis v2      |
 
+
+## Text Analytics for health
+
+The [Text Analytics for health][ta-he] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/textanalytics/` repository and is named `healthcare`. The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare`
+
+This container image has the following tags available. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/textanalytics/healthcare/tags/list).
+
+
+Release notes for `3.0.015370001-onprem-amd64`:
+
+* new model-version `2021-03-01`
+* Container released to MCR.
+
+| Image Tags | Notes                                         |
+|------------|:----------------------------------------------|
+| `latest`   |                                               |
+| `3.0.015370001-onprem-amd64`   |               |
+
 [ad-containers]: ../anomaly-Detector/anomaly-detector-container-howto.md
 [cv-containers]: ../computer-vision/computer-vision-how-to-install-containers.md
 [fa-containers]: ../face/face-how-to-install-containers.md
@@ -1364,3 +1382,4 @@ This container image has the following tags available. You can also find a full 
 [ta-kp]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=keyphrase
 [ta-la]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=language
 [ta-se]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=sentiment
+[ta-he]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare
