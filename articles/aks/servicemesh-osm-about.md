@@ -25,11 +25,11 @@ OSM provides the following set of capabilities and features to provide a cloud n
 
 - Secure service to service communication by enabling mTLS
 
-- Easily onnboard applications onto the mesh by enabling automatic sidecar injection of Envoy proxy
+- Easily onboard applications onto the mesh by enabling automatic sidecar injection of Envoy proxy
 
 - Easily and transparent configurations for traffic shifting on deployments
 
-- Ability to define and execute fine grained access control polices for servcies
+- Ability to define and execute fine grained access control polices for services
 
 - Observability and insights into application metrics for debugging and monitoring services
 
@@ -43,13 +43,13 @@ OSM can assist your AKS deployments with the following scenarios:
 
 - Traffic authorization of both HTTP/HTTPS and TCP traffic in the mesh
 
-- Configuration of weighted traffic controls between two or more servcies for A/B or canary deployments
+- Configuration of weighted traffic controls between two or more services for A/B or canary deployments
 
 - Collection and viewing of KPIs from application traffic
 
 ## OSM Service Quotas and Limits (Preview)
 
-As noted prior, the OSM add-on for AKS is in a preview state and will undergo additional enhancements prior to general availablity (GA). During the preview phase it is recommended to not surpass the limits shown in the following table:
+As noted prior, the OSM add-on for AKS is in a preview state and will undergo additional enhancements prior to general availability (GA). During the preview phase it is recommended to not surpass the limits shown in the following table:
 
 | Resource                                           | Limit |
 | -------------------------------------------------- | :---- |
@@ -202,7 +202,7 @@ You must have the following resources installed:
 In this walkthrough we will be using the OMS bookstore appplication that has the following Kubernetes services:
 
 - bookbuyer
-- booktheif
+- bookthief
 - bookstore
 - bookwarehouse
 
@@ -362,7 +362,7 @@ You should see output similar to the following. Your bookthief pod will have a u
 configmap/osm-config patched
 ```
 
-To verify permissive traffic mode has been disabled, port forward back into either the bookbuyer or booktheif pod to view their UI in the browser and see if the books bought or books stolen is no more incremnting. Ensure to refresh the browser. If the incrementing has stopped, the policy was applied correctly. You have successfuly stopped the bookthief from stealing books, but neither the bookbuyer can purchase from the bookstore nor the bookstore can retrieve books from the bookwarehouse. Next we will implement [SMI](https://smi-spec.io/) policies to allow only the services in the mesh you would like to have communicate do so.
+To verify permissive traffic mode has been disabled, port forward back into either the bookbuyer or bookthief pod to view their UI in the browser and see if the books bought or books stolen is no more incremnting. Ensure to refresh the browser. If the incrementing has stopped, the policy was applied correctly. You have successfuly stopped the bookthief from stealing books, but neither the bookbuyer can purchase from the bookstore nor the bookstore can retrieve books from the bookwarehouse. Next we will implement [SMI](https://smi-spec.io/) policies to allow only the services in the mesh you would like to have communicate do so.
 
 ### Apply Service Mesh Interface (SMI) traffic access policies
 
@@ -985,7 +985,7 @@ Notice the **permissive_traffic_policy_mode** is configured to **true**. Permiss
 In this totorial we will be using the OMS bookstore appplication that has the following application components:
 
 - bookbuyer
-- booktheif
+- bookthief
 - bookstore
 - bookwarehouse
 
@@ -1131,7 +1131,7 @@ The ingress controller also needs to be scheduled on a Linux node. Windows Serve
 kubectl create namespace ingress-basic
 
 # Add the ingress-nginx repository
-helm repo add ingress-nginx https://helm.nginx.com/stable
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 
 # Update the helm repo(s)
 helm repo update
@@ -1346,10 +1346,10 @@ Notice the **permissive_traffic_policy_mode** is configured to **true**. Permiss
 
 ### Create namespaces for the application
 
-In this totorial we will be using the OMS bookstore appplication that has the following application components:
+In this tutorial we will be using the OMS bookstore application that has the following application components:
 
 - bookbuyer
-- booktheif
+- bookthief
 - bookstore
 - bookwarehouse
 
@@ -1447,7 +1447,7 @@ EOF
 
 ### Verify the Bookstore application running inside the AKS cluster
 
-As of now we have deployed the bookstore mulit-container application, but it is only accessible from within the AKS cluster. Later we will add the Azure Application Gateway ingress controller to expose the appliction outside the AKS cluster. To verify that the application is running inside the cluster, we will use a port forward to view the bookbuyer component UI.
+As of now we have deployed the bookstore multi-container application, but it is only accessible from within the AKS cluster. Later we will add the Azure Application Gateway ingress controller to expose the application outside the AKS cluster. To verify that the application is running inside the cluster, we will use a port forward to view the bookbuyer component UI.
 
 First let's get the bookbuyer pod's name
 
@@ -1462,7 +1462,7 @@ NAME                         READY   STATUS    RESTARTS   AGE
 bookbuyer-7676c7fcfb-mtnrz   2/2     Running   0          7m8s
 ```
 
-Once we have the pod's name, we can now use the port-forward command to setup a tunnel from our local system to the application inside the AKS cluster. Run the following command to setup the port forward for the local system port 8080. Again use your specice bookbuyer pod name.
+Once we have the pod's name, we can now use the port-forward command to setup a tunnel from our local system to the application inside the AKS cluster. Run the following command to setup the port forward for the local system port 8080. Again use your specific bookbuyer pod name.
 
 ```azurecli-interactive
 kubectl port-forward bookbuyer-7676c7fcfb-mtnrz -n bookbuyer 8080:14001
@@ -1512,10 +1512,10 @@ appgwId=$(az network application-gateway show -n myApplicationGateway -g myResou
 az aks enable-addons -n myCluster -g myResourceGroup -a ingress-appgw --appgw-id $appgwId
 ```
 
-You can verify the Azue Application Gateway AKS add-on has been enabled by the following command.
+You can verify the Azure Application Gateway AKS add-on has been enabled by the following command.
 
 ```azurecli-interactive
-az aks list -g osm-aks-rg | jq -r .[].addonProfiles.ingressApplicationGateway.enabled
+az aks list -g osm-aks-rg -o json | jq -r .[].addonProfiles.ingressApplicationGateway.enabled
 ```
 
 This should show the output as `true`.
@@ -1574,7 +1574,7 @@ Warning: extensions/v1beta1 Ingress is deprecated in v1.14+, unavailable in v1.2
 ingress.extensions/bookbuyer-ingress created
 ```
 
-Since the host name in the ingress manifest is a psuedo name used for testing, the DNS name will not be available on the internet. We can alternatively use the curl program and past the hostname header to the Azure Application Gateway public IP address and receive a 200 code succesfully connecting us to the bookbuyer service.
+Since the host name in the ingress manifest is a pseudo name used for testing, the DNS name will not be available on the internet. We can alternatively use the curl program and past the hostname header to the Azure Application Gateway public IP address and receive a 200 code successfully connecting us to the bookbuyer service.
 
 ```azurecli-interactive
 appGWPIP=$(az network public-ip show -g MyResourceGroup -n myPublicIp -o tsv --query "ipAddress")
@@ -1647,6 +1647,459 @@ You should see the following output
 - [AGIC Troubleshooting Documentation](https://docs.microsoft.com/en-us/azure/application-gateway/ingress-controller-troubleshoot)
 - [Additional troubleshooting tools are available on AGIC's GitHub repo](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/master/docs/troubleshootings/troubleshooting-installing-a-simple-application.md)
 
+## Open Service Mesh (OSM) Monitoring and Observability using Azure Monitor and Applications Insights
+
+Both Azure Monitor and Azure Application Insights helps you maximize the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
+
+The OSM AKS add-on will have deep integrations into both of these Azure services, and provide a seemless Azure experience for viewing and responding to critical KPIs provided by OSM metrics. For more information on how to enable and configure these services for the OSM AKS add-on, please visit the [Azure Monitor for OSM](https://aka.ms/azmon/osmpreview) page for more information.
+
+## Tutorial: Manually deploy Prometheus, Grafana, and Jaeger to view Open Service Mesh (OSM) metrics for observability
+
+> [!WARNING]
+> The installation of both Prometheus and Grafana are provided as general guidance to show how these tools can be utilized to view OSM metric data. The installation guidance is not to be utilized for a production setup. Please refer to both the Prometheus and Grafana documentation on how best to suit thier installations to your needs. Most notable will be the lack of persistent storage, meaning that all data is lost once a Prometheus and/or Grafana pod(s) are terminated.
+
+Open Service Mesh (OSM) generates detailed metrics related to all traffic within the mesh. These metrics provide insights into the behavior of applications in the mesh helping users to troubleshoot, maintain and analyze their applications.
+
+As of today OSM collects metrics directly from the sidecar proxies (Envoy). OSM provides rich metrics for incoming and outgoing traffic for all services in the mesh. With these metrics the user can get information about the overall volume of traffic, errors within traffic and the response time for requests.
+
+OSM uses Prometheus to gather and store consistent traffic metrics and statistics for all applications running in the mesh. Prometheus is an open-source monitoring and alerting toolkit which is commonly used on (but not limited to) Kubernetes and Service Mesh environments.
+
+Each application that is part of the mesh runs in a Pod which contains an Envoy sidecar that exposes metrics (proxy metrics) in the Prometheus format. Furthermore, every Pod that is a part of the mesh has Prometheus annotations, which makes it possible for the Prometheus server to scrape the application dynamically. This mechanism automatically enables scraping of metrics whenever a new namespace/pod/service is added to the mesh.
+
+OSM metrics can be viewed with Grafana which is an open source visualization and analytics software. It allows you to query, visualize, alert on, and explore your metrics.
+
+In this tutorial, you will:
+
+> [!div class="checklist"]
+>
+> - Create and deploy a Prometheus instance
+> - Configure OSM to allow Prometheus scraping
+> - Update the Prometheus Configmap
+
+### Deploy and configure a Prometheus instance for OSM
+
+We will use Helm to deploy the Prometheus instance. Run the following commands to install Prometheus via Helm:
+
+```azurecli-interactive
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
+helm install stable prometheus-community/prometheus
+```
+
+You should see similar output below if the installation was successful. Please make note of the Prometheus server port and cluster DNS name. This information will be used later for to configure Prometheus as a data source for Grafana.
+
+```Output
+NAME: stable
+LAST DEPLOYED: Fri Mar 26 13:34:51 2021
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+The Prometheus server can be accessed via port 80 on the following DNS name from within your cluster:
+stable-prometheus-server.default.svc.cluster.local
+
+
+Get the Prometheus server URL by running these commands in the same shell:
+  export POD_NAME=$(kubectl get pods --namespace default -l "app=prometheus,component=server" -o jsonpath="{.items[0].metadata.name}")
+  kubectl --namespace default port-forward $POD_NAME 9090
+
+
+The Prometheus alertmanager can be accessed via port 80 on the following DNS name from within your cluster:
+stable-prometheus-alertmanager.default.svc.cluster.local
+
+
+Get the Alertmanager URL by running these commands in the same shell:
+  export POD_NAME=$(kubectl get pods --namespace default -l "app=prometheus,component=alertmanager" -o jsonpath="{.items[0].metadata.name}")
+  kubectl --namespace default port-forward $POD_NAME 9093
+#################################################################################
+######   WARNING: Pod Security Policy has been moved to a global property.  #####
+######            use .Values.podSecurityPolicy.enabled with pod-based      #####
+######            annotations                                               #####
+######            (e.g. .Values.nodeExporter.podSecurityPolicy.annotations) #####
+#################################################################################
+
+
+The Prometheus PushGateway can be accessed via port 9091 on the following DNS name from within your cluster:
+stable-prometheus-pushgateway.default.svc.cluster.local
+
+
+Get the PushGateway URL by running these commands in the same shell:
+  export POD_NAME=$(kubectl get pods --namespace default -l "app=prometheus,component=pushgateway" -o jsonpath="{.items[0].metadata.name}")
+  kubectl --namespace default port-forward $POD_NAME 9091
+
+For more information on running Prometheus, visit:
+https://prometheus.io/
+```
+
+#### Configure OSM to allow Prometheus scraping
+
+To ensure that the OSM components are configured for Prometheus scrapes, we'll want to check the **prometheus_scraping** configuration located in the osm-config config file. View the configuration with the following command:
+
+```azurecli-interactive
+kubectl get configmap -n kube-system osm-config -o json | jq '.data.prometheus_scraping'
+```
+
+The output of the previous command should return `true` if OSM is configured for Prometheus scraping. If the returned value is `false`, we will need to update the configuration to be `true`. Run the following command to turn **on** OSM Prometheus scraping:
+
+```azurecli-interactive
+kubectl patch ConfigMap -n kube-system osm-config --type merge --patch '{"data":{"prometheus_scraping":"true"}}'
+```
+
+You should see the following output.
+
+```Output
+configmap/osm-config patched
+```
+
+#### Update the Prometheus Configmap
+
+The default installation of Prometheus will container two kubernetes configmaps. You can view the list of Prometheus configmaps with the following command.
+
+```azurecli-interactive
+kubectl get configmap | grep prometheus
+```
+
+```Output
+stable-prometheus-alertmanager   1      4h34m
+stable-prometheus-server         5      4h34m
+```
+
+We will need to replace the prometheus.yml configuration located in the **stable-prometheus-server** configmap with the following OSM configuration. There are several file editing techniques to accomplish this. A simple and save way to do this will be to export the configmap, create a copy of it for backup, then edit it with an editor such as Visual Studio code.
+
+> [!NOTE]
+> If you do not have Visual Studio Code installed you can go download and install it [here](https://code.visualstudio.com/Download).
+
+Let's first export out the **stable-prometheus-server** configmap and then make a copy for backup.
+
+```azurecli-interactive
+kubectl get configmap stable-prometheus-server -o yaml > cm-stable-prometheus-server.yml
+cp cm-stable-prometheus-server.yml cm-stable-prometheus-server.yml.copy
+```
+
+Next let's open the file using Visual Studio Code to edit.
+
+```azurecli-interactive
+code cm-stable-prometheus-server.yml
+```
+
+Once you have the configmap opened in the Visual Studio Code editor, replace the prometheus.yml file with the OSM configuration below and save the file.
+
+> [!WARNING]
+> It is extremely important that you ensure you keep the indention structure of the yaml file. Any changes to the yaml file structure could result in the configmap not being able to be re-applied.
+
+```OSM Prometheus Configmap Configuration
+prometheus.yml: |
+    global:
+      scrape_interval: 10s
+      scrape_timeout: 10s
+      evaluation_interval: 1m
+
+    scrape_configs:
+      - job_name: 'kubernetes-apiservers'
+        kubernetes_sd_configs:
+        - role: endpoints
+        scheme: https
+        tls_config:
+          ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+          # TODO need to remove this when the CA and SAN match
+          insecure_skip_verify: true
+        bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+        metric_relabel_configs:
+        - source_labels: [__name__]
+          regex: '(apiserver_watch_events_total|apiserver_admission_webhook_rejection_count)'
+          action: keep
+        relabel_configs:
+        - source_labels: [__meta_kubernetes_namespace, __meta_kubernetes_service_name, __meta_kubernetes_endpoint_port_name]
+          action: keep
+          regex: default;kubernetes;https
+
+      - job_name: 'kubernetes-nodes'
+        scheme: https
+        tls_config:
+          ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+        bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+        kubernetes_sd_configs:
+        - role: node
+        relabel_configs:
+        - action: labelmap
+          regex: __meta_kubernetes_node_label_(.+)
+        - target_label: __address__
+          replacement: kubernetes.default.svc:443
+        - source_labels: [__meta_kubernetes_node_name]
+          regex: (.+)
+          target_label: __metrics_path__
+          replacement: /api/v1/nodes/${1}/proxy/metrics
+
+      - job_name: 'kubernetes-pods'
+        kubernetes_sd_configs:
+        - role: pod
+        metric_relabel_configs:
+        - source_labels: [__name__]
+          regex: '(envoy_server_live|envoy_cluster_upstream_rq_xx|envoy_cluster_upstream_cx_active|envoy_cluster_upstream_cx_tx_bytes_total|envoy_cluster_upstream_cx_rx_bytes_total|envoy_cluster_upstream_cx_destroy_remote_with_active_rq|envoy_cluster_upstream_cx_connect_timeout|envoy_cluster_upstream_cx_destroy_local_with_active_rq|envoy_cluster_upstream_rq_pending_failure_eject|envoy_cluster_upstream_rq_pending_overflow|envoy_cluster_upstream_rq_timeout|envoy_cluster_upstream_rq_rx_reset|^osm.*)'
+          action: keep
+        relabel_configs:
+        - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scrape]
+          action: keep
+          regex: true
+        - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_path]
+          action: replace
+          target_label: __metrics_path__
+          regex: (.+)
+        - source_labels: [__address__, __meta_kubernetes_pod_annotation_prometheus_io_port]
+          action: replace
+          regex: ([^:]+)(?::\d+)?;(\d+)
+          replacement: $1:$2
+          target_label: __address__
+        - source_labels: [__meta_kubernetes_namespace]
+          action: replace
+          target_label: source_namespace
+        - source_labels: [__meta_kubernetes_pod_name]
+          action: replace
+          target_label: source_pod_name
+        - regex: '(__meta_kubernetes_pod_label_app)'
+          action: labelmap
+          replacement: source_service
+        - regex: '(__meta_kubernetes_pod_label_osm_envoy_uid|__meta_kubernetes_pod_label_pod_template_hash|__meta_kubernetes_pod_label_version)'
+          action: drop
+        # for non-ReplicaSets (DaemonSet, StatefulSet)
+        # __meta_kubernetes_pod_controller_kind=DaemonSet
+        # __meta_kubernetes_pod_controller_name=foo
+        # =>
+        # workload_kind=DaemonSet
+        # workload_name=foo
+        - source_labels: [__meta_kubernetes_pod_controller_kind]
+          action: replace
+          target_label: source_workload_kind
+        - source_labels: [__meta_kubernetes_pod_controller_name]
+          action: replace
+          target_label: source_workload_name
+        # for ReplicaSets
+        # __meta_kubernetes_pod_controller_kind=ReplicaSet
+        # __meta_kubernetes_pod_controller_name=foo-bar-123
+        # =>
+        # workload_kind=Deployment
+        # workload_name=foo-bar
+        # deplyment=foo
+        - source_labels: [__meta_kubernetes_pod_controller_kind]
+          action: replace
+          regex: ^ReplicaSet$
+          target_label: source_workload_kind
+          replacement: Deployment
+        - source_labels:
+          - __meta_kubernetes_pod_controller_kind
+          - __meta_kubernetes_pod_controller_name
+          action: replace
+          regex: ^ReplicaSet;(.*)-[^-]+$
+          target_label: source_workload_name
+
+      - job_name: 'smi-metrics'
+        kubernetes_sd_configs:
+        - role: pod
+        relabel_configs:
+        - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scrape]
+          action: keep
+          regex: true
+        - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_path]
+          action: replace
+          target_label: __metrics_path__
+          regex: (.+)
+        - source_labels: [__address__, __meta_kubernetes_pod_annotation_prometheus_io_port]
+          action: replace
+          regex: ([^:]+)(?::\d+)?;(\d+)
+          replacement: $1:$2
+          target_label: __address__
+        metric_relabel_configs:
+        - source_labels: [__name__]
+          regex: 'envoy_.*osm_request_(total|duration_ms_(bucket|count|sum))'
+          action: keep
+        - source_labels: [__name__]
+          action: replace
+          regex: envoy_response_code_(\d{3})_source_namespace_.*_source_kind_.*_source_name_.*_source_pod_.*_destination_namespace_.*_destination_kind_.*_destination_name_.*_destination_pod_.*_osm_request_total
+          target_label: response_code
+        - source_labels: [__name__]
+          action: replace
+          regex: envoy_response_code_\d{3}_source_namespace_(.*)_source_kind_.*_source_name_.*_source_pod_.*_destination_namespace_.*_destination_kind_.*_destination_name_.*_destination_pod_.*_osm_request_total
+          target_label: source_namespace
+        - source_labels: [__name__]
+          action: replace
+          regex: envoy_response_code_\d{3}_source_namespace_.*_source_kind_(.*)_source_name_.*_source_pod_.*_destination_namespace_.*_destination_kind_.*_destination_name_.*_destination_pod_.*_osm_request_total
+          target_label: source_kind
+        - source_labels: [__name__]
+          action: replace
+          regex: envoy_response_code_\d{3}_source_namespace_.*_source_kind_.*_source_name_(.*)_source_pod_.*_destination_namespace_.*_destination_kind_.*_destination_name_.*_destination_pod_.*_osm_request_total
+          target_label: source_name
+        - source_labels: [__name__]
+          action: replace
+          regex: envoy_response_code_\d{3}_source_namespace_.*_source_kind_.*_source_name_.*_source_pod_(.*)_destination_namespace_.*_destination_kind_.*_destination_name_.*_destination_pod_.*_osm_request_total
+          target_label: source_pod
+        - source_labels: [__name__]
+          action: replace
+          regex: envoy_response_code_\d{3}_source_namespace_.*_source_kind_.*_source_name_.*_source_pod_.*_destination_namespace_(.*)_destination_kind_.*_destination_name_.*_destination_pod_.*_osm_request_total
+          target_label: destination_namespace
+        - source_labels: [__name__]
+          action: replace
+          regex: envoy_response_code_\d{3}_source_namespace_.*_source_kind_.*_source_name_.*_source_pod_.*_destination_namespace_.*_destination_kind_(.*)_destination_name_.*_destination_pod_.*_osm_request_total
+          target_label: destination_kind
+        - source_labels: [__name__]
+          action: replace
+          regex: envoy_response_code_\d{3}_source_namespace_.*_source_kind_.*_source_name_.*_source_pod_.*_destination_namespace_.*_destination_kind_.*_destination_name_(.*)_destination_pod_.*_osm_request_total
+          target_label: destination_name
+        - source_labels: [__name__]
+          action: replace
+          regex: envoy_response_code_\d{3}_source_namespace_.*_source_kind_.*_source_name_.*_source_pod_.*_destination_namespace_.*_destination_kind_.*_destination_name_.*_destination_pod_(.*)_osm_request_total
+          target_label: destination_pod
+        - source_labels: [__name__]
+          action: replace
+          regex: .*(osm_request_total)
+          target_label: __name__
+
+        - source_labels: [__name__]
+          action: replace
+          regex: envoy_source_namespace_(.*)_source_kind_.*_source_name_.*_source_pod_.*_destination_namespace_.*_destination_kind_.*_destination_name_.*_destination_pod_.*_osm_request_duration_ms_(bucket|sum|count)
+          target_label: source_namespace
+        - source_labels: [__name__]
+          action: replace
+          regex: envoy_source_namespace_.*_source_kind_(.*)_source_name_.*_source_pod_.*_destination_namespace_.*_destination_kind_.*_destination_name_.*_destination_pod_.*_osm_request_duration_ms_(bucket|sum|count)
+          target_label: source_kind
+        - source_labels: [__name__]
+          action: replace
+          regex: envoy_source_namespace_.*_source_kind_.*_source_name_(.*)_source_pod_.*_destination_namespace_.*_destination_kind_.*_destination_name_.*_destination_pod_.*_osm_request_duration_ms_(bucket|sum|count)
+          target_label: source_name
+        - source_labels: [__name__]
+          action: replace
+          regex: envoy_source_namespace_.*_source_kind_.*_source_name_.*_source_pod_(.*)_destination_namespace_.*_destination_kind_.*_destination_name_.*_destination_pod_.*_osm_request_duration_ms_(bucket|sum|count)
+          target_label: source_pod
+        - source_labels: [__name__]
+          action: replace
+          regex: envoy_source_namespace_.*_source_kind_.*_source_name_.*_source_pod_.*_destination_namespace_(.*)_destination_kind_.*_destination_name_.*_destination_pod_.*_osm_request_duration_ms_(bucket|sum|count)
+          target_label: destination_namespace
+        - source_labels: [__name__]
+          action: replace
+          regex: envoy_source_namespace_.*_source_kind_.*_source_name_.*_source_pod_.*_destination_namespace_.*_destination_kind_(.*)_destination_name_.*_destination_pod_.*_osm_request_duration_ms_(bucket|sum|count)
+          target_label: destination_kind
+        - source_labels: [__name__]
+          action: replace
+          regex: envoy_source_namespace_.*_source_kind_.*_source_name_.*_source_pod_.*_destination_namespace_.*_destination_kind_.*_destination_name_(.*)_destination_pod_.*_osm_request_duration_ms_(bucket|sum|count)
+          target_label: destination_name
+        - source_labels: [__name__]
+          action: replace
+          regex: envoy_source_namespace_.*_source_kind_.*_source_name_.*_source_pod_.*_destination_namespace_.*_destination_kind_.*_destination_name_.*_destination_pod_(.*)_osm_request_duration_ms_(bucket|sum|count)
+          target_label: destination_pod
+        - source_labels: [__name__]
+          action: replace
+          regex: .*(osm_request_duration_ms_(bucket|sum|count))
+          target_label: __name__
+
+      - job_name: 'kubernetes-cadvisor'
+        scheme: https
+        tls_config:
+          ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+        bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+        kubernetes_sd_configs:
+        - role: node
+        metric_relabel_configs:
+        - source_labels: [__name__]
+          regex: '(container_cpu_usage_seconds_total|container_memory_rss)'
+          action: keep
+        relabel_configs:
+        - action: labelmap
+          regex: __meta_kubernetes_node_label_(.+)
+        - target_label: __address__
+          replacement: kubernetes.default.svc:443
+        - source_labels: [__meta_kubernetes_node_name]
+          regex: (.+)
+          target_label: __metrics_path__
+          replacement: /api/v1/nodes/${1}/proxy/metrics/cadvisor
+```
+
+Apply the updated configmap yaml file with the following command.
+
+```azurecli-interactive
+kubectl apply -f cm-stable-prometheus-server.yml
+```
+
+```Output
+configmap/stable-prometheus-server configured
+```
+
+> [!NOTE]
+> You may receive a message about a missing kubernetes annotation needed. This can be ignored for now.
+
+#### Verify Prometheus is configured to scrape the OSM mesh and API endpoints
+
+To verify that Prometheus is correctly configured to scrape the OSM mesh and API endpoints, we will port forward to the Prometheus pod and view the target configuration. Run the following commands.
+
+```azurecli-interactive
+PROM_POD_NAME=$(kubectl get pods -l "app=prometheus,component=server" -o jsonpath="{.items[0].metadata.name}")
+kubectl --namespace <promNamespace> port-forward $PROM_POD_NAME 9090
+```
+
+Open a browser up to `http://localhost:9090/targets`
+
+If you scroll down you should see all the SMI metric endpoints state being **UP** as well as other osm metrics defined as pictured below.
+
+![OSM Prometheus Target Metrics UI image](./media/aks-osm-addon/osm-prometheus-smi-metrics-target-scrape.png)
+
+### Deploy and configure a Grafana Instance for OSM
+
+We will use Helm to deploy the Grafan instance. Run the following commands to install Grafana via Helm:
+
+```
+helm repo add grafana https://grafana.github.io/helm-charts
+helm repo update
+helm install osm-grafana grafana/grafana
+```
+
+Next we'll retrieve the default Grafana password to log into the Grafana site.
+
+```azurecli-interactive
+kubectl get secret --namespace default osm-grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+```
+
+Make note of the Grafana password.
+
+Next we will retreive the Grafana pod to port forward to the Grafan dashboard to login.
+
+```azurecli-interactive
+GRAF_POD_NAME=$(kubectl get pods -l "app.kubernetes.io/name=grafana" -o jsonpath="{.items[0].metadata.name}")
+kubectl port-forward $GRAF_POD_NAME 3000
+```
+
+Open a browser up to `http://localhost:3000`
+
+At the login screen pictured below, enter **admin** as the username and use the Grafana password captured earlier.
+
+![OSM Grafana Login Page UI image](./media/aks-osm-addon/osm-grafana-ui-login.png)
+
+#### Configure the Grafana Prometheus data source
+
+Once you have successfully logged into Grafana, the next step is to add Prometheus as data sources for Grafana. To do so, naviagte on the configuration icon on the left menu and select Data Sources as shown below.
+
+![OSM Grafana Datasources Page UI image](./media/aks-osm-addon/osm-grafana-ui-datasources.png)
+
+Click the **Add data source** button and select Prometheus under time series databases.
+
+![OSM Grafana Datasources Page UI image](./media/aks-osm-addon/osm-grafana-ui-datasources-select-prometheus.png)
+
+On the **Configure your Prometheus data source below** page, enter the Kubernetes cluster FQDN for the Prometheus service for the HTTP URL setting. The default FQDN should be `stable-prometheus-server.default.svc.cluster.local`. Once you have entered that Prometheus service endpoint, scroll to the bottom of the page and select **Save & Test**. You should receive a green checkbox indicating the data source is working.
+
+#### Importing OSM Dashboards
+
+OSM Dashboards are available both through:
+
+- [Our repository](/charts/osm/grafana), and are importable as json blobs through the web admin portal
+- or [online at Grafana.com](https://grafana.com/grafana/dashboards/14145)
+
+To import a dashboard, look for the `+` sign on the left menu and select `import`.
+You can directly import dashboard by their ID on `Grafana.com`. For example, our `OSM Mesh Details` dashboard uses id `14145`, you can use the ID directly on the form and click `import`:
+
+![OSM Grafana Dashboard Import Page UI image](./media/aks-osm-addon/osm-grafana-dashboard-import.png)
+
+As soon as you click import, it will bring you automatically to your imported dashboard.
+
+![OSM Grafana Dashboard Import Page UI image](./media/aks-osm-addon/osm-grafana-mesh-dashboard-details.png)
+
 ## Open Service Mesh (OSM) AKS add-on Troubleshooting Guides
 
 When you deploy the OSM AKS add-on, you might occasionally experience a problem. The following guides will assist you on how to troubleshoot errors and resolve common problems.
@@ -1680,11 +2133,11 @@ osm-controller-b5bd66db-wglzl   0/1     Evicted   0          61m
 osm-controller-b5bd66db-wvl9w   1/1     Running   0          31m
 ```
 
-Eventhough we had one controller evicted at some point, we have another one which is READY 1/1 and Running with 0 restarts. If the column READY is anything other than 1/1 the service mesh would be in a broken state.
+Even though we had one controller evicted at some point, we have another one which is READY 1/1 and Running with 0 restarts. If the column READY is anything other than 1/1 the service mesh would be in a broken state.
 Column READY with 0/1 indicates the control plane container is crashing - we need to get logs. See Get OSM Controller Logs from Azure Support Center section below. Column READY with a number higher than 1 after the / would indicate that there are sidecars installed. OSM Controller would most likely not work with any sidecars attached to it.
 
 > [!NOTE]
-> As of version v0.8.2 the OSM Controller is not in HA mode and will run in a deploynd with replica count of 1 - single pod. The pod does have health probes and will be restarted by the kubelet if needed.
+> As of version v0.8.2 the OSM Controller is not in HA mode and will run in a deployed with replica count of 1 - single pod. The pod does have health probes and will be restarted by the kubelet if needed.
 
 #### Check OSM Controller Service
 
@@ -1692,7 +2145,7 @@ Column READY with 0/1 indicates the control plane container is crashing - we nee
 kubectl get service -n kube-system osm-controller
 ```
 
-A healthy OSM Controller servcie would look like this:
+A healthy OSM Controller service would look like this:
 
 ```Output
 NAME             TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)              AGE
@@ -1781,7 +2234,7 @@ aks-osm-webhook-osm   1      81m
 ```
 
 ```azurecli-interactive
-kubectl get MutatingWebhookConfiguration --selector app=osm-controller
+kubectl get MutatingWebhookConfiguration --selector app=osm-injector
 ```
 
 A healthy OSM Mutating Webhook would look like this:
@@ -1842,11 +2295,11 @@ kubectl get MutatingWebhookConfiguration aks-osm-webhook-osm -o json | jq -r '.w
 1845
 ```
 
-This number indicates the number of bytes, or the size of the CA Bundle. If this is empty, 0, or some number under a 1000 it would indicate that the CA Bundle is not correctly provisioned. Without a correct CA Bundle the Validating Webhook would be erroring out and prohibiting the user from making changes to the osm-config ConfigMap in the kube-system namespace.
+This number indicates the number of bytes, or the size of the CA Bundle. If this is empty, 0, or some number under 1000 it would indicate that the CA Bundle is not correctly provisioned. Without a correct CA Bundle the Validating Webhook would be erroring out and prohibiting the user from making changes to the osm-config ConfigMap in the kube-system namespace.
 
 A sample error when the CA Bundle is incorrect:
 
-- An attepmt to change the osm-config ConfigMap:
+- An attempt to change the osm-config ConfigMap:
 
 ```azurecli-interactive
 kubectl patch ConfigMap osm-config -n kube-system --type merge --patch '{"data":{"config_resync_interval":"2m"}}'
@@ -1940,7 +2393,7 @@ When a k8s namespace is part of the mesh (or for it to be part of the mesh) the 
 View the annotations with
 
 ```azurecli-interactive
-kc get namespace bookbuyer-many-many-8 -o json | jq '.metadata.annotations'
+kubectl get namespace bookbuyer -o json | jq '.metadata.annotations'
 ```
 
 The following annotation must be present:
@@ -1954,7 +2407,7 @@ The following annotation must be present:
 View the labels with
 
 ```azurecli-interactive
-kc get namespace bookbuyer-many-many-8 -o json | jq '.metadata.labels'
+kubectl get namespace bookbuyer -o json | jq '.metadata.labels'
 ```
 
 The following label must be present:
@@ -1967,7 +2420,7 @@ The following label must be present:
 
 If a namespace is not annotated with `"openservicemesh.io/sidecar-injection": "enabled"` or not labeled with `"openservicemesh.io/monitored-by": "osm"` the OSM Injector will not add Envoy sidecars.
 
-> Note: After `osm namespace add` is called only **new** pods will be injected with an Envoy sidecar. Existing pods must be restarted with `kubectl rollout restard deployment ...`
+> Note: After `osm namespace add` is called only **new** pods will be injected with an Envoy sidecar. Existing pods must be restarted with `kubectl rollout restart deployment ...`
 
 #### Verify the SMI CRDs:
 
