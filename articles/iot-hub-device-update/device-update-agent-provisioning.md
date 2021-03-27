@@ -74,7 +74,7 @@ Follow these instructions to provision the Device Update agent on your IoT Linux
    ```
    
 4. You should be greeted with a view like below:
-:::image type="content" source="media/understand-device-update/config.png" alt-text="Diagram of Device Update agent workflow." lightbox="media/understand-device-update/config.png"::: 
+:::image type="content" source="media/understand-device-update/config.png" alt-text="Diagram of IoT Identity Service config file." lightbox="media/understand-device-update/config.png"::: 
     * In the same nano window as above find the block with “Manual provisioning with connection string”.
     * In the window delete the “#” symbol ahead of 'provisioning'
     * In the window delete the “#” symbol ahead of 'source' 
@@ -115,7 +115,7 @@ This section describes how to start and verify the Device Update agent as a modu
    ```
 4.	You should see status OK.
 5.	On the IoT Hub portal,  go to IoT device or IoT Edge devices to find the device that you configured with Device Update agent. There you will see the Device Update agent running as a module, For example:
-:::image type="content" source="media/understand-device-update/Device Update Module.png " alt-text="Diagram of Device Update agent workflow." lightbox="media/understand-device-update/Device Update Module.png":::
+:::image type="content" source="media/understand-device-update/Device Update Module.png " alt-text="Diagram of Device Update module name." lightbox="media/understand-device-update/Device Update Module.png":::
 
 ## How to build and run Device Update Agent
 You can also build and modify your own customer Device Update agent.
