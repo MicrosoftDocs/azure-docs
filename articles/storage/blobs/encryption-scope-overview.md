@@ -24,7 +24,7 @@ For more information about working with encryption scopes, see [Create and manag
 
 By default, a storage account is encrypted with a key that is scoped to the entire storage account. When you define an encryption scope, you specify a key that may be scoped to a container or an individual blob. When the encryption scope is applied to a blob, the blob is encrypted with that key. When the encryption scope is applied to a container, it serves as the default scope for blobs in that container, so that all blobs that are uploaded to that container may be encrypted with the same key. The container can be configured to enforce the default encryption scope for all blobs in the container, or to permit an individual blob to be uploaded to the container with an encryption scope other than the default.
 
-Read operations on a blob that belongs to an encryption scope happen transparently, so long as the encryption scope is not disabled.
+Read operations on a blob that was created with an encryption scope happen transparently, so long as the encryption scope is not disabled.
 
 ### Key management
 
@@ -38,8 +38,8 @@ A storage account may have up to 10,000 encryption scopes that are protected wit
 
 When you create a container, you can specify a default encryption scope for the blobs that are subsequently uploaded to that container. When you specify a default encryption scope for a container, you can decide how the default encryption scope is enforced:
 
-- You can require that all blobs uploaded to the container use the default encryption scope. In this case, every blob in the container is protected with a scope that is encrypted with the same key.
-- You can permit a client to override the default encryption scope for the container, so that a blob may be uploaded with an encryption scope other than the default scope. In this case, the blobs in the container may be protected with scopes that are encrypted with different keys.
+- You can require that all blobs uploaded to the container use the default encryption scope. In this case, every blob in the container is encrypted with the same key.
+- You can permit a client to override the default encryption scope for the container, so that a blob may be uploaded with an encryption scope other than the default scope. In this case, the blobs in the container may be encrypted with different keys.
 
 The following table summarizes the behavior of a blob upload operation, depending on how the default encryption scope is configured for the container:
 
@@ -58,13 +58,15 @@ When you disable an encryption scope, any subsequent read or write operations ma
 
 When an encryption scope is disabled, you are no longer billed for it. Disable any encryption scopes that are not needed to avoid unnecessary charges.
 
-If your encryption scope is protected with customer-managed keys, then you can also delete the associated key in the key vault in order to disable the encryption scope. Keep in mind that customer-managed keys are protected by soft delete and purge protection in the key vault, and a deleted key is subject to the behavior defined for by those properties. For more information, see one of the following topics in the Azure Key Vault documentation:
+If your encryption scope is protected with a customer-managed key, and you delete the key in the key vault, the data will become inaccessible. Be sure to also disable the encryption scope to avoid being charged for it.
+
+Keep in mind that customer-managed keys are protected by soft delete and purge protection in the key vault, and a deleted key is subject to the behavior defined for by those properties. For more information, see one of the following topics in the Azure Key Vault documentation:
 
 - [How to use soft-delete with PowerShell](../../key-vault/general/key-vault-recovery.md)
 - [How to use soft-delete with CLI](../../key-vault/general/key-vault-recovery.md)
 
 > [!IMPORTANT]
-> It is not possible to delete an encryption scope. To avoid unexpected costs, be sure to disable any encryption scopes that you do not currently need.
+> It is not possible to delete an encryption scope.
 
 ## Next steps
 
