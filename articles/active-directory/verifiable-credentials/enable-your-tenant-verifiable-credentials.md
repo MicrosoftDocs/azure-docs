@@ -50,7 +50,7 @@ If you just created a test Azure subscription, your tenant does not need to be p
 When working with verifiable credentials, you have complete control and management of the cryptographic keys your tenant uses to digitally sign verifiable credentials. To issue and verify credentials, you must provide Azure AD with access to your own instance of Azure Key Vault.
 
 1. From the Azure portal menu, or from the **Home** page, select **Create a resource**.
-2. In the Search box, enter **Key Vault**.
+2. In the Search box, enter **key vault**.
 3. From the results list, choose **Key Vault**.
 4. On the Key Vault section, choose **Create**.
 5. On the **Create key vault** section provide the following information:
@@ -82,10 +82,10 @@ Take note of the two properties listed below:
 - **Vault URI**: In the example, this value is https://contoso-vc.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
 
 >[!NOTE]
-> Each Key Vault transaction results in additional Azure subscription costs. Review the [Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/) for more details.
+> Each key vault transaction results in additional Azure subscription costs. Review the [Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/) for more details.
 
 >[!IMPORTANT]
-> During the verifiable credentials preview, keys and secrets created in your vault should not be modified once created. Deleting, disabling, or updating your keys and secrets invalidates any issued credentials. Do not modify your keys or secrets during the preview.
+> During the Azure Active Directory Verifiable Credentials preview, keys and secrets created in your vault should not be modified once created. Deleting, disabling, or updating your keys and secrets invalidates any issued credentials. Do not modify your keys or secrets during the preview.
 
 ## Set up verifiable credentials Preview
 
@@ -115,13 +115,13 @@ Before creating our first verifiable credential, we need to create a Blob Storag
 
 1. Create a storage account using the options shown below. For detailed steps review the [Create a storage account](../../storage/common/storage-account-create.md?tabs=azure-portal) article.
 
-    - **Subscription:** Choose the subscription that we are using for these tutorials.
-    - **Resource group:** Choose the same resource group we used in earlier tutorials (**vc-resource-group**).
-    - **Name:**  A unique name.
-    - **Location:** (US) EAST US.
-    - **Performance:** Standard.
-    - **Account kind:** Storage V2.
-    - **Replication:** Locally redundant.
+   - **Subscription:** Choose the subscription that we are using for these tutorials.
+   - **Resource group:** Choose the same resource group we used in earlier tutorials (**vc-resource-group**).
+   - **Name:**  A unique name.
+   - **Location:** (US) EAST US.
+   - **Performance:** Standard.
+   - **Account kind:** Storage V2.
+   - **Replication:** Locally redundant.
  
    ![Create a new storage account](media/tutorial-create-sample-card-your-issuer/create-storage-account.png)
 
@@ -168,27 +168,42 @@ In this section, we use the rules and display files from the Sample issuer app a
 
 2. Open up the MyFirstVC-rules.json file in your code editor. 
 
-```json
-{
-  "attestations": {
-    "idTokens": [
-      {
-        "mapping": {
-          "firstName": { "claim": "given_name" },
-          "lastName": { "claim": "family_name" }
-        },
-        "configuration": "https://didplayground.b2clogin.com/didplayground.onmicrosoft.com/B2C_1_sisu/v2.0/.well-known/openid-configuration",
-        "client_id": "8d5b446e-22b2-4e01-bb2e-9070f6b20c90",
-        "redirect_uri": "vcclient://openid"
+```md
+    ```json
+    {
+      "attestations": {
+        "idTokens": [
+          {
+            "mapping": {
+              "firstName": { "claim": "given_name" },
+              "lastName": { "claim": "family_name" }
+            },
+            "configuration": "https://didplayground.b2clogin.com/didplayground.onmicrosoft.com/B2C_1_sisu/v2.0/.well-known/openid-configuration",
+            "client_id": "8d5b446e-22b2-4e01-bb2e-9070f6b20c90",
+            "redirect_uri": "vcclient://openid"
+          }
+        ]
+      },
+      "validityInterval": 2592000,
+      "vc": {
+        "type": ["VerifiedCredentialNinja"]
       }
-    ]
-  },
-  "validityInterval": 2592000,
-  "vc": {
-    "type": ["VerifiedCredentialNinja"]
-  }
-}
+    }
+    ```
 ```
+
+```md
+    ```json
+    {
+        "aggregator": {
+            "batchSize": 1000,
+            "flushTimeout": "00:00:30"
+        }
+    }
+    ```
+```
+
+
 Now let's change the type field to "MyFirstVC". 
 
 ```json

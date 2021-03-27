@@ -27,13 +27,13 @@ This page contains commonly asked questions about Verifiable Credentials and Dec
 
 ### What is a DID? 
 
-DIDs (Decentralized Identifers) are identifiers that can be used to secure access to resources, sign and verify credentials, and facilitate application data exchange. Unlike traditional usernames and email addresses, DIDs are owned and controlled by the entity itself (be it a person, device, or company), and exist independently of any external organization or trusted intermediary. [The W3C Decentralized Identifier spec](https://www.w3.org/TR/did-core/) explains this in further detail.
+Decentralized Identifers(DIDs) are identifiers that can be used to secure access to resources, sign and verify credentials, and facilitate application data exchange. Unlike traditional usernames and email addresses, DIDs are owned and controlled by the entity itself (be it a person, device, or company). DIDs exist independently of any external organization or trusted intermediary. [The W3C Decentralized Identifier spec](https://www.w3.org/TR/did-core/) explains this in further detail.
 
 ### Why do we need a DID?
 
 Digital trust fundamentally requires participants to own and control their identities, and identity begins at the identifier.
-In an age of daily, large scale system breaches and attacks on centralized identifier honeypots, decentralizing identity is becoming a critical security need for consumers and businesses.
-Individuals owning and controlling their identities enables them to exchange verifiable data and proofs that can automate many business processes that are currently manual and labor intensive.
+In an age of daily, large-scale system breaches and attacks on centralized identifier honeypots, decentralizing identity is becoming a critical security need for consumers and businesses.
+Individuals owning and controlling their identities are able to exchange verifiable data and proofs. A distributed credential environment allows for the automation of many business processes that are currently manual and labor intensive.
 
 ### What is a Verifiable Credential? 
 
@@ -44,7 +44,7 @@ Credentials are a part of our daily lives; driver's licenses are used to assert 
 
 ### What happens when a user loses their phone? Can they recover their identity?
 
-There are multiple ways of offering a recovery mechanism to users, each with their own tradeoffs. We're currently evaluating options and designing approaches to recovery that offer convenience and security while respecting a user's privacy and self sovereignty.
+There are multiple ways of offering a recovery mechanism to users, each with their own tradeoffs. We're currently evaluating options and designing approaches to recovery that offer convenience and security while respecting a user's privacy and self-sovereignty.
 
 ### Why does validation of a verifiable credential require a query to a credential status endpoint? Is this not a privacy concern?
 
@@ -54,7 +54,7 @@ The `credentialStatus` property in a verifiable credential requires the verifier
 
 ### How can a user trust a request from an issuer or verifier? How do they know a DID is the real DID for an organization?
 
-We have implemented [the Decentralized Identity Foundation's Well Known DID Configuration spec](https://identity.foundation/.well-known/resources/did-configuration/) in order to connect a DID to a highly known existing system, domain names. Each DID created using the  Azure Active Directory Verifiable Credentials has the option of including a root domain name that will be encoded in the DID Document. Please follow the article titled [Link your Domain to your Distributed Identifier](how-to-dnsbind.md) to learn more.  
+We have implemented [the Decentralized Identity Foundation's Well Known DID Configuration spec](https://identity.foundation/.well-known/resources/did-configuration/) in order to connect a DID to a highly known existing system, domain names. Each DID created using the  Azure Active Directory Verifiable Credentials has the option of including a root domain name that will be encoded in the DID Document. Follow the article titled [Link your Domain to your Distributed Identifier](how-to-dnsbind.md) to learn more.  
 
 ### Does a user need to periodically rotate their DID keys?
 
@@ -62,8 +62,7 @@ The DID methods used in verifiable credential exchanges support the ability for 
 
 ### Why does the Verifiable Credential preview use ION as its DID method, and therefore Bitcoin to provide decentralized public key infrastructure?
 
-ION is a decentralized, permissionless, scalable Decentralized Identifier Layer 2 network that runs atop Bitcoin. It achieves scalability without including a special cryptoasset token, trusted validators, or centralized consensus mechanisms. We leverage Bitcoin for the base Layer 1 substrate because of the strength of the decentralized network to provide a high degree of immutability for a chronological event record system. 
-
+ION is a decentralized, permissionless, scalable decentralized identifier Layer 2 network that runs atop Bitcoin. It achieves scalability without including a special cryptoasset token, trusted validators, or centralized consensus mechanisms. We use Bitcoin for the base Layer 1 substrate because of the strength of the decentralized network to provide a high degree of immutability for a chronological event record system.
 
 ## Using the preview
 
