@@ -121,7 +121,12 @@ sms_responses = sms_client.send(
 
 ```
 
-### Optional Parameters
+You should replace `<from-phone-number>` with an SMS enabled phone number associated with your communication service and `<to-phone-number-1>` `<to-phone-number-2>` with phone number(s) you wish to send a message to. 
+
+> [!WARNING]
+> Note that phone numbers should be provided in E.164 international standard format. (e.g.: +14255550123).
+
+## Optional Parameters
 
 The `enable_delivery_report` parameter is an optional parameter that you can use to configure Delivery Reporting. This is useful for scenarios where you want to emit events when SMS messages are delivered. See the [Handle SMS Events](../handle-sms-events.md) quickstart to configure Delivery Reporting for your SMS messages.
 

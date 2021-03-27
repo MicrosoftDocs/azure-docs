@@ -78,8 +78,8 @@ The following classes and interfaces handle some of the major features of the Az
 | Name                                       | Description                                                                                                                                                       |
 | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | SmsClient     | This class is needed for all SMS functionality. You instantiate it with your subscription information, and use it to send SMS messages.                           |
-| SmsSendResult               | This class contains the result from the SMS service.                                          |
 | SmsSendOptions | This class provides options to configure delivery reporting. If enable_delivery_report is set to True, then an event will be emitted when delivery was successful |
+| SmsSendResult               | This class contains the result from the SMS service.                                          |
 
 ## Authenticate the client
 
@@ -117,8 +117,8 @@ To send an SMS message to a list of recipients, call the `Send` or `SendAsync` f
 
 ```csharp
 Response<IEnumerable<SmsSendResult>> response = smsClient.Send(
-    from: "<from-phone-number>", // Your E.164 formatted from phone number used to send SMS
-    to: new string[] { "<to-phone-number-1>", "<to-phone-number-2>" }, // E.164 formatted recipient phone numbers
+    from: "<from-phone-number>",
+    to: new string[] { "<to-phone-number-1>", "<to-phone-number-2>" },
     message: "Weekly Promotion!",
     options: new SmsSendOptions(enableDeliveryReport: true) // OPTIONAL
     {
@@ -132,6 +132,11 @@ foreach (SmsSendResult result in results)
     Console.WriteLine($"Send Result Successful: {result.Successful}");
 }
 ```
+
+You should replace `<from-phone-number>` with an SMS-enabled phone number associated with your Communication Services resource and `<to-phone-number-1>` and `<to-phone-number-2>` with phone number(s) you wish to send a message to.
+
+> [!WARNING]
+> Note that phone numbers should be provided in E.164 international standard format. (e.g.: +14255550123).
 
 The `enableDeliveryReport` parameter is an optional parameter that you can use to configure Delivery Reporting. This is useful for scenarios where you want to emit events when SMS messages are delivered. See the [Handle SMS Events](../handle-sms-events.md) quickstart to configure Delivery Reporting for your SMS messages.
 

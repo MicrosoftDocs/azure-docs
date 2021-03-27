@@ -102,8 +102,8 @@ The following classes and interfaces handle some of the major features of the Az
 | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | SmsClientBuilder              | This class creates the SmsClient. You provide it with endpoint, credential, and an http client. |
 | SmsClient                    | This class is needed for all SMS functionality. You use it to send SMS messages.                |
-| SmsSendResult                | This class contains the result from the SMS service.                                          |
 | SmsSendOptions               | This class provides options to add custom tags and configure delivery reporting. If deliveryReportEnabled is set to true, then an event will be emitted when delivery was successful|                           |
+| SmsSendResult                | This class contains the result from the SMS service.                                          |
 
 ## Authenticate the client
 
@@ -182,6 +182,11 @@ for (SmsSendResult result : sendResults) {
     System.out.println("Send Result Successful:" + result.isSuccessful());
 }
 ```
+
+You should replace `<from-phone-number>` with an SMS enabled phone number associated with your Communication Services resource and `<to-phone-number-1>` and `<to-phone-number-2>` with phone number(s) you wish to send a message to.
+
+> [!WARNING]
+> Note that phone numbers should be provided in E.164 international standard format. (e.g.: +14255550123).
 
 The `setDeliveryReportEnabled` method is used to configure Delivery Reporting. This is useful for scenarios where you want to emit events when SMS messages are delivered. See the [Handle SMS Events](../handle-sms-events.md) quickstart to configure Delivery Reporting for your SMS messages.
 
