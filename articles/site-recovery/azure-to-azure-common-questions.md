@@ -68,7 +68,7 @@ Yes, you can replicate Azure VMs to any subscription within the same Azure AD te
 
 ### Can I replicate VMs in an availability zone to another region?
 
-Yes, you can replicate VMs in availability zones to another Azure region. The target VM can be deployed as a single instance, in an availability set, or in an availability zone if supported in the target region. 
+Yes, you can replicate VMs in availability zones to another Azure region. 
 
 ### Can I replicate non-zone VMs to a zone within the same region? 
 
@@ -76,7 +76,7 @@ This isn't supported in the portal. You can use the REST API/PowerShell to do th
 
 ### Can I replicate zoned VMs to a different zone in the same region?
 
-Support for this is limited to a couple of regions. [Learn more](azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md).
+Support for this is limited to a few regions. [Learn more](azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md).
 
 ### Can I exclude disks from replication?
 

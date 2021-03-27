@@ -1,0 +1,41 @@
+- name: Azure Managed Instance for Apache Cassandra documentation
+  href: index.yml
+- name: Overview
+  items:
+    - name: What is Azure Managed Instance for Apache Cassandra?
+      href: introduction.md
+- name: Quickstarts
+  items:
+    - name: Create a cluster - Portal
+      href: create-cluster-portal.md
+    - name: Create a cluster - CLI
+      displayName: az managed-cassandra, cluster, datacenter, connect
+      href: create-cluster-cli.md
+    - name: Configure a hybrid cluster
+      href: configure-hybrid-cluster.md       
+    - name: Deploy Spark Cluster with Databricks
+      href: deploy-cluster-databricks.md
+- name: Concepts
+  items:
+    - name: Frequently asked questions
+      displayName: cost, region, monitor, backup
+      href: faq.md  
+    - name: Managed instance Vs Azure Cosmos DB Cassandra API
+      href: compare-cosmosdb-managed-instance.md                
+- name: How-to guides
+  items:
+    - name: Manage with Azure CLI
+      displayName: az managed-cassandra, cluster, datacenter
+      href: manage-resources-cli.md           
+    - name: Visualize metrics in Prometheus with Grafana
+      href: visualize-prometheus-grafana.md
+- name: Reference
+  items:
+    - name: REST API
+      items:
+      - name: Cassandra clusters
+        href: /rest/api/cosmos-db-resource-provider/2021-03-01-preview/cassandraclusters
+      - name: Cassandra data centers
+        href: /rest/api/cosmos-db-resource-provider/2021-03-01-preview/cassandradatacenters
+    - name: Azure CLI
+      href: /cli/azure/ext/cosmosdb-preview/managed-cassandra?view=azure-cli-latest&preserve-view=true

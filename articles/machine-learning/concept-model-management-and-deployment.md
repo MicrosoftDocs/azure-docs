@@ -155,7 +155,7 @@ Azure ML gives you the capability to track the end-to-end audit trail of all of 
 > [!TIP]
 > While some information on models and datasets is automatically captured, you can add additional information by using __tags__. When looking for registered models and datasets in your workspace, you can use tags as a filter.
 >
-> Associating a dataset with a registered model is an optional step. For information on referencing a dataset when registering a model, see the [Model](/python/api/azureml-core/azureml.core.model%28class%29?preserve-view=true&view=azure-ml-py) class reference.
+> Associating a dataset with a registered model is an optional step. For information on referencing a dataset when registering a model, see the [Model](/python/api/azureml-core/azureml.core.model%28class%29) class reference.
 
 
 ## Notify, automate, and alert on events in the ML lifecycle

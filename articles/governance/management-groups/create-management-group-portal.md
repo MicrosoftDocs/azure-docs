@@ -43,7 +43,7 @@ directory. You receive a notification when the process is complete. For more inf
 
 1. Select **+ Add management group**.
 
-   :::image type="content" source="./media/main.png" alt-text="Screenshot of the Management groups page showing child management groups and subscriptions." border="false":::
+   :::image type="content" source="./media/main.png" alt-text="Screenshot of the Management groups page showing child management groups and subscriptions.":::
 
 1. Leave **Create new** selected and fill in the management group ID field.
 

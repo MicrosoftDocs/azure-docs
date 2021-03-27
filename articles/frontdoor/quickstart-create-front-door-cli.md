@@ -41,7 +41,7 @@ In Azure, you allocate related resources to a resource group. You can either use
 
 For this quickstart, you need two resource groups. One in *Central US* and the second in *South Central US*.
 
-Create a resource group with [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create&preserve-view=true):
+Create a resource group with [az group create](/cli/azure/group#az-group-create):
 
 ```azurecli-interactive
 az group create \
@@ -63,7 +63,7 @@ If you don't already have a web app, use the following script to set up two exam
 
 Before you can create the web apps you will need two app service plans, one in *Central US* and the second in *South Central US*.
 
-Create app service plans with [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create&preserve-view=true):
+Create app service plans with [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create&preserve-view=true):
 
 ```azurecli-interactive
 az appservice plan create \
@@ -79,7 +79,7 @@ az appservice plan create \
 
 Running the following commands will create a web app in each of the app service plans in the previous step. Web app names have to be globally unique.
 
-Create web app with [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create&preserve-view=true):
+Create web app with [az webapp create](/cli/azure/webapp#az_webapp_create&preserve-view=true):
 
 ```azurecli-interactive
 az webapp create \
@@ -99,7 +99,7 @@ Make note of the default host name of each web app so you can define the backend
 
 Create a basic Front Door with default load balancing settings, health probe, and routing rules by running to follow:
 
-Create Front Door with [az network front-door create](/cli/azure/ext/front-door/network/front-door?view=azure-cli-latest#ext_front_door_az_network_front_door_create&preserve-view=true):
+Create Front Door with [az network front-door create](/cli/azure/ext/front-door/network/front-door#ext_front_door_az_network_front_door_create&preserve-view=true):
 
 ```azurecli-interactive
 az network front-door create \
@@ -129,7 +129,7 @@ Open a web browser and enter the hostname obtain from the commands. The Front Do
 
 When you no longer need the resources that you created with the Front Door, delete both resource groups. When you delete the resource group, you also delete the Front Door and all its related resources. 
 
-To delete the resource group use [az group delete](/cli/azure/group?view=azure-cli-latest#az_group_delete&preserve-view=true):
+To delete the resource group use [az group delete](/cli/azure/group#az_group_delete&preserve-view=true):
 
 ```azurecli-interactive
 az group delete \

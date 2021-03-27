@@ -378,11 +378,9 @@ There is no downside to the use of TRIM on Azure disks on either premium or stan
 
 **What regions support bursting capability for applicable premium SSD disk size?**
 
-The bursting capability is currently supported in all regions in Azure Public Cloud, with support for sovereign clouds coming soon. 
+Credit-based bursting is currently supported in all regions in Azure Public Cloud, sovereign clouds are not currently supported.
 
-**What regions are 4/8/16 GiB Managed Disk sizes (P1/P2/P3, E1/E2/E3) supported in?**
-
-These new disk sizes are currently supported in all regions in Azure Public Cloud, with support for sovereign clouds coming soon. 
+On-demand bursting is only available in West Central US.
 
 **Are P1/P2/P3 disk sizes supported for unmanaged disks or page blobs?**
 

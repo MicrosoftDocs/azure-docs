@@ -34,7 +34,7 @@ To set up SSO for an application that you added to your Azure AD tenant, you nee
 
 ## Enable single sign-on for an app
 
-After you finish adding an application to your Azure AD tenant, the overview page appears. If you're configuring an application that was already added, look at the first quickstart. It walks you through viewing the applications added to your tenant. 
+After you finish adding an application to your Azure AD tenant, the overview page appears. If you're configuring an application that was already added, look at the first quickstart. It walks you through viewing the applications added to your tenant.
 
 To set up single sign-on for an application:
 

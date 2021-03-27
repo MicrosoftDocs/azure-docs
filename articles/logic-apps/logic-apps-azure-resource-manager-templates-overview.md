@@ -202,7 +202,7 @@ Here is the structure inside the parameters file, which includes a key vault ref
       "<secured-parameter-name>": {
          "reference": {
             "keyVault": {
-               "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/Microsoft.KeyVault/vaults/<key-vault-name>",
+               "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/Microsoft.KeyVault/vaults/<key-vault-name>"
             },
             "secretName: "<secret-name>"
          }

@@ -37,7 +37,7 @@ When the path versioning scheme is used, the version identifier needs to be incl
 
 For example, `https://apis.contoso.com/products/v1` and `https://apis.contoso.com/products/v2` could refer to the same `products` API but to versions `v1` and `v2` respectively.
 
-The format of an API request URL when using header-based versioning is: `https://{yourDomain}/{apiName}/{versionIdentifier}/{operationId}`.
+The format of an API request URL when using path-based versioning is: `https://{yourDomain}/{apiName}/{versionIdentifier}/{operationId}`.
 
 ### Header-based versioning
 

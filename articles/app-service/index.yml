@@ -82,8 +82,6 @@ landingContent:
             url: deploy-ci-cd-custom-container.md
           - text: Connect a container to Storage Files
             url: configure-connect-to-azure-storage.md
-          - text: Deploy with GitHub Actions
-            url: deploy-container-github-action.md
 
   - title: CRUD app with database
     linkLists:

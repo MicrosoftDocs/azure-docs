@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 03/23/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -30,6 +30,7 @@ The **All devices** page enables you to:
 - Configure your device identity settings.
 - Enable or disable Enterprise State Roaming.
 - Review device-related audit logs
+- Download devices (preview)
 
 [![All devices view in the Azure portal](./media/device-management-azure-portal/all-devices-azure-portal.png)](./media/device-management-azure-portal/all-devices-azure-portal.png#lightbox)
 
@@ -142,6 +143,14 @@ To enable the preview filtering functionality in the **All devices** view:
 
 You will now have the ability to **Add filters** to your **All devices** view.
 
+### Download devices (preview)
+
+Cloud device administrators, Intune administrators, and Global administrators can use the **Download devices (preview)** option to export a CSV file of devices based on any applied filters. If no filters are applied to the list then all devices will be exported. An export may run for a period of up to one hour depending on the 
+
+The exported list includes the following device identity attributes:
+
+`accountEnabled, approximateLastLogonTimeStamp, deviceOSType, deviceOSVersion, deviceTrustType, dirSyncEnabled, displayName, isCompliant, isManaged, lastDirSyncTime, objectId, profileType, registeredOwners, systemLabels, registrationTime, mdmDisplayName`
+
 ## Configure device settings
 
 To manage device identities using the Azure AD portal, those devices need to be either [registered or joined](overview.md) to Azure AD. As an administrator, you can control the process of registering and joining devices by configuring the following device settings.
@@ -158,7 +167,7 @@ You must be assigned one of the following roles to view or manage device setting
 - **Users may join devices to Azure AD** - This setting enables you to select the users who can register their devices as Azure AD joined devices. The default is **All**.
 
 > [!NOTE]
-> **Users may join devices to Azure AD** setting is only applicable to Azure AD join on Windows 10.
+> **Users may join devices to Azure AD** setting is only applicable to Azure AD join on Windows 10. This setting does not apply to hybrid Azure AD joined devices, [Azure AD joined VMs in Azure](./howto-vm-sign-in-azure-ad-windows.md#enabling-azure-ad-login-in-for-windows-vm-in-azure) and Azure AD joined devices using [Windows Autopilot self-deployment mode](/mem/autopilot/self-deploying) as these methods work in a userless context.
 
 - **Additional local administrators on Azure AD joined devices** - You can select the users that are granted local administrator rights on a device. These users are added to the *Device Administrators* role in Azure AD. Global administrators in Azure AD and device owners are granted local administrator rights by default. 
 This option is a premium edition capability available through products such as Azure AD Premium or the Enterprise Mobility Suite (EMS).
@@ -168,7 +177,11 @@ This option is a premium edition capability available through products such as A
 > [!NOTE]
 > **Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication** setting applies to devices that are either Azure AD joined (with some exceptions) or Azure AD registered. This setting does not apply to hybrid Azure AD joined devices, [Azure AD joined VMs in Azure](./howto-vm-sign-in-azure-ad-windows.md#enabling-azure-ad-login-in-for-windows-vm-in-azure) and Azure AD joined devices using [Windows Autopilot self-deployment mode](/mem/autopilot/self-deploying).
 
-- **Maximum number of devices** - This setting enables you to select the maximum number of Azure AD joined or Azure AD registered devices that a user can have in Azure AD. If a user reaches this quota, they are not be able to add additional devices until one or more of the existing devices are removed. The default value is **50**.
+> [!IMPORTANT]
+> - We recommend using ["Register or join devices" user action](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions) in Conditional Access for enforcing multi-factor authentication for joining or registering a device. 
+> - You must set this setting to **No** if you are using Conditional Access policy to require multi-factor authencation. 
+
+- **Maximum number of devices** - This setting enables you to select the maximum number of Azure AD joined or Azure AD registered devices that a user can have in Azure AD. If a user reaches this quota, they are not be able to add additional devices until one or more of the existing devices are removed. The default value is **50**. You can increase the value up to 100 and if you enter a value above 100, Azure AD will set it to 100. You can also use Unlimited value to enforce no limit other than existing quota limits.
 
 > [!NOTE]
 > **Maximum number of devices** setting applies to devices that are either Azure AD joined or Azure AD registered. This setting does not apply to hybrid Azure AD joined devices.

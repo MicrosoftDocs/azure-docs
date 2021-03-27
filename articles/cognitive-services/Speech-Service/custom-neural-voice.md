@@ -15,10 +15,10 @@ ms.author: trbye
 # What is custom neural voice?
 
 Custom Neural Voice is a
-[text-to-Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)
-(TTS) feature that allows you to create a one-of-a-kind customized synthetic voice for your applications by providing your own audio data as a sample. Text-to-Speech works by converting text into synthetic speech using a machine learning model that sounds like a chosen voice. With the [REST API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech),
-you can enable your apps to speak with [pre-built voices](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices)
-or your own [custom voice](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice-prepare-data)
+[text-to-Speech](./text-to-speech.md)
+(TTS) feature that allows you to create a one-of-a-kind customized synthetic voice for your applications by providing your own audio data as a sample. Text-to-Speech works by converting text into synthetic speech using a machine learning model that sounds like a chosen voice. With the [REST API](./rest-text-to-speech.md),
+you can enable your apps to speak with [pre-built voices](./language-support.md#neural-voices)
+or your own [custom voice](./how-to-custom-voice-prepare-data.md)
 models developed through the Custom Neural Voice feature. Custom Neural
 Voice is based on Neural TTS technology that creates a natural sounding
 voice that is often indistinguishable when compared with a human voice.
@@ -62,8 +62,8 @@ to a custom endpoint. Depending on the use case, Custom Neural Voice can
 be used to convert text into speech in real-time (e.g., used in a smart
 virtual assistant) or generate audio content offline (e.g., used as in
 audio book or instructions in e-learning applications) with the text
-input provided by the user. This is made available via the [REST API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech), the
-[Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started-text-to-speech?tabs=script%2Cwindowsinstall&pivots=programming-language-csharp),
+input provided by the user. This is made available via the [REST API](./rest-text-to-speech.md), the
+[Speech SDK](./get-started-text-to-speech.md?pivots=programming-language-csharp&tabs=script%2cwindowsinstall),
 or a [web portal](https://speech.microsoft.com/audiocontentcreation).
 
 ## Terms and definitions

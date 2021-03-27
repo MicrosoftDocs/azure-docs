@@ -204,7 +204,7 @@ The JSON file is downloaded in minified format to reduce the size of the downloa
 
 Here are some sample commands to work with the JSON file by using PowerShell. You can use any programming language that you're comfortable with.  
 
-First, [read the JSON file](/powershell/module/microsoft.powershell.utility/convertfrom-json?view=powershell-7.1) by running this command:
+First, [read the JSON file](/powershell/module/microsoft.powershell.utility/convertfrom-json) by running this command:
 
 ` $JSONContent = Get-Content -Path "<PATH TO THE PROVISIONING LOGS FILE>" | ConvertFrom-JSON`
 

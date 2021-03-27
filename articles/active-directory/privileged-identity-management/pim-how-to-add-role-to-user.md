@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 09/16/2020
+ms.date: 02/16/2021
 ms.author: curtand
 ms.collection: M365-identity-device-management
 ---
@@ -96,7 +96,7 @@ For more information about creating administrative units, see [Add and remove ad
 
 ## Update or remove an existing role assignment
 
-Follow these steps to update or remove an existing role assignment.
+Follow these steps to update or remove an existing role assignment. **Azure AD P2 licensed customers only**: Don't assign a group as Active to a role through both Azure AD and Privileged Identity Management (PIM). For a detailed explanation, see [Known issues](../roles/groups-concept.md#known-issues).
 
 1. Open **Azure AD Privileged Identity Management**.
 
@@ -168,7 +168,7 @@ By default, new users are only *eligible* for an Azure AD admin role. Follow the
 
 ## Remove a user from a role
 
-You can remove users from role assignments, but make sure there is always at least one user who is a permanent Global administrator. If you're not sure which users still need their role assignments, you can [start an access review for the role](pim-how-to-start-security-review.md).
+You can remove users from role assignments, but make sure there is always at least one user who is a permanent Global Administrator. If you're not sure which users still need their role assignments, you can [start an access review for the role](pim-how-to-start-security-review.md).
 
 Follow these steps to remove a specific user from an Azure AD admin role.
 

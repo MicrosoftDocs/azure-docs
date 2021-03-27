@@ -19,7 +19,7 @@
   - name: Deploy a Cloud Service - SDK
     href: deploy-sdk.md
   - name: Deploy a Cloud Service - Visual Studio
-    href: https://docs.microsoft.com/visualstudio/azure/cloud-services-extended-support?context=/azure/cloud-services-extended-support/context/context
+    href: /visualstudio/azure/cloud-services-extended-support?context=%2fazure%2fcloud-services-extended-support%2fcontext%2fcontext
   expanded: true
 - name: Concepts
   items: 
@@ -65,6 +65,8 @@
     href: configure-scaling.md
   - name: Certificates
     href: certificates-and-key-vault.md
+  - name: Generate ARM Template using Portal
+    href: generate-template-portal.md
 - name: Samples
   items: 
   - name: Sample Templates
@@ -82,13 +84,13 @@
   - name: Az.CloudService Module
     href: https://www.powershellgallery.com/packages/Az.CloudService/0.1.0
   - name: PowerShell cmdlets
-    href: https://docs.microsoft.com/powershell/module/az.cloudservice/?view=azps-5.4.0#cloudservice
+    href: /powershell/module/az.cloudservice/#cloudservice
   - name: ARM Template Reference
-    href: https://docs.microsoft.com/azure/templates/microsoft.compute/cloudservices
+    href: /azure/templates/microsoft.compute/cloudservices
   - name: REST
-    href: https://docs.microsoft.com/rest/api/compute/cloudservices
+    href: /rest/api/compute/cloudservices
   - name: .NET
-    href: https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet-preview
+    href: /dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet-preview
   - name: SDK
     href: https://www.nuget.org/packages/Microsoft.Azure.Management.Compute/43.0.0-preview
 - name: Resources
@@ -98,7 +100,7 @@
   - name: Learning path
     href: /learn/paths/azure-fundamentals/
   - name: Microsoft Q&A
-    href: https://docs.microsoft.com/answers/topics/azure-cloud-services.html
+    href: /answers/topics/azure-cloud-services.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cloud-services/
   - name: Pricing calculator

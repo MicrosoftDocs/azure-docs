@@ -18,7 +18,7 @@ Azure Monitor Logs is a feature of Azure Monitor that collects and organizes log
 ## What can you do with Azure Monitor Logs?
 The following table describes some of the different ways that you can use Logs in Azure Monitor:
 
-|  |  |
+|  | Description |
 |:---|:---|
 | **Analyze** | Use [Log Analytics](./log-analytics-tutorial.md) in the Azure portal to write [log queries](./log-query-overview.md) and interactively analyze log data using a powerful analysis engine |
 | **Alert** | Configure a [log alert rule](../alerts/alerts-log.md) that sends a notification or takes [automated action](../alerts/action-groups.md) when the results of the query match a particular result. |
@@ -31,7 +31,7 @@ The following table describes some of the different ways that you can use Logs i
 
 
 ## Data collection
-Once you create a Log Analytics workspace, you must configure different sources to send their data. No data is collected automatically. This configuration will be different depending on the data source. For example, [create diagnostic settings](../essentials/diagnostic-settings.md) to send resource logs from Azure resources to the workspace. [Enable Azure Monitor for VMs](../vm/vminsights-enable-overview.md) to collect data from virtual machines. Configure [data sources on the workspace](../agents/data-sources.md) to collect additional events and performance data.
+Once you create a Log Analytics workspace, you must configure different sources to send their data. No data is collected automatically. This configuration will be different depending on the data source. For example, [create diagnostic settings](../essentials/diagnostic-settings.md) to send resource logs from Azure resources to the workspace. [Enable VM insights](../vm/vminsights-enable-overview.md) to collect data from virtual machines. Configure [data sources on the workspace](../agents/data-sources.md) to collect additional events and performance data.
 
 - See [What is monitored by Azure Monitor?](../monitor-reference.md) for a complete list of data sources that you can configure to send data to Azure Monitor Logs.
 

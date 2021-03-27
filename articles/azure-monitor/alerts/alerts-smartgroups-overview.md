@@ -2,7 +2,6 @@
 title: Smart groups
 description: Smart Groups are aggregations of alerts that help you reduce alert noise
 ms.topic: conceptual
-ms.subservice: alerts
 ms.date: 05/15/2018
 ---
 

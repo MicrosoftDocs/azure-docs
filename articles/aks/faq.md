@@ -3,6 +3,7 @@ title: Frequently asked questions for Azure Kubernetes Service (AKS)
 description: Find answers to some of the common questions about Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 08/06/2020
+ms.custom: references_regions
 
 ---
 
@@ -198,7 +199,7 @@ The Log Analytics agent is supported because it's an extension managed by Micros
 
 ## Does AKS store any customer data outside of the cluster's region?
 
-The feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo. For all other regions, customer data is stored in Geo.
+The feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo and Brazil South (Sao Paulo State) Region of Brazil Geo. For all other regions, customer data is stored in Geo.
 
 ## Are AKS images required to run as root?
 

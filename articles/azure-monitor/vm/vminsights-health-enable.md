@@ -1,7 +1,6 @@
 ---
-title: Enable Azure Monitor for VMs guest health (preview)
-description: Describes how to enable Azure Monitor for VMs guest health in your subscription and how to onboard VMs.
-ms.subservice: 
+title: Enable VM insights guest health (preview)
+description: Describes how to enable VM insights guest health in your subscription and how to onboard VMs.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -10,11 +9,11 @@ ms.custom: references_regions
 
 ---
 
-# Enable Azure Monitor for VMs guest health (preview)
-Azure Monitor for VMs guest health allows you to view the health of a virtual machine as defined by a set of performance measurements that are sampled at regular intervals. This article describes how to enable this feature in your subscription and how to enable guest monitoring for each virtual machine.
+# Enable VM insights guest health (preview)
+VM insights guest health allows you to view the health of a virtual machine as defined by a set of performance measurements that are sampled at regular intervals. This article describes how to enable this feature in your subscription and how to enable guest monitoring for each virtual machine.
 
 ## Current limitations
-Azure Monitor for VMs guest health has the following limitations in public preview:
+VM insights guest health has the following limitations in public preview:
 
 - Only Azure virtual machines are currently supported. Azure Arc for servers is not currently supported.
 
@@ -32,19 +31,25 @@ Virtual machine must be located in one of the following regions:
 - Australia Central
 - Australia East
 - Australia Southeast
+- Canada Central
 - Central India
 - Central US
 - East Asia
 - East US
 - East US 2
 - East US 2 EUAP
+- France Central
 - Germany West Central
 - Japan East
+- Korea Central
 - North Central US
 - North Europe
 - South Central US
+- South Africa North
 - Southeast Asia
+- Switzerland North
 - UK South
+- UK West
 - West Central US
 - West Europe
 - West US
@@ -53,24 +58,36 @@ Virtual machine must be located in one of the following regions:
 
 Log Analytics workspace must be located in one of the following regions:
 
+- Australia Central
+- Australia East
+- Australia Southeast
+- Canada Central
+- Canada India
 - Central US
+- East Asia
 - East US
 - East US 2
 - East US 2 EUAP
+- France Central
+- Japan East
+- North Central US
 - North Europe
+- South Central US
 - Southeast Asia
+- Switzerland North
 - UK South
 - West Europe region
+- West US
 - West US 2
 
 ## Prerequisites
 
-- Virtual machine must be onboarded to Azure Monitor for VMs.
+- Virtual machine must be onboarded to VM insights.
 - User executing onboarding steps must have a minimum Contributor level access to the subscription where virtual machine and data collection rule are located.
 - Required Azure resource providers must be registered as described in the following section.
 
 ## Register required Azure resource providers
-The following Azure resource providers  be registered for your subscription to enable Azure Monitor for VMs guest health. 
+The following Azure resource providers  be registered for your subscription to enable VM insights guest health. 
 
 - Microsoft.WorkloadMonitor
 - Microsoft.Insights
@@ -86,7 +103,7 @@ POST https://management.azure.com/subscriptions/[subscriptionId]/providers/Micro
 ## Enable a virtual machine using the Azure portal
 When you enable guest health for a virtual machine in the Azure portal, all required configuration is performed for you. This includes creating the require data collection rule, installing the guest health extension on the virtual machine, and creating an association with the data collection rule.
 
-From the **Get Started** view in Azure Monitor for VMs, click the link next to the upgrade message for a virtual machine, and then click the **Upgrade** button. You can also select multiple virtual machines to upgrade them together.
+From the **Get Started** view in VM insights, click the link next to the upgrade message for a virtual machine, and then click the **Upgrade** button. You can also select multiple virtual machines to upgrade them together.
 
 ![Enable health feature on virtual machine](media/vminsights-health-enable/enable-agent.png)
 
@@ -103,10 +120,10 @@ There are three steps required to enable virtual machines using Azure Resource M
 > [!NOTE]
 > If you enable a virtual machine using the Azure portal, then the data collection rule described here is created for you. In this case, you do not need to perform this step.
 
-Configuration for the monitors in Azure Monitor for VMs guest health is stored in [data Collection Rules (DCR)](../agents/data-collection-rule-overview.md). Each virtual machine with the guest health extension will need an association with this rule.
+Configuration for the monitors in VM insights guest health is stored in [data Collection Rules (DCR)](../agents/data-collection-rule-overview.md). Each virtual machine with the guest health extension will need an association with this rule.
 
 > [!NOTE]
-> You can create additional data collection rules to modify the default configuration of monitors as described in [Configure monitoring in Azure Monitor for VMs guest health (preview)](vminsights-health-configure.md).
+> You can create additional data collection rules to modify the default configuration of monitors as described in [Configure monitoring in VM insights guest health (preview)](vminsights-health-configure.md).
 
 The template requires values for the following parameters:
 
@@ -410,4 +427,4 @@ az deployment group create --name GuestHealthDeployment --resource-group my-reso
 
 ## Next steps
 
-- [Customize monitors enabled by Azure Monitor for VMs](vminsights-health-configure.md)
+- [Customize monitors enabled by VM insights](vminsights-health-configure.md)

@@ -12,8 +12,6 @@
   items:
   - name: Security technical capabilities
     href: technical-capabilities.md
-  - name: Built-in security controls
-    href: security-controls.md
 
 - name: Azure platform and infrastructure
   items:
