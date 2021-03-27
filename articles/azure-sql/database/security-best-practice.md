@@ -131,7 +131,7 @@ Azure AD Multi-Factor Authentication helps provides additional security by requi
 
 - Use Azure AD Interactive authentication mode for Azure SQL Database and Azure SQL Managed Instance where a password is requested interactively, followed by Multi-Factor Authentication:
   - Use Universal Authentication in SSMS. See the article, [Using Multi-factor Azure AD authentication with Azure SQL Database, SQL Managed Instance, Azure Synapse (SSMS support for Multi-Factor Authentication)](authentication-mfa-ssms-overview.md).
-  - Use Interactive Authentication supported in SQL Server Data Tools (SSDT). See the article, [Azure Active Directory support in SQL Server Data Tools (SSDT)](/sql/ssdt/azure-active-directory?view=azuresqldb-current).
+  - Use Interactive Authentication supported in SQL Server Data Tools (SSDT). See the article, [Azure Active Directory support in SQL Server Data Tools (SSDT)](/sql/ssdt/azure-active-directory?view=azuresqldb-current&preserve-view=true).
   - Use other SQL tools supporting Multi-Factor Authentication.
     - SSMS Wizard support for export/extract/deploy database  
     - [sqlpackage.exe](/sql/tools/sqlpackage): option '/ua'
@@ -191,7 +191,7 @@ For cases when passwords aren't avoidable, make sure they're secured.
 
 - If avoiding passwords or secrets aren't possible, store user passwords and application secrets in Azure Key Vault and manage access through Key Vault access policies.
 
-- Various app development frameworks may also offer framework-specific mechanisms for protecting secrets in the app. For example: [ASP.NET core app](/aspnet/core/security/app-secrets?tabs=windows&view=aspnetcore-2.1).
+- Various app development frameworks may also offer framework-specific mechanisms for protecting secrets in the app. For example: [ASP.NET core app](/aspnet/core/security/app-secrets?tabs=windows).
 
 ### Use SQL authentication for legacy applications
 
