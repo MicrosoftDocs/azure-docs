@@ -34,10 +34,23 @@ Troubleshooting Logs decrees your charges by giving you basic capabilities for t
 ## Turn on Troubleshooting Logs on your tables
 
 To turn on Troubleshooting Logs in your workspace, you need to use the following API call.
-```rest
-PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{tableName}?api-version=2020-10-01
-```
+```http
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{tableName}?api-version=2020-10-01
 
+(With body in the form of a GET single table request response)
+
+Response:
+
+{
+        "properties": {
+          "retentionInDays": 40,
+          "isTroubleshootingAllowed": true,
+          "isTroubleshootEnabled": true
+        },
+        "id": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{tableName}",
+        "name": "{tableName}"
+      }
+```
 ## Check if the Troubleshooting logs feature is enabled for a given table
 To check whether the Troubleshooting Log is enabled for a given table, you can use the following API call.
 
