@@ -56,7 +56,6 @@ Follow these steps to resize a virtual machine deployed on your device.
     ![Resized VM ](./media/azure-stack-edge-gpu-manage-virtual-machine-resize-portal/change-vm-size-3.png)
 
 
-
 ## Next steps
 
 To learn how to deploy virtual machines on your Azure Stack Edge Pro device, see [Deploy virtual machines via the Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md).
