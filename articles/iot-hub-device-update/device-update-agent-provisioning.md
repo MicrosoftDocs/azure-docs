@@ -15,7 +15,7 @@ Module Identity vs Device Identity: In IoT Hub, under each device identity, you 
 Currently supported IoT device types with Device Update:
 1.	Linux devices (IoT Edge and Non-IoT Edge devices):
     * Image A/B update:
-      - Yocto - ARM64 (reference image), extensible via open source to [build you own images](device-update-agent-provisioning.md/How-to-build-and-run-Device-Update-Agent) for other architecture as needed.
+      - Yocto - ARM64 (reference image), extensible via open source to [build you own images](device-update-agent-provisioning.md#how-to-build-and-run-device-update-agent) for other architecture as needed.
       - Ubuntu 18.04 simulator
     * Package Agent supported builds for the following platforms/architectures.
       - Ubuntu Server 18.04 x64 Package Agent 
