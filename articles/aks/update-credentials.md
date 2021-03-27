@@ -106,7 +106,7 @@ az aks update-credentials \
     --client-secret $SP_SECRET
 ```
 
-For small and medium size clusters, it takes a few moments for the service principal credentials to be updated in the AKS.
+For small and midsize clusters, it takes a few moments for the service principal credentials to be updated in the AKS.
 
 ## Update AKS Cluster with new AAD Application credentials
 
