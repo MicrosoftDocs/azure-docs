@@ -9,8 +9,8 @@ ms.service: iot-hub-device-update
 ---
 
 # Device Update Agent Provisioning
-This section describes how to provision the Device Update agent as a module identity to run alongside other system processes as well as [IoT Edge modules](https://docs.microsoft.com/azure/iot-edge/iot-edge-modules?view=iotedge-2018-06) that connect to your IoT Hub as part of the same logical device.
-Module Identity vs Device Identity: In IoT Hub, under each device identity, you can create up to 50 module identities. Each module identity implicitly generates a module twin. On the device side, the IoT Hub device SDKs enable you to create modules where each one opens an independent connection to IoT Hub. Module identity and module twin provide the similar capabilities as device identity and device twin but at a finer granularity. [Learn more about Module Identities in IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-module-twins)
+This section describes how to provision the Device Update agent as a module identity to run alongside other system processes as well as [IoT Edge modules](https://docs.microsoft.com/azure/iot-edge/iot-edge-modules) that connect to your IoT Hub as part of the same logical device.
+Module Identity vs Device Identity: In IoT Hub, under each device identity, you can create up to 50 module identities. Each module identity implicitly generates a module twin. On the device side, the IoT Hub device SDKs enable you to create modules where each one opens an independent connection to IoT Hub. Module identity and module twin provide the similar capabilities as device identity and device twin but at a finer granularity. [Learn more about Module Identities in IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins)
 
 Currently supported IoT device types with Device Update:
 1.	Linux devices (IoT Edge and Non-IoT Edge devices):
@@ -25,7 +25,7 @@ Currently supported IoT device types with Device Update:
 3.	Disconnected devices: 
     * [Understand support for disconnected device update](connected-cache-disconnected-device-update.md)
 
-# Pre-Requisite  
+## Pre-Requisite  
 If you are setting up the IoT device/IoT Edge device to do [package based updates](https://docs.microsoft.com/azure/iot-hub-device-update/understand-device-update#support-for-a-wide-range-of-update-artifacts), add packages.microsoft.com to your machine’s repositories by following the steps below:
 1.	Log onto the machine or IoT device on which you intend to install the Device Update agent.
 2.	Open a Terminal window.
@@ -45,15 +45,15 @@ If you are setting up the IoT device/IoT Edge device to do [package based update
    sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
    ```
 
-# How to provision the Device Update agent as a Module Identity
+## How to provision the Device Update agent as a Module Identity
 This section describes how to provision the Device Update agent as a module identity to run alongside other system processes as well as IoT Edge modules that connect to your IoT Hub as part of the same logical device. 
 
-## 1. On IoT Edge enabled devices
-Follow these instructions to provision the Device Update agent on [IoT Edge enabled devices](https://docs.microsoft.com/azure/iot-edge/about-iot-edge?view=iotedge-2020-11).
-1.	Follow the instructions to [Install and provision the Azure IoT Edge runtime](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-install-iot-edge?view=iotedge-2020-11&preserve-view=true).
+### 1. On IoT Edge enabled devices
+Follow these instructions to provision the Device Update agent on [IoT Edge enabled devices](https://docs.microsoft.com/azure/iot-edge).
+1.	Follow the instructions to [Install and provision the Azure IoT Edge runtime](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge?view=iotedge-2020-11&preserve-view=true).
 2.	Then install the Device Update agent from [Artifacts](https://github.com/Azure/iot-hub-device-update/releases) and you are now ready to start the Device Update agent on your IoT Edge device.
 
-## 2. On non-Edge IoT Linux devices
+### 2. On non-Edge IoT Linux devices
 Follow these instructions to provision the Device Update agent on your IoT Linux devices.
 1.	Install the IoT Identity Service and add the latest version to your IoT device. 
     * Log onto the machine or IoT device.
@@ -87,14 +87,14 @@ Follow these instructions to provision the Device Update agent on your IoT Linux
    ```
 6.	Finally install the Device Update agent from [Artifacts](https://github.com/Azure/iot-hub-device-update/releases) and you are now ready to start the Device Update agent on your IoT Edge device.
 
-## 3. Other IoT devices
+### 3. Other IoT devices
 The device Update agent can also be configured without the IoT Identity service by using the connection string (from the Module or Device Id) for specific scenarios using the Device Update Configuration File. To manually provision the Device Update agent for testing or on constrained devices using the connection string follow the below steps.
 1.	Install Device Update agent from [Artifacts](https://github.com/Azure/iot-hub-device-update/releases).
 2.	Log onto the machine or IoT Edge device/IoT device.
 3.	Open a terminal window.
 4.	Add the connection string to the [Device Update configuration file](device-update-configuration-file.md):
     * Enter the following into your terminal:
-       - When testing [Package updates](device-update-ubuntu-agent) use: sudo nano /etc/adu/adu-conf.txt
+       - When testing [Package updates](device-update-ubuntu-agent.md) use: sudo nano /etc/adu/adu-conf.txt
        - When testing [Image updates](device-update-raspberry-pi.md) use: sudo nano /adu/adu-conf.txt
     * You should see a window open with some text in it. If this is your first-time provisioning on this device delete the whole contents of the file. It is just place holder text.
     * In the terminal replace <your-connection-string> with the connection string of the device for your instance of Device Update agent (NOTE DO NOT ADD QUOTES AROUND THE CONNECTION STRING)
@@ -102,7 +102,7 @@ The device Update agent can also be configured without the IoT Identity service 
     * Enter and save.
 5.	Now you are now ready to start the Device Update agent on your IoT Edge device. 
 
-# How to provision the Device Update agent as a Module Identity
+## How to start the Device Update Agent
 This section describes how to start and verify the Device Update agent as a module identity running successfully on your IoT device.
 1.	Log into the machine or device which has the Device Update agent installed.
 2.	Open a Terminal window, and enter the command below.
@@ -117,7 +117,7 @@ This section describes how to start and verify the Device Update agent as a modu
 5.	On the IoT Hub portal,  go to IoT device or IoT Edge devices to find the device that you configured with Device Update agent. There you will see the Device Update agent running as a module, For example:
 :::image type="content" source="media/understand-device-update/Device Update Module.png " alt-text="Diagram of Device Update agent workflow." lightbox="media/understand-device-update/Device Update Module.png":::
 
-# How to build and run Device Update Agent
+## How to build and run Device Update Agent
 You can also build and modify your own customer Device Update agent.
 
 Follow the instructions to [build](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md) the Device Update Agent
@@ -129,7 +129,7 @@ the agent.
 Now, make the changes needed to incorporate the agent into your image.  Look at how to
 [modify](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-modify-the-agent-code.md) the Device Update Agent for guidance.
 
-### Troubleshooting Guide
+## Troubleshooting Guide
 
 If you run into issues, review the Device Update for IoT Hub [Troubleshooting Guide](troubleshoot-device-update.md) to help unblock any possible issues and collect necessary information to provide to Microsoft.
 
