@@ -61,7 +61,7 @@ The list of steps mentioned below applies to the user configuration from [Hyper-
 2. With every new Windows Server 2016 host that is introduced in the cluster, remove the reference of a Windows Server 2012 R2 host from Azure Site Recovery by following steps mentioned [here]. This should be the host you chose to drain & evict from the cluster.
 3. Once the *Update-VMVersion* command has been executed for all virtual machines, the upgrades have been completed. 
 4. Use the steps mentioned [here](./hyper-v-azure-tutorial.md#set-up-the-source-environment) to register the new Windows Server 2016 host to Azure Site Recovery. Please note that the Hyper-V site is already active and you just need to register the new host in the cluster. 
-5.     Go to Azure portal and verify the replicated health status inside the Recovery Services
+5. Go to the Azure portal and verify the replicated health status inside the Recovery Services
 
 ## Upgrade Windows Server 2012 R2 hosts managed by stand-alone SCVMM 2012 R2 server
 Before you upgrade your Windows Sever 2012 R2 hosts,  you need to upgrade the SCVMM 2012 R2 to SCVMM 2016. Follow the below steps:-
@@ -82,7 +82,7 @@ Before you upgrade your Windows Sever 2012 R2 hosts,  you need to upgrade the SC
 1. Follow the steps mentioned [here](/windows-server/failover-clustering/cluster-operating-system-rolling-upgrade#cluster-os-rolling-upgrade-process) to execute the rolling cluster upgrade process. 
 2. After adding the new host to the cluster, refresh the host from the SCVMM console to install the VMM Agent on this updated host.
 3. Execute *Update-VMVersion* to update the VM versions of the Virtual machines. 
-4.     Go to Azure portal and verify the replicated health status of the virtual machines inside the Recovery Services Vault. 
+4. Go to the Azure portal and verify the replicated health status of the virtual machines inside the Recovery Services Vault. 
 
 ## Upgrade Windows Server 2012 R2 hosts are managed by highly available SCVMM 2012 R2 server
 Before you upgrade your Windows Sever 2012 R2 hosts,  you need to upgrade the SCVMM 2012 R2 to SCVMM 2016. The following modes of upgrade are supported while upgrading SCVMM 2012 R2 servers configured with Azure Site Recovery - Mixed mode with no additional VMM servers & Mixed mode with additional VMM servers.
@@ -101,8 +101,7 @@ Before you upgrade your Windows Sever 2012 R2 hosts,  you need to upgrade the SC
 1. Follow the steps mentioned [here](/windows-server/failover-clustering/cluster-operating-system-rolling-upgrade#cluster-os-rolling-upgrade-process) to execute the rolling cluster upgrade process.
 2. After adding the new host to the cluster, refresh the host from the SCVMM console to install the VMM Agent on this updated host.
 3. Execute *Update-VMVersion* to update the VM versions of the Virtual machines. 
-4.     Go to Azure portal and verify the replicated health status of the virtual machines inside the Recovery Services Vault. 
+4. Go to the Azure portal and verify the replicated health status of the virtual machines inside the Recovery Services Vault. 
 
 ## Next steps
 Once the upgrade of the hosts is performed, you can perform a [test failover](tutorial-dr-drill-azure.md) to test the health of your replication and disaster recovery status.
-
