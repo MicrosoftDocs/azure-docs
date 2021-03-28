@@ -16,7 +16,7 @@ Add the following `import` to your code to use the Azure Identity.
 from azure.identity import DefaultAzureCredential
 ```
 
-The examples below are using the [DefaultAzureCredential](/python/api/azure.identity.defaultazurecredential). This credential is suitable for production and development environments.
+The examples below are using the [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential). This credential is suitable for production and development environments.
 
 To register application in the development environment and set up environment variables, see [Authorize access with managed identity](../managed-identity-from-cli.md)
 
