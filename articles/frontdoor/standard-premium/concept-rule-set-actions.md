@@ -170,7 +170,7 @@ In this example, we append the value `AdditionalValue` to the `MyRequestHeader` 
 }
 ```
 
---
+---
 
 ## Modify response header
 
@@ -222,7 +222,7 @@ In this example, we delete the header with the name `X-Powered-By` from the resp
 
 <!-- TODO check template when value is omitted rather than null -->
 
---
+---
 
 ## URL redirect
 
@@ -277,15 +277,7 @@ TODO intro paragraph
 
 **Format:** {variable:offset}, {variable:offset:length}, {variable}
 
-### Supported server variable actions
-
-* Request header
-* Response header
-* Cache key query string
-* URL rewrite
-* URL redirect
-
 ## Next steps
 
 * Learn more about [Azure Front Door Standard/Premium Rule Set](concept-rule-set.md).
-* Learn more about [Rule Set Match Conditions](concept-rule-set-match-conditions.md).
+* Learn more about [Rule Set match conditions](concept-rule-set-match-conditions.md).
