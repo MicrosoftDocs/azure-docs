@@ -200,7 +200,6 @@ In this example, we delete the header with the name `X-Powered-By` from the resp
   "parameters": {
     "headerAction": "Delete",
     "headerName": "X-Powered-By",
-    "value": null,
     "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleHeaderActionParameters"
   }
 }
@@ -214,13 +213,10 @@ In this example, we delete the header with the name `X-Powered-By` from the resp
   parameters: {
     headerAction: 'Delete'
     headerName: 'X-Powered-By'
-    value: null,
     '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleHeaderActionParameters'
   }
 }
 ```
-
-<!-- TODO check template when value is omitted rather than null -->
 
 ---
 
@@ -257,8 +253,6 @@ In this example, we redirect the request to `https://contoso.com/exampleredirect
     "destinationProtocol": "Https",
     "customPath": "/exampleredirection",
     "customHostname": "contoso.com",
-    "customQueryString": null,
-    "customFragment": null,
     "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlRedirectActionParameters"
   }
 }
@@ -274,14 +268,10 @@ In this example, we redirect the request to `https://contoso.com/exampleredirect
     destinationProtocol: 'Https'
     customPath: '/exampleredirection'
     customHostname: 'contoso.com'
-    customQueryString: null
-    customFragment: null
     '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlRedirectActionParameters'
   }
 }
 ```
-
-<!-- TODO check template when value is omitted rather than null -->
 
 ---
 

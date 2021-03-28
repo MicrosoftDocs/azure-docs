@@ -55,7 +55,7 @@ With Azure Front Door Rule Set, you can create a combination of Rules Set config
 
 For more quota limit, refer to [Azure subscription and service limits, quotas and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
-* *Rule Set*: A set of rules that gets associated to one or multiple [Routes](concept-route.md). Each configuration is limited to 25 rules. You can create up to 10 configurations.
+* *Rule Set*: A set of rules that gets associated to one or multiple [routes](concept-route.md). Each configuration is limited to 25 rules. You can create up to 10 configurations.
 
 * *Rule Set rule*: A rule composed of up to 10 match conditions and 5 actions. Rules are local to a Rule Set and cannot be exported to use across Rule Sets. Users can create the same rule in multiple Rule Sets.
 
@@ -65,7 +65,7 @@ For more quota limit, refer to [Azure subscription and service limits, quotas an
 
 ## ARM template support
 
-Rule sets can be configured using Azure Resource Manager templates. [See an example template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-rule-set). You can customize the behavior by using the JSON or Bicep snippets included in the documentation examples for [match conditions](concept-rule-set-match-conditions.md) and [actions](concept-rule-set-actions.md).
+Rule Sets can be configured using Azure Resource Manager templates. [See an example template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-rule-set). You can customize the behavior by using the JSON or Bicep snippets included in the documentation examples for [match conditions](concept-rule-set-match-conditions.md) and [actions](concept-rule-set-actions.md).
 
 ## Next steps
 
