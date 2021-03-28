@@ -597,12 +597,12 @@ Setup a port forward tunnel to the bookbuyer pod and you should now see books be
 
 ### Before you begin
 
-The steps detailed in this walkthrough assume that you have previously enabled the OSM AKS add-on for your AKS cluster. If not, please review the section [Enable Open Service Mesh (OSM) Azure Kubernetes Service (AKS) add-on for an existing AKS cluster](<#Enable-Open-Service-Mesh-(OSM)-Azure-Kubernetes-Service-(AKS)-add-on-for-an-existing-AKS-cluster>) before proceeding. Also, your AKS cluster needs to be version Kubernetes `1.19+` and above, have Kubernetes RBAC enabled, and have established a `kubectl` connection with the cluster (If you need help with any of these items, then see the [AKS quickstart](./kubernetes-walkthrough.md), and have installed the AKS OSM add-on.
+The steps detailed in this walkthrough assume that you have previously enabled the OSM AKS add-on for your AKS cluster. If not, please review the section [Enable Open Service Mesh (OSM) Azure Kubernetes Service (AKS) add-on for an existing AKS cluster](#enable-open-service-mesh-osm-azure-kubernetes-service-aks-add-on-for-an-existing-aks-cluster) before proceeding. Also, your AKS cluster needs to be version Kubernetes `1.19+` and above, have Kubernetes RBAC enabled, and have established a `kubectl` connection with the cluster (If you need help with any of these items, then see the [AKS quickstart](./kubernetes-walkthrough.md), and have installed the AKS OSM add-on.
 
 You must have the following resources installed:
 
 - The Azure CLI, version 2.20.0 or later
-- The `azure-preview` extension version 0.5.5 or later
+- The `aks-preview` extension version 0.5.5 or later
 - OSM version v0.8.0 or later
 - apt-get install jq
 
@@ -630,7 +630,7 @@ Output of the OSM configmap should look like the following:
 }
 ```
 
-If the **permissive_traffic_policy_mode** is configured to **true**, you can safely onboard your namespaces without any disruption to your service-to-service communications. If the **permissive_traffic_policy_mode** is configured to **false**, You will need to ensure you have the correct [SMI](https://smi-spec.io/) traffic access policy manifests deployed as well as ensuring you have a service account representing each service deployed in the namespace. Please follow the guidance for [Onboard existing deployed applications with Open Service Mesh (OSM) Permissive Traffic Policy configured as False](<#Onboard-existing-deployed-applications-with-Open-Service-Mesh-(OSM)-Permissive-Traffic-Policy-configured-as-False>)
+If the **permissive_traffic_policy_mode** is configured to **true**, you can safely onboard your namespaces without any disruption to your service-to-service communications. If the **permissive_traffic_policy_mode** is configured to **false**, You will need to ensure you have the correct [SMI](https://smi-spec.io/) traffic access policy manifests deployed as well as ensuring you have a service account representing each service deployed in the namespace. Please follow the guidance for [Onboard existing deployed applications with Open Service Mesh (OSM) Permissive Traffic Policy configured as False](#onboard-existing-deployed-applications-with-open-service-mesh-osm-permissive-traffic-policy-configured-as-false)
 
 ### Onboard existing deployed applications with Open Service Mesh (OSM) Permissive Traffic Policy configured as True
 
@@ -950,7 +950,7 @@ The steps detailed in this article assume that you've created an AKS cluster (Ku
 You must have the following resources installed:
 
 - The Azure CLI, version 2.20.0 or later
-- The `azure-preview` extension version 0.5.5 or later
+- The `aks-preview` extension version 0.5.5 or later
 - OSM version v0.8.0 or later
 - apt-get install jq
 
@@ -1113,7 +1113,7 @@ Forwarding from [::1]:8080 -> 14001
 
 While the port forwarding session is in place, navigate to the following url from a browser `http://localhost:8080`. You should now be able to see the bookbuyer application UI in the browser similar to the image below.
 
-![OSM bookbuyer app UI image](./media/aks-osm-addon/osm-agic-bookbuyer-img.png)
+![OSM bookbuyer app for NGINX UI image](./media/aks-osm-addon/osm-agic-bookbuyer-img.png)
 
 ### Create an NGINX ingress controller in Azure Kubernetes Service (AKS)
 
@@ -1313,7 +1313,7 @@ The steps detailed in this article assume that you've created an AKS cluster (Ku
 You must have the following resources installed:
 
 - The Azure CLI, version 2.20.0 or later
-- The `azure-preview` extension version 0.5.5 or later
+- The `aks-preview` extension version 0.5.5 or later
 - AKS cluster version 1.19+ using Azure CNI networking (Attached to an Azure Vnet)
 - OSM version v0.8.0 or later
 - apt-get install jq
@@ -1477,7 +1477,7 @@ Forwarding from [::1]:8080 -> 14001
 
 While the port forwarding session is in place, navigate to the following url from a browser `http://localhost:8080`. You should now be able to see the bookbuyer application UI in the browser similar to the image below.
 
-![OSM bookbuyer app UI image](./media/aks-osm-addon/osm-agic-bookbuyer-img.png)
+![OSM bookbuyer app for App Gateway UI image](./media/aks-osm-addon/osm-agic-bookbuyer-img.png)
 
 ### Create an Azure Application Gateway to expose the bookbuyer application outside the AKS cluster
 
@@ -1644,7 +1644,7 @@ You should see the following output
 
 ### Troubleshooting
 
-- [AGIC Troubleshooting Documentation](https://docs.microsoft.com/en-us/azure/application-gateway/ingress-controller-troubleshoot)
+- [AGIC Troubleshooting Documentation](https://docs.microsoft.com/azure/application-gateway/ingress-controller-troubleshoot)
 - [Additional troubleshooting tools are available on AGIC's GitHub repo](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/master/docs/troubleshootings/troubleshooting-installing-a-simple-application.md)
 
 ## Open Service Mesh (OSM) Monitoring and Observability using Azure Monitor and Applications Insights
@@ -1656,7 +1656,7 @@ The OSM AKS add-on will have deep integrations into both of these Azure services
 ## Tutorial: Manually deploy Prometheus, Grafana, and Jaeger to view Open Service Mesh (OSM) metrics for observability
 
 > [!WARNING]
-> The installation of both Prometheus and Grafana are provided as general guidance to show how these tools can be utilized to view OSM metric data. The installation guidance is not to be utilized for a production setup. Please refer to both the Prometheus and Grafana documentation on how best to suit thier installations to your needs. Most notable will be the lack of persistent storage, meaning that all data is lost once a Prometheus and/or Grafana pod(s) are terminated.
+> The installation of Prometheus, Grafana and Jaeger are provided as general guidance to show how these tools can be utilized to view OSM metric data. The installation guidance is not to be utilized for a production setup. Please refer to each tool's documentation on how best to suit thier installations to your needs. Most notable will be the lack of persistent storage, meaning that all data is lost once a Prometheus Grafana, and/or Jaeger pod(s) are terminated.
 
 Open Service Mesh (OSM) generates detailed metrics related to all traffic within the mesh. These metrics provide insights into the behavior of applications in the mesh helping users to troubleshoot, maintain and analyze their applications.
 
@@ -1678,6 +1678,7 @@ In this tutorial, you will:
 > - Create and deploy a Grafana instance
 > - Configure Grafana with the Prometheus datasource
 > - Import OSM dashboard for Grafana
+> - Create and deploy a Jaeger instance
 
 ### Deploy and configure a Prometheus instance for OSM
 
@@ -2083,7 +2084,7 @@ Once you have successfully logged into Grafana, the next step is to add Promethe
 
 Click the **Add data source** button and select Prometheus under time series databases.
 
-![OSM Grafana Datasources Page UI image](./media/aks-osm-addon/osm-grafana-ui-datasources-select-prometheus.png)
+![OSM Grafana Datasources Selection Page UI image](./media/aks-osm-addon/osm-grafana-ui-datasources-select-prometheus.png)
 
 On the **Configure your Prometheus data source below** page, enter the Kubernetes cluster FQDN for the Prometheus service for the HTTP URL setting. The default FQDN should be `stable-prometheus-server.default.svc.cluster.local`. Once you have entered that Prometheus service endpoint, scroll to the bottom of the page and select **Save & Test**. You should receive a green checkbox indicating the data source is working.
 
@@ -2102,6 +2103,10 @@ You can directly import dashboard by their ID on `Grafana.com`. For example, our
 As soon as you click import, it will bring you automatically to your imported dashboard.
 
 ![OSM Grafana Dashboard Mesh Details Page UI image](./media/aks-osm-addon/osm-grafana-mesh-dashboard-details.png)
+
+### Deploy and configure a Jaeger Operator on Kubernetes for OSM
+
+[Jaeger](https://www.jaegertracing.io/) is an open source tracing system used for monitoring and troubleshooting distributed systems. It can be deployed with OSM as a new instance or you may bring your own instance.
 
 ## Open Service Mesh (OSM) AKS add-on Troubleshooting Guides
 
