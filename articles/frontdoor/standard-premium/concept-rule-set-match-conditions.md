@@ -786,10 +786,6 @@ Regular expressions don't support the following operations:
 * Callouts and embedded code.
 * Atomic grouping and possessive quantifiers.
 
-## ARM template support
-
-Rule sets can be configured using Azure Resource Manager templates. [See an example template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-rule-set). You can add match conditions by using the JSON or Bicep snippets included in the examples above.
-
 ## Next steps
 
 * Learn more about [Rule Set](concept-rule-set.md).

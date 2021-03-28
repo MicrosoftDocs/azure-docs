@@ -55,16 +55,19 @@ With Azure Front Door Rule Set, you can create a combination of Rules Set config
 
 For more quota limit, refer to [Azure subscription and service limits, quotas and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
-* *Rules set*: A set of rules that gets associated to one or multiple [Routes](concept-route.md). Each configuration is limited to 25 rules. You can create up to 10 configurations.
+* *Rule Set*: A set of rules that gets associated to one or multiple [Routes](concept-route.md). Each configuration is limited to 25 rules. You can create up to 10 configurations.
 
-* *Rules Set Rule*: A rule composed of up to 10 match conditions and 5 actions. Rules are local to a Rule Set and cannot be exported to use across Rule Sets. Users can create the same rule in multiple Rule Sets.
+* *Rule Set rule*: A rule composed of up to 10 match conditions and 5 actions. Rules are local to a Rule Set and cannot be exported to use across Rule Sets. Users can create the same rule in multiple Rule Sets.
 
-* *Match Condition*: There are many match conditions that can be utilized to parse your incoming requests. A rule can contain up to 10 match conditions. Match conditions are evaluated with an **AND** operator. *Regular expression is supported in conditions*. A full list of match conditions can  be found in [Rule Set Condition](concept-rule-set-match-conditions.md).
+* *Match condition*: There are many match conditions that can be utilized to parse your incoming requests. A rule can contain up to 10 match conditions. Match conditions are evaluated with an **AND** operator. *Regular expression is supported in conditions*. A full list of match conditions can be found in [Rule Set match conditions](concept-rule-set-match-conditions.md).
 
-* *Action*: Actions dictate how AFD handles the incoming requests based on the matching conditions. You can modify caching behaviors, modify request headers/response headers, do URL rewrite and URL redirection. *Server variables are supported on Action*. A rule can contain up to 10 match conditions. A full list of actions can be found [Rule Set Actions](concept-rule-set-actions.md).
+* *Action*: Actions dictate how AFD handles the incoming requests based on the matching conditions. You can modify caching behaviors, modify request headers/response headers, do URL rewrite and URL redirection. *Server variables are supported on Action*. A rule can contain up to 10 match conditions. A full list of actions can be found [Rule Set actions](concept-rule-set-actions.md).
+
+## ARM template support
+
+Rule sets can be configured using Azure Resource Manager templates. [See an example template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-rule-set). You can customize the behavior by using the JSON or Bicep snippets included in the documentation examples for [match conditions](concept-rule-set-match-conditions.md) and [actions](concept-rule-set-actions.md).
 
 ## Next steps
 
 * Learn how to [create a Front Door Standard/Premium](create-front-door-portal.md).
-* Learn how to configure your first [Rule Set](how-to-configure-rule-set.md).
- 
+* Learn how to configure your first [Rule Set](how-to-configure-rule-set.md).
