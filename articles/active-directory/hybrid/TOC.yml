@@ -244,6 +244,8 @@
       href: how-to-connect-fed-saml-idp.md
     - name: Post configuration tasks for Hybrid Azure AD join
       href: how-to-connect-fed-hybrid-azure-ad-join-post-config-tasks.md
+    - name: Emergency rotation of AD FS certificates
+      href: how-to-connect-emergency-ad-fs-certificate-rotation.md
   - name: Manage single sign-on 
     items:
 
