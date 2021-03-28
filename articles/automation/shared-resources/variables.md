@@ -50,10 +50,18 @@ The cmdlets in the following table create and manage Automation variables with P
 
 | Cmdlet | Description |
 |:---|:---|
-|[Get-AzAutomationVariable](/powershell/module/az.automation/get-azautomationvariable) | Retrieves the value of an existing variable. If the value is a simple type, that same type is retrieved. If it's a complex type, a `PSCustomObject` type is retrieved. <br>**Note:** You can't use this cmdlet to retrieve the value of an encrypted variable. The only way to do this is by using the internal `Get-AutomationVariable` cmdlet in a runbook or DSC configuration. See [Internal cmdlets to access variables](#internal-cmdlets-to-access-variables). |
+|[Get-AzAutomationVariable](/powershell/module/az.automation/get-azautomationvariable) | Retrieves the value of an existing variable. If the value is a simple type, that same type is retrieved. If it's a complex type, a `PSCustomObject` type is retrieved. <sup>1</sup>|
 |[New-AzAutomationVariable](/powershell/module/az.automation/new-azautomationvariable) | Creates a new variable and sets its value.|
 |[Remove-AzAutomationVariable](/powershell/module/az.automation/remove-azautomationvariable)| Removes an existing variable.|
 |[Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable)| Sets the value for an existing variable. |
+
+<sup>1</sup>
+You can't use this cmdlet to retrieve the value of an encrypted variable. The only way to do this is by using the internal **Get-AutomationVariable** cmdlet in a runbook or DSC configuration. For example, to see the value of an encrypted variable, you might create a runbook to get the variable and then write it to the output stream:
+
+```powershell
+$mytestencryptvar = Get-AutomationVariable -Name TestVariable
+Write-output "The encrypted value of the variable is: $mytestencryptvar"
+```
 
 ## Internal cmdlets to access variables
 
@@ -65,14 +73,7 @@ The internal cmdlets in the following table are used to access variables in your
 |`Set-AutomationVariable`|Sets the value for an existing variable.|
 
 > [!NOTE]
-> Avoid using variables in the `Name` parameter of `Get-AutomationVariable` in a runbook or DSC configuration. Use of the variables can complicate the discovery of dependencies between runbooks and Automation variables at design time.
-
-`Get-AutomationVariable` does not work in PowerShell, but only in a runbook or DSC configuration. For example, to see the value of an encrypted variable, you might create a runbook to get the variable and then write it to the output stream:
-
-```powershell
-$mytestencryptvar = Get-AutomationVariable -Name TestVariable
-Write-output "The encrypted value of the variable is: $mytestencryptvar"
-```
+> Avoid using variables in the `Name` parameter of `Get-AutomationVariable` cmdlet in a runbook or DSC configuration. Use of a variable can complicate the discovery of dependencies between runbooks and Automation variables at design time.
 
 ## Python functions to access variables
 
@@ -210,16 +211,18 @@ except AutomationAssetNotFound:
 
 ## Graphical runbook examples
 
-In a graphical runbook, you can add activities for the internal cmdlets `Get-AutomationVariable` or `Set-AutomationVariable`. Just right-click each variable in the Library pane of the graphical editor and select the activity that you want.
+In a graphical runbook, you can add activities for the internal cmdlets **Get-AutomationVariable** or **Set-AutomationVariable**. Just right-click each variable in the Library pane of the graphical editor and select the activity that you want.
 
 ![Add variable to canvas](../media/variables/runbook-variable-add-canvas.png)
 
-The following image shows example activities to update a variable with a simple value in a graphical runbook. In this example, the activity for `Get-AzVM`  retrieves a single Azure virtual machine and saves the computer name to an existing Automation string variable. It doesn't matter whether the [link is a pipeline or sequence](../automation-graphical-authoring-intro.md#use-links-for-workflow) since the code only expects a single object in the output.
+The following image shows example activities to update a variable with a simple value in a graphical runbook. In this example, the activity for `Get-AzVM` retrieves a single Azure virtual machine and saves the computer name to an existing Automation string variable. It doesn't matter whether the [link is a pipeline or sequence](../automation-graphical-authoring-intro.md#use-links-for-workflow) since the code only expects a single object in the output.
 
 ![Set simple variable](../media/variables/runbook-set-simple-variable.png)
 
 ## Next steps
 
-* To learn more about the cmdlets used to access variables, see [Manage modules in Azure Automation](modules.md).
-* For general information about runbooks, see [Runbook execution in Azure Automation](../automation-runbook-execution.md).
-* For details of DSC configurations, see [Azure Automation State Configuration overview](../automation-dsc-overview.md).
+- To learn more about the cmdlets used to access variables, see [Manage modules in Azure Automation](modules.md).
+
+- For general information about runbooks, see [Runbook execution in Azure Automation](../automation-runbook-execution.md).
+
+- For details of DSC configurations, see [Azure Automation State Configuration overview](../automation-dsc-overview.md).
