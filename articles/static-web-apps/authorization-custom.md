@@ -39,11 +39,9 @@ The settings used to override the built-in providers is configured in the `auth`
 }
 ```
 
-> [!NOTE]
-> To avoid putting secret information in source control, the configuration information will look into [Application Settings](application-settings.md), for settings matching the name provided in the configuration file.
+- To avoid putting secrets in source control, the configuration looks into [Application Settings](application-settings.md), for a matching name in the configuration file.
 
-> [!NOTE]
-> The redirect endpoints required for login/logout be `https://<your site>/.auth/login/complete` and `https://<your site>/.auth/logout/complete`.
+- The redirect endpoints required for login or logout are `https://<YOUR-SITE>/.auth/login/complete` and `https://<YOUR-SITE>/.auth/logout/complete`.
 
 ### Default provider configuration mapping
 
