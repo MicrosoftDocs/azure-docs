@@ -140,7 +140,7 @@ In this example, we append the value `AdditionalValue` to the `MyRequestHeader` 
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="../media/concept-rule-set-actions/modify-request-header.png" alt-text="Portal screenshot showing modify request hader action.":::
+:::image type="content" source="../media/concept-rule-set-actions/modify-request-header.png" alt-text="Portal screenshot showing modify request header action.":::
 
 # [JSON](#tab/json)
 
