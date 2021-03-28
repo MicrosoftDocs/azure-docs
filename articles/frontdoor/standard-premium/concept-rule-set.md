@@ -14,7 +14,7 @@ ms.author: yuajia
 > [!Note]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
 
-A Rule Set is a customized rule engine that groups a combination of rules into a single set that you can associate with multiple routes. The Rule Set allows you to customize how requests get processed at the edge and how Azure Front Door handles those requests.
+A Rule Set is a customized rule engine that groups a combination of rules into a single set. You can associate a Rule Set with multiple routes. The Rule Set allows you to customize how requests get processed at the edge, and how Azure Front Door handles those requests.
 
 > [!IMPORTANT]
 > Azure Front Door Standard/Premium (Preview) is currently in public preview.
@@ -27,7 +27,7 @@ A Rule Set is a customized rule engine that groups a combination of rules into a
 
 * Route requests to mobile or desktop versions of your application based on the client device type.
 
-* Using redirect capabilities to return 301, 302, 307, and 308 redirects to the client to direct them to new hostnames, paths, query string, or protocols.
+* Using redirect capabilities to return 301, 302, 307, and 308 redirects to the client to direct them to new hostnames, paths, query strings, or protocols.
 
 * Dynamically modify the caching configuration of your route based on the incoming requests.
 
