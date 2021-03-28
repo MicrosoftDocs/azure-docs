@@ -133,22 +133,35 @@ Now that you have completed the issuance portion of the tutorial and you have a 
     ngrok http 8082
     ```
 
-4. Open the ngrok https forwarding url in your browser and tap on the button.
+4. Open the ngrok https forwarding url in your browser and tap on the **PROVE Ninja Credential** button.  
 
-5.  Open Authenticator in the Credentials tab and tap on the QR code icon.
+   ![Choose add after authenticating](media/get-started-verifiable-credentials/prove-ninja-credential.png)
 
-    > [!IMPORTANT] 
-    > On iOS, it is the top right and on Android it is the bottom right. Scan the QR code and choose.
-    
-6. **Allow** on the new permission request screen in Authenticator. By pressing allow, you are signing a Verifiable Presentation with your DID (Decentralized Identifier) to prove you in fact control this Verifiable Credential.   
+5. Open Authenticator and scan the QR code.
+
+   ![scan qr code to verify credential](media/get-started-verifiable-credentials/scan-verify.png)
+
+  > [!IMPORTANT]
+  > On iOS, it is the top right and on Android it is the bottom right. Scan the QR code and choose.
+
+6. Choose **Allow** on the new permission request screen in Authenticator. By pressing allow, you are signing a verifiable presentation with your DID (Decentralized Identifier) to prove you in fact control this Verifiable Credential.
+
+   ![scan qr code to verify credential](media/get-started-verifiable-credentials/new-permission-request.png)
 
     After a successful presentation three things should have been updated:
 
    - The webpage should now display the attributes of your name "is a Verified Credential Ninja".
+   
+    ![congratulations, verify again](media/get-started-verifiable-credentials/congratulations.png)
+
 
    - Your verifier app terminal should also display the same message from the logs.
+   
+    ![application activity in the command prompt](media/get-started-verifiable-credentials/cmd-verified-ninja.png)
 
    - In Authenticator, there should be an entry for recent activity of this presentation.
+
+    ![Activity in Authenticator](media/get-started-verifiable-credentials/recent-activity.png)
 
 >[!NOTE]
 > While running the verifier app, ngrok may stop working and display an error that there are too many connections. We've found this can be avoided by registering your account with ngrok. 
