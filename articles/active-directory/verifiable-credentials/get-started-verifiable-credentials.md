@@ -34,7 +34,7 @@ To issue yourself a Verified Credential Ninja Card, you need to run a website on
 
 First, download our sample code from GitHub [here](https://github.com/Azure-Samples/active-directory-verifiable-credentials), or clone the repository to your local machine:
 
-```cmd
+```terminal
 git clone https://github.com/Azure-Samples/active-directory-verifiable-credentials.git
 ```
 
@@ -46,15 +46,15 @@ You can run the steps from within Visual Studio Code or any command line availab
 
 1. Navigate to the `issuer` folder. 
 
-    ```bash
-    cd ./issuer
+    ```terminal
+    cd issuer
     ```
 
 2. Once there we need to install all required packages and start the site.
 
-   ```bash
+   ```terminal
     npm install
-    node ./app.js
+    node app.js
     ```
 
 3. In the terminal, you will now see that your issuer app is listening on port 8081. Now let's set up a reverse proxy with Ngrok so Authenticator can communicate with your app. 
@@ -67,7 +67,7 @@ When you run the sample website, your device needs to communicate with the Node 
 
 1.  After you download and extract **ngrok**, we need to run:
 
-    ```cmd
+    ```terminal
      ngrok http 8081
     ```
 
@@ -84,14 +84,29 @@ Now that your local port is exposed to the internet using ngrok, the sample site
 
 1. Install Authenticator on your mobile device. Microsoft Authenticator is used to receive, store, and present your verifiable credentials to interested parties.
 
-2. Next, issue yourself a verifiable credential. When you click the Get Credential button, the sample website displays a QR code, that you can be scan using Authenticator. If you view the site from the browser on your mobile device. Clicking the Get Credential button triggers a deep link that opens the authenticator app and does not require the scanning of a QR code.
+2. Next, issue yourself a verifiable credential. **Click** the **Get Credential** button. When you click the **Get Credential** button, the sample website displays a QR code, that you can be scan using Authenticator. If you view the site from the browser on your mobile device. Clicking the Get Credential button triggers a deep link that opens the authenticator app and does not require the scanning of a QR code.
+
+   ![Get credential button](media/get-started-verifiable-credentials/ninjacard-credential.png)
 
 3. Scan the website's QR code using Authenticator, or if you are accessing the website via a mobile click the Get credential button to trigger the deep link. 
 
-4. To get your Ninja Card, you'll be prompted to sign in with your Ninja account. Since you don't have a Ninja account, create a new user account in our B2C tenant After you are signed in, accept your Verified Credential Ninja Card.
+   ![QR Code ](media/get-started-verifiable-credentials/ninjacard-credential-issue.png)
 
-Congratulations! You are now a verified credentialing Ninja. Now it is time to
-verify your credential.
+4. Notice that the **Add** button is greyed out at this time. Choose **Sign in to your account** below the card image.
+
+   ![Sign in ](media/get-started-verifiable-credentials/add-verified-credential-ninja.png)
+
+5. Before you get your Ninja Card, the tenant we are using requires that you provide authentication information. If this is your first time going through tutorial you don't have a Ninja account, create a new user account in our B2C tenant.
+
+6. After you are signed in, the **Add** button is no longer greyed out. Choose **Add** to accept your new VC.
+
+   ![Choose add after authenticating](media/get-started-verifiable-credentials/add-vc-after-sign-in.png) 
+
+7. Congratulations! You now have a verified credential Ninja VC.
+
+   ![Choose add after authenticating](media/get-started-verifiable-credentials/vc-in-your-wallet.png) 
+
+Next, it is time to verify your credential.
 
 ## Validate credentials
 
@@ -99,28 +114,28 @@ Now that you have completed the issuance portion of the tutorial and you have a 
 
 1.  Stop running your issuer ngrok service.
 
-```cmd
- control+c
-```
+    ```terminal
+     control+c
+    ```
 
 
 2. In another terminal window, open the Verifier app folder and run it similarly to how we ran the issuer app.
 
-```cmd
- cd verifier
- npm install
- node app.js
-```
+    ```terminal
+     cd verifier
+     npm install
+     node app.js
+    ```
 
 3. Now run ngrok with the verifier port 8082.
 
-    ```bash
+    ```terminal
     ngrok http 8082
     ```
 
 4. Open the ngrok https forwarding url in your browser and tap on the button.
 
-2.  Open Authenticator in the Credentials tab and tap on the QR code icon.
+5.  Open Authenticator in the Credentials tab and tap on the QR code icon.
 
     > [!IMPORTANT] 
     > On iOS, it is the top right and on Android it is the bottom right. Scan the QR code and choose.
