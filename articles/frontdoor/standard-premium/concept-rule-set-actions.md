@@ -5,7 +5,7 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 03/29/2021
 ms.author: yuajia
 ---
 
@@ -23,7 +23,7 @@ An Azure Front Door Standard/Premium [Rule Set](concept-rule-set.md) consist of 
 
 The following actions are available to use in Azure Front Door rule set.  
 
-## Cache expiration
+## <a name="CacheExpiration"></a> Cache expiration
 
 Use the **cache expiration** action to overwrite the time to live (TTL) value of the endpoint for requests that the rules match conditions specify.
 
@@ -75,7 +75,7 @@ In this example, we override the cache expiration to 6 hours, for matched reques
 
 ---
 
-## Cache key query string
+## <a name="CacheKeyQueryString"></a> Cache key query string
 
 Use the **cache key query string** action to modify the cache key based on query strings. The cache key is the way that Front Door identifies unique requests to cache.
 
@@ -122,7 +122,7 @@ In this example, we modify the cache key to include a query string parameter nam
 
 ---
 
-## Modify request header
+## <a name="ModifyRequestHeader"></a> Modify request header
 
 Use the **modify request header** action to modify the headers in the request when it is sent to your origin.
 
@@ -172,7 +172,7 @@ In this example, we append the value `AdditionalValue` to the `MyRequestHeader` 
 
 ---
 
-## Modify response header
+## <a name="ModifyResponseHeader"></a> Modify response header
 
 Use the **modify response header** action to modify headers that are present in responses before they are returned to your clients.
 
@@ -220,7 +220,7 @@ In this example, we delete the header with the name `X-Powered-By` from the resp
 
 ---
 
-## URL redirect
+## <a name="UrlRedirect"></a> URL redirect
 
 Use the **URL redirect** action to redirect clients to a new URL. Clients are sent a redirection response from Front Door.
 
@@ -237,7 +237,7 @@ Use the **URL redirect** action to redirect clients to a new URL. Clients are se
 
 ### Example
 
-In this example, we redirect the request to `https://contoso.com/exampleredirection?clientIP={client_ip}`, while preserving the fragment. An HTTP Temporary Redirect (307) is used. The IP address of the client is used in place of the `{client_ip}` token within the URL. This example uses the `client_ip` [server variable](#server-variables).
+In this example, we redirect the request to `https://contoso.com/exampleredirection?clientIp={client_ip}`, while preserving the fragment. An HTTP Temporary Redirect (307) is used. The IP address of the client is used in place of the `{client_ip}` token within the URL by using the `client_ip` [server variable](#server-variables).
 
 # [Portal](#tab/portal)
 
@@ -277,7 +277,7 @@ In this example, we redirect the request to `https://contoso.com/exampleredirect
 
 ---
 
-## URL rewrite
+## <a name="UrlRewrite"></a> URL rewrite
 
 Use the **URL rewrite** action to rewrite the path of a request that's en route to your origin.
 
