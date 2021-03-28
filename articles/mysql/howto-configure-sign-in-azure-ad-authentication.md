@@ -1,8 +1,8 @@
 ---
 title: Use Azure Active Directory - Azure Database for MySQL
 description: Learn about how to set up Azure Active Directory (Azure AD) for authentication with Azure Database for MySQL
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: mysql
 ms.topic: how-to
 ms.date: 07/23/2020
@@ -30,8 +30,6 @@ Only an Azure AD Admin user can create/enable users for Azure AD-based authentic
 > When setting the administrator, a new user is added to the Azure Database for MySQL server with full administrator permissions.
 
 Only one Azure AD admin can be created per MySQL server and selection of another one will overwrite the existing Azure AD admin configured for the server.
-
-In a future release we will support specifying an Azure AD group instead of an individual user to have multiple administrators, however this is currently not supported yet.
 
 After configuring the administrator, you can now sign in:
 

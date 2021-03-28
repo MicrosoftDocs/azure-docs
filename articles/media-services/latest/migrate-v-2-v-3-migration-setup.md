@@ -12,7 +12,7 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 1/14/2021
+ms.date: 03/25/2021
 ms.author: inhenkel
 ---
 
@@ -46,8 +46,8 @@ Follow the quickstart steps for [setting up your environment](how-to-set-azure-s
 
 ## Download client SDK of your choice and set up your environment
 
-- SDKs available for [.NET](/dotnet/api/overview/azure/mediaservices/management?preserve-view=true&view=azure-dotnet), .NET Core, [Node.js](/javascript/api/overview/azure/mediaservices/management?preserve-view=true&view=azure-node-latest), [Python](/python/api/overview/azure/mediaservices/management?preserve-view=true&view=azure-python), [Java](/java/api/overview/azure/mediaservices/management?preserve-view=true&view=azure-java-stable), [Go](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/mediaservices/mgmt/2018-07-01/media), and [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md).
-- [Azure CLI](/cli/azure/ams?preserve-view=true&view=azure-cli-latest) integration for simple scripting support.
+- SDKs available for [.NET](/dotnet/api/overview/azure/mediaservices/management), .NET Core, [Node.js](/javascript/api/overview/azure/mediaservices/management), [Python](/python/api/overview/azure/mediaservices/management), [Java](/java/api/overview/azure/mediaservices/management), [Go](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/mediaservices/mgmt/2018-07-01/media), and [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md).
+- [Azure CLI](/cli/azure/ams) integration for simple scripting support.
 
 > [!NOTE]
 > A community PHP SDK is no longer available for Azure Media Services on V3. If you're using PHP on V2, you should migrate to the REST API directly in your code.
@@ -139,7 +139,3 @@ Read the article [Connect to Azure Media Services v3 API - Node.js](configure-co
 Download the [Go](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/mediaservices/mgmt/2018-07-01/media) SDK.
 
 ---
-
-## Next steps
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

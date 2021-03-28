@@ -1,15 +1,16 @@
 ---
 title: Tutorial - Load balance Linux virtual machines in Azure 
 description: In this tutorial, you learn how to use the Azure CLI to create a load balancer for a highly available and secure application across three Linux virtual machines
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
 
 tags: azure-resource-manager
-
+ms.subservice: networking
 ms.assetid: 
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux

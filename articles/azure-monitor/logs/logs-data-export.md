@@ -1,6 +1,7 @@
 ---
 title: Log Analytics workspace data export in Azure Monitor (preview)
 description: Log Analytics data export allows you to continuously export data of selected tables from your Log Analytics workspace to an Azure storage account or Azure Event Hubs as it's collected. 
+ms.subservice: logs
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli
 author: bwren
@@ -71,7 +72,7 @@ Log Analytics data export can write append blobs to immutable storage accounts w
 Data is sent to your event hub in near-real-time as it reaches Azure Monitor. An event hub is created for each data type that you export with the name *am-* followed by the name of the table. For example, the table *SecurityEvent* would sent to an event hub named *am-SecurityEvent*. If you want the exported data to reach a specific event hub, or if you have a table with a name that exceeds the 47 character limit, you can provide your own event hub name and export all data for defined tables to it.
 
 > [!IMPORTANT]
-> The [number of supported event hubs per namespace is 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). If you export more than 10 tables,provide your own event hub name to export all your tables to that event hub. 
+> The [number of supported event hubs per namespace is 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). If you export more than 10 tables, provide your own event hub name to export all your tables to that event hub.
 
 Considerations:
 1. 'Basic' event hub sku supports lower event size [limit](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-tiers) and some logs in your workspace can exceed it and be dropped. We recommend to use 'Standard' or 'Dedicated' event hub as export destination.
@@ -109,10 +110,14 @@ If you have configured your Storage Account to allow access from selected networ
 
 [![Storage account firewalls and virtual networks](media/logs-data-export/storage-account-vnet.png)](media/logs-data-export/storage-account-vnet.png#lightbox)
 
-
 ### Create or update data export rule
-A data export rule defines data to be exported for a set of tables to a single destination. You can create a single rule for each destination.
+A data export rule defines the tables for which data is exported and the destination. You can create a single rule for each destination currently.
 
+Export rule should include tables that you have in your workspace. Run this query for a list of available tables in your workspace.
+
+```kusto
+find where TimeGenerated > ago(24h) | distinct Type
+```
 
 # [Azure portal](#tab/portal)
 
@@ -123,12 +128,6 @@ N/A
 N/A
 
 # [Azure CLI](#tab/azure-cli)
-
-Use the following CLI command to view tables in your workspace. It can help copy the tables you want and include in data export rule.
-
-```azurecli
-az monitor log-analytics workspace table list --resource-group resourceGroupName --workspace-name workspaceName --query [].name --output table
-```
 
 Use the following command to create a data export rule to a storage account using CLI.
 

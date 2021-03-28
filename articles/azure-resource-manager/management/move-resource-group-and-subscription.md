@@ -2,7 +2,7 @@
 title: Move resources to a new subscription or resource group
 description: Use Azure Resource Manager to move resources to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 09/15/2020 
+ms.date: 03/23/2021 
 ms.custom: devx-track-azurecli
 ---
 
@@ -10,9 +10,15 @@ ms.custom: devx-track-azurecli
 
 This article shows you how to move Azure resources to either another Azure subscription or another resource group under the same subscription. You can use the Azure portal, Azure PowerShell, Azure CLI, or the REST API to move resources.
 
-Both the source group and the target group are locked during the move operation. Write and delete operations are blocked on the resource groups until the move completes. This lock means you can't add, update, or delete resources in the resource groups. It doesn't mean the resources are frozen. For example, if you move a SQL Server and its database to a new resource group, an application that uses the database experiences no downtime. It can still read and write to the database. The lock can last for a maximum of four hours, but most moves complete in much less time.
+Both the source group and the target group are locked during the move operation. Write and delete operations are blocked on the resource groups until the move completes. This lock means you can't add, update, or delete resources in the resource groups. It doesn't mean the resources are frozen. For example, if you move an Azure SQL logical server and its databases to a new resource group or subscription, applications that use the databases experience no downtime. They can still read and write to the databases. The lock can last for a maximum of four hours, but most moves complete in much less time.
 
 Moving a resource only moves it to a new resource group or subscription. It doesn't change the location of the resource.
+
+## Changed resource ID
+
+When you move a resource, you change its resource ID. The standard format for a resource ID is `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}`. When you move a resource to a new resource group or subscription, you change one or more values in that path.
+
+If you use the resource ID anywhere, you'll need to change that value. For example, if you have a [custom dashboard](../../azure-portal/quickstart-portal-dashboard-azure-cli.md) in the portal that references a resource ID, you'll need to update that value. Look for any scripts or templates that need to be updated for the new resource ID.
 
 ## Checklist before moving resources
 
@@ -29,8 +35,9 @@ There are some important steps to do before moving a resource. By verifying thes
    * [Networking move guidance](./move-limitations/networking-move-limitations.md)
    * [Recovery Services move guidance](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
    * [Virtual Machines move guidance](./move-limitations/virtual-machines-move-limitations.md)
+   * To move an Azure subscription to a new management group, see [Move subscriptions](../../governance/management-groups/manage.md#move-subscriptions).
 
-1. If you move a resource that has an Azure role assigned directly to the resource (or a child resource), the role assignment is not moved and becomes orphaned. After the move, you must re-create the role assignment. Eventually, the orphaned role assignment will be automatically removed, but it is a best practice to remove the role assignment before moving the resource.
+1. If you move a resource that has an Azure role assigned directly to the resource (or a child resource), the role assignment isn't moved and becomes orphaned. After the move, you must re-create the role assignment. Eventually, the orphaned role assignment is automatically removed, but we recommend removing the role assignment before the move.
 
     For information about how to manage role assignments, see [List Azure role assignments](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) and [Assign Azure roles](../../role-based-access-control/role-assignments-portal.md).
 
@@ -254,7 +261,7 @@ Moving a resource is a complex operation that has different phases. It can invol
 
 **Question: Why is my resource group locked for four hours during resource move?**
 
-A move request is allowed a maximum of four hours to complete. To prevent modifications on the resources being moved, both the source and destination resource groups are locked for the duration of the resource move.
+A move request is allowed a maximum of four hours to complete. To prevent modifications on the resources being moved, both the source and destination resource groups are locked during the resource move.
 
 There are two phases in a move request. In the first phase, the resource is moved. In the second phase, notifications are sent to other resource providers that are dependent on the resource being moved. A resource group can be locked for the entire four hours when a resource provider fails either phase. During the allowed time, Resource Manager retries the failed step.
 

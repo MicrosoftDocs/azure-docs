@@ -152,6 +152,22 @@ conceptualContent:
         url: ../iot-pnp/index.yml
         text: See more
     # Card
+    - title: Update your IoT Hub devices
+      links:
+        - url: ../iot-hub-device-update/understand-device-update.md
+          itemType: overview
+          text: What is Device Update?
+        - url: ../iot-hub-device-update/device-update-simulator.md
+          itemType: tutorial
+          text: Use device update on a simulator
+        - url: ../iot-hub-device-update/device-update-ubuntu-agent.md
+          itemType: tutorial
+          text: Package update on Ubuntu Server
+      # footerLink
+      footerLink:
+        url: ../iot-hub-device-update/index.yml
+        text: See more
+    # Card
     - title: Explore and analyze device data
       links:
         - url: ../time-series-insights/overview-what-is-tsi.md
@@ -212,12 +228,12 @@ tools:
     # Card
     - title: Azure IoT SDK for Node.js reference
       imageSrc: https://docs.microsoft.com/media/logos/logo_nodejs.svg
-      url: /javascript/api/overview/azure/iot-hub?view=azure-node-latest
+      url: /javascript/api/overview/azure/iot-hub
     # Card
     - title: Azure IoT SDK for Java reference
       imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
-      url: /java/api/com.microsoft.azure.sdk.iot.service?view=azure-java-stable
+      url: /java/api/com.microsoft.azure.sdk.iot.service
     # Card
     - title: Azure IoT SDK for .NET reference
       imageSrc: https://docs.microsoft.com/media/logos/logo_NET.svg
-      url: /dotnet/api/overview/azure/iot?view=azure-dotnet
+      url: /dotnet/api/overview/azure/iot

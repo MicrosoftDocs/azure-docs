@@ -57,6 +57,8 @@
     href: diagnostic-logs.md
   - name: Monitor and manage sessions
     href: session-monitoring.md
+  - name: Metrics, monitoring, and alerts
+    href: howto-metrics-monitor-alert.md
   - name: Troubleshoot
     href: troubleshoot.md
 - name: Reference

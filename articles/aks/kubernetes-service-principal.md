@@ -160,6 +160,7 @@ For information on how to update the credentials, see [Update or rotate the cred
 [aad-service-principal]:../active-directory/develop/app-objects-and-service-principals.md
 [acr-intro]: ../container-registry/container-registry-intro.md
 [az-ad-sp-create]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
+[az-ad-sp-delete]: /cli/azure/ad/sp#az_ad_sp_delete
 [azure-load-balancer-overview]: ../load-balancer/load-balancer-overview.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [service-principal]:../active-directory/develop/app-objects-and-service-principals.md

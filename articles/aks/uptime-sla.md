@@ -33,9 +33,6 @@ Uptime SLA is a paid feature and enabled per cluster. Uptime SLA pricing is dete
 
 ## Creating a new cluster with Uptime SLA
 
-> [!NOTE]
-> Currently, if you enable Uptime SLA, there is no way to remove it from a cluster.
-
 To create a new cluster with the Uptime SLA, you use the Azure CLI.
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location:
@@ -101,6 +98,15 @@ Use the [`az aks update`][az-aks-update] command to update the existing cluster:
     "tier": "Paid"
   },
   ```
+
+## Opt out of Uptime SLA
+
+You can update your cluster to change to the free tier and opt out of Uptime SLA.
+
+```azurecli-interactive
+# Update an existing cluster to opt out of Uptime SLA
+ az aks update --resource-group myResourceGroup --name myAKSCluster --no-uptime-sla
+ ```
 
 ## Clean up
 

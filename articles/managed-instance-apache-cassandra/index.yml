@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure Managed Instance for Apache Cassandra documentation # < 60 chars
-summary: Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra datacenters. It accelerates hybrid scenarios and reducing ongoing maintenance. # < 160 chars
+summary: Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra datacenters. It accelerates hybrid scenarios and reduces ongoing maintenance. # < 160 chars
 
 metadata:
   title: Azure Managed Instance for Apache Cassandra # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra datacenters. It accelerates hybrid scenarios and reducing ongoing maintenance. # Required; article description that is displayed in search results. < 160 chars.
+  description: Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra datacenters. It accelerates hybrid scenarios and reduces ongoing maintenance. # Required; article description that is displayed in search results. < 160 chars.
   services: service
   ms.service: managed-instance-apache-cassandra #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.topic: landing-page # Required
@@ -30,6 +30,10 @@ landingContent:
         links:
           - text: Azure Managed Instance for Apache Cassandra Vs Azure Cosmos DB Cassandra API
             url: compare-cosmosdb-managed-instance.md
+
+  # Card 
+  - title: Create and deploy a cluster
+    linkLists:  
       - linkListType: quickstart
         links:
           - text: Create a cluster - Portal

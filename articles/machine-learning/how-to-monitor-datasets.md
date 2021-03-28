@@ -41,7 +41,7 @@ You can view data drift metrics with the Python SDK or in Azure Machine Learning
 To create and work with dataset monitors, you need:
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 * An [Azure Machine Learning workspace](how-to-manage-workspace.md).
-* The [Azure Machine Learning SDK for Python installed](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py), which includes the azureml-datasets package.
+* The [Azure Machine Learning SDK for Python installed](/python/api/overview/azure/ml/install), which includes the azureml-datasets package.
 * Structured (tabular) data with a timestamp specified in the file path, file name, or column in the data.
 
 ## What is data drift?
@@ -105,7 +105,7 @@ The target dataset needs the `timeseries` trait set on it by specifying the time
 # [Python](#tab/python)
 <a name="sdk-dataset"></a>
 
-The [`Dataset`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) class [`with_timestamp_columns()`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-)  method defines the time stamp column for the dataset.
+The [`Dataset`](/python/api/azureml-core/azureml.data.tabulardataset#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) class [`with_timestamp_columns()`](/python/api/azureml-core/azureml.data.tabulardataset#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-)  method defines the time stamp column for the dataset.
 
 ```python 
 from azureml.core import Workspace, Dataset, Datastore
@@ -133,7 +133,7 @@ dset = dset.register(ws, 'target')
 ```
 
 > [!TIP]
-> For a full example of using the `timeseries` trait of datasets, see the [example notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) or the [datasets SDK documentation](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
+> For a full example of using the `timeseries` trait of datasets, see the [example notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) or the [datasets SDK documentation](/python/api/azureml-core/azureml.data.tabulardataset#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
 
 # [Studio](#tab/azure-studio)
 
@@ -354,7 +354,7 @@ Limitations and known issues for data drift monitors:
     1. On the **Dataset Monitors** tab, select the experiment link to check run status.  This link is on the far right of the table.
     1. If run completed successfully, check driver logs to see how many metrics has been generated or if there's any warning messages.  Find driver logs in the **Output + logs** tab after you click on an experiment.
 
-* If the SDK `backfill()` function does not generate the expected output, it may be due to an authentication issue.  When you create the compute to pass into this function, do not use `Run.get_context().experiment.workspace.compute_targets`.  Instead, use [ServicePrincipalAuthentication](/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?preserve-view=true&view=azure-ml-py) such as the following to create the compute that you pass into that `backfill()` function: 
+* If the SDK `backfill()` function does not generate the expected output, it may be due to an authentication issue.  When you create the compute to pass into this function, do not use `Run.get_context().experiment.workspace.compute_targets`.  Instead, use [ServicePrincipalAuthentication](/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication) such as the following to create the compute that you pass into that `backfill()` function: 
 
   ```python
    auth = ServicePrincipalAuthentication(

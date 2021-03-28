@@ -68,7 +68,7 @@ az ams streaming-endpoint start [--account-name]
                                 [--subscription]
 ```
 
-For more information, see [az ams streaming-endpoint start](/cli/azure/ams/streaming-endpoint?view=azure-cli-latest#az-ams-streaming-endpoint-start).
+For more information, see [az ams streaming-endpoint start](/cli/azure/ams/streaming-endpoint#az-ams-streaming-endpoint-start).
 
 ## Use SDKs
 
@@ -97,7 +97,7 @@ if (streamingEndpoint != null)
     }
 ```
 
-See the complete [.NET code sample](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/DynamicPackagingVODContent/StreamHLSAndDASH/Program.cs#L112).
+See the complete [.NET code sample](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/Streaming/StreamHLSAndDASH/Program.cs#L112).
 
 ---
 

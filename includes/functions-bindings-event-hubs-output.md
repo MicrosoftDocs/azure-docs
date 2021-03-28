@@ -245,7 +245,7 @@ The following table explains the binding configuration properties that you set i
 |**name** | n/a | The variable name used in function code that represents the event. |
 |**path** |**EventHubName** | Functions 1.x only. The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. |
 |**eventHubName** |**EventHubName** | Functions 2.x and higher. The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. |
-|**connection** |**Connection** | The name of an app setting that contains the connection string to the event hub's namespace. Copy this connection string by clicking the **Connection Information** button for the *namespace*, not the event hub itself. This connection string must have send permissions to send the message to the event stream.|
+|**connection** |**Connection** | The name of an app setting that contains the connection string to the event hub's namespace. Copy this connection string by clicking the **Connection Information** button for the [namespace](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), not the event hub itself. This connection string must have send permissions to send the message to the event stream. <br><br>If you are using [version 5.x or higher of the extension](../articles/azure-functions/functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher), instead of a connection string, you can provide a reference to a configuration section which defines the connection. See [Connections](../articles/azure-functions/functions-reference.md#connections).|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
 
@@ -253,13 +253,41 @@ The following table explains the binding configuration properties that you set i
 
 # [C#](#tab/csharp)
 
+### Default
+
+You can use the following parameter types for the output binding of Event Hub:
+
+* `string`
+* `byte[]`
+* `POCO`
+* `EventData` - The default properties of EventData are provided in the for the [Microsoft.Azure.EventHubs namespace](/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
+
 Send messages by using a method parameter such as `out string paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. To write multiple messages, you can use `ICollector<string>` or
 `IAsyncCollector<string>` in place of `out string`.
+
+### Additional types 
+Apps using the 5.0.0 or higher version of the Event Hub extension use the `EventData` type in [Azure.Messaging.EventHubs](/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) instead of the one in [Microsoft.Azure.EventHubs namespace](/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet). This version drops support for the legacy `Body` type in favor of the following types:
+
+- [EventBody](/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
 
 # [C# Script](#tab/csharp-script)
 
+### Default
+
+You can use the following parameter types for the output binding of Event Hub:
+
+* `string`
+* `byte[]`
+* `POCO`
+* `EventData` - The default properties of EventData are provided in the for the [Microsoft.Azure.EventHubs namespace](/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
+
 Send messages by using a method parameter such as `out string paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. To write multiple messages, you can use `ICollector<string>` or
 `IAsyncCollector<string>` in place of `out string`.
+
+### Additional types 
+Apps using the 5.0.0 or higher version of the Event Hub extension use the `EventData` type in [Azure.Messaging.EventHubs](/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) instead of the one in [Microsoft.Azure.EventHubs namespace](/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet). This version drops support for the legacy `Body` type in favor of the following types:
+
+- [EventBody](/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
 
 # [JavaScript](#tab/javascript)
 
@@ -271,7 +299,7 @@ There are two options for outputting an Event Hub message from a function:
 
 - **Return value**: Set the `name` property in *function.json* to `$return`. With this configuration, the function's return value is persisted as an Event Hub message.
 
-- **Imperative**: Pass a value to the [set](/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) method of the parameter declared as an [Out](/python/api/azure-functions/azure.functions.out?view=azure-python) type. The value passed to `set` is persisted as an Event Hub message.
+- **Imperative**: Pass a value to the [set](/python/api/azure-functions/azure.functions.out#set-val--t-----none) method of the parameter declared as an [Out](/python/api/azure-functions/azure.functions.out) type. The value passed to `set` is persisted as an Event Hub message.
 
 # [Java](#tab/java)
 

@@ -7,7 +7,7 @@ manager: nimag
 services: azure-communication-services
 
 ms.author: dademath
-ms.date: 07/28/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
@@ -15,6 +15,7 @@ ms.service: azure-communication-services
 # Build a trusted authentication service using Azure Functions
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+
 
 [!INCLUDE [Trusted Service JavaScript](./includes/trusted-service-js.md)]
 
