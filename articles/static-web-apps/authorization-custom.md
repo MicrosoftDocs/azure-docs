@@ -11,7 +11,7 @@ ms.date: 3/24/2021
 
 # Custom authorization in Azure Static Web Apps
 
-Azure Static Web Apps provides managed authentication but also the option to provide your own settings for the providers and even a custom provider that supports OpenID Connect.
+Azure Static Web Apps provides managed authentication but also the option to provide your own settings for the providers and even a custom provider that supports [OpenID Connect](https://openid.net/connect/).
 
 ## Overriding a default provider
 
@@ -43,60 +43,81 @@ The settings used to override the built-in providers is configured in the `auth`
 
 - The redirect endpoints required for login or logout are `https://<YOUR-SITE>/.auth/login/complete` and `https://<YOUR-SITE>/.auth/logout/complete`.
 
-### Default provider configuration mapping
+### Default provider configuration
 
-The following table contains the different configuration options for each of the default providers.
+The following tables contain the different configuration options for each default provider.
 
-| Provider Name | Field Path                               | Description                                                                                           |
-| ------------- | ---------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| AAD           | `registration.openIdIssuer`              | The endpoint for the OpenID configuration of the AAD tenant                                           |
-| &nbsp;        | `registration.clientIdSettingName`       | The name of the Application Setting for the Client ID                                                 |
-| &nbsp;        | `registration.clientSecretSettingName`   | The name of the Application Setting for the Client Secret                                             |
-| &nbsp;        | `userDetailsClaim`                       | The field to read from the Claims response and expose as user details. The value `name` is expected   |
-| Apple         | `registration.clientIdSettingName`       | The name of the Application Setting for the Client ID                                                 |
-| &nbsp;        | `registration.clientSecretSettingName`   | The name of the Application Setting for the Client Secret                                             |
-| &nbsp;        | `userDetailsClaim`                       | The field to read from the Claims response and expose as user details. The value `name` is expected   |
-| Facebook      | `registration.appIdSettingName`          | The name of the Application Setting for the App ID                                                    |
-| &nbsp;        | `registration.appSecretSettingName`      | The name pf the Application Setting for the App Secret                                                |
-| &nbsp;        | `userDetailsClaim`                       | The field to read from the Claims response and expose as user details. The value `email` is expected  |
-| GitHub        | `registration.clientIdSettingName`       | The name of the Application Setting for the Client ID                                                 |
-| &nbsp;        | `registration.clientSecretSettingName`   | The name of the Application Setting for the Client Secret                                             |
-| &nbsp;        | `userDetailsClaim`                       | The field to read from the Claims response and expose as user details. The value `name` is expected   |
-| Google        | `registration.clientIdSettingName`       | The name of the Application Setting for the Client ID                                                 |
-| &nbsp;        | `registration.clientSecretSettingName`   | The name of the Application Setting for the Client Secret                                             |
-| &nbsp;        | `userDetailsClaim`                       | The field to read from the Claims response and expose as user details. The value `name` is expected   |
-| Twitter       | `registration.consumerKeySettingName`    | The name of the Application Setting for the Client ID                                                 |
-| &nbsp;        | `registration.consumerSecretSettingName` | The name of the Application Setting for the Client Secret                                             |
-| &nbsp;        | `userDetailsClaim`                       | The field to read from the Claims response and expose as user details. The value `handle` is expected |
+#### Azure Active Directory
+
+| Field Path | Description |
+| --- | --- |
+| `registration.openIdIssuer`              | The endpoint for the OpenID configuration of the AAD tenant                                           |
+| `registration.clientIdSettingName`       | The name of the Application Setting for the Client ID                                                 |
+| `registration.clientSecretSettingName`   | The name of the Application Setting for the Client Secret                                             |
+| `userDetailsClaim`                       | The field to read from the Claims response and expose as user details. The value `name` is expected   |
+
+#### Apple
+| Field Path | Description |
+| --- | --- |
+| `registration.clientIdSettingName`       | The name of the Application Setting for the Client ID                                                 |
+| `registration.clientSecretSettingName`   | The name of the Application Setting for the Client Secret                                             |
+| `userDetailsClaim`                       | The field to read from the Claims response and expose as user details. The value `name` is expected   |
+
+#### Facebook
+| Field Path | Description |
+| --- | --- |
+| `registration.appIdSettingName`          | The name of the Application Setting for the App ID                                                    |
+| `registration.appSecretSettingName`      | The name pf the Application Setting for the App Secret                                                |
+| `userDetailsClaim`                       | The field to read from the Claims response and expose as user details. The value `email` is expected  |
+
+#### GitHub
+| Field Path | Description |
+| --- | --- |
+| `registration.clientIdSettingName`       | The name of the Application Setting for the Client ID                                                 |
+| `registration.clientSecretSettingName`   | The name of the Application Setting for the Client Secret                                             |
+| `userDetailsClaim`                       | The field to read from the Claims response and expose as user details. The value `name` is expected   |
+
+#### Google
+| Field Path | Description |
+| --- | --- |
+| `registration.clientIdSettingName`       | The name of the Application Setting for the Client ID                                                 |
+| `registration.clientSecretSettingName`   | The name of the Application Setting for the Client Secret                                             |
+| `userDetailsClaim`                       | The field to read from the Claims response and expose as user details. The value `name` is expected   |
+
+#### Twitter
+| Field Path | Description |
+| --- | --- |
+|`registration.consumerKeySettingName`    | The name of the Application Setting for the Client ID                                                 |
+| `registration.consumerSecretSettingName` | The name of the Application Setting for the Client Secret                                             |
+| `userDetailsClaim`                       | The field to read from the Claims response and expose as user details. The value `handle` is expected |
 
 ## Configuring a custom OpenID Connect provider
 
 This article shows you how to configure Azure Static Web Apps to use a custom authentication provider that adheres to the [OpenID Connect specification](https://openid.net/connect/). OpenID Connect (OIDC) is an industry standard used by many identity providers (IDPs). You do not need to understand the details of the specification in order to configure your app to use an adherent IDP.
 
-Your can configure your app to use one or more OIDC providers. Each must be given a unique name in the configuration, and only one can serve as the default redirect target.
+You can configure your app to use one or more OIDC providers. Each must be given a unique name in the configuration, and only one can serve as the default redirect target.
 
 ### Register your application with the identity provider
 
-Your provider will require you to register the details of your application with it. Please see the instructions relevant to that provider. You will need to collect a **client ID** and **client secret** for your application.
-
+You are required to register your application's details with an identity provider. Check with your desired provider regarding the steps needed to generate a **client ID** and **client secret** for your application.
 > [!IMPORTANT]
-> The app secret is an important security credential. Do not share this secret with anyone or distribute it within a client application.
+> Application secrets are sensitive security credentials. Do not share this secret with anyone, distribute it within a client application, or check into source control.
 
-Add the client id and client secret as [application settings](application-settings.md) for the app, using a setting name of your choice. Make note of this name for later.
+Add the client ID and client secret as [application settings](application-settings.md) for the app, using setting names of your choice. Make note of these names for later.
 
 Additionally, you will need the OpenID Connect metadata for the provider. This is often exposed via a [configuration metadata document](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig), which is the provider's Issuer URL suffixed with `/.well-known/openid-configuration`. Gather this configuration URL.
 
 If you are unable to use a configuration metadata document, you will need to gather the following values separately:
 
-- The issuer URL (sometimes shown as `issuer`)
-- The [OAuth 2.0 Authorization endpoint](https://tools.ietf.org/html/rfc6749#section-3.1) (sometimes shown as `authorization_endpoint`)
-- The [OAuth 2.0 Token endpoint](https://tools.ietf.org/html/rfc6749#section-3.2) (sometimes shown as `token_endpoint`)
-- The URL of the [OAuth 2.0 JSON Web Key Set](https://tools.ietf.org/html/rfc8414#section-2) document (sometimes shown as `jwks_uri`)
+- The issuer URL, sometimes shown as `issuer`.
+- The [OAuth 2.0 Authorization endpoint](https://tools.ietf.org/html/rfc6749#section-3.1), sometimes shown as `authorization_endpoint`.
+- The [OAuth 2.0 Token endpoint](https://tools.ietf.org/html/rfc6749#section-3.2), sometimes shown as `token_endpoint`.
+- The URL of the [OAuth 2.0 JSON Web Key Set](https://tools.ietf.org/html/rfc8414#section-2) document, sometimes shown as `jwks_uri`.
 
-Within the `openIdConnectConfiguration` object, provide the OpenID Connect metadata you gathered earlier. There are two options for this, based on which information you collected:
+Within the `openIdConnectConfiguration` object, provide the OpenID Connect metadata you gathered earlier. There are two options for this configuration, based on which information you collected:
 
-- Set the `wellKnownOpenIdConfiguration` property to the configuration metadata URL you gathered earlier.
-- Alternatively, set the four individual values gathered as follows:
+- **Option 1**:  Set the `wellKnownOpenIdConfiguration` property to the configuration metadata URL you gathered earlier.
+- **Option 2**: Set the four individual values as follows:
   - Set `issuer` to the issuer URL
   - Set `authorizationEndpoint` to the authorization Endpoint
   - Set `tokenEndpoint` to the token endpoint
@@ -104,9 +125,9 @@ Within the `openIdConnectConfiguration` object, provide the OpenID Connect metad
 
 These two options are mutually exclusive.
 
-Once this configuration has been set, you are ready to use your OpenID Connect provider for authentication in your app.
+Once the configuration is set, you are ready to use your OpenID Connect provider for authentication in your app.
 
-An example configuration might look like the following:
+## Example configuration
 
 ```json
 {
@@ -135,9 +156,9 @@ An example configuration might look like the following:
 }
 ```
 
-### Creating a browser login/logout
+## Login and logout
 
-To allow users to login using a custom OIDC provider, navigate them to `/.auth/<provider name>/login`. For logout, use `/.auth/<provider name>/logout`.
+To allow users to login using a custom OIDC provider, have them navigate to `/.auth/<PROVIDER-NAME>/login`. To  logout, use the URL `/.auth/<PROVIDER-NAME>/logout`.
 
 ## Next steps
 
