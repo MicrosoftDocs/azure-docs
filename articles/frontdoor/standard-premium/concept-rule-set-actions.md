@@ -351,6 +351,8 @@ Rule Set server variables provide access to structured information about the req
 
 ### Server variable format    
 
+<!-- TODO clarify this -->
+
 **Format:** {variable:offset}, {variable:offset:length}, {variable}
 
 ## Next steps
