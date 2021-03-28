@@ -29,7 +29,7 @@
     items:
     - name: Rule Set
       href: concept-rule-set.md
-    - name: Match Conditions
+    - name: Match conditions
       href: concept-rule-set-match-conditions.md
     - name: Actions
       href: concept-rule-set-actions.md
