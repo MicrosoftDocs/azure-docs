@@ -163,11 +163,11 @@ Once the configuration is set, you are ready to use your OpenID Connect provider
 }
 ```
 
-## Login and logout
+## Login, logout and purging user details
 
-To allow users to login using a custom OIDC provider, have them navigate to `/.auth/<PROVIDER-NAME>/login`. To logout, use the URL `/.auth/<PROVIDER-NAME>/logout`.
+To allow users to login using a custom OIDC provider, have them navigate to `/.auth/<PROVIDER_NAME>/login`. To logout, use the URL `/.auth/<PROVIDER_NAME>/logout` and to purge the user details, use the URL `/.auth/<PROVIDER_NAME>/purge`.
 
 ## Next steps
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Access user authentication and authorization data](user-information.md)
