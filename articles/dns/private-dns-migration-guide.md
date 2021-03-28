@@ -103,7 +103,7 @@ This step will delete the legacy DNS zones and should be executed only after you
 
 If you're using automation including templates, PowerShell scripts or custom code developed using SDK, you must update your automation to use the new resource model for the private DNS zones. Below are the links to new private DNS CLI/PS/SDK documentation.
 * [Azure DNS private zones REST API](/rest/api/dns/privatedns/privatezones)
-* [Azure DNS private zones CLI](/cli/azure/ext/privatedns/network/private-dns)
+* [Azure DNS private zones CLI](/cli/azure/network/private-dns/link/vnet?view=azure-cli-latest)
 * [Azure DNS private zones PowerShell](/powershell/module/az.privatedns/)
 * [Azure DNS private zones SDK](/dotnet/api/overview/azure/privatedns/management?view=azure-dotnet-preview)
 
