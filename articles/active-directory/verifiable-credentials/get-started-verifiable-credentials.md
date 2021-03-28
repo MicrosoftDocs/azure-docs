@@ -6,7 +6,7 @@ ms.subservice: verifiable-credentials
 author: barclayn
 ms.author: barclayn
 ms.topic: tutorial
-ms.date: 03/14/2021
+ms.date: 03/28/2021
 # Customer intent: As an enterprise we want to enable customers to manage information about themselves using verifiable credentials
 
 ---
@@ -21,13 +21,10 @@ In this tutorial, we go over the steps needed to issue your first verifiable cre
 
 ## Prerequisites
 
-- [Visual Studio Code](https://code.visualstudio.com/Download)
 - [NodeJS](https://nodejs.org/en/download/) version 10.14 or higher installed on our test system.
 - You need [GIT](https://git-scm.com/downloads) installed If you want to clone the repository that hosts the sample app,
 - [Visual Studio Code](https://code.visualstudio.com/Download)
 - A system to host our sample site.
-- [NodeJS](https://nodejs.org/en/download/) version 10.14 or higher.
-- You need [GIT](https://git-scm.com/downloads) installed If you want to clone the repository that hosts the sample app,
 - A mobile device with Microsoft Authenticator version 6.2005.3599 or higher installed.
 - [NGROK](https://ngrok.com/) free.
 
