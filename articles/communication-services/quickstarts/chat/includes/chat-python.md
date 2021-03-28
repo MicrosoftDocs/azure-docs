@@ -139,7 +139,7 @@ Use `send_message` method to send a message to a chat thread you just created, i
 - Use `chat_message_type` to specify the message content type. Possible values are 'text' and 'html'; if not specified default value of 'text' is assigned.
 - Use `sender_display_name` to specify the display name of the sender;
 
-`SendChatMessageResult` is the response returned from sending a message, it contains an id, which is the unique ID of the message.
+`SendChatMessageResult` is the response returned from sending a message, it contains an ID, which is the unique ID of the message.
 
 ```python
 from azure.communication.chat import ChatMessageType
