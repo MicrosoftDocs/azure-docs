@@ -18,29 +18,30 @@ Azure Static Web Apps provides managed authentication but also the option to pro
 > [!NOTE]
 > Custom authorization is only available in the Standard tier of Azure Static Web Apps.
 
-The settings used to override the built-in providers is configured in the `auth` section of the [Configuration file](configuration.md). For example, the following snippet shows how a custom Twitter provider is configured.
+The settings used to override the built-in providers is configured in the `auth` section of the [Configuration file](configuration.md). For example, the following snippet shows how a custom Azure Active Directory provider is configured.
 
 ```json
 {
   "auth": {
     "azureActiveDirectory": {
-      "enabled": true, // defaults to true on all the providers if the provider is configured to a non null value (i.e. not "azureActiveDirectory": null)
+      "enabled": true,
       "registration": {
-        "openIdIssuer": "https://login.microsoftonline.com/<tenant id>",
+        "openIdIssuer": "https://login.microsoftonline.com/<TENANT_ID>",
         "clientIdSettingName": "AAD_CLIENT_ID",
         "clientSecretSettingName": "AAD_CLIENT_SECRET"
       },
       "login": {
         "loginParameters": []
       },
-      "userDetailsClaim": "name" // the name of the claim that the provider will provide that contains the identity value you want to use as the "userDetails"
+      "userDetailsClaim": "name"
     }
   }
 }
 ```
 
+- `enabled`: Defaults to `true` on all the providers if the provider is configured to a non-null value (i.e. not `"azureActiveDirectory": null`).
+- `userDetailsClaim`: The name of the claim that contains the `userDetails` identity value.
 - To avoid putting secrets in source control, the configuration looks into [Application Settings](application-settings.md), for a matching name in the configuration file.
-
 - The redirect endpoints required for login or logout are `https://<YOUR-SITE>/.auth/login/complete` and `https://<YOUR-SITE>/.auth/logout/complete`.
 
 ### Default provider configuration
@@ -49,45 +50,50 @@ The following tables contain the different configuration options for each defaul
 
 #### Azure Active Directory
 
-| Field Path | Description |
-| --- | --- |
-| `registration.openIdIssuer`              | The endpoint for the OpenID configuration of the AAD tenant                                           |
-| `registration.clientIdSettingName`       | The name of the Application Setting for the Client ID                                                 |
-| `registration.clientSecretSettingName`   | The name of the Application Setting for the Client Secret                                             |
-| `userDetailsClaim`                       | The field to read from the Claims response and expose as user details. The value `name` is expected   |
+| Field Path                             | Description                                                                                                              |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `registration.openIdIssuer`            | The endpoint for the OpenID configuration of the AAD tenant                                                              |
+| `registration.clientIdSettingName`     | The name of an application setting that is configured with the Application (client) ID for the Azure AD app registration |
+| `registration.clientSecretSettingName` | The name of the application setting that is configured with a client secret for the Azure AD app registration            |
+| `userDetailsClaim`                     | The field to read from the Claims response and expose as user details. The value `name` is expected                      |
 
 #### Apple
-| Field Path | Description |
-| --- | --- |
-| `registration.clientIdSettingName`       | The name of the Application Setting for the Client ID                                                 |
-| `registration.clientSecretSettingName`   | The name of the Application Setting for the Client Secret                                             |
-| `userDetailsClaim`                       | The field to read from the Claims response and expose as user details. The value `name` is expected   |
+
+| Field Path                             | Description                                                                                         |
+| -------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `registration.clientIdSettingName`     | The name of the Application Setting for the Client ID                                               |
+| `registration.clientSecretSettingName` | The name of the Application Setting for the Client Secret                                           |
+| `userDetailsClaim`                     | The field to read from the Claims response and expose as user details. The value `name` is expected |
 
 #### Facebook
-| Field Path | Description |
-| --- | --- |
-| `registration.appIdSettingName`          | The name of the Application Setting for the App ID                                                    |
-| `registration.appSecretSettingName`      | The name pf the Application Setting for the App Secret                                                |
-| `userDetailsClaim`                       | The field to read from the Claims response and expose as user details. The value `email` is expected  |
+
+| Field Path                          | Description                                                                                          |
+| ----------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `registration.appIdSettingName`     | The name of the Application Setting for the App ID                                                   |
+| `registration.appSecretSettingName` | The name pf the Application Setting for the App Secret                                               |
+| `userDetailsClaim`                  | The field to read from the Claims response and expose as user details. The value `email` is expected |
 
 #### GitHub
-| Field Path | Description |
-| --- | --- |
-| `registration.clientIdSettingName`       | The name of the Application Setting for the Client ID                                                 |
-| `registration.clientSecretSettingName`   | The name of the Application Setting for the Client Secret                                             |
-| `userDetailsClaim`                       | The field to read from the Claims response and expose as user details. The value `name` is expected   |
+
+| Field Path                             | Description                                                                                         |
+| -------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `registration.clientIdSettingName`     | The name of the Application Setting for the Client ID                                               |
+| `registration.clientSecretSettingName` | The name of the Application Setting for the Client Secret                                           |
+| `userDetailsClaim`                     | The field to read from the Claims response and expose as user details. The value `name` is expected |
 
 #### Google
-| Field Path | Description |
-| --- | --- |
-| `registration.clientIdSettingName`       | The name of the Application Setting for the Client ID                                                 |
-| `registration.clientSecretSettingName`   | The name of the Application Setting for the Client Secret                                             |
-| `userDetailsClaim`                       | The field to read from the Claims response and expose as user details. The value `name` is expected   |
+
+| Field Path                             | Description                                                                                         |
+| -------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `registration.clientIdSettingName`     | The name of the Application Setting for the Client ID                                               |
+| `registration.clientSecretSettingName` | The name of the Application Setting for the Client Secret                                           |
+| `userDetailsClaim`                     | The field to read from the Claims response and expose as user details. The value `name` is expected |
 
 #### Twitter
-| Field Path | Description |
-| --- | --- |
-|`registration.consumerKeySettingName`    | The name of the Application Setting for the Client ID                                                 |
+
+| Field Path                               | Description                                                                                           |
+| ---------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `registration.consumerKeySettingName`    | The name of the Application Setting for the Client ID                                                 |
 | `registration.consumerSecretSettingName` | The name of the Application Setting for the Client Secret                                             |
 | `userDetailsClaim`                       | The field to read from the Claims response and expose as user details. The value `handle` is expected |
 
@@ -100,6 +106,7 @@ You can configure your app to use one or more OIDC providers. Each must be given
 ### Register your application with the identity provider
 
 You are required to register your application's details with an identity provider. Check with your desired provider regarding the steps needed to generate a **client ID** and **client secret** for your application.
+
 > [!IMPORTANT]
 > Application secrets are sensitive security credentials. Do not share this secret with anyone, distribute it within a client application, or check into source control.
 
@@ -116,7 +123,7 @@ If you are unable to use a configuration metadata document, you will need to gat
 
 Within the `openIdConnectConfiguration` object, provide the OpenID Connect metadata you gathered earlier. There are two options for this configuration, based on which information you collected:
 
-- **Option 1**:  Set the `wellKnownOpenIdConfiguration` property to the configuration metadata URL you gathered earlier.
+- **Option 1**: Set the `wellKnownOpenIdConfiguration` property to the configuration metadata URL you gathered earlier.
 - **Option 2**: Set the four individual values as follows:
   - Set `issuer` to the issuer URL
   - Set `authorizationEndpoint` to the authorization Endpoint
@@ -158,9 +165,9 @@ Once the configuration is set, you are ready to use your OpenID Connect provider
 
 ## Login and logout
 
-To allow users to login using a custom OIDC provider, have them navigate to `/.auth/<PROVIDER-NAME>/login`. To  logout, use the URL `/.auth/<PROVIDER-NAME>/logout`.
+To allow users to login using a custom OIDC provider, have them navigate to `/.auth/<PROVIDER-NAME>/login`. To logout, use the URL `/.auth/<PROVIDER-NAME>/logout`.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
+> [!div class="nextstepaction"] 
 > [Access user authentication and authorization data](user-information.md)
