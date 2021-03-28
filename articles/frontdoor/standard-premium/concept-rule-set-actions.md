@@ -9,7 +9,7 @@ ms.date: 03/29/2021
 ms.author: yuajia
 ---
 
-# Azure Front Door Standard/Premium Rule Set Actions
+# Azure Front Door Standard/Premium (Preview) Rule Set actions
 
 > [!Note]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
