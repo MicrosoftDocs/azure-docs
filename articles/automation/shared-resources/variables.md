@@ -3,7 +3,7 @@ title: Manage variables in Azure Automation
 description: This article tells how to work with variables in runbooks and DSC configurations.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 12/01/2020
+ms.date: 03/28/2021
 ms.topic: conceptual
 ---
 # Manage variables in Azure Automation
@@ -110,43 +110,52 @@ Your runbook or DSC configuration uses the `New-AzAutomationVariable` cmdlet to 
 The following example shows how to create a string variable and then return its value.
 
 ```powershell
-New-AzAutomationVariable -ResourceGroupName "ResourceGroup01" 
-–AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable' `
-–Encrypted $false –Value 'My String'
-$string = (Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
-–AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable').Value
+$rgName = "ResourceGroup01"
+$accountName = "MyAutomationAccount"
+$variableName = "MyStringVariable"
+$variableValue = "My String"
+
+New-AzAutomationVariable -ResourceGroupName $rgName –AutomationAccountName $accountName –Name $variableName –Encrypted $false –Value $variableValue
+$string = (Get-AzAutomationVariable -ResourceGroupName $rgName -AutomationAccountName $accountName –Name $variableName).Value
 ```
 
 The following example shows how to create a variable with a complex type and then retrieve its properties. In this case, a virtual machine object from [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM) is used specifying a subset of its properties.
 
 ```powershell
-$vm = Get-AzVM -ResourceGroupName "ResourceGroup01" –Name "VM01" | Select Name, Location, Extensions
-New-AzAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable" –Encrypted $false –Value $vm
+$rgName = "ResourceGroup01"
+$accountName = "MyAutomationAccount"
+$variableName = "MyComplexVariable"
+$variableValue = "My String"
 
-$vmValue = Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
-–AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable"
+$vm = Get-AzVM -ResourceGroupName $rgName –Name "VM01" | Select Name, Location, Tags
+New-AzAutomationVariable -ResourceGroupName $rgName –AutomationAccountName $accountName –Name $variableName –Encrypted $false –Value $vm
 
-$vmName = $vmValue.Name
-$vmExtensions = $vmValue.Extensions
+$vmValue = Get-AzAutomationVariable -ResourceGroupName $rgName –AutomationAccountName $accountName –Name $variableName
+
+$vmName = $vmValue.Value.Name
+$vmTags = $vmValue.Value.Tags
 ```
 
 ## Textual runbook examples
 
 # [PowerShell](#tab/azure-powershell)
 
-The following example shows how to set and retrieve a variable in a textual runbook. This example assumes the creation of integer variables named `NumberOfIterations` and `NumberOfRunnings` and a string variable named `SampleMessage`.
+The following example shows how to set and retrieve a variable in a textual runbook. This example assumes the creation of integer variables named **numberOfIterations** and **numberOfRunnings** and a string variable named **sampleMessage**.
 
 ```powershell
-$NumberOfIterations = Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfIterations'
-$NumberOfRunnings = Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfRunnings'
-$SampleMessage = Get-AutomationVariable -Name 'SampleMessage'
+$rgName = "ResourceGroup01"
+$accountName = "MyAutomationAccount"
 
-Write-Output "Runbook has been run $NumberOfRunnings times."
+$numberOfIterations = Get-AzAutomationVariable -ResourceGroupName $rgName –AutomationAccountName $accountName -Name "numberOfIterations"
+$numberOfRunnings = Get-AzAutomationVariable -ResourceGroupName $rgName –AutomationAccountName $accountName -Name "numberOfRunnings"
+$sampleMessage = Get-AutomationVariable -Name "sampleMessage"
 
-for ($i = 1; $i -le $NumberOfIterations; $i++) {
-    Write-Output "$i`: $SampleMessage"
+Write-Output "Runbook has been run $numberOfRunnings times."
+
+for ($i = 1; $i -le $numberOfIterations; $i++) {
+    Write-Output "$i`: $sampleMessage"
 }
-Set-AzAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
+Set-AzAutomationVariable -ResourceGroupName $rgName –AutomationAccountName $accountName –Name numberOfRunnings –Value ($numberOfRunnings += 1)
 ```
 
 # [Python 2](#tab/python2)
