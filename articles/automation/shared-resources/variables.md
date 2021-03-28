@@ -113,11 +113,10 @@ The following example shows how to create a string variable and then return its 
 ```powershell
 $rgName = "ResourceGroup01"
 $accountName = "MyAutomationAccount"
-$variableName = "MyStringVariable"
 $variableValue = "My String"
 
-New-AzAutomationVariable -ResourceGroupName $rgName –AutomationAccountName $accountName –Name $variableName –Encrypted $false –Value $variableValue
-$string = (Get-AzAutomationVariable -ResourceGroupName $rgName -AutomationAccountName $accountName –Name $variableName).Value
+New-AzAutomationVariable -ResourceGroupName $rgName –AutomationAccountName $accountName –Name "MyStringVariable" –Encrypted $false –Value $variableValue
+$string = (Get-AzAutomationVariable -ResourceGroupName $rgName -AutomationAccountName $accountName –Name "MyStringVariable").Value
 ```
 
 The following example shows how to create a variable with a complex type and then retrieve its properties. In this case, a virtual machine object from [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM) is used specifying a subset of its properties.
@@ -125,13 +124,11 @@ The following example shows how to create a variable with a complex type and the
 ```powershell
 $rgName = "ResourceGroup01"
 $accountName = "MyAutomationAccount"
-$variableName = "MyComplexVariable"
-$variableValue = "My String"
 
 $vm = Get-AzVM -ResourceGroupName $rgName –Name "VM01" | Select Name, Location, Tags
-New-AzAutomationVariable -ResourceGroupName $rgName –AutomationAccountName $accountName –Name $variableName –Encrypted $false –Value $vm
+New-AzAutomationVariable -ResourceGroupName $rgName –AutomationAccountName $accountName –Name "MyComplexVariable" –Encrypted $false –Value $vm
 
-$vmValue = Get-AzAutomationVariable -ResourceGroupName $rgName –AutomationAccountName $accountName –Name $variableName
+$vmValue = Get-AzAutomationVariable -ResourceGroupName $rgName –AutomationAccountName $accountName –Name "MyComplexVariable"
 
 $vmName = $vmValue.Value.Name
 $vmTags = $vmValue.Value.Tags
