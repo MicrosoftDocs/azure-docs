@@ -226,18 +226,64 @@ In this example, we delete the header with the name `X-Powered-By` from the resp
 
 ## URL redirect
 
-Use this action to redirect clients to a new URL. 
+Use the **URL redirect** action to redirect clients to a new URL. Clients are sent a redirection response from Front Door.
 
-### Required fields
+### Properties
 
-Field | Description 
-------|------------
-Redirect Type | Select the response type to return to the requestor: Found (302), Moved (301), Temporary redirect (307), and Permanent redirect (308).
-Redirect protocol | Match Request, HTTP, HTTPS.
-Destination host | Select the host name you want the request to be redirected to. Leave blank to preserve the incoming host.
-Destination path | Define the path to use in the redirect. Leave blank to preserve the incoming path.  
-Query string | Define the query string used in the redirect. Leave blank to preserve the incoming query string. 
-Destination fragment | Define the fragment to use in the redirect. Leave blank to preserve the incoming fragment. 
+| Property | Supported values |
+|----------|------------------|
+| Redirect type | The response type to return to the requestor. <ul><li>In the Azure portal: Found (302), Moved (301), Temporary Redirect (307), Permanent Redirect (308).</li><li>In ARM templates: `Found`, `Moved`, `TemporaryRedirect`, `PermanentRedirect`</li></ul> |
+| Redirect protocol | <ul><li>In the Azure portal: `Match Request`, `HTTP`, `HTTPS`</li><li>In ARM templates: `MatchRequest`, `Http`, `Https`</li></ul> |
+| Destination host | The host name you want the request to be redirected to. Leave blank to preserve the incoming host. |
+| Destination path | The path to use in the redirect. Include the leading `/`. Leave blank to preserve the incoming path. |
+| Query string | The query string used in the redirect. Don't include the leading `?`. Leave blank to preserve the incoming query string. |
+| Destination fragment | The fragment to use in the redirect. Leave blank to preserve the incoming fragment. |
+
+### Example
+
+In this example, we redirect the request to `https://contoso.com/exampleredirection`, while preserving the query string and fragment. An HTTP Temporary Redirect (307) is used. 
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="../media/concept-rule-set-actions/url-redirect.png" alt-text="Portal screenshot showing URL redirect action.":::
+
+# [JSON](#tab/json)
+
+```json
+{
+  "name": "UrlRedirect",
+  "parameters": {
+    "redirectType": "TemporaryRedirect",
+    "destinationProtocol": "Https",
+    "customPath": "/exampleredirection",
+    "customHostname": "contoso.com",
+    "customQueryString": null,
+    "customFragment": null,
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlRedirectActionParameters"
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'UrlRedirect'
+  parameters: {
+    redirectType: 'TemporaryRedirect'
+    destinationProtocol: 'Https'
+    customPath: '/exampleredirection'
+    customHostname: 'contoso.com'
+    customQueryString: null
+    customFragment: null
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlRedirectActionParameters'
+  }
+}
+```
+
+<!-- TODO check template when value is omitted rather than null -->
+
+---
 
 ## URL rewrite
 
