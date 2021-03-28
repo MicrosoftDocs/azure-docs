@@ -287,15 +287,53 @@ In this example, we redirect the request to `https://contoso.com/exampleredirect
 
 ## URL rewrite
 
-Use this action to rewrite the path of a request that's en route to your origin.
+Use the **URL rewrite** action to rewrite the path of a request that's en route to your origin.
 
-### Required fields
+### Properties
 
-Field | Description 
-------|------------
-Source pattern | Define the source pattern in the URL path to replace. Currently, source pattern uses a prefix-based match. To match all URL paths, use a forward slash (**/**) as the source pattern value.
-Destination | Define the destination path to use in the rewrite. The destination path overwrites the source pattern.
-Preserve unmatched path | If set to **Yes**, the remaining path after the source pattern is appended to the new destination path. 
+| Property | Supported values |
+|----------|------------------|
+| Source pattern | Define the source pattern in the URL path to replace. Currently, source pattern uses a prefix-based match. To match all URL paths, use a forward slash (`/`) as the source pattern value. |
+| Destination | Define the destination path to use in the rewrite. The destination path overwrites the source pattern. |
+| Preserve unmatched path | If set to _Yes_, the remaining path after the source pattern is appended to the new destination path. |
+
+### Example
+
+In this example, we rewrite all requests to the path `/redirection`, and don't preserve the remainder of the path.
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="../media/concept-rule-set-actions/url-rewrite.png" alt-text="Portal screenshot showing URL rewrite action.":::
+
+# [JSON](#tab/json)
+
+```json
+{
+  "name": "UrlRewrite",
+  "parameters": {
+    "sourcePattern": "/",
+    "destination": "/redirection",
+    "preserveUnmatchedPath": false,
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlRewriteActionParameters"
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'UrlRewrite'
+  parameters: {
+    sourcePattern: '/'
+    destination: '/redirection'
+    preserveUnmatchedPath: false
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlRewriteActionParameters'
+  }
+}
+```
+
+---
 
 ## Server variables
 
