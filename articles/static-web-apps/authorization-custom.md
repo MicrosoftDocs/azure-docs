@@ -143,4 +143,5 @@ To allow users to login using a custom OIDC provider, navigate them to `/.auth/<
 
 ## Next steps
 
-> [!div class="nextstepaction"] > [Access user authentication and authorization data](user-information.md)
+> [!div class="nextstepaction"]
+> [Access user authentication and authorization data](user-information.md)
