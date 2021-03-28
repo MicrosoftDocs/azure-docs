@@ -130,13 +130,13 @@ Use the **modify request header** action to modify the headers in the request wh
 
 | Property | Supported values |
 |-------|------------------|
-| Operator | <ul><li>**Append:** The specified header gets added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. In ARM templates, use the `headerAction` of `Append`.</li><li>**Overwrite:** The specified header gets added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. In ARM templates, use the `headerAction` of `Overwrite`.</li><li>**Delete:** If the header specified in the rule is present, the header gets deleted from the request. In ARM templates, use the `headerAction` of `Delete`.</li></ul> |
+| Operator | <ul><li>**Append:** The specified header gets added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. In ARM templates, use the `headerAction` of `Append`.</li><li>**Overwrite:** The specified header gets added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. In ARM templates, use the `headerAction` of `Overwrite`.</li><li>**Delete:** If the header specified in the rule is present, the header gets deleted from the request. In ARM templates, use the `headerAction` of `Delete`.</li></ul> |
 | Header name | The name of the header to modify. |
 | Header value | The value to append or overwrite. |
 
 ### Example
 
-In this example, we append the value `AdditionalValue` to the `MyRequestHeader` request header. If the origin set the response header to a value of `ValueSetByClient` then, after this action is applied, the request header would have a value of `ValueSetByClientAdditionalValue`.
+In this example, we append the value `AdditionalValue` to the `MyRequestHeader` request header. If the origin set the response header to a value of `ValueSetByClient`, then after this action is applied, the request header would have a value of `ValueSetByClientAdditionalValue`.
 
 # [Portal](#tab/portal)
 
@@ -180,7 +180,7 @@ Use the **modify response header** action to modify headers that are present in 
 
 | Property | Supported values |
 |-------|------------------|
-| Operator | <ul><li>**Append:** The specified header gets added to the response with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. In ARM templates, use the `headerAction` of `Append`.</li><li>**Overwrite:** The specified header gets added to the response with the specified value. If the header is already present, the specified value overwrites the existing value. In ARM templates, use the `headerAction` of `Overwrite`.</li><li>**Delete:** If the header specified in the rule is present, the header gets deleted from the response.  In ARM templates, use the `headerAction` of `Delete`.</li></ul> |
+| Operator | <ul><li>**Append:** The specified header gets added to the response with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. In ARM templates, use the `headerAction` of `Append`.</li><li>**Overwrite:** The specified header gets added to the response with the specified value. If the header is already present, the specified value overwrites the existing value. In ARM templates, use the `headerAction` of `Overwrite`.</li><li>**Delete:** If the header specified in the rule is present, the header gets deleted from the response.  In ARM templates, use the `headerAction` of `Delete`.</li></ul> |
 | Header name | The name of the header to modify. |
 | Header value | The value to append or overwrite. |
 
@@ -327,25 +327,27 @@ In this example, we rewrite all requests to the path `/redirection`, and don't p
 
 ## Server variables
 
-TODO intro paragraph
+Rule Set server variables provide access to structured information about the request. You can use server variables to dynamically change the request/response headers or URL rewrite paths/query strings, for example, when a new page load or when a form is posted.
+
+<!-- TODO use server variable within an action -->
 
 ### Supported variables
 
-| Variable name | Description                                                  |
-| -------------------------- | :----------------------------------------------------------- |
-| `socket_ip`                  | The IP address of the direct connection to Azure Front Door edge. If the client used an HTTP proxy or a load balancer to send the request, the value of `socket_ip` is the IP address of the proxy or load balancer. |
-| `client_ip`                  | The IP address of the client that made the original request. If there was an `X-Forwarded-For` header in the request, then the client IP address is picked from the header. |
-| `client_port`                | The IP port of the client that made the request. |
-| `hostname`                      | The host name in the request from the client. |
-| `geo_country`                     | Indicates the requester's country/region of origin through its country/region code. |
-| `http_method`                | The method used to make the URL request, such as `GET` or `POST`. |
-| `http_version`               | The request protocol. Usually `HTTP/1.0`, `HTTP/1.1`, or `HTTP/2.0`. |
-| `query_string`               | The list of variable/value pairs that follows the "?" in the requested URL.<br />Example: in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `query_string` value will be `id=123&title=fabrikam` |
-| `request_scheme`             | The request scheme: `http` or `https`. |
-| `request_uri`                | The full original request URI (with arguments).<br />Example: in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `request_uri` value will be `/article.aspx?id=123&title=fabrikam` |
-| `server_port`                | The port of the server that accepted a request. |
-| `ssl_protocol`    | The protocol of an established TLS connection. |
-| `url_path`                   | Identifies the specific resource in the host that the web client wants to access. This is the part of the request URI without the arguments.<br />Example: in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `uri_path` value will be `/article.aspx` |
+| Variable name    | Description                                                                                                                                                                                                                                                                          |
+|------------------|-:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `socket_ip`      | The IP address of the direct connection to Azure Front Door edge. If the client used an HTTP proxy or a load balancer to send the request, the value of `socket_ip` is the IP address of the proxy or load balancer.                                                                 |
+| `client_ip`      | The IP address of the client that made the original request. If there was an `X-Forwarded-For` header in the request, then the client IP address is picked from the header.                                                                                                          |
+| `client_port`    | The IP port of the client that made the request.                                                                                                                                                                                                                                     |
+| `hostname`       | The host name in the request from the client.                                                                                                                                                                                                                                        |
+| `geo_country`    | Indicates the requester's country/region of origin through its country/region code.                                                                                                                                                                                                  |
+| `http_method`    | The method used to make the URL request, such as `GET` or `POST`.                                                                                                                                                                                                                    |
+| `http_version`   | The request protocol. Usually `HTTP/1.0`, `HTTP/1.1`, or `HTTP/2.0`.                                                                                                                                                                                                                 |
+| `query_string`   | The list of variable/value pairs that follows the "?" in the requested URL.<br />Example: in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `query_string` value will be `id=123&title=fabrikam`                                                      |
+| `request_scheme` | The request scheme: `http` or `https`.                                                                                                                                                                                                                                               |
+| `request_uri`    | The full original request URI (with arguments).<br />Example: in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `request_uri` value will be `/article.aspx?id=123&title=fabrikam`                                                                     |
+| `server_port`    | The port of the server that accepted a request.                                                                                                                                                                                                                                      |
+| `ssl_protocol`   | The protocol of an established TLS connection.                                                                                                                                                                                                                                       |
+| `url_path`       | Identifies the specific resource in the host that the web client wants to access. This is the part of the request URI without the arguments.<br />Example: in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `uri_path` value will be `/article.aspx` |
 
 ### Server variable format    
 
