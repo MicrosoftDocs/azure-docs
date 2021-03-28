@@ -35,7 +35,7 @@ When you create a variable with the Azure portal, you must specify a data type f
 * Boolean
 * Null
 
-The variable isn't restricted to the specified data type. You must set the variable using Windows PowerShell if you want to specify a value of a different type. If you indicate `Not defined`, the value of the variable is set to Null. You must set the value with the [Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable) cmdlet or the internal `Set-AutomationVariable` cmdlet.
+The variable isn't restricted to the specified data type. You must set the variable using Windows PowerShell if you want to specify a value of a different type. If you indicate `Not defined`, the value of the variable is set to Null. You must set the value with the [Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable) cmdlet or the internal `Set-AutomationVariable` cmdlet. You use the `Set-AutomationVariable` in your runbooks that are intended to run in the Azure sandbox environment, or on a Windows Hybrid Runbook Worker.
 
 You can't use the Azure portal to create or change the value for a complex variable type. However, you can provide a value of any type using Windows PowerShell. Complex types are retrieved as a [Newtonsoft.Json.Linq.JProperty](https://www.newtonsoft.com/json/help/html/N_Newtonsoft_Json_Linq.htm) for a Complex object type instead of a PSObject type [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject).
 
@@ -146,8 +146,8 @@ The following example shows how to set and retrieve a variable in a textual runb
 $rgName = "ResourceGroup01"
 $accountName = "MyAutomationAccount"
 
-$numberOfIterations = Get-AzAutomationVariable -ResourceGroupName $rgName –AutomationAccountName $accountName -Name "numberOfIterations"
-$numberOfRunnings = Get-AzAutomationVariable -ResourceGroupName $rgName –AutomationAccountName $accountName -Name "numberOfRunnings"
+$numberOfIterations = Get-AutomationVariable -Name "numberOfIterations"
+$numberOfRunnings = Get-AutomationVariable -Name "numberOfRunnings"
 $sampleMessage = Get-AutomationVariable -Name "sampleMessage"
 
 Write-Output "Runbook has been run $numberOfRunnings times."
@@ -155,7 +155,7 @@ Write-Output "Runbook has been run $numberOfRunnings times."
 for ($i = 1; $i -le $numberOfIterations; $i++) {
     Write-Output "$i`: $sampleMessage"
 }
-Set-AzAutomationVariable -ResourceGroupName $rgName –AutomationAccountName $accountName –Name numberOfRunnings –Value ($numberOfRunnings += 1)
+Set-AutomationVariable –Name numberOfRunnings –Value ($numberOfRunnings += 1)
 ```
 
 # [Python 2](#tab/python2)
