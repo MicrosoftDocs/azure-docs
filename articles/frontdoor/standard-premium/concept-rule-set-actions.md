@@ -28,7 +28,7 @@ The following actions are available to use in Azure Front Door rule set.
 Use the **cache expiration** action to overwrite the time to live (TTL) value of the endpoint for requests that the rules match conditions specify.
 
 > [!NOTE]
-> Origins may specify not to cache specific responses using the `Cache-Control` header with a value of `no-cache`, `private`, or `no-store`. In these circumstances, Front Door will never cache the content and this action will be ignored.
+> Origins may specify not to cache specific responses using the `Cache-Control` header with a value of `no-cache`, `private`, or `no-store`. In these circumstances, Front Door will never cache the content and this action will have no effect.
 
 ### Properties
 
@@ -130,25 +130,99 @@ Use the **modify request header** action to modify the headers in the request wh
 
 | Property | Supported values |
 |-------|------------------|
-| Operator | <ul><li>**Append:** The specified header gets added to the request with the specified value. If the header is already present, the value is appended to the existing value.</li><li>**Overwrite:** The specified header gets added to the request with the specified value. If the header is already present, the specified value overwrites the existing value.</li><li>**Delete:** If the header specified in the rule is present, the header gets deleted from the request.</li></ul> |
+| Operator | <ul><li>**Append:** The specified header gets added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. In ARM templates, use the `headerAction` of `Append`.</li><li>**Overwrite:** The specified header gets added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. In ARM templates, use the `headerAction` of `Overwrite`.</li><li>**Delete:** If the header specified in the rule is present, the header gets deleted from the request. In ARM templates, use the `headerAction` of `Delete`.</li></ul> |
 | Header name | The name of the header to modify. |
 | Header value | The value to append or overwrite. |
 
-<!--TODO how does the append work - just straight string concatenation?-->
+### Example
+
+In this example, we append the value `AdditionalValue` to the `MyRequestHeader` request header. If the origin set the response header to a value of `ValueSetByClient` then, after this action is applied, the request header would have a value of `ValueSetByClientAdditionalValue`.
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="../media/concept-rule-set-actions/modify-request-header.png" alt-text="Portal screenshot showing modify request hader action.":::
+
+# [JSON](#tab/json)
+
+```json
+{
+  "name": "ModifyRequestHeader",
+  "parameters": {
+    "headerAction": "Append",
+    "headerName": "MyRequestHeader",
+    "value": "AdditionalValue",
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleHeaderActionParameters"
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'ModifyRequestHeader'
+  parameters: {
+    headerAction: 'Append'
+    headerName: 'MyRequestHeader'
+    value: 'AdditionalValue'
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleHeaderActionParameters'
+  }
+}
+```
+
+--
 
 ## Modify response header
 
-Use this action to modify headers that are present in responses returned to your clients.
+Use the **modify response header** action to modify headers that are present in responses before they are returned to your clients.
 
-### Required fields
+### Properties
 
-The following description applies when selecting these actions and the rule matches:
+| Property | Supported values |
+|-------|------------------|
+| Operator | <ul><li>**Append:** The specified header gets added to the response with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. In ARM templates, use the `headerAction` of `Append`.</li><li>**Overwrite:** The specified header gets added to the response with the specified value. If the header is already present, the specified value overwrites the existing value. In ARM templates, use the `headerAction` of `Overwrite`.</li><li>**Delete:** If the header specified in the rule is present, the header gets deleted from the response.  In ARM templates, use the `headerAction` of `Delete`.</li></ul> |
+| Header name | The name of the header to modify. |
+| Header value | The value to append or overwrite. |
 
-Action | HTTP Header name | Value
--------|------------------|------
-Append | The header specified in **Header name** gets added to the response by using the specified **Value**. If the header is already present, **Value** is appended to the existing value. | String
-Overwrite | The header specified in **Header name** gets added to the response by using the specified **Value**. If the header is already present, **Value** overwrites the existing value. | String
-Delete | If the header specified in the rule is present, the header gets deleted from the response. | String
+### Example
+
+In this example, we delete the header with the name `X-Powered-By` from the responses before they are returned to the client.
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="../media/concept-rule-set-actions/modify-response-header.png" alt-text="Portal screenshot showing modify response header action.":::
+
+# [JSON](#tab/json)
+
+```json
+{
+  "name": "ModifyResponseHeader",
+  "parameters": {
+    "headerAction": "Delete",
+    "headerName": "X-Powered-By",
+    "value": null,
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleHeaderActionParameters"
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'ModifyResponseHeader'
+  parameters: {
+    headerAction: 'Delete'
+    headerName: 'X-Powered-By'
+    value: null,
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleHeaderActionParameters'
+  }
+}
+```
+
+<!-- TODO check template when value is omitted rather than null -->
+
+--
 
 ## URL redirect
 
