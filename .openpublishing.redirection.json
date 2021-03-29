@@ -64865,6 +64865,11 @@
       "source_path_from_root": "/articles/cognitive-services/translator/custom-translator/glossary.md",
       "redirect_url": "/azure/cognitive-services/translator/custom-translator/terminology",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/partners.md",
+      "redirect_url": "https://azuremarketplace.microsoft.com/marketplace/apps?search=Windows%20virtual%20desktop&page=1",
+      "redirect_document_id": false
     }
   ]
 }
