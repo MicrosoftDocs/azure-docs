@@ -35,7 +35,7 @@ target cross-platform with .NET Core 3.1 or .NET 5.0.
 In this quickstart, you'll learn how to create and deploy your first ASP.NET web app to [Azure App Service](overview.md). App Service supports various versions of .NET apps, and provides a highly scalable, self-patching web hosting service. ASP.NET web apps are cross-platform and can be hosted on Linux or Windows. When you're finished, you'll have an Azure resource group consisting of an App Service hosting plan and an App Service with a deployed web application.
 
 > [!TIP]
-> The current long-term support (LTS) release of .NET is .NET Core 3.1. For more information, see [.NET support policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
+> .NET Core 3.1 is the current long-term support (LTS) release of .NET. For more information, see [.NET support policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
 ## Prerequisites
 
@@ -377,7 +377,7 @@ Follow these steps to create your App Service and publish your web app:
 
 To deploy your web app using the Visual Studio Azure Tools extension:
 
-1. Open the [**Command Palette**](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette), <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>.
+1. In Visual Studio Code, open the [**Command Palette**](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette), <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>.
 1. Search for and select "Azure App Service: Deploy to Web App".
 1. Respond to the prompts as follows:
 
@@ -388,7 +388,7 @@ To deploy your web app using the Visual Studio Azure Tools extension:
     :::image type="content" source="media/quickstart-dotnet/vscode-sign-in-to-Azure.png" alt-text="Visual Studio Code - Sign in to Azure" border="true":::
 
     - Select your **Subscription**.
-    - Select **Create new Web App...**. Don't select the "Advanced" option.
+    - Select **Create new Web App... Advanced**.
     - For **Enter a globally unique name**, use a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). A good pattern is to use a combination of your company name and an app identifier.
     - Select **Create new resource group** and provide a name like `myResourceGroup`.
     - When prompted to **Select a runtime stack**:
@@ -598,7 +598,7 @@ az webapp up --os-type windows
 ```
 
 > [!TIP]
-> If you're interested in hosting your .NET apps on Linux, considering migrating from [ASP.NET Framework to ASP.NET Core](/aspnet/core/migration/proper-to-2x).
+> If you're interested in hosting your .NET apps on Linux, consider migrating from [ASP.NET Framework to ASP.NET Core](/aspnet/core/migration/proper-to-2x).
 
 ---
 
