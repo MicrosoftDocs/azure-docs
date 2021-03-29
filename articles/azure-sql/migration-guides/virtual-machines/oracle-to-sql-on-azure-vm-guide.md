@@ -261,8 +261,6 @@ For more help with completing this migration scenario, see the following resourc
 | [Oracle to SQL Server Migration Handbook](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20SQL%20Server%20Migration%20Handbook.pdf)                | This document focuses on the tasks associated with migrating an Oracle schema to the latest version of SQL Server. If the migration requires changes to features/functionality, you need to carefully consider the possible effect of each change on the applications that use the database.                                                     |
 
 
-The preceding resources were developed by the Data SQL Engineering team. A core charter of this team is to unblock and accelerate complex modernization and compete data-platform migration projects to the Azure data platform.
-
 The Data SQL Engineering team developed these resources. This team's core charter is to unblock and accelerate complex modernization for data-platform migration projects to the Microsoft Azure data platform.
 
 
