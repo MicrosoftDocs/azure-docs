@@ -128,6 +128,25 @@ The following tables contain the different configuration options for each defaul
 | `registration.clientSecretSettingName` | The name of the application setting that is configured with a client secret for the Azure AD app registration            |
 | `userDetailsClaim`                     | The field to read from the Claims response and expose as user details. The value `name` is expected                      |
 
+```json
+{
+  "auth": {
+    "azureActiveDirectory": {
+      "enabled": true,
+      "registration": {
+        "openIdIssuer": "https://login.microsoftonline.com/<TENANT_ID>",
+        "clientIdSettingName": "AAD_CLIENT_ID",
+        "clientSecretSettingName": "AAD_CLIENT_SECRET"
+      },
+      "login": {
+        "loginParameters": []
+      },
+      "userDetailsClaim": "name"
+    }
+  }
+}
+```
+
 ### Apple
 
 | Field Path                             | Description                                                                                         |
@@ -135,6 +154,24 @@ The following tables contain the different configuration options for each defaul
 | `registration.clientIdSettingName`     | The name of the application setting for the Client ID                                               |
 | `registration.clientSecretSettingName` | The name of the application setting for the Client Secret                                           |
 | `userDetailsClaim`                     | The field to read from the Claims response and expose as user details. The value `name` is expected |
+
+```json
+{
+  "auth": {
+    "apple": {
+      "enabled": true,
+      "registration": {
+        "clientIdSettingName": "APPLE_CLIENT_ID",
+        "clientSecretSettingName": "APPLE_CLIENT_SECRET"
+      },
+      "login": {
+        "loginParameters": []
+      },
+      "userDetailsClaim": "name"
+    }
+  }
+}
+```
 
 ### Facebook
 
@@ -144,6 +181,24 @@ The following tables contain the different configuration options for each defaul
 | `registration.appSecretSettingName` | The name pf the application setting for the App Secret                                               |
 | `userDetailsClaim`                  | The field to read from the Claims response and expose as user details. The value `email` is expected |
 
+```json
+{
+  "auth": {
+    "facebook": {
+      "enabled": true,
+      "registration": {
+        "appIdSettingName": "FACEBOOK_APP_ID",
+        "appSecretSettingName": "FACEBOOK_APP_SECRET"
+      },
+      "login": {
+        "loginParameters": []
+      },
+      "userDetailsClaim": "email"
+    }
+  }
+}
+```
+
 ### GitHub
 
 | Field Path                             | Description                                                                                         |
@@ -151,6 +206,24 @@ The following tables contain the different configuration options for each defaul
 | `registration.clientIdSettingName`     | The name of the application setting for the Client ID                                               |
 | `registration.clientSecretSettingName` | The name of the application setting for the Client Secret                                           |
 | `userDetailsClaim`                     | The field to read from the Claims response and expose as user details. The value `name` is expected |
+
+```json
+{
+  "auth": {
+    "github": {
+      "enabled": true,
+      "registration": {
+        "clientIdSettingName": "GITHUB_CLIENT_ID",
+        "clientSecretSettingName": "GITHUB_CLIENT_SECRET"
+      },
+      "login": {
+        "loginParameters": []
+      },
+      "userDetailsClaim": "name"
+    }
+  }
+}
+```
 
 ### Google
 
@@ -160,6 +233,24 @@ The following tables contain the different configuration options for each defaul
 | `registration.clientSecretSettingName` | The name of the application setting for the Client Secret                                           |
 | `userDetailsClaim`                     | The field to read from the Claims response and expose as user details. The value `name` is expected |
 
+```json
+{
+  "auth": {
+    "google": {
+      "enabled": true,
+      "registration": {
+        "clientIdSettingName": "GOOGLE_CLIENT_ID",
+        "clientSecretSettingName": "GOOGLE_CLIENT_SECRET"
+      },
+      "login": {
+        "loginParameters": []
+      },
+      "userDetailsClaim": "name"
+    }
+  }
+}
+```
+
 ### Twitter
 
 | Field Path                               | Description                                                                                           |
@@ -167,6 +258,24 @@ The following tables contain the different configuration options for each defaul
 | `registration.consumerKeySettingName`    | The name of the application setting for the Consumer Key                                              |
 | `registration.consumerSecretSettingName` | The name of the application setting for the Consumer Secret                                           |
 | `userDetailsClaim`                       | The field to read from the Claims response and expose as user details. The value `handle` is expected |
+
+```json
+{
+  "auth": {
+    "twitter": {
+      "enabled": true,
+      "registration": {
+        "consumerKeySettingName": "TWITTER_CONSUMER_KEY",
+        "consumerSecretSettingName": "TWITTER_CONSUMER_SECRET"
+      },
+      "login": {
+        "loginParameters": []
+      },
+      "userDetailsClaim": "handle"
+    }
+  }
+}
+```
 
 ## Next steps
 
