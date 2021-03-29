@@ -42,7 +42,10 @@ The settings used to override the built-in providers is configured in the `auth`
 - `enabled`: Defaults to `true` on all the providers if the provider is configured to a non-null value (i.e. not `"azureActiveDirectory": null`).
 - `userDetailsClaim`: The name of the claim that contains the `userDetails` identity value.
 - To avoid putting secrets in source control, the configuration looks into [Application Settings](application-settings.md), for a matching name in the configuration file.
-- The redirect endpoints required for login or logout are `https://<YOUR-SITE>/.auth/login/complete` and `https://<YOUR-SITE>/.auth/logout/complete`.
+
+### Authentication callbacks
+
+Authentication providers will likely need a URL to redirect to when login or logout has completed. The redirect endpoints required for login or logout are `https://<YOUR-SITE>/.auth/login/complete` and `https://<YOUR-SITE>/.auth/logout/complete`.
 
 ## Configuring a custom OpenID Connect provider
 
