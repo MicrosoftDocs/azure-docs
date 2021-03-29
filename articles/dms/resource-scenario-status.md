@@ -64,11 +64,11 @@ The following table shows Azure Database Migration Service support for online mi
 
 | Target  | Source | Support | Status |
 | ------------- | ------------- |:-------------:|:-------------:|
-| **Azure SQL DB** | SQL Server | X | GA |
-|   | RDS SQL | X | GA |
+| **Azure SQL DB** | SQL Server | X |  |
+|   | RDS SQL | X |  |
 |   | Oracle | X |  |
 | **Azure SQL DB MI** | SQL Server | ✔ | GA |
-|   | RDS SQL | X | GA |
+|   | RDS SQL | X |  |
 |   | Oracle | X |  |
 | **Azure SQL VM** | SQL Server | X |   |
 |   | Oracle  | X |  |
@@ -83,7 +83,7 @@ The following table shows Azure Database Migration Service support for online mi
 |   | RDS PostgreSQL | ✔ | GA |
 
 > [!IMPORTANT]
-> "Oracle to Azure Database for PostgreSQL" migration scenario (currently in preview) will no longer be available after May 1, 2021. We will continue to provide support via alternative tooling (such as Ora2pg) and provide the best migration experience for Oracle to PostgreSQL migrations. For migration best practices, see [Oracle to Azure Database for PostgreSQL migration guide] (https://aka.ms/OracletoPGguide).
+> "Oracle to Azure Database for PostgreSQL" migration scenario (currently in preview) will no longer be available after May 1, 2021. We will continue to provide support via alternative tooling (such as Ora2pg) and provide the best migration experience for Oracle to PostgreSQL migrations. For migration best practices, see [Oracle to Azure Database for PostgreSQL migration guide](https://aka.ms/OracletoPGguide).
 
 
 ## Next steps

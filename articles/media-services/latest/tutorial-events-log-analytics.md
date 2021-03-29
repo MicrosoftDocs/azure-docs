@@ -17,7 +17,7 @@ ms.author: inhenkel
 
 ## Azure Media Services Events
 
-Azure Media Services v3 emits events on [Azure Event Grid](media-services-event-schemas.md). You can subscribe to events in many ways and store them in data stores. In this tutorial, you will subscribe to Media Services events using a [Log App Flow](https://azure.microsoft.com/services/logic-apps/). The Logic App will be triggered for each event and store the body of the event in Azure Log Analytics. Once the events are in Azure Log Analytics, you can use other Azure services to create a dashboard, monitor, and alert on these events, though we won't be covering that in this tutorial.
+Azure Media Services v3 emits events on [Azure Event Grid](monitoring/media-services-event-schemas.md). You can subscribe to events in many ways and store them in data stores. In this tutorial, you will subscribe to Media Services events using a [Log App Flow](https://azure.microsoft.com/services/logic-apps/). The Logic App will be triggered for each event and store the body of the event in Azure Log Analytics. Once the events are in Azure Log Analytics, you can use other Azure services to create a dashboard, monitor, and alert on these events, though we won't be covering that in this tutorial.
 
 > [!NOTE]
 > It would be helpful if you are already familiar with using FFmpeg as your on-premises encoder.  If not, that's okay. The command line and instructions for streaming a video is included below.

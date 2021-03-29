@@ -75,15 +75,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	Upload the metadata file with XML file provided by SharingCloud. Contact the [SharingCloud Client support team](mailto:support@sharingcloud.com) to get the file.
 
-	![screenshot to upload metadata](common/upload-metadata.png)
+	![Screenshot of the Basic SAML Configuration user interface with the **Upload metadata file** link highlighted.](common/upload-metadata.png)
 	
 	Select the metadata file provided and click on **Upload**.
 
-	![browse to upload the metadata](common/browse-upload-metadata.png)
+	![Screenshot of the metadata file provided user interface, with the select file icon and **Upload** button highlighted.](common/browse-upload-metadata.png)
 
 1. SharingCloud application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![screenshot for edit attribute icon](common/edit_attribute.png)
+	![Screenshot of the User Attributes user interface with the edit icon highlighted.](common/edit_attribute.png)
 
 1. In addition to above, SharingCloud application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirement.
 
@@ -143,10 +143,9 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the SharingCloud for which you set up the SSO 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the SharingCloud tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the SharingCloud for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+You can also use Microsoft My Apps to test the application in any mode. When you click the SharingCloud tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the SharingCloud for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## Next steps
 
 Once you configure SharingCloud you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
-

@@ -14,7 +14,7 @@ Device Update for IoT Hub supports two forms of updates – image-based and pack
 
 Package-based updates are targeted updates that alter only a specific component or application on the device. This leads to lower consumption of bandwidth and helps reduce the time to download and install the update. Package updates typically allow for less downtime of devices when applying an update and avoid the overhead of creating images.
 
-This tutorial walks you through the steps to complete an end-to-end package-based update through Device Update for IoT Hub. For this tutorial we use an Ubuntu Server 18.04 x64 running Azure IoT Edge and the Device Update package agent. The tutorial demonstrates updating a sample package, but using similar steps you could update other packages such as Azure IoT Edge or the container engine it uses.
+This end-to-end tutorial walks you through updating Azure IoT Edge on Ubuntu Server 18.04 x64 by using the Device Update package agent. Although the tutorial demonstrates updating IoT Edge, using similar steps you could update other packages such as the container engine it uses.
 
 The tools and concepts in this tutorial still apply even if you plan to use a different OS platform configuration. Complete this introduction to an end-to-end update process, then choose your preferred form of updating and OS platform to dive into the details.
 
@@ -27,13 +27,9 @@ In this tutorial you will learn how to:
 > * Deploy a package update
 > * Monitor the update deployment
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
 ## Prerequisites
 
-* Access to an IoT Hub. It is recommended that you use a S1 (Standard) tier or above.
-* A Device Update instance and account linked to your IoT Hub.
-  * Follow the guide to [create and link a device update account](create-device-update-account.md) if you have not done so previously.
+* If you haven't already done so, create a [Device Update account and instance](create-device-update-account.md), including configuring an IoT Hub.
 * The [connection string for an IoT Edge device](../iot-edge/how-to-register-device.md?view=iotedge-2020-11&preserve-view=true#view-registered-devices-and-retrieve-connection-strings).
 
 ## Prepare a device
@@ -43,7 +39,7 @@ For convenience, this tutorial uses a [cloud-init](../virtual-machines/linux/usi
 
 1. To begin, click the button below:
 
-   [![Deploy to Azure Button for iotedge-vm-deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2F1.2.0-rc4%2FedgeDeploy.json)
+   [![Deploy to Azure Button for iotedge-vm-deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2Fdevice-update-tutorial%2FedgeDeploy.json)
 
 1. On the newly launched window, fill in the available form fields:
 
@@ -102,7 +98,7 @@ The following manual steps to install and configure the device are equivalent to
 
 Device Update for Azure IoT Hub software packages are subject to the following license terms:
   * [Device update for IoT Hub license](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
-  * [Delivery optimization client license](https://github.com/microsoft/do-client/blob/main/LICENSE.md)
+  * [Delivery optimization client license](https://github.com/microsoft/do-client/blob/main/LICENSE)
 
 Read the license terms prior to using a package. Your installation and use of a package constitutes your acceptance of these terms. If you do not agree with the license terms, do not use that package.
 
@@ -124,9 +120,11 @@ Read the license terms prior to using a package. Your installation and use of a 
 
 ## Import update
 
-1. Download the following [apt manifest file](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/libcurl4-doc-apt-manifest.json) and [import manifest file](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/sample-package-update-1.0.1-importManifest.json). This apt manifest will install the latest available version of `libcurl4-doc package` to your device.
+1. Go to [Device Update releases](https://github.com/Azure/iot-hub-device-update/releases) in Github and click the "Assets" drop-down.
 
-   Alternatively, you can download this [apt manifest file](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/libcurl4-doc-7.58-apt-manifest.json) and [import manifest file](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/sample-package-update-2-2.0.1-importManifest.json). This will install specific version v7.58.0 of the `libcurl4-doc package` to your device.
+3. Download the `Edge.package.update.samples.zip` by clicking on it.
+
+5. Extract the contents of the folder to discover an update sample and its corresponding import manifests. 
 
 2. In Azure portal, select the Device Updates option under Automatic Device Management from the left-hand navigation bar in your IoT Hub.
 
@@ -134,7 +132,8 @@ Read the license terms prior to using a package. Your installation and use of a 
 
 4. Select "+ Import New Update".
 
-5. Select the folder icon or text box under "Select an Import Manifest File". You will see a file picker dialog. Select the Import Manifest you downloaded previously. Next, select the folder icon or text box under "Select one or more update files". You will see a file picker dialog. Select the apt manifest update file you downloaded previously.
+5. Select the folder icon or text box under "Select an Import Manifest File". You will see a file picker dialog. Select the `sample-1.0.1-aziot-edge-importManifest.json` import manifest from the folder you downloaded previously. Next, select the folder icon or text box under "Select one or more update files". You will see a file picker dialog. Select the `sample-1.0.1-aziot-edge-apt-manifest.json` apt manifest update file from the folder you downloaded previously.
+This update will update the `aziot-identity-service` and the `aziot-edge` packages to version 1.2.0~rc4-1 on your device.
 
    :::image type="content" source="media/import-update/select-update-files.png" alt-text="Screenshot showing update file selection." lightbox="media/import-update/select-update-files.png":::
 
@@ -206,12 +205,6 @@ Read the license terms prior to using a package. Your installation and use of a 
 1. Select Refresh to view the latest status details. Continue this process until the status changes to Succeeded.
 
 You have now completed a successful end-to-end package update using Device Update for IoT Hub on a Ubuntu Server 18.04 x64 device. 
-
-## Bonus steps
-
-1. Download the following [apt manifest file](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/libcurl4-doc-remove-apt-manifest.json) and [import manifest file](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/sample-package-update-1.0.2-importManifest.json). This apt manifest will remove the installed `libcurl4-doc package` from your device.
-
-1. Repeat the "Import update" and "Deploy update" sections
 
 ## Clean up resources
 

@@ -124,7 +124,7 @@ New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resou
 ```
 
 > [!NOTE]
-> By using Azure Resource Manager, you can create only local storage accounts, such as locally redundant storage (standard or premium). To create tiered storage accounts, see [Tutorial: Transfer data via storage accounts with Azure Stack Edge Pro with GPU](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
+> By using Azure Resource Manager, you can create only local storage accounts, such as locally redundant storage (standard or premium). To create tiered storage accounts, see [Tutorial: Transfer data via storage accounts with Azure Stack Edge Pro with GPU](./azure-stack-edge-gpu-deploy-add-storage-accounts.md).
 
 Here's some example output:
 
@@ -176,7 +176,7 @@ key2 gd34TcaDzDgsY9JtDNMUgLDOItUU0Qur3CBo6Q...
 
 ## Add the blob URI to the host file
 
-You already added the blob URI in the hosts file for the client that you're using to connect to Azure Blob Storage in "Step 5: Modify host file for endpoint name resolution" of [Deploy VMs on your Azure Stack Edge device via Azure PowerShell](azure-stack-edge-j-series-connect-resource-manager.md#step-5-modify-host-file-for-endpoint-name-resolution). This entry was used to add the blob URI:
+You already added the blob URI in the hosts file for the client that you're using to connect to Azure Blob Storage in "Step 5: Modify host file for endpoint name resolution" of [Deploy VMs on your Azure Stack Edge device via Azure PowerShell](./azure-stack-edge-gpu-connect-resource-manager.md#step-5-modify-host-file-for-endpoint-name-resolution). This entry was used to add the blob URI:
 
 \<Azure consistent network services VIP \> \<storage name\>.blob.\<appliance name\>.\<dnsdomain\>
 

@@ -2,31 +2,14 @@
 title: View Azure Event Grid metrics and set alerts
 description: This article describes how to use the Azure portal to view metrics for Azure Event Grid topics and subscriptions, and create alerts on them. 
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 03/17/2021
 ---
 
 # Monitor Event Grid message delivery 
 This article describes how to use the portal to see metrics for Event Grid topics and subscriptions, and create alerts on them. 
 
-## Metrics
-
-The portal displays metrics for the status of delivering event messages.
-
-For topics, here are some of the metrics:
-
-* **Publish Succeeded**: Event successfully sent to the topic, and processed with a 2xx response.
-* **Publish Failed**: Event sent to the topic but rejected with an error code.
-* **Unmatched**: Event successfully published to the topic, but not matched to an event subscription. The event was dropped.
-
-For subscriptions, here are some of the metrics:
-
-* **Delivery Succeeded**: Event successfully delivered to the subscription's endpoint, and received a 2xx response.
-* **Delivery Failed**: Every time the service tries to deliver and the event handler doesn't return a success 2xx code, the **Delivery Failed** counter is incremented. If we attempt to deliver the same event multiple times and fail, the **Delivery Failed** counter is incremented for each failure.
-* **Expired Events**: Event was not delivered and all retry attempts were sent. The event was dropped.
-* **Matched Events**: Event in the topic was matched by the event subscription.
-
-    > [!NOTE]
-    > For the full list of metrics, see [Metrics supported by Azure Event Grid](metrics.md).
+> [!IMPORTANT]
+> For a list of metrics supported Azure Event Grid, see [Metrics](metrics.md).
 
 ## View custom topic metrics
 
@@ -43,15 +26,13 @@ If you've published a custom topic, you can view the metrics for it.
 
     :::image type="content" source="./media/monitor-event-delivery/custom-topic-metrics.png" alt-text="View event metrics":::
 
-You can create charts with supported metrics by using the **Metrics** tab of the **Event Grid Topic** page.
+    You can create charts with supported metrics by using the **Metrics** tab of the **Event Grid Topic** page.
 
-:::image type="content" source="./media/monitor-event-delivery/topics-metrics-page.png" alt-text="Topic - Metrics page":::
+    :::image type="content" source="./media/monitor-event-delivery/topics-metrics-page.png" alt-text="Topic - Metrics page":::
 
-To learn more about metrics, see [Metrics in Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md)
+    For example, see the metrics chart for the **Published Events** metric.
 
-For example, see the metrics chart for the **Published Events** metric.
-
-:::image type="content" source="./media/monitor-event-delivery/custom-topic-metrics-example.png" alt-text="Published events metric":::
+    :::image type="content" source="./media/monitor-event-delivery/custom-topic-metrics-example.png" alt-text="Published events metric":::
 
 
 ## View subscription metrics
@@ -65,7 +46,7 @@ For example, see the metrics chart for the **Published Events** metric.
     :::image type="content" source="./media/monitor-event-delivery/event-subscriptions-page.png" alt-text="Select event subscription from Event Grid Subscriptions page":::        
 
     For custom topics, select **Event Grid Topics** as **Topic Type**. For system topics, select the type of the Azure resource, for example, **Storage Accounts (Blob, GPv2)**. 
-3. See the metrics for the subscription on the home page for the subscription in a chart. You can see **General**, **Error**, **Latency**, and **Dead-Letter** metrics for past 1 hour, 6 hours, 12 hours, 1 day, 7 days, or 30 days. 
+3. See the metrics for the subscription on the home page for the subscription in a chart. You can see **General**, **Error**, and **Latency** metrics for past 1 hour, 6 hours, 12 hours, 1 day, 7 days, or 30 days. 
 
     :::image type="content" source="./media/monitor-event-delivery/subscription-home-page-metrics.png" alt-text="Metrics on the subscription home page":::    
 
@@ -82,12 +63,12 @@ For example, see the metrics chart for the **Published Events** metric.
 
     :::image type="content" source="./media/monitor-event-delivery/system-topic-overview-metrics.png" alt-text="View system topic metrics on the overview page":::
 
-You can create charts with supported metrics by using the **Metrics** tab of the **Event Grid Topic** page.
+    You can create charts with supported metrics by using the **Metrics** tab of the **Event Grid Topic** page.
 
-:::image type="content" source="./media/monitor-event-delivery/system-topic-metrics-page.png" alt-text="System Topic - Metrics page":::
+    :::image type="content" source="./media/monitor-event-delivery/system-topic-metrics-page.png" alt-text="System Topic - Metrics page":::
 
-To learn more about metrics, see [Metrics in Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md)
-
+    > [!IMPORTANT]
+    > For a list of metrics supported Azure Event Grid, see [Metrics](metrics.md).
 
 ## Next steps
 See the following articles:
