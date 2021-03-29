@@ -36,11 +36,11 @@ The newly added bundle is available when indexing or re-indexing your file by ch
 
 ### New developer portal 
 
-Video Indexer has a new [Developer Portal](https://api-portal.videoindexer.ai/), you can try out the Video Indexer different APIs and find all the relevant resources in one place: [GitHub repository](https://github.com/Azure-Samples/media-services-video-indexer), [Stack overflow](https://stackoverflow.com/questions/tagged/video-indexer), [Video Indexer tech community](https://techcommunity.microsoft.com/t5/azure-media-services/bg-p/AzureMediaServices/label-name/Video%20Indexer) with relevant blog posts, [Video Indexer FAQs](faq.md), [User Voice](https://feedback.azure.com/forums/932041-cognitive-services?category_id=399016) to provide your feedback and suggest features, and  ['CodePen' link](https://codepen.io/videoindexer) with widgets code samples. 
+Video Indexer has a new [Developer Portal](https://api-portal.videoindexer.ai/), try out the new Video Indexer APIs and find all the relevant resources in one place: [GitHub repository](https://github.com/Azure-Samples/media-services-video-indexer), [Stack overflow](https://stackoverflow.com/questions/tagged/video-indexer), [Video Indexer tech community](https://techcommunity.microsoft.com/t5/azure-media-services/bg-p/AzureMediaServices/label-name/Video%20Indexer) with relevant blog posts, [Video Indexer FAQs](faq.md), [User Voice](https://feedback.azure.com/forums/932041-cognitive-services?category_id=399016) to provide your feedback and suggest features, and  ['CodePen' link](https://codepen.io/videoindexer) with widgets code samples. 
  
 ### Advanced customization capabilities for insight widget 
 
-SDK is now available to embed Video Indexer's insights widget in your own service and customize its style and data. The SDK supports the standard Video Indexer insights widget and a fully customizable insights widget. Code sample is available in [Video Indexer GitHub repository](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Embedding%20widgets/widget-customization). With this advanced customization capabilities, solution developer can apply custom styling and bring customer’s own AI data and present that in the insight widget (with or without VI insights). 
+SDK is now available to embed Video Indexer's insights widget in your own service and customize its style and data. The SDK supports the standard Video Indexer insights widget and a fully customizable insights widget. Code sample is available in [Video Indexer GitHub repository](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Embedding%20widgets/widget-customization). With this advanced customization capabilities, solution developer can apply custom styling and bring customer’s own AI data and present that in the insight widget (with or without Video Indexer insights). 
 
 ### Video Indexer deployed in the US North Central , US West and Canada Central 
 
@@ -51,7 +51,7 @@ Video Indexer now support STT, translation and search in Danish ('da-DK'), Norwe
  
 ### Search by Topic in Video Indexer Website 
 
-You can now use the search feature in the Video Indexer website to search for videos with specific topics. 
+You can now use the search feature, at the top of  the [Video Indexer website](https://www.videoindexer.ai/account/login) page, to search for videos with specific topics. 
 
 ## February 2021
 
