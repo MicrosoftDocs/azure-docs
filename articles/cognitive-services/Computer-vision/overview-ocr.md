@@ -35,6 +35,7 @@ The Computer Vision [Read API](https://westcentralus.dev.cognitive.microsoft.com
 ![How OCR converts images and documents into structured output with extracted text](./Images/how-ocr-works.svg)
 
 ## Input requirements
+
 The **Read** call takes images and documents as its input. They have the following requirements:
 
 * Supported file formats: JPEG, PNG, BMP, PDF, and TIFF
@@ -164,7 +165,7 @@ For on-premise deployment, the [Read Docker container (preview)](./computer-visi
 The [OCR API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d) uses an older recognition model, supports only images, and executes synchronously, returning immediately with the detected text. See the [OCR supported languages](./language-support.md#optical-character-recognition-ocr) then Read API.
 
 > [!NOTE]
-> The Computer Vison 2.0 RecognizeText operations are in the process of getting deprecated in favor of the new Read API covered in this article. Existing customers should [transition to using Read operations](upgrade-api-versions.md).
+> The Computer Vision 2.0 RecognizeText operations are in the process of being deprecated in favor of the new Read API covered in this article. Existing customers should [transition to using Read operations](upgrade-api-versions.md).
 
 
 ## Data privacy and security
