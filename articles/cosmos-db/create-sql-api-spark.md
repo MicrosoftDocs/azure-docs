@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Use Cosmos DB Apache Spark Connector for SQL API to create a document database using Azure Cosmos DB
-description: This quickstart presents a Cosmos DB Apache Spark Connector for SQL API code sample you can use to connect to and query the Azure Cosmos DB SQL API
+title: Quickstart - Use Cosmos DB Apache Spark v3 Connector for SQL API to create a document database using Azure Cosmos DB
+description: This quickstart presents a Cosmos DB Apache Spark v3 Connector for SQL API code sample you can use to connect to and query the Azure Cosmos DB SQL API
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
