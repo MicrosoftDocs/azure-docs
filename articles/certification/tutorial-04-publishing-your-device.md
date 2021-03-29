@@ -3,7 +3,7 @@ title: Azure Certified Device program - Tutorial - Publishing your device
 description: A step-by-step guide to publish your certified device to the Azure Certified Device catalog
 author: nikuntjo
 ms.author: nikuntjo
-ms.service: iot-pnp
+ms.service: certification
 ms.topic: tutorial
 ms.date: 03/03/2021
 ms.custom: template-tutorial 

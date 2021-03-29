@@ -6,7 +6,7 @@ ms.author: nikuntjo
 ms.topic: overview 
 ms.date: 03/03/2021
 ms.custom: template-overview
-ms.service: iot-pnp
+ms.service: certification
 ---
 
 # What is Azure Certified Device?

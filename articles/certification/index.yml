@@ -6,7 +6,7 @@ summary: This program is your one stop for easily differentiating, promoting, an
 metadata:
   title: Azure Certified Device program
   description: This program is your one stop for easily differentiating, promoting, and finding IoT devices built to run on Azure. 
-  ms.service: iot-pnp
+  ms.service: certification
   ms.topic: landing-page
   author: cbroad
   ms.author: cbroad
