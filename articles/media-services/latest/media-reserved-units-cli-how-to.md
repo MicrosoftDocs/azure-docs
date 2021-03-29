@@ -40,7 +40,7 @@ You are charged based on number of minutes the Media Reserved Units are provisio
 
 ## Next step
 
-[Analyze videos](analyze-videos-tutorial-with-api.md)
+[Analyze videos](analyze-videos-tutorial.md)
 
 ## See also
 

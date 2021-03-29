@@ -232,7 +232,7 @@ namespace ConsoleApp1
 
 - [Tutorial: Upload, encode, and stream videos - .NET](stream-files-tutorial-with-api.md) 
 - [Tutorial: Stream live with Media Services v3 - .NET](stream-live-tutorial-with-api.md)
-- [Tutorial: Analyze videos with Media Services v3 - .NET](analyze-videos-tutorial-with-api.md)
+- [Tutorial: Analyze videos with Media Services v3 - .NET](analyze-videos-tutorial.md)
 - [Create a job input from a local file - .NET](job-input-from-local-file-how-to.md)
 - [Create a job input from an HTTPS URL - .NET](job-input-from-http-how-to.md)
 - [Encode with a custom Transform - .NET](customize-encoder-presets-how-to.md)

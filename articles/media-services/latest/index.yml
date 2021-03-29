@@ -32,7 +32,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Media Services accounts
-            url: media-services-account-concept.md
+            url: account-move-account-how-to.md
           - text: Storage accounts
             url: storage-account-concept.md
           - text: Packaging
@@ -126,6 +126,6 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Analyze videos
-            url: analyze-videos-tutorial-with-api.md
+            url: analyze-videos-tutorial.md
           - text: Redact faces in videos
             url: analyze-face-redaction-concept.md

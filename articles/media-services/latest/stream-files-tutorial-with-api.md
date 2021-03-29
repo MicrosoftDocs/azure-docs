@@ -211,4 +211,4 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 Now that you know how to upload, encode, and stream your video, see the following article: 
 
 > [!div class="nextstepaction"]
-> [Analyze videos](analyze-videos-tutorial-with-api.md)
+> [Analyze videos](analyze-videos-tutorial.md)

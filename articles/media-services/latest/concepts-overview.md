@@ -56,6 +56,6 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 * [Encode remote file and stream video – REST](stream-files-tutorial-with-rest.md)
 * [Encode uploaded file and stream video - .NET](stream-files-tutorial-with-api.md)
 * [Stream live - .NET](stream-live-tutorial-with-api.md)
-* [Analyze your video - .NET](analyze-videos-tutorial-with-api.md)
+* [Analyze your video - .NET](analyze-videos-tutorial.md)
 * [AES-128 dynamic encryption - .NET](protect-with-aes128.md)
 * [Encrypt dynamically with multi-DRM - .NET](protect-with-drm.md)

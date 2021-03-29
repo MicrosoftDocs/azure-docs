@@ -240,4 +240,4 @@ Azure Media Player can be used for testing but should not be used in a productio
 
 ## Next steps
 
-[Analyze videos](analyze-videos-tutorial-with-api.md)
+[Analyze videos](analyze-videos-tutorial.md)

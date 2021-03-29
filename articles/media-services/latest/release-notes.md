@@ -188,7 +188,7 @@ We published a tutorial called [End-to-End content protection using Azure AD](./
 
 ### High availability
 
-We published a High Availability with Media Services and Video on Demand (VOD) [overview](./media-services-high-availability-encoding.md) and [sample](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/HighAvailabilityEncodingStreaming).
+We published a High Availability with Media Services and Video on Demand (VOD) [overview](./architecture-high-availability-encoding-concept.md) and [sample](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/HighAvailabilityEncodingStreaming).
 
 ## June 2020
 
@@ -515,7 +515,7 @@ If you created Assets or Account Filters between 09/28 and 10/12 with Media Serv
 
 The following features are present in the .NET SDK:
 
-* **Transforms** and **Jobs** to encode or analyze media content. For examples, see [Stream files](stream-files-tutorial-with-api.md) and [Analyze](analyze-videos-tutorial-with-api.md).
+* **Transforms** and **Jobs** to encode or analyze media content. For examples, see [Stream files](stream-files-tutorial-with-api.md) and [Analyze](analyze-videos-tutorial.md).
 * **Streaming Locators** for publishing and streaming content to end-user devices
 * **Streaming Policies** and **Content Key Policies** to configure key delivery and content protection (DRM) when delivering content.
 * **Live Events** and **Live Outputs** to configure the ingest and archiving of live streaming content.

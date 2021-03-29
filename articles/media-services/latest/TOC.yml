@@ -61,7 +61,7 @@
     - name: Stream live with .NET
       href: stream-live-tutorial-with-api.md
     - name: Analyze your video with .NET
-      href: analyze-videos-tutorial-with-api.md
+      href: analyze-videos-tutorial.md
     - name: Encrypt dynamically with AES-128
       href: protect-with-aes128.md
     - name: Encrypt dynamically with DRM
@@ -113,7 +113,7 @@
     items:    
     - name: Media Services account
       displayName: subscription
-      href: media-services-account-concept.md
+      href: account-move-account-how-to.md
     - name: Storage account
       href: storage-account-concept.md  
       displayName: Storage side encryption
@@ -257,7 +257,7 @@
     items:
     - name: Video on Demand
       displayName: failover, bcdr, HA, high availability
-      href: media-services-high-availability-encoding.md
+      href: architecture-high-availability-encoding-concept.md
   - name: Media Services architectures
     displayName: architectures
     href: architectures-concept.md
