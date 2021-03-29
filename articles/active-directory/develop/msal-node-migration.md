@@ -41,87 +41,60 @@ The snippet below demonstrates a confidential client web app in Express.js and s
 ```javascript
 var express = require('express');
 var crypto = require('crypto');
-
-var logging = require('adal-node').Logging;
-var AuthenticationContext = require('adal-node').AuthenticationContext;
-
-//PII or OII logging disabled. Default Logger does not capture any PII or OII.
-logging.setLoggingOptions({
-  log: function (level, message, error) {
-    console.log(message);
-
-    if (error) {
-      console.log(error);
-    }
-  },
-  level: logging.LOGGING_LEVEL.VERBOSE, // provide the logging level
-  loggingWithPII: false  // Determine if you want to log personal identification information. The default value is false.
-});
+var adal = require('adal-node');
 
 var clientId = 'Enter_the_Application_Id_Here';
-var clientSecret = 'Enter_the_Client_Secret_Here'
-var authorityHostUrl = 'https://login.microsoftonline.com';
+var clientSecret = 'Enter_the_Client_Secret_Here';
 var tenant = 'Enter_the_Tenant_Info_Here';
-var authorityUrl = authorityHostUrl + '/' + tenant;
+var authorityUrl = 'https://login.microsoftonline.com/' + tenant;
 var redirectUri = 'http://localhost:3000/redirect';
 var resource = 'https://graph.microsoft.com';
 
-var templateAuthzUrl = 'https://login.microsoftonline.com/' +
-  tenant +
-  '/oauth2/authorize?response_type=code&client_id=' +
-  clientId +
-  '&redirect_uri=' +
-  redirectUri +
-  '&state=<state>&resource=' +
-  resource;
+adal.Logging.setLoggingOptions({
+    log: function (level, message, error) {
+        console.log(message);
+        if (error) {
+            console.log(error);
+        }
+    },
+    level: adal.Logging.LOGGING_LEVEL.VERBOSE,
+    loggingWithPII: false
+});
 
-function createAuthorizationUrl(state) {
-  return templateAuthzUrl.replace('<state>', state);
-}
+var templateAuthzUrl = 'https://login.microsoftonline.com/' + tenant +
+    '/oauth2/authorize?response_type=code&client_id=' + clientId +
+    '&redirect_uri=' + redirectUri + '&state=<state>&resource=' + resource;
 
 var app = express();
-
 app.locals.state = "";
 
-// Clients get redirected here in order to create an OAuth authorize url and redirect them to AAD.
-// There they will authenticate and give their consent to allow this app access to
-// some resource they own.
 app.get('/auth', function (req, res) {
-  crypto.randomBytes(48, function (ex, buf) {
-    app.locals.state = buf.toString('base64').replace(/\//g, '_').replace(/\+/g, '-');
-    var authorizationUrl = createAuthorizationUrl(app.locals.state);
-    res.redirect(authorizationUrl);
-  });
+    crypto.randomBytes(48, function (ex, buf) {
+        app.locals.state = buf.toString('base64').replace(/\//g, '_').replace(/\+/g, '-');
+        var authorizationUrl = templateAuthzUrl.replace('<state>', app.locals.state);
+        res.redirect(authorizationUrl);
+    });
 });
 
-// After consent is granted AAD redirects here.  The ADAL library is invoked via the
-// AuthenticationContext and retrieves an access token that can be used to access the
-// user owned resource.
 app.get('/redirect', function (req, res) {
-  if (app.locals.state != req.query.state) {
-    res.send('error: state does not match');
-  }
-
-  var authenticationContext = new AuthenticationContext(authorityUrl);
-
-  authenticationContext.acquireTokenWithAuthorizationCode(
-    req.query.code,
-    redirectUri,
-    resource,
-    clientId,
-    clientSecret,
-    function (err, response) {
-      if (err) {
-        res.send(err);
-      }
-      res.send(response);
+    if (app.locals.state !== req.query.state) {
+        res.send('error: state does not match');
     }
-  );
+
+    var authenticationContext = new adal.AuthenticationContext(authorityUrl);
+
+    authenticationContext.acquireTokenWithAuthorizationCode(
+        req.query.code, redirectUri, resource, clientId, clientSecret,
+        function (err, response) {
+            if (err) {
+                res.send(err);
+            }
+            res.send(response);
+        }
+    );
 });
 
-app.listen(3000);
-
-console.log('listening on 3000');
+app.listen(3000, function() { console.log(`listening on port 3000!`); });
 ```
 
 An application with the same functionality can be secured by MSAL Node as shown below:
@@ -130,7 +103,6 @@ An application with the same functionality can be secured by MSAL Node as shown 
 const express = require("express");
 const msal = require('@azure/msal-node');
 
-const SERVER_PORT = process.env.PORT || 3000;
 const REDIRECT_URI = "http://localhost:3000/redirect";
 
 const config = {
@@ -150,22 +122,19 @@ const config = {
     }
 };
 
-// Create msal application object
-const pca = new msal.ConfidentialClientApplication(config);
+const cca = new msal.ConfidentialClientApplication(config);
 
-// Create Express App and Routes
 const app = express();
 
-app.get('/', (req, res) => {
+app.get('/auth', (req, res) => {
     const authCodeUrlParameters = {
         scopes: ["user.read"],
         redirectUri: REDIRECT_URI,
     };
 
-    // get url to sign user in and consent to scopes needed for application
-    pca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
+    cca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
         res.redirect(response);
-    }).catch((error) => console.log(JSON.stringify(error)));
+    }).catch((error) => res.send(error));
 });
 
 app.get('/redirect', (req, res) => {
@@ -175,16 +144,12 @@ app.get('/redirect', (req, res) => {
         redirectUri: REDIRECT_URI,
     };
 
-    pca.acquireTokenByCode(tokenRequest).then((response) => {
+    cca.acquireTokenByCode(tokenRequest).then((response) => {
         res.send(response);
-    }).catch((error) => {
-        console.log(error);
-        res.status(500).send(error);
-    });
+    }).catch((error) => res.status(500).send(error));
 });
 
-
-app.listen(SERVER_PORT, () => console.log(`Msal Node Auth Code Sample app listening on port ${SERVER_PORT}!`))
+app.listen(3000, () => console.log(`listening on port 3000!`));
 ```
 
 ### Initialization
@@ -194,7 +159,7 @@ In ADAL Node, you initialize an `AuthenticationContext` object, which then expos
 ```javascript
 var adal = require('adal-node');
 
-var authorityURI = "https://login.microsoftonline.com/common"
+var authorityURI = "https://login.microsoftonline.com/common";
 var authenticationContex = new adal.AuthenticationContext(authorityURI);
 ```
 
@@ -318,10 +283,24 @@ const cca = new msal.ConfidentialClientApplication(msalConfig);
 
 ### Caching in MSAL Node
 
+In ADAL Node, you had the option of importing an in-memory token cache. The token cache is used as a parameter when initializing an `AuthenticationContext` object:
+
 ```javascript
+var MemoryCache = require('adal-node/lib/memory-cache');
+
+var cache = new MemoryCache();
+var authorityURI = "https://login.microsoftonline.com/common";
+
+var context = new AuthenticationContext(authorityURI, true, cache);
 ```
 
-Like logging, caching is part of the configuration options and is created with the initialization of the MSAL Node instance:
+MSAL Node uses an in-memory token cache by default. You do not need to explicitly import it; it is exposed as part of the `ConfidentialClientApplication` and `PublicClientApplication` objects.
+
+```javascript
+const msalTokenCache = publicClientApplication.getTokenCache();
+```
+
+You can also write your cache to disk by providing your own **cache plugin**. The cache plugin must implement the interface [ICachePlugin](https://azuread.github.io/microsoft-authentication-library-for-js/ref/interfaces/_azure_msal_common.icacheplugin.html). Like logging, caching is part of the configuration options and is created with the initialization of the MSAL Node instance:
 
 ```javascript
 const msal = require('@azure/msal-node');
@@ -341,7 +320,7 @@ const msalConfig = {
 const msalInstance = new ConfidentialClientApplication(msalConfig);
 ```
 
-MSAL Node has an in-memory token cache by default. You can also write your cache to disk by providing your own **cache plugin**. The cache plugin must implement the interface [ICachePlugin](https://azuread.github.io/microsoft-authentication-library-for-js/ref/interfaces/_azure_msal_common.icacheplugin.html). An example cache plugin can be implemented as below:
+An example cache plugin can be implemented as below:
 
 ```javascript
 const fs = require('fs');
@@ -388,9 +367,9 @@ However, some methods in ADAL Node are deprecated, while MSAL Node offers new me
 
 ### Other notable differences
 
-#### Scopes, not resources
+#### v1.0 vs. v2.0 resources
 
-When working with ADAL Node, you were likely using the Azure AD v1.0 endpoint. By contrast, MSAL Node primarily built for the v2.0 endpoint. An important difference between v1.0 vs. v2.0 endpoints is about how the resources are accessed. In ADAL Node, you would request an access token for a resource as shown below:
+When working with ADAL Node, you were likely using the **Azure AD v1.0 endpoint**. By contrast, MSAL Node was primarily built for the **v2.0 endpoint**. An important difference between v1.0 vs. v2.0 endpoints is about how the resources are accessed. In ADAL Node, you would first register a permission on app registration portal, and then request an access token for a resource as shown below:
 
 ```javascript
   authenticationContext.acquireTokenWithAuthorizationCode(
@@ -400,11 +379,11 @@ When working with ADAL Node, you were likely using the Azure AD v1.0 endpoint. B
     clientId,
     clientSecret,
     function (err, response) {
-      // do something with auth response
+      // do something with the authentication response
   );
 ```
 
-The v2.0 endpoint employs a scope-centric model to access resources. Thus when you request an access token for a resource, you only acquire it for a particular scope of that resource:
+The v2.0 endpoint employs a scope-centric model to access resources. Thus when you request an access token for a resource, you also need to specify the scope for that resource:
 
 ```javascript
     const tokenRequest = {
@@ -414,13 +393,26 @@ The v2.0 endpoint employs a scope-centric model to access resources. Thus when y
     };
 
     pca.acquireTokenByCode(tokenRequest).then((response) => {
-        // do something with auth response
+        // do something with the authentication response
     }).catch((error) => {
         console.log(error);
     });
 ```
 
 One advantage of the scope-centric model is the ability to use *dynamic scopes*. When building applications using v1.0, you needed to register the full set of permissions (called *static scopes*) required by the application for the user to consent to at the time of login. In v2.0, you can use the scope parameter to request the permissions at the time you want them (hence, *dynamic scopes*). This allows the user to provide **incremental consent** to scopes. So if at the beginning you just want the user to sign in to your application and you don’t need any kind of access, you can do so. If later you need the ability to read the calendar of the user, you can then request the calendar scope in the acquireToken methods and get the user's consent. See for more: [Resources and scopes](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/resources-and-scopes.md)
+
+#### v1.0 vs. v2.0 tokens
+
+There are two versions of tokens:
+
+- v1.0 tokens
+- v2.0 tokens
+
+The v1.0 endpoint (used by ADAL) only emits v1.0 tokens.
+
+However, the v2.0 endpoint (used by MSAL) emits the version of the token that the web API accepts. A property of the application manifest of the web API enables developers to choose which version of token is accepted. See `accessTokenAcceptedVersion` in the [Application manifest](reference-app-manifest.md) reference documentation.
+
+For more information about v1.0 and v2.0 tokens, see [Azure Active Directory access tokens](access-tokens.md)
 
 #### Promises, not callbacks
 
@@ -436,7 +428,7 @@ In ADAL Node, callbacks are used for any operation after the authentication succ
     clientId,
     clientSecret,
     function (err, response) {
-      // do something with auth response
+      // do something with the authentication response
     }
   );
 ```
@@ -447,7 +439,7 @@ In MSAL Node, promises are used instead:
     const cca = new msal.ConfidentialClientApplication(msalConfig);
 
     cca.acquireTokenByCode(tokenRequest).then((response) => {
-        // do something with the auth response
+        // do something with the authentication response
     }).catch((error) => {
         console.log(error);
     });
@@ -462,6 +454,21 @@ You can also use the **async/await** syntax that comes with ES6:
         console.log(error);
     }
 ```
+
+#### Making use of refresh tokens
+
+In ADAL Node, the refresh tokens (RT) were exposed allowing you to develop solutions around the use of these tokens by caching them and using the `acquireTokenWithRefreshToken` method. Typical scenarios where RT are especially relevant:
+
+* Long running services that do actions including refreshing dashboards on behalf of the users where the users are no longer connected.
+* WebFarm scenarios for enabling the client to bring the RT to the web service (caching is done client side, encrypted cookie, and not server side)
+
+MSAL Node does not expose refresh tokens for security reasons. Instead, MSAL handles refreshing tokens for you. As such, you no longer need to built logic for this. Still, if you need to migrate and make use of your previously acquired refresh tokens, MSAL Node offers `acquireTokenByRefreshToken`, which is equivalent to ADAL Node's `acquireTokenWithRefreshToken` method.
+
+#### New behavior for the "common" authority
+
+In v1.0, if you use the `https://login.microsoftonline.com/common` authority, you will allow users to sign in with any AAD account (for any organization). 
+
+If you use the `https://login.microsoftonline.com/common` authority in v2.0, you will allow users to sign in with any AAD organization or a personal Microsoft account (MSA). In MSAL Node, if you want to restrict login to any AAD account (same behavior as with ADAL Node), use `https://login.microsoftonline.com/organizations`.
 
 ## More Information
 
