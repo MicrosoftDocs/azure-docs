@@ -75,6 +75,7 @@ You can't use gateway-required VNet Integration:
 * From a [Windows container](quickstart-custom-container.md).
 * To access service endpoint secured resources.
 * With a coexistence gateway that supports both ExpressRoute and point-to-site or site-to-site VPNs.
+* Azure Private DNS Zones without a custom DNS server with conditional forwarding to the private zone
 
 ### Set up a gateway in your Azure virtual network ###
 
