@@ -38,13 +38,13 @@ While the retention period is active, you can restore a deleted blob, version, o
 
 You can change the soft delete retention period at any time. An updated retention period applies only to data that was deleted after the retention period was changed. Any data that was deleted before the retention period was changed is subject to the retention period that was in effect when it was deleted.
 
-If you disable blob soft delete, you can continue to access and recover soft-deleted objects in your storage account until the soft delete retention period has elapsed.
-
 Attempting to delete a soft-deleted object does not affect its expiry time.
+
+If you disable blob soft delete, you can continue to access and recover soft-deleted objects in your storage account until the soft delete retention period has elapsed.
 
 Blob versioning is available for general-purpose v2, block blob, and Blob storage accounts. Storage accounts with a hierarchical namespace enabled for use with Azure Data Lake Storage Gen2 are not currently supported.
 
-Versions 2017-07-29 and higher of the Azure Storage REST API support blob soft delete.
+Version 2017-07-29 and higher of the Azure Storage REST API support blob soft delete.
 
 > [!IMPORTANT]
 > You can use blob soft delete only to restore an individual blob. To restore a container and its contents, container soft delete must also be enabled for the storage account. Microsoft recommends enabling container soft delete and blob versioning together with blob soft delete to ensure complete protection for blob data. For more information, see [Data protection overview](data-protection-overview.md).
@@ -89,7 +89,7 @@ For more information on how to restore soft-deleted objects, see [Manage and res
 
 ## Blob soft delete and versioning
 
-If blob versioning and blob soft delete are both enabled for a storage account, then deleting or overwriting a blob creates a new version. The new version is not soft-deleted and is not removed when the soft-delete retention period expires. No soft-deleted snapshots are created.
+If blob versioning and blob soft delete are both enabled for a storage account, then deleting or overwriting a blob automatically creates a new version. The new version is not soft-deleted and is not removed when the soft-delete retention period expires. No soft-deleted snapshots are created.
 
 When both blob soft delete and blob versioning are enabled for a storage account, previous versions of a blob are protected from deletion. Deleting a previous version creates a soft-deleted version. You can call the [Undelete Blob](/rest/api/storageservices/undelete-blob) operation within the retention period to restore any deleted versions. After the retention period has elapsed, any soft-deleted versions are permanently deleted.
 
@@ -99,24 +99,21 @@ Microsoft recommends enabling both versioning and blob soft delete for your stor
 
 ## Blob soft delete protection by operation
 
-The following table describes the expected behavior for various REST operations when blob soft delete is enabled, either with or without blob versioning:
+The following table describes the expected behavior for delete and write operations when blob soft delete is enabled, either with or without blob versioning:
 
-| REST API operation | Resource type | Description | Change in behavior |
-|--------------------|---------------|-------------|--------------------|
-| [Delete Account](/rest/api/storagerp/StorageAccounts/Delete) | Account | Deletes the storage account, including all containers and blobs that it contains.                           | No change. Containers and blobs in the deleted account are not recoverable. |
-| [Delete Container](/rest/api/storageservices/delete-container) | Container | Deletes the container, including all blobs that it contains. | No change. Blobs in the deleted container are not recoverable. |
-| [Delete Blob](/rest/api/storageservices/delete-blob) | Block, append, and page blobs | Marks a blob or blob snapshot for deletion. The blob or snapshot is later deleted during garbage collection | If used to delete a blob snapshot, that snapshot is marked as soft deleted. If used to delete a blob, that blob is marked as soft deleted. |
-| [Put Blob](/rest/api/storageservices/put-blob) | Block, append, and page blobs | Creates a new blob or replaces an existing blob within a container | If used to replace an existing blob, a snapshot of the blob's state prior to the call is automatically generated. This also applies to a previously soft deleted blob if and only if it is replaced by a blob of the same type (Block, append, or Page). If it is replaced by a blob of a different type, all existing soft deleted data will be permanently expired. |
-| [Copy Blob](/rest/api/storageservices/copy-blob) | Block, append, and page blobs | Copies a source blob to a destination blob in the same storage account or in another storage account. | If used to replace an existing blob, a snapshot of the blob's state prior to the call is automatically generated. This also applies to a previously soft deleted blob if and only if it is replaced by a blob of the same type (Block, append, or Page). If it is replaced by a blob of a different type, all existing soft deleted data will be permanently expired. |
-| [Put Block](/rest/api/storageservices/put-block) | Block blobs | Creates a new block to be committed as part of a block blob. | If used to commit a block to a blob that is active, there is no change. If used to commit a block to a blob that is soft deleted, a new blob is created and a snapshot is automatically generated to capture the state of the soft deleted blob. |
-| [Put Block List](/rest/api/storageservices/put-block-list) | Block blobs | Commits a blob by specifying the set of block IDs that comprise the block blob. | If used to replace an existing blob, a snapshot of the blob's state prior to the call is automatically generated. This also applies to a previously soft deleted blob if and only if it is a block blob. If it is replaced by a blob of a different type, all existing soft deleted data will be permanently expired. |
-| [Put Page](/rest/api/storageservices/put-page) | Page blobs | Writes a range of pages to a page blob. | No change. Page blob data that is overwritten or cleared using this operation is not saved and is not recoverable. |
-| [Append Block](/rest/api/storageservices/append-block) | Append Blobs | Writes a block of data to the end of an append blob | No change. |
-| [Set Blob Properties](/rest/api/storageservices/set-blob-properties) | Block, append, and page blobs | Sets values for system properties defined for a blob. | No change. Overwritten blob properties are not recoverable. |
-| [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata) | Block, append, and page blobs | Sets user-defined metadata for the specified blob as one or more name-value pairs. | No change. Overwritten blob metadata is not recoverable. |
-| [Set Blob Tier](/rest/api/storageservices/set-blob-tier) | Block blobs and page blobs | xxxx | The soft deleted snapshots will remain in the original tier, but the base blob will move to the new tier. |
-
-It is important to notice that calling **Put Page** to overwrite or clear ranges of a page blob will not automatically generate snapshots. Virtual machine disks are backed by page blobs and use **Put Page** to write data.
+| REST API operations | Soft delete enabled | Soft delete and versioning enabled |
+|--|--|--|
+| [Delete Storage Account](/rest/api/storagerp/storageaccounts/delete) | No change. Containers and blobs in the deleted account are not recoverable. | No change. Containers and blobs in the deleted account are not recoverable. |
+| [Delete Container](/rest/api/storageservices/delete-container) | No change. Blobs in the deleted container are not recoverable. | No change. Blobs in the deleted container are not recoverable. |
+| [Delete Blob](/rest/api/storageservices/delete-blob) | If used to delete a blob, that blob is marked as soft deleted. <br /><br /> If used to delete a blob snapshot, the snapshot is marked as soft deleted. | If used to delete a blob, a new version is created.<br /><br />  If used to delete a blob version, the version is marked as soft deleted. |
+| [Undelete Blob](/rest/api/storageservices/delete-blob) | Restores a blob and any snapshots that were deleted within the retention period. | Restores a blob and any versions that were deleted within the retention period. |
+| [Put Blob](/rest/api/storageservices/put-blob)<br />[Put Block List](/rest/api/storageservices/put-block-list)<br />[Copy Blob](/rest/api/storageservices/copy-blob)<br />[Copy Blob from URL](/rest/api/storageservices/copy-blob) | If called on an active blob, then a snapshot of the blob's state prior to the operation is automatically generated. <br /><br /> If called on a soft-deleted blob, then a snapshot of the blob's prior state is generated only if it is being replaced by a blob of the same type. If the blob is of a different type, then all existing soft deleted data is permanently deleted. | A new version that captures the blob's state prior to the operation is automatically generated. |
+| [Put Block](/rest/api/storageservices/put-block) | If used to commit a block to an active blob, there is no change.<br /><br />If used to commit a block to a blob that is soft-deleted, a new blob is created and a snapshot is automatically generated to capture the state of the soft-deleted blob. | No change. |
+| [Put Page](/rest/api/storageservices/put-page)<br />[Put Page from URL](/rest/api/storageservices/put-page-from-url) | No change. Page blob data that is overwritten or cleared using this operation is not saved and is not recoverable. | No change. Page blob data that is overwritten or cleared using this operation is not saved and is not recoverable. |
+| [Append Block](/rest/api/storageservices/append-block)<br />[Append Block from URL](/rest/api/storageservices/append-block-from-url) | No change. | No change. |
+| [Set Blob Properties](/rest/api/storageservices/set-blob-properties) | No change. Overwritten blob properties are not recoverable. | No change. Overwritten blob properties are not recoverable. |
+| [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata) | No change. Overwritten blob metadata is not recoverable. | A new version that captures the blob's state prior to the operation is automatically generated. |
+| [Set Blob Tier](/rest/api/storageservices/set-blob-tier) | The base blob is moved to the new tier. Any active or soft-deleted snapshots remain in the original tier. No soft-deleted snapshot is created. | The base blob is moved to the new tier. Any active or soft-deleted versions remain in the original tier. No new version is created. |
 
 ## Pricing and billing
 
@@ -132,9 +129,11 @@ For more information on pricing for Blob Storage, see the [Blob Storage pricing]
 
 ## Blob soft delete and virtual machine disks  
 
-Blob soft delete is available for both premium and standard unmanaged disks, which are page blobs under the covers. Soft delete can help you recover data deleted or overwritten by the **Delete Blob**, **Put Blob**, **Put Block List**, and **Copy Blob** operations only. Data that is overwritten by a call to **Put Page** is not recoverable.
+???do we want this in here given that we promote managed disks???
 
-An Azure virtual machine writes to an unmanaged disk using calls to **Put Page**, so using soft delete to undo writes to an unmanaged disk from an Azure VM is not a supported scenario.
+Blob soft delete is available for both premium and standard unmanaged disks, which are page blobs under the covers. Soft delete can help you recover data deleted or overwritten by the **Delete Blob**, **Put Blob**, **Put Block List**, and **Copy Blob** operations only.
+
+Data that is overwritten by a call to **Put Page** is not recoverable. An Azure virtual machine writes to an unmanaged disk using calls to **Put Page**, so using soft delete to undo writes to an unmanaged disk from an Azure VM is not a supported scenario.
 
 ## Next steps
 
