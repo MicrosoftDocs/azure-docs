@@ -66,7 +66,7 @@ VMComputer
 | distinct Computer, tostring(Ipv4Addresses)
 ```
 
-### All Outbound communications by Remote IP Adress
+### All Outbound communications by Remote IP Address
 
 #### Wire Data 2.0 query
 
