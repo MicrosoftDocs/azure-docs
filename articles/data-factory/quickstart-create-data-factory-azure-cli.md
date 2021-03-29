@@ -184,7 +184,7 @@ Next, create a linked service and two datasets.
 
 Finally, create and run the pipeline.
 
-1. n your working directory, create a JSON file with this content named `Adfv2QuickStartPipeline.json`:
+1. In your working directory, create a JSON file with this content named `Adfv2QuickStartPipeline.json`:
 
    ```json
    {
