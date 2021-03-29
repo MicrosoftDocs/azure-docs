@@ -7,12 +7,12 @@ In the pom.xml file, add the following dependency elements to the group of depen
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-identity</artifactId>
-    <version>1.0.0-beta.6</version>
+    <version>1.0.0</version>
 </dependency>
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-sms</artifactId>
-    <version>1.0.0-beta.4</version>
+    <version>1.0.0</version>
 </dependency>
 <dependency>
     <groupId>com.azure</groupId>
