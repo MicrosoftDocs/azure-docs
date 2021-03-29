@@ -7,13 +7,13 @@ manager: daveba
 ms.service: identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 03/24/2021
+ms.date: 03/29/2021
 ms.author: barclayn
 
 #Customer intent: Why are we doing this?
 ---
 
-# Link your Domain to your Distributed Identifier (DID)
+# Link your Domain to your Decentralized Identifier (DID)
 
 > [!IMPORTANT]
 > Azure Active Directory verifiable credentials is currently in public preview.
@@ -21,10 +21,10 @@ ms.author: barclayn
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!div class="checklist"]
-> * Why you want to link your domain
-> * How we use open standards 
-> * User Experience
-> * Next Steps.
+> * Why do we need to link our DID to our domain?
+> * How do we link DIDs and domains?
+> * How does the domain linking process work?
+> * How does the verify/unverified domain logic work?
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ To link your DID to your domain, you need to have completed the following.
 
 - Complete the [Getting Started](get-started-verifiable-credentials.md) and subsequent [tutorial set](enable-your-tenant-verifiable-credentials.md).
 
-## Why do we link our domain to our DID?
+## Why do we need to link our DID to our domain?
 
 A DID starts out as an identifier that is not anchored to existing systems. A DID is useful because a user or organization can own it and control it. If an entity interacting with the organization does not know 'who' the DID belongs to, then the DID is not as useful.
 
@@ -40,7 +40,7 @@ Linking a DID to a domain solves the initial trust problem by allowing any entit
 
 ## How do we link DIDs and domains?
 
-To make a link between a domain and a DID we follow an open standard written by the Decentralized Identity Foundation called [Well-Known DID configuration](https://identity.foundation/.well-known/resources/did-configuration/). The verifiable credentials service in Azure Active Directory (AAD) helps your organization make the link between the DID and domain by doing the following:
+We make a link between a domain and a DID by implementing an open standard written by the Decentralized Identity Foundation called [Well-Known DID configuration](https://identity.foundation/.well-known/resources/did-configuration/). The verifiable credentials service in Azure Active Directory (AAD) helps your organization make the link between the DID and domain by included the domain information that you provided in your DID, and generating the well-known config file:
 
 1. AAD uses the domain information you provide during organization setup to write a Service Endpoint within the DID Document. All parties who interact with your DID can see the domain your DID proclaims to be associated with.  
 
@@ -69,25 +69,29 @@ To make a link between a domain and a DID we follow an open standard written by 
     }
     ```
 
-3. You must host the well-known DID configuration file on the root domain, without redirects and https needs to be enabled.
+After you have the well-known configuration file, you need to make the file available using the domain name you specified when enabling your AAD for verifiable credentials.
 
->[!NOTE]
->Microsoft Authenticator will not honor redirects, the URL specified must be the final destination URL.
+* Host the well-known DID configuration file at the root of the domain.
+* Do not use redirects.
+* Use https to distribute the configuration file.
+
+>[!IMPORTANT]
+>Microsoft Authenticator does not honor redirects, the URL specified must be the final destination URL.
 
 ## User Experience 
 
-When a user is going through an issuance flow or presenting a verifiable credential, they should know something about the DID they are interacting with. If the domain our verifiable credential wallet, Microsoft Authenticator, validates a DID's relationship with the domain in the DID document and present users with two different experiences depending on the outcome.
+When a user is going through an issuance flow or presenting a verifiable credential, they should know something about organization and its DID. If the domain our verifiable credential wallet, Microsoft Authenticator, validates a DID's relationship with the domain in the DID document and presents users with two different experiences depending on the outcome.
 
 ## Verified Domain
 
-Before Microsoft Authenticator displays a 'Verified' icon, a few things need to be true:
+Before Microsoft Authenticator displays a **Verified** icon, a few things need to be true:
 
 * The DID signing the SIOP request must have a Service endpoint for Linked Domain. (WHAT IS THIS? WHAT IS A STOP REQUEST?)
 * The root domain does not use a redirect and uses https.
 * The domain listed in the DID Document has a resolvable well-known resource.
 * The well-known resource's verifiable credential is signed with the same DID that was used to sign the SIOP that Microsoft Authenticator used to kick start the flow.
 
-If all of the previously mentioned are true, then Microsoft Authenticator will display a Verified page and include the domain that was validated. 
+If all of the previously mentioned are true, then Microsoft Authenticator displays a verified page and includes the domain that was validated.
 
    ![new permission request](media/how-to-dnsbind/new-permission-request.png) 
 
@@ -101,13 +105,13 @@ If any of the above are not true, the Microsoft Authenticator will display a ful
 
 <todo: add image of unverified domain>
 
-## Next Steps
+## Distribute well-known config
 
-1. Navigate to the Settings page in Verifiable Credentials and click 'Verify this domain'
+1. Navigate to the Settings page in Verifiable Credentials and choose **Verify this domain**
 
    ![Verify this domain in settings](media/how-to-dnsbind/settings-verify.png) 
 
-2. Download the Well-Known Config Resource
+2. Download the did-configuration.json file shown in the image below.
 
    ![Download well known config](media/how-to-dnsbind/verify-download.png) 
 
@@ -126,4 +130,4 @@ Congratulations, you now have bootstrapped the web of trust with your DID!
 
 ## Next steps
 
-If the domain that was entered during onboarding is incorrect or you want to change it, you will need to [opt out](how-to-opt-out.md) at this time. We currently don't support updating your DID document. Opting out and opting back in will create a brand new DID.
+If during onboarding you enter the wrong domain information of you decide to change it, you will need to [opt out](how-to-opt-out.md). At this time, we don't support updating your DID document. Opting out and opting back in will create a brand new DID.

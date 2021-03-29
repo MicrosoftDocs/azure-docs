@@ -135,7 +135,7 @@ Save this change.
  >[!NOTE]
    > We are not changing the **"configuration"** or the **"client_id"** at this point in the tutorial. We still use the Microsoft B2C tenant we used in the [Get started](get-started-verifiable-credentials.md). We will use your Azure AD in the next tutorial.
 
-3. Open up the MyFirstVC-display.json file in your code editor. 
+3. Open up the MyFirstVC-display.json file in your code editor.
 
 ```json
 {
