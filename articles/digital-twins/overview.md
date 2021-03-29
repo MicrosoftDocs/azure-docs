@@ -93,6 +93,10 @@ The following diagram shows where Azure Digital Twins lies in the context of a l
 
 :::image type="content" source="media/overview/solution-context.png" alt-text="Diagram showing input sources, output services, and two-way communication with both client apps and external compute resources." border="false" lightbox="media/overview/solution-context.png":::
 
+### Terminology reference
+
+You can view a list of common IoT terms and their uses across the Azure IoT services, including Azure Digital Twins, here: [Azure IoT Glossary](../iot-fundamentals/iot-glossary?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json). This may be a useful reference while you get started with Azure Digital Twins and building an IoT solution.
+
 ## Service limits
 
 For a list of Azure Digital Twins limits, see [*Azure Digital Twins service limits*](reference-service-limits.md).
