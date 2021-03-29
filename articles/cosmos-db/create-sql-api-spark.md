@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 03/07/2021
+ms.date: 03/29/2021
 ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
 ---
@@ -24,4 +24,4 @@ ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
-[!INCLUDE[Quickstart](~/azure-sdk-for-java-cosmos-db/sdk/cosmos/azure-cosmos-spark_3-0_2-12/docs/quick-start.md)]
+[!INCLUDE[Quickstart](~/azure-sdk-for-java-cosmos-db-feature/sdk/cosmos/azure-cosmos-spark_3-0_2-12/docs/quick-start.md)]
