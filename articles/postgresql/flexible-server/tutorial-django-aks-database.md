@@ -128,9 +128,9 @@ Create a new [Django application](https://docs.djangoproject.com/en/3.1/intro/) 
     └───models.py
     └───forms.py
     ├───templates
-      	. . . . . . .
+          . . . . . . .
     ├───static
-     	. . . . . . .
+         . . . . . . .
 └───my-django-project
     └───settings.py
     └───urls.py
@@ -373,7 +373,7 @@ Quit the server with CONTROL-C.
 
 ## Clean up the resources
 
-To avoid Azure charges, you should clean up unneeded resources.  When the cluster is no longer needed, use the [az group delete](/cli/azure/group?view=azure-cli-latest#az_group_delete) command to remove the resource group, container service, and all related resources.
+To avoid Azure charges, you should clean up unneeded resources.  When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, container service, and all related resources.
 
 ```azurecli-interactive
 az group delete --name django-project --yes --no-wait
