@@ -82,7 +82,7 @@ Example usage scenarios for the archive access tier include:
 - Compliance and archival data that needs to be stored for a long time and is hardly ever accessed
 
 > [!NOTE]
-> The archive tier is not supported for ZRS, GZRS, or RA-GZRS accounts. Migrating from LRS to GRS is not supported if the storage account contains blobs in the archive tier.
+> The archive tier is not supported for ZRS, GZRS, or RA-GZRS accounts. Migrating from LRS to GRS is supported as long as no blobs were moved to the archive tier while the account was set to LRS. An account can be moved back to GRS if the update is done less than 30 days from the time the account became LRS, and no blobs were moved to the archive tier while the account was set to LRS.
 
 ## Account-level tiering
 
