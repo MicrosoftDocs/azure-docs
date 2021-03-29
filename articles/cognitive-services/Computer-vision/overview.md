@@ -24,14 +24,13 @@ Azure's Computer Vision service gives you access to advanced algorithms that pro
 
 | Service|Description|
 |---|---|
-|[Optical Character Recognition (OCR)](tbd)|Computer Vision includes [Optical Character Recognition (OCR)](concept-recognizing-text.md) capabilities. You can use the new Read API to extract printed and handwritten text from images and documents. It uses deep learning based models and works with text on a variety of surfaces and backgrounds. These include business documents, invoices, receipts, posters, business cards, letters, and whiteboards. The OCR APIs support extracting printed text in [several languages](./language-support.md). Follow a [quickstart](./quickstarts-sdk/client-library.md) to get started.|
-|[Image Analysis](tbd)| tbd|
-| [Spatial Analysis](tbd)| tbd |
+|[Optical Character Recognition (OCR)](tbd)|The [Optical Character Recognition (OCR)](concept-recognizing-text.md) service extracts text from images. You can use the new Read API to extract printed and handwritten text from photos and documents. It uses deep-learning-based models and works with text on a variety of surfaces and backgrounds. These include business documents, invoices, receipts, posters, business cards, letters, and whiteboards. The OCR APIs support extracting printed text in [several languages](./language-support.md). Follow the [OCR quickstart](tbd) to get started.|
+|[Image Analysis](tbd)| The Image Analysis service extracts many visual features from images, such as objects, faces, adult content, and auto-generated text descriptions. Follow the [Image Analyis quickstart](tbd) to get started.|
+| [Spatial Analysis](tbd)| The Spatial Analysis service analyzes the presence and movement of people on a video feed and produces events that other systems can respond to. Follow the [Spatial Analysis quickstart](tbd) to get started.|
 
 ## Computer Vision for digital asset management
 
 Computer Vision can power many digital asset management (DAM) scenarios. DAM is the business process of organizing, storing, and retrieving rich media assets and managing digital rights and permissions. For example, a company may want to group and identify images based on visible logos, faces, objects, colors, and so on. Or, you might want to automatically [generate captions for images](./Tutorials/storage-lab-tutorial.md) and attach keywords so they're searchable. For an all-in-one DAM solution using Cognitive Services, Azure Cognitive Search, and intelligent reporting, see the [Knowledge Mining Solution Accelerator Guide](https://github.com/Azure-Samples/azure-search-knowledge-mining) on GitHub. For other DAM examples, see the [Computer Vision Solution Templates](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates) repository.
-
 
 ## Image requirements
 
