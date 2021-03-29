@@ -58,7 +58,7 @@ To configure the Temporary Access Pass authentication method policy:
    | One-time use | False | True / False | When the policy is set to false, passes in the tenant can be used either once or more than once during its validity (maximum lifetime). By enforcing one-time use in the Temporary Access Pass policy, all passes created in the tenant will be created as one-time use. |
    | Length | 8 | 8-48 characters | Defines the length of the passcode. |
 
-## Create a Temporary Access Pass in the Azure AD Portal
+## Create a Temporary Access Pass
 
 After you enable a policy, you can create a Temporary Access Pass for a user in Azure AD. 
 These roles can perform the following actions related to a Temporary Access Pass.
@@ -68,9 +68,7 @@ These roles can perform the following actions related to a Temporary Access Pass
 - Authentication administrators can create, delete, view a Temporary Access Pass on members  (except themselves)
 - Global Administrator can view the Temporary Access Pass details on the user (without reading the code itself).
 
-To create a Temporary Access Pass:
-
-1. Sign in to  the portal as either a Global administrator, Privileged Authentication administrator, or Authentication administrator. 
+1. Sign in to the Azure portal as either a Global administrator, Privileged Authentication administrator, or Authentication administrator. 
 1. Click **Azure Active Directory**, browse to Users, select a user, such as *Chris Green*, then choose **Authentication methods**.
 1. If needed, select the option to **Try the new user authentication methods experience**.
 1. Select the option to **Add authentication methods**.
@@ -82,6 +80,30 @@ To create a Temporary Access Pass:
 1. Once added, the details of the Temporary Access Pass are shown. Make a note of the actual Temporary Access Pass value. You provide this value to the user. You can't view this value after you click **Ok**.
    
    ![Screenshot of Temporary Access Pass details](./media/how-to-authentication-temporary-access-pass/details.png)
+
+The following commands show how to create and get a Temporary Access Pass by using PowerShell:
+
+```powershell
+# Create a Temporary Access Pass for a user
+$properties = @{}
+$properties.isUsableOnce = $True
+$properties.startDateTime = '2021-03-11 06:00:00'
+$propertiesJSON = $properties | ConvertTo-Json
+
+New-MgUserAuthenticationTemporaryAccessPassMethod -UserId user2@contoso.com -BodyParameter $propertiesJSON
+
+Id                                   CreatedDateTime       IsUsable IsUsableOnce LifetimeInMinutes MethodUsabilityReason StartDateTime         TemporaryAccessPass
+--                                   ---------------       -------- ------------ ----------------- --------------------- -------------         -------------------
+c5dbd20a-8b8f-4791-a23f-488fcbde3b38 9/03/2021 11:19:17 PM False    True         60                NotYetValid           11/03/2021 6:00:00 AM TAPRocks!
+
+# Get a user's Temporary Access Pass
+Get-MgUserAuthenticationTemporaryAccessPassMethod -UserId user3@contoso.com
+
+Id                                   CreatedDateTime       IsUsable IsUsableOnce LifetimeInMinutes MethodUsabilityReason StartDateTime         TemporaryAccessPass
+--                                   ---------------       -------- ------------ ----------------- --------------------- -------------         -------------------
+c5dbd20a-8b8f-4791-a23f-488fcbde3b38 9/03/2021 11:19:17 PM False    True         60                NotYetValid           11/03/2021 6:00:00 AM
+
+```
 
 ## Use a Temporary Access Pass
 
@@ -110,6 +132,13 @@ An expired Temporary Access Pass can’t be used. Under the **Authentication met
 
 1. In the Azure AD portal, browse to **Users**, select a user, such as *Tap User*, then choose **Authentication methods**.
 1. On the right-hand side of the **Temporary Access Pass (Preview)** authentication method shown in the list, select **Delete**.
+
+You can also use PowerShell:
+
+```powershell
+# Remove a user's Temporary Access Pass
+Remove-MgUserAuthenticationTemporaryAccessPassMethod -UserId user3@contoso.com -TemporaryAccessPassAuthenticationMethodId c5dbd20a-8b8f-4791-a23f-488fcbde3b38
+```
 
 ## Replace a Temporary Access Pass 
 
