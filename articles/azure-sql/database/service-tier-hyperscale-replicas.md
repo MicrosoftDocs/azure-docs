@@ -62,14 +62,17 @@ Aside from the main scenarios listed above, named replicas offer flexibility and
 
 The following example creates named replica WideWorldImporters01 on server WideWorldImporterServer for database WideWorldImporters with service level objective HS_Gen5_4
 
+# [T-SQL](#tab/tsql)
 ```tsql
 ALTER DATABASE [WideWorldImporters]
 ADD SECONDARY ON SERVER [WideWorldImporterServer] 
 WITH (SERVICE_OBJECTIVE = 'HS_Gen5_2', SECONDARY_TYPE = Named, DATABASE_NAME = [WideWorldImporters01])
 ```
+# [PowerShell](#tab/azure-powershell)
 ```azurepowershell
 New-AzSqlDatabaseSecondary -ResourceGroupName "SampleResourceGroup" -ServerName "WideWorldImporterServer" -DatabaseName "WideWorldImporters" -PartnerResourceGroupName "SampleResourceGroup" -PartnerServerName "WideWorldImporterServer" -PartnerDatabaseName "WideWorldImporters01" -SecondaryServiceObjectiveName HS_Gen5_2
 ```
+# [Azure CLI](#tab/azure-cli)
 ```azurecli
 az sql db replica create -g SampleResourceGroup -n WideWorldImporters -s WideWorldImporterServer --secondary-type named --partner-database WideWorldImporters01 --partner-server WideWorldImporterServer
 ```
