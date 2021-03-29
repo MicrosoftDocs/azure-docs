@@ -434,7 +434,7 @@ spec:
     - restock-books
   sources:
   - kind: ServiceAccount
-    name: bookstore-v1
+    name: bookstore
     namespace: bookstore
   - kind: ServiceAccount
     name: bookstore-v2
@@ -576,7 +576,7 @@ metadata:
 spec:
   service: bookstore.bookstore
   backends:
-  - service: bookstore-v1
+  - service: bookstore
     weight: 25
   - service: bookstore-v2
     weight: 75
@@ -1679,6 +1679,7 @@ In this tutorial, you will:
 > - Configure Grafana with the Prometheus datasource
 > - Import OSM dashboard for Grafana
 > - Create and deploy a Jaeger instance
+> - Configure Jaeger tracing for OSM
 
 ### Deploy and configure a Prometheus instance for OSM
 
@@ -2106,7 +2107,107 @@ As soon as you click import, it will bring you automatically to your imported da
 
 ### Deploy and configure a Jaeger Operator on Kubernetes for OSM
 
-[Jaeger](https://www.jaegertracing.io/) is an open source tracing system used for monitoring and troubleshooting distributed systems. It can be deployed with OSM as a new instance or you may bring your own instance.
+[Jaeger](https://www.jaegertracing.io/) is an open source tracing system used for monitoring and troubleshooting distributed systems. It can be deployed with OSM as a new instance or you may bring your own instance. The following instructions deploys a new instance of Jaeger to the `jaeger` namespace on the AKS cluster.
+
+#### Deploy Jaeger to the AKS cluster
+
+Apply the following manifest to install Jaeger:
+
+```azurecli-interactive
+kubectl apply -f - <<EOF
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jaeger
+  namespace: jaeger
+  labels:
+    app: jaeger
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jaeger
+  template:
+    metadata:
+      labels:
+        app: jaeger
+    spec:
+      containers:
+        - name: jaeger
+          image: jaegertracing/all-in-one
+          args:
+          - --collector.zipkin.host-port=9411
+          imagePullPolicy: IfNotPresent
+          ports:
+          - containerPort: 9411
+          resources:
+            limits:
+              cpu: 500m
+              memory: 512M
+            requests:
+              cpu: 100m
+              memory: 256M
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: jaeger
+  namespace: jaeger
+  labels:
+    app: jaeger
+spec:
+  selector:
+    app: jaeger
+  ports:
+  - protocol: TCP
+    # Service port and target port are the same
+    port: 9411
+  type: ClusterIP
+EOF
+```
+
+```Output
+deployment.apps/jaeger created
+service/jaeger created
+```
+
+#### Enable Tracing for the OSM add-on
+
+Next we will need to enable tracing for the OSM add-on.
+
+> [!NOTE]
+> As of now the `"tracing_enable"` property is not visable in the osm-config configmap. This will be made visable in a new release of the OSM AKS add-on.
+
+Run the following command to enable tracing for the OSM add-on:
+
+```azurecli-interactive
+kubectl patch configmap osm-config -n kube-system -p '{"data":{"tracing_enable":"true", "tracing_address":"jaeger.jaeger.svc.cluster.local", "tracing_port":"9411", "tracing_endpoint":"/api/v2/spans"}}' --type=merge
+```
+
+```Output
+configmap/osm-config patched
+```
+
+#### View the Jaeger UI with port forwarding
+
+Jaeger's UI is running on port 16686. To view the web UI, you can use kubectl port-forward:
+
+```azurecli-interactive
+JAEGER_POD=$(kubectl get pods -n jaeger --no-headers  --selector app=jaeger | awk 'NR==1{print $1}')
+kubectl port-forward -n jaeger $JAEGER_POD  16686:16686
+http://localhost:16686/
+```
+
+In the browser, you should see a Service dropdown which allows you to select from the various applications deployed by the bookstore demo. Select a service to view all spans from it. For example, if you select bookbuyer with a Lookback of one hour, you can see its interactions with bookstore-v1 and bookstore-v2 sorted by time.
+
+![OSM Jaeger Tracing Page UI image](./media/aks-osm-addon/osm-jaeger-trace-view-ui.png)
+
+Click on any item to view it in further detail. Select multiple items to compare traces. For example, you can compare the bookbuyer's interactions with bookstore and bookstore-v2 at a particular moment in time.
+
+You can also clic on the System Architecture tab to view a graph of how the various applications have been interacting/communicating. This provides an idea of how traffic is flowing between the applications.
+
+![OSM Jaeger System Architecture UI image](./media/aks-osm-addon/osm-jaeger-sys-arc-view-ui.png)
 
 ## Open Service Mesh (OSM) AKS add-on Troubleshooting Guides
 
@@ -2358,15 +2459,14 @@ kubectl get ConfigMap -n kube-system osm-config -o json | jq '.data'
 
 ```json
 {
-  "config_resync_interval": "90s",
-  "egress": "false",
-  "enable_debug_server": "false",
+  "egress": "true",
+  "enable_debug_server": "true",
   "enable_privileged_init_container": "false",
   "envoy_log_level": "error",
+  "outbound_ip_range_exclusion_list": "169.254.169.254,168.63.129.16,20.193.20.233",
   "permissive_traffic_policy_mode": "true",
-  "prometheus_scraping": "true",
+  "prometheus_scraping": "false",
   "service_cert_validity_duration": "24h",
-  "tracing_enable": "false",
   "use_https_ingress": "false"
 }
 ```
