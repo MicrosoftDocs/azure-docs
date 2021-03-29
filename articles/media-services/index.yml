@@ -104,7 +104,7 @@ conceptualContent:
             
     - title: Analyze content
       links:
-          - url: ./latest/analyzing-video-audio-files-concept.md
+          - url: ./latest/analyze-video-audio-files-concept.md
             itemType: concept
             text: Media analytics
           - url: ./latest/analyze-videos-tutorial-with-api.md

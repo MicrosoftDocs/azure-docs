@@ -150,7 +150,7 @@
   - name: Analyzing and Redaction 
     items:
     - name: Overview
-      href: analyzing-video-audio-files-concept.md
+      href: analyze-video-audio-files-concept.md
       displayName: analyze, analyzing, presets, jobs
     - name: Detect and Redact (blur) faces
       href: analyze-face-redaction-concept.md
