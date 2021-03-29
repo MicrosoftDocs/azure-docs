@@ -96,7 +96,7 @@ The Device Update agent can also be configured without the IoT Identity service 
     * Enter the below in the terminal window:
        - [Package updates](device-update-ubuntu-agent.md) use: sudo nano /etc/adu/adu-conf.txt
        - [Image updates](device-update-raspberry-pi.md) use: sudo nano /adu/adu-conf.txt
-    * You should see a window open with some text in it. Delete the entire contents of the file the first-time you provision the Device Update agent on the IoT device. It is just place holder text.
+    * You should see a window open with some text in it. Delete the entire string following 'connection_String=' the first-time you provision the Device Update agent on the IoT device. It is just place holder text.
     * In the terminal, replace <your-connection-string> with the connection string of the device for your instance of Device Update agent (NOTE DO NOT ADD QUOTES AROUND THE CONNECTION STRING)
        - connection_string=<your-connection-string>
     * Enter and save.
