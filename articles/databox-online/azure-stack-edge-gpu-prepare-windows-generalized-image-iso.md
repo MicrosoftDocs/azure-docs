@@ -48,10 +48,7 @@ Before you can create a generalized Windows VHD from an ISO, make sure that:
 
 - You have an Azure blob storage account to store your VHD once it is finished preparing 
 
-
-## Create a generalized Windows VHS from an ISO 
-
-### Create a new fixed-size VHD in Hyper-V Manager 
+## Create a new fixed-size VHD in Hyper-V Manager 
 
 1. In the Hyper-V Manager “Actions” menu, select New -> Hard Disk 
 
@@ -73,8 +70,7 @@ Before you can create a generalized Windows VHD from an ISO, make sure that:
 
 1. Review your selections and click **Finish** to create the new VHD. The process will take five or more minutes depending on the size of the VHD created.
 
-
-### Create a new Hyper-V VM using the VHD 
+## Create a new Hyper-V VM using the VHD 
 
 1. Open Hyper-V manager on your local machine 
 
@@ -97,9 +93,8 @@ Before you can create a generalized Windows VHD from an ISO, make sure that:
    ![New Virtual Machine wizard, Select an existing virtual hard disk as the source](./media/azure-stack-edge-gpu-prepare-windows-vhd-generalized-image-iso/vhd-from-iso-08.png)
 
 1. Create the VM. 
-
  
-### Mount the ISO image as a DVD drive on the VM
+## Mount the ISO image as a DVD drive on the VM
 
 1. In Hyper-V Manager, select the VM you just created, and click **Settings**. 
 
@@ -114,12 +109,15 @@ Before you can create a generalized Windows VHD from an ISO, make sure that:
 1. Click **OK** to save your VM settings.
 
 
-### Connect to the Hyper-V VM 
+## Connect to the Hyper-V VM 
 
-Using Hyper-V manager, connect to the new VM you created. Complete the machine setup wizard and log in.
+Using Hyper-V manager, connect to the new VM you created. 
 
+[!INCLUDE [Connect to Hyper-V VM](../../includes/azure-stack-edge-connect-to-hyperv-vm.md)]
 
-### Generalize the VHD using the ‘sysprep’ utility  
+After you are connected to the VM, complete the Machine setup wizard and then sign into the VM.<!--What does this mean? Doesn't correspond to the procedures/steps that follow.-->
+
+## Generalize the VHD using the ‘sysprep’ utility  
 
 Inside the VM, open a command prompt and run the following command to generalize the VHD. The VM will shut down once the command is complete. **Do not restart it.** 
 

@@ -134,19 +134,11 @@ The virtual machine takes several minutes to create.
 
 ## Connect to the Hyper-V VM
 
-The VM shows in the list of the virtual machines on your client system. 
+The VM shows in the list of the virtual machines on your client system.
 
-
-1. Select the VM and then right-click and select **Start**. 
-
-    ![Select VM and start it](./media/azure-stack-edge-gpu-prepare-windows-vhd-generalized-image/connect-virtual-machine-2.png)
-
-2. The VM shows show as **Running**. Select the VM and then right-click and select **Connect**.
-
-    ![Connect to VM](./media/azure-stack-edge-gpu-prepare-windows-vhd-generalized-image/connect-virtual-machine-4.png)
+[!INCLUDE [Connect to Hyper-V VM](../../includes/azure-stack-edge-connect-to-hyperv-vm.md)]
 
 After you are connected to the VM, complete the Machine setup wizard and then sign into the VM.
-
 
 ## Generalize the VHD  
 
