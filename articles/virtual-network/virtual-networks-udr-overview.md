@@ -110,7 +110,7 @@ When there is an exact prefix match between a route with an explicit IP prefix a
 To use this feature specify a Service Tag name for the address prefix parameter in route table commands. For example, in Powershell you can create a new route to direct traffic sent to an Azure Storage IP prefix to a virtual appliance by using: </br>
 
 ```azurepowershell-interactive
-New-AzRouteConfig -Name "StorageRoute" -AddressPrefix “Storage” -NextHopType "VirtualAppliance" -NextHopIpAddress "10.0.100.4"
+New-AzRouteConfig -Name "StorageRoute" -AddressPrefix "Storage" -NextHopType "VirtualAppliance" -NextHopIpAddress "10.0.100.4"
 ```
 
 The same command for CLI will be: </br>

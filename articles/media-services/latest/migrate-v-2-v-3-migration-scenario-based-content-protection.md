@@ -23,7 +23,7 @@ This article provides you with details and guidance on the migration of content 
 
 ## Protect content in v3 API
 
-Use the support for [Multi-key](design-multi-drm-system-with-access-control.md) features in the new v3 API.
+Use the support for [Multi-key](architecture-design-multi-drm-system.md) features in the new v3 API.
 
 See content protection concepts, tutorials and how to guides below for specific steps.
 
@@ -31,13 +31,13 @@ See content protection concepts, tutorials and how to guides below for specific 
 
 During migration to the v3 API, you will find that you need to access some properties or content keys from your v2 Assets. One key difference is that the v2 API would use the **AssetId** as the primary identification key and the new v3 API uses the Azure Resource Management name of the entity as the primary identifier.  The v2 **Asset.Name** property is not typically used as a unique identifier, so when migrating to v3 you will find that your v2 Asset names now appear in the **Asset.Description** field.
 
-For example, if you previously had a v2 Asset with the ID of **"nb:cid:UUID:8cb39104-122c-496e-9ac5-7f9e2c2547b8”**, then you will find when listing the old v2 assets through the v3 API, the name will now be the GUID part at the end (in this case, **"8cb39104-122c-496e-9ac5-7f9e2c2547b8"**.)
+For example, if you previously had a v2 Asset with the ID of **"nb:cid:UUID:8cb39104-122c-496e-9ac5-7f9e2c2547b8"**, then you will find when listing the old v2 assets through the v3 API, the name will now be the GUID part at the end (in this case, **"8cb39104-122c-496e-9ac5-7f9e2c2547b8"**.)
 
-You can query the **StreamingLocators** associated with the Assets created in the v2 API using the new v3 method [ListStreamingLocators](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators) on the Asset entity.  Also reference the .NET client SDK version of [ListStreamingLocatorsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocatorsasync?view=azure-dotnet)
+You can query the **StreamingLocators** associated with the Assets created in the v2 API using the new v3 method [ListStreamingLocators](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators) on the Asset entity.  Also reference the .NET client SDK version of [ListStreamingLocatorsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocatorsasync?view=azure-dotnet&preserve-view=true)
 
 The results of the **ListStreamingLocators** method will provide you the **Name** and **StreamingLocatorId** of the locator along with the **StreamingPolicyName**.
 
-To find the **ContentKeys** used in your **StreamingLocators** for content protection, you can call the [StreamingLocator.ListContentKeysAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.streaminglocatorsoperationsextensions.listcontentkeysasync?view=azure-dotnet) method.  
+To find the **ContentKeys** used in your **StreamingLocators** for content protection, you can call the [StreamingLocator.ListContentKeysAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.streaminglocatorsoperationsextensions.listcontentkeysasync?view=azure-dotnet&preserve-view=true) method.  
 
 Any **Assets** that were created and published using the v2 API will have both a [Content Key Policy](https://docs.microsoft.com/azure/media-services/latest/content-key-policy-concept) and a Content Key defined on them in the v3 API, instead of using a default content key policy on the [Streaming Policy](https://docs.microsoft.com/azure/media-services/latest/streaming-policy-concept).
 
@@ -71,7 +71,7 @@ When migrating your content from v2 to v3, it is advised to install the [v2 Azur
 ### Concepts
 
 - [Protect your content with Media Services dynamic encryption](content-protection-overview.md)
-- [Design of a multi-DRM content protection system with access control](design-multi-drm-system-with-access-control.md)
+- [Design of a multi-DRM content protection system with access control](architecture-design-multi-drm-system.md)
 - [Media Services v3 with PlayReady license template](playready-license-template-overview.md)
 - [Media Services v3 with Widevine license template overview](widevine-license-template-overview.md)
 - [Apple FairPlay license requirements and configuration](fairplay-license-overview.md)

@@ -14,7 +14,7 @@ Device Update for IoT Hub supports two forms of updates – image-based and pack
 
 Package-based updates are targeted updates that alter only a specific component or application on the device. This leads to lower consumption of bandwidth and helps reduce the time to download and install the update. Package updates typically allow for less downtime of devices when applying an update and avoid the overhead of creating images.
 
-This tutorial walks you through the steps to complete an end-to-end package-based update through Device Update for IoT Hub. For this tutorial we use an Ubuntu Server 18.04 x64 running Azure IoT Edge and the Device Update package agent. The tutorial demonstrates updating a sample package, but using similar steps you could update other packages such as Azure IoT Edge or the container engine it uses.
+This end-to-end tutorial walks you through updating Azure IoT Edge on Ubuntu Server 18.04 x64 by using the Device Update package agent. Although the tutorial demonstrates updating IoT Edge, using similar steps you could update other packages such as the container engine it uses.
 
 The tools and concepts in this tutorial still apply even if you plan to use a different OS platform configuration. Complete this introduction to an end-to-end update process, then choose your preferred form of updating and OS platform to dive into the details.
 
