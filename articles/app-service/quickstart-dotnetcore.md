@@ -307,45 +307,63 @@ Follow these steps to create your App Service and publish your web app:
 1. In **Solution Explorer**, right-click the **MyFirstAzureWebApp** project and select **Publish**.
 1. In **Publish**, select **Azure** and then **Next**.
 
-<!-- markdownlint-disable MD044 -->
-   :::image type="content" source="media/quickstart-dotnet/vs-publish-target-azure.png" alt-text="Publish - target Azure" border="true":::
-<!-- markdownlint-enable MD044 -->
+    :::image type="content" source="media/quickstart-dotnet/vs-publish-target-Azure.png" alt-text="Publish - target Azure" border="true":::
 
 1. Your options depend on whether you're signed in to Azure already and whether you have a Visual Studio account linked to an Azure account. Select either **Add an account** or **Sign in** to sign in to your Azure subscription. If you're already signed in, select the account you want.
 
-   ![Sign in to Azure](./media/quickstart-dotnetcore/sign-in-azure-vs2019.png)
+    :::image type="content" source="media/quickstart-dotnetcore/sign-in-Azure-vs2019.png" border="true" alt-text="Sign in to Azure":::
 
 1. Choose the **Specific target**, either **Azure App Service (Linux)** or **Azure App Service (Windows)**.
 
-   > [!IMPORTANT]
-   > You're required to use **Azure App Service (Windows)** when targeting .NET Framework.
+    > [!IMPORTANT]
+    > When targeting ASP.NET Framework 4.8, you will use **Azure App Service (Windows)**.
 
 1. To the right of **App Service instances**, select **+**.
 
-   ![New App Service app](./media/quickstart-dotnetcore/publish-new-app-service.png)
+    :::image type="content" source="media/quickstart-dotnetcore/publish-new-app-service.png" border="true" alt-text="New App Service app":::
 
 1. For **Subscription**, accept the subscription that is listed or select a new one from the drop-down list.
 1. For **Resource group**, select **New**. In **New resource group name**, enter *myResourceGroup* and select **OK**.
 1. For **Hosting Plan**, select **New**.
 1. In the **Hosting Plan: Create new** dialog, enter the values specified in the following table:
 
-   | Setting          | Suggested value          | Description                                                           |
-   |------------------|--------------------------|-----------------------------------------------------------------------|
-   | **Hosting Plan** | *MyFirstAzureWebAppPlan* | Name of the App Service plan.                                         |
-   | **Location**     | *West Europe*            | The datacenter where the web app is hosted.                           |
-   | **Size**         | *Free*                   | [Pricing tier][app-service-pricing-tier] determines hosting features. |
+    | Setting          | Suggested value          | Description                                                           |
+    |------------------|--------------------------|-----------------------------------------------------------------------|
+    | **Hosting Plan** | *MyFirstAzureWebAppPlan* | Name of the App Service plan.                                         |
+    | **Location**     | *West Europe*            | The datacenter where the web app is hosted.                           |
+    | **Size**         | *Free*                   | [Pricing tier][app-service-pricing-tier] determines hosting features. |
 
-   ![Create new Hosting Plan](./media/quickstart-dotnetcore/create-new-hosting-plan-vs2019.png)
+    :::image type="content" source="media/quickstart-dotnetcore/create-new-hosting-plan-vs2019.png" border="true" alt-text="Create new Hosting Plan":::
 
 1. In **Name**, enter a unique app name that includes only the valid characters are `a-z`, `A-Z`, `0-9`, and `-`. You can accept the automatically generated unique name. The URL of the web app is `http://<app-name>.azurewebsites.net`, where `<app-name>` is your app name.
 1. Select **Create** to create the Azure resources.
 
-   ![Create app resources](./media/quickstart-dotnetcore/web-app-name-vs2019.png)
+    :::image type="content" source="media/quickstart-dotnetcore/web-app-name-vs2019.png" border="true" alt-text="Create app resources":::
 
    Once the wizard completes, the Azure resources are created for you and you are ready to publish.
 
 1. Select **Finish** to close the wizard.
 1. In the **Publish** page, click **Publish**. Visual Studio builds, packages, and publishes the app to Azure, and then launches the app in the default browser.
+
+    ### [.NET Core 3.1](#tab/netcore31)
+
+    You'll see the ASP.NET Core 3.1 web app displayed in the page.
+
+    :::image type="content" source="media/quickstart-dotnet/Azure-webapp-net.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Visual Studio - ASP.NET Core 3.1 web app in Azure":::
+
+    ### [.NET 5.0](#tab/net50)
+
+    You'll see the ASP.NET Core 5.0 web app displayed in the page.
+
+    :::image type="content" source="media/quickstart-dotnet/Azure-webapp-net.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Visual Studio - ASP.NET Core 5.0 web app in Azure":::
+
+    ### [.NET Framework 4.8](#tab/netframework48)
+
+    You'll see the ASP.NET Framework 4.8 web app displayed in the page.
+
+    :::image type="content" source="media/quickstart-dotnet/vs-Azure-webapp-net48.png" lightbox="media/quickstart-dotnet/vs-Azure-webapp-net48.png" border="true" alt-text="Visual Studio - ASP.NET Framework 4.8 web app in Azure":::
+
+    ---
 
 :::zone-end
 
@@ -379,8 +397,25 @@ To deploy your web app using the Visual Studio Azure Tools extension:
 
 1. When publishing completes, select **Browse Website** in the notification and select **Open** when prompted.
 
-   <!-- TODO: update this with an image-->
-   > Pretend this is a screenshot depicting the notification when it's done publishing
+    ### [.NET Core 3.1](#tab/netcore31)
+
+    You'll see the ASP.NET Core 3.1 web app displayed in the page.
+
+    :::image type="content" source="media/quickstart-dotnet/Azure-webapp-net.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Visual Studio Code - ASP.NET Core 3.1 web app in Azure":::
+
+    ### [.NET 5.0](#tab/net50)
+
+    You'll see the ASP.NET Core 5.0 web app displayed in the page.
+
+    :::image type="content" source="media/quickstart-dotnet/Azure-webapp-net.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Visual Studio Code - ASP.NET Core 5.0 web app in Azure":::
+
+    ### [.NET Framework 4.8](#tab/netframework48)
+
+    You'll see the ASP.NET Framework 4.8 web app displayed in the page.
+
+    :::image type="content" source="media/quickstart-dotnet/Azure-webapp-net48.png" lightbox="media/quickstart-dotnet/vs-Azure-webapp-net48.png" border="true" alt-text="Visual Studio Code - ASP.NET Framework 4.8 web app in Azure":::
+
+    ---
 
 :::zone-end
 
@@ -407,9 +442,25 @@ Browse to the deployed application using your web browser.
 http://<app_name>.azurewebsites.net
 ```
 
-The .NET Core sample code is running in App Service on Linux with a built-in image.
+### [.NET Core 3.1](#tab/netcore31)
 
-![Sample app running in Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
+You'll see the ASP.NET Core 3.1 web app displayed in the page.
+
+:::image type="content" source="media/quickstart-dotnet/Azure-webapp-net.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="CLI - ASP.NET Core 3.1 web app in Azure":::
+
+### [.NET 5.0](#tab/net50)
+
+You'll see the ASP.NET Core 5.0 web app displayed in the page.
+
+:::image type="content" source="media/quickstart-dotnet/Azure-webapp-net.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="CLI - ASP.NET Core 5.0 web app in Azure":::
+
+### [.NET Framework 4.8](#tab/netframework48)
+
+You'll see the ASP.NET Framework 4.8 web app displayed in the page.
+
+:::image type="content" source="media/quickstart-dotnet/Azure-webapp-net48.png" lightbox="media/quickstart-dotnet/Azure-webapp-net48.png" border="true" alt-text="CLI - ASP.NET Framework 4.8 web app in Azure":::
+
+---
 
 :::zone-end
 
@@ -436,7 +487,25 @@ Follow these steps to update and redeploy your web app:
 
     When publishing completes, Visual Studio launches a browser to the URL of the web app.
 
-    :::image type="content" source="media/quickstart-dotnet/Azure-webapp-net.png" alt-text="Updated ASP.NET web app in Azure." border="true":::
+    ### [.NET Core 3.1](#tab/netcore31)
+
+    You'll see the updated ASP.NET Core 3.1 web app displayed in the page.
+
+    :::image type="content" source="media/quickstart-dotnet/updated-Azure-webapp-net.png" lightbox="media/quickstart-dotnet/updated-Azure-webapp-net.png" border="true" alt-text="Visual Studio - Updated ASP.NET Core 3.1 web app in Azure":::
+
+    ### [.NET 5.0](#tab/net50)
+
+    You'll see the updated ASP.NET Core 5.0 web app displayed in the page.
+
+    :::image type="content" source="media/quickstart-dotnet/updated-Azure-webapp-net.png" lightbox="media/quickstart-dotnet/updated-Azure-webapp-net.png" border="true" alt-text="Visual Studio - Updated ASP.NET Core 5.0 web app in Azure":::
+
+    ### [.NET Framework 4.8](#tab/netframework48)
+
+    You'll see the updated ASP.NET Framework 4.8 web app displayed in the page.
+
+    :::image type="content" source="media/quickstart-dotnet/vs-updated-Azure-webapp-net48.png" lightbox="media/quickstart-dotnet/vs-updated-Azure-webapp-net48.png" border="true" alt-text="Visual Studio - Updated ASP.NET Framework 4.8 web app in Azure":::
+
+    ---
 
 :::zone-end
 
@@ -464,19 +533,19 @@ Follow these steps to update and redeploy your web app:
 
     You'll see the updated ASP.NET Core 3.1 web app displayed in the page.
 
-    :::image type="content" source="media/quickstart-dotnet/Azure-webapp-net.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Updated ASP.NET Core 3.1 web app in Azure":::
+    :::image type="content" source="media/quickstart-dotnet/updated-Azure-webapp-net.png" lightbox="media/quickstart-dotnet/updated-Azure-webapp-net.png" border="true" alt-text="Visual Studio Code - Updated ASP.NET Core 3.1 web app in Azure":::
 
     ### [.NET 5.0](#tab/net50)
 
     You'll see the updated ASP.NET Core 5.0 web app displayed in the page.
 
-    :::image type="content" source="media/quickstart-dotnet/Azure-webapp-net.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Updated ASP.NET Core 5.0 web app in Azure":::
+    :::image type="content" source="media/quickstart-dotnet/updated-Azure-webapp-net.png" lightbox="media/quickstart-dotnet/updated-Azure-webapp-net.png" border="true" alt-text="Visual Studio Code - Updated ASP.NET Core 5.0 web app in Azure":::
 
     ### [.NET Framework 4.8](#tab/netframework48)
 
     You'll see the updated ASP.NET Framework 4.8 web app displayed in the page.
 
-    :::image type="content" source="media/quickstart-dotnet/Azure-webapp-net48.png" lightbox="media/quickstart-dotnet/Azure-webapp-net48.png" border="true" alt-text="Updated ASP.NET Framework 4.8 web app in Azure":::
+    :::image type="content" source="media/quickstart-dotnet/updated-Azure-webapp-net48.png" lightbox="media/quickstart-dotnet/updated-Azure-webapp-net48.png" border="true" alt-text="Visual Studio Code - Updated ASP.NET Framework 4.8 web app in Azure":::
 
     ---
 
@@ -509,19 +578,19 @@ Once deployment has completed, switch back to the browser window that opened in 
 
 You'll see the updated ASP.NET Core 3.1 web app displayed in the page.
 
-:::image type="content" source="media/quickstart-dotnet/Azure-webapp-net.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Updated ASP.NET Core 3.1 web app in Azure":::
+:::image type="content" source="media/quickstart-dotnet/Azure-webapp-net.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="CLI - Updated ASP.NET Core 3.1 web app in Azure":::
 
 ### [.NET 5.0](#tab/net50)
 
 You'll see the updated ASP.NET Core 5.0 web app displayed in the page.
 
-:::image type="content" source="media/quickstart-dotnet/Azure-webapp-net.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Updated ASP.NET Core 5.0 web app in Azure":::
+:::image type="content" source="media/quickstart-dotnet/Azure-webapp-net.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="CLI - Updated ASP.NET Core 5.0 web app in Azure":::
 
 ### [.NET Framework 4.8](#tab/netframework48)
 
 You'll see the updated ASP.NET Framework 4.8 web app displayed in the page.
 
-:::image type="content" source="media/quickstart-dotnet/Azure-webapp-net48.png" lightbox="media/quickstart-dotnet/Azure-webapp-net48.png" border="true" alt-text="Updated ASP.NET Framework 4.8 web app in Azure":::
+:::image type="content" source="media/quickstart-dotnet/Azure-webapp-net48.png" lightbox="media/quickstart-dotnet/Azure-webapp-net48.png" border="true" alt-text="CLI - Updated ASP.NET Framework 4.8 web app in Azure":::
 
 ---
 
@@ -542,26 +611,6 @@ On the **App Services** page, select the name of your web app.
 The **Overview** page for your web app, contains options for basic management like browse, stop, start, restart, and delete. The left menu provides further pages for configuring your app.
 
 :::image type="content" source="media/quickstart-dotnetcore/web-app-overview-page.png" alt-text="App Service in Azure portal":::
-
-### Configure the web app
-
-In addition to managing the app in the Azure Portal, there are configuration options available for each of the .NET targets.
-
-### [.NET Core 3.1](#tab/netcore31)
-
-Apps targeting .NET Core 3.1, are cross-platform. They can be deployed on either Linux, Windows or as Docker containers. To configure the web app, see [Configure ASP.NET Core 3.1 app](configure-language-dotnetcore.md).
-
-### [.NET 5.0](#tab/net50)
-
-Apps targeting .NET 5.0, are cross-platform. They can be deployed on either Linux, Windows or as Docker containers. To configure the web app, see [Configure ASP.NET Core 5.0 app](configure-language-dotnetcore.md).
-
-### [.NET Framework 4.8](#tab/netframework48)
-
-Apps targeting .NET Framework 4.8, can only be deployed to Windows App Service instances. To configure the web app, see [Configure ASP.NET Framework app](configure-language-dotnet-framework.md)
-
----
-
-For more information, see [Introduction to the App Service Environments](environment/intro.md).
 
 <!--
 ## Clean up resources - H2 added from the next three includes
