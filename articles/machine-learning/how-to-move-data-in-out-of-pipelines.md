@@ -24,7 +24,7 @@ This article will show you how to:
 - Split `Dataset` data into subsets, such as training and validation subsets
 - Create `OutputFileDatasetConfig` objects to transfer data to the next pipeline step
 - Use `OutputFileDatasetConfig` objects as input to pipeline steps
-- Create new `Dataset` objects from `OutputFileDatasetConfig` you wisƒh to persist
+- Create new `Dataset` objects from `OutputFileDatasetConfig` you wish to persist
 
 ## Prerequisites
 
