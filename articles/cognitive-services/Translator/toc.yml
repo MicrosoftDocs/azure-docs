@@ -144,8 +144,6 @@
         href: document-translation/create-sas-tokens.md 
     - name: Reference
       items:     
-      - name: Document Translation REST API
-        href: /rest/api/cognitiveservices/translator/documenttranslation
       - name: Get document formats
         href: document-translation/reference/get-document-formats.md
       - name: Get glossary formats
@@ -174,3 +172,4 @@
     href: https://aka.ms/TranslatorGitHub
   - name: Privacy and cookies 
     href: https://privacy.microsoft.com/en-US/privacystatement    
+
