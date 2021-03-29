@@ -72,3 +72,7 @@ HDInsight continues to make cluster reliability and performance improvements.
 ## Component version change
 Added support for Spark 3.0.0 and Kafka 2.4.1 as Preview. 
 You can find the current component versions for HDInsight 4.0 and HDInsight 3.6 in [this doc](./hdinsight-component-versioning.md).
+
+## Recommanded features
+### Service tags
+Service tags simplify restricting network access to the Azure services for Azure virtual machines and Azure virtual networks. Service tags in your network security group (NSG) rules allow or deny traffic to a specific Azure service. The rule can be set globally or per Azure region. Azure provides the maintenance of IP addresses underlying each tag. HDInsight service tags for network security groups (NSGs) are groups of IP addresses for health and management services. These groups help minimize complexity for security rule creation. HDInsight customers can enable service tag through Azure portal, PowerShell, and REST API. For more information, see [Network security group (NSG) service tags for Azure HDInsight](./hdinsight-service-tags.md).
