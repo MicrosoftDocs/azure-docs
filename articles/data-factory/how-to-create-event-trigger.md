@@ -72,6 +72,9 @@ This section shows you how to create a storage event trigger within the Azure Da
 
 1. Click **Finish** once you are done.
 
+> [!NOTE]
+> If you are creating your pipeline and trigger in Azure Synapse Analytics you must use `@trigger().outputs.body.fileName` and `@trigger().outputs.body.folderPath` as parameters to capture blob information instead of `@triggerBody().fileName` and `@triggerBody().folderPath`.
+
 ## JSON schema
 
 The following table provides an overview of the schema elements that are related to storage event triggers:
