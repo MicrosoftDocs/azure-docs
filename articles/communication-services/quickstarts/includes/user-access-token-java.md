@@ -6,7 +6,7 @@ author: tomaschladek
 manager: nmurav
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 08/20/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
@@ -55,6 +55,8 @@ From the project directory:
 Use the following code to begin:
 
 ```java
+package com.communication.quickstart;
+
 import com.azure.communication.common.*;
 import com.azure.communication.identity.*;
 import com.azure.communication.identity.models.*;
@@ -62,6 +64,7 @@ import com.azure.core.credential.*;
 import com.azure.core.http.*;
 import com.azure.core.http.netty.*;
 
+import java.io.IOException;
 import java.time.*;
 import java.util.*;
 
@@ -106,6 +109,8 @@ You can also provide the entire connection string using the `connectionString()`
 ```java
 // Your can find your connection string from your resource in the Azure portal
 String connectionString = "<connection_string>";
+HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
+
 CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
     .connectionString(connectionString)
     .httpClient(httpClient)

@@ -241,6 +241,9 @@ Without filtering, endpoints receive a variety of events from Azure Digital Twin
 
 You can restrict the events being sent by adding a **filter** for an endpoint to your event route.
 
+>[!NOTE]
+> Filters are **case-sensitive** and need to match on the payload case (which may not necessarily match the model case).
+
 To add a filter, you can use a PUT request to *https://{Your-azure-digital-twins-hostname}/eventRoutes/{event-route-name}?api-version=2020-10-31* with the following body:
 
 :::code language="json" source="~/digital-twins-docs-samples/api-requests/filter.json":::

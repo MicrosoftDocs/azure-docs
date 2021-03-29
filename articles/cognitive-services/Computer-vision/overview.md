@@ -24,6 +24,12 @@ Azure's Computer Vision service gives you access to advanced algorithms that pro
 
 You can create Computer Vision applications through a [client library SDK](./quickstarts-sdk/client-library.md) or by calling the [REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) directly. This page broadly covers what you can do with Computer Vision.
 
+This documentation contains the following types of articles:
+* The [quickstarts](./quickstarts-sdk/client-library.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
+* The [how-to guides](./Vision-API-How-to-Topics/HowToCallVisionAPI.md) contain instructions for using the service in more specific or customized ways.
+* The [conceptual articles](concept-recognizing-text.md) provide in-depth explanations of the service's functionality and features.
+* The [tutorials](./tutorials/storage-lab-tutorial.md) are longer guides that show you how to use this service as a component in broader business solutions.
+
 ## Optical Character Recognition (OCR)
 
 Computer Vision includes [Optical Character Recognition (OCR)](concept-recognizing-text.md) capabilities. You can use the new Read API to extract printed and handwritten text from images and documents. It uses deep learning based models and works with text on a variety of surfaces and backgrounds. These include business documents, invoices, receipts, posters, business cards, letters, and whiteboards. The OCR APIs support extracting printed text in [several languages](./language-support.md). Follow a [quickstart](./quickstarts-sdk/client-library.md) to get started.

@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: krsh
 ms.author: krsh
-ms.date: 02/18/2021
+ms.date: 03/10/2021
 ---
 
 # How to create a virtual machine using your own image

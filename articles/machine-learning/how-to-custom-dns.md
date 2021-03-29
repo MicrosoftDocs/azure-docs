@@ -8,9 +8,9 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 11/20/2020
+ms.date: 03/12/2021
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, contperf-fy21q3
 ---
 
 # How to use your workspace with a custom DNS server
@@ -32,33 +32,22 @@ When using an Azure Machine Learning workspace with a private endpoint, there ar
 
 - Optionally, [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps).
 
-## FQDNs in use
-### These FQDNs are in use in the following regions: eastus, southcentralus, and westus2.
-The following list contains the fully qualified domain names (FQDN) used by your workspace:
+## Public regions
+
+The following list contains the fully qualified domain names (FQDN) used by your workspace if it is in a public region::
 
 * `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
 * `<workspace-GUID>.workspace.<region>.api.azureml.ms`
-* `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
-* `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
-* `<workspace-GUID>.workspace.<region>.aether.ms`
-* `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.net`
-* If you create a compute instance, you must also add an entry for `<instance-name>.<region>.instances.azureml.ms` with the private IP of the workspace private endpoint.
+* `ml-<workspace-name, truncated>-<region>-<workspace-guid>.notebooks.azure.net`
 
     > [!NOTE]
-    > Compute instances can be accessed only from within the virtual network.
-    
-### These FQDNs are in use in all other public regions
-The following list contains the fully qualified domain names (FQDN) used by your workspace:
-
-* `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
-* `<workspace-GUID>.workspace.<region>.api.azureml.ms`
-* `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.net`
+    > The workspace name for this FQDN may be truncated. Truncation is done to keep the FQDN less than or equal to 63 characters.
 * `<instance-name>.<region>.instances.azureml.ms`
 
     > [!NOTE]
     > Compute instances can be accessed only from within the virtual network.
 
-### Azure China 21Vianet regions
+## Azure China 21Vianet regions
 
 The following FQDNs are for Azure China 21Vianet regions:
 

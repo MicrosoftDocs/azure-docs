@@ -5,8 +5,9 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 03/08/2021
+ms.date: 03/12/2021
 ms.author: victorh
+ms.custom: references_regions
 ---
 
 # Azure Firewall Premium Preview features
@@ -96,6 +97,44 @@ or
 
 You're welcome to submit a request at [https://aka.ms/azfw-webcategories-request](https://aka.ms/azfw-webcategories-request).
  
+## Supported regions
+
+Azure Firewall Premium Preview is supported in the following regions:
+
+- West Europe (Public / Europe)
+- East US (Public / United States)
+- Australia East (Public / Australia)
+- Southeast Asia (Public / Asia Pacific)
+- UK South (Public / United Kingdom)
+- North Europe (Public / Europe)
+- East US 2 (Public / United States)
+- South Central US (Public / United States)
+- West US 2 (Public / United States)
+- West US (Public / United States)
+- Central US (Public / United States)
+- North Central US (Public / United States)
+- Japan East (Public / Japan)
+- East Asia (Public / Asia Pacific)
+- Canada Central (Public / Canada)
+- France Central (Public / France)
+- South Africa North (Public / South Africa)
+- UAE North (Public / UAE)
+- Switzerland North (Public / Switzerland)
+- Brazil South (Public / Brazil)
+- Norway East (Public / Norway)
+- Australia Central (Public / Australia)
+- Australia Central 2 (Public / Australia)
+- Australia Southeast (Public / Australia)
+- Canada East (Public / Canada)
+- Central US EUAP (Public / Canary (US))
+- France South (Public / France)
+- Japan West (Public / Japan)
+- Korea South (Public / Korea)
+- UAE Central (Public / UAE)
+- UK West (Public / United Kingdom)
+- West Central US (Public / United States)
+- West India (Public / India)
+
 
 ## Known issues
 
@@ -114,8 +153,7 @@ Untrusted customer signed certificates|Customer signed certificates are not trus
 |Certificate Propagation|After a CA certificate is applied on the firewall, it may take between 5-10 minutes for the certificate to take effect.|Fix scheduled for GA.|
 |IDPS Bypass|IDPS Bypass doesn't work for TLS terminated traffic, and Source IP address and Source IP Groups aren't supported.|Fix scheduled for GA.|
 |TLS 1.3 support|TLS 1.3 is partially supported. The TLS tunnel from client to the firewall is based on TLS 1.2, and from the firewall to the external Web server is based on TLS 1.3.|Updates are being investigated.|
-
-
+|KeyVault Private Endpoint|KeyVault supports Private Endpoint access to limit its network exposure. Trusted Azure Services can bypass this limitation if an exception is configured as described in the [KeyVault documentation](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). Azure Firewall is not currently listed as a trusted service and can't access the Key Vault.|Fix scheduled for GA.|
 
 
 ## Next steps

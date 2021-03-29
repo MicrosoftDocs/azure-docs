@@ -33,3 +33,4 @@ Next, configure the *appsettings.json* file to be copied to the output directory
 
 Keep the _**AdtE2ESample**_ project open in Visual Studio to continue using it in the tutorial.
 
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](digital-twins-local-credentials-outer.md)]

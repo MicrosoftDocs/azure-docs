@@ -78,6 +78,8 @@ Administrators should reference the following articles, based on their identity 
 - [Configure hybrid Azure Active Directory join for federated environment](hybrid-azuread-join-federated-domains.md)
 - [Configure hybrid Azure Active Directory join for managed environment](hybrid-azuread-join-managed-domains.md)
 
+### Non-persistent VDI
+
 When deploying non-persistent VDI, Microsoft recommends that IT administrators implement the guidance below. Failure to do so will result in your directory having lots of stale Hybrid Azure AD joined devices that were registered from your non-persistent VDI platform resulting in increased pressure on your tenant quota and risk of service interruption due to running out of tenant quota.
 
 - If you are relying on the System Preparation Tool (sysprep.exe) and if you are using a pre-Windows 10 1809 image for installation, make sure that image is not from a device that is already registered with Azure AD as hybrid Azure AD joined.
@@ -91,6 +93,15 @@ When deploying non-persistent VDI, Microsoft recommends that IT administrators i
 - Define and implement process for [managing stale devices](manage-stale-devices.md).
    - Once you have a strategy to identify your non-persistent Hybrid Azure AD joined devices (e.g. using computer display name prefix), you should be more aggressive on the clean-up of these devices to ensure your directory does not get consumed with lots of stale devices.
    - For non-persistent VDI deployments on Windows current and down-level, you should delete devices that have **ApproximateLastLogonTimestamp** of older than 15 days.
+
+### Persistent VDI
+
+When deploying persistent VDI, Microsoft recommends that IT administrators implement the guidance below. Failure to do so will result in deployment and authentication issues. 
+
+- If you are relying on the System Preparation Tool (sysprep.exe) and if you are using a pre-Windows 10 1809 image for installation, make sure that image is not from a device that is already registered with Azure AD as hybrid Azure AD joined.
+- If you are relying on a Virtual Machine (VM) snapshot to create additional VMs, make sure that snapshot is not from a VM that is already registered with Azure AD as Hybrid Azure AD join.
+
+In addition, we recommend you to implement process for [managing stale devices](manage-stale-devices.md). This will ensure your directory does not get consumed with lots of stale devices if you periodically reset your VMs.
  
 ## Next steps
 

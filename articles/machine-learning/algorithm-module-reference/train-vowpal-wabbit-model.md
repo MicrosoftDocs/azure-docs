@@ -88,6 +88,13 @@ Vowpal Wabbit supports incremental training by adding new data to an existing mo
 6. Submit the pipeline.  
 7. Select the module and select **Register dataset** under **Outputs+logs** tab in the right pane, to preserve the updated model in your Azure Machine Learning workspace.  If you don't specify a new name, the updated model overwrites the existing saved model.
 
+## Results
+
++ To generate scores from the model, use [Score Vowpal Wabbit Model](score-vowpal-wabbit-model.md).
+
+> [!NOTE]
+> If you need to deploy the trained model in the designer, make sure that [Score Vowpal Wabbit Model](score-vowpal-wabbit-model.md) instead of **Score Model** is connected to the input of [Web Service Output module](web-service-input-output.md) in the inference pipeline.
+
 ## Technical notes
 
 This section contains implementation details, tips, and answers to frequently asked questions.

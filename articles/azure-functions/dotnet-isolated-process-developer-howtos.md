@@ -7,7 +7,7 @@ ms.topic: how-to
 zone_pivot_groups: development-environment-functions
 ---
 
-# Develop and publish .NET 5 function using Azure Functions 
+# Develop and publish .NET 5 functions using Azure Functions 
 
 This article shows you how to work with C# functions using .NET 5.0, which run out-of-process from the Azure Functions runtime. You'll learn how to create, debug locally, and publish these .NET isolated process functions to Azure. In Azure, these functions run in an isolated process that supports .NET 5.0. To learn more, see [Guide for running functions on .NET 5.0 in Azure](dotnet-isolated-process-guide.md).
 
