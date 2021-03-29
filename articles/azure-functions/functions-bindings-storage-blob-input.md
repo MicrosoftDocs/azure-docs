@@ -262,6 +262,8 @@ The `dataType` property determines which binding is used. The following values a
 | `string` | N | Uses generic binding and casts the input type as a `string` | `def main(input: str)` |
 | `binary` | N | Uses generic binding and casts the input blob as `bytes` Python object | `def main(input: bytes)` |
 
+If the `dataType` property is not defined in function.json, the default value is `string`.
+
 Here's the Python code:
 
 ```python
