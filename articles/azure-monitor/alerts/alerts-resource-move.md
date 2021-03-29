@@ -5,8 +5,7 @@ author: harelbr
 ms.author: harelbr
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 06/26/2020
-ms.subservice: alerts
+ms.date: 02/14/2021
 ---
 # How to update alert rules or action rules when their target resource moves to a different Azure region
 
@@ -42,7 +41,6 @@ The problem applies to these rule types:
 
 - Activity log alert rules
 - Action rules
-- Classic alerts
 - Metric alerts – For more information, see the next section [Alert rules based on metrics](#alert-rules-based-on-metrics).
 
 > [!NOTE]

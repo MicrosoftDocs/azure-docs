@@ -18,7 +18,7 @@ ms.custom: how-to, contperf-fy21q1, devx-track-python, data4ml
 
 # Connect to storage services on Azure
 
-In this article, learn how to connect to data storage services on Azure with Azure Machine Learning datastores and the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
+In this article, learn how to connect to data storage services on Azure with Azure Machine Learning datastores and the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro).
 
 Datastores securely connect to your storage service on Azure without putting your authentication credentials and the integrity of your original data source at risk. They store connection information, like your subscription ID and token authorization in your [Key Vault](https://azure.microsoft.com/services/key-vault/) that's associated with the workspace, so you can securely access your storage without having to hard code them in your scripts. You can create datastores that connect to [these Azure storage solutions](#matrix).
 
@@ -27,7 +27,7 @@ To understand where datastores fit in Azure Machine Learning's overall data acce
 For a low code experience, see how to use the [Azure Machine Learning studio to create and register datastores](how-to-connect-data-ui.md#create-datastores).
 
 >[!TIP]
-> This article assumes you want to connect to your storage service with credential-based authentication credentials, like a service principal or a shared access signature (SAS) token. Keep in mind, if credentials are registered with datastores, all users with workspace *Reader* role are able to retrieve these credentials. [Learn more about workspace *Reader* role.](how-to-assign-roles.md#default-roles) <br><br>If this is a concern, learn how to [Connect to storage services with identity based access](how-to-identity-based-data-access.md). <br><br>This capability is an [experimental](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) preview feature, and may change at any time. 
+> This article assumes you want to connect to your storage service with credential-based authentication credentials, like a service principal or a shared access signature (SAS) token. Keep in mind, if credentials are registered with datastores, all users with workspace *Reader* role are able to retrieve these credentials. [Learn more about workspace *Reader* role.](how-to-assign-roles.md#default-roles) <br><br>If this is a concern, learn how to [Connect to storage services with identity based access](how-to-identity-based-data-access.md). <br><br>This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time. 
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ For a low code experience, see how to use the [Azure Machine Learning studio to 
 
 - An Azure storage account with a [supported storage type](#matrix).
 
-- The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
+- The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro).
 
 - An Azure Machine Learning workspace.
   
@@ -64,7 +64,7 @@ Datastores currently support storing connection information to the storage servi
 > [!TIP]
 > **For unsupported storage solutions**, and to save data egress cost during ML experiments, [move your data](#move) to a supported Azure storage solution. 
 
-| Storage&nbsp;type | Authentication&nbsp;type | [Azure&nbsp;Machine&nbsp;Learning studio](https://ml.azure.com/) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) |  [Azure&nbsp;Machine&nbsp;Learning CLI](reference-azure-machine-learning-cli.md) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; Rest API](/rest/api/azureml/) | VS Code
+| Storage&nbsp;type | Authentication&nbsp;type | [Azure&nbsp;Machine&nbsp;Learning studio](https://ml.azure.com/) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; Python SDK](/python/api/overview/azure/ml/intro) |  [Azure&nbsp;Machine&nbsp;Learning CLI](reference-azure-machine-learning-cli.md) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; Rest API](/rest/api/azureml/) | VS Code
 ---|---|---|---|---|---|---
 [Azure&nbsp;Blob&nbsp;Storage](../storage/blobs/storage-blobs-overview.md)| Account key <br> SAS token | ✓ | ✓ | ✓ |✓ |✓
 [Azure&nbsp;File&nbsp;Share](../storage/files/storage-files-introduction.md)| Account key <br> SAS token | ✓ | ✓ | ✓ |✓|✓
@@ -75,8 +75,8 @@ Datastores currently support storing connection information to the storage servi
 [Azure&nbsp;Database&nbsp;for&nbsp;MySQL](../mysql/overview.md) | SQL authentication|  | ✓* | ✓* |✓*|
 [Databricks&nbsp;File&nbsp;System](/azure/databricks/data/databricks-file-system)| No authentication | | ✓** | ✓ ** |✓** |
 
-\* MySQL is only supported for pipeline [DataTransferStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?preserve-view=true&view=azure-ml-py)<br />
-\*\* Databricks is only supported for pipeline [DatabricksStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?preserve-view=true&view=azure-ml-py)
+\* MySQL is only supported for pipeline [DataTransferStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep)<br />
+\*\* Databricks is only supported for pipeline [DatabricksStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep)
 
 
 ### Storage guidance
@@ -141,7 +141,7 @@ Within this section are examples for how to create and register a datastore via 
 * [Azure file share](#azure-file-share)
 * [Azure Data Lake Storage Generation 2](#azure-data-lake-storage-generation-2)
 
- To create datastores for other supported storage services, see the [reference documentation for the applicable `register_azure_*` methods](/python/api/azureml-core/azureml.core.datastore.datastore?preserve-view=true&view=azure-ml-py#&preserve-view=truemethods).
+ To create datastores for other supported storage services, see the [reference documentation for the applicable `register_azure_*` methods](/python/api/azureml-core/azureml.core.datastore.datastore#methods).
 
 If you prefer a low code experience, see [Connect to data with Azure Machine Learning studio](how-to-connect-data-ui.md).
 >[!IMPORTANT]
@@ -152,7 +152,7 @@ If you prefer a low code experience, see [Connect to data with Azure Machine Lea
 
 ### Azure blob container
 
-To register an Azure blob container as a datastore, use [`register_azure_blob_container()`](/python/api/azureml-core/azureml.core.datastore%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-).
+To register an Azure blob container as a datastore, use [`register_azure_blob_container()`](/python/api/azureml-core/azureml.core.datastore%28class%29#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-).
 
 The following code creates and registers the `blob_datastore_name` datastore to the `ws` workspace. This datastore accesses the `my-container-name` blob container on the `my-account-name` storage account, by using the provided account access key. Review the [storage access & permissions](#storage-access-and-permissions) section for guidance on virtual network scenarios, and where to find required authentication credentials. 
 
@@ -171,7 +171,7 @@ blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
 
 ### Azure file share
 
-To register an Azure file share as a datastore, use [`register_azure_file_share()`](/python/api/azureml-core/azureml.core.datastore%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-). 
+To register an Azure file share as a datastore, use [`register_azure_file_share()`](/python/api/azureml-core/azureml.core.datastore%28class%29#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-). 
 
 The following code creates and registers the `file_datastore_name` datastore to the `ws` workspace. This datastore accesses the `my-fileshare-name` file share on the `my-account-name` storage account, by using the provided account access key. Review the [storage access & permissions](#storage-access-and-permissions) section for guidance on virtual network scenarios, and where to find required authentication credentials. 
 
@@ -190,7 +190,7 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
 
 ### Azure Data Lake Storage Generation 2
 
-For an Azure Data Lake Storage Generation 2 (ADLS Gen 2) datastore, use [register_azure_data_lake_gen2()](/python/api/azureml-core/azureml.core.datastore.datastore?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) to register a credential datastore connected to an Azure DataLake Gen 2 storage with [service principal permissions](../active-directory/develop/howto-create-service-principal-portal.md).  
+For an Azure Data Lake Storage Generation 2 (ADLS Gen 2) datastore, use [register_azure_data_lake_gen2()](/python/api/azureml-core/azureml.core.datastore.datastore#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) to register a credential datastore connected to an Azure DataLake Gen 2 storage with [service principal permissions](../active-directory/develop/howto-create-service-principal-portal.md).  
 
 In order to utilize your service principal, you need to [register your application](../active-directory/develop/app-objects-and-service-principals.md) and grant the service principal data access via either Azure role-based access control (Azure RBAC) or access control lists (ACL). Learn more about [access control set up for ADLS Gen 2](../storage/blobs/data-lake-storage-access-control-model.md). 
 
@@ -243,13 +243,13 @@ With datasets, you can [download or mount](how-to-train-with-datasets.md#mount-v
 
 ## Get datastores from your workspace
 
-To get a specific datastore registered in the current workspace, use the [`get()`](/python/api/azureml-core/azureml.core.datastore%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-workspace--datastore-name-) static method on the `Datastore` class:
+To get a specific datastore registered in the current workspace, use the [`get()`](/python/api/azureml-core/azureml.core.datastore%28class%29#get-workspace--datastore-name-) static method on the `Datastore` class:
 
 ```Python
 # Get a named datastore from the current workspace
 datastore = Datastore.get(ws, datastore_name='your datastore name')
 ```
-To get the list of datastores registered with a given workspace, you can use the [`datastores`](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truedatastores) property on a workspace object:
+To get the list of datastores registered with a given workspace, you can use the [`datastores`](/python/api/azureml-core/azureml.core.workspace%28class%29#datastores) property on a workspace object:
 
 ```Python
 # List all datastores registered in the current workspace

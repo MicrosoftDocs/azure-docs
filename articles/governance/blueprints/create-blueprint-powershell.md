@@ -351,7 +351,7 @@ lock, and blueprint parameters, use the matching PowerShell parameters on the
 1. Run the blueprint deployment by assigning it to a subscription. As the **contributors** and
    **owners** parameters require an array of objectIds of the principals to be granted the role
    assignment, use
-   [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md)
+   [Azure Active Directory Graph API](/graph/migrate-azure-ad-graph-planning-checklist)
    for gathering the objectIds for use in the **AssignmentFile** for your own users, groups, or
    service principals.
 

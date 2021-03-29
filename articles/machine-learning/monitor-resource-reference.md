@@ -83,7 +83,7 @@ Azure Machine Learning has the following dimensions associated with its metrics.
 | NodeId | ID of the node created where job is running. Only available for CpuUtilization and GpuUtilization. |
 | RunId | ID of the run/job. Only available for CpuUtilization and GpuUtilization. |
 | ComputeType | The compute type that the run used. Only available for Completed runs, Failed runs, and Started runs. |
-| PipelineStepType | The type of [PipelineStep](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?preserve-view=true&view=azure-ml-py) used in the run. Only available for Completed runs, Failed runs, and Started runs. |
+| PipelineStepType | The type of [PipelineStep](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep) used in the run. Only available for Completed runs, Failed runs, and Started runs. |
 | PublishedPipelineId | The ID of the published pipeline used in the run. Only available for Completed runs, Failed runs, and Started runs. |
 | RunType | The type of run. Only available for Completed runs, Failed runs, and Started runs. |
 

@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 03/10/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -26,6 +26,8 @@ Your Azure AD B2C directory comes with a [built-in set of attributes](user-profi
 * A customer-facing application needs to persist a **LoyaltyId** attribute.
 * An identity provider has a unique user identifier, **uniqueUserGUID**, that must be persisted.
 * A custom user journey needs to persist the state of the user, **migrationStatus**, for other logic to operate on.
+
+The terms *extension property*, *custom attribute*, and *custom claim* refer to the same thing in the context of this article. The name varies depending on the context, such as application, object, or policy.
 
 Azure AD B2C allows you to extend the set of attributes stored on each user account. You can also read and write these attributes by using the [Microsoft Graph API](microsoft-graph-operations.md).
 
@@ -62,11 +64,7 @@ Once you've created a new user using a user flow, which uses the newly created c
 
 ## Azure AD B2C extensions app
 
-Extension attributes can only be registered on an application object, even though they might contain data for a user. The extension attribute is attached to the application called b2c-extensions-app. Do not modify this application, as it's used by Azure AD B2C for storing user data. You can find this application under Azure AD B2C, app registrations.
-
-The terms *extension property*, *custom attribute*, and *custom claim* refer to the same thing in the context of this article. The name varies depending on the context, such as application, object, or policy.
-
-## Get the application properties
+Extension attributes can only be registered on an application object, even though they might contain data for a user. The extension attribute is attached to the application called `b2c-extensions-app`. Do not modify this application, as it's used by Azure AD B2C for storing user data. You can find this application under Azure AD B2C, app registrations. Get the application properties:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
@@ -77,14 +75,6 @@ The terms *extension property*, *custom attribute*, and *custom claim* refer to 
     * **Application ID**. Example: `11111111-1111-1111-1111-111111111111`.
     * **Object ID**. Example: `22222222-2222-2222-2222-222222222222`.
 
-## Using custom attribute with MS Graph API
-
-Microsoft Graph API supports creating and updating a user with extension attributes. Extension attributes in the Graph API are named by using the convention `extension_ApplicationClientID_attributename`, where the `ApplicationClientID` is the **Application (client) ID** of the `b2c-extensions-app` application. Note that the **Application (client) ID** as it's represented in the extension attribute name includes no hyphens. For example:
-
-```json
-"extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
-``` 
-
 ::: zone pivot="b2c-custom-policy"
 
 ## Modify your custom policy
@@ -93,22 +83,27 @@ To enable custom attributes in your policy, provide **Application ID** and Appli
 
 1. Open the extensions file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Find the ClaimsProviders element. Add a new ClaimsProvider to the ClaimsProviders element.
-1. Replace `ApplicationObjectId` with the Object ID that you previously recorded. Then replace `ClientId` with the Application ID that you previously recorded in the below snippet.
+1. Insert the **Application ID** that you previously recorded, between the opening `<Item Key="ClientId">` and closing `</Item>` elements.
+1. Insert the **Application ObjectID** that you previously recorded, between the opening `<Item Key="ApplicationObjectId">` and closing `</Item>` elements.
 
     ```xml
-    <ClaimsProvider>
-      <DisplayName>Azure Active Directory</DisplayName>
-      <TechnicalProfiles>
-        <TechnicalProfile Id="AAD-Common">
-          <Metadata>
-            <!--Insert b2c-extensions-app application ID here, for example: 11111111-1111-1111-1111-111111111111-->  
-            <Item Key="ClientId"></Item>
-            <!--Insert b2c-extensions-app application ObjectId here, for example: 22222222-2222-2222-2222-222222222222-->
-            <Item Key="ApplicationObjectId"></Item>
-          </Metadata>
-        </TechnicalProfile>
-      </TechnicalProfiles> 
-    </ClaimsProvider>
+    <!-- 
+    <ClaimsProviders> -->
+      <ClaimsProvider>
+        <DisplayName>Azure Active Directory</DisplayName>
+        <TechnicalProfiles>
+          <TechnicalProfile Id="AAD-Common">
+            <Metadata>
+              <!--Insert b2c-extensions-app application ID here, for example: 11111111-1111-1111-1111-111111111111-->  
+              <Item Key="ClientId"></Item>
+              <!--Insert b2c-extensions-app application ObjectId here, for example: 22222222-2222-2222-2222-222222222222-->
+              <Item Key="ApplicationObjectId"></Item>
+            </Metadata>
+          </TechnicalProfile>
+        </TechnicalProfiles> 
+      </ClaimsProvider>
+    <!-- 
+    </ClaimsProviders> -->
     ```
 
 ## Upload your custom policy
@@ -163,6 +158,14 @@ The following example demonstrates the use of a custom attribute in Azure AD B2C
 ```
 
 ::: zone-end
+
+## Using custom attribute with MS Graph API
+
+Microsoft Graph API supports creating and updating a user with extension attributes. Extension attributes in the Graph API are named by using the convention `extension_ApplicationClientID_attributename`, where the `ApplicationClientID` is the **Application (client) ID** of the `b2c-extensions-app` application. Note that the **Application (client) ID** as it's represented in the extension attribute name includes no hyphens. For example:
+
+```json
+"extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyId": "212342" 
+``` 
 
 ## Next steps
 

@@ -61,10 +61,6 @@ The standard and premium CDN tiers provide the same compression functionality, b
    > Although it is possible, it is not recommended to apply compression to compressed formats. For example, ZIP, MP3, MP4, or JPG.
    > 
 
-   > [!NOTE]
-   > Modifying the default list of MIME types is currently not supported in Azure CDN Standard from Microsoft.
-   > 
-
 5. After making your changes, select **Save**.
 
 ### Premium CDN profiles

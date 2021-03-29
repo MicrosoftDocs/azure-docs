@@ -5,7 +5,6 @@ author: dkamstra
 ms.author: dukek
 ms.topic: conceptual
 ms.date: 3/12/2018
-ms.subservice: alerts
 ---
 
 # Rate limiting for Voice, SMS, emails, Azure App push notifications and webhook posts

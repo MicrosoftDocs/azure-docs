@@ -21,7 +21,7 @@ Make sure you have a code editor such as [Visual Studio Code](https://code.visua
 
 Install the [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (version 2.7.1505 or higher) to run Python Azure Function apps locally.
 
-Azure Functions requires [Python 3.6 or 3.7](https://www.python.org/downloads/).
+Azure Functions requires [Python 3.6+](https://www.python.org/downloads/). (See [Supported Python versions](/azure/azure-functions/functions-reference-python#python-version))
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

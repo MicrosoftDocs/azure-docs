@@ -8,15 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: overview
 ms.subservice: translator-text
-ms.date: 02/15/2021
+ms.date: 03/15/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: translator, text translation, machine translation, translation service
 ---
-
 # What is the Translator service?
 
-Translator is a cloud-based machine translation service and is part of the [Azure Cognitive Services](../../index.yml?panel=ai&pivot=products) family of cognitive APIs used to build intelligent apps. Translator is easy to integrate in your applications, websites, tools, and solutions. It allows you to add multi-language user experiences in [more than 70 languages](./language-support.md). And it can be used on any hardware platform with any operating system for text translation.
+Translator is a cloud-based machine translation service and is part of the [Azure Cognitive Services](../../index.yml?panel=ai&pivot=products) family of cognitive APIs used to build intelligent apps. Translator is easy to integrate in your applications, websites, tools, and solutions. It allows you to add multi-language user experiences in [90 languages and dialects](./language-support.md) and can be used for text translation with any operating system.
+
+This documentation contains the following article types:  
+
+* [**Quickstarts**](quickstart-translator.md) are getting-started instructions to guide you through making requests to the service.  
+* [**How-to guides**](translator-how-to-signup.md) contain instructions for using the service in more specific or customized ways.  
+* [**Concepts**](character-counts.md) provide in-depth explanations of the service functionality and features.  
+* [**Tutorials**](tutorial-wpf-translation-csharp.md) are longer guides that show you how to use the service as a component in broader business solutions.  
+
 
 ## About Microsoft Translator
 
@@ -40,11 +47,9 @@ Learn more about [how NMT works](https://www.microsoft.com/en-us/translator/mt.a
 
 ## Improve translations with Custom Translator
 
- Custom Translator, an extension of the Translator service, can be used in conjunction with Translator to customize the neural translation system and improve the translation for your specific terminology and style.
+ [Custom Translator](customization.md), an extension of the Translator service, can be used to customize the neural translation system and improve the translation for your specific terminology and style.
 
 With Custom Translator, you can build translation systems to handle the terminology used in your own business or industry. Your customized translation system can easily integrate with your existing applications, workflows, websites, and devices, through the regular Translator, by using the category parameter.
-
-Learn more about [Custom Translator](customization.md).
 
 ## Next steps
 

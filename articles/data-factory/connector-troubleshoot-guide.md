@@ -827,7 +827,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
     If the private key content is from your key vault, the original key file can work if you upload it directly to the SFTP linked service.
 
-    For more information, see [Copy data from and to the SFTP server by using Azure Data Factory](./connector-sftp.md#using-ssh-public-key-authentication). The private key content is base64 encoded SSH private key content.
+    For more information, see [Copy data from and to the SFTP server by using Azure Data Factory](./connector-sftp.md#use-ssh-public-key-authentication). The private key content is base64 encoded SSH private key content.
 
     Encode *entire* original private key file with base64 encoding, and store the encoded string in your key vault. The original private key file is the one that can work on the SFTP linked service if you select **Upload** from the file.
 

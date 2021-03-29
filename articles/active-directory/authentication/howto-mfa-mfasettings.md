@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 03/15/2021
 
 ms.author: justinha
 author: justinha
@@ -54,7 +54,7 @@ To configure account lockout settings, complete the following settings:
 
 ## Block and unblock users
 
-If a user's device has been lost or stolen, you can block Azure AD Multi-Factor Authentication attempts for the associated account. Any Azure AD Multi-Factor Authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked.
+If a user's device has been lost or stolen, you can block Azure AD Multi-Factor Authentication attempts for the associated account. Any Azure AD Multi-Factor Authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked. We have published a video on [how to block and unblock users in your tenant](https://www.youtube.com/watch?v=WdeE1On4S1o) to show you how to do this.
 
 ### Block a user
 
@@ -118,7 +118,7 @@ OATH TOTP hardware tokens typically come with a secret key, or seed, pre-program
 
 Programmable OATH TOTP hardware tokens that can be reseeded can also be set up with Azure AD in the software token setup flow.
 
-OATH hardware tokens are supported as part of a public preview. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+OATH hardware tokens are supported as part of a public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 ![Uploading OATH tokens to the MFA OATH tokens blade](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
 

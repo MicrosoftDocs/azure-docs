@@ -27,7 +27,7 @@ With Azure Machine Learning, you can create Docker images from trained machine l
 ## Prerequisites
 
 * An Azure Machine Learning workspace. For more information, see the [Create a workspace](how-to-manage-workspace.md) article.
-* The [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* The [Azure CLI](/cli/azure/install-azure-cli).
 * A trained machine learning model registered in your workspace. If you do not have a model, use the [Image classification tutorial: train model](tutorial-train-models-with-aml.md) to train and register one.
 
     > [!IMPORTANT]
@@ -59,7 +59,7 @@ For more information on entry script, see [Define scoring code](./how-to-deploy-
 These entities are encapsulated into an __inference configuration__. The inference configuration references the entry script and other dependencies.
 
 > [!IMPORTANT]
-> When creating an inference configuration for use with Azure Functions, you must use an [Environment](/python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py) object. Please note that if you are defining a custom environment, you must add azureml-defaults with version >= 1.0.45 as a pip dependency. This package contains the functionality needed to host the model as a web service. The following example demonstrates creating an environment object and using it with an inference configuration:
+> When creating an inference configuration for use with Azure Functions, you must use an [Environment](/python/api/azureml-core/azureml.core.environment%28class%29) object. Please note that if you are defining a custom environment, you must add azureml-defaults with version >= 1.0.45 as a pip dependency. This package contains the functionality needed to host the model as a web service. The following example demonstrates creating an environment object and using it with an inference configuration:
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -92,7 +92,7 @@ pip install azureml-contrib-functions
 
 ## Create the image
 
-To create the Docker image that is deployed to Azure Functions, use [azureml.contrib.functions.package](/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py) or the specific package function for the trigger you are interested in using. The following code snippet demonstrates how to create a new package with a blob trigger from the model and inference configuration:
+To create the Docker image that is deployed to Azure Functions, use [azureml.contrib.functions.package](/python/api/azureml-contrib-functions/azureml.contrib.functions) or the specific package function for the trigger you are interested in using. The following code snippet demonstrates how to create a new package with a blob trigger from the model and inference configuration:
 
 > [!NOTE]
 > The code snippet assumes that `model` contains a registered model, and that `inference_config` contains the configuration for the inference environment. For more information, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
@@ -297,4 +297,4 @@ For more information on using blob triggers, see the [Create a function triggere
 * Learn more about Blob storage triggers [Azure Blob storage bindings](../azure-functions/functions-bindings-storage-blob.md).
 * [Deploy your model to Azure App Service](how-to-deploy-app-service.md).
 * [Consume a ML Model deployed as a web service](how-to-consume-web-service.md)
-* [API Reference](/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py)
+* [API Reference](/python/api/azureml-contrib-functions/azureml.contrib.functions)

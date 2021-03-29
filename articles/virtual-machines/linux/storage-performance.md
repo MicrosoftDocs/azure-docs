@@ -3,8 +3,9 @@ title: Optimize performance on Azure Lsv2-series virtual machines - Storage
 description: Learn how to optimize performance for your solution on the Lsv2-series virtual machines using a Linux example.
 services: virtual-machines-linux
 author: laurenhughes
-ms.service: virtual-machines-linux
-ms-subservice: sizes
+ms.service: virtual-machines
+ms-subservice: vm-sizes-storage
+ms.collection: linux
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
