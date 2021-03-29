@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 03/24/2021
+ms.date: 03/29/2021
 tags: connectors
 ---
 
@@ -519,9 +519,11 @@ If you can't send IDoc packets from SAP to your logic app's trigger, see the Tra
 
 This error message means unexpected failures happen when the catch-all handler for the channel terminates the channel due to an error, and rebuilds the channel to process other messages.
 
-To acknowledge that your logic app received the IDoc, [add a Response action](../connectors/connectors-native-reqres.md#add-a-response-action) that returns a `200 OK` status code. The IDoc is transported through tRFC, which doesn't allow for a response payload.
+To acknowledge that your logic app received the IDoc, [add a Response action](../connectors/connectors-native-reqres.md#add-a-response-action) that returns a `200 OK` status code. Leave the body empty and don't change or add to the headers. The IDoc is transported through tRFC, which doesn't allow for a response payload.
 
-If you need to reject the IDoc instead, respond with any HTTP status code other than `200 OK` so that the SAP Adapter returns an exception back to SAP on your behalf. 
+To reject the IDoc instead, respond with any HTTP status code other than `200 OK`. The SAP Adapter then returns an exception back to SAP on your behalf. You should only reject the IDoc to signal transport errors back to SAP, such as a misrouted IDoc that your application can't process. You shouldn't reject an IDoc for application-level errors, such as issues with the data contained in the IDoc. If you delay transport acceptance for application-level validation, you might experience negative performance due to blocking your connection from transporting other IDocs.
+
+If you're receiving this error message and experience systemic failures calling Logic Apps, check that you've configured the network settings for your on-premises data gateway service for your specific environment. For example, if your network environment requires the use of a proxy to call Azure endpoints, you need to configure your on-premises data gateway service to use your proxy. For more information, see [Proxy Configuration](/dotnet/framework/network-programming/proxy-configuration).
 
 If you're receiving this error message and experience intermittent failures calling Logic Apps, you might need to increase your retry count and/or retry interval. 
 
