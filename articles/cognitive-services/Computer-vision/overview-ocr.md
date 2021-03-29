@@ -1,22 +1,32 @@
 ---
-title: Optical Character Recognition (OCR) - Computer Vision
+title: What is Optical character recognition?
 titleSuffix: Azure Cognitive Services
-description: Concepts related to optical character recognition (OCR) of images and documents with printed and handwritten text using the Computer Vision API.
+description: The optical character recognition (OCR) service extracts visible text in an image and returns it as structured strings.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: conceptual
-ms.date: 08/11/2020
+ms.topic: overview
+ms.date: 03/29/2021
 ms.author: pafarley
 ms.custom: "seodec18, devx-track-csharp"
 ---
 
-# Optical Character Recognition (OCR)
+# What is Optical character recognition?
 
-Azure's Computer Vision API includes Optical Character Recognition (OCR) capabilities that extract printed or handwritten text from images. You can extract text from images, such as photos of license plates or containers with serial numbers, as well as from documents - invoices, bills, financial reports, articles, and more.
+The Optical character recognition (OCR) service allows you to extract printed or handwritten text from images, such as photos of license plates or containers with serial numbers, as well as from documents&mdash;invoices, bills, financial reports, articles, and more. It uses deep learning based models and works with text on a variety of surfaces and backgrounds.
+
+The OCR APIs support extracting printed text in [several languages](./language-support.md). Follow a [quickstart](./quickstarts-sdk/client-library.md) to get started.
+
+![OCR demos](./Images/ocr-demo.gif)
+
+This documentation contains the following types of articles:
+* The [quickstarts](./quickstarts-sdk/analyze-image-client-library.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
+* The [how-to guides](./Vision-API-How-to-Topics/HowToCallVisionAPI.md) contain instructions for using the service in more specific or customized ways.
+* The [conceptual articles](concept-recognizing-text.md) provide in-depth explanations of the service's functionality and features.
+* The [tutorials](./tutorials/storage-lab-tutorial.md) are longer guides that show you how to use this service as a component in broader business solutions.
 
 ## Read API 
 
@@ -37,9 +47,7 @@ The **Read** call takes images and documents as its input. They have the followi
 >
 > The [Read call](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) has an optional request parameter for language. Read supports auto language identification and multilingual documents, so only provide a language code if you would like to force the document to be processed as that specific language.
 
-## OCR demo (examples)
 
-![OCR demos](./Images/ocr-demo.gif)
 
 ## Step 1: The Read operation
 
@@ -129,7 +137,7 @@ See the following example of a successful JSON response:
 ```
 
 ## Natural reading order output (Latin only)
-With the [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005), specify the order in which the text lines are output with the `readingOrder` query parameter. Use `natural` for a more human-friendly reading order output as shown in the following example. This feature is only supported for Latin languages.
+With the [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005), you can specify the order in which the text lines are output with the `readingOrder` query parameter. Use `natural` for a more human-friendly reading order output as shown in the following example. This feature is only supported for Latin languages.
 
 :::image border type="content" source="./Images/ocr-reading-order-example.png" alt-text="OCR Reading order example":::
 
@@ -157,6 +165,11 @@ The [OCR API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/co
 
 > [!NOTE]
 > The Computer Vison 2.0 RecognizeText operations are in the process of getting deprecated in favor of the new Read API covered in this article. Existing customers should [transition to using Read operations](upgrade-api-versions.md).
+
+
+## Data privacy and security
+
+As with all of the Cognitive Services, developers using the Computer Vision service should be aware of Microsoft's policies on customer data. See the [Cognitive Services page](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) on the Microsoft Trust Center to learn more.
 
 ## Next steps
 
