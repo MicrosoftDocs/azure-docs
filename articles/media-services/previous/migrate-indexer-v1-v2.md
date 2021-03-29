@@ -51,7 +51,7 @@ Azure Media Services v3 API enables you to extract insights from your video and 
 
 To get started see:
 
-* [Tutorial](../latest/analyze-videos-tutorial-with-api.md)
+* [Tutorial](../latest/analyze-videos-tutorial.md)
 * AudioAnalyzerPreset samples: [Java SDK](https://github.com/Azure-Samples/media-services-v3-java/tree/master/AudioAnalytics/AudioAnalyzer) or [.NET SDK](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/AudioAnalytics/AudioAnalyzer)
 * VideoAnalyzerPreset samples: [Java SDK](https://github.com/Azure-Samples/media-services-v3-java/tree/master/VideoAnalytics/VideoAnalyzer) or [.NET SDK](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/VideoAnalytics/VideoAnalyzer)
 

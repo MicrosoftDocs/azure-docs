@@ -39,7 +39,7 @@ sections:
           A Media Services asset is an Azure Storage account container that is used for each video file you upload.  It has a unique identifier that is used with Transforms and other operations.  See [Assets in Media Service v3](assets-concept.md).
       - question: How do I create a Media Services Asset?
         answer: | 
-          Every time you want to upload a media file and perform and do something with it like encoding or streaming, you create an Asset to store the media file and other files associated with that media file. Assets are automatically created for you if you use the Azure portal. If you are not using the portal to upload files, you must create an Asset first.  See [Create an Asset](how-to-create-asset.md) to learn how to create one.
+          Every time you want to upload a media file and perform and do something with it like encoding or streaming, you create an Asset to store the media file and other files associated with that media file. Assets are automatically created for you if you use the Azure portal. If you are not using the portal to upload files, you must create an Asset first.  See [Create an Asset](asset-create-how-to.md) to learn how to create one.
       - question: What is a Media Services Transform?
         answer: |
           A Transform contains the instructions for encoding or analyzing media files. Think of it as a recipe. It can apply more than one encoding instruction for a media file.  It is used by a job to transform files. For more information on Transforms, see Transforms in [Transforms and Jobs in Media Services](transforms-jobs-concept.md#transforms).

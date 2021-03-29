@@ -37,7 +37,7 @@ See [Video-on-demand digital media](/azure/architecture/solution-ideas/articles/
 
 ## Gridwich media processing system
 
-The Gridwich system embodies best practices for processing and delivering media assets on Azure. Although the Gridwich system is media-specific, the message processing and eventing framework can apply to any stateless event processing workflow.
+The Gridwich system demonstrates best practices for processing and delivering media assets on Azure. Although the Gridwich system is media-specific, the message processing and eventing framework can apply to any stateless event processing workflow.
 
 See [Gridwich media processing system](/azure/architecture/reference-architectures/media-services/gridwich-architecture) in the Azure Architecture center.
 
