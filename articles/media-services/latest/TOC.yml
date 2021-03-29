@@ -451,6 +451,8 @@
       href: download-results-howto.md
     - name: Signal descriptive audio
       href: signal-descriptive-audio-howto.md
+    - name: Publish
+      href: asset-publish-cli-how-to.md
   - name: Security
     items:
     - name: Roll storage access keys
