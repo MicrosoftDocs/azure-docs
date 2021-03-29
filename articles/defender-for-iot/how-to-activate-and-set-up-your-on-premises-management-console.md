@@ -32,19 +32,25 @@ If you forgot your password, select the **Recover Password**  option, and see [P
 
 After you sign in for the first time, you will need to activate the on-premises management console by getting, and uploading an activation file. 
 
-To get an activation file:
+To activate the on-premises management console:
 
-1. Navigate to the **Pricing** page of the Azure Defender for IoT portal. 
-1. Select the subscription to associate the on-premises management console to.
-1. Select the **Download the activation file for the management console** tab. The activation file is downloaded.
+1. Sign in to on-premises management console.
+
+1. Select the **Take Action** link in the alert notification at the top of the screen.
+
+   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/take-action.png" alt-text="Select the Take Action link from the alert on the top of the screen.":::
+
+1. In the **Activation** popup screen select the **Azure Portal** link.
+
+   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/azure-portal.png" alt-text="Select the Azure portal link from the popup message.":::
+ 
+1. Select a subscription to associate the on-premises management console to, and then select the **Download the activation file for the management console** tab. The activation file is downloaded.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/cloud_download_opm_activation_file.png" alt-text="Download the activation file.":::
 
-To upload an activation file:
+1. Navigate back to the **Activation** popup screen and select **Choose File**.
 
-1. Navigate to the **System Settings** page on the on-premises management console.
-1. Select the **Activation** icon :::image type="icon" source="media/how-to-manage-sensors-from-the-on-premises-management-console/activation-icon.png" border="false":::.
-1. Select **Choose a File**, and select the file that downloaded.
+1. Select the downloaded file.
 
 After initial activation, the number of monitored devices can exceed the number of committed devices defined during onboarding. This occurs if you connect more sensors to the management console. If there's a discrepancy between the number of monitored devices, and the number of committed devices, a warning will appear on the management console. If this happens, upload a new activation file.
 
@@ -71,7 +77,9 @@ The console supports the following types of certificates:
 To upload a certificate:
 
 1. When you're prompted after sign-in, define a certificate name.
+
 1. Upload the CRT and key files.
+
 1. Enter a passphrase and upload a PEM file if necessary.
 
 You might need to refresh your screen after you upload the CA-signed certificate.
@@ -79,6 +87,7 @@ You might need to refresh your screen after you upload the CA-signed certificate
 To disable validation between the management console and connected sensors:
 
 1. Select **Next**.
+
 1. Turn off the **Enable system-wide validation** toggle.
 
 For information about uploading a new certificate, supported certificate files, and related items, see [Manage the on-premises management console](how-to-manage-the-on-premises-management-console.md).
@@ -95,21 +104,23 @@ Two options are available for connecting Azure Defender for IoT sensors to the o
 
 After connecting, you must set up a site with these sensors.
 
-### Connect sensors from the sensor console
+### Connect sensors to the on-premises management console from the sensor console
 
-To connect specific sensors to the on-premises management console from the sensor console:
+You can connect sensors to the on-premises management console from the sensor console:
 
-1. On the left pane of the sensor console, select **System Settings**.
+1. On the on-premises management console select **System Settings**.
 
-2. Select **Connection to Management**.
+1. Copy the **Copy Connection String**.
 
-   :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/connection-status-window-not-connected.png" alt-text="Screenshot of the status window of an on-premises management console, showing Unconnected.":::
+   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/connection-string.png" alt-text="Copy the connection string for the sensor.":::
 
-3. In the **Address** text box, enter the IP address of the on-premises management console to which you want to connect.
+1. On the sensor navigate to **System Settings** and select **Connection to Management Console** :::image type="icon" source="media/how-to-manage-sensors-from-the-on-premises-management-console/connection-to-management-console.png" border="false":::
 
-4. Select **Connect**. The status changes:
+2. Paste the copied connection string from the on-premises management console into the the **Connection string** field.
 
-   :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/connection-status-window-connected.png" alt-text="Screenshot of the status window of an on-premises management console, showing Connected.":::
+   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/paste-connection-string.png" alt-text="Paste the copied connection string into the connection string field.":::
+
+3. Select **Connect**.
 
 ### Connect sensors by using tunneling
 
