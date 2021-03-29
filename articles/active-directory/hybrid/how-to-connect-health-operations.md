@@ -41,8 +41,6 @@ You can configure the Azure AD Connect Health service to send email notification
 > When there are issues processing synchronization requests in our backend service, this service sends a notification email with the details of the error to the administrative contact email address(es) of your tenant. We heard feedback from customers that in certain cases the volume of these messages is prohibitively large so we are changing the way we send these messages. 
 >
 > Instead of sending a message for every sync error every time it occurs we will send out a daily digest of all errors the backend service has returned. This enables customers to process these errors in a more efficient manner and reduces the number of duplicate error messages.
->
-> We plan for this change to be implemented on January 15th, 2020.
 
 ## Delete a server or service instance
 

@@ -55,7 +55,7 @@
     - name: Licenses
       href: concept-mfa-licensing.md
     - name: MFA for Office 365
-      href: /office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide
+      href: /office365/admin/security-and-compliance/set-up-multi-factor-authentication
     - name: FAQ
       href: multi-factor-authentication-faq.md
   - name: Password protection
@@ -176,7 +176,7 @@
   - name: Reporting
     items:
     - name: Authentication methods activity
-      href: howto-authentication-methods-usage-insights.md
+      href: howto-authentication-methods-activity.md
     - name: SSPR Reports
       href: howto-sspr-reporting.md
     - name: MFA Reports

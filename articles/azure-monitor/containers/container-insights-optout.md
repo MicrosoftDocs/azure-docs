@@ -1,20 +1,20 @@
 ---
 title: How to Stop Monitoring Your Azure Kubernetes Service cluster | Microsoft Docs
-description: This article describes how you can discontinue monitoring of your Azure AKS cluster with Azure Monitor for containers.
+description: This article describes how you can discontinue monitoring of your Azure AKS cluster with Container insights.
 ms.topic: conceptual
 ms.date: 08/19/2019 
 ms.custom: devx-track-azurecli
 
 ---
 
-# How to stop monitoring your Azure Kubernetes Service (AKS) with Azure Monitor for containers
+# How to stop monitoring your Azure Kubernetes Service (AKS) with Container insights
 
 After you enable monitoring of your AKS cluster, you can stop monitoring the cluster if you decide you no longer want to monitor it. This article shows how to accomplish this using the Azure CLI or with the provided Azure Resource Manager templates.  
 
 
 ## Azure CLI
 
-Use the [az aks disable-addons](/cli/azure/aks#az-aks-disable-addons) command to disable Azure Monitor for containers. The command removes the agent from the cluster nodes, it does not remove the solution or the data already collected and stored in your Azure Monitor resource.  
+Use the [az aks disable-addons](/cli/azure/aks#az-aks-disable-addons) command to disable Container insights. The command removes the agent from the cluster nodes, it does not remove the solution or the data already collected and stored in your Azure Monitor resource.  
 
 ```azurecli
 az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG

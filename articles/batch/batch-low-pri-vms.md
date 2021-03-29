@@ -3,7 +3,7 @@ title: Run workloads on cost-effective low-priority VMs
 description: Learn how to provision low-priority VMs to reduce the cost of Azure Batch workloads.
 author: mscurrell
 ms.topic: how-to
-ms.date: 02/02/2021
+ms.date: 03/03/2021
 ms.custom: seodec18
 
 ---
@@ -21,9 +21,9 @@ Low-priority VMs are offered at a significantly reduced price compared with dedi
 > [!NOTE]
 > [Spot VMs](https://azure.microsoft.com/pricing/spot/) are now available for [single instance VMs](../virtual-machines/spot-vms.md) and [VM scale sets](../virtual-machine-scale-sets/use-spot.md). Spot VMs are an evolution of low-priority VMs, but differ in that pricing can vary and an optional maximum price can be set when allocating Spot VMs.
 >
-> Azure Batch pools will start supporting Spot VMs within a few months of them being generally available, with new versions of the [Batch APIs and tools](./batch-apis-tools.md). Once Spot VM support is available, low-priority VMs will be deprecated - they will continue to be supported using current APIs and tool versions for at least 12 months, to allow sufficient time for migration to Spot VMs.
+>Azure Batch pools will start supporting Spot VMs in the future, with new versions of the [Batch APIs and tools](./batch-apis-tools.md). After Spot VM support is available, low-priority VMs will be deprecated - they will continue to be supported using current APIs and tool versions for at least 12 months, to allow sufficient time for migration to Spot VMs.
 >
-> Spot VMs will not be supported for [Cloud Service Configuration](/rest/api/batchservice/pool/add#cloudserviceconfiguration) pools. To use Spot VMs, Cloud Service pools will need to be migrated to [Virtual Machine Configuration](/rest/api/batchservice/pool/add#virtualmachineconfiguration) pools.
+> Spot VMs will only be supported for Virtual Machine Configuration pools. To use Spot VMs, any Cloud Service Configuration pools will need to be [migrated to Virtual Machine Configuration pools](batch-pool-cloud-service-to-virtual-machine-configuration.md).
 
 ## Batch support for low-priority VMs
 

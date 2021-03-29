@@ -18,8 +18,6 @@ When **Azure Defender for container registries** is enabled, any image you push 
 
 When the scanner reports vulnerabilities to Security Center, Security Center presents the findings and related information as recommendations. In addition, the findings include related information such as remediation steps, relevant CVEs, CVSS scores, and more. You can view the identified vulnerabilities for one or more subscriptions, or for a specific registry.
 
-[!INCLUDE [Defender for container registries availability info](../../includes/security-center-availability-defender-for-container-registries.md)]
-
 
 ## Identify vulnerabilities in images in Azure container registries 
 

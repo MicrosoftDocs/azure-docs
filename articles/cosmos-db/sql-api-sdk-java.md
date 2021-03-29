@@ -38,14 +38,14 @@ This is the original Azure Cosmos DB Sync Java SDK v2 for SQL API which supports
 > This is *not* the latest Java SDK for Azure Cosmos DB! Consider using [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) for your project. To upgrade, follow the instructions in the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide and the [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) guide. 
 >
 
-| |  |
+| | Links |
 |---|---|
 |**SDK Download**|[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)|
 |**API documentation**|[Java API reference documentation](/java/api/com.microsoft.azure.documentdb)|
 |**Contribute to SDK**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
 |**Get started**|[Get started with the Java SDK](./create-sql-api-java.md)|
 |**Web app tutorial**|[Web application development with Azure Cosmos DB](sql-api-java-application.md)|
-|**Minimum supported runtime**|[Java Development Kit (JDK) 7+](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)|
+|**Minimum supported runtime**|[Java Development Kit (JDK) 7+](/java/azure/jdk/)|
 
 ## Release notes
 

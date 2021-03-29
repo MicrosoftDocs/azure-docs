@@ -39,7 +39,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 For Windows, Mac, and Linux:
   * [Git](https://git-scm.com/downloads)
   * The [.NET Core 3.1 SDK or later](https://dotnet.microsoft.com/download/dotnet-core/3.1).
-  * [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+  * [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create resources and assign permissions
 
@@ -71,7 +71,7 @@ Create a Windows or Linux virtual machine using one of the following methods:
 | [Azure portal](../../virtual-machines/windows/quick-create-portal.md) | [Azure portal](../../virtual-machines/linux/quick-create-portal.md) |
 
 ## Assign an identity to the VM
-Create a system-assigned identity for the virtual machine with the [az vm identity assign](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign) command:
+Create a system-assigned identity for the virtual machine with the [az vm identity assign](/cli/azure/vm/identity#az-vm-identity-assign) command:
 
 ```azurecli
 az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
@@ -87,7 +87,7 @@ Note the system-assigned identity that's displayed in the following code. The ou
 ```
 
 ## Assign permissions to the VM identity
-Assign the previously created identity permissions to your key vault with the [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command:
+Assign the previously created identity permissions to your key vault with the [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) command:
 
 ```azurecli
 az keyvault set-policy --name '<your-unique-key-vault-name>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
@@ -137,11 +137,12 @@ Open the *Program.cs* file and add these packages:
 
 ```csharp
 using System;
+using Azure.Core;
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 ```
 
-Add these lines, updating the URI to reflect the `vaultUri` of your key vault. Below code is using  ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) for authentication to key vault, which is using token from application managed identity to authenticate. It is also using exponential backoff for retries in case of key vault is being throttled.
+Add these lines, updating the URI to reflect the `vaultUri` of your key vault. Below code is using  ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential) for authentication to key vault, which is using token from application managed identity to authenticate. It is also using exponential backoff for retries in case of key vault is being throttled.
 
 ```csharp
   class Program

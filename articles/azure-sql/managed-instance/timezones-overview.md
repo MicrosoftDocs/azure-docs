@@ -45,7 +45,7 @@ When you enter parameters for a new instance, select a time zone from the list o
 
 ### Azure Resource Manager template
 
-Specify the timezoneId property in your [Resource Manager template](./scripts/create-powershell-azure-resource-manager-template.md) to set the time zone during instance creation.
+Specify the timezoneId property in your [Resource Manager template](./create-template-quickstart.md) to set the time zone during instance creation.
 
 ```json
 "properties": {

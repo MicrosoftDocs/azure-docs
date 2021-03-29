@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 If you prefer to run Azure PowerShell on your local machine, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps). When you run Azure PowerShell locally, use the **Connect-AzAccount** cmdlet to sign in to Azure before you try the cmdlets in this article.
 
 > [!TIP]
-> If you need to run your PowerShell commands in a different Azure subscription, see [Change the active subscription](/powershell/azure/manage-subscriptions-azureps?view=azps-3.4.0#change-the-active-subscription&preserve-view=true).
+> If you need to run your PowerShell commands in a different Azure subscription, see [Change the active subscription](/powershell/azure/manage-subscriptions-azureps#change-the-active-subscription).
 
 ## Install the IoT Central module
 

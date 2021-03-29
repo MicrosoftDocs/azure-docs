@@ -257,7 +257,7 @@ az login
 Deploy the code in your local folder (*hellodotnetcore*) using the `az webapp up` command:
 
 ```azurecli
-az webapp up --sku F1 --name <app-name> --os-type linux
+az webapp up --sku F1 --name <app-name>
 ```
 
 - If the `az` command isn't recognized, be sure you have the Azure CLI installed as described in [Set up your initial environment](#set-up-your-initial-environment).

@@ -178,7 +178,7 @@ New-AzResourceGroupDeployment `
 After New-AzResourceGroupDeployment run successfully, the command outputs important information like the provisioning state (should be succeeded) and any outputs for the template.
 
 ## Use Azure PowerShell
-This section provides you a sample PowerShell script that can be used to add an artifact repository to a lab. If you don't have Azure PowerShell, see [How to install and configure Azure PowerShell](/powershell/azure/?view=azps-1.2.0) for detailed instructions to install it.
+This section provides you a sample PowerShell script that can be used to add an artifact repository to a lab. If you don't have Azure PowerShell, see [How to install and configure Azure PowerShell](/powershell/azure/) for detailed instructions to install it.
 
 ### Full script
 Here is the full script, including some verbose messages and comments:
