@@ -94,7 +94,7 @@ Communication Services offers three types of logs that you can enable:
 | OutgoingMessageLength | The number of characters in the outgoing message. |
 | IncomingMessageLength | The number of characters in the incoming message. |
 | DeliveryAttempts | The number of attempts made to deliver this message. |
-| PhoneNumber | The phone number the SMS message is being sent to. |
+| PhoneNumber | The phone number the SMS message is being sent from. |
 | SdkType | The SDK type used in the request. |
 | PlatformType | The platform type used in the request. |
 | Method | The method used in the request. |
