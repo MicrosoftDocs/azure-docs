@@ -123,7 +123,7 @@ train_step = PythonScriptStep(
     name="train_data",
     script_name="train.py",
     compute_target=cluster,
-    arguments=['--training-folder', train.as_named_input('train').as_download()]
+    arguments=['--training-folder', train.as_named_input('train').as_download()],
     inputs=[test.as_named_input('test').as_download()]
 )
 
