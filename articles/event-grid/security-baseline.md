@@ -40,15 +40,15 @@ controls, you can limit the publishers to a topic or domain to only a set of
 approved set of machines and cloud services. This feature complements the
 authentication mechanisms supported by Event Grid. 
 
-- [More details on Event Grid Private Endpoints](https://docs.microsoft.com/azure/event-grid/network-security#private-endpoints)
+- [More details on Event Grid Private Endpoints](./network-security.md#private-endpoints)
 
-- [More details on Event Grid IP Firewall](https://docs.microsoft.com/azure/event-grid/network-security#ip-firewall)
+- [More details on Event Grid IP Firewall](./network-security.md#ip-firewall)
 
 - [Azure Event Grid Network Security](network-security.md) 
 
 - [Azure Private Link Overview](../private-link/private-link-overview.md)
 
-- [Azure Network Security Group](/azure/virtual-network/security-overview)
+- [Azure Network Security Group](../virtual-network/network-security-groups-overview.md)
 
 **Responsibility**: Customer
 
@@ -95,7 +95,7 @@ addresses. For more information, see the following articles:
 
 - [How to configure DDoS protection](../ddos-protection/manage-ddos-protection.md)
 
-- [For more information about the Azure Security Center Integrated Threat Intelligence](/azure/security-center/security-center-alerts-service-layer)
+- [For more information about the Azure Security Center Integrated Threat Intelligence](../security-center/azure-defender.md)
 
 **Responsibility**: Customer
 
@@ -149,7 +149,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 **Guidance**: For resources in virtual networks that need
 access to your Azure Event Grid resources, use Virtual Network service tags to define network access controls on network security Groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (for example, AzureEventGrid) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
-- [How to use service tag for Azure Event Grid](https://docs.microsoft.com/azure/event-grid/network-security#service-tags)
+- [How to use service tag for Azure Event Grid](./network-security.md#service-tags)
 
 - [For more information about using service tags](../virtual-network/service-tags-overview.md)
 
@@ -168,7 +168,7 @@ related to Azure Event Grid, such as:
 
 - Azure Event Grid topics should use private links
 Azure
-- [built-in policies for Event Grid resources](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#event-grid)
+- [built-in policies for Event Grid resources](../governance/policy/samples/built-in-policies.md#event-grid)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -180,7 +180,7 @@ Azure
 
 **Guidance**: Use tags for network resources associated with your Azure Event Grid resources in order to logically organize them into a taxonomy.
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Responsibility**: Customer
 
@@ -190,9 +190,9 @@ Azure
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to Azure Event Grid. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
-- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log-view)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsibility**: Customer
 
@@ -236,7 +236,7 @@ Azure
 
 **Guidance**: In Azure Monitor, set the log retention period for Log Analytics workspaces associated with your Azure Event Grid resources according to your organization's compliance regulations.
 
-- [How to set log retention parameters](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [How to set log retention parameters](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Responsibility**: Customer
 
@@ -254,9 +254,9 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Getting started with Log Analytics queries](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [Getting started with Log Analytics queries](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [How to perform custom queries in Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
+- [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Responsibility**: Customer
 
@@ -278,7 +278,7 @@ Additionally, you can onboard your Log Analytics workspace to Azure Sentinel as 
 
 - [Details of Event Grid diagnostic log schema](diagnostic-logs.md)
 
-- [Create, view, and manage log alerts using Azure Monitor](/azure/azure-monitor/platform/alerts-log)
+- [Create, view, and manage log alerts using Azure Monitor](../azure-monitor/alerts/alerts-log.md)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -350,7 +350,7 @@ Event Grid can enable a managed service identity for Azure event grid topics or 
 
 - [Authenticate publishing clients (Azure Event Grid)](security-authenticate-publishing-clients.md)
 
-- [Learn more about Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
+- [Learn more about Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
 **Responsibility**: Customer
 
@@ -384,7 +384,7 @@ Event Grid can enable a managed service identity for Azure event grid topics or 
 
 **Guidance**: Use Azure Active Directory (Azure AD) security reports and monitoring to detect when suspicious or unsafe activity occurs in the environment. Use Azure Security Center to monitor identity and access activity.
 
-- [How to identify Azure AD users flagged for risky activity](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [How to identify Azure AD users flagged for risky activity](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [How to monitor users' identity and access activity in Azure Security Center](../security-center/security-center-identity-access.md)
 
@@ -422,11 +422,11 @@ Event Grid can enable a managed service identity for Azure event grid topics or 
 
 Use Azure AD Privileged Identity Management (PIM) for generation of logs and alerts when suspicious or unsafe activity occurs in the environment.
 
-- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring)
+- [Understand Azure AD reporting](../active-directory/reports-monitoring/index.yml)
 
 - [How to use Azure AD identity and access reviews](../active-directory/governance/access-reviews-overview.md)
 
-- [Deploy Azure AD Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+- [Deploy Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
 **Responsibility**: Customer
 
@@ -438,7 +438,7 @@ Use Azure AD Privileged Identity Management (PIM) for generation of logs and ale
 
 You can streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics workspace. You can configure desired alerts within Log Analytics workspace.
 
-- [How to integrate Azure activity logs with Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [How to integrate Azure activity logs with Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Responsibility**: Customer
 
@@ -448,7 +448,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Use Azure Active Directory (Azure AD) Identity Protection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation.
 
-- [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [How to view Azure AD risky sign-ins](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -476,7 +476,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
  
  
  
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Responsibility**: Customer
 
@@ -486,11 +486,11 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Implement isolation using separate subscriptions and management groups for individual security domains such as environment type and data sensitivity level. You can restrict the level of access to your Azure resources that your applications and enterprise environments demand. You can control access to Azure resources via Azure RBAC.
 
-- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
+- [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create management groups](/azure/governance/management-groups/create)
+- [How to create management groups](../governance/management-groups/create-management-group-portal.md)
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Responsibility**: Customer
 
@@ -545,7 +545,7 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to production instances of Azure Event Grid resources and other critical or related resources.
 
-- [How to create alerts for Azure Activity Log events](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsibility**: Customer
 
@@ -595,7 +595,7 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 
 **Guidance**: Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Responsibility**: Customer
 
@@ -607,11 +607,11 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
  
  
  
-- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
+- [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create management groups](/azure/governance/management-groups/create)
+- [How to create management groups](../governance/management-groups/create-management-group-portal.md)
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Responsibility**: Customer
 
@@ -790,7 +790,7 @@ Azure Resource Manager has the ability to export the template in JavaScript Obje
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to use aliases](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
+- [How to use aliases](../governance/policy/concepts/definition-structure.md#aliases)
 
 **Responsibility**: Customer
 
@@ -959,7 +959,7 @@ keys.
 
 - [Security alerts in Azure Security Center](../security-center/security-center-alerts-overview.md)
 
-- [Use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags)
+- [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md)
 
 **Responsibility**: Customer
 
@@ -1029,5 +1029,5 @@ keys.
 
 ## Next steps
 
-- See the [Azure Security Benchmark V2 overview](/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure Security Benchmark V2 overview](../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)
