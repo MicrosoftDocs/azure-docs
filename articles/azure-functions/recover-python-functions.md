@@ -26,20 +26,20 @@ This section helps you troubleshoot module-related errors in your Python functio
 
 This error occurs when a Python function app fails to load a Python module. The root cause for this error is one of the following issues:
 
-- [The package can't be found](#the-package-cant-be-found)
-- [The package isn't resolved with proper Linux wheel](#the-package-isnt-resolved-with-proper-linux-wheel)
-- [The package is incompatible with the Python interpreter version](#the-package-is-incompatible-with-the-python-interpreter-version)
-- [The package conflicts with other packages](#the-package-conflicts-with-other-packages)
-- [The package only supports Windows or macOS platforms](#the-package-only-supports-windows-or-macos-platforms)
+* [The package can't be found](#the-package-cant-be-found)
+* [The package isn't resolved with proper Linux wheel](#the-package-isnt-resolved-with-proper-linux-wheel)
+* [The package is incompatible with the Python interpreter version](#the-package-is-incompatible-with-the-python-interpreter-version)
+* [The package conflicts with other packages](#the-package-conflicts-with-other-packages)
+* [The package only supports Windows or macOS platforms](#the-package-only-supports-windows-or-macos-platforms)
 
 ### View project files
 
 To identify the actual cause of your issue, you need to get the Python project files that run on your function app. If you don't have the project files on your local computer, you can get them in one of the following ways:
 
-- If the function app has `WEBSITE_RUN_FROM_PACKAGE` app setting and its value is a URL, download the file by copy and paste the URL into your browser.
-- If the function app has `WEBSITE_RUN_FROM_PACKAGE` and it is set to `1`, navigate to `https://<app-name>.scm.azurewebsites.net/api/vfs/data/SitePackages` and download the file from the latest `href` URL.
-- If the function app doesn't have the app setting mentioned above, navigate to `https://<app-name>.scm.azurewebsites.net/api/settings` and find the URL under `SCM_RUN_FROM_PACKAGE`. Download the file by copy and paste the URL into your browser.
-- If none of these works for you, navigate to `https://<app-name>.scm.azurewebsites.net/DebugConsole` and reveal the content under `/home/site/wwwroot`.
+* If the function app has `WEBSITE_RUN_FROM_PACKAGE` app setting and its value is a URL, download the file by copy and paste the URL into your browser.
+* If the function app has `WEBSITE_RUN_FROM_PACKAGE` and it is set to `1`, navigate to `https://<app-name>.scm.azurewebsites.net/api/vfs/data/SitePackages` and download the file from the latest `href` URL.
+* If the function app doesn't have the app setting mentioned above, navigate to `https://<app-name>.scm.azurewebsites.net/api/settings` and find the URL under `SCM_RUN_FROM_PACKAGE`. Download the file by copy and paste the URL into your browser.
+* If none of these works for you, navigate to `https://<app-name>.scm.azurewebsites.net/DebugConsole` and reveal the content under `/home/site/wwwroot`.
 
 The rest of this article helps you troubleshoot potential causes of this error by inspecting your function app's content, identifying the root cause, and resolving the specific issue.
 
@@ -186,7 +186,7 @@ Code 137 errors are typically caused by out-of-memory issues in your Python func
 
 This error occurs when a Python function app is forced to terminate by the operating system with a SIGKILL signal. This signal usually indicates an out-of-memory error in your Python process. The Azure Functions platform has a [service limitation](functions-scale.md#service-limits) which will terminate any function apps that exceeded this limit.
 
-Please visit the tutorial section in [memory profiling on Python functions](python-memory-profiler-reference.md#memory-profiling-tutorial) to analyze the memory bottleneck in your function app.
+Please visit the tutorial section in [memory profiling on Python functions](python-memory-profiler-reference.md#memory-profiling-process) to analyze the memory bottleneck in your function app.
 
 ---
 

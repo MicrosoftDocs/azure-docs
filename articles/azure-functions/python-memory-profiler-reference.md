@@ -3,7 +3,7 @@ title: Memory profiling on Python apps in Azure Functions
 description: Learn how to profile Python apps memory usage and identify memory bottleneck.
 ms.topic: how-to
 author: hazhzeng
-ms.author: azfundocs
+ms.author: hazeng
 ms.date: 3/22/2021
 ms.custom: devx-track-python
 ---
@@ -40,11 +40,13 @@ Before you start developing a Python function app, you must meet these requireme
         root_logger = logging.getLogger()
         root_logger.handlers[0].setFormatter(logging.Formatter("%(name)s: %(message)s"))
         profiler_logstream = memory_profiler.LogFile('memory_profiler_logs', True)
+        ```
 
 3. Apply the following decorator above any functions that need memory profiling. This does not work directly on the trigger entrypoint `main()` method. You need to create subfunctions and decorate them. Also, due to a memory-profiler known issue, when applying to an async coroutine, the coroutine return value will always be None.
 
         ```python
         @memory_profiler.profile(stream=memory_logger)
+        ```
 
 4. Test the memory profiler on your local machine by using azure Functions Core Tools command `func host start`. This should generate a memory usage report with file name, line of code, memory usage, memory increment, and the line content in it.
 
@@ -66,6 +68,7 @@ Before you start developing a Python function app, you must meet these requireme
         )
         | project timestamp, LineNumber=iff(FileName != "", FileName, LineNumber), TotalMem_MiB, IncreMem_MiB, Occurences, Contents, RequestId=itemId
         | order by timestamp asc
+        ```
 
 ## Example
 
@@ -80,6 +83,7 @@ A Python function app should follow Azure Functions specified [folder structure]
     cd PythonMemoryProfilingDemo
     func new -l python -t HttpTrigger -n HttpTriggerAsync -a anonymous
     func new -l python -t HttpTrigger -n HttpTriggerSync -a anonymous
+    ```
 
 ### Update file contents
 
@@ -92,6 +96,7 @@ The requirements.txt defines the packages that will be used in our project. Besi
     memory-profiler
     aiohttp
     requests
+    ```
 
 We also need to rewrite the asynchronous HTTP trigger `HttpTriggerAsync/__init__.py` and configure the memory profiler, root logger format, and logger streaming binding.
 
@@ -124,6 +129,7 @@ We also need to rewrite the asynchronous HTTP trigger `HttpTriggerAsync/__init__
         # @memory_profiler.profile does not support return for coroutines.
         # All returns become None in the parent functions.
         # GitHub Issue: https://github.com/pythonprofilers/memory_profiler/issues/289
+    ```
 
 For synchronous HTTP trigger, please refer to the following `HttpTriggerSync/__init__.py` code section:
 
@@ -152,6 +158,7 @@ For synchronous HTTP trigger, please refer to the following `HttpTriggerSync/__i
     def profile_get_request(url: str):
         response = requests.get(url)
         return response.content
+    ```
 
 ### Profile Python function app in local development environment
 
@@ -174,6 +181,7 @@ After making all the above changes, there are a few more steps to initialize a P
             21     45.1 MiB      0.0 MiB           1       async with aiohttp.ClientSession() as client:
             22     46.6 MiB      1.5 MiB          10           async with client.get(url) as response:
             23     47.6 MiB      1.0 MiB           4               await response.text()
+        ```
 
 ## Next steps
 
