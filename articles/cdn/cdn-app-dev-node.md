@@ -80,7 +80,7 @@ With *app.js* open in our editor, let's get the basic structure of our program w
    
     ``` javascript
     var msRestAzure = require('@azure/ms-rest-nodeauth');
-    var CdnManagementClient = require('@azure/arm-cdn').CdnManagementClient;
+    const { CdnManagementClient } = require('@azure/arm-cdn');
     ```
 2. We need to define some constants our methods will use.  Add the following.  Be sure to replace the placeholders, including the **&lt;angle brackets&gt;**, with your own values as needed.
    
