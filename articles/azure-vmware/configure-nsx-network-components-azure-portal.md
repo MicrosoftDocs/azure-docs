@@ -7,7 +7,7 @@ ms.date: 02/16/2021
 
 # Configure NSX network components in Azure VMware Solution
 
-An Azure VMware Solution private cloud comes with NSX-T as a software-defined network (SDDC) by default. It comes pre-provisioned with an NSX-T Tier-0 gateway in Active/Active mode and a default NSX-T Tier-1 gateway in Active/Standby mode.  These gateways let you connect the segments (logical switches) and provide East-West and North-South connectivity. 
+An Azure VMware Solution private cloud comes with NSX-T as a software-defined network (SDDC) by default. It comes pre-provisioned with an NSX-T Tier-0 gateway in **Active/Active** mode and a default NSX-T Tier-1 gateway in Active/Standby mode.  These gateways let you connect the segments (logical switches) and provide East-West and North-South connectivity. 
 
 After the Azure VMware Solution private cloud is deployed, you can configure the necessary NSX-T objects from the Azure VMware Solution console under **Workload Networking**.  The console presents the simplified view of NSX-T operations that a VMware administrator needs daily and targeted at users not familiar with NSX-T.  
 
