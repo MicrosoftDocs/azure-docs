@@ -186,11 +186,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/media-services/latest/analyze-face-redaction-concept.md",
-            "redirect_url": "analyze-face-redaction-concept",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/media-services/latest/analyze-videos-tutorial-with-api.md",
             "redirect_url": "analyze-videos-tutorial",
             "redirect_document_id": false
@@ -213,11 +208,6 @@
         {
             "source_path_from_root": "/articles/media-services/latest/media-services-high-availability-encoding.md",
             "redirect_url": "architecture-high-availability-encoding-concept",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/media-services/latest/assets-concept.md",
-            "redirect_url": "assets-concept",
             "redirect_document_id": false
         },
         {
