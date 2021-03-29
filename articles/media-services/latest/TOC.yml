@@ -445,8 +445,6 @@
     items:
     - name: Manage streaming endpoints
       href: manage-streaming-endpoints-howto.md
-    - name: Publish an asset
-      href: cli-publish-asset.md
     - name: Create a streaming locator and build URLs
       href: create-streaming-locator-build-url.md
     - name: Download results
