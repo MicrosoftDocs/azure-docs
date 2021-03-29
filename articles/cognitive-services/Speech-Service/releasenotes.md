@@ -791,12 +791,12 @@ This is a bug fix release and only affecting the native/managed SDK. It is not a
 **New Features**
 
 - The Speech SDK supports selection of the input microphone through the `AudioConfig` class. This allows you to stream audio data to the Speech service from a non-default microphone. For more information, see the documentation describing [audio input device selection](how-to-select-audio-input-devices.md). This feature is not yet available from JavaScript.
-- The Speech SDK now supports Unity in a beta version. Provide feedback through the issue section in the [GitHub sample repository](https://aka.ms/csspeech/samples). This release supports Unity on Windows x86 and x64 (desktop or Universal Windows Platform applications), and Android (ARM32/64, x86). More information is available in our [Unity quickstart](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=unity).
+- The Speech SDK now supports Unity in a beta version. Provide feedback through the issue section in the [GitHub sample repository](https://github.com/Azure-Samples/cognitive-services-speech-sdk). This release supports Unity on Windows x86 and x64 (desktop or Universal Windows Platform applications), and Android (ARM32/64, x86). More information is available in our [Unity quickstart](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=unity).
 - The file `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (shipped in previous releases) isn't needed anymore. The functionality is now integrated into the core SDK.
 
 **Samples**
 
-The following new content is available in our [sample repository](https://aka.ms/csspeech/samples):
+The following new content is available in our [sample repository](https://github.com/Azure-Samples/cognitive-services-speech-sdk):
 
 - Additional samples for `AudioConfig.FromMicrophoneInput`.
 - Additional Python samples for intent recognition and translation.
@@ -880,7 +880,7 @@ This is a JavaScript-only release. No features have been added. The following fi
 **Samples**
 
 - Updated and fixed several samples (for example output voices for translation, etc.).
-- Added Node.js samples in the [sample repository](https://aka.ms/csspeech/samples).
+- Added Node.js samples in the [sample repository](https://github.com/Azure-Samples/cognitive-services-speech-sdk).
 
 ## Speech SDK 1.1.0
 
@@ -911,7 +911,7 @@ This is a JavaScript-only release. No features have been added. The following fi
 
 **Samples**
 
-- Added C++ and C# samples for pull and push stream usage in the [sample repository](https://aka.ms/csspeech/samples).
+- Added C++ and C# samples for pull and push stream usage in the [sample repository](https://github.com/Azure-Samples/cognitive-services-speech-sdk).
 
 ## Speech SDK 1.0.1
 
@@ -925,7 +925,7 @@ Reliability improvements and bug fixes:
 - JavaScript: Fixed regarding events and their payloads.
 - Documentation improvements.
 
-In our [sample repository](https://aka.ms/csspeech/samples), a new sample for JavaScript was added.
+In our [sample repository](https://github.com/Azure-Samples/cognitive-services-speech-sdk), a new sample for JavaScript was added.
 
 ## Cognitive Services Speech SDK 1.0.0: 2018-September release
 
@@ -1029,7 +1029,7 @@ In our [sample repository](https://aka.ms/csspeech/samples), a new sample for Ja
 - On Windows, C# .NET assemblies now are strong named.
 - Documentation fix: `Region` is required information to create a recognizer.
 
-More samples have been added and are constantly being updated. For the latest set of samples, see the [Speech SDK samples GitHub repository](https://aka.ms/csspeech/samples).
+More samples have been added and are constantly being updated. For the latest set of samples, see the [Speech SDK samples GitHub repository](https://github.com/Azure-Samples/cognitive-services-speech-sdk).
 
 ## Cognitive Services Speech SDK 0.2.12733: 2018-May release
 
