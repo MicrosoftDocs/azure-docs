@@ -1,7 +1,7 @@
 ---
 title: Enable soft delete for blobs
 titleSuffix: Azure Storage 
-description: Enable soft delete for blobs to more easily recover your data when it is erroneously modified or deleted.
+description: Enable soft delete for blobs to protect blob data from accidental deletes or overwrites.
 services: storage
 author: tamram
 
@@ -10,14 +10,14 @@ ms.topic: how-to
 ms.date: 03/27/2021
 ms.author: tamram
 ms.subservice: blobs 
-ms.custom: "devx-track-azurecli, devx-track-csharp"
+ms.custom: "devx-track-azurecli"
 ---
 
 # Enable soft delete for blobs
 
-Blob soft delete protects an individual blob and its versions, snapshots, and metadata from accidental deletes or overwrites by maintaining the deleted data in the system for a specified period of time. During the retention period, you can restore the blob to its state at deletion. After the retention period has expired, the blob is permanently deleted.
+Blob soft delete protects an individual blob and its versions, snapshots, and metadata from accidental deletes or overwrites by maintaining the deleted data in the system for a specified period of time. During the retention period, you can restore the blob to its state at deletion. After the retention period has expired, the blob is permanently deleted. For more information about blob soft delete, see [Soft delete for blobs](soft-delete-blob-overview.md).
 
-Blob soft delete is part of a comprehensive data protection strategy for blob data. To learn more about Microsoft's recommendations for data protection, see [Data protection overview](data-protection-overview.md). For more information about blob soft delete, see [Soft delete for blobs](soft-delete-blob-overview.md).
+Blob soft delete is part of a comprehensive data protection strategy for blob data. To learn more about Microsoft's recommendations for data protection, see [Data protection overview](data-protection-overview.md).
 
 ## Enable blob soft delete
 

@@ -39,13 +39,17 @@ Deleting a blob also deletes any snapshots associated with the blob. If a soft-d
 
 :::image type="content" source="media/soft-delete-blob-manage/soft-deleted-blob-snapshots-portal.png" alt-text="Screenshot showing ":::
 
-### Restore a soft-deleted blob (versioning disabled)
+### Restore soft-deleted objects when versioning is disabled
 
 To restore a soft-deleted blob in the Azure portal when blob versioning is not enabled, first display the blob's properties, then select the **Undelete** button on the **Overview** tab. Restoring a blob also restores any snapshots that were deleted during the soft-delete retention period.
 
 :::image type="content" source="media/soft-delete-blob-manage/undelete-soft-deleted-blob-portal.png" alt-text="Screenshot showing how to restore a soft-deleted blob in Azure portal":::
 
-### Restore a soft-deleted blob (versioning enabled)
+To promote a soft-deleted snapshot to the base blob, first make sure that the blob's soft-deleted snapshots have been restored. Select the **Undelete** button to restore the blob's soft-deleted snapshots, even if the base blob itself has not been soft-deleted. Next, select the snapshot to promote and use the **Promote snapshot** button to overwrite the base blob with the contents of the snapshot.
+
+:::image type="content" source="media/soft-delete-blob-manage/promote-snapshot.png" alt-text="Screenshot showing how to promote a snapshot to the base blob":::
+
+### Restore soft-deleted blobs when versioning is enabled
 
 To restore a soft-deleted blob in the Azure portal when versioning is enabled, select the soft-deleted blob to display its properties, then select the **Versions** tab. Select the version that you want to promote to be the current version, then select **Make current version**.  
 
@@ -55,7 +59,7 @@ To restore a soft-deleted blob in the Azure portal when versioning is enabled, s
 
 You can use the Azure Storage client libraries to restore a soft-deleted blob or snapshot. The following examples show how to use the .NET client library.
 
-### Restore soft-deleted blobs and snapshots (versioning disabled)
+### Restore soft-deleted objects when versioning is disabled
 
 # [.NET v12](#tab/dotnet)
 
@@ -101,7 +105,7 @@ blockBlob.StartCopy(copySource);
 
 ---
 
-### Restore a soft-deleted blob (versioning enabled)
+### Restore soft-deleted blobs when versioning is enabled
 
 To restore a soft-deleted blob when versioning is enabled, copy a previous version over the base blob with a [Copy Blob](/rest/api/storageservices/copy-blob) or [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url) operation.  
 
