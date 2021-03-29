@@ -53,9 +53,14 @@ The need for access to privileged Azure resource roles by employees changes over
 
 1. Use the **End** setting to specify how to end the recurring access review series. The series can end in three ways: it runs continuously to start reviews indefinitely, until a specific date, or after a defined number of occurrences has been completed. You, another User administrator, or another Global administrator can stop the series after creation by changing the date in **Settings**, so that it ends on that date.
 
-1. In the **Users** section, select one or more roles that you want to review membership of.
+1. In the **Users** section,  select the scope of the review. To review users, select **Users or select (Preview) Service Principals** to review the machine accounts with access to the Azure role.   
 
     ![Users scope to review role membership of](./media/pim-resource-roles-start-access-review/users.png)
+
+    > [!NOTE]
+    > Selecting (Preview) Service Principals as the scope of the review is available to all Azure Active Directory Premium (P1 and P2) customers to evaluate during the preview period. The optimal licensing model  is still being finalized and will be released before this feature is in general availability. 
+
+1. Under **Review role membership**, select the privileged Azure roles to review. 
 
     > [!NOTE]
     > - Roles selected here include both [permanent and eligible roles](../privileged-identity-management/pim-how-to-add-role-to-user.md).
@@ -72,9 +77,9 @@ The need for access to privileged Azure resource roles by employees changes over
 
     ![Reviewers list of selected users or members (self)](./media/pim-resource-roles-start-access-review/reviewers.png)
 
-    - **Selected users** - Use this option when you don't know who needs access. With this option, you can assign the review to a resource owner or group manager to complete.
-    - **Members (self)** - Use this option to have the users review their own role assignments. 
-    - **Manager** – Use this option to have the user’s manager review their role assignment. Upon selecting Manager, you will also have the option to specify a fallback reviewer. Fallback reviewers are asked to review a user when the user has no manager specified in the directory. 
+    - **Selected users** - Use this option to designate a specific user to complete the review. This option is available regardless of the Scope of the review, and the selected reviewers can review users and service principals. 
+    - **Members (self)** - Use this option to have the users review their own role assignments. This option is only available if the review is scoped to **Users**.
+    - **Manager** – Use this option to have the user’s manager review their role assignment. This option is only available if the review is scoped to **Users**. Upon selecting Manager, you will also have the option to specify a fallback reviewer. Fallback reviewers are asked to review a user when the user has no manager specified in the directory. 
 
 ### Upon completion settings
 
