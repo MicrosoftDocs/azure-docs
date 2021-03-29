@@ -134,7 +134,7 @@ where `<AAD-ENTITY-ID>` could be a username (for example, user@contoso.com) or e
 You can also create role assignments scoped to a specific **namespace** within the cluster:
 
 ```azurecli-interactive
-az role assignment create --role "Azure Kubernetes Service RBAC Viewer" --assignee <AAD-ENTITY-ID> --scope $AKS_ID/namespaces/<namespace-name>
+az role assignment create --role "Azure Kubernetes Service RBAC Reader" --assignee <AAD-ENTITY-ID> --scope $AKS_ID/namespaces/<namespace-name>
 ```
 
 Today, role assignments scoped to namespaces need to be configured via Azure CLI.
