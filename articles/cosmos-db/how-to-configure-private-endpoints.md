@@ -143,7 +143,7 @@ After you create the private endpoint, you can integrate it with a private DNS z
 ```azurepowershell-interactive
 Import-Module Az.PrivateDns
 
-# Zone name is differs based on the API type and group ID you are using. 
+# Zone name differs based on the API type and group ID you are using. 
 $zoneName = "privatelink.documents.azure.com"
 $zone = New-AzPrivateDnsZone -ResourceGroupName $ResourceGroupName `
   -Name $zoneName
@@ -241,7 +241,7 @@ az network private-endpoint create \
 After you create the private endpoint, you can integrate it with a private DNS zone by using the following Azure CLI script:
 
 ```azurecli-interactive
-#Zone name is differs based on the API type and group ID you are using. 
+#Zone name differs based on the API type and group ID you are using. 
 zoneName="privatelink.documents.azure.com"
 
 az network private-dns zone create --resource-group $ResourceGroupName \
